@@ -12,7 +12,25 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
   >
     <a
       class="ant-pagination-item-link"
-    />
+    >
+      <i
+        class="anticon anticon-left"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="left"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+          />
+        </svg>
+      </i>
+    </a>
   </li>
   <li
     class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -67,7 +85,25 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
   >
     <a
       class="ant-pagination-item-link"
-    />
+    >
+      <i
+        class="anticon anticon-right"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="right"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+          />
+        </svg>
+      </i>
+    </a>
   </li>
 </ul>
 `;
@@ -85,7 +121,25 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
   >
     <a
       class="ant-pagination-item-link"
-    />
+    >
+      <i
+        class="anticon anticon-left"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="left"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+          />
+        </svg>
+      </i>
+    </a>
   </li>
   <li
     class="ant-pagination-item ant-pagination-item-1"
@@ -133,13 +187,43 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
     </a>
   </li>
   <li
-    class="ant-pagination-jump-next"
+    class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
     tabindex="0"
     title="Next 5 Pages"
   >
     <a
       class="ant-pagination-item-link"
-    />
+    >
+      <div
+        class="ant-pagination-item-container"
+      >
+        <i
+          class="anticon anticon-double-right ant-pagination-item-link-icon"
+        >
+          <svg
+            aria-hidden="true"
+            class="ant-pagination-item-link-icon-svg"
+            data-icon="double-right"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M431 879.4c-15.1-18.8-12.1-46.3 6.7-61.4l381.5-306.9-379.6-305c-18.8-15.1-21.8-42.6-6.7-61.4 15.1-18.8 42.6-21.8 61.4-6.7l422 339.1c10.3 8.2 16.3 20.8 16.3 34 0 13.3-6 25.8-16.3 34.1L492.5 886.1c-8.1 6.4-17.8 9.6-27.4 9.6-12.8 0-25.4-5.6-34.1-16.3z"
+            />
+            <path
+              d="M101 879.4c-15.1-18.8-12.1-46.3 6.7-61.4l381.5-306.9-379.6-305c-18.8-15.1-21.8-42.6-6.7-61.4 15.1-18.8 42.6-21.8 61.4-6.7l422 339.1c10.3 8.2 16.3 20.8 16.3 34 0 13.3-6 25.8-16.3 34.1L162.5 886.1c-8.1 6.4-17.8 9.6-27.4 9.6-12.8 0-25.4-5.6-34.1-16.3z"
+            />
+          </svg>
+        </i>
+        <span
+          class="ant-pagination-item-ellipsis"
+        >
+          •••
+        </span>
+      </div>
+    </a>
   </li>
   <li
     class="ant-pagination-item ant-pagination-item-50"
@@ -158,7 +242,25 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
   >
     <a
       class="ant-pagination-item-link"
-    />
+    >
+      <i
+        class="anticon anticon-right"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="right"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+          />
+        </svg>
+      </i>
+    </a>
   </li>
   <li
     class="ant-pagination-options"
@@ -191,7 +293,23 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
           style="user-select:none;-webkit-user-select:none"
           unselectable="on"
         >
-          <b />
+          <i
+            class="anticon anticon-down ant-select-arrow-icon"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="down"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M895.7 300.1c0 9.6-3.2 19.3-9.6 27.4L545.2 751.3c-8.3 10.3-20.8 16.3-34.1 16.3-13.2 0-25.8-6-34-16.3L138 329.3c-15.1-18.8-12.1-46.3 6.7-61.4 18.8-15.1 46.3-12.1 61.4 6.7l305.1 379.6L818 272.7c15.1-18.8 42.6-21.8 61.4-6.7 10.7 8.7 16.3 21.3 16.3 34.1z"
+              />
+            </svg>
+          </i>
         </span>
       </div>
     </div>
@@ -212,7 +330,25 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
   >
     <a
       class="ant-pagination-item-link"
-    />
+    >
+      <i
+        class="anticon anticon-left"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="left"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+          />
+        </svg>
+      </i>
+    </a>
   </li>
   <li
     class="ant-pagination-item ant-pagination-item-1"
@@ -267,7 +403,25 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
   >
     <a
       class="ant-pagination-item-link"
-    />
+    >
+      <i
+        class="anticon anticon-right"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="right"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+          />
+        </svg>
+      </i>
+    </a>
   </li>
 </ul>
 `;
@@ -332,13 +486,43 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
     </a>
   </li>
   <li
-    class="ant-pagination-jump-next"
+    class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
     tabindex="0"
     title="Next 5 Pages"
   >
     <a
       class="ant-pagination-item-link"
-    />
+    >
+      <div
+        class="ant-pagination-item-container"
+      >
+        <i
+          class="anticon anticon-double-right ant-pagination-item-link-icon"
+        >
+          <svg
+            aria-hidden="true"
+            class="ant-pagination-item-link-icon-svg"
+            data-icon="double-right"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M431 879.4c-15.1-18.8-12.1-46.3 6.7-61.4l381.5-306.9-379.6-305c-18.8-15.1-21.8-42.6-6.7-61.4 15.1-18.8 42.6-21.8 61.4-6.7l422 339.1c10.3 8.2 16.3 20.8 16.3 34 0 13.3-6 25.8-16.3 34.1L492.5 886.1c-8.1 6.4-17.8 9.6-27.4 9.6-12.8 0-25.4-5.6-34.1-16.3z"
+            />
+            <path
+              d="M101 879.4c-15.1-18.8-12.1-46.3 6.7-61.4l381.5-306.9-379.6-305c-18.8-15.1-21.8-42.6-6.7-61.4 15.1-18.8 42.6-21.8 61.4-6.7l422 339.1c10.3 8.2 16.3 20.8 16.3 34 0 13.3-6 25.8-16.3 34.1L162.5 886.1c-8.1 6.4-17.8 9.6-27.4 9.6-12.8 0-25.4-5.6-34.1-16.3z"
+            />
+          </svg>
+        </i>
+        <span
+          class="ant-pagination-item-ellipsis"
+        >
+          •••
+        </span>
+      </div>
+    </a>
   </li>
   <li
     class="ant-pagination-item ant-pagination-item-50"
@@ -375,7 +559,25 @@ exports[`renders ./components/pagination/demo/jump.md correctly 1`] = `
   >
     <a
       class="ant-pagination-item-link"
-    />
+    >
+      <i
+        class="anticon anticon-left"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="left"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+          />
+        </svg>
+      </i>
+    </a>
   </li>
   <li
     class="ant-pagination-item ant-pagination-item-1"
@@ -423,13 +625,43 @@ exports[`renders ./components/pagination/demo/jump.md correctly 1`] = `
     </a>
   </li>
   <li
-    class="ant-pagination-jump-next"
+    class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
     tabindex="0"
     title="Next 5 Pages"
   >
     <a
       class="ant-pagination-item-link"
-    />
+    >
+      <div
+        class="ant-pagination-item-container"
+      >
+        <i
+          class="anticon anticon-double-right ant-pagination-item-link-icon"
+        >
+          <svg
+            aria-hidden="true"
+            class="ant-pagination-item-link-icon-svg"
+            data-icon="double-right"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M431 879.4c-15.1-18.8-12.1-46.3 6.7-61.4l381.5-306.9-379.6-305c-18.8-15.1-21.8-42.6-6.7-61.4 15.1-18.8 42.6-21.8 61.4-6.7l422 339.1c10.3 8.2 16.3 20.8 16.3 34 0 13.3-6 25.8-16.3 34.1L492.5 886.1c-8.1 6.4-17.8 9.6-27.4 9.6-12.8 0-25.4-5.6-34.1-16.3z"
+            />
+            <path
+              d="M101 879.4c-15.1-18.8-12.1-46.3 6.7-61.4l381.5-306.9-379.6-305c-18.8-15.1-21.8-42.6-6.7-61.4 15.1-18.8 42.6-21.8 61.4-6.7l422 339.1c10.3 8.2 16.3 20.8 16.3 34 0 13.3-6 25.8-16.3 34.1L162.5 886.1c-8.1 6.4-17.8 9.6-27.4 9.6-12.8 0-25.4-5.6-34.1-16.3z"
+            />
+          </svg>
+        </i>
+        <span
+          class="ant-pagination-item-ellipsis"
+        >
+          •••
+        </span>
+      </div>
+    </a>
   </li>
   <li
     class="ant-pagination-item ant-pagination-item-50"
@@ -448,7 +680,25 @@ exports[`renders ./components/pagination/demo/jump.md correctly 1`] = `
   >
     <a
       class="ant-pagination-item-link"
-    />
+    >
+      <i
+        class="anticon anticon-right"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="right"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+          />
+        </svg>
+      </i>
+    </a>
   </li>
   <li
     class="ant-pagination-options"
@@ -479,7 +729,25 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
     >
       <a
         class="ant-pagination-item-link"
-      />
+      >
+        <i
+          class="anticon anticon-left"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="left"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+            />
+          </svg>
+        </i>
+      </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -534,7 +802,25 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
     >
       <a
         class="ant-pagination-item-link"
-      />
+      >
+        <i
+          class="anticon anticon-right"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="right"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+            />
+          </svg>
+        </i>
+      </a>
     </li>
   </ul>
   <ul
@@ -548,7 +834,25 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
     >
       <a
         class="ant-pagination-item-link"
-      />
+      >
+        <i
+          class="anticon anticon-left"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="left"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+            />
+          </svg>
+        </i>
+      </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -603,7 +907,25 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
     >
       <a
         class="ant-pagination-item-link"
-      />
+      >
+        <i
+          class="anticon anticon-right"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="right"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+            />
+          </svg>
+        </i>
+      </a>
     </li>
     <li
       class="ant-pagination-options"
@@ -636,7 +958,23 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
             style="user-select:none;-webkit-user-select:none"
             unselectable="on"
           >
-            <b />
+            <i
+              class="anticon anticon-down ant-select-arrow-icon"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="down"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+              >
+                <path
+                  d="M895.7 300.1c0 9.6-3.2 19.3-9.6 27.4L545.2 751.3c-8.3 10.3-20.8 16.3-34.1 16.3-13.2 0-25.8-6-34-16.3L138 329.3c-15.1-18.8-12.1-46.3 6.7-61.4 18.8-15.1 46.3-12.1 61.4 6.7l305.1 379.6L818 272.7c15.1-18.8 42.6-21.8 61.4-6.7 10.7 8.7 16.3 21.3 16.3 34.1z"
+                />
+              </svg>
+            </i>
           </span>
         </div>
       </div>
@@ -667,7 +1005,25 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
     >
       <a
         class="ant-pagination-item-link"
-      />
+      >
+        <i
+          class="anticon anticon-left"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="left"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+            />
+          </svg>
+        </i>
+      </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -722,7 +1078,25 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
     >
       <a
         class="ant-pagination-item-link"
-      />
+      >
+        <i
+          class="anticon anticon-right"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="right"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+            />
+          </svg>
+        </i>
+      </a>
     </li>
   </ul>
 </div>
@@ -741,7 +1115,25 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
   >
     <a
       class="ant-pagination-item-link"
-    />
+    >
+      <i
+        class="anticon anticon-left"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="left"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+          />
+        </svg>
+      </i>
+    </a>
   </li>
   <li
     class="ant-pagination-item ant-pagination-item-1"
@@ -753,13 +1145,43 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
     </a>
   </li>
   <li
-    class="ant-pagination-jump-prev"
+    class="ant-pagination-jump-prev ant-pagination-jump-prev-custom-icon"
     tabindex="0"
     title="Previous 5 Pages"
   >
     <a
       class="ant-pagination-item-link"
-    />
+    >
+      <div
+        class="ant-pagination-item-container"
+      >
+        <i
+          class="anticon anticon-double-left ant-pagination-item-link-icon"
+        >
+          <svg
+            aria-hidden="true"
+            class="ant-pagination-item-link-icon-svg"
+            data-icon="double-left"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M558.9 895.7c-9.6 0-19.3-3.2-27.4-9.6L107.7 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L586.3 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+            />
+            <path
+              d="M888.9 895.7c-9.6 0-19.3-3.2-27.4-9.6L437.7 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L916.3 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+            />
+          </svg>
+        </i>
+        <span
+          class="ant-pagination-item-ellipsis"
+        >
+          •••
+        </span>
+      </div>
+    </a>
   </li>
   <li
     class="ant-pagination-item ant-pagination-item-4 ant-pagination-item-after-jump-prev"
@@ -807,13 +1229,43 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
     </a>
   </li>
   <li
-    class="ant-pagination-jump-next"
+    class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
     tabindex="0"
     title="Next 5 Pages"
   >
     <a
       class="ant-pagination-item-link"
-    />
+    >
+      <div
+        class="ant-pagination-item-container"
+      >
+        <i
+          class="anticon anticon-double-right ant-pagination-item-link-icon"
+        >
+          <svg
+            aria-hidden="true"
+            class="ant-pagination-item-link-icon-svg"
+            data-icon="double-right"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M431 879.4c-15.1-18.8-12.1-46.3 6.7-61.4l381.5-306.9-379.6-305c-18.8-15.1-21.8-42.6-6.7-61.4 15.1-18.8 42.6-21.8 61.4-6.7l422 339.1c10.3 8.2 16.3 20.8 16.3 34 0 13.3-6 25.8-16.3 34.1L492.5 886.1c-8.1 6.4-17.8 9.6-27.4 9.6-12.8 0-25.4-5.6-34.1-16.3z"
+            />
+            <path
+              d="M101 879.4c-15.1-18.8-12.1-46.3 6.7-61.4l381.5-306.9-379.6-305c-18.8-15.1-21.8-42.6-6.7-61.4 15.1-18.8 42.6-21.8 61.4-6.7l422 339.1c10.3 8.2 16.3 20.8 16.3 34 0 13.3-6 25.8-16.3 34.1L162.5 886.1c-8.1 6.4-17.8 9.6-27.4 9.6-12.8 0-25.4-5.6-34.1-16.3z"
+            />
+          </svg>
+        </i>
+        <span
+          class="ant-pagination-item-ellipsis"
+        >
+          •••
+        </span>
+      </div>
+    </a>
   </li>
   <li
     class="ant-pagination-item ant-pagination-item-50"
@@ -832,7 +1284,25 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
   >
     <a
       class="ant-pagination-item-link"
-    />
+    >
+      <i
+        class="anticon anticon-right"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="right"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+          />
+        </svg>
+      </i>
+    </a>
   </li>
 </ul>
 `;
@@ -849,7 +1319,25 @@ exports[`renders ./components/pagination/demo/simple.md correctly 1`] = `
   >
     <a
       class="ant-pagination-item-link"
-    />
+    >
+      <i
+        class="anticon anticon-left"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="left"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+          />
+        </svg>
+      </i>
+    </a>
   </li>
   <li
     class="ant-pagination-simple-pager"
@@ -875,7 +1363,25 @@ exports[`renders ./components/pagination/demo/simple.md correctly 1`] = `
   >
     <a
       class="ant-pagination-item-link"
-    />
+    >
+      <i
+        class="anticon anticon-right"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="right"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+          />
+        </svg>
+      </i>
+    </a>
   </li>
 </ul>
 `;
@@ -898,7 +1404,25 @@ exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
     >
       <a
         class="ant-pagination-item-link"
-      />
+      >
+        <i
+          class="anticon anticon-left"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="left"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+            />
+          </svg>
+        </i>
+      </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -953,7 +1477,25 @@ exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
     >
       <a
         class="ant-pagination-item-link"
-      />
+      >
+        <i
+          class="anticon anticon-right"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="right"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+            />
+          </svg>
+        </i>
+      </a>
     </li>
   </ul>
   <br />
@@ -973,7 +1515,25 @@ exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
     >
       <a
         class="ant-pagination-item-link"
-      />
+      >
+        <i
+          class="anticon anticon-left"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="left"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+            />
+          </svg>
+        </i>
+      </a>
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -1028,7 +1588,25 @@ exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
     >
       <a
         class="ant-pagination-item-link"
-      />
+      >
+        <i
+          class="anticon anticon-right"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="right"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+            />
+          </svg>
+        </i>
+      </a>
     </li>
   </ul>
 </div>

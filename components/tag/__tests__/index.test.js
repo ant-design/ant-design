@@ -16,9 +16,9 @@ describe('Tag', () => {
     const wrapper = mount(
       <Tag closable onClose={onClose} />
     );
-    expect(wrapper.find('.anticon-cross').length).toBe(1);
+    expect(wrapper.find('.anticon-close').length).toBe(1);
     expect(wrapper.find('.ant-tag').length).toBe(1);
-    wrapper.find('.anticon-cross').simulate('click');
+    wrapper.find('.anticon-close').simulate('click');
     expect(onClose).toBeCalled();
     jest.runAllTimers();
     wrapper.update();
@@ -32,9 +32,9 @@ describe('Tag', () => {
     const wrapper = mount(
       <Tag closable onClose={onClose} />
     );
-    expect(wrapper.find('.anticon-cross').length).toBe(1);
+    expect(wrapper.find('.anticon-close').length).toBe(1);
     expect(wrapper.find('.ant-tag').length).toBe(1);
-    wrapper.find('.anticon-cross').simulate('click');
+    wrapper.find('.anticon-close').simulate('click');
     jest.runAllTimers();
     expect(wrapper.find('.ant-tag').length).toBe(1);
   });

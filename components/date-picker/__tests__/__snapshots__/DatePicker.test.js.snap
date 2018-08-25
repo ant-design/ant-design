@@ -14,11 +14,39 @@ exports[`DatePicker prop locale should works 1`] = `
       value="2000-01-01"
     />
     <i
-      class="anticon anticon-cross-circle ant-calendar-picker-clear"
-    />
-    <span
-      class="ant-calendar-picker-icon"
-    />
+      class="anticon anticon-close-circle ant-calendar-picker-clear"
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="close-circle"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+      >
+        <path
+          d="M512 0C229.2 0 0 229.2 0 512s229.2 512 512 512 512-229.2 512-512S794.8 0 512 0zm205.3 666.9c14 14.1 14 36.9-.1 50.9-7 7-16.2 10.5-25.4 10.5s-18.5-3.5-25.5-10.6L512 563 357.7 717.7c-7 7.1-16.3 10.6-25.5 10.6s-18.4-3.5-25.4-10.5c-14.1-14-14.1-36.8-.1-50.9L461.2 512 306.7 357.1c-14-14.1-14-36.9.1-50.9s36.9-14 50.9.1L512 461l154.3-154.8c14-14.1 36.8-14.1 50.9-.1 14.1 14 14.1 36.8.1 50.9L562.8 512l154.5 154.9z"
+        />
+      </svg>
+    </i>
+    <i
+      class="anticon anticon-calendar ant-calendar-picker-icon"
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="calendar"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+      >
+        <path
+          d="M888 128H768v-28c0-19.9-16.1-36-36-36s-36 16.1-36 36v28H328v-28c0-19.9-16.1-36-36-36s-36 16.1-36 36v28H136c-39.8 0-72 32.2-72 72v688c0 39.8 32.2 72 72 72h752c39.8 0 72-32.3 72-72V200c0-39.8-32.2-72-72-72zm-752 72h120v20c0 19.9 16.1 36 36 36s36-16.1 36-36v-20h368v20c0 19.9 16.1 36 36 36s36-16.1 36-36v-20h120v112H136V200zm752 688H136V384h752v504zM288 512h64c17.7 0 32 14.3 32 32s-14.3 32-32 32h-64c-17.7 0-32-14.3-32-32s14.3-32 32-32zm192 0h64c17.7 0 32 14.3 32 32s-14.3 32-32 32h-64c-17.7 0-32-14.3-32-32s14.3-32 32-32zm192 0h64c17.7 0 32 14.3 32 32s-14.3 32-32 32h-64c-17.7 0-32-14.3-32-32s14.3-32 32-32zM288 706h64c17.7 0 32 14.3 32 32s-14.3 32-32 32h-64c-17.7 0-32-14.3-32-32s14.3-32 32-32zm192 0h64c17.7 0 32 14.3 32 32s-14.3 32-32 32h-64c-17.7 0-32-14.3-32-32s14.3-32 32-32z"
+        />
+      </svg>
+    </i>
   </div>
   <div>
     <div

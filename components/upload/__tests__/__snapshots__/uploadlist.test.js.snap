@@ -36,7 +36,21 @@ exports[`Upload List handle error 1`] = `
         <span>
           <i
             class="anticon anticon-paper-clip"
-          />
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="paper-clip"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M884.7 267.2c-47.1-46.5-109.7-72.3-176.5-72.4h-.7c-32.1 0-63.4 6-93.2 17.8-30.9 12.3-58.7 30.4-82.5 53.9L298.9 496.7c-26.9 26.6-41.6 62.1-41.5 100 .1 37.8 15 73.3 42 100 27 26.7 62.8 41.4 101 41.5h.3c38.1 0 73.8-14.6 100.6-41l204.4-202c6.8-6.7 10.5-15.6 10.5-25 0-9.5-3.7-18.4-10.5-25-6.7-6.7-15.7-10.3-25.2-10.3s-18.5 3.7-25.2 10.3l-204.4 202c-13.3 13.2-31.2 20.4-50.3 20.4h-.1c-19.3-.1-37.4-7.5-50.8-20.8-13.5-13.4-21-31.2-21-50.2-.1-18.9 7.2-36.6 20.6-49.8l232.9-230.3c33.2-32.9 77.8-51 125.4-51h.5c47.8.1 92.7 18.5 126.4 51.7 33.6 33.3 52.2 77.6 52.3 124.8.1 47.2-18.2 91.4-51.5 124.3L588.2 810.8c-49.4 48.6-115.4 75.4-185.8 75.4h-.7c-70.7-.2-137.1-27.4-186.9-76.6-49.8-49.2-77.3-114.8-77.4-184.7-.2-69.9 27-135.3 76.4-184.1l319-315.4c6.8-6.7 10.5-15.6 10.5-25 0-9.5-3.7-18.4-10.5-25C526 68.7 517 65 507.5 65s-18.5 3.7-25.2 10.3l-319 315.5c-31.8 31.4-56.4 68.3-73.2 109.5C74 540.1 65.9 582.1 66 625.1c.1 43.1 8.4 85.1 24.8 124.8 16.9 41.2 41.6 78.1 73.6 109.7 31.8 31.5 69.2 56 110.9 72.8 40 16.1 82.5 24.3 126.2 24.5h.9c43.4 0 85.5-8 125.3-23.9 41.6-16.5 78.9-40.8 110.7-72.3l247.1-244.4c23.7-23.5 42.1-50.9 54.5-81.6 12-29.7 18.1-60.9 18-93-.3-66-26.3-128-73.3-174.5z"
+              />
+            </svg>
+          </i>
           <span
             class="ant-upload-list-item-name"
             title="foo.png"
@@ -46,9 +60,23 @@ exports[`Upload List handle error 1`] = `
         </span>
       </div>
       <i
-        class="anticon anticon-cross"
+        class="anticon anticon-close"
         title="Remove file"
-      />
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="close"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M567.7 514.9l254.8-254.6c15.4-15.4 15.4-40.3 0-55.6-15.4-15.4-40.3-15.4-55.6 0L512 459.2 257.1 204.6c-15.4-15.4-40.3-15.4-55.6 0-15.4 15.4-15.4 40.3 0 55.6l254.8 254.6-254.8 254.7c-15.4 15.4-15.4 40.3 0 55.6 7.7 7.7 17.8 11.5 27.8 11.5 10.1 0 20.1-3.8 27.8-11.5L512 570.5l254.9 254.7c7.7 7.7 17.7 11.5 27.8 11.5 10.1 0 20.1-3.8 27.8-11.5 15.4-15.4 15.4-40.3 0-55.6L567.7 514.9z"
+          />
+        </svg>
+      </i>
       <div
         class="ant-upload-list-item-progress fade-leave"
       >
@@ -111,8 +139,22 @@ exports[`Upload List should be uploading when upload a file 1`] = `
       >
         <span>
           <i
-            class="anticon anticon-spin anticon-loading"
-          />
+            class="anticon anticon-loading"
+          >
+            <svg
+              aria-hidden="true"
+              class="anticon-spin"
+              data-icon="loading"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M512 1024c-69.1 0-136.2-13.5-199.3-40.2C251.7 958 197 921 150 874c-47-47-84-101.7-109.8-162.7C13.5 648.2 0 581.1 0 512c0-19.9 16.1-36 36-36s36 16.1 36 36c0 59.4 11.6 117 34.6 171.3 22.2 52.4 53.9 99.5 94.3 139.9 40.4 40.4 87.5 72.2 139.9 94.3C395 940.4 452.6 952 512 952c59.4 0 117-11.6 171.3-34.6 52.4-22.2 99.5-53.9 139.9-94.3 40.4-40.4 72.2-87.5 94.3-139.9C940.4 629 952 571.4 952 512c0-59.4-11.6-117-34.6-171.3-22.2-52.4-53.9-99.4-94.3-139.9-40.4-40.4-87.5-72.2-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.2C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3s-13.5 136.2-40.2 199.3C958 772.3 921 827 874 874c-47 47-101.8 83.9-162.7 109.7-63.1 26.8-130.2 40.3-199.3 40.3z"
+              />
+            </svg>
+          </i>
           <span
             class="ant-upload-list-item-name"
             title="foo.png"
@@ -122,9 +164,23 @@ exports[`Upload List should be uploading when upload a file 1`] = `
         </span>
       </div>
       <i
-        class="anticon anticon-cross"
+        class="anticon anticon-close"
         title="Remove file"
-      />
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="close"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M567.7 514.9l254.8-254.6c15.4-15.4 15.4-40.3 0-55.6-15.4-15.4-40.3-15.4-55.6 0L512 459.2 257.1 204.6c-15.4-15.4-40.3-15.4-55.6 0-15.4 15.4-15.4 40.3 0 55.6l254.8 254.6-254.8 254.7c-15.4 15.4-15.4 40.3 0 55.6 7.7 7.7 17.8 11.5 27.8 11.5 10.1 0 20.1-3.8 27.8-11.5L512 570.5l254.9 254.7c7.7 7.7 17.7 11.5 27.8 11.5 10.1 0 20.1-3.8 27.8-11.5 15.4-15.4 15.4-40.3 0-55.6L567.7 514.9z"
+          />
+        </svg>
+      </i>
       <div
         class="ant-upload-list-item-progress"
       >
@@ -188,7 +244,21 @@ exports[`Upload List should be uploading when upload a file 2`] = `
         <span>
           <i
             class="anticon anticon-paper-clip"
-          />
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="paper-clip"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M884.7 267.2c-47.1-46.5-109.7-72.3-176.5-72.4h-.7c-32.1 0-63.4 6-93.2 17.8-30.9 12.3-58.7 30.4-82.5 53.9L298.9 496.7c-26.9 26.6-41.6 62.1-41.5 100 .1 37.8 15 73.3 42 100 27 26.7 62.8 41.4 101 41.5h.3c38.1 0 73.8-14.6 100.6-41l204.4-202c6.8-6.7 10.5-15.6 10.5-25 0-9.5-3.7-18.4-10.5-25-6.7-6.7-15.7-10.3-25.2-10.3s-18.5 3.7-25.2 10.3l-204.4 202c-13.3 13.2-31.2 20.4-50.3 20.4h-.1c-19.3-.1-37.4-7.5-50.8-20.8-13.5-13.4-21-31.2-21-50.2-.1-18.9 7.2-36.6 20.6-49.8l232.9-230.3c33.2-32.9 77.8-51 125.4-51h.5c47.8.1 92.7 18.5 126.4 51.7 33.6 33.3 52.2 77.6 52.3 124.8.1 47.2-18.2 91.4-51.5 124.3L588.2 810.8c-49.4 48.6-115.4 75.4-185.8 75.4h-.7c-70.7-.2-137.1-27.4-186.9-76.6-49.8-49.2-77.3-114.8-77.4-184.7-.2-69.9 27-135.3 76.4-184.1l319-315.4c6.8-6.7 10.5-15.6 10.5-25 0-9.5-3.7-18.4-10.5-25C526 68.7 517 65 507.5 65s-18.5 3.7-25.2 10.3l-319 315.5c-31.8 31.4-56.4 68.3-73.2 109.5C74 540.1 65.9 582.1 66 625.1c.1 43.1 8.4 85.1 24.8 124.8 16.9 41.2 41.6 78.1 73.6 109.7 31.8 31.5 69.2 56 110.9 72.8 40 16.1 82.5 24.3 126.2 24.5h.9c43.4 0 85.5-8 125.3-23.9 41.6-16.5 78.9-40.8 110.7-72.3l247.1-244.4c23.7-23.5 42.1-50.9 54.5-81.6 12-29.7 18.1-60.9 18-93-.3-66-26.3-128-73.3-174.5z"
+              />
+            </svg>
+          </i>
           <span
             class="ant-upload-list-item-name"
             title="foo.png"
@@ -198,9 +268,23 @@ exports[`Upload List should be uploading when upload a file 2`] = `
         </span>
       </div>
       <i
-        class="anticon anticon-cross"
+        class="anticon anticon-close"
         title="Remove file"
-      />
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="close"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M567.7 514.9l254.8-254.6c15.4-15.4 15.4-40.3 0-55.6-15.4-15.4-40.3-15.4-55.6 0L512 459.2 257.1 204.6c-15.4-15.4-40.3-15.4-55.6 0-15.4 15.4-15.4 40.3 0 55.6l254.8 254.6-254.8 254.7c-15.4 15.4-15.4 40.3 0 55.6 7.7 7.7 17.8 11.5 27.8 11.5 10.1 0 20.1-3.8 27.8-11.5L512 570.5l254.9 254.7c7.7 7.7 17.7 11.5 27.8 11.5 10.1 0 20.1-3.8 27.8-11.5 15.4-15.4 15.4-40.3 0-55.6L567.7 514.9z"
+          />
+        </svg>
+      </i>
       <div
         class="ant-upload-list-item-progress fade-leave"
       >
@@ -270,7 +354,21 @@ exports[`Upload List should non-image format file preview 1`] = `
           >
             <i
               class="anticon anticon-file ant-upload-list-item-icon"
-            />
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="file"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+              >
+                <path
+                  d="M875.1 301.8l-278-280.5c-4.5-4.5-9.5-8.3-14.8-11.5-1.4-.8-2.9-1.6-4.4-2.3-.9-.5-1.9-.9-2.8-1.3-9.1-4-19-6.2-29.1-6.2H200c-39.8 0-72 32.2-72 72v880c0 39.8 32.2 72 72 72h624c39.8 0 72-32.2 72-72V352.5c0-19-7.5-37.2-20.9-50.7zM783.8 312H584V110.4L783.8 312zM824 952H200V72h312v240c0 39.8 32.2 72 72 72h240v568z"
+                />
+              </svg>
+            </i>
           </a>
           <a
             class="ant-upload-list-item-name"
@@ -284,9 +382,23 @@ exports[`Upload List should non-image format file preview 1`] = `
         </span>
       </div>
       <i
-        class="anticon anticon-cross"
+        class="anticon anticon-close"
         title="Remove file"
-      />
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="close"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M567.7 514.9l254.8-254.6c15.4-15.4 15.4-40.3 0-55.6-15.4-15.4-40.3-15.4-55.6 0L512 459.2 257.1 204.6c-15.4-15.4-40.3-15.4-55.6 0-15.4 15.4-15.4 40.3 0 55.6l254.8 254.6-254.8 254.7c-15.4 15.4-15.4 40.3 0 55.6 7.7 7.7 17.8 11.5 27.8 11.5 10.1 0 20.1-3.8 27.8-11.5L512 570.5l254.9 254.7c7.7 7.7 17.7 11.5 27.8 11.5 10.1 0 20.1-3.8 27.8-11.5 15.4-15.4 15.4-40.3 0-55.6L567.7 514.9z"
+          />
+        </svg>
+      </i>
     </div>
     <div
       class="ant-upload-list-item ant-upload-list-item-done"
@@ -318,9 +430,23 @@ exports[`Upload List should non-image format file preview 1`] = `
         </span>
       </div>
       <i
-        class="anticon anticon-cross"
+        class="anticon anticon-close"
         title="Remove file"
-      />
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="close"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M567.7 514.9l254.8-254.6c15.4-15.4 15.4-40.3 0-55.6-15.4-15.4-40.3-15.4-55.6 0L512 459.2 257.1 204.6c-15.4-15.4-40.3-15.4-55.6 0-15.4 15.4-15.4 40.3 0 55.6l254.8 254.6-254.8 254.7c-15.4 15.4-15.4 40.3 0 55.6 7.7 7.7 17.8 11.5 27.8 11.5 10.1 0 20.1-3.8 27.8-11.5L512 570.5l254.9 254.7c7.7 7.7 17.7 11.5 27.8 11.5 10.1 0 20.1-3.8 27.8-11.5 15.4-15.4 15.4-40.3 0-55.6L567.7 514.9z"
+          />
+        </svg>
+      </i>
     </div>
     <div
       class="ant-upload-list-item ant-upload-list-item-done"
@@ -337,7 +463,21 @@ exports[`Upload List should non-image format file preview 1`] = `
           >
             <i
               class="anticon anticon-file ant-upload-list-item-icon"
-            />
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="file"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+              >
+                <path
+                  d="M875.1 301.8l-278-280.5c-4.5-4.5-9.5-8.3-14.8-11.5-1.4-.8-2.9-1.6-4.4-2.3-.9-.5-1.9-.9-2.8-1.3-9.1-4-19-6.2-29.1-6.2H200c-39.8 0-72 32.2-72 72v880c0 39.8 32.2 72 72 72h624c39.8 0 72-32.2 72-72V352.5c0-19-7.5-37.2-20.9-50.7zM783.8 312H584V110.4L783.8 312zM824 952H200V72h312v240c0 39.8 32.2 72 72 72h240v568z"
+                />
+              </svg>
+            </i>
           </a>
           <a
             class="ant-upload-list-item-name"
@@ -351,9 +491,23 @@ exports[`Upload List should non-image format file preview 1`] = `
         </span>
       </div>
       <i
-        class="anticon anticon-cross"
+        class="anticon anticon-close"
         title="Remove file"
-      />
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="close"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M567.7 514.9l254.8-254.6c15.4-15.4 15.4-40.3 0-55.6-15.4-15.4-40.3-15.4-55.6 0L512 459.2 257.1 204.6c-15.4-15.4-40.3-15.4-55.6 0-15.4 15.4-15.4 40.3 0 55.6l254.8 254.6-254.8 254.7c-15.4 15.4-15.4 40.3 0 55.6 7.7 7.7 17.8 11.5 27.8 11.5 10.1 0 20.1-3.8 27.8-11.5L512 570.5l254.9 254.7c7.7 7.7 17.7 11.5 27.8 11.5 10.1 0 20.1-3.8 27.8-11.5 15.4-15.4 15.4-40.3 0-55.6L567.7 514.9z"
+          />
+        </svg>
+      </i>
     </div>
     <div
       class="ant-upload-list-item ant-upload-list-item-done"
@@ -370,7 +524,21 @@ exports[`Upload List should non-image format file preview 1`] = `
           >
             <i
               class="anticon anticon-file ant-upload-list-item-icon"
-            />
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="file"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+              >
+                <path
+                  d="M875.1 301.8l-278-280.5c-4.5-4.5-9.5-8.3-14.8-11.5-1.4-.8-2.9-1.6-4.4-2.3-.9-.5-1.9-.9-2.8-1.3-9.1-4-19-6.2-29.1-6.2H200c-39.8 0-72 32.2-72 72v880c0 39.8 32.2 72 72 72h624c39.8 0 72-32.2 72-72V352.5c0-19-7.5-37.2-20.9-50.7zM783.8 312H584V110.4L783.8 312zM824 952H200V72h312v240c0 39.8 32.2 72 72 72h240v568z"
+                />
+              </svg>
+            </i>
           </a>
           <a
             class="ant-upload-list-item-name"
@@ -384,9 +552,23 @@ exports[`Upload List should non-image format file preview 1`] = `
         </span>
       </div>
       <i
-        class="anticon anticon-cross"
+        class="anticon anticon-close"
         title="Remove file"
-      />
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="close"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M567.7 514.9l254.8-254.6c15.4-15.4 15.4-40.3 0-55.6-15.4-15.4-40.3-15.4-55.6 0L512 459.2 257.1 204.6c-15.4-15.4-40.3-15.4-55.6 0-15.4 15.4-15.4 40.3 0 55.6l254.8 254.6-254.8 254.7c-15.4 15.4-15.4 40.3 0 55.6 7.7 7.7 17.8 11.5 27.8 11.5 10.1 0 20.1-3.8 27.8-11.5L512 570.5l254.9 254.7c7.7 7.7 17.7 11.5 27.8 11.5 10.1 0 20.1-3.8 27.8-11.5 15.4-15.4 15.4-40.3 0-55.6L567.7 514.9z"
+          />
+        </svg>
+      </i>
     </div>
     <div
       class="ant-upload-list-item ant-upload-list-item-done"
@@ -418,9 +600,23 @@ exports[`Upload List should non-image format file preview 1`] = `
         </span>
       </div>
       <i
-        class="anticon anticon-cross"
+        class="anticon anticon-close"
         title="Remove file"
-      />
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="close"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M567.7 514.9l254.8-254.6c15.4-15.4 15.4-40.3 0-55.6-15.4-15.4-40.3-15.4-55.6 0L512 459.2 257.1 204.6c-15.4-15.4-40.3-15.4-55.6 0-15.4 15.4-15.4 40.3 0 55.6l254.8 254.6-254.8 254.7c-15.4 15.4-15.4 40.3 0 55.6 7.7 7.7 17.8 11.5 27.8 11.5 10.1 0 20.1-3.8 27.8-11.5L512 570.5l254.9 254.7c7.7 7.7 17.7 11.5 27.8 11.5 10.1 0 20.1-3.8 27.8-11.5 15.4-15.4 15.4-40.3 0-55.6L567.7 514.9z"
+          />
+        </svg>
+      </i>
     </div>
     <div
       class="ant-upload-list-item ant-upload-list-item-done"
@@ -452,9 +648,23 @@ exports[`Upload List should non-image format file preview 1`] = `
         </span>
       </div>
       <i
-        class="anticon anticon-cross"
+        class="anticon anticon-close"
         title="Remove file"
-      />
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="close"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M567.7 514.9l254.8-254.6c15.4-15.4 15.4-40.3 0-55.6-15.4-15.4-40.3-15.4-55.6 0L512 459.2 257.1 204.6c-15.4-15.4-40.3-15.4-55.6 0-15.4 15.4-15.4 40.3 0 55.6l254.8 254.6-254.8 254.7c-15.4 15.4-15.4 40.3 0 55.6 7.7 7.7 17.8 11.5 27.8 11.5 10.1 0 20.1-3.8 27.8-11.5L512 570.5l254.9 254.7c7.7 7.7 17.7 11.5 27.8 11.5 10.1 0 20.1-3.8 27.8-11.5 15.4-15.4 15.4-40.3 0-55.6L567.7 514.9z"
+          />
+        </svg>
+      </i>
     </div>
     <div
       class="ant-upload-list-item ant-upload-list-item-done"
@@ -486,9 +696,23 @@ exports[`Upload List should non-image format file preview 1`] = `
         </span>
       </div>
       <i
-        class="anticon anticon-cross"
+        class="anticon anticon-close"
         title="Remove file"
-      />
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="close"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M567.7 514.9l254.8-254.6c15.4-15.4 15.4-40.3 0-55.6-15.4-15.4-40.3-15.4-55.6 0L512 459.2 257.1 204.6c-15.4-15.4-40.3-15.4-55.6 0-15.4 15.4-15.4 40.3 0 55.6l254.8 254.6-254.8 254.7c-15.4 15.4-15.4 40.3 0 55.6 7.7 7.7 17.8 11.5 27.8 11.5 10.1 0 20.1-3.8 27.8-11.5L512 570.5l254.9 254.7c7.7 7.7 17.7 11.5 27.8 11.5 10.1 0 20.1-3.8 27.8-11.5 15.4-15.4 15.4-40.3 0-55.6L567.7 514.9z"
+          />
+        </svg>
+      </i>
     </div>
     <div
       class="ant-upload-list-item ant-upload-list-item-done"
@@ -520,9 +744,23 @@ exports[`Upload List should non-image format file preview 1`] = `
         </span>
       </div>
       <i
-        class="anticon anticon-cross"
+        class="anticon anticon-close"
         title="Remove file"
-      />
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="close"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M567.7 514.9l254.8-254.6c15.4-15.4 15.4-40.3 0-55.6-15.4-15.4-40.3-15.4-55.6 0L512 459.2 257.1 204.6c-15.4-15.4-40.3-15.4-55.6 0-15.4 15.4-15.4 40.3 0 55.6l254.8 254.6-254.8 254.7c-15.4 15.4-15.4 40.3 0 55.6 7.7 7.7 17.8 11.5 27.8 11.5 10.1 0 20.1-3.8 27.8-11.5L512 570.5l254.9 254.7c7.7 7.7 17.7 11.5 27.8 11.5 10.1 0 20.1-3.8 27.8-11.5 15.4-15.4 15.4-40.3 0-55.6L567.7 514.9z"
+          />
+        </svg>
+      </i>
     </div>
     <div
       class="ant-upload-list-item ant-upload-list-item-done"
@@ -554,9 +792,23 @@ exports[`Upload List should non-image format file preview 1`] = `
         </span>
       </div>
       <i
-        class="anticon anticon-cross"
+        class="anticon anticon-close"
         title="Remove file"
-      />
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="close"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M567.7 514.9l254.8-254.6c15.4-15.4 15.4-40.3 0-55.6-15.4-15.4-40.3-15.4-55.6 0L512 459.2 257.1 204.6c-15.4-15.4-40.3-15.4-55.6 0-15.4 15.4-15.4 40.3 0 55.6l254.8 254.6-254.8 254.7c-15.4 15.4-15.4 40.3 0 55.6 7.7 7.7 17.8 11.5 27.8 11.5 10.1 0 20.1-3.8 27.8-11.5L512 570.5l254.9 254.7c7.7 7.7 17.7 11.5 27.8 11.5 10.1 0 20.1-3.8 27.8-11.5 15.4-15.4 15.4-40.3 0-55.6L567.7 514.9z"
+          />
+        </svg>
+      </i>
     </div>
     <div
       class="ant-upload-list-item ant-upload-list-item-done"
@@ -588,9 +840,23 @@ exports[`Upload List should non-image format file preview 1`] = `
         </span>
       </div>
       <i
-        class="anticon anticon-cross"
+        class="anticon anticon-close"
         title="Remove file"
-      />
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="close"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M567.7 514.9l254.8-254.6c15.4-15.4 15.4-40.3 0-55.6-15.4-15.4-40.3-15.4-55.6 0L512 459.2 257.1 204.6c-15.4-15.4-40.3-15.4-55.6 0-15.4 15.4-15.4 40.3 0 55.6l254.8 254.6-254.8 254.7c-15.4 15.4-15.4 40.3 0 55.6 7.7 7.7 17.8 11.5 27.8 11.5 10.1 0 20.1-3.8 27.8-11.5L512 570.5l254.9 254.7c7.7 7.7 17.7 11.5 27.8 11.5 10.1 0 20.1-3.8 27.8-11.5 15.4-15.4 15.4-40.3 0-55.6L567.7 514.9z"
+          />
+        </svg>
+      </i>
     </div>
   </div>
 </span>
