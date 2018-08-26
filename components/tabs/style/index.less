@@ -215,17 +215,17 @@
   }
 
   &:not(&-vertical) {
-    .@{tab-prefix-cls}-content {
+    > .@{tab-prefix-cls}-content {
       width: 100%;
 
-      .@{tab-prefix-cls}-tabpane {
+      > .@{tab-prefix-cls}-tabpane {
         flex-shrink: 0;
         width: 100%;
         transition: opacity .45s;
         opacity: 1;
       }
 
-      .@{tab-prefix-cls}-tabpane-inactive {
+      > .@{tab-prefix-cls}-tabpane-inactive {
         opacity: 0;
         height: 0;
         padding: 0 !important;
@@ -235,7 +235,7 @@
         }
       }
     }
-    .@{tab-prefix-cls}-content-animated {
+    > .@{tab-prefix-cls}-content-animated {
       display: flex;
       flex-direction: row;
       will-change: margin-left;
@@ -244,7 +244,7 @@
   }
 
   &-vertical {
-    .@{tab-prefix-cls}-bar {
+    > .@{tab-prefix-cls}-bar {
       border-bottom: 0;
       height: 100%;
       &-tab-prev, &-tab-next {
@@ -318,7 +318,7 @@
       }
     }
 
-    .@{tab-prefix-cls}-content {
+    > .@{tab-prefix-cls}-content {
       overflow: hidden;
       width: auto;
       margin-top: 0 !important;
@@ -326,7 +326,7 @@
   }
 
   &-vertical&-left {
-    .@{tab-prefix-cls}-bar {
+    > .@{tab-prefix-cls}-bar {
       float: left;
       border-right: @border-width-base @border-style-base @border-color-split;
       margin-right: -1px;
@@ -344,14 +344,14 @@
         right: 1px;
       }
     }
-    .@{tab-prefix-cls}-content {
+    > .@{tab-prefix-cls}-content {
       padding-left: 24px;
       border-left: @border-width-base @border-style-base @border-color-split;
     }
   }
 
   &-vertical&-right {
-    .@{tab-prefix-cls}-bar {
+    > .@{tab-prefix-cls}-bar {
       float: right;
       border-left: @border-width-base @border-style-base @border-color-split;
       margin-left: -1px;
@@ -366,17 +366,15 @@
         left: 1px;
       }
     }
-    .@{tab-prefix-cls}-content {
+    > .@{tab-prefix-cls}-content {
       padding-right: 24px;
       border-right: @border-width-base @border-style-base @border-color-split;
     }
   }
 
-  &-bottom {
-    &-bar {
-      margin-bottom: 0;
-      margin-top: 16px;
-    }
+  &-bottom > &-bar {
+    margin-bottom: 0;
+    margin-top: 16px;
   }
 }
 
@@ -393,12 +391,12 @@
 .no-flex,
 .@{tab-prefix-cls}-no-animation,
 .@{tab-prefix-cls}-vertical {
-  .@{tab-prefix-cls}-content {
+  > .@{tab-prefix-cls}-content {
     &-animated {
       transform: none !important;
       margin-left: 0 !important;
     }
-    .@{tab-prefix-cls}-tabpane-inactive {
+    > .@{tab-prefix-cls}-tabpane-inactive {
       display: none;
     }
   }
