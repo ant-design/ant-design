@@ -180,7 +180,7 @@
       border-radius: @border-radius-base;
       z-index: @zindex-dropdown;
 
-      &:after {
+      &:before {
         position: absolute;
         top: -7px;
         left: -6px;
@@ -385,6 +385,7 @@
     width: @menu-collapsed-width;
     > .@{menu-prefix-cls}-item,
     > .@{menu-prefix-cls}-item-group > .@{menu-prefix-cls}-item-group-list > .@{menu-prefix-cls}-item,
+    > .@{menu-prefix-cls}-item-group > .@{menu-prefix-cls}-item-group-list > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title,
     > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
       left: 0;
       text-overflow: clip;

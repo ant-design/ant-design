@@ -75,14 +75,14 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
     push: false,
   };
 
-  praentDrawer: Drawer;
+  parentDrawer: Drawer;
   destoryClose: boolean;
   public componentDidUpdate(preProps: DrawerProps) {
-    if (preProps.visible !== this.props.visible && this.praentDrawer) {
+    if (preProps.visible !== this.props.visible && this.parentDrawer) {
       if (this.props.visible) {
-        this.praentDrawer.push();
+        this.parentDrawer.push();
       } else {
-        this.praentDrawer.pull();
+        this.parentDrawer.pull();
       }
     }
   }
@@ -187,7 +187,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
         transform: `translateX(${placement === 'left' ? 180 : -180}px)`,
       }
       : { zIndex };
-    this.praentDrawer = value;
+    this.parentDrawer = value;
     return (
       <DrawerContext.Provider value={this}>
         <RcDrawer
