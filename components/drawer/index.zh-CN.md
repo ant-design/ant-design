@@ -28,9 +28,10 @@ title: Drawer
 | title | 标题 | string \| ReactNode | - |
 | visible | Drawer 是否可见 | boolean | - |
 | width | 宽度 | string \| number | 256 |
+| height | 高度, 在 `placement` 为 `top` 或 `bottom` 时使用 | string \| number | 256 |
 | className | 对话框外层容器的类名 | string | - |
 | zIndex | 设置 Drawer 的 `z-index` | Number | 1000 |
-| placement | 抽屉的方向 | 'left' \| 'right' | 'right'
+| placement | 抽屉的方向 | 'top'  \| 'right' \| 'bottom' \| 'left' | 'right'
 | onClose | 点击遮罩层或右上角叉或取消按钮的回调 | function(e) | 无 |
 
 <style>

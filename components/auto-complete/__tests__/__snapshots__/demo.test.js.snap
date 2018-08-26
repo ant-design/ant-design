@@ -49,7 +49,23 @@ exports[`renders ./components/auto-complete/demo/basic.md correctly 1`] = `
       style="user-select:none;-webkit-user-select:none"
       unselectable="on"
     >
-      <b />
+      <i
+        class="anticon anticon-down ant-select-arrow-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M895.7 300.1c0 9.6-3.2 19.3-9.6 27.4L545.2 751.3c-8.3 10.3-20.8 16.3-34.1 16.3-13.2 0-25.8-6-34-16.3L138 329.3c-15.1-18.8-12.1-46.3 6.7-61.4 18.8-15.1 46.3-12.1 61.4 6.7l305.1 379.6L818 272.7c15.1-18.8 42.6-21.8 61.4-6.7 10.7 8.7 16.3 21.3 16.3 34.1z"
+          />
+        </svg>
+      </i>
     </span>
   </div>
 </div>
@@ -102,7 +118,21 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
                 >
                   <i
                     class="anticon anticon-search certain-category-icon"
-                  />
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="search"
+                      fill="currentColor"
+                      height="1em"
+                      viewBox="0 0 1024 1024"
+                      width="1em"
+                    >
+                      <path
+                        d="M949.5 898.5L743.8 692.9C798.9 626.4 832 541.1 832 448c0-212.1-171.9-384-384-384S64 235.9 64 448s171.9 384 384 384c93.1 0 178.4-33.1 244.9-88.2l205.7 205.7c7 7 16.2 10.5 25.5 10.5s18.4-3.5 25.5-10.5c13.9-14.1 13.9-36.9-.1-51zm-380.1-163C531 751.8 490.2 760 448 760s-83-8.2-121.4-24.5c-37.1-15.7-70.5-38.2-99.2-66.9-28.7-28.7-51.2-62.1-66.9-99.2C144.2 531 136 490.2 136 448s8.2-83 24.5-121.4c15.7-37.1 38.2-70.5 66.9-99.2 28.7-28.7 62.1-51.2 99.2-66.9C365 144.2 405.8 136 448 136s83 8.2 121.4 24.5c37.1 15.7 70.5 38.2 99.2 66.9 28.7 28.7 51.2 62.1 66.9 99.2C751.8 365 760 405.8 760 448s-8.2 83-24.5 121.4c-15.7 37.1-38.2 70.5-66.9 99.2-28.7 28.7-62 51.2-99.2 66.9z"
+                      />
+                    </svg>
+                  </i>
                 </span>
               </span>
               <span
@@ -119,7 +149,23 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
         style="user-select:none;-webkit-user-select:none"
         unselectable="on"
       >
-        <b />
+        <i
+          class="anticon anticon-down ant-select-arrow-icon"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M895.7 300.1c0 9.6-3.2 19.3-9.6 27.4L545.2 751.3c-8.3 10.3-20.8 16.3-34.1 16.3-13.2 0-25.8-6-34-16.3L138 329.3c-15.1-18.8-12.1-46.3 6.7-61.4 18.8-15.1 46.3-12.1 61.4 6.7l305.1 379.6L818 272.7c15.1-18.8 42.6-21.8 61.4-6.7 10.7 8.7 16.3 21.3 16.3 34.1z"
+            />
+          </svg>
+        </i>
       </span>
     </div>
   </div>
@@ -168,7 +214,23 @@ exports[`renders ./components/auto-complete/demo/custom.md correctly 1`] = `
       style="user-select:none;-webkit-user-select:none"
       unselectable="on"
     >
-      <b />
+      <i
+        class="anticon anticon-down ant-select-arrow-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M895.7 300.1c0 9.6-3.2 19.3-9.6 27.4L545.2 751.3c-8.3 10.3-20.8 16.3-34.1 16.3-13.2 0-25.8-6-34-16.3L138 329.3c-15.1-18.8-12.1-46.3 6.7-61.4 18.8-15.1 46.3-12.1 61.4 6.7l305.1 379.6L818 272.7c15.1-18.8 42.6-21.8 61.4-6.7 10.7 8.7 16.3 21.3 16.3 34.1z"
+          />
+        </svg>
+      </i>
     </span>
   </div>
 </div>
@@ -223,7 +285,23 @@ exports[`renders ./components/auto-complete/demo/non-case-sensitive.md correctly
       style="user-select:none;-webkit-user-select:none"
       unselectable="on"
     >
-      <b />
+      <i
+        class="anticon anticon-down ant-select-arrow-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M895.7 300.1c0 9.6-3.2 19.3-9.6 27.4L545.2 751.3c-8.3 10.3-20.8 16.3-34.1 16.3-13.2 0-25.8-6-34-16.3L138 329.3c-15.1-18.8-12.1-46.3 6.7-61.4 18.8-15.1 46.3-12.1 61.4 6.7l305.1 379.6L818 272.7c15.1-18.8 42.6-21.8 61.4-6.7 10.7 8.7 16.3 21.3 16.3 34.1z"
+          />
+        </svg>
+      </i>
     </span>
   </div>
 </div>
@@ -278,7 +356,23 @@ exports[`renders ./components/auto-complete/demo/options.md correctly 1`] = `
       style="user-select:none;-webkit-user-select:none"
       unselectable="on"
     >
-      <b />
+      <i
+        class="anticon anticon-down ant-select-arrow-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M895.7 300.1c0 9.6-3.2 19.3-9.6 27.4L545.2 751.3c-8.3 10.3-20.8 16.3-34.1 16.3-13.2 0-25.8-6-34-16.3L138 329.3c-15.1-18.8-12.1-46.3 6.7-61.4 18.8-15.1 46.3-12.1 61.4 6.7l305.1 379.6L818 272.7c15.1-18.8 42.6-21.8 61.4-6.7 10.7 8.7 16.3 21.3 16.3 34.1z"
+          />
+        </svg>
+      </i>
     </span>
   </div>
 </div>
@@ -335,7 +429,21 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
                   >
                     <i
                       class="anticon anticon-search"
-                    />
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="search"
+                        fill="currentColor"
+                        height="1em"
+                        viewBox="0 0 1024 1024"
+                        width="1em"
+                      >
+                        <path
+                          d="M949.5 898.5L743.8 692.9C798.9 626.4 832 541.1 832 448c0-212.1-171.9-384-384-384S64 235.9 64 448s171.9 384 384 384c93.1 0 178.4-33.1 244.9-88.2l205.7 205.7c7 7 16.2 10.5 25.5 10.5s18.4-3.5 25.5-10.5c13.9-14.1 13.9-36.9-.1-51zm-380.1-163C531 751.8 490.2 760 448 760s-83-8.2-121.4-24.5c-37.1-15.7-70.5-38.2-99.2-66.9-28.7-28.7-51.2-62.1-66.9-99.2C144.2 531 136 490.2 136 448s8.2-83 24.5-121.4c15.7-37.1 38.2-70.5 66.9-99.2 28.7-28.7 62.1-51.2 99.2-66.9C365 144.2 405.8 136 448 136s83 8.2 121.4 24.5c37.1 15.7 70.5 38.2 99.2 66.9 28.7 28.7 51.2 62.1 66.9 99.2C751.8 365 760 405.8 760 448s-8.2 83-24.5 121.4c-15.7 37.1-38.2 70.5-66.9 99.2-28.7 28.7-62 51.2-99.2 66.9z"
+                        />
+                      </svg>
+                    </i>
                   </button>
                 </span>
               </span>
@@ -353,7 +461,23 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
         style="user-select:none;-webkit-user-select:none"
         unselectable="on"
       >
-        <b />
+        <i
+          class="anticon anticon-down ant-select-arrow-icon"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M895.7 300.1c0 9.6-3.2 19.3-9.6 27.4L545.2 751.3c-8.3 10.3-20.8 16.3-34.1 16.3-13.2 0-25.8-6-34-16.3L138 329.3c-15.1-18.8-12.1-46.3 6.7-61.4 18.8-15.1 46.3-12.1 61.4 6.7l305.1 379.6L818 272.7c15.1-18.8 42.6-21.8 61.4-6.7 10.7 8.7 16.3 21.3 16.3 34.1z"
+            />
+          </svg>
+        </i>
       </span>
     </div>
   </div>

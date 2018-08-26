@@ -81,7 +81,7 @@ export default class Alert extends React.Component<AlertProps, any> {
           iconType = 'info-circle';
           break;
         case 'error':
-          iconType = 'cross-circle';
+          iconType = 'close-circle';
           break;
         case 'warning':
           iconType = 'exclamation-circle';
@@ -111,7 +111,7 @@ export default class Alert extends React.Component<AlertProps, any> {
 
     const closeIcon = closable ? (
       <a onClick={this.handleClose} className={`${prefixCls}-close-icon`}>
-        {closeText || <Icon type="cross" />}
+        {closeText || <Icon type="close" />}
       </a>
     ) : null;
 
