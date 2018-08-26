@@ -123,8 +123,11 @@
     cursor: pointer;
     &-inner {
       top: 50%;
-      margin-top: -6px;
-      text-align: center;
+      margin-top: -5px;
+      &:before {
+        text-align: center;
+        content: "\e61e";
+      }
     }
     &:hover {
       height: 60% !important;
@@ -133,7 +136,7 @@
 
   &-handler-down {
     border-top: @border-width-base @border-style-base @border-color-base;
-    top: -1px;
+    top: 0;
     cursor: pointer;
     &-inner {
       top: 50%;
