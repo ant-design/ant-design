@@ -61,7 +61,7 @@ describe('Upload List', () => {
       </Upload>
     );
     expect(wrapper.find('.ant-upload-list-item').length).toBe(2);
-    wrapper.find('.ant-upload-list-item').at(0).find('.anticon-cross').simulate('click');
+    wrapper.find('.ant-upload-list-item').at(0).find('.anticon-close').simulate('click');
     await delay(400);
     wrapper.update();
     expect(wrapper.find('.ant-upload-list-item').hostNodes().length).toBe(1);

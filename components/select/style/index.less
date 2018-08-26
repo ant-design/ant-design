@@ -27,7 +27,6 @@
   transition: color 0.3s ease, opacity 0.15s ease;
   &:before {
     display: block;
-    .iconfont-font("\e62e");
   }
   &:hover {
     color: @text-color-secondary;
@@ -64,12 +63,7 @@
     color: @disabled-color;
     font-size: @font-size-sm;
 
-    * {
-      display: none;
-    }
-
-    &:before {
-      content: '\e61d';
+    & &-icon svg {
       transition: transform .3s;
     }
   }
@@ -366,9 +360,6 @@
       &:hover {
         color: #404040;
       }
-      &:before {
-        content: "\e633";
-      }
     }
 
     .@{select-prefix-cls}-selection__clear {
@@ -385,8 +376,10 @@
   }
 
   &-open {
-    .@{select-prefix-cls}-arrow:before {
-      transform: rotate(180deg);
+    .@{select-prefix-cls}-arrow {
+      &-icon svg {
+        transform: rotate(180deg);
+      }
     }
     .@{select-prefix-cls}-selection {
       .active();
@@ -548,7 +541,6 @@
   &&--multiple {
     .@{select-prefix-cls}-dropdown-menu-item {
       &:after {
-        .iconfont-font("\e632");
         color: transparent;
         .iconfont-size-under-12px(10px);
         transition: all 0.2s ease;

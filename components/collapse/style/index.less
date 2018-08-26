@@ -37,17 +37,16 @@
 
       .arrow {
         .iconfont-mixin();
-        .collapse-close();
         font-size: @font-size-sm;
         position: absolute;
         display: inline-block;
         line-height: 46px;
         vertical-align: top;
-        transition: transform 0.24s;
         top: 0;
         left: @padding-md;
-        &:before {
-          content: "\E61F";
+        &-svg {
+          .collapse-close();
+          transition: transform 0.24s;
         }
       }
 
@@ -89,7 +88,7 @@
   }
 
   & > &-item > &-header[aria-expanded="true"] {
-    .arrow {
+    .arrow-svg {
       .collapse-open();
     }
   }

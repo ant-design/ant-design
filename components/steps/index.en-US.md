@@ -33,6 +33,7 @@ The whole of the step bar.
 | progressDot | Steps with progress dot style, customize the progress dot by setting it to a function. labelPlacement will be `vertical` | Boolean or (iconDot, {index, status, title, description}) => ReactNode | false |
 | size | to specify the size of the step bar, `default` and `small` are currently supported | string | `default` |
 | status | to specify the status of current step, can be set to one of the following values: `wait` `process` `finish` `error` | string | `process` |
+| initial | set the initial step, counting from 0 | number | 0 |
 
 ### Steps.Step
 

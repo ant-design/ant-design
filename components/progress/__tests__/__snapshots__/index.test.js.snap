@@ -108,7 +108,21 @@ exports[`Progress render out-of-range progress 1`] = `
     >
       <i
         class="anticon anticon-check-circle"
-      />
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="check-circle"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M512 0C229.2 0 0 229.2 0 512s229.2 512 512 512 512-229.2 512-512S794.8 0 512 0zm260.3 356.4L412.8 717.1l-.4.4c-2.4 2.6-5.3 4.9-8.5 6.7-5.6 3.2-11.8 4.7-17.8 4.7-12.5 0-24.7-6.5-31.3-18.2L245.9 520.3C236 503 242 481 259.3 471.2c17.3-9.9 39.3-3.9 49.1 13.4l85.4 149.5 327.5-328.5c14-14.1 36.8-14.1 50.9-.1 14.1 14.1 14.1 36.9.1 50.9z"
+          />
+        </svg>
+      </i>
     </span>
   </div>
 </div>
@@ -136,7 +150,21 @@ exports[`Progress render out-of-range progress with info 1`] = `
     >
       <i
         class="anticon anticon-check-circle"
-      />
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="check-circle"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M512 0C229.2 0 0 229.2 0 512s229.2 512 512 512 512-229.2 512-512S794.8 0 512 0zm260.3 356.4L412.8 717.1l-.4.4c-2.4 2.6-5.3 4.9-8.5 6.7-5.6 3.2-11.8 4.7-17.8 4.7-12.5 0-24.7-6.5-31.3-18.2L245.9 520.3C236 503 242 481 259.3 471.2c17.3-9.9 39.3-3.9 49.1 13.4l85.4 149.5 327.5-328.5c14-14.1 36.8-14.1 50.9-.1 14.1 14.1 14.1 36.9.1 50.9z"
+          />
+        </svg>
+      </i>
     </span>
   </div>
 </div>

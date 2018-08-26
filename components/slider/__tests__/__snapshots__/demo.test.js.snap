@@ -154,7 +154,24 @@ exports[`renders ./components/slider/demo/icon-slider.md correctly 1`] = `
   <i
     class="anticon anticon-frown-o"
     style="color:rgba(0, 0, 0, .45)"
-  />
+  >
+    <svg
+      aria-hidden="true"
+      class=""
+      data-icon="frown-o"
+      fill="currentColor"
+      height="1em"
+      viewBox="0 0 1024 1024"
+      width="1em"
+    >
+      <path
+        d="M512 0C229.2 0 0 229.2 0 512s229.2 512 512 512 512-229.2 512-512S794.8 0 512 0zm311.1 823.1c-40.4 40.4-87.5 72.2-139.9 94.3C629 940.4 571.4 952 512 952s-117-11.6-171.2-34.5c-52.4-22.2-99.4-53.9-139.9-94.3-40.4-40.4-72.2-87.5-94.3-139.9C83.6 629 72 571.4 72 512s11.6-117 34.5-171.2c22.2-52.4 53.9-99.4 94.3-139.9 40.4-40.4 87.5-72.2 139.9-94.3C395 83.6 452.6 72 512 72s117 11.6 171.2 34.5c52.4 22.2 99.4 53.9 139.9 94.3 40.4 40.4 72.2 87.5 94.3 139.9C940.4 395 952 452.6 952 512s-11.6 117-34.5 171.2c-22.2 52.4-53.9 99.5-94.4 139.9z"
+      />
+      <path
+        d="M640.3 765.5c-19.9 0-36-16.1-36-36 0-50.9-41.4-92.3-92.3-92.3s-92.3 41.4-92.3 92.3c0 19.9-16.1 36-36 36s-36-16.1-36-36c0-90.6 73.7-164.3 164.3-164.3s164.3 73.7 164.3 164.3c0 19.9-16.1 36-36 36zM194.2 382.4a60 60 0 1 0 120 0 60 60 0 1 0-120 0zM709.5 382.4a60 60 0 1 0 120 0 60 60 0 1 0-120 0z"
+      />
+    </svg>
+  </i>
   <div
     class="ant-slider"
   >
@@ -185,7 +202,24 @@ exports[`renders ./components/slider/demo/icon-slider.md correctly 1`] = `
   <i
     class="anticon anticon-smile-o"
     style="color:"
-  />
+  >
+    <svg
+      aria-hidden="true"
+      class=""
+      data-icon="smile-o"
+      fill="currentColor"
+      height="1em"
+      viewBox="0 0 1024 1024"
+      width="1em"
+    >
+      <path
+        d="M512 0C229.2 0 0 229.2 0 512s229.2 512 512 512 512-229.2 512-512S794.8 0 512 0zm311.1 823.1c-40.4 40.4-87.5 72.2-139.9 94.3C629 940.4 571.4 952 512 952s-117-11.6-171.2-34.5c-52.4-22.2-99.4-53.9-139.9-94.3-40.4-40.4-72.2-87.5-94.3-139.9C83.6 629 72 571.4 72 512s11.6-117 34.5-171.2c22.2-52.4 53.9-99.4 94.3-139.9 40.4-40.4 87.5-72.2 139.9-94.3C395 83.6 452.6 72 512 72s117 11.6 171.2 34.5c52.4 22.2 99.4 53.9 139.9 94.3 40.4 40.4 72.2 87.5 94.3 139.9C940.4 395 952 452.6 952 512s-11.6 117-34.5 171.2c-22.2 52.4-53.9 99.5-94.4 139.9z"
+      />
+      <path
+        d="M640.3 565.2c-19.9 0-36 16.1-36 36 0 50.9-41.4 92.3-92.3 92.3s-92.3-41.4-92.3-92.3c0-19.9-16.1-36-36-36s-36 16.1-36 36c0 90.6 73.7 164.3 164.3 164.3s164.3-73.7 164.3-164.3c0-19.9-16.1-36-36-36zM194.2 382.4a60 60 0 1 0 120 0 60 60 0 1 0-120 0zM709.5 382.4a60 60 0 1 0 120 0 60 60 0 1 0-120 0z"
+      />
+    </svg>
+  </i>
 </div>
 `;
 
@@ -242,10 +276,23 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             role="button"
             unselectable="unselectable"
           >
-            <span
-              class="ant-input-number-handler-up-inner"
-              unselectable="unselectable"
-            />
+            <i
+              class="anticon anticon-up ant-input-number-handler-up-inner"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="up"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+              >
+                <path
+                  d="M895.7 659.9c0-9.6-3.2-19.3-9.6-27.4L545.2 208.7c-8.3-10.3-20.8-16.3-34.1-16.3-13.2 0-25.8 6-34 16.3L138 630.7c-15.1 18.8-12.1 46.3 6.7 61.4 18.8 15.1 46.3 12.1 61.4-6.7l305.1-379.6L818 687.3c15.1 18.8 42.6 21.8 61.4 6.7 10.7-8.7 16.3-21.3 16.3-34.1z"
+                />
+              </svg>
+            </i>
           </span>
           <span
             aria-disabled="true"
@@ -254,10 +301,23 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             role="button"
             unselectable="unselectable"
           >
-            <span
-              class="ant-input-number-handler-down-inner"
-              unselectable="unselectable"
-            />
+            <i
+              class="anticon anticon-down ant-input-number-handler-down-inner"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="down"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+              >
+                <path
+                  d="M895.7 300.1c0 9.6-3.2 19.3-9.6 27.4L545.2 751.3c-8.3 10.3-20.8 16.3-34.1 16.3-13.2 0-25.8-6-34-16.3L138 329.3c-15.1-18.8-12.1-46.3 6.7-61.4 18.8-15.1 46.3-12.1 61.4 6.7l305.1 379.6L818 272.7c15.1-18.8 42.6-21.8 61.4-6.7 10.7 8.7 16.3 21.3 16.3 34.1z"
+                />
+              </svg>
+            </i>
           </span>
         </div>
         <div
@@ -330,10 +390,23 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             role="button"
             unselectable="unselectable"
           >
-            <span
-              class="ant-input-number-handler-up-inner"
-              unselectable="unselectable"
-            />
+            <i
+              class="anticon anticon-up ant-input-number-handler-up-inner"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="up"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+              >
+                <path
+                  d="M895.7 659.9c0-9.6-3.2-19.3-9.6-27.4L545.2 208.7c-8.3-10.3-20.8-16.3-34.1-16.3-13.2 0-25.8 6-34 16.3L138 630.7c-15.1 18.8-12.1 46.3 6.7 61.4 18.8 15.1 46.3 12.1 61.4-6.7l305.1-379.6L818 687.3c15.1 18.8 42.6 21.8 61.4 6.7 10.7-8.7 16.3-21.3 16.3-34.1z"
+                />
+              </svg>
+            </i>
           </span>
           <span
             aria-disabled="true"
@@ -342,10 +415,23 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             role="button"
             unselectable="unselectable"
           >
-            <span
-              class="ant-input-number-handler-down-inner"
-              unselectable="unselectable"
-            />
+            <i
+              class="anticon anticon-down ant-input-number-handler-down-inner"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="down"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+              >
+                <path
+                  d="M895.7 300.1c0 9.6-3.2 19.3-9.6 27.4L545.2 751.3c-8.3 10.3-20.8 16.3-34.1 16.3-13.2 0-25.8-6-34-16.3L138 329.3c-15.1-18.8-12.1-46.3 6.7-61.4 18.8-15.1 46.3-12.1 61.4 6.7l305.1 379.6L818 272.7c15.1-18.8 42.6-21.8 61.4-6.7 10.7 8.7 16.3 21.3 16.3 34.1z"
+                />
+              </svg>
+            </i>
           </span>
         </div>
         <div

@@ -6,6 +6,7 @@ export interface StepsProps {
   prefixCls?: string;
   iconPrefix?: string;
   current?: number;
+  initial?: number;
   status?: 'wait' | 'process' | 'finish' | 'error';
   size?: 'default' | 'small';
   direction?: 'horizontal' | 'vertical';

@@ -12,6 +12,7 @@ export interface CascaderOptionType {
   label?: React.ReactNode;
   disabled?: boolean;
   children?: Array<CascaderOptionType>;
+
   [key: string]: any;
 }
 
@@ -350,7 +351,7 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     });
     const clearIcon = (allowClear && !disabled && value.length > 0) || state.inputValue ? (
       <Icon
-        type="cross-circle"
+        type="close"
         className={`${prefixCls}-picker-clear`}
         onClick={this.clearSelection}
       />
@@ -361,12 +362,12 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     });
     const pickerCls = classNames(
       className, `${prefixCls}-picker`, {
-      [`${prefixCls}-picker-with-value`]: state.inputValue,
-      [`${prefixCls}-picker-disabled`]: disabled,
-      [`${prefixCls}-picker-${size}`]: !!size,
-      [`${prefixCls}-picker-show-search`]: !!showSearch,
-      [`${prefixCls}-picker-focused`]: inputFocused,
-    });
+        [`${prefixCls}-picker-with-value`]: state.inputValue,
+        [`${prefixCls}-picker-disabled`]: disabled,
+        [`${prefixCls}-picker-${size}`]: !!size,
+        [`${prefixCls}-picker-show-search`]: !!showSearch,
+        [`${prefixCls}-picker-focused`]: inputFocused,
+      });
 
     // Fix bug of https://github.com/facebook/react/pull/5004
     // and https://fb.me/react-unknown-prop
@@ -440,6 +441,16 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
       </span>
     );
 
+    const expandIcon = (
+      <Icon type="right" />
+    );
+
+    const loadingIcon = (
+      <span className={`${prefixCls}-menu-item-loading-icon`}>
+        <Icon type="redo" spin />
+      </span>
+    );
+
     return (
       <RcCascader
         {...props}
@@ -449,6 +460,8 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
         onPopupVisibleChange={this.handlePopupVisibleChange}
         onChange={this.handleChange}
         dropdownMenuColumnStyle={dropdownMenuColumnStyle}
+        expandIcon={expandIcon}
+        loadingIcon={loadingIcon}
       >
         {input}
       </RcCascader>

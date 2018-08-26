@@ -26,7 +26,25 @@ exports[`Modal render correctly 1`] = `
           >
             <span
               class="ant-modal-close-x"
-            />
+            >
+              <i
+                class="anticon anticon-close ant-modal-close-icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="close"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                >
+                  <path
+                    d="M567.7 514.9l254.8-254.6c15.4-15.4 15.4-40.3 0-55.6-15.4-15.4-40.3-15.4-55.6 0L512 459.2 257.1 204.6c-15.4-15.4-40.3-15.4-55.6 0-15.4 15.4-15.4 40.3 0 55.6l254.8 254.6-254.8 254.7c-15.4 15.4-15.4 40.3 0 55.6 7.7 7.7 17.8 11.5 27.8 11.5 10.1 0 20.1-3.8 27.8-11.5L512 570.5l254.9 254.7c7.7 7.7 17.7 11.5 27.8 11.5 10.1 0 20.1-3.8 27.8-11.5 15.4-15.4 15.4-40.3 0-55.6L567.7 514.9z"
+                  />
+                </svg>
+              </i>
+            </span>
           </button>
           <div
             class="ant-modal-body"
@@ -94,7 +112,25 @@ exports[`Modal render without footer 1`] = `
           >
             <span
               class="ant-modal-close-x"
-            />
+            >
+              <i
+                class="anticon anticon-close ant-modal-close-icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="close"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                >
+                  <path
+                    d="M567.7 514.9l254.8-254.6c15.4-15.4 15.4-40.3 0-55.6-15.4-15.4-40.3-15.4-55.6 0L512 459.2 257.1 204.6c-15.4-15.4-40.3-15.4-55.6 0-15.4 15.4-15.4 40.3 0 55.6l254.8 254.6-254.8 254.7c-15.4 15.4-15.4 40.3 0 55.6 7.7 7.7 17.8 11.5 27.8 11.5 10.1 0 20.1-3.8 27.8-11.5L512 570.5l254.9 254.7c7.7 7.7 17.7 11.5 27.8 11.5 10.1 0 20.1-3.8 27.8-11.5 15.4-15.4 15.4-40.3 0-55.6L567.7 514.9z"
+                  />
+                </svg>
+              </i>
+            </span>
           </button>
           <div
             class="ant-modal-body"
