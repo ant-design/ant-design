@@ -109,16 +109,19 @@ describe('Anchor Render', () => {
     let link;
     const handleClick = (newEvent, newLink) => ([event, link] = [newEvent, newLink]);
 
+    const href = '#API';
+    const title = 'API';
+
     const wrapper = mount(
       <Anchor onClick={handleClick}>
-        <Link href="#API" title="API" />
+        <Link href={href} title={title} />
       </Anchor>
     );
 
-    wrapper.find('a[href="#API"]').simulate('click');
+    wrapper.find(`a[href="${href}"]`).simulate('click');
 
     wrapper.instance().handleScroll();
     expect(event).not.toBe(undefined);
-    expect(link).toBe('#API');
+    expect(link).toEqual({ href, title });
   });
 });
