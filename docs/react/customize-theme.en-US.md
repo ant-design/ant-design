@@ -85,7 +85,7 @@ Or just [a javascript file path](https://github.com/ant-design/ant-design-pro/bl
 
 ### Customize in create-react-app
 
-Follow [Use in create-react-app](/docs/react/create-react-app).
+Follow [Use in create-react-app](/docs/react/use-with-create-react-app).
 
 ### Customize in less file
 
