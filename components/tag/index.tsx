@@ -147,7 +147,7 @@ class Tag extends React.Component<TagProps, TagState> {
       backgroundColor: (color && !isPresetColor) ? color : null,
       ...style,
     };
-    const tag = this.state.closed ? <div /> : (
+    const tag = this.state.closed ? <span/> : (
       <div
         data-show={!this.state.closing}
         {...divProps}
