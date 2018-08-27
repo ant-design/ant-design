@@ -14,6 +14,26 @@ timeline: true
 * Major version release is not included in this schedule for breaking change and new features.
 
 ---
+
+## 3.8.3
+
+`2018-08-26`
+
+- 📖 Rewrite the documentation of [Customize Theme](https://ant.design/docs/react/customize-theme) and provider instruction for major `Less` variables. [6fd5e9](https://github.com/ant-design/ant-design/commit/6fd5e95cec2f1c936dcf857a72446ec956a5c7ad) [53dd82](https://github.com/ant-design/ant-design/commit/53dd82e4e3dd39d7ccc4f752901cb182b5b90555)
+- 🐞 Fix the zoom animation style for Badge. [#11870](https://github.com/ant-design/ant-design/issues/11870)
+- 🐞 Fix the abnormal width in IE and Edge for Cascader. [#11857](https://github.com/ant-design/ant-design/issues/11857)
+- 🐞 Fix the blurry style in Windows Chrome for Checkbox. [#11797](https://github.com/ant-design/ant-design/issues/11797)
+- 🐞 Fix that `style` prop is not effective for DatePicker.WeekPicker. [#11738](https://github.com/ant-design/ant-design/issues/11738)
+- 🐞 Fix the flash style for Drawer. [#11813](https://github.com/ant-design/ant-design/issues/11813)
+- 🐞 Fix the border style for compact Input.Group with `prefix` or `suffix`. [#11863](https://github.com/ant-design/ant-design/issues/11863)
+- Menu
+	- 🐞 Fix the gap style between SubMenu and that Menu disappears when hovering over the tap. [#11725](https://github.com/ant-design/ant-design/issues/11725)
+	- 🐞 Fix the displayed error when ItemGroup wraps the first SubMenu and the Menu is collapsed. [a52370](https://github.com/ant-design/ant-design/commit/a523706625bd695f44401579d980089292089dda) [@ohhoney1](https://github.com/ohhoney1)
+- 🐞 Fix that overlong `description` is cut off for Steps. [#11864](https://github.com/ant-design/ant-design/issues/11864)
+- 🐞 Fix that the word maybe break in overlong `title` for Tooltip. [#11722](https://github.com/ant-design/ant-design/issues/11722)
+- 🐞 Fix that `custom prop` of TreeNode cannot be accepted for Tree. [#11423](https://github.com/ant-design/ant-design/issues/11423)
+- 🐞 Fix the effective area for Upload.Dragger. [#11869](https://github.com/ant-design/ant-design/issues/11869)
+
 ## 3.8.2
 
 `2018-8-18`

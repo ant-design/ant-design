@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tag visibility can be controlled by visible with hidden as initial value 1`] = `<div />`;
+exports[`Tag visibility can be controlled by visible with hidden as initial value 1`] = `<span />`;
 
 exports[`Tag visibility can be controlled by visible with hidden as initial value 2`] = `
 <div
@@ -9,11 +9,7 @@ exports[`Tag visibility can be controlled by visible with hidden as initial valu
 />
 `;
 
-exports[`Tag visibility can be controlled by visible with hidden as initial value 3`] = `
-<div
-  style="width: 0px;"
-/>
-`;
+exports[`Tag visibility can be controlled by visible with hidden as initial value 3`] = `<span />`;
 
 exports[`Tag visibility can be controlled by visible with visible as initial value 1`] = `
 <div
@@ -22,16 +18,11 @@ exports[`Tag visibility can be controlled by visible with visible as initial val
 />
 `;
 
-exports[`Tag visibility can be controlled by visible with visible as initial value 2`] = `
-<div
-  style="width: 0px;"
-/>
-`;
+exports[`Tag visibility can be controlled by visible with visible as initial value 2`] = `<span />`;
 
 exports[`Tag visibility can be controlled by visible with visible as initial value 3`] = `
 <div
   class="ant-tag"
   data-show="true"
-  style="width: 0px;"
 />
 `;
