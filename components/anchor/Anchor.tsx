@@ -72,7 +72,6 @@ function scrollTo(href: string, offsetTop = 0, getContainer: () => AnchorContain
     }
   };
   raf(frameFunc);
-  history.pushState(null, '', href);
 }
 
 type Section = {
