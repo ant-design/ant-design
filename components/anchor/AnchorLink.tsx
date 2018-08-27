@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { AntAnchor } from './Anchor';
 
 export interface AnchorLinkProps {
   prefixCls?: string;
@@ -20,7 +21,7 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
   };
 
   context: {
-    antAnchor: any;
+    antAnchor: AntAnchor;
   };
 
   componentDidMount() {
