@@ -1,0 +1,577 @@
+[33mcommit a07642d1f5fb8d5aaf6a919c39b9bdf310725d6f[m[33m ([m[1;36mHEAD -> [m[1;32mdev[m[33m)[m
+Author: Tee Wen Seng <twenseng7227@gmail.com>
+Date:   Mon Aug 27 15:22:59 2018 +0800
+
+    tttttt
+
+[33mcommit e8ddd7c129081b7f9bb49ae7747c5f065ad8b6c5[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Tee Wen Seng <twenseng7227@gmail.com>
+Date:   Mon Aug 27 13:51:29 2018 +0800
+
+    test again
+
+[33mcommit 28021276bcc3e5ca230616ac76cdecd0e1478f9a[m
+Author: Tee Wen Seng <twenseng7227@gmail.com>
+Date:   Mon Aug 27 13:47:09 2018 +0800
+
+    tee wen seng push
+
+[33mcommit c500283d05218c43fb88eed64234e59a31e9a425[m
+Merge: e43afd0eb 266a6ad81
+Author: Tee Wen Seng <twenseng7227@gmail.com>
+Date:   Mon Aug 27 13:45:37 2018 +0800
+
+    Merge branch 'master' of https://github.com/tws9797/ant-design
+
+[33mcommit 266a6ad81729338e925fdafd923f5443ec2e1e23[m
+Author: 陈帅 <qixian.cs@outlook.com>
+Date:   Mon Aug 27 11:20:05 2018 +0800
+
+    Fix line breaks caused by div (#11888)
+    
+    * Fix line breaks caused by div
+    
+    * fix tag test
+    
+    * use span replace null
+
+[33mcommit e43afd0eb468f955e55615ac7e42ff591ceac800[m
+Author: Tee Wen Seng <twenseng7227@gmail.com>
+Date:   Mon Aug 27 10:20:41 2018 +0800
+
+    8 try
+
+[33mcommit 89ec8d2c109a401e948e95d648245153388612db[m
+Author: Tee Wen Seng <twenseng7227@gmail.com>
+Date:   Sun Aug 26 19:10:25 2018 +0800
+
+    Sixth try
+
+[33mcommit c12d472661e2a0eb29ebe7ef66ba2cb604c91545[m
+Author: Tee Wen Seng <twenseng7227@gmail.com>
+Date:   Sun Aug 26 18:20:49 2018 +0800
+
+    Fifth try
+
+[33mcommit ce5077c3e475353b38e233b75163268e82c2a356[m
+Author: Tee Wen Seng <twenseng7227@gmail.com>
+Date:   Sun Aug 26 18:09:24 2018 +0800
+
+    Fourth try
+
+[33mcommit 3a2e9494d8ccde1095092da2799ad1ec28dbeabd[m[33m ([m[1;33mtag: 3.8.3[m[33m)[m
+Author: 诸岳 <fuping.dfp@antfin.com>
+Date:   Sun Aug 26 13:14:04 2018 +0800
+
+    Bump 3.8.3
+
+[33mcommit 6e301e820bd51bde611f35d564164cc7bec2042b[m
+Author: 诸岳 <dengfuping_develop@163.com>
+Date:   Sun Aug 26 13:12:55 2018 +0800
+
+    Add the changelog of 3.8.3 (#11885)
+
+[33mcommit 1a73fde89f24fe014e59e1999635758c70eb7f67[m
+Author: afc163 <afc163@gmail.com>
+Date:   Sun Aug 26 12:34:42 2018 +0800
+
+    Add @card-radius
+
+[33mcommit a12086b71d398fb7f920f76ca0d51b7bc6f71968[m
+Author: Tee Wen Seng <twenseng7227@gmail.com>
+Date:   Sun Aug 26 10:01:28 2018 +0800
+
+    Third try
+
+[33mcommit d509315744e24e0d7009f9f36e8c0f9ae434c514[m
+Author: Tee Wen Seng <twenseng7227@gmail.com>
+Date:   Sun Aug 26 09:55:46 2018 +0800
+
+    Second try
+
+[33mcommit 8d86d6b53947d3032882fef58303211593e5ef7b[m
+Author: Tee Wen Seng <twenseng7227@gmail.com>
+Date:   Sun Aug 26 02:31:45 2018 +0800
+
+    First try
+
+[33mcommit 5f17ed789bade85211078f41a849da9fdf318f3e[m
+Author: nuintun <1730277+nuintun@users.noreply.github.com>
+Date:   Tue Aug 21 14:53:53 2018 +0800
+
+    Adjust input-number handler style
+    
+    Make handler look better
+
+[33mcommit b904f3de6a0be0d4b04cc704a9292d044a16a6c2[m
+Author: afc163 <afc163@gmail.com>
+Date:   Sat Aug 25 22:18:25 2018 +0800
+
+    update demo description
+
+[33mcommit e4c9d69fc4cdaa921f4233a28f39a26bd3078717[m
+Author: afc163 <afc163@gmail.com>
+Date:   Sat Aug 25 21:00:51 2018 +0800
+
+    Avoid progress text wrap
+
+[33mcommit 98c3d8b1d789fac033f954406bf05381beed1167[m
+Author: afc163 <afc163@gmail.com>
+Date:   Sat Aug 25 14:25:21 2018 +0800
+
+    tweak wave style
+
+[33mcommit 0ac47fe74fa08396b36a2e287b82256c12909d21[m
+Author: afc163 <afc163@gmail.com>
+Date:   Fri Aug 24 21:07:29 2018 +0800
+
+    Fix abnormal width of Cascader in IE/Edge, close #11857
+
+[33mcommit 612c5d5c559b8ff83160de96b917a6f7576c5586[m
+Author: afc163 <afc163@gmail.com>
+Date:   Fri Aug 24 20:44:43 2018 +0800
+
+    Fix Upload.Dragger drag area, close #11869
+
+[33mcommit 1ab61542e4d9899d416a6f3510006b6952c1b5ed[m
+Author: afc163 <afc163@gmail.com>
+Date:   Fri Aug 24 20:33:02 2018 +0800
+
+    Fix Input[prefix|suffix] border in Input.Group, close #11863
+
+[33mcommit 1ba99510cd874b1f547483b78cd10ff61c0e08d3[m
+Author: afc163 <afc163@gmail.com>
+Date:   Fri Aug 24 20:26:27 2018 +0800
+
+    Fix @shadow-1-up, close #11873
+
+[33mcommit 33f5cc4364e131fafdc931313ebae6c433eb213a[m
+Author: afc163 <afc163@gmail.com>
+Date:   Fri Aug 24 20:25:23 2018 +0800
+
+    Fix long step description overflow, close #11864
+
+[33mcommit a54d06eb6f4b7eb50570fe379702377b9fddf9aa[m
+Author: afc163 <afc163@gmail.com>
+Date:   Fri Aug 24 15:12:31 2018 +0800
+
+    fix test case in react 15
+
+[33mcommit 62bacb09bfcbd3da4ab37179d35aedfbfed83e12[m
+Author: afc163 <afc163@gmail.com>
+Date:   Fri Aug 24 12:11:44 2018 +0800
+
+    Fix wave render error in jest, close #11868
+
+[33mcommit 68959b9a4f86847d6e78195ad21fbe509b78c836[m
+Author: afc163 <afc163@gmail.com>
+Date:   Thu Aug 23 23:14:26 2018 +0800
+
+    site: update yuque description
+
+[33mcommit e3aa2aaa84ec6553ae6f23fb528ae45f00b9aee2[m
+Author: afc163 <afc163@gmail.com>
+Date:   Thu Aug 23 21:14:16 2018 +0800
+
+    fix submenu cannot hover
+
+[33mcommit 500ef62638868ef332b090b6d6ae701bb91c79be[m
+Author: zombiej <smith3816@gmail.com>
+Date:   Thu Aug 23 20:38:56 2018 +0800
+
+    fix https://github.com/ant-design/ant-design/issues/11423. TreeNode can accept custom prop
+
+[33mcommit 044982ddb77b2c312b2243ab598647100fb7e505[m
+Author: Cang Ta <hoksilato176@gmail.com>
+Date:   Thu Aug 23 13:58:37 2018 +0700
+
+    Remove duplicate `theme` property
+
+[33mcommit 7bf50c85e1bba6bc202f8e3946e33b0cc196817e[m
+Author: Nikolay <veseliy07@gmail.com>
+Date:   Mon Aug 20 14:26:29 2018 +0300
+
+    Update Form.tsx
+
+[33mcommit 563e34994654fd66a188ad47b6a0153c21f829be[m
+Author: Nikolay <veseliy07@gmail.com>
+Date:   Mon Aug 20 14:16:11 2018 +0300
+
+    add strict mode for submit object property names
+    
+    This feature adds a posibility to validate property names in TypeScript by inserting required object interface.
+
+[33mcommit 11d29fb5224d74af978102d9fbe3034c720caa43[m
+Author: afc163 <afc163@gmail.com>
+Date:   Wed Aug 22 23:05:16 2018 +0800
+
+    use break-word over break-all, close #11722
+
+[33mcommit 3ffc7f6ac207f45f1743b1b943dd24586b91152b[m
+Author: 苏秦 <646382806@qq.com>
+Date:   Wed Aug 22 17:04:12 2018 +0800
+
+    Upload: remove necessary signatures
+
+[33mcommit f20a1e4e5d3ee74e17345488d152b2da22cd9e91[m
+Author: Bradley Xu <xgheaven@gmail.com>
+Date:   Wed Aug 22 16:17:33 2018 +0800
+
+    docs: update button demo doc
+
+[33mcommit 110e65d74d6658f192f66fbbd893ec814fe6beb1[m
+Author: jiang <155259966@qq.com>
+Date:   Wed Aug 22 16:06:33 2018 +0800
+
+    Fix drawer flash (#11833)
+    
+    * fix drawer flash
+    
+    * remove drawer transition
+
+[33mcommit fa89c79d8028e1e7148fde962fe922d99f95371f[m
+Author: wangxueliang <wangxueliang@yidian-inc.com>
+Date:   Wed Aug 22 14:23:20 2018 +0800
+
+    fix: word error praentDrawer => parentDrawer
+
+[33mcommit a523706625bd695f44401579d980089292089dda[m
+Author: ohhoney1 <1269075501@qq.com>
+Date:   Wed Aug 22 09:49:20 2018 +0800
+
+    fix bug: If ItemGroup wraps the first menu, an error is displayed when the menu is collapsed
+
+[33mcommit 90b401e97b4fbd9cbe7d9f9e049db659bd5f3753[m
+Author: afc163 <afc163@gmail.com>
+Date:   Wed Aug 22 00:49:53 2018 +0800
+
+    Fix submenu lap between menu, close #11725
+
+[33mcommit c9901acb7ffd10f07dd3f158e11387b6558906fc[m
+Author: afc163 <afc163@gmail.com>
+Date:   Wed Aug 22 00:41:29 2018 +0800
+
+    Fix WeekPicker style, close #11738
+
+[33mcommit 611c127f6b820d9398d15546c41e13b14d950ad6[m
+Author: mofelee <mofe@me.com>
+Date:   Tue Aug 21 16:54:46 2018 +0800
+
+    Update index.zh-CN.md
+
+[33mcommit aba2f5e091836d997a0ea1042105d04d8c5e7419[m
+Author: afc163 <afc163@gmail.com>
+Date:   Tue Aug 21 15:59:24 2018 +0800
+
+    fix test case
+
+[33mcommit eecc5b0f9c0841bf7d78427659783d025530f5fa[m
+Author: afc163 <afc163@gmail.com>
+Date:   Tue Aug 21 15:44:05 2018 +0800
+
+    tweak doc bugs
+
+[33mcommit c2f7257c3ff38a2a8aab62f081ed7c69b58e1fd9[m
+Author: afc163 <afc163@gmail.com>
+Date:   Tue Aug 21 15:26:00 2018 +0800
+
+    fix typo
+
+[33mcommit 6bb8d26a3beb4aedb40048d8272c8e829c1630f9[m
+Author: afc163 <afc163@gmail.com>
+Date:   Tue Aug 21 15:23:41 2018 +0800
+
+    fix typo
+
+[33mcommit 53dd82e4e3dd39d7ccc4f752901cb182b5b90555[m
+Author: afc163 <afc163@gmail.com>
+Date:   Tue Aug 21 14:04:18 2018 +0800
+
+    docs: add major less variables instruction
+
+[33mcommit 6fd5e95cec2f1c936dcf857a72446ec956a5c7ad[m
+Author: afc163 <afc163@gmail.com>
+Date:   Tue Aug 21 00:32:11 2018 +0800
+
+    docs: renew <Customize Theme> documentation
+
+[33mcommit 60cff5de4082a1f41d5e9d7f6ffc199a3d0a100d[m
+Author: afc163 <afc163@gmail.com>
+Date:   Mon Aug 20 23:55:35 2018 +0800
+
+    tweak wave effect detail
+
+[33mcommit 041173f05955532f1766c36cb67d54862a19ea70[m
+Author: afc163 <afc163@gmail.com>
+Date:   Mon Aug 20 21:02:51 2018 +0800
+
+    tweak animation arguments
+
+[33mcommit 5e37710ecba79890330de4ab95a3d4eda0043be9[m
+Author: afc163 <afc163@gmail.com>
+Date:   Mon Aug 20 20:59:48 2018 +0800
+
+    improve click effect :star:
+
+[33mcommit e610830a1a6c728deb1b3a210b59364bec02ffb8[m
+Author: afc163 <afc163@gmail.com>
+Date:   Mon Aug 20 19:02:48 2018 +0800
+
+    Fix blurry checkbox style in windows chrome
+    
+    https://stackoverflow.com/a/50412034/3040605
+    
+    close #11797
+
+[33mcommit d13187ba1ef87893839368fdf884ed32fa8ba4be[m
+Author: afc163 <afc163@gmail.com>
+Date:   Mon Aug 20 17:02:10 2018 +0800
+
+    site: tweak script and style tags order
+
+[33mcommit df20c6247a37f664d4367256506a0cfa754439cf[m
+Author: afc163 <afc163@gmail.com>
+Date:   Mon Aug 20 10:40:05 2018 +0800
+
+    upgrade some devDeps
+
+[33mcommit 40a702cebebee47c91cb8bbc2aaedcd887ef02a3[m
+Author: afc163 <afc163@gmail.com>
+Date:   Mon Aug 20 15:09:44 2018 +0800
+
+    fix locale-provide demo
+
+[33mcommit ab7855d104fe0b022628f9d1141c756c0cdfa868[m
+Author: afc163 <afc163@gmail.com>
+Date:   Mon Aug 20 15:07:05 2018 +0800
+
+    demo: update badge demo
+
+[33mcommit 22162fe04ba8fc8d32a1e31d66e83a01b5ca87c8[m
+Author: afc163 <afc163@gmail.com>
+Date:   Mon Aug 20 14:53:58 2018 +0800
+
+    Fix badge zoom animation style
+
+[33mcommit dfdd5449b004d7a38cb021a062f2fec45bea1e26[m
+Author: afc163 <afc163@gmail.com>
+Date:   Mon Aug 20 11:46:56 2018 +0800
+
+    update LocaleProvider demo
+
+[33mcommit 37b1ed16b38d02492b8edfd0ab09d5a7dbfa4944[m
+Author: afc163 <afc163@gmail.com>
+Date:   Mon Aug 20 11:37:55 2018 +0800
+
+    update LocaleProvider demo
+
+[33mcommit 3582f46347b7670d7c23a98751f15f23f46229c8[m
+Author: Alexey Yakovlev <yallie@yandex.ru>
+Date:   Thu Aug 16 15:15:58 2018 +0300
+
+    Update TreeProps.onCheck callback signature.
+
+[33mcommit 5f5417c169dc5137c1d01195cb47edb8ac022f9a[m
+Author: afc163 <afc163@gmail.com>
+Date:   Sat Aug 18 23:42:15 2018 +0800
+
+    doc: tweak use-with-create-react-app doc
+
+[33mcommit a52d694a2f1c3c55e5c11f4e8eb27f151f84ac47[m[33m ([m[1;33mtag: 3.8.2[m[33m)[m
+Author: picodoth <pikaleize@gmail.com>
+Date:   Sat Aug 18 21:40:46 2018 +0800
+
+    3.8.2
+
+[33mcommit 0ab7096a2d871d36b54f6b82efa15fa6a5af6e46[m
+Author: Junbin Huang <picodoth@users.noreply.github.com>
+Date:   Sat Aug 18 21:38:33 2018 +0800
+
+    adding changlog for 3.8.2 (#11782)
+
+[33mcommit adb66f0172c992409c53d9afb2a61fcfe20bfd98[m
+Author: zombiej <smith3816@gmail.com>
+Date:   Sat Aug 18 19:37:15 2018 +0800
+
+    update rc-tree & rc-tree-select deps
+
+[33mcommit 4622dce879a78043aa2a9bd227d3845ebc7b0e7f[m
+Author: Junbin Huang <picodoth@users.noreply.github.com>
+Date:   Sat Aug 18 14:29:25 2018 +0800
+
+    fix: tags initially hidden, closing #11757 (#11761)
+    
+    * fix: tags initially hidden, closing #11757
+    
+    * update snapshots
+
+[33mcommit 838be31543419267003ca5599b99820f6531c9da[m
+Author: afc163 <afc163@gmail.com>
+Date:   Sat Aug 18 12:48:56 2018 +0800
+
+    good looking table demo
+
+[33mcommit 958e8ebc4b173788bbeddec7b8e10f65ce18971e[m
+Author: 陈帅 <qixian.cs@outlook.com>
+Date:   Sat Aug 18 12:34:40 2018 +0800
+
+    Fix drawer (#11702)
+    
+    * fix #11583 #11443 remove pointer-events
+    
+    * update snap  fix ci
+    
+    * @ease change to @drawer-easing
+    
+    * add @ease-base-out and @ease-base-in
+    
+    * fix drawer
+
+[33mcommit 55d43eb13b7ebe8a4b4611e11065cf909ea8e127[m
+Author: afc163 <afc163@gmail.com>
+Date:   Fri Aug 17 22:29:36 2018 +0800
+
+    site: move script to body bottom
+
+[33mcommit ec6d88f407541f5dd2cf20af390240da021fba7c[m
+Author: afc163 <afc163@gmail.com>
+Date:   Fri Aug 17 19:13:42 2018 +0800
+
+    Fix modal text being selected when open it with double click, close #11777
+
+[33mcommit 45ac4872b234e633080fbf3edcb0ee072f226d97[m
+Author: afc163 <afc163@gmail.com>
+Date:   Thu Aug 16 23:32:32 2018 +0800
+
+    update chinese slogan
+
+[33mcommit 004d786cb4ca4cbb9b4d8188ffafd1346c90a8ae[m
+Author: yoyo837 <yoyo837@hotmail.com>
+Date:   Thu Aug 16 22:05:29 2018 +0800
+
+    补充中文文档
+
+[33mcommit 9555626898d3c26516dd9f9f95d99e2915d83950[m
+Author: afc163 <afc163@gmail.com>
+Date:   Thu Aug 16 17:42:44 2018 +0800
+
+    tweak indeterminate checkbox design
+
+[33mcommit 3ba45845ad4c830c8dddd5a26d7f17afe9f26be1[m
+Author: Lyndon001 <lld207@126.com>
+Date:   Thu Aug 16 17:15:16 2018 +0800
+
+    Update values.zh-CN.md
+
+[33mcommit 84119d8959d55edf535a9cac5ff532e61b6ee698[m
+Author: afc163 <afc163@gmail.com>
+Date:   Thu Aug 16 17:10:47 2018 +0800
+
+    Fix badge position when it's children is display:block
+    
+    https://codepen.io/afc163/pen/MBMjqG?editors=0110
+
+[33mcommit b126b23b2d2bbf79767df5c0d07f7758093fb5f7[m
+Author: Shuvalov Anton <anton@shuvalov.info>
+Date:   Tue Aug 14 22:11:24 2018 +0700
+
+    fixed article
+    
+    Just small grammar fix, nothing serious
+
+[33mcommit 89a1dc512508c0976fa561bb5796439c4a4f73c0[m
+Author: afc163 <afc163@gmail.com>
+Date:   Tue Aug 14 15:03:44 2018 +0800
+
+    Fix rate focus outline style, close #11736
+
+[33mcommit 8d873785a71cf6365c1a333c63819f6152ac02c4[m
+Author: afc163 <afc163@gmail.com>
+Date:   Tue Aug 14 12:26:53 2018 +0800
+
+    Add badge above footer kitchen link
+
+[33mcommit e107b03cc75a0bc5f79e33b2668f567048beefb9[m
+Author: Bartek <bartek.kozera@gmail.com>
+Date:   Mon Aug 13 08:09:32 2018 +0200
+
+    closing #11604, add selectable to AntTreeNodeProps (#11651)
+
+[33mcommit be74114d2294b61824b05c9f7bca6b78bf480f97[m
+Author: Wei Zhu <yesmeck@gmail.com>
+Date:   Mon Aug 13 14:04:27 2018 +0800
+
+    fix: Input 'autosize' is missing in type error
+    
+    close #11697
+    
+    `autosize` was used for `<Input type="textarea" />` which has been
+    separated to Input.Textarea
+
+[33mcommit 755132cc26a153b92f05f04b7b1eadc1997d0608[m
+Author: afc163 <afc163@gmail.com>
+Date:   Mon Aug 13 00:14:14 2018 +0800
+
+    tweak spin container loading style
+
+[33mcommit 838abbd35872cd4d92c2725075407ed9f6db3b95[m
+Author: afc163 <afc163@gmail.com>
+Date:   Sun Aug 12 22:02:05 2018 +0800
+
+    tweak table demo
+
+[33mcommit bf2490c45f1c79d57657cd1fed73e6e9c5ec81cd[m[33m ([m[1;33mtag: 3.8.1[m[33m)[m
+Author: 愚指导 <yutingzhao1991@sina.com>
+Date:   Sun Aug 12 11:17:08 2018 +0800
+
+    release 3.8.1 (#11708)
+
+[33mcommit f1649efebbabb66f1cadd2ffde395b03b93171a2[m
+Author: afc163 <afc163@gmail.com>
+Date:   Sun Aug 12 01:40:14 2018 +0800
+
+    update rate snapshots
+
+[33mcommit 799c7be17ec39e07b99d98687b1ae1482382120d[m
+Author: afc163 <afc163@gmail.com>
+Date:   Sun Aug 12 00:04:58 2018 +0800
+
+    Fix site error in IE10/11 which don't support conditional comments
+
+[33mcommit 754a22ca24dee685666554778f53a5fe700959ff[m
+Author: afc163 <afc163@gmail.com>
+Date:   Sat Aug 11 20:51:03 2018 +0800
+
+    Fix radio align problem in safari
+
+[33mcommit 589415ed95d6de5c73d26f20fade9d1c640b505e[m
+Author: afc163 <afc163@gmail.com>
+Date:   Sat Aug 11 15:46:45 2018 +0800
+
+    Fix Tag with wave effect
+
+[33mcommit 4d7f1b191f9d438ebf3271eae35a0c722d4b3913[m
+Author: afc163 <afc163@gmail.com>
+Date:   Sat Aug 11 15:34:14 2018 +0800
+
+    remove console
+
+[33mcommit 7b719ce457ce6c140962b29f0db0af54cbb3a9c8[m
+Author: afc163 <afc163@gmail.com>
+Date:   Sat Aug 11 15:16:33 2018 +0800
+
+    simplicy Anchor test
+
+[33mcommit 9cf6ae601010acbf665d575d34c0cc0918e604e7[m
+Author: afc163 <afc163@gmail.com>
+Date:   Sat Aug 11 14:57:41 2018 +0800
+
+    Refactor and apply wave click animation to more components
+    
+    now support Button, Tag, Radio.Button and switch
+
+[33mcommit d8fd521f923ec2be130cbecdc1cba84641f4f601[m
+Author: afc163 <afc163@gmail.com>
+Date:   Sat Aug 11 12:07:14 2018 +0800
+
+    fix BackTop test fails a lot again
