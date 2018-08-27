@@ -20,6 +20,7 @@ timeline: true
 `2018-08-27`
 
 - 🐞 修复 Tag 组件删除 tag 后会造成换行的问题。
+- 🐞 修复 Switch 单击时会产生 `Failed to execute 'removeChild' on 'Node'` 错误的问题。
 
 ## 3.8.3
 
