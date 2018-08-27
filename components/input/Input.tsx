@@ -82,6 +82,10 @@ export default class Input extends React.Component<InputProps, any> {
     this.input.blur();
   }
 
+  select() {
+    this.input.select();
+  }
+
   getInputClassName() {
     const { prefixCls, size, disabled } = this.props;
     return classNames(prefixCls, {
