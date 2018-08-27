@@ -31,9 +31,7 @@ export default class IconSet extends React.Component {
   };
 
   // Show badges
-  newIcons = [
-    'zhihu', 'file-markdown', 'slack', 'slack-square', 'behance', 'behance-square', 'dribbble', 'dribbble-square', 'instagram', 'yuque',
-  ];
+  newIcons = [];
 
   render() {
     const { justCopied } = this.state;
