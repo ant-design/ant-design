@@ -133,13 +133,15 @@ export default class Demo extends React.Component {
     const codepenPrefillConfig = {
       title: `${localizedTitle} - Ant Design Demo`,
       html,
-      js: state.sourceCode.replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'antd';/, 'const { $1 } = antd;'),
+      js: state.sourceCode
+        .replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'antd';/, 'const { $1 } = antd;')
+        .replace("import moment from 'moment';", ''),
       css: prefillStyle,
       editors: '001',
       css_external: 'https://unpkg.com/antd/dist/antd.css',
       js_external: [
-        'react@15.x/dist/react.js',
-        'react-dom@15.x/dist/react-dom.js',
+        'react@16.x/umd/react.development.js',
+        'react-dom@16.x/umd/react-dom.development.js',
         'moment/min/moment-with-locales.js',
         'antd/dist/antd-with-locales.js',
       ].map(url => `https://unpkg.com/${url}`).join(';'),
