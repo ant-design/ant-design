@@ -1,32 +1,38 @@
 ---
 order: 7
 title:
-  zh-CN: 手动移除
-  en-US: Manual to destroy
+  zh-CN: 手动更新和移除
+  en-US: Manual to update destroy
 ---
 
 ## zh-CN
 
-手动关闭modal。
+手动更新和关闭 `Modal.method` 方式创建的对话框。
 
 ## en-US
 
-Manually destroying a modal.
+Manually updateing and destroying a modal from `Modal.method`.
 
 ````jsx
 import { Modal, Button } from 'antd';
 
-function success() {
+function countDown() {
+  let secondsToGo = 5;
   const modal = Modal.success({
     title: 'This is a notification message',
-    content: 'This modal will be destroyed after 1 second',
+    content: `This modal will be destroyed after ${secondsToGo} second.`,
   });
-  setTimeout(() => modal.destroy(), 1000);
+  setInterval(() => {
+    secondsToGo -= 1;
+    modal.update({
+      content: `This modal will be destroyed after ${secondsToGo} second.`,
+    });
+  }, 1000);
+  setTimeout(() => modal.destroy(), secondsToGo * 1000);
 }
 
-
 ReactDOM.render(
-  <Button onClick={success}>Success</Button>,
+  <Button onClick={countDown}>Open modal to close in 5s</Button>,
   mountNode
 );
 ````

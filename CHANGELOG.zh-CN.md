@@ -15,6 +15,25 @@ timeline: true
 
 ---
 
+## 3.8.3
+
+`2018-08-26`
+
+- 📖 重新编写了 [定制主题](https://ant.design/docs/react/customize-theme-cn) 文档，并提供了主要的 `Less` 变量说明。
+- 🐞 修复 Badge 组件动画出现位置不正确的问题。[#11870](https://github.com/ant-design/ant-design/issues/11870)
+- 🐞 修复 Cascader 组件在 IE 和 Edge 浏览器中浮层与数据列宽度不一致的问题。[#11857](https://github.com/ant-design/ant-design/issues/11857)
+- 🐞 修复 Checkbox 组件在 Windows Chrome 下样式模糊的问题。[#11797](https://github.com/ant-design/ant-design/issues/11797)
+- 🐞 修复 DatePicker.WeekPicker 组件的 `style` 属性无法生效的问题。[#11738](https://github.com/ant-design/ant-design/issues/11738)
+- 🐞 修复 Drawer 组件在多层状态下切换出现的背景闪烁的问题。[#11813](https://github.com/ant-design/ant-design/issues/11813)
+- 🐞 修复带有前缀或后缀的 Input.Group 组件在紧凑模式下右边框宽度过宽的问题。[#11863](https://github.com/ant-design/ant-design/issues/11863)
+- Menu
+	- 🐞 修复子菜单之间存在间隙导致鼠标 hover 时菜单消失的问题。[#11725](https://github.com/ant-design/ant-design/issues/11725)
+	- 🐞 修复当分组菜单包含了第一个菜单项，并且在菜单收起时出现错误的问题。[a52370](https://github.com/ant-design/ant-design/commit/a523706625bd695f44401579d980089292089dda) [@ohhoney1](https://github.com/ohhoney1)
+- 🐞 修复 Steps 组件中过长的 `description` 会被截断，无法完整展示的问题。[#11864](https://github.com/ant-design/ant-design/issues/11864)
+- 🐞 修复 Tooltip 组件在 `title` 过长时会将单词拆分到两行的问题。[#11722](https://github.com/ant-design/ant-design/issues/11722)
+- 🐞 修复 Tree 组件中的树节点无法接收自定义属性的问题。[#11423](https://github.com/ant-design/ant-design/issues/11423)
+- 🐞 修复 Upload.Dragger 组件的有效拖拽区域不匹配的问题。[#11869](https://github.com/ant-design/ant-design/issues/11869)
+
 ## 3.8.2
 
 `2018-8-18`

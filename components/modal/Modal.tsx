@@ -79,6 +79,7 @@ export interface ModalFuncProps {
   style?: React.CSSProperties;
   type?: string;
   keyboard?: boolean;
+  getContainer?: (instance: React.ReactInstance) => HTMLElement;
 }
 
 export type ModalFunc = (props: ModalFuncProps) => {
