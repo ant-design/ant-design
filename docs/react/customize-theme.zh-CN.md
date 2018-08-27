@@ -85,7 +85,7 @@ module.exports = {
 
 ### 在 create-react-app 中定制主题
 
-参考 [在 create-react-app 中使用](/docs/react/create-react-app) 进行配置即可。
+参考 [在 create-react-app 中使用](/docs/react/use-with-create-react-app) 进行配置即可。
 
 ### 配置 less 变量文件
 
