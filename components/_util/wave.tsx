@@ -83,11 +83,14 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
   }
 
   resetEffect(node: HTMLElement) {
+    if (!node || node === this.extraNode) {
+      return;
+    }
     const { insertExtraNode } = this.props;
     const attributeName = this.getAttributeName();
     node.removeAttribute(attributeName);
     this.removeExtraStyleNode();
-    if (insertExtraNode) {
+    if (insertExtraNode && this.extraNode && node.contains(this.extraNode)) {
       node.removeChild(this.extraNode);
     }
     TransitionEvents.removeEndEventListener(node, this.onTransitionEnd);
