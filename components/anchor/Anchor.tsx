@@ -92,6 +92,7 @@ export interface AnchorProps {
   affix?: boolean;
   showInkInFixed?: boolean;
   getContainer?: () => AnchorContainer;
+  onClick?: (e: React.MouseEvent<HTMLElement>, link: string) => void;
 }
 
 export interface AnchorState {
@@ -110,6 +111,7 @@ export interface AntAnchor {
   unregisterLink: (link: string) => void;
   activeLink: string | null;
   scrollTo: (link: string) => void;
+  propClick?: (e: React.MouseEvent<HTMLElement>, link: string) => void;
 }
 
 export default class Anchor extends React.Component<AnchorProps, AnchorState> {
@@ -151,6 +153,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
       },
       activeLink: this.state.activeLink,
       scrollTo: this.handleScrollTo,
+      propClick: this.props.onClick,
     };
     return { antAnchor };
   }

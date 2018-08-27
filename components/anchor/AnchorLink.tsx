@@ -40,8 +40,10 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
     this.context.antAnchor.unregisterLink(this.props.href);
   }
 
-  handleClick = () => {
-    this.context.antAnchor.scrollTo(this.props.href);
+  handleClick = (e: React.MouseEvent<HTMLElement>) => {
+    const { scrollTo, propClick } = this.context.antAnchor;
+    const { href } = this.props;
+    propClick ? propClick(e, href) : scrollTo(href);
   }
 
   render() {
