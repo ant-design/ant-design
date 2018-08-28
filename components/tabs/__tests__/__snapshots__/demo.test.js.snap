@@ -576,6 +576,145 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
+<div>
+  <div
+    class="ant-tabs ant-tabs-top ant-tabs-line"
+  >
+    <div>
+      <div />
+      <div
+        class="ant-tabs-bar"
+        role="tablist"
+        style="z-index:1;background:#fff"
+        tabindex="0"
+      >
+        <div
+          class="ant-tabs-nav-container"
+        >
+          <span
+            class="ant-tabs-tab-prev ant-tabs-tab-btn-disabled"
+            unselectable="unselectable"
+          >
+            <span
+              class="ant-tabs-tab-prev-icon"
+            >
+              <i
+                class="anticon anticon-left ant-tabs-tab-prev-icon-target"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="left"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                >
+                  <path
+                    d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+                  />
+                </svg>
+              </i>
+            </span>
+          </span>
+          <span
+            class="ant-tabs-tab-next ant-tabs-tab-btn-disabled"
+            unselectable="unselectable"
+          >
+            <span
+              class="ant-tabs-tab-next-icon"
+            >
+              <i
+                class="anticon anticon-right ant-tabs-tab-next-icon-target"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="right"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                >
+                  <path
+                    d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+                  />
+                </svg>
+              </i>
+            </span>
+          </span>
+          <div
+            class="ant-tabs-nav-wrap"
+          >
+            <div
+              class="ant-tabs-nav-scroll"
+            >
+              <div
+                class="ant-tabs-nav ant-tabs-nav-animated"
+              >
+                <div>
+                  <div
+                    aria-disabled="false"
+                    aria-selected="true"
+                    class="ant-tabs-tab-active ant-tabs-tab"
+                    role="tab"
+                  >
+                    Tab 1
+                  </div>
+                  <div
+                    aria-disabled="false"
+                    aria-selected="false"
+                    class=" ant-tabs-tab"
+                    role="tab"
+                  >
+                    Tab 2
+                  </div>
+                  <div
+                    aria-disabled="false"
+                    aria-selected="false"
+                    class=" ant-tabs-tab"
+                    role="tab"
+                  >
+                    Tab 3
+                  </div>
+                </div>
+                <div
+                  class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-tabs-content ant-tabs-content-animated"
+      style="margin-left:0%"
+    >
+      <div
+        aria-hidden="false"
+        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        role="tabpanel"
+        style="height:200px"
+      >
+        Content of Tab Pane 1
+      </div>
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top ant-tabs-line"

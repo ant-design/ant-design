@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import RcTabs, { TabPane } from 'rc-tabs';
-import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
 import TabContent from 'rc-tabs/lib/TabContent';
+import TabBar from './TabBar';
 import classNames from 'classnames';
 import Icon from '../icon';
 import warning from '../_util/warning';
@@ -30,6 +30,7 @@ export interface TabsProps {
   className?: string;
   animated?: boolean | { inkBar: boolean; tabPane: boolean; };
   tabBarGutter?: number;
+  renderTabBar?: (props: TabsProps, DefaultTabBar: React.ReactNode) => React.ReactElement<any>;
 }
 
 // Tabs
@@ -51,13 +52,6 @@ export default class Tabs extends React.Component<TabsProps, any> {
     hideAdd: false,
   };
 
-  createNewTab = (targetKey: React.MouseEvent<HTMLElement>) => {
-    const onEdit = this.props.onEdit;
-    if (onEdit) {
-      onEdit(targetKey, 'add');
-    }
-  }
-
   removeTab = (targetKey: string, e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation();
     if (!targetKey) {
@@ -77,6 +71,13 @@ export default class Tabs extends React.Component<TabsProps, any> {
     }
   }
 
+  createNewTab = (targetKey: React.MouseEvent<HTMLElement>) => {
+    const { onEdit } = this.props;
+    if (onEdit) {
+      onEdit(targetKey, 'add');
+    }
+  }
+
   componentDidMount() {
     const NO_FLEX = ' no-flex';
     const tabNode = ReactDOM.findDOMNode(this) as Element;
@@ -93,21 +94,12 @@ export default class Tabs extends React.Component<TabsProps, any> {
       type = 'line',
       tabPosition,
       children,
-      tabBarExtraContent,
-      tabBarStyle,
-      hideAdd,
-      onTabClick,
-      onPrevClick,
-      onNextClick,
       animated = true,
-      tabBarGutter,
+      tabBarExtraContent,
+      hideAdd,
     } = this.props;
 
-    let { inkBarAnimated, tabPaneAnimated } = typeof animated === 'object' ? {
-      inkBarAnimated: animated.inkBar, tabPaneAnimated: animated.tabPane,
-    } : {
-        inkBarAnimated: animated, tabPaneAnimated: animated,
-      };
+    let tabPaneAnimated = typeof animated === 'object' ? animated.tabPane : animated;
 
     // card tabs should not have animation
     if (type !== 'line') {
@@ -166,41 +158,12 @@ export default class Tabs extends React.Component<TabsProps, any> {
       </div>
     ) : null;
 
-    const renderTabBar = () => {
-      const isVertical = tabPosition === 'left' || tabPosition === 'right';
-      const prevIconType = isVertical ? 'up' : 'left';
-      const nextIconType = isVertical ? 'down' : 'right';
-      const prevIcon = (
-        <span className={`${prefixCls}-tab-prev-icon`}>
-          <Icon type={prevIconType} className={`${prefixCls}-tab-prev-icon-target`} />
-        </span>
-      );
-      const nextIcon = (
-        <span className={`${prefixCls}-tab-next-icon`}>
-          <Icon type={nextIconType} className={`${prefixCls}-tab-next-icon-target`} />
-        </span>
-      );
-      return (
-        <ScrollableInkTabBar
-          inkBarAnimated={inkBarAnimated}
-          extraContent={tabBarExtraContent}
-          onTabClick={onTabClick}
-          onPrevClick={onPrevClick}
-          onNextClick={onNextClick}
-          style={tabBarStyle}
-          tabBarGutter={tabBarGutter}
-          prevIcon={prevIcon}
-          nextIcon={nextIcon}
-        />
-      );
-    };
-
     return (
       <RcTabs
         {...this.props}
         className={cls}
         tabBarPosition={tabPosition}
-        renderTabBar={renderTabBar}
+        renderTabBar={() => <TabBar {...this.props} tabBarExtraContent={tabBarExtraContent}/>}
         renderTabContent={() => <TabContent animated={tabPaneAnimated} animatedWithMargin />}
         onChange={this.handleChange}
       >

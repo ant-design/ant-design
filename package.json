@@ -164,6 +164,7 @@
     "react-intl": "^2.0.1",
     "react-resizable": "^1.7.5",
     "react-router-dom": "^4.2.2",
+    "react-sticky": "^6.0.3",
     "react-sublime-video": "^0.2.0",
     "react-virtualized": "~9.20.0",
     "remark-frontmatter": "^1.1.0",

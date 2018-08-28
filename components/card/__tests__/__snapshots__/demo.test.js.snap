@@ -674,7 +674,7 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
         class="ant-tabs ant-tabs-top ant-card-head-tabs ant-tabs-large ant-tabs-line"
       >
         <div
-          class="ant-tabs-bar"
+          class="ant-tabs-bar ant-card-head-tabs"
           role="tablist"
           tabindex="0"
         >
@@ -809,7 +809,7 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
         class="ant-tabs ant-tabs-top ant-card-head-tabs ant-tabs-large ant-tabs-line"
       >
         <div
-          class="ant-tabs-bar"
+          class="ant-tabs-bar ant-card-head-tabs"
           role="tablist"
           tabindex="0"
         >
