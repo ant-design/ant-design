@@ -110,7 +110,8 @@ While there's no canonical way to do it, you can take one of the following paths
 It's possible to configure webpack to load an alternate less file:
 
 ```ts
-new webpack.NormalModuleReplacementPlugin( /node_modules\/antd\/lib\/style\/index\.less/, path.resolve(rootDir, 'src/myStylesReplacement.less') ),
+new webpack.NormalModuleReplacementPlugin( /node_modules\/antd\/lib\/style\/index\.less/, path.resolve(rootDir, 'src/myStylesReplacement.less') )
+
 #antd { @import '~antd/lib/style/core/index.less'; @import '~antd/lib/style/themes/default.less'; }
 ```
 
