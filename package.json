@@ -89,7 +89,6 @@
     "warning": "~4.0.1"
   },
   "devDependencies": {
-    "@babel/types": "7.0.0-beta.44",
     "@types/classnames": "^2.2.6",
     "@types/prop-types": "^15.5.4",
     "@types/react": "^16.0.0",
