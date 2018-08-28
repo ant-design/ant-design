@@ -110,7 +110,7 @@ export interface AntAnchor {
   unregisterLink: (link: string) => void;
   activeLink: string | null;
   scrollTo: (link: string) => void;
-  propClick?: (e: React.MouseEvent<HTMLElement>, link: { title: React.ReactNode, href: string }) => void;
+  onClick?: (e: React.MouseEvent<HTMLElement>, link: { title: React.ReactNode, href: string }) => void;
 }
 
 export default class Anchor extends React.Component<AnchorProps, AnchorState> {
@@ -152,7 +152,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
       },
       activeLink: this.state.activeLink,
       scrollTo: this.handleScrollTo,
-      propClick: this.props.onClick,
+      onClick: this.props.onClick,
     };
     return { antAnchor };
   }
