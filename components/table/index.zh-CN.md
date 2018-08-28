@@ -8,6 +8,10 @@ subtitle: 表格
 
 展示行列数据。
 
+## 设计师专属 🌟
+
+还在用 Sketch 手动画表格吗？现在安装 [Kitchen Sketch](https://kitchen.alipay.com/) 插件，两步就可以自动生成 Ant Design 表格组件啦！
+
 ## 何时使用
 
 - 当有大量结构化的数据需要展现时；
