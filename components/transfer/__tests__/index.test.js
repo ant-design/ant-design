@@ -192,6 +192,26 @@ describe('Transfer', () => {
     ).toEqual('Nothing');
   });
 
+  it('should display the correct locale using old API', () => {
+    const emptyProps = { dataSource: [], selectedKeys: [], targetKeys: [] };
+    const locale = { notFoundContent: 'old1', searchPlaceholder: 'old2' };
+    const wrapper = mount(<Transfer {...listCommonProps} {...emptyProps} {...locale} showSearch />);
+
+    expect(
+      wrapper
+        .find(TransferList).at(0)
+        .find('.ant-transfer-list-search').at(0)
+        .prop('placeholder')
+    ).toEqual('old2');
+
+    expect(
+      wrapper
+        .find(TransferList).at(0)
+        .find('.ant-transfer-list-body-not-found').at(0)
+        .text()
+    ).toEqual('old1');
+  });
+
   it('should display the correct items unit', () => {
     const wrapper = mount(<Transfer {...listCommonProps} locale={{ itemsUnit: 'People' }} />);
 
