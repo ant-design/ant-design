@@ -111,11 +111,10 @@ It's possible to configure webpack to load an alternate less file:
 
 ```ts
 new webpack.NormalModuleReplacementPlugin( /node_modules\/antd\/lib\/style\/index\.less/, path.resolve(rootDir, 'src/myStylesReplacement.less') ),
-
-Where the src/myStylesReplacement.less file loads the same files as the index.less file, but loads them within the scope of a top-level selector:
-
 #antd { @import '~antd/lib/style/core/index.less'; @import '~antd/lib/style/themes/default.less'; }
 ```
+
+Where the src/myStylesReplacement.less file loads the same files as the index.less file, but loads them within the scope of a top-level selector:
 
 The result is that all of the "global" styles are being applied with the #antd scope.
 
