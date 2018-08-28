@@ -3,7 +3,6 @@ import * as ReactDOM from 'react-dom';
 import RcTabs, { TabPane } from 'rc-tabs';
 import TabContent from 'rc-tabs/lib/TabContent';
 import TabBar from './TabBar';
-import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
 import classNames from 'classnames';
 import Icon from '../icon';
 import warning from '../_util/warning';
@@ -31,7 +30,7 @@ export interface TabsProps {
   className?: string;
   animated?: boolean | { inkBar: boolean; tabPane: boolean; };
   tabBarGutter?: number;
-  renderTabBar?: (props: TabsProps) => React.ReactElement<any>;
+  renderTabBar?: (props: TabsProps, DefaultTabBar: React.ReactNode) => React.ReactElement<any>;
 }
 
 // Tabs
@@ -52,8 +51,6 @@ export default class Tabs extends React.Component<TabsProps, any> {
     prefixCls: 'ant-tabs',
     hideAdd: false,
   };
-
-  static DefaultTabBar = ScrollableInkTabBar;
 
   removeTab = (targetKey: string, e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation();

@@ -1,7 +1,7 @@
 ---
 order: 12
 title:
-  zh-CN: 自定义tabBar
+  zh-CN: 自定义页签头
   en-US: Customized bar of tab
 ---
 
@@ -19,10 +19,10 @@ import { StickyContainer, Sticky } from 'react-sticky';
 
 const TabPane = Tabs.TabPane;
 
-const renderTabBar = props => (
+const renderTabBar = (props, DefaultTabBar) => (
   <Sticky bottomOffset={80}>
     {({ style }) => (
-      <Tabs.DefaultTabBar {...props} style={{ ...style, zIndex: 1, background: '#fff' }} />
+      <DefaultTabBar {...props} style={{ ...style, zIndex: 1, background: '#fff' }} />
     )}
   </Sticky>
 );
