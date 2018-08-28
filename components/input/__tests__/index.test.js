@@ -15,6 +15,13 @@ describe('Input', () => {
     );
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('select()', () => {
+    const wrapper = mount(
+      <Input />
+    );
+    wrapper.instance().select();
+  });
 });
 
 focusTest(TextArea);
