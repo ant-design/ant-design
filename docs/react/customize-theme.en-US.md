@@ -100,8 +100,8 @@ Note: This way will load the styles of all components, regardless of your demand
 
 ## How to avoid modifying global styles ?
 
-Currently ant-design modify is designed as a whole experience and modify global styles (eg `body` etc).  
-If you need to integrate ant-design as a part of an existing website, it's likely you would want to prevent ant-design to override global styles.  
+Currently ant-design is designed as a whole experience and modify global styles (eg `body` etc).  
+If you need to integrate ant-design as a part of an existing website, it's likely you want to prevent ant-design to override global styles.  
 
 While there's no canonical way to do it, you can take one of the following paths : 
 
@@ -115,9 +115,7 @@ new webpack.NormalModuleReplacementPlugin( /node_modules\/antd\/lib\/style\/inde
 #antd { @import '~antd/lib/style/core/index.less'; @import '~antd/lib/style/themes/default.less'; }
 ```
 
-Where the src/myStylesReplacement.less file loads the same files as the index.less file, but loads them within the scope of a top-level selector:
-
-The result is that all of the "global" styles are being applied with the #antd scope.
+Where the src/myStylesReplacement.less file loads the same files as the index.less file, but loads them within the scope of a top-level selector : the result is that all of the "global" styles are being applied with the #antd scope.
 
 ### Use a postcss processor to scope all styles
 
