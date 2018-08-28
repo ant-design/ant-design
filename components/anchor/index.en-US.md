@@ -23,6 +23,7 @@ For displaying anchor hyperlinks on page and jumping between them.
 | offsetBottom | Pixels to offset from bottom when calculating position of scroll | number | - |
 | offsetTop | Pixels to offset from top when calculating position of scroll | number | 0 |
 | showInkInFixed | Whether show ink-balls in Fixed mode | boolean | false |
+| onClick | set the handler to handle `click` event | Function(e: Event, link: Object) | - |
 
 ### Link Props
 
