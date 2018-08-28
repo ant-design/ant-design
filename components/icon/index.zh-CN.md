@@ -8,6 +8,10 @@ toc: false
 
 语义化的矢量图形。
 
+## 设计师专属 🌟
+
+安装 [Kitchen Sketch](https://kitchen.alipay.com) 插件，就可以一键拖拽使用 Ant Design 和 Iconfont 官方的海量图标，还可以关联自己的项目哦！
+
 ## 图标的命名规范
 
 我们为每个图标赋予了语义化的命名，命名规则如下:

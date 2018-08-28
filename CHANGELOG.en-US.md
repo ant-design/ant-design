@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 3.8.4
+
+`2018-08-27`
+
+- 🐞 Fixed an issue where the Tag component would cause a line break after deleting the tag.
+- 🐞 Fixed `Failed to execute 'removeChild' on 'Node'` error when click Switch.
+
 ## 3.8.3
 
 `2018-08-26`
