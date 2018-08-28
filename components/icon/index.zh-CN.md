@@ -19,6 +19,10 @@ toc: false
 
 完整的图标设计规范请访问 [图标规范](/docs/spec/icon)。
 
+## 设计师专属 🌟
+
+安装 [Kitchen Sketch](https://kitchen.alipay.com) 插件，就可以一键拖拽使用 Ant Design 和 Iconfont 官方的海量图标，还可以关联自己的项目哦！
+
 ## 如何使用
 
 使用 `<Icon />` 标签声明组件，指定图标对应的 type 属性，示例代码如下:
