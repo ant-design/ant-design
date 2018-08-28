@@ -120,7 +120,7 @@ The result is that all of the "global" styles are being applied with the #antd s
 
 ### Use a postcss processor to scope all styles
 
-See eg https://gist.github.com/sbusch/a90eafaf5a5b61c6d6172da6ff76ddaa
+See an example of usage with gulp and [postcss-prefixwrap](https://github.com/dbtedman/postcss-prefixwrap) : https://gist.github.com/sbusch/a90eafaf5a5b61c6d6172da6ff76ddaa
 
 ## Not working?
 
