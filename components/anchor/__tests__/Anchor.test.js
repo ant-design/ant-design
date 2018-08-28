@@ -107,7 +107,7 @@ describe('Anchor Render', () => {
   it('Anchor onClick event', () => {
     let event;
     let link;
-    const handleClick = (newEvent, newLink) => ([event, link] = [newEvent, newLink]);
+    const handleClick = (...arg) => ([event, link] = arg);
 
     const href = '#API';
     const title = 'API';
