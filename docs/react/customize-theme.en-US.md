@@ -98,6 +98,27 @@ Another approach to customize theme is creating a `less` file within variables t
 
 Note: This way will load the styles of all components, regardless of your demand, which cause `style` option of `babel-plugin-import` not working.
 
+## How to avoid modifying global styles ?
+
+Currently ant-design modify is designed as a whole experience and modify global styles (eg `body` etc).  
+If you need to integrate ant-design as a part of a website, perhaps you would want to prevent ant-design to override global styles.  
+
+While there's no canonical way to do it, you can take one of the following paths : 
+
+### Configuring webpack to scope less files
+
+It's possible to configure webpack to load an alternate less file:
+
+```ts
+new webpack.NormalModuleReplacementPlugin( /node_modules\/antd\/lib\/style\/index\.less/, path.resolve(rootDir, 'src/myStylesReplacement.less') ),
+
+Where the src/myStylesReplacement.less file loads the same files as the index.less file, but loads them within the scope of a top-level selector:
+
+#antd { @import '~antd/lib/style/core/index.less'; @import '~antd/lib/style/themes/default.less'; }
+```
+
+The result is that all of the "global" styles are being applied with the #antd scope:
+
 ## Not working?
 
 You must import styles as less format. A common mistake would be importing multiple copied of styles that some of them are css format to override the less styles.
