@@ -1,17 +1,14 @@
 import * as React from 'react';
 import createDOMForm from 'rc-form/lib/createDOMForm';
-import { WrappedFormUtils, FormComponentProps } from './Form';
+import { WrappedFormUtils, FormComponentProps, FormCreateOption } from './Form';
 
-interface CreateProps {
+interface CreateProps extends FormCreateOption<CreateProps> {
   children: (form: WrappedFormUtils) => React.ReactNode;
 }
 
-class Create extends React.Component<CreateProps> {
-  public render() {
-    const { children, ...options } = this.props;
-    const WrappedComponent = createDOMForm(options)(({ form }: FormComponentProps) => children(form));
-    return <WrappedComponent/>;
-  }
-}
+const Create = ({ children, ...options }: CreateProps) => {
+  const WrappedComponent = createDOMForm(options)(({ form }: FormComponentProps) => children(form));
+  return <WrappedComponent/>;
+};
 
 export default Create;

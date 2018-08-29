@@ -885,6 +885,92 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/form/demo/form-create-component.md correctly 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col-4 ant-form-item-label"
+    >
+      <label
+        class=""
+        title="item0"
+      >
+        item0
+      </label>
+    </div>
+    <div
+      class="ant-col-8 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control"
+      >
+        <span
+          class="ant-form-item-children"
+        >
+          <input
+            class="ant-input"
+            type="text"
+            value=""
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col-8 ant-col-offset-4 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control"
+      >
+        <span
+          class="ant-form-item-children"
+        >
+          <button
+            class="ant-btn"
+            type="button"
+          >
+            <span>
+              Add
+            </span>
+          </button>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col-8 ant-col-offset-4 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control"
+      >
+        <span
+          class="ant-form-item-children"
+        >
+          <button
+            class="ant-btn ant-btn-primary"
+            type="submit"
+          >
+            <span>
+              Submit
+            </span>
+          </button>
+        </span>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`renders ./components/form/demo/form-in-modal.md correctly 1`] = `
 <div>
   <button
