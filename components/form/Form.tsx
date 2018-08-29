@@ -1,11 +1,12 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
+import createDOMForm from 'rc-form/lib/createDOMForm';
 import createFormField from 'rc-form/lib/createFormField';
 import omit from 'omit.js';
 import warning from '../_util/warning';
 import FormItem from './FormItem';
-import create from './create';
+import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
 import { Omit } from '../_util/type';
 
 type FormCreateOptionMessagesCallback = (...args: any[]) => string;
@@ -160,7 +161,14 @@ export default class Form extends React.Component<FormProps, any> {
 
   static createFormField = createFormField;
 
-  static create = create;
+  static create = function<TOwnProps>(options: FormCreateOption<TOwnProps> = {}): ComponentDecorator {
+    return createDOMForm({
+      fieldNameProp: 'id',
+      ...options,
+      fieldMetaProp: FIELD_META_PROP,
+      fieldDataProp: FIELD_DATA_PROP,
+    });
+  };
 
   constructor(props: FormProps) {
     super(props);
