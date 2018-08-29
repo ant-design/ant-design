@@ -74,6 +74,8 @@ export type GetFieldDecoratorOptions = {
   trigger?: string;
   /** 可以把 onChange 的参数转化为控件的值，例如 DatePicker 可设为：(date, dateString) => dateString */
   getValueFromEvent?: (...args: any[]) => any;
+  /** Get the component props according to field value. */
+  getValueProps?: (value: any) => any;
   /** 校验子节点值的时机 */
   validateTrigger?: string | string[];
   /** 校验规则，参见 [async-validator](https://github.com/yiminghe/async-validator) */
