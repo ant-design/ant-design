@@ -11,6 +11,10 @@ title: 图标
 
 ---
 
+## 设计师专属🌟
+
+安装 [Kitchen Sketch](https://kitchen.alipay.com) 插件，就可以一键拖拽使用 Ant Design 和 Iconfont 的海量图标，还可以关联自己的项目哦！
+
 ## 系统图标
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/XzOPonWCsPjvgkrklCzo.png">
