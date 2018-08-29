@@ -6,6 +6,7 @@ import createFormField from 'rc-form/lib/createFormField';
 import omit from 'omit.js';
 import warning from '../_util/warning';
 import FormItem from './FormItem';
+import Create from './Create';
 import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
 import { Omit } from '../_util/type';
 
@@ -160,6 +161,8 @@ export default class Form extends React.Component<FormProps, any> {
   static Item = FormItem;
 
   static createFormField = createFormField;
+
+  static Create = Create;
 
   static create = function<TOwnProps>(options: FormCreateOption<TOwnProps> = {}): ComponentDecorator {
     return createDOMForm({
