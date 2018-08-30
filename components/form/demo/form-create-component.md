@@ -14,59 +14,41 @@ title:
 Using the `FormCreate` component, you do not need to use `form.create ()`` again.
 
 ````jsx
-import { Form, Input, Button } from 'antd';
+import { Form, InputNumber, Button } from 'antd';
 import Component from '@reactions/component';
 
 const FormItem = Form.Item;
 const FormCreate = Form.Create;
 
-const HorizontalLoginForm = () => (
+const SimpleForm = () => (
   <FormCreate>
     {({ getFieldDecorator, validateFields }) => (
-      <Component initialState={{ itemLength: 1 }}>
-        {({ setState, state: { itemLength } }) => {
-          const handleSubmit = (e) => {
+      <Component initialState={{ result: 0 }}>
+        {({ setState, state: { result } }) => {
+          const handleAdd = (e) => {
             e.preventDefault();
-            validateFields((err, values) => {
+            validateFields((err, { value }) => {
               if (!err) {
-                console.log('Received values of form: ', values);
+                setState({ result: result + value });
               }
             });
           };
-          const handleAdd = () => setState({ itemLength: itemLength + 1 });
-
-          const formItemLayout = {
-            labelCol: { span: 4 },
-            wrapperCol: { span: 8 },
-          };
-          const formTailLayout = {
-            labelCol: { span: 4 },
-            wrapperCol: { span: 8, offset: 4 },
-          };
-
           return (
-            <Form onSubmit={handleSubmit}>
-              {new Array(itemLength).fill(0).map((_, index) => {
-                const name = `item${index}`;
-                return (
-                  <FormItem {...formItemLayout} label={name} key={name}>
-                    {getFieldDecorator(name)(
-                      <Input />
-                    )}
-                  </FormItem>
-                );
-              })}
-              <FormItem {...formTailLayout}>
-                <Button onClick={handleAdd}>
-                  Add
-                </Button>
+            <Form onSubmit={handleAdd} layout="inline">
+              <FormItem label="result">
+                {result}
               </FormItem>
-              <FormItem {...formTailLayout}>
+              <FormItem label="value">
+                {getFieldDecorator('value', {
+                  rules: [{ required: true }],
+                })(<InputNumber />)}
+              </FormItem>
+              <FormItem>
                 <Button
                   type="primary"
                   htmlType="submit"
                 >
-                  Submit
+                  add
                 </Button>
               </FormItem>
             </Form>
@@ -77,5 +59,5 @@ const HorizontalLoginForm = () => (
   </FormCreate>
 );
 
-ReactDOM.render(<HorizontalLoginForm />, mountNode);
+ReactDOM.render(<SimpleForm />, mountNode);
 ````
