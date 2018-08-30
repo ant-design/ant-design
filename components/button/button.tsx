@@ -49,6 +49,7 @@ export interface BaseButtonProps {
   className?: string;
   ghost?: boolean;
   block?: boolean;
+  children?: React.ReactNode;
 }
 
 export type AnchorButtonProps = {
