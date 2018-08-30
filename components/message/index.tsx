@@ -58,7 +58,7 @@ function notice(args: ArgsProps): MessageType {
   const iconType = ({
     info: 'info-circle',
     success: 'check-circle',
-    error: 'cross-circle',
+    error: 'close-circle',
     warning: 'exclamation-circle',
     loading: 'loading',
   })[args.type];

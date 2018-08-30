@@ -1,12 +1,12 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { antDesignIcons } from '@ant-design/icons';
+import * as allIcons from '@ant-design/icons';
 import ReactIcon from '@ant-design/icons-react';
 import createFromIconfontCN from './IconFont';
 import { svgBaseProps } from './utils';
 import warning from '../_util/warning';
 
-ReactIcon.add(...antDesignIcons);
+ReactIcon.add(...Object.keys(allIcons).map((key) => (allIcons as any)[key]));
 
 export interface CustomIconComponentProps {
   width: string | number;
