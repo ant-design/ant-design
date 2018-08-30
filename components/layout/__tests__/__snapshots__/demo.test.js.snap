@@ -281,10 +281,46 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
       style="line-height:64px"
     >
       <li
+        class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+        role="menuitem"
+        style="line-height:64px;display:none"
+      >
+        <div
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="ant-menu-submenu-title"
+        >
+          <span>
+            ···
+          </span>
+          <i
+            class="ant-menu-submenu-arrow"
+          />
+        </div>
+      </li>
+      <li
         class="ant-menu-item"
         role="menuitem"
       >
         nav 1
+      </li>
+      <li
+        class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+        role="menuitem"
+        style="line-height:64px;display:none"
+      >
+        <div
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="ant-menu-submenu-title"
+        >
+          <span>
+            ···
+          </span>
+          <i
+            class="ant-menu-submenu-arrow"
+          />
+        </div>
       </li>
       <li
         class="ant-menu-item ant-menu-item-selected"
@@ -293,10 +329,46 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
         nav 2
       </li>
       <li
+        class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+        role="menuitem"
+        style="line-height:64px;display:none"
+      >
+        <div
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="ant-menu-submenu-title"
+        >
+          <span>
+            ···
+          </span>
+          <i
+            class="ant-menu-submenu-arrow"
+          />
+        </div>
+      </li>
+      <li
         class="ant-menu-item"
         role="menuitem"
       >
         nav 3
+      </li>
+      <li
+        class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+        role="menuitem"
+        style="line-height:64px;visibility:hidden"
+      >
+        <div
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="ant-menu-submenu-title"
+        >
+          <span>
+            ···
+          </span>
+          <i
+            class="ant-menu-submenu-arrow"
+          />
+        </div>
       </li>
     </ul>
   </div>
@@ -1184,10 +1256,46 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
       style="line-height:64px"
     >
       <li
+        class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+        role="menuitem"
+        style="line-height:64px;display:none"
+      >
+        <div
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="ant-menu-submenu-title"
+        >
+          <span>
+            ···
+          </span>
+          <i
+            class="ant-menu-submenu-arrow"
+          />
+        </div>
+      </li>
+      <li
         class="ant-menu-item"
         role="menuitem"
       >
         nav 1
+      </li>
+      <li
+        class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+        role="menuitem"
+        style="line-height:64px;display:none"
+      >
+        <div
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="ant-menu-submenu-title"
+        >
+          <span>
+            ···
+          </span>
+          <i
+            class="ant-menu-submenu-arrow"
+          />
+        </div>
       </li>
       <li
         class="ant-menu-item ant-menu-item-selected"
@@ -1196,10 +1304,46 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
         nav 2
       </li>
       <li
+        class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+        role="menuitem"
+        style="line-height:64px;display:none"
+      >
+        <div
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="ant-menu-submenu-title"
+        >
+          <span>
+            ···
+          </span>
+          <i
+            class="ant-menu-submenu-arrow"
+          />
+        </div>
+      </li>
+      <li
         class="ant-menu-item"
         role="menuitem"
       >
         nav 3
+      </li>
+      <li
+        class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+        role="menuitem"
+        style="line-height:64px;visibility:hidden"
+      >
+        <div
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="ant-menu-submenu-title"
+        >
+          <span>
+            ···
+          </span>
+          <i
+            class="ant-menu-submenu-arrow"
+          />
+        </div>
       </li>
     </ul>
   </div>
@@ -1279,10 +1423,46 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
       style="line-height:64px"
     >
       <li
+        class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+        role="menuitem"
+        style="line-height:64px;display:none"
+      >
+        <div
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="ant-menu-submenu-title"
+        >
+          <span>
+            ···
+          </span>
+          <i
+            class="ant-menu-submenu-arrow"
+          />
+        </div>
+      </li>
+      <li
         class="ant-menu-item"
         role="menuitem"
       >
         nav 1
+      </li>
+      <li
+        class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+        role="menuitem"
+        style="line-height:64px;display:none"
+      >
+        <div
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="ant-menu-submenu-title"
+        >
+          <span>
+            ···
+          </span>
+          <i
+            class="ant-menu-submenu-arrow"
+          />
+        </div>
       </li>
       <li
         class="ant-menu-item ant-menu-item-selected"
@@ -1291,10 +1471,46 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
         nav 2
       </li>
       <li
+        class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+        role="menuitem"
+        style="line-height:64px;display:none"
+      >
+        <div
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="ant-menu-submenu-title"
+        >
+          <span>
+            ···
+          </span>
+          <i
+            class="ant-menu-submenu-arrow"
+          />
+        </div>
+      </li>
+      <li
         class="ant-menu-item"
         role="menuitem"
       >
         nav 3
+      </li>
+      <li
+        class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+        role="menuitem"
+        style="line-height:64px;visibility:hidden"
+      >
+        <div
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="ant-menu-submenu-title"
+        >
+          <span>
+            ···
+          </span>
+          <i
+            class="ant-menu-submenu-arrow"
+          />
+        </div>
       </li>
     </ul>
   </div>
@@ -1540,10 +1756,46 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
       style="line-height:64px"
     >
       <li
+        class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+        role="menuitem"
+        style="line-height:64px;display:none"
+      >
+        <div
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="ant-menu-submenu-title"
+        >
+          <span>
+            ···
+          </span>
+          <i
+            class="ant-menu-submenu-arrow"
+          />
+        </div>
+      </li>
+      <li
         class="ant-menu-item"
         role="menuitem"
       >
         nav 1
+      </li>
+      <li
+        class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+        role="menuitem"
+        style="line-height:64px;display:none"
+      >
+        <div
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="ant-menu-submenu-title"
+        >
+          <span>
+            ···
+          </span>
+          <i
+            class="ant-menu-submenu-arrow"
+          />
+        </div>
       </li>
       <li
         class="ant-menu-item ant-menu-item-selected"
@@ -1552,10 +1804,46 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
         nav 2
       </li>
       <li
+        class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+        role="menuitem"
+        style="line-height:64px;display:none"
+      >
+        <div
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="ant-menu-submenu-title"
+        >
+          <span>
+            ···
+          </span>
+          <i
+            class="ant-menu-submenu-arrow"
+          />
+        </div>
+      </li>
+      <li
         class="ant-menu-item"
         role="menuitem"
       >
         nav 3
+      </li>
+      <li
+        class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+        role="menuitem"
+        style="line-height:64px;visibility:hidden"
+      >
+        <div
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="ant-menu-submenu-title"
+        >
+          <span>
+            ···
+          </span>
+          <i
+            class="ant-menu-submenu-arrow"
+          />
+        </div>
       </li>
     </ul>
   </div>
