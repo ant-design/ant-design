@@ -10,9 +10,9 @@ describe('Icon', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should render correctly with rotate, flip, viewBox props', () => {
+  it('should support two-tone icon', () => {
     const wrapper = render(
-      <Icon type="setting" rotate={127} flip="both" viewBox="0 0 24 24" />
+      <Icon type="check-circle" theme="twotone" primaryColor="#f5222d" />
     );
     expect(wrapper).toMatchSnapshot();
   });
