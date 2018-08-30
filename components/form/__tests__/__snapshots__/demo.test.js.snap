@@ -987,7 +987,8 @@ exports[`renders ./components/form/demo/form-create-component.md correctly 1`] =
       class="ant-form-item-label"
     >
       <label
-        class=""
+        class="ant-form-item-required"
+        for="value"
         title="value"
       >
         value
@@ -1069,6 +1070,9 @@ exports[`renders ./components/form/demo/form-create-component.md correctly 1`] =
               <input
                 autocomplete="off"
                 class="ant-input-number-input"
+                data-__field="[object Object]"
+                data-__meta="[object Object]"
+                id="value"
                 min="-9007199254740991"
                 step="1"
                 value=""
@@ -1096,7 +1100,7 @@ exports[`renders ./components/form/demo/form-create-component.md correctly 1`] =
             type="submit"
           >
             <span>
-              add
+              Add
             </span>
           </button>
         </span>
