@@ -6,6 +6,24 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
   role="menu"
 >
   <li
+    class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+    role="menuitem"
+    style="display:none"
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="ant-menu-submenu-title"
+    >
+      <span>
+        ···
+      </span>
+      <i
+        class="ant-menu-submenu-arrow"
+      />
+    </div>
+  </li>
+  <li
     class="ant-menu-item ant-menu-item-selected"
     role="menuitem"
   >
@@ -28,6 +46,24 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
       </svg>
     </i>
     Navigation One
+  </li>
+  <li
+    class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+    role="menuitem"
+    style="display:none"
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="ant-menu-submenu-title"
+    >
+      <span>
+        ···
+      </span>
+      <i
+        class="ant-menu-submenu-arrow"
+      />
+    </div>
   </li>
   <li
     aria-disabled="true"
@@ -55,6 +91,24 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
     Navigation Two
   </li>
   <li
+    class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+    role="menuitem"
+    style="display:none"
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="ant-menu-submenu-title"
+    >
+      <span>
+        ···
+      </span>
+      <i
+        class="ant-menu-submenu-arrow"
+      />
+    </div>
+  </li>
+  <li
     class="ant-menu-submenu ant-menu-submenu-horizontal"
     role="menuitem"
   >
@@ -63,7 +117,9 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
       aria-haspopup="true"
       class="ant-menu-submenu-title"
     >
-      <span>
+      <span
+        class="submenu-title-wrapper"
+      >
         <i
           class="anticon anticon-setting"
         >
@@ -93,6 +149,24 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
     </div>
   </li>
   <li
+    class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+    role="menuitem"
+    style="display:none"
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="ant-menu-submenu-title"
+    >
+      <span>
+        ···
+      </span>
+      <i
+        class="ant-menu-submenu-arrow"
+      />
+    </div>
+  </li>
+  <li
     class="ant-menu-item"
     role="menuitem"
   >
@@ -103,6 +177,24 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
     >
       Navigation Four - Link
     </a>
+  </li>
+  <li
+    class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+    role="menuitem"
+    style="visibility:hidden"
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="ant-menu-submenu-title"
+    >
+      <span>
+        ···
+      </span>
+      <i
+        class="ant-menu-submenu-arrow"
+      />
+    </div>
   </li>
 </ul>
 `;
