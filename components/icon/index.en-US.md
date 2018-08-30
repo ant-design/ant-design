@@ -57,12 +57,15 @@ ReactDOM.render(<IconSet className="icons" catigory="logo" />, mountNode);
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| type | Type of ant design icon | string | - |
+| type | Type of the ant design icon | string | - |
 | style | Style properties of icon, like `fontSize` and `color` | CSSProperties | - |
+| theme | Theme of the ant design icon  | 'fill' \| 'outline' \| 'twotone' | - |
 | svgStyle | Inline style to apply to the SVG element | CSSProperties | - |
 | svgClassName | Define extra class name for the SVG element | string | - |
 | spin | Rotate icon with animation | boolean | false |
 | component | The component used for the root node. This will override the **`type`** property. | ComponentType<CustomIconComponentProps\> | - |
+| primaryColor | Only support the two-tone icon. Specific the primary color. | string (hex color) | - |
+| secondaryColor | Only support the two-tone icon. Specific the secondary color. | string (hex color) | - |
 
 All the icons will render to `<svg>`. You can still set `style` and `className` for size and color of icons.
 
