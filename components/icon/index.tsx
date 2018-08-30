@@ -123,10 +123,12 @@ const Icon: React.SFC<IconProps> = (props) => {
     if (theme) {
       computedType = withThemeSuffix(type, theme);
     }
-    warning(
-      Boolean(secondaryColor && !primaryColor),
-      `two-tone icon should be provided with the property 'primaryColor' at least.`,
-    );
+    if (secondaryColor) {
+      warning(
+        Boolean(!primaryColor),
+        `two-tone icon should be provided with the property 'primaryColor' at least.`,
+      );
+    }
     return (
       <i className={classString} title={title} style={style} onClick={onClick}>
         <ReactIcon
