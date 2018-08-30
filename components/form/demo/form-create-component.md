@@ -48,7 +48,7 @@ const SimpleForm = () => (
                   type="primary"
                   htmlType="submit"
                 >
-                  add
+                  Add
                 </Button>
               </FormItem>
             </Form>
