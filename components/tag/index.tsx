@@ -130,7 +130,7 @@ class Tag extends React.Component<TagProps, TagState> {
 
   render() {
     const { prefixCls, closable, color, className, children, style, ...otherProps } = this.props;
-    const closeIcon = closable ? <Icon type="cross" onClick={this.handleIconClick} /> : '';
+    const closeIcon = closable ? <Icon type="close" onClick={this.handleIconClick} /> : '';
     const isPresetColor = this.isPresetColor(color);
     const classString = classNames(prefixCls, {
       [`${prefixCls}-${color}`]: isPresetColor,
@@ -147,7 +147,7 @@ class Tag extends React.Component<TagProps, TagState> {
       backgroundColor: (color && !isPresetColor) ? color : null,
       ...style,
     };
-    const tag = this.state.closed ? <div /> : (
+    const tag = this.state.closed ? <span/> : (
       <div
         data-show={!this.state.closing}
         {...divProps}

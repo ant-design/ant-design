@@ -33,7 +33,7 @@ describe('Input.Search', () => {
     const wrapper = mount(
       <Search defaultValue="search text" onSearch={onSearch} />
     );
-    wrapper.find('Icon').simulate('click');
+    wrapper.find('.anticon-search').simulate('click');
     expect(onSearch).toHaveBeenCalledTimes(1);
     expect(onSearch).toBeCalledWith('search text', expect.objectContaining({
       type: 'click',

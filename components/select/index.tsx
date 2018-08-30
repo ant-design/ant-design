@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale-provider/default';
 import warning from 'warning';
+import Icon from '../icon';
 
 export interface AbstractSelectProps {
   prefixCls?: string;
@@ -29,6 +30,8 @@ export interface AbstractSelectProps {
   getPopupContainer?: (triggerNode: Element) => HTMLElement;
   filterOption?: boolean | ((inputValue: string, option: React.ReactElement<OptionProps>) => any);
   id?: string;
+  open?: boolean;
+  onDropdownVisibleChange?: (open: boolean) => void;
 }
 
 export interface LabeledValue {
@@ -171,8 +174,18 @@ export default class Select extends React.Component<SelectProps, {}> {
       combobox: this.isCombobox(),
     };
 
+    const inputIcon = (
+      <Icon type="down" className={`${prefixCls}-arrow-icon`} />
+    );
+
+    const removeIcon = (
+      <Icon type="close" className={`${prefixCls}-remove-icon`} />
+    );
+
     return (
       <RcSelect
+        inputIcon={inputIcon}
+        removeIcon={removeIcon}
         {...restProps}
         {...modeConfig}
         prefixCls={prefixCls}

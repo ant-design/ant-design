@@ -49,7 +49,22 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                         >
                           <i
                             class="anticon anticon-caret-up"
-                          />
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="caret-up"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M76.3 632.8l405.1-489.1c16.9-18.9 46.5-18.9 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
+                              />
+                            </svg>
+                          </i>
                         </span>
                         <span
                           class="ant-table-column-sorter-down off"
@@ -57,7 +72,22 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                         >
                           <i
                             class="anticon anticon-caret-down"
-                          />
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="caret-down"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M76.3 392.3l403.1 489.1c16.9 18.9 46.5 18.9 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
+                              />
+                            </svg>
+                          </i>
                         </span>
                       </div>
                     </span>
@@ -70,7 +100,22 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                       <i
                         class="anticon anticon-filter ant-dropdown-trigger"
                         title="Filter menu"
-                      />
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class=""
+                          data-icon="filter"
+                          fill="currentColor"
+                          height="1em"
+                          viewBox="0 0 1024 1024"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M890.1 176.6c-12.8-31-42.8-51-76.4-51H212c-33.5 0-63.5 20-76.4 51-12.9 31-5.9 66.3 17.8 90.1l273 263.3v262c0 9.3 3.6 18.3 10.1 25l125.2 129.5c6.9 7.2 16.3 11 25.9 11 4.5 0 9.1-.9 13.5-2.6 13.6-5.5 22.5-18.7 22.5-33.4V528.3l248.5-261.5c23.8-23.8 30.8-59.1 18-90.2zm-68.9 39.2l-259 272.1c-6.8 6.8-10.5 15.9-10.5 25.5v322l-53.2-58V515c0-9.5-3.8-18.7-10.5-25.4L204.4 215.8c-4.2-4.2-3.5-8.6-2.3-11.6 1.2-3 4-6.6 9.9-6.6h601.7c5.9 0 8.6 3.6 9.9 6.6 1.2 3 1.8 7.5-2.4 11.6z"
+                          />
+                        </svg>
+                      </i>
                     </span>
                   </th>
                   <th
@@ -377,7 +422,26 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-left"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -395,7 +459,26 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
       </ul>
     </div>
@@ -570,7 +653,26 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-left"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -588,7 +690,26 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
       </ul>
     </div>
@@ -846,7 +967,26 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-left"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -864,7 +1004,26 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
       </ul>
     </div>
@@ -912,7 +1071,25 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                         class="anticon anticon-smile-o ant-table-filter-icon ant-dropdown-trigger"
                         style="color:#aaa"
                         title="Filter menu"
-                      />
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class=""
+                          data-icon="smile-o"
+                          fill="currentColor"
+                          height="1em"
+                          viewBox="0 0 1024 1024"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M512 0C229.2 0 0 229.2 0 512s229.2 512 512 512 512-229.2 512-512S794.8 0 512 0zm311.1 823.1c-40.4 40.4-87.5 72.2-139.9 94.3C629 940.4 571.4 952 512 952s-117-11.6-171.2-34.5c-52.4-22.2-99.4-53.9-139.9-94.3-40.4-40.4-72.2-87.5-94.3-139.9C83.6 629 72 571.4 72 512s11.6-117 34.5-171.2c22.2-52.4 53.9-99.4 94.3-139.9 40.4-40.4 87.5-72.2 139.9-94.3C395 83.6 452.6 72 512 72s117 11.6 171.2 34.5c52.4 22.2 99.4 53.9 139.9 94.3 40.4 40.4 72.2 87.5 94.3 139.9C940.4 395 952 452.6 952 512s-11.6 117-34.5 171.2c-22.2 52.4-53.9 99.5-94.4 139.9z"
+                          />
+                          <path
+                            d="M640.3 565.2c-19.9 0-36 16.1-36 36 0 50.9-41.4 92.3-92.3 92.3s-92.3-41.4-92.3-92.3c0-19.9-16.1-36-36-36s-36 16.1-36 36c0 90.6 73.7 164.3 164.3 164.3s164.3-73.7 164.3-164.3c0-19.9-16.1-36-36-36zM194.2 382.4a60 60 0 1 0 120 0 60 60 0 1 0-120 0zM709.5 382.4a60 60 0 1 0 120 0 60 60 0 1 0-120 0z"
+                          />
+                        </svg>
+                      </i>
                     </span>
                   </th>
                   <th
@@ -930,7 +1107,22 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                       <i
                         class="anticon anticon-filter ant-dropdown-trigger"
                         title="Filter menu"
-                      />
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class=""
+                          data-icon="filter"
+                          fill="currentColor"
+                          height="1em"
+                          viewBox="0 0 1024 1024"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M890.1 176.6c-12.8-31-42.8-51-76.4-51H212c-33.5 0-63.5 20-76.4 51-12.9 31-5.9 66.3 17.8 90.1l273 263.3v262c0 9.3 3.6 18.3 10.1 25l125.2 129.5c6.9 7.2 16.3 11 25.9 11 4.5 0 9.1-.9 13.5-2.6 13.6-5.5 22.5-18.7 22.5-33.4V528.3l248.5-261.5c23.8-23.8 30.8-59.1 18-90.2zm-68.9 39.2l-259 272.1c-6.8 6.8-10.5 15.9-10.5 25.5v322l-53.2-58V515c0-9.5-3.8-18.7-10.5-25.4L204.4 215.8c-4.2-4.2-3.5-8.6-2.3-11.6 1.2-3 4-6.6 9.9-6.6h601.7c5.9 0 8.6 3.6 9.9 6.6 1.2 3 1.8 7.5-2.4 11.6z"
+                          />
+                        </svg>
+                      </i>
                     </span>
                   </th>
                 </tr>
@@ -1050,7 +1242,26 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-left"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -1068,7 +1279,26 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
       </ul>
     </div>
@@ -1148,7 +1378,26 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-left"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -1166,7 +1415,26 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
       </ul>
     </div>
@@ -1837,7 +2105,22 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                           More actions 
                           <i
                             class="anticon anticon-down"
-                          />
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="down"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M895.7 300.1c0 9.6-3.2 19.3-9.6 27.4L545.2 751.3c-8.3 10.3-20.8 16.3-34.1 16.3-13.2 0-25.8-6-34-16.3L138 329.3c-15.1-18.8-12.1-46.3 6.7-61.4 18.8-15.1 46.3-12.1 61.4 6.7l305.1 379.6L818 272.7c15.1-18.8 42.6-21.8 61.4-6.7 10.7 8.7 16.3 21.3 16.3 34.1z"
+                              />
+                            </svg>
+                          </i>
                         </a>
                       </span>
                     </td>
@@ -1920,7 +2203,22 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                           More actions 
                           <i
                             class="anticon anticon-down"
-                          />
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="down"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M895.7 300.1c0 9.6-3.2 19.3-9.6 27.4L545.2 751.3c-8.3 10.3-20.8 16.3-34.1 16.3-13.2 0-25.8-6-34-16.3L138 329.3c-15.1-18.8-12.1-46.3 6.7-61.4 18.8-15.1 46.3-12.1 61.4 6.7l305.1 379.6L818 272.7c15.1-18.8 42.6-21.8 61.4-6.7 10.7 8.7 16.3 21.3 16.3 34.1z"
+                              />
+                            </svg>
+                          </i>
                         </a>
                       </span>
                     </td>
@@ -2003,7 +2301,22 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                           More actions 
                           <i
                             class="anticon anticon-down"
-                          />
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="down"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M895.7 300.1c0 9.6-3.2 19.3-9.6 27.4L545.2 751.3c-8.3 10.3-20.8 16.3-34.1 16.3-13.2 0-25.8-6-34-16.3L138 329.3c-15.1-18.8-12.1-46.3 6.7-61.4 18.8-15.1 46.3-12.1 61.4 6.7l305.1 379.6L818 272.7c15.1-18.8 42.6-21.8 61.4-6.7 10.7 8.7 16.3 21.3 16.3 34.1z"
+                              />
+                            </svg>
+                          </i>
                         </a>
                       </span>
                     </td>
@@ -2086,7 +2399,22 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                           More actions 
                           <i
                             class="anticon anticon-down"
-                          />
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="down"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M895.7 300.1c0 9.6-3.2 19.3-9.6 27.4L545.2 751.3c-8.3 10.3-20.8 16.3-34.1 16.3-13.2 0-25.8-6-34-16.3L138 329.3c-15.1-18.8-12.1-46.3 6.7-61.4 18.8-15.1 46.3-12.1 61.4 6.7l305.1 379.6L818 272.7c15.1-18.8 42.6-21.8 61.4-6.7 10.7 8.7 16.3 21.3 16.3 34.1z"
+                              />
+                            </svg>
+                          </i>
                         </a>
                       </span>
                     </td>
@@ -2169,7 +2497,22 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                           More actions 
                           <i
                             class="anticon anticon-down"
-                          />
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="down"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M895.7 300.1c0 9.6-3.2 19.3-9.6 27.4L545.2 751.3c-8.3 10.3-20.8 16.3-34.1 16.3-13.2 0-25.8-6-34-16.3L138 329.3c-15.1-18.8-12.1-46.3 6.7-61.4 18.8-15.1 46.3-12.1 61.4 6.7l305.1 379.6L818 272.7c15.1-18.8 42.6-21.8 61.4-6.7 10.7 8.7 16.3 21.3 16.3 34.1z"
+                              />
+                            </svg>
+                          </i>
                         </a>
                       </span>
                     </td>
@@ -2252,7 +2595,22 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                           More actions 
                           <i
                             class="anticon anticon-down"
-                          />
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="down"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M895.7 300.1c0 9.6-3.2 19.3-9.6 27.4L545.2 751.3c-8.3 10.3-20.8 16.3-34.1 16.3-13.2 0-25.8-6-34-16.3L138 329.3c-15.1-18.8-12.1-46.3 6.7-61.4 18.8-15.1 46.3-12.1 61.4 6.7l305.1 379.6L818 272.7c15.1-18.8 42.6-21.8 61.4-6.7 10.7 8.7 16.3 21.3 16.3 34.1z"
+                              />
+                            </svg>
+                          </i>
                         </a>
                       </span>
                     </td>
@@ -2335,7 +2693,22 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                           More actions 
                           <i
                             class="anticon anticon-down"
-                          />
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="down"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M895.7 300.1c0 9.6-3.2 19.3-9.6 27.4L545.2 751.3c-8.3 10.3-20.8 16.3-34.1 16.3-13.2 0-25.8-6-34-16.3L138 329.3c-15.1-18.8-12.1-46.3 6.7-61.4 18.8-15.1 46.3-12.1 61.4 6.7l305.1 379.6L818 272.7c15.1-18.8 42.6-21.8 61.4-6.7 10.7 8.7 16.3 21.3 16.3 34.1z"
+                              />
+                            </svg>
+                          </i>
                         </a>
                       </span>
                     </td>
@@ -2418,7 +2791,22 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                           More actions 
                           <i
                             class="anticon anticon-down"
-                          />
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="down"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M895.7 300.1c0 9.6-3.2 19.3-9.6 27.4L545.2 751.3c-8.3 10.3-20.8 16.3-34.1 16.3-13.2 0-25.8-6-34-16.3L138 329.3c-15.1-18.8-12.1-46.3 6.7-61.4 18.8-15.1 46.3-12.1 61.4 6.7l305.1 379.6L818 272.7c15.1-18.8 42.6-21.8 61.4-6.7 10.7 8.7 16.3 21.3 16.3 34.1z"
+                              />
+                            </svg>
+                          </i>
                         </a>
                       </span>
                     </td>
@@ -2501,7 +2889,22 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                           More actions 
                           <i
                             class="anticon anticon-down"
-                          />
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="down"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M895.7 300.1c0 9.6-3.2 19.3-9.6 27.4L545.2 751.3c-8.3 10.3-20.8 16.3-34.1 16.3-13.2 0-25.8-6-34-16.3L138 329.3c-15.1-18.8-12.1-46.3 6.7-61.4 18.8-15.1 46.3-12.1 61.4 6.7l305.1 379.6L818 272.7c15.1-18.8 42.6-21.8 61.4-6.7 10.7 8.7 16.3 21.3 16.3 34.1z"
+                              />
+                            </svg>
+                          </i>
                         </a>
                       </span>
                     </td>
@@ -2584,7 +2987,22 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                           More actions 
                           <i
                             class="anticon anticon-down"
-                          />
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="down"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M895.7 300.1c0 9.6-3.2 19.3-9.6 27.4L545.2 751.3c-8.3 10.3-20.8 16.3-34.1 16.3-13.2 0-25.8-6-34-16.3L138 329.3c-15.1-18.8-12.1-46.3 6.7-61.4 18.8-15.1 46.3-12.1 61.4 6.7l305.1 379.6L818 272.7c15.1-18.8 42.6-21.8 61.4-6.7 10.7 8.7 16.3 21.3 16.3 34.1z"
+                              />
+                            </svg>
+                          </i>
                         </a>
                       </span>
                     </td>
@@ -2610,7 +3028,26 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           >
             <a
               class="ant-pagination-item-link"
-            />
+            >
+              <i
+                class="anticon anticon-left"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="left"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+                  />
+                </svg>
+              </i>
+            </a>
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -2628,7 +3065,26 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           >
             <a
               class="ant-pagination-item-link"
-            />
+            >
+              <i
+                class="anticon anticon-right"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="right"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+                  />
+                </svg>
+              </i>
+            </a>
           </li>
         </ul>
       </div>
@@ -2806,7 +3262,26 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
           >
             <a
               class="ant-pagination-item-link"
-            />
+            >
+              <i
+                class="anticon anticon-left"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="left"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+                  />
+                </svg>
+              </i>
+            </a>
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -2824,7 +3299,26 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
           >
             <a
               class="ant-pagination-item-link"
-            />
+            >
+              <i
+                class="anticon anticon-right"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="right"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+                  />
+                </svg>
+              </i>
+            </a>
           </li>
         </ul>
       </div>
@@ -3250,7 +3744,26 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-left"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -3298,13 +3811,44 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
           </a>
         </li>
         <li
-          class="ant-pagination-jump-next"
+          class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
           tabindex="0"
           title="Next 5 Pages"
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <div
+              class="ant-pagination-item-container"
+            >
+              <i
+                class="anticon anticon-double-right ant-pagination-item-link-icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ant-pagination-item-link-icon-svg"
+                  data-icon="double-right"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M431 879.4c-15.1-18.8-12.1-46.3 6.7-61.4l381.5-306.9-379.6-305c-18.8-15.1-21.8-42.6-6.7-61.4 15.1-18.8 42.6-21.8 61.4-6.7l422 339.1c10.3 8.2 16.3 20.8 16.3 34 0 13.3-6 25.8-16.3 34.1L492.5 886.1c-8.1 6.4-17.8 9.6-27.4 9.6-12.8 0-25.4-5.6-34.1-16.3z"
+                  />
+                  <path
+                    d="M101 879.4c-15.1-18.8-12.1-46.3 6.7-61.4l381.5-306.9-379.6-305c-18.8-15.1-21.8-42.6-6.7-61.4 15.1-18.8 42.6-21.8 61.4-6.7l422 339.1c10.3 8.2 16.3 20.8 16.3 34 0 13.3-6 25.8-16.3 34.1L162.5 886.1c-8.1 6.4-17.8 9.6-27.4 9.6-12.8 0-25.4-5.6-34.1-16.3z"
+                  />
+                </svg>
+              </i>
+              <span
+                class="ant-pagination-item-ellipsis"
+              >
+                •••
+              </span>
+            </div>
+          </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-10"
@@ -3323,7 +3867,26 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
       </ul>
     </div>
@@ -3528,7 +4091,26 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-left"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -3546,7 +4128,26 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
       </ul>
     </div>
@@ -3753,7 +4354,26 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-left"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -3771,7 +4391,26 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
       </ul>
     </div>
@@ -4218,7 +4857,26 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-left"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -4236,7 +4894,26 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
       </ul>
     </div>
@@ -5578,7 +6255,26 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-left"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -5626,13 +6322,44 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
           </a>
         </li>
         <li
-          class="ant-pagination-jump-next"
+          class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
           tabindex="0"
           title="Next 5 Pages"
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <div
+              class="ant-pagination-item-container"
+            >
+              <i
+                class="anticon anticon-double-right ant-pagination-item-link-icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ant-pagination-item-link-icon-svg"
+                  data-icon="double-right"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M431 879.4c-15.1-18.8-12.1-46.3 6.7-61.4l381.5-306.9-379.6-305c-18.8-15.1-21.8-42.6-6.7-61.4 15.1-18.8 42.6-21.8 61.4-6.7l422 339.1c10.3 8.2 16.3 20.8 16.3 34 0 13.3-6 25.8-16.3 34.1L492.5 886.1c-8.1 6.4-17.8 9.6-27.4 9.6-12.8 0-25.4-5.6-34.1-16.3z"
+                  />
+                  <path
+                    d="M101 879.4c-15.1-18.8-12.1-46.3 6.7-61.4l381.5-306.9-379.6-305c-18.8-15.1-21.8-42.6-6.7-61.4 15.1-18.8 42.6-21.8 61.4-6.7l422 339.1c10.3 8.2 16.3 20.8 16.3 34 0 13.3-6 25.8-16.3 34.1L162.5 886.1c-8.1 6.4-17.8 9.6-27.4 9.6-12.8 0-25.4-5.6-34.1-16.3z"
+                  />
+                </svg>
+              </i>
+              <span
+                class="ant-pagination-item-ellipsis"
+              >
+                •••
+              </span>
+            </div>
+          </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-10"
@@ -5651,7 +6378,26 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
       </ul>
     </div>
@@ -6958,7 +7704,26 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-left"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -6986,7 +7751,26 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
       </ul>
     </div>
@@ -7055,7 +7839,22 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                         <i
                           class="anticon anticon-filter ant-dropdown-trigger"
                           title="Filter menu"
-                        />
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class=""
+                            data-icon="filter"
+                            fill="currentColor"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M890.1 176.6c-12.8-31-42.8-51-76.4-51H212c-33.5 0-63.5 20-76.4 51-12.9 31-5.9 66.3 17.8 90.1l273 263.3v262c0 9.3 3.6 18.3 10.1 25l125.2 129.5c6.9 7.2 16.3 11 25.9 11 4.5 0 9.1-.9 13.5-2.6 13.6-5.5 22.5-18.7 22.5-33.4V528.3l248.5-261.5c23.8-23.8 30.8-59.1 18-90.2zm-68.9 39.2l-259 272.1c-6.8 6.8-10.5 15.9-10.5 25.5v322l-53.2-58V515c0-9.5-3.8-18.7-10.5-25.4L204.4 215.8c-4.2-4.2-3.5-8.6-2.3-11.6 1.2-3 4-6.6 9.9-6.6h601.7c5.9 0 8.6 3.6 9.9 6.6 1.2 3 1.8 7.5-2.4 11.6z"
+                            />
+                          </svg>
+                        </i>
                       </span>
                     </th>
                     <th
@@ -7099,7 +7898,22 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                           >
                             <i
                               class="anticon anticon-caret-up"
-                            />
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="caret-up"
+                                fill="currentColor"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M76.3 632.8l405.1-489.1c16.9-18.9 46.5-18.9 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
+                                />
+                              </svg>
+                            </i>
                           </span>
                           <span
                             class="ant-table-column-sorter-down off"
@@ -7107,7 +7921,22 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                           >
                             <i
                               class="anticon anticon-caret-down"
-                            />
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="caret-down"
+                                fill="currentColor"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M76.3 392.3l403.1 489.1c16.9 18.9 46.5 18.9 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
+                                />
+                              </svg>
+                            </i>
                           </span>
                         </div>
                       </span>
@@ -7728,7 +8557,22 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                         <i
                           class="anticon anticon-filter ant-dropdown-trigger"
                           title="Filter menu"
-                        />
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class=""
+                            data-icon="filter"
+                            fill="currentColor"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M890.1 176.6c-12.8-31-42.8-51-76.4-51H212c-33.5 0-63.5 20-76.4 51-12.9 31-5.9 66.3 17.8 90.1l273 263.3v262c0 9.3 3.6 18.3 10.1 25l125.2 129.5c6.9 7.2 16.3 11 25.9 11 4.5 0 9.1-.9 13.5-2.6 13.6-5.5 22.5-18.7 22.5-33.4V528.3l248.5-261.5c23.8-23.8 30.8-59.1 18-90.2zm-68.9 39.2l-259 272.1c-6.8 6.8-10.5 15.9-10.5 25.5v322l-53.2-58V515c0-9.5-3.8-18.7-10.5-25.4L204.4 215.8c-4.2-4.2-3.5-8.6-2.3-11.6 1.2-3 4-6.6 9.9-6.6h601.7c5.9 0 8.6 3.6 9.9 6.6 1.2 3 1.8 7.5-2.4 11.6z"
+                            />
+                          </svg>
+                        </i>
                       </span>
                     </th>
                   </tr>
@@ -8066,7 +8910,26 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-left"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -8114,13 +8977,44 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
           </a>
         </li>
         <li
-          class="ant-pagination-jump-next"
+          class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
           tabindex="0"
           title="Next 5 Pages"
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <div
+              class="ant-pagination-item-container"
+            >
+              <i
+                class="anticon anticon-double-right ant-pagination-item-link-icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ant-pagination-item-link-icon-svg"
+                  data-icon="double-right"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M431 879.4c-15.1-18.8-12.1-46.3 6.7-61.4l381.5-306.9-379.6-305c-18.8-15.1-21.8-42.6-6.7-61.4 15.1-18.8 42.6-21.8 61.4-6.7l422 339.1c10.3 8.2 16.3 20.8 16.3 34 0 13.3-6 25.8-16.3 34.1L492.5 886.1c-8.1 6.4-17.8 9.6-27.4 9.6-12.8 0-25.4-5.6-34.1-16.3z"
+                  />
+                  <path
+                    d="M101 879.4c-15.1-18.8-12.1-46.3 6.7-61.4l381.5-306.9-379.6-305c-18.8-15.1-21.8-42.6-6.7-61.4 15.1-18.8 42.6-21.8 61.4-6.7l422 339.1c10.3 8.2 16.3 20.8 16.3 34 0 13.3-6 25.8-16.3 34.1L162.5 886.1c-8.1 6.4-17.8 9.6-27.4 9.6-12.8 0-25.4-5.6-34.1-16.3z"
+                  />
+                </svg>
+              </i>
+              <span
+                class="ant-pagination-item-ellipsis"
+              >
+                •••
+              </span>
+            </div>
+          </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-10"
@@ -8139,7 +9033,26 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
       </ul>
     </div>
@@ -8192,7 +9105,22 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                         >
                           <i
                             class="anticon anticon-caret-up"
-                          />
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="caret-up"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M76.3 632.8l405.1-489.1c16.9-18.9 46.5-18.9 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
+                              />
+                            </svg>
+                          </i>
                         </span>
                         <span
                           class="ant-table-column-sorter-down off"
@@ -8200,13 +9128,43 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                         >
                           <i
                             class="anticon anticon-caret-down"
-                          />
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="caret-down"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M76.3 392.3l403.1 489.1c16.9 18.9 46.5 18.9 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
+                              />
+                            </svg>
+                          </i>
                         </span>
                       </div>
                       <i
                         class="anticon anticon-filter ant-dropdown-trigger"
                         title="Filter menu"
-                      />
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class=""
+                          data-icon="filter"
+                          fill="currentColor"
+                          height="1em"
+                          viewBox="0 0 1024 1024"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M890.1 176.6c-12.8-31-42.8-51-76.4-51H212c-33.5 0-63.5 20-76.4 51-12.9 31-5.9 66.3 17.8 90.1l273 263.3v262c0 9.3 3.6 18.3 10.1 25l125.2 129.5c6.9 7.2 16.3 11 25.9 11 4.5 0 9.1-.9 13.5-2.6 13.6-5.5 22.5-18.7 22.5-33.4V528.3l248.5-261.5c23.8-23.8 30.8-59.1 18-90.2zm-68.9 39.2l-259 272.1c-6.8 6.8-10.5 15.9-10.5 25.5v322l-53.2-58V515c0-9.5-3.8-18.7-10.5-25.4L204.4 215.8c-4.2-4.2-3.5-8.6-2.3-11.6 1.2-3 4-6.6 9.9-6.6h601.7c5.9 0 8.6 3.6 9.9 6.6 1.2 3 1.8 7.5-2.4 11.6z"
+                          />
+                        </svg>
+                      </i>
                     </span>
                   </th>
                   <th
@@ -8223,7 +9181,22 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                         >
                           <i
                             class="anticon anticon-caret-up"
-                          />
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="caret-up"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M76.3 632.8l405.1-489.1c16.9-18.9 46.5-18.9 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
+                              />
+                            </svg>
+                          </i>
                         </span>
                         <span
                           class="ant-table-column-sorter-down on"
@@ -8231,7 +9204,22 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                         >
                           <i
                             class="anticon anticon-caret-down"
-                          />
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="caret-down"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M76.3 392.3l403.1 489.1c16.9 18.9 46.5 18.9 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
+                              />
+                            </svg>
+                          </i>
                         </span>
                       </div>
                     </span>
@@ -8250,7 +9238,22 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                         >
                           <i
                             class="anticon anticon-caret-up"
-                          />
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="caret-up"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M76.3 632.8l405.1-489.1c16.9-18.9 46.5-18.9 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
+                              />
+                            </svg>
+                          </i>
                         </span>
                         <span
                           class="ant-table-column-sorter-down off"
@@ -8258,13 +9261,43 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                         >
                           <i
                             class="anticon anticon-caret-down"
-                          />
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="caret-down"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M76.3 392.3l403.1 489.1c16.9 18.9 46.5 18.9 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
+                              />
+                            </svg>
+                          </i>
                         </span>
                       </div>
                       <i
                         class="anticon anticon-filter ant-dropdown-trigger"
                         title="Filter menu"
-                      />
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class=""
+                          data-icon="filter"
+                          fill="currentColor"
+                          height="1em"
+                          viewBox="0 0 1024 1024"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M890.1 176.6c-12.8-31-42.8-51-76.4-51H212c-33.5 0-63.5 20-76.4 51-12.9 31-5.9 66.3 17.8 90.1l273 263.3v262c0 9.3 3.6 18.3 10.1 25l125.2 129.5c6.9 7.2 16.3 11 25.9 11 4.5 0 9.1-.9 13.5-2.6 13.6-5.5 22.5-18.7 22.5-33.4V528.3l248.5-261.5c23.8-23.8 30.8-59.1 18-90.2zm-68.9 39.2l-259 272.1c-6.8 6.8-10.5 15.9-10.5 25.5v322l-53.2-58V515c0-9.5-3.8-18.7-10.5-25.4L204.4 215.8c-4.2-4.2-3.5-8.6-2.3-11.6 1.2-3 4-6.6 9.9-6.6h601.7c5.9 0 8.6 3.6 9.9 6.6 1.2 3 1.8 7.5-2.4 11.6z"
+                          />
+                        </svg>
+                      </i>
                     </span>
                   </th>
                 </tr>
@@ -8384,7 +9417,26 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-left"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -8402,7 +9454,26 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
       </ul>
     </div>
@@ -8713,7 +9784,26 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-left"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -8731,7 +9821,26 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
       </ul>
     </div>
@@ -9005,7 +10114,26 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-left"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -9023,7 +10151,26 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
       </ul>
     </div>
@@ -9105,7 +10252,22 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                           >
                             <i
                               class="anticon anticon-caret-up"
-                            />
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="caret-up"
+                                fill="currentColor"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M76.3 632.8l405.1-489.1c16.9-18.9 46.5-18.9 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
+                                />
+                              </svg>
+                            </i>
                           </span>
                           <span
                             class="ant-table-column-sorter-down off"
@@ -9113,13 +10275,43 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                           >
                             <i
                               class="anticon anticon-caret-down"
-                            />
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="caret-down"
+                                fill="currentColor"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M76.3 392.3l403.1 489.1c16.9 18.9 46.5 18.9 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
+                                />
+                              </svg>
+                            </i>
                           </span>
                         </div>
                         <i
                           class="anticon anticon-filter ant-dropdown-trigger"
                           title="Filter menu"
-                        />
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class=""
+                            data-icon="filter"
+                            fill="currentColor"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M890.1 176.6c-12.8-31-42.8-51-76.4-51H212c-33.5 0-63.5 20-76.4 51-12.9 31-5.9 66.3 17.8 90.1l273 263.3v262c0 9.3 3.6 18.3 10.1 25l125.2 129.5c6.9 7.2 16.3 11 25.9 11 4.5 0 9.1-.9 13.5-2.6 13.6-5.5 22.5-18.7 22.5-33.4V528.3l248.5-261.5c23.8-23.8 30.8-59.1 18-90.2zm-68.9 39.2l-259 272.1c-6.8 6.8-10.5 15.9-10.5 25.5v322l-53.2-58V515c0-9.5-3.8-18.7-10.5-25.4L204.4 215.8c-4.2-4.2-3.5-8.6-2.3-11.6 1.2-3 4-6.6 9.9-6.6h601.7c5.9 0 8.6 3.6 9.9 6.6 1.2 3 1.8 7.5-2.4 11.6z"
+                            />
+                          </svg>
+                        </i>
                       </span>
                     </th>
                     <th
@@ -9136,7 +10328,22 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                           >
                             <i
                               class="anticon anticon-caret-up"
-                            />
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="caret-up"
+                                fill="currentColor"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M76.3 632.8l405.1-489.1c16.9-18.9 46.5-18.9 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
+                                />
+                              </svg>
+                            </i>
                           </span>
                           <span
                             class="ant-table-column-sorter-down off"
@@ -9144,7 +10351,22 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                           >
                             <i
                               class="anticon anticon-caret-down"
-                            />
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="caret-down"
+                                fill="currentColor"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M76.3 392.3l403.1 489.1c16.9 18.9 46.5 18.9 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
+                                />
+                              </svg>
+                            </i>
                           </span>
                         </div>
                       </span>
@@ -9163,7 +10385,22 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                           >
                             <i
                               class="anticon anticon-caret-up"
-                            />
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="caret-up"
+                                fill="currentColor"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M76.3 632.8l405.1-489.1c16.9-18.9 46.5-18.9 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
+                                />
+                              </svg>
+                            </i>
                           </span>
                           <span
                             class="ant-table-column-sorter-down off"
@@ -9171,13 +10408,43 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                           >
                             <i
                               class="anticon anticon-caret-down"
-                            />
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="caret-down"
+                                fill="currentColor"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M76.3 392.3l403.1 489.1c16.9 18.9 46.5 18.9 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
+                                />
+                              </svg>
+                            </i>
                           </span>
                         </div>
                         <i
                           class="anticon anticon-filter ant-dropdown-trigger"
                           title="Filter menu"
-                        />
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class=""
+                            data-icon="filter"
+                            fill="currentColor"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M890.1 176.6c-12.8-31-42.8-51-76.4-51H212c-33.5 0-63.5 20-76.4 51-12.9 31-5.9 66.3 17.8 90.1l273 263.3v262c0 9.3 3.6 18.3 10.1 25l125.2 129.5c6.9 7.2 16.3 11 25.9 11 4.5 0 9.1-.9 13.5-2.6 13.6-5.5 22.5-18.7 22.5-33.4V528.3l248.5-261.5c23.8-23.8 30.8-59.1 18-90.2zm-68.9 39.2l-259 272.1c-6.8 6.8-10.5 15.9-10.5 25.5v322l-53.2-58V515c0-9.5-3.8-18.7-10.5-25.4L204.4 215.8c-4.2-4.2-3.5-8.6-2.3-11.6 1.2-3 4-6.6 9.9-6.6h601.7c5.9 0 8.6 3.6 9.9 6.6 1.2 3 1.8 7.5-2.4 11.6z"
+                            />
+                          </svg>
+                        </i>
                       </span>
                     </th>
                   </tr>
@@ -9297,7 +10564,26 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
           >
             <a
               class="ant-pagination-item-link"
-            />
+            >
+              <i
+                class="anticon anticon-left"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="left"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+                  />
+                </svg>
+              </i>
+            </a>
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -9315,7 +10601,26 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
           >
             <a
               class="ant-pagination-item-link"
-            />
+            >
+              <i
+                class="anticon anticon-right"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="right"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+                  />
+                </svg>
+              </i>
+            </a>
           </li>
         </ul>
       </div>
@@ -9551,7 +10856,26 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-left"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -9569,7 +10893,26 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
       </ul>
     </div>
@@ -9877,7 +11220,26 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-left"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -9895,7 +11257,26 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
       </ul>
     </div>
@@ -10469,7 +11850,26 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
           >
             <a
               class="ant-pagination-item-link"
-            />
+            >
+              <i
+                class="anticon anticon-left"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="left"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+                  />
+                </svg>
+              </i>
+            </a>
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -10524,7 +11924,26 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
           >
             <a
               class="ant-pagination-item-link"
-            />
+            >
+              <i
+                class="anticon anticon-right"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="right"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+                  />
+                </svg>
+              </i>
+            </a>
           </li>
         </ul>
       </div>
@@ -10592,7 +12011,22 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                         >
                           <i
                             class="anticon anticon-down"
-                          />
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="down"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M895.7 300.1c0 9.6-3.2 19.3-9.6 27.4L545.2 751.3c-8.3 10.3-20.8 16.3-34.1 16.3-13.2 0-25.8-6-34-16.3L138 329.3c-15.1-18.8-12.1-46.3 6.7-61.4 18.8-15.1 46.3-12.1 61.4 6.7l305.1 379.6L818 272.7c15.1-18.8 42.6-21.8 61.4-6.7 10.7 8.7 16.3 21.3 16.3 34.1z"
+                              />
+                            </svg>
+                          </i>
                         </div>
                       </div>
                     </span>
@@ -11089,7 +12523,26 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-left"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -11144,7 +12597,26 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
       </ul>
     </div>
@@ -11301,7 +12773,26 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
           >
             <a
               class="ant-pagination-item-link"
-            />
+            >
+              <i
+                class="anticon anticon-left"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="left"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+                  />
+                </svg>
+              </i>
+            </a>
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -11319,7 +12810,26 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
           >
             <a
               class="ant-pagination-item-link"
-            />
+            >
+              <i
+                class="anticon anticon-right"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="right"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+                  />
+                </svg>
+              </i>
+            </a>
           </li>
         </ul>
       </div>
@@ -11472,7 +12982,26 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
           >
             <a
               class="ant-pagination-item-link"
-            />
+            >
+              <i
+                class="anticon anticon-left"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="left"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M724.4 895.7c-9.6 0-19.3-3.2-27.4-9.6L273.2 545.2c-10.3-8.3-16.3-20.8-16.3-34.1 0-13.2 6-25.8 16.3-34l422-339.1c18.8-15.1 46.3-12.1 61.4 6.7 15.1 18.8 12.1 46.3-6.7 61.4l-379.6 305L751.8 818c18.8 15.1 21.8 42.6 6.7 61.4-8.7 10.7-21.3 16.3-34.1 16.3z"
+                  />
+                </svg>
+              </i>
+            </a>
           </li>
           <li
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -11490,7 +13019,26 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
           >
             <a
               class="ant-pagination-item-link"
-            />
+            >
+              <i
+                class="anticon anticon-right"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="right"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M300.6 895.7c9.6 0 19.3-3.2 27.4-9.6l423.8-340.9c10.3-8.3 16.3-20.8 16.3-34.1 0-13.2-6-25.8-16.3-34L329.8 138c-18.8-15.1-46.3-12.1-61.4 6.7-15.1 18.8-12.1 46.3 6.7 61.4l379.6 305.1L273.2 818c-18.8 15.1-21.8 42.6-6.7 61.4 8.7 10.7 21.3 16.3 34.1 16.3z"
+                  />
+                </svg>
+              </i>
+            </a>
           </li>
         </ul>
       </div>
