@@ -3,8 +3,9 @@ import classNames from 'classnames';
 import * as allIcons from '@ant-design/icons';
 import ReactIcon from '@ant-design/icons-react';
 import createFromIconfontCN from './IconFont';
-import { svgBaseProps } from './utils';
+import { svgBaseProps, withThemeSuffix } from './utils';
 import warning from '../_util/warning';
+import { setTwoTonePrimaryColor } from './setTwoTonePrimaryColor';
 
 ReactIcon.add(...Object.keys(allIcons).map((key) => (allIcons as any)[key]));
 
@@ -18,12 +19,17 @@ export interface CustomIconComponentProps {
   ['aria-hidden']?: string;
 }
 
+export type ThemeType = 'fill' | 'outline' | 'twotone';
+
 export interface IconProps {
   type?: string;
   className?: string;
+  theme?: ThemeType;
   title?: string;
   onClick?: React.MouseEventHandler<HTMLElement>;
   component?: React.ComponentType<CustomIconComponentProps>;
+  primaryColor?: string;
+  secondaryColor?: string;
   viewBox?: string;
   spin?: boolean;
   style?: React.CSSProperties;
@@ -50,6 +56,11 @@ const Icon: React.SFC<IconProps> = (props) => {
 
     // children
     children,
+
+    // other
+    theme,
+    primaryColor,
+    secondaryColor,
   } = props;
 
   warning(
@@ -89,9 +100,9 @@ const Icon: React.SFC<IconProps> = (props) => {
 
   if (children) {
     warning(
-      Boolean(viewBox),
+      Boolean(viewBox) || React.Children.count(children) === 1 && React.Children.only(children).type === 'use',
       'Make sure that you provide correct `viewBox`' +
-      ' prop (default `0 0 1024 1024`) to Icon.',
+      ' prop (default `0 0 1024 1024`) to the icon.',
     );
     const innerSvgProps: CustomIconComponentProps = {
       ...svgBaseProps,
@@ -107,13 +118,23 @@ const Icon: React.SFC<IconProps> = (props) => {
     );
   }
 
-  if (type) {
+  if (typeof type === 'string') {
+    let computedType = type;
+    if (theme) {
+      computedType = withThemeSuffix(type, theme);
+    }
+    warning(
+      Boolean(secondaryColor && !primaryColor),
+      `two-tone icon should be provided with the property 'primaryColor' at least.`,
+    );
     return (
       <i className={classString} title={title} style={style} onClick={onClick}>
         <ReactIcon
           className={svgClassString}
-          type={type}
+          type={computedType}
           style={svgStyle}
+          primaryColor={primaryColor}
+          secondaryColor={secondaryColor}
         />
       </i>
     );
@@ -126,9 +147,11 @@ const Icon: React.SFC<IconProps> = (props) => {
 
 export type IconType = typeof Icon & {
   createFromIconfontCN: typeof createFromIconfontCN;
+  setTwoTonePrimaryColor: typeof setTwoTonePrimaryColor;
 };
 
 Icon.displayName = 'Icon';
 (Icon as IconType).createFromIconfontCN = createFromIconfontCN;
+(Icon as IconType).setTwoTonePrimaryColor = setTwoTonePrimaryColor;
 
 export default Icon as IconType;

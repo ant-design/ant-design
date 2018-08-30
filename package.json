@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "~1.0.0-alpha.5",
-    "@ant-design/icons-react": "~1.0.0-alpha.1",
+    "@ant-design/icons-react": "~1.0.0-alpha.2",
     "array-tree-filter": "^2.0.0",
     "babel-runtime": "6.x",
     "classnames": "~2.2.0",
