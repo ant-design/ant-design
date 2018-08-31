@@ -12,17 +12,6 @@ toc: false
 
 安装 [Kitchen Sketch 插件 💎](https://kitchen.alipay.com)，就可以一键拖拽使用 Ant Design 和 Iconfont 的海量图标，还可以关联自有项目。
 
-## 图标的命名规范
-
-我们为每个图标赋予了语义化的命名，命名规则如下:
-
-- 实心和描线图标保持同名，用 `-o` 来区分，比如 `question-circle`（实心） 和 `question-circle-o`（描线）；
-- 命名顺序：`[图标名]-[形状?]-[描线?]-[方向?]`。
-
-> `?` 为可选。
-
-完整的图标设计规范请访问 [图标规范](/docs/spec/icon)。
-
 ## 图标列表
 
 > 点击图标即可复制代码。

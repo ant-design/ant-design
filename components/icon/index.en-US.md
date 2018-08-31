@@ -7,17 +7,6 @@ toc: false
 
 Semantic vector graphics.
 
-## Icons naming convention
-
-We provide semantic name for every icon, and naming rules are as follows:
-
-- Scanning line icon has the similar name with its solid one，but it's distinguished by `-o`, for example, `question-circle` (a full circle) and `question-circle-o` (an empty circle);
-- Naming sequence：`[name]-[shape?]-[outline?]-[direction?]`.
-
-> `?` means is optional.
-
-See more design detail at [here](/docs/spec/icon).
-
 ## List of icons
 
 > Click the icon and copy the code.
