@@ -48,7 +48,7 @@ ReactDOM.render(<IconSet className="icons" catigory="logo" />, mountNode);
 | --- | --- | --- | --- |
 | type | Type of the ant design icon | string | - |
 | style | Style properties of icon, like `fontSize` and `color` | CSSProperties | - |
-| theme | Theme of the ant design icon  | 'filled' \| 'outlined' \| 'two-tone' | - |
+| theme | Theme of the ant design icon  | 'filled' \| 'outlined' \| 'twoTone' | - |
 | svgStyle | Inline style to apply to the SVG element | CSSProperties | - |
 | svgClassName | Define extra class name for the SVG element | string | - |
 | spin | Rotate icon with animation | boolean | false |
