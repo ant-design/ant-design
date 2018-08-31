@@ -116,7 +116,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
 
     warning(
       !(type.indexOf('card') >= 0 && (size === 'small' || size === 'large')),
-      'Tabs[type=card|editable-card] doesn\'t have small or large size, it\'s by designed.',
+      'Tabs[type=card|editable-card] doesn\'t have small or large size, it\'s by design.',
     );
     const cls = classNames(className, {
       [`${prefixCls}-vertical`]: tabPosition === 'left' || tabPosition === 'right',
