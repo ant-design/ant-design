@@ -16,7 +16,9 @@ Specific them property `theme` to `two-tone` to render two-tone icons. You can a
 ````jsx
 import { Icon } from 'antd';
 
-Icon.setTwoTonePrimaryColor('#1890ff');
+Icon.setTwoToneColors({
+  primaryColor: '#1890ff',
+});
 
 ReactDOM.render(
   <div className="icons-list">

@@ -5,7 +5,7 @@ import ReactIcon from '@ant-design/icons-react';
 import createFromIconfontCN from './IconFont';
 import { svgBaseProps, withThemeSuffix } from './utils';
 import warning from '../_util/warning';
-import { setTwoTonePrimaryColor } from './setTwoTonePrimaryColor';
+import { getTwoToneColors, setTwoToneColors } from './twoTonePrimaryColor';
 
 ReactIcon.add(...Object.keys(allIcons).map((key) => (allIcons as any)[key]));
 
@@ -149,11 +149,13 @@ const Icon: React.SFC<IconProps> = (props) => {
 
 export type IconType = typeof Icon & {
   createFromIconfontCN: typeof createFromIconfontCN;
-  setTwoTonePrimaryColor: typeof setTwoTonePrimaryColor;
+  getTwoToneColors: typeof getTwoToneColors;
+  setTwoToneColors: typeof setTwoToneColors;
 };
 
 Icon.displayName = 'Icon';
 (Icon as IconType).createFromIconfontCN = createFromIconfontCN;
-(Icon as IconType).setTwoTonePrimaryColor = setTwoTonePrimaryColor;
+(Icon as IconType).getTwoToneColors = getTwoToneColors;
+(Icon as IconType).setTwoToneColors = setTwoToneColors;
 
 export default Icon as IconType;
