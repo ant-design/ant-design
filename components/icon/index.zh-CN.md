@@ -63,7 +63,7 @@ ReactDOM.render(<IconSet className="icons" catigory="logo" />, mountNode);
 | --- | --- | --- | --- |
 | type | 图标类型。遵循图标的命名规范 | string | - |
 | style | 设置图标的样式，例如 `fontSize` 和 `color` | CSSProperties | - |
-| theme | 图标主题风格。可选实心、描线、双色等主题风格，适用于官方图标 | 'fill' \| 'outline' \| 'twotone' | - |
+| theme | 图标主题风格。可选实心、描线、双色等主题风格，适用于官方图标 | 'filled' \| 'outlined' \| 'two-tone' | - |
 | svgStyle | 设置图标本身`<svg>`标签的样式 | CSSProperties | - |
 | svgClassName | 为图标本身`<svg>`标签设置额外的类名 | string | - |
 | spin | 是否有旋转动画 | boolean | false |
