@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import RcSteps from 'rc-steps';
+import Icon from '../icon';
 
 export interface StepsProps {
   prefixCls?: string;
@@ -30,8 +31,13 @@ export default class Steps extends React.Component<StepsProps, any> {
   };
 
   render() {
+    const { prefixCls } = this.props;
+    const icons = {
+      finish: <Icon type="check" className={`${prefixCls}-finish-icon`} />,
+      error: <Icon type="close" className={`${prefixCls}-error-icon`} />,
+    };
     return (
-      <RcSteps {...this.props} />
+      <RcSteps icons={icons} {...this.props} />
     );
   }
 }
