@@ -21,7 +21,7 @@ export function getThemeFromTypeName(type: string): ThemeType | null {
   } else if (outlineTester.test(type)) {
     result = 'outlined';
   } else if (twoToneTester.test(type)) {
-    result = 'two-tone';
+    result = 'twoTone';
   }
   return result;
 }
@@ -37,7 +37,7 @@ export function withThemeSuffix(type: string, theme: ThemeType) {
       result += '-fill';
     } else if (theme === 'outlined') {
       result += '-o';
-    } else if (theme === 'two-tone') {
+    } else if (theme === 'twoTone') {
       result += '-twotone';
     } else {
       warning(false, `This icon '${type}' has unknown theme '${theme}'`);
