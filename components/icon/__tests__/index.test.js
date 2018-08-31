@@ -56,7 +56,7 @@ describe('Icon', () => {
 
   it('should give a warning when there is no primaryColor but secondaryColor', () => {
     const wrapper = render(
-      <Icon type="check-circle" theme="two-tone" secondaryColor="#f5222d" />
+      <Icon type="check-circle" theme="twoTone" secondaryColor="#f5222d" />
     );
     expect(wrapper).toMatchSnapshot();
   });
