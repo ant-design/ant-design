@@ -12,7 +12,7 @@ describe('Icon', () => {
 
   it('should support two-tone icon', () => {
     const wrapper = render(
-      <Icon type="check-circle" theme="twotone" primaryColor="#f5222d" />
+      <Icon type="check-circle" theme="two-tone" primaryColor="#f5222d" />
     );
     expect(wrapper).toMatchSnapshot();
   });

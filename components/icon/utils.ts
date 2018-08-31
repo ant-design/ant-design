@@ -17,11 +17,11 @@ const twoToneTester = /-twotone$/;
 export function getThemeFromTypeName(type: string): ThemeType | null {
   let result: ThemeType | null = null;
   if (fillTester.test(type)) {
-    result = 'fill';
+    result = 'filled';
   } else if (outlineTester.test(type)) {
-    result = 'outline';
+    result = 'outlined';
   } else if (twoToneTester.test(type)) {
-    result = 'twotone';
+    result = 'two-tone';
   }
   return result;
 }
@@ -33,11 +33,11 @@ export function withThemeSuffix(type: string, theme: ThemeType) {
     ` The prop 'theme' will be ignored.`);
   let result = type;
   if (!alreadyHaveTheme) {
-    if (theme === 'fill') {
+    if (theme === 'filled') {
       result += '-fill';
-    } else if (theme === 'outline') {
+    } else if (theme === 'outlined') {
       result += '-o';
-    } else if (theme === 'twotone') {
+    } else if (theme === 'two-tone') {
       result += '-twotone';
     } else {
       warning(false, `This icon '${type}' has unknown theme '${theme}'`);

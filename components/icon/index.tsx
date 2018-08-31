@@ -19,7 +19,7 @@ export interface CustomIconComponentProps {
   ['aria-hidden']?: string;
 }
 
-export type ThemeType = 'fill' | 'outline' | 'twotone';
+export type ThemeType = 'filled' | 'outlined' | 'two-tone';
 
 export interface IconProps {
   type?: string;
