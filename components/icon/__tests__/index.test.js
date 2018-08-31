@@ -10,9 +10,53 @@ describe('Icon', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('should support basic usage', () => {
+    const wrapper = render(
+      <div>
+        <Icon type="home" />
+        <Icon type="setting" theme="filled" />
+        <Icon type="smile" theme="outlined" />
+        <Icon type="sync" spin />
+        <Icon type="loading" />
+      </div>
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should support older usage', () => {
+    const wrapper = render(
+      <div>
+        <Icon type="home-o" />
+        <Icon type="setting-fill" />
+        <Icon type="smile-o" />
+        <Icon type="check-circle-twotone" />
+      </div>
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('should support two-tone icon', () => {
     const wrapper = render(
       <Icon type="check-circle" theme="two-tone" primaryColor="#f5222d" />
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should support config global two-tone primary color', () => {
+    const colors = Icon.getTwoToneColors();
+    Icon.setTwoToneColors({
+      primaryColor: '#1890ff',
+    });
+    const wrapper = render(
+      <Icon type="check-circle" theme="two-tone" />
+    );
+    expect(wrapper).toMatchSnapshot();
+    Icon.setTwoToneColors(colors);
+  });
+
+  it('should give a warning when there is no primaryColor but secondaryColor', () => {
+    const wrapper = render(
+      <Icon type="check-circle" theme="two-tone" secondaryColor="#f5222d" />
     );
     expect(wrapper).toMatchSnapshot();
   });
