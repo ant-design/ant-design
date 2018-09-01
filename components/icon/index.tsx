@@ -52,7 +52,6 @@ const Icon: React.SFC<IconProps> = (props) => {
     component: Component,
     viewBox,
     spin,
-    svgClassName,
     svgStyle = {},
 
     // children
@@ -75,7 +74,7 @@ const Icon: React.SFC<IconProps> = (props) => {
 
   const svgClassString = classNames({
     [`anticon-spin`]: !!spin || type === 'loading',
-  }, svgClassName);
+  });
 
   // component > children > type
   if (Component) {

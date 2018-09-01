@@ -163,7 +163,6 @@ export default class Tree extends React.Component<TreeProps, any> {
         <Icon
           type="loading"
           className={`${prefixCls}-switcher-loading-icon`}
-          svgClassName={`${prefixCls}-switcher-loading-icon-svg`}
         />
       );
     }
@@ -178,8 +177,9 @@ export default class Tree extends React.Component<TreeProps, any> {
       }
       return (
         <Icon
-          type={expanded ? 'minus-square-o' : 'plus-square-o'}
+          type={expanded ? 'minus-square' : 'plus-square'}
           className={`${prefixCls}-switcher-line-icon`}
+          theme={'outlined'}
         />
       );
     } else {

@@ -55,7 +55,6 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
         <Icon
           type="loading"
           className={`${prefixCls}-switcher-loading-icon`}
-          svgClassName={`${prefixCls}-switcher-loading-icon-svg`}
         />
       );
     }

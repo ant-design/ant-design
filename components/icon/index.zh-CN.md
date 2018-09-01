@@ -31,7 +31,6 @@ ReactDOM.render(<IconDisplay />, mountNode);
 | style | 设置图标的样式，例如 `fontSize` 和 `color` | CSSProperties | - |
 | theme | 图标主题风格。可选实心、描线、双色等主题风格，适用于官方图标 | 'filled' \| 'outlined' \| 'twoTone' | - |
 | svgStyle | 设置图标本身`<svg>`标签的样式 | CSSProperties | - |
-| svgClassName | 为图标本身`<svg>`标签设置额外的类名 | string | - |
 | spin | 是否有旋转动画 | boolean | false |
 | component | 控制如何渲染图标，通常是一个渲染根标签为 `<svg>` 的 `React` 组件，**会使 `type` 属性失效** | ComponentType<CustomIconComponentProps\> | - |
 | twoToneColor | 仅适用双色图标。设置双色图标的主要颜色。 | string (十六进制颜色) | - |

@@ -61,7 +61,6 @@ export default class Pagination extends React.Component<PaginationProps, {}> {
         <div className={`${prefixCls}-item-container`}>
           <Icon
             className={`${prefixCls}-item-link-icon`}
-            svgClassName={`${prefixCls}-item-link-icon-svg`}
             type="double-left"
           />
           <span className={`${prefixCls}-item-ellipsis`}>•••</span>
@@ -74,7 +73,6 @@ export default class Pagination extends React.Component<PaginationProps, {}> {
         <div className={`${prefixCls}-item-container`}>
           <Icon
             className={`${prefixCls}-item-link-icon`}
-            svgClassName={`${prefixCls}-item-link-icon-svg`}
             type="double-right"
           />
           <span className={`${prefixCls}-item-ellipsis`}>•••</span>
