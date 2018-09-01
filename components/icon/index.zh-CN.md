@@ -34,6 +34,12 @@ ReactDOM.render(<IconDisplay />, mountNode);
 | component | 控制如何渲染图标，通常是一个渲染根标签为 `<svg>` 的 `React` 组件，**会使 `type` 属性失效** | ComponentType<CustomIconComponentProps\> | - |
 | twoToneColor | 仅适用双色图标。设置双色图标的主要颜色。 | string (十六进制颜色) | - |
 
+其中 `theme`, `component`, `twoToneColor` 是 `antd@3.9.x` 新增加的属性。最佳实践是给使用的 `<Icon />` 组件传入属性 `theme` 以明确图标的主题风格。例如：
+
+```jsx
+<Icon type="star" theme="filled" />
+```
+
 所有的图标都会以 `<svg>` 标签渲染，可以使用 `style` 和 `className` 设置图标的大小和单色图标的颜色。例如：
 
 ```jsx
