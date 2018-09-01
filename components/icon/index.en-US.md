@@ -29,10 +29,16 @@ ReactDOM.render(<IconDisplay />, mountNode);
 | component | The component used for the root node. This will override the **`type`** property. | ComponentType<CustomIconComponentProps\> | - |
 | twoToneColor | Only support the two-tone icon. Specific the primary color. | string (hex color) | - |
 
+The properties `theme`, `component` and `twoToneColor` are added in `antd@3.9.x`. The best practice is to pass the property `theme` to every `<Icon />` components.
+
+```jsx
+<Icon type="star" theme="filled" />
+```
+
 All the icons will render to `<svg>`. You can still set `style` and `className` for size and color of icons.
 
 ```jsx
-<Icon type="message" style={{ fontSize: '16px', color: '#08c' }} />
+<Icon type="message" style={{ fontSize: '16px', color: '#08c' }} theme="outlined" />
 ```
 
 You can import svg icon as an react component by using `webpack` and [`@svgr/webpack`](https://www.npmjs.com/package/@svgr/webpack). `@svgr/webpack`'s `options` [reference](https://github.com/smooth-code/svgr#options).
