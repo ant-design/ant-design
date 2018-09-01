@@ -20,7 +20,7 @@ const CopyableIcon: React.SFC<CopyableIconProps> = ({
       onCopy={() => onCopied(type)}
     >
       <li className={justCopied === type ? 'copied' : ''}>
-        <Icon type={type} theme={theme} />
+        <Icon type={type} theme={theme} primaryColor="#333" secondaryColor="#e6e6e6" />
         <span className="anticon-class">
           <Badge dot={isNew}>
             {type}
