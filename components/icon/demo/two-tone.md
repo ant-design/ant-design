@@ -20,7 +20,7 @@ ReactDOM.render(
   <div className="icons-list">
     <Icon type="dollar" theme="twoTone" />
     <Icon type="euro" theme="twoTone" />
-    <Icon type="check-circle" theme="twoTone" primaryColor="#eb2f96" />
+    <Icon type="check-circle" theme="twoTone" twoToneColor="#eb2f96" />
   </div>,
   mountNode
 );

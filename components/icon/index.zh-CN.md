@@ -34,8 +34,7 @@ ReactDOM.render(<IconDisplay />, mountNode);
 | svgClassName | 为图标本身`<svg>`标签设置额外的类名 | string | - |
 | spin | 是否有旋转动画 | boolean | false |
 | component | 控制如何渲染图标，通常是一个渲染根标签为 `<svg>` 的 `React` 组件，**会使 `type` 属性失效** | ComponentType<CustomIconComponentProps\> | - |
-| primaryColor | 仅适用双色图标。设置双色图标的主要颜色。 | string (十六进制颜色) | - |
-| secondaryColor | 仅适用双色图标。设置双色图标的次要颜色。 | string (十六进制颜色) | - |
+| twoToneColor | 仅适用双色图标。设置双色图标的主要颜色。 | string (十六进制颜色) | - |
 
 所有的图标都会以 `<svg>` 标签渲染，可以使用 `style` 和 `className` 设置图标的大小和单色图标的颜色。例如：
 
