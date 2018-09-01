@@ -34,8 +34,6 @@ export interface IconProps {
   viewBox?: string;
   spin?: boolean;
   style?: React.CSSProperties;
-  svgStyle?: React.CSSProperties;
-  svgClassName?: string;
   prefixCls?: string;
 }
 
@@ -52,7 +50,6 @@ const Icon: React.SFC<IconProps> = (props) => {
     component: Component,
     viewBox,
     spin,
-    svgStyle = {},
 
     // children
     children,
@@ -81,7 +78,6 @@ const Icon: React.SFC<IconProps> = (props) => {
     const innerSvgProps: CustomIconComponentProps = {
       ...svgBaseProps,
       className: svgClassString,
-      style: svgStyle,
       viewBox,
     };
     if (!viewBox) {
@@ -106,7 +102,6 @@ const Icon: React.SFC<IconProps> = (props) => {
     const innerSvgProps: CustomIconComponentProps = {
       ...svgBaseProps,
       className: svgClassString,
-      style: svgStyle,
     };
     return (
       <i className={classString} title={title} style={style} onClick={onClick}>
@@ -132,7 +127,6 @@ const Icon: React.SFC<IconProps> = (props) => {
         <ReactIcon
           className={svgClassString}
           type={computedType}
-          style={svgStyle}
           primaryColor={twoToneColor}
         />
       </i>
