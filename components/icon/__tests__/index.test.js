@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'enzyme';
 import Icon from '..';
+import ReactIcon from '@ant-design/icons-react';
 import { getThemeFromTypeName, withThemeSuffix } from '../utils';
 
 describe('Icon', () => {
@@ -38,28 +39,19 @@ describe('Icon', () => {
 
   it('should support two-tone icon', () => {
     const wrapper = render(
-      <Icon type="check-circle" theme="twoTone" primaryColor="#f5222d" />
+      <Icon type="check-circle" theme="twoTone" twoToneColor="#f5222d" />
     );
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should support config global two-tone primary color', () => {
-    const colors = Icon.getTwoToneColors();
-    Icon.setTwoToneColors({
-      primaryColor: '#1890ff',
-    });
+    const colors = ReactIcon.getTwoToneColors();
+    Icon.setTwoToneColor('#1890ff');
     const wrapper = render(
       <Icon type="check-circle" theme="twoTone" />
     );
     expect(wrapper).toMatchSnapshot();
-    Icon.setTwoToneColors(colors);
-  });
-
-  it('should give a warning when there is no primaryColor but secondaryColor', () => {
-    const wrapper = render(
-      <Icon type="check-circle" theme="twoTone" secondaryColor="#f5222d" />
-    );
-    expect(wrapper).toMatchSnapshot();
+    ReactIcon.setTwoToneColors(colors);
   });
 
   it('should support pass svg paths as children', () => {
