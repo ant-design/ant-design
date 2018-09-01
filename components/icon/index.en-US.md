@@ -29,8 +29,7 @@ ReactDOM.render(<IconDisplay />, mountNode);
 | svgClassName | Define extra class name for the SVG element | string | - |
 | spin | Rotate icon with animation | boolean | false |
 | component | The component used for the root node. This will override the **`type`** property. | ComponentType<CustomIconComponentProps\> | - |
-| primaryColor | Only support the two-tone icon. Specific the primary color. | string (hex color) | - |
-| secondaryColor | Only support the two-tone icon. Specific the secondary color. | string (hex color) | - |
+| twoToneColor | Only support the two-tone icon. Specific the primary color. | string (hex color) | - |
 
 All the icons will render to `<svg>`. You can still set `style` and `className` for size and color of icons.
 
