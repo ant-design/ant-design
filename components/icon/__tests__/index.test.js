@@ -174,7 +174,7 @@ describe('utils', () => {
     expect(result).toEqual(
       [
         'home-fill', 'home-o', 'home-twotone', 'home',
-        'home-o', 'home-fill', 'home-o', 'home-o',
+        'home-o-fill', 'home-fill-o', 'home-o-twotone', 'home-o',
       ]
     );
   });
