@@ -42,9 +42,10 @@
         display: inline-block;
         line-height: 46px;
         vertical-align: top;
-        top: 0;
+        top: 50%;
+        transform: translateY(-50%);
         left: @padding-md;
-        &-svg {
+        & svg {
           .collapse-close();
           transition: transform 0.24s;
         }
@@ -88,7 +89,7 @@
   }
 
   & > &-item > &-header[aria-expanded="true"] {
-    .arrow-svg {
+    svg {
       .collapse-open();
     }
   }

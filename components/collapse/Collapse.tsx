@@ -29,7 +29,7 @@ export default class Collapse extends React.Component<CollapseProps, any> {
 
   renderExpandIcon = () => {
     return (
-      <Icon type="right" className={`arrow`} svgClassName={`arrow-svg`} />
+      <Icon type="right" className={`arrow`} />
     );
   }
 
