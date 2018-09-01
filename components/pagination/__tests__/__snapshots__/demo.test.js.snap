@@ -205,7 +205,7 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="ant-pagination-item-link-icon-svg"
+            class=""
             data-icon="double-right"
             fill="currentColor"
             height="1em"
@@ -506,7 +506,7 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="ant-pagination-item-link-icon-svg"
+            class=""
             data-icon="double-right"
             fill="currentColor"
             height="1em"
@@ -644,7 +644,7 @@ exports[`renders ./components/pagination/demo/jump.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="ant-pagination-item-link-icon-svg"
+            class=""
             data-icon="double-right"
             fill="currentColor"
             height="1em"
@@ -1171,7 +1171,7 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="ant-pagination-item-link-icon-svg"
+            class=""
             data-icon="double-left"
             fill="currentColor"
             height="1em"
@@ -1253,7 +1253,7 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="ant-pagination-item-link-icon-svg"
+            class=""
             data-icon="double-right"
             fill="currentColor"
             height="1em"
