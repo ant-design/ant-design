@@ -1,6 +1,7 @@
 import * as React from 'react';
+import { CustomIconComponentProps } from '../../../../components/icon';
 
-export const FilledIcon: React.SFC = (props: any) => {
+export const FilledIcon: React.SFC<CustomIconComponentProps> = (props) => {
   const path = 'M864 64H160C107 64 64 107 64 160v' +
     '704c0 53 43 96 96 96h704c53 0 96-43 96-96V16' +
     '0c0-53-43-96-96-96z';
@@ -14,7 +15,7 @@ export const FilledIcon: React.SFC = (props: any) => {
   );
 };
 
-export const OutlinedIcon: React.SFC = (props: any) => {
+export const OutlinedIcon: React.SFC<CustomIconComponentProps> = (props) => {
   const path = 'M864 64H160C107 64 64 107 64 160v7' +
     '04c0 53 43 96 96 96h704c53 0 96-43 96-96V160c' +
     '0-53-43-96-96-96z m-12 800H172c-6.6 0-12-5.4-' +
@@ -30,7 +31,7 @@ export const OutlinedIcon: React.SFC = (props: any) => {
   );
 };
 
-export const TwoToneIcon: React.SFC = (props: any) => {
+export const TwoToneIcon: React.SFC<CustomIconComponentProps> = (props) => {
   const path = 'M16 512c0 273.932 222.066 496 496 49' +
     '6s496-222.068 496-496S785.932 16 512 16 16 238.' +
     '066 16 512z m496 368V144c203.41 0 368 164.622 3' +

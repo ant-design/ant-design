@@ -1,13 +1,15 @@
 import * as React from 'react';
-import { ThemeType } from '../../../../components/icon';
+import { ThemeType, IconProps } from '../../../../components/icon';
 import manifest from '@ant-design/icons/lib/manifest';
-import { Manifest, ThemeType as ThemeFolderType } from '@ant-design/icons/lib/types';
+import { ThemeType as ThemeFolderType } from '@ant-design/icons/lib/types';
 import Category from './Category';
-import { Radio, Icon } from 'antd';
+import { Radio, Icon as AntdIcon } from 'antd';
 import { RadioChangeEvent } from 'antd/lib/radio/interface';
 import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 import { categories, Categories, CategoriesKeys } from './fields';
 import { injectIntl, InjectedIntlProps } from 'react-intl';
+
+const Icon: React.SFC<IconProps> = AntdIcon;
 
 interface IconDisplayProps extends InjectedIntlProps {
 }
@@ -50,7 +52,7 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
     });
   }
 
-  renderCategories(list: Array<{ category: string, icons: string[] }>) {
+  renderCategories(list: Array<{ category: CategoriesKeys, icons: string[] }>) {
     return list.map(({ category, icons }) => {
       return (
         <Category
