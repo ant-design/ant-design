@@ -38,3 +38,7 @@ components/**/*.jsx
 !components/**/__tests__/*.js
 !components/**/__tests__/*.js.snap
 /.history
+
+# Docs templates
+site/theme/template/IconDisplay/*.js
+site/theme/template/IconDisplay/*.jsx
