@@ -33,19 +33,19 @@
     .clearfix;
     margin-bottom: -1px; // Fix card grid overflow bug: https://gw.alipayobjects.com/zos/rmsportal/XonYxBikwpgbqIQBeuhk.png
     min-height: @card-head-height;
+    font-size: @font-size-lg;
+    color: @card-head-color;
+    font-weight: 500;
 
     &-wrapper {
       display: flex;
     }
 
     &-title {
-      font-size: @font-size-lg;
       padding: @card-head-padding 0;
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
-      color: @card-head-color;
-      font-weight: 500;
       display: inline-block;
       flex: 1;
     }
@@ -53,6 +53,9 @@
     .@{ant-prefix}-tabs {
       margin-bottom: -17px;
       clear: both;
+      font-size: @font-size-base;
+      color: @text-color;
+      font-weight: normal;
 
       &-bar {
         border-bottom: @border-width-base @border-style-base @border-color-split;
@@ -63,6 +66,9 @@
   &-extra {
     float: right;
     padding: @card-head-padding + 1.5px 0;
+    font-size: @font-size-base;
+    color: @text-color;
+    font-weight: normal;
     text-align: right;
     // https://stackoverflow.com/a/22429853/3040605
     margin-left: auto;
@@ -73,7 +79,7 @@
     .clearfix;
   }
 
-  &-contain-grid:not(&-loading) {
+  &-contain-grid:not(&-loading) &-body {
     margin: -1px 0 0 -1px;
     padding: 0;
   }

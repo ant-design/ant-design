@@ -48,7 +48,10 @@ Please find below some of the design resources and tools about Ant Design that w
       <img width="65" src="https://gw.alipayobjects.com/zos/rmsportal/ATYZYtJhchhONKObIwXT.png">
     </div>
     <div class="resource-card-content">
-      <span class="resource-card-title">Kitchen</span>
+      <span class="resource-card-title">
+        Kitchen
+        <span class="resource-card-hot-badge">HOT</span>
+      </span>
       <span class="resource-card-description">A Sketch plugin with a collection of great tools</span>
     </div>
   </a>

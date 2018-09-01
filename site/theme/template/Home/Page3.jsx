@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col } from 'antd';
+import { Row, Col, Tag } from 'antd';
 import QueueAnim from 'rc-queue-anim';
 import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import { Link } from 'bisheng/router';
@@ -25,6 +25,7 @@ const page3Data = [
     content: <FormattedMessage id="app.home.tool-kitchen-content" />,
     img: 'https://gw.alipayobjects.com/zos/rmsportal/vUxYuDdsbBBcMDxSGmwc.svg',
     link: 'http://kitchen.alipay.com/',
+    hot: true,
   },
 ];
 
@@ -41,6 +42,7 @@ const svgBg = [
   <rect id="Rectangle-14" stroke="#CED4D9" transform="translate(111.673081, 158.673081) rotate(30.000000) translate(-111.673081, -158.673081) " x="107.288047" y="254.288047" width="8.77006914" height="8.77006914" rx="1" />,
 ];
 const svgChildren = svgBgToParallax(svgBg);
+
 export default function Page3({ locale }) {
   const isZhCN = locale === 'zh-CN';
   const children = page3Data.map((item, i) => {
@@ -49,7 +51,17 @@ export default function Page3({ locale }) {
         <img src={item.img} alt="icon" />
       </div>,
       <div className="page3-text-wrapper" key="a">
-        <h3>{item.title}</h3>
+        <h3>
+          {item.title}
+          {item.hot ? (
+            <Tag
+              style={{ marginLeft: 8, position: 'relative', top: -3, height: 18, lineHeight: '16px', padding: '0 2px' }}
+              color="#f50"
+            >
+              HOT
+            </Tag>
+          ) : null}
+        </h3>
         <p>{item.content}</p>
       </div>,
     ];
