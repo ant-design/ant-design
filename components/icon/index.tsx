@@ -7,7 +7,11 @@ import { svgBaseProps, withThemeSuffix } from './utils';
 import warning from '../_util/warning';
 import { getTwoToneColors, setTwoToneColors } from './twoTonePrimaryColor';
 
+// Initial setting
 ReactIcon.add(...Object.keys(allIcons).map((key) => (allIcons as any)[key]));
+ReactIcon.setTwoToneColors({
+  primaryColor: '#1890ff',
+});
 
 export interface CustomIconComponentProps {
   width: string | number;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import { Modal, message, Row, Col, Badge } from 'antd';
+import { Modal, message, Row, Col, Badge, Icon } from 'antd';
 import { isLocalStorageNameSupported, loadScript } from '../utils';
 import ColorPicker from '../Color/ColorPicker';
 
@@ -38,6 +38,7 @@ class Footer extends React.Component {
       window.less.modifyVars({
         '@primary-color': color,
       }).then(() => {
+        Icon.setTwoToneColor({ primaryColor: color });
         message.success(messages['app.footer.primary-color-changed']);
         this.setState({ color });
       });
