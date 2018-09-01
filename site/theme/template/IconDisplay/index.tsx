@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ThemeType, IconProps } from '../../../../components/icon';
+import { ThemeType, IconType } from '../../../../components/icon';
 import manifest from '@ant-design/icons/lib/manifest';
 import { ThemeType as ThemeFolderType } from '@ant-design/icons/lib/types';
 import Category from './Category';
@@ -9,7 +9,7 @@ import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 import { categories, Categories, CategoriesKeys } from './fields';
 import { injectIntl, InjectedIntlProps } from 'react-intl';
 
-const Icon: React.SFC<IconProps> = AntdIcon;
+const Icon: IconType = AntdIcon as any;
 
 interface IconDisplayProps extends InjectedIntlProps {
 }
@@ -73,11 +73,11 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
       <div>
         <h3>{messages['app.docs.components.icon.pick-theme']}</h3>
         <Radio.Group value={this.state.theme} onChange={this.handleChangeTheme}>
-          <Radio.Button value="filled">
-            <Icon component={FilledIcon} /> Filled
-          </Radio.Button>
           <Radio.Button value="outlined">
             <Icon component={OutlinedIcon} /> Outlined
+          </Radio.Button>
+          <Radio.Button value="filled">
+            <Icon component={FilledIcon} /> Filled
           </Radio.Button>
           <Radio.Button value="twoTone">
             <Icon component={TwoToneIcon} /> Two Tone
