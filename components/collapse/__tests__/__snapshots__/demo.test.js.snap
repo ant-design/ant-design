@@ -19,7 +19,7 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="arrow-svg"
+          class=""
           data-icon="right"
           fill="currentColor"
           height="1em"
@@ -49,7 +49,7 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="arrow-svg"
+          class=""
           data-icon="right"
           fill="currentColor"
           height="1em"
@@ -79,7 +79,7 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="arrow-svg"
+          class=""
           data-icon="right"
           fill="currentColor"
           height="1em"
@@ -116,7 +116,7 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="arrow-svg"
+          class=""
           data-icon="right"
           fill="currentColor"
           height="1em"
@@ -161,7 +161,7 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="arrow-svg"
+          class=""
           data-icon="right"
           fill="currentColor"
           height="1em"
@@ -191,7 +191,7 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="arrow-svg"
+          class=""
           data-icon="right"
           fill="currentColor"
           height="1em"
@@ -228,7 +228,7 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="arrow-svg"
+          class=""
           data-icon="right"
           fill="currentColor"
           height="1em"
@@ -271,7 +271,7 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="arrow-svg"
+          class=""
           data-icon="right"
           fill="currentColor"
           height="1em"
@@ -301,7 +301,7 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="arrow-svg"
+          class=""
           data-icon="right"
           fill="currentColor"
           height="1em"
@@ -339,7 +339,7 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="arrow-svg"
+          class=""
           data-icon="right"
           fill="currentColor"
           height="1em"
@@ -385,7 +385,7 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="arrow-svg"
+          class=""
           data-icon="right"
           fill="currentColor"
           height="1em"
@@ -416,7 +416,7 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="arrow-svg"
+          class=""
           data-icon="right"
           fill="currentColor"
           height="1em"
@@ -453,7 +453,7 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="arrow-svg"
+          class=""
           data-icon="right"
           fill="currentColor"
           height="1em"
@@ -483,7 +483,7 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="arrow-svg"
+          class=""
           data-icon="right"
           fill="currentColor"
           height="1em"
@@ -513,7 +513,7 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="arrow-svg"
+          class=""
           data-icon="right"
           fill="currentColor"
           height="1em"
@@ -550,7 +550,7 @@ exports[`renders ./components/collapse/demo/noarrow.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="arrow-svg"
+          class=""
           data-icon="right"
           fill="currentColor"
           height="1em"
