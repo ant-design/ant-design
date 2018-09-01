@@ -100,3 +100,5 @@ declare module 'intersperse';
 declare module "raf";
 
 declare module "react-lifecycles-compat";
+
+declare module "react-copy-to-clipboard";
