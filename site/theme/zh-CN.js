@@ -88,5 +88,10 @@ module.exports = {
     'app.publish.old-version-guide': '如果您还需要使用旧版，请查阅 ',
     'app.publish.old-version-tips': '，也可通过页面右上角的文档版本选择框进行切换。',
     'app.docs.color.pick-primary': '选择你的主色',
+    'app.docs.components.icon.pick-theme': '选择图标主题风格',
+    'app.docs.components.icon.category.direction': '方向性图标',
+    'app.docs.components.icon.category.suggestion': '提示建议性图标',
+    'app.docs.components.icon.category.other': '网站通用图标',
+    'app.docs.components.icon.category.logo': '品牌和标识',
   },
 };

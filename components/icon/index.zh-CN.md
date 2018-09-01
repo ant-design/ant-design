@@ -16,32 +16,9 @@ toc: false
 
 > 点击图标即可复制代码。
 
-### 方向性图标
-
 ```__react
-import IconSet from 'site/theme/template/IconSet';
-ReactDOM.render(<IconSet className="icons" catigory="direction" />, mountNode);
-```
-
-### 提示建议性图标
-
-```__react
-import IconSet from 'site/theme/template/IconSet';
-ReactDOM.render(<IconSet className="icons" catigory="suggestion" />, mountNode);
-```
-
-### 网站通用图标
-
-```__react
-import IconSet from 'site/theme/template/IconSet';
-ReactDOM.render(<IconSet className="icons" catigory="other" />, mountNode);
-```
-
-### 品牌与标识
-
-```__react
-import IconSet from 'site/theme/template/IconSet';
-ReactDOM.render(<IconSet className="icons" catigory="logo" />, mountNode);
+import IconDisplay from 'site/theme/template/IconDisplay';
+ReactDOM.render(<IconDisplay />, mountNode);
 ```
 
 ## API

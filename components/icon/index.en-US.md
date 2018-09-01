@@ -11,34 +11,10 @@ Semantic vector graphics.
 
 > Click the icon and copy the code.
 
-### Directional Icons
-
 ```__react
-import IconSet from 'site/theme/template/IconSet';
-ReactDOM.render(<IconSet className="icons" catigory="direction" />, mountNode);
+import IconDisplay from 'site/theme/template/IconDisplay';
+ReactDOM.render(<IconDisplay />, mountNode);
 ```
-
-### Suggested Icons
-
-```__react
-import IconSet from 'site/theme/template/IconSet';
-ReactDOM.render(<IconSet className="icons" catigory="suggestion" />, mountNode);
-```
-
-### Application Icons
-
-```__react
-import IconSet from 'site/theme/template/IconSet';
-ReactDOM.render(<IconSet className="icons" catigory="other" />, mountNode);
-```
-
-### Brand and Logos
-
-```__react
-import IconSet from 'site/theme/template/IconSet';
-ReactDOM.render(<IconSet className="icons" catigory="logo" />, mountNode);
-```
-
 
 ## API
 
