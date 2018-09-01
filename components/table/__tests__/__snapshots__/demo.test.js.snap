@@ -3793,7 +3793,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="ant-pagination-item-link-icon-svg"
+                  class=""
                   data-icon="double-right"
                   fill="currentColor"
                   height="1em"
@@ -6301,7 +6301,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
               >
                 <svg
                   aria-hidden="true"
-                  class="ant-pagination-item-link-icon-svg"
+                  class=""
                   data-icon="double-right"
                   fill="currentColor"
                   height="1em"
@@ -8923,7 +8923,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="ant-pagination-item-link-icon-svg"
+                  class=""
                   data-icon="double-right"
                   fill="currentColor"
                   height="1em"

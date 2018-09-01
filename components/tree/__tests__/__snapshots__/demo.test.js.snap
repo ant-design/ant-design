@@ -1190,7 +1190,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
       class="ant-tree-switcher ant-tree-switcher_open"
     >
       <i
-        class="anticon anticon-minus-square-o ant-tree-switcher-line-icon"
+        class="anticon anticon-minus-square ant-tree-switcher-line-icon"
       >
         <svg
           aria-hidden="true"
@@ -1234,7 +1234,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
           class="ant-tree-switcher ant-tree-switcher_open"
         >
           <i
-            class="anticon anticon-minus-square-o ant-tree-switcher-line-icon"
+            class="anticon anticon-minus-square ant-tree-switcher-line-icon"
           >
             <svg
               aria-hidden="true"
@@ -1391,7 +1391,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
           class="ant-tree-switcher ant-tree-switcher_close"
         >
           <i
-            class="anticon anticon-plus-square-o ant-tree-switcher-line-icon"
+            class="anticon anticon-plus-square ant-tree-switcher-line-icon"
           >
             <svg
               aria-hidden="true"
@@ -1431,7 +1431,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
           class="ant-tree-switcher ant-tree-switcher_close"
         >
           <i
-            class="anticon anticon-plus-square-o ant-tree-switcher-line-icon"
+            class="anticon anticon-plus-square ant-tree-switcher-line-icon"
           >
             <svg
               aria-hidden="true"
