@@ -23,8 +23,6 @@ ReactDOM.render(<IconDisplay />, mountNode);
 
 ## API
 
-### Icon
-
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | type | 图标类型。遵循图标的命名规范 | string | - |
@@ -77,9 +75,7 @@ ReactDOM.render(
 );
 ```
 
-#### CustomIconComponentProps
-
-`Icon` 中的 `component` 组件的属性如下：
+`Icon` 中的 `component` 组件的接受的属性如下：
 
 | 字段 | 说明 | 类型 | 只读值 |
 | --- | --- | --- | --- |
@@ -89,9 +85,9 @@ ReactDOM.render(
 | className | 计算后的 `svg` 类名 | string | - |
 | style | 计算后的 `svg` 元素样式 | CSSProperties | - |
 
-#### 使用 iconfont.cn 的自定义图标
+### 使用 iconfont.cn 的自定义图标
 
-##### Icon.createFromIconfontCN(options)
+#### Icon.createFromIconfontCN(options)
 
 这个方法适用于 `iconfont.cn` 的用户
 

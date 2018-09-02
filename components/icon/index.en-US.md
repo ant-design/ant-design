@@ -18,8 +18,6 @@ ReactDOM.render(<IconDisplay />, mountNode);
 
 ## API
 
-### Icon
-
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | type | Type of the ant design icon | string | - |
@@ -72,9 +70,7 @@ ReactDOM.render(
 );
 ```
 
-#### CustomIconComponentProps
-
-The following properties are available fot the component:
+The following properties are available for the component:
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
@@ -85,9 +81,9 @@ The following properties are available fot the component:
 | style | The computed style of the `svg` element | CSSProperties | - |
 
 
-#### Use custom icon with iconfont.cn
+### Use custom icon with iconfont.cn
 
-##### Icon.createFromIconfontCN(options)
+#### Icon.createFromIconfontCN(options)
 
 This method is specified for [iconfont.cn](http://iconfont.cn/).
 
