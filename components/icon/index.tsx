@@ -117,11 +117,6 @@ const Icon: React.SFC<IconProps> = (props) => {
     if (theme) {
       computedType = withThemeSuffix(type, theme);
     }
-    // default outlined
-    const computedType = withThemeSuffix(
-      getTypeWithoutTheme(type),
-      theme || 'outlined',
-    );
     return (
       <i className={classString} title={title} style={style} onClick={onClick}>
         <ReactIcon
