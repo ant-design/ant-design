@@ -20,9 +20,13 @@ timeline: true
 `2018-08-27`
 
 In September we brought an update for `3.9.0`. There are many new features in `3.9.0`, Ant Design is getting stronger and stronger.
-- 🔥🔥🔥 Since version 3.9.0, we have rewritten the Icon component, replace the `css` font icon with the `SVG` icon.
-  - 💄 The `SVG` icon will now be rendered.
+- 🔥🔥🔥 In the `3.9.0` version, we redraw all the icons, adding two new categories, more than 50 new icons. And the bit adds a variety of styles to each icon. To this end, we have rewritten the Icon component, adding a number of features that allow us to quickly use new icons and styles.
+
+![](https://gw.alipayobjects.com/zos/rmsportal/CVDHuodLwcDeyQBDoUIZ.png)
+
+  - 💄 Replace the `css` font icon with the `SVG` icon.
   - 💄 You can now render a two-color icon.
+  - 🌟 Two new categories, **Edit Icons** and **Data Icons**, have been added.
   - 🌟 Add the `theme` attribute to set the theme style of the icon. [#11971](https://github.com/ant-design/ant-design/pull/11971)
   - 🌟 Added `component` attribute, you can externally pass a component to customize the control rendering result. [#11322](https://github.com/ant-design/ant-design/pull/11322)
   - 🌟 The `twoToneColor` property is added to control the theme color of the two-color icon. [#11971](https://github.com/ant-design/ant-design/pull/11971)
@@ -31,6 +35,8 @@ In September we brought an update for `3.9.0`. There are many new features in `3
 - 🔥 Added a new component [Skeleton](https://ant.design/components/skeleton/).
 - 🔥 Menu will automatically close up to fit width in `horizontal` mode.
 - 🔥 The `placement` of the drawer supports `top` and `bottom` to accommodate more scenes.
+
+In addition, our Ant Design Pro@2.0.0 has also been released simultaneously. Please see [here](https://medium.com/ant-design/beautiful-and-powerful-ant-design-pro-2-0-release-51358da5af95) for details.
 
 ### Bugfix/Feature：
 
