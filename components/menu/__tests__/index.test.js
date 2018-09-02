@@ -3,6 +3,13 @@ import { mount } from 'enzyme';
 import Menu from '..';
 import Icon from '../../icon';
 
+jest.mock('mutationobserver-shim', () => {
+  global.MutationObserver = function MutationObserver() {
+    this.observe = () => {};
+    this.disconnect = () => {};
+  };
+});
+
 const { SubMenu } = Menu;
 
 describe('Menu', () => {

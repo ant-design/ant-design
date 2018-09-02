@@ -20,9 +20,13 @@ timeline: true
 `2018-08-27`
 
 在 9 月我们带了 `3.9.0` 的更新。 `3.9.0` 中带了多项新特性，Ant Design 的能力得到了极大地提升。
-- 🔥🔥🔥 从 `3.9.0` 版本开始，我们重写了 Icon 组件，使用`SVG` 图标替换了`css` 字体图标。
-  - 💄 现在将会渲染 `SVG` 图标。
+- 🔥🔥🔥 在 `3.9.0` 版本中，我们重绘了所有的图标，新增了两大类，超过50个新图标。并且位为每个图标增加了多种风格。为此我们重写了 Icon 组件，增加了多个特性，可以快速的使用新的图标和风格。
+
+![](https://gw.alipayobjects.com/zos/rmsportal/CVDHuodLwcDeyQBDoUIZ.png)
+
+  - 💄 使用 `SVG` 图标替换了 `css` 字体图标。
   - 💄 现在可以渲染双色图标。
+  - 🌟 新增了 **编辑类** 和 **数据类** 两个新类别。
   - 🌟 新增 `theme` 属性，可以设置图标的主题风格。[#11971](https://github.com/ant-design/ant-design/pull/11971)
   - 🌟 新增 `component` 属性，可以外部传入一个组件来自定义控制渲染结果。[#11322](https://github.com/ant-design/ant-design/pull/11322)
   - 🌟 新增 `twoToneColor` 属性，可以控制双色图标的主题色。[#11971](https://github.com/ant-design/ant-design/pull/11971)
@@ -30,7 +34,9 @@ timeline: true
   - 🌟 新增静态方法 `Icon.createFromIconfontCN({...})`，可以更加方便地使用 [`iconfont.cn`](http://iconfont.cn/) 上托管的图标。更多用法请参阅 [Ant Design Pro - 业务图标](https://pro.ant.design/docs/biz-icon-cn) 的介绍。[#11322](https://github.com/ant-design/ant-design/pull/11322)
 - 🔥 增加了一个新组件 [Skeleton](https://ant.design/components/skeleton-cn/)。
 - 🔥 Menu 在 `horizontal` 模式下会自动收起来适应宽度。
-- 🔥 Drawer 的 `placement` 支持 `top` 和 `bottom`，来适应更多场景。
+- 🔥 Drawer 的 `placement` 支持 `top` 和 `bottom`，可以适应更多场景。
+
+另外我们的 Ant Design Pro@2.0.0也已同步发布，详细内容请看[这里](https://www.yuque.com/ant-design/ant-design-pro/ant_design_pro_2.0_is_out)。
 
 ### 组件修复/功能增强：
 
