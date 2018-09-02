@@ -91,6 +91,8 @@ module.exports = {
     'app.docs.components.icon.pick-theme': 'Select the Icon Theme',
     'app.docs.components.icon.category.direction': 'Directional Icons',
     'app.docs.components.icon.category.suggestion': 'Suggested Icons',
+    'app.docs.components.icon.category.edit': 'Editor Icons',
+    'app.docs.components.icon.category.data': 'Data Icons',
     'app.docs.components.icon.category.other': 'Application Icons',
     'app.docs.components.icon.category.logo': 'Brand and Logos',
   },

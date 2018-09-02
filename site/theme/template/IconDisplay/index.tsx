@@ -22,7 +22,42 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
 
   static cagetories: Categories = categories;
 
-  static newIconNames: string[] = [];
+  static newIconNames: string[] = [
+    // direction
+    'border-bottom', 'border-horizontal', 'border-inner',
+    'border-outter', 'border-left', 'border-right', 'border-top',
+    'border-verticle', 'pic-center', 'pic-left', 'pic-right',
+    'radius-bottomleft', 'radius-bottomright', 'radius-upleft', 'radius-upleft',
+    'fullscreen', 'fullscreen-exit',
+    // suggestion
+    'issues-close', 'stop',
+
+    // edit
+    'scissor', 'snippets', 'diff', 'highlight',
+    'align-center', 'align-left', 'align-right', 'bg-colors',
+    'bold', 'italic', 'underline', 'redo', 'undo', 'zoom-in', 'zoom-out',
+    'font-colors', 'font-size', 'line-height', 'colum-height', 'colum-width',
+    'dash', 'small-dash', 'sort-ascending', 'sort-descending',
+    'drag', 'ordered-list', 'radius-setting',
+
+    // data
+    'radar-chart', 'heat-map', 'fall', 'rise', 'stock', 'box-plot', 'fund',
+    'sliders',
+
+    // other
+    'alert', 'audit', 'batch-folding', 'branches',
+    'build', 'border', 'crown',
+    'experiment', 'fire',
+    'money-collect', 'property-safety', 'read', 'reconciliation',
+    'rest', 'security-scan', 'insurance', 'interation', 'safety-certificate',
+    'project', 'thunderbolt', 'block', 'cluster', 'deployment-unit',
+    'dollar', 'euro', 'pound', 'file-done', 'file-exclamation', 'file-protect',
+    'file-search', 'file-sync', 'gateway', 'gold', 'robot',
+    'strikethrough', 'shopping',
+
+    // logo
+    'yahoo',
+  ];
 
   static themeTypeMapper: { [key: string]: ThemeFolderType } = {
     filled: 'fill',
