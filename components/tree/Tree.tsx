@@ -179,7 +179,7 @@ export default class Tree extends React.Component<TreeProps, any> {
         <Icon
           type={expanded ? 'minus-square' : 'plus-square'}
           className={`${prefixCls}-switcher-line-icon`}
-          theme={'outlined'}
+          theme="outlined"
         />
       );
     } else {
