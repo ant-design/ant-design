@@ -320,6 +320,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
         type="close-circle"
         className={`${prefixCls}-picker-clear`}
         onClick={this.clearSelection}
+        theme={'filled'}
       />
     ) : null;
 

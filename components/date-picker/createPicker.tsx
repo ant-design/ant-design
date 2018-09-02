@@ -162,6 +162,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
           type="close-circle"
           className={`${prefixCls}-picker-clear`}
           onClick={this.clearSelection}
+          theme={'filled'}
         />
       ) : null;
 
