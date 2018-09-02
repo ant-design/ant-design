@@ -35,7 +35,7 @@ timeline: true
 - 🔥 Menu 在 `horizontal` 模式下会自动收起来适应宽度。
 - 🔥 Drawer 的 `placement` 支持 `top` 和 `bottom`，可以适应更多场景。
 
-另外我们的 Ant Design Pro 2.0.0 也已同步发布，详细内容请看 [这里](https://www.yuque.com/ant-design/ant-design-pro/ant_design_pro_2.0_is_out)。
+另外我们的 **Ant Design Pro 2.0.0** 也已同步发布，详细内容请看 [这里](https://www.yuque.com/ant-design/ant-design-pro/ant_design_pro_2.0_is_out)。
 
 ### 组件修复/功能增强：
 

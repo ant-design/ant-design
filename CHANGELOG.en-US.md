@@ -36,7 +36,7 @@ In September we brought an update for `3.9.0`. There are many new features in `3
 - 🔥 Menu will automatically close up to fit width in `horizontal` mode.
 - 🔥 The `placement` of the drawer supports `top` and `bottom` to accommodate more scenes.
 
-In addition, our Ant Design Pro 2.0.0 version has also been released simultaneously, please see [here](https://medium.com/ant-design/beautiful-and-powerful-ant-design-pro-2-0-release-51358da5af95) for details.
+In addition, our **Ant Design Pro 2.0.0** version has also been released simultaneously, please see [here](https://medium.com/ant-design/beautiful-and-powerful-ant-design-pro-2-0-release-51358da5af95) for details.
 
 ### Bugfix/Feature：
 
