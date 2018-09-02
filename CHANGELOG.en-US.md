@@ -22,7 +22,7 @@ timeline: true
 In September we brought an update for `3.9.0`. There are many new features in `3.9.0`, Ant Design is getting stronger and stronger.
 - 🔥🔥🔥 In the `3.9.0` version, we redraw all the icons, adding two new categories, more than 50 new icons. And the bit adds a variety of styles to each icon. To this end, we have rewritten the Icon component, adding a number of features that allow us to quickly use new icons and styles.
 
-![](https://gw.alipayobjects.com/zos/rmsportal/CVDHuodLwcDeyQBDoUIZ.png)
+  ![](https://gw.alipayobjects.com/zos/rmsportal/CVDHuodLwcDeyQBDoUIZ.png)
 
   - 💄 Replace the `css` font icon with the `SVG` icon.
   - 💄 You can now render a two-color icon.
@@ -36,7 +36,7 @@ In September we brought an update for `3.9.0`. There are many new features in `3
 - 🔥 Menu will automatically close up to fit width in `horizontal` mode.
 - 🔥 The `placement` of the drawer supports `top` and `bottom` to accommodate more scenes.
 
-In addition, our Ant Design Pro@2.0.0 has also been released simultaneously. Please see [here](https://medium.com/ant-design/beautiful-and-powerful-ant-design-pro-2-0-release-51358da5af95) for details.
+In addition, our Ant Design Pro 2.0.0 version has also been released simultaneously, please see [here](https://medium.com/ant-design/beautiful-and-powerful-ant-design-pro-2-0-release-51358da5af95) for details.
 
 ### Bugfix/Feature：
 
