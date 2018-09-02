@@ -32,7 +32,8 @@ export const categories = {
   edit: [
     'edit', 'form', 'copy', 'scissor', 'delete', 'snippets', 'diff', 'highlight',
     'align-center', 'align-left', 'align-right', 'bg-colors',
-    'bold', 'italic', 'underline', 'redo', 'undo', 'zoom-in', 'zoom-out',
+    'bold', 'italic', 'underline',
+    'strikethrough', 'redo', 'undo', 'zoom-in', 'zoom-out',
     'font-colors', 'font-size', 'line-height', 'colum-height', 'colum-width',
     'dash', 'small-dash', 'sort-ascending', 'sort-descending',
     'drag', 'ordered-list', 'radius-setting',
@@ -79,8 +80,7 @@ export const categories = {
     'rest', 'security-scan', 'insurance', 'interation', 'safety-certificate',
     'project', 'thunderbolt', 'block', 'cluster', 'deployment-unit',
     'dollar', 'euro', 'pound', 'file-done', 'file-exclamation', 'file-protect',
-    'file-search', 'file-sync', 'gateway', 'gold', 'robot',
-    'strikethrough', 'shopping',
+    'file-search', 'file-sync', 'gateway', 'gold', 'robot', 'shopping',
   ],
   logo: [
     'android', 'apple', 'windows',
