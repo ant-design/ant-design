@@ -407,12 +407,8 @@ exports[`renders ./components/card/demo/loading.md correctly 1`] = `
           <ul
             class="ant-skeleton-paragraph"
           >
-            <li
-              style="width:100%"
-            />
-            <li
-              style="width:100%"
-            />
+            <li />
+            <li />
           </ul>
         </div>
       </div>
