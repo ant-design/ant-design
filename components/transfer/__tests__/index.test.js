@@ -148,6 +148,13 @@ describe('Transfer', () => {
     expect(wrapper.find(TransferList).at(0).find(TransferItem).find(Checkbox)).toHaveLength(1);
   });
 
+  const headerText = wrapper => wrapper
+    .find(TransferList).at(0)
+    .find('.ant-transfer-list-header-selected > span').at(0)
+    .first()
+    .text()
+    .trim();
+
   it('should display the correct count of items when filter by input', () => {
     const filterOption = (inputValue, option) => option.description.indexOf(inputValue) > -1;
     const renderFunc = item => item.title;
@@ -160,10 +167,55 @@ describe('Transfer', () => {
       />
     );
     wrapper.find(TransferSearch).at(0).find('input').simulate('change', { target: { value: 'content2' } });
-    expect(wrapper.find(TransferList).at(0).find('.ant-transfer-list-header-selected > span').at(0)
-      .first()
-      .text()
-      .trim()).toEqual('1 items');
+    expect(headerText(wrapper)).toEqual('1 items');
+  });
+
+  it('should display the correct locale', () => {
+    const emptyProps = { dataSource: [], selectedKeys: [], targetKeys: [] };
+    const locale = { itemUnit: 'Person', notFoundContent: 'Nothing', searchPlaceholder: 'Search' };
+    const wrapper = mount(<Transfer {...listCommonProps} {...emptyProps} showSearch locale={locale} />);
+
+    expect(headerText(wrapper)).toEqual('0 Person');
+
+    expect(
+      wrapper
+        .find(TransferList).at(0)
+        .find('.ant-transfer-list-search').at(0)
+        .prop('placeholder')
+    ).toEqual('Search');
+
+    expect(
+      wrapper
+        .find(TransferList).at(0)
+        .find('.ant-transfer-list-body-not-found').at(0)
+        .text()
+    ).toEqual('Nothing');
+  });
+
+  it('should display the correct locale using old API', () => {
+    const emptyProps = { dataSource: [], selectedKeys: [], targetKeys: [] };
+    const locale = { notFoundContent: 'old1', searchPlaceholder: 'old2' };
+    const wrapper = mount(<Transfer {...listCommonProps} {...emptyProps} {...locale} showSearch />);
+
+    expect(
+      wrapper
+        .find(TransferList).at(0)
+        .find('.ant-transfer-list-search').at(0)
+        .prop('placeholder')
+    ).toEqual('old2');
+
+    expect(
+      wrapper
+        .find(TransferList).at(0)
+        .find('.ant-transfer-list-body-not-found').at(0)
+        .text()
+    ).toEqual('old1');
+  });
+
+  it('should display the correct items unit', () => {
+    const wrapper = mount(<Transfer {...listCommonProps} locale={{ itemsUnit: 'People' }} />);
+
+    expect(headerText(wrapper)).toEqual('1/2 People');
   });
 
   it('should just check the filtered item when click on check all after search by input', () => {

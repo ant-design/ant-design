@@ -88,5 +88,12 @@ module.exports = {
     'app.publish.old-version-guide': 'If you need documentation of older version, please visit ',
     'app.publish.old-version-tips': ', or switch version with the select at header navigation.',
     'app.docs.color.pick-primary': 'Pick your primary color',
+    'app.docs.components.icon.pick-theme': 'Select the Icon Theme',
+    'app.docs.components.icon.category.direction': 'Directional Icons',
+    'app.docs.components.icon.category.suggestion': 'Suggested Icons',
+    'app.docs.components.icon.category.edit': 'Editor Icons',
+    'app.docs.components.icon.category.data': 'Data Icons',
+    'app.docs.components.icon.category.other': 'Application Icons',
+    'app.docs.components.icon.category.logo': 'Brand and Logos',
   },
 };

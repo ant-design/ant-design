@@ -7,71 +7,112 @@ toc: false
 
 Semantic vector graphics.
 
-## Icons naming convention
-
-We provide semantic name for every icon, and naming rules are as follows:
-
-- Scanning line icon has the similar name with its solid one，but it's distinguished by `-o`, for example, `question-circle` (a full circle) and `question-circle-o` (an empty circle);
-- Naming sequence：`[name]-[shape?]-[outline?]-[direction?]`.
-
-> `?` means is optional.
-
-See more design detail at [here](/docs/spec/icon).
-
-## How To Use
-
-Use tag <Icon /> to create an icon and set its type in the type prop, for example:
-
-```html
-<Icon type="link" />
-```
-
-## Local deployment
-
-By default, icons are deployed at [iconfont.cn](http://iconfont.cn), publicly available repository of a huge set of icons. In case you need to use a locally deployed version of the icon font, you can refer to [this example](https://github.com/ant-design/antd-init/tree/master/examples/local-iconfont)。
-
 ## List of icons
 
-> Click the icon and copy the code。
-
-### Directional Icons
+> Click the icon and copy the code.
 
 ```__react
-import IconSet from 'site/theme/template/IconSet';
-ReactDOM.render(<IconSet className="icons" catigory="direction" />, mountNode);
-```
-
-### Suggested Icons
-
-```__react
-import IconSet from 'site/theme/template/IconSet';
-ReactDOM.render(<IconSet className="icons" catigory="suggestion" />, mountNode);
-```
-
-### Application Icons
-
-```__react
-import IconSet from 'site/theme/template/IconSet';
-ReactDOM.render(<IconSet className="icons" catigory="other" />, mountNode);
-```
-
-### Brand and Logos
-
-```__react
-import IconSet from 'site/theme/template/IconSet';
-ReactDOM.render(<IconSet className="icons" catigory="logo" />, mountNode);
+import IconDisplay from 'site/theme/template/IconDisplay';
+ReactDOM.render(<IconDisplay />, mountNode);
 ```
 
 ## API
 
-You can set `style` and `className` for size and color of icons because they are still fonts in essence.
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| type | Type of the ant design icon | string | - |
+| style | Style properties of icon, like `fontSize` and `color` | CSSProperties | - |
+| theme | Theme of the ant design icon  | 'filled' \| 'outlined' \| 'twoTone' | 'outlined' |
+| spin | Rotate icon with animation | boolean | false |
+| component | The component used for the root node. This will override the **`type`** property. | ComponentType<CustomIconComponentProps\> | - |
+| twoToneColor | Only support the two-tone icon. Specific the primary color. | string (hex color) | - |
+
+The properties `theme`, `component` and `twoToneColor` are added in `antd@3.9.x`. The best practice is to pass the property `theme` to every `<Icon />` components.
 
 ```jsx
-<Icon type="question" style={{ fontSize: 16, color: '#08c' }} />
+<Icon type="star" theme="filled" />
 ```
 
+All the icons will render to `<svg>`. You can still set `style` and `className` for size and color of icons.
+
+```jsx
+<Icon type="message" style={{ fontSize: '16px', color: '#08c' }} theme="outlined" />
+```
+
+When using the two-tone icons, you can use the static methods `Icon.getTwoToneColor()` and `Icon.setTwoToneColor(colorString)` to spicify the primary color.
+
+```jsx
+Icon.setTwoToneColor('#eb2f96');
+Icon.getTwoToneColor(); // #eb2f96
+```
+
+You can import svg icon as an react component by using `webpack` and [`@svgr/webpack`](https://www.npmjs.com/package/@svgr/webpack). `@svgr/webpack`'s `options` [reference](https://github.com/smooth-code/svgr#options).
+
+```js
+// webpack.config.js
+{
+  test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+  use: [
+    {
+      loader: 'babel-loader',
+    },
+    {
+      loader: '@svgr/webpack',
+      options: {
+        babel: false,
+        icon: true,
+      },
+    },
+  ],
+}
+```
+
+```jsx
+import { Icon } from 'antd';
+import MessageSvg from 'path/to/message.svg'; // path to your '*.svg' file.
+
+ReactDOM.render(
+  <Icon component={MessageSvg} />,
+  mountNode
+);
+```
+
+The following properties are available for the component:
+
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
-| spin | Rotate icon with animation | boolean | false |
-| style | style properties of icon, like fontSize and color | object | - |
-| type | Type of ant design icon | string | - |
+| --- | --- | --- | --- |
+| width | The width of the `svg` element | string \| number | '1em' |
+| height | The height of the `svg` element | string \| number | '1em' |
+| fill | Define the color used to paint the `svg` element | string | 'currentColor' |
+| className | The computed class name of the `svg` element | string | - |
+| style | The computed style of the `svg` element | CSSProperties | - |
+
+
+### Use custom icon with iconfont.cn
+
+#### Icon.createFromIconfontCN(options)
+
+This method is specified for [iconfont.cn](http://iconfont.cn/).
+
+```js
+const MyIcon = Icon.createFromIconfontCN({
+  namespace: 'foo', // identifier
+  scriptUrl: 'at.alicdn.com/t/font_8d5l8fzk5b87iudi', // generated by iconfont.cn
+  prefix: 'icon-',
+});
+
+ReactDOM.render(<MyIcon type="example" />, mountedNode);
+```
+
+It create a component that uses SVG sprites in essence.
+
+The following options are available:
+
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| scriptUrl | The URL generated by [iconfont.cn](http://iconfont.cn/) project. | string | - |
+| extraCommonProps | Define extra properties to the component | `{ [key: string]: any }` | {} |
+
+The property `scriptUrl` should be set together with property `namespace`.
+
+See [iconfont.cn documents](http://iconfont.cn/help/detail?spm=a313x.7781069.1998910419.15&helptype=code) to learn about how to generate `scriptUrl`.

@@ -180,6 +180,10 @@
       border-radius: @border-radius-base;
       z-index: @zindex-dropdown;
 
+      .submenu-title-wrapper {
+        padding-right: 20px;
+      }
+
       &:before {
         position: absolute;
         top: -7px;
@@ -272,12 +276,13 @@
     border-bottom: @border-width-base @border-style-base @border-color-split;
     box-shadow: none;
     line-height: 46px;
+    white-space: nowrap;
 
     > .@{menu-prefix-cls}-item,
     > .@{menu-prefix-cls}-submenu {
       position: relative;
       top: 1px;
-      float: left;
+      display: inline-block;
       border-bottom: 2px solid transparent;
 
       &:hover,
@@ -325,7 +330,7 @@
         right: 0;
         top: 0;
         bottom: 0;
-        border-right: 3px solid @menu-highlight-color;
+        border-right: @menu-item-active-border-width solid @menu-highlight-color;
         transform: scaleY(.0001);
         opacity: 0;
         transition: transform .15s @ease-out, opacity .15s @ease-out;

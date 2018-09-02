@@ -45,42 +45,42 @@ export interface MessageType {
   promise: Promise<any>;
 }
 
-function notice(
-  content: React.ReactNode,
-  duration: (() => void) | number = defaultDuration,
-  type: NoticeType,
-  onClose?: () => void,
-): MessageType {
+export interface ArgsProps {
+  content: React.ReactNode;
+  duration: number | null;
+  type: NoticeType;
+  onClose?: () => void;
+  icon?: React.ReactNode;
+}
+
+function notice(args: ArgsProps): MessageType {
+  const duration = args.duration !== undefined ? args.duration : defaultDuration;
   const iconType = ({
     info: 'info-circle',
     success: 'check-circle',
-    error: 'cross-circle',
+    error: 'close-circle',
     warning: 'exclamation-circle',
     loading: 'loading',
-  })[type];
-
-  if (typeof duration === 'function') {
-    onClose = duration;
-    duration = defaultDuration;
-  }
+  })[args.type];
 
   const target = key++;
   const closePromise = new Promise((resolve) => {
-    const callback =  () => {
-      if (typeof onClose === 'function') {
-        onClose();
+    const callback = () => {
+      if (typeof args.onClose === 'function') {
+        args.onClose();
       }
       return resolve(true);
     };
     getMessageInstance((instance) => {
+      const iconNode = <Icon type={iconType} theme={iconType === 'loading' ? 'outlined' : 'filled'} />;
       instance.notice({
         key: target,
         duration,
         style: {},
         content: (
-          <div className={`${prefixCls}-custom-content ${prefixCls}-${type}`}>
-            <Icon type={iconType} />
-            <span>{content}</span>
+          <div className={`${prefixCls}-custom-content${args.type ? ` ${prefixCls}-${args.type}` : ''}`}>
+            {args.icon ? args.icon : iconType ? iconNode : ''}
+            <span>{args.content}</span>
           </div>
         ),
         onClose: callback,
@@ -110,26 +110,8 @@ export interface ConfigOptions {
   maxCount?: number;
 }
 
-export default {
-  info(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) {
-    return notice(content, duration, 'info', onClose);
-  },
-  success(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) {
-    return notice(content, duration, 'success', onClose);
-  },
-  error(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) {
-    return notice(content, duration, 'error', onClose);
-  },
-  // Departed usage, please use warning()
-  warn(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) {
-    return notice(content, duration, 'warning', onClose);
-  },
-  warning(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) {
-    return notice(content, duration, 'warning', onClose);
-  },
-  loading(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) {
-    return notice(content, duration, 'loading', onClose);
-  },
+const api: any = {
+  open: notice,
   config(options: ConfigOptions) {
     if (options.top !== undefined) {
       defaultTop = options.top;
@@ -160,3 +142,29 @@ export default {
     }
   },
 };
+
+['success', 'info', 'warning', 'error', 'loading'].forEach((type) => {
+  api[type] = (content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) => {
+    if (typeof duration === 'function') {
+      onClose = duration;
+      duration = undefined;
+    }
+    return api.open({ content, duration: duration, type, onClose });
+  };
+});
+
+api.warn = api.warning;
+
+export interface MessageApi {
+  info(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose): void;
+  success(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose): void;
+  error(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose): void;
+  warn(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose): void;
+  warning(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose): void;
+  loading(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose): void;
+  open(args: ArgsProps): void;
+  config(options: ConfigOptions): void;
+  destroy(): void;
+}
+
+export default api as MessageApi;

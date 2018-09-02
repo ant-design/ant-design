@@ -8,6 +8,7 @@ import Row from '../grid/row';
 import Col, { ColProps } from '../grid/col';
 import warning from '../_util/warning';
 import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
+import Icon from '../icon';
 
 export interface FormItemProps {
   prefixCls?: string;
@@ -203,9 +204,36 @@ export default class FormItem extends React.Component<FormItemProps, any> {
         'is-validating': validateStatus === 'validating',
       });
     }
+
+    let iconType = '';
+    switch (validateStatus) {
+      case 'success':
+        iconType = 'check-circle';
+        break;
+      case 'warning':
+        iconType = 'exclamation-circle';
+        break;
+      case 'error':
+        iconType = 'close-circle';
+        break;
+      case 'validating':
+        iconType = 'loading';
+        break;
+      default:
+        iconType = '';
+        break;
+    }
+
+    const icon = (props.hasFeedback && iconType) ?
+      <span className={`${this.props.prefixCls}-item-children-icon`}>
+        <Icon type={iconType}/>
+      </span> : null;
+
     return (
       <div className={classes}>
-        <span className={`${this.props.prefixCls}-item-children`}>{c1}</span>
+        <span className={`${this.props.prefixCls}-item-children`}>
+          {c1}{icon}
+        </span>
         {c2}{c3}
       </div>
     );

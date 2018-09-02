@@ -26,13 +26,54 @@ We supply a series of design principles, practical patterns and high quality des
 
 [React](http://facebook.github.io/react/) is used to encapsulate a library of components which embody our design language. We welcome the community to implement [our design system](https://ant.design/docs/spec/introduce) in other front-end frameworks of their choice.
 
-- [Ant Design of React](/docs/react/introduce) (official implementation)
-- <div class="outside-link"><a href="http://ng.ant.design" target="_blank">NG-ZORRO - Ant Design of Angular</a></div>
-- <div class="outside-link"><a href="https://github.com/FE-Driver/vue-beauty" target="_blank">vue-beauty (vue)</a></div>
-- <div class="outside-link"><a href="https://github.com/priornix/antizer" target="_blank">antizer (ClojureScript)</a></div>
-- <div class="outside-link"><a href="https://github.com/idcos/antd-ember" target="_blank">antd-ember</a></div>
-- <div class="outside-link"><a href="https://github.com/zzuu666/antue" target="_blank">antue (vue)</a></div>
-- <div class="outside-link"><a href="https://github.com/vueComponent/ant-design" target="_blank">vue-antd-ui - Ant Design of Vue.js 2.5.0+</a></div>
+```__react
+import { Icon } from 'antd';
+
+const LinkIcon = () => (
+  <Icon type="export" className="outside-link-icon" />
+);
+
+const LinksList = () => (
+  <ul>
+    <li>
+      <a href="/docs/react/introduce" target="_blank">Ant Design of React</a>
+      (official implementation)
+    </li>
+    <li>
+      <a href="http://ng.ant.design" target="_blank">
+        NG-ZORRO - Ant Design of Angular<LinkIcon />
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/FE-Driver/vue-beauty" target="_blank">
+        vue-beauty (vue)<LinkIcon />
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/priornix/antizer" target="_blank">
+        antizer (ClojureScript)<LinkIcon />
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/idcos/antd-ember" target="_blank">
+        antd-ember<LinkIcon />
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/zzuu666/antue" target="_blank">
+        antue (vue)<LinkIcon />
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/vueComponent/ant-design" target="_blank">
+        vue-antd-ui - Ant Design of Vue.js 2.5.0+<LinkIcon />
+      </a>
+    </li>
+  </ul>
+);
+
+ReactDOM.render(<LinksList />, mountNode);
+```
 
 ## Who's using Ant Design
 

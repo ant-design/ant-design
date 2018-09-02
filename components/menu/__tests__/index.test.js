@@ -3,6 +3,13 @@ import { mount } from 'enzyme';
 import Menu from '..';
 import Icon from '../../icon';
 
+jest.mock('mutationobserver-shim', () => {
+  global.MutationObserver = function MutationObserver() {
+    this.observe = () => {};
+    this.disconnect = () => {};
+  };
+});
+
 const { SubMenu } = Menu;
 
 describe('Menu', () => {
@@ -85,6 +92,7 @@ describe('Menu', () => {
     wrapper.update();
     expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).toBe(true);
     wrapper.setProps({ openKeys: ['1'] });
+    wrapper.update();
     expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(true);
   });
 
@@ -103,6 +111,7 @@ describe('Menu', () => {
     wrapper.update();
     expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).toBe(true);
     wrapper.setProps({ openKeys: ['1'] });
+    wrapper.update();
     expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(true);
   });
 
@@ -121,6 +130,7 @@ describe('Menu', () => {
     wrapper.update();
     expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).toBe(true);
     wrapper.setProps({ openKeys: ['1'] });
+    wrapper.update();
     expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(true);
   });
 

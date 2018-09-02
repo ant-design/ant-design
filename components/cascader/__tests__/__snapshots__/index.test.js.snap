@@ -14,12 +14,56 @@ exports[`Cascader can be selected 1`] = `
           title="Zhejiang"
         >
           Zhejiang
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                />
+              </svg>
+            </i>
+          </span>
         </li>
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand"
           title="Jiangsu"
         >
           Jiangsu
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                />
+              </svg>
+            </i>
+          </span>
         </li>
       </ul>
       <ul
@@ -30,6 +74,28 @@ exports[`Cascader can be selected 1`] = `
           title="Hangzhou"
         >
           Hangzhou
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                />
+              </svg>
+            </i>
+          </span>
         </li>
       </ul>
     </div>
@@ -51,12 +117,56 @@ exports[`Cascader can be selected 2`] = `
           title="Zhejiang"
         >
           Zhejiang
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                />
+              </svg>
+            </i>
+          </span>
         </li>
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand"
           title="Jiangsu"
         >
           Jiangsu
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                />
+              </svg>
+            </i>
+          </span>
         </li>
       </ul>
       <ul
@@ -67,6 +177,28 @@ exports[`Cascader can be selected 2`] = `
           title="Hangzhou"
         >
           Hangzhou
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                />
+              </svg>
+            </i>
+          </span>
         </li>
       </ul>
       <ul
@@ -98,12 +230,56 @@ exports[`Cascader can be selected 3`] = `
           title="Zhejiang"
         >
           Zhejiang
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                />
+              </svg>
+            </i>
+          </span>
         </li>
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand"
           title="Jiangsu"
         >
           Jiangsu
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                />
+              </svg>
+            </i>
+          </span>
         </li>
       </ul>
       <ul
@@ -114,6 +290,28 @@ exports[`Cascader can be selected 3`] = `
           title="Hangzhou"
         >
           Hangzhou
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                />
+              </svg>
+            </i>
+          </span>
         </li>
       </ul>
       <ul
@@ -155,12 +353,56 @@ exports[`Cascader popup correctly when panel is open 1`] = `
           title="Zhejiang"
         >
           Zhejiang
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                />
+              </svg>
+            </i>
+          </span>
         </li>
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand"
           title="Jiangsu"
         >
           Jiangsu
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                />
+              </svg>
+            </i>
+          </span>
         </li>
       </ul>
     </div>
@@ -182,12 +424,56 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
           title="Zhejiang"
         >
           Zhejiang
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                />
+              </svg>
+            </i>
+          </span>
         </li>
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand"
           title="Jiangsu"
         >
           Jiangsu
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                />
+              </svg>
+            </i>
+          </span>
         </li>
       </ul>
       <ul
@@ -198,6 +484,28 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
           title="Hangzhou"
         >
           Hangzhou
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                />
+              </svg>
+            </i>
+          </span>
         </li>
       </ul>
       <ul
@@ -394,6 +702,11 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
                       "width": 0,
                     }
                   }
+                  expandIcon={
+                    <Icon
+                      type="right"
+                    />
+                  }
                   expandTrigger="click"
                   fieldNames={
                     Object {
@@ -403,6 +716,16 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
                     }
                   }
                   inputPrefixCls="ant-input"
+                  loadingIcon={
+                    <span
+                      className="ant-cascader-menu-item-loading-icon"
+                    >
+                      <Icon
+                        spin={true}
+                        type="redo"
+                      />
+                    </span>
+                  }
                   notFoundContent="Not Found"
                   onChange={[Function]}
                   onPopupVisibleChange={[Function]}
@@ -773,6 +1096,11 @@ exports[`Cascader should render not found content 1`] = `
                       "width": 0,
                     }
                   }
+                  expandIcon={
+                    <Icon
+                      type="right"
+                    />
+                  }
                   expandTrigger="click"
                   fieldNames={
                     Object {
@@ -782,6 +1110,16 @@ exports[`Cascader should render not found content 1`] = `
                     }
                   }
                   inputPrefixCls="ant-input"
+                  loadingIcon={
+                    <span
+                      className="ant-cascader-menu-item-loading-icon"
+                    >
+                      <Icon
+                        spin={true}
+                        type="redo"
+                      />
+                    </span>
+                  }
                   notFoundContent="Not Found"
                   onChange={[Function]}
                   onPopupVisibleChange={[Function]}
@@ -859,10 +1197,40 @@ exports[`Cascader support controlled mode 1`] = `
     value=""
   />
   <i
-    class="anticon anticon-cross-circle ant-cascader-picker-clear"
-  />
+    class="anticon anticon-close ant-cascader-picker-clear"
+  >
+    <svg
+      aria-hidden="true"
+      class=""
+      data-icon="close"
+      fill="currentColor"
+      height="1em"
+      viewBox="0 0 1024 1024"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9c-4.4 5.2-.7 13.1 6.1 13.1h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+      />
+    </svg>
+  </i>
   <i
     class="anticon anticon-down ant-cascader-picker-arrow"
-  />
+  >
+    <svg
+      aria-hidden="true"
+      class=""
+      data-icon="down"
+      fill="currentColor"
+      height="1em"
+      viewBox="0 0 1024 1024"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+      />
+    </svg>
+  </i>
 </span>
 `;

@@ -15,6 +15,42 @@ timeline: true
 
 ---
 
+## 3.9.0
+
+`2018-08-27`
+
+在 9 月我们带了 `3.9.0` 的更新。 `3.9.0` 中带了多项新特性，Ant Design 的能力得到了极大地提升。
+- 🔥🔥🔥 在 `3.9.0` 版本中，我们重绘了所有的图标，新增了两大类，超过50个新图标。并且位为每个图标增加了多种风格。为此我们重写了 Icon 组件，增加了多个特性，可以快速的使用新的图标和风格。
+
+  ![](https://gw.alipayobjects.com/zos/rmsportal/CVDHuodLwcDeyQBDoUIZ.png)
+
+  - 💄 使用 `SVG` 图标替换了 `css` 字体图标。
+  - 💄 现在可以渲染双色图标。
+  - 🌟 新增了 **编辑类** 和 **数据类** 两个新类别。
+  - 🌟 新增 `theme` 属性，可以设置图标的主题风格。[#11971](https://github.com/ant-design/ant-design/pull/11971)
+  - 🌟 新增 `component` 属性，可以外部传入一个组件来自定义控制渲染结果。[#11322](https://github.com/ant-design/ant-design/pull/11322)
+  - 🌟 新增 `twoToneColor` 属性，可以控制双色图标的主题色。[#11971](https://github.com/ant-design/ant-design/pull/11971)
+  - 🌟 新增静态方法 `Icon.getTowToneColor()` 和 `Icon.setTwoToneColor(...)`，可以全局性的获取和设置所有双色图标的主题色。[#11971](https://github.com/ant-design/ant-design/pull/11971)
+  - 🌟 新增静态方法 `Icon.createFromIconfontCN({...})`，可以更加方便地使用 [`iconfont.cn`](http://iconfont.cn/) 上托管的图标。更多用法请参阅 [Ant Design Pro - 业务图标](https://pro.ant.design/docs/biz-icon-cn) 的介绍。[#11322](https://github.com/ant-design/ant-design/pull/11322)
+- 🔥 增加了一个新组件 [Skeleton](https://ant.design/components/skeleton-cn/)。
+- 🔥 Menu 在 `horizontal` 模式下会自动收起来适应宽度。
+- 🔥 Drawer 的 `placement` 支持 `top` 和 `bottom`，可以适应更多场景。
+
+另外我们的 Ant Design Pro 2.0.0 也已同步发布，详细内容请看 [这里](https://www.yuque.com/ant-design/ant-design-pro/ant_design_pro_2.0_is_out)。
+
+### 组件修复/功能增强：
+
+- 🐞 修复在 Card 的 `headStyle` 中设置 fontSize 不生效的问题。[#11995](https://github.com/ant-design/ant-design/issues/11995)
+- 🐞 修复了 Button 组件波浪动画混淆的问题。[#11985](https://github.com/ant-design/ant-design/issues/11985)
+- 🐞 修复了 Modal.confirm 设置 `centered` 属性无效的问题。[#11969](https://github.com/ant-design/ant-design/issues/11969)
+- 🐞 修复了在 Input.Group 的 `compact` 模式下设置第二个 Input 的前后缀会造成右边框消失的问题。 [#11965](https://github.com/ant-design/ant-design/pull/11965)
+- 🐞 修复 Upload 组件上传图片较多时可能会造成图片错位的问题。[#11183](https://github.com/ant-design/ant-design/issues/11183)
+- 🌟 Anchor 组件增加 `onClik` 属性。[#11898](https://github.com/ant-design/ant-design/pull/11898)
+- 🌟 Tab 组件增加 `renderTabBar` 属性。[#11856](https://github.com/ant-design/ant-design/pull/11856)
+- 🌟 Input 组件增加 `select` 方法。[#11906](https://github.com/ant-design/ant-design/pull/11906)
+- 🌟 Steps 增加 `initial` 属性。[#11180](https://github.com/ant-design/ant-design/issues/11180)
+- 🌟 Modal.info 增加 `getContainer` 的配置。[#11377](https://github.com/ant-design/ant-design/issues/11377)
+
 ## 3.8.4
 
 `2018-08-27`

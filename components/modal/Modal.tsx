@@ -7,12 +7,12 @@ import Button from '../button';
 import { ButtonType, NativeButtonProps } from '../button/button';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { getConfirmLocale } from './locale';
+import Icon from '../icon';
 
 let mousePosition: { x: number, y: number } | null;
 let mousePositionEventBinded: boolean;
 
 export interface ModalProps {
-  prefixCls?: string;
   /** 对话框是否可见*/
   visible?: boolean;
   /** 确定按钮 loading*/
@@ -55,6 +55,7 @@ export interface ModalProps {
   mask?: boolean;
   keyboard?: boolean;
   wrapProps?: any;
+  prefixCls?: string;
 }
 
 export interface ModalFuncProps {
@@ -78,6 +79,7 @@ export interface ModalFuncProps {
   style?: React.CSSProperties;
   type?: string;
   keyboard?: boolean;
+  getContainer?: (instance: React.ReactInstance) => HTMLElement;
 }
 
 export type ModalFunc = (props: ModalFuncProps) => {
@@ -192,6 +194,12 @@ export default class Modal extends React.Component<ModalProps, {}> {
       </LocaleReceiver>
     );
 
+    const closeIcon = (
+      <span className={`${prefixCls}-close-x`}>
+        <Icon className={`${prefixCls}-close-icon`} type={'close'}/>
+      </span>
+    );
+
     return (
       <Dialog
         {...restProps}
@@ -201,6 +209,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
         visible={visible}
         mousePosition={mousePosition}
         onClose={this.handleCancel}
+        closeIcon={closeIcon}
       />
     );
   }

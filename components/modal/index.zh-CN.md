@@ -75,11 +75,17 @@ title: Modal
 | onCancel | 取消回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭 | function | 无 |
 | onOk | 点击确定回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭 | function | 无 |
 
-以上函数调用后，会返回一个引用，可以通过该引用关闭弹窗。
+以上函数调用后，会返回一个引用，可以通过该引用更新和关闭弹窗。
 
 ```jsx
-const ref = Modal.info();
-ref.destroy();
+const modal = Modal.info();
+
+modal.update({
+  title: '修改的标题',
+  content: '修改的内容',
+});
+
+modal.destroy();
 ```
 
 <style>
