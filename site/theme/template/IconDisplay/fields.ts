@@ -94,7 +94,7 @@ export const categories = {
     'aliyun', 'zhihu', 'slack', 'slack-square', 'behance',
     'behance-square', 'dribbble', 'dribbble-square',
     'instagram', 'yuque',
-    'yahoo',
+    'alibaba', 'yahoo',
   ],
 };
 

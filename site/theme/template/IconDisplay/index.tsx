@@ -56,7 +56,7 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
     'strikethrough', 'shopping',
 
     // logo
-    'yahoo',
+    'alibaba', 'yahoo',
   ];
 
   static themeTypeMapper: { [key: string]: ThemeFolderType } = {
