@@ -19,8 +19,8 @@ timeline: true
 
 `2018-08-27`
 
-In September we brought an update for `3.9.0`. There are many new features in `3.9.0`, Ant Design is getting stronger and stronger, getting closer to the world's first component library.
-- 🔥🔥🔥 Since version 3.9.0, we have rewritten the Icon component. Deprecate the original css font icon to fully use the SVG icon.
+In September we brought an update for `3.9.0`. There are many new features in `3.9.0`, Ant Design is getting stronger and stronger.
+- 🔥🔥🔥 Since version 3.9.0, we have rewritten the Icon component, replace the `css` font icon with the `SVG` icon.
   - 💄 The `SVG` icon will now be rendered.
   - 💄 You can now render a two-color icon.
   - 🌟 Add the `theme` attribute to set the theme style of the icon. [#11971](https://github.com/ant-design/ant-design/pull/11971)
