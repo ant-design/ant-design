@@ -164,8 +164,8 @@ describe('utils', () => {
     ];
     const result = testCases.map(({ type, theme }) => withThemeSuffix(type, theme));
     expect(result).toEqual(
-      ['home-fill', 'home-o', 'home-twotone',
-        'home', 'home-o', 'home-fill', 'home-o', 'home-o']
+      ['home-fill', 'home-o', 'home-twotone', 'home',
+        'home-o-fill', 'home-fill-o', 'home-o-twotone', 'home-o']
     );
   });
 });
