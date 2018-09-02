@@ -34,6 +34,14 @@ class App extends React.Component {
       <div>
         <Switch checked={!loading} onChange={this.onChange} />
 
+        <Card style={{ width: 300, marginTop: 16 }} loading={loading}>
+          <Meta
+            avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+            title="Card title"
+            description="This is the description"
+          />
+        </Card>
+
         <Card
           style={{ width: 300, marginTop: 16 }}
           actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
