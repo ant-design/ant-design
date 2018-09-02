@@ -3,7 +3,10 @@ import classNames from 'classnames';
 import * as allIcons from '@ant-design/icons';
 import ReactIcon from '@ant-design/icons-react';
 import createFromIconfontCN from './IconFont';
-import { svgBaseProps, withThemeSuffix } from './utils';
+import {
+  svgBaseProps, withThemeSuffix,
+  removeTypeTheme, getThemeFromTypeName,
+} from './utils';
 import warning from '../_util/warning';
 import { getTwoToneColor, setTwoToneColor } from './twoTonePrimaryColor';
 
@@ -115,8 +118,15 @@ const Icon: React.SFC<IconProps> = (props) => {
   if (typeof type === 'string') {
     let computedType = type;
     if (theme) {
-      computedType = withThemeSuffix(type, theme);
+      const alreadyHaveTheme = getThemeFromTypeName(type);
+      warning(!alreadyHaveTheme,
+        `This icon already has a theme '${alreadyHaveTheme}'.` +
+        ` The prop 'theme' ${theme} will be ignored.`);
     }
+    computedType = withThemeSuffix(
+      removeTypeTheme(type),
+      theme || 'outlined',
+    );
     return (
       <i className={classString} title={title} style={style} onClick={onClick}>
         <ReactIcon

@@ -26,22 +26,20 @@ export function getThemeFromTypeName(type: string): ThemeType | null {
   return result;
 }
 
+export function removeTypeTheme(type: string) {
+  return type.replace(fillTester, '').replace(outlineTester, '').replace(twoToneTester, '');
+}
+
 export function withThemeSuffix(type: string, theme: ThemeType) {
-  const alreadyHaveTheme = getThemeFromTypeName(type);
-  warning(!alreadyHaveTheme,
-    `This icon already has a theme '${alreadyHaveTheme}'.` +
-    ` The prop 'theme' will be ignored.`);
   let result = type;
-  if (!alreadyHaveTheme) {
-    if (theme === 'filled') {
-      result += '-fill';
-    } else if (theme === 'outlined') {
-      result += '-o';
-    } else if (theme === 'twoTone') {
-      result += '-twotone';
-    } else {
-      warning(false, `This icon '${type}' has unknown theme '${theme}'`);
-    }
+  if (theme === 'filled') {
+    result += '-fill';
+  } else if (theme === 'outlined') {
+    result += '-o';
+  } else if (theme === 'twoTone') {
+    result += '-twotone';
+  } else {
+    warning(false, `This icon '${type}' has unknown theme '${theme}'`);
   }
   return result;
 }
