@@ -23,7 +23,7 @@ In September we brought an update for `3.9.0`. There are many new features in `3
 
 - 🔥🔥🔥 In the `3.9.0` version, we redraw all the icons, adding two new categories, more than 90 new icons. And the bit adds a variety of styles to each icon. To this end, we have rewritten the Icon component, replaced the `fontface` icon with `SVG`, adding a number of features that allow us to quickly use new icons and styles.
   ![](https://gw.alipayobjects.com/zos/rmsportal/CVDHuodLwcDeyQBDoUIZ.png)
-  - 💄 Replace the `css` font icon with the `SVG` icon.
+  - 💄 Replace the `css` font icon with the `SVG` icon, [see more disscussion about it](https://github.com/ant-design/ant-design/issues/10353).
   - 💄 You can now render a two-color icon.
   - 💄 We provide three theme of icons: outlined, filled, twoTone, default theme is outlined.
   - 🌟 Two new categories, **Edit Icons** and **Data Icons**, have been added.
