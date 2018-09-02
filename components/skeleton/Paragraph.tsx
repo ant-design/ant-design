@@ -1,6 +1,5 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { polyfill } from 'react-lifecycles-compat';
 
 type widthUnit = number | string;
 
@@ -12,56 +11,28 @@ export interface SkeletonParagraphProps {
   rows?: number;
 }
 
-interface SkeletonParagraphState {
-  prevProps: SkeletonParagraphProps;
-  widthList: Array<widthUnit>;
-}
-
-class Paragraph extends React.Component<SkeletonParagraphProps, SkeletonParagraphState> {
+class Paragraph extends React.Component<SkeletonParagraphProps, {}> {
   static defaultProps: Partial<SkeletonParagraphProps> = {
     prefixCls: 'ant-skeleton-paragraph',
   };
 
-  static getDerivedStateFromProps(
-    props: SkeletonParagraphProps,
-    state: SkeletonParagraphState,
-  ): Partial<SkeletonParagraphState> {
-    const { prevProps } = state;
-    const { width, rows = 2 } = props;
-
-    const newState: Partial<SkeletonParagraphState> = {
-      prevProps: props,
-    };
-
-    if (rows !== prevProps.rows || width !== prevProps.width) {
-      // Parse width list
-      let widthList = [];
-      if (width && Array.isArray(width)) {
-        widthList = width;
-      } else if (width && !Array.isArray(width)) {
-        widthList = [];
-        widthList[rows - 1] = width;
-      }
-
-      newState.widthList = widthList;
+  getWidth(index: number) {
+    const { width, rows = 2 } = this.props;
+    if (Array.isArray(width)) {
+      return width[index];
     }
-
-    return newState;
+    // last paragraph
+    if (rows - 1 === index) {
+      return width;
+    }
+    return undefined;
   }
 
-  state: SkeletonParagraphState = {
-    prevProps: {},
-    widthList: [],
-  };
-
   render() {
-    const { widthList } = this.state;
     const { prefixCls, className, style, rows } = this.props;
-
     const rowList = [...Array(rows)].map((_, index) => (
-      <li key={index} style={{ width: widthList[index] }} />
+      <li key={index} style={{ width: this.getWidth(index) }} />
     ));
-
     return (
       <ul
         className={classNames(prefixCls, className)}
@@ -72,7 +43,5 @@ class Paragraph extends React.Component<SkeletonParagraphProps, SkeletonParagrap
     );
   }
 }
-
-polyfill(Paragraph);
 
 export default Paragraph;
