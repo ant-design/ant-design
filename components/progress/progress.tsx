@@ -89,9 +89,9 @@ export default class Progress extends React.Component<ProgressProps, {}> {
       if (format || (progressStatus !== 'exception' && progressStatus !== 'success')) {
         text = textFormatter(validProgress(percent), validProgress(successPercent));
       } else if (progressStatus === 'exception') {
-        text = <Icon type={`close${iconType}`} />;
+        text = <Icon type={`close${iconType}`} theme="filled" />;
       } else if (progressStatus === 'success') {
-        text = <Icon type={`check${iconType}`} />;
+        text = <Icon type={`check${iconType}`} theme="filled" />;
       }
       progressInfo = <span className={`${prefixCls}-text`}>{text}</span>;
     }

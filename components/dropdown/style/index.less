@@ -183,11 +183,8 @@
 
 .@{dropdown-prefix-cls}-trigger,
 .@{dropdown-prefix-cls}-link {
-  .@{iconfont-css-prefix} {
+  .@{iconfont-css-prefix}:not(.@{iconfont-css-prefix}-ellipsis) {
     .iconfont-size-under-12px(10px);
-  }
-  .@{iconfont-css-prefix}-ellipsis {
-    text-shadow: 0 0 currentColor;
   }
 }
 
@@ -198,7 +195,7 @@
     padding-left: @padding-xs;
     padding-right: @padding-xs;
   }
-  .@{iconfont-css-prefix} {
+  .@{iconfont-css-prefix}:not(.@{iconfont-css-prefix}-ellipsis) {
     .iconfont-size-under-12px(10px);
   }
 }
