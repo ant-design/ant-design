@@ -19,7 +19,22 @@ exports[`Table.sorter renders sorter icon correctly 1`] = `
           >
             <i
               class="anticon anticon-caret-up"
-            />
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="caret-up"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M76.3 632.8l405.1-489.1c16.9-18.9 46.5-18.9 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
+                />
+              </svg>
+            </i>
           </span>
           <span
             class="ant-table-column-sorter-down off"
@@ -27,7 +42,22 @@ exports[`Table.sorter renders sorter icon correctly 1`] = `
           >
             <i
               class="anticon anticon-caret-down"
-            />
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="caret-down"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M76.3 392.3l403.1 489.1c16.9 18.9 46.5 18.9 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
+                />
+              </svg>
+            </i>
           </span>
         </div>
       </span>

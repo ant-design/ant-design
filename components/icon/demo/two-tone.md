@@ -18,8 +18,8 @@ import { Icon } from 'antd';
 
 ReactDOM.render(
   <div className="icons-list">
-    <Icon type="dollar" theme="twoTone" />
-    <Icon type="euro" theme="twoTone" />
+    <Icon type="smile" theme="twoTone" />
+    <Icon type="coffee" theme="twoTone" />
     <Icon type="check-circle" theme="twoTone" twoToneColor="#eb2f96" />
   </div>,
   mountNode
