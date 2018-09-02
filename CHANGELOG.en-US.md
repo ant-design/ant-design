@@ -17,7 +17,7 @@ timeline: true
 
 ## 3.9.0
 
-`2018-08-27`
+`2018-09-02`
 
 In September we brought an update for `3.9.0`. There are many new features in `3.9.0`, Ant Design is getting stronger and solider.
 
@@ -25,6 +25,7 @@ In September we brought an update for `3.9.0`. There are many new features in `3
   ![](https://gw.alipayobjects.com/zos/rmsportal/CVDHuodLwcDeyQBDoUIZ.png)
   - 💄 Replace the `css` font icon with the `SVG` icon.
   - 💄 You can now render a two-color icon.
+  - 💄 We provide three theme of icons: outlined, filled, twoTone, default theme is outlined.
   - 🌟 Two new categories, **Edit Icons** and **Data Icons**, have been added.
   - 🌟 Add the `theme` attribute to set the theme style of the icon. [#11971](https://github.com/ant-design/ant-design/pull/11971)
   - 🌟 Added `component` attribute, you can externally pass a component to customize the control rendering result. [#11322](https://github.com/ant-design/ant-design/pull/11322)
