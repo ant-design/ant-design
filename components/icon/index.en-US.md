@@ -85,7 +85,9 @@ The following properties are available fot the component:
 | style | The computed style of the `svg` element | CSSProperties | - |
 
 
-### Icon.createFromIconfontCN(options)
+#### Use custom icon with iconfont.cn
+
+##### Icon.createFromIconfontCN(options)
 
 This method is specified for [iconfont.cn](http://iconfont.cn/).
 

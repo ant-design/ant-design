@@ -89,8 +89,9 @@ ReactDOM.render(
 | className | 计算后的 `svg` 类名 | string | - |
 | style | 计算后的 `svg` 元素样式 | CSSProperties | - |
 
+#### 使用 iconfont.cn 的自定义图标
 
-### Icon.createFromIconfontCN(options)
+##### Icon.createFromIconfontCN(options)
 
 这个方法适用于 `iconfont.cn` 的用户
 
