@@ -8,6 +8,7 @@ import warning from '../_util/warning';
 import FormItem from './FormItem';
 import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
 import { Omit } from '../_util/type';
+import { ReactElement } from 'react';
 
 type FormCreateOptionMessagesCallback = (...args: any[]) => string;
 
@@ -137,6 +138,10 @@ export interface ComponentDecorator {
   ): React.ComponentClass<RcBaseFormProps & Omit<P, keyof FormComponentProps>>;
 }
 
+export interface FormCreateProps extends FormCreateOption<FormCreateProps> {
+  children: (form: WrappedFormUtils) => ReactElement<any>;
+}
+
 export default class Form extends React.Component<FormProps, any> {
   static defaultProps = {
     prefixCls: 'ant-form',
@@ -162,6 +167,11 @@ export default class Form extends React.Component<FormProps, any> {
   static Item = FormItem;
 
   static createFormField = createFormField;
+
+  static Create = ({ children, ...options }: FormCreateProps) => {
+    const WrappedComponent = Form.create(options)(({ form }: FormComponentProps) => children(form));
+    return <WrappedComponent/>;
+  }
 
   static create = function<TOwnProps>(options: FormCreateOption<TOwnProps> = {}): ComponentDecorator {
     return createDOMForm({
