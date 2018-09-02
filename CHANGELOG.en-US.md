@@ -40,7 +40,7 @@ In addition, our Ant Design Pro 2.0.0 version has also been released simultaneou
 
 ### Bugfix/Feature：
 
-- 🌟 The Anchor component adds the `onClik` attribute. [#11898](https://github.com/ant-design/ant-design/pull/11898)
+- 🌟 The Anchor component adds `onClick` property. [#11898](https://github.com/ant-design/ant-design/pull/11898)
 - 🌟 The Tab component adds the `renderTabBar` property. [#11856](https://github.com/ant-design/ant-design/pull/11856)
 - 🌟 The Input component adds the `select` method. [#11906](https://github.com/ant-design/ant-design/pull/11906)
 - 🌟 Steps adds the `initial` attribute. [#11180](https://github.com/ant-design/ant-design/issues/11180)
@@ -50,6 +50,7 @@ In addition, our Ant Design Pro 2.0.0 version has also been released simultaneou
 - 🐞 Fixed an issue where the Modal.confirm setting `centered` attribute didn't work. [#11969](https://github.com/ant-design/ant-design/issues/11969)
 - 🐞 Fixed an issue where setting the `suffix` and `prefix` of the second Input in the `compact` mode of Input.Group would cause the right border to disappear. [#11965](https://github.com/ant-design/ant-design/pull/11965)
 - 🐞 Fixed an issue where Upload components might cause misplaced images when uploading many images. [#11183](https://github.com/ant-design/ant-design/issues/11183)
+- 🐞 Fixed MonthPicker `renderExtraFooter` not working. [#8184](https://github.com/ant-design/ant-design/issues/8184)
 
 
 ## 3.8.4
