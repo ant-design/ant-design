@@ -19,11 +19,10 @@ timeline: true
 
 `2018-08-27`
 
-In September we brought an update for `3.9.0`. There are many new features in `3.9.0`, Ant Design is getting stronger and stronger.
-- 🔥🔥🔥 In the `3.9.0` version, we redraw all the icons, adding two new categories, more than 50 new icons. And the bit adds a variety of styles to each icon. To this end, we have rewritten the Icon component, adding a number of features that allow us to quickly use new icons and styles.
+In September we brought an update for `3.9.0`. There are many new features in `3.9.0`, Ant Design is getting stronger and solider.
 
+- 🔥🔥🔥 In the `3.9.0` version, we redraw all the icons, adding two new categories, more than 90 new icons. And the bit adds a variety of styles to each icon. To this end, we have rewritten the Icon component, replaced the `fontface` icon with `SVG`, adding a number of features that allow us to quickly use new icons and styles.
   ![](https://gw.alipayobjects.com/zos/rmsportal/CVDHuodLwcDeyQBDoUIZ.png)
-
   - 💄 Replace the `css` font icon with the `SVG` icon.
   - 💄 You can now render a two-color icon.
   - 🌟 Two new categories, **Edit Icons** and **Data Icons**, have been added.
@@ -40,17 +39,20 @@ In addition, our Ant Design Pro 2.0.0 version has also been released simultaneou
 
 ### Bugfix/Feature：
 
-- 🌟 The Anchor component adds the `onClik` attribute. [#11898](https://github.com/ant-design/ant-design/pull/11898)
+- 🌟 Added Model.open for optional icon dialog. [#11982](https://github.com/ant-design/ant-design/pull/11982) [@hsiehjack](https://github.com/hsiehjack)
+- 🌟 Modal.info adds the configuration of `getContainer`. [#11377](https://github.com/ant-design/ant-design/issues/11377)
+- 🌟 Improve RangePicker footer UI by merging them.
+- 🌟 The Anchor component adds `onClick` property. [#11898](https://github.com/ant-design/ant-design/pull/11898)
 - 🌟 The Tab component adds the `renderTabBar` property. [#11856](https://github.com/ant-design/ant-design/pull/11856)
 - 🌟 The Input component adds the `select` method. [#11906](https://github.com/ant-design/ant-design/pull/11906)
 - 🌟 Steps adds the `initial` attribute. [#11180](https://github.com/ant-design/ant-design/issues/11180)
-- 🌟 Modal.info adds the configuration of `getContainer`. [#11377](https://github.com/ant-design/ant-design/issues/11377)
+- 🐞 Fixed Steps dot style broken.
 - 🐞 Fixed an issue where setting fontSize in the `headStyle` of the Card does not work. [#11995](https://github.com/ant-design/ant-design/issues/11995)
 - 🐞 Fixed an issue where the Button component wave animation was mix up. [#11985](https://github.com/ant-design/ant-design/issues/11985)
 - 🐞 Fixed an issue where the Modal.confirm setting `centered` attribute didn't work. [#11969](https://github.com/ant-design/ant-design/issues/11969)
 - 🐞 Fixed an issue where setting the `suffix` and `prefix` of the second Input in the `compact` mode of Input.Group would cause the right border to disappear. [#11965](https://github.com/ant-design/ant-design/pull/11965)
 - 🐞 Fixed an issue where Upload components might cause misplaced images when uploading many images. [#11183](https://github.com/ant-design/ant-design/issues/11183)
-
+- 🐞 Fixed MonthPicker `renderExtraFooter` not working. [#8184](https://github.com/ant-design/ant-design/issues/8184)
 
 ## 3.8.4
 

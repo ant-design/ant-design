@@ -234,11 +234,11 @@ class RangePicker extends React.Component<any, RangePickerState> {
         </Tag>
       );
     });
-    const rangeNode = (
+    const rangeNode = (operations && operations.length > 0) ? (
       <div className={`${prefixCls}-footer-extra ${prefixCls}-range-quick-selector`} key="range">
         {operations}
       </div>
-    );
+    ) : null;
     return [rangeNode, customFooter];
   }
 
