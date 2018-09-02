@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 4
 title:
   zh-CN: 列表
   en-US: List
@@ -60,7 +60,7 @@ class App extends React.Component {
               actions={!loading && [<IconText type="star-o" text="156" />, <IconText type="like-o" text="156" />, <IconText type="message" text="2" />]}
               extra={!loading && <img width={272} alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png" />}
             >
-              <Skeleton loading={loading} active>
+              <Skeleton loading={loading} active avatar>
                 <List.Item.Meta
                   avatar={<Avatar src={item.avatar} />}
                   title={<a href={item.href}>{item.title}</a>}

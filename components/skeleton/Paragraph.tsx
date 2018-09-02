@@ -59,7 +59,7 @@ class Paragraph extends React.Component<SkeletonParagraphProps, SkeletonParagrap
     const { prefixCls, className, style, rows } = this.props;
 
     const rowList = [...Array(rows)].map((_, index) => (
-      <li key={index} style={{ width: widthList[index] || '100%' }} />
+      <li key={index} style={{ width: widthList[index] }} />
     ));
 
     return (
