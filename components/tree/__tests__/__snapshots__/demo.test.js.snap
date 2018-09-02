@@ -645,22 +645,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
       >
         <i
           class="anticon anticon-folder-open"
-        >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="folder-open"
-            fill="currentColor"
-            height="1em"
-            viewBox="0 0 1024 1024"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M928 444H820V330.4c0-17.7-14.3-32-32-32H473L355.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H96c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h698c13 0 24.8-7.9 29.7-20l134-332c1.5-3.8 2.3-7.9 2.3-12 0-17.7-14.3-32-32-32zM136 256h188.5l119.6 114.4H748V444H238c-13 0-24.8 7.9-29.7 20L136 643.2V256zm635.3 512H159l103.3-256h612.4L771.3 768z"
-            />
-          </svg>
-        </i>
+        />
       </span>
       <span
         class="ant-tree-title"
@@ -689,22 +674,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
           >
             <i
               class="anticon anticon-file"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="file"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 1024 1024"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216c0 23.2 18.8 42 42 42h216v494z"
-                />
-              </svg>
-            </i>
+            />
           </span>
           <span
             class="ant-tree-title"
@@ -729,22 +699,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
           >
             <i
               class="anticon anticon-file"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="file"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 1024 1024"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216c0 23.2 18.8 42 42 42h216v494z"
-                />
-              </svg>
-            </i>
+            />
           </span>
           <span
             class="ant-tree-title"
@@ -775,22 +730,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
       >
         <i
           class="anticon anticon-folder-open"
-        >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="folder-open"
-            fill="currentColor"
-            height="1em"
-            viewBox="0 0 1024 1024"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M928 444H820V330.4c0-17.7-14.3-32-32-32H473L355.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H96c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h698c13 0 24.8-7.9 29.7-20l134-332c1.5-3.8 2.3-7.9 2.3-12 0-17.7-14.3-32-32-32zM136 256h188.5l119.6 114.4H748V444H238c-13 0-24.8 7.9-29.7 20L136 643.2V256zm635.3 512H159l103.3-256h612.4L771.3 768z"
-            />
-          </svg>
-        </i>
+        />
       </span>
       <span
         class="ant-tree-title"
@@ -819,22 +759,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
           >
             <i
               class="anticon anticon-file"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="file"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 1024 1024"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216c0 23.2 18.8 42 42 42h216v494z"
-                />
-              </svg>
-            </i>
+            />
           </span>
           <span
             class="ant-tree-title"
@@ -859,22 +784,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
           >
             <i
               class="anticon anticon-file"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="file"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 1024 1024"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216c0 23.2 18.8 42 42 42h216v494z"
-                />
-              </svg>
-            </i>
+            />
           </span>
           <span
             class="ant-tree-title"
@@ -1279,22 +1189,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
             >
               <i
                 class="anticon anticon-file ant-tree-switcher-line-icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  class=""
-                  data-icon="file"
-                  fill="currentColor"
-                  height="1em"
-                  viewBox="0 0 1024 1024"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216c0 23.2 18.8 42 42 42h216v494z"
-                  />
-                </svg>
-              </i>
+              />
             </span>
             <span
               class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
@@ -1316,22 +1211,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
             >
               <i
                 class="anticon anticon-file ant-tree-switcher-line-icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  class=""
-                  data-icon="file"
-                  fill="currentColor"
-                  height="1em"
-                  viewBox="0 0 1024 1024"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216c0 23.2 18.8 42 42 42h216v494z"
-                  />
-                </svg>
-              </i>
+              />
             </span>
             <span
               class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
@@ -1353,22 +1233,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
             >
               <i
                 class="anticon anticon-file ant-tree-switcher-line-icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  class=""
-                  data-icon="file"
-                  fill="currentColor"
-                  height="1em"
-                  viewBox="0 0 1024 1024"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216c0 23.2 18.8 42 42 42h216v494z"
-                  />
-                </svg>
-              </i>
+              />
             </span>
             <span
               class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
@@ -1484,22 +1349,7 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
     >
       <i
         class="anticon anticon-search ant-input-search-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="search"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M608 112c-167.9 0-304 136.1-304 304 0 70.3 23.9 135 63.9 186.5L114.3 856.1c-3.1 3.1-3.1 8.2 0 11.3l42.3 42.3c3.1 3.1 8.2 3.1 11.3 0l253.6-253.6C473 696.1 537.7 720 608 720c167.9 0 304-136.1 304-304S775.9 112 608 112zm161.2 465.2C726.2 620.3 668.9 644 608 644s-118.2-23.7-161.2-66.8C403.7 534.2 380 476.9 380 416s23.7-118.2 66.8-161.2c43-43.1 100.3-66.8 161.2-66.8s118.2 23.7 161.2 66.8c43.1 43 66.8 100.3 66.8 161.2s-23.7 118.2-66.8 161.2z"
-          />
-        </svg>
-      </i>
+      />
     </span>
   </span>
   <ul
