@@ -11,6 +11,8 @@ Semantic vector graphics.
 
 > Click the icon and copy the code.
 
+We are still adding two-tone icons right now.
+
 ```__react
 import IconDisplay from 'site/theme/template/IconDisplay';
 ReactDOM.render(<IconDisplay />, mountNode);

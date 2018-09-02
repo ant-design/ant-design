@@ -16,6 +16,8 @@ toc: false
 
 > 点击图标即可复制代码。
 
+双色图标可能略有缺失，我们还在持续补充中。
+
 ```__react
 import IconDisplay from 'site/theme/template/IconDisplay';
 ReactDOM.render(<IconDisplay />, mountNode);
