@@ -20,7 +20,7 @@ timeline: true
 `2018-08-27`
 
 In September we brought an update for `3.9.0`. There are many new features in `3.9.0`, Ant Design is getting stronger and stronger.
-- 🔥🔥🔥 In the `3.9.0` version, we redraw all the icons, adding two new categories, more than 50 new icons. And the bit adds a variety of styles to each icon. To this end, we have rewritten the Icon component, adding a number of features that allow us to quickly use new icons and styles.
+- 🔥🔥🔥 In the `3.9.0` version, we redraw all the icons, adding two new categories, more than 90 new icons. And the bit adds a variety of styles to each icon. To this end, we have rewritten the Icon component,replaced the `fontface` icon with `SVG`, adding a number of features that allow us to quickly use new icons and styles.
 
   ![](https://gw.alipayobjects.com/zos/rmsportal/CVDHuodLwcDeyQBDoUIZ.png)
 
