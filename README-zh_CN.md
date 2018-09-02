@@ -1,10 +1,14 @@
 <p align="center">
   <a href="http://ant.design">
-    <img width="230" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg">
+    <img width="200" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg">
   </a>
 </p>
 
-# Ant Design
+<h1 align="center">Ant Design</h1>
+
+<div align="center">
+
+一套企业级的 UI 设计语言和 React 实现。
 
 [![](https://img.shields.io/travis/ant-design/ant-design/master.svg?style=flat-square)](https://travis-ci.org/ant-design/ant-design)
 [![CircleCI Status](https://circleci.com/gh/ant-design/ant-design.svg?style=svg)](https://circleci.com/gh/ant-design/ant-design/)
@@ -18,18 +22,18 @@
 [![Gitter](https://badges.gitter.im/ant-design/ant-design-english.svg)](https://gitter.im/ant-design/ant-design-english?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) (English)
 [![Join the chat at https://gitter.im/ant-design/ant-design](https://img.shields.io/gitter/room/ant-design/ant-design.svg?style=flat-square)](https://gitter.im/ant-design/ant-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)（中文）
 
-一套企业级的 UI 设计语言和 React 实现。
+</div>
 
-[README in English](README.md)
+[English](./README.md) | 简体中文
 
-## 特性
+## ✨ 特性
 
 - 提炼自企业级中后台产品的交互语言和视觉风格。
 - 开箱即用的高质量 React 组件。
 - 使用 TypeScript 构建，提供完整的类型定义文件。
 - 全链路开发和设计工具体系。
 
-## 支持环境
+## 🖥 支持环境
 
 * 现代浏览器和 IE9 及以上。
 * 支持服务端渲染。
@@ -43,13 +47,13 @@
 
 请参考[贡献指南](https://ant.design/docs/react/contributing-cn).
 
-## 安装
+## 📦 安装
 
 ```bash
 npm install antd --save
 ```
 
-## 示例
+## 🔨 示例
 
 ```jsx
 import { DatePicker } from 'antd';
@@ -68,11 +72,11 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
 参考 [在 TypeScript 中使用](https://ant.design/docs/react/use-in-typescript-cn)
 
-## 国际化
+## 🌍 国际化
 
 参考 [国际化文档](http://ant.design/docs/react/i18n-cn)。
 
-## 链接
+## 🔗 链接
 
 - [首页](http://ant.design/)
 - [组件库](http://ant.design/docs/react/introduce)

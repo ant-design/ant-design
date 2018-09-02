@@ -1,10 +1,14 @@
 <p align="center">
   <a href="http://ant.design">
-    <img width="230" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg">
+    <img width="200" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg">
   </a>
 </p>
 
-# Ant Design
+<h1 align="center">Ant Design</h1>
+
+<div align="center">
+
+An enterprise-class UI design language and React-based implementation.
 
 [![](https://img.shields.io/travis/ant-design/ant-design/master.svg?style=flat-square)](https://travis-ci.org/ant-design/ant-design)
 [![CircleCI Status](https://circleci.com/gh/ant-design/ant-design.svg?style=svg)](https://circleci.com/gh/ant-design/ant-design/)
@@ -18,22 +22,22 @@
 [![Gitter](https://badges.gitter.im/ant-design/ant-design-english.svg)](https://gitter.im/ant-design/ant-design-english?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) (English)
 [![Join the chat at https://gitter.im/ant-design/ant-design](https://img.shields.io/gitter/room/ant-design/ant-design.svg?style=flat-square)](https://gitter.im/ant-design/ant-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)（中文）
 
-An enterprise-class UI design language and React-based implementation.
+</div>
 
-[中文 README](README-zh_CN.md)
+English | [简体中文](./README-zh_CN.md)
 
 ## 3.0 Released Now! :tada::tada::tada:
 
 [Announcing Ant Design 3.0](https://medium.com/ant-design/announcing-ant-design-3-0-70e3e65eca0c)
 
-## Features
+## ✨ Features
 
 - An enterprise-class UI design system for desktop applications.
 - A set of high-quality React components out of the box.
 - Written in TypeScript with predictable static types.
 - The whole package of development and design resources and tools.
 
-## Environment Support
+## 🖥 Environment Support
 
 * Modern browsers and Internet Explorer 9+ (with [polyfills](https://ant.design/docs/react/getting-started#Compatibility))
 * Server-side Rendering
@@ -47,13 +51,13 @@ An enterprise-class UI design language and React-based implementation.
 
 Read our [contributing guide](https://ant.design/docs/react/contributing).
 
-## Install
+## 📦 Install
 
 ```bash
 npm install antd --save
 ```
 
-## Usage
+## 🔨 Usage
 
 ```jsx
 import { DatePicker } from 'antd';
@@ -72,11 +76,11 @@ Or [import components on demand](https://ant.design/docs/react/getting-started#I
 
 See [Use in TypeScript](https://ant.design/docs/react/use-in-typescript)
 
-## Internationalization
+## 🌍 Internationalization
 
 See [i18n](http://ant.design/docs/react/i18n).
 
-## Links
+## 🔗 Links
 
 - [Home page](http://ant.design/)
 - [Components](http://ant.design/docs/react/introduce)
