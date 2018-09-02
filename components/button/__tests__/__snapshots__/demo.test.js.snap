@@ -170,7 +170,22 @@ exports[`renders ./components/button/demo/button-group.md correctly 1`] = `
     >
       <i
         class="anticon anticon-left"
-      />
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="left"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+          />
+        </svg>
+      </i>
       <span>
         Go back
       </span>
@@ -184,7 +199,22 @@ exports[`renders ./components/button/demo/button-group.md correctly 1`] = `
       </span>
       <i
         class="anticon anticon-right"
-      />
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="right"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+          />
+        </svg>
+      </i>
     </button>
   </div>
   <div
@@ -196,7 +226,22 @@ exports[`renders ./components/button/demo/button-group.md correctly 1`] = `
     >
       <i
         class="anticon anticon-cloud"
-      />
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="cloud"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M811.4 418.7C765.6 297.9 648.9 212 512.2 212S258.8 297.8 213 418.6C127.3 441.1 64 519.1 64 612c0 110.5 89.5 200 199.9 200h496.2C870.5 812 960 722.5 960 612c0-92.7-63.1-170.7-148.6-193.3zm36.3 281c-23.4 23.4-54.5 36.3-87.6 36.3H263.9c-33.1 0-64.2-12.9-87.6-36.3-23.4-23.4-36.3-54.6-36.3-87.7 0-28 9.1-54.3 26.2-76.3 16.7-21.3 40.2-36.8 66.1-43.7l37.9-9.9 13.9-36.6c8.6-22.8 20.6-44.1 35.7-63.4 14.9-19.2 32.6-35.9 52.4-49.9 41.1-28.9 89.5-44.2 140-44.2s98.9 15.3 140 44.2c19.9 14 37.5 30.8 52.4 49.9 15.1 19.3 27.1 40.7 35.7 63.4l13.8 36.5 37.8 10c54.3 14.5 92.1 63.8 92.1 120 0 33.1-12.9 64.3-36.3 87.7z"
+          />
+        </svg>
+      </i>
     </button>
     <button
       class="ant-btn ant-btn-primary ant-btn-icon-only"
@@ -204,7 +249,25 @@ exports[`renders ./components/button/demo/button-group.md correctly 1`] = `
     >
       <i
         class="anticon anticon-cloud-download"
-      />
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="cloud-download"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M624 706.3h-74.1V464c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v242.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.7c3.2 4.1 9.4 4.1 12.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9z"
+          />
+          <path
+            d="M811.4 366.7C765.6 245.9 648.9 160 512.2 160S258.8 245.8 213 366.6C127.3 389.1 64 467.2 64 560c0 110.5 89.5 200 199.9 200H304c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8h-40.1c-33.7 0-65.4-13.4-89-37.7-23.5-24.2-36-56.8-34.9-90.6.9-26.4 9.9-51.2 26.2-72.1 16.7-21.3 40.1-36.8 66.1-43.7l37.9-9.9 13.9-36.6c8.6-22.8 20.6-44.1 35.7-63.4 14.9-19.2 32.6-35.9 52.4-49.9 41.1-28.9 89.5-44.2 140-44.2s98.9 15.3 140 44.2c19.9 14 37.5 30.8 52.4 49.9 15.1 19.3 27.1 40.7 35.7 63.4l13.8 36.5 37.8 10C846.1 454.5 884 503.8 884 560c0 33.1-12.9 64.3-36.3 87.7-23.4 23.4-54.5 36.3-87.6 36.3H720c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h40.1C870.5 760 960 670.5 960 560c0-92.7-63.1-170.7-148.6-193.3z"
+          />
+        </svg>
+      </i>
     </button>
   </div>
 </div>
@@ -336,7 +399,22 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
   >
     <i
       class="anticon anticon-search"
-    />
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="search"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M608 112c-167.9 0-304 136.1-304 304 0 70.3 23.9 135 63.9 186.5L114.3 856.1c-3.1 3.1-3.1 8.2 0 11.3l42.3 42.3c3.1 3.1 8.2 3.1 11.3 0l253.6-253.6C473 696.1 537.7 720 608 720c167.9 0 304-136.1 304-304S775.9 112 608 112zm161.2 465.2C726.2 620.3 668.9 644 608 644s-118.2-23.7-161.2-66.8C403.7 534.2 380 476.9 380 416s23.7-118.2 66.8-161.2c43-43.1 100.3-66.8 161.2-66.8s118.2 23.7 161.2 66.8c43.1 43 66.8 100.3 66.8 161.2s-23.7 118.2-66.8 161.2z"
+        />
+      </svg>
+    </i>
   </button>
   <button
     class="ant-btn ant-btn-primary"
@@ -344,7 +422,22 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
   >
     <i
       class="anticon anticon-search"
-    />
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="search"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M608 112c-167.9 0-304 136.1-304 304 0 70.3 23.9 135 63.9 186.5L114.3 856.1c-3.1 3.1-3.1 8.2 0 11.3l42.3 42.3c3.1 3.1 8.2 3.1 11.3 0l253.6-253.6C473 696.1 537.7 720 608 720c167.9 0 304-136.1 304-304S775.9 112 608 112zm161.2 465.2C726.2 620.3 668.9 644 608 644s-118.2-23.7-161.2-66.8C403.7 534.2 380 476.9 380 416s23.7-118.2 66.8-161.2c43-43.1 100.3-66.8 161.2-66.8s118.2 23.7 161.2 66.8c43.1 43 66.8 100.3 66.8 161.2s-23.7 118.2-66.8 161.2z"
+        />
+      </svg>
+    </i>
     <span>
       Search
     </span>
@@ -355,7 +448,22 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
   >
     <i
       class="anticon anticon-search"
-    />
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="search"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M608 112c-167.9 0-304 136.1-304 304 0 70.3 23.9 135 63.9 186.5L114.3 856.1c-3.1 3.1-3.1 8.2 0 11.3l42.3 42.3c3.1 3.1 8.2 3.1 11.3 0l253.6-253.6C473 696.1 537.7 720 608 720c167.9 0 304-136.1 304-304S775.9 112 608 112zm161.2 465.2C726.2 620.3 668.9 644 608 644s-118.2-23.7-161.2-66.8C403.7 534.2 380 476.9 380 416s23.7-118.2 66.8-161.2c43-43.1 100.3-66.8 161.2-66.8s118.2 23.7 161.2 66.8c43.1 43 66.8 100.3 66.8 161.2s-23.7 118.2-66.8 161.2z"
+        />
+      </svg>
+    </i>
   </button>
   <button
     class="ant-btn"
@@ -363,7 +471,22 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
   >
     <i
       class="anticon anticon-search"
-    />
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="search"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M608 112c-167.9 0-304 136.1-304 304 0 70.3 23.9 135 63.9 186.5L114.3 856.1c-3.1 3.1-3.1 8.2 0 11.3l42.3 42.3c3.1 3.1 8.2 3.1 11.3 0l253.6-253.6C473 696.1 537.7 720 608 720c167.9 0 304-136.1 304-304S775.9 112 608 112zm161.2 465.2C726.2 620.3 668.9 644 608 644s-118.2-23.7-161.2-66.8C403.7 534.2 380 476.9 380 416s23.7-118.2 66.8-161.2c43-43.1 100.3-66.8 161.2-66.8s118.2 23.7 161.2 66.8c43.1 43 66.8 100.3 66.8 161.2s-23.7 118.2-66.8 161.2z"
+        />
+      </svg>
+    </i>
     <span>
       Search
     </span>
@@ -375,7 +498,22 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
   >
     <i
       class="anticon anticon-search"
-    />
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="search"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M608 112c-167.9 0-304 136.1-304 304 0 70.3 23.9 135 63.9 186.5L114.3 856.1c-3.1 3.1-3.1 8.2 0 11.3l42.3 42.3c3.1 3.1 8.2 3.1 11.3 0l253.6-253.6C473 696.1 537.7 720 608 720c167.9 0 304-136.1 304-304S775.9 112 608 112zm161.2 465.2C726.2 620.3 668.9 644 608 644s-118.2-23.7-161.2-66.8C403.7 534.2 380 476.9 380 416s23.7-118.2 66.8-161.2c43-43.1 100.3-66.8 161.2-66.8s118.2 23.7 161.2 66.8c43.1 43 66.8 100.3 66.8 161.2s-23.7 118.2-66.8 161.2z"
+        />
+      </svg>
+    </i>
   </button>
   <button
     class="ant-btn"
@@ -383,7 +521,22 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
   >
     <i
       class="anticon anticon-search"
-    />
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="search"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M608 112c-167.9 0-304 136.1-304 304 0 70.3 23.9 135 63.9 186.5L114.3 856.1c-3.1 3.1-3.1 8.2 0 11.3l42.3 42.3c3.1 3.1 8.2 3.1 11.3 0l253.6-253.6C473 696.1 537.7 720 608 720c167.9 0 304-136.1 304-304S775.9 112 608 112zm161.2 465.2C726.2 620.3 668.9 644 608 644s-118.2-23.7-161.2-66.8C403.7 534.2 380 476.9 380 416s23.7-118.2 66.8-161.2c43-43.1 100.3-66.8 161.2-66.8s118.2 23.7 161.2 66.8c43.1 43 66.8 100.3 66.8 161.2s-23.7 118.2-66.8 161.2z"
+        />
+      </svg>
+    </i>
     <span>
       Search
     </span>
@@ -394,7 +547,22 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
   >
     <i
       class="anticon anticon-search"
-    />
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="search"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M608 112c-167.9 0-304 136.1-304 304 0 70.3 23.9 135 63.9 186.5L114.3 856.1c-3.1 3.1-3.1 8.2 0 11.3l42.3 42.3c3.1 3.1 8.2 3.1 11.3 0l253.6-253.6C473 696.1 537.7 720 608 720c167.9 0 304-136.1 304-304S775.9 112 608 112zm161.2 465.2C726.2 620.3 668.9 644 608 644s-118.2-23.7-161.2-66.8C403.7 534.2 380 476.9 380 416s23.7-118.2 66.8-161.2c43-43.1 100.3-66.8 161.2-66.8s118.2 23.7 161.2 66.8c43.1 43 66.8 100.3 66.8 161.2s-23.7 118.2-66.8 161.2z"
+        />
+      </svg>
+    </i>
   </button>
   <button
     class="ant-btn ant-btn-dashed"
@@ -402,7 +570,22 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
   >
     <i
       class="anticon anticon-search"
-    />
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="search"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M608 112c-167.9 0-304 136.1-304 304 0 70.3 23.9 135 63.9 186.5L114.3 856.1c-3.1 3.1-3.1 8.2 0 11.3l42.3 42.3c3.1 3.1 8.2 3.1 11.3 0l253.6-253.6C473 696.1 537.7 720 608 720c167.9 0 304-136.1 304-304S775.9 112 608 112zm161.2 465.2C726.2 620.3 668.9 644 608 644s-118.2-23.7-161.2-66.8C403.7 534.2 380 476.9 380 416s23.7-118.2 66.8-161.2c43-43.1 100.3-66.8 161.2-66.8s118.2 23.7 161.2 66.8c43.1 43 66.8 100.3 66.8 161.2s-23.7 118.2-66.8 161.2z"
+        />
+      </svg>
+    </i>
     <span>
       Search
     </span>
@@ -418,7 +601,22 @@ exports[`renders ./components/button/demo/loading.md correctly 1`] = `
   >
     <i
       class="anticon anticon-loading"
-    />
+    >
+      <svg
+        aria-hidden="true"
+        class="anticon-spin"
+        data-icon="loading"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M512 1024c-69.1 0-136.2-13.5-199.3-40.2C251.7 958 197 921 150 874c-47-47-84-101.7-109.8-162.7C13.5 648.2 0 581.1 0 512c0-19.9 16.1-36 36-36s36 16.1 36 36c0 59.4 11.6 117 34.6 171.3 22.2 52.4 53.9 99.5 94.3 139.9 40.4 40.4 87.5 72.2 139.9 94.3C395 940.4 452.6 952 512 952c59.4 0 117-11.6 171.3-34.6 52.4-22.2 99.5-53.9 139.9-94.3 40.4-40.4 72.2-87.5 94.3-139.9C940.4 629 952 571.4 952 512c0-59.4-11.6-117-34.6-171.3-22.2-52.4-53.9-99.4-94.3-139.9-40.4-40.4-87.5-72.2-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.2C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3s-13.5 136.2-40.2 199.3C958 772.3 921 827 874 874c-47 47-101.8 83.9-162.7 109.7-63.1 26.8-130.2 40.3-199.3 40.3z"
+        />
+      </svg>
+    </i>
     <span>
       Loading
     </span>
@@ -429,7 +627,22 @@ exports[`renders ./components/button/demo/loading.md correctly 1`] = `
   >
     <i
       class="anticon anticon-loading"
-    />
+    >
+      <svg
+        aria-hidden="true"
+        class="anticon-spin"
+        data-icon="loading"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M512 1024c-69.1 0-136.2-13.5-199.3-40.2C251.7 958 197 921 150 874c-47-47-84-101.7-109.8-162.7C13.5 648.2 0 581.1 0 512c0-19.9 16.1-36 36-36s36 16.1 36 36c0 59.4 11.6 117 34.6 171.3 22.2 52.4 53.9 99.5 94.3 139.9 40.4 40.4 87.5 72.2 139.9 94.3C395 940.4 452.6 952 512 952c59.4 0 117-11.6 171.3-34.6 52.4-22.2 99.5-53.9 139.9-94.3 40.4-40.4 72.2-87.5 94.3-139.9C940.4 629 952 571.4 952 512c0-59.4-11.6-117-34.6-171.3-22.2-52.4-53.9-99.4-94.3-139.9-40.4-40.4-87.5-72.2-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.2C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3s-13.5 136.2-40.2 199.3C958 772.3 921 827 874 874c-47 47-101.8 83.9-162.7 109.7-63.1 26.8-130.2 40.3-199.3 40.3z"
+        />
+      </svg>
+    </i>
     <span>
       Loading
     </span>
@@ -449,7 +662,22 @@ exports[`renders ./components/button/demo/loading.md correctly 1`] = `
   >
     <i
       class="anticon anticon-poweroff"
-    />
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="poweroff"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M705.6 124.9c-5.3-2.7-11.6 1.2-11.6 7.2v64.2c0 5.5 2.9 10.6 7.5 13.6 22.4 14.1 43.2 30.7 62.2 49.8 32.7 32.8 58.4 70.9 76.3 113.3 18.5 43.9 27.9 90.5 27.9 138.7 0 48.1-9.4 94.8-27.9 138.7-17.9 42.4-43.6 80.5-76.3 113.3-32.7 32.8-70.8 58.5-113.2 76.4-43.8 18.6-90.5 28-138.5 28s-94.7-9.4-138.5-28c-42.4-17.9-80.5-43.6-113.2-76.4-32.7-32.8-58.4-70.9-76.3-113.3-18.5-43.9-27.9-90.5-27.9-138.7 0-48.1 9.4-94.8 27.9-138.7 17.9-42.4 43.6-80.5 76.3-113.3 19-19 39.8-35.6 62.2-49.8 4.7-2.9 7.5-8.1 7.5-13.6V132c0-6-6.3-9.8-11.6-7.2C178.5 195.2 82 339.3 80 506.3 77.2 745.1 272.5 943.5 511.2 944c239 .5 432.8-193.3 432.8-432.4 0-169.2-97-315.7-238.4-386.7zM480 560h64c4.4 0 8-3.6 8-8V88c0-4.4-3.6-8-8-8h-64c-4.4 0-8 3.6-8 8v464c0 4.4 3.6 8 8 8z"
+        />
+      </svg>
+    </i>
     <span>
       Click me!
     </span>
@@ -461,7 +689,22 @@ exports[`renders ./components/button/demo/loading.md correctly 1`] = `
   >
     <i
       class="anticon anticon-loading"
-    />
+    >
+      <svg
+        aria-hidden="true"
+        class="anticon-spin"
+        data-icon="loading"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M512 1024c-69.1 0-136.2-13.5-199.3-40.2C251.7 958 197 921 150 874c-47-47-84-101.7-109.8-162.7C13.5 648.2 0 581.1 0 512c0-19.9 16.1-36 36-36s36 16.1 36 36c0 59.4 11.6 117 34.6 171.3 22.2 52.4 53.9 99.5 94.3 139.9 40.4 40.4 87.5 72.2 139.9 94.3C395 940.4 452.6 952 512 952c59.4 0 117-11.6 171.3-34.6 52.4-22.2 99.5-53.9 139.9-94.3 40.4-40.4 72.2-87.5 94.3-139.9C940.4 629 952 571.4 952 512c0-59.4-11.6-117-34.6-171.3-22.2-52.4-53.9-99.4-94.3-139.9-40.4-40.4-87.5-72.2-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.2C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3s-13.5 136.2-40.2 199.3C958 772.3 921 827 874 874c-47 47-101.8 83.9-162.7 109.7-63.1 26.8-130.2 40.3-199.3 40.3z"
+        />
+      </svg>
+    </i>
   </button>
   <button
     class="ant-btn ant-btn-primary ant-btn-circle ant-btn-loading"
@@ -469,7 +712,22 @@ exports[`renders ./components/button/demo/loading.md correctly 1`] = `
   >
     <i
       class="anticon anticon-loading"
-    />
+    >
+      <svg
+        aria-hidden="true"
+        class="anticon-spin"
+        data-icon="loading"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M512 1024c-69.1 0-136.2-13.5-199.3-40.2C251.7 958 197 921 150 874c-47-47-84-101.7-109.8-162.7C13.5 648.2 0 581.1 0 512c0-19.9 16.1-36 36-36s36 16.1 36 36c0 59.4 11.6 117 34.6 171.3 22.2 52.4 53.9 99.5 94.3 139.9 40.4 40.4 87.5 72.2 139.9 94.3C395 940.4 452.6 952 512 952c59.4 0 117-11.6 171.3-34.6 52.4-22.2 99.5-53.9 139.9-94.3 40.4-40.4 72.2-87.5 94.3-139.9C940.4 629 952 571.4 952 512c0-59.4-11.6-117-34.6-171.3-22.2-52.4-53.9-99.4-94.3-139.9-40.4-40.4-87.5-72.2-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.2C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3s-13.5 136.2-40.2 199.3C958 772.3 921 827 874 874c-47 47-101.8 83.9-162.7 109.7-63.1 26.8-130.2 40.3-199.3 40.3z"
+        />
+      </svg>
+    </i>
   </button>
 </span>
 `;
@@ -501,7 +759,22 @@ exports[`renders ./components/button/demo/multiple.md correctly 1`] = `
     </span>
     <i
       class="anticon anticon-down"
-    />
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="down"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </i>
   </button>
 </div>
 `;
@@ -611,7 +884,22 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
   >
     <i
       class="anticon anticon-download"
-    />
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="download"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M505.7 661c3.2 4.1 9.4 4.1 12.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+        />
+      </svg>
+    </i>
   </button>
   <button
     class="ant-btn ant-btn-primary ant-btn-lg"
@@ -619,7 +907,22 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
   >
     <i
       class="anticon anticon-download"
-    />
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="download"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M505.7 661c3.2 4.1 9.4 4.1 12.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+        />
+      </svg>
+    </i>
     <span>
       Download
     </span>
@@ -634,7 +937,22 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
     >
       <i
         class="anticon anticon-left"
-      />
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="left"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+          />
+        </svg>
+      </i>
       <span>
         Backward
       </span>
@@ -648,7 +966,22 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
       </span>
       <i
         class="anticon anticon-right"
-      />
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="right"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+          />
+        </svg>
+      </i>
     </button>
   </div>
 </div>

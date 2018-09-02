@@ -35,8 +35,25 @@ exports[`Search should show cross icon when input value exists 1`] = `
         >
           <IconReact
             className=""
-            type="search"
-          />
+            type="search-o"
+          >
+            <svg
+              aria-hidden="true"
+              className=""
+              data-icon="search"
+              fill="currentColor"
+              height="1em"
+              key="svg-search"
+              viewBox="0 0 1024 1024"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M608 112c-167.9 0-304 136.1-304 304 0 70.3 23.9 135 63.9 186.5L114.3 856.1c-3.1 3.1-3.1 8.2 0 11.3l42.3 42.3c3.1 3.1 8.2 3.1 11.3 0l253.6-253.6C473 696.1 537.7 720 608 720c167.9 0 304-136.1 304-304S775.9 112 608 112zm161.2 465.2C726.2 620.3 668.9 644 608 644s-118.2-23.7-161.2-66.8C403.7 534.2 380 476.9 380 416s23.7-118.2 66.8-161.2c43-43.1 100.3-66.8 161.2-66.8s118.2 23.7 161.2 66.8c43.1 43 66.8 100.3 66.8 161.2s-23.7 118.2-66.8 161.2z"
+                key="svg-search-svg-0"
+              />
+            </svg>
+          </IconReact>
         </i>
       </Icon>
     </span>
@@ -81,8 +98,29 @@ exports[`Search should show cross icon when input value exists 2`] = `
         >
           <IconReact
             className=""
-            type="close-circle"
-          />
+            type="close-circle-o"
+          >
+            <svg
+              aria-hidden="true"
+              className=""
+              data-icon="close-circle"
+              fill="currentColor"
+              height="1em"
+              key="svg-close-circle"
+              viewBox="0 0 1024 1024"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M685.4 354.8c0-4.4-3.6-8-8-8l-66 .3L512 465.6l-99.3-118.4-66.1-.3c-4.4 0-8 3.5-8 8 0 1.9.7 3.7 1.9 5.2l130.1 155L340.5 670c-1.2 1.5-1.9 3.3-1.9 5.2 0 4.4 3.6 8 8 8l66.1-.3L512 564.4l99.3 118.4 66 .3c4.4 0 8-3.5 8-8 0-1.9-.7-3.7-1.9-5.2L553.5 515l130.1-155c1.2-1.4 1.8-3.3 1.8-5.2z"
+                key="svg-close-circle-svg-0"
+              />
+              <path
+                d="M512 65C264.6 65 64 265.6 64 513s200.6 448 448 448 448-200.6 448-448S759.4 65 512 65zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                key="svg-close-circle-svg-1"
+              />
+            </svg>
+          </IconReact>
         </i>
       </Icon>
     </a>
