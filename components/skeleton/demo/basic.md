@@ -7,16 +7,14 @@ title:
 
 ## zh-CN
 
-最简单的用法。
+最简单的占位效果。
 
 ## en-US
 
-Basic usage.
+Simplest Skeleton usage.
 
 ````jsx
 import { Skeleton } from 'antd';
 
-ReactDOM.render(
-  <Skeleton />,
-mountNode);
+ReactDOM.render(<Skeleton />, mountNode);
 ````
