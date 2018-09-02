@@ -39,6 +39,13 @@ All the icons will render to `<svg>`. You can still set `style` and `className` 
 <Icon type="message" style={{ fontSize: '16px', color: '#08c' }} theme="outlined" />
 ```
 
+When using the two-tone icons, you can use the static methods `Icon.getTwoToneColor()` and `Icon.setTwoToneColor(colorString)` to spicify the primary color.
+
+```jsx
+Icon.setTwoToneColor('#eb2f96');
+Icon.getTwoToneColor(); // #eb2f96
+```
+
 You can import svg icon as an react component by using `webpack` and [`@svgr/webpack`](https://www.npmjs.com/package/@svgr/webpack). `@svgr/webpack`'s `options` [reference](https://github.com/smooth-code/svgr#options).
 
 ```js
