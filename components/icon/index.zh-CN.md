@@ -44,6 +44,13 @@ ReactDOM.render(<IconDisplay />, mountNode);
 <Icon type="message" style={{ fontSize: '16px', color: '#08c' }} />
 ```
 
+对于双色图标，可以通过使用 `Icon.getTwoToneColor()` 和 `Icon.setTwoToneColor(colorString)` 来设置图标主色。
+
+```jsx
+Icon.setTwoToneColor('#eb2f96');
+Icon.getTwoToneColor(); // #eb2f96
+```
+
 如果使用 `webpack`，可以通过配置 [@svgr/webpack](https://www.npmjs.com/package/@svgr/webpack) 来将 `svg` 图标作为 `React` 组件导入。`@svgr/webpack` 的 `options` 选项请参阅 [svgr文档](https://github.com/smooth-code/svgr#options)。
 
 ```js
