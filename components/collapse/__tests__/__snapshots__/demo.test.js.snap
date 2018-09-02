@@ -16,22 +16,7 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
     >
       <i
         class="anticon anticon-right arrow"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="right"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
-          />
-        </svg>
-      </i>
+      />
       This is panel header 1
     </div>
   </div>
@@ -46,22 +31,7 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
     >
       <i
         class="anticon anticon-right arrow"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="right"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
-          />
-        </svg>
-      </i>
+      />
       This is panel header 2
     </div>
   </div>
@@ -76,22 +46,7 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
     >
       <i
         class="anticon anticon-right arrow"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="right"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
-          />
-        </svg>
-      </i>
+      />
       This is panel header 3
     </div>
   </div>
@@ -113,22 +68,7 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
     >
       <i
         class="anticon anticon-right arrow"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="right"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
-          />
-        </svg>
-      </i>
+      />
       This is panel header 1
     </div>
     <div
@@ -158,22 +98,7 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
     >
       <i
         class="anticon anticon-right arrow"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="right"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
-          />
-        </svg>
-      </i>
+      />
       This is panel header 2
     </div>
   </div>
@@ -188,22 +113,7 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
     >
       <i
         class="anticon anticon-right arrow"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="right"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
-          />
-        </svg>
-      </i>
+      />
       This is panel header 3
     </div>
   </div>
@@ -225,22 +135,7 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
     >
       <i
         class="anticon anticon-right arrow"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="right"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
-          />
-        </svg>
-      </i>
+      />
       This is panel header 1
     </div>
     <div
@@ -268,22 +163,7 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
     >
       <i
         class="anticon anticon-right arrow"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="right"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
-          />
-        </svg>
-      </i>
+      />
       This is panel header 2
     </div>
   </div>
@@ -298,22 +178,7 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
     >
       <i
         class="anticon anticon-right arrow"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="right"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
-          />
-        </svg>
-      </i>
+      />
       This is panel header 3
     </div>
   </div>
@@ -336,22 +201,7 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
     >
       <i
         class="anticon anticon-right arrow"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="right"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
-          />
-        </svg>
-      </i>
+      />
       This is panel header 1
     </div>
     <div
@@ -382,22 +232,7 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
     >
       <i
         class="anticon anticon-right arrow"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="right"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
-          />
-        </svg>
-      </i>
+      />
       This is panel header 2
     </div>
   </div>
@@ -413,22 +248,7 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
     >
       <i
         class="anticon anticon-right arrow"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="right"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
-          />
-        </svg>
-      </i>
+      />
       This is panel header 3
     </div>
   </div>
@@ -450,22 +270,7 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
     >
       <i
         class="anticon anticon-right arrow"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="right"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
-          />
-        </svg>
-      </i>
+      />
       This is panel header 1
     </div>
   </div>
@@ -480,22 +285,7 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
     >
       <i
         class="anticon anticon-right arrow"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="right"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
-          />
-        </svg>
-      </i>
+      />
       This is panel header 2
     </div>
   </div>
@@ -510,22 +300,7 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
     >
       <i
         class="anticon anticon-right arrow"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="right"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
-          />
-        </svg>
-      </i>
+      />
       This is panel header 3
     </div>
   </div>
@@ -547,22 +322,7 @@ exports[`renders ./components/collapse/demo/noarrow.md correctly 1`] = `
     >
       <i
         class="anticon anticon-right arrow"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="right"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
-          />
-        </svg>
-      </i>
+      />
       This is panel header with arrow icon
     </div>
     <div

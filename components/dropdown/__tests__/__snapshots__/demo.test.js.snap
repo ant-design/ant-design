@@ -8,22 +8,7 @@ exports[`renders ./components/dropdown/demo/basic.md correctly 1`] = `
   Hover me 
   <i
     class="anticon anticon-down"
-  >
-    <svg
-      aria-hidden="true"
-      class=""
-      data-icon="down"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-      />
-    </svg>
-  </i>
+  />
 </a>
 `;
 
@@ -55,22 +40,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
     >
       <i
         class="anticon anticon-ellipsis"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="ellipsis"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M176 511a56 56 0 1 0 112 0 56 56 0 1 0-112 0zm280 0a56 56 0 1 0 112 0 56 56 0 1 0-112 0zm280 0a56 56 0 1 0 112 0 56 56 0 1 0-112 0z"
-          />
-        </svg>
-      </i>
+      />
     </button>
   </div>
   <div
@@ -93,22 +63,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
     >
       <i
         class="anticon anticon-ellipsis"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="ellipsis"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M176 511a56 56 0 1 0 112 0 56 56 0 1 0-112 0zm280 0a56 56 0 1 0 112 0 56 56 0 1 0-112 0zm280 0a56 56 0 1 0 112 0 56 56 0 1 0-112 0z"
-          />
-        </svg>
-      </i>
+      />
     </button>
   </div>
   <button
@@ -121,22 +76,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
     </span>
     <i
       class="anticon anticon-down"
-    >
-      <svg
-        aria-hidden="true"
-        class=""
-        data-icon="down"
-        fill="currentColor"
-        height="1em"
-        viewBox="0 0 1024 1024"
-        width="1em"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-        />
-      </svg>
-    </i>
+    />
   </button>
 </div>
 `;
@@ -149,22 +89,7 @@ exports[`renders ./components/dropdown/demo/event.md correctly 1`] = `
   Hover me, Click menu item 
   <i
     class="anticon anticon-down"
-  >
-    <svg
-      aria-hidden="true"
-      class=""
-      data-icon="down"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-      />
-    </svg>
-  </i>
+  />
 </a>
 `;
 
@@ -176,22 +101,7 @@ exports[`renders ./components/dropdown/demo/item.md correctly 1`] = `
   Hover me 
   <i
     class="anticon anticon-down"
-  >
-    <svg
-      aria-hidden="true"
-      class=""
-      data-icon="down"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-      />
-    </svg>
-  </i>
+  />
 </a>
 `;
 
@@ -203,22 +113,7 @@ exports[`renders ./components/dropdown/demo/overlay-visible.md correctly 1`] = `
   Hover me 
   <i
     class="anticon anticon-down"
-  >
-    <svg
-      aria-hidden="true"
-      class=""
-      data-icon="down"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-      />
-    </svg>
-  </i>
+  />
 </a>
 `;
 
@@ -284,22 +179,7 @@ exports[`renders ./components/dropdown/demo/sub-menu.md correctly 1`] = `
   Cascading menu 
   <i
     class="anticon anticon-down"
-  >
-    <svg
-      aria-hidden="true"
-      class=""
-      data-icon="down"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-      />
-    </svg>
-  </i>
+  />
 </a>
 `;
 
@@ -311,21 +191,6 @@ exports[`renders ./components/dropdown/demo/trigger.md correctly 1`] = `
   Click me 
   <i
     class="anticon anticon-down"
-  >
-    <svg
-      aria-hidden="true"
-      class=""
-      data-icon="down"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-      />
-    </svg>
-  </i>
+  />
 </a>
 `;
