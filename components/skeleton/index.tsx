@@ -39,16 +39,14 @@ function getTitleBasicProps(hasAvatar: boolean, hasParagraph: boolean): Skeleton
     return { width: '50%' };
   }
 
-  return { width: '100%' };
+  return {};
 }
 
 function getParagraphBasicProps(hasAvatar: boolean, hasTitle: boolean): SkeletonParagraphProps {
   const basicProps: SkeletonParagraphProps = {};
 
   // Width
-  if (hasAvatar && hasTitle) {
-    basicProps.width = '100%';
-  } else {
+  if (!hasAvatar || !hasTitle) {
     basicProps.width = '61%';
   }
 

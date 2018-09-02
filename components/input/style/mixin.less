@@ -272,7 +272,7 @@
     }
 
     // https://github.com/ant-design/ant-design/issues/11863
-    & > span > .@{inputClass} {
+    & > span:not(:last-child) > .@{inputClass} {
       border-right-width: 0;
     }
 

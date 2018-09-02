@@ -2,6 +2,8 @@ import * as React from 'react';
 import { findDOMNode } from 'react-dom';
 import TransitionEvents from 'css-animation/lib/Event';
 
+let styleForPesudo: HTMLStyleElement | null;
+
 export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
   private instance?: {
     cancel: () => void;
@@ -9,7 +11,6 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
 
   private extraNode: HTMLDivElement;
   private clickWaveTimeoutId: number;
-  private styleForPesudo: HTMLStyleElement | null;
 
   isNotGrey(color: string) {
     const match = (color || '').match(/rgba?\((\d*), (\d*), (\d*)(, [\.\d]*)?\)/);
@@ -31,6 +32,7 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
     node.removeAttribute(attributeName);
     node.setAttribute(attributeName, 'true');
     // Not white or transparnt or grey
+    styleForPesudo = styleForPesudo || document.createElement('style');
     if (waveColor &&
         waveColor !== '#ffffff' &&
         waveColor !== 'rgb(255, 255, 255)' &&
@@ -38,10 +40,11 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
         !/rgba\(\d*, \d*, \d*, 0\)/.test(waveColor) &&  // any transparent rgba color
         waveColor !== 'transparent') {
       extraNode.style.borderColor = waveColor;
-      this.styleForPesudo = document.createElement('style');
-      this.styleForPesudo.innerHTML =
+      styleForPesudo.innerHTML =
         `[ant-click-animating-without-extra-node]:after { border-color: ${waveColor}; }`;
-      document.body.appendChild(this.styleForPesudo);
+      if (!document.body.contains(styleForPesudo)) {
+        document.body.appendChild(styleForPesudo);
+      }
     }
     if (insertExtraNode) {
       node.appendChild(extraNode);
@@ -104,9 +107,8 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
   }
 
   removeExtraStyleNode() {
-    if (this.styleForPesudo && document.body.contains(this.styleForPesudo)) {
-      document.body.removeChild(this.styleForPesudo);
-      this.styleForPesudo = null;
+    if (styleForPesudo) {
+      styleForPesudo.innerHTML = '';
     }
   }
 

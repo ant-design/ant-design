@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "3.8.4",
+  "version": "3.9.0",
   "title": "Ant Design",
   "description": "An enterprise-class UI design language and React-based implementation",
   "homepage": "http://ant.design/",
@@ -45,7 +45,7 @@
     "babel-runtime": "6.x",
     "classnames": "~2.2.0",
     "create-react-class": "^15.6.0",
-    "create-react-context": "^0.2.2",
+    "create-react-context": "0.2.2",
     "css-animation": "^1.2.5",
     "dom-closest": "^0.2.0",
     "enquire.js": "^2.1.1",

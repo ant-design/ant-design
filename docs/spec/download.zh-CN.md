@@ -48,7 +48,10 @@ title: 设计资源
       <img width="65" src="https://gw.alipayobjects.com/zos/rmsportal/ATYZYtJhchhONKObIwXT.png">
     </div>
     <div class="resource-card-content">
-      <span class="resource-card-title">Kitchen</span>
+      <span class="resource-card-title">
+        Kitchen
+        <span class="resource-card-hot-badge">HOT</span>
+      </span>
       <span class="resource-card-description">Sketch 工具集</span>
     </div>
   </a>
