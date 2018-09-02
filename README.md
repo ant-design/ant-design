@@ -26,18 +26,18 @@ An enterprise-class UI design language and React-based implementation.
 
 English | [简体中文](./README-zh_CN.md)
 
-## 3.0 Released Now! :tada::tada::tada:
+### 3.0 Released Now! :tada::tada::tada:
 
 [Announcing Ant Design 3.0](https://medium.com/ant-design/announcing-ant-design-3-0-70e3e65eca0c)
 
-## ✨ Features
+### ✨ Features
 
 - An enterprise-class UI design system for desktop applications.
 - A set of high-quality React components out of the box.
 - Written in TypeScript with predictable static types.
 - The whole package of development and design resources and tools.
 
-## 🖥 Environment Support
+### 🖥 Environment Support
 
 * Modern browsers and Internet Explorer 9+ (with [polyfills](https://ant.design/docs/react/getting-started#Compatibility))
 * Server-side Rendering
@@ -47,17 +47,13 @@ English | [简体中文](./README-zh_CN.md)
 | --------- | --------- | --------- | --------- | --------- | --------- |
 | IE9, IE10, IE11, Edge| last 2 versions| last 2 versions| last 2 versions| last 2 versions| last 2 versions
 
-## Let's build a better antd together [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
-
-Read our [contributing guide](https://ant.design/docs/react/contributing).
-
-## 📦 Install
+### 📦 Install
 
 ```bash
 npm install antd --save
 ```
 
-## 🔨 Usage
+### 🔨 Usage
 
 ```jsx
 import { DatePicker } from 'antd';
@@ -70,17 +66,17 @@ And import style manually:
 import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 ```
 
-Or [import components on demand](https://ant.design/docs/react/getting-started#Import-on-Demand)
+Or [import components on demand](https://ant.design/docs/react/getting-started#Import-on-Demand).
 
-### TypeScript
+#### TypeScript
 
-See [Use in TypeScript](https://ant.design/docs/react/use-in-typescript)
+See [Use in TypeScript](https://ant.design/docs/react/use-in-typescript).
 
-## 🌍 Internationalization
+### 🌍 Internationalization
 
 See [i18n](http://ant.design/docs/react/i18n).
 
-## 🔗 Links
+### 🔗 Links
 
 - [Home page](http://ant.design/)
 - [Components](http://ant.design/docs/react/introduce)
@@ -97,7 +93,7 @@ See [i18n](http://ant.design/docs/react/i18n).
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
 - [Customize Theme](http://ant.design/docs/react/customize-theme)
 
-## Development
+### ⌨️ Development
 
 ```bash
 $ git clone git@github.com:ant-design/ant-design.git
@@ -108,6 +104,8 @@ $ npm start
 
 Open your browser and visit http://127.0.0.1:8001 , see more at [Development](https://github.com/ant-design/ant-design/wiki/Development).
 
-## Contributing
+### 🤝 Contributing [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
+Read our [contributing guide](https://ant.design/docs/react/contributing) and let's build a better antd together.
 
 We welcome all contributions. Please read our [CONTRIBUTING.md](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md) first. You can submit any ideas as [pull requests](https://github.com/ant-design/ant-design/pulls) or as [GitHub issues](https://github.com/ant-design/ant-design/issues). If you'd like to improve code, check out the [Development Instructions](https://github.com/ant-design/ant-design/wiki/Development) and have a good time! :)
