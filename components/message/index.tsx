@@ -72,13 +72,14 @@ function notice(args: ArgsProps): MessageType {
       return resolve(true);
     };
     getMessageInstance((instance) => {
+      const iconNode = <Icon type={iconType} theme={iconType === 'loading' ? 'outlined' : 'filled'} />;
       instance.notice({
         key: target,
         duration,
         style: {},
         content: (
           <div className={`${prefixCls}-custom-content${args.type ? ` ${prefixCls}-${args.type}` : ''}`}>
-            {args.icon ? args.icon : iconType ? <Icon type={iconType} /> : ''}
+            {args.icon ? args.icon : iconType ? iconNode : ''}
             <span>{args.content}</span>
           </div>
         ),
