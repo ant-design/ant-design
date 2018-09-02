@@ -28,9 +28,9 @@ ReactDOM.render(
 );
 ````
 
-```css
+<style>
 .icons-list > .anticon {
   margin-right: 6px;
-  font-size: 16px;
+  font-size: 24px;
 }
-```
+</style>

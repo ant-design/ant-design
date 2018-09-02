@@ -25,10 +25,3 @@ ReactDOM.render(
   mountNode
 );
 ````
-
-```css
-.icons-list > .anticon {
-  margin-right: 6px;
-  font-size: 16px;
-}
-```
