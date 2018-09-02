@@ -187,7 +187,7 @@ export default class Tree extends React.Component<TreeProps, any> {
         return null;
       }
       return (
-        <Icon type="caret-down" className={`${prefixCls}-switcher-icon`} />
+        <Icon type="caret-down" className={`${prefixCls}-switcher-icon`} theme="filled" />
       );
     }
   }
