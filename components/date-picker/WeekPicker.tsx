@@ -115,6 +115,7 @@ class WeekPicker extends React.Component<any, any> {
         type="close-circle"
         className={`${prefixCls}-picker-clear`}
         onClick={this.clearSelection}
+        theme={'filled'}
       />
     ) : null;
     const input = ({ value }: {  value: moment.Moment | undefined }) => {
