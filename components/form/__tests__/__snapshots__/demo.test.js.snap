@@ -2447,7 +2447,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-time-picker-icon"
             >
               <i
-                class="anticon anticon-clock-circle-o ant-time-picker-clock-icon"
+                class="anticon anticon-clock-circle ant-time-picker-clock-icon"
               >
                 <svg
                   aria-hidden="true"
@@ -3956,7 +3956,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               class="ant-time-picker-icon"
             >
               <i
-                class="anticon anticon-clock-circle-o ant-time-picker-clock-icon"
+                class="anticon anticon-clock-circle ant-time-picker-clock-icon"
               >
                 <svg
                   aria-hidden="true"

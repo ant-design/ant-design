@@ -16,7 +16,7 @@ exports[`renders ./components/time-picker/demo/12hours.md correctly 1`] = `
       class="ant-time-picker-icon"
     >
       <i
-        class="anticon anticon-clock-circle-o ant-time-picker-clock-icon"
+        class="anticon anticon-clock-circle ant-time-picker-clock-icon"
       >
         <svg
           aria-hidden="true"
@@ -52,7 +52,7 @@ exports[`renders ./components/time-picker/demo/12hours.md correctly 1`] = `
       class="ant-time-picker-icon"
     >
       <i
-        class="anticon anticon-clock-circle-o ant-time-picker-clock-icon"
+        class="anticon anticon-clock-circle ant-time-picker-clock-icon"
       >
         <svg
           aria-hidden="true"
@@ -88,7 +88,7 @@ exports[`renders ./components/time-picker/demo/12hours.md correctly 1`] = `
       class="ant-time-picker-icon"
     >
       <i
-        class="anticon anticon-clock-circle-o ant-time-picker-clock-icon"
+        class="anticon anticon-clock-circle ant-time-picker-clock-icon"
       >
         <svg
           aria-hidden="true"
@@ -128,7 +128,7 @@ exports[`renders ./components/time-picker/demo/addon.md correctly 1`] = `
     class="ant-time-picker-icon"
   >
     <i
-      class="anticon anticon-clock-circle-o ant-time-picker-clock-icon"
+      class="anticon anticon-clock-circle ant-time-picker-clock-icon"
     >
       <svg
         aria-hidden="true"
@@ -167,7 +167,7 @@ exports[`renders ./components/time-picker/demo/basic.md correctly 1`] = `
     class="ant-time-picker-icon"
   >
     <i
-      class="anticon anticon-clock-circle-o ant-time-picker-clock-icon"
+      class="anticon anticon-clock-circle ant-time-picker-clock-icon"
     >
       <svg
         aria-hidden="true"
@@ -207,7 +207,7 @@ exports[`renders ./components/time-picker/demo/disabled.md correctly 1`] = `
     class="ant-time-picker-icon"
   >
     <i
-      class="anticon anticon-clock-circle-o ant-time-picker-clock-icon"
+      class="anticon anticon-clock-circle ant-time-picker-clock-icon"
     >
       <svg
         aria-hidden="true"
@@ -246,7 +246,7 @@ exports[`renders ./components/time-picker/demo/hide-column.md correctly 1`] = `
     class="ant-time-picker-icon"
   >
     <i
-      class="anticon anticon-clock-circle-o ant-time-picker-clock-icon"
+      class="anticon anticon-clock-circle ant-time-picker-clock-icon"
     >
       <svg
         aria-hidden="true"
@@ -285,7 +285,7 @@ exports[`renders ./components/time-picker/demo/interval-options.md correctly 1`]
     class="ant-time-picker-icon"
   >
     <i
-      class="anticon anticon-clock-circle-o ant-time-picker-clock-icon"
+      class="anticon anticon-clock-circle ant-time-picker-clock-icon"
     >
       <svg
         aria-hidden="true"
@@ -325,7 +325,7 @@ exports[`renders ./components/time-picker/demo/size.md correctly 1`] = `
       class="ant-time-picker-icon"
     >
       <i
-        class="anticon anticon-clock-circle-o ant-time-picker-clock-icon"
+        class="anticon anticon-clock-circle ant-time-picker-clock-icon"
       >
         <svg
           aria-hidden="true"
@@ -361,7 +361,7 @@ exports[`renders ./components/time-picker/demo/size.md correctly 1`] = `
       class="ant-time-picker-icon"
     >
       <i
-        class="anticon anticon-clock-circle-o ant-time-picker-clock-icon"
+        class="anticon anticon-clock-circle ant-time-picker-clock-icon"
       >
         <svg
           aria-hidden="true"
@@ -397,7 +397,7 @@ exports[`renders ./components/time-picker/demo/size.md correctly 1`] = `
       class="ant-time-picker-icon"
     >
       <i
-        class="anticon anticon-clock-circle-o ant-time-picker-clock-icon"
+        class="anticon anticon-clock-circle ant-time-picker-clock-icon"
       >
         <svg
           aria-hidden="true"
@@ -437,7 +437,7 @@ exports[`renders ./components/time-picker/demo/value.md correctly 1`] = `
     class="ant-time-picker-icon"
   >
     <i
-      class="anticon anticon-clock-circle-o ant-time-picker-clock-icon"
+      class="anticon anticon-clock-circle ant-time-picker-clock-icon"
     >
       <svg
         aria-hidden="true"
