@@ -18,9 +18,10 @@
   }
 
   &-icon {
-    top: 8px + @font-size-base * @line-height-base / 2 - @font-size-base / 2 + 1px;
+    top: 8px + @font-size-base * @line-height-base / 2 - @font-size-base / 2 - 0.5px;
     left: 16px;
     position: absolute;
+    font-size: @font-size-base + 2px;
   }
 
   &-description {
@@ -98,9 +99,9 @@
 
   &-with-description &-icon {
     position: absolute;
-    top: 16px;
+    top: 14px;
     left: 24px;
-    font-size: 24px;
+    font-size: 26px;
   }
 
   &-with-description &-close-icon {
