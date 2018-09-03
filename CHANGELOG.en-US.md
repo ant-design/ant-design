@@ -15,6 +15,20 @@ timeline: true
 
 ---
 
+## 3.9.1
+
+`2018-09-03`
+
+- 🐞 Fixed the bug that `Tooltip` can not be triggered by `Icon`. [#12005](https://github.com/ant-design/ant-design/issues/12005)
+- 🐞 Fixed the bug that `InputNumber` shows wrong UP icon. [#12035](https://github.com/ant-design/ant-design/issues/12035)
+- 🐞 Fixed the bug that `Modal` shows no icon in error confirm. [#12026](https://github.com/ant-design/ant-design/issues/12026)
+- 🐞 Fixed the bug that the icon is misaligned in `Popconfirm`. [#12026](https://github.com/ant-design/ant-design/issues/12026)
+- 🐞 Fixed the but that the icons are misaligned in `Card`'s `Actions` panel. [#12016](https://github.com/ant-design/ant-design/pull/12016)
+- 🐞 Fixed that the icons in `Form`, `Alert`, `TimePicker` have wrong theme. [#12016](https://github.com/ant-design/ant-design/pull/12016)
+- 🐞 Fixed that the icons are set to have 90deg rotation in the `header` property in `Collapse`. [#12016](https://github.com/ant-design/ant-design/pull/12016)
+- 🐞 FIxed the issue that there are still old icons in some production environments. [#12016](https://github.com/ant-design/ant-design/pull/12016) [8b82f14](https://github.com/ant-design/ant-design/pull/12016/commits/8b82f143b6bd612e8ec7f1202dfd5f41127b025e)
+- 🐞 Fixed the bug that the new static method `Icon.createFromIconFontCN({...})` doesn't work and gives a warning. [#12013](https://github.com/ant-design/ant-design/pull/12013)
+
 ## 3.9.0
 
 `2018-09-02`
