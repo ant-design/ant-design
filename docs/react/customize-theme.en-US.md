@@ -100,10 +100,10 @@ Note: This way will load the styles of all components, regardless of your demand
 
 ## How to avoid modifying global styles ?
 
-Currently ant-design is designed as a whole experience and modify global styles (eg `body` etc).  
-If you need to integrate ant-design as a part of an existing website, it's likely you want to prevent ant-design to override global styles.  
+Currently ant-design is designed as a whole experience and modify global styles (eg `body` etc).
+If you need to integrate ant-design as a part of an existing website, it's likely you want to prevent ant-design to override global styles.
 
-While there's no canonical way to do it, you can take one of the following paths : 
+While there's no canonical way to do it, you can take one of the following paths :
 
 ### Configure webpack to load an alternale less file and scope global styles
 
@@ -127,8 +127,6 @@ You must import styles as less format. A common mistake would be importing multi
 
 - If you import styles by specifying the `style` option of [babel-plugin-import](https://github.com/ant-design/babel-plugin-import), change it from `'css'` to `true`, which will import the `less` version of antd.
 - If you import styles from `'antd/dist/antd.css'`, change it to `antd/dist/antd.less`.
-
-If you want to override `@icon-url`, the value must be contained in quotes like `"@icon-url": "'your-icon-font-path'"` ([A fix sample](https://github.com/visvadw/dvajs-user-dashboard/pull/2)).
 
 ## Related Articles
 
