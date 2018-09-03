@@ -43,10 +43,7 @@ export interface IconProps {
 const Icon: React.SFC<IconProps> = (props) => {
   const {
     // affect outter <i>...</i>
-    title,
     className,
-    onClick,
-    style,
 
     // affect inner <svg>...</svg>
     type,
@@ -60,6 +57,8 @@ const Icon: React.SFC<IconProps> = (props) => {
     // other
     theme, // default to outlined
     twoToneColor,
+
+    ...restProps
   } = props;
 
   warning(
@@ -76,6 +75,8 @@ const Icon: React.SFC<IconProps> = (props) => {
     [`anticon-spin`]: !!spin || type === 'loading',
   });
 
+  let innerNode;
+
   // component > children > type
   if (Component) {
     const innerSvgProps: CustomIconComponentProps = {
@@ -87,12 +88,10 @@ const Icon: React.SFC<IconProps> = (props) => {
       delete innerSvgProps.viewBox;
     }
 
-    return (
-      <i className={classString} title={title} style={style} onClick={onClick}>
-        <Component {...innerSvgProps} >
-          {children}
-        </Component>
-      </i>
+    innerNode = (
+      <Component {...innerSvgProps} >
+        {children}
+      </Component>
     );
   }
 
@@ -106,12 +105,10 @@ const Icon: React.SFC<IconProps> = (props) => {
       ...svgBaseProps,
       className: svgClassString,
     };
-    return (
-      <i className={classString} title={title} style={style} onClick={onClick}>
-        <svg {...innerSvgProps} viewBox={viewBox}>
-          {children}
-        </svg>
-      </i>
+    innerNode = (
+      <svg {...innerSvgProps} viewBox={viewBox}>
+        {children}
+      </svg>
     );
   }
 
@@ -127,19 +124,19 @@ const Icon: React.SFC<IconProps> = (props) => {
       removeTypeTheme(type),
       theme || 'outlined',
     );
-    return (
-      <i className={classString} title={title} style={style} onClick={onClick}>
-        <ReactIcon
-          className={svgClassString}
-          type={computedType}
-          primaryColor={twoToneColor}
-        />
-      </i>
+    innerNode = (
+      <ReactIcon
+        className={svgClassString}
+        type={computedType}
+        primaryColor={twoToneColor}
+      />
     );
   }
 
   return (
-    <i className={classString} title={title} style={style} onClick={onClick} />
+    <i {...restProps} className={classString}>
+      {innerNode}
+    </i>
   );
 };
 
