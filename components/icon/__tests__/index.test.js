@@ -1,7 +1,8 @@
 import React from 'react';
-import { render } from 'enzyme';
+import { render, mount } from 'enzyme';
 import Icon from '..';
 import ReactIcon from '@ant-design/icons-react';
+import Tooltip from '../../tooltip';
 import { getThemeFromTypeName, withThemeSuffix } from '../utils';
 
 describe('Icon', () => {
@@ -70,6 +71,29 @@ describe('Icon', () => {
       <Icon viewBox="0 0 24 24" />
     );
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should support wrapped by Tooltip', () => {
+    const onVisibleChange = jest.fn();
+    const wrapper = mount(
+      <Tooltip
+        title="xxxxx"
+        mouseEnterDelay={0}
+        mouseLeaveDelay={0}
+        onVisibleChange={onVisibleChange}
+      >
+        <Icon type="home" />
+      </Tooltip>
+    );
+    expect(wrapper.find('i')).toHaveLength(1);
+    const icon = wrapper.find('i').at(0);
+    icon.simulate('mouseenter');
+    expect(onVisibleChange).toBeCalledWith(true);
+    expect(wrapper.instance().tooltip.props.visible).toBe(true);
+
+    icon.simulate('mouseleave');
+    expect(onVisibleChange).toBeCalledWith(false);
+    expect(wrapper.instance().tooltip.props.visible).toBe(false);
   });
 
   describe('`component` prop', () => {
