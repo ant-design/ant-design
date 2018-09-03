@@ -226,7 +226,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
     const icon = (props.hasFeedback && iconType) ?
       <span className={`${this.props.prefixCls}-item-children-icon`}>
-        <Icon type={iconType}/>
+        <Icon type={iconType} theme={iconType === 'loading' ? 'outlined' : 'filled'} />
       </span> : null;
 
     return (

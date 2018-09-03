@@ -155,12 +155,20 @@ class TimePicker extends React.Component<TimePickerProps, any> {
 
     const inputIcon = (
       <span className={`${props.prefixCls}-icon`}>
-        <Icon type="clock-circle-o" className={`${props.prefixCls}-clock-icon`}/>
+        <Icon
+          type="clock-circle"
+          className={`${props.prefixCls}-clock-icon`}
+          theme="outlined"
+        />
       </span>
     );
 
     const clearIcon = (
-      <Icon type="close-circle" className={`${props.prefixCls}-panel-clear-btn-icon`}/>
+      <Icon
+        type="close-circle"
+        className={`${props.prefixCls}-panel-clear-btn-icon`}
+        theme="filled"
+      />
     );
 
     return (
