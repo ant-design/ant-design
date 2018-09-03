@@ -55,11 +55,11 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
       role="group"
     >
       <li
-        class="ant-tree-treenode-disabled ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked ant-tree-treenode-selected"
+        class="ant-tree-treenode-disabled ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked ant-tree-treenode-selected"
         role="treeitem"
       >
         <span
-          class="ant-tree-switcher ant-tree-switcher_close"
+          class="ant-tree-switcher ant-tree-switcher_open"
         >
           <i
             class="anticon anticon-caret-down ant-tree-switcher-icon"
@@ -88,7 +88,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
           />
         </span>
         <span
-          class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
+          class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
           title="parent 1-0"
         >
           <span
@@ -97,6 +97,62 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
             parent 1-0
           </span>
         </span>
+        <ul
+          class="ant-tree-child-tree ant-tree-child-tree-open"
+          data-expanded="true"
+          role="group"
+        >
+          <li
+            class="ant-tree-treenode-switcher-close"
+            role="treeitem"
+          >
+            <span
+              class="ant-tree-switcher ant-tree-switcher-noop"
+            />
+            <span
+              class="ant-tree-checkbox ant-tree-checkbox-disabled"
+            >
+              <span
+                class="ant-tree-checkbox-inner"
+              />
+            </span>
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              title="leaf"
+            >
+              <span
+                class="ant-tree-title"
+              >
+                leaf
+              </span>
+            </span>
+          </li>
+          <li
+            class="ant-tree-treenode-switcher-close"
+            role="treeitem"
+          >
+            <span
+              class="ant-tree-switcher ant-tree-switcher-noop"
+            />
+            <span
+              class="ant-tree-checkbox"
+            >
+              <span
+                class="ant-tree-checkbox-inner"
+              />
+            </span>
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              title="leaf"
+            >
+              <span
+                class="ant-tree-title"
+              >
+                leaf
+              </span>
+            </span>
+          </li>
+        </ul>
       </li>
       <li
         class="ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked"
