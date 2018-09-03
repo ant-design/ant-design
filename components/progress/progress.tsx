@@ -78,7 +78,7 @@ export default class Progress extends React.Component<ProgressProps, {}> {
       ...restProps
     } = props;
     const progressStatus = parseInt((successPercent ? successPercent.toString() : percent.toString()), 10) >= 100 &&
-    !('status' in props) ? 'success' : (status || 'normal');
+      !('status' in props) ? 'success' : (status || 'normal');
     let progressInfo;
     let progress;
     const textFormatter = format || (percentNumber => `${percentNumber}%`);
@@ -89,9 +89,9 @@ export default class Progress extends React.Component<ProgressProps, {}> {
       if (format || (progressStatus !== 'exception' && progressStatus !== 'success')) {
         text = textFormatter(validProgress(percent), validProgress(successPercent));
       } else if (progressStatus === 'exception') {
-        text = <Icon type={`close${iconType}`} theme="filled" />;
+        text = <Icon type={`close${iconType}`} theme={type === 'line' ? 'filled' : 'outlined'} />;
       } else if (progressStatus === 'success') {
-        text = <Icon type={`check${iconType}`} theme="filled" />;
+        text = <Icon type={`check${iconType}`} theme={type === 'line' ? 'filled' : 'outlined'} />;
       }
       progressInfo = <span className={`${prefixCls}-text`}>{text}</span>;
     }
