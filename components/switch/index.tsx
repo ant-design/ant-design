@@ -54,7 +54,7 @@ export default class Switch extends React.Component<SwitchProps, {}> {
     });
     const loadingIcon = loading ? (
       <Icon
-        type="loading-3-quarters"
+        type="loading"
         className={`${prefixCls}-loading-icon`}
       />
     ) : null;
