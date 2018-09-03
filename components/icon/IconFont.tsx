@@ -30,19 +30,19 @@ export default function create(options: CustomIconOptions = {}): React.SFC<IconP
   }
 
   const Iconfont: React.SFC<IconProps> = (props) => {
-    const { type } = props;
+    const { type, children, ...restProps } = props;
 
     // component > children > type
     let content = null;
     if (props.type) {
       content = <use xlinkHref={`#${type}`} />;
     }
-    if (props.children) {
-      content = props.children;
+    if (children) {
+      content = children;
     }
     return (
       <Icon
-        {...props}
+        {...restProps}
         {...extraCommonProps}
       >
         {content}
