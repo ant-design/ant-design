@@ -42,3 +42,4 @@ components/**/*.jsx
 # Docs templates
 site/theme/template/IconDisplay/*.js
 site/theme/template/IconDisplay/*.jsx
+site/theme/template/IconDisplay/fields.js

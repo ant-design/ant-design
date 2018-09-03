@@ -331,13 +331,49 @@ exports[`Icon.createFromIconfontCN() should support iconfont.cn 1`] = `
   class="icons-list"
 >
   <i
-    class="anticon anticon-icon-tuichu"
-  />
+    class="anticon"
+  >
+    <svg
+      aria-hidden="true"
+      class=""
+      fill="currentColor"
+      height="1em"
+      width="1em"
+    >
+      <use
+        href="#icon-tuichu"
+      />
+    </svg>
+  </i>
   <i
-    class="anticon anticon-icon-facebook"
-  />
+    class="anticon"
+  >
+    <svg
+      aria-hidden="true"
+      class=""
+      fill="currentColor"
+      height="1em"
+      width="1em"
+    >
+      <use
+        href="#icon-facebook"
+      />
+    </svg>
+  </i>
   <i
-    class="anticon anticon-icon-twitter"
-  />
+    class="anticon"
+  >
+    <svg
+      aria-hidden="true"
+      class=""
+      fill="currentColor"
+      height="1em"
+      width="1em"
+    >
+      <use
+        href="#icon-twitter"
+      />
+    </svg>
+  </i>
 </div>
 `;
