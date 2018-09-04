@@ -86,7 +86,7 @@ const columns = [{
 const data = [{
   key: '1',
   name: 'John Brown',
-  age: 32,
+  age: 323333,
   tel: '0571-22098909',
   phone: 18889898989,
   address: 'New York No. 1 Lake Park',
