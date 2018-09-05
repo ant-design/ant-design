@@ -18,6 +18,12 @@ exports[`Modal render correctly 1`] = `
         style="width: 520px;"
       >
         <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinelStart
+        </div>
+        <div
           class="ant-modal-content"
         >
           <button
@@ -79,7 +85,7 @@ exports[`Modal render correctly 1`] = `
           style="width: 0px; height: 0px; overflow: hidden;"
           tabindex="0"
         >
-          sentinel
+          sentinelEnd
         </div>
       </div>
     </div>
@@ -104,6 +110,12 @@ exports[`Modal render without footer 1`] = `
         role="document"
         style="width: 520px;"
       >
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinelStart
+        </div>
         <div
           class="ant-modal-content"
         >
@@ -144,7 +156,7 @@ exports[`Modal render without footer 1`] = `
           style="width: 0px; height: 0px; overflow: hidden;"
           tabindex="0"
         >
-          sentinel
+          sentinelEnd
         </div>
       </div>
     </div>
