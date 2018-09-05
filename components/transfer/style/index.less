@@ -8,6 +8,12 @@
   .reset-component;
   position: relative;
 
+  &-disabled {
+    .@{transfer-prefix-cls}-list {
+      background: @transfer-disabled-bg;
+    }
+  }
+
   &-list {
     border: @border-width-base @border-style-base @border-color-base;
     display: inline-block;
