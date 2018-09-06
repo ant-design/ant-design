@@ -41,6 +41,9 @@ class App extends React.Component {
           visible={this.state.modal1Visible}
           onOk={() => this.setModal1Visible(false)}
           onCancel={() => this.setModal1Visible(false)}
+           maskClosable="false"
+      destroyOnClose="true"
+      mask="false"
         >
           <p>some contents...</p>
           <p>some contents...</p>
