@@ -11,14 +11,12 @@ export interface TransferOperationProps {
   rightActive?: boolean;
   style?: React.CSSProperties;
   disabled?: boolean;
-  readOnly?: boolean;
 }
 
 export default class Operation extends React.Component<TransferOperationProps, any> {
   render() {
     const {
       disabled,
-      readOnly,
       moveToLeft,
       moveToRight,
       leftArrowText = '',
@@ -33,7 +31,7 @@ export default class Operation extends React.Component<TransferOperationProps, a
         <Button
           type="primary"
           size="small"
-          disabled={disabled || readOnly || !rightActive}
+          disabled={disabled || !rightActive}
           onClick={moveToRight}
           icon="right"
         >
@@ -42,7 +40,7 @@ export default class Operation extends React.Component<TransferOperationProps, a
         <Button
           type="primary"
           size="small"
-          disabled={disabled || readOnly || !leftActive}
+          disabled={disabled || !leftActive}
           onClick={moveToLeft}
           icon="left"
         >

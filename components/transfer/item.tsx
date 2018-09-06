@@ -11,7 +11,7 @@ export default class Item extends React.Component<any, any> {
   render() {
     const {
       renderedText, renderedEl, item, lazy,
-      checked, disabled, readOnly, prefixCls, onClick,
+      checked, disabled, prefixCls, onClick,
     } = this.props;
 
     const className = classNames({
@@ -25,7 +25,7 @@ export default class Item extends React.Component<any, any> {
         title={renderedText}
         onClick={item.disabled ? undefined : () => onClick(item)}
       >
-        <Checkbox checked={checked} disabled={disabled || readOnly || item.disabled} />
+        <Checkbox checked={checked} disabled={disabled || item.disabled} />
         <span>{renderedEl}</span>
       </li>
     );

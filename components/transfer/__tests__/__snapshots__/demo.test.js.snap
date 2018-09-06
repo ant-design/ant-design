@@ -495,17 +495,6 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
       disabled
     </span>
   </span>
-   
-  <span
-    class="ant-switch"
-    tabindex="0"
-  >
-    <span
-      class="ant-switch-inner"
-    >
-      readOnly
-    </span>
-  </span>
 </div>
 `;
 

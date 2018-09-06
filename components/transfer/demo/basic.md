@@ -35,7 +35,6 @@ class App extends React.Component {
     targetKeys: oriTargetKeys,
     selectedKeys: [],
     disabled: false,
-    readOnly: false,
   }
 
   handleChange = (nextTargetKeys, direction, moveKeys) => {
@@ -62,12 +61,8 @@ class App extends React.Component {
     this.setState({ disabled });
   };
 
-  handleReadOnly = (readOnly) => {
-    this.setState({ readOnly });
-  };
-
   render() {
-    const { targetKeys, selectedKeys, disabled, readOnly } = this.state;
+    const { targetKeys, selectedKeys, disabled } = this.state;
     return (
       <div>
         <Transfer
@@ -80,12 +75,9 @@ class App extends React.Component {
           onScroll={this.handleScroll}
           render={item => item.title}
           disabled={disabled}
-          readOnly={readOnly}
         />
 
         <Switch unCheckedChildren="disabled" checkedChildren="disabled" checked={disabled} onChange={this.handleDisable} />
-        {' '}
-        <Switch unCheckedChildren="readOnly" checkedChildren="readOnly" checked={readOnly} onChange={this.handleReadOnly} />
       </div>
     );
   }
