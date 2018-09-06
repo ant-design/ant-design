@@ -76,11 +76,12 @@
     padding: 4px 0 12px;
     font-size: @font-size-base;
     color: @popover-color;
+    position: relative;
     > .@{iconfont-css-prefix} {
+      position: absolute;
+      top: 4px + 3px; // 4px for padding-top, 3px for vertical middle;
       color: @warning-color;
       line-height: @line-height-base + 0.1;
-      top: 20px;
-      position: absolute;
       font-size: @font-size-base + 2px;
     }
     &-title {
