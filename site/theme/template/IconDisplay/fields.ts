@@ -4,7 +4,7 @@ export const categories = {
     'fast-forward', 'shrink', 'arrows-alt', 'down', 'up', 'left',
     'right', 'caret-up', 'caret-down', 'caret-left', 'caret-right',
     'up-circle', 'down-circle', 'left-circle', 'right-circle',
-    'double-right', 'double-left', 'verticle-left', 'verticle-right',
+    'double-right', 'double-left', 'vertical-left', 'vertical-right',
     'forward', 'backward', 'rollback', 'enter', 'retweet',
     'swap', 'swap-left', 'swap-right', 'arrow-up', 'arrow-down',
     'arrow-left', 'arrow-right', 'play-circle',
