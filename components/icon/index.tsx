@@ -13,6 +13,8 @@ import { getTwoToneColor, setTwoToneColor } from './twoTonePrimaryColor';
 // Initial setting
 ReactIcon.add(...Object.keys(allIcons).map((key) => (allIcons as any)[key]));
 setTwoToneColor('#1890ff');
+let defaultTheme: ThemeType = 'outlined';
+let dangerousTheme: ThemeType | undefined = undefined;
 
 export interface CustomIconComponentProps {
   width: string | number;
@@ -122,7 +124,7 @@ const Icon: React.SFC<IconProps> = (props) => {
     }
     computedType = withThemeSuffix(
       removeTypeTheme(type),
-      theme || 'outlined',
+      dangerousTheme || theme || defaultTheme,
     );
     innerNode = (
       <ReactIcon
@@ -144,7 +146,27 @@ export type IconType = typeof Icon & {
   createFromIconfontCN: typeof createFromIconfontCN;
   getTwoToneColor: typeof getTwoToneColor;
   setTwoToneColor: typeof setTwoToneColor;
+  unstable_ChangeThemeOfIconsDangerously: typeof unstable_ChangeThemeOfIconsDangerously;
+  unstable_ChangeDefaultThemeOfIcons: typeof unstable_ChangeDefaultThemeOfIcons;
 };
+
+function unstable_ChangeThemeOfIconsDangerously(theme?: ThemeType) {
+  warning(
+    false,
+    `You are using the unstable method 'Icon.unstable_ChangeThemeOfAllIconsDangerously', ` +
+    `make sure that all the icons with theme '${theme}' display correctly.`,
+  );
+  dangerousTheme = theme;
+}
+
+function unstable_ChangeDefaultThemeOfIcons(theme: ThemeType) {
+  warning(
+    false,
+    `You are using the unstable method 'Icon.unstable_ChangeDefaultThemeOfIcons', ` +
+    `make sure that all the icons with theme '${theme}' display correctly.`,
+  );
+  defaultTheme = theme;
+}
 
 Icon.displayName = 'Icon';
 (Icon as IconType).createFromIconfontCN = createFromIconfontCN;
