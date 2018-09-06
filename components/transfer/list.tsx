@@ -44,7 +44,6 @@ export interface TransferListProps {
   lazy?: boolean | {};
   onScroll: Function;
   disabled?: boolean;
-  readOnly?: boolean;
 }
 
 export default class TransferList extends React.Component<TransferListProps, any> {
@@ -162,7 +161,7 @@ export default class TransferList extends React.Component<TransferListProps, any
 
   render() {
     const {
-      prefixCls, dataSource, titleText, checkedKeys, lazy, disabled, readOnly,
+      prefixCls, dataSource, titleText, checkedKeys, lazy, disabled,
       body = noop, footer = noop, showSearch, style, filter,
       searchPlaceholder, notFoundContent, itemUnit, itemsUnit, onScroll,
     } = this.props;
@@ -195,7 +194,6 @@ export default class TransferList extends React.Component<TransferListProps, any
       return (
         <Item
           disabled={disabled}
-          readOnly={readOnly}
           key={item.key}
           item={item}
           lazy={lazy}
@@ -251,7 +249,7 @@ export default class TransferList extends React.Component<TransferListProps, any
     const checkAllCheckbox = (
       <Checkbox
         ref="checkbox"
-        disabled={disabled || readOnly}
+        disabled={disabled}
         checked={checkedAll}
         indeterminate={checkStatus === 'part'}
         onChange={() => this.props.handleSelectAll(filteredDataSource, checkedAll)}

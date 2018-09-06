@@ -16,14 +16,14 @@ export default class Item extends React.Component<any, any> {
 
     const className = classNames({
       [`${prefixCls}-content-item`]: true,
-      [`${prefixCls}-content-item-disabled`]: item.disabled,
+      [`${prefixCls}-content-item-disabled`]: disabled || item.disabled,
     });
 
     const listItem = (
       <li
         className={className}
         title={renderedText}
-        onClick={item.disabled ? undefined : () => onClick(item)}
+        onClick={(disabled || item.disabled) ? undefined : () => onClick(item)}
       >
         <Checkbox checked={checked} disabled={disabled || item.disabled} />
         <span>{renderedEl}</span>
