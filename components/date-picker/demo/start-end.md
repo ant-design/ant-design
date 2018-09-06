@@ -32,7 +32,7 @@ class DateRange extends React.Component {
     if (!startValue || !endValue) {
       return false;
     }
-    return startValue.valueOf() > endValue.valueOf();
+    return startValue.isAfter(endValue, "days");
   }
 
   disabledEndDate = (endValue) => {
