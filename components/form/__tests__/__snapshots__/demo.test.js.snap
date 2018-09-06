@@ -2171,6 +2171,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
           <span
             class="ant-calendar-picker"
             id="date-time-picker"
+            style="width:195px"
           >
             <div>
               <input
