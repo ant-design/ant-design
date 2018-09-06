@@ -52,7 +52,8 @@
   }
 
   &-loading-icon {
-    animation: loadingCircle 1s infinite linear;
+    // loading default use animation
+    // animation: loadingCircle 1s infinite linear;
     background: transparent;
     z-index: 1;
     display: none;
@@ -125,7 +126,8 @@
   }
 
   &-small&-loading &-loading-icon {
-    animation: AntSwitchSmallLoadingCircle 1s infinite linear;
+    // animation: AntSwitchSmallLoadingCircle 1s infinite linear;
+    transform: scale(0.66667);
     font-weight: bold;
   }
 
