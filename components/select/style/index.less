@@ -541,7 +541,7 @@
 
   &&--multiple {
     .@{select-prefix-cls}-dropdown-menu-item {
-      &:after {
+      & .@{select-prefix-cls}-selected-icon {
         color: transparent;
         .iconfont-size-under-12px(10px);
         transition: all 0.2s ease;
@@ -553,16 +553,16 @@
         text-shadow: 0 0.1px 0, 0.1px 0 0, 0 -0.1px 0, -0.1px 0;
       }
 
-      &:hover:after {
+      &:hover .@{select-prefix-cls}-selected-icon {
         color: #ddd;
       }
 
-      &-disabled:after {
+      &-disabled .@{select-prefix-cls}-selected-icon {
         display: none;
       }
 
-      &-selected:after,
-      &-selected:hover:after {
+      &-selected .@{select-prefix-cls}-selected-icon,
+      &-selected:hover .@{select-prefix-cls}-selected-icon {
         color: @primary-color;
         display: inline-block;
       }
