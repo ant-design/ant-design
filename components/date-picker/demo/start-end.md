@@ -32,7 +32,7 @@ class DateRange extends React.Component {
     if (!startValue || !endValue) {
       return false;
     }
-    return startValue.valueOf() > endValue.valueOf();
+    return startValue.isAfter(endValue, 'days');
   }
 
   disabledEndDate = (endValue) => {
@@ -40,7 +40,7 @@ class DateRange extends React.Component {
     if (!endValue || !startValue) {
       return false;
     }
-    return endValue.valueOf() <= startValue.valueOf();
+    return endValue.isSameOrBefore(startValue, 'days');
   }
 
   onChange = (field, value) => {
@@ -73,8 +73,7 @@ class DateRange extends React.Component {
       <div>
         <DatePicker
           disabledDate={this.disabledStartDate}
-          showTime
-          format="YYYY-MM-DD HH:mm:ss"
+          format="YYYY-MM-DD"
           value={startValue}
           placeholder="Start"
           onChange={this.onStartChange}
@@ -82,8 +81,7 @@ class DateRange extends React.Component {
         />
         <DatePicker
           disabledDate={this.disabledEndDate}
-          showTime
-          format="YYYY-MM-DD HH:mm:ss"
+          format="YYYY-MM-DD"
           value={endValue}
           placeholder="End"
           onChange={this.onEndChange}
