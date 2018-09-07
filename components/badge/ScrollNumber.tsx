@@ -15,6 +15,7 @@ export interface ScrollNumberProps {
   prefixCls?: string;
   className?: string;
   count?: string | number | null;
+  displayComponent?: React.ReactNode
   component?: string;
   onAnimated?: Function;
   style?: React.CSSProperties;
@@ -116,8 +117,12 @@ export default class ScrollNumber extends Component<ScrollNumberProps, ScrollNum
   }
 
   renderNumberElement() {
+    const props = this.props;
     const state = this.state;
-    if (!state.count || isNaN(state.count as number)) {
+    if(props.displayComponent){
+      return props.displayComponent
+    }
+    else if (!state.count || isNaN(state.count as number)) {
       return state.count;
     }
     return getNumberArray(state.count)

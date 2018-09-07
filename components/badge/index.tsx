@@ -8,7 +8,7 @@ export { ScrollNumberProps } from './ScrollNumber';
 
 export interface BadgeProps {
   /** Number to show in badge */
-  count?: number | string | null;
+  count?: React.ReactNode;
   showZero?: boolean;
   /** Max count to show */
   overflowCount?: number;
@@ -61,7 +61,13 @@ export default class Badge extends React.Component<BadgeProps, any> {
       title,
       ...restProps
     } = this.props;
-    let displayCount = (count as number) > (overflowCount as number) ? `${overflowCount}+` : count;
+    let displayCount;
+    let displayComponent;
+    if(typeof count === "string" || typeof count === "number"){
+      displayCount = (count as number) > (overflowCount as number) ? `${overflowCount}+` : count;
+    }
+    else displayComponent = count;
+    const countAsTitle = (typeof count === "string" || typeof count === "number") ? count : null;
     const isZero = displayCount === '0' || displayCount === 0;
     const isDot = (dot && !isZero) || status;
     // dot mode don't need count
@@ -105,7 +111,8 @@ export default class Badge extends React.Component<BadgeProps, any> {
         data-show={!hidden}
         className={scrollNumberCls}
         count={displayCount}
-        title={title || count}
+        displayComponent = {displayComponent}
+        title={title || countAsTitle}
         style={styleWithOffset}
         key="scrollNumber"
       />
