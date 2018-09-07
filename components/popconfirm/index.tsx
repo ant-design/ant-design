@@ -9,12 +9,13 @@ import defaultLocale from '../locale-provider/default';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode;
-  onConfirm?: (e: React.MouseEvent<any>) => void;
-  onCancel?: (e: React.MouseEvent<any>) => void;
+  onConfirm?: (e?: React.MouseEvent<any>) => void;
+  onCancel?: (e?: React.MouseEvent<any>) => void;
   okText?: React.ReactNode;
   okType?: ButtonType;
   cancelText?: React.ReactNode;
   icon?: React.ReactNode;
+  onVisibleChange?: (visible?: boolean, e?: React.MouseEvent<any>) => void;
 }
 
 export interface PopconfirmState {
@@ -58,7 +59,7 @@ class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
   }
 
   onConfirm = (e: React.MouseEvent<HTMLButtonElement>) => {
-    this.setVisible(false);
+    this.setVisible(false, e);
 
     const { onConfirm } = this.props;
     if (onConfirm) {
@@ -67,7 +68,7 @@ class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
   }
 
   onCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
-    this.setVisible(false);
+    this.setVisible(false, e);
 
     const { onCancel } = this.props;
     if (onCancel) {
@@ -79,7 +80,7 @@ class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
     this.setVisible(visible);
   }
 
-  setVisible(visible: boolean) {
+  setVisible(visible: boolean, e?: React.MouseEvent<HTMLButtonElement>) {
     const props = this.props;
     if (!('visible' in props)) {
       this.setState({ visible });
@@ -87,7 +88,7 @@ class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
 
     const { onVisibleChange } = props;
     if (onVisibleChange) {
-      onVisibleChange(visible);
+      onVisibleChange(visible, e);
     }
   }
 
