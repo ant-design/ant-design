@@ -200,13 +200,17 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
   }
 
   getRcDrawerStyle = () => {
-    const { zIndex, placement } = this.props;
+    const { zIndex, placement, maskStyle } = this.props;
     return this.state.push
     ? {
+      ...maskStyle,
       zIndex,
       transform: this.getPushTransform(placement),
     }
-    : { zIndex };
+    : {
+      ...maskStyle,
+      zIndex,
+    };
   }
 
   // render Provider for Multi-level drawe
