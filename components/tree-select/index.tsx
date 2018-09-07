@@ -96,7 +96,7 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
     );
 
     const clearIcon = (
-      <Icon type="close-circle" className={`${prefixCls}-clear-icon`} />
+      <Icon type="close-circle" className={`${prefixCls}-clear-icon`} theme="filled" />
     );
 
     return (
