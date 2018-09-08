@@ -532,6 +532,9 @@
     overflow: scroll;
     padding-bottom: 20px;
     margin-bottom: -20px;
+    // Workaround for additional scroll bar on the table header
+    // https://github.com/ant-design/ant-design/issues/6515#issuecomment-419634369
+    opacity: 0.9999;
   }
 
   &-fixed-left,
