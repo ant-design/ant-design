@@ -33,6 +33,7 @@ export interface TreeSelectProps extends AbstractSelectProps {
   value?: string | Array<any>;
   defaultValue?: string | Array<any>;
   multiple?: boolean;
+  maxTagCount?: number;
   onSelect?: (value: any) => void;
   onChange?: (value: any, label: any) => void;
   onSearch?: (value: any) => void;

@@ -1,7 +1,6 @@
 @import "../../style/mixins/index";
 
 @confirm-prefix-cls: ~"@{ant-prefix}-confirm";
-@confirm-icon-size: 26px;
 
 .@{confirm-prefix-cls} {
   .@{ant-prefix}-modal-header {
@@ -25,6 +24,7 @@
       color: @heading-color;
       font-weight: 500;
       font-size: @font-size-lg;
+      line-height: 1.4;
       display: block;
       // create BFC to avoid
       // https://user-images.githubusercontent.com/507615/37702510-ba844e06-2d2d-11e8-9b67-8e19be57f445.png
@@ -32,14 +32,14 @@
     }
 
     .@{confirm-prefix-cls}-content {
-      margin-left: @confirm-icon-size + 16px;
+      margin-left: 38px;
       font-size: @font-size-base;
       color: @text-color;
       margin-top: 8px;
     }
 
     > .@{iconfont-css-prefix} {
-      font-size: @confirm-icon-size;
+      font-size: 22px;
       margin-right: 16px;
       float: left;
     }

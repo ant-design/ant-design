@@ -58,10 +58,9 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                               height="1em"
                               viewBox="0 0 1024 1024"
                               width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
-                                d="M76.3 632.8l405.1-489.1c16.9-18.9 46.5-18.9 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
+                                d="M76.3 632.8l405.1-489.1a42.53 42.53 0 0 1 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
                               />
                             </svg>
                           </i>
@@ -81,10 +80,9 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                               height="1em"
                               viewBox="0 0 1024 1024"
                               width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
-                                d="M76.3 392.3l403.1 489.1c16.9 18.9 46.5 18.9 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
+                                d="M76.3 392.3l403.1 489.1a42.53 42.53 0 0 0 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
                               />
                             </svg>
                           </i>
@@ -107,9 +105,8 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                           data-icon="filter"
                           fill="currentColor"
                           height="1em"
-                          viewBox="0 0 1024 1024"
+                          viewBox="64 64 896 896"
                           width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
                             d="M880.1 154H143.9c-24.5 0-39.8 26.7-27.5 48L349 597.4V838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V597.4L907.7 202c12.2-21.3-3.1-48-27.6-48zM603.4 798H420.6V642h182.9v156zm9.6-236.6l-9.5 16.6h-183l-9.5-16.6L212.7 226h598.6L613 561.4z"
@@ -218,7 +215,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                 class="ant-table-tbody"
               >
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="1"
                 >
                   <td
@@ -283,7 +280,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="2"
                 >
                   <td
@@ -342,7 +339,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="3"
                 >
                   <td
@@ -432,12 +429,11 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                 data-icon="left"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -469,12 +465,11 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -549,7 +544,7 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                 class="ant-table-tbody"
               >
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="1"
                 >
                   <td
@@ -577,7 +572,7 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="2"
                 >
                   <td
@@ -605,7 +600,7 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="3"
                 >
                   <td
@@ -663,12 +658,11 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                 data-icon="left"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -700,12 +694,11 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -785,7 +778,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                 class="ant-table-tbody"
               >
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="1"
                 >
                   <td
@@ -823,7 +816,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="2"
                 >
                   <td
@@ -861,7 +854,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="3"
                 >
                   <td
@@ -900,7 +893,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="4"
                 >
                   <td
@@ -933,7 +926,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="5"
                 >
                   <td
@@ -977,12 +970,11 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                 data-icon="left"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -1014,12 +1006,11 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -1078,12 +1069,11 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                           data-icon="smile"
                           fill="currentColor"
                           height="1em"
-                          viewBox="0 0 1024 1024"
+                          viewBox="64 64 896 896"
                           width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            d="M288 421a48 48 0 1 0 96 0 48 48 0 1 0-96 0zm352 0a48 48 0 1 0 96 0 48 48 0 1 0-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2-44.3-18.7-84.1-45.6-118.3-79.8-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8c18.7-44.3 45.6-84.1 79.8-118.3 34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2 44.3 18.7 84.1 45.6 118.3 79.8 34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8c-18.7 44.3-45.6 84.1-79.8 118.2zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360c-4.6 0-8.2 3.8-8 8.4 4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6c.2-4.6-3.4-8.4-8-8.4z"
+                            d="M288 421a48 48 0 1 0 96 0 48 48 0 1 0-96 0zm352 0a48 48 0 1 0 96 0 48 48 0 1 0-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 0 1 248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 0 1 249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 0 1 775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 0 1 775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 0 0-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 0 0-8-8.4z"
                           />
                         </svg>
                       </i>
@@ -1111,9 +1101,8 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                           data-icon="filter"
                           fill="currentColor"
                           height="1em"
-                          viewBox="0 0 1024 1024"
+                          viewBox="64 64 896 896"
                           width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
                             d="M880.1 154H143.9c-24.5 0-39.8 26.7-27.5 48L349 597.4V838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V597.4L907.7 202c12.2-21.3-3.1-48-27.6-48zM603.4 798H420.6V642h182.9v156zm9.6-236.6l-9.5 16.6h-183l-9.5-16.6L212.7 226h598.6L613 561.4z"
@@ -1128,7 +1117,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                 class="ant-table-tbody"
               >
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="1"
                 >
                   <td
@@ -1152,7 +1141,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="2"
                 >
                   <td
@@ -1176,7 +1165,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="3"
                 >
                   <td
@@ -1200,7 +1189,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="4"
                 >
                   <td
@@ -1249,12 +1238,11 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                 data-icon="left"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -1286,12 +1274,11 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -1385,12 +1372,11 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
                 data-icon="left"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -1422,12 +1408,11 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -2025,7 +2010,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                   class="ant-table-tbody"
                 >
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="1"
                   >
                     <td
@@ -2109,9 +2094,8 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                               data-icon="down"
                               fill="currentColor"
                               height="1em"
-                              viewBox="0 0 1024 1024"
+                              viewBox="64 64 896 896"
                               width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
                                 d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
@@ -2123,7 +2107,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="2"
                   >
                     <td
@@ -2207,9 +2191,8 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                               data-icon="down"
                               fill="currentColor"
                               height="1em"
-                              viewBox="0 0 1024 1024"
+                              viewBox="64 64 896 896"
                               width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
                                 d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
@@ -2221,7 +2204,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="3"
                   >
                     <td
@@ -2305,9 +2288,8 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                               data-icon="down"
                               fill="currentColor"
                               height="1em"
-                              viewBox="0 0 1024 1024"
+                              viewBox="64 64 896 896"
                               width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
                                 d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
@@ -2319,7 +2301,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="4"
                   >
                     <td
@@ -2403,9 +2385,8 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                               data-icon="down"
                               fill="currentColor"
                               height="1em"
-                              viewBox="0 0 1024 1024"
+                              viewBox="64 64 896 896"
                               width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
                                 d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
@@ -2417,7 +2398,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="5"
                   >
                     <td
@@ -2501,9 +2482,8 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                               data-icon="down"
                               fill="currentColor"
                               height="1em"
-                              viewBox="0 0 1024 1024"
+                              viewBox="64 64 896 896"
                               width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
                                 d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
@@ -2515,7 +2495,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="6"
                   >
                     <td
@@ -2599,9 +2579,8 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                               data-icon="down"
                               fill="currentColor"
                               height="1em"
-                              viewBox="0 0 1024 1024"
+                              viewBox="64 64 896 896"
                               width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
                                 d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
@@ -2613,7 +2592,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="7"
                   >
                     <td
@@ -2697,9 +2676,8 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                               data-icon="down"
                               fill="currentColor"
                               height="1em"
-                              viewBox="0 0 1024 1024"
+                              viewBox="64 64 896 896"
                               width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
                                 d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
@@ -2711,7 +2689,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="8"
                   >
                     <td
@@ -2795,9 +2773,8 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                               data-icon="down"
                               fill="currentColor"
                               height="1em"
-                              viewBox="0 0 1024 1024"
+                              viewBox="64 64 896 896"
                               width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
                                 d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
@@ -2809,7 +2786,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="9"
                   >
                     <td
@@ -2893,9 +2870,8 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                               data-icon="down"
                               fill="currentColor"
                               height="1em"
-                              viewBox="0 0 1024 1024"
+                              viewBox="64 64 896 896"
                               width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
                                 d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
@@ -2907,7 +2883,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="10"
                   >
                     <td
@@ -2991,9 +2967,8 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                               data-icon="down"
                               fill="currentColor"
                               height="1em"
-                              viewBox="0 0 1024 1024"
+                              viewBox="64 64 896 896"
                               width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
                                 d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
@@ -3035,12 +3010,11 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                   data-icon="left"
                   fill="currentColor"
                   height="1em"
-                  viewBox="0 0 1024 1024"
+                  viewBox="64 64 896 896"
                   width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                   />
                 </svg>
               </i>
@@ -3072,12 +3046,11 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                   data-icon="right"
                   fill="currentColor"
                   height="1em"
-                  viewBox="0 0 1024 1024"
+                  viewBox="64 64 896 896"
                   width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                   />
                 </svg>
               </i>
@@ -3269,12 +3242,11 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                   data-icon="left"
                   fill="currentColor"
                   height="1em"
-                  viewBox="0 0 1024 1024"
+                  viewBox="64 64 896 896"
                   width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                   />
                 </svg>
               </i>
@@ -3306,12 +3278,11 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                   data-icon="right"
                   fill="currentColor"
                   height="1em"
-                  viewBox="0 0 1024 1024"
+                  viewBox="64 64 896 896"
                   width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                   />
                 </svg>
               </i>
@@ -3751,12 +3722,11 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 data-icon="left"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -3827,12 +3797,11 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   data-icon="double-right"
                   fill="currentColor"
                   height="1em"
-                  viewBox="0 0 1024 1024"
+                  viewBox="64 64 896 896"
                   width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1c-4.1 5.2-.4 12.9 6.3 12.9h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5zm304 0L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1c-4.1 5.2-.4 12.9 6.3 12.9h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
+                    d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1A7.98 7.98 0 0 0 188 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5zm304 0L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1A7.98 7.98 0 0 0 492 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
                   />
                 </svg>
               </i>
@@ -3871,12 +3840,11 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -3962,7 +3930,7 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                 class="ant-table-tbody"
               >
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="1"
                 >
                   <td
@@ -3998,7 +3966,7 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="2"
                 >
                   <td
@@ -4034,7 +4002,7 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="3"
                 >
                   <td
@@ -4095,12 +4063,11 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                 data-icon="left"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -4132,12 +4099,11 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -4237,7 +4203,7 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
                 class="ant-table-tbody"
               >
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="1"
                 >
                   <td
@@ -4285,7 +4251,7 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="2"
                 >
                   <td
@@ -4358,12 +4324,11 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
                 data-icon="left"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -4395,12 +4360,11 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -4545,7 +4509,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                   class="ant-table-tbody"
                 >
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="1"
                   >
                     <td
@@ -4613,7 +4577,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="2"
                   >
                     <td
@@ -4729,7 +4693,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                     class="ant-table-tbody"
                   >
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="1"
                     >
                       <td
@@ -4748,7 +4712,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="2"
                     >
                       <td
@@ -4806,7 +4770,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                     class="ant-table-tbody"
                   >
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="1"
                     >
                       <td
@@ -4820,7 +4784,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="2"
                     >
                       <td
@@ -4861,12 +4825,11 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                 data-icon="left"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -4898,12 +4861,11 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -5104,7 +5066,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                   class="ant-table-tbody"
                 >
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="0"
                   >
                     <td
@@ -5172,7 +5134,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="1"
                   >
                     <td
@@ -5240,7 +5202,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="2"
                   >
                     <td
@@ -5308,7 +5270,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="3"
                   >
                     <td
@@ -5376,7 +5338,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="4"
                   >
                     <td
@@ -5444,7 +5406,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="5"
                   >
                     <td
@@ -5512,7 +5474,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="6"
                   >
                     <td
@@ -5580,7 +5542,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="7"
                   >
                     <td
@@ -5648,7 +5610,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="8"
                   >
                     <td
@@ -5716,7 +5678,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="9"
                   >
                     <td
@@ -5849,7 +5811,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     class="ant-table-tbody"
                   >
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="0"
                     >
                       <td
@@ -5868,7 +5830,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="1"
                     >
                       <td
@@ -5887,7 +5849,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="2"
                     >
                       <td
@@ -5906,7 +5868,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="3"
                     >
                       <td
@@ -5925,7 +5887,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="4"
                     >
                       <td
@@ -5944,7 +5906,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="5"
                     >
                       <td
@@ -5963,7 +5925,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="6"
                     >
                       <td
@@ -5982,7 +5944,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="7"
                     >
                       <td
@@ -6001,7 +5963,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="8"
                     >
                       <td
@@ -6020,7 +5982,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="9"
                     >
                       <td
@@ -6092,7 +6054,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     class="ant-table-tbody"
                   >
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="0"
                     >
                       <td
@@ -6106,7 +6068,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="1"
                     >
                       <td
@@ -6120,7 +6082,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="2"
                     >
                       <td
@@ -6134,7 +6096,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="3"
                     >
                       <td
@@ -6148,7 +6110,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="4"
                     >
                       <td
@@ -6162,7 +6124,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="5"
                     >
                       <td
@@ -6176,7 +6138,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="6"
                     >
                       <td
@@ -6190,7 +6152,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="7"
                     >
                       <td
@@ -6204,7 +6166,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="8"
                     >
                       <td
@@ -6218,7 +6180,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="9"
                     >
                       <td
@@ -6259,12 +6221,11 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 data-icon="left"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -6335,12 +6296,11 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                   data-icon="double-right"
                   fill="currentColor"
                   height="1em"
-                  viewBox="0 0 1024 1024"
+                  viewBox="64 64 896 896"
                   width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1c-4.1 5.2-.4 12.9 6.3 12.9h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5zm304 0L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1c-4.1 5.2-.4 12.9 6.3 12.9h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
+                    d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1A7.98 7.98 0 0 0 188 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5zm304 0L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1A7.98 7.98 0 0 0 492 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
                   />
                 </svg>
               </i>
@@ -6379,12 +6339,11 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -6479,7 +6438,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                   class="ant-table-tbody"
                 >
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="0"
                   >
                     <td
@@ -6503,7 +6462,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="1"
                   >
                     <td
@@ -6527,7 +6486,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="2"
                   >
                     <td
@@ -6551,7 +6510,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="3"
                   >
                     <td
@@ -6575,7 +6534,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="4"
                   >
                     <td
@@ -6599,7 +6558,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="5"
                   >
                     <td
@@ -6623,7 +6582,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="6"
                   >
                     <td
@@ -6647,7 +6606,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="7"
                   >
                     <td
@@ -6671,7 +6630,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="8"
                   >
                     <td
@@ -6695,7 +6654,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="9"
                   >
                     <td
@@ -6719,7 +6678,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="10"
                   >
                     <td
@@ -6743,7 +6702,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="11"
                   >
                     <td
@@ -6767,7 +6726,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="12"
                   >
                     <td
@@ -6791,7 +6750,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="13"
                   >
                     <td
@@ -6815,7 +6774,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="14"
                   >
                     <td
@@ -6839,7 +6798,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="15"
                   >
                     <td
@@ -6863,7 +6822,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="16"
                   >
                     <td
@@ -6887,7 +6846,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="17"
                   >
                     <td
@@ -6911,7 +6870,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="18"
                   >
                     <td
@@ -6935,7 +6894,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="19"
                   >
                     <td
@@ -6959,7 +6918,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="20"
                   >
                     <td
@@ -6983,7 +6942,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="21"
                   >
                     <td
@@ -7007,7 +6966,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="22"
                   >
                     <td
@@ -7031,7 +6990,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="23"
                   >
                     <td
@@ -7055,7 +7014,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="24"
                   >
                     <td
@@ -7079,7 +7038,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="25"
                   >
                     <td
@@ -7103,7 +7062,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="26"
                   >
                     <td
@@ -7127,7 +7086,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="27"
                   >
                     <td
@@ -7151,7 +7110,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="28"
                   >
                     <td
@@ -7175,7 +7134,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="29"
                   >
                     <td
@@ -7199,7 +7158,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="30"
                   >
                     <td
@@ -7223,7 +7182,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="31"
                   >
                     <td
@@ -7247,7 +7206,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="32"
                   >
                     <td
@@ -7271,7 +7230,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="33"
                   >
                     <td
@@ -7295,7 +7254,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="34"
                   >
                     <td
@@ -7319,7 +7278,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="35"
                   >
                     <td
@@ -7343,7 +7302,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="36"
                   >
                     <td
@@ -7367,7 +7326,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="37"
                   >
                     <td
@@ -7391,7 +7350,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="38"
                   >
                     <td
@@ -7415,7 +7374,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="39"
                   >
                     <td
@@ -7439,7 +7398,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="40"
                   >
                     <td
@@ -7463,7 +7422,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="41"
                   >
                     <td
@@ -7487,7 +7446,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="42"
                   >
                     <td
@@ -7511,7 +7470,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="43"
                   >
                     <td
@@ -7535,7 +7494,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="44"
                   >
                     <td
@@ -7559,7 +7518,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="45"
                   >
                     <td
@@ -7583,7 +7542,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="46"
                   >
                     <td
@@ -7607,7 +7566,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="47"
                   >
                     <td
@@ -7631,7 +7590,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="48"
                   >
                     <td
@@ -7655,7 +7614,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="49"
                   >
                     <td
@@ -7705,12 +7664,11 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 data-icon="left"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -7752,12 +7710,11 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -7837,9 +7794,8 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                             data-icon="filter"
                             fill="currentColor"
                             height="1em"
-                            viewBox="0 0 1024 1024"
+                            viewBox="64 64 896 896"
                             width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
                           >
                             <path
                               d="M880.1 154H143.9c-24.5 0-39.8 26.7-27.5 48L349 597.4V838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V597.4L907.7 202c12.2-21.3-3.1-48-27.6-48zM603.4 798H420.6V642h182.9v156zm9.6-236.6l-9.5 16.6h-183l-9.5-16.6L212.7 226h598.6L613 561.4z"
@@ -7898,10 +7854,9 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                                 height="1em"
                                 viewBox="0 0 1024 1024"
                                 width="1em"
-                                xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
-                                  d="M76.3 632.8l405.1-489.1c16.9-18.9 46.5-18.9 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
+                                  d="M76.3 632.8l405.1-489.1a42.53 42.53 0 0 1 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
                                 />
                               </svg>
                             </i>
@@ -7921,10 +7876,9 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                                 height="1em"
                                 viewBox="0 0 1024 1024"
                                 width="1em"
-                                xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
-                                  d="M76.3 392.3l403.1 489.1c16.9 18.9 46.5 18.9 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
+                                  d="M76.3 392.3l403.1 489.1a42.53 42.53 0 0 0 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
                                 />
                               </svg>
                             </i>
@@ -8028,7 +7982,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   class="ant-table-tbody"
                 >
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="0"
                   >
                     <td
@@ -8077,7 +8031,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="1"
                   >
                     <td
@@ -8126,7 +8080,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="2"
                   >
                     <td
@@ -8175,7 +8129,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="3"
                   >
                     <td
@@ -8224,7 +8178,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="4"
                   >
                     <td
@@ -8273,7 +8227,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="5"
                   >
                     <td
@@ -8322,7 +8276,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="6"
                   >
                     <td
@@ -8371,7 +8325,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="7"
                   >
                     <td
@@ -8420,7 +8374,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="8"
                   >
                     <td
@@ -8469,7 +8423,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="9"
                   >
                     <td
@@ -8555,9 +8509,8 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                             data-icon="filter"
                             fill="currentColor"
                             height="1em"
-                            viewBox="0 0 1024 1024"
+                            viewBox="64 64 896 896"
                             width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
                           >
                             <path
                               d="M880.1 154H143.9c-24.5 0-39.8 26.7-27.5 48L349 597.4V838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V597.4L907.7 202c12.2-21.3-3.1-48-27.6-48zM603.4 798H420.6V642h182.9v156zm9.6-236.6l-9.5 16.6h-183l-9.5-16.6L212.7 226h598.6L613 561.4z"
@@ -8590,7 +8543,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     class="ant-table-tbody"
                   >
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="0"
                     >
                       <td
@@ -8604,7 +8557,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="1"
                     >
                       <td
@@ -8618,7 +8571,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="2"
                     >
                       <td
@@ -8632,7 +8585,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="3"
                     >
                       <td
@@ -8646,7 +8599,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="4"
                     >
                       <td
@@ -8660,7 +8613,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="5"
                     >
                       <td
@@ -8674,7 +8627,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="6"
                     >
                       <td
@@ -8688,7 +8641,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="7"
                     >
                       <td
@@ -8702,7 +8655,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="8"
                     >
                       <td
@@ -8716,7 +8669,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="9"
                     >
                       <td
@@ -8784,7 +8737,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     class="ant-table-tbody"
                   >
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="0"
                     >
                       <td
@@ -8794,7 +8747,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="1"
                     >
                       <td
@@ -8804,7 +8757,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="2"
                     >
                       <td
@@ -8814,7 +8767,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="3"
                     >
                       <td
@@ -8824,7 +8777,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="4"
                     >
                       <td
@@ -8834,7 +8787,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="5"
                     >
                       <td
@@ -8844,7 +8797,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="6"
                     >
                       <td
@@ -8854,7 +8807,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="7"
                     >
                       <td
@@ -8864,7 +8817,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="8"
                     >
                       <td
@@ -8874,7 +8827,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="9"
                     >
                       <td
@@ -8911,12 +8864,11 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 data-icon="left"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -8987,12 +8939,11 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   data-icon="double-right"
                   fill="currentColor"
                   height="1em"
-                  viewBox="0 0 1024 1024"
+                  viewBox="64 64 896 896"
                   width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1c-4.1 5.2-.4 12.9 6.3 12.9h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5zm304 0L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1c-4.1 5.2-.4 12.9 6.3 12.9h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
+                    d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1A7.98 7.98 0 0 0 188 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5zm304 0L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1A7.98 7.98 0 0 0 492 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
                   />
                 </svg>
               </i>
@@ -9031,12 +8982,11 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -9102,10 +9052,9 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                               height="1em"
                               viewBox="0 0 1024 1024"
                               width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
-                                d="M76.3 632.8l405.1-489.1c16.9-18.9 46.5-18.9 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
+                                d="M76.3 632.8l405.1-489.1a42.53 42.53 0 0 1 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
                               />
                             </svg>
                           </i>
@@ -9125,10 +9074,9 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                               height="1em"
                               viewBox="0 0 1024 1024"
                               width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
-                                d="M76.3 392.3l403.1 489.1c16.9 18.9 46.5 18.9 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
+                                d="M76.3 392.3l403.1 489.1a42.53 42.53 0 0 0 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
                               />
                             </svg>
                           </i>
@@ -9144,9 +9092,8 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                           data-icon="filter"
                           fill="currentColor"
                           height="1em"
-                          viewBox="0 0 1024 1024"
+                          viewBox="64 64 896 896"
                           width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
                             d="M880.1 154H143.9c-24.5 0-39.8 26.7-27.5 48L349 597.4V838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V597.4L907.7 202c12.2-21.3-3.1-48-27.6-48zM603.4 798H420.6V642h182.9v156zm9.6-236.6l-9.5 16.6h-183l-9.5-16.6L212.7 226h598.6L613 561.4z"
@@ -9178,10 +9125,9 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                               height="1em"
                               viewBox="0 0 1024 1024"
                               width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
-                                d="M76.3 632.8l405.1-489.1c16.9-18.9 46.5-18.9 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
+                                d="M76.3 632.8l405.1-489.1a42.53 42.53 0 0 1 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
                               />
                             </svg>
                           </i>
@@ -9201,10 +9147,9 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                               height="1em"
                               viewBox="0 0 1024 1024"
                               width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
-                                d="M76.3 392.3l403.1 489.1c16.9 18.9 46.5 18.9 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
+                                d="M76.3 392.3l403.1 489.1a42.53 42.53 0 0 0 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
                               />
                             </svg>
                           </i>
@@ -9235,10 +9180,9 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                               height="1em"
                               viewBox="0 0 1024 1024"
                               width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
-                                d="M76.3 632.8l405.1-489.1c16.9-18.9 46.5-18.9 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
+                                d="M76.3 632.8l405.1-489.1a42.53 42.53 0 0 1 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
                               />
                             </svg>
                           </i>
@@ -9258,10 +9202,9 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                               height="1em"
                               viewBox="0 0 1024 1024"
                               width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
-                                d="M76.3 392.3l403.1 489.1c16.9 18.9 46.5 18.9 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
+                                d="M76.3 392.3l403.1 489.1a42.53 42.53 0 0 0 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
                               />
                             </svg>
                           </i>
@@ -9277,9 +9220,8 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                           data-icon="filter"
                           fill="currentColor"
                           height="1em"
-                          viewBox="0 0 1024 1024"
+                          viewBox="64 64 896 896"
                           width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
                             d="M880.1 154H143.9c-24.5 0-39.8 26.7-27.5 48L349 597.4V838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V597.4L907.7 202c12.2-21.3-3.1-48-27.6-48zM603.4 798H420.6V642h182.9v156zm9.6-236.6l-9.5 16.6h-183l-9.5-16.6L212.7 226h598.6L613 561.4z"
@@ -9294,7 +9236,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                 class="ant-table-tbody"
               >
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="2"
                 >
                   <td
@@ -9318,7 +9260,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="1"
                 >
                   <td
@@ -9342,7 +9284,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="3"
                 >
                   <td
@@ -9366,7 +9308,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="4"
                 >
                   <td
@@ -9415,12 +9357,11 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                 data-icon="left"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -9452,12 +9393,11 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -9565,7 +9505,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                 class="ant-table-tbody"
               >
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="1"
                 >
                   <td
@@ -9631,7 +9571,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="2"
                 >
                   <td
@@ -9691,7 +9631,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="3"
                 >
                   <td
@@ -9782,12 +9722,11 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                 data-icon="left"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -9819,12 +9758,11 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -9934,7 +9872,7 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
                 class="ant-table-tbody"
               >
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="0"
                 >
                   <td
@@ -9985,7 +9923,7 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="1"
                 >
                   <td
@@ -10036,7 +9974,7 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="2"
                 >
                   <td
@@ -10112,12 +10050,11 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
                 data-icon="left"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -10149,12 +10086,11 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -10249,10 +10185,9 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                                 height="1em"
                                 viewBox="0 0 1024 1024"
                                 width="1em"
-                                xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
-                                  d="M76.3 632.8l405.1-489.1c16.9-18.9 46.5-18.9 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
+                                  d="M76.3 632.8l405.1-489.1a42.53 42.53 0 0 1 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
                                 />
                               </svg>
                             </i>
@@ -10272,10 +10207,9 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                                 height="1em"
                                 viewBox="0 0 1024 1024"
                                 width="1em"
-                                xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
-                                  d="M76.3 392.3l403.1 489.1c16.9 18.9 46.5 18.9 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
+                                  d="M76.3 392.3l403.1 489.1a42.53 42.53 0 0 0 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
                                 />
                               </svg>
                             </i>
@@ -10291,9 +10225,8 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                             data-icon="filter"
                             fill="currentColor"
                             height="1em"
-                            viewBox="0 0 1024 1024"
+                            viewBox="64 64 896 896"
                             width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
                           >
                             <path
                               d="M880.1 154H143.9c-24.5 0-39.8 26.7-27.5 48L349 597.4V838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V597.4L907.7 202c12.2-21.3-3.1-48-27.6-48zM603.4 798H420.6V642h182.9v156zm9.6-236.6l-9.5 16.6h-183l-9.5-16.6L212.7 226h598.6L613 561.4z"
@@ -10325,10 +10258,9 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                                 height="1em"
                                 viewBox="0 0 1024 1024"
                                 width="1em"
-                                xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
-                                  d="M76.3 632.8l405.1-489.1c16.9-18.9 46.5-18.9 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
+                                  d="M76.3 632.8l405.1-489.1a42.53 42.53 0 0 1 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
                                 />
                               </svg>
                             </i>
@@ -10348,10 +10280,9 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                                 height="1em"
                                 viewBox="0 0 1024 1024"
                                 width="1em"
-                                xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
-                                  d="M76.3 392.3l403.1 489.1c16.9 18.9 46.5 18.9 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
+                                  d="M76.3 392.3l403.1 489.1a42.53 42.53 0 0 0 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
                                 />
                               </svg>
                             </i>
@@ -10382,10 +10313,9 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                                 height="1em"
                                 viewBox="0 0 1024 1024"
                                 width="1em"
-                                xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
-                                  d="M76.3 632.8l405.1-489.1c16.9-18.9 46.5-18.9 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
+                                  d="M76.3 632.8l405.1-489.1a42.53 42.53 0 0 1 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
                                 />
                               </svg>
                             </i>
@@ -10405,10 +10335,9 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                                 height="1em"
                                 viewBox="0 0 1024 1024"
                                 width="1em"
-                                xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
-                                  d="M76.3 392.3l403.1 489.1c16.9 18.9 46.5 18.9 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
+                                  d="M76.3 392.3l403.1 489.1a42.53 42.53 0 0 0 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
                                 />
                               </svg>
                             </i>
@@ -10424,9 +10353,8 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                             data-icon="filter"
                             fill="currentColor"
                             height="1em"
-                            viewBox="0 0 1024 1024"
+                            viewBox="64 64 896 896"
                             width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
                           >
                             <path
                               d="M880.1 154H143.9c-24.5 0-39.8 26.7-27.5 48L349 597.4V838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V597.4L907.7 202c12.2-21.3-3.1-48-27.6-48zM603.4 798H420.6V642h182.9v156zm9.6-236.6l-9.5 16.6h-183l-9.5-16.6L212.7 226h598.6L613 561.4z"
@@ -10441,7 +10369,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                   class="ant-table-tbody"
                 >
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="1"
                   >
                     <td
@@ -10465,7 +10393,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="2"
                   >
                     <td
@@ -10489,7 +10417,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="3"
                   >
                     <td
@@ -10513,7 +10441,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="4"
                   >
                     <td
@@ -10562,12 +10490,11 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                   data-icon="left"
                   fill="currentColor"
                   height="1em"
-                  viewBox="0 0 1024 1024"
+                  viewBox="64 64 896 896"
                   width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                   />
                 </svg>
               </i>
@@ -10599,12 +10526,11 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                   data-icon="right"
                   fill="currentColor"
                   height="1em"
-                  viewBox="0 0 1024 1024"
+                  viewBox="64 64 896 896"
                   width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                   />
                 </svg>
               </i>
@@ -10715,7 +10641,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                 class="ant-table-tbody"
               >
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="0"
                 >
                   <td
@@ -10753,7 +10679,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="1"
                 >
                   <td
@@ -10791,7 +10717,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="2"
                 >
                   <td
@@ -10854,12 +10780,11 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                 data-icon="left"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -10891,12 +10816,11 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -10992,7 +10916,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                 class="ant-table-tbody"
               >
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="1"
                 >
                   <td
@@ -11042,7 +10966,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="2"
                 >
                   <td
@@ -11092,7 +11016,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="3"
                 >
                   <td
@@ -11142,7 +11066,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="4"
                 >
                   <td
@@ -11218,12 +11142,11 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                 data-icon="left"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -11255,12 +11178,11 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -11373,7 +11295,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                   class="ant-table-tbody"
                 >
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="0"
                   >
                     <td
@@ -11418,7 +11340,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="1"
                   >
                     <td
@@ -11463,7 +11385,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="2"
                   >
                     <td
@@ -11508,7 +11430,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="3"
                   >
                     <td
@@ -11553,7 +11475,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="4"
                   >
                     <td
@@ -11598,7 +11520,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="5"
                   >
                     <td
@@ -11643,7 +11565,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="6"
                   >
                     <td
@@ -11688,7 +11610,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="7"
                   >
                     <td
@@ -11733,7 +11655,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="8"
                   >
                     <td
@@ -11778,7 +11700,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="9"
                   >
                     <td
@@ -11848,12 +11770,11 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                   data-icon="left"
                   fill="currentColor"
                   height="1em"
-                  viewBox="0 0 1024 1024"
+                  viewBox="64 64 896 896"
                   width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                   />
                 </svg>
               </i>
@@ -11922,12 +11843,11 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                   data-icon="right"
                   fill="currentColor"
                   height="1em"
-                  viewBox="0 0 1024 1024"
+                  viewBox="64 64 896 896"
                   width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                   />
                 </svg>
               </i>
@@ -12006,9 +11926,8 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                               data-icon="down"
                               fill="currentColor"
                               height="1em"
-                              viewBox="0 0 1024 1024"
+                              viewBox="64 64 896 896"
                               width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
                                 d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
@@ -12046,7 +11965,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                 class="ant-table-tbody"
               >
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="0"
                 >
                   <td
@@ -12091,7 +12010,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="1"
                 >
                   <td
@@ -12136,7 +12055,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="2"
                 >
                   <td
@@ -12181,7 +12100,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="3"
                 >
                   <td
@@ -12226,7 +12145,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="4"
                 >
                   <td
@@ -12271,7 +12190,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="5"
                 >
                   <td
@@ -12316,7 +12235,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="6"
                 >
                   <td
@@ -12361,7 +12280,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="7"
                 >
                   <td
@@ -12406,7 +12325,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="8"
                 >
                   <td
@@ -12451,7 +12370,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="9"
                 >
                   <td
@@ -12521,12 +12440,11 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                 data-icon="left"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -12595,12 +12513,11 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -12674,7 +12591,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                   class="ant-table-tbody"
                 >
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="1"
                   >
                     <td
@@ -12698,7 +12615,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="2"
                   >
                     <td
@@ -12722,7 +12639,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="3"
                   >
                     <td
@@ -12771,12 +12688,11 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                   data-icon="left"
                   fill="currentColor"
                   height="1em"
-                  viewBox="0 0 1024 1024"
+                  viewBox="64 64 896 896"
                   width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                   />
                 </svg>
               </i>
@@ -12808,12 +12724,11 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                   data-icon="right"
                   fill="currentColor"
                   height="1em"
-                  viewBox="0 0 1024 1024"
+                  viewBox="64 64 896 896"
                   width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                   />
                 </svg>
               </i>
@@ -12883,7 +12798,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                   class="ant-table-tbody"
                 >
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="1"
                   >
                     <td
@@ -12907,7 +12822,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="2"
                   >
                     <td
@@ -12931,7 +12846,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="3"
                   >
                     <td
@@ -12980,12 +12895,11 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                   data-icon="left"
                   fill="currentColor"
                   height="1em"
-                  viewBox="0 0 1024 1024"
+                  viewBox="64 64 896 896"
                   width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                   />
                 </svg>
               </i>
@@ -13017,12 +12931,11 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                   data-icon="right"
                   fill="currentColor"
                   height="1em"
-                  viewBox="0 0 1024 1024"
+                  viewBox="64 64 896 896"
                   width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                   />
                 </svg>
               </i>

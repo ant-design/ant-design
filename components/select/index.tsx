@@ -182,10 +182,15 @@ export default class Select extends React.Component<SelectProps, {}> {
       <Icon type="close" className={`${prefixCls}-remove-icon`} />
     );
 
+    const menuItemSelectedIcon = (
+      <Icon type="check" className={`${prefixCls}-selected-icon`} />
+    );
+
     return (
       <RcSelect
         inputIcon={inputIcon}
         removeIcon={removeIcon}
+        menuItemSelectedIcon={menuItemSelectedIcon}
         {...restProps}
         {...modeConfig}
         prefixCls={prefixCls}
