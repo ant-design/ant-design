@@ -416,6 +416,10 @@
 
 .@{select-prefix-cls}-dropdown {
   .reset-component;
+  // Fix select render lag of long text in chrome
+  // https://github.com/ant-design/ant-design/issues/11456
+  // https://github.com/ant-design/ant-design/issues/11843
+  font-variant: initial;
 
   &.slide-up-enter.slide-up-enter-active&-placement-bottomLeft,
   &.slide-up-appear.slide-up-appear-active&-placement-bottomLeft {
