@@ -85,7 +85,7 @@ class Spin extends React.Component<SpinProps, SpinState> {
 
     const { spinning, delay } = props;
     this.state = {
-      spinning: !shouldDelay(spinning, delay),
+      spinning: spinning && !shouldDelay(spinning, delay),
     };
   }
 
