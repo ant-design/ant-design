@@ -34,7 +34,7 @@ class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
     placement: 'top',
     trigger: 'click',
     okType: 'primary',
-    icon: <Icon type="exclamation-circle" />,
+    icon: <Icon type="exclamation-circle" theme="filled" />,
   };
 
   static getDerivedStateFromProps(nextProps: PopconfirmProps) {
