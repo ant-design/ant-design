@@ -52,6 +52,10 @@ function renderIndicator(props: SpinProps): React.ReactNode {
   );
 }
 
+function shouldDelay(spinning?: boolean, delay?: number): boolean {
+  return !!spinning && !!delay && !isNaN(Number(delay));
+}
+
 class Spin extends React.Component<SpinProps, SpinState> {
   static defaultProps = {
     prefixCls: 'ant-spin',
@@ -78,9 +82,10 @@ class Spin extends React.Component<SpinProps, SpinState> {
 
   constructor(props: SpinProps) {
     super(props);
-    const spinning = props.spinning;
+
+    const { spinning, delay } = props;
     this.state = {
-      spinning,
+      spinning: !shouldDelay(spinning, delay),
     };
   }
 
@@ -90,8 +95,7 @@ class Spin extends React.Component<SpinProps, SpinState> {
 
   componentDidMount() {
     const { spinning, delay } = this.props;
-    if (spinning && delay && !isNaN(Number(delay))) {
-      this.setState({ spinning: false });
+    if (shouldDelay(spinning, delay)) {
       this.delayTimeout = window.setTimeout(() => this.setState({ spinning }), delay);
     }
   }
