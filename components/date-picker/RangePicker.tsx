@@ -184,9 +184,13 @@ class RangePicker extends React.Component<any, RangePickerState> {
 
     this.setValue(value, true);
 
-    const { onOk } = this.props;
+    const { onOk, onOpenChange } = this.props;
     if (onOk) {
       onOk(value);
+    }
+
+    if (onOpenChange) {
+      onOpenChange(false);
     }
   }
 
