@@ -156,13 +156,13 @@ const api: any = {
 api.warn = api.warning;
 
 export interface MessageApi {
-  info(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose): void;
-  success(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose): void;
-  error(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose): void;
-  warn(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose): void;
-  warning(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose): void;
-  loading(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose): void;
-  open(args: ArgsProps): void;
+  info(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
+  success(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
+  error(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
+  warn(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
+  warning(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
+  loading(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
+  open(args: ArgsProps): MessageType;
   config(options: ConfigOptions): void;
   destroy(): void;
 }
