@@ -63,6 +63,7 @@ Any data whose entries are defined in a hierarchical manner is fit to use this c
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
+| selectable | can be selected | boolean | true |
 | disableCheckbox | Disables the checkbox of the treeNode | boolean | false |
 | disabled | Disabled or not | boolean | false |
 | isLeaf | Leaf node or not | boolean | false |
