@@ -24,6 +24,8 @@ An enterprise-class UI design language and React-based implementation.
 
 </div>
 
+![](https://cdn-images-1.medium.com/max/2000/1*NIlj0-TdLMbo_hzSBP8tmg.png)
+
 English | [简体中文](./README-zh_CN.md)
 
 ## ✨ Features
