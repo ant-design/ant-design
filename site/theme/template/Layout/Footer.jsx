@@ -44,13 +44,14 @@ class Footer extends React.Component {
       });
     };
 
-    const lessUrl = 'https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js';
+    const lessUrl = 'https://gw.alipayobjects.com/os/lib/less.js/3.8.1/less.min.js';
 
     if (this.lessLoaded) {
       changeColor();
     } else {
       window.less = {
         async: true,
+        javascriptEnabled: true,
       };
       loadScript(lessUrl).then(() => {
         this.lessLoaded = true;
