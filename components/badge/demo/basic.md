@@ -38,5 +38,6 @@ ReactDOM.render(
   border-radius: 4px;
   background: #eee;
   display: inline-block;
+  vertical-align: middle;
 }
 </style>
