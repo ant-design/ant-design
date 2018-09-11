@@ -122,6 +122,9 @@ class Footer extends React.Component {
                   <FormattedMessage id="app.footer.scaffolds" />
                 </div>
                 <div>
+                  <a target="_blank" rel="noopener noreferrer" href="http://umijs.org/">Umi</a> - <FormattedMessage id="app.footer.umi" />
+                </div>
+                <div>
                   <a target="_blank" rel="noopener noreferrer" href="https://github.com/dvajs/dva">dva</a> - <FormattedMessage id="app.footer.dva" />
                 </div>
                 <div>
@@ -138,11 +141,6 @@ class Footer extends React.Component {
                   <a target="_blank" rel="noopener noreferrer" href="http://ux.ant.design">Ant UX</a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.antux" />
-                </div>
-                <div>
-                  <a target="_blank " href="https://www.yuque.com/ant-design/course">
-                    <FormattedMessage id="app.footer.course" />
-                  </a>
                 </div>
                 <div>
                   <a target="_blank " href="http://ant-design.gitee.io/">
@@ -181,6 +179,11 @@ class Footer extends React.Component {
                   <span> - </span>
                   <FormattedMessage id="app.footer.seeconf" />
                 </div>
+                <div>
+                  <a target="_blank " href="/docs/spec/work-with-us">
+                    <FormattedMessage id="app.footer.work_with_us" />
+                  </a>
+                </div>
               </div>
             </Col>
             <Col md={6} sm={24} xs={24}>
@@ -194,6 +197,11 @@ class Footer extends React.Component {
                 <div>
                   <a href="/changelog">
                     <FormattedMessage id="app.footer.change-log" />
+                  </a>
+                </div>
+                <div>
+                  <a target="_blank " href="https://www.yuque.com/ant-design/course">
+                    <FormattedMessage id="app.footer.course" />
                   </a>
                 </div>
                 <div>
