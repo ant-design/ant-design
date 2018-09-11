@@ -140,6 +140,11 @@ class Footer extends React.Component {
                   <FormattedMessage id="app.footer.antux" />
                 </div>
                 <div>
+                  <a target="_blank " href="https://www.yuque.com/ant-design/course">
+                    <FormattedMessage id="app.footer.course" />
+                  </a>
+                </div>
+                <div>
                   <a target="_blank " href="http://ant-design.gitee.io/">
                     <FormattedMessage id="app.footer.chinamirror" />
                   </a>
