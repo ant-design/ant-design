@@ -351,7 +351,8 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     });
     const clearIcon = (allowClear && !disabled && value.length > 0) || state.inputValue ? (
       <Icon
-        type="close"
+        type="close-circle"
+        theme="filled"
         className={`${prefixCls}-picker-clear`}
         onClick={this.clearSelection}
       />
