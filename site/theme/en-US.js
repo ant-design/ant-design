@@ -43,6 +43,7 @@ module.exports = {
     'app.home.more': 'Learn more',
     'app.footer.repo': 'GitHub Repository',
     'app.footer.awesome': 'Awesome Ant Design',
+    'app.footer.course': 'Ant Design Practical Tutorial',
     'app.footer.chinamirror': 'China Mirror 🇨🇳',
     'app.footer.primary-color-changed': 'Change primary color successfully!',
     'app.footer.scaffold': 'Scaffold',
