@@ -161,7 +161,7 @@ export default class Header extends React.Component {
             <FormattedMessage id="app.header.menu.pro" />
           </a>
         </Menu.Item>
-        { isZhCN ? (
+        {isZhCN ? (
           <Menu.Item key="course">
             <a
               href="https://www.yuque.com/ant-design/course"
@@ -174,8 +174,8 @@ export default class Header extends React.Component {
                 <Badge dot />
               </span>
             </a>
-          </Menu.Item>) : null
-        }
+          </Menu.Item>
+        ) : null}
       </Menu>,
     ];
 
