@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { enquireScreen } from 'enquire-js';
 import { addLocaleData, IntlProvider } from 'react-intl';
 import 'moment/locale/zh-cn';
-import { LocaleProvider } from 'antd';
+import { Icon, LocaleProvider } from 'antd';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
 import OfflineRuntime from '@yesmeck/offline-plugin/runtime';
 import Header from './Header';
@@ -33,6 +33,8 @@ enquireScreen((b) => {
   isMobile = b;
 });
 
+const promoteBannerImageUrl = 'https://gw.alipayobjects.com/zos/rmsportal/qlgWfsMcCJgTdGxWuLxW.png';
+
 export default class Layout extends React.Component {
   static contextTypes = {
     router: PropTypes.object.isRequired,
@@ -53,9 +55,15 @@ export default class Layout extends React.Component {
     const appLocale = utils.isZhCN(pathname) ? cnLocale : enLocale;
     addLocaleData(appLocale.data);
 
+    const adBannerClosed = (
+      typeof window !== 'undefined'
+        && window.localStorage
+        && window.localStorage.getItem(`adBannerClosed-${promoteBannerImageUrl}`) === 'true'
+    );
     this.state = {
       appLocale,
       isMobile,
+      adBannerClosed,
     };
   }
 
@@ -90,14 +98,39 @@ export default class Layout extends React.Component {
     clearTimeout(this.timer);
   }
 
+  closePromoteBanner = (e) => {
+    e.preventDefault();
+    this.makeAdBannerClosed();
+  }
+
+  makeAdBannerClosed = () => {
+    this.setState({
+      adBannerClosed: true,
+    });
+    if (window.localStorage) {
+      window.localStorage.setItem(`adBannerClosed-${promoteBannerImageUrl}`, 'true');
+    }
+  }
+
   render() {
     const { children, ...restProps } = this.props;
-    const { appLocale } = this.state;
+    const { appLocale, adBannerClosed } = this.state;
+    const isZhCN = appLocale.locale === 'zh-CN';
+    const promoteBanner = adBannerClosed ? null : (
+      <a href="https://www.yuque.com/ant-design/course" className="promote-banner" onClick={this.makeAdBannerClosed}>
+        <img
+          src={promoteBannerImageUrl}
+          alt="seeconf"
+        />
+        <Icon type="close" title="close ad" onClick={this.closePromoteBanner} />
+      </a>
+    );
 
     return (
       <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
-        <LocaleProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null}>
+        <LocaleProvider locale={isZhCN ? zhCN : null}>
           <div className="page-wrapper">
+            {isZhCN ? promoteBanner : null}
             <Header {...restProps} />
             {children}
             <Footer {...restProps} />
