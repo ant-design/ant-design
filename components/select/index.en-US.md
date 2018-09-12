@@ -37,7 +37,7 @@ Select component to select value from options.
 | labelInValue | whether to embed label in value, turn the format of value from `string` to `{key: string, label: ReactNode}` | boolean | false |
 | maxTagCount | Max tag count to show | number | - |
 | maxTagPlaceholder | Placeholder for not showing tags | ReactNode/function(omittedValues) | - |
-| mode | Set mode of Select (Support after 2.9) | 'default' \| 'multiple' \| 'tags' | 'default' |
+| mode | Set mode of Select | 'default' \| 'multiple' \| 'tags' | 'default' |
 | notFoundContent | Specify content to show when no result matches.. | string | 'Not Found' |
 | optionFilterProp | Which prop value of option will be used for filter if filterOption is true | string | value |
 | optionLabelProp | Which prop value of option will render as content of select. | string | `value` for `combobox`, `children` for other modes |

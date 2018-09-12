@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-`1.0` 之后，Modal 的 `align` 属性被移除，您可以直接使用 `centered` 或类似 `style.top` 等样式来设置对话框位置。
+使用 `centered` 或类似 `style.top` 的样式来设置对话框位置。
 
 ## en-US
 
-After release `1.0`, Modal's `align` prop was removed. You can use `centered`、`style.top` or other styles to
+You can use `centered`、`style.top` or other styles to
 set position of modal dialog.
 
 ````jsx

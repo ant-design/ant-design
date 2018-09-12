@@ -36,9 +36,9 @@ title: Form
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| form | 经 `Form.create()` 包装过的组件会自带 `this.props.form` 属性，直接传给 Form 即可。1.7.0 之后无需设置 | object | 无 |
+| form | 经 `Form.create()` 包装过的组件会自带 `this.props.form` 属性 | object | - |
 | hideRequiredMark | 隐藏所有表单项的必选标记 | Boolean | false |
-| layout | 表单布局(2.8 之后支持) | 'horizontal'\|'vertical'\|'inline' | 'horizontal' |
+| layout | 表单布局 | 'horizontal'\|'vertical'\|'inline' | 'horizontal' |
 | onSubmit | 数据验证成功后回调事件 | Function(e:Event) |  |
 
 ### Form.create(options)
