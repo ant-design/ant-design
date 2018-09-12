@@ -60,12 +60,8 @@
         list-style: none;
         width: 100%;
 
-        &:nth-child(3) {
-          width: 94%;
-        }
-
-        &:nth-child(4) {
-          width: 96%;
+        &:last-child:not(:first-child):not(:nth-child(2)) {
+          width: 61%;
         }
 
         + li {
