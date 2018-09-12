@@ -19,17 +19,17 @@ timeline: true
 
 `2018-09-08`
 
-- 🐞 Title of children `Card` under `Card` using `tab-card` has wrong padding.[#12083](https://github.com/ant-design/ant-design/issues/12083)
-- 🐞 Fix `AutoComplete` using `TextArea` as input, height adjust by manual has time delay.[#12117](https://github.com/ant-design/ant-design/issues/12117)
-- 🐞 Fix `maskStyle` under `Drawer` not working.[#12125](https://github.com/ant-design/ant-design/pull/12125)[@ryerh](https://github.com/ryerh)
-- 🌟 `popconfirm` add `onVisibleChange` support.[#8614](https://github.com/ant-design/ant-design/issues/8614)
-- 🐞 Fix something table header in `Table` using fixed header and colums display unecessary scorllbar.[#6515](https://github.com/ant-design/ant-design/issues/6515)
-- 🐞 Fix `Spin` using `delay` still render at first time.[#12131](https://github.com/ant-design/ant-design/issues/12131)
+- 🐞 Title of children `Card` under `Card` using `tab-card` has wrong padding. [#12083](https://github.com/ant-design/ant-design/issues/12083)
+- 🐞 Fix `AutoComplete` using `TextArea` as input, height adjust by manual has time delay. [#12117](https://github.com/ant-design/ant-design/issues/12117)
+- 🐞 Fix `maskStyle` under `Drawer` not working. [#12125](https://github.com/ant-design/ant-design/pull/12125)[@ryerh](https://github.com/ryerh)
+- 🌟 `Popconfirm` can detect whether `onVisibleChange` is triggered by Ok or Cancel buttons. [#8614](https://github.com/ant-design/ant-design/issues/8614)
+- 🐞 Fix something table header in `Table` using fixed header and colums display unecessary scorllbar. [#6515](https://github.com/ant-design/ant-design/issues/6515)
+- 🐞 Fix `Spin` using `delay` still render at first time. [#12131](https://github.com/ant-design/ant-design/issues/12131)
 - Icon related:
-  - 🐞 Fix `Icon` in `popconfirm` has wrong position.[#12080](https://github.com/ant-design/ant-design/issues/12080)
-  - 🐞 Add `Icon` missing icons.[#121218](https://github.com/ant-design/ant-design/issues/121218)
-  - 🐞 Fix `Select` don't have checked icon.[#12054](https://github.com/ant-design/ant-design/issues/12054)
-  - 🐞 Fix `TreeSelect` clear icon not same as previous verions.[#12124](https://github.com/ant-design/ant-design/issues/12124)
+  - 🐞 Fix `Icon` in `popconfirm` has wrong position. [#12080](https://github.com/ant-design/ant-design/issues/12080)
+  - 🐞 Add `Icon` missing icons. [#121218](https://github.com/ant-design/ant-design/issues/121218)
+  - 🐞 Fix `Select` don't have checked icon. [#12054](https://github.com/ant-design/ant-design/issues/12054)
+  - 🐞 Fix `TreeSelect` clear icon not same as previous verions. [#12124](https://github.com/ant-design/ant-design/issues/12124)
 
 ## 3.9.1
 
