@@ -115,6 +115,7 @@ export default class Layout extends React.Component {
   render() {
     const { children, ...restProps } = this.props;
     const { appLocale, adBannerClosed } = this.state;
+    const isZhCN = appLocale.locale === 'zh-CN';
     const promoteBanner = adBannerClosed ? null : (
       <a href="https://www.yuque.com/ant-design/course" className="promote-banner" onClick={this.makeAdBannerClosed}>
         <img
@@ -127,9 +128,9 @@ export default class Layout extends React.Component {
 
     return (
       <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
-        <LocaleProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null}>
+        <LocaleProvider locale={isZhCN ? zhCN : null}>
           <div className="page-wrapper">
-            {promoteBanner}
+            {isZhCN ? promoteBanner : null}
             <Header {...restProps} />
             {children}
             <Footer {...restProps} />
