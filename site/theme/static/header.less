@@ -143,3 +143,27 @@
     right: 16px;
   }
 }
+
+.promote-banner {
+  position: relative;
+  display: block;
+  text-align: center;
+  background-color: #4151f2;
+
+  img {
+    max-width: 100%;
+  }
+  .anticon-close {
+    position: absolute;
+    font-size: 24px;
+    cursor: pointer;
+    right: 24px;
+    top: 28px;
+    color: #fff;
+    transition: all .3s;
+    opacity: 0;
+  }
+  &:hover .anticon-close {
+    opacity: 1;
+  }
+}
