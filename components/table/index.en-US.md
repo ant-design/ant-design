@@ -111,7 +111,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | className | className of this column | string | - |
 | colSpan | Span of this column's title | number |  |
 | dataIndex | Display field of the data record, could be set like `a.b.c` | string | - |
-| defaultSortOrder | Default order of sorted values: `'ascend'` `'descend'` `null` | string | - |
+| defaultSortOrder | Default order of sorted values | 'ascend' \| 'descend' | - |
 | filterDropdown | Customized filter overlay | ReactNode | - |
 | filterDropdownVisible | Whether `filterDropdown` is visible | boolean | - |
 | filtered | Whether the `dataSource` is filtered | boolean | `false` |
