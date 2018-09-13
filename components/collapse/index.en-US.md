@@ -24,7 +24,7 @@ A content area which can be collapsed and expanded.
 | defaultActiveKey | Key of the initial active panel | string | - |
 | onChange | Callback function executed when active panel is changed | Function | - |
 | destroyInactivePanel | Destroy Inactive Panel | boolean | `false` |
-| arrowIcon | Expand-icon name in Panel Header | string | `right` |
+| switcherIcon | Expand-icon name in Panel Header | string | `right` |
 
 ### Collapse.Panel
 

@@ -16,7 +16,7 @@ export interface CollapseProps {
   className?: string;
   bordered?: boolean;
   prefixCls?: string;
-  arrowIcon?: string;
+  switcherIcon?: string;
 }
 
 export default class Collapse extends React.Component<CollapseProps, any> {
@@ -26,12 +26,12 @@ export default class Collapse extends React.Component<CollapseProps, any> {
     prefixCls: 'ant-collapse',
     bordered: true,
     openAnimation: { ...animation, appear() { } },
-    arrowIcon: 'right',
+    switcherIcon: 'right',
   };
 
   renderExpandIcon = () => {
     return (
-      <Icon type={this.props.arrowIcon} className={`arrow`} />
+      <Icon type={this.props.switcherIcon} className={`arrow`} />
     );
   }
 
