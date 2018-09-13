@@ -425,15 +425,17 @@ exports[`renders ./components/badge/demo/change.md correctly 1`] = `
         data-show="true"
       />
     </span>
-    <span
+    <button
+      aria-checked="true"
       checked=""
       class="ant-switch ant-switch-checked"
-      tabindex="0"
+      role="switch"
+      type="button"
     >
       <span
         class="ant-switch-inner"
       />
-    </span>
+    </button>
   </div>
 </div>
 `;

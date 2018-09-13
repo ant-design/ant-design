@@ -67,14 +67,16 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
     />
   </div>
   Disabled: 
-  <span
+  <button
+    aria-checked="false"
     class="ant-switch-small ant-switch"
-    tabindex="0"
+    role="switch"
+    type="button"
   >
     <span
       class="ant-switch-inner"
     />
-  </span>
+  </button>
 </div>
 `;
 

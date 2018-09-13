@@ -372,14 +372,16 @@ exports[`renders ./components/card/demo/inner.md correctly 1`] = `
 
 exports[`renders ./components/card/demo/loading.md correctly 1`] = `
 <div>
-  <span
+  <button
+    aria-checked="false"
     class="ant-switch"
-    tabindex="0"
+    role="switch"
+    type="button"
   >
     <span
       class="ant-switch-inner"
     />
-  </span>
+  </button>
   <div
     class="ant-card ant-card-loading ant-card-bordered"
     style="width:300px;margin-top:16px"
