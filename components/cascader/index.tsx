@@ -467,9 +467,11 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
       </span>
     );
 
+    const rest = omit(props, ['inputIcon', 'expandIcon', 'loadingIcon']);
+
     return (
       <RcCascader
-        {...props}
+        {...rest}
         options={options}
         value={value}
         popupVisible={state.popupVisible}
