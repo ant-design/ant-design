@@ -181,15 +181,7 @@ export default class Select extends React.Component<SelectProps, {}> {
 
     const inputIcon = suffix && (
       React.isValidElement<{ className?: string }>(suffix)
-        ? React.cloneElement(
-          suffix,
-          {
-            className: classNames({
-              [suffix.props.className!]: suffix.props.className,
-              [`${prefixCls}-arrow-icon`]: true,
-            }),
-          },
-        ) : suffix) || (
+        ? React.cloneElement(suffix) : suffix) || (
         <Icon type="down" className={`${prefixCls}-arrow-icon`} />
       );
 
