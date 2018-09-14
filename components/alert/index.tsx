@@ -4,7 +4,6 @@ import Animate from 'rc-animate';
 import Icon, { ThemeType } from '../icon';
 import classNames from 'classnames';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
-import warning from '../_util/warning';
 
 function noop() { }
 
