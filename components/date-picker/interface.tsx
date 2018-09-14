@@ -10,6 +10,7 @@ export interface PickerProps {
   disabled?: boolean;
   allowClear?: boolean;
   className?: string;
+  suffix?: React.ReactNode;
   style?: React.CSSProperties;
   popupStyle?: React.CSSProperties;
   dropdownClassName?: string;

@@ -101,7 +101,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
     render() {
       const { value, showDate } = this.state;
       const props = omit(this.props, ['onChange']);
-      const { prefixCls, locale, localeCode } = props;
+      const { prefixCls, locale, localeCode, suffix } = props;
 
       const placeholder = ('placeholder' in props)
         ? props.placeholder : locale.lang.placeholder;
@@ -168,6 +168,20 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
         />
       ) : null;
 
+      const inputIcon = suffix && (
+        React.isValidElement<{ className?: string }>(suffix)
+          ? React.cloneElement(
+            suffix,
+            {
+              className: classNames({
+                [suffix.props.className!]: suffix.props.className,
+                [`${prefixCls}-picker-icon`]: true,
+              }),
+            },
+          ) : <span className={`${prefixCls}-picker-icon`}>{suffix}</span>) || (
+          <Icon type="calendar" className={`${prefixCls}-picker-icon`} />
+        );
+
       const dataOrAriaProps = getDataOrAriaProps(props);
       const input = ({ value: inputValue }: { value: moment.Moment | null }) => (
         <div>
@@ -181,7 +195,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
             {...dataOrAriaProps}
           />
           {clearIcon}
-          <Icon type="calendar" className={`${prefixCls}-picker-icon`}/>
+          {inputIcon}
         </div>
       );
 
