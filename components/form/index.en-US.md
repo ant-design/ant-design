@@ -182,10 +182,7 @@ More option at [rc-form option](https://github.com/react-component/form#option-o
 
 ### Form.Item
 
-Note:
-
-- If Form.Item has multiple children that had been decorated by `getFieldDecorator`, `help` and `required` and `validateStatus` can't be generated automatically.
-- Before `2.2.0`, form controls must be child of Form.Item, otherwise, you need to set `help`, `required` and `validateStatus` by yourself.
+Note: if Form.Item has multiple children that had been decorated by `getFieldDecorator`, `help` and `required` and `validateStatus` can't be generated automatically.
 
 | Property | Description | Type | Default Value |
 | -------- | ----------- | ---- | ------------- |
