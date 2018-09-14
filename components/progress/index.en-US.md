@@ -20,6 +20,7 @@ If it will take a long time to complete an operation, you can use `Progress` to 
 | format | template function of the content | function(percent, successPercent) | `percent => percent + '%'` |
 | gapDegree `(type=circle)` | the gap degree of half circle, 0 ~ 360 | number | 0 |
 | gapPosition `(type=circle)` | the gap position, options: `top` `bottom` `left` `right` | string | `top` |
+| icon | custom progress icon | ReactElement \| { success?: ReactNode, exception?: ReactNode } | - |
 | percent | to set the completion percentage | number | 0 |
 | showInfo | whether to display the progress value and the status icon | boolean | true |
 | status | to set the status of the Progress, options: `success` `exception` `active` | string | - |
