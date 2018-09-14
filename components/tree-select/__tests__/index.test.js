@@ -1,8 +1,9 @@
 import React from 'react';
+import { render, mount } from 'enzyme';
 import TreeSelect from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import Icon from '../../icon';
-import { render, mount } from 'enzyme';
+
 const TreeNode = TreeSelect.TreeNode;
 
 describe('TreeSelect', () => {
