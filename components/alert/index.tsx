@@ -4,6 +4,7 @@ import Animate from 'rc-animate';
 import Icon, { ThemeType } from '../icon';
 import classNames from 'classnames';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
+import warning from '../_util/warning';
 
 function noop() { }
 
@@ -31,6 +32,7 @@ export interface AlertProps {
   prefixCls?: string;
   className?: string;
   banner?: boolean;
+  icon?: React.ReactNode;
 }
 
 export default class Alert extends React.Component<AlertProps, any> {
@@ -64,7 +66,7 @@ export default class Alert extends React.Component<AlertProps, any> {
   render() {
     let {
       closable, description, type, prefixCls = 'ant-alert', message, closeText, showIcon, banner,
-      className = '', style, iconType,
+      className = '', style, iconType, icon,
     } = this.props;
 
     // banner模式默认有 Icon
@@ -73,6 +75,8 @@ export default class Alert extends React.Component<AlertProps, any> {
     type = banner && type === undefined ? 'warning' : type || 'info';
 
     let iconTheme: ThemeType = 'filled';
+    // should we give a warning?
+    // warning(!iconType, `The property 'iconType' is deprecated. Use the property 'icon' instead.`);
     if (!iconType) {
       switch (type) {
         case 'success':
@@ -117,7 +121,19 @@ export default class Alert extends React.Component<AlertProps, any> {
 
     const dataOrAriaProps = getDataOrAriaProps(this.props);
 
-    const iconNode = <Icon className={`${prefixCls}-icon`} type={iconType} theme={iconTheme} />;
+    const iconNode = icon && (
+      React.isValidElement<{ className?: string }>(icon)
+        ? React.cloneElement(
+          icon,
+          {
+            className: classNames({
+              [icon.props.className!]: icon.props.className,
+              [`${prefixCls}-icon`]: true,
+            }),
+          },
+        ) : <span className={`${prefixCls}-icon`}>{icon}</span>) || (
+        <Icon className={`${prefixCls}-icon`} type={iconType} theme={iconTheme} />
+      );
 
     return this.state.closed ? null : (
       <Animate
