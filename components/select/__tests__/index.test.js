@@ -1,7 +1,8 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render, mount } from 'enzyme';
 import Select from '..';
 import focusTest from '../../../tests/shared/focusTest';
+import Icon from '../../icon';
 
 const { Option } = Select;
 
@@ -77,5 +78,20 @@ describe('Select', () => {
     wrapper.find('.ant-select').simulate('click');
     expect(onDropdownVisibleChange).toHaveBeenLastCalledWith(true);
     expect(dropdownWrapper.props().visible).toBe(false);
+  });
+
+  it('support suffix icon and suffix string', () => {
+    const wrapperIcon = mount(
+      <Select suffix={<Icon type="smile" />} defaultValue="lucy" style={{ width: 120 }}>
+        <Option value="lucy">Lucy</Option>
+      </Select>
+    );
+    const wrapperString = mount(
+      <Select suffix="text" defaultValue="lucy" style={{ width: 120 }}>
+        <Option value="lucy">Lucy</Option>
+      </Select>
+    );
+    expect(render(wrapperIcon)).toMatchSnapshot();
+    expect(render(wrapperString)).toMatchSnapshot();
   });
 });

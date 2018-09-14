@@ -183,10 +183,7 @@ validateFields(['field1', 'field2'], options, (errors, values) => {
 
 ### Form.Item
 
-注意：
-
-- 一个 Form.Item 建议只放一个被 getFieldDecorator 装饰过的 child，当有多个被装饰过的 child 时，`help` `required` `validateStatus` 无法自动生成。
-- `2.2.0` 之前，只有当表单域为 Form.Item 的子元素时，才会自动生成 `help` `required` `validateStatus`，嵌套情况需要自行设置。
+注意：一个 Form.Item 建议只放一个被 getFieldDecorator 装饰过的 child，当有多个被装饰过的 child 时，`help` `required` `validateStatus` 无法自动生成。
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |

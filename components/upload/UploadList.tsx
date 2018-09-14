@@ -136,15 +136,17 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         [`${prefixCls}-list-item`]: true,
         [`${prefixCls}-list-item-${file.status}`]: true,
       });
+      const linkProps = typeof file.linkProps === 'string'
+        ? JSON.parse(file.linkProps) : file.linkProps;
       const preview = file.url ? (
         <a
-          {...file.linkProps}
-          href={file.url}
           target="_blank"
           rel="noopener noreferrer"
           className={`${prefixCls}-list-item-name`}
-          onClick={e => this.handlePreview(file, e)}
           title={file.name}
+          {...linkProps}
+          href={file.url}
+          onClick={e => this.handlePreview(file, e)}
         >
           {file.name}
         </a>
