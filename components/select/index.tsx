@@ -179,9 +179,19 @@ export default class Select extends React.Component<SelectProps, {}> {
       combobox: this.isCombobox(),
     };
 
-    const inputIcon = suffix || (
-      <Icon type="down" className={`${prefixCls}-arrow-icon`} />
-    );
+    const inputIcon = suffix && (
+      React.isValidElement<{ className?: string }>(suffix)
+        ? React.cloneElement(
+          suffix,
+          {
+            className: classNames({
+              [suffix.props.className!]: suffix.props.className,
+              [`${prefixCls}-arrow-icon`]: true,
+            }),
+          },
+        ) : suffix) || (
+        <Icon type="down" className={`${prefixCls}-arrow-icon`} />
+      );
 
     const removeIcon = (
       <Icon type="close" className={`${prefixCls}-remove-icon`} />
