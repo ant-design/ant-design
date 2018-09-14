@@ -44,6 +44,7 @@ import moment from 'moment';
 | placeholder | display when there's no value | string | "Select a time" |
 | popupClassName | className of panel | string | '' |
 | secondStep | interval between seconds in picker | number | 1 |
+| suffix | The custom suffix icon | ReactNode | - |
 | use12Hours | display as 12 hours format, with default format `h:mm:ss a` | boolean | false |
 | value | to set time | [moment](http://momentjs.com/) | - |
 | onChange | a callback function, can be executed when the selected time is changing | function(time: moment, timeString: string): void | - |
