@@ -531,6 +531,7 @@ exports[`renders ./components/cascader/demo/suffix.md correctly 1`] = `
   </span>
   <span
     class="ant-cascader-picker"
+    style="margin-top:1rem"
     tabindex="0"
   >
     <span
@@ -547,7 +548,7 @@ exports[`renders ./components/cascader/demo/suffix.md correctly 1`] = `
     <span
       class="ant-cascader-picker-arrow"
     >
-      123
+      ab
     </span>
   </span>
 </div>
