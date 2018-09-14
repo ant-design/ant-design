@@ -46,6 +46,7 @@ title: Select
 | showArrow | 是否显示下拉小箭头 | boolean | true |
 | showSearch | 使单选模式可搜索 | boolean | false |
 | size | 选择框大小，可选 `large` `small` | string | default |
+| suffix | 自定义的选择框后缀图标 | ReactNode | - |
 | tokenSeparators | 在 tags 和 multiple 模式下自动分词的分隔符 | string\[] |  |
 | value | 指定当前选中的条目 | string\|string\[]\|number\|number\[] | - |
 | onBlur | 失去焦点的时回调 | function | - |
