@@ -1218,3 +1218,23 @@ exports[`Cascader support controlled mode 1`] = `
   </i>
 </span>
 `;
+
+exports[`Cascader support suffix icon and suffix string 1`] = `
+<div>
+  <div
+    class="ant-cascader-menus  ant-cascader-menus-empty ant-cascader-menus-placement-bottomLeft  ant-cascader-menus-hidden"
+  >
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Cascader support suffix icon and suffix string 2`] = `
+<div>
+  <div
+    class="ant-cascader-menus  ant-cascader-menus-empty ant-cascader-menus-placement-bottomLeft  ant-cascader-menus-hidden"
+  >
+    <div />
+  </div>
+</div>
+`;

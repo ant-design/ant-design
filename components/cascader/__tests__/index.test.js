@@ -2,6 +2,7 @@ import React from 'react';
 import { render, mount } from 'enzyme';
 import KeyCode from 'rc-util/lib/KeyCode';
 import Cascader from '..';
+import Icon from '../../icon';
 import focusTest from '../../../tests/shared/focusTest';
 
 const options = [{
@@ -50,6 +51,17 @@ describe('Cascader', () => {
     wrapper.find('input').simulate('click');
     expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
     expect(onPopupVisibleChange).toHaveBeenCalledWith(true);
+  });
+
+  it('support suffix icon and suffix string', () => {
+    const wrapperIcon = mount(
+      <Cascader suffix={<Icon type="smile" />} options={options} />
+    );
+    const wrapperString = mount(
+      <Cascader suffix="text" options={options} />
+    );
+    expect(render(wrapperIcon.find('Trigger').instance().getComponent())).toMatchSnapshot();
+    expect(render(wrapperString.find('Trigger').instance().getComponent())).toMatchSnapshot();
   });
 
   it('support controlled mode', () => {

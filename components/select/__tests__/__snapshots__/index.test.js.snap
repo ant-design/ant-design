@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select support suffix icon and suffix string 1`] = `
+<div>
+  <div
+    class="ant-select-dropdown ant-select-dropdown--single ant-select-dropdown-placement-bottomLeft  ant-select-dropdown-hidden"
+  />
+</div>
+`;
+
+exports[`Select support suffix icon and suffix string 2`] = `
+<div>
+  <div
+    class="ant-select-dropdown ant-select-dropdown--single ant-select-dropdown-placement-bottomLeft  ant-select-dropdown-hidden"
+  />
+</div>
+`;
