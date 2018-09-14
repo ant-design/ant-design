@@ -60,8 +60,8 @@ describe('Cascader', () => {
     const wrapperString = mount(
       <Cascader suffix="text" options={options} />
     );
-    expect(render(wrapperIcon.find('Trigger').instance().getComponent())).toMatchSnapshot();
-    expect(render(wrapperString.find('Trigger').instance().getComponent())).toMatchSnapshot();
+    expect(render(wrapperIcon)).toMatchSnapshot();
+    expect(render(wrapperString)).toMatchSnapshot();
   });
 
   it('support controlled mode', () => {

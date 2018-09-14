@@ -91,7 +91,7 @@ describe('Select', () => {
         <Option value="lucy">Lucy</Option>
       </Select>
     );
-    expect(render(wrapperIcon.find('Trigger').instance().getComponent())).toMatchSnapshot();
-    expect(render(wrapperString.find('Trigger').instance().getComponent())).toMatchSnapshot();
+    expect(render(wrapperIcon)).toMatchSnapshot();
+    expect(render(wrapperString)).toMatchSnapshot();
   });
 });
