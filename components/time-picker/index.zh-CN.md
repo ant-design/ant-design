@@ -45,6 +45,7 @@ import moment from 'moment';
 | placeholder | 没有值的时候显示的内容 | string | "请选择时间" |
 | popupClassName | 弹出层类名 | string | '' |
 | secondStep | 秒选项间隔 | number | 1 |
+| suffix | 自定义的选择框后缀图标 | ReactNode | - |
 | use12Hours | 使用 12 小时制，为 true 时 `format` 默认为 `h:mm:ss a` | boolean | false |
 | value | 当前时间 | [moment](http://momentjs.com/) | 无 |
 | onChange | 时间发生变化的回调 | function(time: moment, timeString: string): void | 无 |
