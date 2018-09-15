@@ -27,6 +27,7 @@ export interface TransferItem {
 export interface TransferProps {
   prefixCls?: string;
   className?: string;
+  disabled?: boolean;
   dataSource: TransferItem[];
   targetKeys?: string[];
   selectedKeys?: string[];
@@ -74,6 +75,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
 
   static propTypes = {
     prefixCls: PropTypes.string,
+    disabled: PropTypes.bool,
     dataSource: PropTypes.array,
     render: PropTypes.func,
     targetKeys: PropTypes.array,
@@ -348,6 +350,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
     const {
       prefixCls = 'ant-transfer',
       className,
+      disabled,
       operations = [],
       showSearch,
       body,
@@ -366,7 +369,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
     const leftActive = targetSelectedKeys.length > 0;
     const rightActive = sourceSelectedKeys.length > 0;
 
-    const cls = classNames(className, prefixCls);
+    const cls = classNames(className, prefixCls, disabled && `${prefixCls}-disabled`);
 
     const titles = this.getTitles(locale);
     return (
@@ -389,6 +392,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
           footer={footer}
           lazy={lazy}
           onScroll={this.handleLeftScroll}
+          disabled={disabled}
           {...locale}
         />
         <Operation
@@ -400,6 +404,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
           leftArrowText={operations[1]}
           moveToLeft={this.moveToLeft}
           style={operationStyle}
+          disabled={disabled}
         />
         <List
           prefixCls={`${prefixCls}-list`}
@@ -419,6 +424,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
           footer={footer}
           lazy={lazy}
           onScroll={this.handleRightScroll}
+          disabled={disabled}
           {...locale}
         />
       </div>

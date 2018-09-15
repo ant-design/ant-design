@@ -248,235 +248,247 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
 `;
 
 exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
-<div
-  class="ant-transfer"
->
+<div>
   <div
-    class="ant-transfer-list"
+    class="ant-transfer"
   >
     <div
-      class="ant-transfer-list-header"
+      class="ant-transfer-list"
     >
-      <label
-        class="ant-checkbox-wrapper"
+      <div
+        class="ant-transfer-list-header"
       >
-        <span
-          class="ant-checkbox"
+        <label
+          class="ant-checkbox-wrapper"
         >
-          <input
-            class="ant-checkbox-input"
-            type="checkbox"
-          />
           <span
-            class="ant-checkbox-inner"
-          />
-        </span>
-      </label>
-      <span
-        class="ant-transfer-list-header-selected"
-      >
-        <span>
-          14 items
-        </span>
+            class="ant-checkbox"
+          >
+            <input
+              class="ant-checkbox-input"
+              type="checkbox"
+            />
+            <span
+              class="ant-checkbox-inner"
+            />
+          </span>
+        </label>
         <span
-          class="ant-transfer-list-header-title"
+          class="ant-transfer-list-header-selected"
         >
-          Source
+          <span>
+            14 items
+          </span>
+          <span
+            class="ant-transfer-list-header-title"
+          >
+            Source
+          </span>
         </span>
-      </span>
+      </div>
+      <div
+        class="ant-transfer-list-body"
+      >
+        <ul
+          class="ant-transfer-list-content"
+        >
+          <div
+            class="LazyLoad"
+            style="height:32px"
+          />
+          <div
+            class="LazyLoad"
+            style="height:32px"
+          />
+          <div
+            class="LazyLoad"
+            style="height:32px"
+          />
+          <div
+            class="LazyLoad"
+            style="height:32px"
+          />
+          <div
+            class="LazyLoad"
+            style="height:32px"
+          />
+          <div
+            class="LazyLoad"
+            style="height:32px"
+          />
+          <div
+            class="LazyLoad"
+            style="height:32px"
+          />
+          <div
+            class="LazyLoad"
+            style="height:32px"
+          />
+          <div
+            class="LazyLoad"
+            style="height:32px"
+          />
+          <div
+            class="LazyLoad"
+            style="height:32px"
+          />
+          <div
+            class="LazyLoad"
+            style="height:32px"
+          />
+          <div
+            class="LazyLoad"
+            style="height:32px"
+          />
+          <div
+            class="LazyLoad"
+            style="height:32px"
+          />
+          <div
+            class="LazyLoad"
+            style="height:32px"
+          />
+        </ul>
+        <div
+          class="ant-transfer-list-body-not-found"
+        >
+          Not Found
+        </div>
+      </div>
     </div>
     <div
-      class="ant-transfer-list-body"
+      class="ant-transfer-operation"
     >
-      <ul
-        class="ant-transfer-list-content"
+      <button
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        disabled=""
+        type="button"
       >
-        <div
-          class="LazyLoad"
-          style="height:32px"
-        />
-        <div
-          class="LazyLoad"
-          style="height:32px"
-        />
-        <div
-          class="LazyLoad"
-          style="height:32px"
-        />
-        <div
-          class="LazyLoad"
-          style="height:32px"
-        />
-        <div
-          class="LazyLoad"
-          style="height:32px"
-        />
-        <div
-          class="LazyLoad"
-          style="height:32px"
-        />
-        <div
-          class="LazyLoad"
-          style="height:32px"
-        />
-        <div
-          class="LazyLoad"
-          style="height:32px"
-        />
-        <div
-          class="LazyLoad"
-          style="height:32px"
-        />
-        <div
-          class="LazyLoad"
-          style="height:32px"
-        />
-        <div
-          class="LazyLoad"
-          style="height:32px"
-        />
-        <div
-          class="LazyLoad"
-          style="height:32px"
-        />
-        <div
-          class="LazyLoad"
-          style="height:32px"
-        />
-        <div
-          class="LazyLoad"
-          style="height:32px"
-        />
-      </ul>
+        <i
+          class="anticon anticon-right"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="right"
+            fill="currentColor"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+            />
+          </svg>
+        </i>
+      </button>
+      <button
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        disabled=""
+        type="button"
+      >
+        <i
+          class="anticon anticon-left"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="left"
+            fill="currentColor"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+            />
+          </svg>
+        </i>
+      </button>
+    </div>
+    <div
+      class="ant-transfer-list"
+    >
       <div
-        class="ant-transfer-list-body-not-found"
+        class="ant-transfer-list-header"
       >
-        Not Found
+        <label
+          class="ant-checkbox-wrapper"
+        >
+          <span
+            class="ant-checkbox"
+          >
+            <input
+              class="ant-checkbox-input"
+              type="checkbox"
+            />
+            <span
+              class="ant-checkbox-inner"
+            />
+          </span>
+        </label>
+        <span
+          class="ant-transfer-list-header-selected"
+        >
+          <span>
+            6 items
+          </span>
+          <span
+            class="ant-transfer-list-header-title"
+          >
+            Target
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-transfer-list-body"
+      >
+        <ul
+          class="ant-transfer-list-content"
+        >
+          <div
+            class="LazyLoad"
+            style="height:32px"
+          />
+          <div
+            class="LazyLoad"
+            style="height:32px"
+          />
+          <div
+            class="LazyLoad"
+            style="height:32px"
+          />
+          <div
+            class="LazyLoad"
+            style="height:32px"
+          />
+          <div
+            class="LazyLoad"
+            style="height:32px"
+          />
+          <div
+            class="LazyLoad"
+            style="height:32px"
+          />
+        </ul>
+        <div
+          class="ant-transfer-list-body-not-found"
+        >
+          Not Found
+        </div>
       </div>
     </div>
   </div>
-  <div
-    class="ant-transfer-operation"
+  <span
+    class="ant-switch"
+    tabindex="0"
   >
-    <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
-      disabled=""
-      type="button"
+    <span
+      class="ant-switch-inner"
     >
-      <i
-        class="anticon anticon-right"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="right"
-          fill="currentColor"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
-          />
-        </svg>
-      </i>
-    </button>
-    <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
-      disabled=""
-      type="button"
-    >
-      <i
-        class="anticon anticon-left"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="left"
-          fill="currentColor"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-          />
-        </svg>
-      </i>
-    </button>
-  </div>
-  <div
-    class="ant-transfer-list"
-  >
-    <div
-      class="ant-transfer-list-header"
-    >
-      <label
-        class="ant-checkbox-wrapper"
-      >
-        <span
-          class="ant-checkbox"
-        >
-          <input
-            class="ant-checkbox-input"
-            type="checkbox"
-          />
-          <span
-            class="ant-checkbox-inner"
-          />
-        </span>
-      </label>
-      <span
-        class="ant-transfer-list-header-selected"
-      >
-        <span>
-          6 items
-        </span>
-        <span
-          class="ant-transfer-list-header-title"
-        >
-          Target
-        </span>
-      </span>
-    </div>
-    <div
-      class="ant-transfer-list-body"
-    >
-      <ul
-        class="ant-transfer-list-content"
-      >
-        <div
-          class="LazyLoad"
-          style="height:32px"
-        />
-        <div
-          class="LazyLoad"
-          style="height:32px"
-        />
-        <div
-          class="LazyLoad"
-          style="height:32px"
-        />
-        <div
-          class="LazyLoad"
-          style="height:32px"
-        />
-        <div
-          class="LazyLoad"
-          style="height:32px"
-        />
-        <div
-          class="LazyLoad"
-          style="height:32px"
-        />
-      </ul>
-      <div
-        class="ant-transfer-list-body-not-found"
-      >
-        Not Found
-      </div>
-    </div>
-  </div>
+      disabled
+    </span>
+  </span>
 </div>
 `;
 

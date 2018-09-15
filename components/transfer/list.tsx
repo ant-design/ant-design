@@ -43,6 +43,7 @@ export interface TransferListProps {
   footer?: (props: any) => void;
   lazy?: boolean | {};
   onScroll: Function;
+  disabled?: boolean;
 }
 
 export default class TransferList extends React.Component<TransferListProps, any> {
@@ -160,7 +161,7 @@ export default class TransferList extends React.Component<TransferListProps, any
 
   render() {
     const {
-      prefixCls, dataSource, titleText, checkedKeys, lazy,
+      prefixCls, dataSource, titleText, checkedKeys, lazy, disabled,
       body = noop, footer = noop, showSearch, style, filter,
       searchPlaceholder, notFoundContent, itemUnit, itemsUnit, onScroll,
     } = this.props;
@@ -192,6 +193,7 @@ export default class TransferList extends React.Component<TransferListProps, any
       const checked = checkedKeys.indexOf(item.key) >= 0;
       return (
         <Item
+          disabled={disabled}
           key={item.key}
           item={item}
           lazy={lazy}
@@ -219,7 +221,7 @@ export default class TransferList extends React.Component<TransferListProps, any
     ) : null;
 
     const listBody = bodyDom || (
-      <div className={showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`}>
+      <div className={classNames(showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`)}>
         {search}
         <Animate
           component="ul"
@@ -247,6 +249,7 @@ export default class TransferList extends React.Component<TransferListProps, any
     const checkAllCheckbox = (
       <Checkbox
         ref="checkbox"
+        disabled={disabled}
         checked={checkedAll}
         indeterminate={checkStatus === 'part'}
         onChange={() => this.props.handleSelectAll(filteredDataSource, checkedAll)}
