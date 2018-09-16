@@ -2,6 +2,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Alert from '..';
 
+const { ErrorBoundary } = Alert;
+
 describe('Alert', () => {
   beforeAll(() => {
     jest.useFakeTimers();
@@ -63,5 +65,17 @@ describe('Alert', () => {
       'Warning: [antd: Alert] `iconType` is deprecated. Please use `icon` instead.',
     );
     warnSpy.mockRestore();
+  });
+
+  const testIt = process.env.REACT === '15' ? it.skip : it;
+  testIt('ErrorBoundary', () => {
+    const ThrowError = () => <NotExisted />; // eslint-disable-line
+    const wrapper = mount(
+      <ErrorBoundary>
+        <ThrowError />
+      </ErrorBoundary>,
+    );
+    // eslint-disable-next-line jest/no-standalone-expect
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

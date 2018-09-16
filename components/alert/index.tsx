@@ -6,6 +6,7 @@ import Icon, { ThemeType } from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 import warning from '../_util/warning';
+import ErrorBoundary from './ErrorBoundary';
 
 function noop() {}
 
@@ -42,6 +43,8 @@ export interface AlertState {
 }
 
 export default class Alert extends React.Component<AlertProps, AlertState> {
+  static ErrorBoundary = ErrorBoundary;
+
   constructor(props: AlertProps) {
     super(props);
 

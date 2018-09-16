@@ -5,10 +5,11 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import classNames from 'classnames';
 import LZString from 'lz-string';
-import { Icon, Tooltip } from 'antd';
+import { Icon, Tooltip, Alert } from 'antd';
 import EditButton from './EditButton';
-import ErrorBoundary from './ErrorBoundary';
 import BrowserFrame from '../BrowserFrame';
+
+const { ErrorBoundary } = Alert;
 
 function compress(string) {
   return LZString.compressToBase64(string)
