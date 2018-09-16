@@ -29,6 +29,19 @@ ReactDOM.render(<IconDisplay />, mountNode);
 | component | The component used for the root node. This will override the **`type`** property. | ComponentType<CustomIconComponentProps\> | - |
 | twoToneColor | Only support the two-tone icon. Specific the primary color. | string (hex color) | - |
 
+### Svg icons
+
+We introduced svg icons in `3.9.x` version replacing font icons which brings benefits below:
+
+- Complete offline usage of icon, no dependency of alipay cdn font icon file and no more empty square during downloading than no need to deploy icon font files locally either.
+- Much more display accuracy in lower-level screens.
+- Support multiple colors for icon.
+- No need to change built-in icons with overriding styles by providing more props in component.
+
+More disscussion of svg icon reference to [#10353](https://github.com/ant-design/ant-design/issues/10353).
+
+> ⚠️ About the extra bundle size brought by all svg icons we imported in antd@3.9.x, we will provide new API to allow developers importing icons as your need, you can trace [#12011](https://github.com/ant-design/ant-design/issues/12011) for further progress.
+
 The properties `theme`, `component` and `twoToneColor` are added in `antd@3.9.x`. The best practice is to pass the property `theme` to every `<Icon />` components.
 
 ```jsx
@@ -41,12 +54,16 @@ All the icons will render to `<svg>`. You can still set `style` and `className` 
 <Icon type="message" style={{ fontSize: '16px', color: '#08c' }} theme="outlined" />
 ```
 
+### Set TwoTone Color
+
 When using the two-tone icons, you can use the static methods `Icon.getTwoToneColor()` and `Icon.setTwoToneColor(colorString)` to spicify the primary color.
 
 ```jsx
 Icon.setTwoToneColor('#eb2f96');
 Icon.getTwoToneColor(); // #eb2f96
 ```
+
+### Custom Svg Icon
 
 You can import svg icon as an react component by using `webpack` and [`@svgr/webpack`](https://www.npmjs.com/package/@svgr/webpack). `@svgr/webpack`'s `options` [reference](https://github.com/smooth-code/svgr#options).
 
@@ -89,12 +106,11 @@ The following properties are available for the component:
 | className | The computed class name of the `svg` element | string | - |
 | style | The computed style of the `svg` element | CSSProperties | - |
 
+### Custom Font Icon
 
-### Use custom icon with iconfont.cn
+We added a `createFromIconfontCN` function to help developer using their own icons deployed at [iconfont.cn](http://iconfont.cn/) in a convenient way.
 
-#### Icon.createFromIconfontCN(options)
-
-This method is specified for [iconfont.cn](http://iconfont.cn/).
+> This method is specified for [iconfont.cn](http://iconfont.cn/).
 
 ```js
 const MyIcon = Icon.createFromIconfontCN({
