@@ -75,7 +75,7 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
       notFoundContent,
       dropdownStyle,
       dropdownClassName,
-      suffix,
+      suffixIcon,
       ...restProps
     } = this.props;
     const rest = omit(restProps, ['inputIcon', 'removeIcon', 'clearIcon', 'switcherIcon']);
@@ -90,9 +90,9 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
       checkable = <span className={`${prefixCls}-tree-checkbox-inner`} />;
     }
 
-    const inputIcon = suffix && (
-      React.isValidElement<{ className?: string }>(suffix)
-        ? React.cloneElement(suffix) : suffix) || (
+    const inputIcon = suffixIcon && (
+      React.isValidElement<{ className?: string }>(suffixIcon)
+        ? React.cloneElement(suffixIcon) : suffixIcon) || (
         <Icon type="down" className={`${prefixCls}-arrow-icon`} />
       );
 

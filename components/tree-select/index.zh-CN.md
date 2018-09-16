@@ -37,7 +37,7 @@ title: TreeSelect
 | showCheckedStrategy | 定义选中项回填的方式。`TreeSelect.SHOW_ALL`: 显示所有选中节点(包括父节点). `TreeSelect.SHOW_PARENT`: 只显示父节点(当父节点下所有子节点都选中时). 默认只显示子节点. | enum{TreeSelect.SHOW_ALL, TreeSelect.SHOW_PARENT, TreeSelect.SHOW_CHILD } | TreeSelect.SHOW_CHILD |
 | showSearch | 在下拉中显示搜索框(仅在单选模式下生效) | boolean | false |
 | size | 选择框大小，可选 `large` `small` | string | 'default' |
-| suffix | 自定义的选择框后缀图标 | ReactNode | - |
+| suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |
 | treeCheckable | 显示 checkbox | boolean | false |
 | treeCheckStrictly | checkable 状态下节点选择完全受控（父子节点选中状态不再关联），会使得 `labelInValue` 强制为 true | boolean | false |
 | treeData | treeNodes 数据，如果设置则不需要手动构造 TreeNode 节点（value 在整个树范围内唯一） | array&lt;{value, title, children, [disabled, disableCheckbox, selectable]}> | \[] |
