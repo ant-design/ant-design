@@ -41,7 +41,7 @@ subtitle: 级联选择
 | showSearch | 在选择框中显示搜索框 | boolean | false |
 | size | 输入框大小，可选 `large` `default` `small` | string | `default` |
 | style | 自定义样式 | string | - |
-| suffix | 自定义的选择框后缀图标 | ReactNode | - |
+| suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |
 | value | 指定选中项 | string\[] | - |
 | onChange | 选择完成后的回调 | `(value, selectedOptions) => void` | - |
 | onPopupVisibleChange | 显示/隐藏浮层的回调 | `(value) => void` | - |
