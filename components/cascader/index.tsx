@@ -83,7 +83,7 @@ export interface CascaderProps {
   getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
   popupVisible?: boolean;
   fieldNames?: FieldNamesType;
-  suffix?: React.ReactNode;
+  suffixIcon?: React.ReactNode;
 }
 
 export interface CascaderState {
@@ -342,7 +342,7 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     const { props, state } = this;
     const {
       prefixCls, inputPrefixCls, children, placeholder, size, disabled,
-      className, style, allowClear, showSearch = false, suffix, ...otherProps
+      className, style, allowClear, showSearch = false, suffixIcon, ...otherProps
     } = props;
     const { value, inputFocused } = state;
 
@@ -415,17 +415,17 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
       dropdownMenuColumnStyle.width = this.input.input.offsetWidth;
     }
 
-    const inputIcon = suffix && (
-      React.isValidElement<{ className?: string }>(suffix)
+    const inputIcon = suffixIcon && (
+      React.isValidElement<{ className?: string }>(suffixIcon)
         ? React.cloneElement(
-          suffix,
+          suffixIcon,
           {
             className: classNames({
-              [suffix.props.className!]: suffix.props.className,
+              [suffixIcon.props.className!]: suffixIcon.props.className,
               [`${prefixCls}-picker-arrow`]: true,
             }),
           },
-        ) : <span className={`${prefixCls}-picker-arrow`}>{suffix}</span>) || (
+        ) : <span className={`${prefixCls}-picker-arrow`}>{suffixIcon}</span>) || (
         <Icon type="down" className={arrowCls} />
       );
 

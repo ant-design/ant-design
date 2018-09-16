@@ -48,13 +48,13 @@ function onChange(value) {
 ReactDOM.render(
   <div>
     <Cascader
-      suffix={<Icon type="smile" />}
+      suffixIcon={<Icon type="smile" />}
       options={options}
       onChange={onChange}
       placeholder="Please select"
     />
     <Cascader
-      suffix="ab"
+      suffixIcon="ab"
       style={{ marginTop: '1rem' }}
       options={options}
       onChange={onChange}
