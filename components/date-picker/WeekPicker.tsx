@@ -87,7 +87,7 @@ class WeekPicker extends React.Component<any, any> {
     const {
       prefixCls, className, disabled, pickerClass, popupStyle,
       pickerInputClass, format, allowClear, locale, localeCode, disabledDate,
-      style, onFocus, onBlur, id, suffix,
+      style, onFocus, onBlur, id, suffixIcon,
     } = this.props;
 
     const pickerValue = this.state.value;
@@ -119,17 +119,17 @@ class WeekPicker extends React.Component<any, any> {
       />
     ) : null;
 
-    const inputIcon = suffix && (
-      React.isValidElement<{ className?: string }>(suffix)
+    const inputIcon = suffixIcon && (
+      React.isValidElement<{ className?: string }>(suffixIcon)
         ? React.cloneElement(
-          suffix,
+          suffixIcon,
           {
             className: classNames({
-              [suffix.props.className!]: suffix.props.className,
+              [suffixIcon.props.className!]: suffixIcon.props.className,
               [`${prefixCls}-picker-icon`]: true,
             }),
           },
-        ) : <span className={`${prefixCls}-picker-icon`}>{suffix}</span>) || (
+        ) : <span className={`${prefixCls}-picker-icon`}>{suffixIcon}</span>) || (
         <Icon type="calendar" className={`${prefixCls}-picker-icon`} />
       );
 
