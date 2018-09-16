@@ -31,7 +31,6 @@ export interface ProgressProps {
   gapDegree?: number;
   gapPosition?: 'top' | 'bottom' | 'left' | 'right';
   size?: ProgressSize;
-  icon?: React.ReactElement<any> | { success?: React.ReactNode, exception?: React.ReactNode };
 }
 
 const validProgress = (progress: number | undefined) => {
@@ -76,7 +75,6 @@ export default class Progress extends React.Component<ProgressProps, {}> {
     const {
       prefixCls, className, percent = 0, status, format, trailColor, size, successPercent,
       type, strokeWidth, width, showInfo, gapDegree = 0, gapPosition, strokeColor, strokeLinecap = 'round',
-      icon,
       ...restProps
     } = props;
     const progressStatus = parseInt((successPercent ? successPercent.toString() : percent.toString()), 10) >= 100 &&
@@ -91,13 +89,9 @@ export default class Progress extends React.Component<ProgressProps, {}> {
       if (format || (progressStatus !== 'exception' && progressStatus !== 'success')) {
         text = textFormatter(validProgress(percent), validProgress(successPercent));
       } else if (progressStatus === 'exception') {
-        let exceptionIcon = typeof icon === 'object' && !React.isValidElement(icon) && (icon as any).exception;
-        text = exceptionIcon || (React.isValidElement(icon) && icon) ||
-          <Icon type={`close${iconType}`} theme={type === 'line' ? 'filled' : 'outlined'} />;
+        text = <Icon type={`close${iconType}`} theme={type === 'line' ? 'filled' : 'outlined'} />;
       } else if (progressStatus === 'success') {
-        let successIcon = typeof icon === 'object' && !React.isValidElement(icon) && (icon as any).success;
-        text = successIcon || (React.isValidElement(icon) && icon) ||
-          <Icon type={`check${iconType}`} theme={type === 'line' ? 'filled' : 'outlined'} />;
+        text = <Icon type={`check${iconType}`} theme={type === 'line' ? 'filled' : 'outlined'} />;
       }
       progressInfo = <span className={`${prefixCls}-text`}>{text}</span>;
     }
