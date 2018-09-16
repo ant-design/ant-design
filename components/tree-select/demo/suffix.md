@@ -34,7 +34,7 @@ class Demo extends React.Component {
     return (
       <TreeSelect
         showSearch
-        suffix={icon}
+        suffixIcon={icon}
         style={{ width: 300 }}
         value={this.state.value}
         dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
