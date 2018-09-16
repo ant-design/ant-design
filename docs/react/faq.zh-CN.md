@@ -74,13 +74,13 @@ Yes, antd is designed to develop a complete background application, we override 
 
 Or follow instruction in [How to avoid modifying global styles?](docs/react/customize-theme#How-to-avoid-modifying-global-styles-?)
 
-### I cannot install `antd` and `antd`'s dependencies(etc...). FYI, I live in C mainland.
+### I cannot install `antd` and `antd`'s dependencies(etc...). FYI, I live in China mainland.
 
 Long live the Girl Friend Wall! And try [cnpm](http://npm.taobao.org/).
 
 ### I set `dependencies.antd` as git repository in package.json, but it doesn't work.
 
-Yes, please install `antd` with npm. If you want to install the latest version, try `npm install antd@beta`.
+Yes, please install `antd` with npm.
 
 ### `message` and `notification` is lower case, but other components are capitalized. Typo?
 
