@@ -1,5 +1,5 @@
 ---
-order: 9
+order: 10
 title: 贡献指南
 toc: false
 ---
@@ -16,7 +16,7 @@ toc: false
 
 ## 分支管理
 
-基于我们的 [发布周期](/changelog)，我们每个月都会从 `master` 分支切一个 `feature` 分支出来（比如 `features-3.1` 分支用来发布 3.1 版本）。 如果你要修一个 bug，那么请发 pull request 到 `master`；如果你要提一个增加新功能的 pull request，那么请基于 `feature` 分支来做。
+基于我们的 [发布周期](/changelog)，我们长期维护两个分支 `master` 和 `feature`。如果你要修一个 bug，那么请发 pull request 到 `master`；如果你要提一个增加新功能的 pull request，那么请基于 `feature` 分支来做。
 
 ## Bugs
 

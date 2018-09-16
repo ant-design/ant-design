@@ -1,5 +1,5 @@
 ---
-order: 9
+order: 10
 title: Contributing
 toc: false
 ---
@@ -16,7 +16,7 @@ All work on Ant Design happens directly on [GitHub](https://github.com/ant-desig
 
 ## Branch Organization
 
-According to our [release schedule](changelog#Release-Schedule), we'll cut a `feature` branch (e.g. `feature-3.1` for 3.1 release) from `master` every month. If you send a bugfix pull request, please do it against the `master` branch, if it's a feature pull request, please do it against the `feature` branch.
+According to our [release schedule](changelog#Release-Schedule), we maintians two branchs `master` and `feature`. If you send a bugfix pull request, please do it against the `master` branch, if it's a feature pull request, please do it against the `feature` branch.
 
 ## Bugs
 
