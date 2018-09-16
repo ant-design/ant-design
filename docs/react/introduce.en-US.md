@@ -129,7 +129,7 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 - [Motion](https://motion.ant.design)
 - [Developer Instruction](https://github.com/ant-design/ant-design/wiki/Development)
 - [Versioning Release Note](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
-- [FAQ](https://github.com/ant-design/ant-design/wiki/FAQ)
+- [FAQ](/docs/react/faq)
 - [CodeSandbox template](https://u.ant.design/codesandbox-repro) for bug reports
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
 - [Customize Theme](/docs/react/customize-theme)
