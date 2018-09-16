@@ -21,7 +21,6 @@ title: Progress
 | format | 内容的模板函数 | function(percent, successPercent) | `percent => percent + '%'` |
 | gapDegree `(type=circle)` | 圆形进度条缺口角度，可取值 0 ~ 360 | number | 0 |
 | gapPosition `(type=circle)` | 圆形进度条缺口位置 | Enum{ 'top', 'bottom', 'left', 'right' } | `top` |
-| icon | 自定义的进度条图标 | ReactElement \| { success?: ReactNode, exception?: ReactNode } | - |
 | percent | 百分比 | number | 0 |
 | showInfo | 是否显示进度数值或状态图标 | boolean | true |
 | status | 状态，可选：`success` `exception` `active` | string | - |
