@@ -2,6 +2,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Alert from '..';
 
+const { ErrorBoundary } = Alert;
+
 describe('Alert', () => {
   beforeAll(() => {
     jest.useFakeTimers();
@@ -54,5 +56,16 @@ describe('Alert', () => {
       const input = wrapper.find('.ant-alert').getDOMNode();
       expect(input.getAttribute('role')).toBe('status');
     });
+  });
+
+  const testIt = process.env.REACT === '15' ? it.skip : it;
+  testIt('ErrorBoundary', () => {
+    const ThrowError = () => <NotExisted />; // eslint-disable-line
+    const wrapper = mount(
+      <ErrorBoundary>
+        <ThrowError />
+      </ErrorBoundary>
+    );
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });
