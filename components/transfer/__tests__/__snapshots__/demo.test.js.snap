@@ -479,16 +479,18 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
       </div>
     </div>
   </div>
-  <span
+  <button
+    aria-checked="false"
     class="ant-switch"
-    tabindex="0"
+    role="switch"
+    type="button"
   >
     <span
       class="ant-switch-inner"
     >
       disabled
     </span>
-  </span>
+  </button>
 </div>
 `;
 
