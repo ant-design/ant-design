@@ -254,7 +254,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
       disabledDate, disabledTime,
       showTime, showToday,
       ranges, onOk, locale, localeCode, format,
-      dateRender, onCalendarChange, suffix,
+      dateRender, onCalendarChange, suffixIcon,
     } = props;
 
     fixLocale(value, localeCode);
@@ -328,17 +328,17 @@ class RangePicker extends React.Component<any, RangePickerState> {
       />
     ) : null;
 
-    const inputIcon = suffix && (
-      React.isValidElement<{ className?: string }>(suffix)
+    const inputIcon = suffixIcon && (
+      React.isValidElement<{ className?: string }>(suffixIcon)
         ? React.cloneElement(
-          suffix,
+          suffixIcon,
           {
             className: classNames({
-              [suffix.props.className!]: suffix.props.className,
+              [suffixIcon.props.className!]: suffixIcon.props.className,
               [`${prefixCls}-picker-icon`]: true,
             }),
           },
-        ) : <span className={`${prefixCls}-picker-icon`}>{suffix}</span>) || (
+        ) : <span className={`${prefixCls}-picker-icon`}>{suffixIcon}</span>) || (
         <Icon type="calendar" className={`${prefixCls}-picker-icon`} />
       );
 

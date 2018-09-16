@@ -26,21 +26,21 @@ function onChange(date, dateString) {
 
 ReactDOM.render(
   <div>
-    <DatePicker suffix={smileIcon} onChange={onChange} />
+    <DatePicker suffixIcon={smileIcon} onChange={onChange} />
     <br />
-    <MonthPicker suffix={smileIcon} onChange={onChange} placeholder="Select month" />
+    <MonthPicker suffixIcon={smileIcon} onChange={onChange} placeholder="Select month" />
     <br />
-    <RangePicker suffix={smileIcon} onChange={onChange} />
+    <RangePicker suffixIcon={smileIcon} onChange={onChange} />
     <br />
-    <WeekPicker suffix={smileIcon} onChange={onChange} placeholder="Select week" />
+    <WeekPicker suffixIcon={smileIcon} onChange={onChange} placeholder="Select week" />
     <br />
-    <DatePicker suffix="ab" onChange={onChange} />
+    <DatePicker suffixIcon="ab" onChange={onChange} />
     <br />
-    <MonthPicker suffix="ab" onChange={onChange} placeholder="Select month" />
+    <MonthPicker suffixIcon="ab" onChange={onChange} placeholder="Select month" />
     <br />
-    <RangePicker suffix="ab" onChange={onChange} />
+    <RangePicker suffixIcon="ab" onChange={onChange} />
     <br />
-    <WeekPicker suffix="ab" onChange={onChange} placeholder="Select week" />
+    <WeekPicker suffixIcon="ab" onChange={onChange} placeholder="Select week" />
   </div>,
   mountNode);
 ````
