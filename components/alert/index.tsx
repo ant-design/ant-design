@@ -97,8 +97,7 @@ export default class Alert extends React.Component<AlertProps, any> {
       }
     }
 
-    let alertCls = classNames(prefixCls, {
-      [`${prefixCls}-${type}`]: true,
+    const alertCls = classNames(prefixCls, `${prefixCls}-${type}`, {
       [`${prefixCls}-close`]: !this.state.closing,
       [`${prefixCls}-with-description`]: !!description,
       [`${prefixCls}-no-icon`]: !showIcon,
