@@ -5,6 +5,8 @@ title: FAQ
 
 Search in the questions about React first: https://reactfaq.site .
 
+---
+
 ### Are you going to provide Vue(etc...) edition?
 
 No, but [the LICENSE of ant-design](https://github.com/ant-design/ant-design/blob/master/LICENSE) is MIT. So, you can try to implement it with ant-design's [style](https://github.com/ant-design/ant-design/tree/master/style), like: [ant-design-vue](https://github.com/vueComponent/ant-design-vue) [vue-beauty)](https://github.com/FE-Driver/vue-beauty) or [antue](https://github.com/zzuu666/antue).
