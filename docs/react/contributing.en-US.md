@@ -22,7 +22,7 @@ According to our [release schedule](changelog#Release-Schedule), we maintians tw
 
 We are using [GitHub Issues](https://github.com/ant-design/ant-design/issues) for bug tracing. The best way to get your bug fixed is using our [issue helper](http://new-issue.ant.design) and provide a reprduction with this [template](https://u.ant.design/codesandbox-repro).
 
-Before you reporting a bug, please make sure you've searched exists issues, and read our [FAQ](https://github.com/ant-design/ant-design/wiki/FAQ).
+Before you reporting a bug, please make sure you've searched exists issues, and read our [FAQ](/docs/react/faq).
 
 ## Proposing a Change
 
