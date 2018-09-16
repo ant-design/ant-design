@@ -64,7 +64,7 @@ export interface SelectProps extends AbstractSelectProps {
   tokenSeparators?: string[];
   getInputElement?: () => React.ReactElement<any>;
   autoFocus?: boolean;
-  suffix?: React.ReactNode;
+  suffixIcon?: React.ReactNode;
 }
 
 export interface OptionProps {
@@ -157,7 +157,7 @@ export default class Select extends React.Component<SelectProps, {}> {
       className = '',
       size,
       mode,
-      suffix,
+      suffixIcon,
       ...restProps
     } = this.props;
     const rest = omit(restProps, ['inputIcon', 'removeIcon', 'clearIcon']);
@@ -179,9 +179,9 @@ export default class Select extends React.Component<SelectProps, {}> {
       combobox: this.isCombobox(),
     };
 
-    const inputIcon = suffix && (
-      React.isValidElement<{ className?: string }>(suffix)
-        ? React.cloneElement(suffix) : suffix) || (
+    const inputIcon = suffixIcon && (
+      React.isValidElement<{ className?: string }>(suffixIcon)
+        ? React.cloneElement(suffixIcon) : suffixIcon) || (
         <Icon type="down" className={`${prefixCls}-arrow-icon`} />
       );
 
