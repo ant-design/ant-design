@@ -10,6 +10,10 @@ Ant Design 将色彩体系解读成两个层面：系统级色彩体系和产品
 
 ---
 
+## 设计师专属
+
+安装 [Kitchen Sketch 插件  💎](https://kitchen.alipay.com)，不但可以使用 Ant Design 官方色板库，还可以管理自己的专属色板。
+
 ## 色彩模型
 
 Ant Design 的设计团队倾向于采用 HSB 色彩模型进行设计，该模型更便于设计师在调整色彩时对于颜色有明确的心理预期，同时也方便团队间的沟通。
@@ -29,6 +33,8 @@ ReactDOM.render(<ColorPalettes />, mountNode);
 `````
 
 Ant Design 的色板还具备进一步拓展的能力。经过设计师和程序员的精心调制，结合了色彩自然变化的规律，我们得出了一套色彩生成工具，当有进一步色彩设计需求时，设计者只需按照一定规则定义完毕主色，便可以自动获得一系列完整的衍生色。
+
+> Ant Design 三代色板的历史可以参看社区文章：[Ant Design 色板生成算法演进之路](https://zhuanlan.zhihu.com/p/32422584)。
 
 ### 中性色板
 

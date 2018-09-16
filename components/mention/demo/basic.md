@@ -15,6 +15,7 @@ Basic usage.
 
 ````jsx
 import { Mention } from 'antd';
+
 const { toString, toContentState } = Mention;
 
 function onChange(contentState) {
@@ -32,6 +33,6 @@ ReactDOM.render(
     defaultValue={toContentState('@afc163')}
     suggestions={['afc163', 'benjycui', 'yiminghe', 'RaoHai', '中文', 'にほんご']}
     onSelect={onSelect}
-  />
-, mountNode);
+  />,
+  mountNode);
 ````

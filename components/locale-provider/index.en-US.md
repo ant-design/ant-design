@@ -14,8 +14,7 @@ title: LocaleProvider
 ```jsx
 import { LocaleProvider } from 'antd';
 import fr_FR from 'antd/lib/locale-provider/fr_FR';
-import 'moment/src/locale/fr';
-// import 'moment/locale/fr'; if you are using webpack 1
+import 'moment/locale/fr';
 
 ...
 
@@ -46,4 +45,4 @@ This component aims for localization of the built-in text, if you want to suppor
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| locale | language package setting, you can find the packages in this path: `antd/lib/locale-provider/` | object | - |
+| locale | language package setting, you can find the packages in [antd/lib/locale-provider](http://unpkg.com/antd/lib/locale-provider/) | object | - |

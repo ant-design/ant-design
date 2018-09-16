@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import Group from './Group';
@@ -53,7 +53,6 @@ export default class Input extends React.Component<InputProps, any> {
     addonBefore: PropTypes.node,
     addonAfter: PropTypes.node,
     prefixCls: PropTypes.string,
-    autosize: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
     onPressEnter: PropTypes.func,
     onKeyDown: PropTypes.func,
     onKeyUp: PropTypes.func,
@@ -81,6 +80,10 @@ export default class Input extends React.Component<InputProps, any> {
 
   blur() {
     this.input.blur();
+  }
+
+  select() {
+    this.input.select();
   }
 
   getInputClassName() {
@@ -128,25 +131,16 @@ export default class Input extends React.Component<InputProps, any> {
 
     // Need another wrapper for changing display:table to display:inline-block
     // and put style prop in wrapper
-    if (addonBefore || addonAfter) {
-      return (
-        <span
-          className={groupClassName}
-          style={props.style}
-        >
-          <span className={className}>
-            {addonBefore}
-            {React.cloneElement(children, { style: null })}
-            {addonAfter}
-          </span>
-        </span>
-      );
-    }
     return (
-      <span className={className}>
-        {addonBefore}
-        {children}
-        {addonAfter}
+      <span
+        className={groupClassName}
+        style={props.style}
+      >
+        <span className={className}>
+          {addonBefore}
+          {React.cloneElement(children, { style: null })}
+          {addonAfter}
+        </span>
       </span>
     );
   }

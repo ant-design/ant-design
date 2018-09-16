@@ -18,7 +18,9 @@ import { Row, Col, Slider } from 'antd';
 
 class App extends React.Component {
   gutters = {};
+
   colCounts = {};
+
   constructor() {
     super();
     this.state = {
@@ -28,12 +30,15 @@ class App extends React.Component {
     [8, 16, 24, 32, 40, 48].forEach((value, i) => { this.gutters[i] = value; });
     [2, 3, 4, 6, 8, 12].forEach((value, i) => { this.colCounts[i] = value; });
   }
+
   onGutterChange = (gutterKey) => {
     this.setState({ gutterKey });
   }
+
   onColCountChange = (colCountKey) => {
     this.setState({ colCountKey });
   }
+
   render() {
     const { gutterKey, colCountKey } = this.state;
     const cols = [];

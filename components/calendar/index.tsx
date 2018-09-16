@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import * as moment from 'moment';
 import FullCalendar from 'rc-calendar/lib/FullCalendar';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
@@ -36,6 +36,7 @@ export interface CalendarProps {
   style?: React.CSSProperties;
   onPanelChange?: (date?: moment.Moment, mode?: CalendarMode) => void;
   onSelect?: (date?: moment.Moment) => void;
+  onChange?: (date?: moment.Moment) => void;
   disabledDate?: (current: moment.Moment) => boolean;
   validRange ?: [moment.Moment, moment.Moment];
 }
@@ -53,6 +54,7 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     mode: 'month',
     onSelect: noop,
     onPanelChange: noop,
+    onChange: noop,
   };
 
   static propTypes = {
@@ -68,6 +70,7 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     onPanelChange: PropTypes.func,
     value: PropTypes.object,
     onSelect: PropTypes.func,
+    onChange: PropTypes.func,
   };
 
   constructor(props: CalendarProps) {
@@ -157,9 +160,12 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
   }
 
   onPanelChange(value: moment.Moment, mode: CalendarMode | undefined) {
-    const { onPanelChange } = this.props;
+    const { onPanelChange, onChange } = this.props;
     if (onPanelChange) {
       onPanelChange(value, mode);
+    }
+    if (onChange && value !== this.state.value) {
+      onChange(value);
     }
   }
 

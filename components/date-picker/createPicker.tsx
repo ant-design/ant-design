@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as moment from 'moment';
+import { polyfill } from 'react-lifecycles-compat';
 import MonthCalendar from 'rc-calendar/lib/MonthCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
@@ -7,6 +8,7 @@ import omit from 'omit.js';
 import Icon from '../icon';
 import warning from '../_util/warning';
 import interopDefault from '../_util/interopDefault';
+import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 
 export interface PickerProps {
   value?: moment.Moment;
@@ -14,12 +16,28 @@ export interface PickerProps {
 }
 
 export default function createPicker(TheCalendar: React.ComponentClass): any {
-  return class CalenderWrapper extends React.Component<any, any> {
+  class CalenderWrapper extends React.Component<any, any> {
     static defaultProps = {
       prefixCls: 'ant-calendar',
       allowClear: true,
       showToday: true,
     };
+
+    static getDerivedStateFromProps(nextProps: PickerProps, prevState: any) {
+      let state = null;
+      if ('value' in nextProps) {
+        state = {
+          value: nextProps.value,
+        };
+        if (nextProps.value !== prevState.value) {
+          state = {
+            ...state,
+            showDate: nextProps.value,
+          };
+        }
+      }
+      return state;
+    }
 
     private input: any;
 
@@ -36,15 +54,6 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
         value,
         showDate: value,
       };
-    }
-
-    componentWillReceiveProps(nextProps: PickerProps) {
-      if ('value' in nextProps) {
-        this.setState({
-          value: nextProps.value,
-          showDate: nextProps.value,
-        });
-      }
     }
 
     renderFooter = (...args: any[]) => {
@@ -110,11 +119,13 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
 
       let pickerProps: Object = {};
       let calendarProps: any = {};
+      const pickerStyle: { width?: number } = {};
       if (props.showTime) {
         calendarProps = {
           // fix https://github.com/ant-design/ant-design/issues/1902
           onSelect: this.handleChange,
         };
+        pickerStyle.width = 195;
       } else {
         pickerProps = {
           onChange: this.handleChange,
@@ -150,12 +161,14 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
 
       const clearIcon = (!props.disabled && props.allowClear && value) ? (
         <Icon
-          type="cross-circle"
+          type="close-circle"
           className={`${prefixCls}-picker-clear`}
           onClick={this.clearSelection}
+          theme="filled"
         />
       ) : null;
 
+      const dataOrAriaProps = getDataOrAriaProps(props);
       const input = ({ value: inputValue }: { value: moment.Moment | null }) => (
         <div>
           <input
@@ -165,9 +178,10 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
             value={(inputValue && inputValue.format(props.format)) || ''}
             placeholder={placeholder}
             className={props.pickerInputClass}
+            {...dataOrAriaProps}
           />
           {clearIcon}
-          <span className={`${prefixCls}-picker-icon`} />
+          <Icon type="calendar" className={`${prefixCls}-picker-icon`}/>
         </div>
       );
 
@@ -175,9 +189,11 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
         <span
           id={props.id}
           className={classNames(props.className, props.pickerClass)}
-          style={props.style}
+          style={{ ...pickerStyle, ...props.style }}
           onFocus={props.onFocus}
           onBlur={props.onBlur}
+          onMouseEnter={props.onMouseEnter}
+          onMouseLeave={props.onMouseLeave}
         >
           <RcDatePicker
             {...props}
@@ -192,5 +208,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
         </span>
       );
     }
-  };
+  }
+  polyfill(CalenderWrapper);
+  return CalenderWrapper;
 }

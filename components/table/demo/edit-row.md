@@ -43,6 +43,7 @@ class EditableCell extends React.Component {
     }
     return <Input />;
   };
+
   render() {
     const {
       editing,
@@ -137,12 +138,15 @@ class EditableTable extends React.Component {
       },
     ];
   }
+
   isEditing = (record) => {
     return record.key === this.state.editingKey;
   };
+
   edit(key) {
     this.setState({ editingKey: key });
   }
+
   save(form, key) {
     form.validateFields((error, row) => {
       if (error) {
@@ -158,14 +162,16 @@ class EditableTable extends React.Component {
         });
         this.setState({ data: newData, editingKey: '' });
       } else {
-        newData.push(data);
+        newData.push(row);
         this.setState({ data: newData, editingKey: '' });
       }
     });
   }
+
   cancel = () => {
     this.setState({ editingKey: '' });
   };
+
   render() {
     const components = {
       body: {

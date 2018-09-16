@@ -15,6 +15,7 @@ Customize Input Component
 
 ````jsx
 import { AutoComplete, Input } from 'antd';
+
 const { TextArea } = Input;
 
 function onSelect(value) {

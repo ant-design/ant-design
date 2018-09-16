@@ -8,6 +8,10 @@ subtitle: 表格
 
 展示行列数据。
 
+## 设计师专属
+
+安装 [Kitchen Sketch 插件 💎](https://kitchen.alipay.com/)，两步就可以自动生成 Ant Design 表格组件。
+
 ## 何时使用
 
 - 当有大量结构化的数据需要展现时；
@@ -61,7 +65,7 @@ const columns = [{
 | defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |
 | defaultExpandedRowKeys | 默认展开的行 | string\[] | - |
 | expandedRowKeys | 展开的行，控制属性 | string\[] | - |
-| expandedRowRender | 额外的展开行 | Function(record):ReactNode | - |
+| expandedRowRender | 额外的展开行 | Function(record, index, indent, expanded):ReactNode | - |
 | expandRowByClick | 通过点击行来展开子行 | boolean | `false` |
 | footer | 表格尾部 | Function(currentPageData) |  |
 | indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number | 15 |
@@ -112,11 +116,12 @@ const columns = [{
 | className | 列的 className | string | - |
 | colSpan | 表头列合并,设置为 0 时，不渲染 | number |  |
 | dataIndex | 列数据在数据项中对应的 key，支持 `a.b.c` 的嵌套写法 | string | - |
+| defaultSortOrder | 默认排序顺序 | 'ascend' \| 'descend' | - |
 | filterDropdown | 可以自定义筛选菜单，此函数只负责渲染图层，需要自行编写各种交互 | ReactNode | - |
 | filterDropdownVisible | 用于控制自定义筛选菜单是否可见 | boolean | - |
 | filtered | 标识数据是否经过过滤，筛选图标会高亮 | boolean | false |
 | filteredValue | 筛选的受控属性，外界可用此控制列的筛选状态，值为已筛选的 value 数组 | string\[] | - |
-| filterIcon | 自定义 fiter 图标。 | ReactNode | false |
+| filterIcon | 自定义 filter 图标。 | ReactNode\|(filtered: boolean) => ReactNode | false |
 | filterMultiple | 是否多选 | boolean | true |
 | filters | 表头的筛选菜单项 | object\[] | - |
 | fixed | 列是否固定，可选 `true`(等效于 left) `'left'` `'right'` | boolean\|string | false |
@@ -154,13 +159,14 @@ const columns = [{
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | columnWidth | 自定义列表选择框宽度 | string\|number | - |
+| columnTitle | 自定义列表选择框标题 | string\|React.ReactNode | - |
 | fixed | 把选择框列固定在左边 | boolean | - |
 | getCheckboxProps | 选择框的默认属性配置 | Function(record) | - |
 | hideDefaultSelections | 去掉『全选』『反选』两个默认选项 | boolean | false |
 | selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | string\[] | \[] |
 | selections | 自定义选择项 [配置项](#selection), 设为 `true` 时使用默认选择项 | object\[]\|boolean | true |
 | type | 多选/单选，`checkbox` or `radio` | string | `checkbox` |
-| onChange | 选中项发生变化的时的回调 | Function(selectedRowKeys, selectedRows) | - |
+| onChange | 选中项发生变化时的回调 | Function(selectedRowKeys, selectedRows) | - |
 | onSelect | 用户手动选择/取消选择某列的回调 | Function(record, selected, selectedRows, nativeEvent) | - |
 | onSelectAll | 用户手动选择/取消选择所有列的回调 | Function(selected, selectedRows, changeRows) | - |
 | onSelectInvert | 用户手动选择反选的回调 | Function(selectedRows) | - |

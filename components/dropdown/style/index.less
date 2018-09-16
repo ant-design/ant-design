@@ -70,6 +70,11 @@
       transition: all .3s;
       line-height: 22px;
 
+      > .anticon:first-child {
+        min-width: 12px;
+        margin-right: 8px;
+      }
+
       > a {
         color: @text-color;
         display: block;
@@ -112,10 +117,8 @@
       .@{dropdown-prefix-cls}-menu-submenu-arrow {
         position: absolute;
         right: @padding-xs;
-        &:after {
-          font-family: "anticon" !important;
+        &-icon {
           font-style: normal;
-          content: "\e61f";
           color: @text-color-secondary;
           .iconfont-size-under-12px(10px);
         }
@@ -141,7 +144,7 @@
 
     &-submenu&-submenu-disabled .@{dropdown-prefix-cls}-menu-submenu-title {
       &,
-      .@{dropdown-prefix-cls}-menu-submenu-arrow:after {
+      .@{dropdown-prefix-cls}-menu-submenu-arrow-icon {
         color: @disabled-color;
       }
     }
@@ -180,11 +183,8 @@
 
 .@{dropdown-prefix-cls}-trigger,
 .@{dropdown-prefix-cls}-link {
-  .@{iconfont-css-prefix}-down {
+  .@{iconfont-css-prefix}:not(.@{iconfont-css-prefix}-ellipsis) {
     .iconfont-size-under-12px(10px);
-  }
-  .@{iconfont-css-prefix}-ellipsis {
-    text-shadow: 0 0 currentColor;
   }
 }
 
@@ -195,7 +195,7 @@
     padding-left: @padding-xs;
     padding-right: @padding-xs;
   }
-  .@{iconfont-css-prefix}-down {
+  .@{iconfont-css-prefix}:not(.@{iconfont-css-prefix}-ellipsis) {
     .iconfont-size-under-12px(10px);
   }
 }

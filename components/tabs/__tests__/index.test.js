@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import Tabs from '..';
 
 const { TabPane } = Tabs;
@@ -31,8 +31,19 @@ describe('Tabs', () => {
 
   describe('tabPosition', () => {
     it('remove card', () => {
-      const wrapper = mount(
+      const wrapper = render(
         <Tabs tabPosition="left" tabBarExtraContent="xxx">
+          <TabPane tab="foo" key="1">foo</TabPane>
+        </Tabs>
+      );
+      expect(wrapper).toMatchSnapshot();
+    });
+  });
+
+  describe('renderTabBar', () => {
+    it('custom-tab-bar', () => {
+      const wrapper = render(
+        <Tabs renderTabBar={() => <div>custom-tab-bar</div>}>
           <TabPane tab="foo" key="1">foo</TabPane>
         </Tabs>
       );

@@ -5,6 +5,7 @@ body {
 
 body {
   font-family: @font-family;
+  font-variant: tabular-nums;
   line-height: 1.5;
   color: @site-text-color;
   font-size: 14px;
@@ -43,7 +44,7 @@ a {
 
 .aside-container {
   padding-bottom: 50px;
-  font-family: Lato, @font-family;
+  font-family: Avenir, @font-family;
 
   &.ant-menu-inline .ant-menu-submenu-title h4,
   &.ant-menu-inline > .ant-menu-item,
@@ -89,9 +90,7 @@ a {
   display: inline-block;
 }
 
-.outside-link:after {
-  content: '\e691';
-  font-family: 'anticon';
+.outside-link-icon {
   margin-left: 5px;
   font-size: 12px;
   color: #aaa;

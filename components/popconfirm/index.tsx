@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { polyfill } from 'react-lifecycles-compat';
 import Tooltip, { AbstractTooltipProps }  from '../tooltip';
 import Icon from '../icon';
 import Button from '../button';
@@ -8,11 +9,13 @@ import defaultLocale from '../locale-provider/default';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode;
-  onConfirm?: (e: React.MouseEvent<any>) => void;
-  onCancel?: (e: React.MouseEvent<any>) => void;
+  onConfirm?: (e?: React.MouseEvent<any>) => void;
+  onCancel?: (e?: React.MouseEvent<any>) => void;
   okText?: React.ReactNode;
   okType?: ButtonType;
   cancelText?: React.ReactNode;
+  icon?: React.ReactNode;
+  onVisibleChange?: (visible?: boolean, e?: React.MouseEvent<any>) => void;
 }
 
 export interface PopconfirmState {
@@ -24,14 +27,22 @@ export interface PopconfirmLocale {
   cancelText: string;
 }
 
-export default class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
+class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
   static defaultProps = {
     prefixCls: 'ant-popover',
     transitionName: 'zoom-big',
     placement: 'top',
     trigger: 'click',
     okType: 'primary',
+    icon: <Icon type="exclamation-circle" theme="filled" />,
   };
+
+  static getDerivedStateFromProps(nextProps: PopconfirmProps) {
+    if ('visible' in nextProps) {
+      return { visible: nextProps.visible };
+    }
+    return null;
+  }
 
   private tooltip: any;
 
@@ -43,18 +54,12 @@ export default class Popconfirm extends React.Component<PopconfirmProps, Popconf
     };
   }
 
-  componentWillReceiveProps(nextProps: PopconfirmProps) {
-    if ('visible' in nextProps) {
-      this.setState({ visible: nextProps.visible });
-    }
-  }
-
   getPopupDomNode() {
     return this.tooltip.getPopupDomNode();
   }
 
   onConfirm = (e: React.MouseEvent<HTMLButtonElement>) => {
-    this.setVisible(false);
+    this.setVisible(false, e);
 
     const { onConfirm } = this.props;
     if (onConfirm) {
@@ -63,7 +68,7 @@ export default class Popconfirm extends React.Component<PopconfirmProps, Popconf
   }
 
   onCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
-    this.setVisible(false);
+    this.setVisible(false, e);
 
     const { onCancel } = this.props;
     if (onCancel) {
@@ -75,7 +80,7 @@ export default class Popconfirm extends React.Component<PopconfirmProps, Popconf
     this.setVisible(visible);
   }
 
-  setVisible(visible: boolean) {
+  setVisible(visible: boolean, e?: React.MouseEvent<HTMLButtonElement>) {
     const props = this.props;
     if (!('visible' in props)) {
       this.setState({ visible });
@@ -83,7 +88,7 @@ export default class Popconfirm extends React.Component<PopconfirmProps, Popconf
 
     const { onVisibleChange } = props;
     if (onVisibleChange) {
-      onVisibleChange(visible);
+      onVisibleChange(visible, e);
     }
   }
 
@@ -92,12 +97,12 @@ export default class Popconfirm extends React.Component<PopconfirmProps, Popconf
   }
 
   renderOverlay = (popconfirmLocale: PopconfirmLocale) => {
-    const { prefixCls, title, cancelText, okText, okType } = this.props;
+    const { prefixCls, title, cancelText, okText, okType, icon } = this.props;
     return (
       <div>
         <div className={`${prefixCls}-inner-content`}>
           <div className={`${prefixCls}-message`}>
-            <Icon type="exclamation-circle" />
+            {icon}
             <div className={`${prefixCls}-message-title`}>{title}</div>
           </div>
           <div className={`${prefixCls}-buttons`}>
@@ -138,3 +143,7 @@ export default class Popconfirm extends React.Component<PopconfirmProps, Popconf
     );
   }
 }
+
+polyfill(Popconfirm);
+
+export default Popconfirm;

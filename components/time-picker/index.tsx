@@ -1,18 +1,20 @@
 import * as React from 'react';
 import * as moment from 'moment';
+import { polyfill } from 'react-lifecycles-compat';
 import RcTimePicker from 'rc-time-picker/lib/TimePicker';
 import classNames from 'classnames';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from './locale/en_US';
 import interopDefault from '../_util/interopDefault';
+import Icon from '../icon';
 
 export function generateShowHourMinuteSecond(format: string) {
   // Ref: http://momentjs.com/docs/#/parsing/string-format/
   return {
     showHour: (
       format.indexOf('H') > -1 ||
-        format.indexOf('h') > -1 ||
-        format.indexOf('k') > -1
+      format.indexOf('h') > -1 ||
+      format.indexOf('k') > -1
     ),
     showMinute: format.indexOf('m') > -1,
     showSecond: format.indexOf('s') > -1,
@@ -54,7 +56,7 @@ export interface TimePickerLocale {
   placeholder: string;
 }
 
-export default class TimePicker extends React.Component<TimePickerProps, any> {
+class TimePicker extends React.Component<TimePickerProps, any> {
   static defaultProps = {
     prefixCls: 'ant-time-picker',
     align: {
@@ -70,6 +72,13 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
     focusOnOpen: true,
   };
 
+  static getDerivedStateFromProps(nextProps: TimePickerProps) {
+    if ('value' in nextProps) {
+      return { value: nextProps.value };
+    }
+    return null;
+  }
+
   private timePickerRef: typeof RcTimePicker;
 
   constructor(props: TimePickerProps) {
@@ -84,12 +93,6 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
     this.state = {
       value,
     };
-  }
-
-  componentWillReceiveProps(nextProps: TimePickerProps) {
-    if ('value' in nextProps) {
-      this.setState({ value: nextProps.value });
-    }
   }
 
   handleChange = (value: moment.Moment) => {
@@ -150,6 +153,24 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
       ) : null
     );
 
+    const inputIcon = (
+      <span className={`${props.prefixCls}-icon`}>
+        <Icon
+          type="clock-circle"
+          className={`${props.prefixCls}-clock-icon`}
+          theme="outlined"
+        />
+      </span>
+    );
+
+    const clearIcon = (
+      <Icon
+        type="close-circle"
+        className={`${props.prefixCls}-panel-clear-btn-icon`}
+        theme="filled"
+      />
+    );
+
     return (
       <RcTimePicker
         {...generateShowHourMinuteSecond(format)}
@@ -163,6 +184,8 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
         onOpen={this.handleOpenClose}
         onClose={this.handleOpenClose}
         addon={addon}
+        inputIcon={inputIcon}
+        clearIcon={clearIcon}
       />
     );
   }
@@ -178,3 +201,7 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
     );
   }
 }
+
+polyfill(TimePicker);
+
+export default TimePicker;

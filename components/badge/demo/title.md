@@ -21,12 +21,12 @@ ReactDOM.render(
     <Badge count={5} title="Custom hover text">
       <a href="#" className="head-example" />
     </Badge>
-  </div>
-, mountNode);
+  </div>,
+  mountNode);
 ````
 
 <style>
-.ant-badge:not(.ant-badge-status) {
+.ant-badge:not(.ant-badge-not-a-wrapper) {
   margin-right: 20px;
 }
 .head-example {

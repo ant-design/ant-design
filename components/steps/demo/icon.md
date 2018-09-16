@@ -15,6 +15,7 @@ You can use your own custom icons by setting the property `icon` for `Steps.Step
 
 ````jsx
 import { Steps, Icon } from 'antd';
+
 const Step = Steps.Step;
 
 ReactDOM.render(
@@ -23,6 +24,6 @@ ReactDOM.render(
     <Step status="finish" title="Verification" icon={<Icon type="solution" />} />
     <Step status="process" title="Pay" icon={<Icon type="loading" />} />
     <Step status="wait" title="Done" icon={<Icon type="smile-o" />} />
-  </Steps>
-, mountNode);
+  </Steps>,
+  mountNode);
 ````

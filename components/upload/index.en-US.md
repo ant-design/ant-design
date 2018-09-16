@@ -21,7 +21,8 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | accept | File types that can be accepted. See [input accept Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-accept) | string | - |
-| action | Required. Uploading URL | string | - |
+| action | Required. Uploading URL | string\|(file) => `Promise` | - |
+| directory | support upload whole directory ([caniuse](https://caniuse.com/#feat=input-file-directory)) | boolean | false |
 | beforeUpload | Hook function which will be executed before uploading. Uploading will be stopped with `false` or a rejected Promise returned. **Warning：this function is not supported in IE9**。 | (file, fileList) => `boolean | Promise` | - |
 | customRequest | override for the default xhr behavior allowing for additional customization and ability to implement your own XMLHttpRequest | Function | - |
 | data | Uploading params or function which can return uploading params. | object\|function(file) | - |
@@ -41,7 +42,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 
 ### onChange
 
-> The function will be called when uploading is in progress, completed or  failed
+> The function will be called when uploading is in progress, completed or failed
 
 When uploading state change, it returns:
 
@@ -61,11 +62,9 @@ When uploading state change, it returns:
       name: 'xx.png'   // file name
       status: 'done', // options：uploading, done, error, removed
       response: '{"status": "success"}', // response from server
-      linkProps: '{"download": "image"}', // additional html props of file link  
+      linkProps: '{"download": "image"}', // additional html props of file link
    }
    ```
-
-   > Before `antd@1.9.0`, this parameter will be Array Object `[file, ...]` in multiple mode, while in `antd@1.9.0+`, it will always be an Object.
 
 2. `fileList` current list of files
 3. `event` response from server, including uploading progress, supported by advanced browsers.

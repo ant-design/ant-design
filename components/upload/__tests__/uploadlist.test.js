@@ -8,13 +8,13 @@ import { setup, teardown } from './mock';
 const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
 
 const fileList = [{
-  uid: -1,
+  uid: '-1',
   name: 'xxx.png',
   status: 'done',
   url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
   thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
 }, {
-  uid: -2,
+  uid: '-2',
   name: 'yyy.png',
   status: 'done',
   url: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
@@ -43,13 +43,13 @@ describe('Upload List', () => {
   // https://github.com/ant-design/ant-design/issues/7269
   it('should remove correct item when uid is 0', async () => {
     const list = [{
-      uid: 0,
+      uid: '0',
       name: 'xxx.png',
       status: 'done',
       url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
       thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
     }, {
-      uid: 1,
+      uid: '1',
       name: 'xxx.png',
       status: 'done',
       url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
@@ -61,7 +61,7 @@ describe('Upload List', () => {
       </Upload>
     );
     expect(wrapper.find('.ant-upload-list-item').length).toBe(2);
-    wrapper.find('.ant-upload-list-item').at(0).find('.anticon-cross').simulate('click');
+    wrapper.find('.ant-upload-list-item').at(0).find('.anticon-close').simulate('click');
     await delay(400);
     wrapper.update();
     expect(wrapper.find('.ant-upload-list-item').hostNodes().length).toBe(1);
@@ -248,7 +248,7 @@ describe('Upload List', () => {
   it('should generate thumbUrl from file', async () => {
     const handlePreview = jest.fn();
     const newFileList = [...fileList];
-    const newFile = { ...fileList[0], uid: -3, originFileObj: new File([], 'xxx.png') };
+    const newFile = { ...fileList[0], uid: '-3', originFileObj: new File([], 'xxx.png') };
     delete newFile.thumbUrl;
     newFileList.push(newFile);
     const wrapper = mount(
@@ -261,8 +261,8 @@ describe('Upload List', () => {
       </Upload>
     );
     wrapper.setState({});
-    await delay(200);
-    expect(wrapper.state().fileList[2].thumbUrl).not.toBeFalsy();
+    await delay(0);
+    expect(wrapper.state().fileList[2].thumbUrl).not.toBe(undefined);
   });
 
   it('should non-image format file preview', () => {
@@ -270,7 +270,7 @@ describe('Upload List', () => {
       {
         name: 'not-image',
         status: 'done',
-        uid: -3,
+        uid: '-3',
         url: 'https://cdn.xxx.com/aaa.zip',
         thumbUrl: 'data:application/zip;base64,UEsDBAoAAAAAADYZYkwAAAAAAAAAAAAAAAAdAAk',
         originFileObj: new File([], 'aaa.zip'),
@@ -278,51 +278,58 @@ describe('Upload List', () => {
       {
         name: 'image',
         status: 'done',
-        uid: -4,
+        uid: '-4',
         url: 'https://cdn.xxx.com/aaa',
       },
       {
         name: 'not-image',
         status: 'done',
-        uid: -5,
+        uid: '-5',
         url: 'https://cdn.xxx.com/aaa.xx',
       },
       {
         name: 'not-image',
         status: 'done',
-        uid: -6,
+        uid: '-6',
         url: 'https://cdn.xxx.com/aaa.png/xx.xx',
       },
       {
         name: 'image',
         status: 'done',
-        uid: -7,
+        uid: '-7',
         url: 'https://cdn.xxx.com/xx.xx/aaa.png',
       },
       {
         name: 'image',
         status: 'done',
-        uid: -8,
+        uid: '-8',
         url: 'https://cdn.xxx.com/xx.xx/aaa.png',
         thumbUrl: 'data:image/png;base64,UEsDBAoAAAAAADYZYkwAAAAAAAAAAAAAAAAdAAk',
       },
       {
         name: 'image',
         status: 'done',
-        uid: -9,
+        uid: '-9',
         url: 'https://cdn.xxx.com/xx.xx/aaa.png?query=123',
       },
       {
         name: 'image',
         status: 'done',
-        uid: -10,
+        uid: '-10',
         url: 'https://cdn.xxx.com/xx.xx/aaa.png#anchor',
       },
       {
         name: 'image',
         status: 'done',
-        uid: -11,
+        uid: '-11',
         url: 'https://cdn.xxx.com/xx.xx/aaa.png?query=some.query.with.dot',
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: '-12',
+        url: 'https://publish-pic-cpu.baidu.com/1296beb3-50d9-4276-885f-52645cbb378e.jpeg@w_228%2ch_152',
+        type: 'image',
       },
     ];
 

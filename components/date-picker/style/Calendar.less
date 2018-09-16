@@ -211,12 +211,18 @@
   }
 
   &-selected-day &-date {
-    background: @primary-color;
-    color: #fff;
-    border: @border-width-base @border-style-base transparent;
+    background: tint(@primary-color, 80%);
+  }
 
-    &:hover {
+  &-selected-date, &-selected-start-date, &-selected-end-date {
+    .@{calendar-prefix-cls}-date {
       background: @primary-color;
+      color: #fff;
+      border: @border-width-base @border-style-base transparent;
+
+      &:hover {
+        background: @primary-color;
+      }
     }
   }
 
@@ -269,10 +275,8 @@
       text-align: center;
       display: block;
     }
-    &-extra + &-btn {
-      border-top: @border-width-base @border-style-base @border-color-split;
-      margin: 0 -12px;
-      padding: 0 12px;
+    &-extra {
+      text-align: left;
     }
   }
 
@@ -305,7 +309,6 @@
   }
 
   .@{calendar-prefix-cls}-clear-btn:after {
-    .iconfont-font("\e62e");
     font-size: @font-size-base;
     color: @disabled-color;
     display: inline-block;

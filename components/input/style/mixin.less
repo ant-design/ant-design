@@ -20,7 +20,7 @@
 .active(@color: @outline-color) {
   border-color: ~`colorPalette("@{color}", 5)`;
   outline: 0;
-  box-shadow: 0 0 @outline-blur-size @outline-width fade(@color, 20%);
+  box-shadow: @input-outline-offset @outline-blur-size @outline-width fade(@color, 20%);
   border-right-width: 1px !important;
 }
 
@@ -269,6 +269,11 @@
       vertical-align: top; // https://github.com/ant-design/ant-design-pro/issues/139
       float: none;
       display: inline-block;
+    }
+
+    // https://github.com/ant-design/ant-design/issues/11863
+    & > span:not(:last-child) > .@{inputClass} {
+      border-right-width: 0;
     }
 
     // Undo float for .ant-input-group .ant-input

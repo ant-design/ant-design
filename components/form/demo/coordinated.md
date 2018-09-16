@@ -15,6 +15,7 @@ Use `setFieldsValue` to set other control's value programmaticly.
 
 ````jsx
 import { Form, Select, Input, Button } from 'antd';
+
 const FormItem = Form.Item;
 const Option = Select.Option;
 
@@ -27,12 +28,14 @@ class App extends React.Component {
       }
     });
   }
+
   handleSelectChange = (value) => {
     console.log(value);
     this.props.form.setFieldsValue({
       note: `Hi, ${value === 'male' ? 'man' : 'lady'}!`,
     });
   }
+
   render() {
     const { getFieldDecorator } = this.props.form;
     return (

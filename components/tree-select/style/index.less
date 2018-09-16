@@ -65,15 +65,26 @@
         outline: none;
         text-align: center;
       }
-      &.@{select-tree-prefix-cls}-icon_loading {
-        &:after {
+      &.@{select-prefix-cls}-icon_loading {
+        .@{select-prefix-cls}-switcher-loading-icon {
           display: inline-block;
-          .iconfont-font("\e6ae");
-          animation: loadingCircle 1s infinite linear;
+          position: absolute;
+          left: 0;
           color: @primary-color;
+          transform: none;
+          font-size: 14px;
+          svg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+          }
         }
       }
       &.@{select-tree-prefix-cls}-switcher {
+        position: relative;
         &.@{select-tree-prefix-cls}-switcher-noop {
           cursor: auto;
         }
@@ -82,11 +93,41 @@
         }
         &.@{select-tree-prefix-cls}-switcher_close {
           .antTreeSwitcherIcon();
-          &:after {
-            transform: rotate(270deg) scale(0.59);
+          .@{select-prefix-cls}-switcher-icon {
+            svg {
+              transform: rotate(-90deg);
+            }
           }
         }
+
+        &.@{select-tree-prefix-cls}-switcher_open,
+          &.@{select-tree-prefix-cls}-switcher_close {
+            .@{select-prefix-cls}-switcher-loading-icon {
+              display: inline-block;
+              position: absolute;
+              left: 0;
+              width: 24px;
+              height: 24px;
+              color: @primary-color;
+              transform: none;
+              font-size: 14px;
+              svg {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                margin: auto;
+              }
+            }
+          }
       }
+    }
+  }
+
+  .@{select-tree-prefix-cls}-treenode-loading {
+    .@{select-tree-prefix-cls}-iconEle {
+      display: none;
     }
   }
   &-child-tree {

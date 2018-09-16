@@ -62,11 +62,8 @@ describe('Anchor Render', () => {
     wrapper.instance().handleScrollTo('##API');
     expect(wrapper.instance().state.activeLink).toBe('##API');
     expect(scrollToSpy).not.toHaveBeenCalled();
-    await new Promise(resolve => setTimeout(resolve, 50));
+    await new Promise(resolve => setTimeout(resolve, 1000));
     expect(scrollToSpy).toHaveBeenCalled();
-    expect(wrapper.instance().animating).toBe(true);
-    await new Promise(resolve => setTimeout(resolve, 500));
-    expect(wrapper.instance().animating).toBe(false);
   });
 
   it('should remove listener when unmount', async () => {
@@ -89,5 +86,42 @@ describe('Anchor Render', () => {
     expect(wrapper.instance().links).toEqual(['#API']);
     wrapper.setProps({ children: null });
     expect(wrapper.instance().links).toEqual([]);
+  });
+
+  it('should update links when link href update', async () => {
+    let anchorInstance = null;
+    function AnchorUpdate({ href }) {
+      return (
+        <Anchor ref={c => anchorInstance = c}>
+          <Link href={href} title="API" />
+        </Anchor>
+      );
+    }
+    const wrapper = mount(<AnchorUpdate href="#API" />);
+
+    expect(anchorInstance.links).toEqual(['#API']);
+    wrapper.setProps({ href: '#API_1' });
+    expect(anchorInstance.links).toEqual(['#API_1']);
+  });
+
+  it('Anchor onClick event', () => {
+    let event;
+    let link;
+    const handleClick = (...arg) => ([event, link] = arg);
+
+    const href = '#API';
+    const title = 'API';
+
+    const wrapper = mount(
+      <Anchor onClick={handleClick}>
+        <Link href={href} title={title} />
+      </Anchor>
+    );
+
+    wrapper.find(`a[href="${href}"]`).simulate('click');
+
+    wrapper.instance().handleScroll();
+    expect(event).not.toBe(undefined);
+    expect(link).toEqual({ href, title });
   });
 });

@@ -102,9 +102,8 @@
       text-align: center;
       text-transform: none;
 
-      &:before {
+      &-target {
         display: block;
-        font-family: "anticon" !important;
         .iconfont-size-under-12px(10px);
       }
     }
@@ -120,17 +119,10 @@
 
   &-tab-next {
     right: 2px;
-
-    &-icon:before {
-      content: "\e61f";
-    }
   }
 
   &-tab-prev {
     left: 0;
-    &-icon:before {
-      content: "\e620";
-    }
     :root & {
       filter: none;
     }
@@ -206,20 +198,26 @@
     }
   }
 
-  &-large &-nav-container {
-    font-size: @tabs-title-font-size-lg;
+  &-large {
+    > .@{tab-prefix-cls}-bar {
+        .@{tab-prefix-cls}-nav-container {
+          font-size: @tabs-title-font-size-lg;
+        }
+        .@{tab-prefix-cls}-tab {
+          padding: 16px;
+        }
+    }
   }
 
-  &-large &-tab {
-    padding: 16px;
-  }
-
-  &-small &-nav-container {
-    font-size: @tabs-title-font-size-sm;
-  }
-
-  &-small &-tab {
-    padding: 8px 16px;
+  &-small {
+    > .@{tab-prefix-cls}-bar {
+        .@{tab-prefix-cls}-nav-container {
+          font-size: @tabs-title-font-size-sm;
+        }
+        .@{tab-prefix-cls}-tab {
+          padding: 8px 16px;
+        }
+    }
   }
 
   &:not(&-vertical) {
@@ -238,6 +236,9 @@
         height: 0;
         padding: 0 !important;
         pointer-events: none;
+        input {
+          visibility: hidden;
+        }
       }
     }
     > .@{tab-prefix-cls}-content-animated {
@@ -314,18 +315,12 @@
         width: 100%;
         bottom: 0;
         height: @tab-scrolling-size;
-        &-icon:before {
-          content: "\e61d";
-        }
       }
 
       .@{tab-prefix-cls}-tab-prev {
         top: 0;
         width: 100%;
         height: @tab-scrolling-size;
-        &-icon:before {
-          content: "\e61e";
-        }
       }
     }
 

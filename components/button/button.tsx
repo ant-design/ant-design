@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { findDOMNode } from 'react-dom';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
+import Wave from '../_util/wave';
 import Icon from '../icon';
 import Group from './button-group';
 
@@ -47,6 +48,8 @@ export interface BaseButtonProps {
   prefixCls?: string;
   className?: string;
   ghost?: boolean;
+  block?: boolean;
+  children?: React.ReactNode;
 }
 
 export type AnchorButtonProps = {
@@ -70,6 +73,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     prefixCls: 'ant-btn',
     loading: false,
     ghost: false,
+    block: false,
   };
 
   static propTypes = {
@@ -81,16 +85,15 @@ export default class Button extends React.Component<ButtonProps, any> {
     loading: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
     className: PropTypes.string,
     icon: PropTypes.string,
+    block: PropTypes.bool,
   };
 
-  timeout: number;
-  delayTimeout: number;
+  private delayTimeout: number;
 
   constructor(props: ButtonProps) {
     super(props);
     this.state = {
       loading: props.loading,
-      clicked: false,
       hasTwoCNChar: false,
     };
   }
@@ -119,9 +122,6 @@ export default class Button extends React.Component<ButtonProps, any> {
   }
 
   componentWillUnmount() {
-    if (this.timeout) {
-      clearTimeout(this.timeout);
-    }
     if (this.delayTimeout) {
       clearTimeout(this.delayTimeout);
     }
@@ -145,12 +145,7 @@ export default class Button extends React.Component<ButtonProps, any> {
   }
 
   handleClick: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement> = e => {
-    // Add click effect
-    this.setState({ clicked: true });
-    clearTimeout(this.timeout);
-    this.timeout = window.setTimeout(() => this.setState({ clicked: false }), 500);
-
-    const onClick = this.props.onClick;
+    const { onClick } = this.props;
     if (onClick) {
       (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)(e);
     }
@@ -163,10 +158,10 @@ export default class Button extends React.Component<ButtonProps, any> {
 
   render() {
     const {
-      type, shape, size, className, children, icon, prefixCls, ghost, loading: _loadingProp, ...rest
+      type, shape, size, className, children, icon, prefixCls, ghost, loading: _loadingProp, block, ...rest
     } = this.props;
 
-    const { loading, clicked, hasTwoCNChar } = this.state;
+    const { loading, hasTwoCNChar } = this.state;
 
     // large => lg
     // small => sm
@@ -181,15 +176,18 @@ export default class Button extends React.Component<ButtonProps, any> {
         break;
     }
 
+    const now = new Date();
+    const isChristmas = now.getMonth() === 11 && now.getDate() === 25;
     const classes = classNames(prefixCls, className, {
       [`${prefixCls}-${type}`]: type,
       [`${prefixCls}-${shape}`]: shape,
       [`${prefixCls}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-icon-only`]: !children && icon,
       [`${prefixCls}-loading`]: loading,
-      [`${prefixCls}-clicked`]: clicked,
       [`${prefixCls}-background-ghost`]: ghost,
       [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar,
+      [`${prefixCls}-block`]: block,
+      christmas: isChristmas,
     });
 
     const iconType = loading ? 'loading' : icon;
@@ -197,12 +195,15 @@ export default class Button extends React.Component<ButtonProps, any> {
     const kids = (children || children === 0)
       ? React.Children.map(children, child => insertSpace(child, this.isNeedInserted())) : null;
 
+    const title= isChristmas ? 'Ho Ho Ho!' : rest.title;
+
     if ('href' in rest) {
       return (
         <a
           {...rest}
           className={classes}
           onClick={this.handleClick}
+          title={title}
         >
           {iconNode}{kids}
         </a>
@@ -212,14 +213,17 @@ export default class Button extends React.Component<ButtonProps, any> {
       const { htmlType, ...otherProps } = rest;
 
       return (
-        <button
-          {...otherProps}
-          type={htmlType || 'button'}
-          className={classes}
-          onClick={this.handleClick}
-        >
-          {iconNode}{kids}
-        </button>
+        <Wave>
+          <button
+            {...otherProps}
+            type={htmlType || 'button'}
+            className={classes}
+            onClick={this.handleClick}
+            title={title}
+          >
+            {iconNode}{kids}
+          </button>
+        </Wave>
       );
     }
   }

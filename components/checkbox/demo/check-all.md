@@ -15,6 +15,7 @@ The `indeterminate` property can help you to achieve a 'check all' effect.
 
 ````jsx
 import { Checkbox } from 'antd';
+
 const CheckboxGroup = Checkbox.Group;
 
 const plainOptions = ['Apple', 'Pear', 'Orange'];
@@ -26,6 +27,7 @@ class App extends React.Component {
     indeterminate: true,
     checkAll: false,
   };
+
   render() {
     return (
       <div>
@@ -43,6 +45,7 @@ class App extends React.Component {
       </div>
     );
   }
+
   onChange = (checkedList) => {
     this.setState({
       checkedList,
@@ -50,6 +53,7 @@ class App extends React.Component {
       checkAll: checkedList.length === plainOptions.length,
     });
   }
+
   onCheckAllChange = (e) => {
     this.setState({
       checkedList: e.target.checked ? plainOptions : [],

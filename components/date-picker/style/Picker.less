@@ -2,6 +2,7 @@
 
 .@{calendar-prefix-cls}-picker-container {
   .reset-component;
+  font-family: @font-family;
   position: absolute;
   z-index: @zindex-picker;
 
@@ -39,7 +40,6 @@
 
   &-input {
     outline: none;
-    display: block;
   }
 
   &:hover &-input:not(.@{ant-prefix}-input-disabled) {
@@ -67,6 +67,7 @@
   &-clear {
     opacity: 0;
     z-index: 1;
+    font-size: @font-size-base;
     color: @disabled-color;
     background: @input-bg;
     pointer-events: none;
@@ -82,15 +83,11 @@
   }
 
   &-icon {
+    font-family: "anticon";
+    font-size: @font-size-base;
     color: @disabled-color;
-    &:after {
-      content: "\e6bb";
-      font-family: "anticon";
-      font-size: @font-size-base;
-      color: @disabled-color;
-      display: inline-block;
-      line-height: 1;
-    }
+    display: inline-block;
+    line-height: 1;
   }
 
   &-small &-clear,

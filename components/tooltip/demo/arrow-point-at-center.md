@@ -24,8 +24,8 @@ ReactDOM.render(
     <Tooltip placement="topLeft" title="Prompt Text" arrowPointAtCenter>
       <Button>Arrow points to center / 箭头指向中心</Button>
     </Tooltip>
-  </div>
-, mountNode);
+  </div>,
+  mountNode);
 ````
 
 <style>

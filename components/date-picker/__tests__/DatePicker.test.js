@@ -139,4 +139,41 @@ describe('DatePicker', () => {
     openPanel(wrapper);
     expect(hasSelected(wrapper, moment('2016-11-22'))).toBe(true);
   });
+
+  it('sets data attributes on input', () => {
+    const wrapper = mount(
+      <DatePicker data-test="test-id" data-id="12345" />
+    );
+    const input = wrapper.find('.ant-calendar-picker-input').getDOMNode();
+    expect(input.getAttribute('data-test')).toBe('test-id');
+    expect(input.getAttribute('data-id')).toBe('12345');
+  });
+
+  it('sets aria attributes on input', () => {
+    const wrapper = mount(
+      <DatePicker aria-label="some-label" aria-labelledby="label-id" />
+    );
+    const input = wrapper.find('.ant-calendar-picker-input').getDOMNode();
+    expect(input.getAttribute('aria-label')).toBe('some-label');
+    expect(input.getAttribute('aria-labelledby')).toBe('label-id');
+  });
+
+  it('sets role attribute on input', () => {
+    const wrapper = mount(
+      <DatePicker role="search" />
+    );
+    const input = wrapper.find('.ant-calendar-picker-input').getDOMNode();
+    expect(input.getAttribute('role')).toBe('search');
+  });
+
+  it('changes year/month when under control', () => {
+    const wrapper = mount(
+      <DatePicker value={moment('2018-07-01')} />
+    );
+    openPanel(wrapper);
+    expect(wrapper.find('.ant-calendar-my-select').text()).toBe('Jul2018');
+    wrapper.find('.ant-calendar-prev-year-btn').simulate('click');
+    wrapper.find('.ant-calendar-prev-month-btn').simulate('click');
+    expect(wrapper.find('.ant-calendar-my-select').text()).toBe('Jun2017');
+  });
 });

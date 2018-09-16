@@ -162,6 +162,36 @@ describe('Table.rowSelection', () => {
     expect(handleSelect.mock.calls[0][3].type).toBe('change');
   });
 
+  it('fires selectMulti event', () => {
+    const handleSelectMulti = jest.fn();
+    const handleSelect = jest.fn();
+    const rowSelection = {
+      onSelect: handleSelect,
+      onSelectMultiple: handleSelectMulti,
+    };
+    const wrapper = mount(createTable({ rowSelection }));
+
+    wrapper.find('input').at(1).simulate('change', {
+      target: { checked: true },
+      nativeEvent: { shiftKey: true },
+    });
+    expect(handleSelect).toBeCalled();
+
+    wrapper.find('input').at(3).simulate('change', {
+      target: { checked: true },
+      nativeEvent: { shiftKey: true },
+    });
+    expect(handleSelectMulti).toBeCalledWith(true,
+      [data[0], data[1], data[2]], [data[1], data[2]]);
+
+    wrapper.find('input').at(1).simulate('change', {
+      target: { checked: false },
+      nativeEvent: { shiftKey: true },
+    });
+    expect(handleSelectMulti).toBeCalledWith(false,
+      [], [data[0], data[1], data[2]]);
+  });
+
   it('fires selectAll event', () => {
     const handleSelectAll = jest.fn();
     const rowSelection = {
@@ -390,5 +420,26 @@ describe('Table.rowSelection', () => {
       expect(checkbox.props().checked).toBe(true);
       expect(checkbox.props().indeterminate).toBe(false);
     });
+  });
+
+  // https://github.com/ant-design/ant-design/issues/11042
+  it('add columnTitle for rowSelection', () => {
+    const wrapper = mount(
+      <Table
+        columns={columns}
+        dataSource={data}
+        rowSelection={{
+          columnTitle: '多选',
+        }}
+      />
+    );
+    expect(wrapper.find('thead tr span').at(0).text()).toBe('多选');
+    wrapper.setProps({
+      rowSelection: {
+        type: 'radio',
+        columnTitle: '单选',
+      },
+    });
+    expect(wrapper.find('thead tr span').at(0).text()).toBe('单选');
   });
 });

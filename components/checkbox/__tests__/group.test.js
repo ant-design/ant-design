@@ -64,4 +64,19 @@ describe('CheckboxGroup', () => {
 
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('should be controlled by value', () => {
+    const options = [
+      { label: 'Apple', value: 'Apple' },
+      { label: 'Orange', value: 'Orange' },
+    ];
+
+    const wrapper = mount(
+      <Checkbox.Group options={options} />
+    );
+
+    expect(wrapper.instance().state.value).toEqual([]);
+    wrapper.setProps({ value: ['Apple'] });
+    expect(wrapper.instance().state.value).toEqual(['Apple']);
+  });
 });

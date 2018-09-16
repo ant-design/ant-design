@@ -17,6 +17,10 @@
     transition: opacity .3s;
   }
 
+  &-empty &-body {
+    overflow: auto !important;
+  }
+
   table {
     width: 100%;
     border-collapse: separate;
@@ -29,7 +33,7 @@
     background: @table-header-bg;
     transition: background .3s ease;
     text-align: left;
-    color: @heading-color;
+    color: @table-header-color;
     font-weight: 500;
     border-bottom: @border-width-base @border-style-base @border-color-split;
 
@@ -86,12 +90,12 @@
 
   &-tbody > tr > td {
     border-bottom: @border-width-base @border-style-base @border-color-split;
-    transition: all .3s;
+    transition: all .3s, border 0s;
   }
 
   &-thead > tr,
   &-tbody > tr {
-    transition: all .3s;
+    transition: all .3s, height 0s;
     &.@{table-prefix-cls}-row-hover,
     &:hover {
       & > td {
@@ -169,6 +173,7 @@
   &-tbody > tr > td {
     padding: @table-padding-vertical @table-padding-horizontal;
     word-break: break-word;
+    -ms-word-break: break-all;
   }
 
   &-thead > tr > th.@{table-prefix-cls}-selection-column-custom {
@@ -229,18 +234,18 @@
     margin-left: 8px;
     display: inline-block;
     width: 14px;
-    height: 14px;
-    vertical-align: middle;
+    height: @font-size-base;
+    vertical-align: -.125em;
     text-align: center;
     font-weight: normal;
     color: @table-header-icon-color;
 
     &-up,
     &-down {
-      line-height: 6px;
       display: block;
       width: 14px;
-      height: 6px;
+      height: @font-size-base / 2 - 1px;
+      line-height: @font-size-base / 2 - 1px;
       cursor: pointer;
       position: relative;
       &:hover .@{iconfont-css-prefix} {
@@ -527,6 +532,9 @@
     overflow: scroll;
     padding-bottom: 20px;
     margin-bottom: -20px;
+    // Workaround for additional scroll bar on the table header
+    // https://github.com/ant-design/ant-design/issues/6515#issuecomment-419634369
+    opacity: 0.9999;
   }
 
   &-fixed-left,

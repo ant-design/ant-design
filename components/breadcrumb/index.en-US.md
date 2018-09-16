@@ -22,8 +22,6 @@ A breadcrumb displays the current location within a hierarchy. It allows going b
 | routes | The routing stack information of router | object\[] |  | - |
 | separator | Custom separator | string\|ReactNode |  | `/` |
 
-> `linkRender` and `nameRender` were removed after `antd@2.0`, please use `itemRender` instead.
-
 ### Use with browserHistory
 
 The link of Breadcrumb item targets `#` by default, you can use `itemRender` to make a `browserHistory` Link.

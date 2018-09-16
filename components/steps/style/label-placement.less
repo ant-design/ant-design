@@ -9,7 +9,8 @@
       display: block;
       text-align: center;
       margin-top: 8px;
-      width: @steps-desciption-max-width;
+      // icon左边距离+一半icon宽度，是content一半的宽度，垂直对齐icon
+      width: (@steps-icon-size / 2 + 36px) * 2;
     }
     &-icon {
       display: inline-block;
@@ -20,9 +21,6 @@
       &:after {
         display: none;
       }
-    }
-    &-description {
-      text-align: left;
     }
   }
 }

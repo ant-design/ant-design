@@ -157,6 +157,7 @@
     .@{iconfont-css-prefix} {
       min-width: 14px;
       margin-right: 10px;
+      font-size: @font-size-base;
       transition: font-size .15s @ease-out, margin .3s @ease-in-out;
       + span {
         transition: opacity .3s @ease-in-out, width .3s @ease-in-out;
@@ -179,6 +180,20 @@
       position: absolute;
       border-radius: @border-radius-base;
       z-index: @zindex-dropdown;
+
+      .submenu-title-wrapper {
+        padding-right: 20px;
+      }
+
+      &:before {
+        position: absolute;
+        top: -7px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        content: ' ';
+        opacity: .0001;
+      }
     }
 
     > .@{menu-prefix-cls} {
@@ -262,12 +277,14 @@
     border-bottom: @border-width-base @border-style-base @border-color-split;
     box-shadow: none;
     line-height: 46px;
+    white-space: nowrap;
 
     > .@{menu-prefix-cls}-item,
     > .@{menu-prefix-cls}-submenu {
       position: relative;
       top: 1px;
-      float: left;
+      display: inline-block;
+      vertical-align: bottom;
       border-bottom: 2px solid transparent;
 
       &:hover,
@@ -315,7 +332,7 @@
         right: 0;
         top: 0;
         bottom: 0;
-        border-right: 3px solid @menu-highlight-color;
+        border-right: @menu-item-active-border-width solid @menu-highlight-color;
         transform: scaleY(.0001);
         opacity: 0;
         transition: transform .15s @ease-out, opacity .15s @ease-out;
@@ -375,6 +392,7 @@
     width: @menu-collapsed-width;
     > .@{menu-prefix-cls}-item,
     > .@{menu-prefix-cls}-item-group > .@{menu-prefix-cls}-item-group-list > .@{menu-prefix-cls}-item,
+    > .@{menu-prefix-cls}-item-group > .@{menu-prefix-cls}-item-group-list > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title,
     > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
       left: 0;
       text-overflow: clip;

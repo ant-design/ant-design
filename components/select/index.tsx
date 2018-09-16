@@ -1,9 +1,11 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import RcSelect, { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale-provider/default';
+import warning from 'warning';
+import Icon from '../icon';
 
 export interface AbstractSelectProps {
   prefixCls?: string;
@@ -15,6 +17,7 @@ export interface AbstractSelectProps {
   showSearch?: boolean;
   allowClear?: boolean;
   disabled?: boolean;
+  showArrow?: boolean;
   style?: React.CSSProperties;
   tabIndex?: number;
   placeholder?: string | React.ReactNode;
@@ -24,7 +27,11 @@ export interface AbstractSelectProps {
   dropdownMenuStyle?: React.CSSProperties;
   dropdownMatchSelectWidth?: boolean;
   onSearch?: (value: string) => any;
+  getPopupContainer?: (triggerNode: Element) => HTMLElement;
   filterOption?: boolean | ((inputValue: string, option: React.ReactElement<OptionProps>) => any);
+  id?: string;
+  open?: boolean;
+  onDropdownVisibleChange?: (open: boolean) => void;
 }
 
 export interface LabeledValue {
@@ -37,7 +44,7 @@ export type SelectValue = string | string[] | number | number[] | LabeledValue |
 export interface SelectProps extends AbstractSelectProps {
   value?: SelectValue;
   defaultValue?: SelectValue;
-  mode?: 'default' | 'multiple' | 'tags' | 'combobox';
+  mode?: 'default' | 'multiple' | 'tags' | 'combobox' | string;
   optionLabelProp?: string;
   firstActiveValue?: string | string[];
   onChange?: (value: SelectValue, option: React.ReactElement<any> | React.ReactElement<any>[]) => void;
@@ -47,11 +54,12 @@ export interface SelectProps extends AbstractSelectProps {
   onFocus?: () => any;
   onPopupScroll?: () => any;
   onInputKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  onMouseEnter?: (e: React.MouseEvent<HTMLInputElement>) => any;
+  onMouseLeave?: (e: React.MouseEvent<HTMLInputElement>) => any;
   maxTagCount?: number;
   maxTagPlaceholder?: React.ReactNode | ((omittedValues: SelectValue[]) => React.ReactNode);
   optionFilterProp?: string;
   labelInValue?: boolean;
-  getPopupContainer?: (triggerNode: Element) => HTMLElement;
   tokenSeparators?: string[];
   getInputElement?: () => React.ReactElement<any>;
   autoFocus?: boolean;
@@ -76,12 +84,12 @@ const SelectPropTypes = {
   prefixCls: PropTypes.string,
   className: PropTypes.string,
   size: PropTypes.oneOf(['default', 'large', 'small']),
-  combobox: PropTypes.bool,
   notFoundContent: PropTypes.any,
   showSearch: PropTypes.bool,
   optionLabelProp: PropTypes.string,
   transitionName: PropTypes.string,
   choiceTransitionName: PropTypes.string,
+  id: PropTypes.string,
 };
 
 // => It is needless to export the declaration of below two inner components.
@@ -90,6 +98,8 @@ const SelectPropTypes = {
 export default class Select extends React.Component<SelectProps, {}> {
   static Option = Option as React.ClassicComponentClass<OptionProps>;
   static OptGroup = OptGroup as React.ClassicComponentClass<OptGroupProps>;
+
+  static SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
 
   static defaultProps = {
     prefixCls: 'ant-select',
@@ -101,6 +111,17 @@ export default class Select extends React.Component<SelectProps, {}> {
   static propTypes = SelectPropTypes;
 
   private rcSelect: any;
+
+  constructor(props: SelectProps) {
+    super(props);
+
+    warning(
+      props.mode !== 'combobox',
+      'The combobox mode of Select is deprecated,' +
+      'it will be removed in next major version,' +
+      'please use AutoComplete instead',
+    );
+  }
 
   focus() {
     this.rcSelect.focus();
@@ -115,13 +136,17 @@ export default class Select extends React.Component<SelectProps, {}> {
   }
 
   getNotFoundContent(locale: SelectLocale) {
-    const { notFoundContent, mode } = this.props;
-    const isCombobox = mode === 'combobox';
-    if (isCombobox) {
+    const { notFoundContent } = this.props;
+    if (this.isCombobox()) {
       // AutoComplete don't have notFoundContent defaultly
       return notFoundContent === undefined ? null : notFoundContent;
     }
     return notFoundContent === undefined ? locale.notFoundContent : notFoundContent;
+  }
+
+  isCombobox() {
+    const { mode } = this.props;
+    return mode === 'combobox' || mode === Select.SECRET_COMBOBOX_MODE_DO_NOT_USE;
   }
 
   renderSelect = (locale: SelectLocale) => {
@@ -138,8 +163,7 @@ export default class Select extends React.Component<SelectProps, {}> {
     }, className);
 
     let { optionLabelProp } = this.props;
-    const isCombobox = mode === 'combobox';
-    if (isCombobox) {
+    if (this.isCombobox()) {
       // children 带 dom 结构时，无法填入输入框
       optionLabelProp = optionLabelProp || 'value';
     }
@@ -147,11 +171,31 @@ export default class Select extends React.Component<SelectProps, {}> {
     const modeConfig = {
       multiple: mode === 'multiple',
       tags: mode === 'tags',
-      combobox: isCombobox,
+      combobox: this.isCombobox(),
     };
+
+    const inputIcon = (
+      <Icon type="down" className={`${prefixCls}-arrow-icon`} />
+    );
+
+    const removeIcon = (
+      <Icon type="close" className={`${prefixCls}-remove-icon`} />
+    );
+
+    const clearIcon = (
+      <Icon type="close-circle" theme="filled" className={`${prefixCls}-clear-icon`} />
+    );
+
+    const menuItemSelectedIcon = (
+      <Icon type="check" className={`${prefixCls}-selected-icon`} />
+    );
 
     return (
       <RcSelect
+        inputIcon={inputIcon}
+        removeIcon={removeIcon}
+        clearIcon={clearIcon}
+        menuItemSelectedIcon={menuItemSelectedIcon}
         {...restProps}
         {...modeConfig}
         prefixCls={prefixCls}

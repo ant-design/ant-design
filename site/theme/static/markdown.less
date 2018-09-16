@@ -22,8 +22,9 @@
   font-weight: 500;
   margin-bottom: 20px;
   margin-top: 8px;
-  font-family: Lato, @font-family;
+  font-family: Avenir, @font-family;
   font-size: 30px;
+  font-variant: tabular-nums;
   line-height: 38px;
 
   .subtitle {
@@ -42,7 +43,8 @@
 .markdown h5,
 .markdown h6 {
   color: @site-heading-color;
-  font-family: Lato, @font-family;
+  font-family: Avenir, @font-family;
+  font-variant: tabular-nums;
   margin: 1.6em 0 0.6em;
   font-weight: 500;
   clear: both;
@@ -57,7 +59,7 @@
   height: 1px;
   border: 0;
   background: @site-border-color-split;
-  margin: 72px 0;
+  margin: 56px 0;
   clear: both;
 }
 
@@ -163,12 +165,9 @@
 }
 
 .markdown a.edit-button {
-  line-height: 12px;
   display: inline-block;
-  margin-left: 10px;
-  height: 12px;
+  margin-left: 8px;
   text-decoration: none;
-  font-weight: 400;
 
   i {
     color: @site-text-color-secondary;
@@ -202,20 +201,31 @@
 .markdown.api-container table {
   font-size: @font-size-base;
   line-height: @line-height-base;
+  font-family: @code-family;
+  border-width: 0;
+  margin: 2em 0;
+  th, td {
+    padding: 14px 16px;
+    border-width: 1px 0;
+    border-color: @border-color-split;
+  }
+  th {
+    border-width: 0 0 2px 0;
+  }
   td:first-child {
     font-weight: 500;
     width: 20%;
-    font-family: "Lucida Console", Consolas, Menlo, Courier, monospace;
+    color: @blue-9;
   }
   td:nth-child(3) {
     width: 22%;
-    font-size: 12px;
-    font-family: "Lucida Console", Consolas, Menlo, Courier, monospace;
+    font-size: @font-size-base - 1px;
+    color: @magenta-7;
+    word-break: break-all;
   }
   td:last-child {
     width: 13%;
-    font-size: 12px;
-    font-family: "Lucida Console", Consolas, Menlo, Courier, monospace;
+    font-size: @font-size-base - 1px;
   }
 }
 

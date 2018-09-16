@@ -34,9 +34,9 @@
 @body-background        : #fff;
 // Base background color for most components
 @component-background   : #fff;
-@font-family-no-number  : "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
-@font-family            : "Monospaced Number", @font-family-no-number;
-@code-family            : Consolas, Menlo, Courier, monospace;
+@font-family  : "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif,
+"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+@code-family            : "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
 @heading-color          : fade(#000, 85%);
 @text-color             : fade(#000, 65%);
 @text-color-secondary   : fade(#000, 45%);
@@ -67,7 +67,6 @@
 
 // ICONFONT
 @iconfont-css-prefix    : anticon;
-@icon-url               : "https://at.alicdn.com/t/font_148784_v4ggb6wrjmkotj4i";
 
 // LINK
 @link-color             : @primary-color;
@@ -77,6 +76,8 @@
 @link-hover-decoration  : none;
 
 // Animation
+@ease-base-out       : cubic-bezier(0.7, 0.3, 0.1, 1);
+@ease-base-in        : cubic-bezier(0.9, 0, 0.3, 0.7);
 @ease-out            : cubic-bezier(0.215, 0.61, 0.355, 1);
 @ease-in             : cubic-bezier(0.55, 0.055, 0.675, 0.19);
 @ease-in-out         : cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -112,7 +113,7 @@
 // Shadow
 @shadow-color           : rgba(0, 0, 0, .15);
 @box-shadow-base        : @shadow-1-down;
-@shadow-1-up            : 0 2px 8px @shadow-color;
+@shadow-1-up            : 0 -2px 8px @shadow-color;
 @shadow-1-down          : 0 2px 8px @shadow-color;
 @shadow-1-left          : -2px 0 8px @shadow-color;
 @shadow-1-right         : 2px 0 8px @shadow-color;
@@ -157,6 +158,7 @@
 // Checkbox
 @checkbox-size          : 16px;
 @checkbox-color         : @primary-color;
+@checkbox-check-color   : #fff;
 
 // Radio
 @radio-size             : 16px;
@@ -267,6 +269,7 @@
 @input-addon-bg              : @background-color-light;
 @input-hover-border-color    : @primary-color;
 @input-disabled-bg           : @disabled-bg;
+@input-outline-offset        : 0 0;
 
 // Tooltip
 // ---
@@ -309,6 +312,7 @@
 // --
 @progress-default-color: @processing-color;
 @progress-remaining-color: @background-color-base;
+@progress-text-color: @text-color;
 
 // Menu
 // ---
@@ -319,6 +323,7 @@
 @menu-item-color: @text-color;
 @menu-highlight-color: @primary-color;
 @menu-item-active-bg: @item-active-bg;
+@menu-item-active-border-width: 3px;
 @menu-item-group-title-color: @text-color-secondary;
 // dark theme
 @menu-dark-color: @text-color-secondary-dark;
@@ -337,6 +342,7 @@
 // Table
 // --
 @table-header-bg: @background-color-light;
+@table-header-color: @heading-color;
 @table-header-sort-bg: @background-color-base;
 @table-row-hover-bg: @primary-1;
 @table-selected-row-bg: #fafafa;
@@ -378,7 +384,7 @@
 // Card
 // ---
 @card-head-color: @heading-color;
-@card-head-background: @component-background;
+@card-head-background: transparent;
 @card-head-padding: 16px;
 @card-inner-head-padding: 12px;
 @card-padding-base: 24px;
@@ -443,7 +449,7 @@
 @breadcrumb-base-color:        @text-color-secondary;
 @breadcrumb-last-item-color:   @text-color;
 @breadcrumb-font-size:         @font-size-base;
-@breadcrumb-icon-font-size:    @font-size-sm;
+@breadcrumb-icon-font-size:    @font-size-base;
 @breadcrumb-link-color:        @text-color-secondary;
 @breadcrumb-link-color-hover:  @primary-5;
 @breadcrumb-separator-color:   @text-color-secondary;
@@ -466,11 +472,45 @@
 @slider-disabled-color:               @disabled-color;
 @slider-disabled-background-color:    @component-background;
 
+// Tree
+// ---
+@tree-title-height:                   24px;
+@tree-child-padding:                  18px;
+@tree-directory-selected-color:       #fff;
+@tree-directory-selected-bg:          @primary-color;
+
 // Collapse
 // ---
 @collapse-header-padding:             12px 0 12px 40px;
 @collapse-header-bg:                  @background-color-light;
 @collapse-content-padding:            @padding-md;
 @collapse-content-bg:                 @component-background;
+
+// Skeleton
+// ---
+@skeleton-color:                      #f2f2f2;
+
+// Message
+// ---
+@message-notice-content-padding:      10px 16px;
+
+// Motion
+// ---
+@wave-animation-width: 6px;
+
+// Alert
+// ---
+@alert-success-border-color: ~`colorPalette("@{success-color}", 3)`;
+@alert-success-bg-color: ~`colorPalette("@{success-color}", 1)`;
+@alert-success-icon-color: @success-color;
+@alert-info-border-color: ~`colorPalette("@{info-color}", 3)`;
+@alert-info-bg-color: ~`colorPalette("@{info-color}", 1)`;
+@alert-info-icon-color: @info-color;
+@alert-warning-border-color: ~`colorPalette("@{warning-color}", 3)`;
+@alert-warning-bg-color: ~`colorPalette("@{warning-color}", 1)`;
+@alert-warning-icon-color: @warning-color;
+@alert-error-border-color: ~`colorPalette("@{error-color}", 3)`;
+@alert-error-bg-color: ~`colorPalette("@{error-color}", 1)`;
+@alert-error-icon-color: @error-color;
 
 @import "./default.deperated.less";

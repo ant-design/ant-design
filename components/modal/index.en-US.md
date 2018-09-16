@@ -21,6 +21,7 @@ and so on.
 | afterClose | Specify a function that will be called when modal is closed completely. | function | - |
 | bodyStyle | Body style for modal body element. Such as height, padding etc. | object | {} |
 | cancelText | Text of the Cancel button | string | `Cancel` |
+| centered | Centered Modal | Boolean | `false` |
 | closable | Whether a close (x) button is visible on top right of the modal dialog or not | boolean | true |
 | confirmLoading | Whether to apply loading visual effect for OK button or not | boolean | false |
 | destroyOnClose | Whether to unmount child compenents on onClose | boolean | false |
@@ -31,6 +32,8 @@ and so on.
 | maskStyle | Style for modal's mask element. | object | {} |
 | okText | Text of the OK button | string | `OK` |
 | okType | Button `type` of the OK button | string | `primary` |
+| okButtonProps | The ok button props | [ButtonProps](/components/button) | - |
+| cancelButtonProps | The cancel button props | [ButtonProps](/components/button) | - |
 | style | Style of floating layer, typically used at least for adjusting the position. | object | - |
 | title | The modal dialog's title | string\|ReactNode | - |
 | visible | Whether the modal dialog is visible or not | boolean | false |
@@ -60,6 +63,7 @@ The properties of the object are follows:
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | cancelText | Text of the Cancel button | string | `Cancel` |
+| centered | Centered Modal | Boolean | `false` |
 | className | className of container | string | - |
 | content | Content | string\|ReactNode | - |
 | iconType | Icon `type` of the Icon component | string | `question-circle` |
@@ -73,11 +77,17 @@ The properties of the object are follows:
 | onCancel | Specify a function that will be called when the user clicks the Cancel button. The parameter of this function is a function whose execution should include closing the dialog. You can also just return a promise and when the promise is resolved, the modal dialog will also be closed | function | - |
 | onOk | Specify a function that will be called when the user clicks the OK button. The parameter of this function is a function whose execution should include closing the dialog. You can also just return a promise and when the promise is resolved, the modal dialog will also be closed | function | - |
 
-All the `Modal.method`s will return a reference, and then we can close the modal dialog by the reference.
+All the `Modal.method`s will return a reference, and then we can update and close the modal dialog by the reference.
 
 ```jsx
-const ref = Modal.info();
-ref.destroy();
+const modal = Modal.info();
+
+modal.update({
+  title: 'Updated title',
+  content: 'Updated content',
+});
+
+modal.destroy();
 ```
 
 <style>

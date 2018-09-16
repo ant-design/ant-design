@@ -29,7 +29,7 @@ subtitle: 走马灯
 
 | 名称 | 描述 |
 | --- | --- |
-| goTo(slideNumber) | 切换到指定面板 |
+| goTo(slideNumber, dontAnimate) | 切换到指定面板, dontAnimate = true 时，不使用动画 |
 | next() | 切换到下一面板 |
 | prev() | 切换到上一面板 |
 

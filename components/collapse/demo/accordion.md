@@ -15,6 +15,7 @@ Accordion mode, only one panel can be expanded at a time. The first panel will b
 
 ````jsx
 import { Collapse } from 'antd';
+
 const Panel = Collapse.Panel;
 
 const text = `
@@ -34,6 +35,6 @@ ReactDOM.render(
     <Panel header="This is panel header 3" key="3">
       <p>{text}</p>
     </Panel>
-  </Collapse>
-, mountNode);
+  </Collapse>,
+  mountNode);
 ````

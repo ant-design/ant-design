@@ -17,6 +17,6 @@ Replace the default icon with customized text.
 import { Alert } from 'antd';
 
 ReactDOM.render(
-  <Alert message="Info Text" type="info" closeText="Close Now" />
-, mountNode);
+  <Alert message="Info Text" type="info" closeText="Close Now" />,
+  mountNode);
 ````

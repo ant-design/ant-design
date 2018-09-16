@@ -15,6 +15,7 @@ A Card that supports `cover`, `avatar`, `title` and `description`.
 
 ````jsx
 import { Card, Icon, Avatar } from 'antd';
+
 const { Meta } = Card;
 
 ReactDOM.render(
@@ -28,6 +29,6 @@ ReactDOM.render(
       title="Card title"
       description="This is the description"
     />
-  </Card>
-, mountNode);
+  </Card>,
+  mountNode);
 ````

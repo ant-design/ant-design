@@ -29,7 +29,7 @@ subtitle: 级联选择
 | disabled | 禁用 | boolean | false |
 | displayRender | 选择后展示的渲染函数 | `(label, selectedOptions) => ReactNode` | `label => label.join(' / ')` |
 | expandTrigger | 次级菜单的展开方式，可选 'click' 和 'hover' | string | 'click' |
-| filedNames | 自定义 options 中 label name children 的字段 | object | `{ label: 'label', value: 'value', children: 'children' }` |
+| fieldNames | 自定义 options 中 label name children 的字段（注意，3.7.0 之前的版本为 `filedNames`） | object | `{ label: 'label', value: 'value', children: 'children' }` |
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | Function(triggerNode) | () => document.body |
 | loadData | 用于动态加载选项，无法与 `showSearch` 一起使用 | `(selectedOptions) => void` | - |
 | notFoundContent | 当下拉列表为空时显示的内容 | string | 'Not Found' |

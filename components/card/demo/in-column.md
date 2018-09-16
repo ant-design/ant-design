@@ -29,6 +29,6 @@ ReactDOM.render(
         <Card title="Card title" bordered={false}>Card content</Card>
       </Col>
     </Row>
-  </div>
-, mountNode);
+  </div>,
+  mountNode);
 ````

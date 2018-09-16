@@ -122,8 +122,8 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
     this.slick.slickPrev();
   }
 
-  goTo(slide: number) {
-    this.slick.slickGoTo(slide);
+  goTo(slide: number, dontAnimate = false) {
+    this.slick.slickGoTo(slide, dontAnimate);
   }
 
   render() {

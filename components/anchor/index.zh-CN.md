@@ -24,6 +24,7 @@ title: Anchor
 | offsetBottom | 距离窗口底部达到指定偏移量后触发 | number |  |
 | offsetTop | 距离窗口顶部达到指定偏移量后触发 | number |  |
 | showInkInFixed | 固定模式是否显示小圆点 | boolean | false |
+| onClick | `click` 事件的 handler | Function(e: Event, link: Object) | - |
 
 ### Link Props
 

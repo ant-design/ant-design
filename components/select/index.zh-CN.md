@@ -26,9 +26,8 @@ title: Select
 | --- | --- | --- | --- |
 | allowClear | 支持清除 | boolean | false |
 | autoFocus | 默认获取焦点 | boolean | false |
-| combobox | 输入框自动提示模式（2.9 之后废弃，请使用 `mode`） | boolean | false |
 | defaultActiveFirstOption | 是否默认高亮第一个选项。 | boolean | true |
-| defaultValue | 指定默认选中的条目 | string\|string\[]\|number\|number\[] | - |
+| defaultValue | 指定默认选中的条目 | string\|string\[]<br />number\|number\[] | - |
 | disabled | 是否禁用 | boolean | false |
 | dropdownClassName | 下拉菜单的 className 属性 | string | - |
 | dropdownMatchSelectWidth | 下拉菜单和选择器同宽 | boolean | true |
@@ -39,7 +38,7 @@ title: Select
 | labelInValue | 是否把每个选项的 label 包装到 value 中，会把 Select 的 value 类型从 `string` 变为 `{key: string, label: ReactNode}` 的格式 | boolean | false |
 | maxTagCount | 最多显示多少个 tag | number | - |
 | maxTagPlaceholder | 隐藏 tag 时显示的内容 | ReactNode/function(omittedValues) | - |
-| mode | 设置 Select 的模式（2.9 之后支持） | 'multiple' \| 'tags' \| 'combobox' | - |
+| mode | 设置 Select 的模式为多选或标签 | 'multiple' \| 'tags' | - |
 | notFoundContent | 当下拉列表为空时显示的内容 | string | 'Not Found' |
 | optionFilterProp | 搜索时过滤对应的 option 属性，如设置为 children 表示对内嵌内容进行搜索 | string | value |
 | optionLabelProp | 回填到选择框的 Option 的属性值，默认是 Option 的子元素。比如在子元素需要高亮效果时，此值可以设为 `value`。 | string | `children` （combobox 模式下为 `value`） |
@@ -47,7 +46,6 @@ title: Select
 | showArrow | 是否显示下拉小箭头 | boolean | true |
 | showSearch | 使单选模式可搜索 | boolean | false |
 | size | 选择框大小，可选 `large` `small` | string | default |
-| tags | 可以把随意输入的条目作为 tag，输入项不需要与下拉选项匹配（2.9 之后废弃，请使用 `mode`） | boolean | false |
 | tokenSeparators | 在 tags 和 multiple 模式下自动分词的分隔符 | string\[] |  |
 | value | 指定当前选中的条目 | string\|string\[]\|number\|number\[] | - |
 | onBlur | 失去焦点的时回调 | function | - |
@@ -59,6 +57,8 @@ title: Select
 | onPopupScroll | 下拉列表滚动时的回调 | function | - |
 | onSearch | 文本框值变化时回调 | function(value: string) |  |
 | onSelect | 被选中时调用，参数为选中项的 value (或 key) 值 | function(value, option:Option) | - |
+| open | 是否展开下拉菜单 | boolean | - |
+| onDropdownVisibleChange | 展开下拉菜单的回调 | function(open) | - |
 
 > 注意，如果发现下拉菜单跟随页面滚动，或者需要在其他弹层中触发 Select，请尝试使用 `getPopupContainer={triggerNode => triggerNode.parentNode}` 将下拉弹层渲染节点固定在触发器的父元素中。
 
