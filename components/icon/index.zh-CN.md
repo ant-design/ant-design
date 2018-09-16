@@ -16,7 +16,7 @@ toc: false
 
 > 点击图标即可复制代码。
 
-双色图标可能略有缺失，我们还在持续补充中。
+新版图标可能略有缺失，我们还在持续补充中。
 
 ```__react
 import IconDisplay from 'site/theme/template/IconDisplay';
@@ -32,9 +32,22 @@ ReactDOM.render(<IconDisplay />, mountNode);
 | theme | 图标主题风格。可选实心、描线、双色等主题风格，适用于官方图标 | 'filled' \| 'outlined' \| 'twoTone' | 'outlined' |
 | spin | 是否有旋转动画 | boolean | false |
 | component | 控制如何渲染图标，通常是一个渲染根标签为 `<svg>` 的 `React` 组件，**会使 `type` 属性失效** | ComponentType<CustomIconComponentProps\> | - |
-| twoToneColor | 仅适用双色图标。设置双色图标的主要颜色。 | string (十六进制颜色) | - |
+| twoToneColor | 仅适用双色图标。设置双色图标的主要颜色 | string (十六进制颜色) | - |
 
-其中 `theme`, `component`, `twoToneColor` 是 `antd@3.9.x` 新增加的属性。最佳实践是给使用的 `<Icon />` 组件传入属性 `theme` 以明确图标的主题风格。例如：
+### Svg 图标
+
+在 `3.9.x` 版本后，我们使用了 svg 图标替换了原先的 font 图标，从而带来了以下优势：
+
+- 完全离线化使用，不需要从支付宝 cdn 下载字体文件，图标不会因为网络问题呈现方块，也无需字体文件本地部署。
+- 在低端设备上 svg 有更好的清晰度。
+- 支持多色图标。
+- 对于内建图标的更换可以提供更多 API，而不需要进行样式覆盖。
+
+更多讨论可参考：[#10353](https://github.com/ant-design/ant-design/issues/10353)。
+
+> ⚠️ 目前 3.9.x 上我们全量引入了所有图标，导致 antd 默认的包体积有一定增加，我们会在不远的未来增加新的 API 来实现图标的按需使用，更多相关讨论可关注：[#12011](https://github.com/ant-design/ant-design/issues/12011)。
+
+其中 `theme`, `component`, `twoToneColor` 是 `3.9.x` 版本新增加的属性。最佳实践是给使用的 `<Icon />` 组件传入属性 `theme` 以明确图标的主题风格。例如：
 
 ```jsx
 <Icon type="star" theme="filled" />
@@ -46,12 +59,16 @@ ReactDOM.render(<IconDisplay />, mountNode);
 <Icon type="message" style={{ fontSize: '16px', color: '#08c' }} />
 ```
 
-对于双色图标，可以通过使用 `Icon.getTwoToneColor()` 和 `Icon.setTwoToneColor(colorString)` 来设置图标主色。
+### 双色图标主色
+
+对于双色图标，可以通过使用 `Icon.getTwoToneColor()` 和 `Icon.setTwoToneColor(colorString)` 来全局设置图标主色。
 
 ```jsx
 Icon.setTwoToneColor('#eb2f96');
 Icon.getTwoToneColor(); // #eb2f96
 ```
+
+### 自定义 svg 图标
 
 如果使用 `webpack`，可以通过配置 [@svgr/webpack](https://www.npmjs.com/package/@svgr/webpack) 来将 `svg` 图标作为 `React` 组件导入。`@svgr/webpack` 的 `options` 选项请参阅 [svgr文档](https://github.com/smooth-code/svgr#options)。
 
@@ -94,11 +111,9 @@ ReactDOM.render(
 | className | 计算后的 `svg` 类名 | string | - |
 | style | 计算后的 `svg` 元素样式 | CSSProperties | - |
 
-### 使用 iconfont.cn 的自定义图标
+### 自定义 font 图标
 
-#### Icon.createFromIconfontCN(options)
-
-这个方法适用于 `iconfont.cn` 的用户
+在 `3.9.x` 里，我们提供了一个 `createFromIconfontCN` 方法，方便开发者调用在 [iconfont.cn](http://iconfont.cn/) 上自行管理的图标。
 
 ```js
 const MyIcon = Icon.createFromIconfontCN({

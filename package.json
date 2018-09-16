@@ -206,6 +206,7 @@
     "site": "cross-env NODE_ENV=production bisheng build --ssr -c ./site/bisheng.config.js && node ./scripts/generateColorLess.js",
     "predeploy": "antd-tools run clean && npm run site && cp netlify.toml _site && cp -r .circleci _site",
     "deploy": "bisheng gh-pages --push-only",
+    "deploy:china-mirror": "git checkout gh-pages && git pull origin gh-pages && git push git@gitee.com:ant-design/ant-design.git gh-pages",
     "pub": "antd-tools run pub",
     "prepublish": "antd-tools run guard",
     "pre-publish": "npm run test-all && node ./scripts/prepub",

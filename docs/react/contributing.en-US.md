@@ -1,5 +1,5 @@
 ---
-order: 9
+order: 10
 title: Contributing
 toc: false
 ---
@@ -16,13 +16,13 @@ All work on Ant Design happens directly on [GitHub](https://github.com/ant-desig
 
 ## Branch Organization
 
-According to our [release schedule](changelog#Release-Schedule), we'll cut a `feature` branch (e.g. `feature-3.1` for 3.1 release) from `master` every month. If you send a bugfix pull request, please do it against the `master` branch, if it's a feature pull request, please do it against the `feature` branch.
+According to our [release schedule](changelog#Release-Schedule), we maintians two branchs `master` and `feature`. If you send a bugfix pull request, please do it against the `master` branch, if it's a feature pull request, please do it against the `feature` branch.
 
 ## Bugs
 
 We are using [GitHub Issues](https://github.com/ant-design/ant-design/issues) for bug tracing. The best way to get your bug fixed is using our [issue helper](http://new-issue.ant.design) and provide a reprduction with this [template](https://u.ant.design/codesandbox-repro).
 
-Before you reporting a bug, please make sure you've searched exists issues, and read our [FAQ](https://github.com/ant-design/ant-design/wiki/FAQ).
+Before you reporting a bug, please make sure you've searched exists issues, and read our [FAQ](/docs/react/faq).
 
 ## Proposing a Change
 
