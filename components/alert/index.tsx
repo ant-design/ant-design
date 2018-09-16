@@ -3,6 +3,7 @@ import * as ReactDOM from 'react-dom';
 import Animate from 'rc-animate';
 import Icon, { ThemeType } from '../icon';
 import classNames from 'classnames';
+import ErrorBoundary from './ErrorBoundary';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 
 function noop() { }
@@ -34,13 +35,11 @@ export interface AlertProps {
 }
 
 export default class Alert extends React.Component<AlertProps, any> {
-  constructor(props: AlertProps) {
-    super(props);
-    this.state = {
-      closing: true,
-      closed: false,
-    };
-  }
+  static ErrorBoundary = ErrorBoundary;
+  state = {
+    closing: true,
+    closed: false,
+  };
   handleClose = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     let dom = ReactDOM.findDOMNode(this) as HTMLElement;
