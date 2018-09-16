@@ -22,11 +22,13 @@ class ThrowError extends React.Component {
   state = {
     error: null,
   }
+
   onClick = () => {
     this.setState({
       error: new Error('An Uncaught Error'),
     });
   }
+
   render() {
     const { error } = this.state;
     if (error) {
