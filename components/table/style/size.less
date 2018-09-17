@@ -22,12 +22,7 @@
 
 .@{table-prefix-cls}-small {
   border: @border-width-base @border-style-base @border-color-split;
-  padding: 0 @table-padding-horizontal/2;
   border-radius: @border-radius-base;
-
-  &.@{table-prefix-cls}-fixed-header {
-    padding: 0;
-  }
 
   > .@{table-prefix-cls}-title,
   > .@{table-prefix-cls}-footer {
@@ -40,6 +35,10 @@
   }
 
   > .@{table-prefix-cls}-content {
+    > .@{table-prefix-cls}-body {
+      margin: 0 @table-padding-horizontal/2;
+    }
+
     > .@{table-prefix-cls}-header > table,
     > .@{table-prefix-cls}-body > table,
     > .@{table-prefix-cls}-scroll > .@{table-prefix-cls}-header > table,
