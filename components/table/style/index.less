@@ -23,8 +23,7 @@
 
   table {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
+    border-collapse: collapse;
     text-align: left;
     border-radius: @border-radius-base @border-radius-base 0 0;
   }
@@ -301,8 +300,6 @@
     .@{table-prefix-cls}-fixed-left table,
     .@{table-prefix-cls}-fixed-right table {
       border: @border-width-base @border-style-base @border-color-split;
-      border-right: 0;
-      border-bottom: 0;
     }
 
     &.@{table-prefix-cls}-empty {
@@ -313,22 +310,9 @@
     }
 
     &.@{table-prefix-cls}-fixed-header {
-      .@{table-prefix-cls}-header > table {
-        border-bottom: 0;
-      }
-
       .@{table-prefix-cls}-body > table {
-        border-top: 0;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
-      }
-
-      .@{table-prefix-cls}-body-inner > table {
-        border-top: 0;
-      }
-
-      .@{table-prefix-cls}-placeholder {
-        border: 0;
       }
     }
 

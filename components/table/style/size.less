@@ -22,7 +22,12 @@
 
 .@{table-prefix-cls}-small {
   border: @border-width-base @border-style-base @border-color-split;
+  padding: 0 @table-padding-horizontal/2;
   border-radius: @border-radius-base;
+
+  &.@{table-prefix-cls}-fixed-header {
+    padding: 0;
+  }
 
   > .@{table-prefix-cls}-title,
   > .@{table-prefix-cls}-footer {
@@ -44,7 +49,6 @@
     > .@{table-prefix-cls}-fixed-left > .@{table-prefix-cls}-body-outer > .@{table-prefix-cls}-body-inner > table,
     > .@{table-prefix-cls}-fixed-right > .@{table-prefix-cls}-body-outer > .@{table-prefix-cls}-body-inner > table {
       border: 0;
-      padding: 0 @table-padding-horizontal/2;
       > .@{table-prefix-cls}-thead > tr > th,
       > .@{table-prefix-cls}-tbody > tr > td {
         padding: @table-padding-vertical/2 @table-padding-horizontal/2;
