@@ -69,13 +69,14 @@
 
     .@{table-prefix-cls}-column-sorter {
       position: absolute;
-      right: 8px;
+      right: 6px;
       top: 50%;
       width: 14px;
       height: @font-size-base;
       margin-top: -@font-size-base / 2;
       text-align: center;
       color: @table-header-icon-color;
+      transition: all .3s;
 
       &-up,
       &-down {
@@ -108,6 +109,16 @@
             color: @text-color-secondary;
             background: #ebebeb;
           }
+          &:active {
+            color: @text-color;
+          }
+        }
+      }
+
+      &:active {
+        .@{table-prefix-cls}-column-sorter-up:not(.on),
+        .@{table-prefix-cls}-column-sorter-down:not(.on) {
+          color: @text-color-secondary;
         }
       }
     }
@@ -129,7 +140,7 @@
     }
 
     &.@{table-prefix-cls}-column-has-filters .@{table-prefix-cls}-column-sorter {
-      right: 28px + 8px;
+      right: 28px + 6px;
     }
 
     &.@{table-prefix-cls}-column-has-sorters {
