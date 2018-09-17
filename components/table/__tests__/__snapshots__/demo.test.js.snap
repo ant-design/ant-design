@@ -36,91 +36,88 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
               >
                 <tr>
                   <th
-                    class="ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-sorters"
                   >
-                    <span>
+                    <div
+                      class="ant-table-column-sorters"
+                      title="Sort"
+                    >
                       Name
                       <div
                         class="ant-table-column-sorter"
                       >
-                        <span
-                          class="ant-table-column-sorter-up off"
-                          title="↑"
+                        <i
+                          class="anticon anticon-caret-up ant-table-column-sorter-up off"
                         >
-                          <i
-                            class="anticon anticon-caret-up"
+                          <svg
+                            aria-hidden="true"
+                            class=""
+                            data-icon="caret-up"
+                            fill="currentColor"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="caret-up"
-                              fill="currentColor"
-                              height="1em"
-                              viewBox="0 0 1024 1024"
-                              width="1em"
-                            >
-                              <path
-                                d="M76.3 632.8l405.1-489.1a42.53 42.53 0 0 1 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
-                              />
-                            </svg>
-                          </i>
-                        </span>
-                        <span
-                          class="ant-table-column-sorter-down off"
-                          title="↓"
+                            <path
+                              d="M76.3 632.8l405.1-489.1a42.53 42.53 0 0 1 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
+                            />
+                          </svg>
+                        </i>
+                        <i
+                          class="anticon anticon-caret-down ant-table-column-sorter-down off"
                         >
-                          <i
-                            class="anticon anticon-caret-down"
+                          <svg
+                            aria-hidden="true"
+                            class=""
+                            data-icon="caret-down"
+                            fill="currentColor"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="caret-down"
-                              fill="currentColor"
-                              height="1em"
-                              viewBox="0 0 1024 1024"
-                              width="1em"
-                            >
-                              <path
-                                d="M76.3 392.3l403.1 489.1a42.53 42.53 0 0 0 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
-                              />
-                            </svg>
-                          </i>
-                        </span>
+                            <path
+                              d="M76.3 392.3l403.1 489.1a42.53 42.53 0 0 0 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
+                            />
+                          </svg>
+                        </i>
                       </div>
-                    </span>
+                    </div>
                   </th>
                   <th
-                    class="ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Gender
-                      <i
-                        class="anticon anticon-filter ant-dropdown-trigger"
-                        title="Filter menu"
+                    </div>
+                    <i
+                      class="anticon anticon-filter ant-dropdown-trigger"
+                      title="Filter menu"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="filter"
+                        fill="currentColor"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="filter"
-                          fill="currentColor"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M880.1 154H143.9c-24.5 0-39.8 26.7-27.5 48L349 597.4V838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V597.4L907.7 202c12.2-21.3-3.1-48-27.6-48zM603.4 798H420.6V642h182.9v156zm9.6-236.6l-9.5 16.6h-183l-9.5-16.6L212.7 226h598.6L613 561.4z"
-                          />
-                        </svg>
-                      </i>
-                    </span>
+                        <path
+                          d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                        />
+                      </svg>
+                    </i>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Email
-                    </span>
+                    </div>
                   </th>
                 </tr>
               </thead>
@@ -177,37 +174,47 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Name
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Age
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Address
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Tags
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Action
-                    </span>
+                    </div>
                   </th>
                 </tr>
               </thead>
@@ -520,23 +527,29 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Name
-                    </span>
+                    </div>
                   </th>
                   <th
                     class="column-money"
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Cash Assets
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Address
-                    </span>
+                    </div>
                   </th>
                 </tr>
               </thead>
@@ -746,31 +759,39 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Name
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Age
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                     colspan="2"
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Home phone
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Address
-                    </span>
+                    </div>
                   </th>
                 </tr>
               </thead>
@@ -1054,62 +1075,68 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
               >
                 <tr>
                   <th
-                    class="ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Name
-                      <i
-                        class="anticon anticon-smile-o ant-table-filter-icon ant-dropdown-trigger"
-                        style="color:#aaa"
-                        title="Filter menu"
+                    </div>
+                    <i
+                      class="anticon anticon-smile-o ant-table-filter-icon ant-dropdown-trigger"
+                      style="color:#aaa"
+                      title="Filter menu"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="smile"
+                        fill="currentColor"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="smile"
-                          fill="currentColor"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M288 421a48 48 0 1 0 96 0 48 48 0 1 0-96 0zm352 0a48 48 0 1 0 96 0 48 48 0 1 0-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 0 1 248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 0 1 249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 0 1 775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 0 1 775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 0 0-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 0 0-8-8.4z"
-                          />
-                        </svg>
-                      </i>
-                    </span>
+                        <path
+                          d="M288 421a48 48 0 1 0 96 0 48 48 0 1 0-96 0zm352 0a48 48 0 1 0 96 0 48 48 0 1 0-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 0 1 248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 0 1 249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 0 1 775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 0 1 775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 0 0-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 0 0-8-8.4z"
+                        />
+                      </svg>
+                    </i>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Age
-                    </span>
+                    </div>
                   </th>
                   <th
-                    class="ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Address
-                      <i
-                        class="anticon anticon-filter ant-dropdown-trigger"
-                        title="Filter menu"
+                    </div>
+                    <i
+                      class="anticon anticon-filter ant-dropdown-trigger"
+                      title="Filter menu"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="filter"
+                        fill="currentColor"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="filter"
-                          fill="currentColor"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M880.1 154H143.9c-24.5 0-39.8 26.7-27.5 48L349 597.4V838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V597.4L907.7 202c12.2-21.3-3.1-48-27.6-48zM603.4 798H420.6V642h182.9v156zm9.6-236.6l-9.5 16.6h-183l-9.5-16.6L212.7 226h598.6L613 561.4z"
-                          />
-                        </svg>
-                      </i>
-                    </span>
+                        <path
+                          d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                        />
+                      </svg>
+                    </i>
                   </th>
                 </tr>
               </thead>
@@ -1121,7 +1148,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                   data-row-key="1"
                 >
                   <td
-                    class="ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
@@ -1135,7 +1162,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                     32
                   </td>
                   <td
-                    class="ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
                     New York No. 1 Lake Park
                   </td>
@@ -1145,7 +1172,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                   data-row-key="2"
                 >
                   <td
-                    class="ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
@@ -1159,7 +1186,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                     42
                   </td>
                   <td
-                    class="ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
                     London No. 1 Lake Park
                   </td>
@@ -1169,7 +1196,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                   data-row-key="3"
                 >
                   <td
-                    class="ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
@@ -1183,7 +1210,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                     32
                   </td>
                   <td
-                    class="ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
                     Sidney No. 1 Lake Park
                   </td>
@@ -1193,7 +1220,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                   data-row-key="4"
                 >
                   <td
-                    class="ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
@@ -1207,7 +1234,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                     32
                   </td>
                   <td
-                    class="ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
                     London No. 2 Lake Park
                   </td>
@@ -1324,23 +1351,29 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Name
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Age
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Address
-                    </span>
+                    </div>
                   </th>
                 </tr>
               </thead>
@@ -1970,7 +2003,9 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     <th
                       class="ant-table-selection-column"
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         <div
                           class="ant-table-selection"
                         >
@@ -1990,35 +2025,43 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                             </span>
                           </label>
                         </div>
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Name
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Age
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Address
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Action
-                      </span>
+                      </div>
                     </th>
                   </tr>
                 </thead>
@@ -3126,30 +3169,38 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         name
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         age
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         address
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         operation
-                      </span>
+                      </div>
                     </th>
                   </tr>
                 </thead>
@@ -3352,30 +3403,38 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       name
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       age
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       address
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       operation
-                    </span>
+                    </div>
                   </th>
                 </tr>
               </thead>
@@ -3915,30 +3974,38 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Name
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Age
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Address
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Action
-                    </span>
+                    </div>
                   </th>
                 </tr>
               </thead>
@@ -4170,7 +4237,9 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
                   <th
                     class="ant-table-selection-column"
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       <div
                         class="ant-table-selection"
                       >
@@ -4190,28 +4259,34 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
                           </span>
                         </label>
                       </div>
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Name
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Age
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Address
-                    </span>
+                    </div>
                   </th>
                 </tr>
               </thead>
@@ -4445,79 +4520,101 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                     <th
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Full Name
-                      </span>
+                      </div>
                     </th>
                     <th
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Age
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Column 1
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Column 2
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Column 3
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Column 4
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Column 5
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Column 6
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Column 7
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Column 8
-                      </span>
+                      </div>
                     </th>
                     <th
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Action
-                      </span>
+                      </div>
                     </th>
                   </tr>
                 </thead>
@@ -4692,16 +4789,20 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                       <th
                         class=""
                       >
-                        <span>
+                        <div
+                          title="Sort"
+                        >
                           Full Name
-                        </span>
+                        </div>
                       </th>
                       <th
                         class=""
                       >
-                        <span>
+                        <div
+                          title="Sort"
+                        >
                           Age
-                        </span>
+                        </div>
                       </th>
                     </tr>
                   </thead>
@@ -4776,9 +4877,11 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                       <th
                         class=""
                       >
-                        <span>
+                        <div
+                          title="Sort"
+                        >
                           Action
-                        </span>
+                        </div>
                       </th>
                     </tr>
                   </thead>
@@ -4959,79 +5062,101 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     <th
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Full Name
-                      </span>
+                      </div>
                     </th>
                     <th
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Age
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Column 1
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Column 2
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Column 3
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Column 4
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Column 5
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Column 6
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Column 7
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Column 8
-                      </span>
+                      </div>
                     </th>
                     <th
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Action
-                      </span>
+                      </div>
                     </th>
                   </tr>
                 </thead>
@@ -5789,16 +5914,20 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Full Name
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Age
-                      </span>
+                      </div>
                     </th>
                   </tr>
                 </thead>
@@ -6042,9 +6171,11 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Action
-                      </span>
+                      </div>
                     </th>
                   </tr>
                 </thead>
@@ -6412,23 +6543,29 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Name
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Age
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Address
-                      </span>
+                      </div>
                     </th>
                   </tr>
                 </thead>
@@ -7795,136 +7932,143 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 >
                   <tr>
                     <th
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
                       rowspan="4"
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Name
-                        <i
-                          class="anticon anticon-filter ant-dropdown-trigger"
-                          title="Filter menu"
+                      </div>
+                      <i
+                        class="anticon anticon-filter ant-dropdown-trigger"
+                        title="Filter menu"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class=""
+                          data-icon="filter"
+                          fill="currentColor"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class=""
-                            data-icon="filter"
-                            fill="currentColor"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M880.1 154H143.9c-24.5 0-39.8 26.7-27.5 48L349 597.4V838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V597.4L907.7 202c12.2-21.3-3.1-48-27.6-48zM603.4 798H420.6V642h182.9v156zm9.6-236.6l-9.5 16.6h-183l-9.5-16.6L212.7 226h598.6L613 561.4z"
-                            />
-                          </svg>
-                        </i>
-                      </span>
+                          <path
+                            d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                          />
+                        </svg>
+                      </i>
                     </th>
                     <th
                       class=""
                       colspan="4"
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Other
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                       colspan="2"
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Company
-                      </span>
+                      </div>
                     </th>
                     <th
                       class="ant-table-fixed-columns-in-body"
                       rowspan="4"
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Gender
-                      </span>
+                      </div>
                     </th>
                   </tr>
                   <tr>
                     <th
-                      class="ant-table-column-has-filters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters"
                       rowspan="3"
                     >
-                      <span>
+                      <div
+                        class="ant-table-column-sorters"
+                        title="Sort"
+                      >
                         Age
                         <div
                           class="ant-table-column-sorter"
                         >
-                          <span
-                            class="ant-table-column-sorter-up off"
-                            title="↑"
+                          <i
+                            class="anticon anticon-caret-up ant-table-column-sorter-up off"
                           >
-                            <i
-                              class="anticon anticon-caret-up"
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="caret-up"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
                             >
-                              <svg
-                                aria-hidden="true"
-                                class=""
-                                data-icon="caret-up"
-                                fill="currentColor"
-                                height="1em"
-                                viewBox="0 0 1024 1024"
-                                width="1em"
-                              >
-                                <path
-                                  d="M76.3 632.8l405.1-489.1a42.53 42.53 0 0 1 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
-                                />
-                              </svg>
-                            </i>
-                          </span>
-                          <span
-                            class="ant-table-column-sorter-down off"
-                            title="↓"
+                              <path
+                                d="M76.3 632.8l405.1-489.1a42.53 42.53 0 0 1 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
+                              />
+                            </svg>
+                          </i>
+                          <i
+                            class="anticon anticon-caret-down ant-table-column-sorter-down off"
                           >
-                            <i
-                              class="anticon anticon-caret-down"
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="caret-down"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
                             >
-                              <svg
-                                aria-hidden="true"
-                                class=""
-                                data-icon="caret-down"
-                                fill="currentColor"
-                                height="1em"
-                                viewBox="0 0 1024 1024"
-                                width="1em"
-                              >
-                                <path
-                                  d="M76.3 392.3l403.1 489.1a42.53 42.53 0 0 0 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
-                                />
-                              </svg>
-                            </i>
-                          </span>
+                              <path
+                                d="M76.3 392.3l403.1 489.1a42.53 42.53 0 0 0 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
+                              />
+                            </svg>
+                          </i>
                         </div>
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                       colspan="3"
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Address
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                       rowspan="3"
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Company Address
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                       rowspan="3"
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Company Name
-                      </span>
+                      </div>
                     </th>
                   </tr>
                   <tr>
@@ -7932,33 +8076,41 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       class=""
                       rowspan="2"
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Street
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                       colspan="2"
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Block
-                      </span>
+                      </div>
                     </th>
                   </tr>
                   <tr>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Building
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Door No.
-                      </span>
+                      </div>
                     </th>
                   </tr>
                 </thead>
@@ -8002,7 +8154,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     data-row-key="0"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -8011,7 +8163,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       John Brown
                     </td>
                     <td
-                      class="ant-table-column-has-filters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters"
                     >
                       1
                     </td>
@@ -8051,7 +8203,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     data-row-key="1"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -8060,7 +8212,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       John Brown
                     </td>
                     <td
-                      class="ant-table-column-has-filters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters"
                     >
                       2
                     </td>
@@ -8100,7 +8252,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     data-row-key="2"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -8109,7 +8261,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       John Brown
                     </td>
                     <td
-                      class="ant-table-column-has-filters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters"
                     >
                       3
                     </td>
@@ -8149,7 +8301,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     data-row-key="3"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -8158,7 +8310,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       John Brown
                     </td>
                     <td
-                      class="ant-table-column-has-filters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters"
                     >
                       4
                     </td>
@@ -8198,7 +8350,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     data-row-key="4"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -8207,7 +8359,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       John Brown
                     </td>
                     <td
-                      class="ant-table-column-has-filters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters"
                     >
                       5
                     </td>
@@ -8247,7 +8399,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     data-row-key="5"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -8256,7 +8408,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       John Brown
                     </td>
                     <td
-                      class="ant-table-column-has-filters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters"
                     >
                       6
                     </td>
@@ -8296,7 +8448,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     data-row-key="6"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -8305,7 +8457,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       John Brown
                     </td>
                     <td
-                      class="ant-table-column-has-filters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters"
                     >
                       7
                     </td>
@@ -8345,7 +8497,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     data-row-key="7"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -8354,7 +8506,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       John Brown
                     </td>
                     <td
-                      class="ant-table-column-has-filters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters"
                     >
                       8
                     </td>
@@ -8394,7 +8546,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     data-row-key="8"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -8403,7 +8555,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       John Brown
                     </td>
                     <td
-                      class="ant-table-column-has-filters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters"
                     >
                       9
                     </td>
@@ -8443,7 +8595,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     data-row-key="9"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -8452,7 +8604,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       John Brown
                     </td>
                     <td
-                      class="ant-table-column-has-filters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters"
                     >
                       10
                     </td>
@@ -8510,30 +8662,32 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 >
                   <tr>
                     <th
-                      class="ant-table-column-has-filters"
+                      class="ant-table-column-has-actions ant-table-column-has-filters"
                       rowspan="4"
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Name
-                        <i
-                          class="anticon anticon-filter ant-dropdown-trigger"
-                          title="Filter menu"
+                      </div>
+                      <i
+                        class="anticon anticon-filter ant-dropdown-trigger"
+                        title="Filter menu"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class=""
+                          data-icon="filter"
+                          fill="currentColor"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class=""
-                            data-icon="filter"
-                            fill="currentColor"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M880.1 154H143.9c-24.5 0-39.8 26.7-27.5 48L349 597.4V838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V597.4L907.7 202c12.2-21.3-3.1-48-27.6-48zM603.4 798H420.6V642h182.9v156zm9.6-236.6l-9.5 16.6h-183l-9.5-16.6L212.7 226h598.6L613 561.4z"
-                            />
-                          </svg>
-                        </i>
-                      </span>
+                          <path
+                            d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                          />
+                        </svg>
+                      </i>
                     </th>
                   </tr>
                 </thead>
@@ -8563,7 +8717,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       data-row-key="0"
                     >
                       <td
-                        class="ant-table-column-has-filters"
+                        class="ant-table-column-has-actions ant-table-column-has-filters"
                       >
                         <span
                           class="ant-table-row-indent indent-level-0"
@@ -8577,7 +8731,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       data-row-key="1"
                     >
                       <td
-                        class="ant-table-column-has-filters"
+                        class="ant-table-column-has-actions ant-table-column-has-filters"
                       >
                         <span
                           class="ant-table-row-indent indent-level-0"
@@ -8591,7 +8745,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       data-row-key="2"
                     >
                       <td
-                        class="ant-table-column-has-filters"
+                        class="ant-table-column-has-actions ant-table-column-has-filters"
                       >
                         <span
                           class="ant-table-row-indent indent-level-0"
@@ -8605,7 +8759,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       data-row-key="3"
                     >
                       <td
-                        class="ant-table-column-has-filters"
+                        class="ant-table-column-has-actions ant-table-column-has-filters"
                       >
                         <span
                           class="ant-table-row-indent indent-level-0"
@@ -8619,7 +8773,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       data-row-key="4"
                     >
                       <td
-                        class="ant-table-column-has-filters"
+                        class="ant-table-column-has-actions ant-table-column-has-filters"
                       >
                         <span
                           class="ant-table-row-indent indent-level-0"
@@ -8633,7 +8787,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       data-row-key="5"
                     >
                       <td
-                        class="ant-table-column-has-filters"
+                        class="ant-table-column-has-actions ant-table-column-has-filters"
                       >
                         <span
                           class="ant-table-row-indent indent-level-0"
@@ -8647,7 +8801,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       data-row-key="6"
                     >
                       <td
-                        class="ant-table-column-has-filters"
+                        class="ant-table-column-has-actions ant-table-column-has-filters"
                       >
                         <span
                           class="ant-table-row-indent indent-level-0"
@@ -8661,7 +8815,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       data-row-key="7"
                     >
                       <td
-                        class="ant-table-column-has-filters"
+                        class="ant-table-column-has-actions ant-table-column-has-filters"
                       >
                         <span
                           class="ant-table-row-indent indent-level-0"
@@ -8675,7 +8829,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       data-row-key="8"
                     >
                       <td
-                        class="ant-table-column-has-filters"
+                        class="ant-table-column-has-actions ant-table-column-has-filters"
                       >
                         <span
                           class="ant-table-row-indent indent-level-0"
@@ -8689,7 +8843,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       data-row-key="9"
                     >
                       <td
-                        class="ant-table-column-has-filters"
+                        class="ant-table-column-has-actions ant-table-column-has-filters"
                       >
                         <span
                           class="ant-table-row-indent indent-level-0"
@@ -8725,9 +8879,11 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       class=""
                       rowspan="4"
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Gender
-                      </span>
+                      </div>
                     </th>
                   </tr>
                 </thead>
@@ -9046,205 +9202,184 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
               >
                 <tr>
                   <th
-                    class="ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
                   >
-                    <span>
+                    <div
+                      class="ant-table-column-sorters"
+                      title="Sort"
+                    >
                       Name
                       <div
                         class="ant-table-column-sorter"
                       >
-                        <span
-                          class="ant-table-column-sorter-up off"
-                          title="↑"
+                        <i
+                          class="anticon anticon-caret-up ant-table-column-sorter-up off"
                         >
-                          <i
-                            class="anticon anticon-caret-up"
+                          <svg
+                            aria-hidden="true"
+                            class=""
+                            data-icon="caret-up"
+                            fill="currentColor"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="caret-up"
-                              fill="currentColor"
-                              height="1em"
-                              viewBox="0 0 1024 1024"
-                              width="1em"
-                            >
-                              <path
-                                d="M76.3 632.8l405.1-489.1a42.53 42.53 0 0 1 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
-                              />
-                            </svg>
-                          </i>
-                        </span>
-                        <span
-                          class="ant-table-column-sorter-down off"
-                          title="↓"
+                            <path
+                              d="M76.3 632.8l405.1-489.1a42.53 42.53 0 0 1 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
+                            />
+                          </svg>
+                        </i>
+                        <i
+                          class="anticon anticon-caret-down ant-table-column-sorter-down off"
                         >
-                          <i
-                            class="anticon anticon-caret-down"
+                          <svg
+                            aria-hidden="true"
+                            class=""
+                            data-icon="caret-down"
+                            fill="currentColor"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="caret-down"
-                              fill="currentColor"
-                              height="1em"
-                              viewBox="0 0 1024 1024"
-                              width="1em"
-                            >
-                              <path
-                                d="M76.3 392.3l403.1 489.1a42.53 42.53 0 0 0 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
-                              />
-                            </svg>
-                          </i>
-                        </span>
+                            <path
+                              d="M76.3 392.3l403.1 489.1a42.53 42.53 0 0 0 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
+                            />
+                          </svg>
+                        </i>
                       </div>
-                      <i
-                        class="anticon anticon-filter ant-dropdown-trigger"
-                        title="Filter menu"
+                    </div>
+                    <i
+                      class="anticon anticon-filter ant-dropdown-trigger"
+                      title="Filter menu"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="filter"
+                        fill="currentColor"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="filter"
-                          fill="currentColor"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M880.1 154H143.9c-24.5 0-39.8 26.7-27.5 48L349 597.4V838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V597.4L907.7 202c12.2-21.3-3.1-48-27.6-48zM603.4 798H420.6V642h182.9v156zm9.6-236.6l-9.5 16.6h-183l-9.5-16.6L212.7 226h598.6L613 561.4z"
-                          />
-                        </svg>
-                      </i>
-                    </span>
+                        <path
+                          d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                        />
+                      </svg>
+                    </i>
                   </th>
                   <th
-                    class="ant-table-column-has-filters ant-table-column-sort"
+                    class="ant-table-column-has-actions ant-table-column-has-sorters ant-table-column-sort"
                   >
-                    <span>
+                    <div
+                      class="ant-table-column-sorters"
+                      title="Sort"
+                    >
                       Age
                       <div
                         class="ant-table-column-sorter"
                       >
-                        <span
-                          class="ant-table-column-sorter-up off"
-                          title="↑"
+                        <i
+                          class="anticon anticon-caret-up ant-table-column-sorter-up off"
                         >
-                          <i
-                            class="anticon anticon-caret-up"
+                          <svg
+                            aria-hidden="true"
+                            class=""
+                            data-icon="caret-up"
+                            fill="currentColor"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="caret-up"
-                              fill="currentColor"
-                              height="1em"
-                              viewBox="0 0 1024 1024"
-                              width="1em"
-                            >
-                              <path
-                                d="M76.3 632.8l405.1-489.1a42.53 42.53 0 0 1 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
-                              />
-                            </svg>
-                          </i>
-                        </span>
-                        <span
-                          class="ant-table-column-sorter-down on"
-                          title="↓"
+                            <path
+                              d="M76.3 632.8l405.1-489.1a42.53 42.53 0 0 1 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
+                            />
+                          </svg>
+                        </i>
+                        <i
+                          class="anticon anticon-caret-down ant-table-column-sorter-down on"
                         >
-                          <i
-                            class="anticon anticon-caret-down"
+                          <svg
+                            aria-hidden="true"
+                            class=""
+                            data-icon="caret-down"
+                            fill="currentColor"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="caret-down"
-                              fill="currentColor"
-                              height="1em"
-                              viewBox="0 0 1024 1024"
-                              width="1em"
-                            >
-                              <path
-                                d="M76.3 392.3l403.1 489.1a42.53 42.53 0 0 0 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
-                              />
-                            </svg>
-                          </i>
-                        </span>
+                            <path
+                              d="M76.3 392.3l403.1 489.1a42.53 42.53 0 0 0 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
+                            />
+                          </svg>
+                        </i>
                       </div>
-                    </span>
+                    </div>
                   </th>
                   <th
-                    class="ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
                   >
-                    <span>
+                    <div
+                      class="ant-table-column-sorters"
+                      title="Sort"
+                    >
                       Address
                       <div
                         class="ant-table-column-sorter"
                       >
-                        <span
-                          class="ant-table-column-sorter-up off"
-                          title="↑"
+                        <i
+                          class="anticon anticon-caret-up ant-table-column-sorter-up off"
                         >
-                          <i
-                            class="anticon anticon-caret-up"
+                          <svg
+                            aria-hidden="true"
+                            class=""
+                            data-icon="caret-up"
+                            fill="currentColor"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="caret-up"
-                              fill="currentColor"
-                              height="1em"
-                              viewBox="0 0 1024 1024"
-                              width="1em"
-                            >
-                              <path
-                                d="M76.3 632.8l405.1-489.1a42.53 42.53 0 0 1 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
-                              />
-                            </svg>
-                          </i>
-                        </span>
-                        <span
-                          class="ant-table-column-sorter-down off"
-                          title="↓"
+                            <path
+                              d="M76.3 632.8l405.1-489.1a42.53 42.53 0 0 1 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
+                            />
+                          </svg>
+                        </i>
+                        <i
+                          class="anticon anticon-caret-down ant-table-column-sorter-down off"
                         >
-                          <i
-                            class="anticon anticon-caret-down"
+                          <svg
+                            aria-hidden="true"
+                            class=""
+                            data-icon="caret-down"
+                            fill="currentColor"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="caret-down"
-                              fill="currentColor"
-                              height="1em"
-                              viewBox="0 0 1024 1024"
-                              width="1em"
-                            >
-                              <path
-                                d="M76.3 392.3l403.1 489.1a42.53 42.53 0 0 0 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
-                              />
-                            </svg>
-                          </i>
-                        </span>
+                            <path
+                              d="M76.3 392.3l403.1 489.1a42.53 42.53 0 0 0 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
+                            />
+                          </svg>
+                        </i>
                       </div>
-                      <i
-                        class="anticon anticon-filter ant-dropdown-trigger"
-                        title="Filter menu"
+                    </div>
+                    <i
+                      class="anticon anticon-filter ant-dropdown-trigger"
+                      title="Filter menu"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="filter"
+                        fill="currentColor"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="filter"
-                          fill="currentColor"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M880.1 154H143.9c-24.5 0-39.8 26.7-27.5 48L349 597.4V838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V597.4L907.7 202c12.2-21.3-3.1-48-27.6-48zM603.4 798H420.6V642h182.9v156zm9.6-236.6l-9.5 16.6h-183l-9.5-16.6L212.7 226h598.6L613 561.4z"
-                          />
-                        </svg>
-                      </i>
-                    </span>
+                        <path
+                          d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                        />
+                      </svg>
+                    </i>
                   </th>
                 </tr>
               </thead>
@@ -9256,7 +9391,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                   data-row-key="2"
                 >
                   <td
-                    class="ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
@@ -9265,12 +9400,12 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                     Jim Green
                   </td>
                   <td
-                    class="ant-table-column-has-filters ant-table-column-sort"
+                    class="ant-table-column-has-actions ant-table-column-has-sorters ant-table-column-sort"
                   >
                     42
                   </td>
                   <td
-                    class="ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
                   >
                     London No. 1 Lake Park
                   </td>
@@ -9280,7 +9415,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                   data-row-key="1"
                 >
                   <td
-                    class="ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
@@ -9289,12 +9424,12 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                     John Brown
                   </td>
                   <td
-                    class="ant-table-column-has-filters ant-table-column-sort"
+                    class="ant-table-column-has-actions ant-table-column-has-sorters ant-table-column-sort"
                   >
                     32
                   </td>
                   <td
-                    class="ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
                   >
                     New York No. 1 Lake Park
                   </td>
@@ -9304,7 +9439,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                   data-row-key="3"
                 >
                   <td
-                    class="ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
@@ -9313,12 +9448,12 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                     Joe Black
                   </td>
                   <td
-                    class="ant-table-column-has-filters ant-table-column-sort"
+                    class="ant-table-column-has-actions ant-table-column-has-sorters ant-table-column-sort"
                   >
                     32
                   </td>
                   <td
-                    class="ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
                   >
                     Sidney No. 1 Lake Park
                   </td>
@@ -9328,7 +9463,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                   data-row-key="4"
                 >
                   <td
-                    class="ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
@@ -9337,12 +9472,12 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                     Jim Red
                   </td>
                   <td
-                    class="ant-table-column-has-filters ant-table-column-sort"
+                    class="ant-table-column-has-actions ant-table-column-has-sorters ant-table-column-sort"
                   >
                     32
                   </td>
                   <td
-                    class="ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
                   >
                     London No. 2 Lake Park
                   </td>
@@ -9463,57 +9598,71 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     class=""
                     colspan="2"
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Name
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                     rowspan="2"
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Age
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                     rowspan="2"
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Address
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                     rowspan="2"
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Tags
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                     rowspan="2"
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Action
-                    </span>
+                    </div>
                   </th>
                 </tr>
                 <tr>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       First Name
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Last Name
-                    </span>
+                    </div>
                   </th>
                 </tr>
               </thead>
@@ -9836,51 +9985,65 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Name
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Platform
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Version
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Upgraded
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Creator
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Date
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Action
-                    </span>
+                    </div>
                   </th>
                 </tr>
               </thead>
@@ -10179,205 +10342,184 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                 >
                   <tr>
                     <th
-                      class="ant-table-column-has-filters"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
                     >
-                      <span>
+                      <div
+                        class="ant-table-column-sorters"
+                        title="Sort"
+                      >
                         Name
                         <div
                           class="ant-table-column-sorter"
                         >
-                          <span
-                            class="ant-table-column-sorter-up off"
-                            title="↑"
+                          <i
+                            class="anticon anticon-caret-up ant-table-column-sorter-up off"
                           >
-                            <i
-                              class="anticon anticon-caret-up"
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="caret-up"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
                             >
-                              <svg
-                                aria-hidden="true"
-                                class=""
-                                data-icon="caret-up"
-                                fill="currentColor"
-                                height="1em"
-                                viewBox="0 0 1024 1024"
-                                width="1em"
-                              >
-                                <path
-                                  d="M76.3 632.8l405.1-489.1a42.53 42.53 0 0 1 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
-                                />
-                              </svg>
-                            </i>
-                          </span>
-                          <span
-                            class="ant-table-column-sorter-down off"
-                            title="↓"
+                              <path
+                                d="M76.3 632.8l405.1-489.1a42.53 42.53 0 0 1 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
+                              />
+                            </svg>
+                          </i>
+                          <i
+                            class="anticon anticon-caret-down ant-table-column-sorter-down off"
                           >
-                            <i
-                              class="anticon anticon-caret-down"
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="caret-down"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
                             >
-                              <svg
-                                aria-hidden="true"
-                                class=""
-                                data-icon="caret-down"
-                                fill="currentColor"
-                                height="1em"
-                                viewBox="0 0 1024 1024"
-                                width="1em"
-                              >
-                                <path
-                                  d="M76.3 392.3l403.1 489.1a42.53 42.53 0 0 0 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
-                                />
-                              </svg>
-                            </i>
-                          </span>
+                              <path
+                                d="M76.3 392.3l403.1 489.1a42.53 42.53 0 0 0 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
+                              />
+                            </svg>
+                          </i>
                         </div>
-                        <i
-                          class="anticon anticon-filter ant-dropdown-trigger"
-                          title="Filter menu"
+                      </div>
+                      <i
+                        class="anticon anticon-filter ant-dropdown-trigger"
+                        title="Filter menu"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class=""
+                          data-icon="filter"
+                          fill="currentColor"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class=""
-                            data-icon="filter"
-                            fill="currentColor"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M880.1 154H143.9c-24.5 0-39.8 26.7-27.5 48L349 597.4V838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V597.4L907.7 202c12.2-21.3-3.1-48-27.6-48zM603.4 798H420.6V642h182.9v156zm9.6-236.6l-9.5 16.6h-183l-9.5-16.6L212.7 226h598.6L613 561.4z"
-                            />
-                          </svg>
-                        </i>
-                      </span>
+                          <path
+                            d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                          />
+                        </svg>
+                      </i>
                     </th>
                     <th
-                      class="ant-table-column-has-filters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters"
                     >
-                      <span>
+                      <div
+                        class="ant-table-column-sorters"
+                        title="Sort"
+                      >
                         Age
                         <div
                           class="ant-table-column-sorter"
                         >
-                          <span
-                            class="ant-table-column-sorter-up off"
-                            title="↑"
+                          <i
+                            class="anticon anticon-caret-up ant-table-column-sorter-up off"
                           >
-                            <i
-                              class="anticon anticon-caret-up"
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="caret-up"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
                             >
-                              <svg
-                                aria-hidden="true"
-                                class=""
-                                data-icon="caret-up"
-                                fill="currentColor"
-                                height="1em"
-                                viewBox="0 0 1024 1024"
-                                width="1em"
-                              >
-                                <path
-                                  d="M76.3 632.8l405.1-489.1a42.53 42.53 0 0 1 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
-                                />
-                              </svg>
-                            </i>
-                          </span>
-                          <span
-                            class="ant-table-column-sorter-down off"
-                            title="↓"
+                              <path
+                                d="M76.3 632.8l405.1-489.1a42.53 42.53 0 0 1 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
+                              />
+                            </svg>
+                          </i>
+                          <i
+                            class="anticon anticon-caret-down ant-table-column-sorter-down off"
                           >
-                            <i
-                              class="anticon anticon-caret-down"
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="caret-down"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
                             >
-                              <svg
-                                aria-hidden="true"
-                                class=""
-                                data-icon="caret-down"
-                                fill="currentColor"
-                                height="1em"
-                                viewBox="0 0 1024 1024"
-                                width="1em"
-                              >
-                                <path
-                                  d="M76.3 392.3l403.1 489.1a42.53 42.53 0 0 0 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
-                                />
-                              </svg>
-                            </i>
-                          </span>
+                              <path
+                                d="M76.3 392.3l403.1 489.1a42.53 42.53 0 0 0 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
+                              />
+                            </svg>
+                          </i>
                         </div>
-                      </span>
+                      </div>
                     </th>
                     <th
-                      class="ant-table-column-has-filters"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
                     >
-                      <span>
+                      <div
+                        class="ant-table-column-sorters"
+                        title="Sort"
+                      >
                         Address
                         <div
                           class="ant-table-column-sorter"
                         >
-                          <span
-                            class="ant-table-column-sorter-up off"
-                            title="↑"
+                          <i
+                            class="anticon anticon-caret-up ant-table-column-sorter-up off"
                           >
-                            <i
-                              class="anticon anticon-caret-up"
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="caret-up"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
                             >
-                              <svg
-                                aria-hidden="true"
-                                class=""
-                                data-icon="caret-up"
-                                fill="currentColor"
-                                height="1em"
-                                viewBox="0 0 1024 1024"
-                                width="1em"
-                              >
-                                <path
-                                  d="M76.3 632.8l405.1-489.1a42.53 42.53 0 0 1 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
-                                />
-                              </svg>
-                            </i>
-                          </span>
-                          <span
-                            class="ant-table-column-sorter-down off"
-                            title="↓"
+                              <path
+                                d="M76.3 632.8l405.1-489.1a42.53 42.53 0 0 1 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
+                              />
+                            </svg>
+                          </i>
+                          <i
+                            class="anticon anticon-caret-down ant-table-column-sorter-down off"
                           >
-                            <i
-                              class="anticon anticon-caret-down"
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="caret-down"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
                             >
-                              <svg
-                                aria-hidden="true"
-                                class=""
-                                data-icon="caret-down"
-                                fill="currentColor"
-                                height="1em"
-                                viewBox="0 0 1024 1024"
-                                width="1em"
-                              >
-                                <path
-                                  d="M76.3 392.3l403.1 489.1a42.53 42.53 0 0 0 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
-                                />
-                              </svg>
-                            </i>
-                          </span>
+                              <path
+                                d="M76.3 392.3l403.1 489.1a42.53 42.53 0 0 0 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
+                              />
+                            </svg>
+                          </i>
                         </div>
-                        <i
-                          class="anticon anticon-filter ant-dropdown-trigger"
-                          title="Filter menu"
+                      </div>
+                      <i
+                        class="anticon anticon-filter ant-dropdown-trigger"
+                        title="Filter menu"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class=""
+                          data-icon="filter"
+                          fill="currentColor"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class=""
-                            data-icon="filter"
-                            fill="currentColor"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M880.1 154H143.9c-24.5 0-39.8 26.7-27.5 48L349 597.4V838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V597.4L907.7 202c12.2-21.3-3.1-48-27.6-48zM603.4 798H420.6V642h182.9v156zm9.6-236.6l-9.5 16.6h-183l-9.5-16.6L212.7 226h598.6L613 561.4z"
-                            />
-                          </svg>
-                        </i>
-                      </span>
+                          <path
+                            d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                          />
+                        </svg>
+                      </i>
                     </th>
                   </tr>
                 </thead>
@@ -10389,7 +10531,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     data-row-key="1"
                   >
                     <td
-                      class="ant-table-column-has-filters"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -10398,12 +10540,12 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                       John Brown
                     </td>
                     <td
-                      class="ant-table-column-has-filters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters"
                     >
                       32
                     </td>
                     <td
-                      class="ant-table-column-has-filters"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
                     >
                       New York No. 1 Lake Park
                     </td>
@@ -10413,7 +10555,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     data-row-key="2"
                   >
                     <td
-                      class="ant-table-column-has-filters"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -10422,12 +10564,12 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                       Jim Green
                     </td>
                     <td
-                      class="ant-table-column-has-filters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters"
                     >
                       42
                     </td>
                     <td
-                      class="ant-table-column-has-filters"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
                     >
                       London No. 1 Lake Park
                     </td>
@@ -10437,7 +10579,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     data-row-key="3"
                   >
                     <td
-                      class="ant-table-column-has-filters"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -10446,12 +10588,12 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                       Joe Black
                     </td>
                     <td
-                      class="ant-table-column-has-filters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters"
                     >
                       32
                     </td>
                     <td
-                      class="ant-table-column-has-filters"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
                     >
                       Sidney No. 1 Lake Park
                     </td>
@@ -10461,7 +10603,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     data-row-key="4"
                   >
                     <td
-                      class="ant-table-column-has-filters"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -10470,12 +10612,12 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                       Jim Red
                     </td>
                     <td
-                      class="ant-table-column-has-filters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters"
                     >
                       32
                     </td>
                     <td
-                      class="ant-table-column-has-filters"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
                     >
                       London No. 2 Lake Park
                     </td>
@@ -10603,9 +10745,11 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                   <th
                     class="react-resizable"
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Date
-                    </span>
+                    </div>
                     <span
                       class="react-resizable-handle"
                       style="touch-action:none"
@@ -10614,9 +10758,11 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                   <th
                     class="react-resizable"
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Amount
-                    </span>
+                    </div>
                     <span
                       class="react-resizable-handle"
                       style="touch-action:none"
@@ -10625,9 +10771,11 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                   <th
                     class="react-resizable"
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Type
-                    </span>
+                    </div>
                     <span
                       class="react-resizable-handle"
                       style="touch-action:none"
@@ -10636,9 +10784,11 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                   <th
                     class="react-resizable"
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Note
-                    </span>
+                    </div>
                     <span
                       class="react-resizable-handle"
                       style="touch-action:none"
@@ -10647,9 +10797,11 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Action
-                    </span>
+                    </div>
                   </th>
                 </tr>
               </thead>
@@ -10883,7 +11035,9 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                   <th
                     class="ant-table-selection-column"
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       <div
                         class="ant-table-selection"
                       >
@@ -10903,28 +11057,34 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                           </span>
                         </label>
                       </div>
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Name
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Age
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Address
-                    </span>
+                    </div>
                   </th>
                 </tr>
               </thead>
@@ -11262,7 +11422,9 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                     <th
                       class="ant-table-selection-column"
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         <div
                           class="ant-table-selection"
                         >
@@ -11282,28 +11444,34 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                             </span>
                           </label>
                         </div>
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Name
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Age
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Address
-                      </span>
+                      </div>
                     </th>
                   </tr>
                 </thead>
@@ -11911,7 +12079,9 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   <th
                     class="ant-table-selection-column ant-table-selection-column-custom"
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       <div
                         class="ant-table-selection"
                       >
@@ -11952,28 +12122,34 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                           </i>
                         </div>
                       </div>
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Name
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Age
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Address
-                    </span>
+                    </div>
                   </th>
                 </tr>
               </thead>
@@ -12583,23 +12759,29 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Name
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Age
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Address
-                      </span>
+                      </div>
                     </th>
                   </tr>
                 </thead>
@@ -12790,23 +12972,29 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Name
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Age
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div
+                        title="Sort"
+                      >
                         Address
-                      </span>
+                      </div>
                     </th>
                   </tr>
                 </thead>
