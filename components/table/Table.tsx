@@ -816,13 +816,25 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
             className={sortButton ? `${prefixCls}-column-sorters` : undefined}
             onClick={() => this.toggleSortOrder(column)}
           >
-            {column.title}
+            {this.renderColumnTitle(column.title)}
             {sortButton}
           </div>,
           filterDropdown,
         ],
       };
     });
+  }
+
+  renderColumnTitle(title: ColumnProps<T>['title']) {
+    const { filters, sortOrder } = this.state;
+    // https://github.com/ant-design/ant-design/issues/11246#issuecomment-405009167
+    if (typeof title === 'function') {
+      return title({
+        filters,
+        sortOrder,
+      });
+    }
+    return title;
   }
 
   handleShowSizeChange = (current: number, pageSize: number) => {

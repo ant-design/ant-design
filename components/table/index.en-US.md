@@ -124,7 +124,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | render | Renderer of the table cell. The return value should be a ReactNode, or an object for [colSpan/rowSpan config](#components-table-demo-colspan-rowspan) | Function(text, record, index) {} | - |
 | sorter | Sort function for local sort, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction. If you need sort buttons only, set to `true` | Function\|boolean | - |
 | sortOrder | Order of sorted values: `'ascend'` `'descend'` `false` | boolean\|string | - |
-| title | Title of this column | string\|ReactNode | - |
+| title | Title of this column | ReactNode\|({ sortOrder, filters }) => ReactNode | - |
 | width | Width of this column | string\|number | - |
 | onCell | Set props on per cell | Function(record) | - |
 | onFilter | Callback executed when the confirm filter button is clicked | Function | - |

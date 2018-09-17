@@ -150,4 +150,29 @@ describe('Table.sorter', () => {
 
     expect(renderedNames(wrapper)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
   });
+
+  // https://github.com/ant-design/ant-design/issues/11246#issuecomment-405009167
+  it('Allow column title as render props with sortOrder argument', () => {
+    const columns = [
+      {
+        title: ({ sortOrder }) => <div className="custom-title">{sortOrder}</div>,
+        key: 'group',
+        sorter: true,
+      },
+    ];
+    const testData = [
+      { key: 0, name: 'Jack', age: 11 },
+      { key: 1, name: 'Lucy', age: 20 },
+      { key: 2, name: 'Tom', age: 21 },
+      { key: 3, name: 'Jerry', age: 22 },
+    ];
+    const wrapper = mount(
+      <Table columns={columns} dataSource={testData} />
+    );
+    expect(wrapper.find('.custom-title').text()).toEqual('');
+    wrapper.find('.ant-table-column-sorters').simulate('click');
+    expect(wrapper.find('.custom-title').text()).toEqual('descend');
+    wrapper.find('.ant-table-column-sorters').simulate('click');
+    expect(wrapper.find('.custom-title').text()).toEqual('ascend');
+  });
 });
