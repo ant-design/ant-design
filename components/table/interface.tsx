@@ -57,6 +57,7 @@ export interface TableLocale {
   emptyText?: React.ReactNode | (() => React.ReactNode);
   selectAll?: React.ReactNode;
   selectInvert?: React.ReactNode;
+  sortTitle?: string;
 }
 
 export type RowSelectionType = 'checkbox' | 'radio';

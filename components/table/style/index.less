@@ -84,6 +84,9 @@
         height: 4px;
         transition: all .3s;
         display: block;
+        &.on {
+          color: @primary-color;
+        }
       }
 
       &-down {
@@ -127,6 +130,10 @@
 
     &.@{table-prefix-cls}-column-has-filters .@{table-prefix-cls}-column-sorter {
       right: 28px + 8px;
+    }
+
+    &.@{table-prefix-cls}-column-has-sorters {
+      user-select: none;
     }
   }
 

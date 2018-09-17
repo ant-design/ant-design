@@ -355,24 +355,22 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     };
   }
 
-  toggleSortOrder(order: 'ascend'|'descend', column: ColumnProps<T>) {
-    let { sortColumn, sortOrder } = this.state;
+  toggleSortOrder(column: ColumnProps<T>) {
+    const { sortOrder } = this.state;
     // 只同时允许一列进行排序，否则会导致排序顺序的逻辑问题
-    let isSortColumn = this.isSortColumn(column);
-    if (!isSortColumn) {  // 当前列未排序
-      sortOrder = order;
-      sortColumn = column;
-    } else {                      // 当前列已排序
-      if (sortOrder === order) {  // 切换为未排序状态
-        sortOrder = undefined;
-        sortColumn = null;
-      } else {                    // 切换为排序状态
-        sortOrder = order;
-      }
+    let newSortOrder: 'descend' | 'ascend' | undefined;
+    // 切换排序状态，按照降序/升序/不排序的顺序
+    if (!sortOrder) {
+      newSortOrder = 'descend';
+    } else if (sortOrder === 'descend') {
+      newSortOrder = 'ascend';
+    } else {
+      newSortOrder = undefined;
     }
+
     const newState = {
-      sortOrder,
-      sortColumn,
+      sortOrder: newSortOrder,
+      sortColumn: newSortOrder ? column : null,
     };
 
     // Controlled
@@ -380,7 +378,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       this.setState(newState);
     }
 
-    const onChange = this.props.onChange;
+    const { onChange } = this.props;
     if (onChange) {
       onChange.apply(null, this.prepareParamsArguments({
         ...this.state,
@@ -791,13 +789,11 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
           <div className={`${prefixCls}-column-sorter`} key="sorter">
             <Icon
               className={`${prefixCls}-column-sorter-up ${isAscend ? 'on' : 'off'}`}
-              title="↑"
               type="caret-up"
               theme="filled"
             />
             <Icon
               className={`${prefixCls}-column-sorter-down ${isDescend ? 'on' : 'off'}`}
-              title="↓"
               type="caret-down"
               theme="filled"
             />
@@ -824,20 +820,17 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
           const headerCellProps = column.onHeaderCell ? column.onHeaderCell(columnProps) : {};
           return {
             onClick: (e: MouseEvent) => {
-              this.handleColumnHeaderClick(e);
+              this.toggleSortOrder(column);
               if (headerCellProps && headerCellProps.onClick) {
                 headerCellProps.onClick(e);
               }
             },
+            title: locale.sortTitle,
             ...headerCellProps,
           };
         },
       };
     });
-  }
-
-  handleColumnHeaderClick = (e: MouseEvent) => {
-    console.log(e);
   }
 
   handleShowSizeChange = (current: number, pageSize: number) => {
