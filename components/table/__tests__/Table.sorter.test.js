@@ -60,11 +60,13 @@ describe('Table.sorter', () => {
   it('sort records', () => {
     const wrapper = mount(createTable());
 
-    wrapper.find('.ant-table-column-sorter-up').simulate('click');
-    expect(renderedNames(wrapper)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
-
-    wrapper.find('.ant-table-column-sorter-down').simulate('click');
+    // descent
+    wrapper.find('.ant-table-column-sorters').simulate('click');
     expect(renderedNames(wrapper)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
+
+    // ascent
+    wrapper.find('.ant-table-column-sorters').simulate('click');
+    expect(renderedNames(wrapper)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
   });
 
   it('can be controlled by sortOrder', () => {
@@ -92,13 +94,27 @@ describe('Table.sorter', () => {
     const handleChange = jest.fn();
     const wrapper = mount(createTable({ onChange: handleChange }));
 
-    wrapper.find('.ant-table-column-sorter-up').simulate('click');
+    // ascent
+    wrapper.find('.ant-table-column-sorters').simulate('click');
+    const sorter1 = handleChange.mock.calls[0][2];
+    expect(sorter1.column.dataIndex).toBe('name');
+    expect(sorter1.order).toBe('descend');
+    expect(sorter1.field).toBe('name');
+    expect(sorter1.columnKey).toBe('name');
 
-    const sorter = handleChange.mock.calls[0][2];
-    expect(sorter.column.dataIndex).toBe('name');
-    expect(sorter.order).toBe('ascend');
-    expect(sorter.field).toBe('name');
-    expect(sorter.columnKey).toBe('name');
+    wrapper.find('.ant-table-column-sorters').simulate('click');
+    const sorter2 = handleChange.mock.calls[1][2];
+    expect(sorter2.column.dataIndex).toBe('name');
+    expect(sorter2.order).toBe('ascend');
+    expect(sorter2.field).toBe('name');
+    expect(sorter2.columnKey).toBe('name');
+
+    wrapper.find('.ant-table-column-sorters').simulate('click');
+    const sorter3 = handleChange.mock.calls[2][2];
+    expect(sorter3.column).toBe(undefined);
+    expect(sorter3.order).toBe(undefined);
+    expect(sorter3.field).toBe(undefined);
+    expect(sorter3.columnKey).toBe(undefined);
   });
 
   it('works with grouping columns in controlled mode', () => {
