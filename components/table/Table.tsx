@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import RcTable from 'rc-table';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -682,8 +683,8 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     return recordKey === undefined ? index : recordKey;
   }
 
-  getPopupContainer = (trigger: HTMLElement) => {
-    return trigger;
+  getPopupContainer = () => {
+    return ReactDOM.findDOMNode(this) as HTMLElement;
   }
 
   renderRowSelection(locale: TableLocale) {
