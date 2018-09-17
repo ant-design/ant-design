@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Card from '../index';
+import Button from '../../button/index';
 
 const testMethod = typeof window !== 'undefined' ? it : xit;
 
@@ -37,6 +38,15 @@ describe('Card', () => {
 
   it('should still have padding when card which set padding to 0 is loading', () => {
     const wrapper = mount(<Card loading bodyStyle={{ padding: 0 }}>xxx</Card>);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('title should be vertically aligned', () => {
+    const wrapper = mount(
+      <Card title="Card title" extra={<Button>Button</Button>} style={{ width: 300 }}>
+        <p>Card content</p>
+      </Card>
+    );
     expect(wrapper.render()).toMatchSnapshot();
   });
 });
