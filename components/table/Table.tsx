@@ -810,26 +810,17 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
           [`${prefixCls}-column-sort`]: isSortColumn && sortOrder,
         }),
         title: [
-          <div key="title" className={sortButton ? `${prefixCls}-column-sorters` : ''}>
+          <div
+            key="title"
+            title={locale.sortTitle}
+            className={sortButton ? `${prefixCls}-column-sorters` : undefined}
+            onClick={() => this.toggleSortOrder(column)}
+          >
             {column.title}
             {sortButton}
           </div>,
           filterDropdown,
         ],
-        onHeaderCell: sortButton ? (columnProps: ColumnProps<T>) => {
-          // for onHeaderCell compatibility
-          const headerCellProps = column.onHeaderCell ? column.onHeaderCell(columnProps) : {};
-          return {
-            onClick: (e: MouseEvent) => {
-              this.toggleSortOrder(column);
-              if (headerCellProps && headerCellProps.onClick) {
-                headerCellProps.onClick(e);
-              }
-            },
-            title: locale.sortTitle,
-            ...headerCellProps,
-          };
-        } : column.onHeaderCell,
       };
     });
   }
