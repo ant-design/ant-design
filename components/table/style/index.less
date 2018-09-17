@@ -47,37 +47,86 @@
       cursor: pointer;
       color: @table-header-icon-color;
       transition: all .3s;
-      width: 24px;
+      width: 28px;
       position: absolute;
       top: 0;
       right: 0;
       height: 100%;
       text-align: center;
 
-      &:hover {
-        color: @text-color-secondary;
-        background: rgba(0, 0, 0, .04);
-      }
-
       > svg {
         position: absolute;
         top: 50%;
         left: 50%;
-        margin-top: -@font-size-sm / 2;
+        margin-top: -@font-size-sm / 2 + 1px;
         margin-left: -@font-size-sm / 2;
       }
-    }
-
-    .@{table-prefix-cls}-column-sorter + .@{iconfont-css-prefix}-filter {
-      margin-left: 4px;
     }
 
     .@{table-prefix-cls}-filter-selected.@{iconfont-css-prefix}-filter {
       color: @primary-color;
     }
 
-    &.@{table-prefix-cls}-column-has-filters {
+    .@{table-prefix-cls}-column-sorter {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      width: 14px;
+      height: @font-size-base;
+      margin-top: -@font-size-base / 2;
+      text-align: center;
+      color: @table-header-icon-color;
+
+      &-up,
+      &-down {
+        .iconfont-size-under-12px(8px);
+        line-height: 4px;
+        height: 4px;
+        transition: all .3s;
+        display: block;
+      }
+
+      &-down {
+        margin-top: 2px;
+      }
+    }
+
+    &.@{table-prefix-cls}-column-has-actions {
       position: relative;
+      cursor: pointer;
+
+      // Very complicated styles logic but neccessary
+      &:hover {
+        background: #f5f5f5;
+        .@{iconfont-css-prefix}-filter,
+        .@{table-prefix-cls}-filter-icon {
+          background: #f5f5f5;
+          &:hover {
+            color: @text-color-secondary;
+            background: #ebebeb;
+          }
+        }
+      }
+    }
+
+    .@{table-prefix-cls}-column-sorters {
+      &:before {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: transparent;
+        transition: all .3s;
+      }
+      &:hover:before {
+        background: rgba(0, 0, 0, .04);
+      }
+    }
+
+    &.@{table-prefix-cls}-column-has-filters .@{table-prefix-cls}-column-sorter {
+      right: 28px + 8px;
     }
   }
 
@@ -235,72 +284,6 @@
     }
     .@{table-prefix-cls}-without-pagination {
       margin-top: 10px;
-    }
-  }
-
-  &-column-sorter {
-    position: relative;
-    margin-left: 8px;
-    display: inline-block;
-    vertical-align: text-bottom;
-    top: -1.5px;
-    width: 14px;
-    height: @font-size-base;
-    text-align: center;
-    font-weight: normal;
-    color: @table-header-icon-color;
-
-    &-up,
-    &-down {
-      display: block;
-      width: 14px;
-      height: @font-size-base / 2 - 1px;
-      line-height: @font-size-base / 2 - 1px;
-      cursor: pointer;
-      position: relative;
-      &:hover .@{iconfont-css-prefix} {
-        color: @primary-4;
-      }
-      &.on {
-        .@{iconfont-css-prefix}-caret-up,
-        .@{iconfont-css-prefix}-caret-down {
-          color: @primary-color;
-        }
-      }
-
-      &:after {
-        position: absolute;
-        content: '';
-        height: 30px;
-        width: 14px;
-        left: 0;
-      }
-    }
-
-    &-up:after {
-      bottom: 0;
-    }
-
-    &-down:after {
-      top: 0;
-    }
-
-    .@{iconfont-css-prefix}-caret-up,
-    .@{iconfont-css-prefix}-caret-down {
-      .iconfont-size-under-12px(8px);
-      line-height: 4px;
-      height: 4px;
-      transition: all .3s;
-      position: relative;
-      display: block;
-    }
-
-    &-down {
-      margin-top: 1.5px;
-    }
-
-    .@{iconfont-css-prefix}-caret-up {
-      margin-top: 0.5px;
     }
   }
 
