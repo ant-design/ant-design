@@ -6,14 +6,15 @@ import classNames from 'classnames';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from './locale/en_US';
 import interopDefault from '../_util/interopDefault';
+import Icon from '../icon';
 
 export function generateShowHourMinuteSecond(format: string) {
   // Ref: http://momentjs.com/docs/#/parsing/string-format/
   return {
     showHour: (
       format.indexOf('H') > -1 ||
-        format.indexOf('h') > -1 ||
-        format.indexOf('k') > -1
+      format.indexOf('h') > -1 ||
+      format.indexOf('k') > -1
     ),
     showMinute: format.indexOf('m') > -1,
     showSecond: format.indexOf('s') > -1,
@@ -152,6 +153,24 @@ class TimePicker extends React.Component<TimePickerProps, any> {
       ) : null
     );
 
+    const inputIcon = (
+      <span className={`${props.prefixCls}-icon`}>
+        <Icon
+          type="clock-circle"
+          className={`${props.prefixCls}-clock-icon`}
+          theme="outlined"
+        />
+      </span>
+    );
+
+    const clearIcon = (
+      <Icon
+        type="close-circle"
+        className={`${props.prefixCls}-panel-clear-btn-icon`}
+        theme="filled"
+      />
+    );
+
     return (
       <RcTimePicker
         {...generateShowHourMinuteSecond(format)}
@@ -165,6 +184,8 @@ class TimePicker extends React.Component<TimePickerProps, any> {
         onOpen={this.handleOpenClose}
         onClose={this.handleOpenClose}
         addon={addon}
+        inputIcon={inputIcon}
+        clearIcon={clearIcon}
       />
     );
   }

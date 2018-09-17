@@ -34,7 +34,7 @@
   &&-card > &-bar &-nav-wrap {
     margin-bottom: 0;
   }
-  &&-card > &-bar &-tab .@{iconfont-css-prefix}-close {
+  &&-card > &-bar &-tab &-close-x {
     color: @text-color-secondary;
     transition: all .3s;
     font-size: @font-size-sm;
@@ -66,6 +66,7 @@
     line-height: @tabs-card-height;
 
     .@{tab-prefix-cls}-new-tab {
+      position: relative;
       width: 20px;
       height: 20px;
       line-height: 20px;
@@ -79,6 +80,14 @@
       &:hover {
         color: @tabs-card-active-color;
         border-color: @tabs-card-active-color;
+      }
+      svg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
       }
     }
   }

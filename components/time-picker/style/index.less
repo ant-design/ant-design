@@ -58,20 +58,23 @@
     line-height: 20px;
     top: 7px;
     margin: 0;
-  }
 
-  &-clear-btn:after {
-    font-size: @font-size-base - 2px;
-    color: @disabled-color;
-    display: inline-block;
-    line-height: 1;
-    width: 20px;
-    transition: color 0.3s ease;
-    .iconfont-font("\e62e");
-  }
+    &-icon svg {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      font-size: @font-size-base;
+      color: @disabled-color;
+      display: inline-block;
+      transition: color 0.3s ease;
 
-  &-clear-btn:hover:after {
-    color: @text-color-secondary;
+      &:hover {
+        color: @text-color-secondary;
+      }
+    }
   }
 
   &-narrow &-input-wrap {
@@ -212,9 +215,7 @@
     color: @disabled-color;
     top: 50%;
     margin-top: -7px;
-    &:after {
-      content: "\e641";
-      font-family: "anticon";
+    .@{timepicker-prefix-cls}-clock-icon {
       color: @disabled-color;
       display: block;
       line-height: 1;

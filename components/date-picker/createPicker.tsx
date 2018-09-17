@@ -119,11 +119,13 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
 
       let pickerProps: Object = {};
       let calendarProps: any = {};
+      const pickerStyle: { width?: number } = {};
       if (props.showTime) {
         calendarProps = {
           // fix https://github.com/ant-design/ant-design/issues/1902
           onSelect: this.handleChange,
         };
+        pickerStyle.width = 195;
       } else {
         pickerProps = {
           onChange: this.handleChange,
@@ -159,9 +161,10 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
 
       const clearIcon = (!props.disabled && props.allowClear && value) ? (
         <Icon
-          type="cross-circle"
+          type="close-circle"
           className={`${prefixCls}-picker-clear`}
           onClick={this.clearSelection}
+          theme="filled"
         />
       ) : null;
 
@@ -178,7 +181,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
             {...dataOrAriaProps}
           />
           {clearIcon}
-          <span className={`${prefixCls}-picker-icon`} />
+          <Icon type="calendar" className={`${prefixCls}-picker-icon`}/>
         </div>
       );
 
@@ -186,7 +189,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
         <span
           id={props.id}
           className={classNames(props.className, props.pickerClass)}
-          style={props.style}
+          style={{ ...pickerStyle, ...props.style }}
           onFocus={props.onFocus}
           onBlur={props.onBlur}
           onMouseEnter={props.onMouseEnter}

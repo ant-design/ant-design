@@ -17,9 +17,7 @@
   }
 
   > a.prev-page {
-    &:before {
-      font-family: 'anticon';
-      content: '\e61c';
+    .footer-nav-icon-before {
       font-size: 12px;
       margin-right: 1em;
       color: @site-text-color-secondary;
@@ -28,7 +26,11 @@
       left: 0;
     }
 
-    &:hover:before {
+    .footer-nav-icon-after {
+      display: none;
+    }
+
+    &:hover .footer-nav-icon-before {
       color: @primary-color;
       left: -3px;
     }
@@ -38,9 +40,7 @@
     text-align: right;
     float: right;
 
-    &:after {
-      font-family: 'anticon';
-      content: '\e61b';
+    .footer-nav-icon-after {
       font-size: 12px;
       margin-left: 1em;
       color: @site-text-color-secondary;
@@ -49,7 +49,11 @@
       right: 0;
     }
 
-    &:hover:after {
+    .footer-nav-icon-before {
+      display: none;
+    }
+
+    &:hover .footer-nav-icon-after {
       color: @primary-color;
       right: -3px;
     }

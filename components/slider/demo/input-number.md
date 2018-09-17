@@ -32,7 +32,12 @@ class IntegerStep extends React.Component {
     return (
       <Row>
         <Col span={12}>
-          <Slider min={1} max={20} onChange={this.onChange} value={inputValue} />
+          <Slider
+            min={1}
+            max={20}
+            onChange={this.onChange}
+            value={typeof inputValue === 'number' ? inputValue : 0}
+          />
         </Col>
         <Col span={4}>
           <InputNumber
@@ -71,7 +76,7 @@ class DecimalStep extends React.Component {
             min={0}
             max={1}
             onChange={this.onChange}
-            value={inputValue}
+            value={typeof inputValue === 'number' ? inputValue : 0}
             step={0.01}
           />
         </Col>

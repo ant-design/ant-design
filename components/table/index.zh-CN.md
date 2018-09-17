@@ -8,9 +8,9 @@ subtitle: 表格
 
 展示行列数据。
 
-## 设计师专属 🌟
+## 设计师专属
 
-还在用 Sketch 手动画表格吗？现在安装 [Kitchen Sketch](https://kitchen.alipay.com/) 插件，两步就可以自动生成 Ant Design 表格组件啦！
+安装 [Kitchen Sketch 插件 💎](https://kitchen.alipay.com/)，两步就可以自动生成 Ant Design 表格组件。
 
 ## 何时使用
 
@@ -116,6 +116,7 @@ const columns = [{
 | className | 列的 className | string | - |
 | colSpan | 表头列合并,设置为 0 时，不渲染 | number |  |
 | dataIndex | 列数据在数据项中对应的 key，支持 `a.b.c` 的嵌套写法 | string | - |
+| defaultSortOrder | 默认排序顺序 | 'ascend' \| 'descend' | - |
 | filterDropdown | 可以自定义筛选菜单，此函数只负责渲染图层，需要自行编写各种交互 | ReactNode | - |
 | filterDropdownVisible | 用于控制自定义筛选菜单是否可见 | boolean | - |
 | filtered | 标识数据是否经过过滤，筛选图标会高亮 | boolean | false |

@@ -3,8 +3,8 @@ import { AbstractSelectProps } from '../select';
 
 export type TreeNode = TreeNodeNormal | TreeNodeSimpleMode;
 
-interface TreeNodeNormal {
-  value: string;
+export interface TreeNodeNormal {
+  value: string | number;
   /**
    * @deprecated Please use `title` instead.
    */
@@ -18,23 +18,24 @@ interface TreeNodeNormal {
   children?: TreeNodeNormal[];
 }
 
-interface TreeNodeSimpleMode {
+export interface TreeNodeSimpleMode {
   /* It is possible to change `id` and `pId` prop keys using TreeDataSimpleMode so those keys can be anything */
   [key: string]: string | boolean | React.ReactNode;
 }
 
-interface TreeDataSimpleMode {
+export interface TreeDataSimpleMode {
   id?: string;
   pId?: string;
   rootPId?: string;
 }
 
 export interface TreeSelectProps extends AbstractSelectProps {
-  value?: string | Array<any>;
-  defaultValue?: string | Array<any>;
+  value?: string | number | Array<any>;
+  defaultValue?: string | number | Array<any>;
   multiple?: boolean;
+  maxTagCount?: number;
   onSelect?: (value: any) => void;
-  onChange?: (value: any, label: any) => void;
+  onChange?: (value: any, label: any, extra: any) => void;
   onSearch?: (value: any) => void;
   searchPlaceholder?: string;
   dropdownStyle?: React.CSSProperties;

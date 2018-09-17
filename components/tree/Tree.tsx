@@ -3,6 +3,7 @@ import RcTree, { TreeNode } from 'rc-tree';
 import DirectoryTree from './DirectoryTree';
 import classNames from 'classnames';
 import animation from '../_util/openAnimation';
+import Icon from '../icon';
 
 export interface AntdTreeNodeAttribute {
   eventKey: string;
@@ -33,6 +34,7 @@ export interface AntTreeNodeProps {
   isLeaf?: boolean;
   checked?: boolean;
   expanded?: boolean;
+  loading?: boolean;
   selected?: boolean;
   selectable?: boolean;
   icon?: ((treeNode: AntdTreeNodeAttribute) => React.ReactNode) | React.ReactNode;
@@ -66,6 +68,13 @@ export interface AntTreeNodeExpandedEvent extends AntTreeNodeBaseEvent {
 
 export interface AntTreeNodeMouseEvent {
   node: AntTreeNode;
+  event: React.MouseEventHandler<any>;
+}
+
+export interface AntTreeNodeDropEvent {
+  node: AntTreeNode;
+  dragNode: AntTreeNode;
+  dragNodesKeys: string[];
   event: React.MouseEventHandler<any>;
 }
 
@@ -128,7 +137,7 @@ export interface TreeProps {
   /** dragleave 触发时调用 */
   onDragLeave?: (options: AntTreeNodeMouseEvent) => void;
   /** drop 触发时调用 */
-  onDrop?: (options: AntTreeNodeMouseEvent) => void;
+  onDrop?: (options: AntTreeNodeDropEvent) => void;
   style?: React.CSSProperties;
   showIcon?: boolean;
   icon?: (nodeProps: AntdTreeNodeAttribute) => React.ReactNode | React.ReactNode;
@@ -151,6 +160,45 @@ export default class Tree extends React.Component<TreeProps, any> {
     },
   };
 
+  renderSwitcherIcon = ({ isLeaf, expanded, loading }: AntTreeNodeProps) => {
+    const {
+      prefixCls,
+      showLine,
+    } = this.props;
+    if (loading) {
+      return (
+        <Icon
+          type="loading"
+          className={`${prefixCls}-switcher-loading-icon`}
+        />
+      );
+    }
+    if (showLine) {
+      if (isLeaf) {
+        return (
+          <Icon
+            type="file"
+            className={`${prefixCls}-switcher-line-icon`}
+          />
+        );
+      }
+      return (
+        <Icon
+          type={expanded ? 'minus-square' : 'plus-square'}
+          className={`${prefixCls}-switcher-line-icon`}
+          theme="outlined"
+        />
+      );
+    } else {
+      if (isLeaf) {
+        return null;
+      }
+      return (
+        <Icon type="caret-down" className={`${prefixCls}-switcher-icon`} theme="filled" />
+      );
+    }
+  }
+
   render() {
     const props = this.props;
     const { prefixCls, className, showIcon } = props;
@@ -160,6 +208,7 @@ export default class Tree extends React.Component<TreeProps, any> {
         {...props}
         className={classNames(!showIcon && `${prefixCls}-icon-hide`, className)}
         checkable={checkable ? <span className={`${prefixCls}-checkbox-inner`} /> : checkable}
+        switcherIcon={this.renderSwitcherIcon}
       >
         {this.props.children}
       </RcTree>

@@ -7,9 +7,9 @@ title: Avatar
 
 用来代表用户或事物，支持图片、图标或字符展示。
 
-## 设计师专属🌟
+## 设计师专属
 
-安装 [Kitchen Sketch](https://kitchen.alipay.com) 插件，就可以一键填充高逼格头像和文本哦！
+安装 [Kitchen Sketch 插件 💎](https://kitchen.alipay.com)，一键填充高逼格头像和文本.
 
 ## API
 

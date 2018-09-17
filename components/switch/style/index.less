@@ -28,7 +28,7 @@
     display: block;
   }
 
-  &:before,
+  &-loading-icon,
   &:after {
     position: absolute;
     width: @switch-height - 4px;
@@ -51,23 +51,29 @@
     width: 24px;
   }
 
-  &:before {
-    content: "\e64d";
-    font-family: anticon;
-    animation: loadingCircle 1s infinite linear;
-    text-align: center;
+  &-loading-icon {
+    // loading default use animation
+    // animation: loadingCircle 1s infinite linear;
     background: transparent;
     z-index: 1;
     display: none;
     font-size: 12px;
+    svg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+    }
   }
 
-  &-loading:before {
+  &-loading &-loading-icon {
     display: inline-block;
     color: @text-color;
   }
 
-  &-checked&-loading:before {
+  &-checked&-loading &-loading-icon {
     color: @switch-color;
   }
 
@@ -91,7 +97,6 @@
       font-size: @font-size-sm;
     }
 
-    &:before,
     &:after {
       width: @switch-sm-height - 4px;
       height: @switch-sm-height - 4px;
@@ -103,19 +108,26 @@
     }
   }
 
+  &-small &-loading-icon {
+    width: @switch-sm-height - 4px;
+    height: @switch-sm-height - 4px;
+  }
+
   &-small&-checked {
-    &:before {
-      left: 100%;
-      margin-left: @switch-sm-checked-margin-left;
-    }
     .@{switch-prefix-cls}-inner {
       margin-left: 3px;
       margin-right: 18px;
     }
   }
 
-  &-small&-loading:before {
-    animation: AntSwitchSmallLoadingCircle 1s infinite linear;
+  &-small&-checked &-loading-icon {
+    left: 100%;
+    margin-left: @switch-sm-checked-margin-left;
+  }
+
+  &-small&-loading &-loading-icon {
+    // animation: AntSwitchSmallLoadingCircle 1s infinite linear;
+    transform: scale(0.66667);
     font-weight: bold;
   }
 
@@ -127,16 +139,16 @@
       margin-right: 24px;
     }
 
-    &:before {
-      left: 100%;
-      margin-left: -19px;
-    }
-
     &:after {
       left: 100%;
       transform: translateX(-100%);
       margin-left: -1px;
     }
+  }
+
+  &-checked &-loading-icon {
+    left: 100%;
+    margin-left: -19px;
   }
 
   &-loading,

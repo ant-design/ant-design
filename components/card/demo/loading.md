@@ -14,30 +14,50 @@ title:
 Shows a loading indicator while the contents of the card is being fetched.
 
 ````jsx
-import { Card, Button } from 'antd';
+import { Skeleton, Switch, Card, Icon, Avatar } from 'antd';
 
-class LoadingCard extends React.Component {
+const { Meta } = Card;
+
+class App extends React.Component {
   state = {
     loading: true,
   }
 
-  handleClick = () => {
-    this.setState({ loading: !this.state.loading });
+  onChange = (checked) => {
+    this.setState({ loading: !checked });
   }
 
   render() {
+    const { loading } = this.state;
+
     return (
       <div>
-        <Card loading={this.state.loading} title="Card title">
-          Whatever content
+        <Switch checked={!loading} onChange={this.onChange} />
+
+        <Card style={{ width: 300, marginTop: 16 }} loading={loading}>
+          <Meta
+            avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+            title="Card title"
+            description="This is the description"
+          />
         </Card>
-        <Button onClick={this.handleClick} style={{ marginTop: 16 }}>Toggle loading</Button>
+
+        <Card
+          style={{ width: 300, marginTop: 16 }}
+          actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
+        >
+          <Skeleton loading={loading} avatar active>
+            <Meta
+              avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+              title="Card title"
+              description="This is the description"
+            />
+          </Skeleton>
+        </Card>
       </div>
     );
   }
 }
 
-ReactDOM.render(
-  <LoadingCard />,
-  mountNode);
+ReactDOM.render(<App />, mountNode);
 ````

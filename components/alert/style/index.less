@@ -18,7 +18,7 @@
   }
 
   &-icon {
-    top: 8px + @font-size-base * @line-height-base / 2 - @font-size-base / 2 + 1px;
+    top: 8px + @font-size-base * @line-height-base / 2 - @font-size-base / 2;
     left: 16px;
     position: absolute;
   }
@@ -30,34 +30,34 @@
   }
 
   &-success {
-    border: @border-width-base @border-style-base ~`colorPalette("@{success-color}", 3)`;
-    background-color: ~`colorPalette("@{success-color}", 1)`;
+    border: @border-width-base @border-style-base @alert-success-border-color;
+    background-color: @alert-success-bg-color;
     .@{alert-prefix-cls}-icon {
-      color: @success-color;
+      color: @alert-success-icon-color;
     }
   }
 
   &-info {
-    border: @border-width-base @border-style-base ~`colorPalette("@{info-color}", 3)`;
-    background-color: ~`colorPalette("@{info-color}", 1)`;
+    border: @border-width-base @border-style-base @alert-info-border-color;
+    background-color: @alert-info-bg-color;
     .@{alert-prefix-cls}-icon {
-      color: @info-color;
+      color: @alert-info-icon-color;
     }
   }
 
   &-warning {
-    border: @border-width-base @border-style-base ~`colorPalette("@{warning-color}", 3)`;
-    background-color: ~`colorPalette("@{warning-color}", 1)`;
+    border: @border-width-base @border-style-base @alert-warning-border-color;
+    background-color: @alert-warning-bg-color;
     .@{alert-prefix-cls}-icon {
-      color: @warning-color;
+      color: @alert-warning-icon-color;
     }
   }
 
   &-error {
-    border: @border-width-base @border-style-base ~`colorPalette("@{error-color}", 3)`;
-    background-color: ~`colorPalette("@{error-color}", 1)`;
+    border: @border-width-base @border-style-base @alert-error-border-color;
+    background-color: @alert-error-bg-color;
     .@{alert-prefix-cls}-icon {
-      color: @error-color;
+      color: @alert-error-icon-color;
     }
   }
 
@@ -70,7 +70,7 @@
     overflow: hidden;
     cursor: pointer;
 
-    .@{iconfont-css-prefix}-cross {
+    .@{iconfont-css-prefix}-close {
       color: @alert-close-color;
       transition: color .3s;
       &:hover {

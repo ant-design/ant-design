@@ -19,7 +19,7 @@ interface FormCreateOptionMessages {
 }
 
 export interface FormCreateOption<T> {
-  onFieldsChange?: (props: T, fields: Array<any>, allFields: any, add: string) => void;
+  onFieldsChange?: (props: T, fields: object, allFields: any, add: string) => void;
   onValuesChange?: (props: T, changedValues: any, allValues: any) => void;
   mapPropsToFields?: (props: T) => void;
   validateMessages?: FormCreateOptionMessages;
@@ -100,15 +100,21 @@ export type WrappedFormUtils = {
   setFields(obj: Object): void;
   /** 校验并获取一组输入域的值与 Error */
   validateFields(fieldNames: Array<string>, options: Object, callback: ValidateCallback): void;
-  validateFields(fieldNames: Array<string>, callback: ValidateCallback): void;
   validateFields(options: Object, callback: ValidateCallback): void;
+  validateFields(fieldNames: Array<string>, callback: ValidateCallback): void;
+  validateFields(fieldNames: Array<string>, options: Object): void;
+  validateFields(fieldNames: Array<string>): void;
+  validateFields(options: Object): void;
   validateFields(callback: ValidateCallback): void;
   validateFields(): void;
   /** 与 `validateFields` 相似，但校验完后，如果校验不通过的菜单域不在可见范围内，则自动滚动进可见范围 */
-  validateFieldsAndScroll(fieldNames?: Array<string>, options?: Object, callback?: ValidateCallback): void;
-  validateFieldsAndScroll(fieldNames?: Array<string>, callback?: ValidateCallback): void;
-  validateFieldsAndScroll(options?: Object, callback?: ValidateCallback): void;
-  validateFieldsAndScroll(callback?: ValidateCallback): void;
+  validateFieldsAndScroll(fieldNames: Array<string>, options: Object, callback: ValidateCallback): void;
+  validateFieldsAndScroll(options: Object, callback: ValidateCallback): void;
+  validateFieldsAndScroll(fieldNames: Array<string>, callback: ValidateCallback): void;
+  validateFieldsAndScroll(fieldNames: Array<string>, options: Object): void;
+  validateFieldsAndScroll(fieldNames: Array<string>): void;
+  validateFieldsAndScroll(options: Object): void;
+  validateFieldsAndScroll(callback: ValidateCallback): void;
   validateFieldsAndScroll(): void;
   /** 获取某个输入控件的 Error */
   getFieldError(name: string): Object[];

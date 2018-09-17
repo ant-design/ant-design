@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { AntAnchor } from './Anchor';
 
 export interface AnchorLinkProps {
   prefixCls?: string;
@@ -20,7 +21,7 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
   };
 
   context: {
-    antAnchor: any;
+    antAnchor: AntAnchor;
   };
 
   componentDidMount() {
@@ -39,8 +40,13 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
     this.context.antAnchor.unregisterLink(this.props.href);
   }
 
-  handleClick = () => {
-    this.context.antAnchor.scrollTo(this.props.href);
+  handleClick = (e: React.MouseEvent<HTMLElement>) => {
+    const { scrollTo, onClick } = this.context.antAnchor;
+    const { href, title } = this.props;
+    if (onClick) {
+      onClick(e, { title, href });
+    }
+    scrollTo(href);
   }
 
   render() {

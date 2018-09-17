@@ -112,9 +112,10 @@ class WeekPicker extends React.Component<any, any> {
     );
     const clearIcon = (!disabled && allowClear && this.state.value) ? (
       <Icon
-        type="cross-circle"
+        type="close-circle"
         className={`${prefixCls}-picker-clear`}
         onClick={this.clearSelection}
+        theme="filled"
       />
     ) : null;
     const input = ({ value }: {  value: moment.Moment | undefined }) => {
@@ -131,7 +132,7 @@ class WeekPicker extends React.Component<any, any> {
             onBlur={onBlur}
           />
           {clearIcon}
-          <span className={`${prefixCls}-picker-icon`} />
+          <Icon type="calendar" className={`${prefixCls}-picker-icon`}/>
         </span>
       );
     };

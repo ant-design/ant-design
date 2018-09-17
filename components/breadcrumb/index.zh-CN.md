@@ -22,8 +22,6 @@ title: Breadcrumb
 | routes | router 的路由栈信息 | object\[] |  | - |
 | separator | 分隔符自定义 | string\|ReactNode |  | '/' |
 
-> 2.0 之后，`linkRender` 和 `nameRender` 被移除，请使用 `itemRender` 来代替。
-
 ### 和 browserHistory 配合
 
 和 react-router 一起使用时，默认生成的 url 路径是带有 `#` 的，如果和 browserHistory 一起使用的话，你可以使用 `itemRender` 属性定义面包屑链接。

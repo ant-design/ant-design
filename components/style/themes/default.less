@@ -67,7 +67,6 @@
 
 // ICONFONT
 @iconfont-css-prefix    : anticon;
-@icon-url               : "https://at.alicdn.com/t/font_148784_v4ggb6wrjmkotj4i";
 
 // LINK
 @link-color             : @primary-color;
@@ -313,6 +312,7 @@
 // --
 @progress-default-color: @processing-color;
 @progress-remaining-color: @background-color-base;
+@progress-text-color: @text-color;
 
 // Menu
 // ---
@@ -323,6 +323,7 @@
 @menu-item-color: @text-color;
 @menu-highlight-color: @primary-color;
 @menu-item-active-bg: @item-active-bg;
+@menu-item-active-border-width: 3px;
 @menu-item-group-title-color: @text-color-secondary;
 // dark theme
 @menu-dark-color: @text-color-secondary-dark;
@@ -448,7 +449,7 @@
 @breadcrumb-base-color:        @text-color-secondary;
 @breadcrumb-last-item-color:   @text-color;
 @breadcrumb-font-size:         @font-size-base;
-@breadcrumb-icon-font-size:    @font-size-sm;
+@breadcrumb-icon-font-size:    @font-size-base;
 @breadcrumb-link-color:        @text-color-secondary;
 @breadcrumb-link-color-hover:  @primary-5;
 @breadcrumb-separator-color:   @text-color-secondary;
@@ -485,6 +486,10 @@
 @collapse-content-padding:            @padding-md;
 @collapse-content-bg:                 @component-background;
 
+// Skeleton
+// ---
+@skeleton-color:                      #f2f2f2;
+
 // Message
 // ---
 @message-notice-content-padding:      10px 16px;
@@ -492,5 +497,20 @@
 // Motion
 // ---
 @wave-animation-width: 6px;
+
+// Alert
+// ---
+@alert-success-border-color: ~`colorPalette("@{success-color}", 3)`;
+@alert-success-bg-color: ~`colorPalette("@{success-color}", 1)`;
+@alert-success-icon-color: @success-color;
+@alert-info-border-color: ~`colorPalette("@{info-color}", 3)`;
+@alert-info-bg-color: ~`colorPalette("@{info-color}", 1)`;
+@alert-info-icon-color: @info-color;
+@alert-warning-border-color: ~`colorPalette("@{warning-color}", 3)`;
+@alert-warning-bg-color: ~`colorPalette("@{warning-color}", 1)`;
+@alert-warning-icon-color: @warning-color;
+@alert-error-border-color: ~`colorPalette("@{error-color}", 3)`;
+@alert-error-bg-color: ~`colorPalette("@{error-color}", 1)`;
+@alert-error-icon-color: @error-color;
 
 @import "./default.deperated.less";

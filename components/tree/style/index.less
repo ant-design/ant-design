@@ -67,17 +67,23 @@
         &.@{tree-prefix-cls}-switcher {
           &.@{tree-prefix-cls}-switcher_open,
           &.@{tree-prefix-cls}-switcher_close {
-            &:before {
+            .@{tree-prefix-cls}-switcher-loading-icon {
               display: inline-block;
               position: absolute;
               left: 0;
               width: 24px;
               height: 24px;
-              .iconfont-font("\E64D");
-              animation: loadingCircle 1s infinite linear;
               color: @primary-color;
               transform: none;
               font-size: 14px;
+              svg {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                margin: auto;
+              }
             }
 
             :root &:after {
@@ -140,8 +146,10 @@
         }
         &.@{tree-prefix-cls}-switcher_close {
           .antTreeSwitcherIcon();
-          &:after {
-            transform: rotate(270deg) scale(0.59);
+          .@{tree-prefix-cls}-switcher-icon {
+            svg {
+              transform: rotate(-90deg);
+            }
           }
         }
       }

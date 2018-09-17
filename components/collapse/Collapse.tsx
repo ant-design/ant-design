@@ -3,6 +3,7 @@ import RcCollapse from 'rc-collapse';
 import classNames from 'classnames';
 import animation from '../_util/openAnimation';
 import CollapsePanel from './CollapsePanel';
+import Icon from '../icon';
 
 export interface CollapseProps {
   activeKey?: Array<string> | string;
@@ -26,11 +27,23 @@ export default class Collapse extends React.Component<CollapseProps, any> {
     openAnimation: { ...animation, appear() { } },
   };
 
+  renderExpandIcon = () => {
+    return (
+      <Icon type="right" className={`arrow`} />
+    );
+  }
+
   render() {
     const { prefixCls, className = '', bordered } = this.props;
     const collapseClassName = classNames({
       [`${prefixCls}-borderless`]: !bordered,
     }, className);
-    return <RcCollapse {...this.props} className={collapseClassName} />;
+    return (
+      <RcCollapse
+        {...this.props}
+        className={collapseClassName}
+        expandIcon={this.renderExpandIcon}
+      />
+    );
   }
 }

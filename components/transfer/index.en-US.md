@@ -23,11 +23,10 @@ One or more elements can be selected from either column, one click on the proper
 | footer | A function used for rendering the footer. | (props): ReactNode |  |
 | lazy | property of [react-lazy-load](https://github.com/loktar00/react-lazy-load) for lazy rendering items. Turn off it by set to `false`. | object\|boolean | `{ height: 32, offset: 32 }` |
 | listStyle | A custom CSS style used for rendering the transfer columns. | object |  |
-| notFoundContent | Text to display when a column is empty. | string\|ReactNode | 'The list is empty' |
+| locale | i18n text including filter, empty text, item unit, etc | object | `{ itemUnit: 'item', itemsUnit: 'items', notFoundContent: 'The list is empty', searchPlaceholder: 'Search here' }` |
 | operations | A set of operations that are sorted from bottom to top. | string\[] | ['>', '<'] |
 | operationStyle | A custom CSS style used for rendering the operations column. | object |  |
 | render | The function to generate the item shown on a column. Based on an record (element of the dataSource array), this function should return a React element which is generated from that record. Also, it can return a plain object with `value` and `label`, `label` is a React element and `value` is for title | Function(record) |  |
-| searchPlaceholder | The hint text of the search box. | string | 'Search here' |
 | selectedKeys | A set of keys of selected items. | string\[] | \[] |
 | showSearch | If included, a search box is shown on each column. | boolean | false |
 | style | A custom CSS style used for rendering wrapper element. | object |  |

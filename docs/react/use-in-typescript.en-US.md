@@ -200,6 +200,7 @@ $ yarn add react-app-rewire-less --dev
     };
 
 +   config = rewireLess.withLoaderOptions({
++     javascriptEnabled: true,
 +     modifyVars: { "@primary-color": "#1DA57A" },
 +   })(config, env);
 

@@ -27,7 +27,6 @@
   transition: color 0.3s ease, opacity 0.15s ease;
   &:before {
     display: block;
-    .iconfont-font("\e62e");
   }
   &:hover {
     color: @text-color-secondary;
@@ -64,12 +63,7 @@
     color: @disabled-color;
     font-size: @font-size-sm;
 
-    * {
-      display: none;
-    }
-
-    &:before {
-      content: '\e61d';
+    & &-icon svg {
       transition: transform .3s;
     }
   }
@@ -257,10 +251,11 @@
 
   &-search__field__mirror {
     position: absolute;
-    top: -9999px;
-    left: -9999px;
+    top: 0;
+    left: 0;
     white-space: pre;
     pointer-events: none;
+    opacity: 0;
   }
 
   &-search--inline {
@@ -366,9 +361,6 @@
       &:hover {
         color: #404040;
       }
-      &:before {
-        content: "\e633";
-      }
     }
 
     .@{select-prefix-cls}-selection__clear {
@@ -385,8 +377,10 @@
   }
 
   &-open {
-    .@{select-prefix-cls}-arrow:before {
-      transform: rotate(180deg);
+    .@{select-prefix-cls}-arrow {
+      &-icon svg {
+        transform: rotate(180deg);
+      }
     }
     .@{select-prefix-cls}-selection {
       .active();
@@ -411,7 +405,7 @@
       height: 100%;
       position: relative;
       z-index: 1;
-      transition: all .3s @ease-in-out;
+      transition: all .3s @ease-in-out, height 0s;
       box-shadow: none;
     }
   }
@@ -422,6 +416,10 @@
 
 .@{select-prefix-cls}-dropdown {
   .reset-component;
+  // Fix select render lag of long text in chrome
+  // https://github.com/ant-design/ant-design/issues/11456
+  // https://github.com/ant-design/ant-design/issues/11843
+  font-variant: initial;
 
   &.slide-up-enter.slide-up-enter-active&-placement-bottomLeft,
   &.slide-up-appear.slide-up-appear-active&-placement-bottomLeft {
@@ -547,8 +545,7 @@
 
   &&--multiple {
     .@{select-prefix-cls}-dropdown-menu-item {
-      &:after {
-        .iconfont-font("\e632");
+      & .@{select-prefix-cls}-selected-icon {
         color: transparent;
         .iconfont-size-under-12px(10px);
         transition: all 0.2s ease;
@@ -560,16 +557,16 @@
         text-shadow: 0 0.1px 0, 0.1px 0 0, 0 -0.1px 0, -0.1px 0;
       }
 
-      &:hover:after {
+      &:hover .@{select-prefix-cls}-selected-icon {
         color: #ddd;
       }
 
-      &-disabled:after {
+      &-disabled .@{select-prefix-cls}-selected-icon {
         display: none;
       }
 
-      &-selected:after,
-      &-selected:hover:after {
+      &-selected .@{select-prefix-cls}-selected-icon,
+      &-selected:hover .@{select-prefix-cls}-selected-icon {
         color: @primary-color;
         display: inline-block;
       }

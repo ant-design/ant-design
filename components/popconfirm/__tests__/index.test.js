@@ -3,6 +3,11 @@ import { mount } from 'enzyme';
 import Popconfirm from '..';
 
 describe('Popconfirm', () => {
+  const eventObject = expect.objectContaining({
+    target: expect.anything(),
+    preventDefault: expect.any(Function),
+  });
+
   it('should popup Popconfirm dialog', () => {
     const onVisibleChange = jest.fn();
 
@@ -21,11 +26,11 @@ describe('Popconfirm', () => {
 
     const triggerNode = wrapper.find('span').at(0);
     triggerNode.simulate('click');
-    expect(onVisibleChange).toBeCalledWith(true);
+    expect(onVisibleChange).toHaveBeenLastCalledWith(true, undefined);
     expect(wrapper.find('.popconfirm-test').length).toBe(1);
 
     triggerNode.simulate('click');
-    expect(onVisibleChange).toBeCalledWith(false);
+    expect(onVisibleChange).toHaveBeenLastCalledWith(false, undefined);
   });
 
   it('should show overlay when trigger is clicked', () => {
@@ -76,11 +81,11 @@ describe('Popconfirm', () => {
     triggerNode.simulate('click');
     popconfirm.find('.ant-btn-primary').simulate('click');
     expect(confirm).toHaveBeenCalled();
-    expect(onVisibleChange).toHaveBeenLastCalledWith(false);
+    expect(onVisibleChange).toHaveBeenLastCalledWith(false, eventObject);
     triggerNode.simulate('click');
     popconfirm.find('.ant-btn').at(0).simulate('click');
     expect(cancel).toHaveBeenCalled();
-    expect(onVisibleChange).toHaveBeenLastCalledWith(false);
+    expect(onVisibleChange).toHaveBeenLastCalledWith(false, eventObject);
   });
 
   it('should support customize icon', () => {
