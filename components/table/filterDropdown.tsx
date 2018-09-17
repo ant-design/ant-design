@@ -11,6 +11,13 @@ import Radio from '../radio';
 import FilterDropdownMenuWrapper from './FilterDropdownMenuWrapper';
 import { FilterMenuProps, FilterMenuState, ColumnProps, ColumnFilterItem } from './interface';
 
+function stopPropagation(e: React.SyntheticEvent<any>) {
+  e.stopPropagation();
+  if (e.nativeEvent.stopImmediatePropagation) {
+    e.nativeEvent.stopImmediatePropagation();
+  }
+}
+
 export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState> {
   static defaultProps = {
     handleFilter() {},
@@ -181,12 +188,14 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
     return filterIcon ? React.cloneElement(filterIcon as any, {
       title: locale.filterTitle,
       className: classNames(`${prefixCls}-icon`, filterIcon.props.className),
+      onClick: stopPropagation,
     }) : (
       <Icon
         title={locale.filterTitle}
         type="filter"
         theme="filled"
         className={dropdownSelectedClass}
+        onClick={stopPropagation}
       />
     );
   }

@@ -764,11 +764,11 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   renderColumnsDropdown(columns: ColumnProps<T>[], locale: TableLocale) {
     const { prefixCls, dropdownPrefixCls } = this.props;
     const { sortOrder } = this.state;
-    return treeMap(columns, (originColumn, i) => {
-      let column = { ...originColumn };
-      let key = this.getColumnKey(column, i) as string;
+    return treeMap(columns, (column, i) => {
+      const key = this.getColumnKey(column, i) as string;
       let filterDropdown;
       let sortButton;
+      const isSortColumn = this.isSortColumn(column);
       if ((column.filters && column.filters.length > 0) || column.filterDropdown) {
         let colFilters = this.state.filters[key] || [];
         filterDropdown = (
@@ -780,51 +780,64 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
             prefixCls={`${prefixCls}-filter`}
             dropdownPrefixCls={dropdownPrefixCls || 'ant-dropdown'}
             getPopupContainer={this.getPopupContainer}
+            key="filter-dropdown"
           />
         );
       }
       if (column.sorter) {
-        let isSortColumn = this.isSortColumn(column);
-        if (isSortColumn) {
-          column.className = classNames(column.className, {
-            [`${prefixCls}-column-sort`]: sortOrder,
-          });
-        }
         const isAscend = isSortColumn && sortOrder === 'ascend';
         const isDescend = isSortColumn && sortOrder === 'descend';
         sortButton = (
-          <div className={`${prefixCls}-column-sorter`}>
-            <span
+          <div className={`${prefixCls}-column-sorter`} key="sorter">
+            <Icon
               className={`${prefixCls}-column-sorter-up ${isAscend ? 'on' : 'off'}`}
               title="↑"
-              onClick={() => this.toggleSortOrder('ascend', column)}
-            >
-              <Icon type="caret-up" />
-            </span>
-            <span
+              type="caret-up"
+              theme="filled"
+            />
+            <Icon
               className={`${prefixCls}-column-sorter-down ${isDescend ? 'on' : 'off'}`}
               title="↓"
-              onClick={() => this.toggleSortOrder('descend', column)}
-            >
-              <Icon type="caret-down" />
-            </span>
+              type="caret-down"
+              theme="filled"
+            />
           </div>
         );
       }
-      column.title = (
-        <span key={key}>
-          {column.title}
-          {sortButton}
-          {filterDropdown}
-        </span>
-      );
-
-      if (sortButton || filterDropdown) {
-        column.className = classNames(`${prefixCls}-column-has-filters`, column.className);
-      }
-
-      return column;
+      return {
+        ...column,
+        className: classNames(column.className, {
+          [`${prefixCls}-column-has-actions`]: sortButton || filterDropdown,
+          [`${prefixCls}-column-has-filters`]: filterDropdown,
+          [`${prefixCls}-column-has-sorters`]: sortButton,
+          [`${prefixCls}-column-sort`]: isSortColumn && sortOrder,
+        }),
+        title: [
+          <div key="sort-area" className={`${prefixCls}-column-sorters`}>
+            {column.title}
+            {sortButton}
+          </div>,
+          filterDropdown,
+        ],
+        onHeaderCell: (columnProps: ColumnProps<T>) => {
+          // for onHeaderCell compatibility
+          const headerCellProps = column.onHeaderCell ? column.onHeaderCell(columnProps) : {};
+          return {
+            onClick: (e: MouseEvent) => {
+              this.handleColumnHeaderClick(e);
+              if (headerCellProps && headerCellProps.onClick) {
+                headerCellProps.onClick(e);
+              }
+            },
+            ...headerCellProps,
+          };
+        },
+      };
     });
+  }
+
+  handleColumnHeaderClick = (e: MouseEvent) => {
+    console.log(e);
   }
 
   handleShowSizeChange = (current: number, pageSize: number) => {
