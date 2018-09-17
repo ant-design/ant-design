@@ -2,7 +2,7 @@
 @import "../../style/mixins/index";
 
 @table-prefix-cls: ~"@{ant-prefix}-table";
-@table-header-icon-color: @text-color-secondary;
+@table-header-icon-color: #bfbfbf;
 
 .@{table-prefix-cls}-wrapper {
   .clearfix;
@@ -43,18 +43,28 @@
 
     .@{iconfont-css-prefix}-filter,
     .@{table-prefix-cls}-filter-icon {
-      position: relative;
-      margin-left: 8px;
-      font-size: @font-size-base;
+      font-size: @font-size-sm;
       cursor: pointer;
       color: @table-header-icon-color;
       transition: all .3s;
-      width: 14px;
-      font-weight: normal;
-      vertical-align: text-bottom;
+      width: 24px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      text-align: center;
 
       &:hover {
-        color: @text-color;
+        color: @text-color-secondary;
+        background: rgba(0, 0, 0, .04);
+      }
+
+      > svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -@font-size-sm / 2;
+        margin-left: -@font-size-sm / 2;
       }
     }
 
@@ -66,9 +76,8 @@
       color: @primary-color;
     }
 
-    // https://github.com/ant-design/ant-design/issues/8979
     &.@{table-prefix-cls}-column-has-filters {
-      overflow: hidden;
+      position: relative;
     }
   }
 

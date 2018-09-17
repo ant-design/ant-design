@@ -181,7 +181,14 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
     return filterIcon ? React.cloneElement(filterIcon as any, {
       title: locale.filterTitle,
       className: classNames(`${prefixCls}-icon`, filterIcon.props.className),
-    }) : <Icon title={locale.filterTitle} type="filter" className={dropdownSelectedClass} />;
+    }) : (
+      <Icon
+        title={locale.filterTitle}
+        type="filter"
+        theme="filled"
+        className={dropdownSelectedClass}
+      />
+    );
   }
   render() {
     const { column, locale, prefixCls, dropdownPrefixCls, getPopupContainer } = this.props;
@@ -241,6 +248,7 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
     return (
       <Dropdown
         trigger={['click']}
+        placement="bottomRight"
         overlay={menus}
         visible={this.neverShown ? false : this.state.visible}
         onVisibleChange={this.onVisibleChange}
