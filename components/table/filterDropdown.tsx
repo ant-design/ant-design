@@ -70,6 +70,10 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
     }
   }
 
+  getDropdownVisible() {
+    return this.neverShown ? false : this.state.visible;
+  }
+
   setNeverShown = (column: ColumnProps<T>) => {
     const rootNode = ReactDOM.findDOMNode(this);
     const filterBelongToScrollBody = !!closest(rootNode, `.ant-table-scroll`);
@@ -183,22 +187,27 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
     if (typeof filterIcon === 'function') {
       filterIcon = filterIcon(filterd);
     }
-    const dropdownSelectedClass =  filterd ? `${prefixCls}-selected` : '';
+
+    const dropdownIconClass = classNames({
+      [`${prefixCls}-selected`]: filterd,
+      [`${prefixCls}-open`]: this.getDropdownVisible(),
+    });
 
     return filterIcon ? React.cloneElement(filterIcon as any, {
       title: locale.filterTitle,
-      className: classNames(`${prefixCls}-icon`, filterIcon.props.className),
+      className: classNames(`${prefixCls}-icon`, dropdownIconClass, filterIcon.props.className),
       onClick: stopPropagation,
     }) : (
       <Icon
         title={locale.filterTitle}
         type="filter"
         theme="filled"
-        className={dropdownSelectedClass}
+        className={dropdownIconClass}
         onClick={stopPropagation}
       />
     );
   }
+
   render() {
     const { column, locale, prefixCls, dropdownPrefixCls, getPopupContainer } = this.props;
     // default multiple selection in filter dropdown
@@ -259,7 +268,7 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
         trigger={['click']}
         placement="bottomRight"
         overlay={menus}
-        visible={this.neverShown ? false : this.state.visible}
+        visible={this.getDropdownVisible()}
         onVisibleChange={this.onVisibleChange}
         getPopupContainer={getPopupContainer}
         forceRender

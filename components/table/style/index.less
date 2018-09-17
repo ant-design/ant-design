@@ -115,6 +115,14 @@
         }
       }
 
+      .@{iconfont-css-prefix}-filter,
+      .@{table-prefix-cls}-filter-icon {
+        &.@{table-prefix-cls}-filter-open {
+          color: @text-color-secondary;
+          background: #ebebeb;
+        }
+      }
+
       &:active {
         .@{table-prefix-cls}-column-sorter-up:not(.on),
         .@{table-prefix-cls}-column-sorter-down:not(.on) {
@@ -243,6 +251,10 @@
 
   &-thead > tr > th.@{table-prefix-cls}-column-sort {
     background: @table-header-sort-bg;
+  }
+
+  &-tbody > tr > td.@{table-prefix-cls}-column-sort {
+    background: @table-body-sort-bg;
   }
 
   &-thead > tr > th,
