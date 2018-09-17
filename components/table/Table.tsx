@@ -809,13 +809,13 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
           [`${prefixCls}-column-sort`]: isSortColumn && sortOrder,
         }),
         title: [
-          <div key="sort-area" className={`${prefixCls}-column-sorters`}>
+          <div key="title" className={sortButton ? `${prefixCls}-column-sorters` : ''}>
             {column.title}
             {sortButton}
           </div>,
           filterDropdown,
         ],
-        onHeaderCell: (columnProps: ColumnProps<T>) => {
+        onHeaderCell: sortButton ? (columnProps: ColumnProps<T>) => {
           // for onHeaderCell compatibility
           const headerCellProps = column.onHeaderCell ? column.onHeaderCell(columnProps) : {};
           return {
@@ -828,7 +828,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
             title: locale.sortTitle,
             ...headerCellProps,
           };
-        },
+        } : column.onHeaderCell,
       };
     });
   }
