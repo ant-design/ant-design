@@ -7,7 +7,7 @@ title: FAQ
 
 ---
 
-### 你们会提供 Vue 等版本吗？
+### 你们会提供 Vue 版本的 Ant Design 吗？
 
 不，但是 [ant-design 基于 MIT 协议开源](https://github.com/ant-design/ant-design/blob/master/LICENSE)，所以你可以尝试用 ant-design 的[样式](https://github.com/ant-design/ant-design/tree/master/style)去实现一套，例如：[ant-design-vue](https://github.com/vueComponent/ant-design-vue) [vue-beauty](https://github.com/FE-Driver/vue-beauty) 或者 [antue](https://github.com/zzuu666/antue)。
 
@@ -17,15 +17,15 @@ title: FAQ
 
 ### 当我点击 `Select Dropdown DatePicker TimePicker Popover Popconfirm` 内的另一个 popup 组件时它会消失，如何解决？
 
-使用 `<Select getPopupContainer={trigger => trigger.parentNode}>` 来在 Popover 中渲染组件，或者其他 getXxxxContainer 参数。
+使用 `<Select getPopupContainer={trigger => trigger.parentNode}>` 来在 Popover 中渲染组件，或者使用其他的 getXxxxContainer 参数。
 
 https://ant.design/components/select/#Select-props
 
 相关 issue：[#3487](https://github.com/ant-design/ant-design/issues/3487) [#3438](https://github.com/ant-design/ant-design/issues/3438)
 
-### `Select Dropdown DatePicker TimePicker Popover Popconfirm` 会滚动页面？
+### `Select Dropdown DatePicker TimePicker Popover Popconfirm` 会跟随滚动条上下移动？
 
-使用 `<Select getPopupContainer={trigger => trigger.parentNode}>` 来渲染滚动区域内的组件，或者其他 getXxxxContainer 参数。
+使用 `<Select getPopupContainer={trigger => trigger.parentNode}>` 来将组件渲染到滚动区域内，或者使用其他的 getXxxxContainer 参数。
 
 https://ant.design/components/select/#Select-props
 
@@ -39,13 +39,13 @@ https://ant.design/components/select/#Select-props
 
 不，我们遵守 Ant Design 设计规范。https://github.com/ant-design/ant-design/issues/1241 。
 
-### 如何修改 `Menu`/`Button` 等等的样式？
+### 如何修改 Ant Design 组件的默认样式？
 
 你可以覆盖它们的样式，但是我们不推荐这么做。antd 是一系列 React 组件，但同样是一套设计规范。
 
 ### 我只想使用 `Menu`/`Button` 等，但似乎我必须 import 整个 antd 和它的样式文件。
 
-试试 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import)，或者用下面这种方式 import 你想要的：
+试试 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import)，或者用下面这种方式来按需加载：
 
 ```jsx
 import Menu from 'antd/lib/menu';
@@ -64,11 +64,11 @@ import { Menu, Breadcrumb, Icon } from 'antd';
 
 ### 当我动态改变 `defaultValue` 的时候它并没有生效。
 
- `Input`/`Select` 等的 `defaultXxxx`（例如 `defaultValue`）只有在第一次渲染的时候有效，这是 React 的规范，请阅读 [React 的文档](https://facebook.github.io/react/docs/forms.html#controlled-components)。
+`Input`/`Select` 等的 `defaultXxxx`（例如 `defaultValue`）只有在第一次渲染的时候有效，这是 React 的规范，请阅读 [React 的文档](https://facebook.github.io/react/docs/forms.html#controlled-components)。
 
-### 当我设置了 `Input`/`Select` 等的 `value`，它不能被用户的操作所改变。
+### 当我设置了 `Input`/`Select` 等的 `value` 时它就无法修改了。
 
-尝试使用 `defaultValue` 和 `onChange` 来改变 `value`，并阅读 [React 的文档](https://facebook.github.io/react/docs/forms.html#controlled-components)。
+尝试使用 `defaultValue` 或 `onChange` 来改变 `value`，请参考 [React 的文档](https://facebook.github.io/react/docs/forms.html#controlled-components)。
 
 ### antd 覆盖了我的全局样式！
 
@@ -78,9 +78,9 @@ import { Menu, Breadcrumb, Icon } from 'antd';
 
 那啥，试试 [cnpm](http://npm.taobao.org/)。
 
-### 我在 package.json 中将 `dependencies.antd` 添加为 git repository，但是没有用。
+### 我在 package.json 里将 `dependencies.antd` 添加到了 git repository 中，但是没有用。
 
-当然了。请使用 npm 安装 `antd`。
+当然没用了，请使用 npm 安装 `antd`。
 
 ### `message` 和 `notification` 是小写的，但是其他的组件都是首字母大写的，这是手滑吗？
 
@@ -88,17 +88,17 @@ import { Menu, Breadcrumb, Icon } from 'antd';
 
 ### `antd` 在移动端体验不佳。
 
-请浏览 [And Design Mobile](http://mobile.ant.design) 以了解详情。`antd` 并没有被优化以适应移动端。你可以试试 [react-component](https://github.com/react-component/)，其中带有 'm-' 'rn-' 前缀的库是为移动端设计的。
+请浏览 [And Design Mobile](http://mobile.ant.design) 以了解详情，`antd` 并非针对移动端设计。你可以试试 [react-component](https://github.com/react-component/)，其中带有 'm-' 'rn-' 前缀的库是为移动端设计的。
 
 ### `antd` 会像 `React` 那样提供单文件引入吗？
 
-是的，[你可以用 script 标签引入](https://ant.design/docs/react/install?locale=en-US#Import-in-Browser)。但是我们推荐使用 `npm` 来引入 `antd`，维护起来更简单方便。
+是的，[你可以用 script 标签引入](https://ant.design/docs/react/install?locale=en-US#Import-in-Browser)。但是我们推荐使用 `npm` 来引入 `antd`，这样维护起来更简单方便。
 
 ### 在我的网络环境下没法获取到 `icon` 文件。
 
-你应该部署 iconfont 文件到你的网络环境，参考这个[例子](https://github.com/ant-design/antd-init/tree/7c1a33cadb98f2fd8688fe527dd7f98215b9bced/examples/local-iconfont)。 [#1070](https://github.com/ant-design/ant-design/issues/1070)
+你应该自行部署 iconfont 文件到你的网络上，参考这个[例子](https://github.com/ant-design/antd-init/tree/7c1a33cadb98f2fd8688fe527dd7f98215b9bced/examples/local-iconfont)。 [#1070](https://github.com/ant-design/ant-design/issues/1070)
 
-在 3.9.x 版本后，[我们会使用 svg 图标](/components/icon#svg-icons)，所以你不用再担心本地部署 iconfont 的问题了！
+在 3.9.x 版本后，[我们会使用 svg 图标](/components/icon#svg-icons)，你就不用担心本地部署 iconfont 的问题了！
 
 ### 如何拓展 antd 的组件？
 
@@ -119,7 +119,7 @@ import { Menu, Breadcrumb, Icon } from 'antd';
 - ❌ antdesign
 - ❌ Antdesign
 
-### 你们有渠道来接受捐助吗，比如 PayPal 和支付宝？
+### 你们有接受捐助的渠道吗，比如 PayPal 或者支付宝？
 
 还没有。
 
@@ -139,7 +139,7 @@ import { Menu, Breadcrumb, Icon } from 'antd';
 
 ### React.createElement: type should not be null, undefined, boolean, or number. It should be a string (for DOM elements) or a ReactClass (for composite components)
 
-请确保你正确引入了 `antd` 的组件。根据你当前所用的版本阅读 `antd` 相应组件的文档，注意代码中的 typo。
+请确保你正确引入了 `antd` 的组件。参考 `antd` 相应组件的文档，注意你代码中的 typo。
 
 ### rm is not recognized as an internal or external command
 
@@ -151,8 +151,8 @@ import { Menu, Breadcrumb, Icon } from 'antd';
 
 ### Unknown option: xxx/package.json.presets
 
-这里有一篇[来自 StackOverflow 的回答](http://stackoverflow.com/questions/33685365/unknown-option-babelrc-presets)。
+这里有一篇[来自 StackOverflow 的回答](http://stackoverflow.com/questions/33685365/unknown-option-babelrc-presets)可以参考。
 
 ### Invariant Violation: findComponentRoot(...): Unable to find element.
 
-你或许引入了 React 两次。如果你使用 webpack 的话，将 React & ReactDOM 设置为 external，参见：[#525](https://github.com/ant-design/ant-design/issues/525)。如果你使用其他工具（browserify 等等），请阅读它们的文档并找到将 React & ReactDOM 设置为 external 的方法。
+你或许引入了 React 两次。如果你使用 webpack，请将 React & ReactDOM 设置为 external，参见：[#525](https://github.com/ant-design/ant-design/issues/525)。如果你使用其他工具（browserify 等），请阅读它们的文档并将 React & ReactDOM 设置为 external。
