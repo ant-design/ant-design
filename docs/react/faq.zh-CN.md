@@ -64,11 +64,11 @@ import { Menu, Breadcrumb, Icon } from 'antd';
 
 ### 当我动态改变 `defaultValue` 的时候它并没有生效。
 
-`Input`/`Select` 等的 `defaultXxxx`（例如 `defaultValue`）只有在第一次渲染的时候有效，这是 React 的规范，请阅读 [React 的文档](https://facebook.github.io/react/docs/forms.html#controlled-components)。
+`Input`/`Select` 等的 `defaultXxxx`（例如 `defaultValue`）只有在第一次渲染的时候有效，这是 React 的规范，请阅读 [React 的文档](https://reactjs.org/docs/forms.html#controlled-components)。
 
 ### 当我设置了 `Input`/`Select` 等的 `value` 时它就无法修改了。
 
-尝试使用 `defaultValue` 或 `onChange` 来改变 `value`，请参考 [React 的文档](https://facebook.github.io/react/docs/forms.html#controlled-components)。
+尝试使用 `defaultValue` 或 `onChange` 来改变 `value`，请参考 [React 的文档](https://reactjs.org/docs/forms.html#controlled-components)。
 
 ### antd 覆盖了我的全局样式！
 
@@ -119,7 +119,7 @@ import { Menu, Breadcrumb, Icon } from 'antd';
 - ❌ antdesign
 - ❌ Antdesign
 
-### 你们有接受捐助的渠道吗，比如 PayPal 或者支付宝？
+### 你们有接受捐助的渠道吗，比如支付宝或者微信支付？
 
 还没有。
 
