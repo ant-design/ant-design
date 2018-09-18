@@ -9,7 +9,7 @@ Search in the questions about React first: https://reactfaq.site .
 
 ### Are you going to provide Vue(etc...) edition?
 
-No, but [the LICENSE of ant-design](https://github.com/ant-design/ant-design/blob/master/LICENSE) is MIT. So, you can try to implement it with ant-design's [style](https://github.com/ant-design/ant-design/tree/master/style), like: [ant-design-vue](https://github.com/vueComponent/ant-design-vue) [vue-beauty)](https://github.com/FE-Driver/vue-beauty) or [antue](https://github.com/zzuu666/antue).
+No, but [the LICENSE of ant-design](https://github.com/ant-design/ant-design/blob/master/LICENSE) is MIT. So, you can try to implement it with ant-design's [style](https://github.com/ant-design/ant-design/tree/master/style), like: [ant-design-vue](https://github.com/vueComponent/ant-design-vue) [vue-beauty](https://github.com/FE-Driver/vue-beauty) or [antue](https://github.com/zzuu666/antue).
 
 ### Are you going to provide Sass/Stylus(etc...) style file?
 
@@ -94,7 +94,7 @@ Please check [And Design Mobile](http://mobile.ant.design) for details. `antd` h
 
 ### Does `antd` supply standalone files like 'react' do?
 
-Yep, you can [import `antd` with script tag](https://ant.design/docs/react/install?locale=en-US#Import-in-Browser). But we recommend use `npm` to import `antd`, it is simple and ease to maintain.
+Yep, you can [import `antd` with script tag](https://ant.design/docs/react/install?locale=en-US#Import-in-Browser). But we recommend use `npm` to import `antd`, it is simple and easy to maintain.
 
 ### I can't visit `icon` in my network environment.
 
