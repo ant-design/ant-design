@@ -155,7 +155,7 @@ To mark the returned fields data in `mapPropsToFields`, [demo](#components-form-
 After wrapped by `getFieldDecorator`, `value`(or other property defined by `valuePropName`) `onChange`(or other property defined by `trigger`) props will be added to form controls，the flow of form data will be handled by Form which will cause:
 
 1. You shouldn't use `onChange` to collect data, but you still can listen to `onChange`(and so on) events.
-2. You can not set value of form control via `value` `defaultValue` prop, and you should set default value with `initialValue` in `getFieldDecorator` instead.
+2. You cannot set value of form control via `value` `defaultValue` prop, and you should set default value with `initialValue` in `getFieldDecorator` instead.
 3. You shouldn't call `setState` manually, please use `this.props.form.setFieldsValue` to change value programmatically.
 
 #### Special attention
