@@ -78,11 +78,11 @@ import { Menu, Breadcrumb, Icon } from 'antd';
 
 那啥，试试 [cnpm](http://npm.taobao.org/)。
 
-### 我在 package.json `dependencies.antd` 添加为 git repository，但是没有用。
+### 我在 package.json 中将 `dependencies.antd` 添加为 git repository，但是没有用。
 
 当然了。请使用 npm 安装 `antd`。
 
-### `message` 和 `notification` 是小写的，但是其他的组件都是大写的，这是手滑吗？
+### `message` 和 `notification` 是小写的，但是其他的组件都是首字母大写的，这是手滑吗？
 
 不，因为 `message` 是一个函数，而不是一个 React 组件。
 
@@ -90,7 +90,7 @@ import { Menu, Breadcrumb, Icon } from 'antd';
 
 请浏览 [And Design Mobile](http://mobile.ant.design) 以了解详情。`antd` 并没有被优化以适应移动端。你可以试试 [react-component](https://github.com/react-component/)，其中带有 'm-' 'rn-' 前缀的库是为移动端设计的。
 
-### `antd` 会像 'react' 那样提供单文件引入吗？
+### `antd` 会像 `React` 那样提供单文件引入吗？
 
 是的，[你可以用 script 标签引入](https://ant.design/docs/react/install?locale=en-US#Import-in-Browser)。但是我们推荐使用 `npm` 来引入 `antd`，维护起来更简单方便。
 
@@ -100,7 +100,7 @@ import { Menu, Breadcrumb, Icon } from 'antd';
 
 在 3.9.x 版本后，[我们会使用 svg 图标](/components/icon#svg-icons)，所以你不用再担心本地部署 iconfont 的问题了！
 
-### 如何拓展 antd's 的组件？
+### 如何拓展 antd 的组件？
 
 如果你需要一些 antd 没有包含的功能，你可以尝试通过 [HOC](https://gist.github.com/sebmarkbage/ef0bf1f338a7182b6775) 拓展 antd 的组件。 [更多](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.eeu8q01s1)
 
@@ -119,7 +119,7 @@ import { Menu, Breadcrumb, Icon } from 'antd';
 - ❌ antdesign
 - ❌ Antdesign
 
-### 你们有渠道来接受捐助吗，比如 PayPal 和 支付宝？
+### 你们有渠道来接受捐助吗，比如 PayPal 和支付宝？
 
 还没有。
 
