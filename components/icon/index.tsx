@@ -99,7 +99,11 @@ const Icon: React.SFC<IconProps> = (props) => {
 
   if (children) {
     warning(
-      Boolean(viewBox) || React.Children.count(children) === 1 && React.Children.only(children).type === 'use',
+      Boolean(viewBox) || (
+        React.Children.count(children) === 1 &&
+        React.isValidElement(children) &&
+        React.Children.only(children).type === 'use'
+      ),
       'Make sure that you provide correct `viewBox`' +
       ' prop (default `0 0 1024 1024`) to the icon.',
     );

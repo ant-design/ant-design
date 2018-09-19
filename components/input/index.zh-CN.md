@@ -28,6 +28,7 @@ title: Input
 | suffix | 带有后缀图标的 input | string\|ReactNode |  |
 | type | 声明 input 类型，同原生 input 标签的 type 属性，见：[MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input#属性)(请直接使用 `Input.TextArea` 代替 `type="textarea"`)。 | string | `text` |
 | value | 输入框内容 | string |  |
+| onChange | 输入框内容变化时的回调 | function(e) | |
 | onPressEnter | 按下回车的回调 | function(e) |  |
 
 > 如果 `Input` 在 `Form.Item` 内，并且 `Form.Item` 设置了 `id` 和 `options` 属性，则 `value` `defaultValue` 和 `id` 属性会被自动设置。

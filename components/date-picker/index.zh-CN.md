@@ -38,6 +38,7 @@ import locale from 'antd/lib/date-picker/locale/zh_CN';
 // 默认语言为 en-US，如果你需要设置其他语言，推荐在入口文件全局设置 locale
 import moment from 'moment';
 import 'moment/locale/zh-cn';
+moment.locale('zh-cn');
 
 <DatePicker defaultValue={moment('2015-01-01', 'YYYY-MM-DD')} />
 ```
