@@ -7,7 +7,7 @@ title: Form
 ---
 
 具有数据收集、校验和提交功能的表单，包含复选框、单选框、输入框、下拉选择框等元素。
-
+（注意:使用表单项目要引入antd/dist/antd.css，即 import 'antd/dist/antd.css'）
 ## 表单
 
 我们为 `form` 提供了以下三种排列方式：
