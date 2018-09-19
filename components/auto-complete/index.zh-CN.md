@@ -39,6 +39,9 @@ const dataSource = ['12345', '23456', '34567'];
 | onFocus | 获得焦点时的回调 | function() | - |
 | onSearch | 搜索补全项的时候调用 | function(value) | 无 |
 | onSelect | 被选中时调用，参数为选中项的 value 值 | function(value, option) | 无 |
+| defaultOpen | 是否默认展开下拉菜单 | boolean | - |
+| open | 是否展开下拉菜单 | boolean | - |
+| onDropdownVisibleChange | 展开下拉菜单的回调 | function(open) | - |
 
 ## 方法
 
