@@ -42,8 +42,9 @@ import ukUA from '../uk_UA';
 import zhCN from '../zh_CN';
 import kuIQ from '../ku_IQ';
 import mnMN from '../mn_MN';
+import heIL from '../he_IL';
 
-const locales = [enUS, ptBR, ptPT, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR, etEE, skSK, jaJP, trTR, zhTW, fiFI, plPL, bgBG, enGB, frFR, nlBE, itIT, viVN, thTH, faIR, elGR, nbNO, srRS, slSI, isIS, arEG, ukUA, zhCN, kuIQ, mnMN];
+const locales = [enUS, ptBR, ptPT, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR, etEE, skSK, jaJP, trTR, zhTW, fiFI, plPL, bgBG, enGB, frFR, nlBE, itIT, viVN, thTH, faIR, elGR, nbNO, srRS, slSI, isIS, arEG, ukUA, zhCN, kuIQ, mnMN, heIL];
 
 const { Option } = Select;
 const { RangePicker } = DatePicker;
