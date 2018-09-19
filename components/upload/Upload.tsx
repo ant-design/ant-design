@@ -67,11 +67,18 @@ class Upload extends React.Component<UploadProps, UploadState> {
   }
 
   onStart = (file: RcFile) => {
-    let targetItem;
-    let nextFileList = this.state.fileList.concat();
-    targetItem = fileToObject(file);
+    const targetItem = fileToObject(file);
     targetItem.status = 'uploading';
-    nextFileList.push(targetItem);
+
+    let nextFileList = this.state.fileList.concat();
+
+    const fileIndex = nextFileList.findIndex(({ uid }) => uid === targetItem.uid);
+    if (fileIndex === -1) {
+      nextFileList.push(targetItem);
+    } else {
+      nextFileList[fileIndex] = targetItem;
+    }
+
     this.onChange({
       file: targetItem,
       fileList: nextFileList,
