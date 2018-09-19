@@ -57,6 +57,7 @@ title: Select
 | onPopupScroll | 下拉列表滚动时的回调 | function | - |
 | onSearch | 文本框值变化时回调 | function(value: string) |  |
 | onSelect | 被选中时调用，参数为选中项的 value (或 key) 值 | function(value, option:Option) | - |
+| defaultOpen | 是否默认展开下拉菜单 | boolean | - |
 | open | 是否展开下拉菜单 | boolean | - |
 | onDropdownVisibleChange | 展开下拉菜单的回调 | function(open) | - |
 
