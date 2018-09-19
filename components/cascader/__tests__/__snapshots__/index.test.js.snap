@@ -538,6 +538,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
   getRootDomNode={[Function]}
   mask={false}
   onAlign={[Function]}
+  onMouseDown={[Function]}
   prefixCls="ant-cascader-menus"
   style={Object {}}
   transitionName="slide-up"
@@ -600,12 +601,14 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
           <PopupInner
             className="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft "
             hiddenClassName="ant-cascader-menus-hidden"
+            onMouseDown={[Function]}
             prefixCls="ant-cascader-menus"
             style={Object {}}
             visible={true}
           >
             <div
               className="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft "
+              onMouseDown={[Function]}
               style={Object {}}
             >
               <LazyRenderBox
@@ -931,6 +934,7 @@ exports[`Cascader should render not found content 1`] = `
   getRootDomNode={[Function]}
   mask={false}
   onAlign={[Function]}
+  onMouseDown={[Function]}
   prefixCls="ant-cascader-menus"
   style={Object {}}
   transitionName="slide-up"
@@ -993,12 +997,14 @@ exports[`Cascader should render not found content 1`] = `
           <PopupInner
             className="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft "
             hiddenClassName="ant-cascader-menus-hidden"
+            onMouseDown={[Function]}
             prefixCls="ant-cascader-menus"
             style={Object {}}
             visible={true}
           >
             <div
               className="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft "
+              onMouseDown={[Function]}
               style={Object {}}
             >
               <LazyRenderBox

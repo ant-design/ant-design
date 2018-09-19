@@ -71,6 +71,13 @@ export interface AntTreeNodeMouseEvent {
   event: React.MouseEventHandler<any>;
 }
 
+export interface AntTreeNodeDropEvent {
+  node: AntTreeNode;
+  dragNode: AntTreeNode;
+  dragNodesKeys: string[];
+  event: React.MouseEventHandler<any>;
+}
+
 export interface TreeProps {
   showLine?: boolean;
   className?: string;
@@ -130,7 +137,7 @@ export interface TreeProps {
   /** dragleave 触发时调用 */
   onDragLeave?: (options: AntTreeNodeMouseEvent) => void;
   /** drop 触发时调用 */
-  onDrop?: (options: AntTreeNodeMouseEvent) => void;
+  onDrop?: (options: AntTreeNodeDropEvent) => void;
   style?: React.CSSProperties;
   showIcon?: boolean;
   icon?: (nodeProps: AntdTreeNodeAttribute) => React.ReactNode | React.ReactNode;

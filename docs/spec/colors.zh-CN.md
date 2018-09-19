@@ -12,7 +12,7 @@ Ant Design 将色彩体系解读成两个层面：系统级色彩体系和产品
 
 ## 设计师专属
 
-安装 [Kitchen Sketch 插件  💎](https://kitchen.alipay.com)，不但可以使用 Ant Design 官方色板库，还可以管理自己的专属色板。
+安装 [💎 Kitchen Sketch 插件  💎](https://kitchen.alipay.com)，不但可以使用 Ant Design 官方色板库，还可以管理自己的专属色板。
 
 ## 色彩模型
 
