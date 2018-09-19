@@ -5,7 +5,7 @@ cols: 1
 title: Form
 ---
 
-Form is used to collect, validate, and submit the user input, usually contains various form items including checkbox, radio, input, select, and etc.
+Form is used to collect, validate, and submit the user input, usually contains various form items including checkbox, radio, input, select, and etc.(notice:Frist import 'antd/dist/antd.css'; before use)
 
 ## Form
 
