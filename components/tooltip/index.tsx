@@ -15,6 +15,16 @@ export type TooltipPlacement =
 
 export type TooltipTrigger = 'hover' | 'focus' | 'click' | 'contextMenu';
 
+export interface TooltipAlignConfig {
+  points?: [string, string],
+  offset?: [number, number],
+  targetOffset?: [number, number],
+  overflow?: { adjustX: boolean, adjustY: boolean },
+  useCssRight?: boolean,
+  useCssBottom?: boolean,
+  useCssTransform?: boolean
+}
+
 export interface AbstractTooltipProps {
   prefixCls?: string;
   overlayClassName?: string;
@@ -36,6 +46,7 @@ export interface AbstractTooltipProps {
   getTooltipContainer?: (triggerNode: Element) => HTMLElement;
   getPopupContainer?: (triggerNode: Element) => HTMLElement;
   children?: React.ReactNode;
+  align?: TooltipAlignConfig;
 }
 
 export type RenderFunction = () => React.ReactNode;
