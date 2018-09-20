@@ -830,6 +830,8 @@ timeline: true
 
 > 如果你从 2.x 升级到 3.x，建议直接升级到 3.x 的最新版本。
 
+> 3.x 后续的版本可能已经废弃了一些下面没有提到的改动，请参考控制台的警告提示相应升级。
+
 此版本有部分不兼容的改动，升级时确保修改相应的使用代码。另外由于人肉查找代码中的废弃用法过于低效，所以我们提供了 [antd-migration-helper](https://github.com/ant-design/antd-migration-helper) 用于扫描代码中的废弃用法。
 
 - Card 的 `noHovering` 属性重命名为 `hoverable`，且默认值改为 `true`。

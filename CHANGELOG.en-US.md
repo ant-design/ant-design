@@ -827,6 +827,10 @@ Learn more in the [Ant Design 3.0 announcement post](https://medium.com/ant-desi
 
 ### Breaking Changes
 
+> We suggest you upgrade to latest 3.x verison directly.
+
+> Some APIs may be daparated in other 3.x versions which don't described below, please pay attention to warning in browser console and upgrade them.
+
 We provide a [migration tool](https://github.com/ant-design/antd-migration-helper) to help you find deprecated usages in your codebase.
 
 - Card's `noHovering` has been renamed to `hoverable`, and its default value now is `true`.
