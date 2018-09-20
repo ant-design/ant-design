@@ -20,6 +20,7 @@ export interface InputNumberProps extends Omit<React.InputHTMLAttributes<HTMLInp
   size?: 'large' | 'small' | 'default';
   formatter?: (value: number | string | undefined) => string;
   parser?: (displayValue: string | undefined) => number;
+  decimalSeparator?: string;
   placeholder?: string;
   style?: React.CSSProperties;
   className?: string;
