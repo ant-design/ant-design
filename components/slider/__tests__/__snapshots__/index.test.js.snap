@@ -13,6 +13,7 @@ exports[`Slider should show tooltip when hovering slider handler 1`] = `
       />
       <div
         class="ant-tooltip-inner"
+        role="tooltip"
       >
         30
       </div>
@@ -34,6 +35,7 @@ exports[`Slider should show tooltip when hovering slider handler 2`] = `
       />
       <div
         class="ant-tooltip-inner"
+        role="tooltip"
       >
         30
       </div>
