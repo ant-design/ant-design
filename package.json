@@ -65,7 +65,7 @@
     "rc-dropdown": "~2.2.0",
     "rc-editor-mention": "^1.0.2",
     "rc-form": "^2.1.0",
-    "rc-input-number": "~4.0.0",
+    "rc-input-number": "~4.1.0",
     "rc-menu": "~7.4.1",
     "rc-notification": "~3.2.0",
     "rc-pagination": "~1.17.0",
