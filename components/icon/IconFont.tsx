@@ -22,8 +22,9 @@ export default function create(options: CustomIconOptions = {}): React.SFC<IconP
     && typeof scriptUrl === 'string' && scriptUrl.length
     && !customCache.has(scriptUrl)
   ) {
+    const scriptSrc = `${(!/^(https?|http):\/\/.+$/.test(scriptUrl) && 'https:') || ''}${scriptUrl}`;
     const script = document.createElement('script');
-    script.setAttribute('src', `https:${scriptUrl}`);
+    script.setAttribute('src', scriptSrc);
     script.setAttribute('data-namespace', scriptUrl);
     customCache.add(scriptUrl);
     document.body.appendChild(script);
