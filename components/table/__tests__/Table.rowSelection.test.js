@@ -423,7 +423,7 @@ describe('Table.rowSelection', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/11042
-  it.only('add columnTitle for rowSelection', () => {
+  it('add columnTitle for rowSelection', () => {
     const wrapper = mount(
       <Table
         columns={columns}

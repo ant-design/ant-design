@@ -74,6 +74,7 @@ export interface UploadProps {
   prefixCls?: string;
   customRequest?: (option: any) => void;
   withCredentials?: boolean;
+  openFileDialogOnClick?: boolean;
   locale?: UploadLocale;
 }
 
