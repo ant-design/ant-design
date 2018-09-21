@@ -442,7 +442,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       this.store.setState({
         selectionDirty: false,
       });
-      const onChange = this.props.onChange;
+      const { onChange } = this.props;
       if (onChange) {
         onChange.apply(null, this.prepareParamsArguments({
           ...this.state,
@@ -460,7 +460,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     const defaultSelection = this.store.getState().selectionDirty ? [] : this.getDefaultSelection();
     let selectedRowKeys = this.store.getState().selectedRowKeys.concat(defaultSelection);
     let key = this.getRecordKey(record, rowIndex);
-    const pivot = this.state.pivot;
+    const { pivot } = this.state;
     const rows = this.getFlatCurrentPageData();
     let realIndex = rowIndex;
     if (this.props.expandedRowRender) {
@@ -637,7 +637,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       selectionDirty: false,
     });
 
-    const onChange = this.props.onChange;
+    const { onChange } = this.props;
     if (onChange) {
       onChange.apply(null, this.prepareParamsArguments({
         ...this.state,
@@ -672,7 +672,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   }
 
   getRecordKey = (record: T, index: number) => {
-    const rowKey = this.props.rowKey;
+    const { rowKey } = this.props;
     const recordKey = (typeof rowKey === 'function') ?
       rowKey(record, index) :  (record as any)[rowKey as string];
     warning(recordKey !== undefined,
@@ -745,7 +745,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   }
 
   getMaxCurrent(total: number) {
-    const { current, pageSize } = this.state.pagination;
+    const { pagination: { current, pageSize } } = this.state;
     if ((current! - 1) * pageSize! >= total) {
       return Math.floor((total - 1) / pageSize!) + 1;
     }
@@ -838,7 +838,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   }
 
   handleShowSizeChange = (current: number, pageSize: number) => {
-    const pagination = this.state.pagination;
+    const { pagination } = this.state;
     pagination.onShowSizeChange!(current, pageSize);
     const nextPagination = {
       ...pagination,
@@ -847,7 +847,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     };
     this.setState({ pagination: nextPagination });
 
-    const onChange = this.props.onChange;
+    const { onChange } = this.props;
     if (onChange) {
       onChange.apply(null, this.prepareParamsArguments({
         ...this.state,
