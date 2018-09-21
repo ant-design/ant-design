@@ -135,15 +135,3 @@ ReactDOM.render(
 | fill | `svg` 元素填充的颜色 | string | 'currentColor' |
 | className | 计算后的 `svg` 类名 | string | - |
 | style | 计算后的 `svg` 元素样式 | CSSProperties | - |
-
-#### CustomIconComponentProps
-
-`Icon` 中的 `component` 组件的属性如下：
-
-| 字段 | 说明 | 类型 | 只读值 |
-| --- | --- | --- | --- |
-| width | `svg` 元素宽度 | string \| number | '1em' |
-| height | `svg` 元素高度 | string \| number | '1em' |
-| fill | `svg` 元素填充的颜色 | string | 'currentColor' |
-| className | 计算后的 `svg` 类名 | string | - |
-| style | 计算后的 `svg` 元素样式 | CSSProperties | - |
