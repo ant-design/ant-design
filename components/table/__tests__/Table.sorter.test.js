@@ -175,4 +175,39 @@ describe('Table.sorter', () => {
     wrapper.find('.ant-table-column-sorters').simulate('click');
     expect(wrapper.find('.custom-title').text()).toEqual('ascend');
   });
+
+  // https://github.com/ant-design/ant-design/pull/12264#discussion_r218053034
+  it('should sort from begining state when toggle from different columns', () => {
+    const columns = [
+      {
+        title: 'name',
+        dataIndex: 'name',
+        sorter: true,
+      },
+      {
+        title: 'age',
+        dataIndex: 'age',
+        sorter: true,
+      },
+    ];
+    const testData = [
+      { key: 0, name: 'Jack', age: 11 },
+      { key: 1, name: 'Lucy', age: 20 },
+      { key: 2, name: 'Tom', age: 21 },
+      { key: 3, name: 'Jerry', age: 22 },
+    ];
+    const wrapper = mount(
+      <Table columns={columns} dataSource={testData} />
+    );
+    const nameColumn = wrapper.find('.ant-table-column-sorters').at(0);
+    const ageColumn = wrapper.find('.ant-table-column-sorters').at(1);
+    // sort name
+    nameColumn.simulate('click');
+    expect(nameColumn.find('.ant-table-column-sorter-down').at(0).getDOMNode().className).toContain(' on');
+    expect(ageColumn.find('.ant-table-column-sorter-down').at(0).getDOMNode().className).toContain(' off');
+    // sort age
+    ageColumn.simulate('click');
+    expect(nameColumn.find('.ant-table-column-sorter-down').at(0).getDOMNode().className).toContain(' off');
+    expect(ageColumn.find('.ant-table-column-sorter-down').at(0).getDOMNode().className).toContain(' on');
+  });
 });
