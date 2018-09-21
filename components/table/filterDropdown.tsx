@@ -108,10 +108,7 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
 
   handleConfirm = () => {
     this.setVisible(false);
-
-    // Call `setSelectedKeys` & `confirm` in the same time will make filter data not up to date
-    // https://github.com/ant-design/ant-design/issues/12284
-    this.setState({}, this.confirmFilter);
+    this.confirmFilter();
   }
 
   onVisibleChange = (visible: boolean) => {

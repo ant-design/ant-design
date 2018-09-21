@@ -13,10 +13,13 @@ describe('Button', () => {
   });
 
   it('mount correctly', () => {
+    const wrapper = mount(
+      <Button>Follow</Button>
+    );
     if (process.env.REACT === '15') {
       return;
     }
-    expect(() => renderer.create(<Button>Follow</Button>)).not.toThrow();
+    expect(() => renderer.create(wrapper).toJSON()).not.toThrow();
   });
 
   it('renders Chinese characters correctly', () => {

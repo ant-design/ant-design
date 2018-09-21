@@ -58,9 +58,8 @@ Select component to select value from options.
 | onPopupScroll | Called when dropdown scrolls | function | - |
 | onSearch | Callback function that is fired when input changed. | function(value: string) |  |
 | onSelect | Called when a option is selected, the params are option's value (or key) and option instance. | function(value, option:Option) | - |
-| defaultOpen | Initial open state of dropdown | boolean | - |
-| open | Controlled open state of dropdown | boolean | - |
-| onDropdownVisibleChange | Call when dropdown open | function(open) | - |
+| open | controlled open state of dropdown | boolean | - |
+| onDropdownVisibleChange | call when dropdown open | function(open) | - |
 
 ### Select Methods
 

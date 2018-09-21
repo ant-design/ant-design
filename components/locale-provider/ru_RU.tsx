@@ -28,7 +28,7 @@ export default {
   },
   Transfer: {
     notFoundContent: 'Ничего не найдено',
-    searchPlaceholder: 'Поиск',
+    searchPlaceholder: 'Введите название для поиска',
     itemUnit: 'элем.',
     itemsUnit: 'элем.',
   },
@@ -36,9 +36,9 @@ export default {
     notFoundContent: 'Ничего не найдено',
   },
   Upload: {
-    uploading: 'Загрузка...',
+    uploading: 'Закачиваю...',
     removeFile: 'Удалить файл',
-    uploadError: 'При загрузке произошла ошибка',
+    uploadError: 'Ошибка при закачке',
     previewFile: 'Предпросмотр файла',
   },
 };

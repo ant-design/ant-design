@@ -9,8 +9,6 @@ import TransferItem from '../item';
 import Button from '../../button';
 import Checkbox from '../../checkbox';
 
-const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
 const listCommonProps = {
   dataSource: [{
     key: 'a',
@@ -212,11 +210,6 @@ describe('Transfer', () => {
         .find('.ant-transfer-list-body-not-found').at(0)
         .text()
     ).toEqual('old1');
-
-    expect(consoleErrorSpy).toBeCalledWith(
-      'Warning: Transfer[notFoundContent] and Transfer[searchPlaceholder] will be removed, please use Transfer[locale] instead.'
-    );
-    consoleErrorSpy.mockRestore();
   });
 
   it('should display the correct items unit', () => {

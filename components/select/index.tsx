@@ -31,7 +31,6 @@ export interface AbstractSelectProps {
   getPopupContainer?: (triggerNode: Element) => HTMLElement;
   filterOption?: boolean | ((inputValue: string, option: React.ReactElement<OptionProps>) => any);
   id?: string;
-  defaultOpen?: boolean;
   open?: boolean;
   onDropdownVisibleChange?: (open: boolean) => void;
 }
