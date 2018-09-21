@@ -357,13 +357,15 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   }
 
   toggleSortOrder(column: ColumnProps<T>) {
-    const { sortOrder } = this.state;
+    const { sortOrder, sortColumn } = this.state;
     // 只同时允许一列进行排序，否则会导致排序顺序的逻辑问题
     let newSortOrder: 'descend' | 'ascend' | undefined;
+    // 切换另一列时，丢弃 sortOrder 的状态
+    const oldSortOrder = sortColumn === column ? sortOrder : undefined;
     // 切换排序状态，按照降序/升序/不排序的顺序
-    if (!sortOrder) {
+    if (!oldSortOrder) {
       newSortOrder = 'descend';
-    } else if (sortOrder === 'descend') {
+    } else if (oldSortOrder === 'descend') {
       newSortOrder = 'ascend';
     } else {
       newSortOrder = undefined;
