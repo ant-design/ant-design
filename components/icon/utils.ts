@@ -46,3 +46,8 @@ export function withThemeSuffix(type: string, theme: ThemeType) {
   }
   return result;
 }
+
+export function handleSciprtUrl(url: string): string {
+  const scriptUrl = `${(!/^(https?|http):\/\/.+$/.test(url) && 'https:') || ''}${url}`;
+  return scriptUrl;
+}

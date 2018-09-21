@@ -3,7 +3,7 @@ import { render, mount } from 'enzyme';
 import Icon from '..';
 import ReactIcon from '@ant-design/icons-react';
 import Tooltip from '../../tooltip';
-import { getThemeFromTypeName, withThemeSuffix } from '../utils';
+import { getThemeFromTypeName, withThemeSuffix, handleSciprtUrl } from '../utils';
 
 describe('Icon', () => {
   it('should render to a <i class="xxx"><svg>...</svg></i>', () => {
@@ -198,5 +198,15 @@ describe('utils', () => {
       ['home-fill', 'home-o', 'home-twotone', 'home',
         'home-o-fill', 'home-fill-o', 'home-o-twotone', 'home-o']
     );
+  });
+
+  it('handleSciprtUrl() should work', () => {
+    const testCases = [
+      { inputUrl: 'http://at.alicdn.com/t/font_8d5l8fzk5b87iudi.js', outputUrl: 'http://at.alicdn.com/t/font_8d5l8fzk5b87iudi.js' },
+      { inputUrl: 'https://at.alicdn.com/t/font_8d5l8fzk5b87iudi.js', outputUrl: 'https://at.alicdn.com/t/font_8d5l8fzk5b87iudi.js' },
+      { inputUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js', outputUrl: 'https://at.alicdn.com/t/font_8d5l8fzk5b87iudi.js' },
+    ];
+    const result = testCases.every(({ inputUrl, outputUrl }) => handleSciprtUrl(inputUrl) === outputUrl);
+    expect(result).toBe(true);
   });
 });
