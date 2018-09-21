@@ -45,6 +45,7 @@ Select component to select value from options.
 | showArrow | Whether to show the drop-down arrow | boolean | true |
 | showSearch | Whether show search input in single mode. | boolean | false |
 | size | Size of Select input. `default` `large` `small` | string | default |
+| suffixIcon | The custom suffix icon | ReactNode | - |
 | tokenSeparators | Separator used to tokenize on tag/multiple mode | string\[] |  |
 | value | Current selected option. | string\|number\|string\[]\|number\[] | - |
 | onBlur | Called when blur | function | - |
@@ -57,8 +58,9 @@ Select component to select value from options.
 | onPopupScroll | Called when dropdown scrolls | function | - |
 | onSearch | Callback function that is fired when input changed. | function(value: string) |  |
 | onSelect | Called when a option is selected, the params are option's value (or key) and option instance. | function(value, option:Option) | - |
-| open | controlled open state of dropdown | boolean | - |
-| onDropdownVisibleChange | call when dropdown open | function(open) | - |
+| defaultOpen | Initial open state of dropdown | boolean | - |
+| open | Controlled open state of dropdown | boolean | - |
+| onDropdownVisibleChange | Call when dropdown open | function(open) | - |
 
 ### Select Methods
 

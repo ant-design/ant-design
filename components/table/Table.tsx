@@ -356,24 +356,22 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     };
   }
 
-  toggleSortOrder(order: 'ascend'|'descend', column: ColumnProps<T>) {
-    let { sortColumn, sortOrder } = this.state;
+  toggleSortOrder(column: ColumnProps<T>) {
+    const { sortOrder } = this.state;
     // 只同时允许一列进行排序，否则会导致排序顺序的逻辑问题
-    let isSortColumn = this.isSortColumn(column);
-    if (!isSortColumn) {  // 当前列未排序
-      sortOrder = order;
-      sortColumn = column;
-    } else {                      // 当前列已排序
-      if (sortOrder === order) {  // 切换为未排序状态
-        sortOrder = undefined;
-        sortColumn = null;
-      } else {                    // 切换为排序状态
-        sortOrder = order;
-      }
+    let newSortOrder: 'descend' | 'ascend' | undefined;
+    // 切换排序状态，按照降序/升序/不排序的顺序
+    if (!sortOrder) {
+      newSortOrder = 'descend';
+    } else if (sortOrder === 'descend') {
+      newSortOrder = 'ascend';
+    } else {
+      newSortOrder = undefined;
     }
+
     const newState = {
-      sortOrder,
-      sortColumn,
+      sortOrder: newSortOrder,
+      sortColumn: newSortOrder ? column : null,
     };
 
     // Controlled
@@ -381,7 +379,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       this.setState(newState);
     }
 
-    const onChange = this.props.onChange;
+    const { onChange } = this.props;
     if (onChange) {
       onChange.apply(null, this.prepareParamsArguments({
         ...this.state,
@@ -765,11 +763,11 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   renderColumnsDropdown(columns: ColumnProps<T>[], locale: TableLocale) {
     const { prefixCls, dropdownPrefixCls } = this.props;
     const { sortOrder } = this.state;
-    return treeMap(columns, (originColumn, i) => {
-      let column = { ...originColumn };
-      let key = this.getColumnKey(column, i) as string;
+    return treeMap(columns, (column, i) => {
+      const key = this.getColumnKey(column, i) as string;
       let filterDropdown;
       let sortButton;
+      const isSortColumn = this.isSortColumn(column);
       if ((column.filters && column.filters.length > 0) || column.filterDropdown) {
         let colFilters = this.state.filters[key] || [];
         filterDropdown = (
@@ -781,51 +779,62 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
             prefixCls={`${prefixCls}-filter`}
             dropdownPrefixCls={dropdownPrefixCls || 'ant-dropdown'}
             getPopupContainer={this.getPopupContainer}
+            key="filter-dropdown"
           />
         );
       }
       if (column.sorter) {
-        let isSortColumn = this.isSortColumn(column);
-        if (isSortColumn) {
-          column.className = classNames(column.className, {
-            [`${prefixCls}-column-sort`]: sortOrder,
-          });
-        }
         const isAscend = isSortColumn && sortOrder === 'ascend';
         const isDescend = isSortColumn && sortOrder === 'descend';
         sortButton = (
-          <div className={`${prefixCls}-column-sorter`}>
-            <span
+          <div className={`${prefixCls}-column-sorter`} key="sorter">
+            <Icon
               className={`${prefixCls}-column-sorter-up ${isAscend ? 'on' : 'off'}`}
-              title="↑"
-              onClick={() => this.toggleSortOrder('ascend', column)}
-            >
-              <Icon type="caret-up" />
-            </span>
-            <span
+              type="caret-up"
+              theme="filled"
+            />
+            <Icon
               className={`${prefixCls}-column-sorter-down ${isDescend ? 'on' : 'off'}`}
-              title="↓"
-              onClick={() => this.toggleSortOrder('descend', column)}
-            >
-              <Icon type="caret-down" />
-            </span>
+              type="caret-down"
+              theme="filled"
+            />
           </div>
         );
       }
-      column.title = (
-        <span key={key}>
-          {column.title}
-          {sortButton}
-          {filterDropdown}
-        </span>
-      );
-
-      if (sortButton || filterDropdown) {
-        column.className = classNames(`${prefixCls}-column-has-filters`, column.className);
-      }
-
-      return column;
+      return {
+        ...column,
+        className: classNames(column.className, {
+          [`${prefixCls}-column-has-actions`]: sortButton || filterDropdown,
+          [`${prefixCls}-column-has-filters`]: filterDropdown,
+          [`${prefixCls}-column-has-sorters`]: sortButton,
+          [`${prefixCls}-column-sort`]: isSortColumn && sortOrder,
+        }),
+        title: [
+          <div
+            key="title"
+            title={locale.sortTitle}
+            className={sortButton ? `${prefixCls}-column-sorters` : undefined}
+            onClick={() => this.toggleSortOrder(column)}
+          >
+            {this.renderColumnTitle(column.title)}
+            {sortButton}
+          </div>,
+          filterDropdown,
+        ],
+      };
     });
+  }
+
+  renderColumnTitle(title: ColumnProps<T>['title']) {
+    const { filters, sortOrder } = this.state;
+    // https://github.com/ant-design/ant-design/issues/11246#issuecomment-405009167
+    if (typeof title === 'function') {
+      return title({
+        filters,
+        sortOrder,
+      });
+    }
+    return title;
   }
 
   handleShowSizeChange = (current: number, pageSize: number) => {

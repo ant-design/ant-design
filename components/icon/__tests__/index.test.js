@@ -96,6 +96,12 @@ describe('Icon', () => {
     expect(wrapper.instance().tooltip.props.visible).toBe(false);
   });
 
+  it('should support custom usage of children', () => {
+    expect(() => {
+      render(<Icon type="custom">&E648</Icon>);
+    }).not.toThrow();
+  });
+
   describe('`component` prop', () => {
     it('can access to svg defs if has children', () => {
       const wrapper = render(

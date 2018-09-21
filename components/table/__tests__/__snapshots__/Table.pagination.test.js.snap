@@ -32,9 +32,11 @@ exports[`Table.pagination renders pagination correctly 1`] = `
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Name
-                    </span>
+                    </div>
                   </th>
                 </tr>
               </thead>

@@ -7,6 +7,7 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import warning from '../_util/warning';
 import Icon from '../icon';
 import { AntTreeNodeProps } from '../tree';
+import omit from 'omit.js';
 
 export { TreeNode, TreeSelectProps } from './interface';
 
@@ -74,22 +75,26 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
       notFoundContent,
       dropdownStyle,
       dropdownClassName,
+      suffixIcon,
       ...restProps
     } = this.props;
+    const rest = omit(restProps, ['inputIcon', 'removeIcon', 'clearIcon', 'switcherIcon']);
 
     const cls = classNames({
       [`${prefixCls}-lg`]: size === 'large',
       [`${prefixCls}-sm`]: size === 'small',
     }, className);
 
-    let checkable = restProps.treeCheckable;
+    let checkable = rest.treeCheckable;
     if (checkable) {
       checkable = <span className={`${prefixCls}-tree-checkbox-inner`} />;
     }
 
-    const inputIcon = (
-      <Icon type="down" className={`${prefixCls}-arrow-icon`} />
-    );
+    const inputIcon = suffixIcon && (
+      React.isValidElement<{ className?: string }>(suffixIcon)
+        ? React.cloneElement(suffixIcon) : suffixIcon) || (
+        <Icon type="down" className={`${prefixCls}-arrow-icon`} />
+      );
 
     const removeIcon = (
       <Icon type="close" className={`${prefixCls}-remove-icon`} />
@@ -101,7 +106,11 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
 
     return (
       <RcTreeSelect
-        {...restProps}
+        switcherIcon={this.renderSwitcherIcon}
+        inputIcon={inputIcon}
+        removeIcon={removeIcon}
+        clearIcon={clearIcon}
+        {...rest}
         dropdownClassName={classNames(dropdownClassName, `${prefixCls}-tree-dropdown`)}
         prefixCls={prefixCls}
         className={cls}
@@ -109,10 +118,6 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
         treeCheckable={checkable}
         notFoundContent={notFoundContent || locale.notFoundContent}
         ref={this.saveTreeSelect}
-        switcherIcon={this.renderSwitcherIcon}
-        inputIcon={inputIcon}
-        removeIcon={removeIcon}
-        clearIcon={clearIcon}
       />
     );
   }

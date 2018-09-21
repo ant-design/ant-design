@@ -423,7 +423,7 @@ describe('Table.rowSelection', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/11042
-  it('add columnTitle for rowSelection', () => {
+  it.only('add columnTitle for rowSelection', () => {
     const wrapper = mount(
       <Table
         columns={columns}
@@ -433,13 +433,13 @@ describe('Table.rowSelection', () => {
         }}
       />
     );
-    expect(wrapper.find('thead tr span').at(0).text()).toBe('多选');
+    expect(wrapper.find('thead tr div').at(0).text()).toBe('多选');
     wrapper.setProps({
       rowSelection: {
         type: 'radio',
         columnTitle: '单选',
       },
     });
-    expect(wrapper.find('thead tr span').at(0).text()).toBe('单选');
+    expect(wrapper.find('thead tr div').at(0).text()).toBe('单选');
   });
 });

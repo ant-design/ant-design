@@ -83,6 +83,7 @@ export interface CascaderProps {
   getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
   popupVisible?: boolean;
   fieldNames?: FieldNamesType;
+  suffixIcon?: React.ReactNode;
 }
 
 export interface CascaderState {
@@ -341,7 +342,7 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     const { props, state } = this;
     const {
       prefixCls, inputPrefixCls, children, placeholder, size, disabled,
-      className, style, allowClear, showSearch = false, ...otherProps
+      className, style, allowClear, showSearch = false, suffixIcon, ...otherProps
     } = props;
     const { value, inputFocused } = state;
 
@@ -414,6 +415,20 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
       dropdownMenuColumnStyle.width = this.input.input.offsetWidth;
     }
 
+    const inputIcon = suffixIcon && (
+      React.isValidElement<{ className?: string }>(suffixIcon)
+        ? React.cloneElement(
+          suffixIcon,
+          {
+            className: classNames({
+              [suffixIcon.props.className!]: suffixIcon.props.className,
+              [`${prefixCls}-picker-arrow`]: true,
+            }),
+          },
+        ) : <span className={`${prefixCls}-picker-arrow`}>{suffixIcon}</span>) || (
+        <Icon type="down" className={arrowCls} />
+      );
+
     const input = children || (
       <span
         style={style}
@@ -438,7 +453,7 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
           onChange={showSearch ? this.handleInputChange : undefined}
         />
         {clearIcon}
-        <Icon type="down" className={arrowCls} />
+        {inputIcon}
       </span>
     );
 
@@ -452,9 +467,11 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
       </span>
     );
 
+    const rest = omit(props, ['inputIcon', 'expandIcon', 'loadingIcon']);
+
     return (
       <RcCascader
-        {...props}
+        {...rest}
         options={options}
         value={value}
         popupVisible={state.popupVisible}
