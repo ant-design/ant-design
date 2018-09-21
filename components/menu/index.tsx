@@ -96,10 +96,11 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     );
 
     let openKeys;
-    if ('defaultOpenKeys' in props) {
-      openKeys = props.defaultOpenKeys;
-    } else if ('openKeys' in props) {
+    
+    if ('openKeys' in props) {
       openKeys = props.openKeys;
+    } else if ('defaultOpenKeys' in props) {
+      openKeys = props.defaultOpenKeys;
     }
 
     this.state = {
