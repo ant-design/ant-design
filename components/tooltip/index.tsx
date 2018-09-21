@@ -15,10 +15,12 @@ export type TooltipPlacement =
 
 export type TooltipTrigger = 'hover' | 'focus' | 'click' | 'contextMenu';
 
+// https://github.com/react-component/tooltip
+// https://github.com/yiminghe/dom-align
 export interface TooltipAlignConfig {
   points?: [string, string],
-  offset?: [number, number],
-  targetOffset?: [number, number],
+  offset?: [number | string, number | string],
+  targetOffset?: [number | string, number | string],
   overflow?: { adjustX: boolean, adjustY: boolean },
   useCssRight?: boolean,
   useCssBottom?: boolean,
@@ -46,6 +48,7 @@ export interface AbstractTooltipProps {
   getTooltipContainer?: (triggerNode: Element) => HTMLElement;
   getPopupContainer?: (triggerNode: Element) => HTMLElement;
   children?: React.ReactNode;
+  // align is a more higher api
   align?: TooltipAlignConfig;
 }
 
