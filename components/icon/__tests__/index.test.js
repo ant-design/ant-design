@@ -200,7 +200,7 @@ describe('utils', () => {
     );
   });
 
-  it('handleSciprtUrl() should workf', () => {
+  it('handleSciprtUrl() should work', () => {
     const testCases = [
       { inputUrl: 'http://at.alicdn.com/t/font_8d5l8fzk5b87iudi.js', outputUrl: 'http://at.alicdn.com/t/font_8d5l8fzk5b87iudi.js' },
       { inputUrl: 'https://at.alicdn.com/t/font_8d5l8fzk5b87iudi.js', outputUrl: 'https://at.alicdn.com/t/font_8d5l8fzk5b87iudi.js' },
