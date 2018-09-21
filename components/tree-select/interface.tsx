@@ -52,4 +52,5 @@ export interface TreeSelectProps extends AbstractSelectProps {
   labelInValue?: boolean;
   treeCheckStrictly?: boolean;
   getPopupContainer?: (triggerNode: Element) => HTMLElement;
+  suffixIcon?: React.ReactNode;
 }

@@ -11,6 +11,13 @@ import Radio from '../radio';
 import FilterDropdownMenuWrapper from './FilterDropdownMenuWrapper';
 import { FilterMenuProps, FilterMenuState, ColumnProps, ColumnFilterItem } from './interface';
 
+function stopPropagation(e: React.SyntheticEvent<any>) {
+  e.stopPropagation();
+  if (e.nativeEvent.stopImmediatePropagation) {
+    e.nativeEvent.stopImmediatePropagation();
+  }
+}
+
 export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState> {
   static defaultProps = {
     handleFilter() {},
@@ -61,6 +68,10 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
     if (Object.keys(newState).length > 0) {
       this.setState(newState);
     }
+  }
+
+  getDropdownVisible() {
+    return this.neverShown ? false : this.state.visible;
   }
 
   setNeverShown = (column: ColumnProps<T>) => {
@@ -176,13 +187,27 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
     if (typeof filterIcon === 'function') {
       filterIcon = filterIcon(filterd);
     }
-    const dropdownSelectedClass =  filterd ? `${prefixCls}-selected` : '';
+
+    const dropdownIconClass = classNames({
+      [`${prefixCls}-selected`]: filterd,
+      [`${prefixCls}-open`]: this.getDropdownVisible(),
+    });
 
     return filterIcon ? React.cloneElement(filterIcon as any, {
       title: locale.filterTitle,
-      className: classNames(`${prefixCls}-icon`, filterIcon.props.className),
-    }) : <Icon title={locale.filterTitle} type="filter" className={dropdownSelectedClass} />;
+      className: classNames(`${prefixCls}-icon`, dropdownIconClass, filterIcon.props.className),
+      onClick: stopPropagation,
+    }) : (
+      <Icon
+        title={locale.filterTitle}
+        type="filter"
+        theme="filled"
+        className={dropdownIconClass}
+        onClick={stopPropagation}
+      />
+    );
   }
+
   render() {
     const { column, locale, prefixCls, dropdownPrefixCls, getPopupContainer } = this.props;
     // default multiple selection in filter dropdown
@@ -241,8 +266,9 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
     return (
       <Dropdown
         trigger={['click']}
+        placement="bottomRight"
         overlay={menus}
-        visible={this.neverShown ? false : this.state.visible}
+        visible={this.getDropdownVisible()}
         onVisibleChange={this.onVisibleChange}
         getPopupContainer={getPopupContainer}
         forceRender

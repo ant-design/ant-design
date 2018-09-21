@@ -4,6 +4,7 @@ import RcSelect, { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale-provider/default';
+import omit from 'omit.js';
 import warning from 'warning';
 import Icon from '../icon';
 
@@ -63,6 +64,7 @@ export interface SelectProps extends AbstractSelectProps {
   tokenSeparators?: string[];
   getInputElement?: () => React.ReactElement<any>;
   autoFocus?: boolean;
+  suffixIcon?: React.ReactNode;
 }
 
 export interface OptionProps {
@@ -155,8 +157,11 @@ export default class Select extends React.Component<SelectProps, {}> {
       className = '',
       size,
       mode,
+      suffixIcon,
       ...restProps
     } = this.props;
+    const rest = omit(restProps, ['inputIcon', 'removeIcon', 'clearIcon']);
+
     const cls = classNames({
       [`${prefixCls}-lg`]: size === 'large',
       [`${prefixCls}-sm`]: size === 'small',
@@ -174,9 +179,11 @@ export default class Select extends React.Component<SelectProps, {}> {
       combobox: this.isCombobox(),
     };
 
-    const inputIcon = (
-      <Icon type="down" className={`${prefixCls}-arrow-icon`} />
-    );
+    const inputIcon = suffixIcon && (
+      React.isValidElement<{ className?: string }>(suffixIcon)
+        ? React.cloneElement(suffixIcon) : suffixIcon) || (
+        <Icon type="down" className={`${prefixCls}-arrow-icon`} />
+      );
 
     const removeIcon = (
       <Icon type="close" className={`${prefixCls}-remove-icon`} />
@@ -196,7 +203,7 @@ export default class Select extends React.Component<SelectProps, {}> {
         removeIcon={removeIcon}
         clearIcon={clearIcon}
         menuItemSelectedIcon={menuItemSelectedIcon}
-        {...restProps}
+        {...rest}
         {...modeConfig}
         prefixCls={prefixCls}
         className={cls}

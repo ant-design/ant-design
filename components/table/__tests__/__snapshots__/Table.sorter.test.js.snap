@@ -6,59 +6,52 @@ exports[`Table.sorter renders sorter icon correctly 1`] = `
 >
   <tr>
     <th
-      class="ant-table-column-has-filters"
+      class="ant-table-column-has-actions ant-table-column-has-sorters"
     >
-      <span>
+      <div
+        class="ant-table-column-sorters"
+        title="Sort"
+      >
         Name
         <div
           class="ant-table-column-sorter"
         >
-          <span
-            class="ant-table-column-sorter-up off"
-            title="↑"
+          <i
+            class="anticon anticon-caret-up ant-table-column-sorter-up off"
           >
-            <i
-              class="anticon anticon-caret-up"
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="caret-up"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
             >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="caret-up"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 1024 1024"
-                width="1em"
-              >
-                <path
-                  d="M76.3 632.8l405.1-489.1a42.53 42.53 0 0 1 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
-                />
-              </svg>
-            </i>
-          </span>
-          <span
-            class="ant-table-column-sorter-down off"
-            title="↓"
+              <path
+                d="M76.3 632.8l405.1-489.1a42.53 42.53 0 0 1 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
+              />
+            </svg>
+          </i>
+          <i
+            class="anticon anticon-caret-down ant-table-column-sorter-down off"
           >
-            <i
-              class="anticon anticon-caret-down"
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="caret-down"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
             >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="caret-down"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 1024 1024"
-                width="1em"
-              >
-                <path
-                  d="M76.3 392.3l403.1 489.1a42.53 42.53 0 0 0 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
-                />
-              </svg>
-            </i>
-          </span>
+              <path
+                d="M76.3 392.3l403.1 489.1a42.53 42.53 0 0 0 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
+              />
+            </svg>
+          </i>
         </div>
-      </span>
+      </div>
     </th>
   </tr>
 </thead>

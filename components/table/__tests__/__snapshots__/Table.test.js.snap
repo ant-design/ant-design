@@ -35,33 +35,41 @@ exports[`Table renders JSX correctly 1`] = `
                     class=""
                     colspan="2"
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Name
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                     rowspan="2"
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Age
-                    </span>
+                    </div>
                   </th>
                 </tr>
                 <tr>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       First Name
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div
+                      title="Sort"
+                    >
                       Last Name
-                    </span>
+                    </div>
                   </th>
                 </tr>
               </thead>

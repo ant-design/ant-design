@@ -129,7 +129,7 @@ const columns = [{
 | render | 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引，@return里面可以设置表格[行/列合并](#components-table-demo-colspan-rowspan) | Function(text, record, index) {} | - |
 | sorter | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)，需要服务端排序可设为 true | Function\|boolean | - |
 | sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `'ascend'` `'descend'` `false` | boolean\|string | - |
-| title | 列头显示文字 | string\|ReactNode | - |
+| title | 列头显示文字 | ReactNode\|({ sortOrder, filters }) => ReactNode | - |
 | width | 列宽度 | string\|number | - |
 | onCell | 设置单元格属性 | Function(record) | - |
 | onFilter | 本地模式下，确定筛选的运行函数 | Function | - |
