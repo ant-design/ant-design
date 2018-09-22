@@ -15,6 +15,35 @@ timeline: true
 
 ---
 
+## 3.9.3
+
+`2018-09-22`
+
+- 🐞 Fix `Select` render lag of long text in Chrome. [#11456](https://github.com/ant-design/ant-design/issues/11456) [#11843](https://github.com/ant-design/ant-design/issues/11843)
+- 🐞 Fix `onOpenChange` handler not being called in `RangePicker` for preset ranges. [#12142](https://github.com/ant-design/ant-design/pull/12142)[@leijingdao](https://github.com/leijingdao)
+- 🐞 Fix parameter `dontAnimate` to `goTo` of `Carousel`, the parameter be used to closing animation transitions. [#12205](https://github.com/ant-design/ant-design/pull/12205)
+- 🐞 Fix duplicated className for tabBar in `Tabs`. [589ba](https://github.com/ant-design/ant-design/commit/589bafd5db92a817c078ead6decdb81e64b2b5a8) [#12051](https://github.com/ant-design/ant-design/issues/12051)
+- 🐞 Fix the vertical alignment for the title of `Card`. [#11036](https://github.com/ant-design/ant-design/pull/11036) [#10576](https://github.com/ant-design/ant-design/issues/10576)
+- 🐞 Fix Item key unspected change on `List` component. [#12299](https://github.com/ant-design/ant-design/pull/12299)[@douglasjunior](https://github.com/douglasjunior)
+- 🐞 Fix `confirmFilter` in `Table` does not refresh immediately. [954c7](https://github.com/ant-design/ant-design/commit/954c7ecd8ed384a3c67ec8dfb0e0deaa14bbf83b) [#12284](https://github.com/ant-design/ant-design/issues/12284)
+- Menu
+  - 🐞 Fix extra scrollbar when popup `Menu` in `horizontal` mode. [#12152](https://github.com/ant-design/ant-design/issues/12152)
+  - 🐞 Fix `openKeys` have higher priority in `Menu`. [#12361](https://github.com/ant-design/ant-design/pull/12361) [@tangjinzhou](https://github.com/tangjinzhou)
+- Upload
+  - 🐞 Fix `linkProps` in `Upload` fileList to support json string format and can override rel, target, title and etc. [efb23c](https://github.com/ant-design/ant-design/commit/efb23c1525858114460bfe3bd5fcb18c9f236bdc)
+  - 🐞 Fix deduplication of the same key when uploading multiple files in `Upload`. [273fd](https://github.com/ant-design/ant-design/commit/273fd2ea1bca395d61509cc98c3ebbf1c620bf43)、[#10953](https://github.com/ant-design/ant-design/issues/10953)
+- Icon related
+  - 🐞 Fix `Upload` close icon style error. [#12330](https://github.com/ant-design/ant-design/pull/12330) [#12304](https://github.com/ant-design/ant-design/issues/12304)
+  - 🐞 Fix `Select` add select clear icon. [#12196](https://github.com/ant-design/ant-design/pull/12196) [#12181](https://github.com/ant-design/ant-design/issues/12181)
+  - 🐞 Fix `Icon` svg align. [0698c](https://github.com/ant-design/ant-design/commit/0698c8217327224611d4be5fcfd149a355f1c08d)
+  - 🐞 Fix `React.Children.only` error when `Icon` contain children. [c21ff](https://github.com/ant-design/ant-design/commit/c21ff5251d1ff0f00d7f283dd377a7b13eec21ee)
+  - 🐞 Fix `Notification` icon align when no description. [e6579](https://github.com/ant-design/ant-design/commit/e657985cc35359fb813a2bd68be8c3afbe75c95a)
+  - 🐞 Fix sorter icon align of `Table`. [c935d](https://github.com/ant-design/ant-design/commit/c935d53b713afb3ec314133d749ca4e29e0c1ee5)
+- TypeScript
+  - 🐞 Fix `Message` miss return type of MessageApi. [e82d7](https://github.com/ant-design/ant-design/commit/e82d7a9c095317d62b054fcf7c2d6666ba54660d) [#12137](https://github.com/ant-design/ant-design/issues/12137)
+  - 🐞 Fix `Tree` onDrop type. [e5827](https://github.com/ant-design/ant-design/commit/e58273dccf59d58862e8bab0da36c7065e1c1044) [#12269](https://github.com/ant-design/ant-design/issues/12269)
+  - 🐞 Add `TreeSelect` missing argument `extra` in onChange event. [#12243](https://github.com/ant-design/ant-design/pull/12243)[@jardicc](https://github.com/jardicc)
+
 ## 3.9.2
 
 `2018-09-08`

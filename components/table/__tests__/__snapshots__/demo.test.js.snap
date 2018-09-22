@@ -1765,6 +1765,41 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
         >
           <label
             class=""
+            title="Has Data"
+          >
+            Has Data
+          </label>
+        </div>
+        <div
+          class="ant-form-item-control-wrapper"
+        >
+          <div
+            class="ant-form-item-control"
+          >
+            <span
+              class="ant-form-item-children"
+            >
+              <span
+                checked=""
+                class="ant-switch ant-switch-checked"
+                tabindex="0"
+              >
+                <span
+                  class="ant-switch-inner"
+                />
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-form-item-label"
+        >
+          <label
+            class=""
             title="Size"
           >
             Size

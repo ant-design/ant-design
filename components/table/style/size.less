@@ -35,6 +35,10 @@
   }
 
   > .@{table-prefix-cls}-content {
+    > .@{table-prefix-cls}-body {
+      margin: 0 @table-padding-horizontal/2;
+    }
+
     > .@{table-prefix-cls}-header > table,
     > .@{table-prefix-cls}-body > table,
     > .@{table-prefix-cls}-scroll > .@{table-prefix-cls}-header > table,
@@ -44,7 +48,6 @@
     > .@{table-prefix-cls}-fixed-left > .@{table-prefix-cls}-body-outer > .@{table-prefix-cls}-body-inner > table,
     > .@{table-prefix-cls}-fixed-right > .@{table-prefix-cls}-body-outer > .@{table-prefix-cls}-body-inner > table {
       border: 0;
-      padding: 0 @table-padding-horizontal/2;
       > .@{table-prefix-cls}-thead > tr > th,
       > .@{table-prefix-cls}-tbody > tr > td {
         padding: @table-padding-vertical/2 @table-padding-horizontal/2;
