@@ -84,6 +84,7 @@ export interface ModalFuncProps {
 
 export type ModalFunc = (props: ModalFuncProps) => {
   destroy: () => void,
+  update: (newConfig: ModalFuncProps) => void,
 };
 
 export interface ModalLocale {
