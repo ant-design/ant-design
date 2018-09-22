@@ -26,14 +26,14 @@ timeline: true
   - 🐞 Fix `linkProps` in `Upload` fileList to support json string format and can override rel, target, title and etc. [#efb23c](https://github.com/ant-design/ant-design/commit/efb23c1525858114460bfe3bd5fcb18c9f236bdc)
   - 🐞 Fix deduplication of file when uploading multiple files in `Upload`. [#273fd](https://github.com/ant-design/ant-design/commit/273fd2ea1bca395d61509cc98c3ebbf1c620bf43)、[#10953](https://github.com/ant-design/ant-design/issues/10953)
   - 🐞 Fix `Upload` close icon style error. [#12330](https://github.com/ant-design/ant-design/pull/12330) [#12304](https://github.com/ant-design/ant-design/issues/12304)
-- 🌟 Add `TreeSelect` missing argument `extra` in onChange event. [#12243](https://github.com/ant-design/ant-design/pull/12243)[@jardicc](https://github.com/jardicc)
 - 🐞 Fix duplicated className for tabBar in `Tabs`. [#589ba](https://github.com/ant-design/ant-design/commit/589bafd5db92a817c078ead6decdb81e64b2b5a8) [#12051](https://github.com/ant-design/ant-design/issues/12051)
 - 🐞 Fix the vertical alignment for the title of `Card`. [#11036](https://github.com/ant-design/ant-design/pull/11036) [#10576](https://github.com/ant-design/ant-design/issues/10576)
 - 🐞 Fix Item key unspected change on `List` component. [#12299](https://github.com/ant-design/ant-design/pull/12299)[@douglasjunior](https://github.com/douglasjunior)
 - 🐞 Fix `confirmFilter` in `Table` does not refresh immediately. [#954c7](https://github.com/ant-design/ant-design/commit/954c7ecd8ed384a3c67ec8dfb0e0deaa14bbf83b) [#12284](https://github.com/ant-design/ant-design/issues/12284)
 - TypeScript
-  - 🌟 Add `Message` miss return type of MessageApi. [#e82d7](https://github.com/ant-design/ant-design/commit/e82d7a9c095317d62b054fcf7c2d6666ba54660d) [#12137](https://github.com/ant-design/ant-design/issues/12137)
+  - 🐞 Fix `Message` miss return type of MessageApi. [#e82d7](https://github.com/ant-design/ant-design/commit/e82d7a9c095317d62b054fcf7c2d6666ba54660d) [#12137](https://github.com/ant-design/ant-design/issues/12137)
   - 🐞 Fix `Tree` onDrop type. [#e5827](https://github.com/ant-design/ant-design/commit/e58273dccf59d58862e8bab0da36c7065e1c1044) [#12269](https://github.com/ant-design/ant-design/issues/12269)
+  - 🐞 Add `TreeSelect` missing argument `extra` in onChange event. [#12243](https://github.com/ant-design/ant-design/pull/12243)[@jardicc](https://github.com/jardicc)
 
 ## 3.9.2
 
