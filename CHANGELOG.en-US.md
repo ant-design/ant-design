@@ -21,13 +21,14 @@ timeline: true
 
 - 🐞 Fix `Select` render lag of long text in Chrome. [#11456](https://github.com/ant-design/ant-design/issues/11456) [#11843](https://github.com/ant-design/ant-design/issues/11843)
 - 🐞 Fix `onOpenChange` handler not being called in `RangePicker` for preset ranges. [#12142](https://github.com/ant-design/ant-design/pull/12142)[@leijingdao](https://github.com/leijingdao)
-- 🐞 Fix extra scrollbar when popup `Menu` in `horizontal` mode. [#12152](https://github.com/ant-design/ant-design/issues/12152)
-- 🌟 Add parameter `dontAnimate` to `goTo` of `Carousel`. [#12205](https://github.com/ant-design/ant-design/pull/12205)
+- 🐞 Fix parameter `dontAnimate` to `goTo` of `Carousel`, the parameter be used to closing animation transitions. [#12205](https://github.com/ant-design/ant-design/pull/12205)
 - 🐞 Fix duplicated className for tabBar in `Tabs`. [589ba](https://github.com/ant-design/ant-design/commit/589bafd5db92a817c078ead6decdb81e64b2b5a8) [#12051](https://github.com/ant-design/ant-design/issues/12051)
 - 🐞 Fix the vertical alignment for the title of `Card`. [#11036](https://github.com/ant-design/ant-design/pull/11036) [#10576](https://github.com/ant-design/ant-design/issues/10576)
 - 🐞 Fix Item key unspected change on `List` component. [#12299](https://github.com/ant-design/ant-design/pull/12299)[@douglasjunior](https://github.com/douglasjunior)
 - 🐞 Fix `confirmFilter` in `Table` does not refresh immediately. [954c7](https://github.com/ant-design/ant-design/commit/954c7ecd8ed384a3c67ec8dfb0e0deaa14bbf83b) [#12284](https://github.com/ant-design/ant-design/issues/12284)
-- 🐞 Fix `openKeys` have higher priority than `defaultOpenKeys` in `Menu`. [#12361](https://github.com/ant-design/ant-design/pull/12361) [@tangjinzhou](https://github.com/tangjinzhou)
+- Menu
+  - 🐞 Fix extra scrollbar when popup `Menu` in `horizontal` mode. [#12152](https://github.com/ant-design/ant-design/issues/12152)
+  - 🐞 Fix `openKeys` have higher priority in `Menu`. [#12361](https://github.com/ant-design/ant-design/pull/12361) [@tangjinzhou](https://github.com/tangjinzhou)
 - Upload
   - 🐞 Fix `linkProps` in `Upload` fileList to support json string format and can override rel, target, title and etc. [efb23c](https://github.com/ant-design/ant-design/commit/efb23c1525858114460bfe3bd5fcb18c9f236bdc)
   - 🐞 Fix deduplication of the same key when uploading multiple files in `Upload`. [273fd](https://github.com/ant-design/ant-design/commit/273fd2ea1bca395d61509cc98c3ebbf1c620bf43)、[#10953](https://github.com/ant-design/ant-design/issues/10953)
