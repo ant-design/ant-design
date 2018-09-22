@@ -35,8 +35,6 @@ timeline: true
   - 🌟 Add `Message` miss return type of MessageApi. [#e82d7](https://github.com/ant-design/ant-design/commit/e82d7a9c095317d62b054fcf7c2d6666ba54660d) [#12137](https://github.com/ant-design/ant-design/issues/12137)
   - 🐞 Fix `Tree` onDrop type. [#e5827](https://github.com/ant-design/ant-design/commit/e58273dccf59d58862e8bab0da36c7065e1c1044) [#12269](https://github.com/ant-design/ant-design/issues/12269)
 
-
-
 ## 3.9.2
 
 `2018-09-08`
