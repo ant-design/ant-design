@@ -88,7 +88,7 @@ describe('Table.pagination', () => {
       {},
       {},
       {
-        displayDataSource: [
+        currentDataSource: [
           { key: 0, name: 'Jack' },
           { key: 1, name: 'Lucy' },
           { key: 2, name: 'Tom' },

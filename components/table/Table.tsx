@@ -902,8 +902,8 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       sorter.columnKey = this.getColumnKey(state.sortColumn);
     }
 
-    const extra: { displayDataSource: T[] } = {
-      displayDataSource: this.getLocalData(state),
+    const extra = {
+      currentDataSource: this.getLocalData(state),
     };
 
     return [pagination, filters, sorter, extra];

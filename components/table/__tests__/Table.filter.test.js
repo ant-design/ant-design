@@ -225,7 +225,7 @@ describe('Table.filter', () => {
       { name: ['boy'] },
       {},
       {
-        displayDataSource: [],
+        currentDataSource: [],
       }
     );
   });
@@ -384,7 +384,7 @@ describe('Table.filter', () => {
     wrapper.find('.ant-dropdown-trigger').first().simulate('click');
 
     expect(handleChange).toBeCalled();
-    expect(handleChange.mock.calls[0][3].displayDataSource.length).toBe(1);
+    expect(handleChange.mock.calls[0][3].currentDataSource.length).toBe(1);
   });
 
   it('renders custom filter icon correctly', () => {

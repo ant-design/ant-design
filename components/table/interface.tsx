@@ -218,6 +218,6 @@ export type PrepareParamsArgumentsReturn<T> = [
   string[],
   Object,
   {
-    displayDataSource: T[],
+    currentDataSource: T[],
   }
 ];
