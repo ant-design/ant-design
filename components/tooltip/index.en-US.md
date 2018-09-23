@@ -35,6 +35,7 @@ The following APIs are shared by Tooltip, Popconfirm, Popover.
 | trigger | Tooltip trigger mode | `hover` \| `focus` \| `click` \| `contextMenu` | `hover` |
 | visible | Whether the floating tooltip card is visible or not | boolean | `false` |
 | onVisibleChange | Callback executed when visibility of the tooltip card is changed | (visible) => void | - |
+| align | this value will be merged into placement's config, please refer to the settings [rc-tooltip](https://github.com/react-component/tooltip) | Object | - |
 
 ## Note
 
