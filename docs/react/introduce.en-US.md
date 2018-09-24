@@ -23,6 +23,9 @@ Following the Ant Design specification, we developed a React UI library `antd` t
 }
 </style>
 
+
+> Please note that this library wasn't built using a React mindset (for example, it prefers imperative over declarative programming, isn't explicit, doesn't follow React's conventions and best practices, and has complex functionality built right in).
+
 ---
 
 ## Features
