@@ -61,7 +61,7 @@ export default class DirectoryTree extends React.Component<DirectoryTreeProps, D
     } else if (defaultExpandParent) {
       this.state.expandedKeys = conductExpandParent(expandedKeys || defaultExpandedKeys, keyEntities);
     } else {
-      this.state.expandedKeys = defaultExpandedKeys;
+      this.state.expandedKeys = expandedKeys || defaultExpandedKeys;
     }
 
     this.onDebounceExpand = debounce(this.expandFolderNode, 200, {
