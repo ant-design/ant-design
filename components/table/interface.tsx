@@ -37,16 +37,16 @@ export interface ColumnProps<T> {
 }
 
 export interface TableComponents {
-  table?: any;
+  table?: React.ReactType;
   header?: {
-    wrapper?: any;
-    row?: any;
-    cell?: any;
+    wrapper?: React.ReactType;
+    row?: React.ReactType;
+    cell?: React.ReactType;
   };
   body?: {
-    wrapper?: any;
-    row?: any;
-    cell?: any;
+    wrapper?: React.ReactType;
+    row?: React.ReactType;
+    cell?: React.ReactType;
   };
 }
 
