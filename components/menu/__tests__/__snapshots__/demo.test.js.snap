@@ -175,7 +175,7 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
   <li
     class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
     role="menuitem"
-    style="visibility:hidden"
+    style="visibility:hidden;position:absolute"
   >
     <div
       aria-expanded="false"
