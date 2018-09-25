@@ -22,7 +22,7 @@ class CustomizeAvatar extends React.Component {
       avatar_size: 64
     };
   }
-  handle = e => {
+  handle = (e) => {
     let avatar_size = parseInt(e.target.value,10);
     this.setState({ avatar_size });
   };
@@ -39,7 +39,7 @@ class CustomizeAvatar extends React.Component {
       max="64"
       value={this.state.avatar_size}
       name="avatar_size"
-      onChange={e => this.handle(e)}
+      onChange={(e) => this.handle(e)}
     />
     <div style={{height:"80px"}}>
       <Avatar shape="square" size={this.state.avatar_size} icon="user" />
