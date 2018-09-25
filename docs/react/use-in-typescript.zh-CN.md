@@ -226,3 +226,23 @@ $ create-react-app my-project --scripts-version=react-scripts-ts-antd
 ### error TS2605: JSX element type Xxx is not a constructor function for JSX elements.
 
 antd 3 以前的版本需要在 tsconfig.json 的 `compilerOptions` 中配置 `"allowSyntheticDefaultImports": true`。
+
+### (2,1): Import sources within a group must be alphabetized.
+
+`tslint` 默认规定了必须按顺序导入文件，将根目录下的 tslint.json `rules` 加上 `"ordered-imports": false` 即可解决。
+
+```diff
+{
+  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
++ "rules": {
++   "ordered-imports": false
++ },
+  "linterOptions": {
+    "exclude": [
+      "config/**/*.js",
+      "node_modules/**/*.ts",
+      "coverage/lcov-report/*.js"
+    ]
+  }
+}
+```
