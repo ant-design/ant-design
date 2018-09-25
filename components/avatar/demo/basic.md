@@ -14,25 +14,46 @@ title:
 Three sizes and two shapes are available.
 
 ````jsx
-import { Avatar } from 'antd';
+import { Avatar } from "antd";
+class CustomizeAvatar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      avatar_size: 64
+    };
+  }
+  handle = e => {
+    let avatar_size = parseInt(e.target.value,10);
+    this.setState({ avatar_size });
+  };
+
+  render() {
+    return (
+      <div>
+    <div style={{height:"80px"}}>
+      <Avatar size={this.state.avatar_size} icon="user" />
+    </div>
+    <input
+      type="range"
+      min="32"
+      max="64"
+      value={this.state.avatar_size}
+      name="avatar_size"
+      onChange={e => this.handle(e)}
+    />
+    <div style={{height:"80px"}}>
+      <Avatar shape="square" size={this.state.avatar_size} icon="user" />
+    </div>
+  </div>
+    );
+  }
+}
 
 ReactDOM.render(
-  <div>
-    <div>
-      <Avatar size={64} icon="user" />
-      <Avatar size="large" icon="user" />
-      <Avatar icon="user" />
-      <Avatar size="small" icon="user" />
-    </div>
-    <div>
-      <Avatar shape="square" size={64} icon="user" />
-      <Avatar shape="square" size="large" icon="user" />
-      <Avatar shape="square" icon="user" />
-      <Avatar shape="square" size="small" icon="user" />
-    </div>
-  </div>,
-  mountNode);
-````
+  <CustomizeAvatar/>,
+  mountNode
+);
+```
 
 <style>
 #components-avatar-demo-basic .ant-avatar {
