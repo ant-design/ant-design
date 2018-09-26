@@ -12,6 +12,12 @@ import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
 import * as utils from '../utils';
 
+if (typeof window !== 'undefined' && navigator.serviceWorker) {
+  navigator.serviceWorker.getRegistrations().then((registrations) => {
+    registrations.forEach(registration => registration.unregister());
+  });
+}
+
 if (typeof window !== 'undefined') {
   /* eslint-disable global-require */
   require('../../static/style');
