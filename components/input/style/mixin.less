@@ -272,6 +272,9 @@
         &:hover {
           .hover();
         }
+        &:focus {
+          .active();
+        }
       }
     }
 
@@ -306,6 +309,9 @@
       &:hover {
         .hover();
       }
+      &:focus {
+        .active();
+      }
     }
 
     & > *:first-child,
@@ -324,6 +330,7 @@
     & > .@{ant-prefix}-calendar-picker:last-child .@{ant-prefix}-input,
     & > .@{ant-prefix}-select-auto-complete:last-child .@{ant-prefix}-input,
     & > .@{ant-prefix}-cascader-picker:last-child .@{ant-prefix}-input,
+    & > .@{ant-prefix}-cascader-picker-focused:last-child .@{ant-prefix}-input,
     & > .@{ant-prefix}-mention-wrapper:last-child .@{ant-prefix}-mention-editor,
     & > .@{ant-prefix}-time-picker:last-child .@{ant-prefix}-time-picker-input {
       border-top-right-radius: @border-radius-base;
@@ -332,6 +339,12 @@
       border-right-color: @input-border-color;
       &:hover {
         .hover();
+      }
+      &:focus {
+        .active();
+        .@{ant-prefix}-cascader-input {
+          .active();
+        }
       }
     }
   }
