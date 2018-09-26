@@ -14,7 +14,7 @@ interface ConfirmDialogProps extends ModalFuncProps {
 const IS_REACT_16 = !!ReactDOM.createPortal;
 
 const ConfirmDialog = (props: ConfirmDialogProps) => {
-  const { onCancel, onOk, close, zIndex, afterClose, visible, keyboard, centered, getContainer } = props;
+  const { onCancel, onOk, close, zIndex, afterClose, visible, keyboard, centered, getContainer, okButtonProps, cancelButtonProps } = props;
   const iconType = props.iconType || 'question-circle';
   const okType = props.okType || 'primary';
   const prefixCls = props.prefixCls || 'ant-confirm';
@@ -36,7 +36,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
   );
 
   const cancelButton = okCancel && (
-    <ActionButton actionFn={onCancel} closeModal={close}>
+    <ActionButton actionFn={onCancel} closeModal={close} {...cancelButtonProps}>
       {cancelText}
     </ActionButton>
   );
@@ -68,7 +68,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
         </div>
         <div className={`${prefixCls}-btns`}>
           {cancelButton}
-          <ActionButton type={okType} actionFn={onOk} closeModal={close} autoFocus>
+          <ActionButton type={okType} actionFn={onOk} closeModal={close} autoFocus {...okButtonProps}>
             {okText}
           </ActionButton>
         </div>
