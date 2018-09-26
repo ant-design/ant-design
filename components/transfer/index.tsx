@@ -12,6 +12,8 @@ export { TransferListProps } from './list';
 export { TransferOperationProps } from './operation';
 export { TransferSearchProps } from './search';
 
+let onSearchChangeWarned = false;
+
 function noop() {
 }
 
@@ -271,6 +273,13 @@ export default class Transfer extends React.Component<TransferProps, any> {
       [`${direction}Filter`]: value,
     });
     if (onSearchChange) {
+      if (!onSearchChangeWarned) {
+        onSearchChangeWarned = true;
+        warning(
+          false,
+          '`onSearchChange` in Transfer is deprecated. Please use `onSearch` instead.',
+        );
+      }
       onSearchChange(direction, e);
     }
     if (onSearch) {
