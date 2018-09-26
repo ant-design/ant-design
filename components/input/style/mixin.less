@@ -26,7 +26,7 @@
 
 // == when hoverd
 .hover(@color: @input-hover-border-color) {
-  border-color: ~`colorPalette("@{color}", 5)` !important;
+  border-color: ~`colorPalette("@{color}", 5)`;
   border-right-width: 1px !important;
 }
 
@@ -269,6 +269,9 @@
       &:not(:first-child):not(:last-child) {
         border-right-width: 1px;
         border-right-color: transparent;
+        &:hover {
+          .hover();
+        }
       }
     }
 
@@ -300,6 +303,9 @@
       border-radius: 0;
       border-right-width: 1px;
       border-right-color: transparent;
+      &:hover {
+        .hover();
+      }
     }
 
     & > *:first-child,
@@ -324,6 +330,9 @@
       border-bottom-right-radius: @border-radius-base;
       border-right-width: 1px;
       border-right-color: @input-border-color;
+      &:hover {
+        .hover();
+      }
     }
   }
 }
