@@ -21,8 +21,8 @@ export interface HeaderProps {
 export default class Header extends React.Component<HeaderProps, any> {
   static defaultProps = {
     prefixCls: `${PREFIX_CLS}-header`,
-    yearSelectOffset: 10,
-    yearSelectTotal: 20,
+    yearSelectOffset: 10 as 10,
+    yearSelectTotal: 20 as 20,
   };
 
   private calenderHeaderNode: HTMLDivElement;

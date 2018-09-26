@@ -33,7 +33,7 @@ export interface BackTopProps {
 
 export default class BackTop extends React.Component<BackTopProps, any> {
   static defaultProps = {
-    visibilityHeight: 400,
+    visibilityHeight: 400 as 400,
   };
 
   scrollEvent: any;

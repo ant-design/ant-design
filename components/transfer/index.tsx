@@ -69,7 +69,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
     dataSource: [],
     render: noop,
     locale: {},
-    showSearch: false,
+    showSearch: false as false,
   };
 
   static propTypes = {

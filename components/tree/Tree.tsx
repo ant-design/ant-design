@@ -151,9 +151,9 @@ export default class Tree extends React.Component<TreeProps, any> {
   static DirectoryTree = DirectoryTree;
 
   static defaultProps = {
-    prefixCls: 'ant-tree',
-    checkable: false,
-    showIcon: false,
+    prefixCls: 'ant-tree' as 'ant-tree',
+    checkable: false as false,
+    showIcon: false as false,
     openAnimation: {
       ...animation,
       appear: null,

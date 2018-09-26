@@ -12,9 +12,9 @@ export interface TimeLineItemProps {
 
 export default class TimelineItem extends React.Component<TimeLineItemProps, any> {
   static defaultProps = {
-    prefixCls: 'ant-timeline',
-    color: 'blue',
-    pending: false,
+    prefixCls: 'ant-timeline' as 'ant-timeline',
+    color: 'blue' as 'blue',
+    pending: false as false,
   };
 
   render() {

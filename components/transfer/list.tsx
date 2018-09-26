@@ -48,8 +48,8 @@ export interface TransferListProps {
 export default class TransferList extends React.Component<TransferListProps, any> {
   static defaultProps = {
     dataSource: [],
-    titleText: '',
-    showSearch: false,
+    titleText: '' as '',
+    showSearch: false as false,
     render: noop,
     lazy: {},
   };

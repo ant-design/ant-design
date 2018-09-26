@@ -28,8 +28,8 @@ export interface ScrollNumberState {
 
 export default class ScrollNumber extends Component<ScrollNumberProps, ScrollNumberState> {
   static defaultProps = {
-    prefixCls: 'ant-scroll-number',
-    count: null,
+    prefixCls: 'ant-scroll-number' as 'ant-scroll-number',
+    count: null as null,
     onAnimated() {
     },
   };

@@ -32,9 +32,9 @@ export interface FormItemContext {
 
 export default class FormItem extends React.Component<FormItemProps, any> {
   static defaultProps = {
-    hasFeedback: false,
-    prefixCls: 'ant-form',
-    colon: true,
+    hasFeedback: false as false,
+    prefixCls: 'ant-form' as 'ant-form',
+    colon: true as true,
   };
 
   static propTypes = {

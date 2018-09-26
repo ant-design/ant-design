@@ -34,8 +34,8 @@ export interface TagState {
 class Tag extends React.Component<TagProps, TagState> {
   static CheckableTag = CheckableTag;
   static defaultProps = {
-    prefixCls: 'ant-tag',
-    closable: false,
+    prefixCls: 'ant-tag' as 'ant-tag',
+    closable: false as false,
   };
 
   static getDerivedStateFromProps(nextProps: TagProps, state: TagState) {

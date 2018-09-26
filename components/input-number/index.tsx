@@ -30,8 +30,8 @@ export interface InputNumberProps extends Omit<React.InputHTMLAttributes<HTMLInp
 
 export default class InputNumber extends React.Component<InputNumberProps, any> {
   static defaultProps = {
-    prefixCls: 'ant-input-number',
-    step: 1,
+    prefixCls: 'ant-input-number' as 'ant-input-number',
+    step: 1 as 1,
   };
 
   private inputNumberRef: any;

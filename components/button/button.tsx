@@ -70,10 +70,10 @@ export default class Button extends React.Component<ButtonProps, any> {
   static __ANT_BUTTON = true;
 
   static defaultProps = {
-    prefixCls: 'ant-btn',
-    loading: false,
-    ghost: false,
-    block: false,
+    prefixCls: 'ant-btn' as 'ant-btn',
+    loading: false as false,
+    ghost: false as false,
+    block: false as false,
   };
 
   static propTypes = {

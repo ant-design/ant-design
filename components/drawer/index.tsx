@@ -66,13 +66,13 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
   };
 
   static defaultProps = {
-    prefixCls: 'ant-drawer',
-    width: 256,
-    height: 256,
-    closable: true,
-    placement: 'right',
-    maskClosable: true,
-    level: null,
+    prefixCls: 'ant-drawer' as 'ant-drawer',
+    width: 256 as 256,
+    height: 256 as 256,
+    closable: true as true,
+    placement: 'right' as 'right',
+    maskClosable: true as true,
+    level: null as null,
   };
 
   readonly state = {

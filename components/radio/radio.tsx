@@ -12,8 +12,8 @@ export default class Radio extends React.Component<RadioProps, {}> {
   static Button: typeof RadioButton;
 
   static defaultProps = {
-    prefixCls: 'ant-radio',
-    type: 'radio',
+    prefixCls: 'ant-radio' as 'ant-radio',
+    type: 'radio' as 'radio',
   };
 
   static contextTypes = {

@@ -3,7 +3,7 @@ import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
 import Radio from './radio';
-import { RadioGroupProps, RadioGroupState, RadioChangeEvent, RadioGroupButtonStyle } from './interface';
+import { RadioGroupProps, RadioGroupState, RadioChangeEvent } from './interface';
 
 function getCheckedValue(children: React.ReactNode) {
   let value = null;
@@ -19,9 +19,9 @@ function getCheckedValue(children: React.ReactNode) {
 
 export default class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
   static defaultProps = {
-    disabled: false,
-    prefixCls: 'ant-radio',
-    buttonStyle: 'outline' as RadioGroupButtonStyle,
+    disabled: false as false,
+    prefixCls: 'ant-radio' as 'ant-radio',
+    buttonStyle: 'outline' as 'outline',
   };
 
   static childContextTypes = {

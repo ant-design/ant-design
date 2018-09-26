@@ -26,12 +26,12 @@ export interface BadgeProps {
 
 export default class Badge extends React.Component<BadgeProps, any> {
   static defaultProps = {
-    prefixCls: 'ant-badge',
-    scrollNumberPrefixCls: 'ant-scroll-number',
-    count: null,
-    showZero: false,
-    dot: false,
-    overflowCount: 99,
+    prefixCls: 'ant-badge' as 'ant-badge',
+    scrollNumberPrefixCls: 'ant-scroll-number' as 'ant-scroll-number',
+    count: null as null,
+    showZero: false as false,
+    dot: false as false,
+    overflowCount: 99 as 99,
   };
 
   static propTypes = {

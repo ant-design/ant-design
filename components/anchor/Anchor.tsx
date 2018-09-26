@@ -117,10 +117,10 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
   static Link: typeof AnchorLink;
 
   static defaultProps = {
-    prefixCls: 'ant-anchor',
-    affix: true,
-    showInkInFixed: false,
-    getContainer: getDefaultContainer,
+    prefixCls: 'ant-anchor' as 'ant-anchor',
+    affix: true as true,
+    showInkInFixed: false as false,
+    getContainer: getDefaultContainer as typeof getDefaultContainer,
   };
 
   static childContextTypes = {

@@ -67,10 +67,10 @@ function fixLocale(value: RangePickerValue | undefined, localeCode: string) {
 
 class RangePicker extends React.Component<any, RangePickerState> {
   static defaultProps = {
-    prefixCls: 'ant-calendar',
-    tagPrefixCls: 'ant-tag',
-    allowClear: true,
-    showToday: false,
+    prefixCls: 'ant-calendar' as 'ant-calendar',
+    tagPrefixCls: 'ant-tag' as 'ant-tag',
+    allowClear: true as true,
+    showToday: false as false,
   };
 
   static getDerivedStateFromProps(nextProps: any, prevState: any) {

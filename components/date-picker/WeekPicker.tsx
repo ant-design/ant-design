@@ -13,8 +13,8 @@ function formatValue(value: moment.Moment | null, format: string): string {
 
 class WeekPicker extends React.Component<any, any> {
   static defaultProps = {
-    format: 'gggg-wo',
-    allowClear: true,
+    format: 'gggg-wo' as 'gggg-wo',
+    allowClear: true as true,
   };
 
   static getDerivedStateFromProps(nextProps: any) {

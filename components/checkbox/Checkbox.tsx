@@ -41,8 +41,8 @@ export interface CheckboxChangeEvent {
 export default class Checkbox extends React.Component<CheckboxProps, {}> {
   static Group: typeof CheckboxGroup;
   static defaultProps = {
-    prefixCls: 'ant-checkbox',
-    indeterminate: false,
+    prefixCls: 'ant-checkbox' as 'ant-checkbox',
+    indeterminate: false as false,
   };
 
   static contextTypes = {

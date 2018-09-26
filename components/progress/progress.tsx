@@ -47,12 +47,12 @@ export default class Progress extends React.Component<ProgressProps, {}> {
   static Circle: any;
 
   static defaultProps = {
-    type: 'line' as ProgressType,
-    percent: 0,
-    showInfo: true,
-    trailColor: '#f3f3f3',
-    prefixCls: 'ant-progress',
-    size: 'default' as ProgressSize,
+    type: 'line' as 'line',
+    percent: 0 as 0,
+    showInfo: true as true,
+    trailColor: '#f3f3f3' as '#f3f3f3',
+    prefixCls: 'ant-progress' as 'ant-progress',
+    size: 'default' as 'default',
   };
 
   static propTypes = {

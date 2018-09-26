@@ -48,8 +48,8 @@ export default class Tabs extends React.Component<TabsProps, any> {
   static TabPane = TabPane as React.ClassicComponentClass<TabPaneProps>;
 
   static defaultProps = {
-    prefixCls: 'ant-tabs',
-    hideAdd: false,
+    prefixCls: 'ant-tabs' as 'ant-tabs',
+    hideAdd: false as false,
   };
 
   removeTab = (targetKey: string, e: React.MouseEvent<HTMLElement>) => {

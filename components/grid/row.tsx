@@ -49,7 +49,7 @@ const responsiveMap: BreakpointMap = {
 
 export default class Row extends React.Component<RowProps, RowState> {
   static defaultProps = {
-    gutter: 0,
+    gutter: 0 as 0,
   };
 
   static propTypes = {

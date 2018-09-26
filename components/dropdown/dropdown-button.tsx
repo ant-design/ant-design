@@ -7,7 +7,7 @@ import classNames from 'classnames';
 const ButtonGroup = Button.Group;
 
 export interface DropdownButtonProps extends ButtonGroupProps, DropDownProps {
-  type?: 'primary' | 'ghost' | 'dashed';
+  type?: 'default' | 'primary' | 'ghost' | 'dashed';
   htmlType?: ButtonHTMLType;
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
@@ -16,9 +16,9 @@ export interface DropdownButtonProps extends ButtonGroupProps, DropDownProps {
 
 export default class DropdownButton extends React.Component<DropdownButtonProps, any> {
   static defaultProps = {
-    placement: 'bottomRight',
-    type: 'default',
-    prefixCls: 'ant-dropdown-button',
+    placement: 'bottomRight' as 'bottomRight',
+    type: 'default' as 'default',
+    prefixCls: 'ant-dropdown-button' as 'ant-dropdown-button',
   };
 
   render() {

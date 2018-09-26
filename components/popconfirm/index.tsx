@@ -29,11 +29,11 @@ export interface PopconfirmLocale {
 
 class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
   static defaultProps = {
-    prefixCls: 'ant-popover',
-    transitionName: 'zoom-big',
-    placement: 'top',
-    trigger: 'click',
-    okType: 'primary',
+    prefixCls: 'ant-popover' as 'ant-popover',
+    transitionName: 'zoom-big' as 'zoom-big',
+    placement: 'top' as 'top',
+    trigger: 'click' as 'click',
+    okType: 'primary' as 'primary',
     icon: <Icon type="exclamation-circle" theme="filled" />,
   };
 

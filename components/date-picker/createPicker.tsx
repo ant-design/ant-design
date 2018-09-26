@@ -18,9 +18,9 @@ export interface PickerProps {
 export default function createPicker(TheCalendar: React.ComponentClass): any {
   class CalenderWrapper extends React.Component<any, any> {
     static defaultProps = {
-      prefixCls: 'ant-calendar',
-      allowClear: true,
-      showToday: true,
+      prefixCls: 'ant-calendar' as 'ant-calendar',
+      allowClear: true as true,
+      showToday: true as true,
     };
 
     static getDerivedStateFromProps(nextProps: PickerProps, prevState: any) {

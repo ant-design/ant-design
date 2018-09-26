@@ -49,9 +49,9 @@ export interface CalendarState {
 export default class Calendar extends React.Component<CalendarProps, CalendarState> {
   static defaultProps = {
     locale: {},
-    fullscreen: true,
+    fullscreen: true as true,
     prefixCls: PREFIX_CLS,
-    mode: 'month',
+    mode: 'month' as 'month',
     onSelect: noop,
     onPanelChange: noop,
     onChange: noop,

@@ -11,8 +11,8 @@ export default class BreadcrumbItem extends React.Component<BreadcrumbItemProps,
   static __ANT_BREADCRUMB_ITEM = true;
 
   static defaultProps = {
-    prefixCls: 'ant-breadcrumb',
-    separator: '/',
+    prefixCls: 'ant-breadcrumb' as 'ant-breadcrumb',
+    separator: '/' as '/',
   };
 
   static propTypes = {

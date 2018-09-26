@@ -42,7 +42,7 @@ export interface CheckboxGroupContext {
 class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupState> {
   static defaultProps = {
     options: [],
-    prefixCls: 'ant-checkbox',
+    prefixCls: 'ant-checkbox' as 'ant-checkbox',
   };
 
   static propTypes = {

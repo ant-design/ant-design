@@ -73,13 +73,13 @@ const splitObject = (obj: any, keys: string[]) => {
 
 class Tooltip extends React.Component<TooltipProps, any> {
   static defaultProps = {
-    prefixCls: 'ant-tooltip',
-    placement: 'top' as TooltipPlacement,
-    transitionName: 'zoom-big-fast',
-    mouseEnterDelay: 0.1,
-    mouseLeaveDelay: 0.1,
-    arrowPointAtCenter: false,
-    autoAdjustOverflow: true,
+    prefixCls: 'ant-tooltip' as 'ant-tooltip',
+    placement: 'top' as 'top',
+    transitionName: 'zoom-big-fast' as 'zoom-big-fast',
+    mouseEnterDelay: 0.1 as 0.1,
+    mouseLeaveDelay: 0.1 as 0.1,
+    arrowPointAtCenter: false as false,
+    autoAdjustOverflow: true as true,
   };
 
   static getDerivedStateFromProps(nextProps: TooltipProps) {

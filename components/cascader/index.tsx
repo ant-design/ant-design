@@ -142,15 +142,15 @@ const defaultDisplayRender = (label: string[]) => label.join(' / ');
 
 export default class Cascader extends React.Component<CascaderProps, CascaderState> {
   static defaultProps = {
-    prefixCls: 'ant-cascader',
-    inputPrefixCls: 'ant-input',
-    placeholder: 'Please select',
-    transitionName: 'slide-up',
-    popupPlacement: 'bottomLeft',
+    prefixCls: 'ant-cascader' as 'ant-cascader',
+    inputPrefixCls: 'ant-input' as 'ant-input',
+    placeholder: 'Please select' as 'Please select',
+    transitionName: 'slide-up' as 'slide-up',
+    popupPlacement: 'bottomLeft' as 'bottomLeft',
     options: [],
-    disabled: false,
-    allowClear: true,
-    notFoundContent: 'Not Found',
+    disabled: false as false,
+    allowClear: true as true,
+    notFoundContent: 'Not Found' as 'Not Found',
   };
 
   cachedOptions: CascaderOptionType[];

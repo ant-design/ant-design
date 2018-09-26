@@ -145,9 +145,9 @@ export interface ComponentDecorator {
 
 export default class Form extends React.Component<FormProps, any> {
   static defaultProps = {
-    prefixCls: 'ant-form',
-    layout: 'horizontal' as FormLayout,
-    hideRequiredMark: false,
+    prefixCls: 'ant-form' as 'ant-form',
+    layout: 'horizontal' as 'horizontal',
+    hideRequiredMark: false as false,
     onSubmit(e: React.FormEvent<HTMLFormElement>) {
       e.preventDefault();
     },

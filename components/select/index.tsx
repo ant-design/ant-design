@@ -103,10 +103,10 @@ export default class Select extends React.Component<SelectProps, {}> {
   static SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
 
   static defaultProps = {
-    prefixCls: 'ant-select',
-    showSearch: false,
-    transitionName: 'slide-up',
-    choiceTransitionName: 'zoom',
+    prefixCls: 'ant-select' as 'ant-select',
+    showSearch: false as false,
+    transitionName: 'slide-up' as 'slide-up',
+    choiceTransitionName: 'zoom' as 'zoom',
   };
 
   static propTypes = SelectPropTypes;

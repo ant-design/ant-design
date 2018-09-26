@@ -20,7 +20,6 @@ import { flatArray, treeMap, flatFilter, normalizeColumns } from './util';
 import { SpinProps } from '../spin';
 import {
   TableProps,
-  TableSize,
   TableState,
   TableComponents,
   RowSelectionType,
@@ -86,16 +85,16 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
 
   static defaultProps = {
     dataSource: [],
-    prefixCls: 'ant-table',
-    useFixedHeader: false,
-    className: '',
-    size: 'default' as TableSize,
-    loading: false,
-    bordered: false,
-    indentSize: 20,
+    prefixCls: 'ant-table' as 'ant-table',
+    useFixedHeader: false as false,
+    className: '' as '',
+    size: 'default' as 'default',
+    loading: false as false,
+    bordered: false as false,
+    indentSize: 20 as 20,
     locale: {},
-    rowKey: 'key',
-    showHeader: true,
+    rowKey: 'key' as 'key',
+    showHeader: true as true,
   };
 
   CheckboxPropsCache: {

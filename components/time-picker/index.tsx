@@ -58,18 +58,18 @@ export interface TimePickerLocale {
 
 class TimePicker extends React.Component<TimePickerProps, any> {
   static defaultProps = {
-    prefixCls: 'ant-time-picker',
+    prefixCls: 'ant-time-picker' as 'ant-time-picker',
     align: {
-      offset: [0, -2],
+      offset: [0, -2] as [0, -2],
     },
-    disabled: false,
+    disabled: false as false,
     disabledHours: undefined,
     disabledMinutes: undefined,
     disabledSeconds: undefined,
-    hideDisabledOptions: false,
-    placement: 'bottomLeft',
-    transitionName: 'slide-up',
-    focusOnOpen: true,
+    hideDisabledOptions: false as false,
+    placement: 'bottomLeft' as 'bottomLeft',
+    transitionName: 'slide-up' as 'slide-up',
+    focusOnOpen: true as true,
   };
 
   static getDerivedStateFromProps(nextProps: TimePickerProps) {

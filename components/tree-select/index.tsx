@@ -17,10 +17,10 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
   static SHOW_CHILD = SHOW_CHILD;
 
   static defaultProps = {
-    prefixCls: 'ant-select',
-    transitionName: 'slide-up',
-    choiceTransitionName: 'zoom',
-    showSearch: false,
+    prefixCls: 'ant-select' as 'ant-select',
+    transitionName: 'slide-up' as 'slide-up',
+    choiceTransitionName: 'zoom' as 'zoom',
+    showSearch: false as false,
   };
 
   private rcTreeSelect: any;

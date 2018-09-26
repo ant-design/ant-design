@@ -26,7 +26,7 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, defaultFor
   return class PickerWrapper extends React.Component<any, any> {
     static defaultProps = {
       format: defaultFormat || 'YYYY-MM-DD',
-      transitionName: 'slide-up',
+      transitionName: 'slide-up' as 'slide-up',
       popupStyle: {},
       onChange() {
       },
@@ -35,8 +35,8 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, defaultFor
       onOpenChange() {
       },
       locale: {},
-      prefixCls: 'ant-calendar',
-      inputPrefixCls: 'ant-input',
+      prefixCls: 'ant-calendar' as 'ant-calendar',
+      inputPrefixCls: 'ant-input' as 'ant-input',
     };
 
     private picker: any;

@@ -38,11 +38,11 @@ export interface MentionState {
 export default class Mention extends React.Component<MentionProps, MentionState> {
   static getMentions = getMentions;
   static defaultProps = {
-    prefixCls: 'ant-mention',
-    notFoundContent: '无匹配结果，轻敲空格完成输入',
-    loading: false,
-    multiLines: false,
-    placement: 'bottom',
+    prefixCls: 'ant-mention' as 'ant-mention',
+    notFoundContent: '无匹配结果，轻敲空格完成输入' as '无匹配结果，轻敲空格完成输入',
+    loading: false as false,
+    multiLines: false as false,
+    placement: 'bottom' as 'bottom',
   };
   static Nav = Nav;
   static toString = toString;

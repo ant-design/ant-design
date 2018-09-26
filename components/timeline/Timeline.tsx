@@ -17,9 +17,9 @@ export interface TimelineProps {
 export default class Timeline extends React.Component<TimelineProps, any> {
   static Item = TimelineItem as React.ClassicComponentClass<TimeLineItemProps>;
   static defaultProps = {
-    prefixCls: 'ant-timeline',
-    reverse: false,
-    mode: '',
+    prefixCls: 'ant-timeline' as 'ant-timeline',
+    reverse: false as false,
+    mode: '' as '',
   };
 
   render() {

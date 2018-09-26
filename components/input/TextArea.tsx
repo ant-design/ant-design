@@ -37,7 +37,7 @@ export interface TextAreaState {
 
 export default class TextArea extends React.Component<TextAreaProps, TextAreaState> {
   static defaultProps = {
-    prefixCls: 'ant-input',
+    prefixCls: 'ant-input' as 'ant-input',
   };
 
   nextFrameActionId: number;

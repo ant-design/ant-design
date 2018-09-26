@@ -14,8 +14,6 @@ import {
   UploadFile,
   UploadLocale,
   UploadChangeParam,
-  UploadType,
-  UploadListType,
 } from './interface';
 import { T, fileToObject, genPercentAdd, getFileItem, removeFileItem } from './utils';
 
@@ -25,18 +23,18 @@ class Upload extends React.Component<UploadProps, UploadState> {
   static Dragger: typeof Dragger;
 
   static defaultProps = {
-    prefixCls: 'ant-upload',
-    type: 'select' as UploadType,
-    multiple: false,
-    action: '',
+    prefixCls: 'ant-upload' as 'ant-upload',
+    type: 'select' as 'select',
+    multiple: false as false,
+    action: '' as '',
     data: {},
-    accept: '',
+    accept: '' as '',
     beforeUpload: T,
-    showUploadList: true,
-    listType: 'text' as UploadListType, // or pictrue
-    className: '',
-    disabled: false,
-    supportServerRender: true,
+    showUploadList: true as true,
+    listType: 'text' as 'text', // or picture
+    className: '' as '',
+    disabled: false as false,
+    supportServerRender: true as true,
   };
 
   static getDerivedStateFromProps(nextProps: UploadProps) {

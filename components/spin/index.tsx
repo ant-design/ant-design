@@ -58,10 +58,10 @@ function shouldDelay(spinning?: boolean, delay?: number): boolean {
 
 class Spin extends React.Component<SpinProps, SpinState> {
   static defaultProps = {
-    prefixCls: 'ant-spin',
-    spinning: true,
-    size: 'default' as SpinSize,
-    wrapperClassName: '',
+    prefixCls: 'ant-spin' as 'ant-spin',
+    spinning: true as true,
+    size: 'default' as 'default',
+    wrapperClassName: '' as '',
   };
 
   static propTypes = {

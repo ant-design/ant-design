@@ -32,9 +32,9 @@ function getIcon(props: AntdTreeNodeAttribute): React.ReactNode {
 
 export default class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeState> {
   static defaultProps = {
-    prefixCls: 'ant-tree',
-    showIcon: true,
-    expandAction: 'click',
+    prefixCls: 'ant-tree' as 'ant-tree',
+    showIcon: true as true,
+    expandAction: 'click' as 'click',
   };
 
   state: DirectoryTreeState;

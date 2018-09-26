@@ -4,7 +4,7 @@ import Icon from '../icon';
 import Tooltip from '../tooltip';
 import Progress from '../progress';
 import classNames from 'classnames';
-import { UploadListProps, UploadFile, UploadListType } from './interface';
+import { UploadListProps, UploadFile } from './interface';
 
 // https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
 const previewFile = (file: File, callback: Function) => {
@@ -41,14 +41,14 @@ const isImageUrl = (file: UploadFile): boolean => {
 
 export default class UploadList extends React.Component<UploadListProps, any> {
   static defaultProps = {
-    listType: 'text' as UploadListType,  // or picture
+    listType: 'text' as 'text',  // or picture
     progressAttr: {
-      strokeWidth: 2,
-      showInfo: false,
+      strokeWidth: 2 as 2,
+      showInfo: false as false,
     },
-    prefixCls: 'ant-upload',
-    showRemoveIcon: true,
-    showPreviewIcon: true,
+    prefixCls: 'ant-upload' as 'ant-upload',
+    showRemoveIcon: true as true,
+    showPreviewIcon: true as true,
   };
 
   handleClose = (file: UploadFile) => {

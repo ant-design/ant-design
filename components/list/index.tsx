@@ -73,11 +73,11 @@ export default class List extends React.Component<ListProps> {
 
   static defaultProps = {
     dataSource: [],
-    prefixCls: 'ant-list',
-    bordered: false,
-    split: true,
-    loading: false,
-    pagination: false,
+    prefixCls: 'ant-list' as 'ant-list',
+    bordered: false as false,
+    split: true as true,
+    loading: false as false,
+    pagination: false as false,
   };
 
   state = {

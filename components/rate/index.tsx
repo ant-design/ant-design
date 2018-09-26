@@ -25,7 +25,7 @@ export default class Rate extends React.Component<RateProps, any> {
   };
 
   static defaultProps = {
-    prefixCls: 'ant-rate',
+    prefixCls: 'ant-rate' as 'ant-rate',
     character: <Icon type="star" theme="filled" />,
   };
 

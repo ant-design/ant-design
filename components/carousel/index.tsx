@@ -68,10 +68,10 @@ export interface CarouselProps {
 
 export default class Carousel extends React.Component<CarouselProps, {}> {
   static defaultProps = {
-    dots: true,
-    arrows: false,
-    prefixCls: 'ant-carousel',
-    draggable: false,
+    dots: true as true,
+    arrows: false as false,
+    prefixCls: 'ant-carousel' as 'ant-carousel',
+    draggable: false as false,
   };
 
   innerSlider: any;

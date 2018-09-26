@@ -72,14 +72,14 @@ class Sider extends React.Component<SiderProps, SiderState> {
   static __ANT_LAYOUT_SIDER: any = true;
 
   static defaultProps = {
-    prefixCls: 'ant-layout-sider',
-    collapsible: false,
-    defaultCollapsed: false,
-    reverseArrow: false,
-    width: 200,
-    collapsedWidth: 80,
+    prefixCls: 'ant-layout-sider' as 'ant-layout-sider',
+    collapsible: false as false,
+    defaultCollapsed: false as false,
+    reverseArrow: false as false,
+    width: 200 as 200,
+    collapsedWidth: 80 as 80,
     style: {},
-    theme: 'dark' as SiderTheme,
+    theme: 'dark' as 'dark',
   };
 
   static childContextTypes = {
