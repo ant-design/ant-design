@@ -36,7 +36,7 @@ Except the elements whose keys are included in `targetKeys` prop. | [TransferIte
 | titles | A set of titles that are sorted from left to right. | string\[] | - |
 | onChange | A callback function that is executed when the transfer between columns is complete. | (targetKeys, direction, moveKeys): void |  |
 | onScroll | A callback function which is executed when scroll options list | (direction, event): void |  |
-| onSearchChange | A callback function which is executed when search field are changed | (direction: 'left'\|'right', event: Event): void | - |
+| onSearch | A callback function which is executed when search field are changed | (direction: 'left'\|'right', value: string): void | - |
 | onSelectChange | A callback function which is executed when selected items are changed. | (sourceSelectedKeys, targetSelectedKeys): void |  |
 
 ## Warning
