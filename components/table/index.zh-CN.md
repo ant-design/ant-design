@@ -74,7 +74,7 @@ const columns = [{
 | pagination | 分页器，参考[配置项](#pagination)或 [pagination](/components/pagination/)，设为 false 时不展示和进行分页 | object |  |
 | rowClassName | 表格行的类名 | Function(record, index):string | - |
 | rowKey | 表格行 key 的取值，可以是字符串或一个函数 | string\|Function(record):string | 'key' |
-| rowSelection | 列表项是否可选择，[配置项](#rowSelection) | object | null |
+| rowSelection | 表格行是否可选择，[配置项](#rowSelection) | object | null |
 | scroll | 设置横向或纵向滚动，也可用于指定滚动区域的宽和高，建议为 `x` 设置一个数字，如果要设置为 `true`，需要配合样式 `.ant-table td { white-space: nowrap; }` | { x: number \| true, y: number } | - |
 | showHeader | 是否显示表头 | boolean | true |
 | size | 正常或迷你类型，`default` or `small` | string | default |
@@ -167,8 +167,8 @@ const columns = [{
 | selections | 自定义选择项 [配置项](#selection), 设为 `true` 时使用默认选择项 | object\[]\|boolean | true |
 | type | 多选/单选，`checkbox` or `radio` | string | `checkbox` |
 | onChange | 选中项发生变化时的回调 | Function(selectedRowKeys, selectedRows) | - |
-| onSelect | 用户手动选择/取消选择某列的回调 | Function(record, selected, selectedRows, nativeEvent) | - |
-| onSelectAll | 用户手动选择/取消选择所有列的回调 | Function(selected, selectedRows, changeRows) | - |
+| onSelect | 用户手动选择/取消选择某行的回调 | Function(record, selected, selectedRows, nativeEvent) | - |
+| onSelectAll | 用户手动选择/取消选择所有行的回调 | Function(selected, selectedRows, changeRows) | - |
 | onSelectInvert | 用户手动选择反选的回调 | Function(selectedRows) | - |
 
 ### selection
