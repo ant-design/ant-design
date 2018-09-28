@@ -29,13 +29,13 @@ Ant Design 的图标设计原则源自 “确定“ 和 “自然“ ，落实�
 - **Artboard：** Ant Design 的系统图标都是按照 1024 x 1024 的画板进行制作的，画板的规格同 iconfont 的设计标准保持一致。
 
 <div>
-<img class="preview-img no-padding" align="right" src="https://cdn.yuque.com/lark/0/2018/png/1682/1525830345361-eeb1000f-c687-4263-bda4-4b2e4bc25760.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/kkRpJTFNUWJIhOjqIaWa.png">
 </div>
 
 - **出血位：** 在图标的设计过程中预留出血位的做法，可以预防某些造型的图标在具体应用时出现边缘被切掉的风险；同时在设计过程中，也为设计师把握图标间平衡留下了进退的余地。新版的设计规格在图形的外围预留了 64 的出血位，多数的图标在设计中我们都不建议超过这个区域。
 
 <div>
-<img class="preview-img no-padding" align="right" src="https://cdn.yuque.com/lark/0/2018/png/1682/1525830413827-a82238ac-129b-4e0e-a21c-feafd71d9013.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/HLsEIXbchlgjNPrfQdXj.png">
 </div>
 
 ### 分层
@@ -43,7 +43,7 @@ Ant Design 的图标设计原则源自 “确定“ 和 “自然“ ，落实�
 Ant Design 的图标设计对于设计稿的分层也有一定的要求，其目的除了让设计师实现有序的文档管理之外，更多的是便于团队间文档的有序传递，统一的设计框架像是无形的共识，可以让彼此间的理解得到进一步的提升。
 
 <div>
-<img class="preview-img no-padding" align="right" src="https://cdn.yuque.com/lark/0/2018/png/1682/1525835044610-74293bd7-aabb-4047-b450-1edd9e3a88d7.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/bwAIsDKQvbQWcxxFVsIN.png">
 </div>
 
 ### 轮廓线与模版
@@ -51,7 +51,7 @@ Ant Design 的图标设计对于设计稿的分层也有一定的要求，其目
 在前一个版本的基础上，我们对设计模版进行了优化，根据出血位的尺寸，调整轮廓线的宽高，同时增加两个等边三角形和一个圆，这些都是图标设计中最常用的基本形式，设计师可以快速的调用并在此基础上做变形。
 
 <div>
-<img class="preview-img no-padding" align="right" src="https://cdn.yuque.com/lark/0/2018/png/1682/1525835869294-a06a1286-db96-4813-9119-ac69555fde6e.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/WmpdWNmcjyJTPcvNczNJ.png">
 </div>
 
 ### 图标设计指引
@@ -63,7 +63,7 @@ Ant Design 的图标设计对于设计稿的分层也有一定的要求，其目
 形式，是构成一个图形最初始的结构。Ant Design 近 300 个基础图标基本上都是由圆、方、三角这样的图形演变而成的。追求图形初始结构的理性，而非凭直觉式的设计，是秩序之美的第一步。 
 
 <div>
-<img class="preview-img no-padding" align="right" src="https://cdn.yuque.com/lark/0/2018/png/1682/1525840497714-f3752016-f22d-4043-874b-6521402241a2.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/CVOJnvTaAdSLbiIBEqTG.png">
 </div>
 
 #### 2、韵律
@@ -75,31 +75,31 @@ Ant Design 图标的韵律感通过两个方面来体现：元素的韵律和构
 - **圆：** 圆是很多图形中都会出现的元素。Ant Design 会在一套图标中挖掘同一元素的规律，同时对其进行克制的运用。我们对于圆的尺寸选择上会保持 16 的倍数这一原则。比如，在圆点的选择中，新版的图标最常用的是四种尺寸的圆点，分别为 80、96、112、128。当出现特殊尺寸的需求时，会按照 16 的倍数进行延展。
 
 <div>
-<img class="preview-img no-padding" align="right" src="https://cdn.yuque.com/lark/0/2018/png/1682/1525847360066-2cf3a903-a55e-439a-82ef-344d41393a35.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/MSdqCGZfqyEUqxwlbhkR.png">
 </div>
 
 - **线：** 线条也是非常通用的元素之一。新版图标在线条之间的关系采用 8 倍数原则，从小到大以 8 的规律递增。常用的规格也是 4 种，分别为 56、64、72、80。
 
 <div>
-<img class="preview-img no-padding" align="right" src="https://cdn.yuque.com/lark/0/2018/png/1682/1525847369873-d793e4ae-4777-4356-80b3-55387517bc70.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/hxJovOnFhkvYacGfnxlC.png">
 </div>
 
 - **圆角：** 圆角的规格采取的也是 8 倍数原则，最常用的依然是 3 种，分别是 8，16、32，它们之间是两倍数的关系。而图标内部空间的圆角依然保持直角的处理方式。
 
 <div>
-<img class="preview-img no-padding" align="right" src="https://cdn.yuque.com/lark/0/2018/png/1682/1525848815415-0a63a1c9-6e96-4753-a35e-0968a474e6a6.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/gBsoQCFuVNsaevHxzHqS.png">
 </div>
 
 - **三角：** 新版图标的角度受到美式战斗机 F-14 tomcat 的启发，将常用的角度定在大约 76 度这个数值上。在日常设计中，多数系统图标的角度都可以从 76 度这个数值出发，根据实际情况进行灵活的应用。
 
 <div>
-<img class="preview-img no-padding" align="right" src="https://cdn.yuque.com/lark/0/2018/png/1682/1525858630811-aedeb6d7-c301-4d3e-8240-789833decbaf.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/tgvtbDDIGzaRHSEzFsGW.png">
 </div>
 
 除了定义角度，我们对新图标中的实心箭头的规格也做了收敛，在顶角大约保持 76 度的基础上，最常用的为 4 种，他们的宽度保持 8 倍数的原则，间隔为 24 ：
 
 <div>
-<img class="preview-img no-padding" align="right" src="https://cdn.yuque.com/lark/0/2018/png/1682/1525931505040-c91c2317-eb56-4cbb-a733-4daa2c9ecaad.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/LevrBKUYylUgfihYPPaV.png">
 </div>
 
 基本元素在使用上的规格可以用下面的表格来总结，建议设计师在一套图标的设计中尽量保持克制的态度。 
@@ -118,13 +118,13 @@ Ant Design 图标的韵律感通过两个方面来体现：元素的韵律和构
 在图标体系中，除了对重复出现的元素进行管理之外，我们还建议通盘的去考虑设计构图上的节奏感。
 
 <div>
-<img class="preview-img no-padding" align="right" src="https://cdn.yuque.com/lark/0/2018/png/1682/1525933358066-c95909ce-8a79-478a-abe8-51b02d4266d2.png">  
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/gWhimqKhkUpKYrRegczk.png">  
 </div>
 
 保持类似图标在构造上的一致性也是建立图标体系节奏感的一种方法。
 
 <div>
-<img class="preview-img no-padding" align="right" src="https://cdn.yuque.com/lark/0/2018/png/1682/1525933499825-411638ce-5e08-49c5-8ccd-5ba600c40329.png">  
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/uEEMxmYgKTjAbwstJDWA.png">  
 </div>
 
 此外，在单个图标的设计过程中，也建立适当的理性的看待各元素间的比例关系，而非直觉式的开展绘制。
@@ -134,19 +134,19 @@ Ant Design 图标的韵律感通过两个方面来体现：元素的韵律和构
 要保持整套图标在视觉重量上的平衡，是一件不太容易的事并且是一件需要大量实践的工作。图标的造型、线条摆放的角度甚至是留白空间等，都是会影响视觉平衡的因素，因此需要设计师适时的通过对基本元素规格上的微调来达到图标的平衡感。
 
 <div>
-<img class="preview-img no-padding" align="right" src="https://cdn.yuque.com/lark/0/2018/png/1682/1525934114172-df740d5d-40c5-434c-a6d2-fdb7f7e7db19.png">  
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/isEJuljQNTrlOJxJfusW.png">  
 </div>
 
 弯曲的线条会比竖直的线条看起来细。因此在圆形的外边框上我们会适当的对 72 的规格进行 4 像素的微调。
 
 <div>
-<img class="preview-img no-padding" align="right" src="https://cdn.yuque.com/lark/0/2018/png/1682/1525934126301-e1717ab8-baf5-4154-8f39-8d4497f5ee05.png">  
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/ukpZBdZmEYrjTtoAzsMW.png">  
 </div>
 
 倾斜的线条也是。
 
 <div>
-<img class="preview-img no-padding" align="right" src="https://cdn.yuque.com/lark/0/2018/png/1682/1525934135590-2659e016-7f24-4f89-9b9c-e8c263756e9e.png">  
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/JQEySfGjfTynmeKmqWQR.png">  
 </div>
 
 图形的留白空间也是值得推敲的课题，当某些图形的留白不足时，可以通过调节线条的粗细来达到视觉重量上的平衡。
@@ -158,11 +158,11 @@ Ant Design 图标的韵律感通过两个方面来体现：元素的韵律和构
 - **有温度的技术：** 通过对于图形圆角的定义，将过于圆润的圆角（72）调整至（32），在视觉效果上令图标看起来更为坚硬和理性，但又不至于太过尖锐。
 
 <div>
-<img class="preview-img no-padding" align="right" src="https://cdn.yuque.com/lark/0/2018/png/1682/1525935408104-c04a7e60-76a3-44cb-a13e-5ca566206092.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/bSjFtFhuVbXstUdDoPyz.png">
 </div>
 
 - **生命力：** 在部分图标设计中，会适度的注入拟人化的元素，令图标具备生命力。
 
 <div>
-<img class="preview-img no-padding" align="right" src="https://cdn.yuque.com/lark/0/2018/png/1682/1525935428893-e33b0530-dc9d-4f34-aaf4-7b5be6955b17.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/eDKYHNCcwsvwdcHGqRIN.png">
 </div>
