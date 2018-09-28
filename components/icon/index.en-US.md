@@ -29,7 +29,7 @@ ReactDOM.render(<IconDisplay />, mountNode);
 | component | The component used for the root node. This will override the **`type`** property. | ComponentType<CustomIconComponentProps\> | - |
 | twoToneColor | Only support the two-tone icon. Specific the primary color. | string (hex color) | - |
 
-### Svg icons
+### SVG icons
 
 We introduced SVG icons in `3.9.0` version replacing font icons which brings benefits below:
 
