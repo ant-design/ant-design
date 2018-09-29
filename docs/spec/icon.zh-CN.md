@@ -168,4 +168,4 @@ Ant Design 图标的韵律感通过两个方面来体现：元素的韵律和构
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/scJOuEdiwCgPONdiCZYZ.png">
 </div>
 
-未来在这一块，Ant Design 将会探索更多的可能性，今天的抛砖引玉，是期待有更多的设计同行，对图形化有兴趣的伙伴，一起参与到这个"微观世界"中来，一起把图形设计这件事做好。
+未来在这一块，Ant Design 将会探索更多的可能性，今天的抛砖引玉，是期待有更多的设计同行，对图形化有兴趣的伙伴，一起参与到这个"微观世界"中来。
