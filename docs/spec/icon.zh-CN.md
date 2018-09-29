@@ -33,8 +33,9 @@ Ant Design 的图标设计原则源自"确定"和"自然"，落实到图标设�
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/mrrFTiCWOyCsVOgAIBqg.png">
 </div>
 
-- **出血位：** 在图标的设计过程中预留出血位的做法，可以预防某些造型的图标在具体应用时出现边缘被切掉的风险；同时在设计过程中，也为设计师把握图标间平衡留下了进退的余地。新版的设计规格在图形的外围预留了 64px 的出血位，多数的图标在设计中我们都不建议超过这个区域。
 
+
+- **出血位：** 在图标的设计过程中预留出血位的做法，可以预防某些造型的图标在具体应用时出现边缘被切掉的风险；同时在设计过程中，也为设计师把握图标间平衡留下了进退的余地。新版的设计规格在图形的外围预留了 64px 的出血位，多数的图标在设计中我们都不建议超过这个区域。
 
 <div>
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/FNXMpWnyvYfydiSnPCYg.png">
@@ -118,6 +119,7 @@ Ant Design 图标的韵律感通过两个方面来体现：元素的韵律和构
 #### 2-2、构图的韵律
 
 在图标体系中，除了对重复出现的元素进行管理之外，我们还建议通盘的去考虑设计构图上的节奏感。
+
 
 
 
