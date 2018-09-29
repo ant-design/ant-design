@@ -1,6 +1,5 @@
 import Icon, { IconProps } from './index';
 import * as React from 'react';
-import { handleSciprtUrl } from './utils';
 
 const customCache = new Set<string>();
 
@@ -23,9 +22,8 @@ export default function create(options: CustomIconOptions = {}): React.SFC<IconP
     && typeof scriptUrl === 'string' && scriptUrl.length
     && !customCache.has(scriptUrl)
   ) {
-    const scriptSrc = handleSciprtUrl(scriptUrl);
     const script = document.createElement('script');
-    script.setAttribute('src', scriptSrc);
+    script.setAttribute('src', `https:${scriptUrl}`);
     script.setAttribute('data-namespace', scriptUrl);
     customCache.add(scriptUrl);
     document.body.appendChild(script);
