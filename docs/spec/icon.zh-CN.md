@@ -136,23 +136,23 @@ Ant Design 图标的韵律感通过两个方面来体现：元素的韵律和构
 
 要保持整套图标在视觉重量上的平衡，是一件不太容易的事并且是一件需要大量实践的工作。图标的造型、线条摆放的角度甚至是留白空间等，都是会影响视觉平衡的因素，因此需要设计师适时的通过对基本元素规格上的微调来达到图标的平衡感。
 
-- **弯曲的线条会比竖直的线条看起来细。**因此在圆形的外边框上我们会适当的对 72px 的规格进行 4 px 的微调。
+- **弯曲的线条会比竖直的线条看起来细**。 因此在圆形的外边框上我们会适当的对 72px 的规格进行 4 px 的微调。
 
-<div>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/GsrZFQbjQXwQoDRMnhKX.png">
-</div>
+  <div>
+    <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/GsrZFQbjQXwQoDRMnhKX.png">
+  </div>
 
-- **倾斜的线条也会比竖直的线条看起来细。**因此倾斜的线条也会进行 4 px 的微调。
+- **倾斜的线条也会比竖直的线条看起来细**。 因此倾斜的线条也会进行 4 px 的微调。
 
-<div>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/wfRqkxabWTKdQgiVSzKh.png">
-</div>
+  <div>
+    <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/wfRqkxabWTKdQgiVSzKh.png">
+  </div>
 
-- **图形的留白空间也是值得推敲的课题。**当某些图形的留白不足时，可以通过调节线条的粗细来达到视觉重量上的平衡。
+- **图形的留白空间也是值得推敲的课题**。 当某些图形的留白不足时，可以通过调节线条的粗细来达到视觉重量上的平衡。
 
-<div>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/fVyyVdYqEXyjmxlWLtVw.png">
-</div>
+  <div>
+    <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/fVyyVdYqEXyjmxlWLtVw.png">
+  </div>
 
 ### 4、辨识
 
