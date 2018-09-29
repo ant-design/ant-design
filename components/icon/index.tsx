@@ -121,10 +121,10 @@ const Icon: React.SFC<IconProps> = (props) => {
   if (typeof type === 'string') {
     let computedType = type;
     if (theme) {
-      const alreadyHaveTheme = getThemeFromTypeName(type);
-      warning(!alreadyHaveTheme,
-        `This icon already has a theme '${alreadyHaveTheme}'.` +
-        ` The prop 'theme' ${theme} will be ignored.`);
+      const themeInName = getThemeFromTypeName(type);
+      warning(!themeInName || theme === themeInName,
+        `The icon name '${type}' already specify a theme '${themeInName}',` +
+        ` the 'theme' prop '${theme}' will be ignored.`);
     }
     computedType = withThemeSuffix(
       removeTypeTheme(type),
