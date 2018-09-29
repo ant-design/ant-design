@@ -9,7 +9,7 @@ import { getConfirmLocale } from './locale';
 interface ConfirmDialogProps extends ModalFuncProps {
   afterClose?: () => void;
   close: (...args: any[]) => void;
-  autoFocusButton?: any;
+  autoFocusButton?: null | 'ok' | 'cancel';
 }
 
 const IS_REACT_16 = !!ReactDOM.createPortal;
