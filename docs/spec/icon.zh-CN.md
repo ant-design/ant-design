@@ -61,7 +61,7 @@ Ant Design 的图标设计对于设计稿的分层也有一定的要求，其目
 
 根据"确定性"和"自然"的价值观，当构图含义明确之后，图标设计所追求的便是秩序之美。Ant Design 的图标主要通过四方面去实现"秩序美"，分别是：形式、韵律、平衡以及辨识。
 
-#### 1、形式
+### 1、形式
 
 形式，是构成一个图形最初始的结构。Ant Design 整套基础图标基本上都是由圆、方、三角这样的图形演变而成的。追求图形初始结构的理性，而非直觉式的设计，是秩序之美的第一步。
 
@@ -69,7 +69,7 @@ Ant Design 的图标设计对于设计稿的分层也有一定的要求，其目
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/HpESYoDACMTUWLEqtBRb.png">
 </div>
 
-#### 2、韵律
+### 2、韵律
 
 Ant Design 图标的韵律感通过两个方面来体现：元素的韵律和构图的韵律。系统图标中最常见的元素基本上可以归纳称为：点、线、圆角、三角。
 
@@ -132,29 +132,29 @@ Ant Design 图标的韵律感通过两个方面来体现：元素的韵律和构
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/XorcLWyrefyAmYagUpgY.png">
 </div>
 
-#### 3、平衡
+### 3、平衡
 
 要保持整套图标在视觉重量上的平衡，是一件不太容易的事并且是一件需要大量实践的工作。图标的造型、线条摆放的角度甚至是留白空间等，都是会影响视觉平衡的因素，因此需要设计师适时的通过对基本元素规格上的微调来达到图标的平衡感。
 
-- 弯曲的线条会比竖直的线条看起来细。因此在圆形的外边框上我们会适当的对 72px 的规格进行 4 px 的微调。
+- **弯曲的线条会比竖直的线条看起来细。**因此在圆形的外边框上我们会适当的对 72px 的规格进行 4 px 的微调。
 
 <div>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/GsrZFQbjQXwQoDRMnhKX.png">
 </div>
 
-- 倾斜的线条也会比竖直的线条看起来细。因此倾斜的线条也会进行 4 px 的微调。
+- **倾斜的线条也会比竖直的线条看起来细。**因此倾斜的线条也会进行 4 px 的微调。
 
 <div>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/wfRqkxabWTKdQgiVSzKh.png">
 </div>
 
-- 图形的留白空间也是值得推敲的课题，当某些图形的留白不足时，可以通过调节线条的粗细来达到视觉重量上的平衡。
+- **图形的留白空间也是值得推敲的课题。**当某些图形的留白不足时，可以通过调节线条的粗细来达到视觉重量上的平衡。
 
 <div>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/fVyyVdYqEXyjmxlWLtVw.png">
 </div>
 
-#### 4、辨识
+### 4、辨识
 
 辨识度是一套图标具备的可被感知的特色，通常和系统本身的品牌基因相关。Ant Design 的系统图标在这一次除了遵循"确定"和"自然"这两块价值观，在辨识度这一块也做了两处小尝试。
 
