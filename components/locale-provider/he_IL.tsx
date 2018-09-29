@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/en_US';
+import Pagination from 'rc-pagination/lib/locale/he_IL';
 import DatePicker from '../date-picker/locale/he_IL';
 import TimePicker from '../time-picker/locale/he_IL';
 import Calendar from '../calendar/locale/he_IL';
