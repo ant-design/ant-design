@@ -32,7 +32,6 @@ class App extends React.Component {
   handleHoverChange = (visible) => {
     this.setState({
       hovered: visible,
-      clicked: false,
     });
   }
 
