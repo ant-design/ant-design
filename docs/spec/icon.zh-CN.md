@@ -4,11 +4,9 @@ order: 4
 title: 图标
 ---
 
-图标是 UI 设计中必不可少的组成。通常我们理解图标设计的含义，是将某个概念转换成清晰易读的图形，从而降低用户的理解成本，提升界面的美观度。在我们的企业级应用设计范围中，图标在界面设计的诸多元素中往往只占了很小的比重，在调用时也会被缩到比设计稿小很多倍的尺寸，加上在图形素材极度丰富并且便于获取的今天，在产品设计体系中实现一套美观、一致、易用、便于延展的图标体系往往会被不小心忽略掉。
+图标是 UI 设计中必不可少的组成。通常我们理解图标设计的含义，是将某个概念转换成清晰易读的图形，从而降低用户的理解成本，提升界面的美观度。在我们的企业级应用设计范围中，图标在界面设计的诸多元素中往往只占了很小的比重，在调用时也会被缩到比设计稿小很多倍的尺寸，所以在图形素材极其丰富且便于获取的今天，产品设计体系中一套美观、一致、易用、便于延展的图标体系往往会被不小心忽略掉。但 Ant Design 相信一整套优质的图标对与设计质量的影响是非常巨大的，这考验着设计师的协作能力，以及对图形塑造的系统性思维，同时也能反映一个团队对于细节的追求。
 
-Ant Design 相信一整套优质的图标对与设计质量的影响是非常巨大的，这考验着设计师的协作能力，以及对图形塑造的系统性思维，同时也能反映一个团队对于细节的追求。
-
-我们在"确定"和"自然"的设计价值观的影响之下，对全套的基础系统图标进行了改造，现在大家可以在直接查看并使用新版的图标，同时在这里将我们的系统性思路分享给大家，抛砖引玉。
+Ant Design 在"确定"和"自然"的设计价值观的影响之下，对全套的基础系统图标进行了改造，现在大家可以在直接查看并使用新版的图标，同时在这里将我们的系统性思路分享给大家，抛砖引玉。
 
 [查看图标库](/components/icon/)
 
@@ -29,16 +27,16 @@ Ant Design 的图标设计原则源自"确定"和"自然"，落实到图标设�
 
 ## 设计规格
 
-- **Artboard：** Ant Design 的系统图标都是按照 1024 x 1024 的画板进行制作的，画板的规格同 iconfont 的设计标准保持一致。
+- **Artboard：** Ant Design 的系统图标都是按照 1024 x 1024 的画板进行制作的，这样能很好的保证图标的扩展性：
 
 <div>
-  <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/kkRpJTFNUWJIhOjqIaWa.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/kkRpJTFNUWJIhOjqIaWa.png">
 </div>
 
 - **出血位：** 在图标的设计过程中预留出血位的做法，可以预防某些造型的图标在具体应用时出现边缘被切掉的风险；同时在设计过程中，也为设计师把握图标间平衡留下了进退的余地。新版的设计规格在图形的外围预留了 64px 的出血位，多数的图标在设计中我们都不建议超过这个区域。
 
 <div>
-  <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/HLsEIXbchlgjNPrfQdXj.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/HLsEIXbchlgjNPrfQdXj.png">
 </div>
 
 ### 分层
@@ -46,7 +44,7 @@ Ant Design 的图标设计原则源自"确定"和"自然"，落实到图标设�
 Ant Design 的图标设计对于设计稿的分层也有一定的要求，其目的除了让设计师实现有序的文档管理之外，更多的是便于团队间文档的有序传递，统一的设计框架像是无形的共识，可以让彼此间的理解得到进一步的提升。
 
 <div>
-  <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/bwAIsDKQvbQWcxxFVsIN.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/bwAIsDKQvbQWcxxFVsIN.png">
 </div>
 
 ### 轮廓线与模版
@@ -54,7 +52,7 @@ Ant Design 的图标设计对于设计稿的分层也有一定的要求，其目
 我们对设计模版进行了优化，根据出血位的尺寸，调整轮廓线的宽高，同时增加两个等边三角形和一个圆，这些都是图标设计中最常用的基本形式，设计师可以快速的调用并在此基础上做变形。
 
 <div>
-  <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/WmpdWNmcjyJTPcvNczNJ.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/WmpdWNmcjyJTPcvNczNJ.png">
 </div>
 
 ### 图标设计指引
@@ -63,10 +61,10 @@ Ant Design 的图标设计对于设计稿的分层也有一定的要求，其目
 
 #### 1、形式
 
-形式，是构成一个图形最初始的结构。Ant Design 近 300 个基础图标基本上都是由圆、方、三角这样的图形演变而成的。追求图形初始结构的理性，而非凭直觉式的设计，是秩序之美的第一步。
+形式，是构成一个图形最初始的结构。Ant Design 近 300 个基础图标基本上都是由圆、方、三角这样的图形演变而成的。追求图形初始结构的理性，而非凭直觉式的设计，是秩序之美的第一步。 
 
 <div>
-  <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/CVOJnvTaAdSLbiIBEqTG.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/CVOJnvTaAdSLbiIBEqTG.png">
 </div>
 
 #### 2、韵律
@@ -78,34 +76,34 @@ Ant Design 图标的韵律感通过两个方面来体现：元素的韵律和构
 - **圆：** 圆是很多图形中都会出现的元素。Ant Design 会在一套图标中挖掘同一元素的规律，同时对其进行克制的运用。我们对于圆的尺寸选择上会保持 16 的倍数这一原则。比如，在圆点的选择中，新版的图标最常用的是四种尺寸的圆点，分别为 80、96、112、128。当出现特殊尺寸的需求时，会按照 16 的倍数进行延展。
 
 <div>
-  <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/MSdqCGZfqyEUqxwlbhkR.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/MSdqCGZfqyEUqxwlbhkR.png">
 </div>
 
 - **线：** 线条也是非常通用的元素之一。新版图标在线条之间的关系采用 8 倍数原则，从小到大以 8 的规律递增。常用的规格也是 4 种，分别为 56、64、72、80。
 
 <div>
-  <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/hxJovOnFhkvYacGfnxlC.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/hxJovOnFhkvYacGfnxlC.png">
 </div>
 
 - **圆角：** 圆角的规格采取的也是 8 倍数原则，最常用的依然是 3 种，分别是 8，16、32，它们之间是两倍数的关系。而图标内部空间的圆角依然保持直角的处理方式。
 
 <div>
-  <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/gBsoQCFuVNsaevHxzHqS.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/gBsoQCFuVNsaevHxzHqS.png">
 </div>
 
 - **三角：** 新版图标的角度受到美式战斗机 F-14 tomcat 的启发，将常用的角度定在大约 76 度这个数值上。在日常设计中，多数系统图标的角度都可以从 76 度这个数值出发，根据实际情况进行灵活的应用。
 
 <div>
-  <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/tgvtbDDIGzaRHSEzFsGW.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/tgvtbDDIGzaRHSEzFsGW.png">
 </div>
 
 除了定义角度，我们对新图标中的实心箭头的规格也做了收敛，在顶角大约保持 76 度的基础上，最常用的为 4 种，他们的宽度保持 8 倍数的原则，间隔为 24 ：
 
 <div>
-  <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/LevrBKUYylUgfihYPPaV.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/LevrBKUYylUgfihYPPaV.png">
 </div>
 
-基本元素在使用上的规格可以用下面的表格来总结，建议设计师在一套图标的设计中尽量保持克制的态度。
+基本元素在使用上的规格可以用下面的表格来总结，建议设计师在一套图标的设计中尽量保持克制的态度。 
 
 | 点  | 线  | 圆角 | 三角 |
 |-----|-----|------|------|
@@ -121,13 +119,13 @@ Ant Design 图标的韵律感通过两个方面来体现：元素的韵律和构
 在图标体系中，除了对重复出现的元素进行管理之外，我们还建议通盘的去考虑设计构图上的节奏感。
 
 <div>
-  <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/gWhimqKhkUpKYrRegczk.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/gWhimqKhkUpKYrRegczk.png">  
 </div>
 
 保持类似图标在构造上的一致性也是建立图标体系节奏感的一种方法。
 
 <div>
-  <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/uEEMxmYgKTjAbwstJDWA.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/uEEMxmYgKTjAbwstJDWA.png">  
 </div>
 
 此外，在单个图标的设计过程中，也建立适当的理性的看待各元素间的比例关系，而非直觉式的开展绘制。
@@ -137,35 +135,37 @@ Ant Design 图标的韵律感通过两个方面来体现：元素的韵律和构
 要保持整套图标在视觉重量上的平衡，是一件不太容易的事并且是一件需要大量实践的工作。图标的造型、线条摆放的角度甚至是留白空间等，都是会影响视觉平衡的因素，因此需要设计师适时的通过对基本元素规格上的微调来达到图标的平衡感。
 
 <div>
-  <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/isEJuljQNTrlOJxJfusW.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/isEJuljQNTrlOJxJfusW.png">  
 </div>
 
 弯曲的线条会比竖直的线条看起来细。因此在圆形的外边框上我们会适当的对 72 的规格进行 4 像素的微调。
 
 <div>
-  <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/ukpZBdZmEYrjTtoAzsMW.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/ukpZBdZmEYrjTtoAzsMW.png">  
 </div>
 
 倾斜的线条也是。
 
 <div>
-  <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/JQEySfGjfTynmeKmqWQR.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/JQEySfGjfTynmeKmqWQR.png">  
 </div>
 
 图形的留白空间也是值得推敲的课题，当某些图形的留白不足时，可以通过调节线条的粗细来达到视觉重量上的平衡。
 
 #### 4、辨识
 
-辨识度是一套图标具备的可被感知的特色，通常和系统本身的品牌基因相关。Ant Design 的系统图标在这一块并没有做太多的挖掘，更多是希望把这个课题留给具体产品的设计师去做考虑。除了新版的图标除了遵循 “确定“ 和 “自然“ 这两块价值观，也适度的融入团队的基因和文化，在辨识度这一块主要做了三部分的小尝试。
+辨识度是一套图标具备的可被感知的特色，通常和系统本身的品牌基因相关。Ant Design 的系统图标在这一次除了遵循"确定"和"自然"这两块价值观，也适度的在辨识度这一块主要做了小尝试。
 
 - **有温度的技术：** 通过对于图形圆角的定义，将过于圆润的圆角（72）调整至（32），在视觉效果上令图标看起来更为坚硬和理性，但又不至于太过尖锐。
 
 <div>
-  <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/bSjFtFhuVbXstUdDoPyz.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/bSjFtFhuVbXstUdDoPyz.png">
 </div>
 
 - **生命力：** 在部分图标设计中，会适度的注入拟人化的元素，令图标具备生命力。
 
 <div>
-  <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/eDKYHNCcwsvwdcHGqRIN.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/eDKYHNCcwsvwdcHGqRIN.png">
 </div>
+
+未来在这一块，Ant Design 将会探索更多的可能性，今天的抛砖引玉，是期待有更多的设计同行，对图形化有兴趣的伙伴，一起参与到这个"微观世界"中来，一起把图形设计这件事做好。
