@@ -61,6 +61,7 @@ title: Modal
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
+| autoFocusButton | 指定自动获得焦点的按钮 | null\|string: `ok` `cancel` | `ok` |
 | cancelText | 取消按钮文字 | string | 取消 |
 | centered | 垂直居中展示 Modal | Boolean | `false` |
 | className | 容器类名 | string | - |
