@@ -194,8 +194,8 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
       [`${dropdownPrefixCls}-menu-without-submenu`]: !this.hasSubMenu(),
     });
     let { filterDropdown } = column;
-    if (filterDropdown && typeof filterDropdown === 'function') {
-      filterDropdown = filterDropdown({
+    if (typeof filterDropdown === 'function') {
+      filterDropdown = (filterDropdown as Function)({
         prefixCls: `${dropdownPrefixCls}-custom`,
         setSelectedKeys: (selectedKeys: Array<any>) => this.setSelectedKeys({ selectedKeys }),
         selectedKeys: this.state.selectedKeys,
