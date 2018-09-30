@@ -212,3 +212,12 @@ export interface FilterMenuState {
   keyPathOfSelectedItem: { [key: string]: string };
   visible?: boolean;
 }
+
+export type PrepareParamsArgumentsReturn<T> = [
+  any,
+  string[],
+  Object,
+  {
+    currentDataSource: T[],
+  }
+];
