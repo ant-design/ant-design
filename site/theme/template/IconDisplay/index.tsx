@@ -1,13 +1,15 @@
 import * as React from 'react';
-import { ThemeType } from '../../../../components/icon';
+import { ThemeType, IconType } from '../../../../components/icon';
 import manifest from '@ant-design/icons/lib/manifest';
 import { ThemeType as ThemeFolderType } from '@ant-design/icons/lib/types';
 import Category from './Category';
-import { Radio, Icon } from 'antd';
+import { Radio, Icon as AntdIcon } from 'antd';
 import { RadioChangeEvent } from 'antd/lib/radio/interface';
 import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 import { categories, Categories, CategoriesKeys } from './fields';
 import { injectIntl, InjectedIntlProps } from 'react-intl';
+
+const Icon: IconType = AntdIcon as any;
 
 interface IconDisplayProps extends InjectedIntlProps {
 }

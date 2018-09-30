@@ -134,8 +134,7 @@ class Sider extends React.Component<SiderProps, SiderState> {
 
   componentDidMount() {
     if (this.mql) {
-      const self = this;
-      this.mql.addListener(function() { self.responsiveHandler(this) });
+      this.mql.addListener(this.responsiveHandler);
       this.responsiveHandler(this.mql);
     }
 
@@ -146,8 +145,7 @@ class Sider extends React.Component<SiderProps, SiderState> {
 
   componentWillUnmount() {
     if (this.mql) {
-      const self = this;
-      this.mql.removeListener(function() { self.responsiveHandler(this) });
+      this.mql.removeListener(this.responsiveHandler);
     }
 
     if (this.context.siderHook) {
