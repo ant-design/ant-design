@@ -33,6 +33,7 @@ export interface AbstractSelectProps {
   defaultOpen?: boolean;
   open?: boolean;
   onDropdownVisibleChange?: (open: boolean) => void;
+  autoClearSearchValue?: boolean;
 }
 
 export interface LabeledValue {
