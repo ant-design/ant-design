@@ -1,13 +1,14 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import Button from '../button';
-import { ButtonType } from '../button/button';
+import { ButtonType, NativeButtonProps } from '../button/button';
 
 export interface ActionButtonProps {
   type?: ButtonType;
   actionFn?: (...args: any[]) => any | PromiseLike<any>;
   closeModal: Function;
   autoFocus?: boolean;
+  buttonProps?: NativeButtonProps;
 }
 
 export interface ActionButtonState {
@@ -61,10 +62,10 @@ export default class ActionButton extends React.Component<ActionButtonProps, Act
   }
 
   render() {
-    const { type, children } = this.props;
+    const { type, children, buttonProps } = this.props;
     const loading = this.state.loading;
     return (
-      <Button type={type} onClick={this.onClick} loading={loading}>
+      <Button type={type} onClick={this.onClick} loading={loading} {...buttonProps}>
         {children}
       </Button>
     );

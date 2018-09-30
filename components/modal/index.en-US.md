@@ -72,6 +72,8 @@ The properties of the object are follows:
 | maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | Boolean | `false` |
 | okText | Text of the OK button | string | `OK` |
 | okType | Button `type` of the OK button | string | `primary` |
+| okButtonProps | The ok button props | [ButtonProps](/components/button) | - |
+| cancelButtonProps | The cancel button props | [ButtonProps](/components/button) | - |
 | title | Title | string\|ReactNode | - |
 | width | Width of the modal dialog | string\|number | 416 |
 | zIndex | The `z-index` of the Modal | Number | 1000 |
