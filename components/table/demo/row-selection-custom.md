@@ -68,7 +68,7 @@ class App extends React.Component {
         onSelect: (changableRowKeys) => {
           let newSelectedRowKeys = [];
           newSelectedRowKeys = changableRowKeys.filter((key, index) => {
-            if (index % 2 == 0) {
+            if (index % 2 === 0) {
               return false;
             }
             return true;
@@ -81,7 +81,7 @@ class App extends React.Component {
         onSelect: (changableRowKeys) => {
           let newSelectedRowKeys = [];
           newSelectedRowKeys = changableRowKeys.filter((key, index) => {
-            if (index % 2 == 0) {
+            if (index % 2 === 0) {
               return true;
             }
             return false;
