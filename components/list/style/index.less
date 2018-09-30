@@ -28,21 +28,20 @@
   &-empty-text {
     color: @text-color-secondary;
     font-size: @font-size-base;
-    padding: 16px;
+    padding: @list-empty-text-padding;
     text-align: center;
   }
   &-item {
     align-items: center;
     display: flex;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding: @list-item-padding;
     &-meta {
       align-items: flex-start;
       display: flex;
       flex: 1;
       font-size: 0;
       &-avatar {
-        margin-right: 16px;
+        margin-right: @list-item-meta-avatar-margin-right;
       }
       &-content {
         flex: 1 0;
@@ -164,13 +163,13 @@
       margin-left: 58px;
     }
     &-meta {
-      margin-bottom: 16px;
+      margin-bottom: @list-item-meta-margin-bottom;
       &-avatar {
         display: none;
       }
       &-title {
         color: @heading-color;
-        margin-bottom: 12px;
+        margin-bottom: @list-item-meta-title-margin-bottom;
         font-size: @font-size-lg;
         line-height: 24px;
       }
@@ -179,7 +178,7 @@
       display: block;
       color: @text-color;
       font-size: @font-size-base;
-      margin-bottom: 16px;
+      margin: @list-item-content-margin;
     }
     &-action {
       margin-left: auto;
