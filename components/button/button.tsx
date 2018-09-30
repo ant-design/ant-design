@@ -145,7 +145,11 @@ export default class Button extends React.Component<ButtonProps, any> {
   }
 
   handleClick: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement> = e => {
+    const { loading } = this.state;
     const { onClick } = this.props;
+    if (!!loading) {
+      return;
+    }
     if (onClick) {
       (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)(e);
     }

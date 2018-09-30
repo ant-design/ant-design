@@ -539,6 +539,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
   mask={false}
   onAlign={[Function]}
   onMouseDown={[Function]}
+  onTouchStart={[Function]}
   prefixCls="ant-cascader-menus"
   style={Object {}}
   transitionName="slide-up"
@@ -602,6 +603,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
             className="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft "
             hiddenClassName="ant-cascader-menus-hidden"
             onMouseDown={[Function]}
+            onTouchStart={[Function]}
             prefixCls="ant-cascader-menus"
             style={Object {}}
             visible={true}
@@ -609,6 +611,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
             <div
               className="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft "
               onMouseDown={[Function]}
+              onTouchStart={[Function]}
               style={Object {}}
             >
               <LazyRenderBox
@@ -935,6 +938,7 @@ exports[`Cascader should render not found content 1`] = `
   mask={false}
   onAlign={[Function]}
   onMouseDown={[Function]}
+  onTouchStart={[Function]}
   prefixCls="ant-cascader-menus"
   style={Object {}}
   transitionName="slide-up"
@@ -998,6 +1002,7 @@ exports[`Cascader should render not found content 1`] = `
             className="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft "
             hiddenClassName="ant-cascader-menus-hidden"
             onMouseDown={[Function]}
+            onTouchStart={[Function]}
             prefixCls="ant-cascader-menus"
             style={Object {}}
             visible={true}
@@ -1005,6 +1010,7 @@ exports[`Cascader should render not found content 1`] = `
             <div
               className="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft "
               onMouseDown={[Function]}
+              onTouchStart={[Function]}
               style={Object {}}
             >
               <LazyRenderBox

@@ -19,10 +19,15 @@ export default class Item extends React.Component<any, any> {
       [`${prefixCls}-content-item-disabled`]: disabled || item.disabled,
     });
 
+    let title: string | undefined = undefined;
+    if (typeof renderedText === 'string' || typeof renderedText === 'number') {
+      title = String(renderedText);
+    }
+
     const listItem = (
       <li
         className={className}
-        title={renderedText}
+        title={title}
         onClick={(disabled || item.disabled) ? undefined : () => onClick(item)}
       >
         <Checkbox checked={checked} disabled={disabled || item.disabled} />

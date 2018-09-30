@@ -3,6 +3,7 @@ import * as PropTypes from 'prop-types';
 import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
+import omit from 'omit.js';
 import Checkbox from './Checkbox';
 
 export type CheckboxValueType = string | number | boolean;
@@ -117,8 +118,11 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
   }
   render() {
     const { props, state } = this;
-    const { prefixCls, className, style, options } = props;
+    const { prefixCls, className, style, options, ...restProps } = props;
     const groupPrefixCls = `${prefixCls}-group`;
+
+    const domProps = omit(restProps, ['children', 'defaultValue', 'value', 'onChange', 'disabled']);
+
     let children = props.children;
     if (options && options.length > 0) {
       children = this.getOptions().map(option => (
@@ -138,7 +142,7 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
 
     const classString = classNames(groupPrefixCls, className);
     return (
-      <div className={classString} style={style}>
+      <div className={classString} style={style} {...domProps}>
         {children}
       </div>
     );

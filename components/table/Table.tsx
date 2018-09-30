@@ -33,6 +33,7 @@ import {
   TableSelectWay,
   TableRowSelection,
   PaginationConfig,
+  PrepareParamsArgumentsReturn,
 } from './interface';
 import { RadioChangeEvent } from '../radio';
 import { CheckboxChangeEvent } from '../checkbox';
@@ -340,8 +341,8 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     };
   }
 
-  getSorterFn() {
-    const { sortOrder, sortColumn } = this.state;
+  getSorterFn(state: TableState<T>) {
+    const { sortOrder, sortColumn } = state || this.state;
     if (!sortOrder || !sortColumn ||
         typeof sortColumn.sorter !== 'function') {
       return;
@@ -887,7 +888,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   }
 
   // Get pagination, filters, sorter
-  prepareParamsArguments(state: any): [any, string[], Object] {
+  prepareParamsArguments(state: any): PrepareParamsArgumentsReturn<T> {
     const pagination = { ...state.pagination };
     // remove useless handle function in Table.onChange
     delete pagination.onChange;
@@ -900,7 +901,12 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       sorter.field = state.sortColumn.dataIndex;
       sorter.columnKey = this.getColumnKey(state.sortColumn);
     }
-    return [pagination, filters, sorter];
+
+    const extra = {
+      currentDataSource: this.getLocalData(state),
+    };
+
+    return [pagination, filters, sorter, extra];
   }
 
   findColumn(myKey: string | number) {
@@ -955,24 +961,24 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     } : item));
   }
 
-  getLocalData() {
-    const state = this.state;
+  getLocalData(state?: TableState<T>) {
+    const currentState: TableState<T> = state || this.state;
     const { dataSource } = this.props;
     let data = dataSource || [];
     // 优化本地排序
     data = data.slice(0);
-    const sorterFn = this.getSorterFn();
+    const sorterFn = this.getSorterFn(currentState);
     if (sorterFn) {
       data = this.recursiveSort(data, sorterFn);
     }
     // 筛选
-    if (state.filters) {
-      Object.keys(state.filters).forEach((columnKey) => {
+    if (currentState.filters) {
+      Object.keys(currentState.filters).forEach((columnKey) => {
         let col = this.findColumn(columnKey) as any;
         if (!col) {
           return;
         }
-        let values = state.filters[columnKey] || [];
+        let values = currentState.filters[columnKey] || [];
         if (values.length === 0) {
           return;
         }

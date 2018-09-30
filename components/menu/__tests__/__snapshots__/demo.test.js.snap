@@ -175,7 +175,7 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
   <li
     class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
     role="menuitem"
-    style="visibility:hidden"
+    style="visibility:hidden;position:absolute"
   >
     <div
       aria-expanded="false"
@@ -246,6 +246,7 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
       >
         <div
           class="ant-menu-item-group-title"
+          style="padding-left:48px"
           title="Item 1"
         >
           Item 1
@@ -274,6 +275,7 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
       >
         <div
           class="ant-menu-item-group-title"
+          style="padding-left:48px"
           title="Item 2"
         >
           Item 2

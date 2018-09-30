@@ -62,6 +62,7 @@ The properties of the object are follows:
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
+| autoFocusButton | Specify which button to autofocus | null\|string: `ok` `cancel` | `ok` |
 | cancelText | Text of the Cancel button | string | `Cancel` |
 | centered | Centered Modal | Boolean | `false` |
 | className | className of container | string | - |
