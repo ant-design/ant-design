@@ -145,7 +145,7 @@ class Sider extends React.Component<SiderProps, SiderState> {
 
   componentWillUnmount() {
     if (this.mql) {
-      this.mql.removeListener(this.responsiveHandler);
+      this.mql.removeListener(this.responsiveHandler as any);
     }
 
     if (this.context.siderHook) {
@@ -153,7 +153,7 @@ class Sider extends React.Component<SiderProps, SiderState> {
     }
   }
 
-  responsiveHandler = (mql: MediaQueryList) => {
+  responsiveHandler = (mql: MediaQueryListEvent | MediaQueryList) => {
     this.setState({ below: mql.matches });
     const { onBreakpoint } = this.props;
     if (onBreakpoint) {
