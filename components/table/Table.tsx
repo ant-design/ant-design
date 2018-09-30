@@ -832,7 +832,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     const { filters, sortOrder } = this.state;
     // https://github.com/ant-design/ant-design/issues/11246#issuecomment-405009167
     if (typeof title === 'function') {
-      return title({
+      return (title as Function)({
         filters,
         sortOrder,
       });
