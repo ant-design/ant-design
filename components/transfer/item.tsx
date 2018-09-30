@@ -9,11 +9,14 @@ export default class Item extends React.Component<any, any> {
     return PureRenderMixin.shouldComponentUpdate.apply(this, args);
   }
   render() {
-    const { renderedText, renderedEl, item, lazy, checked, prefixCls, onClick } = this.props;
+    const {
+      renderedText, renderedEl, item, lazy,
+      checked, disabled, prefixCls, onClick,
+    } = this.props;
 
     const className = classNames({
       [`${prefixCls}-content-item`]: true,
-      [`${prefixCls}-content-item-disabled`]: item.disabled,
+      [`${prefixCls}-content-item-disabled`]: disabled || item.disabled,
     });
 
     let title: string | undefined = undefined;
@@ -25,9 +28,9 @@ export default class Item extends React.Component<any, any> {
       <li
         className={className}
         title={title}
-        onClick={item.disabled ? undefined : () => onClick(item)}
+        onClick={(disabled || item.disabled) ? undefined : () => onClick(item)}
       >
-        <Checkbox checked={checked} disabled={item.disabled} />
+        <Checkbox checked={checked} disabled={disabled || item.disabled} />
         <span>{renderedEl}</span>
       </li>
     );

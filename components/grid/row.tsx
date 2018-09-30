@@ -17,9 +17,9 @@ if (typeof window !== 'undefined') {
 }
 
 import * as React from 'react';
-import { Children, cloneElement } from 'react';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
+import RowContext from './RowContext';
 
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type BreakpointMap = Partial<Record<Breakpoint, string>>;
@@ -100,7 +100,7 @@ export default class Row extends React.Component<RowProps, RowState> {
     Object.keys(responsiveMap)
       .map((screen: Breakpoint) => enquire.unregister(responsiveMap[screen]));
   }
-  getGutter() {
+  getGutter(): number | undefined {
     const { gutter } = this.props;
     if (typeof gutter === 'object') {
       for (let i = 0; i <= responsiveArray.length; i++) {
@@ -110,7 +110,7 @@ export default class Row extends React.Component<RowProps, RowState> {
         }
       }
     }
-    return gutter;
+    return gutter as number;
   }
   render() {
     const {
@@ -129,23 +129,14 @@ export default class Row extends React.Component<RowProps, RowState> {
       marginRight: (gutter as number) / -2,
       ...style,
     } : style;
-    const cols = Children.map(children, (col: React.ReactElement<HTMLDivElement>) => {
-      if (!col) {
-        return null;
-      }
-      if (col.props && (gutter as number) > 0) {
-        return cloneElement(col, {
-          style: {
-            paddingLeft: (gutter as number) / 2,
-            paddingRight: (gutter as number) / 2,
-            ...col.props.style,
-          },
-        });
-      }
-      return col;
-    });
     const otherProps = { ...others };
     delete otherProps.gutter;
-    return <div {...otherProps} className={classes} style={rowStyle}>{cols}</div>;
+    return (
+      <RowContext.Provider value={{ gutter }}>
+        <div {...otherProps} className={classes} style={rowStyle}>
+          {children}
+        </div>
+      </RowContext.Provider>
+    );
   }
 }

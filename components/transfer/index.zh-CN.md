@@ -21,6 +21,7 @@ title: Transfer
 | --- | --- | --- | --- |
 | className | 自定义类 | string |  |
 | dataSource | 数据源，其中的数据将会被渲染到左边一栏中，`targetKeys` 中指定的除外。 | [TransferItem](https://git.io/vMM64)\[] | \[] |
+| disabled | 是否禁用 | boolean | false |
 | filterOption | 接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 `true`，反之则返回 `false`。 | (inputValue, option): boolean |  |
 | footer | 底部渲染函数 | (props): ReactNode |  |
 | lazy | Transfer 使用了 [react-lazy-load](https://github.com/loktar00/react-lazy-load) 优化性能，这里可以设置相关参数。设为 `false` 可以关闭懒加载。 | object\|boolean | `{ height: 32, offset: 32 }` |

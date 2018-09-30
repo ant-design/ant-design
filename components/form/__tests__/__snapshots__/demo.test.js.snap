@@ -2801,17 +2801,19 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         <span
           class="ant-form-item-children"
         >
-          <span
+          <button
+            aria-checked="false"
             class="ant-switch"
             data-__field="[object Object]"
             data-__meta="[object Object]"
             id="switch"
-            tabindex="0"
+            role="switch"
+            type="button"
           >
             <span
               class="ant-switch-inner"
             />
-          </span>
+          </button>
         </span>
       </div>
     </div>

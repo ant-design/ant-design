@@ -62,6 +62,7 @@ moment.locale('zh-cn');
 | placeholder | 输入框提示文字 | string\|RangePicker\[] | - |
 | popupStyle | 额外的弹出日历样式 | object | {} |
 | size | 输入框大小，`large` 高度为 40px，`small` 为 24px，默认是 32px | string | 无 |
+| suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |
 | style | 自定义输入框样式 | object | {} |
 | onOpenChange | 弹出日历和关闭日历的回调 | function(status) | 无 |
 

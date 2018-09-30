@@ -50,6 +50,7 @@ export interface TimePickerProps {
   clearText?: string;
   defaultOpenValue?: moment.Moment;
   popupClassName?: string;
+  suffixIcon?: React.ReactNode;
 }
 
 export interface TimePickerLocale {
@@ -153,20 +154,35 @@ class TimePicker extends React.Component<TimePickerProps, any> {
       ) : null
     );
 
-    const inputIcon = (
-      <span className={`${props.prefixCls}-icon`}>
+    const { suffixIcon, prefixCls } = props;
+    const clockIcon = suffixIcon && (
+      React.isValidElement<{ className?: string }>(suffixIcon)
+        ? React.cloneElement(
+          suffixIcon,
+          {
+            className: classNames({
+              [suffixIcon.props.className!]: suffixIcon.props.className,
+              [`${prefixCls}-clock-icon`]: true,
+            }),
+          },
+        ) : <span className={`${prefixCls}-clock-icon`}>{suffixIcon}</span>) || (
         <Icon
           type="clock-circle"
-          className={`${props.prefixCls}-clock-icon`}
+          className={`${prefixCls}-clock-icon`}
           theme="outlined"
         />
+      );
+
+    const inputIcon = (
+      <span className={`${prefixCls}-icon`}>
+        {clockIcon}
       </span>
     );
 
     const clearIcon = (
       <Icon
         type="close-circle"
-        className={`${props.prefixCls}-panel-clear-btn-icon`}
+        className={`${prefixCls}-panel-clear-btn-icon`}
         theme="filled"
       />
     );

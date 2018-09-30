@@ -16,6 +16,7 @@ export default {
     emptyText: 'No data',
     selectAll: 'Select current page',
     selectInvert: 'Invert current page',
+    sortTitle: 'Sort',
   },
   Modal: {
     okText: 'OK',

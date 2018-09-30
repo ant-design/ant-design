@@ -66,6 +66,8 @@ export interface ModalFuncProps {
   content?: React.ReactNode;
   onOk?: (...args: any[]) => any | PromiseLike<any>;
   onCancel?: (...args: any[]) => any | PromiseLike<any>;
+  okButtonProps?: NativeButtonProps;
+  cancelButtonProps?: NativeButtonProps;
   centered?: boolean;
   width?: string | number;
   iconClassName?: string;
@@ -80,6 +82,7 @@ export interface ModalFuncProps {
   type?: string;
   keyboard?: boolean;
   getContainer?: (instance: React.ReactInstance) => HTMLElement;
+  autoFocusButton?: null | 'ok' | 'cancel';
 }
 
 export type ModalFunc = (props: ModalFuncProps) => {
