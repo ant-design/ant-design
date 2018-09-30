@@ -831,8 +831,8 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   renderColumnTitle(title: ColumnProps<T>['title']) {
     const { filters, sortOrder } = this.state;
     // https://github.com/ant-design/ant-design/issues/11246#issuecomment-405009167
-    if (typeof title === 'function') {
-      return (title as Function)({
+    if (title instanceof Function) {
+      return title({
         filters,
         sortOrder,
       });
