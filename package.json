@@ -177,7 +177,7 @@
     "scrollama": "^1.4.1",
     "stylelint": "^9.5.0",
     "stylelint-config-standard": "^18.0.0",
-    "typescript": "~3.0.1",
+    "typescript": "~3.1.1",
     "unified": "^7.0.0",
     "values.js": "^1.0.3",
     "webpackbar": "^2.6.1",
