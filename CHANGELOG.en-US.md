@@ -15,6 +15,40 @@ timeline: true
 
 ---
 
+## 3.9.4
+
+`2018-09-30`
+
+- 🌟 Upload adds `openFileDialogOnClick` prop to allow setting whether to open the upload dialog when the component is clicked. [#12347](https://github.com/ant-design/ant-design/pull/12347) [@hengkx](https://github.com/hengkx)
+- 🌟 InputNumber adds `decimalSeparator` prop to allow setting a custom decimal. [#12329](https://github.com/ant-design/ant-design/pull/12329) [@amedora](https://github.com/amedora)
+- 🌟 TreeSelect adds the `treeExpandedKeys` and `onTreeExpand` props to control the expansion of the tree. [#12145](https://github.com/ant-design/ant-design/issues/12145)
+- Transfer
+  - 🌟 Adds `disabled` prop. [#12066](https://github.com/ant-design/ant-design/issues/12066)
+- Modal
+  - 🌟 Adds `autoFocusButton` prop to allow specifying a button that automatically gets focus when Modal opens. [#11756](https://github.com/ant-design/ant-design/pull/11756) [@erwin-k](https://github.com/erwin-k)
+  - 🌟 `confirm` added `okButtonProps` and `cancelButtonProps` prop to allow setting custom props on buttons. [#12425](https://github.com/ant-design/ant-design/pull/12425) [@Whoaa512](https://github.com/Whoaa512)
+- Table
+  - 🌟 `column.title` accepts function now. [#11246](https://github.com/ant-design/ant-design/issues/11246)
+  - 🌟 `onChange` adds a new parameter `extra` to allow you getting filtered data. [#12369](https://github.com/ant-design/ant-design/pull/12369)
+  - 🌟 Improve the sort and filter UX, You can now sort by clicking on the entire header. [#12264](https://github.com/ant-design/ant-design/pull/12264)
+- 🌟 Alert adds `icon` prop to allow setting a custom icon. [Demo](https://ant.design/components/alert/#components-alert-demo-custom-icon)
+- 🌟 The following components add a `suffixIcon` prop, which is used to set the icon behind the input box. For details, please refer to the documentation.
+  - Cascader
+  - DatePicker
+  - Select
+  - TreeSelect
+  - TimePicker
+- 🌟 Add some new less variables. [f237eff](https://github.com/ant-design/ant-design/commit/f237effc2a35eb249273f6f2826092a2f9b9db45)
+- 🐞 Fix Icon.createFromIconfontCN prepending `https` to the `scriptUrl`. [#12316](https://github.com/ant-design/ant-design/issues/12316)
+- 🐞 Fix the issue with the `gutter` props of Row that doesn't work when using nested Col. [#12320](https://github.com/ant-design/ant-design/pull/12320)
+- 🐞 Fix the issue where the Tree.DirectoryTree component could not properly expand the node when the 'expandedKeys` prop had initial values. [#12396](https://github.com/ant-design/ant-design/issues/12396)
+- 🐞 Fix the issue when the `render` prop of the Transfer component returns a ReactNode, the `title` property of the list item shows an unexpected value. [#12399](https://github.com/ant-design/ant-design/issues/12399)
+- 🐞 Fix Tooltip not working with CheckboxGroup. [#12427](https://github.com/ant-design/ant-design/issues/12427)
+- 🐞 Fix the issue that Button can still be clicked in IE9 under loading state. [#12466](https://github.com/ant-design/ant-design/pull/12466) [@snail](https://github.com/120216220)
+- 🐞 Fix the issue with mouse hover when using non-Input components in Input.Group. [#12407](https://github.com/ant-design/ant-design/pull/12407) [@hengkx](https://github.com/hengkx)
+- 🐞 Fix some TypeScript type definitions. [#12374](https://github.com/ant-design/ant-design/pull/12374) [#12370](https://github.com/ant-design/ant-design/pull/12370) [#12354](https://github.com/ant-design/ant-design/pull/12354/files) [#12473](https://github.com/ant-design/ant-design/pull/12473)
+
+
 ## 3.9.3
 
 `2018-09-22`
