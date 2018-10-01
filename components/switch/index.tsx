@@ -17,6 +17,7 @@ export interface SwitchProps {
   unCheckedChildren?: React.ReactNode;
   disabled?: boolean;
   loading?: boolean;
+  autoFocus?: boolean;
 }
 
 export default class Switch extends React.Component<SwitchProps, {}> {
