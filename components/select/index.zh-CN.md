@@ -80,6 +80,7 @@ title: Select
 | key | 和 value 含义一致。如果 React 需要你设置此项，此项值与 value 的值相同，然后可以省略 value 设置 | string |  |
 | title | 选中该 Option 后，Select 的 title | string | - |
 | value | 默认根据此属性值进行筛选 | string\|number | - |
+| className | Option 器类名 | string | - |
 
 ### OptGroup props
 
