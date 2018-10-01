@@ -74,6 +74,8 @@ export interface OptionProps {
   value?: string | number;
   title?: string;
   children?: React.ReactNode;
+  className?: string;
+  key?: string;
 }
 
 export interface OptGroupProps {
