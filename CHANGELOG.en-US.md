@@ -20,12 +20,12 @@ timeline: true
 `2018-09-30`
 
 - 🌟 Upload adds `openFileDialogOnClick` prop to allow setting whether to open the upload dialog when the component is clicked. [#12347](https://github.com/ant-design/ant-design/pull/12347) [@hengkx](https://github.com/hengkx)
-- 🌟 InputNumber adds `decilamSeparator` prop to allow setting a custom decilam. [#12329](https://github.com/ant-design/ant-design/pull/12329) [@amedora](https://github.com/amedora)
+- 🌟 InputNumber adds `decimalSeparator` prop to allow setting a custom decimal. [#12329](https://github.com/ant-design/ant-design/pull/12329) [@amedora](https://github.com/amedora)
 - 🌟 TreeSelect adds the `treeExpandedKeys` and `onTreeExpand` props to control the expansion of the tree. [#12145](https://github.com/ant-design/ant-design/issues/12145)
 - Transfer
   - 🌟 Adds `disabled` prop. [#12066](https://github.com/ant-design/ant-design/issues/12066)
 - Modal
-  - 🌟 Adds `autoFocusButton` prop to allow specifing a button that automatically gets focus when Modal opens. [#11756](https://github.com/ant-design/ant-design/pull/11756) [@erwin-k](https://github.com/erwin-k)
+  - 🌟 Adds `autoFocusButton` prop to allow specifying a button that automatically gets focus when Modal opens. [#11756](https://github.com/ant-design/ant-design/pull/11756) [@erwin-k](https://github.com/erwin-k)
   - 🌟 `confrm` added `okButtonProps` and `cancelButtonProps` prop to allow setting custom props on buttons. [#12425](https://github.com/ant-design/ant-design/pull/12425) [@Whoaa512](https://github.com/Whoaa512)
 - Table
   - 🌟 `column.title` accepts function now. [#11246](https://github.com/ant-design/ant-design/issues/11246)
