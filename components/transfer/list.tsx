@@ -162,7 +162,7 @@ export default class TransferList extends React.Component<TransferListProps, any
   render() {
     const {
       prefixCls, dataSource, titleText, checkedKeys, lazy, disabled,
-      body = noop, footer = noop, showSearch, style, filter,
+      body, footer, showSearch, style, filter,
       searchPlaceholder, notFoundContent, itemUnit, itemsUnit, onScroll,
     } = this.props;
 
