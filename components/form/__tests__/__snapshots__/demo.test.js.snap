@@ -904,7 +904,6 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-                value="false"
               />
               <span
                 class="ant-checkbox-inner"

@@ -25,6 +25,7 @@ title: Select
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | allowClear | 支持清除 | boolean | false |
+| autoClearSearchValue | 是否在选中项后清空搜索框，只在 `mode` 为 `multiple` 或 `tags` 时有效。 | boolean | true |
 | autoFocus | 默认获取焦点 | boolean | false |
 | defaultActiveFirstOption | 是否默认高亮第一个选项。 | boolean | true |
 | defaultValue | 指定默认选中的条目 | string\|string\[]<br />number\|number\[] | - |

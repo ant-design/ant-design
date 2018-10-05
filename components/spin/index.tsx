@@ -109,9 +109,12 @@ class Spin extends React.Component<SpinProps, SpinState> {
     }
   }
 
-  componentWillReceiveProps(nextProps: SpinProps) {
-    const currentSpinning = this.props.spinning;
-    const spinning = nextProps.spinning;
+  componentDidUpdate() {
+    const currentSpinning = this.state.spinning;
+    const spinning = this.props.spinning;
+    if (currentSpinning === spinning) {
+      return;
+    }
     const { delay } = this.props;
 
     if (this.debounceTimeout) {
