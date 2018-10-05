@@ -20,4 +20,25 @@ describe('Popover', () => {
     expect(popup.innerHTML).toMatchSnapshot();
     expect(popup.innerHTML).toMatchSnapshot();
   });
+
+  it('should have onBlur', () => {
+    const onBlurCallback = jest.fn();
+    const popover = mount(
+      <Popover
+        onBlur={onBlurCallback}
+        content="console.log('hello world')"
+        title="code"
+        trigger="click"
+      >
+        <span>show me your code</span>
+      </Popover>
+    );
+
+    expect(popover.instance().getPopupDomNode()).toBe(null);
+
+    popover.find('span').simulate('click');
+
+    expect(popover.simulate('blur')).toBeTruthy();
+    expect(onBlurCallback).toHaveBeenCalledTimes(1);
+  });
 });
