@@ -14,7 +14,7 @@ export interface BreadcrumbProps {
   prefixCls?: string;
   routes?: Route[];
   params?: any;
-  separator?: React.ReactNode;
+  separator?: React.ReactNode | string;
   itemRender?: (route: any, params: any, routes: Array<any>, paths: Array<string>) => React.ReactNode;
   style?: React.CSSProperties;
   className?: string;
@@ -50,7 +50,10 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
 
   static propTypes = {
     prefixCls: PropTypes.string,
-    separator: PropTypes.node,
+    separator: PropTypes.oneOfType([
+      PropTypes.node,
+      PropTypes.string,
+    ]),
     routes: PropTypes.array,
     params: PropTypes.object,
     linkRender: PropTypes.func,
