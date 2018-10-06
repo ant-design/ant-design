@@ -96,36 +96,44 @@
 
     &.@{table-prefix-cls}-column-has-actions {
       position: relative;
-      cursor: pointer;
 
-      // Very complicated styles logic but neccessary
-      &:hover {
-        background: #f5f5f5;
+      &.@{table-prefix-cls}-column-has-filters {
         .@{iconfont-css-prefix}-filter,
         .@{table-prefix-cls}-filter-icon {
-          background: #f5f5f5;
-          &:hover {
+          &.@{table-prefix-cls}-filter-open {
             color: @text-color-secondary;
             background: #ebebeb;
           }
-          &:active {
-            color: @text-color;
+        }
+        // Very complicated styles logic but neccessary
+        &:hover {
+          .@{iconfont-css-prefix}-filter,
+          .@{table-prefix-cls}-filter-icon {
+            &:hover {
+              color: @text-color-secondary;
+              background: #ebebeb;
+            }
+            &:active {
+              color: @text-color;
+            }
           }
         }
       }
 
-      .@{iconfont-css-prefix}-filter,
-      .@{table-prefix-cls}-filter-icon {
-        &.@{table-prefix-cls}-filter-open {
-          color: @text-color-secondary;
-          background: #ebebeb;
+      &.@{table-prefix-cls}-column-has-sorters {
+        cursor: pointer;
+        &:hover {
+          background: #f5f5f5;
+          .@{iconfont-css-prefix}-filter,
+          .@{table-prefix-cls}-filter-icon {
+            background: #f5f5f5;
+          }
         }
-      }
-
-      &:active {
-        .@{table-prefix-cls}-column-sorter-up:not(.on),
-        .@{table-prefix-cls}-column-sorter-down:not(.on) {
-          color: @text-color-secondary;
+        &:active {
+          .@{table-prefix-cls}-column-sorter-up:not(.on),
+          .@{table-prefix-cls}-column-sorter-down:not(.on) {
+            color: @text-color-secondary;
+          }
         }
       }
     }
