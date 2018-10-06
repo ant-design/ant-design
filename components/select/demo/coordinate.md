@@ -21,7 +21,6 @@ Using the [Cascader](/components/cascader) component is strongly recommended ins
 import { Select } from 'antd';
 
 const Option = Select.Option;
-
 const provinceData = ['Zhejiang', 'Jiangsu'];
 const cityData = {
   Zhejiang: ['Hangzhou', 'Ningbo', 'Wenzhou'],
@@ -48,15 +47,22 @@ class App extends React.Component {
   }
 
   render() {
-    const provinceOptions = provinceData.map(province => <Option key={province}>{province}</Option>);
-    const cityOptions = this.state.cities.map(city => <Option key={city}>{city}</Option>);
+    const { cities } = this.state;
     return (
       <div>
-        <Select defaultValue={provinceData[0]} style={{ width: 120 }} onChange={this.handleProvinceChange}>
-          {provinceOptions}
+        <Select
+          defaultValue={provinceData[0]}
+          style={{ width: 120 }}
+          onChange={this.handleProvinceChange}
+        >
+          {provinceData.map(province => <Option key={province}>{province}</Option>)}
         </Select>
-        <Select value={this.state.secondCity} style={{ width: 120 }} onChange={this.onSecondCityChange}>
-          {cityOptions}
+        <Select
+          style={{ width: 120 }}
+          value={this.state.secondCity}
+          onChange={this.onSecondCityChange}
+        >
+          {cities.map(city => <Option key={city}>{city}</Option>)}
         </Select>
       </div>
     );
