@@ -20,6 +20,7 @@ Keyboard and mouse can be used for providing or changing data.
 | -------- | ----------- | ---- | ------- |
 | addonAfter | The label text displayed after (on the right side of) the input field. | string\|ReactNode |  |
 | addonBefore | The label text displayed before (on the left side of) the input field. | string\|ReactNode |  |
+| autoFocus | get focus when component mounted | boolean | false |
 | defaultValue | The initial input content | string |  |
 | disabled | Whether the input is disabled. | boolean | false |
 | id | The ID for input | string |  |

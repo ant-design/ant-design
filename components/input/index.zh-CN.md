@@ -20,6 +20,7 @@ title: Input
 | --- | --- | --- | --- |
 | addonAfter | 带标签的 input，设置后置标签 | string\|ReactNode |  |
 | addonBefore | 带标签的 input，设置前置标签 | string\|ReactNode |  |
+| autoFocus | 自动获取焦点 | boolean | false |
 | defaultValue | 输入框默认内容 | string |  |
 | disabled | 是否禁用状态，默认为 false | boolean | false |
 | id | 输入框的 id | string |  |
