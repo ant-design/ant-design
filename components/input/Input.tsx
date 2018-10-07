@@ -60,6 +60,7 @@ export default class Input extends React.Component<InputProps, any> {
     onBlur: PropTypes.func,
     prefix: PropTypes.node,
     suffix: PropTypes.node,
+    autoFocus: PropTypes.bool,
   };
 
   input: HTMLInputElement;
