@@ -96,7 +96,7 @@ class Spin extends React.Component<SpinProps, SpinState> {
   componentDidMount() {
     const { spinning, delay } = this.props;
     if (shouldDelay(spinning, delay)) {
-      this.delayTimeout = window.setTimeout(() => this.setState({ spinning }), delay);
+      this.delayTimeout = window.setTimeout(this.delayUpdateSpinning, delay);
     }
   }
 
@@ -126,16 +126,23 @@ class Spin extends React.Component<SpinProps, SpinState> {
         clearTimeout(this.delayTimeout);
       }
     } else {
-      if (spinning && delay && !isNaN(Number(delay))) {
+      if (shouldDelay(spinning, delay)) {
         if (this.delayTimeout) {
           clearTimeout(this.delayTimeout);
         }
-        this.delayTimeout = window.setTimeout(() => this.setState({ spinning }), delay);
+        this.delayTimeout = window.setTimeout(this.delayUpdateSpinning, delay);
       } else {
         this.setState({ spinning });
       }
     }
   }
+
+  delayUpdateSpinning = () => {
+    const { spinning } = this.props;
+    if (this.state.spinning !== spinning) {
+      this.setState({ spinning });
+    }
+  };
 
   render() {
     const { className, size, prefixCls, tip, wrapperClassName, ...restProps } = this.props;
