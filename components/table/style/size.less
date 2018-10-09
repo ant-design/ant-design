@@ -56,6 +56,9 @@
         background: @component-background;
         border-bottom: @border-width-base @border-style-base @border-color-split;
       }
+      > .@{table-prefix-cls}-thead > tr > th.@{table-prefix-cls}-column-sort {
+        background: @table-body-sort-bg;
+      }
     }
 
     > .@{table-prefix-cls}-scroll > .@{table-prefix-cls}-header > table,
