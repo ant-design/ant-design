@@ -21,7 +21,7 @@ During development, you may need to compile and debug JSX and ES2015 code, and e
 
 ### 1. Installation
 
-[antd-init](https://github.com/ant-design/antd-init/) is a demo-only scaffold tool. If you want to create real world projects, [dva-cli](https://github.com/dvajs/dva-cli) and [create-react-app](https://github.com/facebookincubator/create-react-app) is our recommendation.
+[antd-init](https://github.com/ant-design/antd-init/) is a demo-only scaffold tool. If you want to create real world projects, [create-umi](https://github.com/umijs/create-umi) and [create-react-app](https://github.com/facebookincubator/create-react-app) is our recommendation.
 
 ```bash
 $ npm install antd-init -g

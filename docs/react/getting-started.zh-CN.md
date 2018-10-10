@@ -23,7 +23,7 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
 ### 1. 安装脚手架工具
 
-[antd-init](https://github.com/ant-design/antd-init/) 是一个用于演示 antd 如何使用的脚手架工具，实际业务项目建议使用 [dva-cli](https://github.com/dvajs/dva-cli) 和 [create-react-app](https://github.com/facebookincubator/create-react-app) 进行搭建。
+[antd-init](https://github.com/ant-design/antd-init/) 是一个用于演示 antd 如何使用的脚手架工具，实际业务项目建议使用 [create-umi](https://github.com/umijs/create-umi) 或 [create-react-app](https://github.com/facebookincubator/create-react-app) 进行搭建。
 
 ```bash
 $ npm install antd-init -g
