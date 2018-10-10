@@ -148,7 +148,7 @@ describe('Upload List', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/7762
-  it('work with form validation', () => {
+  xit('work with form validation', () => {
     let errors;
     class TestForm extends React.Component {
       handleSubmit = () => {
