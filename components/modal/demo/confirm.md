@@ -53,6 +53,7 @@ function showPropsConfirm() {
     content: 'Some descriptions',
     okText: 'Yes',
     okType: 'danger',
+    maskClosable: true,
     okButtonProps: {
       disabled: true,
     },
