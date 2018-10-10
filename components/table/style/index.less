@@ -137,8 +137,13 @@
         }
       }
 
-      &.@{table-prefix-cls}-align-right {
-        padding-right: 30px;
+      // Repeat the class selector for prority
+      // https://github.com/ant-design/ant-design/commit/55a13a11fcea23fc4b5694cad7e2c32edc9128ee#r30842052
+      &.@{table-prefix-cls}-align-right.@{table-prefix-cls}-align-right {
+        &.@{table-prefix-cls}-column-has-sorters,
+        &.@{table-prefix-cls}-column-has-filters {
+          padding-right: 30px;
+        }
 
         &.@{table-prefix-cls}-column-has-sorters.@{table-prefix-cls}-column-has-filters {
           padding-right: 54px;
