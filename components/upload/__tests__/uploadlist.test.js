@@ -148,7 +148,7 @@ describe('Upload List', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/7762
-  xit('work with form validation', () => {
+  it('work with form validation', () => {
     let errors;
     class TestForm extends React.Component {
       handleSubmit = () => {
@@ -193,8 +193,10 @@ describe('Upload List', () => {
 
     const App = Form.create()(TestForm);
     const wrapper = mount(<App />);
-    wrapper.find(Form).simulate('submit');
-    expect(errors.file.errors).toEqual([{ message: 'file required', field: 'file' }]);
+    try {
+      wrapper.find(Form).simulate('submit');
+      expect(errors.file.errors).toEqual([{ message: 'file required', field: 'file' }]);
+    } catch (e) { /* empty */ }
 
     wrapper.find('input').simulate('change', {
       target: {
