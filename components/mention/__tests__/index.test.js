@@ -58,4 +58,26 @@ describe('Mention', () => {
     expect(container.getDOMNode().querySelectorAll('.ant-mention-dropdown-item').length).toBe(3);
     expect(container.getDOMNode().querySelectorAll('.ant-mention-dropdown-item')[0].innerHTML).toBe('yesmeck');
   });
+
+  it('select item', () => {
+    const onChange = jest.fn();
+    const onSelect = jest.fn();
+    const wrapper = mount(
+      <Mention
+        suggestions={['afc163', 'raohai']}
+        onChange={onChange}
+        onSelect={onSelect}
+      />
+    );
+    wrapper.find('DraftEditorContents').simulate('focus');
+    const ed = wrapper.find('.public-DraftEditor-content');
+    ed.simulate('beforeInput', { data: '@' });
+    jest.runAllTimers();
+    expect(onChange).toBeCalled();
+    expect(onSelect).not.toBeCalled();
+    wrapper.find('.ant-mention-dropdown-item').at(0).simulate('mouseDown');
+    jest.runAllTimers();
+    expect(onSelect).toBeCalled();
+    expect(wrapper.find('.public-DraftStyleDefault-block').text()).toBe('@afc163 ');
+  });
 });
