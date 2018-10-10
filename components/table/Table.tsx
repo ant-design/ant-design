@@ -3,6 +3,7 @@ import * as ReactDOM from 'react-dom';
 import RcTable from 'rc-table';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
+import shallowEqual from 'shallowequal';
 import Pagination from '../pagination';
 import Icon from '../icon';
 import Spin from '../spin';
@@ -365,7 +366,8 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     // 只同时允许一列进行排序，否则会导致排序顺序的逻辑问题
     let newSortOrder: 'descend' | 'ascend' | undefined;
     // 切换另一列时，丢弃 sortOrder 的状态
-    const oldSortOrder = sortColumn === column ? sortOrder : undefined;
+    const oldSortOrder = (sortColumn === column || shallowEqual(sortColumn, column))
+      ? sortOrder : undefined;
     // 切换排序状态，按照降序/升序/不排序的顺序
     if (!oldSortOrder) {
       newSortOrder = 'descend';
