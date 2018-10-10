@@ -820,7 +820,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         title: [
           <div
             key="title"
-            title={locale.sortTitle}
+            title={sortButton ? locale.sortTitle : undefined}
             className={sortButton ? `${prefixCls}-column-sorters` : undefined}
             onClick={() => this.toggleSortOrder(column)}
           >
