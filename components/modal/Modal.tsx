@@ -8,7 +8,7 @@ import { ButtonType, NativeButtonProps } from '../button/button';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { getConfirmLocale } from './locale';
 
-let mousePosition: { x: number, y: number } | null;
+let defaultMousePosition: { x: number, y: number } | null;
 let mousePositionEventBinded: boolean;
 
 export interface ModalProps {
@@ -151,14 +151,14 @@ export default class Modal extends React.Component<ModalProps, {}> {
     }
     // 只有点击事件支持从鼠标位置动画展开
     addEventListener(document.documentElement, 'click', (e: MouseEvent) => {
-      mousePosition = {
+      defaultMousePosition = {
         x: e.pageX,
         y: e.pageY,
       };
       // 100ms 内发生过点击事件，则从点击位置动画展示
       // 否则直接 zoom 展示
       // 这样可以兼容非点击方式展开
-      setTimeout(() => mousePosition = null, 100);
+      setTimeout(() => defaultMousePosition = null, 100);
     });
     mousePositionEventBinded = true;
   }
@@ -186,7 +186,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
   }
 
   render() {
-    const { footer, visible, wrapClassName, centered, prefixCls, ...restProps } = this.props;
+    const { footer, visible, wrapClassName, centered, prefixCls, mousePosition, ...restProps } = this.props;
 
     const defaultFooter = (
       <LocaleReceiver
@@ -204,7 +204,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
         wrapClassName={classNames({ [`${prefixCls}-centered`]: !!centered }, wrapClassName)}
         footer={footer === undefined ? defaultFooter : footer}
         visible={visible}
-        mousePosition={mousePosition}
+        mousePosition={mousePosition === undefined ? defaultMousePosition : mousePosition}
         onClose={this.handleCancel}
       />
     );
