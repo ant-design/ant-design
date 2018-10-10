@@ -86,9 +86,7 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                   <th
                     class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Gender
                     </div>
                     <i
@@ -113,9 +111,7 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Email
                     </div>
                   </th>
@@ -174,45 +170,35 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Name
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Age
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Address
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Tags
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Action
                     </div>
                   </th>
@@ -527,27 +513,21 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Name
                     </div>
                   </th>
                   <th
                     class="column-money"
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Cash Assets
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Address
                     </div>
                   </th>
@@ -759,18 +739,14 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Name
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Age
                     </div>
                   </th>
@@ -778,18 +754,14 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                     class=""
                     colspan="2"
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Home phone
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Address
                     </div>
                   </th>
@@ -1077,9 +1049,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                   <th
                     class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Name
                     </div>
                     <i
@@ -1105,18 +1075,14 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Age
                     </div>
                   </th>
                   <th
                     class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Address
                     </div>
                     <i
@@ -1351,27 +1317,21 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Name
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Age
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Address
                     </div>
                   </th>
@@ -2040,9 +2000,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     <th
                       class="ant-table-selection-column"
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         <div
                           class="ant-table-selection"
                         >
@@ -2067,36 +2025,28 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Name
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Age
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Address
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Action
                       </div>
                     </th>
@@ -3206,36 +3156,28 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         name
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         age
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         address
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         operation
                       </div>
                     </th>
@@ -3440,36 +3382,28 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       name
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       age
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       address
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       operation
                     </div>
                   </th>
@@ -4011,36 +3945,28 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Name
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Age
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Address
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Action
                     </div>
                   </th>
@@ -4274,9 +4200,7 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
                   <th
                     class="ant-table-selection-column"
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       <div
                         class="ant-table-selection"
                       >
@@ -4301,27 +4225,21 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Name
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Age
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Address
                     </div>
                   </th>
@@ -4557,99 +4475,77 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                     <th
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Full Name
                       </div>
                     </th>
                     <th
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Age
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Column 1
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Column 2
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Column 3
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Column 4
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Column 5
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Column 6
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Column 7
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Column 8
                       </div>
                     </th>
                     <th
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Action
                       </div>
                     </th>
@@ -4826,18 +4722,14 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                       <th
                         class=""
                       >
-                        <div
-                          title="Sort"
-                        >
+                        <div>
                           Full Name
                         </div>
                       </th>
                       <th
                         class=""
                       >
-                        <div
-                          title="Sort"
-                        >
+                        <div>
                           Age
                         </div>
                       </th>
@@ -4914,9 +4806,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                       <th
                         class=""
                       >
-                        <div
-                          title="Sort"
-                        >
+                        <div>
                           Action
                         </div>
                       </th>
@@ -5099,99 +4989,77 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     <th
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Full Name
                       </div>
                     </th>
                     <th
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Age
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Column 1
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Column 2
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Column 3
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Column 4
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Column 5
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Column 6
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Column 7
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Column 8
                       </div>
                     </th>
                     <th
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Action
                       </div>
                     </th>
@@ -5951,18 +5819,14 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Full Name
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Age
                       </div>
                     </th>
@@ -6208,9 +6072,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Action
                       </div>
                     </th>
@@ -6580,27 +6442,21 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Name
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Age
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Address
                       </div>
                     </th>
@@ -7972,9 +7828,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
                       rowspan="4"
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Name
                       </div>
                       <i
@@ -8000,9 +7854,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       class=""
                       colspan="4"
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Other
                       </div>
                     </th>
@@ -8010,9 +7862,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       class=""
                       colspan="2"
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Company
                       </div>
                     </th>
@@ -8020,9 +7870,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       class="ant-table-fixed-columns-in-body"
                       rowspan="4"
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Gender
                       </div>
                     </th>
@@ -8081,9 +7929,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       class=""
                       colspan="3"
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Address
                       </div>
                     </th>
@@ -8091,9 +7937,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       class=""
                       rowspan="3"
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Company Address
                       </div>
                     </th>
@@ -8101,9 +7945,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       class=""
                       rowspan="3"
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Company Name
                       </div>
                     </th>
@@ -8113,9 +7955,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       class=""
                       rowspan="2"
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Street
                       </div>
                     </th>
@@ -8123,9 +7963,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       class=""
                       colspan="2"
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Block
                       </div>
                     </th>
@@ -8134,18 +7972,14 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Building
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Door No.
                       </div>
                     </th>
@@ -8702,9 +8536,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       class="ant-table-column-has-actions ant-table-column-has-filters"
                       rowspan="4"
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Name
                       </div>
                       <i
@@ -8916,9 +8748,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       class=""
                       rowspan="4"
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Gender
                       </div>
                     </th>
@@ -9635,9 +9465,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     class=""
                     colspan="2"
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Name
                     </div>
                   </th>
@@ -9645,9 +9473,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     class=""
                     rowspan="2"
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Age
                     </div>
                   </th>
@@ -9655,9 +9481,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     class=""
                     rowspan="2"
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Address
                     </div>
                   </th>
@@ -9665,9 +9489,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     class=""
                     rowspan="2"
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Tags
                     </div>
                   </th>
@@ -9675,9 +9497,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     class=""
                     rowspan="2"
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Action
                     </div>
                   </th>
@@ -9686,18 +9506,14 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       First Name
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Last Name
                     </div>
                   </th>
@@ -10022,63 +9838,49 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Name
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Platform
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Version
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Upgraded
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Creator
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Date
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Action
                     </div>
                   </th>
@@ -10782,9 +10584,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                   <th
                     class="react-resizable"
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Date
                     </div>
                     <span
@@ -10795,9 +10595,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                   <th
                     class="react-resizable"
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Amount
                     </div>
                     <span
@@ -10808,9 +10606,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                   <th
                     class="react-resizable"
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Type
                     </div>
                     <span
@@ -10821,9 +10617,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                   <th
                     class="react-resizable"
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Note
                     </div>
                     <span
@@ -10834,9 +10628,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Action
                     </div>
                   </th>
@@ -11072,9 +10864,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                   <th
                     class="ant-table-selection-column"
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       <div
                         class="ant-table-selection"
                       >
@@ -11099,27 +10889,21 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Name
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Age
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Address
                     </div>
                   </th>
@@ -11459,9 +11243,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                     <th
                       class="ant-table-selection-column"
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         <div
                           class="ant-table-selection"
                         >
@@ -11486,27 +11268,21 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Name
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Age
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Address
                       </div>
                     </th>
@@ -12116,9 +11892,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   <th
                     class="ant-table-selection-column ant-table-selection-column-custom"
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       <div
                         class="ant-table-selection"
                       >
@@ -12164,27 +11938,21 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Name
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Age
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Address
                     </div>
                   </th>
@@ -12796,27 +12564,21 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Name
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Age
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Address
                       </div>
                     </th>
@@ -13009,27 +12771,21 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Name
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Age
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Address
                       </div>
                     </th>
