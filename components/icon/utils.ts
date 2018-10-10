@@ -8,6 +8,7 @@ export const svgBaseProps = {
   height: "1em",
   fill: "currentColor",
   ["aria-hidden"]: "true",
+  focusable: "false",
 };
 
 const fillTester = /-fill$/;
