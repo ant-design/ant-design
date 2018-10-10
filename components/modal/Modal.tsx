@@ -47,7 +47,6 @@ export interface ModalProps {
   wrapClassName?: string;
   maskTransitionName?: string;
   transitionName?: string;
-  animate?: boolean;
   className?: string;
   getContainer?: (instance: React.ReactInstance) => HTMLElement;
   zIndex?: number;
@@ -142,8 +141,8 @@ export default class Modal extends React.Component<ModalProps, {}> {
   }
 
   componentDidMount() {
-    const { animate } = this.props;
-    if (animate === false) {
+    const { mousePosition } = this.props;
+    if (mousePosition === null) {
       return;
     }
     if (mousePositionEventBinded) {
