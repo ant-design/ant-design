@@ -72,6 +72,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
     closable: true,
     placement: 'right',
     maskClosable: true,
+    mask: true,
     level: null,
   };
 
@@ -217,7 +218,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
   renderProvider = (value: Drawer) => {
     let { zIndex, style, placement, className, wrapClassName, width, height, ...rest } = this.props;
     warning(wrapClassName === undefined, 'wrapClassName is deprecated, please use className instead.');
-
+    const haveMask = rest.mask ? "" : "no-mask";
     this.parentDrawer = value;
     const offsetStyle: any = {};
     if (placement === 'left' || placement === 'right') {
@@ -236,7 +237,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
           showMask={this.props.mask}
           placement={placement}
           style={this.getRcDrawerStyle()}
-          className={classNames(wrapClassName, className)}
+          className={classNames(wrapClassName, className, haveMask)}
         >
           {this.renderBody()}
         </RcDrawer>

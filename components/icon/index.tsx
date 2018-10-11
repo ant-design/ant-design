@@ -42,7 +42,15 @@ export interface IconProps {
   prefixCls?: string;
 }
 
-const Icon: React.SFC<IconProps> = (props) => {
+export interface IconComponent<P> extends React.SFC<P> {
+  createFromIconfontCN?: typeof createFromIconfontCN;
+  getTwoToneColor?: typeof getTwoToneColor;
+  setTwoToneColor?: typeof setTwoToneColor;
+  unstable_ChangeThemeOfIconsDangerously?: typeof unstable_ChangeThemeOfIconsDangerously;
+  unstable_ChangeDefaultThemeOfIcons?: typeof unstable_ChangeDefaultThemeOfIcons;
+}
+
+const Icon: IconComponent<IconProps> = (props) => {
   const {
     // affect outter <i>...</i>
     className,
@@ -146,14 +154,6 @@ const Icon: React.SFC<IconProps> = (props) => {
   );
 };
 
-export type IconType = typeof Icon & {
-  createFromIconfontCN: typeof createFromIconfontCN;
-  getTwoToneColor: typeof getTwoToneColor;
-  setTwoToneColor: typeof setTwoToneColor;
-  unstable_ChangeThemeOfIconsDangerously: typeof unstable_ChangeThemeOfIconsDangerously;
-  unstable_ChangeDefaultThemeOfIcons: typeof unstable_ChangeDefaultThemeOfIcons;
-};
-
 function unstable_ChangeThemeOfIconsDangerously(theme?: ThemeType) {
   warning(
     false,
@@ -172,9 +172,8 @@ function unstable_ChangeDefaultThemeOfIcons(theme: ThemeType) {
   defaultTheme = theme;
 }
 
-Icon.displayName = 'Icon';
-(Icon as IconType).createFromIconfontCN = createFromIconfontCN;
-(Icon as IconType).getTwoToneColor = getTwoToneColor;
-(Icon as IconType).setTwoToneColor = setTwoToneColor;
+Icon.createFromIconfontCN = createFromIconfontCN;
+Icon.getTwoToneColor = getTwoToneColor;
+Icon.setTwoToneColor = setTwoToneColor;
 
-export default Icon as IconType;
+export default Icon;

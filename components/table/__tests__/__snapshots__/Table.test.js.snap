@@ -35,9 +35,7 @@ exports[`Table renders JSX correctly 1`] = `
                     class=""
                     colspan="2"
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Name
                     </div>
                   </th>
@@ -45,9 +43,7 @@ exports[`Table renders JSX correctly 1`] = `
                     class=""
                     rowspan="2"
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Age
                     </div>
                   </th>
@@ -56,18 +52,14 @@ exports[`Table renders JSX correctly 1`] = `
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       First Name
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Last Name
                     </div>
                   </th>

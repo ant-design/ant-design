@@ -5,7 +5,7 @@ title: 快速上手
 
 Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
-> 在开始之前，推荐先学习 [React](http://facebook.github.io/react/) 和 [ES2015](http://babeljs.io/docs/learn-es2015/)，并正确安装和配置了 [Node.js](https://nodejs.org/) v6.5 或以上。
+> 在开始之前，推荐先学习 [React](http://facebook.github.io/react/) 和 [ES2015](http://babeljs.io/docs/learn-es2015/)，并正确安装和配置了 [Node.js](https://nodejs.org/) v8 或以上。
 > 官方指南假设你已了解关于 HTML、CSS 和 JavaScript 的中级知识，并且已经完全掌握了 React 全家桶的正确开发方式。如果你刚开始学习前端或者 React，将 UI 框架作为你的第一步可能不是最好的主意。
 
 ---
@@ -14,7 +14,7 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
 最简单的使用方式参照以下 CodeSandbox 演示，也推荐 Fork 本例来进行 `Bug Report`。
 
-- [antd CodeSandbox](https://u.ant.design/codesandbox-repro)
+<iframe src="https://codesandbox.io/embed/wk04r016q8?fontsize=12" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
 
 ## 第一个本地实例
 
@@ -23,7 +23,7 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
 ### 1. 安装脚手架工具
 
-[antd-init](https://github.com/ant-design/antd-init/) 是一个用于演示 antd 如何使用的脚手架工具，实际业务项目建议使用 [dva-cli](https://github.com/dvajs/dva-cli) 和 [create-react-app](https://github.com/facebookincubator/create-react-app) 进行搭建。
+[antd-init](https://github.com/ant-design/antd-init/) 是一个用于演示 antd 如何使用的脚手架工具，实际业务项目建议使用 [create-umi](https://github.com/umijs/create-umi) 或 [create-react-app](https://github.com/facebookincubator/create-react-app) 进行搭建。
 
 ```bash
 $ npm install antd-init -g

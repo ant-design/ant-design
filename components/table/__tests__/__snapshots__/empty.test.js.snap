@@ -39,72 +39,56 @@ exports[`Table renders empty table 1`] = `
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Column 1
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Column 2
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Column 3
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Column 4
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Column 5
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Column 6
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Column 7
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Column 8
                     </div>
                   </th>
@@ -166,72 +150,56 @@ exports[`Table renders empty table with custom emptyText 1`] = `
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Column 1
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Column 2
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Column 3
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Column 4
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Column 5
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Column 6
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Column 7
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Column 8
                     </div>
                   </th>
@@ -305,99 +273,77 @@ exports[`Table renders empty table with fixed columns 1`] = `
                     <th
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Full Name
                       </div>
                     </th>
                     <th
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Age
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Column 1
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Column 2
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Column 3
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Column 4
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Column 5
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Column 6
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Column 7
                       </div>
                     </th>
                     <th
                       class=""
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Column 8
                       </div>
                     </th>
                     <th
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <div
-                        title="Sort"
-                      >
+                      <div>
                         Action
                       </div>
                     </th>
@@ -442,18 +388,14 @@ exports[`Table renders empty table with fixed columns 1`] = `
                       <th
                         class=""
                       >
-                        <div
-                          title="Sort"
-                        >
+                        <div>
                           Full Name
                         </div>
                       </th>
                       <th
                         class=""
                       >
-                        <div
-                          title="Sort"
-                        >
+                        <div>
                           Age
                         </div>
                       </th>
@@ -491,9 +433,7 @@ exports[`Table renders empty table with fixed columns 1`] = `
                       <th
                         class=""
                       >
-                        <div
-                          title="Sort"
-                        >
+                        <div>
                           Action
                         </div>
                       </th>
@@ -566,72 +506,56 @@ exports[`Table renders empty table without emptyText when loading 1`] = `
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Column 1
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Column 2
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Column 3
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Column 4
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Column 5
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Column 6
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Column 7
                     </div>
                   </th>
                   <th
                     class=""
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Column 8
                     </div>
                   </th>

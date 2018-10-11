@@ -104,8 +104,8 @@ export type WrappedFormUtils = {
   validateFields(fieldNames: Array<string>, callback: ValidateCallback): void;
   validateFields(fieldNames: Array<string>, options: Object): void;
   validateFields(fieldNames: Array<string>): void;
-  validateFields(options: Object): void;
   validateFields(callback: ValidateCallback): void;
+  validateFields(options: Object): void;
   validateFields(): void;
   /** 与 `validateFields` 相似，但校验完后，如果校验不通过的菜单域不在可见范围内，则自动滚动进可见范围 */
   validateFieldsAndScroll(fieldNames: Array<string>, options: Object, callback: ValidateCallback): void;
@@ -113,8 +113,8 @@ export type WrappedFormUtils = {
   validateFieldsAndScroll(fieldNames: Array<string>, callback: ValidateCallback): void;
   validateFieldsAndScroll(fieldNames: Array<string>, options: Object): void;
   validateFieldsAndScroll(fieldNames: Array<string>): void;
-  validateFieldsAndScroll(options: Object): void;
   validateFieldsAndScroll(callback: ValidateCallback): void;
+  validateFieldsAndScroll(options: Object): void;
   validateFieldsAndScroll(): void;
   /** 获取某个输入控件的 Error */
   getFieldError(name: string): Object[];

@@ -34,6 +34,7 @@ export interface AbstractSelectProps {
   defaultOpen?: boolean;
   open?: boolean;
   onDropdownVisibleChange?: (open: boolean) => void;
+  autoClearSearchValue?: boolean;
 }
 
 export interface LabeledValue {
@@ -73,6 +74,8 @@ export interface OptionProps {
   value?: string | number;
   title?: string;
   children?: React.ReactNode;
+  className?: string;
+  key?: string;
 }
 
 export interface OptGroupProps {

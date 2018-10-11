@@ -111,14 +111,18 @@
     animation-fill-mode: both;
   }
 
-  &-not-a-wrapper .@{ant-prefix}-scroll-number {
-    top: auto;
-    display: block;
-    position: relative;
-  }
+  &-not-a-wrapper {
+    vertical-align: middle;
 
-  &-not-a-wrapper .@{badge-prefix-cls}-count {
-    transform: none;
+    .@{ant-prefix}-scroll-number {
+      top: auto;
+      display: block;
+      position: relative;
+    }
+
+    .@{badge-prefix-cls}-count {
+      transform: none;
+    }
   }
 }
 

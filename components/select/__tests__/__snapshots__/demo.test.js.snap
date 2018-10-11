@@ -148,7 +148,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
 <div>
   <div
     class="ant-select ant-select-enabled"
-    style="width:90px"
+    style="width:120px"
   >
     <div
       aria-autocomplete="list"
@@ -197,7 +197,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
   </div>
   <div
     class="ant-select ant-select-enabled"
-    style="width:90px"
+    style="width:120px"
   >
     <div
       aria-autocomplete="list"

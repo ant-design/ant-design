@@ -8,6 +8,7 @@ export interface StepsProps {
   iconPrefix?: string;
   current?: number;
   initial?: number;
+  labelPlacement?: 'horizontal' | 'vertical';
   status?: 'wait' | 'process' | 'finish' | 'error';
   size?: 'default' | 'small';
   direction?: 'horizontal' | 'vertical';

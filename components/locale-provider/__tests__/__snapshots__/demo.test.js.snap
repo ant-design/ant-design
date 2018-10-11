@@ -1713,9 +1713,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                         <th
                           class="ant-table-column-has-actions ant-table-column-has-filters"
                         >
-                          <div
-                            title="Sort"
-                          >
+                          <div>
                             Name
                           </div>
                           <i
@@ -1740,9 +1738,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                         <th
                           class=""
                         >
-                          <div
-                            title="Sort"
-                          >
+                          <div>
                             Age
                           </div>
                         </th>

@@ -80,6 +80,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
         });
       }
       props.onChange(value, (value && value.format(props.format)) || '');
+      this.focus();
     }
 
     handleCalendarChange = (value: moment.Moment) => {
