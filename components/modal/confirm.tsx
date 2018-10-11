@@ -18,7 +18,8 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
   const { onCancel, onOk, close, zIndex, afterClose, visible, keyboard, centered, getContainer, okButtonProps, cancelButtonProps } = props;
   const iconType = props.iconType || 'question-circle';
   const okType = props.okType || 'primary';
-  const prefixCls = props.prefixCls || 'ant-confirm';
+  const prefixCls = props.prefixCls || 'ant-modal';
+  const contentPrefixCls = `${prefixCls}-confirm`;
   // 默认为 true，保持向下兼容
   const okCancel = ('okCancel' in props) ? props.okCancel! : true;
   const width = props.width || 416;
@@ -32,8 +33,8 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
   const autoFocusButton = props.autoFocusButton === null ? false : props.autoFocusButton || 'ok';
 
   const classString = classNames(
-    prefixCls,
-    `${prefixCls}-${props.type}`,
+    contentPrefixCls,
+    `${contentPrefixCls}-${props.type}`,
     props.className,
   );
 
@@ -45,8 +46,9 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
 
   return (
     <Dialog
+      prefixCls={prefixCls}
       className={classString}
-      wrapClassName={classNames({ [`${prefixCls}-centered`]: !!props.centered })}
+      wrapClassName={classNames({ [`${contentPrefixCls}-centered`]: !!props.centered })}
       onCancel={close.bind(this, { triggerCancel: true })}
       visible={visible}
       title=""
@@ -62,13 +64,13 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
       centered={centered}
       getContainer={getContainer}
     >
-      <div className={`${prefixCls}-body-wrapper`}>
-        <div className={`${prefixCls}-body`}>
+      <div className={`${contentPrefixCls}-body-wrapper`}>
+        <div className={`${contentPrefixCls}-body`}>
           <Icon type={iconType!} />
-          <span className={`${prefixCls}-title`}>{props.title}</span>
-          <div className={`${prefixCls}-content`}>{props.content}</div>
+          <span className={`${contentPrefixCls}-title`}>{props.title}</span>
+          <div className={`${contentPrefixCls}-content`}>{props.content}</div>
         </div>
-        <div className={`${prefixCls}-btns`}>
+        <div className={`${contentPrefixCls}-btns`}>
           {cancelButton}
           <ActionButton type={okType} actionFn={onOk} closeModal={close} autoFocus={autoFocusButton === 'ok'} buttonProps={okButtonProps}>
             {okText}
