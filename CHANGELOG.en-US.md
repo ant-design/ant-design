@@ -15,6 +15,40 @@ timeline: true
 
 ---
 
+## 3.10.0
+
+`2018-09-30`
+
+- 🌟 Upload adds `openFileDialogOnClick` prop to allow setting whether to open the upload dialog when the component is clicked. [#12347](https://github.com/ant-design/ant-design/pull/12347) [@hengkx](https://github.com/hengkx)
+- 🌟 InputNumber adds `decimalSeparator` prop to allow setting a custom decimal. [#12329](https://github.com/ant-design/ant-design/pull/12329) [@amedora](https://github.com/amedora)
+- 🌟 TreeSelect adds the `treeExpandedKeys` and `onTreeExpand` props to control the expansion of the tree. [#12145](https://github.com/ant-design/ant-design/issues/12145)
+- Transfer
+  - 🌟 Adds `disabled` prop. [#12066](https://github.com/ant-design/ant-design/issues/12066)
+- Modal
+  - 🌟 Adds `autoFocusButton` prop to allow specifying a button that automatically gets focus when Modal opens. [#11756](https://github.com/ant-design/ant-design/pull/11756) [@erwin-k](https://github.com/erwin-k)
+  - 🌟 `confirm` added `okButtonProps` and `cancelButtonProps` prop to allow setting custom props on buttons. [#12425](https://github.com/ant-design/ant-design/pull/12425) [@Whoaa512](https://github.com/Whoaa512)
+- Table
+  - 🌟 `column.title` accepts function now. [#11246](https://github.com/ant-design/ant-design/issues/11246)
+  - 🌟 `onChange` adds a new parameter `extra` to allow you getting filtered data. [#12369](https://github.com/ant-design/ant-design/pull/12369)
+  - 🌟 Improve the sort and filter UX, You can now sort by clicking on the entire header. [#12264](https://github.com/ant-design/ant-design/pull/12264)
+- 🌟 Alert adds `icon` prop to allow setting a custom icon. [Demo](https://ant.design/components/alert/#components-alert-demo-custom-icon)
+- 🌟 The following components add a `suffixIcon` prop, which is used to set the icon behind the input box. For details, please refer to the documentation.
+  - Cascader
+  - DatePicker
+  - Select
+  - TreeSelect
+  - TimePicker
+- 🌟 Add some new less variables. [f237eff](https://github.com/ant-design/ant-design/commit/f237effc2a35eb249273f6f2826092a2f9b9db45)
+- 🐞 Fix Icon.createFromIconfontCN prepending `https` to the `scriptUrl`. [#12316](https://github.com/ant-design/ant-design/issues/12316)
+- 🐞 Fix the issue with the `gutter` props of Row that doesn't work when using nested Col. [#12320](https://github.com/ant-design/ant-design/pull/12320)
+- 🐞 Fix the issue where the Tree.DirectoryTree component could not properly expand the node when the 'expandedKeys` prop had initial values. [#12396](https://github.com/ant-design/ant-design/issues/12396)
+- 🐞 Fix the issue when the `render` prop of the Transfer component returns a ReactNode, the `title` property of the list item shows an unexpected value. [#12399](https://github.com/ant-design/ant-design/issues/12399)
+- 🐞 Fix Tooltip not working with CheckboxGroup. [#12427](https://github.com/ant-design/ant-design/issues/12427)
+- 🐞 Fix the issue that Button can still be clicked in IE9 under loading state. [#12466](https://github.com/ant-design/ant-design/pull/12466) [@snail](https://github.com/120216220)
+- 🐞 Fix the issue with mouse hover when using non-Input components in Input.Group. [#12407](https://github.com/ant-design/ant-design/pull/12407) [@hengkx](https://github.com/hengkx)
+- 🐞 Fix some TypeScript type definitions. [#12374](https://github.com/ant-design/ant-design/pull/12374) [#12370](https://github.com/ant-design/ant-design/pull/12370) [#12354](https://github.com/ant-design/ant-design/pull/12354/files) [#12473](https://github.com/ant-design/ant-design/pull/12473)
+
+
 ## 3.9.3
 
 `2018-09-22`
@@ -99,7 +133,7 @@ In addition, our **Ant Design Pro 2.0.0** version has also been released simulta
 
 ### Bugfix/Feature：
 
-- 🌟 Added Model.open for optional icon dialog. [#11982](https://github.com/ant-design/ant-design/pull/11982) [@hsiehjack](https://github.com/hsiehjack)
+- 🌟 Added Modal.open for optional icon dialog. [#11982](https://github.com/ant-design/ant-design/pull/11982) [@hsiehjack](https://github.com/hsiehjack)
 - 🌟 Modal.info adds the configuration of `getContainer`. [#11377](https://github.com/ant-design/ant-design/issues/11377)
 - 🌟 Improve RangePicker footer UI by merging them.
 - 🌟 The Anchor component adds `onClick` property. [#11898](https://github.com/ant-design/ant-design/pull/11898)
@@ -210,7 +244,7 @@ Thanks to 24 contributors who send pull request to 3.8.0!
 - Modal
   - 🌟 Added `centered` prop to set vertical center position of modal. [#11537](https://github.com/ant-design/ant-design/pull/11537) [@yoyo837](https://github.com/yoyo837)
   - 🐞 Fixed that closing all modals when pressing `ESC` once, now they will be closed one by one. [#11394](https://github.com/ant-design/ant-design/issues/11394) [@yoyo837](https://github.com/yoyo837)
-  - 🐞 Fixed issue resulting title of Model.confirm shows scrollbar again. [#11568](https://github.com/ant-design/ant-design/pull/11568) [@cheshireoctopus](https://github.com/cheshireoctopus)
+  - 🐞 Fixed issue resulting title of Modal.confirm shows scrollbar again. [#11568](https://github.com/ant-design/ant-design/pull/11568) [@cheshireoctopus](https://github.com/cheshireoctopus)
 - 🌟 Progress added `strokeLinecap` to customize shape of edge. [#11547](https://github.com/ant-design/ant-design/pull/11547) [@blatinier](https://github.com/blatinier)
 - 🌟 Drawer added `className` and deprecated `wrapClassName`. [#11609](https://github.com/ant-design/ant-design/pull/11609) [@fergiar](https://github.com/fergiar)
 
@@ -240,7 +274,7 @@ Thanks to 24 contributors who send pull request to 3.8.0!
 - 🐞 Fix the arrow buttons of InputNumber showing wrong positon in a fixed table. [#11408](https://github.com/ant-design/ant-design/issues/11408)
 - 🐞 Fix issue resulting in Select.Option shows wrong border radius in Select.OptGroup. [6cb6f5c](https://github.com/ant-design/ant-design/commit/6cb6f5c83ed634e67d5b5d0816d11aa0788a74d8)
 - 🐞 Fix issue resulting in `onChange` was trigged twice when click the filter icon of Table. [#11164](https://github.com/ant-design/ant-design/issues/11164) [@adybionka](https://github.com/adybionka)
-- 🐞 Fix issue resulting title of Model.confirm shows scrollbar on Firefox. [#11432](https://github.com/ant-design/ant-design/issues/11432)
+- 🐞 Fix issue resulting title of Modal.confirm shows scrollbar on Firefox. [#11432](https://github.com/ant-design/ant-design/issues/11432)
 - TypeScript
   - 🐞 Fix type definition of Radio.Group. [#11409](https://github.com/ant-design/ant-design/pull/11409) [@eddiemoore](https://github.com/eddiemoore)
   - 🐞 Fix type definition of TreeSelect. [#11442](https://github.com/ant-design/ant-design/pull/11442) [@JribiBelhassen](https://github.com/JribiBelhassen)

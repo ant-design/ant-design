@@ -64,6 +64,7 @@ class WeekPicker extends React.Component<any, any> {
       this.setState({ value });
     }
     this.props.onChange(value, formatValue(value, this.props.format));
+    this.focus();
   }
   clearSelection = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();

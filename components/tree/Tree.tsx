@@ -160,6 +160,8 @@ export default class Tree extends React.Component<TreeProps, any> {
     },
   };
 
+  tree: any;
+
   renderSwitcherIcon = ({ isLeaf, expanded, loading }: AntTreeNodeProps) => {
     const {
       prefixCls,
@@ -199,12 +201,17 @@ export default class Tree extends React.Component<TreeProps, any> {
     }
   }
 
+  setTreeRef = (node: any) => {
+    this.tree = node;
+  };
+
   render() {
     const props = this.props;
     const { prefixCls, className, showIcon } = props;
     let checkable = props.checkable;
     return (
       <RcTree
+        ref={this.setTreeRef}
         {...props}
         className={classNames(!showIcon && `${prefixCls}-icon-hide`, className)}
         checkable={checkable ? <span className={`${prefixCls}-checkbox-inner`} /> : checkable}

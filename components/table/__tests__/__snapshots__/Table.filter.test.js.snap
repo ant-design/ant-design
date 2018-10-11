@@ -94,9 +94,7 @@ exports[`Table.filter renders filter correctly 1`] = `
                   <th
                     class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
-                    <div
-                      title="Sort"
-                    >
+                    <div>
                       Name
                     </div>
                     <i

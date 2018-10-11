@@ -61,6 +61,7 @@ title: Modal
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
+| autoFocusButton | 指定自动获得焦点的按钮 | null\|string: `ok` `cancel` | `ok` |
 | cancelText | 取消按钮文字 | string | 取消 |
 | centered | 垂直居中展示 Modal | Boolean | `false` |
 | className | 容器类名 | string | - |
@@ -69,6 +70,8 @@ title: Modal
 | maskClosable | 点击蒙层是否允许关闭 | Boolean | `false` |
 | okText | 确认按钮文字 | string | 确定 |
 | okType | 确认按钮类型 | string | primary |
+| okButtonProps | ok 按钮 props | [ButtonProps](/components/button) | - |
+| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button) | - |
 | title | 标题 | string\|ReactNode | 无 |
 | width | 宽度 | string\|number | 416 |
 | zIndex | 设置 Modal 的 `z-index` | Number | 1000 |

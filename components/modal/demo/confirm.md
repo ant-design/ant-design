@@ -47,6 +47,29 @@ function showDeleteConfirm() {
   });
 }
 
+function showPropsConfirm() {
+  confirm({
+    title: 'Are you sure delete this task?',
+    content: 'Some descriptions',
+    okText: 'Yes',
+    okType: 'danger',
+    maskClosable: true,
+    okButtonProps: {
+      disabled: true,
+    },
+    cancelButtonProps: {
+      loading: true,
+    },
+    cancelText: 'No',
+    onOk() {
+      console.log('OK');
+    },
+    onCancel() {
+      console.log('Cancel');
+    },
+  });
+}
+
 ReactDOM.render(
   <div>
     <Button onClick={showConfirm}>
@@ -54,6 +77,9 @@ ReactDOM.render(
     </Button>
     <Button onClick={showDeleteConfirm} type="dashed">
       Delete
+    </Button>
+    <Button onClick={showPropsConfirm} type="dashed">
+      With extra props
     </Button>
   </div>,
   mountNode);

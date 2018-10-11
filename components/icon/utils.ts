@@ -8,6 +8,7 @@ export const svgBaseProps = {
   height: "1em",
   fill: "currentColor",
   ["aria-hidden"]: "true",
+  focusable: "false",
 };
 
 const fillTester = /-fill$/;
@@ -45,9 +46,4 @@ export function withThemeSuffix(type: string, theme: ThemeType) {
     warning(false, `This icon '${type}' has unknown theme '${theme}'`);
   }
   return result;
-}
-
-export function handleSciprtUrl(url: string): string {
-  const scriptUrl = `${(!/^(https?|http):\/\/.+$/.test(url) && 'https:') || ''}${url}`;
-  return scriptUrl;
 }

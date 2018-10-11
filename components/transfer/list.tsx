@@ -39,8 +39,8 @@ export interface TransferListProps {
   notFoundContent: React.ReactNode;
   itemUnit: string;
   itemsUnit: string;
-  body?: (props: any) => any;
-  footer?: (props: any) => void;
+  body?: (props: TransferListProps) => React.ReactNode;
+  footer?: (props: TransferListProps) => React.ReactNode;
   lazy?: boolean | {};
   onScroll: Function;
   disabled?: boolean;
@@ -162,13 +162,13 @@ export default class TransferList extends React.Component<TransferListProps, any
   render() {
     const {
       prefixCls, dataSource, titleText, checkedKeys, lazy, disabled,
-      body = noop, footer = noop, showSearch, style, filter,
+      body, footer, showSearch, style, filter,
       searchPlaceholder, notFoundContent, itemUnit, itemsUnit, onScroll,
     } = this.props;
 
     // Custom Layout
-    const footerDom = footer({ ...this.props });
-    const bodyDom = body({ ...this.props });
+    const footerDom = footer && footer(this.props);
+    const bodyDom = body && body(this.props);
 
     const listCls = classNames(prefixCls, {
       [`${prefixCls}-with-footer`]: !!footerDom,

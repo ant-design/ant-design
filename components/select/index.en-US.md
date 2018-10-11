@@ -24,6 +24,7 @@ Select component to select value from options.
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | allowClear | Show clear button. | boolean | false |
+| autoClearSearchValue | Whether the current search will be cleared on selecting an item. Only applies when `mode` is set to `multiple` or `tags`. | boolean | true |
 | autoFocus | Get focus by default | boolean | false |
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |
 | defaultValue | Initial selected option. | string\|string\[]<br />number\|number\[] | - |
@@ -77,6 +78,7 @@ Select component to select value from options.
 | key | Same usage as `value`. If React request you to set this property, you can set it to value of option, and then omit value property. | string |  |
 | title | `title` of Select after select this Option | string | - |
 | value | default to filter with this property | string\|number | - |
+| className | additional class to option | string | - |
 
 ### OptGroup props
 

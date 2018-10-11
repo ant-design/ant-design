@@ -3,6 +3,7 @@ import * as ReactDOM from 'react-dom';
 import RcTable from 'rc-table';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
+import shallowEqual from 'shallowequal';
 import Pagination from '../pagination';
 import Icon from '../icon';
 import Spin from '../spin';
@@ -33,6 +34,7 @@ import {
   TableSelectWay,
   TableRowSelection,
   PaginationConfig,
+  PrepareParamsArgumentsReturn,
 } from './interface';
 import { RadioChangeEvent } from '../radio';
 import { CheckboxChangeEvent } from '../checkbox';
@@ -340,8 +342,8 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     };
   }
 
-  getSorterFn() {
-    const { sortOrder, sortColumn } = this.state;
+  getSorterFn(state: TableState<T>) {
+    const { sortOrder, sortColumn } = state || this.state;
     if (!sortOrder || !sortColumn ||
         typeof sortColumn.sorter !== 'function') {
       return;
@@ -357,11 +359,15 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   }
 
   toggleSortOrder(column: ColumnProps<T>) {
+    if (!column.sorter) {
+      return;
+    }
     const { sortOrder, sortColumn } = this.state;
     // 只同时允许一列进行排序，否则会导致排序顺序的逻辑问题
     let newSortOrder: 'descend' | 'ascend' | undefined;
     // 切换另一列时，丢弃 sortOrder 的状态
-    const oldSortOrder = sortColumn === column ? sortOrder : undefined;
+    const oldSortOrder = (sortColumn === column || shallowEqual(sortColumn, column))
+      ? sortOrder : undefined;
     // 切换排序状态，按照降序/升序/不排序的顺序
     if (!oldSortOrder) {
       newSortOrder = 'descend';
@@ -814,7 +820,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         title: [
           <div
             key="title"
-            title={locale.sortTitle}
+            title={sortButton ? locale.sortTitle : undefined}
             className={sortButton ? `${prefixCls}-column-sorters` : undefined}
             onClick={() => this.toggleSortOrder(column)}
           >
@@ -830,7 +836,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   renderColumnTitle(title: ColumnProps<T>['title']) {
     const { filters, sortOrder } = this.state;
     // https://github.com/ant-design/ant-design/issues/11246#issuecomment-405009167
-    if (typeof title === 'function') {
+    if (title instanceof Function) {
       return title({
         filters,
         sortOrder,
@@ -887,7 +893,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   }
 
   // Get pagination, filters, sorter
-  prepareParamsArguments(state: any): [any, string[], Object] {
+  prepareParamsArguments(state: any): PrepareParamsArgumentsReturn<T> {
     const pagination = { ...state.pagination };
     // remove useless handle function in Table.onChange
     delete pagination.onChange;
@@ -900,7 +906,12 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       sorter.field = state.sortColumn.dataIndex;
       sorter.columnKey = this.getColumnKey(state.sortColumn);
     }
-    return [pagination, filters, sorter];
+
+    const extra = {
+      currentDataSource: this.getLocalData(state),
+    };
+
+    return [pagination, filters, sorter, extra];
   }
 
   findColumn(myKey: string | number) {
@@ -955,24 +966,24 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     } : item));
   }
 
-  getLocalData() {
-    const state = this.state;
+  getLocalData(state?: TableState<T>) {
+    const currentState: TableState<T> = state || this.state;
     const { dataSource } = this.props;
     let data = dataSource || [];
     // 优化本地排序
     data = data.slice(0);
-    const sorterFn = this.getSorterFn();
+    const sorterFn = this.getSorterFn(currentState);
     if (sorterFn) {
       data = this.recursiveSort(data, sorterFn);
     }
     // 筛选
-    if (state.filters) {
-      Object.keys(state.filters).forEach((columnKey) => {
+    if (currentState.filters) {
+      Object.keys(currentState.filters).forEach((columnKey) => {
         let col = this.findColumn(columnKey) as any;
         if (!col) {
           return;
         }
-        let values = state.filters[columnKey] || [];
+        let values = currentState.filters[columnKey] || [];
         if (values.length === 0) {
           return;
         }

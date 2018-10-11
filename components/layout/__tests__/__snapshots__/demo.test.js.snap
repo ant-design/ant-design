@@ -348,7 +348,7 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
       <li
         class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
         role="menuitem"
-        style="line-height:64px;visibility:hidden"
+        style="line-height:64px;visibility:hidden;position:absolute"
       >
         <div
           aria-expanded="false"
@@ -1296,7 +1296,7 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
       <li
         class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
         role="menuitem"
-        style="line-height:64px;visibility:hidden"
+        style="line-height:64px;visibility:hidden;position:absolute"
       >
         <div
           aria-expanded="false"
@@ -1463,7 +1463,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
       <li
         class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
         role="menuitem"
-        style="line-height:64px;visibility:hidden"
+        style="line-height:64px;visibility:hidden;position:absolute"
       >
         <div
           aria-expanded="false"
@@ -1793,7 +1793,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
       <li
         class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
         role="menuitem"
-        style="line-height:64px;visibility:hidden"
+        style="line-height:64px;visibility:hidden;position:absolute"
       >
         <div
           aria-expanded="false"

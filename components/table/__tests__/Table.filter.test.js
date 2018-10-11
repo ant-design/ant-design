@@ -220,7 +220,14 @@ describe('Table.filter', () => {
     dropdownWrapper.find('MenuItem').first().simulate('click');
     dropdownWrapper.find('.confirm').simulate('click');
 
-    expect(handleChange).toBeCalledWith({}, { name: ['boy'] }, {});
+    expect(handleChange).toBeCalledWith(
+      {},
+      { name: ['boy'] },
+      {},
+      {
+        currentDataSource: [],
+      }
+    );
   });
 
   it('should not fire change event on close filterDropdown without changing anything', () => {
@@ -377,6 +384,7 @@ describe('Table.filter', () => {
     wrapper.find('.ant-dropdown-trigger').first().simulate('click');
 
     expect(handleChange).toBeCalled();
+    expect(handleChange.mock.calls[0][3].currentDataSource.length).toBe(1);
   });
 
   it('renders custom filter icon correctly', () => {

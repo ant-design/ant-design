@@ -55,7 +55,7 @@ const columns = [{
 | bordered | Whether to show all table borders | boolean | `false` |
 | childrenColumnName | The column contains children to display | string\[] | children |
 | columns | Columns of table | [ColumnProps](https://git.io/vMMXC)\[] | - |
-| components | Override default table elements | object | - |
+| components | Override default table elements | [TableComponents](https://git.io/fANxz) | - |
 | dataSource | Data record array to be displayed | any\[] | - |
 | defaultExpandAllRows | Expand all rows initially | boolean | `false` |
 | defaultExpandedRowKeys | Initial expanded row keys | string\[] | - |
@@ -74,7 +74,7 @@ const columns = [{
 | showHeader | Whether to show table header | boolean | `true` |
 | size | Size of table | `default` \| `middle` \| `small` | `default` |
 | title | Table title renderer | Function(currentPageData) |  |
-| onChange | Callback executed when pagination, filters or sorter is changed | Function(pagination, filters, sorter) |  |
+| onChange | Callback executed when pagination, filters or sorter is changed | Function(pagination, filters, sorter, extra: { currentDataSource: [] }) |  |
 | onExpand | Callback executed when the row expand icon is clicked | Function(expanded, record) |  |
 | onExpandedRowsChange | Callback executed when the expanded rows change | Function(expandedRows) |  |
 | onHeaderRow | Set props on per header row | Function(column, index) | - |

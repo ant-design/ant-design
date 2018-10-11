@@ -140,6 +140,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
       formatValue(value[0], props.format),
       formatValue(value[1], props.format),
     ]);
+    this.focus();
   }
 
   handleOpenChange = (open: boolean) => {

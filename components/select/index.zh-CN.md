@@ -25,6 +25,7 @@ title: Select
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | allowClear | 支持清除 | boolean | false |
+| autoClearSearchValue | 是否在选中项后清空搜索框，只在 `mode` 为 `multiple` 或 `tags` 时有效。 | boolean | true |
 | autoFocus | 默认获取焦点 | boolean | false |
 | defaultActiveFirstOption | 是否默认高亮第一个选项。 | boolean | true |
 | defaultValue | 指定默认选中的条目 | string\|string\[]<br />number\|number\[] | - |
@@ -79,6 +80,7 @@ title: Select
 | key | 和 value 含义一致。如果 React 需要你设置此项，此项值与 value 的值相同，然后可以省略 value 设置 | string |  |
 | title | 选中该 Option 后，Select 的 title | string | - |
 | value | 默认根据此属性值进行筛选 | string\|number | - |
+| className | Option 器类名 | string | - |
 
 ### OptGroup props
 
