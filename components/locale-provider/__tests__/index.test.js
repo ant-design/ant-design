@@ -126,7 +126,7 @@ describe('Locale Provider', () => {
           <ModalDemo />
         </LocaleProvider>
       );
-      const currentConfirmNode = document.querySelectorAll('.ant-confirm')[document.querySelectorAll('.ant-confirm').length - 1];
+      const currentConfirmNode = document.querySelectorAll('.ant-modal-confirm')[document.querySelectorAll('.ant-modal-confirm').length - 1];
       let cancelButtonText = currentConfirmNode.querySelectorAll('.ant-btn:not(.ant-btn-primary) span')[0].innerHTML;
       let okButtonText = currentConfirmNode.querySelectorAll('.ant-btn-primary span')[0].innerHTML;
       if (locale.locale === 'zh-cn') {

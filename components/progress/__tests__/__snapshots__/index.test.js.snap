@@ -23,6 +23,7 @@ exports[`Progress render format 1`] = `
     </div>
     <span
       class="ant-progress-text"
+      title="50 10"
     >
       50 10
     </span>
@@ -49,6 +50,7 @@ exports[`Progress render negetive progress 1`] = `
     </div>
     <span
       class="ant-progress-text"
+      title="0%"
     >
       0%
     </span>
@@ -79,6 +81,7 @@ exports[`Progress render negetive successPercent 1`] = `
     </div>
     <span
       class="ant-progress-text"
+      title="50%"
     >
       50%
     </span>
