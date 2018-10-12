@@ -48,6 +48,7 @@ export interface TransferProps {
   body?: (props: TransferListProps) => React.ReactNode;
   rowKey?: (record: TransferItem) => string;
   onSearchChange?: (direction: TransferDirection, e: React.ChangeEvent<HTMLInputElement>) => void;
+  onSearch?: (direction: TransferDirection, value: string) => void;
   lazy?: {} | boolean;
   onScroll?: (direction: TransferDirection, e: React.SyntheticEvent<HTMLDivElement>) => void;
 }
@@ -263,22 +264,35 @@ export default class Transfer extends React.Component<TransferProps, any> {
   )
 
   handleFilter = (direction: TransferDirection, e: React.ChangeEvent<HTMLInputElement>) => {
+    const { onSearchChange, onSearch } = this.props;
+    const value = e.target.value;
     this.setState({
       // add filter
-      [`${direction}Filter`]: e.target.value,
+      [`${direction}Filter`]: value,
     });
-    if (this.props.onSearchChange) {
-      this.props.onSearchChange(direction, e);
+    if (onSearchChange) {
+      warning(
+        false,
+        '`onSearchChange` in Transfer is deprecated. Please use `onSearch` instead.',
+      );
+      onSearchChange(direction, e);
+    }
+    if (onSearch) {
+      onSearch(direction, value);
     }
   }
 
   handleLeftFilter = (e: React.ChangeEvent<HTMLInputElement>) => this.handleFilter('left', e);
   handleRightFilter = (e: React.ChangeEvent<HTMLInputElement>) => this.handleFilter('right', e);
 
-  handleClear = (direction: string) => {
+  handleClear = (direction: TransferDirection) => {
+    const { onSearch } = this.props;
     this.setState({
       [`${direction}Filter`]: '',
     });
+    if (onSearch) {
+      onSearch(direction, '');
+    }
   }
 
   handleLeftClear = () => this.handleClear('left');

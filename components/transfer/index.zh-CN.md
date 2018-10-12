@@ -35,7 +35,7 @@ title: Transfer
 | titles | 标题集合，顺序从左至右 | string\[] | ['', ''] |
 | onChange | 选项在两栏之间转移时的回调函数 | (targetKeys, direction, moveKeys): void |  |
 | onScroll | 选项列表滚动时的回调函数 | (direction, event): void |  |
-| onSearchChange | 搜索框内容时改变时的回调函数 | (direction: 'left'\|'right', event: Event): void | - |
+| onSearch | 搜索框内容时改变时的回调函数 | (direction: 'left'\|'right', value: string): void | - |
 | onSelectChange | 选中项发生改变时的回调函数 | (sourceSelectedKeys, targetSelectedKeys): void |  |
 
 ## 注意
