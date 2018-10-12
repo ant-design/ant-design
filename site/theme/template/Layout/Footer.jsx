@@ -105,6 +105,9 @@ class Footer extends React.Component {
                   Ant Design of Angular
                 </div>
                 <div>
+                  <a href="http://ng.mobile.ant.design">NG-ZORRO-MOBILE</a>
+                </div>
+                <div>
                   <a target="_blank " href="https://github.com/websemantics/awesome-ant-design">
                     <FormattedMessage id="app.footer.awesome" />
                   </a>
