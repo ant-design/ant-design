@@ -19,6 +19,7 @@ timeline: true
 
 `2018-10-12`
 
+- 🎉 [Ant Design Mobile of Angular](http://ng.mobile.ant.design/)（NG-ZORRO-Mobile）发布！
 - 📝 更新 [项目实战](https://ant.design/docs/react/practical-projects-cn) 文档为最新的 umi 技术栈。
 - Table
   - 🐞 修复未指定排序的列头点击时也会触发排序的问题。[#12515](https://github.com/ant-design/ant-design/issues/12515)
