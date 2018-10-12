@@ -36,6 +36,7 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
       </svg>
       <span
         class="ant-progress-text"
+        title="75%"
       >
         75%
       </span>
@@ -190,6 +191,7 @@ exports[`renders ./components/progress/demo/circle-dynamic.md correctly 1`] = `
       </svg>
       <span
         class="ant-progress-text"
+        title="0%"
       >
         0%
       </span>
@@ -282,6 +284,7 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
       </svg>
       <span
         class="ant-progress-text"
+        title="30%"
       >
         30%
       </span>
@@ -435,6 +438,7 @@ exports[`renders ./components/progress/demo/dashboard.md correctly 1`] = `
     </svg>
     <span
       class="ant-progress-text"
+      title="75%"
     >
       75%
     </span>
@@ -462,6 +466,7 @@ exports[`renders ./components/progress/demo/dynamic.md correctly 1`] = `
       </div>
       <span
         class="ant-progress-text"
+        title="0%"
       >
         0%
       </span>
@@ -554,6 +559,7 @@ exports[`renders ./components/progress/demo/format.md correctly 1`] = `
       </svg>
       <span
         class="ant-progress-text"
+        title="75 Days"
       >
         75 Days
       </span>
@@ -593,6 +599,7 @@ exports[`renders ./components/progress/demo/format.md correctly 1`] = `
       </svg>
       <span
         class="ant-progress-text"
+        title="Done"
       >
         Done
       </span>
@@ -621,6 +628,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
       </div>
       <span
         class="ant-progress-text"
+        title="30%"
       >
         30%
       </span>
@@ -644,6 +652,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
       </div>
       <span
         class="ant-progress-text"
+        title="50%"
       >
         50%
       </span>
@@ -770,6 +779,7 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
       </div>
       <span
         class="ant-progress-text"
+        title="30%"
       >
         30%
       </span>
@@ -793,6 +803,7 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
       </div>
       <span
         class="ant-progress-text"
+        title="50%"
       >
         50%
       </span>
@@ -899,6 +910,7 @@ exports[`renders ./components/progress/demo/linecap.md correctly 1`] = `
       </div>
       <span
         class="ant-progress-text"
+        title="75%"
       >
         75%
       </span>
@@ -938,6 +950,7 @@ exports[`renders ./components/progress/demo/linecap.md correctly 1`] = `
       </svg>
       <span
         class="ant-progress-text"
+        title="75%"
       >
         75%
       </span>
@@ -977,6 +990,7 @@ exports[`renders ./components/progress/demo/linecap.md correctly 1`] = `
       </svg>
       <span
         class="ant-progress-text"
+        title="75%"
       >
         75%
       </span>
@@ -1008,6 +1022,7 @@ exports[`renders ./components/progress/demo/segment.md correctly 1`] = `
     </div>
     <span
       class="ant-progress-text"
+      title="60%"
     >
       60%
     </span>
