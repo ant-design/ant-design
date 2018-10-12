@@ -31,7 +31,7 @@ timeline: true
   - 🐞 Fixed calendar icon missing when use it in Input.Group. [#12536](https://github.com/ant-design/ant-design/issues/12536)
 - 🐞 Fixed Anchor text edge cut problem. [#12520](https://github.com/ant-design/ant-design/issues/12520)
 - 🐞 Fixed that Drawer still cover page even set `mask={false}`. [#12401](https://github.com/ant-design/ant-design/issues/12401)
-- 🐞 Fixed disabled style of Input.TextArea when used as custom input in AutoComplete. [#12594](https://github.com/ant-design/ant-design/issues/12594)
+- 🐞 Fixed disabled style missing of Input.TextArea when used as custom input in AutoComplete. [#12594](https://github.com/ant-design/ant-design/issues/12594)
 - 🐞 Fixed Modal.confirm `prefixCls` prop not passing to mask element, and changed it's default value to `ant-model-confirm`. [#12546](https://github.com/ant-design/ant-design/issues/12546)
 - 🐞 Fixed an align issue of Input.Group in safari. [#12493](https://github.com/ant-design/ant-design/issues/12493)
 - 🐞 Fixed an align issue of standalone `<Badge />`. [#12419](https://github.com/ant-design/ant-design/issues/12419)
