@@ -15,6 +15,40 @@ timeline: true
 
 ---
 
+## 3.10.1
+
+`2018-10-12`
+
+- 🎉 [Ant Design Mobile of Angular](http://ng.mobile.ant.design/)(NG-ZORRO-Mobile) released!
+- 📝 Upgrade document `Real project with dva` to [Real project with umi](https://ant.design/docs/react/practical-projects).
+- Table
+  - 🐞 Fixed clicking all columns will trigger sort behavior even without `sorter` props. [#12515](https://github.com/ant-design/ant-design/issues/12515)
+  - 🐞 Fixed extra "Sort" title hint of column. [#12613](https://github.com/ant-design/ant-design/issues/12613)
+  - 🐞 Fixed broken style of sort and right-aligned column. [#12552](https://github.com/ant-design/ant-design/issues/12552)
+  - 🐞 Fixed sort not working as expected when `columns` defined in `render`. [#12571](https://github.com/ant-design/ant-design/issues/12571)
+  - 🐞 Fixed sorted column background color of small size Table.
+  - 🐞 Fixed overlap style of Table row selection Checkbox in chrome. [5bef1aa](https://github.com/ant-design/ant-design/commit/5bef1aa6c2e792180ef8d53a1f1489376b8e35db)
+  - 🐞 Fixed broken style of Table inside Form.Item. [#12554](https://github.com/ant-design/ant-design/issues/12554)
+- DatePicker
+  - 🐞 Tweak Italian locale. [#12413](https://github.com/ant-design/ant-design/issues/12413) [@yp](https://github.com/yp)
+  - 🐞 Fixed that picker does not get focused state after select date. [#12475](https://github.com/ant-design/ant-design/issues/12475)
+  - 🐞 Fixed calendar icon missing when use it in Input.Group. [#12536](https://github.com/ant-design/ant-design/issues/12536)
+- 🐞 Fixed Anchor text edge cut problem. [#12520](https://github.com/ant-design/ant-design/issues/12520)
+- 🐞 Fixed that Drawer still cover page even set `mask={false}`. [#12401](https://github.com/ant-design/ant-design/issues/12401)
+- 🐞 Fixed disabled style missing of Input.TextArea when used as custom input in AutoComplete. [#12594](https://github.com/ant-design/ant-design/issues/12594)
+- 🐞 Fixed Modal.confirm `prefixCls` prop not passing to mask element, and changed it's default value to `ant-model-confirm`. [#12546](https://github.com/ant-design/ant-design/issues/12546)
+- 🐞 Fixed an align issue of Input.Group in safari. [#12493](https://github.com/ant-design/ant-design/issues/12493)
+- 🐞 Fixed an align issue of standalone `<Badge />`. [#12419](https://github.com/ant-design/ant-design/issues/12419)
+- 🐞 Fixed inconsistent arugments of `onExpand` when click Tree.DirectoryTree switch icon and tree node. [#12567](https://github.com/ant-design/ant-design/issues/12567)
+- 🐞 Fixed hasFeedback icon unexpected focused state in IE11. [#12524](https://github.com/ant-design/ant-design/pull/12524) [@siyu77](https://github.com/siyu77)
+- 🐞 Fixed multiple Select will trigger `onFocus` and `onBlur` repeatly when click it multiple times. [#12281](https://github.com/ant-design/ant-design/issues/12281) [@Frezc ](https://github.com/Frezc)
+- 🐞 Fixed long text overflow issue of circle type Progress.
+- TypeScript
+  - 🐞 Fixed Steps `labelPlacement` definition. [#12575](https://github.com/ant-design/ant-design/pull/12575) [@yueyes](https://github.com/yueyes)
+  - 🐞 Fixed Select.Option `style` definition. [#12609](https://github.com/ant-design/ant-design/pull/12609) [@dimitropoulos](https://github.com/dimitropoulos)
+  - 🐞 Fixed `form.validateFields` overload order problem. [#12538](https://github.com/ant-design/ant-design/pull/12538) [@TomIsion](https://github.com/TomIsion)
+  - 🐞 Fixed AutoComponent `onFocus` `onBlur` definitions. [#12498](https://github.com/ant-design/ant-design/issues/12498)
+
 ## 3.10.0
 
 `2018-09-30`
