@@ -172,3 +172,46 @@ exports[`Progress render out-of-range progress with info 1`] = `
   </div>
 </div>
 `;
+
+exports[`Progress render strokeColor 1`] = `
+<div
+  class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+>
+  <div
+    class="ant-progress-inner"
+    style="width: 120px; height: 120px; font-size: 24px;"
+  >
+    <svg
+      class="ant-progress-circle "
+      viewBox="0 0 100 100"
+    >
+      <path
+        class="ant-progress-circle-trail"
+        d="M 50,50 m 0,-47
+     a 47,47 0 1 1 0,94
+     a 47,47 0 1 1 0,-94"
+        fill-opacity="0"
+        stroke="#f3f3f3"
+        stroke-width="6"
+        style="stroke-dasharray: 295.3097094374406px 295.3097094374406px; stroke-dashoffset: -0px;"
+      />
+      <path
+        class="ant-progress-circle-path"
+        d="M 50,50 m 0,-47
+     a 47,47 0 1 1 0,94
+     a 47,47 0 1 1 0,-94"
+        fill-opacity="0"
+        stroke-linecap="round"
+        stroke-width="6"
+        style="stroke: red; stroke-dasharray: 147.6548547187203px 295.3097094374406px; stroke-dashoffset: -0px;"
+      />
+    </svg>
+    <span
+      class="ant-progress-text"
+      title="50%"
+    >
+      50%
+    </span>
+  </div>
+</div>
+`;
