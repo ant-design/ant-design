@@ -24,7 +24,7 @@ timeline: true
   - 🐞 Fixed sort not working as expected when `columns` defined in `render`. [#12571](https://github.com/ant-design/ant-design/issues/12571)
   - 🐞 Fixed sorted column background color of small size Table.
   - 🐞 Fixed overlap style of Table row selection Checkbox in chrome. [5bef1aa](https://github.com/ant-design/ant-design/commit/5bef1aa6c2e792180ef8d53a1f1489376b8e35db)
-  - 🐞 Fixed broken style of Table inside FormItem. [#12554](https://github.com/ant-design/ant-design/issues/12554)
+  - 🐞 Fixed broken style of Table inside Form.Item. [#12554](https://github.com/ant-design/ant-design/issues/12554)
 - DatePicker
   - 🐞 Tweak Italian locale. [#12413](https://github.com/ant-design/ant-design/issues/12413) [@yp](https://github.com/yp)
   - 🐞 Fixed that picker does not get focused state after select date. [#12475](https://github.com/ant-design/ant-design/issues/12475)

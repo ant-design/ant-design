@@ -28,7 +28,7 @@ timeline: true
   - 🐞 修复一个 columns 定义在 render 内时排序失效的问题。[#12571](https://github.com/ant-design/ant-design/issues/12571)
   - 🐞 修复小号表格下排序列的列头背景色。
   - 🐞 修复 Table 的选择器在 chrome 下选中样式的重影问题。[5bef1aa](https://github.com/ant-design/ant-design/commit/5bef1aa6c2e792180ef8d53a1f1489376b8e35db)
-  - 🐞 修复 FormItem 内的 Table 分页样式。[#12554](https://github.com/ant-design/ant-design/issues/12554)
+  - 🐞 修复 Form.Item 内的 Table 分页样式。[#12554](https://github.com/ant-design/ant-design/issues/12554)
 - DatePicker
   - 🐞 调整意大利国际化文案。[#12413](https://github.com/ant-design/ant-design/issues/12413) [@yp](https://github.com/yp)
   - 🐞 修复选择完成后选择框没有获取焦点的问题。[#12475](https://github.com/ant-design/ant-design/issues/12475)
