@@ -1,11 +1,7 @@
 ---
-category:
-  zh-CN: 模式
-  en-US: Patterns
+category: 模式
 order: 0
-title:
-  zh-CN: 概览
-  en-US: Overview
+title: 概览
 ---
 
 在企业级业务中使用设计模式，能大幅度提升研发团队的确定性，节约无谓的设计且保持系统一致性，让『设计者』把创造力专注在最需要的地方。
