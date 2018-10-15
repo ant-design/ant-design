@@ -38,7 +38,7 @@ yarn create v1.12.0
 success Installed "create-umi@0.3.1" with binaries:
       - create-umi
 
-? What functionality do your want to enable? (Press <space> to select, <a> to toggle all, <i
+? What functionality do you want to enable? (Press <space> to select, <a> to toggle all, <i
 > to invert selection)
 ❯◯ antd
  ◯ dva
