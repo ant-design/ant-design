@@ -3192,6 +3192,7 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                   >
                     <td
                       class=""
+                      rowindex="0"
                     >
                       <div
                         class="editable-cell-value-wrap"
@@ -3230,6 +3231,7 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                   >
                     <td
                       class=""
+                      rowindex="1"
                     >
                       <div
                         class="editable-cell-value-wrap"
@@ -3418,6 +3420,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 >
                   <td
                     class=""
+                    rowindex="0"
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
@@ -3427,11 +3430,13 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   </td>
                   <td
                     class=""
+                    rowindex="0"
                   >
                     32
                   </td>
                   <td
                     class=""
+                    rowindex="0"
                   >
                     London Park no. 0
                   </td>
@@ -3451,6 +3456,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 >
                   <td
                     class=""
+                    rowindex="1"
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
@@ -3460,11 +3466,13 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   </td>
                   <td
                     class=""
+                    rowindex="1"
                   >
                     32
                   </td>
                   <td
                     class=""
+                    rowindex="1"
                   >
                     London Park no. 1
                   </td>
@@ -3484,6 +3492,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 >
                   <td
                     class=""
+                    rowindex="2"
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
@@ -3493,11 +3502,13 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   </td>
                   <td
                     class=""
+                    rowindex="2"
                   >
                     32
                   </td>
                   <td
                     class=""
+                    rowindex="2"
                   >
                     London Park no. 2
                   </td>
@@ -3517,6 +3528,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 >
                   <td
                     class=""
+                    rowindex="3"
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
@@ -3526,11 +3538,13 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   </td>
                   <td
                     class=""
+                    rowindex="3"
                   >
                     32
                   </td>
                   <td
                     class=""
+                    rowindex="3"
                   >
                     London Park no. 3
                   </td>
@@ -3550,6 +3564,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 >
                   <td
                     class=""
+                    rowindex="4"
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
@@ -3559,11 +3574,13 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   </td>
                   <td
                     class=""
+                    rowindex="4"
                   >
                     32
                   </td>
                   <td
                     class=""
+                    rowindex="4"
                   >
                     London Park no. 4
                   </td>
@@ -3583,6 +3600,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 >
                   <td
                     class=""
+                    rowindex="5"
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
@@ -3592,11 +3610,13 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   </td>
                   <td
                     class=""
+                    rowindex="5"
                   >
                     32
                   </td>
                   <td
                     class=""
+                    rowindex="5"
                   >
                     London Park no. 5
                   </td>
@@ -3616,6 +3636,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 >
                   <td
                     class=""
+                    rowindex="6"
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
@@ -3625,11 +3646,13 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   </td>
                   <td
                     class=""
+                    rowindex="6"
                   >
                     32
                   </td>
                   <td
                     class=""
+                    rowindex="6"
                   >
                     London Park no. 6
                   </td>
@@ -3649,6 +3672,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 >
                   <td
                     class=""
+                    rowindex="7"
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
@@ -3658,11 +3682,13 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   </td>
                   <td
                     class=""
+                    rowindex="7"
                   >
                     32
                   </td>
                   <td
                     class=""
+                    rowindex="7"
                   >
                     London Park no. 7
                   </td>
@@ -3682,6 +3708,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 >
                   <td
                     class=""
+                    rowindex="8"
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
@@ -3691,11 +3718,13 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   </td>
                   <td
                     class=""
+                    rowindex="8"
                   >
                     32
                   </td>
                   <td
                     class=""
+                    rowindex="8"
                   >
                     London Park no. 8
                   </td>
@@ -3715,6 +3744,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 >
                   <td
                     class=""
+                    rowindex="9"
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
@@ -3724,11 +3754,13 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   </td>
                   <td
                     class=""
+                    rowindex="9"
                   >
                     32
                   </td>
                   <td
                     class=""
+                    rowindex="9"
                   >
                     London Park no. 9
                   </td>
