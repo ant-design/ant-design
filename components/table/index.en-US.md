@@ -126,7 +126,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | sortOrder | Order of sorted values: `'ascend'` `'descend'` `false` | boolean\|string | - |
 | title | Title of this column | ReactNode\|({ sortOrder, filters }) => ReactNode | - |
 | width | Width of this column | string\|number | - |
-| onCell | Set props on per cell | Function(record) | - |
+| onCell | Set props on per cell | Function(record, rowIndex) | - |
 | onFilter | Callback executed when the confirm filter button is clicked | Function | - |
 | onFilterDropdownVisibleChange | Callback executed when `filterDropdownVisible` is changed | function(visible) {} | - |
 | onHeaderCell | Set props on per header cell | Function(column) | - |

@@ -131,7 +131,7 @@ const columns = [{
 | sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `'ascend'` `'descend'` `false` | boolean\|string | - |
 | title | 列头显示文字 | ReactNode\|({ sortOrder, filters }) => ReactNode | - |
 | width | 列宽度 | string\|number | - |
-| onCell | 设置单元格属性 | Function(record) | - |
+| onCell | 设置单元格属性 | Function(record, rowIndex) | - |
 | onFilter | 本地模式下，确定筛选的运行函数 | Function | - |
 | onFilterDropdownVisibleChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - |
 | onHeaderCell | 设置头部单元格属性 | Function(column) | - |
