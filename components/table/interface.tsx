@@ -35,7 +35,7 @@ export interface ColumnProps<T> {
   sortOrder?: SortOrder;
   children?: ColumnProps<T>[];
   onCellClick?: (record: T, event: any) => void;
-  onCell?: (record: T) => any;
+  onCell?: (record: T, rowIndex: number) => any;
   onHeaderCell?: (props: ColumnProps<T>) => any;
 }
 
