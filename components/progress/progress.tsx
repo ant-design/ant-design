@@ -145,7 +145,7 @@ export default class Progress extends React.Component<ProgressProps, {}> {
             percent={validProgress(percent)}
             strokeWidth={circleWidth}
             trailWidth={circleWidth}
-            strokeColor={(statusColorMap as any)[progressStatus]}
+            strokeColor={strokeColor || (statusColorMap as any)[progressStatus]}
             strokeLinecap={strokeLinecap}
             trailColor={trailColor}
             prefixCls={prefixCls}
