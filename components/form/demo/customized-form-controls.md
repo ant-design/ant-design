@@ -26,6 +26,16 @@ const FormItem = Form.Item;
 const Option = Select.Option;
 
 class PriceInput extends React.Component {
+  static getDerivedStateFromProps(nextProps) {
+    // Should be a controlled component.
+    if ('value' in nextProps) {
+      return {
+        value: nextProps.value || {},
+      };
+    }
+    return null;
+  }
+
   constructor(props) {
     super(props);
 
@@ -34,14 +44,6 @@ class PriceInput extends React.Component {
       number: value.number || 0,
       currency: value.currency || 'rmb',
     };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    // Should be a controlled component.
-    if ('value' in nextProps) {
-      const value = nextProps.value;
-      this.setState(value);
-    }
   }
 
   handleNumberChange = (e) => {
