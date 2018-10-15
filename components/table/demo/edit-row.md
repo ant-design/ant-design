@@ -186,9 +186,8 @@ class EditableTable extends React.Component {
       }
       return {
         ...col,
-        onCell: (record, rowIndex) => ({
+        onCell: record => ({
           record,
-          rowIndex,
           inputType: col.dataIndex === 'age' ? 'number' : 'text',
           dataIndex: col.dataIndex,
           title: col.title,
