@@ -21,7 +21,7 @@ title: 加入我们
   - 有企业级设计实战经验，加分；
   - 深度理解 SAP、Salesforce、Google 等设计体系，能提出自己独到见解并落实到实践中，加加加分。
 - 岗位职责：
-  - 参与[蚂蚁金融科技](https://tech.antfin.com/)、数据服务、人工智能以及金融核心等企业级产品的设计工作；
+  - 参与[蚂蚁金融科技](https://tech.antfin.com/)、区块链、人工智能等企业级产品的设计工作；
   - 参与[语雀](https://www.yuque.com/)、[云凤蝶](https://www.yunfengdie.com/)、K12/中小学（支付宝搜索：小钱袋）等创新产品的设计工作；
   - 参与 Ant Design 的打磨，将其建设成全球卓越的设计体系。
 - Two More Things ❤️ ：
