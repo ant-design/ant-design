@@ -211,9 +211,8 @@ class EditableTable extends React.Component {
       }
       return {
         ...col,
-        onCell: (record, rowIndex) => ({
+        onCell: record => ({
           record,
-          rowIndex,
           editable: col.editable,
           dataIndex: col.dataIndex,
           title: col.title,
