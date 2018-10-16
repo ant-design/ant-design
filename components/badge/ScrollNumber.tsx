@@ -15,6 +15,7 @@ export interface ScrollNumberProps {
   prefixCls?: string;
   className?: string;
   count?: string | number | null;
+  displayComponent?: React.ReactElement<any>;
   component?: string;
   onAnimated?: Function;
   style?: React.CSSProperties;
@@ -116,22 +117,23 @@ export default class ScrollNumber extends Component<ScrollNumberProps, ScrollNum
   }
 
   renderNumberElement() {
-    const state = this.state;
-    if (!state.count || isNaN(state.count as number)) {
-      return state.count;
+    const { count } = this.state;
+    if (!count || isNaN(count as number)) {
+      return count;
     }
-    return getNumberArray(state.count)
+    return getNumberArray(count)
       .map((num, i) => this.renderCurrentNumber(num, i)).reverse();
   }
 
   render() {
-    const { prefixCls, className, style, title, component = 'sup' } = this.props;
+    const { prefixCls, className, style, title, component = 'sup', displayComponent } = this.props;
     // fix https://fb.me/react-unknown-prop
     const restProps = omit(this.props, [
       'count',
       'onAnimated',
       'component',
       'prefixCls',
+      'displayComponent',
     ]);
     const newProps = {
       ...restProps,
@@ -143,6 +145,11 @@ export default class ScrollNumber extends Component<ScrollNumberProps, ScrollNum
     // <Badge count={4} style={{ backgroundColor: '#fff', color: '#999', borderColor: '#d9d9d9' }} />
     if (style && style.borderColor) {
       newProps.style.boxShadow = `0 0 0 1px ${style.borderColor} inset`;
+    }
+    if (displayComponent) {
+      return React.cloneElement(displayComponent, {
+        className: `${prefixCls}-custom-component`,
+      });
     }
     return createElement(
       component as any,
