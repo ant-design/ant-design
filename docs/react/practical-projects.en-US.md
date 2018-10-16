@@ -126,7 +126,7 @@ We need to write an application displaying the list of products. The first step 
 If you don't have npx, you need to install it first to execute the commands under node_modules.
 
 ```bash
-$ yarn global addd npx
+$ yarn global add npx
 ```
 
 Then create a `/products` route,
