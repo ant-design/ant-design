@@ -93,7 +93,14 @@ export default class Progress extends React.Component<ProgressProps, {}> {
       } else if (progressStatus === 'success') {
         text = <Icon type={`check${iconType}`} theme={type === 'line' ? 'filled' : 'outlined'} />;
       }
-      progressInfo = <span className={`${prefixCls}-text`}>{text}</span>;
+      progressInfo = (
+        <span
+          className={`${prefixCls}-text`}
+          title={typeof text === 'string' ? text : undefined}
+        >
+          {text}
+        </span>
+      );
     }
 
     if (type === 'line') {
@@ -138,7 +145,7 @@ export default class Progress extends React.Component<ProgressProps, {}> {
             percent={validProgress(percent)}
             strokeWidth={circleWidth}
             trailWidth={circleWidth}
-            strokeColor={(statusColorMap as any)[progressStatus]}
+            strokeColor={strokeColor || (statusColorMap as any)[progressStatus]}
             strokeLinecap={strokeLinecap}
             trailColor={trailColor}
             prefixCls={prefixCls}
