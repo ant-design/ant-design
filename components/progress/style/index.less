@@ -4,6 +4,7 @@
 @progress-prefix-cls: ~"@{ant-prefix}-progress";
 
 .@{progress-prefix-cls} {
+  .reset-component;
   display: inline-block;
 
   &-line {
@@ -12,49 +13,65 @@
     position: relative;
   }
 
+  &-small&-line,
+  &-small&-line &-text .@{iconfont-css-prefix} {
+    font-size: @font-size-sm;
+  }
+
   &-outer {
     display: inline-block;
     width: 100%;
     margin-right: 0;
     padding-right: 0;
     .@{progress-prefix-cls}-show-info & {
-      padding-right: 45px;
-      margin-right: -45px;
+      padding-right: ~"calc(2em + 8px)";
+      margin-right: ~"calc(-2em - 8px)";
     }
   }
 
   &-inner {
     display: inline-block;
     width: 100%;
-    background-color: @background-color-base;
+    background-color: @progress-remaining-color;
     border-radius: 100px;
     vertical-align: middle;
+    position: relative;
   }
 
   &-circle-trail {
-    stroke: @background-color-base;
+    stroke: @progress-remaining-color;
   }
 
   &-circle-path {
-    stroke: @process-default-color;
+    stroke: @progress-default-color;
+    animation: ~"@{ant-prefix}-progress-appear" .3s;
   }
 
+  &-success-bg,
   &-bg {
-    border-radius: 100px;
-    background-color: @process-default-color;
+    background-color: @progress-default-color;
     transition: all .4s @ease-out-circ 0s;
     position: relative;
   }
 
+  &-success-bg {
+    background-color: @success-color;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
   &-text {
-    width: 35px;
+    word-break: normal;
+    width: 2em;
     text-align: left;
     font-size: 1em;
-    margin-left: 10px;
+    margin-left: 8px;
     vertical-align: middle;
     display: inline-block;
-    position: relative;
-    top: -1px;
+    white-space: nowrap;
+    color: @text-color-secondary;
+    line-height: 1;
     .@{iconfont-css-prefix} {
       font-size: @font-size-base;
     }
@@ -114,20 +131,22 @@
     top: 50%;
     transform: translateY(-50%);
     left: 0;
-    font-family: tahoma;
     margin: 0;
+    color: @progress-text-color;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     .@{iconfont-css-prefix} {
       font-size: 14 / 12em;
     }
   }
 
-  &-circle &-status-exception {
+  &-circle&-status-exception {
     .@{progress-prefix-cls}-text {
       color: @error-color;
     }
   }
-  &-circle &-status-success {
+  &-circle&-status-success {
     .@{progress-prefix-cls}-text {
       color: @success-color;
     }

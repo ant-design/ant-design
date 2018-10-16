@@ -3,30 +3,29 @@ sudo: false
 language: node_js
 
 node_js:
-  - "6"
+  - 10
 
-env:
-  matrix:
-    - TEST_TYPE=lint
-    - TEST_TYPE=dist
-    - TEST_TYPE=compile
-    - TEST_TYPE=test:dom
-    - TEST_TYPE=test:node
+cache:
+  directories:
+    - $HOME/.npm
+
+matrix:
+  fast_finish: true
+  include:
+    - env: TEST_TYPE=lint
+    - env: REACT=16 TEST_TYPE=test:dist
+    - env: REACT=16 TEST_TYPE=test:lib
+    - env: REACT=16 TEST_TYPE=test:es
+    - env: REACT=16 TEST_TYPE=test:dom
+    - env: REACT=16 TEST_TYPE=test:node
+    - env: REACT=15 TEST_TYPE=test:dist
+    - env: REACT=15 TEST_TYPE=test:lib
+    - env: REACT=15 TEST_TYPE=test:es
+    - env: REACT=15 TEST_TYPE=test:dom
+    - env: REACT=15 TEST_TYPE=test:node
+
+before_script:
+  - scripts/install-react.sh
 
 script:
-  - |
-    if [ "$TEST_TYPE" = lint ]; then
-      npm run lint
-    elif [ "$TEST_TYPE" = dist ]; then
-      npm run dist && \
-      node ./tests/dekko/dist.test.js
-    elif [ "$TEST_TYPE" = compile ]; then
-      npm run compile && \
-      node ./tests/dekko/lib.test.js
-    elif [ "$TEST_TYPE" = test:dom ]; then
-      npm run dist && \
-      npm test -- --coverage -w 2 && \
-      bash <(curl -s https://codecov.io/bash)
-    elif [ "$TEST_TYPE" = test:node ]; then
-      npm test -- --config .jest.node.json -w 2
-    fi
+  - scripts/travis-script.sh

@@ -1,13 +1,11 @@
-import React, { PropTypes } from 'react';
+import * as React from 'react';
+import * as PropTypes from 'prop-types';
+import { AbstractCheckboxProps } from '../checkbox/Checkbox';
 import Radio from './radio';
+import { RadioChangeEvent } from './interface';
+import Wave from '../_util/wave';
 
-export interface RadioButtonProps {
-  value: string | number;
-  style?: React.CSSProperties;
-  disabled?: boolean;
-  checked?: boolean;
-  onChange?: (e: any) => any;
-}
+export type RadioButtonProps = AbstractCheckboxProps<RadioChangeEvent>;
 
 export default class RadioButton extends React.Component<RadioButtonProps, any> {
   static defaultProps = {
@@ -19,7 +17,7 @@ export default class RadioButton extends React.Component<RadioButtonProps, any> 
   };
 
   render() {
-    let radioProps: RadioButtonProps = { ...this.props };
+    const radioProps: RadioButtonProps = { ...this.props };
     if (this.context.radioGroup) {
       radioProps.onChange = this.context.radioGroup.onChange;
       radioProps.checked = this.props.value === this.context.radioGroup.value;
@@ -27,7 +25,9 @@ export default class RadioButton extends React.Component<RadioButtonProps, any> 
     }
 
     return (
-      <Radio {...radioProps} />
+      <Wave>
+        <Radio {...radioProps} />
+      </Wave>
     );
   }
 }

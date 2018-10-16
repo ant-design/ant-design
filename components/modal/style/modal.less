@@ -1,6 +1,8 @@
 @dialog-prefix-cls: ~"@{ant-prefix}-modal";
+@table-prefix-cls: ~"@{ant-prefix}-table";
 
 .@{dialog-prefix-cls} {
+  .reset-component;
   position: relative;
   width: auto;
   margin: 0 auto;
@@ -22,7 +24,7 @@
   &-title {
     margin: 0;
     font-size: @font-size-lg;
-    line-height: 21px;
+    line-height: 22px;
     font-weight: 500;
     color: @heading-color;
   }
@@ -47,9 +49,10 @@
     font-weight: 700;
     line-height: 1;
     text-decoration: none;
-    transition: color .3s ease;
+    transition: color .3s;
     color: @text-color-secondary;
     outline: 0;
+    padding: 0;
 
     &-x {
       display: block;
@@ -58,16 +61,10 @@
       text-align: center;
       text-transform: none;
       text-rendering: auto;
-      width: 48px;
-      height: 48px;
-      line-height: 48px;
+      width: 56px;
+      height: 56px;
+      line-height: 56px;
       font-size: @font-size-lg;
-
-      &:before {
-        content: "\e633";
-        display: block;
-        font-family: "anticon" !important;
-      }
     }
 
     &:focus,
@@ -78,7 +75,7 @@
   }
 
   &-header {
-    padding: 13px 16px;
+    padding: 16px 24px;
     border-radius: @border-radius-base @border-radius-base 0 0;
     background: @component-background;
     color: @text-color;
@@ -86,14 +83,15 @@
   }
 
   &-body {
-    padding: 16px;
+    padding: 24px;
     font-size: @font-size-base;
-    line-height: 1.5;
+    line-height: @line-height-base;
+    word-wrap: break-word;
   }
 
   &-footer {
     border-top: @border-width-base @border-style-base @border-color-split;
-    padding: 10px 16px 10px 10px;
+    padding: 10px 16px;
     text-align: right;
     border-radius: 0 0 @border-radius-base @border-radius-base;
     button + button {
@@ -107,6 +105,7 @@
     animation-duration: @animation-duration-slow;
     transform: none; // reset scale avoid mousePosition bug
     opacity: 0;
+    user-select: none; // https://github.com/ant-design/ant-design/issues/11777
   }
 
   &-mask {
@@ -115,8 +114,7 @@
     right: 0;
     left: 0;
     bottom: 0;
-    background-color: #373737;
-    background-color: rgba(55, 55, 55, 0.6); // lesshint duplicateProperty: false
+    background-color: @modal-mask-bg; // lesshint duplicateProperty: false
     height: 100%;
     z-index: @zindex-modal-mask;
     filter: ~"alpha(opacity=50)";
@@ -131,12 +129,29 @@
   }
 }
 
-@media (max-width: 768px) {
+.@{dialog-prefix-cls}-centered {
+  text-align: center;
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    width: 0;
+  }
+  .@{dialog-prefix-cls} {
+    display: inline-block;
+    vertical-align: middle;
+    top: 0;
+    text-align: left;
+  }
+}
+
+@media (max-width: @screen-sm-max) {
   .@{dialog-prefix-cls} {
     width: auto !important;
     margin: 10px;
   }
-  .vertical-center-modal {
+  .@{dialog-prefix-cls}-centered {
     .@{dialog-prefix-cls} {
       flex: 1;
     }

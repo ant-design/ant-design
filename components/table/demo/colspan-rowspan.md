@@ -38,10 +38,10 @@ const columns = [{
   dataIndex: 'name',
   render: (text, row, index) => {
     if (index < 4) {
-      return <a href="#">{text}</a>;
+      return <a href="javascript:;">{text}</a>;
     }
     return {
-      children: <a href="#">{text}</a>,
+      children: <a href="javascript:;">{text}</a>,
       props: {
         colSpan: 5,
       },
@@ -120,6 +120,6 @@ const data = [{
   address: 'Dublin No. 2 Lake Park',
 }];
 
-ReactDOM.render(<Table columns={columns} dataSource={data} bordered />
-, mountNode);
+ReactDOM.render(<Table columns={columns} dataSource={data} bordered />,
+  mountNode);
 ````

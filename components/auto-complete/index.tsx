@@ -1,14 +1,18 @@
-import React from 'react';
+import * as React from 'react';
 import { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
 import Select, { AbstractSelectProps, SelectValue, OptionProps, OptGroupProps } from '../select';
 import Input from '../input';
 import InputElement from './InputElement';
 
-export interface DataSourceItemObject { value: string; text: string; };
-export type DataSourceItemType = string | DataSourceItemObject;
+export interface DataSourceItemObject { value: string; text: string; }
+export type DataSourceItemType =
+  string |
+  DataSourceItemObject |
+  React.ReactElement<OptionProps> |
+  React.ReactElement<OptGroupProps>;
 
-export interface InputProps {
+export interface AutoCompleteInputProps {
   onChange?: React.FormEventHandler<any>;
   value: any;
 }
@@ -16,16 +20,19 @@ export interface InputProps {
 export type ValidInputElement =
   HTMLInputElement |
   HTMLTextAreaElement |
-  React.ReactElement<InputProps>;
+  React.ReactElement<AutoCompleteInputProps>;
 
 export interface AutoCompleteProps extends AbstractSelectProps {
   value?: SelectValue;
   defaultValue?: SelectValue;
-  dataSource: DataSourceItemType[];
+  dataSource?: DataSourceItemType[];
+  autoFocus?: boolean;
+  backfill?: boolean;
   optionLabelProp?: string;
-  filterOption?: boolean | ((inputValue: string, option: Object) => any);
   onChange?: (value: SelectValue) => void;
   onSelect?: (value: SelectValue, option: Object) => any;
+  onBlur?: () => any;
+  onFocus?: () => any;
   children?: ValidInputElement |
     React.ReactElement<OptionProps> |
     Array<React.ReactElement<OptionProps>>;
@@ -35,7 +42,7 @@ function isSelectOptionOrSelectOptGroup(child: any): Boolean {
   return child && child.type && (child.type.isSelectOption || child.type.isSelectOptGroup);
 }
 
-export default class AutoComplete extends React.Component<AutoCompleteProps, any> {
+export default class AutoComplete extends React.Component<AutoCompleteProps, {}> {
   static Option = Option as React.ClassicComponentClass<OptionProps>;
   static OptGroup = OptGroup as React.ClassicComponentClass<OptGroupProps>;
 
@@ -45,21 +52,33 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, any
     optionLabelProp: 'children',
     choiceTransitionName: 'zoom',
     showSearch: false,
+    filterOption: false,
   };
+
+  private select: any;
 
   getInputElement = () => {
     const { children } = this.props;
     const element = children && React.isValidElement(children) && children.type !== Option ?
-      React.Children.only(this.props.children) :
-      <Input/>;
+      React.Children.only(this.props.children) : <Input />;
+    const elementProps = { ...element.props };
+    // https://github.com/ant-design/ant-design/pull/7742
+    delete elementProps.children;
     return (
-      <InputElement
-        {...element.props}
-        className={classNames('ant-input', element.props.className)}
-      >
-        {element}
-      </InputElement>
+      <InputElement {...elementProps}>{element}</InputElement>
     );
+  }
+
+  focus() {
+    this.select.focus();
+  }
+
+  blur() {
+    this.select.blur();
+  }
+
+  saveSelect = (node: any) => {
+    this.select = node;
   }
 
   render() {
@@ -105,10 +124,11 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, any
       <Select
         {...this.props}
         className={cls}
-        mode="combobox"
+        mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE}
         optionLabelProp={optionLabelProp}
         getInputElement={this.getInputElement}
         notFoundContent={notFoundContent}
+        ref={this.saveSelect}
       >
         {options}
       </Select>

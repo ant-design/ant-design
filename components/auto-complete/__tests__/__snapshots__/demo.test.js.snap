@@ -1,70 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/auto-complete/demo/antd.md correctly 1`] = `
-<div
-  class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
-  style="width:200px;height:50px;"
->
-  <div
-    aria-autocomplete="list"
-    aria-expanded="false"
-    aria-haspopup="true"
-    class="ant-select-selection
-              ant-select-selection--single"
-    role="combobox"
-  >
-    <div
-      class="ant-select-selection__rendered"
-    >
-      <div
-        class="ant-select-selection__placeholder"
-        style="display:block;user-select:none;-webkit-user-select:none;"
-        unselectable="unselectable"
-      >
-        input here
-      </div>
-      <ul>
-        <li
-          class="ant-select-search ant-select-search--inline"
-        >
-          <div
-            class="ant-select-search__field__wrap"
-          >
-            <textarea
-              class="ant-input ant-select-search__field"
-              style="height:50px;"
-            />
-            <span
-              class="ant-select-search__field__mirror"
-            >
-               
-            </span>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <span
-      class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none;"
-      unselectable="unselectable"
-    >
-      <b />
-    </span>
-  </div>
-</div>
-`;
-
 exports[`renders ./components/auto-complete/demo/basic.md correctly 1`] = `
 <div
   class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
-  style="width:200px;"
+  style="width:200px"
 >
   <div
     aria-autocomplete="list"
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
-              ant-select-selection--single"
+            ant-select-selection--single"
     role="combobox"
   >
     <div
@@ -72,8 +18,8 @@ exports[`renders ./components/auto-complete/demo/basic.md correctly 1`] = `
     >
       <div
         class="ant-select-selection__placeholder"
-        style="display:block;user-select:none;-webkit-user-select:none;"
-        unselectable="unselectable"
+        style="display:block;user-select:none;-webkit-user-select:none"
+        unselectable="on"
       >
         input here
       </div>
@@ -85,7 +31,7 @@ exports[`renders ./components/auto-complete/demo/basic.md correctly 1`] = `
             class="ant-select-search__field__wrap"
           >
             <input
-              class="ant-input ant-input ant-select-search__field"
+              class="ant-input ant-select-search__field"
               type="text"
               value=""
             />
@@ -100,10 +46,26 @@ exports[`renders ./components/auto-complete/demo/basic.md correctly 1`] = `
     </div>
     <span
       class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none;"
-      unselectable="unselectable"
+      style="user-select:none;-webkit-user-select:none"
+      unselectable="on"
     >
-      <b />
+      <i
+        class="anticon anticon-down ant-select-arrow-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </i>
     </span>
   </div>
 </div>
@@ -112,18 +74,18 @@ exports[`renders ./components/auto-complete/demo/basic.md correctly 1`] = `
 exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1`] = `
 <div
   class="certain-category-search-wrapper"
-  style="width:250px;"
+  style="width:250px"
 >
   <div
     class="ant-select-lg ant-select-lg certain-category-search ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
-    style="width:100%;"
+    style="width:100%"
   >
     <div
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
-                ant-select-selection--single"
+            ant-select-selection--single"
       role="combobox"
     >
       <div
@@ -131,8 +93,8 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
       >
         <div
           class="ant-select-selection__placeholder"
-          style="display:block;user-select:none;-webkit-user-select:none;"
-          unselectable="unselectable"
+          style="display:block;user-select:none;-webkit-user-select:none"
+          unselectable="on"
         >
           input here
         </div>
@@ -144,10 +106,10 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
               class="ant-select-search__field__wrap"
             >
               <span
-                class="ant-input-affix-wrapper"
+                class="ant-select-search__field ant-input-affix-wrapper"
               >
                 <input
-                  class="ant-input ant-input ant-select-search__field"
+                  class="ant-input"
                   type="text"
                   value=""
                 />
@@ -156,7 +118,21 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
                 >
                   <i
                     class="anticon anticon-search certain-category-icon"
-                  />
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="search"
+                      fill="currentColor"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                      />
+                    </svg>
+                  </i>
                 </span>
               </span>
               <span
@@ -170,12 +146,92 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
       </div>
       <span
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none;"
-        unselectable="unselectable"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
       >
-        <b />
+        <i
+          class="anticon anticon-down ant-select-arrow-icon"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </i>
       </span>
     </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/auto-complete/demo/custom.md correctly 1`] = `
+<div
+  class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
+  style="width:200px"
+>
+  <div
+    aria-autocomplete="list"
+    aria-expanded="false"
+    aria-haspopup="true"
+    class="ant-select-selection
+            ant-select-selection--single"
+    role="combobox"
+  >
+    <div
+      class="ant-select-selection__rendered"
+    >
+      <ul>
+        <li
+          class="ant-select-search ant-select-search--inline"
+        >
+          <div
+            class="ant-select-search__field__wrap"
+          >
+            <textarea
+              class="ant-input custom ant-select-search__field"
+              placeholder="input here"
+              style="height:50px"
+            />
+            <span
+              class="ant-select-search__field__mirror"
+            >
+               
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <span
+      class="ant-select-arrow"
+      style="user-select:none;-webkit-user-select:none"
+      unselectable="on"
+    >
+      <i
+        class="anticon anticon-down ant-select-arrow-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </i>
+    </span>
   </div>
 </div>
 `;
@@ -183,14 +239,14 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
 exports[`renders ./components/auto-complete/demo/non-case-sensitive.md correctly 1`] = `
 <div
   class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
-  style="width:200px;"
+  style="width:200px"
 >
   <div
     aria-autocomplete="list"
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
-              ant-select-selection--single"
+            ant-select-selection--single"
     role="combobox"
   >
     <div
@@ -198,8 +254,8 @@ exports[`renders ./components/auto-complete/demo/non-case-sensitive.md correctly
     >
       <div
         class="ant-select-selection__placeholder"
-        style="display:block;user-select:none;-webkit-user-select:none;"
-        unselectable="unselectable"
+        style="display:block;user-select:none;-webkit-user-select:none"
+        unselectable="on"
       >
         try to type \`b\`
       </div>
@@ -211,7 +267,7 @@ exports[`renders ./components/auto-complete/demo/non-case-sensitive.md correctly
             class="ant-select-search__field__wrap"
           >
             <input
-              class="ant-input ant-input ant-select-search__field"
+              class="ant-input ant-select-search__field"
               type="text"
               value=""
             />
@@ -226,10 +282,26 @@ exports[`renders ./components/auto-complete/demo/non-case-sensitive.md correctly
     </div>
     <span
       class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none;"
-      unselectable="unselectable"
+      style="user-select:none;-webkit-user-select:none"
+      unselectable="on"
     >
-      <b />
+      <i
+        class="anticon anticon-down ant-select-arrow-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </i>
     </span>
   </div>
 </div>
@@ -238,14 +310,14 @@ exports[`renders ./components/auto-complete/demo/non-case-sensitive.md correctly
 exports[`renders ./components/auto-complete/demo/options.md correctly 1`] = `
 <div
   class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
-  style="width:200px;"
+  style="width:200px"
 >
   <div
     aria-autocomplete="list"
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
-              ant-select-selection--single"
+            ant-select-selection--single"
     role="combobox"
   >
     <div
@@ -253,8 +325,8 @@ exports[`renders ./components/auto-complete/demo/options.md correctly 1`] = `
     >
       <div
         class="ant-select-selection__placeholder"
-        style="display:block;user-select:none;-webkit-user-select:none;"
-        unselectable="unselectable"
+        style="display:block;user-select:none;-webkit-user-select:none"
+        unselectable="on"
       >
         input here
       </div>
@@ -266,7 +338,7 @@ exports[`renders ./components/auto-complete/demo/options.md correctly 1`] = `
             class="ant-select-search__field__wrap"
           >
             <input
-              class="ant-input ant-input ant-select-search__field"
+              class="ant-input ant-select-search__field"
               type="text"
               value=""
             />
@@ -281,10 +353,26 @@ exports[`renders ./components/auto-complete/demo/options.md correctly 1`] = `
     </div>
     <span
       class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none;"
-      unselectable="unselectable"
+      style="user-select:none;-webkit-user-select:none"
+      unselectable="on"
     >
-      <b />
+      <i
+        class="anticon anticon-down ant-select-arrow-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </i>
     </span>
   </div>
 </div>
@@ -293,18 +381,18 @@ exports[`renders ./components/auto-complete/demo/options.md correctly 1`] = `
 exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly 1`] = `
 <div
   class="global-search-wrapper"
-  style="width:300px;"
+  style="width:300px"
 >
   <div
     class="ant-select-lg ant-select-lg global-search ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
-    style="width:100%;"
+    style="width:100%"
   >
     <div
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
-                ant-select-selection--single"
+            ant-select-selection--single"
       role="combobox"
     >
       <div
@@ -312,8 +400,8 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
       >
         <div
           class="ant-select-selection__placeholder"
-          style="display:block;user-select:none;-webkit-user-select:none;"
-          unselectable="unselectable"
+          style="display:block;user-select:none;-webkit-user-select:none"
+          unselectable="on"
         >
           input here
         </div>
@@ -325,10 +413,10 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
               class="ant-select-search__field__wrap"
             >
               <span
-                class="ant-input-affix-wrapper"
+                class="ant-select-search__field ant-input-affix-wrapper"
               >
                 <input
-                  class="ant-input ant-input ant-select-search__field"
+                  class="ant-input"
                   type="text"
                   value=""
                 />
@@ -336,12 +424,26 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
                   class="ant-input-suffix"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-lg search-btn"
+                    class="ant-btn search-btn ant-btn-primary ant-btn-lg"
                     type="button"
                   >
                     <i
                       class="anticon anticon-search"
-                    />
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="search"
+                        fill="currentColor"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                        />
+                      </svg>
+                    </i>
                   </button>
                 </span>
               </span>
@@ -356,10 +458,26 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
       </div>
       <span
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none;"
-        unselectable="unselectable"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
       >
-        <b />
+        <i
+          class="anticon anticon-down ant-select-arrow-icon"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </i>
       </span>
     </div>
   </div>

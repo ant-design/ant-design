@@ -50,8 +50,11 @@ function displayRender(label) {
 }
 
 ReactDOM.render(
-  <Cascader options={options} expandTrigger="hover"
-    displayRender={displayRender} onChange={onChange}
-  />
-, mountNode);
+  <Cascader
+    options={options}
+    expandTrigger="hover"
+    displayRender={displayRender}
+    onChange={onChange}
+  />,
+  mountNode);
 ````

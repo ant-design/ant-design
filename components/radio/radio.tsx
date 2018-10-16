@@ -1,29 +1,43 @@
-import React, { PropTypes } from 'react';
-import RcRadio from 'rc-radio';
+import * as React from 'react';
+import * as PropTypes from 'prop-types';
+import RcCheckbox from 'rc-checkbox';
 import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
-import { AbstractCheckboxProps } from '../checkbox/Checkbox';
 import RadioGroup from './group';
 import RadioButton from './radioButton';
+import { RadioProps, RadioGroupContext } from './interface';
 
-export interface RadioProps extends AbstractCheckboxProps {}
-
-export default class Radio extends React.Component<RadioProps, any> {
+export default class Radio extends React.Component<RadioProps, {}> {
   static Group: typeof RadioGroup;
   static Button: typeof RadioButton;
 
   static defaultProps = {
     prefixCls: 'ant-radio',
+    type: 'radio',
   };
 
   static contextTypes = {
     radioGroup: PropTypes.any,
   };
 
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
+  private rcCheckbox: any;
+
+  shouldComponentUpdate(nextProps: RadioProps, nextState: {}, nextContext: RadioGroupContext) {
     return !shallowEqual(this.props, nextProps) ||
            !shallowEqual(this.state, nextState) ||
            !shallowEqual(this.context.radioGroup, nextContext.radioGroup);
+  }
+
+  focus() {
+    this.rcCheckbox.focus();
+  }
+
+  blur() {
+    this.rcCheckbox.blur();
+  }
+
+  saveCheckbox = (node: any) => {
+    this.rcCheckbox = node;
   }
 
   render() {
@@ -33,11 +47,12 @@ export default class Radio extends React.Component<RadioProps, any> {
       className,
       children,
       style,
-      ...restProps,
+      ...restProps
     } = props;
     const { radioGroup } = context;
     let radioProps: RadioProps = { ...restProps };
     if (radioGroup) {
+      radioProps.name = radioGroup.name;
       radioProps.onChange = radioGroup.onChange;
       radioProps.checked = props.value === radioGroup.value;
       radioProps.disabled = props.disabled || radioGroup.disabled;
@@ -55,9 +70,10 @@ export default class Radio extends React.Component<RadioProps, any> {
         onMouseEnter={props.onMouseEnter}
         onMouseLeave={props.onMouseLeave}
       >
-        <RcRadio
+        <RcCheckbox
           {...radioProps}
           prefixCls={prefixCls}
+          ref={this.saveCheckbox}
         />
         {children !== undefined ? <span>{children}</span> : null}
       </label>

@@ -1,12 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
+import * as PropTypes from 'prop-types';
+import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
+import omit from 'omit.js';
 import Checkbox from './Checkbox';
+
+export type CheckboxValueType = string | number | boolean;
 
 export interface CheckboxOptionType {
   label: string;
-  value: string;
+  value: CheckboxValueType;
   disabled?: boolean;
 }
 
@@ -19,19 +23,27 @@ export interface AbstractCheckboxGroupProps {
 }
 
 export interface CheckboxGroupProps extends AbstractCheckboxGroupProps {
-  defaultValue?: Array<string>;
-  value?: Array<string>;
-  onChange?: (checkedValue: Array<string>) => void;
+  defaultValue?: Array<CheckboxValueType>;
+  value?: Array<CheckboxValueType>;
+  onChange?: (checkedValue: Array<CheckboxValueType>) => void;
 }
 
 export interface CheckboxGroupState {
   value: any;
 }
 
-export default class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupState> {
+export interface CheckboxGroupContext {
+  checkboxGroup: {
+    toggleOption: (option: CheckboxOptionType) => void;
+    value: any;
+    disabled: boolean;
+  };
+}
+
+class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupState> {
   static defaultProps = {
     options: [],
-    prefixCls: 'ant-checkbox-group',
+    prefixCls: 'ant-checkbox',
   };
 
   static propTypes = {
@@ -45,7 +57,16 @@ export default class CheckboxGroup extends React.Component<CheckboxGroupProps, C
     checkboxGroup: PropTypes.any,
   };
 
-  constructor(props) {
+  static getDerivedStateFromProps(nextProps: CheckboxGroupProps) {
+    if ('value' in nextProps) {
+      return {
+        value: nextProps.value || [],
+      };
+    }
+    return null;
+  }
+
+  constructor(props: CheckboxGroupProps) {
     super(props);
     this.state = {
       value: props.value || props.defaultValue || [],
@@ -62,14 +83,7 @@ export default class CheckboxGroup extends React.Component<CheckboxGroupProps, C
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    if ('value' in nextProps) {
-      this.setState({
-        value: nextProps.value || [],
-      });
-    }
-  }
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate(nextProps: CheckboxGroupProps, nextState: CheckboxGroupState) {
     return !shallowEqual(this.props, nextProps) ||
       !shallowEqual(this.state, nextState);
   }
@@ -86,7 +100,7 @@ export default class CheckboxGroup extends React.Component<CheckboxGroupProps, C
       return option;
     });
   }
-  toggleOption = (option) => {
+  toggleOption = (option: CheckboxOptionType) => {
     const optionIndex = this.state.value.indexOf(option.value);
     const value = [...this.state.value];
     if (optionIndex === - 1) {
@@ -104,28 +118,37 @@ export default class CheckboxGroup extends React.Component<CheckboxGroupProps, C
   }
   render() {
     const { props, state } = this;
-    const { prefixCls, className, options } = props;
+    const { prefixCls, className, style, options, ...restProps } = props;
+    const groupPrefixCls = `${prefixCls}-group`;
+
+    const domProps = omit(restProps, ['children', 'defaultValue', 'value', 'onChange', 'disabled']);
+
     let children = props.children;
     if (options && options.length > 0) {
       children = this.getOptions().map(option => (
         <Checkbox
-          key={option.value}
+          prefixCls={prefixCls}
+          key={option.value.toString()}
           disabled={'disabled' in option ? option.disabled : props.disabled}
           value={option.value}
           checked={state.value.indexOf(option.value) !== -1}
           onChange={() => this.toggleOption(option)}
-          className={`${prefixCls}-item`}
+          className={`${groupPrefixCls}-item`}
         >
           {option.label}
         </Checkbox>
       ));
     }
 
-    const classString = classNames(prefixCls, className);
+    const classString = classNames(groupPrefixCls, className);
     return (
-      <div className={classString}>
+      <div className={classString} style={style} {...domProps}>
         {children}
       </div>
     );
   }
 }
+
+polyfill(CheckboxGroup);
+
+export default CheckboxGroup;

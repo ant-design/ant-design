@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-仪表盘样式的进度条。
+通过设置 `type=dashboard`，可以很方便地实现仪表盘样式的进度条。
 
 ## en-US
 
-A dashboard style of progress.
+By setting `type=dashboard`, you can get a dashboard style of progress easily.
 
 ````jsx
 import { Progress } from 'antd';

@@ -1,0 +1,228 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/skeleton/demo/active.md correctly 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-active"
+>
+  <div
+    class="ant-skeleton-content"
+  >
+    <h3
+      class="ant-skeleton-title"
+      style="width:38%"
+    />
+    <ul
+      class="ant-skeleton-paragraph"
+    >
+      <li />
+      <li />
+      <li
+        style="width:61%"
+      />
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/skeleton/demo/basic.md correctly 1`] = `
+<div
+  class="ant-skeleton"
+>
+  <div
+    class="ant-skeleton-content"
+  >
+    <h3
+      class="ant-skeleton-title"
+      style="width:38%"
+    />
+    <ul
+      class="ant-skeleton-paragraph"
+    >
+      <li />
+      <li />
+      <li
+        style="width:61%"
+      />
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/skeleton/demo/children.md correctly 1`] = `
+<div
+  class="article"
+>
+  <div>
+    <h4>
+      Ant Design, a design language
+    </h4>
+    <p>
+      We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
+    </p>
+  </div>
+  <button
+    class="ant-btn"
+    type="button"
+  >
+    <span>
+      Show Skeleton
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders ./components/skeleton/demo/complex.md correctly 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-with-avatar"
+>
+  <div
+    class="ant-skeleton-header"
+  >
+    <span
+      class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
+    />
+  </div>
+  <div
+    class="ant-skeleton-content"
+  >
+    <h3
+      class="ant-skeleton-title"
+      style="width:50%"
+    />
+    <ul
+      class="ant-skeleton-paragraph"
+    >
+      <li />
+      <li />
+      <li />
+      <li />
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/skeleton/demo/list.md correctly 1`] = `
+<div>
+  <button
+    aria-checked="false"
+    class="ant-switch"
+    role="switch"
+    type="button"
+  >
+    <span
+      class="ant-switch-inner"
+    />
+  </button>
+  <div
+    class="ant-list ant-list-vertical ant-list-lg ant-list-split"
+  >
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          class="ant-list-item"
+        >
+          <div
+            class="ant-list-item-content ant-list-item-content-single"
+          >
+            <div
+              class="ant-skeleton ant-skeleton-with-avatar ant-skeleton-active"
+            >
+              <div
+                class="ant-skeleton-header"
+              >
+                <span
+                  class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
+                />
+              </div>
+              <div
+                class="ant-skeleton-content"
+              >
+                <h3
+                  class="ant-skeleton-title"
+                  style="width:50%"
+                />
+                <ul
+                  class="ant-skeleton-paragraph"
+                >
+                  <li />
+                  <li />
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-list-item"
+        >
+          <div
+            class="ant-list-item-content ant-list-item-content-single"
+          >
+            <div
+              class="ant-skeleton ant-skeleton-with-avatar ant-skeleton-active"
+            >
+              <div
+                class="ant-skeleton-header"
+              >
+                <span
+                  class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
+                />
+              </div>
+              <div
+                class="ant-skeleton-content"
+              >
+                <h3
+                  class="ant-skeleton-title"
+                  style="width:50%"
+                />
+                <ul
+                  class="ant-skeleton-paragraph"
+                >
+                  <li />
+                  <li />
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-list-item"
+        >
+          <div
+            class="ant-list-item-content ant-list-item-content-single"
+          >
+            <div
+              class="ant-skeleton ant-skeleton-with-avatar ant-skeleton-active"
+            >
+              <div
+                class="ant-skeleton-header"
+              >
+                <span
+                  class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
+                />
+              </div>
+              <div
+                class="ant-skeleton-content"
+              >
+                <h3
+                  class="ant-skeleton-title"
+                  style="width:50%"
+                />
+                <ul
+                  class="ant-skeleton-paragraph"
+                >
+                  <li />
+                  <li />
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

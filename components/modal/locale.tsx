@@ -1,18 +1,25 @@
-import assign from 'object-assign';
+import defaultLocale from '../locale-provider/default';
 
-const defaultLocale = {
-  okText: '确定',
-  cancelText: '取消',
-  justOkText: '知道了',
+export interface ModalLocale {
+  okText: string;
+  cancelText: string;
+  justOkText: string;
+}
+
+let runtimeLocale: ModalLocale = {
+  ...defaultLocale.Modal,
 };
 
-let runtimeLocale = assign({}, defaultLocale);
-
-export function changeConfirmLocale(newLocale?: Object) {
+export function changeConfirmLocale(newLocale?: ModalLocale) {
   if (newLocale) {
-    runtimeLocale = assign({}, runtimeLocale, newLocale);
+    runtimeLocale = {
+      ...runtimeLocale,
+      ...newLocale,
+    };
   } else {
-    runtimeLocale = assign({}, defaultLocale);
+    runtimeLocale = {
+      ...defaultLocale.Modal,
+    };
   }
 }
 

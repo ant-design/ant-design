@@ -15,9 +15,10 @@ Select your favourite topics.
 
 ````jsx
 import { Tag } from 'antd';
+
 const CheckableTag = Tag.CheckableTag;
 
-const tagsFromServer = ['Movie', 'Books', 'Music'];
+const tagsFromServer = ['Movies', 'Books', 'Music', 'Sports'];
 
 class HotTags extends React.Component {
   state = {
@@ -26,9 +27,9 @@ class HotTags extends React.Component {
 
   handleChange(tag, checked) {
     const { selectedTags } = this.state;
-    const nextSelectedTags = checked ?
-            [...selectedTags, tag] :
-            selectedTags.filter(t => t !== tag);
+    const nextSelectedTags = checked
+      ? [...selectedTags, tag]
+      : selectedTags.filter(t => t !== tag);
     console.log('You are interested in: ', nextSelectedTags);
     this.setState({ selectedTags: nextSelectedTags });
   }
@@ -37,7 +38,7 @@ class HotTags extends React.Component {
     const { selectedTags } = this.state;
     return (
       <div>
-        <strong>Hots: </strong>
+        <h6 style={{ marginRight: 8, display: 'inline' }}>Categories:</h6>
         {tagsFromServer.map(tag => (
           <CheckableTag
             key={tag}

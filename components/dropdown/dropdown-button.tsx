@@ -1,24 +1,17 @@
-import React from 'react';
+import * as React from 'react';
 import Button from '../button';
-import Icon from '../icon';
-import Dropdown from './dropdown';
-const ButtonGroup = Button.Group;
+import { ButtonHTMLType } from '../button/button';
+import { ButtonGroupProps } from '../button/button-group';
+import Dropdown, { DropDownProps } from './dropdown';
 import classNames from 'classnames';
+const ButtonGroup = Button.Group;
 
-export interface DropdownButtonProps {
-  prefixCls?: string;
-  className?: string;
+export interface DropdownButtonProps extends ButtonGroupProps, DropDownProps {
   type?: 'primary' | 'ghost' | 'dashed';
-  onClick?: React.MouseEventHandler<any>;
-  trigger?: ('click' | 'hover')[];
-  align?: any;
-  overlay: React.ReactNode;
-  visible?: boolean;
+  htmlType?: ButtonHTMLType;
   disabled?: boolean;
-  onVisibleChange?: (visible: boolean) => void;
-  style?: React.CSSProperties;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
   children?: any;
-  placement?: 'topLeft' | 'topCenter' | 'topRight' | 'bottomLeft' | 'bottomCenter' | 'bottomRight';
 }
 
 export default class DropdownButton extends React.Component<DropdownButtonProps, any> {
@@ -30,30 +23,40 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
 
   render() {
     const {
-      type, overlay, trigger, align, children, className, onClick, prefixCls,
-      disabled, visible, onVisibleChange, placement, ...restProps,
+      type, disabled, onClick, htmlType, children,
+      prefixCls, className, overlay, trigger, align,
+      visible, onVisibleChange, placement, getPopupContainer,
+      ...restProps
     } = this.props;
-    const cls = classNames(prefixCls, className);
 
     const dropdownProps = {
       align,
       overlay,
+      disabled,
       trigger: disabled ? [] : trigger,
       onVisibleChange,
       placement,
-    };
-
+      getPopupContainer,
+    } as DropDownProps;
     if ('visible' in this.props) {
-      (dropdownProps as any).visible = visible;
+      dropdownProps.visible = visible;
     }
 
     return (
-      <ButtonGroup {...restProps} className={cls}>
-        <Button type={type} onClick={onClick} disabled={disabled}>{children}</Button>
+      <ButtonGroup
+        {...restProps}
+        className={classNames(prefixCls, className)}
+      >
+        <Button
+          type={type}
+          disabled={disabled}
+          onClick={onClick}
+          htmlType={htmlType}
+        >
+          {children}
+        </Button>
         <Dropdown {...dropdownProps}>
-          <Button type={type} disabled={disabled}>
-            <Icon type="down" />
-          </Button>
+          <Button type={type} icon="ellipsis" />
         </Dropdown>
       </ButtonGroup>
     );

@@ -3,13 +3,15 @@
 @import "../../input/style/mixin";
 
 @timepicker-prefix-cls: ~"@{ant-prefix}-time-picker";
+@timepicker-item-height: 32px;
 
 .@{timepicker-prefix-cls}-panel {
+  .reset-component;
+  font-family: @font-family;
   z-index: @zindex-picker;
   position: absolute;
 
   &-inner {
-    display: inline-block;
     position: relative;
     outline: none;
     list-style: none;
@@ -19,7 +21,6 @@
     border-radius: @border-radius-base;
     box-shadow: @box-shadow-base;
     background-clip: padding-box;
-    line-height: 1.5;
     overflow: hidden;
     left: -2px;
   }
@@ -28,15 +29,16 @@
     margin: 0;
     padding: 0;
     border: 0;
-    width: 100%;
+    max-width: @time-picker-panel-column-width * 3 - @control-padding-horizontal - 2px;
     cursor: auto;
-    line-height: 1.5;
     outline: 0;
+
+    .placeholder;
 
     &-wrap {
       box-sizing: border-box;
       position: relative;
-      padding: 6px;
+      padding: 7px 2px 7px @control-padding-horizontal;
       border-bottom: @border-width-base @border-style-base @border-color-split;
     }
 
@@ -47,29 +49,32 @@
 
   &-clear-btn {
     position: absolute;
-    right: 5px;
+    right: 8px;
     cursor: pointer;
     overflow: hidden;
     width: 20px;
     height: 20px;
     text-align: center;
     line-height: 20px;
-    top: 5px;
+    top: 7px;
     margin: 0;
-  }
 
-  &-clear-btn:after {
-    font-size: @font-size-base;
-    color: @disabled-color;
-    display: inline-block;
-    line-height: 1;
-    width: 20px;
-    transition: color 0.3s ease;
-    .iconfont-font("\e62e");
-  }
+    &-icon svg {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      font-size: @font-size-base;
+      color: @disabled-color;
+      display: inline-block;
+      transition: color 0.3s ease;
 
-  &-clear-btn:hover:after {
-    color: @text-color-secondary;
+      &:hover {
+        color: @text-color-secondary;
+      }
+    }
   }
 
   &-narrow &-input-wrap {
@@ -84,7 +89,7 @@
     width: @time-picker-panel-column-width;
     overflow: hidden;
     position: relative; // Fix chrome weird render bug
-    max-height: 144px;
+    max-height: @timepicker-item-height * 6;
 
     &:hover {
       overflow-y: auto;
@@ -107,7 +112,7 @@
       list-style: none;
       box-sizing: border-box;
       margin: 0;
-      padding: 0 0 120px;
+      padding: 0 0 @timepicker-item-height * 5;
       width: 100%;
     }
 
@@ -115,23 +120,26 @@
       list-style: none;
       box-sizing: content-box;
       margin: 0;
-      padding: 0 0 0 16px;
+      padding: 0 0 0 @control-padding-horizontal;
       width: 100%;
-      height: 24px;
-      line-height: 24px;
+      height: @timepicker-item-height;
+      line-height: @timepicker-item-height;
       text-align: left;
       cursor: pointer;
       user-select: none;
-      transition: background 0.3s ease;
+      transition: background 0.3s;
     }
 
     li:hover {
-      background: @primary-1;
+      background: @item-hover-bg;
     }
 
     li&-option-selected {
-      background: @background-color-base;
+      background: @time-picker-selected-bg;
       font-weight: bold;
+      &:hover {
+        background: @time-picker-selected-bg;
+      }
     }
 
     li&-option-disabled {
@@ -178,23 +186,18 @@
 }
 
 .@{timepicker-prefix-cls} {
+  .reset-component;
   position: relative;
   display: inline-block;
   outline: none;
-  font-size: @font-size-base;
-  transition: opacity 0.3s ease;
-  width: 100px;
+  transition: opacity .3s;
+  width: 128px;
 
   &-input {
     .input;
-  }
-
-  &-large &-input {
-    .input-lg;
-  }
-
-  &-small &-input {
-    .input-sm;
+    &[disabled] {
+      .disabled;
+    }
   }
 
   &-open {
@@ -205,21 +208,29 @@
     position: absolute;
     user-select: none;
     transition: all .3s @ease-in-out;
-    width: 12px;
-    height: 12px;
-    line-height: 12px;
-    right: 8px;
-    color: @text-color-secondary;
+    width: 14px;
+    height: 14px;
+    line-height: 14px;
+    right: @control-padding-horizontal - 1px;
+    color: @disabled-color;
     top: 50%;
-    margin-top: -6px;
-    &:after {
-      content: "\e641";
-      font-family: "anticon";
-      font-size: @font-size-base;
-      color: @text-color-secondary;
-      display: inline-block;
+    margin-top: -7px;
+    .@{timepicker-prefix-cls}-clock-icon {
+      color: @disabled-color;
+      display: block;
       line-height: 1;
-      vertical-align: bottom;
     }
+  }
+
+  &-large &-input {
+    .input-lg;
+  }
+
+  &-small &-input {
+    .input-sm;
+  }
+
+  &-small &-icon {
+    right: @control-padding-horizontal-sm - 1px;
   }
 }

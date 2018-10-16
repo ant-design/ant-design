@@ -24,7 +24,7 @@ ReactDOM.render(
   <div>
     <InputNumber
       defaultValue={1000}
-      formatter={value => `$ ${value.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`}
+      formatter={value => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
       parser={value => value.replace(/\$\s?|(,*)/g, '')}
       onChange={onChange}
     />
@@ -36,6 +36,6 @@ ReactDOM.render(
       parser={value => value.replace('%', '')}
       onChange={onChange}
     />
-  </div>
-, mountNode);
+  </div>,
+  mountNode);
 ````

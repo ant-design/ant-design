@@ -15,6 +15,7 @@ Drag treeNode to insert after the other treeNode or insert into the other parent
 
 ````jsx
 import { Tree } from 'antd';
+
 const TreeNode = Tree.TreeNode;
 
 const x = 3;
@@ -50,6 +51,7 @@ class Demo extends React.Component {
     gData,
     expandedKeys: ['0-0', '0-0-0', '0-0-0-0'],
   }
+
   onDragEnter = (info) => {
     console.log(info);
     // expandedKeys 需要受控时设置
@@ -57,10 +59,13 @@ class Demo extends React.Component {
     //   expandedKeys: info.expandedKeys,
     // });
   }
+
   onDrop = (info) => {
     console.log(info);
     const dropKey = info.node.props.eventKey;
     const dragKey = info.dragNode.props.eventKey;
+    const dropPos = info.node.props.pos.split('-');
+    const dropPosition = info.dropPosition - Number(dropPos[dropPos.length - 1]);
     // const dragNodesKeys = info.dragNodesKeys;
     const loop = (data, key, callback) => {
       data.forEach((item, index, arr) => {
@@ -85,7 +90,11 @@ class Demo extends React.Component {
         ar = arr;
         i = index;
       });
-      ar.splice(i, 0, dragObj);
+      if (dropPosition === -1) {
+        ar.splice(i, 0, dragObj);
+      } else {
+        ar.splice(i + 1, 0, dragObj);
+      }
     } else {
       loop(data, dropKey, (item) => {
         item.children = item.children || [];
@@ -97,12 +106,13 @@ class Demo extends React.Component {
       gData: data,
     });
   }
+
   render() {
     const loop = data => data.map((item) => {
       if (item.children && item.children.length) {
-        return <TreeNode key={item.key} title={item.key}>{loop(item.children)}</TreeNode>;
+        return <TreeNode key={item.key} title={item.title}>{loop(item.children)}</TreeNode>;
       }
-      return <TreeNode key={item.key} title={item.key} />;
+      return <TreeNode key={item.key} title={item.title} />;
     });
     return (
       <Tree

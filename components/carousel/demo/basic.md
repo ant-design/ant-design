@@ -26,8 +26,8 @@ ReactDOM.render(
     <div><h3>2</h3></div>
     <div><h3>3</h3></div>
     <div><h3>4</h3></div>
-  </Carousel>
-, mountNode);
+  </Carousel>,
+  mountNode);
 ````
 
 ````css
@@ -37,7 +37,10 @@ ReactDOM.render(
   height: 160px;
   line-height: 160px;
   background: #364d79;
-  color: #fff;
   overflow: hidden;
+}
+
+.ant-carousel .slick-slide h3 {
+  color: #fff;
 }
 ````

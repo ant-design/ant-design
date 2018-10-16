@@ -2,66 +2,205 @@
 @import "../../style/mixins/index";
 
 @table-prefix-cls: ~"@{ant-prefix}-table";
+@table-header-icon-color: #bfbfbf;
 
 .@{table-prefix-cls}-wrapper {
   .clearfix;
 }
 
 .@{table-prefix-cls} {
-  font-size: @font-size-base;
-  color: @text-color;
-  overflow: hidden;
+  .reset-component;
   position: relative;
-  border-radius: @border-radius-base @border-radius-base 0 0;
+  clear: both;
 
   &-body {
-    transition: opacity 0.3s ease;
+    transition: opacity .3s;
+  }
+
+  &-empty &-body {
+    overflow: auto !important;
   }
 
   table {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
+    border-collapse: collapse;
     text-align: left;
     border-radius: @border-radius-base @border-radius-base 0 0;
-    overflow: hidden;
   }
 
   &-thead > tr > th {
     background: @table-header-bg;
-    font-weight: 500;
     transition: background .3s ease;
     text-align: left;
-    color: @heading-color;
+    color: @table-header-color;
+    font-weight: 500;
+    border-bottom: @border-width-base @border-style-base @border-color-split;
 
     &[colspan] {
       text-align: center;
     }
 
-    .@{iconfont-css-prefix}-filter, .@{table-prefix-cls}-filter-icon {
-      margin-left: 4px;
-      font-size: @font-size-base;
+    .@{iconfont-css-prefix}-filter,
+    .@{table-prefix-cls}-filter-icon {
+      font-size: @font-size-sm;
       cursor: pointer;
-      color: #aaa;
+      color: @table-header-icon-color;
       transition: all .3s;
-      &:hover {
-        color: @text-color;
+      width: 28px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      text-align: center;
+
+      > svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -@font-size-sm / 2 + 1px;
+        margin-left: -@font-size-sm / 2;
       }
     }
 
     .@{table-prefix-cls}-filter-selected.@{iconfont-css-prefix}-filter {
       color: @primary-color;
     }
+
+    .@{table-prefix-cls}-column-sorter {
+      position: absolute;
+      right: 6px;
+      top: 50%;
+      width: 14px;
+      height: @font-size-lg + 1px;
+      margin-top: -(@font-size-lg + 1px) / 2;
+      text-align: center;
+      color: @table-header-icon-color;
+      transition: all .3s;
+
+      &-up,
+      &-down {
+        .iconfont-size-under-12px(11px);
+        line-height: 4px;
+        height: 4px;
+        transition: all .3s;
+        display: block;
+        &.on {
+          color: @primary-color;
+        }
+      }
+
+      &-down {
+        margin-top: 4px;
+      }
+    }
+
+    &.@{table-prefix-cls}-column-has-actions {
+      position: relative;
+      background-clip: padding-box; // For Firefox background bug, https://github.com/ant-design/ant-design/issues/12628
+
+      &.@{table-prefix-cls}-column-has-filters {
+        .@{iconfont-css-prefix}-filter,
+        .@{table-prefix-cls}-filter-icon {
+          &.@{table-prefix-cls}-filter-open {
+            color: @text-color-secondary;
+            background: #ebebeb;
+          }
+        }
+        // Very complicated styles logic but neccessary
+        &:hover {
+          .@{iconfont-css-prefix}-filter,
+          .@{table-prefix-cls}-filter-icon {
+            &:hover {
+              color: @text-color-secondary;
+              background: #ebebeb;
+            }
+            &:active {
+              color: @text-color;
+            }
+          }
+        }
+      }
+
+      &.@{table-prefix-cls}-column-has-sorters {
+        cursor: pointer;
+        &:hover {
+          background: #f5f5f5;
+          .@{iconfont-css-prefix}-filter,
+          .@{table-prefix-cls}-filter-icon {
+            background: #f5f5f5;
+          }
+        }
+        &:active {
+          .@{table-prefix-cls}-column-sorter-up:not(.on),
+          .@{table-prefix-cls}-column-sorter-down:not(.on) {
+            color: @text-color-secondary;
+          }
+        }
+      }
+
+      // Repeat the class selector for prority
+      // https://github.com/ant-design/ant-design/commit/55a13a11fcea23fc4b5694cad7e2c32edc9128ee#r30842052
+      &.@{table-prefix-cls}-align-right.@{table-prefix-cls}-align-right {
+        &.@{table-prefix-cls}-column-has-sorters,
+        &.@{table-prefix-cls}-column-has-filters {
+          padding-right: 30px;
+        }
+
+        &.@{table-prefix-cls}-column-has-sorters.@{table-prefix-cls}-column-has-filters {
+          padding-right: 54px;
+        }
+      }
+    }
+
+    .@{table-prefix-cls}-column-sorters {
+      &:before {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: transparent;
+        transition: all .3s;
+      }
+      &:hover:before {
+        background: rgba(0, 0, 0, .04);
+      }
+    }
+
+    &.@{table-prefix-cls}-column-has-filters .@{table-prefix-cls}-column-sorter {
+      right: 28px + 6px;
+    }
+
+    &.@{table-prefix-cls}-column-has-sorters {
+      user-select: none;
+    }
+  }
+
+  &-thead > tr:first-child > th {
+    &:first-child {
+      border-top-left-radius: @border-radius-base;
+    }
+
+    &:last-child {
+      border-top-right-radius: @border-radius-base;
+    }
+  }
+
+  &-thead > tr:not(:last-child) > th {
+    &[colspan] {
+      border-bottom: 0;
+    }
   }
 
   &-tbody > tr > td {
     border-bottom: @border-width-base @border-style-base @border-color-split;
-    transition: all .3s;
+    transition: all .3s, border 0s;
   }
 
   &-thead > tr,
   &-tbody > tr {
-    transition: all .3s;
+    transition: all .3s, height 0s;
     &.@{table-prefix-cls}-row-hover,
     &:hover {
       & > td {
@@ -75,10 +214,11 @@
   }
 
   &-footer {
-    padding: 16px 8px;
+    padding: @table-padding-vertical @table-padding-horizontal;
     background: @table-header-bg;
     border-radius: 0 0 @border-radius-base @border-radius-base;
     position: relative;
+    border-top: @border-width-base @border-style-base @border-color-split;
     &:before {
       content: '';
       height: 1px;
@@ -95,7 +235,7 @@
   }
 
   &-title {
-    padding: 16px 0;
+    padding: @table-padding-vertical 0;
     position: relative;
     top: 1px;
     border-radius: @border-radius-base @border-radius-base 0 0;
@@ -103,8 +243,8 @@
 
   &.@{table-prefix-cls}-bordered &-title {
     border: @border-width-base @border-style-base @border-color-split;
-    padding-left: 8px;
-    padding-right: 8px;
+    padding-left: @table-padding-horizontal;
+    padding-right: @table-padding-horizontal;
   }
 
   &-title + &-content {
@@ -113,7 +253,8 @@
     overflow: hidden;
     .@{table-prefix-cls}-bordered & {
       &,
-      table {
+      table,
+      .@{table-prefix-cls}-thead > tr:first-child > th {
         border-radius: 0;
       }
     }
@@ -125,18 +266,23 @@
     border-radius: 0;
   }
 
-  &-tbody > tr.@{table-prefix-cls}-row-selected {
-    background: #fafafa;
+  &-tbody > tr.@{table-prefix-cls}-row-selected td {
+    background: @table-selected-row-bg;
   }
 
   &-thead > tr > th.@{table-prefix-cls}-column-sort {
-    background: #eaeaea;
+    background: @table-header-sort-bg;
+  }
+
+  &-tbody > tr > td.@{table-prefix-cls}-column-sort {
+    background: @table-body-sort-bg;
   }
 
   &-thead > tr > th,
   &-tbody > tr > td {
-    padding: 16px 8px;
-    word-break: break-all;
+    padding: @table-padding-vertical @table-padding-horizontal;
+    word-break: break-word;
+    -ms-word-break: break-all;
   }
 
   &-thead > tr > th.@{table-prefix-cls}-selection-column-custom {
@@ -149,6 +295,9 @@
     text-align: center;
     min-width: 62px;
     width: 62px;
+    .@{ant-prefix}-radio-wrapper {
+      margin-right: 0;
+    }
   }
 
   &-expand-icon-th,
@@ -189,97 +338,6 @@
     }
   }
 
-  &-middle {
-    .@{table-prefix-cls}-thead > tr > th:not(.@{table-prefix-cls}-selection-column),
-    .@{table-prefix-cls}-tbody > tr > td {
-      padding: 10px 8px;
-    }
-
-    .@{table-prefix-cls}-title,
-    .@{table-prefix-cls}-footer {
-      padding: 10px 8px;
-    }
-  }
-
-  &-small {
-    border: @border-width-base @border-style-base @border-color-split;
-    border-radius: @border-radius-base;
-
-    .@{table-prefix-cls}-header > table,
-    .@{table-prefix-cls}-body > table {
-      border: 0;
-      padding: 0 8px;
-    }
-
-    .@{table-prefix-cls}-thead > tr > th {
-      background: @component-background;
-      border-bottom: @border-width-base @border-style-base @border-color-split;
-    }
-
-    .@{table-prefix-cls}-tbody > tr > td {
-      padding: 6px 8px;
-    }
-
-    .@{table-prefix-cls}-title,
-    .@{table-prefix-cls}-footer,
-    .@{table-prefix-cls}-thead > tr > th:not(.@{table-prefix-cls}-selection-column) {
-      padding: 10px 8px;
-    }
-
-    .@{table-prefix-cls}-title {
-      border-bottom: @border-width-base @border-style-base @border-color-split;
-      top: 0;
-    }
-
-    .@{table-prefix-cls}-header {
-      background: @component-background;
-      table {
-        border-bottom: @border-width-base @border-style-base @border-color-split;
-      }
-    }
-
-    .@{table-prefix-cls}-placeholder,
-    .@{table-prefix-cls}-row:last-child td {
-      border-bottom: 0;
-    }
-  }
-
-  &-column-sorter {
-    margin-left: 4px;
-    display: inline-block;
-    width: 12px;
-    height: 14px;
-    vertical-align: middle;
-    text-align: center;
-    &-up,
-    &-down {
-      line-height: 4px;
-      height: 5px;
-      display: block;
-      width: 12px;
-      cursor: pointer;
-      &:hover .@{iconfont-css-prefix} {
-        color: @text-color;
-      }
-      &.on {
-        .@{iconfont-css-prefix}-caret-up,
-        .@{iconfont-css-prefix}-caret-down {
-          color: @primary-color;
-        }
-      }
-    }
-    .@{iconfont-css-prefix}-caret-up,
-    .@{iconfont-css-prefix}-caret-down {
-      .iconfont-size-under-12px(7px);
-      line-height: 6px;
-      height: 6px;
-      color: #aaa;
-      &:before {
-        -moz-transform-origin: 53% 50%; /* fix firefox position */
-      }
-    }
-  }
-
   &-bordered {
     .@{table-prefix-cls}-header > table,
     .@{table-prefix-cls}-body > table,
@@ -317,7 +375,7 @@
       }
     }
 
-    .@{table-prefix-cls}-thead > tr > th {
+    .@{table-prefix-cls}-thead > tr:not(:last-child) > th {
       border-bottom: @border-width-base @border-style-base @border-color-split;
     }
 
@@ -325,54 +383,23 @@
     .@{table-prefix-cls}-tbody > tr > td {
       border-right: @border-width-base @border-style-base @border-color-split;
     }
-
-    &.@{table-prefix-cls}-small {
-      border-right: 0;
-
-      .@{table-prefix-cls}-header > table,
-      .@{table-prefix-cls}-body > table,
-      .@{table-prefix-cls}-fixed-left table,
-      .@{table-prefix-cls}-fixed-right table {
-        border: 0;
-        padding: 0;
-      }
-
-      .@{table-prefix-cls}-title {
-        border: 0;
-        border-bottom: @border-width-base @border-style-base @border-color-split;
-        border-right: @border-width-base @border-style-base @border-color-split;
-      }
-
-      .@{table-prefix-cls}-footer {
-        border: 0;
-        border-top: @border-width-base @border-style-base @border-color-split;
-        border-right: @border-width-base @border-style-base @border-color-split;
-        &:before {
-          display: none;
-        }
-      }
-
-      .@{table-prefix-cls}-placeholder {
-        border-left: 0;
-        border-bottom: 0;
-      }
-    }
   }
 
   &-placeholder {
     position: relative;
-    padding: 16px 8px;
+    padding: @table-padding-vertical @table-padding-horizontal;
     background: @component-background;
     border-bottom: @border-width-base @border-style-base @border-color-split;
     text-align: center;
     font-size: @font-size-base;
     color: @text-color-secondary;
+    z-index: 1;
     .@{iconfont-css-prefix} {
       margin-right: 4px;
     }
   }
 
-  &-pagination {
+  &-pagination.@{ant-prefix}-pagination {
     margin: 16px 0;
     float: right;
   }
@@ -396,7 +423,7 @@
       }
 
       &-item > label + span {
-        padding: 0;
+        padding-right: 0;
       }
 
       &-sub {
@@ -424,7 +451,7 @@
 
     &-btns {
       overflow: hidden;
-      padding: 7px 16px;
+      padding: 7px 8px;
       border-top: @border-width-base @border-style-base @border-color-split;
     }
 
@@ -451,7 +478,8 @@
     }
 
     .@{iconfont-css-prefix}-down {
-      color: #aaa;
+      color: @table-header-icon-color;
+      transition: all .3s;
     }
 
     &-menu {
@@ -463,7 +491,7 @@
       box-shadow: @box-shadow-base;
 
       .@{ant-prefix}-action-down {
-        color: #aaa;
+        color: @table-header-icon-color;
       }
     }
 
@@ -471,8 +499,10 @@
       cursor: pointer;
       padding: 0;
       display: inline-block;
-      vertical-align: middle;
       line-height: 1;
+      &:hover .@{iconfont-css-prefix}-down {
+        color: #666;
+      }
     }
   }
 
@@ -512,7 +542,7 @@
   tr&-expanded-row {
     &,
     &:hover {
-      background: #fbfbfb;
+      background: @table-expanded-row-bg;
     }
   }
 
@@ -533,7 +563,7 @@
     height: 100%;
   }
 
-  &-fixed-header &-body {
+  &-fixed-header > &-content > &-scroll > &-body {
     position: relative;
     background: @component-background;
   }
@@ -546,12 +576,9 @@
     overflow: scroll;
     padding-bottom: 20px;
     margin-bottom: -20px;
-  }
-
-  /* fix firefox scrollbar bug */
-  &-fixed-header&-empty &-scroll &-body {
-    padding-bottom: 20px;
-    margin-bottom: -20px;
+    // Workaround for additional scroll bar on the table header
+    // https://github.com/ant-design/ant-design/issues/6515#issuecomment-419634369
+    opacity: 0.9999;
   }
 
   &-fixed-left,
@@ -590,6 +617,9 @@
     table {
       border-radius: @border-radius-base 0 0 0;
     }
+    .ant-table-thead > tr > th:last-child {
+      border-top-right-radius: 0;
+    }
   }
 
   &-fixed-right {
@@ -605,6 +635,9 @@
       color: transparent;
       pointer-events: none;
     }
+    .ant-table-thead > tr > th:first-child {
+      border-top-left-radius: 0;
+    }
   }
 
   &&-scroll-position-left &-fixed-left {
@@ -615,3 +648,5 @@
     box-shadow: none;
   }
 }
+
+@import './size';

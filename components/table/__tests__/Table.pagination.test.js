@@ -15,7 +15,7 @@ describe('Table.pagination', () => {
     { key: 3, name: 'Jerry' },
   ];
 
-  const pagination = { pageSize: 2 };
+  const pagination = { className: 'my-page', pageSize: 2 };
 
   function createTable(props) {
     return (
@@ -35,6 +35,21 @@ describe('Table.pagination', () => {
   it('renders pagination correctly', () => {
     const wrapper = render(createTable());
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should not show pager if pagination.hideOnSinglePage is true and only 1 page', () => {
+    const wrapper = mount(createTable({ pagination: { pageSize: 3, hideOnSinglePage: true } }));
+    expect(wrapper.find('.ant-pagination')).toHaveLength(1);
+    wrapper.setProps({ pagination: { pageSize: 3, hideOnSinglePage: false } });
+    expect(wrapper.find('.ant-pagination')).toHaveLength(1);
+    wrapper.setProps({ pagination: { pageSize: 4, hideOnSinglePage: true } });
+    expect(wrapper.find('.ant-pagination')).toHaveLength(0);
+    wrapper.setProps({ pagination: { pageSize: 4, hideOnSinglePage: false } });
+    expect(wrapper.find('.ant-pagination')).toHaveLength(1);
+    wrapper.setProps({ pagination: { pageSize: 5, hideOnSinglePage: true } });
+    expect(wrapper.find('.ant-pagination')).toHaveLength(0);
+    wrapper.setProps({ pagination: { pageSize: 5, hideOnSinglePage: false } });
+    expect(wrapper.find('.ant-pagination')).toHaveLength(1);
   });
 
   it('paginate data', () => {
@@ -66,18 +81,27 @@ describe('Table.pagination', () => {
 
     expect(handleChange).toBeCalledWith(
       {
+        className: 'my-page',
         current: 2,
         pageSize: 2,
       },
       {},
-      {}
+      {},
+      {
+        currentDataSource: [
+          { key: 0, name: 'Jack' },
+          { key: 1, name: 'Lucy' },
+          { key: 2, name: 'Tom' },
+          { key: 3, name: 'Jerry' },
+        ],
+      },
     );
 
     expect(handlePaginationChange).toBeCalledWith(2, 2);
   });
 
   // https://github.com/ant-design/ant-design/issues/4532
-  // http://codepen.io/anon/pen/NdGgga?editors=001
+  // https://codepen.io/afc163/pen/dVeNoP?editors=001
   it('should have pager when change pagination from false to undefined', () => {
     const wrapper = mount(createTable({ pagination: false }));
     expect(wrapper.find('.ant-pagination')).toHaveLength(0);
@@ -87,7 +111,7 @@ describe('Table.pagination', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/4532
-  // http://codepen.io/anon/pen/ZLbyjV?editors=001
+  // https://codepen.io/afc163/pen/pWVRJV?editors=001
   it('should display pagination as prop pagination change between true and false', () => {
     const wrapper = mount(createTable());
     expect(wrapper.find('.ant-pagination')).toHaveLength(1);
@@ -95,6 +119,7 @@ describe('Table.pagination', () => {
     wrapper.setProps({ pagination: false });
     expect(wrapper.find('.ant-pagination')).toHaveLength(0);
     wrapper.setProps({ pagination });
+    wrapper.update();
     expect(wrapper.find('.ant-pagination')).toHaveLength(1);
     expect(wrapper.find('.ant-pagination-item')).toHaveLength(2);
     wrapper.find('.ant-pagination-item-2').simulate('click');
@@ -113,5 +138,18 @@ describe('Table.pagination', () => {
     wrapper.find('.ant-pagination-item-3').simulate('click');
     wrapper.setProps({ dataSource: [data[0]] });
     expect(wrapper.find('.ant-pagination-item-1').hasClass('ant-pagination-item-active')).toBe(true);
+  });
+
+  it('specify the position of pagination', () => {
+    const wrapper = mount(createTable({ pagination: { position: 'top' } }));
+    expect(wrapper.find('.ant-spin-container').children()).toHaveLength(2);
+    expect(wrapper.find('.ant-spin-container').childAt(0).find('.ant-pagination')).toHaveLength(1);
+    wrapper.setProps({ pagination: { position: 'bottom' } });
+    expect(wrapper.find('.ant-spin-container').children()).toHaveLength(2);
+    expect(wrapper.find('.ant-spin-container').childAt(1).find('.ant-pagination')).toHaveLength(1);
+    wrapper.setProps({ pagination: { position: 'both' } });
+    expect(wrapper.find('.ant-spin-container').children()).toHaveLength(3);
+    expect(wrapper.find('.ant-spin-container').childAt(0).find('.ant-pagination')).toHaveLength(1);
+    expect(wrapper.find('.ant-spin-container').childAt(2).find('.ant-pagination')).toHaveLength(1);
   });
 });

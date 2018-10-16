@@ -33,10 +33,6 @@ Accordion: Accordion helps maintain context while switching views.
 
 <br>
 
-<p><span class="waiting">View Navigation (coming soon)</span></p>
-
-<br>
-
 ---
 
 ## Explain What Just Happened
@@ -73,4 +69,4 @@ If actual performance can hardly improved, there is a difference between actual 
 
 ## Natural Motion
 
-Please refer to [Ant Motion, a motion language](http://motion.ant.design/#/language/)。
+Please refer to [Ant Motion, a motion language](http://motion.ant.design/#/language/).

@@ -15,6 +15,7 @@ Customize the background, border and margin styles for each panel.
 
 ````jsx
 import { Collapse } from 'antd';
+
 const Panel = Collapse.Panel;
 
 const text = `
@@ -28,6 +29,7 @@ const customPanelStyle = {
   borderRadius: 4,
   marginBottom: 24,
   border: 0,
+  overflow: 'hidden',
 };
 
 ReactDOM.render(
@@ -41,6 +43,6 @@ ReactDOM.render(
     <Panel header="This is panel header 3" key="3" style={customPanelStyle}>
       <p>{text}</p>
     </Panel>
-  </Collapse>
-, mountNode);
+  </Collapse>,
+  mountNode);
 ````

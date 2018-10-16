@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 
 export interface TimeLineItemProps {
@@ -7,7 +7,6 @@ export interface TimeLineItemProps {
   color?: string;
   dot?: React.ReactNode;
   pending?: boolean;
-  last?: boolean;
   style?: React.CSSProperties;
 }
 
@@ -15,16 +14,14 @@ export default class TimelineItem extends React.Component<TimeLineItemProps, any
   static defaultProps = {
     prefixCls: 'ant-timeline',
     color: 'blue',
-    last: false,
     pending: false,
   };
 
   render() {
-    const { prefixCls, className, color = '', last, children, pending, dot, ...restProps } = this.props;
+    const { prefixCls, className, color = '', children, pending, dot, ...restProps } = this.props;
 
     const itemClassName = classNames({
       [`${prefixCls}-item`]: true,
-      [`${prefixCls}-item-last`]: last,
       [`${prefixCls}-item-pending`]: pending,
     }, className);
 
@@ -39,7 +36,7 @@ export default class TimelineItem extends React.Component<TimeLineItemProps, any
         <div className={`${prefixCls}-item-tail`} />
         <div
           className={dotClassName}
-          style={{ borderColor: /blue|red|green/.test(color) ? null : color }}
+          style={{ borderColor: /blue|red|green/.test(color) ? undefined : color }}
         >
           {dot}
         </div>

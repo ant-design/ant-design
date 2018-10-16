@@ -3,10 +3,9 @@
 .@{calendar-prefix-cls}-range-picker-input {
   background-color: transparent;
   border: 0;
-  height: 100%;
-  line-height: 100%;
+  height: 99%;
   outline: 0;
-  width: 43%;
+  width: 44%;
   text-align: center;
   .placeholder();
 
@@ -17,10 +16,14 @@
 
 .@{calendar-prefix-cls}-range-picker-separator {
   color: @text-color-secondary;
+  width: 10px;
+  display: inline-block;
+  height: 100%;
+  vertical-align: top;
 }
 
 .@{calendar-prefix-cls}-range {
-  width: 470px;
+  width: 552px;
   overflow: hidden;
 
   .@{calendar-prefix-cls}-date-panel {
@@ -41,7 +44,7 @@
     float: left;
     .@{calendar-prefix-cls} {
       &-time-picker-inner {
-        border-right: 2px solid @border-color-split;
+        border-right: 1px solid @border-color-split;
       }
     }
   }
@@ -50,7 +53,7 @@
     float: right;
     .@{calendar-prefix-cls} {
       &-time-picker-inner {
-        border-left: 2px solid @border-color-split;
+        border-left: 1px solid @border-color-split;
       }
     }
   }
@@ -89,6 +92,8 @@
     height: @input-height-sm;
     border: 0;
     box-shadow: none;
+    padding-left: 0;
+    padding-right: 0;
 
     &:focus {
       box-shadow: none;
@@ -108,7 +113,8 @@
   }
 
   .@{calendar-prefix-cls}-year-panel,
-  .@{calendar-prefix-cls}-month-panel {
+  .@{calendar-prefix-cls}-month-panel,
+  .@{calendar-prefix-cls}-decade-panel {
     top: @input-box-height;
   }
   .@{calendar-prefix-cls}-month-panel .@{calendar-prefix-cls}-year-panel {
@@ -130,7 +136,7 @@
     &:before {
       content: '';
       display: block;
-      background: @primary-1;
+      background: @item-active-bg;
       border-radius: 0;
       border: 0;
       position: absolute;
@@ -141,23 +147,16 @@
     }
   }
 
-  &-bottom {
-    text-align: right;
-
-    .@{calendar-prefix-cls}-footer-btn {
-      padding-right: 16px;
-    }
+  .@{calendar-prefix-cls}-footer-extra {
+    float: left;
   }
 
   // `div` for selector specificity
   div&-quick-selector {
-    display: block;
     text-align: left;
-    border-top: @border-width-base @border-style-base @border-color-split;
-    padding: 10.5px 10px;
 
     > a {
-      margin-right: 16px;
+      margin-right: 8px;
     }
   }
 
@@ -179,12 +178,12 @@
       top: 68px;
       z-index: 2; // cover .ant-calendar-range .ant-calendar-in-range-cell > div (z-index: 1)
       &-panel {
-        height: 241px;
+        height: 267px;
         margin-top: -34px;
       }
 
       &-inner {
-        padding-top: 34px;
+        padding-top: 40px;
         height: 100%;
         background: none;
       }
@@ -202,17 +201,8 @@
         }
       }
     }
-    .@{calendar-prefix-cls}-footer-btn {
-      padding: 9px 12px 9px 0;
-      display: block;
-      .clearfix;
-    }
-    .@{calendar-prefix-cls}-ok-btn {
-      position: static;
-      height: 22px;
-    }
     .@{calendar-prefix-cls}-footer .@{calendar-prefix-cls}-time-picker-btn {
-      margin-right: 12px;
+      margin-right: 8px;
     }
     .@{calendar-prefix-cls}-today-btn {
       margin: 8px 12px;
@@ -222,10 +212,7 @@
   }
 
   &-with-ranges.@{calendar-prefix-cls}-time .@{calendar-timepicker-prefix-cls} {
-    height: 247px;
-    &-panel {
-      height: 281px;
-    }
+    height: 233px;
   }
 }
 

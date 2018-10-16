@@ -34,15 +34,22 @@ const SIZING_STYLE = [
   'box-sizing',
 ];
 
-let computedStyleCache = {};
-let hiddenTextarea;
+export interface NodeType {
+  sizingStyle: string;
+  paddingSize: number;
+  borderSize: number;
+  boxSizing: string;
+}
 
-function calculateNodeStyling(node, useCache = false) {
+let computedStyleCache: {[key: string]: NodeType} = {};
+let hiddenTextarea: HTMLTextAreaElement;
+
+function calculateNodeStyling(node: HTMLElement, useCache = false) {
   const nodeRef = (
     node.getAttribute('id') ||
     node.getAttribute('data-reactid') ||
     node.getAttribute('name')
-  );
+  ) as string;
 
   if (useCache && computedStyleCache[nodeRef]) {
     return computedStyleCache[nodeRef];
@@ -70,7 +77,7 @@ function calculateNodeStyling(node, useCache = false) {
     .map(name => `${name}:${style.getPropertyValue(name)}`)
     .join(';');
 
-  const nodeInfo = {
+  const nodeInfo: NodeType = {
     sizingStyle,
     paddingSize,
     borderSize,
@@ -85,7 +92,7 @@ function calculateNodeStyling(node, useCache = false) {
 }
 
 export default function calculateNodeHeight(
-  uiTextNode,
+  uiTextNode: HTMLTextAreaElement,
   useCache = false,
   minRows: number | null = null,
   maxRows: number | null = null,
@@ -93,6 +100,14 @@ export default function calculateNodeHeight(
   if (!hiddenTextarea) {
     hiddenTextarea = document.createElement('textarea');
     document.body.appendChild(hiddenTextarea);
+  }
+
+  // Fix wrap="off" issue
+  // https://github.com/ant-design/ant-design/issues/6577
+  if (uiTextNode.getAttribute('wrap')) {
+    hiddenTextarea.setAttribute('wrap', uiTextNode.getAttribute('wrap') as string);
+  } else {
+    hiddenTextarea.removeAttribute('wrap');
   }
 
   // Copy all CSS properties that have an impact on the height of the content in
@@ -108,9 +123,10 @@ export default function calculateNodeHeight(
   hiddenTextarea.setAttribute('style', `${sizingStyle};${HIDDEN_TEXTAREA_STYLE}`);
   hiddenTextarea.value = uiTextNode.value || uiTextNode.placeholder || '';
 
-  let minHeight = -Infinity;
-  let maxHeight = Infinity;
+  let minHeight = Number.MIN_SAFE_INTEGER;
+  let maxHeight = Number.MAX_SAFE_INTEGER;
   let height = hiddenTextarea.scrollHeight;
+  let overflowY: any;
 
   if (boxSizing === 'border-box') {
     // border-box: add border, since height = content + padding + border
@@ -122,7 +138,7 @@ export default function calculateNodeHeight(
 
   if (minRows !== null || maxRows !== null) {
     // measure height of a textarea with a single row
-    hiddenTextarea.value = '';
+    hiddenTextarea.value = ' ';
     let singleRowHeight = hiddenTextarea.scrollHeight - paddingSize;
     if (minRows !== null) {
       minHeight = singleRowHeight * minRows;
@@ -136,8 +152,13 @@ export default function calculateNodeHeight(
       if (boxSizing === 'border-box') {
         maxHeight = maxHeight + paddingSize + borderSize;
       }
+      overflowY = height > maxHeight ? '' : 'hidden';
       height = Math.min(maxHeight, height);
     }
   }
-  return { height, minHeight, maxHeight };
+  // Remove scroll bar flash when autosize without maxRows
+  if (!maxRows) {
+    overflowY = 'hidden';
+  }
+  return { height, minHeight, maxHeight, overflowY };
 }

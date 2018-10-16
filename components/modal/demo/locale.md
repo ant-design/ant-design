@@ -18,28 +18,30 @@ import { Modal, Button } from 'antd';
 
 class LocalizedModal extends React.Component {
   state = { visible: false }
+
   showModal = () => {
     this.setState({
       visible: true,
     });
   }
-  handleOk = () => {
+
+  hideModal = () => {
     this.setState({
       visible: false,
     });
   }
-  handleCancel = () => {
-    this.setState({
-      visible: false,
-    });
-  }
+
   render() {
     return (
       <div>
-        <Button type="primary" onClick={this.showModal}>Show Modal</Button>
-        <Modal title="Modal" visible={this.state.visible}
-          onOk={this.handleOk} onCancel={this.handleCancel}
-          okText="OK" cancelText="Cancel"
+        <Button type="primary" onClick={this.showModal}>Modal</Button>
+        <Modal
+          title="Modal"
+          visible={this.state.visible}
+          onOk={this.hideModal}
+          onCancel={this.hideModal}
+          okText="确认"
+          cancelText="取消"
         >
           <p>Bla bla ...</p>
           <p>Bla bla ...</p>
@@ -54,14 +56,17 @@ function confirm() {
   Modal.confirm({
     title: 'Confirm',
     content: 'Bla bla ...',
-    okText: 'OK',
-    cancelText: 'Cancel',
+    okText: '确认',
+    cancelText: '取消',
   });
 }
 
-ReactDOM.render(<div>
-  <LocalizedModal />
-  <br />
-  <Button onClick={confirm}>confirm</Button>
-</div>, mountNode);
+ReactDOM.render(
+  <div>
+    <LocalizedModal />
+    <br />
+    <Button onClick={confirm}>Confirm</Button>
+  </div>,
+  mountNode
+);
 ````

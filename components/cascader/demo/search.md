@@ -52,12 +52,16 @@ function onChange(value, selectedOptions) {
   console.log(value, selectedOptions);
 }
 
+function filter(inputValue, path) {
+  return (path.some(option => (option.label).toLowerCase().indexOf(inputValue.toLowerCase()) > -1));
+}
+
 ReactDOM.render(
   <Cascader
     options={options}
     onChange={onChange}
     placeholder="Please select"
-    showSearch
+    showSearch={{ filter }}
   />,
   mountNode
 );

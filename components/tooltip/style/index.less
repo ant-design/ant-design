@@ -5,12 +5,12 @@
 
 // Base class
 .@{tooltip-prefix-cls} {
+  .reset-component;
   position: absolute;
   z-index: @zindex-tooltip;
   display: block;
   visibility: visible;
-  font-size: @font-size-base;
-  line-height: @line-height-base;
+  max-width: @tooltip-max-width;
 
   &-hidden {
     display: none;
@@ -19,48 +19,46 @@
   &-placement-top,
   &-placement-topLeft,
   &-placement-topRight {
-    padding: @tooltip-arrow-width 0 @tooltip-distance 0;
+    padding-bottom: @tooltip-distance;
   }
   &-placement-right,
   &-placement-rightTop,
   &-placement-rightBottom {
-    padding: 0 @tooltip-arrow-width 0 @tooltip-distance;
+    padding-left: @tooltip-distance;
   }
   &-placement-bottom,
   &-placement-bottomLeft,
   &-placement-bottomRight {
-    padding: @tooltip-distance 0 @tooltip-arrow-width 0;
+    padding-top: @tooltip-distance;
   }
   &-placement-left,
   &-placement-leftTop,
   &-placement-leftBottom {
-    padding: 0 @tooltip-distance 0 @tooltip-arrow-width;
+    padding-right: @tooltip-distance;
   }
-}
 
-// Wrapper for the tooltip content
-.@{tooltip-prefix-cls}-inner {
-  max-width: @tooltip-max-width;
-  padding: 8px 10px;
-  color: @tooltip-color;
-  text-align: left;
-  text-decoration: none;
-  background-color: @tooltip-bg;
-  border-radius: @border-radius-base;
-  box-shadow: @box-shadow-base;
-  min-height: 34px;
-}
+  // Wrapper for the tooltip content
+  &-inner {
+    padding: 6px 8px;
+    color: @tooltip-color;
+    text-align: left;
+    text-decoration: none;
+    background-color: @tooltip-bg;
+    border-radius: @border-radius-base;
+    box-shadow: @box-shadow-base;
+    min-height: 32px;
+    word-wrap: break-word;
+  }
 
-// Arrows
-.@{tooltip-prefix-cls}-arrow {
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-color: transparent;
-  border-style: solid;
-}
+  // Arrows
+  &-arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+  }
 
-.@{tooltip-prefix-cls} {
   &-placement-top &-arrow,
   &-placement-topLeft &-arrow,
   &-placement-topRight &-arrow {

@@ -1,72 +1,108 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import moment from 'moment';
+import * as React from 'react';
+import * as moment from 'moment';
+import { polyfill } from 'react-lifecycles-compat';
 import MonthCalendar from 'rc-calendar/lib/MonthCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import assign from 'object-assign';
 import Icon from '../icon';
-import { getLocaleCode } from '../_util/getLocale';
 import warning from '../_util/warning';
+import interopDefault from '../_util/interopDefault';
+import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 
 export interface PickerProps {
   value?: moment.Moment;
   prefixCls: string;
 }
 
-export default function createPicker(TheCalendar): any {
-  return class CalenderWrapper extends React.Component<any, any> {
-    static contextTypes = {
-      antLocale: PropTypes.object,
-    };
-
+export default function createPicker(TheCalendar: React.ComponentClass): any {
+  class CalenderWrapper extends React.Component<any, any> {
     static defaultProps = {
       prefixCls: 'ant-calendar',
       allowClear: true,
       showToday: true,
     };
 
-    constructor(props) {
+    static getDerivedStateFromProps(nextProps: PickerProps, prevState: any) {
+      let state = null;
+      if ('value' in nextProps) {
+        state = {
+          value: nextProps.value,
+        };
+        if (nextProps.value !== prevState.value) {
+          state = {
+            ...state,
+            showDate: nextProps.value,
+          };
+        }
+      }
+      return state;
+    }
+
+    private input: any;
+
+    constructor(props: any) {
       super(props);
       const value = props.value || props.defaultValue;
-      if (value && !moment.isMoment(value)) {
+      if (value && !interopDefault(moment).isMoment(value)) {
         throw new Error(
           'The value/defaultValue of DatePicker or MonthPicker must be ' +
-          'a moment object after `antd@2.0`, see: http://u.ant.design/date-picker-value',
+          'a moment object after `antd@2.0`, see: https://u.ant.design/date-picker-value',
         );
       }
       this.state = {
         value,
+        showDate: value,
       };
     }
 
-    componentWillReceiveProps(nextProps: PickerProps) {
-      if ('value' in nextProps) {
-        this.setState({
-          value: nextProps.value,
-        });
-      }
+    renderFooter = (...args: any[]) => {
+      const { prefixCls, renderExtraFooter } = this.props;
+      return renderExtraFooter ? (
+        <div className={`${prefixCls}-footer-extra`}>
+          {renderExtraFooter(...args)}
+        </div>
+      ) : null;
     }
 
-    clearSelection = (e) => {
+    clearSelection = (e: React.MouseEvent<HTMLElement>) => {
       e.preventDefault();
       e.stopPropagation();
       this.handleChange(null);
     }
 
-    handleChange = (value) => {
+    handleChange = (value: moment.Moment | null) => {
       const props = this.props;
       if (!('value' in props)) {
-        this.setState({ value });
+        this.setState({
+          value,
+          showDate: value,
+        });
       }
       props.onChange(value, (value && value.format(props.format)) || '');
+      this.focus();
+    }
+
+    handleCalendarChange = (value: moment.Moment) => {
+      this.setState({ showDate: value });
+    }
+
+    focus() {
+      this.input.focus();
+    }
+
+    blur() {
+      this.input.blur();
+    }
+
+    saveInput = (node: any) => {
+      this.input = node;
     }
 
     render() {
-      const { value } = this.state;
+      const { value, showDate } = this.state;
       const props = omit(this.props, ['onChange']);
-      const { prefixCls, locale } = props;
+      const { prefixCls, locale, localeCode, suffixIcon } = props;
 
       const placeholder = ('placeholder' in props)
         ? props.placeholder : locale.lang.placeholder;
@@ -78,78 +114,107 @@ export default function createPicker(TheCalendar): any {
         [`${prefixCls}-month`]: MonthCalendar === TheCalendar,
       });
 
-      let pickerChangeHandler: Object = {};
-      let calendarHandler: Object = {};
+      if (value && localeCode) {
+        value.locale(localeCode);
+      }
+
+      let pickerProps: Object = {};
+      let calendarProps: any = {};
+      const pickerStyle: { width?: number } = {};
       if (props.showTime) {
-        calendarHandler = {
+        calendarProps = {
           // fix https://github.com/ant-design/ant-design/issues/1902
           onSelect: this.handleChange,
         };
+        pickerStyle.width = 195;
       } else {
-        pickerChangeHandler = {
+        pickerProps = {
           onChange: this.handleChange,
         };
+      }
+      if ('mode' in props) {
+        calendarProps.mode = props.mode;
       }
 
       warning(!('onOK' in props), 'It should be `DatePicker[onOk]` or `MonthPicker[onOk]`, instead of `onOK`!');
       const calendar = (
         <TheCalendar
-          {...calendarHandler}
+          {...calendarProps}
           disabledDate={props.disabledDate}
           disabledTime={disabledTime}
           locale={locale.lang}
           timePicker={props.timePicker}
-          defaultValue={props.defaultPickerValue || moment()}
+          defaultValue={props.defaultPickerValue || interopDefault(moment)()}
           dateInputPlaceholder={placeholder}
           prefixCls={prefixCls}
           className={calendarClassName}
           onOk={props.onOk}
+          dateRender={props.dateRender}
           format={props.format}
           showToday={props.showToday}
           monthCellContentRender={props.monthCellContentRender}
+          renderFooter={this.renderFooter}
+          onPanelChange={props.onPanelChange}
+          onChange={this.handleCalendarChange}
+          value={showDate}
         />
       );
 
-      // default width for showTime
-      const pickerStyle = {} as any;
-      if (props.showTime) {
-        pickerStyle.width = (props.style && props.style.width) || 154;
-      }
-
       const clearIcon = (!props.disabled && props.allowClear && value) ? (
         <Icon
-          type="cross-circle"
+          type="close-circle"
           className={`${prefixCls}-picker-clear`}
           onClick={this.clearSelection}
+          theme="filled"
         />
       ) : null;
 
-      const input = ({ value: inputValue }) => (
-        <span>
+      const inputIcon = suffixIcon && (
+        React.isValidElement<{ className?: string }>(suffixIcon)
+          ? React.cloneElement(
+            suffixIcon,
+            {
+              className: classNames({
+                [suffixIcon.props.className!]: suffixIcon.props.className,
+                [`${prefixCls}-picker-icon`]: true,
+              }),
+            },
+          ) : <span className={`${prefixCls}-picker-icon`}>{suffixIcon}</span>) || (
+          <Icon type="calendar" className={`${prefixCls}-picker-icon`} />
+        );
+
+      const dataOrAriaProps = getDataOrAriaProps(props);
+      const input = ({ value: inputValue }: { value: moment.Moment | null }) => (
+        <div>
           <input
+            ref={this.saveInput}
             disabled={props.disabled}
             readOnly
             value={(inputValue && inputValue.format(props.format)) || ''}
             placeholder={placeholder}
             className={props.pickerInputClass}
+            {...dataOrAriaProps}
           />
           {clearIcon}
-          <span className={`${prefixCls}-picker-icon`} />
-        </span>
+          {inputIcon}
+        </div>
       );
 
-      const pickerValue = value;
-      const localeCode = getLocaleCode(this.context);
-      if (pickerValue && localeCode) {
-        pickerValue.locale(localeCode);
-      }
       return (
-        <span className={props.pickerClass} style={assign({}, props.style, pickerStyle)}>
+        <span
+          id={props.id}
+          className={classNames(props.className, props.pickerClass)}
+          style={{ ...pickerStyle, ...props.style }}
+          onFocus={props.onFocus}
+          onBlur={props.onBlur}
+          onMouseEnter={props.onMouseEnter}
+          onMouseLeave={props.onMouseLeave}
+        >
           <RcDatePicker
             {...props}
-            {...pickerChangeHandler}
+            {...pickerProps}
             calendar={calendar}
-            value={pickerValue}
+            value={value}
             prefixCls={`${prefixCls}-picker-container`}
             style={props.popupStyle}
           >
@@ -158,5 +223,7 @@ export default function createPicker(TheCalendar): any {
         </span>
       );
     }
-  };
+  }
+  polyfill(CalenderWrapper);
+  return CalenderWrapper;
 }

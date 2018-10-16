@@ -14,11 +14,50 @@ title:
 Shows a loading indicator while the contents of the card is being fetched.
 
 ````jsx
-import { Card } from 'antd';
+import { Skeleton, Switch, Card, Icon, Avatar } from 'antd';
 
-ReactDOM.render(
-  <Card loading title="Card title" style={{ width: '34%' }}>
-    Whatever content
-  </Card>
-, mountNode);
+const { Meta } = Card;
+
+class App extends React.Component {
+  state = {
+    loading: true,
+  }
+
+  onChange = (checked) => {
+    this.setState({ loading: !checked });
+  }
+
+  render() {
+    const { loading } = this.state;
+
+    return (
+      <div>
+        <Switch checked={!loading} onChange={this.onChange} />
+
+        <Card style={{ width: 300, marginTop: 16 }} loading={loading}>
+          <Meta
+            avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+            title="Card title"
+            description="This is the description"
+          />
+        </Card>
+
+        <Card
+          style={{ width: 300, marginTop: 16 }}
+          actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
+        >
+          <Skeleton loading={loading} avatar active>
+            <Meta
+              avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+              title="Card title"
+              description="This is the description"
+            />
+          </Skeleton>
+        </Card>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<App />, mountNode);
 ````

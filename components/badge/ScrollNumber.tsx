@@ -1,9 +1,9 @@
-import React from 'react';
+import * as React from 'react';
 import { createElement, Component } from 'react';
-import assign from 'object-assign';
 import omit from 'omit.js';
+import classNames from 'classnames';
 
-function getNumberArray(num) {
+function getNumberArray(num: string | number | undefined | null) {
   return num ?
     num.toString()
       .split('')
@@ -14,13 +14,19 @@ function getNumberArray(num) {
 export interface ScrollNumberProps {
   prefixCls?: string;
   className?: string;
-  count?: string | number;
+  count?: string | number | null;
   component?: string;
   onAnimated?: Function;
   style?: React.CSSProperties;
+  title?: string | number | null;
 }
 
-export default class ScrollNumber extends Component<ScrollNumberProps, any> {
+export interface ScrollNumberState {
+  animateStarted?: boolean;
+  count?: string | number | null;
+}
+
+export default class ScrollNumber extends Component<ScrollNumberProps, ScrollNumberState> {
   static defaultProps = {
     prefixCls: 'ant-scroll-number',
     count: null,
@@ -30,7 +36,7 @@ export default class ScrollNumber extends Component<ScrollNumberProps, any> {
 
   lastCount: any;
 
-  constructor(props) {
+  constructor(props: ScrollNumberProps) {
     super(props);
     this.state = {
       animateStarted: true,
@@ -38,14 +44,14 @@ export default class ScrollNumber extends Component<ScrollNumberProps, any> {
     };
   }
 
-  getPositionByNum(num, i) {
+  getPositionByNum(num: number, i: number) {
     if (this.state.animateStarted) {
       return 10 + num;
     }
     const currentDigit = getNumberArray(this.state.count)[i];
     const lastDigit = getNumberArray(this.lastCount)[i];
     // 同方向则在同一侧切换数字
-    if (this.state.count > this.lastCount) {
+    if (this.state.count! > this.lastCount) {
       if (currentDigit >= lastDigit) {
         return 10 + num;
       }
@@ -57,7 +63,7 @@ export default class ScrollNumber extends Component<ScrollNumberProps, any> {
     return num;
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: ScrollNumberProps) {
     if ('count' in nextProps) {
       if (this.state.count === nextProps.count) {
         return;
@@ -84,7 +90,7 @@ export default class ScrollNumber extends Component<ScrollNumberProps, any> {
     }
   }
 
-  renderNumberList(position) {
+  renderNumberList(position: number) {
     const childrenToReturn: React.ReactElement<any>[] = [];
     for (let i = 0; i < 30; i++) {
       const currentClassName = (position === i) ? 'current' : '';
@@ -93,14 +99,14 @@ export default class ScrollNumber extends Component<ScrollNumberProps, any> {
     return childrenToReturn;
   }
 
-  renderCurrentNumber(num, i) {
+  renderCurrentNumber(num: number, i: number) {
     const position = this.getPositionByNum(num, i);
     const removeTransition = this.state.animateStarted ||
       (getNumberArray(this.lastCount)[i] === undefined);
     return createElement('span', {
       className: `${this.props.prefixCls}-only`,
       style: {
-        transition: removeTransition && 'none',
+        transition: removeTransition ? 'none' : undefined,
         msTransform: `translateY(${-position * 100}%)`,
         WebkitTransform: `translateY(${-position * 100}%)`,
         transform: `translateY(${-position * 100}%)`,
@@ -111,7 +117,7 @@ export default class ScrollNumber extends Component<ScrollNumberProps, any> {
 
   renderNumberElement() {
     const state = this.state;
-    if (!state.count || isNaN(state.count)) {
+    if (!state.count || isNaN(state.count as number)) {
       return state.count;
     }
     return getNumberArray(state.count)
@@ -119,24 +125,28 @@ export default class ScrollNumber extends Component<ScrollNumberProps, any> {
   }
 
   render() {
+    const { prefixCls, className, style, title, component = 'sup' } = this.props;
     // fix https://fb.me/react-unknown-prop
-    const props = assign({}, omit(this.props, [
+    const restProps = omit(this.props, [
       'count',
       'onAnimated',
       'component',
       'prefixCls',
-    ]), {
-      className: `${this.props.prefixCls} ${this.props.className}`,
-    });
+    ]);
+    const newProps = {
+      ...restProps,
+      className: classNames(prefixCls, className),
+      title: title as string,
+    };
     // allow specify the border
     // mock border-color by box-shadow for compatible with old usage:
     // <Badge count={4} style={{ backgroundColor: '#fff', color: '#999', borderColor: '#d9d9d9' }} />
-    if (props.style && props.style.borderColor) {
-      props.style.boxShadow = `0 0 0 1px ${props.style.borderColor} inset`;
+    if (style && style.borderColor) {
+      newProps.style.boxShadow = `0 0 0 1px ${style.borderColor} inset`;
     }
     return createElement(
-      this.props.component || 'sup',
-      props,
+      component as any,
+      newProps,
       this.renderNumberElement(),
     );
   }

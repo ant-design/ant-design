@@ -13,56 +13,68 @@ title:
 
 Table with editable rows.
 
-````jsx
-import { Table, Input, Popconfirm } from 'antd';
+```jsx
+import { Table, Input, InputNumber, Popconfirm, Form } from 'antd';
+
+const data = [];
+for (let i = 0; i < 100; i++) {
+  data.push({
+    key: i.toString(),
+    name: `Edrward ${i}`,
+    age: 32,
+    address: `London Park no. ${i}`,
+  });
+}
+const FormItem = Form.Item;
+const EditableContext = React.createContext();
+
+const EditableRow = ({ form, index, ...props }) => (
+  <EditableContext.Provider value={form}>
+    <tr {...props} />
+  </EditableContext.Provider>
+);
+
+const EditableFormRow = Form.create()(EditableRow);
 
 class EditableCell extends React.Component {
-  state = {
-    value: this.props.value,
-    editable: this.props.editable || false,
-  }
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.editable !== this.state.editable) {
-      this.setState({ editable: nextProps.editable });
-      if (nextProps.editable) {
-        this.cacheValue = this.state.value;
-      }
+  getInput = () => {
+    if (this.props.inputType === 'number') {
+      return <InputNumber />;
     }
-    if (nextProps.status && nextProps.status !== this.props.status) {
-      if (nextProps.status === 'save') {
-        this.props.onChange(this.state.value);
-      } else if (nextProps.status === 'cancel') {
-        this.setState({ value: this.cacheValue });
-        this.props.onChange(this.cacheValue);
-      }
-    }
-  }
-  shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.editable !== this.state.editable ||
-           nextState.value !== this.state.value;
-  }
-  handleChange(e) {
-    const value = e.target.value;
-    this.setState({ value });
-  }
+    return <Input />;
+  };
+
   render() {
-    const { value, editable } = this.state;
+    const {
+      editing,
+      dataIndex,
+      title,
+      inputType,
+      record,
+      index,
+      ...restProps
+    } = this.props;
     return (
-      <div>
-        {
-          editable ?
-            <div>
-              <Input
-                value={value}
-                onChange={e => this.handleChange(e)}
-              />
-            </div>
-            :
-            <div className="editable-row-text">
-              {value.toString() || ' '}
-            </div>
-        }
-      </div>
+      <EditableContext.Consumer>
+        {(form) => {
+          const { getFieldDecorator } = form;
+          return (
+            <td {...restProps}>
+              {editing ? (
+                <FormItem style={{ margin: 0 }}>
+                  {getFieldDecorator(dataIndex, {
+                    rules: [{
+                      required: true,
+                      message: `Please Input ${title}!`,
+                    }],
+                    initialValue: record[dataIndex],
+                  })(this.getInput())}
+                </FormItem>
+              ) : restProps.children}
+            </td>
+          );
+        }}
+      </EditableContext.Consumer>
     );
   }
 }
@@ -70,127 +82,139 @@ class EditableCell extends React.Component {
 class EditableTable extends React.Component {
   constructor(props) {
     super(props);
-    this.columns = [{
-      title: 'name',
-      dataIndex: 'name',
-      width: '25%',
-      render: (text, record, index) => this.renderColumns(this.state.data, index, 'name', text),
-    }, {
-      title: 'age',
-      dataIndex: 'age',
-      width: '15%',
-      render: (text, record, index) => this.renderColumns(this.state.data, index, 'age', text),
-    }, {
-      title: 'address',
-      dataIndex: 'address',
-      width: '40%',
-      render: (text, record, index) => this.renderColumns(this.state.data, index, 'address', text),
-    }, {
-      title: 'operation',
-      dataIndex: 'operation',
-      render: (text, record, index) => {
-        const { editable } = this.state.data[index].name;
-        return (
-          <div className="editable-row-operations">
-            {
-              editable ?
+    this.state = { data, editingKey: '' };
+    this.columns = [
+      {
+        title: 'name',
+        dataIndex: 'name',
+        width: '25%',
+        editable: true,
+      },
+      {
+        title: 'age',
+        dataIndex: 'age',
+        width: '15%',
+        editable: true,
+      },
+      {
+        title: 'address',
+        dataIndex: 'address',
+        width: '40%',
+        editable: true,
+      },
+      {
+        title: 'operation',
+        dataIndex: 'operation',
+        render: (text, record) => {
+          const editable = this.isEditing(record);
+          return (
+            <div>
+              {editable ? (
                 <span>
-                  <a onClick={() => this.editDone(index, 'save')}>Save</a>
-                  <Popconfirm title="Sure to cancel?" onConfirm={() => this.editDone(index, 'cancel')}>
+                  <EditableContext.Consumer>
+                    {form => (
+                      <a
+                        href="javascript:;"
+                        onClick={() => this.save(form, record.key)}
+                        style={{ marginRight: 8 }}
+                      >
+                        Save
+                      </a>
+                    )}
+                  </EditableContext.Consumer>
+                  <Popconfirm
+                    title="Sure to cancel?"
+                    onConfirm={() => this.cancel(record.key)}
+                  >
                     <a>Cancel</a>
                   </Popconfirm>
                 </span>
-                :
-                <span>
-                  <a onClick={() => this.edit(index)}>Edit</a>
-                </span>
-            }
-          </div>
-        );
+              ) : (
+                <a onClick={() => this.edit(record.key)}>Edit</a>
+              )}
+            </div>
+          );
+        },
       },
-    }];
-    this.state = {
-      data: [{
-        key: '0',
-        name: {
-          editable: false,
-          value: 'Edward King 0',
-        },
-        age: {
-          editable: false,
-          value: '32',
-        },
-        address: {
-          value: 'London, Park Lane no. 0',
-        },
-      }],
-    };
+    ];
   }
-  renderColumns(data, index, key, text) {
-    const { editable, status } = data[index][key];
-    if (typeof editable === 'undefined') {
-      return text;
-    }
-    return (<EditableCell
-      editable={editable}
-      value={text}
-      onChange={value => this.handleChange(key, index, value)}
-      status={status}
-    />);
+
+  isEditing = (record) => {
+    return record.key === this.state.editingKey;
+  };
+
+  edit(key) {
+    this.setState({ editingKey: key });
   }
-  handleChange(key, index, value) {
-    const { data } = this.state;
-    data[index][key].value = value;
-    this.setState({ data });
-  }
-  edit(index) {
-    const { data } = this.state;
-    Object.keys(data[index]).forEach((item) => {
-      if (data[index][item] && typeof data[index][item].editable !== 'undefined') {
-        data[index][item].editable = true;
+
+  save(form, key) {
+    form.validateFields((error, row) => {
+      if (error) {
+        return;
+      }
+      const newData = [...this.state.data];
+      const index = newData.findIndex(item => key === item.key);
+      if (index > -1) {
+        const item = newData[index];
+        newData.splice(index, 1, {
+          ...item,
+          ...row,
+        });
+        this.setState({ data: newData, editingKey: '' });
+      } else {
+        newData.push(row);
+        this.setState({ data: newData, editingKey: '' });
       }
     });
-    this.setState({ data });
   }
-  editDone(index, type) {
-    const { data } = this.state;
-    Object.keys(data[index]).forEach((item) => {
-      if (data[index][item] && typeof data[index][item].editable !== 'undefined') {
-        data[index][item].editable = false;
-        data[index][item].status = type;
-      }
-    });
-    this.setState({ data }, () => {
-      Object.keys(data[index]).forEach((item) => {
-        if (data[index][item] && typeof data[index][item].editable !== 'undefined') {
-          delete data[index][item].status;
-        }
-      });
-    });
-  }
+
+  cancel = () => {
+    this.setState({ editingKey: '' });
+  };
+
   render() {
-    const { data } = this.state;
-    const dataSource = data.map((item) => {
-      const obj = {};
-      Object.keys(item).forEach((key) => {
-        obj[key] = key === 'key' ? item[key] : item[key].value;
-      });
-      return obj;
+    const components = {
+      body: {
+        row: EditableFormRow,
+        cell: EditableCell,
+      },
+    };
+
+    const columns = this.columns.map((col) => {
+      if (!col.editable) {
+        return col;
+      }
+      return {
+        ...col,
+        onCell: record => ({
+          record,
+          inputType: col.dataIndex === 'age' ? 'number' : 'text',
+          dataIndex: col.dataIndex,
+          title: col.title,
+          editing: this.isEditing(record),
+        }),
+      };
     });
-    const columns = this.columns;
-    return <Table bordered dataSource={dataSource} columns={columns} />;
+
+    return (
+      <Table
+        components={components}
+        bordered
+        dataSource={this.state.data}
+        columns={columns}
+        rowClassName="editable-row"
+      />
+    );
   }
 }
 
 ReactDOM.render(<EditableTable />, mountNode);
-````
+```
 
-````css
-.editable-row-text {
-  padding: 5px;
+```css
+.editable-row .ant-form-explain {
+  position: absolute;
+  font-size: 12px;
+  margin-top: -4px;
 }
-
-.editable-row-operations a {
-  margin-right: 8px;
-}
-````
+```

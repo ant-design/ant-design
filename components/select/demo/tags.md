@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 4
 title:
   zh-CN: 标签
   en-US: Tags
@@ -15,6 +15,7 @@ Select with tags, transform input to tag (scroll the menu)
 
 ````jsx
 import { Select } from 'antd';
+
 const Option = Select.Option;
 
 const children = [];
@@ -30,10 +31,10 @@ ReactDOM.render(
   <Select
     mode="tags"
     style={{ width: '100%' }}
-    searchPlaceholder="标签模式"
+    placeholder="Tags Mode"
     onChange={handleChange}
   >
     {children}
-  </Select>
-, mountNode);
+  </Select>,
+  mountNode);
 ````

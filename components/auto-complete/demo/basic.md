@@ -25,7 +25,7 @@ class Complete extends React.Component {
     dataSource: [],
   }
 
-  handleChange = (value) => {
+  handleSearch = (value) => {
     this.setState({
       dataSource: !value ? [] : [
         value,
@@ -42,7 +42,7 @@ class Complete extends React.Component {
         dataSource={dataSource}
         style={{ width: 200 }}
         onSelect={onSelect}
-        onChange={this.handleChange}
+        onSearch={this.handleSearch}
         placeholder="input here"
       />
     );

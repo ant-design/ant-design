@@ -14,6 +14,7 @@ describe('DropdownButton', () => {
           <Menu.Item>foo</Menu.Item>
         </Menu>
       ),
+      disabled: false,
       trigger: ['hover'],
       visible: true,
       onVisibleChange: () => {},
@@ -23,7 +24,7 @@ describe('DropdownButton', () => {
     const dropdownProps = wrapper.find(Dropdown).props();
 
     Object.keys(props).forEach((key) => {
-      expect(dropdownProps[key]).toBe(props[key]);
+      expect(dropdownProps[key]).toBe(props[key]); // eslint-disable-line
     });
   });
 

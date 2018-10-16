@@ -18,15 +18,40 @@ Input.Group example
 Note: You don't need `Col` to control the width in the `compact` mode.
 
 ````jsx
-import { Input, Col, Select, InputNumber, DatePicker, AutoComplete } from 'antd';
+import { Input, Col, Select, InputNumber, DatePicker, AutoComplete, Cascader } from 'antd';
+
 const InputGroup = Input.Group;
 const Option = Select.Option;
 
+const options = [{
+  value: 'zhejiang',
+  label: 'Zhejiang',
+  children: [{
+    value: 'hangzhou',
+    label: 'Hangzhou',
+    children: [{
+      value: 'xihu',
+      label: 'West Lake',
+    }],
+  }],
+}, {
+  value: 'jiangsu',
+  label: 'Jiangsu',
+  children: [{
+    value: 'nanjing',
+    label: 'Nanjing',
+    children: [{
+      value: 'zhonghuamen',
+      label: 'Zhong Hua Men',
+    }],
+  }],
+}];
 
 class CompactDemo extends React.Component {
   state = {
     dataSource: [],
   }
+
   handleChange = (value) => {
     this.setState({
       dataSource: !value || value.indexOf('@') >= 0 ? [] : [
@@ -36,14 +61,15 @@ class CompactDemo extends React.Component {
       ],
     });
   }
+
   render() {
     return (
       <div>
         <InputGroup size="large">
-          <Col span="4">
+          <Col span={5}>
             <Input defaultValue="0571" />
           </Col>
-          <Col span="8">
+          <Col span={8}>
             <Input defaultValue="26888888" />
           </Col>
         </InputGroup>
@@ -92,7 +118,7 @@ class CompactDemo extends React.Component {
             <Option value="2">Except</Option>
           </Select>
           <Input style={{ width: 100, textAlign: 'center' }} placeholder="Minimum" />
-          <Input style={{ width: 24, borderLeft: 0, pointerEvents: 'none' }} placeholder="~" />
+          <Input style={{ width: 30, borderLeft: 0, pointerEvents: 'none', backgroundColor: '#fff' }} placeholder="~" disabled />
           <Input style={{ width: 100, textAlign: 'center', borderLeft: 0 }} placeholder="Maximum" />
         </InputGroup>
         <br />
@@ -107,6 +133,14 @@ class CompactDemo extends React.Component {
             onChange={this.handleChange}
             placeholder="Email"
           />
+        </InputGroup>
+        <br />
+        <InputGroup compact>
+          <Select style={{ width: '30%' }} defaultValue="Home">
+            <Option value="Home">Home</Option>
+            <Option value="Company">Company</Option>
+          </Select>
+          <Cascader style={{ width: '70%' }} options={options} placeholder="Select Address" />
         </InputGroup>
       </div>
     );

@@ -15,7 +15,7 @@ Generating a set of Tags by array, you can add and remove dynamically.
 It's based on `afterClose` event, which will be triggered while the close animation end.
 
 ````jsx
-import { Tag, Input, Tooltip, Button } from 'antd';
+import { Tag, Input, Tooltip, Icon } from 'antd';
 
 class EditableTagGroup extends React.Component {
   state = {
@@ -66,12 +66,13 @@ class EditableTagGroup extends React.Component {
               {isLongTag ? `${tag.slice(0, 20)}...` : tag}
             </Tag>
           );
-          return isLongTag ? <Tooltip title={tag}>{tagElem}</Tooltip> : tagElem;
+          return isLongTag ? <Tooltip title={tag} key={tag}>{tagElem}</Tooltip> : tagElem;
         })}
         {inputVisible && (
           <Input
             ref={this.saveInputRef}
-            type="text" size="small"
+            type="text"
+            size="small"
             style={{ width: 78 }}
             value={inputValue}
             onChange={this.handleInputChange}
@@ -79,7 +80,14 @@ class EditableTagGroup extends React.Component {
             onPressEnter={this.handleInputConfirm}
           />
         )}
-        {!inputVisible && <Button size="small" type="dashed" onClick={this.showInput}>+ New Tag</Button>}
+        {!inputVisible && (
+          <Tag
+            onClick={this.showInput}
+            style={{ background: '#fff', borderStyle: 'dashed' }}
+          >
+            <Icon type="plus" /> New Tag
+          </Tag>
+        )}
       </div>
     );
   }

@@ -6,51 +6,63 @@ exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
     class="ant-tag"
     data-show="true"
   >
-    <span
-      class="ant-tag-text"
-    >
-      Tag 1
-    </span>
+    Tag 1
   </div>
   <div
     class="ant-tag"
     data-show="true"
   >
-    <span
-      class="ant-tag-text"
+    <a
+      href="https://github.com/ant-design/ant-design/issues/1862"
     >
-      <a
-        href="https://github.com/ant-design/ant-design/issues/1862"
+      Link
+    </a>
+  </div>
+  <div
+    class="ant-tag"
+    data-show="true"
+  >
+    Tag 2
+    <i
+      class="anticon anticon-close"
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="close"
+        fill="currentColor"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
       >
-        Link
-      </a>
-    </span>
+        <path
+          d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 0 0 203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+        />
+      </svg>
+    </i>
   </div>
   <div
     class="ant-tag"
     data-show="true"
   >
-    <span
-      class="ant-tag-text"
-    >
-      Tag 2
-    </span>
+    Prevent Default
     <i
-      class="anticon anticon-cross"
-    />
-  </div>
-  <div
-    class="ant-tag"
-    data-show="true"
-  >
-    <span
-      class="ant-tag-text"
+      class="anticon anticon-close"
     >
-      Prevent Default
-    </span>
-    <i
-      class="anticon anticon-cross"
-    />
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="close"
+        fill="currentColor"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 0 0 203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+        />
+      </svg>
+    </i>
   </div>
 </div>
 `;
@@ -78,84 +90,80 @@ exports[`renders ./components/tag/demo/checkable.md correctly 1`] = `
 exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
 <div>
   <h4
-    style="margin-bottom:16px;"
+    style="margin-bottom:16px"
   >
     Presets:
   </h4>
   <div>
     <div
-      class="ant-tag ant-tag-pink"
+      class="ant-tag ant-tag-magenta"
       data-show="true"
     >
-      <span
-        class="ant-tag-text"
-      >
-        pink
-      </span>
+      magenta
     </div>
     <div
       class="ant-tag ant-tag-red"
       data-show="true"
     >
-      <span
-        class="ant-tag-text"
-      >
-        red
-      </span>
+      red
+    </div>
+    <div
+      class="ant-tag ant-tag-volcano"
+      data-show="true"
+    >
+      volcano
     </div>
     <div
       class="ant-tag ant-tag-orange"
       data-show="true"
     >
-      <span
-        class="ant-tag-text"
-      >
-        orange
-      </span>
+      orange
+    </div>
+    <div
+      class="ant-tag ant-tag-gold"
+      data-show="true"
+    >
+      gold
+    </div>
+    <div
+      class="ant-tag ant-tag-lime"
+      data-show="true"
+    >
+      lime
     </div>
     <div
       class="ant-tag ant-tag-green"
       data-show="true"
     >
-      <span
-        class="ant-tag-text"
-      >
-        green
-      </span>
+      green
     </div>
     <div
       class="ant-tag ant-tag-cyan"
       data-show="true"
     >
-      <span
-        class="ant-tag-text"
-      >
-        cyan
-      </span>
+      cyan
     </div>
     <div
       class="ant-tag ant-tag-blue"
       data-show="true"
     >
-      <span
-        class="ant-tag-text"
-      >
-        blue
-      </span>
+      blue
+    </div>
+    <div
+      class="ant-tag ant-tag-geekblue"
+      data-show="true"
+    >
+      geekblue
     </div>
     <div
       class="ant-tag ant-tag-purple"
       data-show="true"
     >
-      <span
-        class="ant-tag-text"
-      >
-        purple
-      </span>
+      purple
     </div>
   </div>
   <h4
-    style="margin:16px 0;"
+    style="margin:16px 0"
   >
     Custom:
   </h4>
@@ -163,46 +171,30 @@ exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
     <div
       class="ant-tag ant-tag-has-color"
       data-show="true"
-      style="background-color:#f50;"
+      style="background-color:#f50"
     >
-      <span
-        class="ant-tag-text"
-      >
-        #f50
-      </span>
+      #f50
     </div>
     <div
       class="ant-tag ant-tag-has-color"
       data-show="true"
-      style="background-color:#2db7f5;"
+      style="background-color:#2db7f5"
     >
-      <span
-        class="ant-tag-text"
-      >
-        #2db7f5
-      </span>
+      #2db7f5
     </div>
     <div
       class="ant-tag ant-tag-has-color"
       data-show="true"
-      style="background-color:#87d068;"
+      style="background-color:#87d068"
     >
-      <span
-        class="ant-tag-text"
-      >
-        #87d068
-      </span>
+      #87d068
     </div>
     <div
       class="ant-tag ant-tag-has-color"
       data-show="true"
-      style="background-color:#108ee9;"
+      style="background-color:#108ee9"
     >
-      <span
-        class="ant-tag-text"
-      >
-        #108ee9
-      </span>
+      #108ee9
     </div>
   </div>
 </div>
@@ -214,44 +206,113 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
     class="ant-tag"
     data-show="true"
   >
-    <span
-      class="ant-tag-text"
-    >
-      Unremovable
-    </span>
+    Unremovable
   </div>
   <div
     class="ant-tag"
     data-show="true"
   >
-    <span
-      class="ant-tag-text"
-    >
-      Tag 2
-    </span>
+    Tag 2
     <i
-      class="anticon anticon-cross"
-    />
+      class="anticon anticon-close"
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="close"
+        fill="currentColor"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 0 0 203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+        />
+      </svg>
+    </i>
   </div>
   <div
     class="ant-tag"
     data-show="true"
   >
-    <span
-      class="ant-tag-text"
-    >
-      Tag 3
-    </span>
+    Tag 3
     <i
-      class="anticon anticon-cross"
-    />
+      class="anticon anticon-close"
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="close"
+        fill="currentColor"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 0 0 203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+        />
+      </svg>
+    </i>
   </div>
+  <div
+    class="ant-tag"
+    data-show="true"
+    style="background:#fff;border-style:dashed"
+  >
+    <i
+      class="anticon anticon-plus"
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="plus"
+        fill="currentColor"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M848 474H550V152h-76v322H176c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h298v322h76V550h298c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+        />
+      </svg>
+    </i>
+     New Tag
+  </div>
+</div>
+`;
+
+exports[`renders ./components/tag/demo/controlled.md correctly 1`] = `
+<div>
+  <div
+    class="ant-tag"
+    data-show="true"
+  >
+    Movies
+    <i
+      class="anticon anticon-close"
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="close"
+        fill="currentColor"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 0 0 203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+        />
+      </svg>
+    </i>
+  </div>
+  <br />
   <button
-    class="ant-btn ant-btn-dashed ant-btn-sm"
+    class="ant-btn ant-btn-sm"
     type="button"
   >
     <span>
-      + New Tag
+      Toggle
     </span>
   </button>
 </div>
@@ -259,13 +320,15 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
 
 exports[`renders ./components/tag/demo/hot-tags.md correctly 1`] = `
 <div>
-  <strong>
-    Hots: 
-  </strong>
+  <h6
+    style="margin-right:8px;display:inline"
+  >
+    Categories:
+  </h6>
   <div
     class="ant-tag ant-tag-checkable"
   >
-    Movie
+    Movies
   </div>
   <div
     class="ant-tag ant-tag-checkable"
@@ -276,6 +339,11 @@ exports[`renders ./components/tag/demo/hot-tags.md correctly 1`] = `
     class="ant-tag ant-tag-checkable"
   >
     Music
+  </div>
+  <div
+    class="ant-tag ant-tag-checkable"
+  >
+    Sports
   </div>
 </div>
 `;

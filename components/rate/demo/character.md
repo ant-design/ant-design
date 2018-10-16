@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 5
 title:
   zh-CN: 其他字符
   en-US: Other Character
@@ -23,6 +23,6 @@ ReactDOM.render(
     <Rate character="A" allowHalf style={{ fontSize: 36 }} />
     <br />
     <Rate character="好" allowHalf />
-  </div>
-, mountNode);
+  </div>,
+  mountNode);
 ````

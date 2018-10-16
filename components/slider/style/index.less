@@ -2,25 +2,15 @@
 @import "../../style/mixins/index";
 
 @slider-prefix-cls: ~"@{ant-prefix}-slider";
-// slider color
-@slider-disabled-color: @disabled-color;
-// tooltip
-@slider-tooltip-color: #fff;
-@slider-tooltip-bg: tint(@text-color, 4%);
-@slider-tooltip-arrow-width: 4px;
-@slider-tooltip-distance: @slider-tooltip-arrow-width + 4;
-@slider-tooltip-arrow-color: @slider-tooltip-bg;
 
 .@{slider-prefix-cls} {
+  .reset-component;
   position: relative;
-  margin: 10px 6px;
+  margin: @slider-margin;
+  padding: 4px 0;
   height: 12px;
-  border-radius: 5px;
-  background-color: @border-color-split;
   cursor: pointer;
-  border-top: 4px solid #fff;
-  border-bottom: 4px solid #fff;
-  transition: background-color 0.3s ease;
+  touch-action: none;
 
   .vertical();
 
@@ -28,25 +18,21 @@
     margin-bottom: 28px;
   }
 
+  &-rail {
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background-color: @slider-rail-background-color;
+    transition: background-color .3s;
+  }
+
   &-track {
     position: absolute;
-    left: 0;
     height: 4px;
     border-radius: @border-radius-base;
-    background-color: tint(@primary-color, 60%);
-    z-index: 1;
+    background-color: @slider-track-background-color;
     transition: background-color 0.3s ease;
-  }
-
-  &:hover {
-    background-color: #e1e1e1;
-    .@{slider-prefix-cls}-handle {
-      border-color: @primary-5;
-    }
-  }
-
-  &:hover &-track {
-    background-color: tint(@primary-color, 40%);
   }
 
   &-handle {
@@ -57,29 +43,39 @@
     height: 14px;
     cursor: pointer;
     border-radius: 50%;
-    border: solid 2px tint(@primary-color, 50%);
+    border: solid 2px @slider-handle-color;
     background-color: @component-background;
-    z-index: 2;
-    transition: border-color 0.3s ease, transform .3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    transition: border-color .3s, transform .3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
 
-    &:hover {
-      border-color: @primary-5;
-      transform: scale(1.2);
-      transform-origin: center center;
+    &:focus {
+      border-color: @slider-handle-color-focus;
+      box-shadow: 0 0 0 5px @slider-handle-color-focus-shadow;
+      outline: none;
     }
 
-    &:active {
-      box-shadow: 0 0 0 2px fadeout(@primary-color, 80%);
+    &.@{ant-prefix}-tooltip-open {
+      border-color: @slider-handle-color-tooltip-open;
+    }
+  }
+
+  &:hover {
+    .@{slider-prefix-cls}-rail {
+      background-color: @slider-rail-background-color-hover;
+    }
+    .@{slider-prefix-cls}-track {
+      background-color: @slider-track-background-color-hover;
+    }
+    .@{slider-prefix-cls}-handle:not(.@{ant-prefix}-tooltip-open) {
+      border-color: @slider-handle-color-hover;
     }
   }
 
   &-mark {
     position: absolute;
-    top: 10px;
+    top: 14px;
     left: 0;
     width: 100%;
     font-size: @font-size-base;
-    z-index: 3;
   }
 
   &-mark-text {
@@ -100,7 +96,6 @@
     width: 100%;
     height: 4px;
     background: transparent;
-    z-index: 1;
   }
 
   &-dot {
@@ -109,7 +104,7 @@
     margin-left: -4px;
     width: 8px;
     height: 8px;
-    border: 2px solid @border-color-split;
+    border: 2px solid @slider-dot-border-color;
     background-color: @component-background;
     cursor: pointer;
     border-radius: 50%;
@@ -121,12 +116,12 @@
       margin-left: -4px;
     }
     &-active {
-      border-color: tint(@primary-color, 50%);
+      border-color: @slider-dot-border-color-active;
     }
   }
 
   &-disabled {
-    background-color: @border-color-split !important;
+    cursor: not-allowed;
 
     .@{slider-prefix-cls}-track {
       background-color: @slider-disabled-color !important;
@@ -134,7 +129,7 @@
 
     .@{slider-prefix-cls}-handle,
     .@{slider-prefix-cls}-dot {
-      border-color: @slider-disabled-color!important;
+      border-color: @slider-disabled-color !important;
       background-color: @component-background;
       cursor: not-allowed;
       box-shadow: none;
@@ -142,7 +137,7 @@
 
     .@{slider-prefix-cls}-mark-text,
     .@{slider-prefix-cls}-dot {
-      cursor: not-allowed!important;
+      cursor: not-allowed !important;
     }
   }
 }
@@ -152,9 +147,12 @@
     width: 12px;
     height: 100%;
     margin: 6px 10px;
-    border: 4px solid #fff;
-    border-top: 0 none;
-    border-bottom: 0 none;
+    padding: 0 4px;
+
+    .@{slider-prefix-cls}-rail {
+      height: 100%;
+      width: 4px;
+    }
 
     .@{slider-prefix-cls}-track {
       width: 4px;
@@ -167,7 +165,7 @@
 
     .@{slider-prefix-cls}-mark {
       top: 0;
-      left: 8px;
+      left: 12px;
       width: 18px;
       height: 100%;
     }

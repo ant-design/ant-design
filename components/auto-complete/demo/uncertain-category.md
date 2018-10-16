@@ -16,6 +16,7 @@ Basic Usage, set datasource of autocomplete with `dataSource` property.
 
 ````jsx
 import { Icon, Button, Input, AutoComplete } from 'antd';
+
 const Option = AutoComplete.Option;
 
 function onSelect(value) {
@@ -57,7 +58,7 @@ class Complete extends React.Component {
     dataSource: [],
   }
 
-  handleChange = (value) => {
+  handleSearch = (value) => {
     this.setState({
       dataSource: value ? searchResult(value) : [],
     });
@@ -73,7 +74,7 @@ class Complete extends React.Component {
           style={{ width: '100%' }}
           dataSource={dataSource.map(renderOption)}
           onSelect={onSelect}
-          onChange={this.handleChange}
+          onSearch={this.handleSearch}
           placeholder="input here"
           optionLabelProp="text"
         >

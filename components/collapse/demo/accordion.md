@@ -1,6 +1,6 @@
 ---
 order: 1
-title: 
+title:
   zh-CN: 手风琴
   en-US: Accordion
 ---
@@ -15,6 +15,7 @@ Accordion mode, only one panel can be expanded at a time. The first panel will b
 
 ````jsx
 import { Collapse } from 'antd';
+
 const Panel = Collapse.Panel;
 
 const text = `
@@ -25,15 +26,15 @@ const text = `
 
 ReactDOM.render(
   <Collapse accordion>
-    <Panel header={'This is panel header 1'} key="1">
+    <Panel header="This is panel header 1" key="1">
       <p>{text}</p>
     </Panel>
-    <Panel header={'This is panel header 2'} key="2">
+    <Panel header="This is panel header 2" key="2">
       <p>{text}</p>
     </Panel>
-    <Panel header={'This is panel header 3'} key="3">
+    <Panel header="This is panel header 3" key="3">
       <p>{text}</p>
     </Panel>
-  </Collapse>
-, mountNode);
+  </Collapse>,
+  mountNode);
 ````

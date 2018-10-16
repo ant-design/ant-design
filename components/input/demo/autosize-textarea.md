@@ -14,15 +14,16 @@ title:
 `autosize` prop for a `textarea` type of `Input` makes the height to automatically adjust based on the content.
 An options object can be provided to `autosize` to specify the minimum and maximum number of lines the textarea will automatically adjust.
 
-
 ````jsx
 import { Input } from 'antd';
 
+const { TextArea } = Input;
+
 ReactDOM.render(
   <div>
-    <Input type="textarea" placeholder="Autosize height based on content lines" autosize />
+    <TextArea placeholder="Autosize height based on content lines" autosize />
     <div style={{ margin: '24px 0' }} />
-    <Input type="textarea" placeholder="Autosize height with minimum and maximum number of lines" autosize={{ minRows: 2, maxRows: 6 }} />
-  </div>
-, mountNode);
+    <TextArea placeholder="Autosize height with minimum and maximum number of lines" autosize={{ minRows: 2, maxRows: 6 }} />
+  </div>,
+  mountNode);
 ````

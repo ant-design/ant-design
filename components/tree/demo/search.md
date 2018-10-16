@@ -81,16 +81,18 @@ class SearchTree extends React.Component {
     searchValue: '',
     autoExpandParent: true,
   }
+
   onExpand = (expandedKeys) => {
     this.setState({
       expandedKeys,
       autoExpandParent: false,
     });
   }
+
   onChange = (e) => {
     const value = e.target.value;
     const expandedKeys = dataList.map((item) => {
-      if (item.key.indexOf(value) > -1) {
+      if (item.title.indexOf(value) > -1) {
         return getParentKey(item.key, gData);
       }
       return null;
@@ -101,19 +103,20 @@ class SearchTree extends React.Component {
       autoExpandParent: true,
     });
   }
+
   render() {
     const { searchValue, expandedKeys, autoExpandParent } = this.state;
     const loop = data => data.map((item) => {
-      const index = item.key.search(searchValue);
-      const beforeStr = item.key.substr(0, index);
-      const afterStr = item.key.substr(index + searchValue.length);
+      const index = item.title.indexOf(searchValue);
+      const beforeStr = item.title.substr(0, index);
+      const afterStr = item.title.substr(index + searchValue.length);
       const title = index > -1 ? (
         <span>
           {beforeStr}
           <span style={{ color: '#f50' }}>{searchValue}</span>
           {afterStr}
         </span>
-      ) : <span>{item.key}</span>;
+      ) : <span>{item.title}</span>;
       if (item.children) {
         return (
           <TreeNode key={item.key} title={title}>
@@ -125,7 +128,7 @@ class SearchTree extends React.Component {
     });
     return (
       <div>
-        <Search style={{ width: 300 }} placeholder="Search" onChange={this.onChange} />
+        <Search style={{ marginBottom: 8 }} placeholder="Search" onChange={this.onChange} />
         <Tree
           onExpand={this.onExpand}
           expandedKeys={expandedKeys}

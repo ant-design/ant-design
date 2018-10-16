@@ -1,0 +1,26 @@
+.@{steps-prefix-cls}-label-vertical {
+  .@{steps-prefix-cls}-item {
+    overflow: visible;
+    &-tail {
+      padding: 0 24px;
+      margin-left: 48px;
+    }
+    &-content {
+      display: block;
+      text-align: center;
+      margin-top: 8px;
+      // icon左边距离+一半icon宽度，是content一半的宽度，垂直对齐icon
+      width: (@steps-icon-size / 2 + 36px) * 2;
+    }
+    &-icon {
+      display: inline-block;
+      margin-left: 36px;
+    }
+    &-title {
+      padding-right: 0;
+      &:after {
+        display: none;
+      }
+    }
+  }
+}

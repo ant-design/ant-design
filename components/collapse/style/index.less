@@ -4,52 +4,61 @@
 @collapse-prefix-cls: ~"@{ant-prefix}-collapse";
 
 .collapse-close() {
-  .iconfont-size-under-12px(9px, 0);
+  transform: rotate(0);
 }
 .collapse-open() {
-  .iconfont-size-under-12px(9px, 90deg);
+  transform: rotate(90deg);
 }
 
 .@{collapse-prefix-cls} {
-  background-color: @background-color-base;
+  .reset-component;
+  background-color: @collapse-header-bg;
   border-radius: @border-radius-base;
   border: @border-width-base @border-style-base @border-color-base;
   border-bottom: 0;
 
   & > &-item {
     border-bottom: @border-width-base @border-style-base @border-color-base;
+
+    &:last-child {
+      &,
+      & > .@{collapse-prefix-cls}-header {
+        border-radius: 0 0 @border-radius-base @border-radius-base;
+      }
+    }
+
     > .@{collapse-prefix-cls}-header {
-      height: 38px;
-      line-height: 38px;
-      padding-left: 32px;
+      line-height: 22px;
+      padding: @collapse-header-padding;
       color: @heading-color;
       cursor: pointer;
       position: relative;
       transition: all .3s;
 
-      &:active {
-        background-color: #eee!important;
+      .arrow {
+        .iconfont-mixin();
+        font-size: @font-size-sm;
+        position: absolute;
+        display: inline-block;
+        line-height: 46px;
+        vertical-align: top;
+        top: 50%;
+        transform: translateY(-50%);
+        left: @padding-md;
+        & svg {
+          .collapse-close();
+          transition: transform 0.24s;
+        }
       }
 
-      .arrow {
-        .collapse-close();
-        .iconfont-mixin();
-        position: absolute;
-        color: @text-color-secondary;
-        display: inline-block;
-        font-weight: bold;
-        line-height: 40px;
-        vertical-align: middle;
-        transition: transform 0.24s;
-        top: 0;
-        left: 16px;
-        /* stylelint-disable declaration-block-no-duplicate-properties */
-        top: ~"16px \9";
-        left: ~"0 \9";
-        /* stylelint-enable declaration-block-no-duplicate-properties */
-        &:before {
-          content: "\E61F";
-        }
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &.@{collapse-prefix-cls}-no-arrow {
+      > .@{collapse-prefix-cls}-header {
+        padding-left: 12px;
       }
     }
   }
@@ -61,12 +70,11 @@
   &-content {
     overflow: hidden;
     color: @text-color;
-    padding: 0 16px;
-    background-color: @component-background;
+    background-color: @collapse-content-bg;
+    border-top: @border-width-base @border-style-base @border-color-base;
 
     & > &-box {
-      padding-top: 16px;
-      padding-bottom: 16px;
+      padding: @collapse-content-padding;
     }
 
     &-inactive {
@@ -81,7 +89,7 @@
   }
 
   & > &-item > &-header[aria-expanded="true"] {
-    .arrow {
+    .anticon-right svg {
       .collapse-open();
     }
   }
@@ -91,19 +99,29 @@
     border: 0;
   }
 
-  &-borderless > &-item-active {
-    border: 0;
+  &-borderless > &-item {
+    border-bottom: 1px solid @border-color-base;
+  }
+
+  &-borderless > &-item:last-child,
+  &-borderless > &-item:last-child &-header {
+    border-radius: 0;
   }
 
   &-borderless > &-item > &-content {
     background-color: transparent;
-    border-top: @border-width-base @border-style-base @border-color-base;
+    border-top: 0;
   }
 
-  &-borderless > &-item > &-header {
-    transition: all .3s;
-    &:hover {
-      background-color: @background-color-base;
+  &-borderless > &-item > &-content > &-content-box {
+    padding-top: 4px;
+  }
+
+  & &-item-disabled > &-header {
+    &,
+    & > .arrow {
+      cursor: not-allowed;
+      color: @disabled-color;
     }
   }
 }

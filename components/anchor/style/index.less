@@ -1,56 +1,58 @@
 @import "../../style/themes/default";
+@import "../../style/mixins/index";
 
-.@{ant-prefix} {
-  &-anchor {
-    position: relative;
-    &-wrapper {
-      background-color: @component-background;
-    }
+@anchor-border-width: 2px;
 
-    &-ink {
-      position: absolute;
+.@{ant-prefix}-anchor {
+  .reset-component;
+  position: relative;
+  padding-left: @anchor-border-width;
+
+  &-wrapper {
+    background-color: @component-background;
+    overflow: auto;
+    padding-left: 4px;
+    margin-left: -4px;
+  }
+
+  &-ink {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    &:before {
+      content: ' ';
+      position: relative;
+      width: @anchor-border-width;
       height: 100%;
-      left: 0;
-      top: 0;
-      &:before {
-        content: ' ';
-        position: relative;
-        width: 2px;
-        height: 100%;
-        display: block;
-        background-color: @border-color-split;
-        margin: 0 auto;
-      }
-      &-ball {
-        display: none;
-        position: absolute;
-        width: 9px;
-        height: 9px;
-        border-radius: 9px;
-        border: 3px solid @primary-color;
-        background-color: @component-background;
-        left: 50%;
-        transition: top .3s ease-in-out;
-        transform: translateX(-50%);
-        &.visible {
-          display: inline-block;
-        }
-      }
+      display: block;
+      background-color: @border-color-split;
+      margin: 0 auto;
     }
-
-    &.fixed &-ink &-ink-ball {
+    &-ball {
       display: none;
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 8px;
+      border: 2px solid @primary-color;
+      background-color: @component-background;
+      left: 50%;
+      transition: top .3s ease-in-out;
+      transform: translateX(-50%);
+      &.visible {
+        display: inline-block;
+      }
     }
   }
 
-  &-anchor-link {
-    padding: 8px 0 8px 18px;
-    line-height: 1;
+  &.fixed &-ink &-ink-ball {
+    display: none;
+  }
 
-    & & {
-      padding-top: 6px;
-      padding-bottom: 6px;
-    }
+  &-link {
+    padding: 7px 0 7px 16px;
+    line-height: 1.143;
 
     &-title {
       display: block;
@@ -60,19 +62,20 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      margin-bottom: 8px;
-    }
+      margin-bottom: 6px;
 
-    &-title:only-child {
-      margin-bottom: 0;
+      &:only-child {
+        margin-bottom: 0;
+      }
     }
 
     &-active > &-title {
       color: @primary-color;
     }
+  }
 
-    & > & {
-      font-size: @font-size-base;
-    }
+  &-link &-link {
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
 }

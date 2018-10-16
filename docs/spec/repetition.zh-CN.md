@@ -1,5 +1,5 @@
 ---
-category: 设计原则
+category: 原则
 order: 4
 title: 重复
 ---
@@ -10,10 +10,10 @@ title: 重复
 
 ## 重复元素
 
-<img class="preview-img" align="right" alt="线框重复示例" src="https://os.alipayobjects.com/rmsportal/SREcKOUMmiWPQNO.png">
+<img class="preview-img" align="right" alt="线框重复示例" src="https://gw.alipayobjects.com/zos/rmsportal/VkUeJYlTTseLCyUGeXZV.png">
 
-<img class="preview-img" align="right" alt="设计要素重复示例" src="https://os.alipayobjects.com/rmsportal/ZjFUWyPHGzyQJYD.png">
+<img class="preview-img" align="right" alt="设计要素重复示例" src="https://gw.alipayobjects.com/zos/rmsportal/HXvcTaEbEWWFaQbiEpLg.png">
 
-<img class="preview-img" align="right" alt="文案格式重复示例" src="https://os.alipayobjects.com/rmsportal/mveDxAdjucdJDll.png">
+<img class="preview-img" align="right" alt="文案格式重复示例" src="https://gw.alipayobjects.com/zos/rmsportal/DYDGrgkbdFEbcVRuJcjH.png">
 
 重复元素可以是一条粗线、一种线框，某种相同的颜色、设计要素、设计风格，某种格式、空间关系等。

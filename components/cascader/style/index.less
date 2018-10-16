@@ -5,25 +5,30 @@
 @cascader-prefix-cls: ~"@{ant-prefix}-cascader";
 
 .@{cascader-prefix-cls} {
-  font-size: @font-size-base;
+  .reset-component;
 
   &-input.@{ant-prefix}-input {
     // Add important to fix https://github.com/ant-design/ant-design/issues/5078
     // because input.less will compile after cascader.less
-    background-color: transparent!important;
+    background-color: transparent !important;
     cursor: pointer;
     width: 100%;
-    z-index: 1;
+    position: relative;
+  }
+
+  &-picker-show-search &-input.@{ant-prefix}-input {
+    position: relative;
   }
 
   &-picker {
+    .reset-component;
     position: relative;
     display: inline-block;
     cursor: pointer;
-    font-size: @font-size-base;
-    background-color: #fff;
+    background-color: @component-background;
     border-radius: @border-radius-base;
     outline: 0;
+    transition: color .3s;
 
     &-with-value &-label {
       color: transparent;
@@ -42,6 +47,10 @@
       .active;
     }
 
+    &-show-search&-focused {
+      color: @disabled-color;
+    }
+
     &-label {
       position: absolute;
       left: 0;
@@ -53,17 +62,17 @@
       text-overflow: ellipsis;
       overflow: hidden;
       width: 100%;
-      padding: 0 12px 0 8px;
+      padding: 0 @control-padding-horizontal;
     }
 
     &-clear {
       opacity: 0;
       position: absolute;
-      right: 8px;
+      right: @control-padding-horizontal;
       z-index: 2;
-      background: #fff;
+      background: @component-background;
       top: 50%;
-      font-size: @font-size-base;
+      font-size: @font-size-sm;
       color: @disabled-color;
       width: 12px;
       height: 12px;
@@ -85,32 +94,41 @@
       position: absolute;
       z-index: 1;
       top: 50%;
-      right: 8px;
+      right: @control-padding-horizontal;
       width: 12px;
       height: 12px;
+      font-size: 12px;
       margin-top: -6px;
       line-height: 12px;
-      color: @text-color-secondary;
-      .iconfont-size-under-12px(9px);
-      &:before {
-        transition: transform 0.2s ease;
-      }
+      color: @disabled-color;
+      transition: transform .2s;
       &&-expand {
-        .ie-rotate(2);
-        &:before {
-          transform: rotate(180deg);
-        }
+        transform: rotate(180deg);
       }
     }
   }
+
+  &-picker-small &-picker-clear,
+  &-picker-small &-picker-arrow {
+    right: @control-padding-horizontal-sm;
+  }
+
   &-menus {
     font-size: @font-size-base;
-    background: #fff;
+    background: @component-background;
     position: absolute;
     z-index: @zindex-dropdown;
     border-radius: @border-radius-base;
     box-shadow: @box-shadow-base;
     white-space: nowrap;
+
+    ul,
+    ol {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
     &-empty,
     &-hidden {
       display: none;
@@ -143,6 +161,8 @@
     padding: 0;
     border-right: @border-width-base @border-style-base @border-color-split;
     overflow: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar; // https://github.com/ant-design/ant-design/issues/11857
+
     &:first-child {
       border-radius: @border-radius-base 0 0 @border-radius-base;
     }
@@ -156,12 +176,13 @@
     }
   }
   &-menu-item {
-    padding: 7px 26px 7px 16px;
+    padding: 5px @control-padding-horizontal;
+    line-height: 22px;
     cursor: pointer;
     white-space: nowrap;
-    transition: all 0.3s ease;
+    transition: all 0.3s;
     &:hover {
-      background: @primary-1;
+      background: @item-hover-bg;
     }
     &-disabled {
       cursor: not-allowed;
@@ -173,23 +194,21 @@
     &-active:not(&-disabled) {
       &,
       &:hover {
-        background-color: @background-color-base;
-        font-weight: bold;
+        background: @background-color-base;
+        font-weight: 600;
       }
     }
     &-expand {
       position: relative;
-      &:after {
-        .iconfont-font("\e61f");
-        .iconfont-size-under-12px(8px);
-        color: @text-color-secondary;
-        position: absolute;
-        right: 15px;
-      }
+      padding-right: 24px;
     }
-    &-loading:after {
-      .iconfont-font("\e64d");
-      animation: loadingCircle 1s infinite linear;
+
+    &-expand &-expand-icon,
+    &-expand &-loading-icon {
+      .iconfont-size-under-12px(10px);
+      color: @text-color-secondary;
+      position: absolute;
+      right: @control-padding-horizontal;
     }
 
     & &-keyword {

@@ -1,14 +1,14 @@
-import React from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 
 export interface CheckableTagProps {
   prefixCls?: string;
   className?: string;
   checked: boolean;
-  onChange?: (checked: Boolean) => void;
+  onChange?: (checked: boolean) => void;
 }
 
-export default class CheckableTag extends React.Component<CheckableTagProps, any> {
+export default class CheckableTag extends React.Component<CheckableTagProps> {
   handleClick = () => {
     const { checked, onChange } = this.props;
     if (onChange) {
@@ -23,6 +23,12 @@ export default class CheckableTag extends React.Component<CheckableTagProps, any
     }, className);
 
     delete (restProps as any).onChange; // TypeScript cannot check delete now.
-    return <div {...restProps as any} className={cls} onClick={this.handleClick} />;
+    return (
+      <div
+        {...restProps as any}
+        className={cls}
+        onClick={this.handleClick}
+      />
+    );
   }
 }

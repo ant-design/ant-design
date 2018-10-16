@@ -15,6 +15,7 @@ Thumbs.db
 *.swp
 *.swo
 *.log
+*.log.*
 *.json.gzip
 node_modules/
 .buildpath
@@ -25,12 +26,20 @@ _site
 _data
 dist
 /lib
+/es
 elasticsearch-*
 config/base.yaml
 /.vscode/
 /coverage
 yarn.lock
+package-lock.json
 components/**/*.js
 components/**/*.jsx
 !components/**/__tests__/*.js
 !components/**/__tests__/*.js.snap
+/.history
+
+# Docs templates
+site/theme/template/IconDisplay/*.js
+site/theme/template/IconDisplay/*.jsx
+site/theme/template/IconDisplay/fields.js

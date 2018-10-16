@@ -1,17 +1,18 @@
-import assign from 'object-assign';
-
 export interface Store {
   setState: (partial: Object) => void;
   getState: () => any;
   subscribe: (listener: () => void) => () => void;
 }
 
-export default function createStore(initialState): Store {
+export default function createStore(initialState: object): Store {
   let state = initialState;
   const listeners: any[] = [];
 
-  function setState(partial) {
-    state = assign({}, state, partial);
+  function setState(partial: object) {
+    state = {
+      ...state,
+      ...partial,
+    };
     for (let i = 0; i < listeners.length; i++) {
       listeners[i]();
     }
@@ -21,7 +22,7 @@ export default function createStore(initialState): Store {
     return state;
   }
 
-  function subscribe(listener) {
+  function subscribe(listener: () => any) {
     listeners.push(listener);
 
     return function unsubscribe() {

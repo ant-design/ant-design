@@ -24,19 +24,20 @@ ReactDOM.render(
     <Badge count={0} showZero>
       <a href="#" className="head-example" />
     </Badge>
-  </div>
-, mountNode);
+  </div>,
+  mountNode);
 ````
 
 <style>
-.ant-badge:not(.ant-badge-status) {
-  margin-right: 16px;
+.ant-badge:not(.ant-badge-not-a-wrapper) {
+  margin-right: 20px;
 }
 .head-example {
   width: 42px;
   height: 42px;
-  border-radius: 6px;
+  border-radius: 4px;
   background: #eee;
   display: inline-block;
+  vertical-align: middle;
 }
 </style>

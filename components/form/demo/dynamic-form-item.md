@@ -15,6 +15,7 @@ Add or remove form items dynamically.
 
 ````jsx
 import { Form, Input, Icon, Button } from 'antd';
+
 const FormItem = Form.Item;
 
 let uuid = 0;
@@ -35,11 +36,11 @@ class DynamicFieldSet extends React.Component {
   }
 
   add = () => {
-    uuid++;
     const { form } = this.props;
     // can use data-binding to get
     const keys = form.getFieldValue('keys');
     const nextKeys = keys.concat(uuid);
+    uuid++;
     // can use data-binding to set
     // important! notify form to detect changes
     form.setFieldsValue({
@@ -84,7 +85,7 @@ class DynamicFieldSet extends React.Component {
           required={false}
           key={k}
         >
-          {getFieldDecorator(`names-${k}`, {
+          {getFieldDecorator(`names[${k}]`, {
             validateTrigger: ['onChange', 'onBlur'],
             rules: [{
               required: true,
@@ -94,12 +95,14 @@ class DynamicFieldSet extends React.Component {
           })(
             <Input placeholder="passenger name" style={{ width: '60%', marginRight: 8 }} />
           )}
-          <Icon
-            className="dynamic-delete-button"
-            type="minus-circle-o"
-            disabled={keys.length === 1}
-            onClick={() => this.remove(k)}
-          />
+          {keys.length > 1 ? (
+            <Icon
+              className="dynamic-delete-button"
+              type="minus-circle-o"
+              disabled={keys.length === 1}
+              onClick={() => this.remove(k)}
+            />
+          ) : null}
         </FormItem>
       );
     });
@@ -112,7 +115,7 @@ class DynamicFieldSet extends React.Component {
           </Button>
         </FormItem>
         <FormItem {...formItemLayoutWithOutLabel}>
-          <Button type="primary" htmlType="submit" size="large">Submit</Button>
+          <Button type="primary" htmlType="submit">Submit</Button>
         </FormItem>
       </Form>
     );

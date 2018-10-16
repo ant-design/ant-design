@@ -15,28 +15,32 @@ Controlled mode, for example, to work with `Form`.
 
 ````jsx
 import { Mention, Form, Button } from 'antd';
-const { toEditorState, getMentions } = Mention;
+
+const { toContentState, getMentions } = Mention;
 const FormItem = Form.Item;
 
 class App extends React.Component {
   state = {
-    initValue: toEditorState('@afc163'),
+    initValue: toContentState('@afc163'),
   }
+
   handleReset = (e) => {
     e.preventDefault();
     this.props.form.resetFields();
   }
+
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((errors, values) => {
       if (errors) {
-        console.log('Errors in form!!!');
+        console.log('Errors in the form!!!');
         return;
       }
       console.log('Submit!!!');
       console.log(values);
     });
   }
+
   checkMention = (rule, value, callback) => {
     const { getFieldValue } = this.props.form;
     const mentions = getMentions(getFieldValue('mention'));
@@ -46,6 +50,7 @@ class App extends React.Component {
       callback();
     }
   }
+
   render() {
     const { getFieldDecorator, getFieldValue } = this.props.form;
     console.log('>> render', getFieldValue('mention') === this.state.initValue);
@@ -65,7 +70,6 @@ class App extends React.Component {
           })(
             <Mention
               suggestions={['afc163', 'benjycui', 'yiminghe', 'RaoHai', '中文', 'にほんご']}
-              style={{ height: 60 }}
             />
           )}
         </FormItem>

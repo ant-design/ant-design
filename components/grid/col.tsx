@@ -1,7 +1,7 @@
-import React from 'react';
-import { PropTypes } from 'react';
+import * as React from 'react';
+import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
-import assign from 'object-assign';
+import RowContext from './RowContext';
 
 const stringOrNumber = PropTypes.oneOfType([PropTypes.string, PropTypes.number]);
 const objectOrNumber = PropTypes.oneOfType([PropTypes.object, PropTypes.number]);
@@ -14,8 +14,7 @@ export interface ColSize {
   pull?: number;
 }
 
-export interface ColProps {
-  className?: string;
+export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
   span?: number;
   order?: number;
   offset?: number;
@@ -26,11 +25,11 @@ export interface ColProps {
   md?: number | ColSize;
   lg?: number | ColSize;
   xl?: number | ColSize;
+  xxl?: number | ColSize;
   prefixCls?: string;
-  style?: React.CSSProperties;
 }
 
-export default class Col extends React.Component<ColProps, any> {
+export default class Col extends React.Component<ColProps, {}> {
   static propTypes = {
     span: stringOrNumber,
     order: stringOrNumber,
@@ -44,13 +43,14 @@ export default class Col extends React.Component<ColProps, any> {
     md: objectOrNumber,
     lg: objectOrNumber,
     xl: objectOrNumber,
+    xxl: objectOrNumber,
   };
 
   render() {
-    const props = this.props;
+    const props: any = this.props;
     const { span, order, offset, push, pull, className, children, prefixCls = 'ant-col', ...others } = props;
     let sizeClassObj = {};
-    ['xs', 'sm', 'md', 'lg', 'xl'].forEach(size => {
+    ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].forEach(size => {
       let sizeProps: ColSize = {};
       if (typeof props[size] === 'number') {
         sizeProps.span = props[size];
@@ -60,13 +60,14 @@ export default class Col extends React.Component<ColProps, any> {
 
       delete others[size];
 
-      sizeClassObj = assign({}, sizeClassObj, {
+      sizeClassObj = {
+        ...sizeClassObj,
         [`${prefixCls}-${size}-${sizeProps.span}`]: sizeProps.span !== undefined,
         [`${prefixCls}-${size}-order-${sizeProps.order}`]: sizeProps.order || sizeProps.order === 0,
         [`${prefixCls}-${size}-offset-${sizeProps.offset}`]: sizeProps.offset || sizeProps.offset === 0,
         [`${prefixCls}-${size}-push-${sizeProps.push}`]: sizeProps.push || sizeProps.push === 0,
         [`${prefixCls}-${size}-pull-${sizeProps.pull}`]: sizeProps.pull || sizeProps.pull === 0,
-      });
+      };
     });
     const classes = classNames({
       [`${prefixCls}-${span}`]: span !== undefined,
@@ -76,6 +77,20 @@ export default class Col extends React.Component<ColProps, any> {
       [`${prefixCls}-pull-${pull}`]: pull,
     }, className, sizeClassObj);
 
-    return <div {...others} className={classes}>{children}</div>;
+    return (
+      <RowContext.Consumer>
+        {({ gutter }) => {
+          let style = others.style;
+          if (gutter as number > 0) {
+            style = {
+              paddingLeft: (gutter as number) / 2,
+              paddingRight: (gutter as number) / 2,
+              ...style,
+            };
+          }
+          return <div {...others} style={style} className={classes}>{children}</div>;
+        }}
+      </RowContext.Consumer>
+    )
   }
 }

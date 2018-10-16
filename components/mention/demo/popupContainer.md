@@ -15,7 +15,8 @@ To set the container of the suggestion.
 
 ````jsx
 import { Mention, Popover, Button } from 'antd';
-const { toString, toEditorState } = Mention;
+
+const { toString, toContentState } = Mention;
 
 function onChange(editorState) {
   console.log(toString(editorState));
@@ -29,19 +30,33 @@ class PopoverContainer extends React.Component {
   getSuggestionContainer = () => {
     return this.popover.getPopupDomNode();
   }
+
+  visibleChange = (visible) => {
+    if (visible && this.mention) {
+      this.mention.focus();
+    }
+  }
+
   render() {
     const mention = (
       <Mention
-        style={{ width: '100%', height: 100 }}
+        ref={ele => this.mention = ele}
+        style={{ width: '100%' }}
         onChange={onChange}
-        defaultValue={toEditorState('@afc163')}
+        defaultValue={toContentState('@afc163')}
         suggestions={['afc163', 'benjycui', 'yiminghe', 'RaoHai', '中文', 'にほんご']}
         onSelect={onSelect}
         getSuggestionContainer={this.getSuggestionContainer}
       />
     );
     return (
-      <Popover trigger="click" content={mention} title="Title" ref={popover => this.popover = popover}>
+      <Popover
+        trigger="click"
+        content={mention}
+        title="Title"
+        ref={popover => this.popover = popover}
+        onVisibleChange={this.visibleChange}
+      >
         <Button type="primary">Click Me</Button>
       </Popover>
     );

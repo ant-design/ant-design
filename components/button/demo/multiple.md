@@ -35,7 +35,7 @@ ReactDOM.render(
     <Button>secondary</Button>
     <Dropdown overlay={menu}>
       <Button>
-        more <Icon type="down" />
+        Actions <Icon type="down" />
       </Button>
     </Dropdown>
   </div>,

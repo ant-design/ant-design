@@ -4,15 +4,18 @@
 @rate-prefix-cls: ~"@{ant-prefix}-rate";
 
 .@{rate-prefix-cls} {
+  .reset-component;
+  line-height: unset;
   margin: 0;
   padding: 0;
   list-style: none;
   font-size: 20px;
   display: inline-block;
-  vertical-align: middle;
+  color: @rate-star-color;
+  outline: none;
 
   &-disabled &-star {
-    cursor: not-allowed;
+    cursor: default;
     &:hover {
       transform: scale(1);
     }
@@ -25,16 +28,25 @@
     margin-right: 8px;
     position: relative;
     transition: all .3s;
-    color: @rate-star-bg;
+    color: inherit;
     cursor: pointer;
+
+    &:focus {
+      outline: 0;
+    }
 
     &-first,
     &-second {
       user-select: none;
       transition: all .3s;
+      color: @rate-star-bg;
+      .@{iconfont-css-prefix} {
+        vertical-align: middle;
+      }
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       transform: scale(1.1);
     }
 
@@ -55,18 +67,12 @@
 
     &-half &-first,
     &-full &-second {
-      color: @rate-star-color;
-    }
-
-    &-half:hover &-first,
-    &-full:hover &-second {
-      color: tint(@rate-star-color, 20%);
+      color: inherit;
     }
   }
 
   &-text {
     margin-left: 8px;
-    vertical-align: middle;
     display: inline-block;
     font-size: @font-size-base;
   }

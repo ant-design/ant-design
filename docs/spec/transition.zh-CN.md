@@ -1,5 +1,5 @@
 ---
-category: 设计原则
+category: 原则
 order: 9
 title: 巧用过渡
 ---

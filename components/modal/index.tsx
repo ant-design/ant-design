@@ -1,50 +1,55 @@
 import Modal, { ModalFuncProps } from './Modal';
 import confirm from './confirm';
-import assign from 'object-assign';
 
-export { ModalFuncProps }
+export { ActionButtonProps } from './ActionButton';
+export { ModalProps, ModalFuncProps } from './Modal';
 
 Modal.info = function (props: ModalFuncProps) {
-  const config = assign({}, {
+  const config = {
     type: 'info',
     iconType: 'info-circle',
     okCancel: false,
-  }, props);
+    ...props,
+  };
   return confirm(config);
 };
 
 Modal.success = function (props: ModalFuncProps) {
-  const config = assign({}, {
+  const config = {
     type: 'success',
     iconType: 'check-circle',
     okCancel: false,
-  }, props);
+    ...props,
+  };
   return confirm(config);
 };
 
 Modal.error = function (props: ModalFuncProps) {
-  const config = assign({}, {
+  const config = {
     type: 'error',
-    iconType: 'cross-circle',
+    iconType: 'close-circle',
     okCancel: false,
-  }, props);
+    ...props,
+  };
   return confirm(config);
 };
 
 Modal.warning = Modal.warn = function (props: ModalFuncProps) {
-  const config = assign({}, {
+  const config = {
     type: 'warning',
     iconType: 'exclamation-circle',
     okCancel: false,
-  }, props);
+    ...props,
+  };
   return confirm(config);
 };
 
 Modal.confirm = function (props: ModalFuncProps) {
-  const config = assign({}, {
+  const config = {
     type: 'confirm',
     okCancel: true,
-  }, props);
+    ...props,
+  };
   return confirm(config);
 };
 

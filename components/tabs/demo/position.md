@@ -15,6 +15,7 @@ Tab's position: left, right, top or bottom.
 
 ````jsx
 import { Tabs, Select } from 'antd';
+
 const TabPane = Tabs.TabPane;
 const Option = Select.Option;
 
@@ -23,15 +24,19 @@ class Demo extends React.Component {
   state = {
     tabPosition: 'top',
   }
+
   changeTabPosition = (tabPosition) => {
     this.setState({ tabPosition });
   }
+
   render() {
     return (
       <div>
         <div style={{ marginBottom: 16 }}>
           Tab position：
-          <Select value={this.state.tabPosition} onChange={this.changeTabPosition}
+          <Select
+            value={this.state.tabPosition}
+            onChange={this.changeTabPosition}
             dropdownMatchSelectWidth={false}
           >
             <Option value="top">top</Option>

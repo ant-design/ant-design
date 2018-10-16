@@ -1,10 +1,11 @@
-import React, { PropTypes } from 'react';
+import * as React from 'react';
+import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
 import Radio from './radio';
-import { AbstractCheckboxGroupProps } from '../checkbox/Group';
+import { RadioGroupProps, RadioGroupState, RadioChangeEvent, RadioGroupButtonStyle } from './interface';
 
-function getCheckedValue(children) {
+function getCheckedValue(children: React.ReactNode) {
   let value = null;
   let matched = false;
   React.Children.forEach(children, (radio: any) => {
@@ -16,25 +17,18 @@ function getCheckedValue(children) {
   return matched ? { value } : undefined;
 }
 
-export interface RadioGroupProps extends AbstractCheckboxGroupProps {
-  defaultValue?: string | number;
-  value?: string | number;
-  onChange?: React.FormEventHandler<any>;
-  size?: 'large' | 'default' | 'small';
-  onMouseEnter?: React.FormEventHandler<any>;
-  onMouseLeave?: React.FormEventHandler<any>;
-}
-
-export default class RadioGroup extends React.Component<RadioGroupProps, any> {
+export default class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
   static defaultProps = {
     disabled: false,
+    prefixCls: 'ant-radio',
+    buttonStyle: 'outline' as RadioGroupButtonStyle,
   };
 
   static childContextTypes = {
     radioGroup: PropTypes.any,
   };
 
-  constructor(props) {
+  constructor(props: RadioGroupProps) {
     super(props);
     let value;
     if ('value' in props) {
@@ -56,11 +50,12 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
         onChange: this.onRadioChange,
         value: this.state.value,
         disabled: this.props.disabled,
+        name: this.props.name,
       },
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: RadioGroupProps) {
     if ('value' in nextProps) {
       this.setState({
         value: nextProps.value,
@@ -75,12 +70,12 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
     }
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate(nextProps: RadioGroupProps, nextState: RadioGroupState) {
     return !shallowEqual(this.props, nextProps) ||
       !shallowEqual(this.state, nextState);
   }
 
-  onRadioChange = (ev) => {
+  onRadioChange = (ev: RadioChangeEvent) => {
     const lastValue = this.state.value;
     const { value } = ev.target;
     if (!('value' in this.props)) {
@@ -96,20 +91,22 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
   }
   render() {
     const props = this.props;
-    const { prefixCls = 'ant-radio-group', className = '' } = props;
-    const classString = classNames(prefixCls, {
-      [`${prefixCls}-${props.size}`]: props.size,
+    const { prefixCls, className = '', options, buttonStyle } = props;
+    const groupPrefixCls = `${prefixCls}-group`;
+    const classString = classNames(groupPrefixCls, `${groupPrefixCls}-${buttonStyle}`, {
+      [`${groupPrefixCls}-${props.size}`]: props.size,
     }, className);
 
     let children: React.ReactChildren[] | React.ReactElement<any>[] | React.ReactNode = props.children;
 
     // 如果存在 options, 优先使用
-    if (props.options && props.options.length > 0) {
-      children = props.options.map((option, index) => {
+    if (options && options.length > 0) {
+      children = options.map((option, index) => {
         if (typeof option === 'string') { // 此处类型自动推导为 string
           return (
             <Radio
               key={index}
+              prefixCls={prefixCls}
               disabled={this.props.disabled}
               value={option}
               onChange={this.onRadioChange}
@@ -122,6 +119,7 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
           return (
             <Radio
               key={index}
+              prefixCls={prefixCls}
               disabled={option.disabled || this.props.disabled}
               value={option.value}
               onChange={this.onRadioChange}
@@ -140,6 +138,7 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
         style={props.style}
         onMouseEnter={props.onMouseEnter}
         onMouseLeave={props.onMouseLeave}
+        id={props.id}
       >
         {children}
       </div>

@@ -14,7 +14,7 @@ describe('Breadcrumb', () => {
   });
 
   // https://github.com/airbnb/enzyme/issues/875
-  xit('warns on non-Breadcrumb.Item children', () => {
+  it('warns on non-Breadcrumb.Item children', () => {
     const MyCom = () => <div>foo</div>;
     mount(
       <Breadcrumb>

@@ -4,15 +4,16 @@
 @tag-prefix-cls: ~"@{ant-prefix}-tag";
 
 .@{tag-prefix-cls} {
+  .reset-component;
   display: inline-block;
   line-height: 20px;
   height: 22px;
-  padding: 0 8px;
+  padding: 0 7px;
   border-radius: @border-radius-base;
-  border: @border-width-base @border-style-base @border-color-split;
-  background: @background-color-base;
-  font-size: @font-size-base;
-  transition: all 0.3s @ease-in-out-circ;
+  border: @border-width-base @border-style-base @border-color-base;
+  background: @tag-default-bg;
+  font-size: @tag-font-size;
+  transition: all 0.3s @ease-out;
   opacity: 1;
   margin-right: 8px;
   cursor: pointer;
@@ -25,27 +26,25 @@
   &,
   a,
   a:hover {
-    color: @text-color;
+    color: @tag-default-color;
   }
 
-  &-text {
-    a:first-child:last-child {
-      display: inline-block;
-      margin: 0 -8px;
-      padding: 0 8px;
-    }
+  >a:first-child:last-child {
+    display: inline-block;
+    margin: 0 -8px;
+    padding: 0 8px;
   }
 
-  .@{iconfont-css-prefix}-cross {
+  .@{iconfont-css-prefix}-close {
     .iconfont-size-under-12px(10px);
     cursor: pointer;
-    font-weight: bold;
     margin-left: 3px;
-    transition: all 0.3s ease;
-    opacity: 0.66;
+    transition: all .3s;
+    color: @text-color-secondary;
+    font-weight: bold;
 
     &:hover {
-      opacity: 1;
+      color: @heading-color;
     }
   }
 
@@ -54,8 +53,8 @@
     &,
     a,
     a:hover,
-    .@{iconfont-css-prefix}-cross,
-    .@{iconfont-css-prefix}-cross:hover {
+    .@{iconfont-css-prefix}-close,
+    .@{iconfont-css-prefix}-close:hover {
       color: #fff;
     }
   }
@@ -63,13 +62,12 @@
   &-checkable {
     background-color: transparent;
     border-color: transparent;
-    &:hover,
+    &:not(&-checked):hover {
+      color: @primary-color;
+    }
     &:active,
     &-checked {
       color: #fff;
-    }
-    &:hover {
-      background-color: @primary-5;
     }
     &-checked {
       background-color: @primary-6;
@@ -96,18 +94,19 @@
     animation-fill-mode: both;
   }
 
-  @colors: pink, red, orange, yellow, cyan, green, blue, purple;
+  @colors: pink, magenta, red, volcano, orange, yellow, gold, cyan, lime, green, blue, geekblue, purple;
 
   // mixin to iterate over colors and create CSS class for each one
   .make-color-classes(@i: length(@colors)) when (@i > 0) {
     .make-color-classes(@i - 1);
     @color: extract(@colors, @i);
-    @lightColor: "@{color}-2";
+    @lightColor: "@{color}-1";
+    @lightBorderColor: "@{color}-3";
     @darkColor: "@{color}-6";
     &-@{color} {
       color: @@darkColor;
       background: @@lightColor;
-      border-color: @@lightColor;
+      border-color: @@lightBorderColor;
     }
     &-@{color}-inverse {
       background: @@darkColor;

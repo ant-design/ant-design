@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import DocumentTitle from 'react-document-title';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
-import { Row, Col, Icon, Affix } from 'antd';
+import { Row, Col, Icon, Affix, Tooltip } from 'antd';
 import { getChildren } from 'jsonml.js/lib/utils';
 import Demo from './Demo';
 import EditButton from './EditButton';
@@ -22,24 +22,25 @@ export default class ComponentDoc extends React.Component {
   }
 
   handleExpandToggle = () => {
+    const { expandAll } = this.state;
     this.setState({
-      expandAll: !this.state.expandAll,
+      expandAll: !expandAll,
     });
   }
 
   render() {
-    const props = this.props;
+    const { props } = this;
     const { doc, location } = props;
     const { content, meta } = doc;
-    const locale = this.context.intl.locale;
+    const { intl: { locale } } = this.context;
     const demos = Object.keys(props.demos).map(key => props.demos[key]);
-    const expand = this.state.expandAll;
+    const { expandAll } = this.state;
 
     const isSingleCol = meta.cols === 1;
     const leftChildren = [];
     const rightChildren = [];
-    const showedDemo = demos.some(demo => demo.meta.only) ?
-            demos.filter(demo => demo.meta.only) : demos.filter(demo => demo.preview);
+    const showedDemo = demos.some(demo => demo.meta.only)
+      ? demos.filter(demo => demo.meta.only) : demos.filter(demo => demo.preview);
     showedDemo.sort((a, b) => a.meta.order - b.meta.order)
       .forEach((demoData, index) => {
         const demoElem = (
@@ -47,7 +48,7 @@ export default class ComponentDoc extends React.Component {
             {...demoData}
             key={demoData.meta.filename}
             utils={props.utils}
-            expand={expand}
+            expand={expandAll}
             location={location}
           />
         );
@@ -59,11 +60,11 @@ export default class ComponentDoc extends React.Component {
       });
     const expandTriggerClass = classNames({
       'code-box-expand-trigger': true,
-      'code-box-expand-trigger-active': expand,
+      'code-box-expand-trigger-active': expandAll,
     });
 
     const jumper = showedDemo.map((demo) => {
-      const title = demo.meta.title;
+      const { title } = demo.meta;
       const localizeTitle = title[locale] || title;
       return (
         <li key={demo.meta.id} title={localizeTitle}>
@@ -79,7 +80,7 @@ export default class ComponentDoc extends React.Component {
       <DocumentTitle title={`${subtitle || ''} ${title[locale] || title} - Ant Design`}>
         <article>
           <Affix className="toc-affix" offsetTop={16}>
-            <ul className="toc demos-anchor">
+            <ul id="demo-toc" className="toc">
               {jumper}
             </ul>
           </Affix>
@@ -99,22 +100,29 @@ export default class ComponentDoc extends React.Component {
             }
             <h2>
               <FormattedMessage id="app.component.examples" />
-              <Icon type="appstore" className={expandTriggerClass}
-                title="展开全部代码" onClick={this.handleExpandToggle}
-              />
+              <Tooltip
+                title={<FormattedMessage id={`app.component.examples.${expandAll ? 'collpse' : 'expand'}`} />}
+              >
+                <Icon
+                  type={`${expandAll ? 'appstore' : 'appstore-o'}`}
+                  className={expandTriggerClass}
+                  onClick={this.handleExpandToggle}
+                />
+              </Tooltip>
             </h2>
           </section>
           <Row gutter={16}>
             <Col span={isSingleCol ? '24' : '12'}
-              className={isSingleCol ?
-                'code-boxes-col-1-1' :
-                'code-boxes-col-2-1'
+              className={
+                isSingleCol
+                  ? 'code-boxes-col-1-1'
+                  : 'code-boxes-col-2-1'
               }
             >
               {leftChildren}
             </Col>
             {
-              isSingleCol ? null : <Col className="code-boxes-col-2-1" span="12">{rightChildren}</Col>
+              isSingleCol ? null : <Col className="code-boxes-col-2-1" span={12}>{rightChildren}</Col>
             }
           </Row>
           {

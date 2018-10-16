@@ -4,28 +4,29 @@ type: Data Display
 title: Tag
 ---
 
-Tag for categorizing or markuping.
+Tag for categorizing or markup.
 
 ## When To Use
 
 - It can be used to tag by dimension or property.
 
-- categorizing
+- When categorizing.
 
 ## API
 
 ### Tag
 
-| Property     | Description           | Type     | Default      |
-|--------------|-----------------------|----------|--------------|
-| color        | The color of Tag      | string | - |
-| closable     | Tag can be closed.    | boolean  | false        |
-| onClose      | Callback when tag was closed | (e) => void | - |
-| afterClose   | Callback when closed animation is complete | () => void | - |
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| afterClose | Callback executed when close animation is completed | () => void | - |
+| closable | Whether the Tag can be closed | boolean | `false` |
+| color | Color of the Tag | string | - |
+| onClose | Callback executed when tag is closed | (e) => void | - |
+| visible | Whether the Tag is closed or not | boolean | `true` |
 
 ### Tag.CheckableTag
 
-| Property     | Description           | Type     | Default      |
-|--------------|-----------------------|----------|--------------|
-| checked      | To set the checked status for Tag | boolean | false |
-| onChange     | A callback which will be called while Tag is clicked | (checked) => void | - |
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| checked | Checked status of Tag | boolean | `false` |
+| onChange | Callback executed when Tag is checked/unchecked | (checked) => void | - |

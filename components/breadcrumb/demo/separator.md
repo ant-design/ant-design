@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 4
 title: 
   zh-CN: 分隔符
   en-US: Configuring the Separator
@@ -22,6 +22,6 @@ ReactDOM.render(
     <Breadcrumb.Item href="">Application Center</Breadcrumb.Item>
     <Breadcrumb.Item href="">Application List</Breadcrumb.Item>
     <Breadcrumb.Item>An Application</Breadcrumb.Item>
-  </Breadcrumb>
-, mountNode);
+  </Breadcrumb>,
+  mountNode);
 ````

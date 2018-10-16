@@ -4,7 +4,7 @@ type: Navigation
 title: Affix
 ---
 
-Make an element sticky to viewport.
+Make an element stick to viewport.
 
 ## When To Use
 
@@ -14,12 +14,12 @@ Please note that Affix should not cover other content on the page, especially wh
 
 ## API
 
-| Property     | Description           | Type     | Default      |
-|--------------|-----------------------|----------|--------------|
-| offsetTop    | Pixels to offset from top when calculating position of scroll | number | 0 |
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
 | offsetBottom | Pixels to offset from bottom when calculating position of scroll | number | - |
+| offsetTop | Pixels to offset from top when calculating position of scroll | number | 0 |
 | target | specifies the scrollable area dom node | () => HTMLElement | () => window |
-| onChange     | Callback when affix state is changed | Function(affixed) | - |
+| onChange | Callback for when affix state is changed | Function(affixed) | - |
 
 **Note:** Children of `Affix` can not be `position: absolute`, but you can set `Affix` as `position: absolute`:
 

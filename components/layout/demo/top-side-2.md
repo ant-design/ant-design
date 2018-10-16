@@ -15,6 +15,7 @@ Both the top navigation and the sidebar, commonly used in application site.
 
 ````jsx
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 
@@ -39,7 +40,7 @@ ReactDOM.render(
           mode="inline"
           defaultSelectedKeys={['1']}
           defaultOpenKeys={['sub1']}
-          style={{ height: '100%' }}
+          style={{ height: '100%', borderRight: 0 }}
         >
           <SubMenu key="sub1" title={<span><Icon type="user" />subnav 1</span>}>
             <Menu.Item key="1">option1</Menu.Item>
@@ -62,7 +63,7 @@ ReactDOM.render(
         </Menu>
       </Sider>
       <Layout style={{ padding: '0 24px 24px' }}>
-        <Breadcrumb style={{ margin: '12px 0' }}>
+        <Breadcrumb style={{ margin: '16px 0' }}>
           <Breadcrumb.Item>Home</Breadcrumb.Item>
           <Breadcrumb.Item>List</Breadcrumb.Item>
           <Breadcrumb.Item>App</Breadcrumb.Item>
@@ -72,16 +73,15 @@ ReactDOM.render(
         </Content>
       </Layout>
     </Layout>
-  </Layout>
-, mountNode);
+  </Layout>,
+  mountNode);
 ````
 
 ````css
 #components-layout-demo-top-side-2 .logo {
   width: 120px;
   height: 31px;
-  background: #333;
-  border-radius: 6px;
+  background: rgba(255,255,255,.2);  
   margin: 16px 28px 16px 0;
   float: left;
 }
