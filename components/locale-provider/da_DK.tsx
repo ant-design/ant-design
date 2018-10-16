@@ -4,7 +4,7 @@ import TimePicker from '../time-picker/locale/da_DK';
 import Calendar from '../calendar/locale/da_DK';
 
 export default {
-  locale: 'nb',
+  locale: 'da',
   DatePicker,
   TimePicker,
   Calendar,
