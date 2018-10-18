@@ -45,7 +45,7 @@ class CustomNavMention extends React.Component {
         <Avatar
           src={suggestion.icon}
           size="small"
-          style={{ width: 14, height: 14, marginRight: 8, top: 2, position: 'relative' }}
+          style={{ width: 14, height: 14, marginRight: 8, top: -1, position: 'relative' }}
         />
         {suggestion.name} - {suggestion.type}
       </Nav>

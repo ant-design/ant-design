@@ -79,7 +79,7 @@ module.exports = {
     'app.footer.company': 'AFX',
     'app.footer.ant-design': '蚂蚁 UI 体系',
     'app.footer.yuque': '语雀',
-    'app.footer.yuque.slogan': '知识创作·协作平台',
+    'app.footer.yuque.slogan': '知识创作与分享工具',
     'app.footer.fengdie': '云凤蝶',
     'app.footer.fengdie.slogan': '移动建站平台',
     'app.footer.zhihu': '知乎专栏',
