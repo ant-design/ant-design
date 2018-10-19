@@ -3,7 +3,7 @@ import { polyfill } from 'react-lifecycles-compat';
 import Tooltip, { AbstractTooltipProps }  from '../tooltip';
 import Icon from '../icon';
 import Button from '../button';
-import { ButtonType } from '../button/button';
+import { ButtonType, NativeButtonProps } from '../button/button';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale-provider/default';
 
@@ -14,6 +14,8 @@ export interface PopconfirmProps extends AbstractTooltipProps {
   okText?: React.ReactNode;
   okType?: ButtonType;
   cancelText?: React.ReactNode;
+  okButtonProps?: NativeButtonProps;
+  cancelButtonProps?: NativeButtonProps;
   icon?: React.ReactNode;
   onVisibleChange?: (visible?: boolean, e?: React.MouseEvent<any>) => void;
 }
@@ -97,7 +99,7 @@ class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
   }
 
   renderOverlay = (popconfirmLocale: PopconfirmLocale) => {
-    const { prefixCls, title, cancelText, okText, okType, icon } = this.props;
+    const { prefixCls, okButtonProps, cancelButtonProps, title, cancelText, okText, okType, icon } = this.props;
     return (
       <div>
         <div className={`${prefixCls}-inner-content`}>
@@ -106,10 +108,10 @@ class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
             <div className={`${prefixCls}-message-title`}>{title}</div>
           </div>
           <div className={`${prefixCls}-buttons`}>
-            <Button onClick={this.onCancel} size="small">
+            <Button onClick={this.onCancel} size="small" {...cancelButtonProps}>
               {cancelText || popconfirmLocale.cancelText}
             </Button>
-            <Button onClick={this.onConfirm} type={okType} size="small">
+            <Button onClick={this.onConfirm} type={okType} size="small" {...okButtonProps}>
               {okText || popconfirmLocale.okText}
             </Button>
           </div>
