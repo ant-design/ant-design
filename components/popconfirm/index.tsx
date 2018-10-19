@@ -42,6 +42,8 @@ class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
   static getDerivedStateFromProps(nextProps: PopconfirmProps) {
     if ('visible' in nextProps) {
       return { visible: nextProps.visible };
+    } else if ('defaultVisible' in nextProps) {
+      return { visible: nextProps.defaultVisible };
     }
     return null;
   }

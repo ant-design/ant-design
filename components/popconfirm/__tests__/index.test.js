@@ -117,4 +117,13 @@ describe('Popconfirm', () => {
     expect(wrapper.find('.custom-popconfirm').length).toBeGreaterThan(0);
     expect(wrapper.find('.custom-btn').length).toBeGreaterThan(0);
   });
+
+  it('should support defaultVisible', () => {
+    const popconfirm = mount(
+      <Popconfirm title="code" defaultVisible>
+        <span>show me your code</span>
+      </Popconfirm>
+    );
+    expect(popconfirm.instance().getPopupDomNode()).toBeTruthy();
+  });
 });
