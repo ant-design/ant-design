@@ -20,8 +20,8 @@ timeline: true
 `2018-10-19`
 
 - 📝 Add new doc that [patterns overview](https://ant.design/docs/spec/overview) with en-US. [#12637](https://github.com/ant-design/ant-design/pull/12637) [@ilanus](https://github.com/ilanus)
-- 🌟 Add vi_VN locale for DatePicker component. [#12656](https://github.com/ant-design/ant-design/pull/12656) [@hieuhlc](https://github.com/hieuhlc)
-- 🌟 Add props `treeExpandedKeys` and `onTreeExpand` TypeScript definition in TreeSelect. [#12648](https://github.com/ant-design/ant-design/pull/12648) [@decadef20](https://github.com/decadef20)
+- 🌟 Improve support vi_VN locale for DatePicker component. [#12656](https://github.com/ant-design/ant-design/pull/12656) [@hieuhlc](https://github.com/hieuhlc)
+- 🐞 Fixed `treeExpandedKeys` and `onTreeExpand` TypeScript definition missing in TreeSelect. [#12648](https://github.com/ant-design/ant-design/pull/12648) [@decadef20](https://github.com/decadef20)
 - 🐞 Fixed Table th border missing in Firefox. [#12628](https://github.com/ant-design/ant-design/issues/12628)
 - 🐞 Add `touch-action: none` css on Slider to fix chrome warning. [#12595](https://github.com/ant-design/ant-design/issues/12595)
 - 🐞 Fixed Tabs ink-bar vertical css. [#12276](https://github.com/ant-design/ant-design/issues/12276)
@@ -33,6 +33,7 @@ timeline: true
 - Progress
   - 🐞 Fixed Progress `strokeColor` props not work. [#12587](https://github.com/ant-design/ant-design/pull/12587) [@lyhper](https://github.com/lyhper)
   - 🐞 Fixed Progress[type="circle"] should wrap text. [#12718](https://github.com/ant-design/ant-design/issues/12718)
+
 
 ## 3.10.1
 
