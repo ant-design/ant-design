@@ -15,6 +15,25 @@ timeline: true
 
 ---
 
+## 3.10.2
+
+`2018-10-19`
+
+- 📝 Add new doc that [patterns overview](https://ant.design/docs/spec/overview) with en-US. [#12637](https://github.com/ant-design/ant-design/pull/12637) [@ilanus](https://github.com/ilanus)
+- 🌟 Add vi_VN locale for DatePicker component. [#12656](https://github.com/ant-design/ant-design/pull/12656) [@hieuhlc](https://github.com/hieuhlc)
+- 🌟 Add props `treeExpandedKeys` and `onTreeExpand` TypeScript definition in TreeSelect. [#12648](https://github.com/ant-design/ant-design/pull/12648) [@decadef20](https://github.com/decadef20)
+- 🐞 Fixed Table th border missing in Firefox. [#12628](https://github.com/ant-design/ant-design/issues/12628)
+- 🐞 Add `touch-action: none` css on Slider to fix chrome warning. [#12595](https://github.com/ant-design/ant-design/issues/12595)
+- 🐞 Fixed Tabs ink-bar vertical css. [#12276](https://github.com/ant-design/ant-design/issues/12276)
+- 🐞 Fixed vertical align issue of empty Button. [#12681](https://github.com/ant-design/ant-design/issues/12681)
+- 🐞 Fixed Calendar `locale` prop should have priority. [#12706](https://github.com/ant-design/ant-design/issues/12706)
+- 🐞 Fixed Checkbox[checked] indeterminate style. [#12724](https://github.com/ant-design/ant-design/issues/12724)
+- 🐞 Fixed `prefixCls` dosen't pass to Popconfirm's button. [#12677](https://github.com/ant-design/ant-design/pull/12677) [@concefly](https://github.com/concefly)
+- 🐞 Fixed Edge ignoring `pointer-events:none` on Button's span. [#12712](https://github.com/ant-design/ant-design/pull/12712) [@dazbo](https://github.com/dazbo)
+- Progress
+  - 🐞 Fixed Progress `strokeColor` props not work. [#12587](https://github.com/ant-design/ant-design/pull/12587) [@lyhper](https://github.com/lyhper)
+  - 🐞 Fixed Progress[type="circle"] should wrap text. [#12718](https://github.com/ant-design/ant-design/issues/12718)
+
 ## 3.10.1
 
 `2018-10-12`
