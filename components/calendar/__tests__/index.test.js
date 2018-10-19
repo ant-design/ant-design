@@ -98,4 +98,13 @@ describe('Calendar', () => {
     expect(wrapper.state().mode).toEqual(monthMode);
     expect(onPanelChangeStub).toHaveBeenCalledTimes(1);
   });
+
+  it('Calendar should support locale', () => {
+    // eslint-disable-next-line
+    const zhCN = require('../locale/zh_CN').default;
+    const wrapper = mount(
+      <Calendar locale={zhCN} />
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });
