@@ -42,6 +42,7 @@ export interface TabPaneProps {
   className?: string;
   disabled?: boolean;
   forceRender?: boolean;
+  key?: string
 }
 
 export default class Tabs extends React.Component<TabsProps, any> {
