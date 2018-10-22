@@ -1,0 +1,83 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+
+@comment-prefix-cls: ~"@{ant-prefix}-comment";
+
+.@{comment-prefix-cls} {
+  position: relative;
+   &-inner {
+    padding: @comment-padding-base;
+  }
+   &-header {
+    margin-bottom: @comment-header-margin;
+    padding-bottom: @comment-header-padding;
+     &-avatar {
+      position: relative;
+      float: left;
+      margin-right: 12px;
+      cursor: pointer;
+       img {
+        width: 32px;
+        height: 32px;
+        border-radius: 16px;
+      }
+    }
+     &-author {
+      padding-left: 12px;
+      flex: auto;
+      font-size: 14px;
+       & > a,
+      & > span {
+        display: inline-block;
+        height: 18px;
+        font-size: 12px;
+        line-height: 18px;
+        padding-right: 8px;
+        cursor: pointer;
+      }
+       &-name {
+        transition: color 0.3s ease;
+        font-size: 14px;
+        color: @comment-author-name-color;
+         * > {
+          color: @comment-author-name-color;
+           &:hover {
+            color: @comment-author-name-color;
+          }
+        }
+      }
+       &-time {
+        cursor: pointer;
+        color: @comment-author-time-color;
+        white-space: nowrap;
+         &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+   &-content {
+    position: relative;
+    padding-left: 44px;
+    font-size: 14px;
+  }
+   &-actions {
+    margin-top: 12px;
+     & > li {
+      float: left;
+      color: @comment-action-color;
+       & > span {
+        padding-right: 10px;
+        -webkit-transition: color 0.3s ease;
+        transition: color 0.3s ease;
+        font-size: 12px;
+        color: @comment-action-color;
+        cursor: pointer;
+        user-select: none;
+         &:hover {
+          color: @comment-action-hover-color;
+        }
+      }
+    }
+  }
+}
