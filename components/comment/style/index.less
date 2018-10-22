@@ -47,18 +47,21 @@
         }
       }
        &-time {
-        cursor: pointer;
+        cursor: auto;
         color: @comment-author-time-color;
         white-space: nowrap;
-         &:hover {
-          text-decoration: underline;
+        &-tooltip {
+          cursor: pointer;
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
     }
   }
    &-content {
     position: relative;
-    padding-left: 44px;
+    padding-left: @comment-pusher;
     font-size: 14px;
   }
    &-actions {
@@ -79,5 +82,8 @@
         }
       }
     }
+  }
+  &-nested {
+    margin-left: @comment-pusher;
   }
 }

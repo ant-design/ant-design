@@ -1,5 +1,9 @@
 import * as React from 'react';
+import classNames from 'classnames';
+import Nested from './Nested';
 import Tooltip from '../tooltip';
+
+export { NestedCommentProps } from './Nested';
 
 export interface CommentProps {
   /** List of action items rendered below the comment content */
@@ -8,6 +12,8 @@ export interface CommentProps {
   author: string;
   /** The element to display as the comment avatar - generally an antd Avatar */
   avatar: React.ReactNode;
+  /** className of comment */
+  className?: string;
   /** The main content of the comment */
   children: React.ReactNode;
   /** Additional style for the comment content */
@@ -18,7 +24,7 @@ export interface CommentProps {
   id?: string;
   /** Additional style for the comment inner wrapper */
   innerStyle?: React.CSSProperties;
-  /** Comment prefix className defaults to '.ant-comment' */
+  /** Comment prefix defaults to '.ant-comment' */
   prefixCls?: string;
   /** Additional style for the comment */
   style?: React.CSSProperties;
@@ -29,6 +35,8 @@ export interface CommentProps {
 }
 
 export default class Comment extends React.Component<CommentProps, {}> {
+  static Nested: typeof Nested = Nested;
+
   getAction(actions: React.ReactNode[]) {
     if (!actions || !actions.length) {
       return null;
@@ -48,6 +56,7 @@ export default class Comment extends React.Component<CommentProps, {}> {
       author,
       avatar,
       children,
+      className,
       contentStyle = {},
       headStyle = {},
       innerStyle = {},
@@ -58,11 +67,13 @@ export default class Comment extends React.Component<CommentProps, {}> {
       ...otherProps
     } = this.props;
 
+    const classString = classNames(`${prefixCls}-comment`, className);
     const avatarDom = typeof avatar === 'string'
       ? <img src={avatar} />
       : avatar;
 
     let timeDom;
+
     if (time) {
       timeDom = <span className={`${prefixCls}-header-author-time`}>{time}</span>
     }
@@ -70,7 +81,9 @@ export default class Comment extends React.Component<CommentProps, {}> {
     if (time && tooltipTime) {
       timeDom = (
         <Tooltip title={tooltipTime}>
-          <span className={`${prefixCls}-header-author-time`}>{time}</span>
+          <span className={`${prefixCls}-header-author-time ${prefixCls}-header-author-time-tooltip`}>
+            {time}
+          </span>
         </Tooltip>
       )
     }
@@ -103,7 +116,7 @@ export default class Comment extends React.Component<CommentProps, {}> {
     );
 
     return (
-      <div {...otherProps} className={prefixCls} style={style}>
+      <div {...otherProps} className={classString} style={style}>
         <div className={`${prefixCls}-inner`} style={innerStyle}>
           {head}
           {content}
