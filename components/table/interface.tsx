@@ -92,6 +92,14 @@ export interface SorterResult<T> {
   columnKey: string;
 }
 export type TableSize = 'default' | 'middle' | 'small';
+export interface ExpandIconProps<T> {
+  prefixCls: string;
+  expanded: boolean;
+  record: T;
+  needIndentSpaced: boolean;
+  expandable: boolean;
+  onExpand: (record: T, event: MouseEvent) => void;
+}
 export interface TableProps<T> {
   prefixCls?: string;
   dropdownPrefixCls?: string;
@@ -107,6 +115,7 @@ export interface TableProps<T> {
   defaultExpandAllRows?: boolean;
   defaultExpandedRowKeys?: string[] | number[];
   expandedRowKeys?: string[] | number[];
+  expandIcon?: (props: ExpandIconProps<T>) => React.ReactNode;
   expandIconAsCell?: boolean;
   expandIconColumnIndex?: number;
   expandRowByClick?: boolean;

@@ -70,4 +70,12 @@ describe('notification', () => {
       openNotificationWithIcon(type);
     });
   });
+
+  it('trigger onClick', () => {
+    notification.open({
+      message: 'Notification Title',
+      duration: 0,
+    });
+    expect(document.querySelectorAll('.ant-notification').length).toBe(1);
+  });
 });
