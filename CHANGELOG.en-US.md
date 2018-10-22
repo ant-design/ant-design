@@ -37,6 +37,7 @@ timeline: true
 - TypeScript
   - 🐞 Fixed `trexpandedKeys` and `onTreeExpand` definition missing in TreeSelect. [#12648](https://github.com/ant-design/ant-design/pull/12648) [@decadef20](https://github.com/decadef20)
   - 🐞 Fixed missed property `key` in TabPaneProps. [682af0d](https://github.com/ant-design/ant-design/commit/682af0d44bf38a7d3e487aa909c46409db163030) [@ztplz](https://github.com/ztplz)
+  - 🐞 Fixed some definition of Icon. [3dbc357](https://github.com/ant-design/ant-design/commit/3dbc357ff2837debbb9b36a25b14be4757297cad)
 
 ## 3.10.1
 

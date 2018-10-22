@@ -37,6 +37,7 @@ timeline: true
 - TypeScript
   - 🐞 修复 TreeSelect 组件缺少 `treeExpandedKeys` 和 `onTreeExpand` 的定义的问题。[#12648](https://github.com/ant-design/ant-design/pull/12648) [@decadef20](https://github.com/decadef20)
   - 🐞 修复 TabPaneProps 组件缺少 `key` 属性定义的问题。[682af0d](https://github.com/ant-design/ant-design/commit/682af0d44bf38a7d3e487aa909c46409db163030) [@ztplz](https://github.com/ztplz)
+  - 🐞 修复 Icon 组件的部分定义问题。[3dbc357](https://github.com/ant-design/ant-design/commit/3dbc357ff2837debbb9b36a25b14be4757297cad)
 
 ## 3.10.1
 
