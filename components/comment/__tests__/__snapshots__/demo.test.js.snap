@@ -266,3 +266,165 @@ exports[`renders ./components/comment/demo/list.md correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders ./components/comment/demo/nested.md correctly 1`] = `
+Array [
+  <div
+    class="ant-comment-comment"
+  >
+    <div
+      class="ant-comment-inner"
+    >
+      <div
+        class="ant-comment-header"
+      >
+        <span
+          class="ant-comment-header-avatar"
+        >
+          <span
+            class="ant-avatar ant-avatar-circle ant-avatar-image"
+          >
+            <img
+              alt="Han Solo"
+              src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+            />
+          </span>
+        </span>
+        <div
+          class="ant-comment-header-author"
+        >
+          <span
+            class="ant-comment-header-author-name"
+          >
+            <a>
+              Han Solo
+            </a>
+          </span>
+          <span
+            class="ant-comment-header-author-time"
+          >
+            a few seconds ago
+          </span>
+        </div>
+      </div>
+      <div
+        class="ant-comment-content"
+      >
+        <div
+          class="ant-comment-content-detail"
+        >
+          <p>
+            Sagittis id consectetur purus ut faucibus pulvinar elementum integer enim. Pellentesque massa placerat duis ultricies lacus sed turpis. Tempus urna et pharetra pharetra massa massa.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-comment-nested"
+  >
+    <div
+      class="ant-comment-comment"
+    >
+      <div
+        class="ant-comment-inner"
+      >
+        <div
+          class="ant-comment-header"
+        >
+          <span
+            class="ant-comment-header-avatar"
+          >
+            <span
+              class="ant-avatar ant-avatar-circle ant-avatar-image"
+            >
+              <img
+                alt="Han Solo"
+                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+              />
+            </span>
+          </span>
+          <div
+            class="ant-comment-header-author"
+          >
+            <span
+              class="ant-comment-header-author-name"
+            >
+              <a>
+                Han Solo
+              </a>
+            </span>
+            <span
+              class="ant-comment-header-author-time"
+            >
+              a few seconds ago
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-comment-content"
+        >
+          <div
+            class="ant-comment-content-detail"
+          >
+            <p>
+              Sagittis id consectetur purus ut faucibus pulvinar elementum integer enim. Pellentesque massa placerat duis ultricies lacus sed turpis. Tempus urna et pharetra pharetra massa massa.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-comment-comment"
+    >
+      <div
+        class="ant-comment-inner"
+      >
+        <div
+          class="ant-comment-header"
+        >
+          <span
+            class="ant-comment-header-avatar"
+          >
+            <span
+              class="ant-avatar ant-avatar-circle ant-avatar-image"
+            >
+              <img
+                alt="Han Solo"
+                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+              />
+            </span>
+          </span>
+          <div
+            class="ant-comment-header-author"
+          >
+            <span
+              class="ant-comment-header-author-name"
+            >
+              <a>
+                Han Solo
+              </a>
+            </span>
+            <span
+              class="ant-comment-header-author-time"
+            >
+              a few seconds ago
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-comment-content"
+        >
+          <div
+            class="ant-comment-content-detail"
+          >
+            <p>
+              Sagittis id consectetur purus ut faucibus pulvinar elementum integer enim. Pellentesque massa placerat duis ultricies lacus sed turpis. Tempus urna et pharetra pharetra massa massa.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
