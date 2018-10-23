@@ -67,6 +67,8 @@ const columns = [{
 | expandedRowKeys | 展开的行，控制属性 | string\[] | - |
 | expandedRowRender | 额外的展开行 | Function(record, index, indent, expanded):ReactNode | - |
 | expandRowByClick | 通过点击行来展开子行 | boolean | `false` |
+| expandIconAsCell | 展开图标是否作为表格单独1列 | boolean | `true` |
+| expandIconColumnIndex | expandIconAsCell值为false才生效  展开图标在第几列展示 | number | `0` |
 | footer | 表格尾部 | Function(currentPageData) |  |
 | indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number | 15 |
 | loading | 页面是否加载中 | boolean\|[object](https://ant.design/components/spin-cn/#API) ([更多](https://github.com/ant-design/ant-design/issues/4544#issuecomment-271533135)) | false |
