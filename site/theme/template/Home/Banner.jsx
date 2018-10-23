@@ -50,10 +50,13 @@ class Banner extends React.PureComponent {
           <ScrollParallax location="banner" className="banner-bg" animation={{ playScale: [1, 1.5], rotate: 0 }} />
         </div>
         <QueueAnim className={`${className} page`} type="alpha" delay={150}>
-          {isMobile && (
-            <div className="img-wrapper" key="image">
-              <BannerImage />
-            </div>)}
+          {
+            isMobile && (
+              <div className="img-wrapper" key="image">
+                <BannerImage />
+              </div>
+            )
+          }
           <QueueAnim
             className="text-wrapper"
             key="text"
