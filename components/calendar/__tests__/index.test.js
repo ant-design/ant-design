@@ -1,6 +1,7 @@
 import React from 'react';
 import Moment from 'moment';
 import { mount } from 'enzyme';
+import MockDate from 'mockdate';
 import Calendar from '..';
 
 describe('Calendar', () => {
@@ -97,5 +98,16 @@ describe('Calendar', () => {
     wrapper.instance().setType('date');
     expect(wrapper.state().mode).toEqual(monthMode);
     expect(onPanelChangeStub).toHaveBeenCalledTimes(1);
+  });
+
+  it('Calendar should support locale', () => {
+    MockDate.set(Moment('2018-10-19'));
+    // eslint-disable-next-line
+    const zhCN = require('../locale/zh_CN').default;
+    const wrapper = mount(
+      <Calendar locale={zhCN} />
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+    MockDate.reset();
   });
 });

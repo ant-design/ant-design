@@ -126,7 +126,7 @@ export default {
 如果你没有 npx，需要先安装他，用于执行 node_modules 下的命令，
 
 ```bash
-$ yarn global addd npx
+$ yarn global add npx
 ```
 
 然后通过命令创建 `/products` 路由，
