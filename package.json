@@ -167,7 +167,7 @@
     "react-router-dom": "^4.3.1",
     "react-sticky": "^6.0.3",
     "react-sublime-video": "^0.2.5",
-    "react-virtualized": "~9.20.1",
+    "react-virtualized": "~9.21.0",
     "remark-frontmatter": "^1.3.0",
     "remark-parse": "^6.0.0",
     "remark-stringify": "^6.0.0",
