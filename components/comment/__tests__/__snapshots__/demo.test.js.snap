@@ -2,7 +2,7 @@
 
 exports[`renders ./components/comment/demo/basic.md correctly 1`] = `
 <div
-  class="ant-comment"
+  class="ant-comment-comment"
 >
   <div
     class="ant-comment-inner"
@@ -33,7 +33,7 @@ exports[`renders ./components/comment/demo/basic.md correctly 1`] = `
           </a>
         </span>
         <span
-          class="ant-comment-header-author-time"
+          class="ant-comment-header-author-time ant-comment-header-author-time-tooltip"
         >
           a few seconds ago
         </span>
@@ -143,7 +143,7 @@ exports[`renders ./components/comment/demo/list.md correctly 1`] = `
           class="ant-list-item-content ant-list-item-content-single"
         >
           <div
-            class="ant-comment"
+            class="ant-comment-comment"
           >
             <div
               class="ant-comment-inner"
@@ -167,7 +167,7 @@ exports[`renders ./components/comment/demo/list.md correctly 1`] = `
                     Han Solo
                   </span>
                   <span
-                    class="ant-comment-header-author-time"
+                    class="ant-comment-header-author-time ant-comment-header-author-time-tooltip"
                   >
                     a day ago
                   </span>
@@ -206,7 +206,7 @@ exports[`renders ./components/comment/demo/list.md correctly 1`] = `
           class="ant-list-item-content ant-list-item-content-single"
         >
           <div
-            class="ant-comment"
+            class="ant-comment-comment"
           >
             <div
               class="ant-comment-inner"
@@ -230,7 +230,7 @@ exports[`renders ./components/comment/demo/list.md correctly 1`] = `
                     Stormtrooper
                   </span>
                   <span
-                    class="ant-comment-header-author-time"
+                    class="ant-comment-header-author-time ant-comment-header-author-time-tooltip"
                   >
                     2 days ago
                   </span>
