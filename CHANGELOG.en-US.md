@@ -15,6 +15,30 @@ timeline: true
 
 ---
 
+## 3.10.2
+
+`2018-10-22`
+
+- 📝 Translated documentation [patterns overview](https://ant.design/docs/spec/overview) to English. [#12637](https://github.com/ant-design/ant-design/pull/12637) [@ilanus](https://github.com/ilanus)
+- 🛠 Improve support vi_VN locale for DatePicker component. [#12656](https://github.com/ant-design/ant-design/pull/12656) [@hieuhlc](https://github.com/hieuhlc)
+- 🐞 Fixed TimePicker style issue in IE11. [#12707](https://github.com/ant-design/ant-design/pull/12707) [jinyaqiao1102](https://github.com/jinyaqiao1102)
+- 🐞 Fixed Popconfirm defaultVisible. [#12733](https://github.com/ant-design/ant-design/issues/12733)
+- 🐞 Fixed Table th border missing in Firefox. [#12628](https://github.com/ant-design/ant-design/issues/12628)
+- 🐞 Add `touch-action: none` css on Slider to fix chrome warning. [#12595](https://github.com/ant-design/ant-design/issues/12595)
+- 🐞 Fixed Tabs ink-bar vertical css. [#12276](https://github.com/ant-design/ant-design/issues/12276)
+- 🐞 Fixed vertical align issue of empty Button. [#12681](https://github.com/ant-design/ant-design/issues/12681)
+- 🐞 Fixed Calendar `locale` prop should have priority. [#12706](https://github.com/ant-design/ant-design/issues/12706)
+- 🐞 Fixed Checkbox[checked] indeterminate style. [#12724](https://github.com/ant-design/ant-design/issues/12724)
+- 🐞 Fixed `prefixCls` not passed to Popconfirm's button. [#12677](https://github.com/ant-design/ant-design/pull/12677) [@concefly](https://github.com/concefly)
+- 🐞 Fixed Edge ignoring `pointer-events:none` on Button's span. [#12712](https://github.com/ant-design/ant-design/pull/12712) [@dazbo](https://github.com/dazbo)
+- Progress
+  - 🐞 Fixed Progress `strokeColor` props not work. [#12587](https://github.com/ant-design/ant-design/pull/12587) [@lyhper](https://github.com/lyhper)
+  - 🐞 Fixed Progress[type="circle"] should wrap text. [#12718](https://github.com/ant-design/ant-design/issues/12718)
+- TypeScript
+  - 🐞 Fixed `trexpandedKeys` and `onTreeExpand` definition missing in TreeSelect. [#12648](https://github.com/ant-design/ant-design/pull/12648) [@decadef20](https://github.com/decadef20)
+  - 🐞 Fixed missed property `key` in TabPaneProps. [682af0d](https://github.com/ant-design/ant-design/commit/682af0d44bf38a7d3e487aa909c46409db163030) [@ztplz](https://github.com/ztplz)
+  - 🐞 Fixed some definition of Icon. [3dbc357](https://github.com/ant-design/ant-design/commit/3dbc357ff2837debbb9b36a25b14be4757297cad)
+
 ## 3.10.1
 
 `2018-10-12`
