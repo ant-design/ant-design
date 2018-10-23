@@ -17,7 +17,7 @@ timeline: true
 
 ## 3.10.2
 
-`2018-10-22`
+`2018-10-23`
 
 - 📝 Translated documentation [patterns overview](https://ant.design/docs/spec/overview) to English. [#12637](https://github.com/ant-design/ant-design/pull/12637) [@ilanus](https://github.com/ilanus)
 - 🛠 Improve support vi_VN locale for DatePicker component. [#12656](https://github.com/ant-design/ant-design/pull/12656) [@hieuhlc](https://github.com/hieuhlc)

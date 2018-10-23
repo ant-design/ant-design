@@ -17,7 +17,7 @@ timeline: true
 
 ## 3.10.2
 
-`2018-10-22`
+`2018-10-23`
 
 - 📝 翻译[模式-概览](https://ant.design/docs/spec/overview)文档到英文。[#12637](https://github.com/ant-design/ant-design/pull/12637) [@ilanus](https://github.com/ilanus)
 - 🛠 DatePicker 组件完善对越南语（vi_VN）的支持。[#12656](https://github.com/ant-design/ant-design/pull/12656) [@hieuhlc](https://github.com/hieuhlc)
