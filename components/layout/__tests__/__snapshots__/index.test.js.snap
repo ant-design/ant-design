@@ -3,7 +3,7 @@
 exports[`Layout renders string width correctly 1`] = `
 <div
   class="ant-layout-sider ant-layout-sider-dark"
-  style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
+  style="flex:0 0 200;max-width:200;min-width:200;width:200"
 >
   <div
     class="ant-layout-sider-children"

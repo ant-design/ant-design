@@ -20,7 +20,6 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import * as PropTypes from 'prop-types';
 import Icon from '../icon';
-import isNumeric from '../_util/isNumeric';
 
 const dimensionMap = {
   xs: '480px',
@@ -194,7 +193,7 @@ class Sider extends React.Component<SiderProps, SiderState> {
       'defaultCollapsed', 'onCollapse', 'breakpoint', 'onBreakpoint']);
     const rawWidth = this.state.collapsed ? collapsedWidth : width;
     // use "px" as fallback unit for width
-    const siderWidth = isNumeric(rawWidth) ? `${rawWidth}px` : String(rawWidth);
+    const siderWidth = typeof rawWidth === 'number' ? `${rawWidth}px` : String(rawWidth);
     // special trigger when collapsedWidth == 0
     const zeroWidthTrigger = parseFloat(String(collapsedWidth || 0)) === 0 ? (
       <span onClick={this.toggle} className={`${prefixCls}-zero-width-trigger`}>
