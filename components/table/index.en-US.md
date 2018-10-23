@@ -62,6 +62,8 @@ const columns = [{
 | expandedRowKeys | Current expanded row keys | string\[] | - |
 | expandedRowRender | Expanded container render for each row | Function(record, index, indent, expanded):ReactNode | - |
 | expandRowByClick | Whether to expand row by clicking anywhere in the whole row | boolean | `false` |
+| expandIconAsCell | Expand icon as a separate column for the table | boolean | `true` |
+| expandIconColumnIndex | expandIconAsCell is false to take effect  Expand icon in the table column index | number | `0` |
 | footer | Table footer renderer | Function(currentPageData) |  |
 | indentSize | Indent size in pixels of tree data | number | 15 |
 | loading | Loading status of table | boolean\|[object](https://ant.design/components/spin-cn/#API) ([more](https://github.com/ant-design/ant-design/issues/4544#issuecomment-271533135)) | `false` |
