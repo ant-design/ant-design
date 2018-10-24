@@ -7,6 +7,7 @@ import { PREFIX_CLS } from './Constants';
 import Header from './Header';
 import interopDefault from '../_util/interopDefault';
 import enUS from './locale/en_US';
+import { polyfill } from 'react-lifecycles-compat';
 
 export { HeaderProps } from './Header';
 
@@ -46,7 +47,7 @@ export interface CalendarState {
   mode?: CalendarMode;
 }
 
-export default class Calendar extends React.Component<CalendarProps, CalendarState> {
+class Calendar extends React.Component<CalendarProps, CalendarState> {
   static defaultProps = {
     locale: {},
     fullscreen: true,
@@ -89,15 +90,15 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     };
   }
 
-  componentWillReceiveProps(nextProps: CalendarProps) {
-    if ('value' in nextProps) {
+  componentDidUpdate(prevProps: CalendarProps, _prevState: CalendarState) {
+    if ('value' in this.props) {
       this.setState({
-        value: nextProps.value!,
+        value: this.props.value!,
       });
     }
-    if ('mode' in nextProps && nextProps.mode !== this.props.mode) {
+    if ('mode' in this.props && this.props.mode !== prevProps.mode) {
       this.setState({
-          mode: nextProps.mode!,
+        mode: this.props.mode!,
       });
     }
   }
@@ -263,3 +264,7 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     );
   }
 }
+
+polyfill(Calendar);
+
+export default Calendar;
