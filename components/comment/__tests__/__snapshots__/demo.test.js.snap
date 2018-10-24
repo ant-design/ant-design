@@ -137,128 +137,112 @@ exports[`renders ./components/comment/demo/list.md correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-list-item"
+        class="ant-comment"
       >
         <div
-          class="ant-list-item-content ant-list-item-content-single"
+          class="ant-comment-inner"
         >
           <div
-            class="ant-comment"
+            class="ant-comment-header"
+          >
+            <span
+              class="ant-comment-header-avatar"
+            >
+              <img
+                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+              />
+            </span>
+            <div
+              class="ant-comment-header-author"
+            >
+              <span
+                class="ant-comment-header-author-name"
+              >
+                Han Solo
+              </span>
+              <span
+                class="ant-comment-header-author-time ant-comment-header-author-time-tooltip"
+              >
+                a day ago
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-comment-content"
           >
             <div
-              class="ant-comment-inner"
+              class="ant-comment-content-detail"
             >
-              <div
-                class="ant-comment-header"
-              >
-                <span
-                  class="ant-comment-header-avatar"
-                >
-                  <img
-                    src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-                  />
-                </span>
-                <div
-                  class="ant-comment-header-author"
-                >
-                  <span
-                    class="ant-comment-header-author-name"
-                  >
-                    Han Solo
-                  </span>
-                  <span
-                    class="ant-comment-header-author-time ant-comment-header-author-time-tooltip"
-                  >
-                    a day ago
-                  </span>
-                </div>
-              </div>
-              <div
-                class="ant-comment-content"
-              >
-                <div
-                  class="ant-comment-content-detail"
-                >
-                  <p>
-                    Nisl nisi scelerisque eu ultrices vitae auctor eu augue. Nulla at volutpat diam ut venenatis tellus in metus vulputate.
-                  </p>
-                </div>
-                <ul
-                  class="ant-comment-actions"
-                >
-                  <li>
-                    <span>
-                      <span>
-                        Reply to
-                      </span>
-                    </span>
-                  </li>
-                </ul>
-              </div>
+              <p>
+                Nisl nisi scelerisque eu ultrices vitae auctor eu augue. Nulla at volutpat diam ut venenatis tellus in metus vulputate.
+              </p>
             </div>
+            <ul
+              class="ant-comment-actions"
+            >
+              <li>
+                <span>
+                  <span>
+                    Reply to
+                  </span>
+                </span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
       <div
-        class="ant-list-item"
+        class="ant-comment"
       >
         <div
-          class="ant-list-item-content ant-list-item-content-single"
+          class="ant-comment-inner"
         >
           <div
-            class="ant-comment"
+            class="ant-comment-header"
+          >
+            <span
+              class="ant-comment-header-avatar"
+            >
+              <img
+                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+              />
+            </span>
+            <div
+              class="ant-comment-header-author"
+            >
+              <span
+                class="ant-comment-header-author-name"
+              >
+                Stormtrooper
+              </span>
+              <span
+                class="ant-comment-header-author-time ant-comment-header-author-time-tooltip"
+              >
+                2 days ago
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-comment-content"
           >
             <div
-              class="ant-comment-inner"
+              class="ant-comment-content-detail"
             >
-              <div
-                class="ant-comment-header"
-              >
-                <span
-                  class="ant-comment-header-avatar"
-                >
-                  <img
-                    src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-                  />
-                </span>
-                <div
-                  class="ant-comment-header-author"
-                >
-                  <span
-                    class="ant-comment-header-author-name"
-                  >
-                    Stormtrooper
-                  </span>
-                  <span
-                    class="ant-comment-header-author-time ant-comment-header-author-time-tooltip"
-                  >
-                    2 days ago
-                  </span>
-                </div>
-              </div>
-              <div
-                class="ant-comment-content"
-              >
-                <div
-                  class="ant-comment-content-detail"
-                >
-                  <p>
-                    Sed turpis tincidunt id aliquet risus feugiat in ante metus. Faucibus nisl tincidunt eget nullam non.
-                  </p>
-                </div>
-                <ul
-                  class="ant-comment-actions"
-                >
-                  <li>
-                    <span>
-                      <span>
-                        Reply to
-                      </span>
-                    </span>
-                  </li>
-                </ul>
-              </div>
+              <p>
+                Sed turpis tincidunt id aliquet risus feugiat in ante metus. Faucibus nisl tincidunt eget nullam non.
+              </p>
             </div>
+            <ul
+              class="ant-comment-actions"
+            >
+              <li>
+                <span>
+                  <span>
+                    Reply to
+                  </span>
+                </span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

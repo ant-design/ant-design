@@ -5,28 +5,33 @@
 
 .@{comment-prefix-cls} {
   position: relative;
+
    &-inner {
     padding: @comment-padding-base;
   }
-   &-header {
+
+  &-header {
     margin-bottom: @comment-header-margin;
     padding-bottom: @comment-header-padding;
-     &-avatar {
+
+    &-avatar {
       position: relative;
       float: left;
       margin-right: 12px;
       cursor: pointer;
-       img {
+      img {
         width: 32px;
         height: 32px;
         border-radius: 16px;
       }
     }
-     &-author {
+
+    &-author {
       padding-left: 12px;
       flex: auto;
       font-size: 14px;
-       & > a,
+
+      & > a,
       & > span {
         display: inline-block;
         height: 18px;
@@ -35,21 +40,24 @@
         padding-right: 8px;
         cursor: pointer;
       }
-       &-name {
+
+      &-name {
         transition: color 0.3s ease;
         font-size: 14px;
         color: @comment-author-name-color;
-         * > {
+        > * {
           color: @comment-author-name-color;
-           &:hover {
+          &:hover {
             color: @comment-author-name-color;
           }
         }
       }
-       &-time {
+
+      &-time {
         cursor: auto;
         color: @comment-author-time-color;
         white-space: nowrap;
+
         &-tooltip {
           cursor: pointer;
           &:hover {
@@ -59,31 +67,34 @@
       }
     }
   }
-   &-content {
+
+  &-content {
     position: relative;
-    padding-left: @comment-pusher;
+    padding-left: @comment-indent;
     font-size: 14px;
   }
-   &-actions {
+
+  &-actions {
     margin-top: 12px;
-     & > li {
-      float: left;
+
+    & > li {
+      display: inline-block;
       color: @comment-action-color;
-       & > span {
+      > span {
         padding-right: 10px;
-        -webkit-transition: color 0.3s ease;
         transition: color 0.3s ease;
         font-size: 12px;
         color: @comment-action-color;
         cursor: pointer;
         user-select: none;
-         &:hover {
+        &:hover {
           color: @comment-action-hover-color;
         }
       }
     }
   }
+
   &-nested {
-    margin-left: @comment-pusher;
+    margin-left: @comment-indent;
   }
 }
