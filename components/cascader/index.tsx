@@ -4,6 +4,7 @@ import arrayTreeFilter from 'array-tree-filter';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import KeyCode from 'rc-util/lib/KeyCode';
+import { polyfill } from 'react-lifecycles-compat';
 import Input from '../input';
 import Icon from '../icon';
 
@@ -91,7 +92,6 @@ export interface CascaderState {
   inputValue: string;
   value: string[];
   popupVisible: boolean | undefined;
-  flattenOptions: CascaderOptionType[][] | undefined;
 }
 
 function highlightKeyword(str: string, keyword: string, prefixCls: string | undefined) {
@@ -141,7 +141,7 @@ function getFilledFieldNames(fieldNames: FieldNamesType = {}) {
 
 const defaultDisplayRender = (label: string[]) => label.join(' / ');
 
-export default class Cascader extends React.Component<CascaderProps, CascaderState> {
+class Cascader extends React.Component<CascaderProps, CascaderState> {
   static defaultProps = {
     prefixCls: 'ant-cascader',
     inputPrefixCls: 'ant-input',
@@ -165,22 +165,20 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
       inputValue: '',
       inputFocused: false,
       popupVisible: props.popupVisible,
-      flattenOptions:
-        props.showSearch ? this.flattenTree(props.options, props.changeOnSelect, props.fieldNames) : undefined,
     };
   }
 
-  componentWillReceiveProps(nextProps: CascaderProps) {
-    if ('value' in nextProps) {
-      this.setState({ value: nextProps.value || [] });
+  componentDidUpdate(prevProps: CascaderProps) {
+    const {
+      value,
+      popupVisible,
+    } = this.props;
+
+    if (value !== prevProps.value) {
+      this.setState({value: value || []});
     }
-    if ('popupVisible' in nextProps) {
-      this.setState({ popupVisible: nextProps.popupVisible });
-    }
-    if (nextProps.showSearch && this.props.options !== nextProps.options) {
-      this.setState({
-        flattenOptions: this.flattenTree(nextProps.options, nextProps.changeOnSelect, nextProps.fieldNames),
-      });
+    if (popupVisible !== prevProps.popupVisible) {
+      this.setState({popupVisible: popupVisible});
     }
   }
 
@@ -308,7 +306,8 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
       render = defaultRenderFilteredOption,
       sort = defaultSortFilteredOption,
     } = showSearch as ShowSearchType;
-    const { flattenOptions = [], inputValue } = this.state;
+    const { inputValue } = this.state;
+    const flattenOptions = this.props.showSearch ? this.flattenTree(this.props.options, this.props.changeOnSelect, this.props.fieldNames) : [];
     const filtered = flattenOptions.filter((path) => filter(this.state.inputValue, path, names))
       .sort((a, b) => sort(a, b, inputValue, names));
 
@@ -486,3 +485,7 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     );
   }
 }
+
+polyfill(Cascader);
+
+export default Cascader;
