@@ -83,7 +83,7 @@ export default class Header extends React.Component<HeaderProps, any> {
       const currentYear = value.get('year');
       if (rangeEnd.get('year') === currentYear) {
         end = rangeEnd.get('month') + 1;
-      } else {
+      } else if (rangeStart.get('year') === currentYear) {
         start = rangeStart.get('month');
       }
     }
