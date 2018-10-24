@@ -27,7 +27,7 @@ export interface PaginationProps {
   className?: string;
   prefixCls?: string;
   selectPrefixCls?: string;
-  itemRender?: (page: number, type: 'page' | 'prev' | 'next' | 'jump-prev' | 'jump-next') => React.ReactNode;
+  itemRender?: (page: number, type: 'page' | 'prev' | 'next' | 'jump-prev' | 'jump-next', originalElement: React.ReactNode) => React.ReactNode;
   role?: string;
 }
 
