@@ -52,9 +52,9 @@ export default class TextArea extends React.Component<TextAreaProps, TextAreaSta
     this.resizeTextarea();
   }
 
-  componentWillReceiveProps(nextProps: TextAreaProps) {
+  componentDidUpdate(prevProps: TextAreaProps) {
     // Re-render with the new content then recalculate the height as required.
-    if (this.props.value !== nextProps.value) {
+    if (prevProps.value !== this.props.value) {
       if (this.nextFrameActionId) {
         clearNextFrameAction(this.nextFrameActionId);
       }
