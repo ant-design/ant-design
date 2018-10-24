@@ -28,29 +28,14 @@ function handleChange(value) {
 }
 
 ReactDOM.render(
-  <div>
-    <Select
-      mode="multiple"
-      style={{ width: '100%' }}
-      placeholder="Please select"
-      defaultValue={['a10', 'c12']}
-      onChange={handleChange}
-    >
-      {children}
-    </Select>
-    <Select
-      mode="multiple"
-      style={{ width: '100%' }}
-      placeholder="Please select"
-      onChange={handleChange}
-      dropdownMatchSelectWidth={false}
-    >
-      <Option value="jack">Jack</Option>
-      <Option value="lucy">Lucy</Option>
-      <Option value="disabled" >Disabled</Option>
-      <Option value="Yiminghe">yiminghe</Option>
-      <Option value="lucy">Lucy</Option>
-    </Select>
-  </div>,
+  <Select
+    mode="multiple"
+    style={{ width: '100%' }}
+    placeholder="Please select"
+    defaultValue={['a10', 'c12']}
+    onChange={handleChange}
+  >
+    {children}
+  </Select>,
   mountNode);
 ````
