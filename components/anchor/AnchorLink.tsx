@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { AntAnchor } from './Anchor';
+import { polyfill } from "react-lifecycles-compat";
 
 export interface AnchorLinkProps {
   prefixCls?: string;
@@ -10,7 +11,12 @@ export interface AnchorLinkProps {
   children?: any;
 }
 
-export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
+interface AnchorLinkState {
+  href: string;
+  shouldRegisterLink: boolean;
+}
+
+class AnchorLink extends React.Component<AnchorLinkProps, AnchorLinkState> {
   static defaultProps = {
     prefixCls: 'ant-anchor',
     href: '#',
@@ -20,24 +26,34 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
     antAnchor: PropTypes.object,
   };
 
+  static getDerivedStateFromProps(nextProps: AnchorLinkProps, prevState: AnchorLinkState): Partial<AnchorLinkState> {
+    return {
+      shouldRegisterLink: prevState.href !== nextProps.href,
+    };
+  }
+
   context: {
     antAnchor: AntAnchor;
   };
 
-  componentDidMount() {
-    this.context.antAnchor.registerLink(this.props.href);
-  }
-
-  componentWillReceiveProps(nextProps: AnchorLinkProps) {
-    const { href } = nextProps;
-    if (this.props.href !== href) {
-      this.context.antAnchor.unregisterLink(this.props.href);
-      this.context.antAnchor.registerLink(href);
+  constructor(props: AnchorLinkProps) {
+    super(props);
+    this.state = {
+      shouldRegisterLink: true,
+      href: props.href,
     }
   }
 
+  componentDidMount() {
+    this.registerLink();
+  }
+
   componentWillUnmount() {
-    this.context.antAnchor.unregisterLink(this.props.href);
+    this.context.antAnchor.unregisterLink(this.state.href);
+  }
+
+  shouldComponentUpdate(_nextProps: AnchorLinkProps, nextState: AnchorLinkState) {
+    return nextState.shouldRegisterLink;
   }
 
   handleClick = (e: React.MouseEvent<HTMLElement>) => {
@@ -47,6 +63,13 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
       onClick(e, { title, href });
     }
     scrollTo(href);
+  };
+
+  componentDidUpdate() {
+    if (this.state.shouldRegisterLink) {
+      this.unregisterLink();
+      this.registerLink();
+    }
   }
 
   render() {
@@ -77,4 +100,18 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
       </div>
     );
   }
+
+  registerLink(): void {
+    this.setState({href: this.props.href, shouldRegisterLink: false}, () => {
+      this.context.antAnchor.registerLink(this.state.href);
+    })
+  }
+
+  unregisterLink(): void {
+    this.context.antAnchor.unregisterLink(this.state.href);
+  }
 }
+
+polyfill(AnchorLink);
+
+export default AnchorLink;
