@@ -2,7 +2,7 @@
 
 exports[`renders ./components/comment/demo/basic.md correctly 1`] = `
 <div
-  class="ant-comment-comment"
+  class="ant-comment"
 >
   <div
     class="ant-comment-inner"
@@ -143,7 +143,7 @@ exports[`renders ./components/comment/demo/list.md correctly 1`] = `
           class="ant-list-item-content ant-list-item-content-single"
         >
           <div
-            class="ant-comment-comment"
+            class="ant-comment"
           >
             <div
               class="ant-comment-inner"
@@ -206,7 +206,7 @@ exports[`renders ./components/comment/demo/list.md correctly 1`] = `
           class="ant-list-item-content ant-list-item-content-single"
         >
           <div
-            class="ant-comment-comment"
+            class="ant-comment"
           >
             <div
               class="ant-comment-inner"
@@ -270,7 +270,7 @@ exports[`renders ./components/comment/demo/list.md correctly 1`] = `
 exports[`renders ./components/comment/demo/nested.md correctly 1`] = `
 Array [
   <div
-    class="ant-comment-comment"
+    class="ant-comment"
   >
     <div
       class="ant-comment-inner"
@@ -324,7 +324,7 @@ Array [
     class="ant-comment-nested"
   >
     <div
-      class="ant-comment-comment"
+      class="ant-comment"
     >
       <div
         class="ant-comment-inner"
@@ -375,7 +375,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-comment-comment"
+      class="ant-comment"
     >
       <div
         class="ant-comment-inner"
