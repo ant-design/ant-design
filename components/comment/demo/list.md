@@ -51,17 +51,15 @@ ReactDOM.render(
     itemLayout="horizontal"
     dataSource={data}
     renderItem={item => (
-      <List.Item>
-        <Comment
-          actions={item.actions}
-          author={item.author}
-          avatar={item.avatar}
-          time={item.time}
-          tooltipTime={item.tooltipTime}
-        >
-          {item.children}
-        </Comment>
-      </List.Item>
+      <Comment
+        actions={item.actions}
+        author={item.author}
+        avatar={item.avatar}
+        time={item.time}
+        tooltipTime={item.tooltipTime}
+      >
+        {item.children}
+      </Comment>
     )}
   />,
   mountNode);
