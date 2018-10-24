@@ -67,7 +67,7 @@ export default class Comment extends React.Component<CommentProps, {}> {
       ...otherProps
     } = this.props;
 
-    const classString = classNames(`${prefixCls}-comment`, className);
+    const classString = classNames(prefixCls, className);
     const avatarDom = typeof avatar === 'string'
       ? <img src={avatar} />
       : avatar;
