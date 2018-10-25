@@ -76,7 +76,7 @@ export type NativeButtonProps = {
 export type ButtonProps = AnchorButtonProps | NativeButtonProps;
 
 interface ButtonState {
-  loading?: boolean | {delay?: number};
+  loading?: boolean | { delay?: number };
   hasTwoCNChar: boolean;
 }
 
@@ -105,7 +105,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
 
   static getDerivedStateFromProps(nextProps: ButtonProps, prevState: ButtonState) {
     if (nextProps.loading instanceof Boolean) {
-      return {loading: nextProps.loading}
+      return { loading: nextProps.loading }
     }
 
     return null;
@@ -126,7 +126,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     this.fixTwoCNChar();
   }
 
-  componentDidUpdate(prevProps: ButtonProps, _prevState: ButtonState) {
+  componentDidUpdate(prevProps: ButtonProps, prevState: ButtonState) {
     this.fixTwoCNChar();
 
     if (prevProps.loading && typeof prevProps.loading !== 'boolean') {
