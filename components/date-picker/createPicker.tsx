@@ -99,6 +99,15 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
       this.input = node;
     }
 
+    shouldComponentUpdate = (nextProps: PickerProps, nextState: any) => {
+      if (!this.props.value || !this.state.value) {
+        // Redraw if form is cleared.
+        return true;
+      }
+      // if next props is same to current value or next state is not same to current value, does not update.
+      return this.props.value.isSame(nextProps.value) || !this.state.value.isSame(nextState.value);
+    }
+
     render() {
       const { value, showDate } = this.state;
       const props = omit(this.props, ['onChange']);
