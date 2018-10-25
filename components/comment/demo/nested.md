@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 2
 title:
   zh-CN: 嵌套评论
   en-US: Nested comment
@@ -39,7 +39,9 @@ ReactDOM.render(
     <ExampleComment />
     <NestedComment>
       <ExampleComment />
-      <ExampleComment />
+      <NestedComment>
+        <ExampleComment />
+      </NestedComment>
     </NestedComment>
   </React.Fragment>,
   mountNode

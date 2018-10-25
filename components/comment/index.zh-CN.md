@@ -35,5 +35,18 @@ cols: 1
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | className | 网格容器类名 | string | - |
-| prefixCls | 注释前缀className默认为`.ant-comment-nested` | string | .ant-comment-nested |
+| prefixCls | 注释前缀className默认为`.ant-comment` | string | .ant-comment |
 | style | 评论的其他风格 | object | - |
+
+# Comment.Editor
+
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| prefixCls | prefix className默认为`.ant-comment` | string | .ant-comment |
+| style | 编辑器的其他样式 | object | - |
+| className | 编辑器的className | string | - |
+| headStyle | 要应用于注释头的内联样式 | object | - |
+| editorStyle | 要应用于注释编辑器的内联样式 | object | - |
+| innerStyle | 要应用于注释内部注释编辑器的内联样式 | object | - |
+| avatar | 要显示为评论头像的元素 - 通常是antd `Avatar` | ReactNode | - |
+| children | 要显示为编辑器的元素 | ReactNode | - |

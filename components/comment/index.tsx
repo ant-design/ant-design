@@ -1,9 +1,11 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import Nested from './Nested';
 import Tooltip from '../tooltip';
+import Nested from './Nested';
+import Editor from './Editor';
 
 export { NestedCommentProps } from './Nested';
+export { CommentEditorProps } from './Editor';
 
 export interface CommentProps {
   /** List of action items rendered below the comment content */
@@ -36,6 +38,7 @@ export interface CommentProps {
 
 export default class Comment extends React.Component<CommentProps, {}> {
   static Nested: typeof Nested = Nested;
+  static Editor: typeof Editor = Editor;
 
   getAction(actions: React.ReactNode[]) {
     if (!actions || !actions.length) {

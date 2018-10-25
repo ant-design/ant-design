@@ -34,5 +34,18 @@ Comments can be used to enable discussions on an entity for example page, blog p
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | className | className of nested comment | string | - |
-| prefixCls | prefix className defaults to `.ant-comment-nested` | string | .ant-comment-nested |
+| prefixCls | prefix className defaults to `.ant-comment` | string | .ant-comment |
 | style | Additional style for the comment | object | - |
+
+# Comment.Editor
+
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| prefixCls | prefix className defaults to `.ant-comment` | string | .ant-comment |
+| style | Additional style for the editor | object | - |
+| className | className of editor | string | - |
+| headStyle | Inline style to apply to the comment head | object | - |
+| editorStyle | Inline style to apply to the comment editor | object | - |
+| innerStyle | Inline style to apply to the comment inner comment editor | object | - |
+| avatar | The element to display as the comment avatar - generally an antd `Avatar` | ReactNode | - |
+| children | The element to display as the editor | ReactNode | - |
