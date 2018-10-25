@@ -1,12 +1,12 @@
 ---
 category: Components
-subtitle: 加载占位图
+subtitle: 骨架屏
 type: Feedback
 title: Skeleton
 cols: 1
 ---
 
-在需要等待加载内容的位置提供一个占位图。
+在需要等待加载内容的位置提供一个占位图形组合。
 
 ## 何时使用
 
