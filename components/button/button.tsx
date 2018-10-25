@@ -129,7 +129,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     } else if (prevProps.loading === this.props.loading) {
       return;
     } else {
-      this.setState({loading});
+      this.setState({ loading });
     }
   }
 
