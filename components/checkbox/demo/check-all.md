@@ -16,7 +16,7 @@ The `indeterminate` property can help you to achieve a 'check all' effect.
 ````jsx
 import { Checkbox } from 'antd';
 
-const CheckboxGroup = Checkbox.Group;
+const { CheckboxGroup } = Checkbox;
 
 const plainOptions = ['Apple', 'Pear', 'Orange'];
 const defaultCheckedList = ['Apple', 'Orange'];
