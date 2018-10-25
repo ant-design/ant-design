@@ -103,7 +103,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     block: PropTypes.bool,
   };
 
-  static getDerivedStateFromProps(nextProps: ButtonProps, _prevState: ButtonState) {
+  static getDerivedStateFromProps(nextProps: ButtonProps, prevState: ButtonState) {
     if (nextProps.loading instanceof Boolean) {
       return {loading: nextProps.loading}
     }
