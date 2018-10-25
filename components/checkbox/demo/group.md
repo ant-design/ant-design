@@ -16,7 +16,7 @@ Generate a group of checkboxes from an array.
 ````jsx
 import { Checkbox } from 'antd';
 
-const CheckboxGroup = Checkbox.Group;
+const { CheckboxGroup } = Checkbox;
 
 function onChange(checkedValues) {
   console.log('checked = ', checkedValues);
