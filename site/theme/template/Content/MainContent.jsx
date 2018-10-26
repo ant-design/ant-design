@@ -72,7 +72,7 @@ export default class MainContent extends React.Component {
     }
     this.timer = setTimeout(() => {
       if (window.location.hash) {
-        document.querySelector(window.location.hash).scrollIntoView();
+        document.querySelector(decodeURIComponent(window.location.hash)).scrollIntoView();
       }
     }, 50);
   }
