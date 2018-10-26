@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-当 `defaultToolTip` 为 `true` 时，将始终显示ToolTip。
+当 `alwaysShowTooltip` 为 `true` 时，将始终显示ToolTip。
 
 ## en-US
 
-When `defaultToolTip` is `true`, ToolTip will be shown always.
+When `alwaysShowTooltip` is `true`, ToolTip will show always.
 
 ````jsx
 import Slider from '..';

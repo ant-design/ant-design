@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Slider should show tooltip always when defaultToolTip is true 1`] = `
+exports[`Slider should show tooltip always when alwaysShowTooltip is true 1`] = `
 <div>
   <div
     class="ant-tooltip  ant-tooltip-placement-top "
