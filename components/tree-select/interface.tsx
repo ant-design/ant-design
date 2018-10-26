@@ -53,4 +53,6 @@ export interface TreeSelectProps extends AbstractSelectProps {
   treeCheckStrictly?: boolean;
   getPopupContainer?: (triggerNode: Element) => HTMLElement;
   suffixIcon?: React.ReactNode;
+  treeExpandedKeys?: Array<string>;
+  onTreeExpand?: (keys: Array<string>) => void;
 }

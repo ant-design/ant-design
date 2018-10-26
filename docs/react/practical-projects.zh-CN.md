@@ -38,7 +38,7 @@ yarn create v1.12.0
 success Installed "create-umi@0.3.1" with binaries:
       - create-umi
 
-? What functionality do your want to enable? (Press <space> to select, <a> to toggle all, <i
+? What functionality do you want to enable? (Press <space> to select, <a> to toggle all, <i
 > to invert selection)
 ❯◯ antd
  ◯ dva
@@ -126,7 +126,7 @@ export default {
 如果你没有 npx，需要先安装他，用于执行 node_modules 下的命令，
 
 ```bash
-$ yarn global addd npx
+$ yarn global add npx
 ```
 
 然后通过命令创建 `/products` 路由，

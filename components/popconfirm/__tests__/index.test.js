@@ -99,4 +99,31 @@ describe('Popconfirm', () => {
     triggerNode.simulate('click');
     expect(wrapper.find('.customize-icon').length).toBe(1);
   });
+
+  it('should prefixCls correctly', () => {
+    const btnPrefixCls = 'custom-btn';
+    const wrapper = mount(
+      <Popconfirm
+        visible
+        title="x"
+        prefixCls="custom-popconfirm"
+        okButtonProps={{ prefixCls: btnPrefixCls }}
+        cancelButtonProps={{ prefixCls: btnPrefixCls }}
+      >
+        <span>show me your code</span>
+      </Popconfirm>
+    );
+
+    expect(wrapper.find('.custom-popconfirm').length).toBeGreaterThan(0);
+    expect(wrapper.find('.custom-btn').length).toBeGreaterThan(0);
+  });
+
+  it('should support defaultVisible', () => {
+    const popconfirm = mount(
+      <Popconfirm title="code" defaultVisible>
+        <span>show me your code</span>
+      </Popconfirm>
+    );
+    expect(popconfirm.instance().getPopupDomNode()).toBeTruthy();
+  });
 });

@@ -92,6 +92,10 @@
     position: absolute;
     right: 0;
     bottom: 26px;
+
+    img {
+      max-width: 100%;
+    }
   }
 
   .banner-btns {
@@ -373,5 +377,15 @@ svg {
     video {
       display: block;
     }
+  }
+}
+
+.banner-1024 {
+  cursor: pointer;
+  transition: all .4s;
+  display: block;
+
+  &:hover {
+    transform: translateY(-16px) scale(1.01);
   }
 }

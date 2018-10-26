@@ -38,7 +38,7 @@ yarn create v1.12.0
 success Installed "create-umi@0.3.1" with binaries:
       - create-umi
 
-? What functionality do your want to enable? (Press <space> to select, <a> to toggle all, <i
+? What functionality do you want to enable? (Press <space> to select, <a> to toggle all, <i
 > to invert selection)
 ❯◯ antd
  ◯ dva
@@ -126,7 +126,7 @@ We need to write an application displaying the list of products. The first step 
 If you don't have npx, you need to install it first to execute the commands under node_modules.
 
 ```bash
-$ yarn global addd npx
+$ yarn global add npx
 ```
 
 Then create a `/products` route,

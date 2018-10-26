@@ -62,7 +62,7 @@ export default class MainContent extends React.Component {
     if (!prevProps || prevProps.location.pathname !== location.pathname) {
       this.bindScroller();
     }
-    if (!prevProps || (!window.location.hash && prevProps && prevProps.location.pathname !== location.pathname)) {
+    if (!window.location.hash && prevProps && prevProps.location.pathname !== location.pathname) {
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
       return;
@@ -74,7 +74,7 @@ export default class MainContent extends React.Component {
       if (window.location.hash) {
         document.querySelector(window.location.hash).scrollIntoView();
       }
-    }, 10);
+    }, 50);
   }
 
   componentWillUnmount() {

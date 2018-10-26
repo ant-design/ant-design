@@ -3,6 +3,8 @@
 
 @table-prefix-cls: ~"@{ant-prefix}-table";
 @table-header-icon-color: #bfbfbf;
+@table-header-sort-active-bg: darken(@table-header-bg, 3%);
+@table-header-filter-active-bg: darken(@table-header-sort-active-bg, 5%);
 
 .@{table-prefix-cls}-wrapper {
   .clearfix;
@@ -103,7 +105,7 @@
         .@{table-prefix-cls}-filter-icon {
           &.@{table-prefix-cls}-filter-open {
             color: @text-color-secondary;
-            background: #ebebeb;
+            background: @table-header-filter-active-bg;
           }
         }
         // Very complicated styles logic but neccessary
@@ -112,7 +114,7 @@
           .@{table-prefix-cls}-filter-icon {
             &:hover {
               color: @text-color-secondary;
-              background: #ebebeb;
+              background: @table-header-filter-active-bg;
             }
             &:active {
               color: @text-color;
@@ -124,10 +126,10 @@
       &.@{table-prefix-cls}-column-has-sorters {
         cursor: pointer;
         &:hover {
-          background: #f5f5f5;
+          background: @table-header-sort-active-bg;
           .@{iconfont-css-prefix}-filter,
           .@{table-prefix-cls}-filter-icon {
-            background: #f5f5f5;
+            background: @table-header-sort-active-bg;
           }
         }
         &:active {

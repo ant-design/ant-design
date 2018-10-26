@@ -30,7 +30,7 @@ class PriceInput extends React.Component {
     // Should be a controlled component.
     if ('value' in nextProps) {
       return {
-        value: nextProps.value || {},
+        ...(nextProps.value || {}),
       };
     }
     return null;

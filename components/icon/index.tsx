@@ -43,9 +43,9 @@ export interface IconProps {
 }
 
 export interface IconComponent<P> extends React.SFC<P> {
-  createFromIconfontCN?: typeof createFromIconfontCN;
-  getTwoToneColor?: typeof getTwoToneColor;
-  setTwoToneColor?: typeof setTwoToneColor;
+  createFromIconfontCN: typeof createFromIconfontCN;
+  getTwoToneColor: typeof getTwoToneColor;
+  setTwoToneColor: typeof setTwoToneColor;
   unstable_ChangeThemeOfIconsDangerously?: typeof unstable_ChangeThemeOfIconsDangerously;
   unstable_ChangeDefaultThemeOfIcons?: typeof unstable_ChangeDefaultThemeOfIcons;
 }

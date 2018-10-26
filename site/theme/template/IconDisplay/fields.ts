@@ -89,7 +89,7 @@ export const categories = {
     'weibo-square', 'weibo-circle', 'taobao-circle', 'html5',
     'weibo', 'twitter', 'wechat', 'youtube', 'alipay-circle',
     'taobao', 'skype', 'qq', 'medium-workmark', 'gitlab', 'medium',
-    'linkedin', 'google-plus', 'dropbox', 'facebook', 'codepen',
+    'linkedin', 'google-plus', 'dropbox', 'facebook', 'codepen', 'code-sandbox', 'code-sandbox-circle',
     'amazon', 'google', 'codepen-circle', 'alipay', 'ant-design',
     'aliyun', 'zhihu', 'slack', 'slack-square', 'behance',
     'behance-square', 'dribbble', 'dribbble-square',

@@ -177,16 +177,16 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     validRange: [moment.Moment, moment.Moment],
     disabledDate?: (current: moment.Moment) => boolean,
   ) => (current: moment.Moment) => {
-      if (!current) {
-        return false;
-      }
-      const [ startDate, endDate ] = validRange;
-      const inRange = !current.isBetween(startDate, endDate, 'days', '[]');
-      if (disabledDate) {
-        return (disabledDate(current) || inRange);
-      }
-      return inRange;
+    if (!current) {
+      return false;
     }
+    const [ startDate, endDate ] = validRange;
+    const inRange = !current.isBetween(startDate, endDate, 'days', '[]');
+    if (disabledDate) {
+      return (disabledDate(current) || inRange);
+    }
+    return inRange;
+  }
 
   renderCalendar = (locale: any, localeCode: string) => {
     const { state, props } = this;
@@ -240,11 +240,23 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     );
   }
 
+  getDefaultLocale = () => {
+    const result = {
+      ...enUS,
+      ...this.props.locale,
+    };
+    result.lang = {
+      ...result.lang,
+      ...(this.props.locale || {}).lang,
+    };
+    return result;
+  }
+
   render() {
     return (
       <LocaleReceiver
         componentName="Calendar"
-        defaultLocale={enUS}
+        defaultLocale={this.getDefaultLocale}
       >
         {this.renderCalendar}
       </LocaleReceiver>
