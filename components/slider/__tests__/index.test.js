@@ -12,4 +12,11 @@ describe('Slider', () => {
     wrapper.find('.ant-slider-handle').at(0).simulate('mouseLeave');
     expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
   });
+
+  it('should show tooltip always when alwaysShowTooltip is true', () => {
+    const wrapper = mount(
+      <Slider defaultValue={30} alwaysShowTooltip />
+    );
+    expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
+  });
 });

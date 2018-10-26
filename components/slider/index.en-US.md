@@ -29,6 +29,7 @@ To input a value in a range.
 | vertical | If true, the slider will be vertical. | Boolean | false |
 | onAfterChange | Fire when  `onmouseup` is fired. | Function(value) | NOOP |
 | onChange | Callback function that is fired when the user changes the slider's value. | Function(value) | NOOP |
+| alwaysShowTooltip | If true, the Tooltip will always show. | Boolean | false |
 
 ## Methods
 
