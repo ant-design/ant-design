@@ -185,7 +185,7 @@
     "xhr2": "^0.1.4"
   },
   "scripts": {
-    "test": "jest --config .jest.js",
+    "test": "jest --config .jest.js --verbose=false",
     "test-node": "jest --config .jest.node.js",
     "test-all": "./scripts/test-all.sh",
     "lint": "npm run lint:ts && npm run lint:es && npm run lint:demo && npm run lint:style",
