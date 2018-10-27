@@ -8,10 +8,12 @@ title:
 ## zh-CN
 
 通过配置 `options` 参数来渲染单选框。
+使用 `options` 时还可以通过 `optionType` 来配置选项的类型。
 
 ## en-US
 
 Render radios by configuring `options`.
+`optionType` can also used, along with `options`, to choose the item type.
 
 ```jsx
 import { Radio } from 'antd';
@@ -63,7 +65,7 @@ class App extends React.Component {
       <div>
         <RadioGroup options={plainOptions} onChange={this.onChange1} value={this.state.value1} />
         <RadioGroup options={options} onChange={this.onChange2} value={this.state.value2} />
-        <RadioGroup options={optionsWithDisabled} onChange={this.onChange3} value={this.state.value3} />
+        <RadioGroup optionType="button" options={optionsWithDisabled} onChange={this.onChange3} value={this.state.value3} />
       </div>
     );
   }

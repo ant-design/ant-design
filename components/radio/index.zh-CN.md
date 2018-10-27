@@ -36,6 +36,7 @@ title: Radio
 | size | 大小，只对按钮样式生效 | `large` \| `default` \| `small` | `default` |
 | value | 用于设置当前选中的值 | any | - |
 | onChange | 选项变化时的回调函数 | Function(e:Event) | - |
+| optionType | Group下面的选型类型 | `radio` 对应 `Radio` \| `button` 对应 `Radio.Button` | `radio` |
 | buttonStyle | RadioButton 的风格样式，目前有描边和填色两种风格 | `outline` \| `solid` | `outline` |
 
 ## 方法

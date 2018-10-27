@@ -3,6 +3,7 @@ import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
 import Radio from './radio';
+import RadioButton from './radioButton';
 import { RadioGroupProps, RadioGroupState, RadioChangeEvent, RadioGroupButtonStyle } from './interface';
 
 function getCheckedValue(children: React.ReactNode) {
@@ -101,10 +102,11 @@ export default class RadioGroup extends React.Component<RadioGroupProps, RadioGr
 
     // 如果存在 options, 优先使用
     if (options && options.length > 0) {
+      const Option = props.optionType === 'button' ? RadioButton : Radio;
       children = options.map((option, index) => {
         if (typeof option === 'string') { // 此处类型自动推导为 string
           return (
-            <Radio
+            <Option
               key={index}
               prefixCls={prefixCls}
               disabled={this.props.disabled}
@@ -113,11 +115,11 @@ export default class RadioGroup extends React.Component<RadioGroupProps, RadioGr
               checked={this.state.value === option}
             >
               {option}
-            </Radio>
+            </Option>
           );
         } else { // 此处类型自动推导为 { label: string value: string }
           return (
-            <Radio
+            <Option
               key={index}
               prefixCls={prefixCls}
               disabled={option.disabled || this.props.disabled}
@@ -126,7 +128,7 @@ export default class RadioGroup extends React.Component<RadioGroupProps, RadioGr
               checked={this.state.value === option.value}
             >
               {option.label}
-            </Radio>
+            </Option>
           );
         }
       });
