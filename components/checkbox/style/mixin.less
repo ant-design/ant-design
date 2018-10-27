@@ -50,6 +50,9 @@
       border-radius: @border-radius-sm;
       background-color: @checkbox-check-color;
       transition: all .3s;
+      // Fix IE checked style
+      // https://github.com/ant-design/ant-design/issues/12597
+      border-collapse: separate;
 
       &:after {
         @check-width: (@checkbox-size / 14) * 5px;
