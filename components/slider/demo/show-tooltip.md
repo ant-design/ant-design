@@ -16,7 +16,7 @@ When `alwaysShowTooltip` is `true`, ToolTip will show always.
 
  ````jsx
 
-import { Slider } from 'antd';
+import Slider from '..';
 
 ReactDOM.render(<Slider defaultValue={30} alwaysShowTooltip />, mountNode);
 
