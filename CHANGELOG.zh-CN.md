@@ -15,6 +15,22 @@ timeline: true
 
 ---
 
+## 3.10.3
+
+`2018-10-27`
+
+- 🌟 完善工具方法 `getScroll` 的 TypeScript 定义。[#12784](https://github.com/ant-design/ant-design/pull/12784) [@ztplz](https://github.com/ztplz)
+- 🐞 修复 Checkbox 没有触发 `onChange` 的问题。[#12642](https://github.com/ant-design/ant-design/issues/12642)
+- 🐞 修复 Calendar 组件设置 `validRange` 后选择月份时的问题。[#12675](https://github.com/ant-design/ant-design/issues/12675)
+- 🐞 修复 Select 组件设置了 `dropdownMatchSelectWidth` 后多选下拉框的问题。[#12816](https://github.com/ant-design/ant-design/pull/12816) [@hengkx](https://github.com/hengkx)
+- 🐞 修复 Card 标题可能会被覆盖的问题。[#12680](https://github.com/ant-design/ant-design/issues/12680)
+- 🐞 修复 Form[inline] 提示信息和错误文案被覆盖的问题。[#12725](https://github.com/ant-design/ant-design/issues/12725)
+- Table
+  - 🌟 支持自定义 Table 组件的筛选按钮的背景色。[#12775](https://github.com/ant-design/ant-design/pull/12775) [@ivankravets](https://github.com/ivankravets)
+  - 🐞 调整 Table 组件的样式细节。[#12682](https://github.com/ant-design/ant-design/issues/12682)
+  - 🐞 修复在火狐下，当 size="small" 未排序时下边框不显示。[#12840](https://github.com/ant-design/ant-design/issues/12840)
+  - 🐞 修复大小为 small/middle 时复选框不能对齐的问题。[#12723](https://github.com/ant-design/ant-design/issues/12723)
+
 ## 3.10.2
 
 `2018-10-23`
