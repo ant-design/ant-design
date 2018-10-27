@@ -39,6 +39,7 @@ export interface SliderProps {
   tipFormatter?: null | ((value: number) => React.ReactNode);
   className?: string;
   id?: string;
+  alwaysShowTooltip?: boolean;
 }
 
 export interface SliderState {
@@ -72,9 +73,9 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
     }));
   }
   handleWithTooltip: HandleGeneratorFn = ({ value, dragging, index, ...restProps }) => {
-    const { tooltipPrefixCls, tipFormatter } = this.props;
+    const { tooltipPrefixCls, tipFormatter, alwaysShowTooltip } = this.props;
     const { visibles } = this.state;
-    const visible = tipFormatter ? (visibles[index] || dragging)  : false;
+    const visible = tipFormatter ? (visibles[index] || dragging || alwaysShowTooltip)  : false;
     return (
       <Tooltip
         prefixCls={tooltipPrefixCls}

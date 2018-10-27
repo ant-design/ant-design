@@ -4,11 +4,20 @@ title:
   zh-CN: 控制 ToolTip 的显示
   en-US: Control visible of ToolTip
 ---
- ## zh-CN
- 当 `alwaysShowTooltip` 为 `true` 时，将始终显示ToolTip。
- ## en-US
- When `alwaysShowTooltip` is `true`, ToolTip will show always.
+
+## zh-CN
+
+当 `alwaysShowTooltip` 为 `true` 时，将始终显示ToolTip。
+
+## en-US
+
+When `alwaysShowTooltip` is `true`, ToolTip will show always.
+
+
  ````jsx
-import Slider from '..';
- ReactDOM.render(<Slider defaultValue={30} alwaysShowTooltip />, mountNode);
+
+import { Slider } from 'antd';
+
+ReactDOM.render(<Slider defaultValue={30} alwaysShowTooltip />, mountNode);
+
 ````
