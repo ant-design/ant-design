@@ -20,7 +20,7 @@ timeline: true
 `2018-10-27`
 
 - 🌟 Improve util function `getScroll` TypeScript definition. [#12784](https://github.com/ant-design/ant-design/pull/12784) [@ztplz](https://github.com/ztplz)
-- 🐞 Fixed Checkbox under group not trigger `onChange`. [#12642](https://github.com/ant-design/ant-design/issues/12642)
+- 🐞 Fixed that Checkbox inside CheckboxGroup do not trigger `onChange`. [#12642](https://github.com/ant-design/ant-design/issues/12642)
 - 🐞 Fixed Calendar month picker not correct when set with `validRange`. [#12675](https://github.com/ant-design/ant-design/issues/12675)
 - 🐞 Fixed multiple Select drop-down bug when set `dropdownMatchSelectWidth`. [#12816](https://github.com/ant-design/ant-design/pull/12816) [@hengkx](https://github.com/hengkx)
 - 🐞 Fixed Card title overflow bug. [#12680](https://github.com/ant-design/ant-design/issues/12680)
