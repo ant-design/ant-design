@@ -18,8 +18,8 @@ Comments can be used to enable discussions on an entity for example page, blog p
 | actions | List of action items rendered below the comment content | Array<ReactNode> | - |
 | author | The element to display as the comment author | ReactNode | - |
 | avatar | The element to display as the comment avatar - generally an antd `Avatar` | ReactNode | - |
-| className | className of comment | string | - |
 | children | Nested comments should be provided as children of the Comment | ReactNode | - |
+| className | className of comment | string | - |
 | content | The main content of the comment | ReactNode | - |
 | contentStyle | Inline style to apply to the comment content | object | - |
 | headStyle | Inline style to apply to the comment head | object | - |
@@ -34,11 +34,11 @@ Comments can be used to enable discussions on an entity for example page, blog p
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
+| avatar | The element to display as the comment avatar - generally an antd `Avatar` | ReactNode | - |
+| className | className of editor | string | - |
+| content | The element to display as the editor | ReactNode | - |
+| editorStyle | Inline style to apply to the comment editor | object | - |
+| headStyle | Inline style to apply to the comment head | object | - |
+| innerStyle | Inline style to apply to the comment inner comment editor | object | - |
 | prefixCls | prefix className defaults to `.ant-comment` | string | .ant-comment |
 | style | Additional style for the editor | object | - |
-| className | className of editor | string | - |
-| headStyle | Inline style to apply to the comment head | object | - |
-| editorStyle | Inline style to apply to the comment editor | object | - |
-| innerStyle | Inline style to apply to the comment inner comment editor | object | - |
-| avatar | The element to display as the comment avatar - generally an antd `Avatar` | ReactNode | - |
-| children | The element to display as the editor | ReactNode | - |

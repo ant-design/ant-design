@@ -3,7 +3,6 @@ import classNames from 'classnames';
 
 export interface CommentEditorProps {
   avatar: React.ReactNode;
-  children?: React.ReactNode;
   className?: string;
   editorStyle?: React.CSSProperties;
   headStyle?: React.CSSProperties;
@@ -16,7 +15,6 @@ export interface CommentEditorProps {
 export default (props: CommentEditorProps) => {
   const {
     avatar,
-    children,
     className,
     content,
     editorStyle,
