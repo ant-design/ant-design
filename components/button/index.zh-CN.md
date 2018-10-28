@@ -29,10 +29,12 @@ subtitle: 按钮
 | size | 设置按钮大小，可选值为 `small` `large` 或者不设 | string | `default` |
 | target | 相当于 a 链接的 target 属性，href 存在时生效 | string | - |
 | type | 设置按钮类型，可选值为 `primary` `dashed` `danger`(版本 2.7 中增加) 或者不设 | string | - |
-| onClick | `click` 事件的 handler | function | - |
+| onClick | 点击按钮时的回调 | (event) => void | - |
 | block | 将按钮宽度调整为其父宽度的选项 | boolean | `false` |
 
-`<Button>Hello world!</Button>` 最终会被渲染为 `<button><span>Hello world!</span></button>`，并且除了上表中的属性，其它属性都会直接传到 `<button></button>`。
+支持原生 button 的其他所有属性。
+
+`<Button>Hello world!</Button>` 最终会被渲染为 `<button><span>Hello world!</span></button>`，并且除了上表中的属性，其它属性都会直接传到原生 button 上。
 
 `<Button href="http://example.com">Hello world!</Button>` 则会渲染为 `<a href="http://example.com"><span>Hello world!</span></a>`。
 
