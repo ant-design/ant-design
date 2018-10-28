@@ -31,11 +31,7 @@ function CommentList({ comments }) {
       header={`${comments.length} ${comments.length > 1 ? 'replies' : 'reply'}`}
       itemLayout="horizontal"
       dataSource={comments}
-      renderItem={({ children, ...commentProps }) => (
-        <Comment {...commentProps}>
-          {children}
-        </Comment>
-      )}
+      renderItem={props => <Comment {...props} />}
     />
   )
 }
@@ -69,7 +65,6 @@ class Editor extends React.Component {
           <Button
             disabled={hasErrors(getFieldsError())}
             htmlType="submit"
-            icon="message"
             loading={this.props.submitting}
             type="primary"
           >
@@ -101,8 +96,8 @@ class App extends React.Component {
           {
             author: 'Han Solo',
             avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+            content: values.message,
             time: moment().fromNow(),
-            children: values.message,
           },
           ...this.state.comments,
         ]
@@ -126,12 +121,13 @@ class App extends React.Component {
               alt="Han Solo"
             />
           }
-        >
-          <EditorForm
-            submitting={this.state.submitting}
-            onSubmit={this.handleSubmit}
-          />
-        </CommentEditor>
+          content={
+            <EditorForm
+              submitting={this.state.submitting}
+              onSubmit={this.handleSubmit}
+            />
+          }
+        />
       </React.Fragment>
     );
   }
