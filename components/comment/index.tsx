@@ -1,10 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Tooltip from '../tooltip';
-import Nested from './Nested';
 import Editor from './Editor';
 
-export { NestedCommentProps } from './Nested';
 export { CommentEditorProps } from './Editor';
 
 export interface CommentProps {
@@ -52,6 +50,17 @@ export default class Comment extends React.Component<CommentProps, {}> {
       ),
     );
     return actionList;
+  }
+
+  renderNested = (child: React.ReactElement<any>) => {
+    const { prefixCls = 'ant-comment' } = this.props;
+    const classString = classNames(`${prefixCls}-nested`);
+
+    return (
+      <div className={classString}>
+        {child}
+      </div>
+    )
   }
 
   render() {
@@ -131,7 +140,7 @@ export default class Comment extends React.Component<CommentProps, {}> {
 
     const nestedComments =
       React.Children.toArray(children).map((child: React.ReactElement<any>) =>
-        React.cloneElement(<Nested>{child}</Nested>, {}));
+        React.cloneElement(this.renderNested(child), {}));
 
     return (
       <div>
