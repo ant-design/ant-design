@@ -22,7 +22,7 @@ describe('Avatar Render', () => {
     expect(children.length).toBe(1);
     expect(children.text()).toBe('Fallback');
     expect(wrapper.instance().setScale).toBeCalled();
-    expect(div.querySelector('.ant-avatar-string').style.transform).toBe('scale(0.5)');
+    expect(div.querySelector('.ant-avatar-string').style.transform).toContain('scale(0.5)');
 
     wrapper.detach();
     global.document.body.removeChild(div);

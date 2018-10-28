@@ -125,13 +125,11 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
     } else {
       const childrenNode = this.avatarChildren;
       if (childrenNode || scale !== 1) {
+        const transformString = `scale(${scale}) translateX(-50%)`;
         const childrenStyle: React.CSSProperties = {
-          msTransform: `scale(${scale})`,
-          WebkitTransform: `scale(${scale})`,
-          transform: `scale(${scale})`,
-          position: 'absolute',
-          display: 'inline-block',
-          left: `calc(50% - ${Math.round(childrenNode.offsetWidth / 2)}px)`,
+          msTransform: transformString,
+          WebkitTransform: transformString,
+          transform: transformString,
         };
         const sizeChildrenStyle: React.CSSProperties =
           typeof size === 'number' ? {
