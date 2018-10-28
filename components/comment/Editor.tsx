@@ -3,13 +3,14 @@ import classNames from 'classnames';
 
 export interface CommentEditorProps {
   avatar: React.ReactNode;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
   editorStyle?: React.CSSProperties;
   headStyle?: React.CSSProperties;
   innerStyle?: React.CSSProperties;
   prefixCls?: string;
   style?: React.CSSProperties;
+  content: React.ReactNode;
 }
 
 export default (props: CommentEditorProps) => {
@@ -17,6 +18,7 @@ export default (props: CommentEditorProps) => {
     avatar,
     children,
     className,
+    content,
     editorStyle,
     headStyle,
     innerStyle,
@@ -30,7 +32,7 @@ export default (props: CommentEditorProps) => {
       ? <img src={avatar} />
       : avatar;
 
-  const head = (
+  const headDom = (
     <div className={`${prefixCls}-header`} style={headStyle}>
       <span className={`${prefixCls}-header-avatar`}>
         {avatarDom}
@@ -38,10 +40,10 @@ export default (props: CommentEditorProps) => {
     </div>
   );
 
-  const content = (
+  const contentDom = (
     <div className={`${prefixCls}-content`} style={editorStyle}>
       <div className={`${prefixCls}-content-wrapper`}>
-        {children}
+        {content}
       </div>
     </div>
   );
@@ -49,8 +51,8 @@ export default (props: CommentEditorProps) => {
   return (
     <div {...others} className={classString} style={style}>
       <div className={`${prefixCls}-inner`} style={innerStyle}>
-        {head}
-        {content}
+        {headDom}
+        {contentDom}
       </div>
     </div>
   );

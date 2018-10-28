@@ -19,7 +19,8 @@ Comments can be used to enable discussions on an entity for example page, blog p
 | author | The element to display as the comment author | ReactNode | - |
 | avatar | The element to display as the comment avatar - generally an antd `Avatar` | ReactNode | - |
 | className | className of comment | string | - |
-| children | The main content of the comment | ReactNode | - |
+| children | Nested comments should be provided as children of the Comment | ReactNode | - |
+| content | The main content of the comment | ReactNode | - |
 | contentStyle | Inline style to apply to the comment content | object | - |
 | headStyle | Inline style to apply to the comment head | object | - |
 | id | Optional ID for the comment | string | - |
@@ -28,14 +29,6 @@ Comments can be used to enable discussions on an entity for example page, blog p
 | style | Additional style for the comment | object | - |
 | time | A time element containing the time to be displayed | ReactNode | - |
 | tooltipTime | A time element to be displayed as the time tooltip | ReactNode | - |
-
-# Comment.Nested
-
-| Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
-| className | className of nested comment | string | - |
-| prefixCls | prefix className defaults to `.ant-comment` | string | .ant-comment |
-| style | Additional style for the comment | object | - |
 
 # Comment.Editor
 

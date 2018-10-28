@@ -19,28 +19,24 @@ import moment from 'moment';
 
 const data = [
   {
+    actions: [<span>Reply to</span>],
     author: 'Han Solo',
     avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+    content: (
+      <p>Nisl nisi scelerisque eu ultrices vitae auctor eu augue. Nulla at volutpat diam ut venenatis tellus in metus vulputate.</p>
+    ),
     time: moment().subtract(1, 'days').fromNow(),
     tooltipTime: moment().subtract(1, 'days').format('YYYY-MM-DD HH:mm:ss'),
-      actions: [
-      <span>Reply to</span>
-    ],
-    children: (
-      <p>Nisl nisi scelerisque eu ultrices vitae auctor eu augue. Nulla at volutpat diam ut venenatis tellus in metus vulputate.</p>
-    )
   },
   {
+    actions: [<span>Reply to</span>],
     author: 'Stormtrooper',
     avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+    content: (
+      <p>Sed turpis tincidunt id aliquet risus feugiat in ante metus. Faucibus nisl tincidunt eget nullam non.</p>
+    ),
     time: moment().subtract(2, 'days').fromNow(),
     tooltipTime: moment().subtract(1, 'days').format('YYYY-MM-DD HH:mm:ss'),
-    actions: [
-      <span>Reply to</span>
-    ],
-    children: (
-      <p>Sed turpis tincidunt id aliquet risus feugiat in ante metus. Faucibus nisl tincidunt eget nullam non.</p>
-    )
   },
 ];
 
@@ -55,27 +51,11 @@ ReactDOM.render(
         actions={item.actions}
         author={item.author}
         avatar={item.avatar}
+        content={item.content}
         time={item.time}
         tooltipTime={item.tooltipTime}
-      >
-        {item.children}
-      </Comment>
+      />
     )}
   />,
   mountNode);
 ````
-
-<style>
-  .comment-list .ant-card-head {
-    padding: 0;
-    margin-bottom: 0;
-  }
-  .comment-list.ant-list .ant-list-item {
-    padding: 0;
-    border-bottom: 0;
-  }
-  .comment-list.ant-list .ant-list-item .ant-list-item-content {
-    display: block;
-  }
-</style>
-

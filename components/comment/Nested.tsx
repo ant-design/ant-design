@@ -5,6 +5,7 @@ export interface NestedCommentProps {
   prefixCls?: string;
   style?: React.CSSProperties;
   className?: string;
+  children: React.ReactNode;
 }
 
 export default (props: NestedCommentProps) => {

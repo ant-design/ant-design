@@ -17,7 +17,9 @@ export interface CommentProps {
   /** className of comment */
   className?: string;
   /** The main content of the comment */
-  children: React.ReactNode;
+  content: React.ReactNode;
+  /** Nested comments should be provided as children of the Comment */
+  children?: React.ReactNode;
   /** Additional style for the comment content */
   contentStyle?: React.CSSProperties;
   /** Additional style for the comment head */
@@ -37,7 +39,6 @@ export interface CommentProps {
 }
 
 export default class Comment extends React.Component<CommentProps, {}> {
-  static Nested: typeof Nested = Nested;
   static Editor: typeof Editor = Editor;
 
   getAction(actions: React.ReactNode[]) {
@@ -60,6 +61,7 @@ export default class Comment extends React.Component<CommentProps, {}> {
       avatar,
       children,
       className,
+      content,
       contentStyle = {},
       headStyle = {},
       innerStyle = {},
@@ -91,7 +93,7 @@ export default class Comment extends React.Component<CommentProps, {}> {
       )
     }
 
-    const head = (
+    const headDom = (
       <div className={`${prefixCls}-header`} style={headStyle}>
         <span className={`${prefixCls}-header-avatar`}>
           {avatarDom}
@@ -109,22 +111,33 @@ export default class Comment extends React.Component<CommentProps, {}> {
       ? <ul className={`${prefixCls}-actions`}>{this.getAction(actions)}</ul>
       : null;
 
-    const content = (
+    const contentDom = (
       <div className={`${prefixCls}-content`} style={contentStyle}>
         <div className={`${prefixCls}-content-detail`}>
-          {children}
+          {content}
         </div>
         {actionDom}
       </div>
     );
 
-    return (
+    const comment = (
       <div {...otherProps} className={classString} style={style}>
         <div className={`${prefixCls}-inner`} style={innerStyle}>
-          {head}
-          {content}
+          {headDom}
+          {contentDom}
         </div>
       </div>
-    );
+    )
+
+    const nestedComments =
+      React.Children.toArray(children).map((child: React.ReactElement<any>) =>
+        React.cloneElement(<Nested>{child}</Nested>, {}));
+
+    return (
+      <div>
+        {comment}
+        {nestedComments}
+      </div>
+    )
   }
 }

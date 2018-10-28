@@ -20,7 +20,8 @@ cols: 1
 | author | 要显示为注释作者的元素 | ReactNode | - |
 | avatar | 要显示为评论头像的元素 - 通常是antd `Avatar` | ReactNode | - |
 | className | 网格容器类名 | string | - |
-| children | 评论的主要内容 | ReactNode | - |
+| children | 嵌套注释应作为注释的子项提供 | ReactNode | - |
+| content | 评论的主要内容 | ReactNode | - |
 | contentStyle | 要应用于评论内容的内联样式 | object | - |
 | headStyle | 要应用于注释头的内联样式 | object | - |
 | id | 评论的可选ID | string | - |
@@ -29,14 +30,6 @@ cols: 1
 | style | 评论的其他风格 | object | - |
 | time | 包含要显示的时间的时间元素 | ReactNode | - |
 | tooltipTime | 要显示为时间工具提示的时间元素 | ReactNode | - |
-
-# Comment.Nested
-
-| Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
-| className | 网格容器类名 | string | - |
-| prefixCls | 注释前缀className默认为`.ant-comment` | string | .ant-comment |
-| style | 评论的其他风格 | object | - |
 
 # Comment.Editor
 

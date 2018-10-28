@@ -17,10 +17,9 @@ Comment can be nested
 import { Comment, Icon, Tooltip, Avatar } from 'antd';
 import moment from 'moment';
 
-const NestedComment = Comment.Nested;
-
-const ExampleComment = () => (
+const ExampleComment = ({ children }) => (
   <Comment
+    actions={[<span>Reply to</span>]}
     author={<a>Han Solo</a>}
     avatar={
       <Avatar
@@ -28,22 +27,20 @@ const ExampleComment = () => (
         alt="Han Solo"
       />
     }
+    content={<p>Sagittis id consectetur purus ut faucibus pulvinar elementum integer enim.</p>}
     time={moment().fromNow()}
   >
-    <p>Sagittis id consectetur purus ut faucibus pulvinar elementum integer enim. Pellentesque massa placerat duis ultricies lacus sed turpis. Tempus urna et pharetra pharetra massa massa.</p>
+    {children}
   </Comment>
 );
 
 ReactDOM.render(
-  <React.Fragment>
-    <ExampleComment />
-    <NestedComment>
+  <ExampleComment>
+    <ExampleComment>
       <ExampleComment />
-      <NestedComment>
-        <ExampleComment />
-      </NestedComment>
-    </NestedComment>
-  </React.Fragment>,
+      <ExampleComment />
+    </ExampleComment>
+  </ExampleComment>,
   mountNode
 );
 ````

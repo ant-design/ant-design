@@ -73,6 +73,7 @@ class App extends React.Component {
 
     return (
       <Comment
+        actions={actions}
         author={<a>Han Solo</a>}
         avatar={
           <Avatar
@@ -80,12 +81,12 @@ class App extends React.Component {
             alt="Han Solo"
           />
         }
+        content={
+          <p>Sagittis id consectetur purus ut faucibus pulvinar elementum integer enim. Pellentesque massa placerat duis ultricies lacus sed turpis. Tempus urna et pharetra pharetra massa massa.</p>
+        }
         time={moment().fromNow()}
         tooltipTime={moment().format('YYYY-MM-DD HH:mm:ss')}
-        actions={actions}
-      >
-        <p>Sagittis id consectetur purus ut faucibus pulvinar elementum integer enim. Pellentesque massa placerat duis ultricies lacus sed turpis. Tempus urna et pharetra pharetra massa massa.</p>
-      </Comment>
+      />
     );
   }
 }
