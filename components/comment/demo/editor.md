@@ -14,10 +14,9 @@ title:
 Comment can be used as editor, user can customize the editor component.
 
 ````jsx
-import { Comment, Icon, Tooltip, Avatar, Form, Button, List, Input } from 'antd';
+import { Comment, Icon, Tooltip, Avatar, Form, Button, List, Input, Radio } from 'antd';
 import moment from 'moment';
 
-const CommentEditor = Comment.Editor;
 const FormItem = Form.Item;
 const TextArea = Input.TextArea;
 
@@ -82,6 +81,7 @@ class App extends React.Component {
   state = {
     comments: [],
     submitting: false,
+    direction: 'left',
   }
 
   handleSubmit = (values, cb) => {
@@ -106,6 +106,10 @@ class App extends React.Component {
     }, 1000);
   }
 
+  handleChange = (e) => {
+    this.setState({ direction: e.target.value });
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -114,7 +118,16 @@ class App extends React.Component {
             comments={this.state.comments}
           />
         )}
-        <CommentEditor
+        <Form layout="inline">
+          <FormItem label="Editor direction">
+            <Radio.Group size="default" value={this.state.direction} onChange={this.handleChange}>
+              <Radio.Button value="left">Left</Radio.Button>
+              <Radio.Button value="right">Right</Radio.Button>
+            </Radio.Group>
+          </FormItem>
+        </Form>
+        <Comment
+          direction={this.state.direction}
           avatar={
             <Avatar
               src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"

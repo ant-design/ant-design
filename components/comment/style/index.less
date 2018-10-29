@@ -6,39 +6,40 @@
 .@{comment-prefix-cls} {
   position: relative;
 
-   &-inner {
+  &-inner {
     padding: @comment-padding-base;
+    display: flex;
   }
 
-  &-header {
-    margin-bottom: @comment-header-margin;
-    padding-bottom: @comment-header-padding;
-
-    &-avatar {
-      position: relative;
-      float: left;
-      margin-right: 12px;
-      cursor: pointer;
-      img {
-        width: 32px;
-        height: 32px;
-        border-radius: 16px;
-      }
+  &-avatar {
+    flex-shrink: 0;
+    position: relative;
+    cursor: pointer;
+    img {
+      width: 32px;
+      height: 32px;
+      border-radius: 16px;
     }
+  }
+
+  &-content {
+    position: relative;
+    font-size: 14px;
+    flex: 1 1 auto;
+    min-width: 1px;
+    word-wrap: break-word;
 
     &-author {
-      padding-left: 12px;
-      flex: auto;
+      margin-bottom: 4px;
       font-size: 14px;
+      display: flex;
 
       & > a,
       & > span {
-        display: inline-block;
         height: 18px;
         font-size: 12px;
         line-height: 18px;
         padding-right: 8px;
-        cursor: pointer;
       }
 
       &-name {
@@ -57,21 +58,8 @@
         cursor: auto;
         color: @comment-author-time-color;
         white-space: nowrap;
-
-        &-tooltip {
-          cursor: pointer;
-          &:hover {
-            text-decoration: underline;
-          }
-        }
       }
     }
-  }
-
-  &-content {
-    position: relative;
-    padding-left: @comment-indent;
-    font-size: 14px;
   }
 
   &-actions {
@@ -94,12 +82,23 @@
     }
   }
 
-  &-nested {
-    margin-left: @comment-indent;
+  &-rtl &-avatar {
+    margin-right: 12px;
   }
 
-  &-editor &-header {
-    margin: 0px;
-    padding: 0px;
+  &-rtl &-content-author {
+    justify-content: flex-start;
+  }
+
+  &-ltr &-avatar {
+    margin-left: 12px;
+  }
+
+  &-ltr &-content-author {
+    justify-content: flex-end;
+  }
+
+  &-nested {
+    margin-left: @comment-indent;
   }
 }

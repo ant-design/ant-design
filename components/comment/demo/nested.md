@@ -17,22 +17,23 @@ Comment can be nested
 import { Comment, Icon, Tooltip, Avatar } from 'antd';
 import moment from 'moment';
 
-const ExampleComment = ({ children }) => (
-  <Comment
-    actions={[<span>Reply to</span>]}
-    author={<a>Han Solo</a>}
-    avatar={
-      <Avatar
-        src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-        alt="Han Solo"
-      />
-    }
-    content={<p>Sagittis id consectetur purus ut faucibus pulvinar elementum integer enim.</p>}
-    time={moment().fromNow()}
-  >
-    {children}
-  </Comment>
-);
+function ExampleComment({ children }) {
+  return (
+    <Comment
+      actions={[<span>Reply to</span>]}
+      author={<a>Han Solo</a>}
+      avatar={
+        <Avatar
+          src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+          alt="Han Solo"
+        />
+      }
+      content={<p>Sagittis id consectetur purus ut faucibus pulvinar elementum integer enim.</p>}
+    >
+      {children}
+    </Comment>
+  );
+}
 
 ReactDOM.render(
   <ExampleComment>
