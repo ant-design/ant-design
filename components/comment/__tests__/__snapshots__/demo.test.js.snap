@@ -3,7 +3,7 @@
 exports[`renders ./components/comment/demo/basic.md correctly 1`] = `
 <div>
   <div
-    class="ant-comment ant-comment-rtl"
+    class="ant-comment"
   >
     <div
       class="ant-comment-inner"
@@ -121,243 +121,91 @@ exports[`renders ./components/comment/demo/basic.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/comment/demo/direction.md correctly 1`] = `
-Array [
-  <div>
-    <div
-      class="ant-comment ant-comment-rtl"
-    >
-      <div
-        class="ant-comment-inner"
-      >
-        <div
-          class="ant-comment-avatar"
-        >
-          <span
-            class="ant-avatar ant-avatar-circle ant-avatar-image"
-          >
-            <img
-              alt="Han Solo"
-              src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-            />
-          </span>
-        </div>
-        <div
-          class="ant-comment-content"
-        >
-          <div
-            class="ant-comment-content-author"
-          />
-          <div
-            class="ant-comment-content-detail"
-          >
-            <p>
-              Sagittis id consectetur purus ut faucibus pulvinar elementum integer enim. Pellentesque massa placerat duis ultricies lacus sed turpis. Tempus urna et pharetra pharetra massa massa.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>,
-  <div>
-    <div
-      class="ant-comment ant-comment-ltr"
-    >
-      <div
-        class="ant-comment-inner"
-      >
-        <div
-          class="ant-comment-content"
-        >
-          <div
-            class="ant-comment-content-author"
-          />
-          <div
-            class="ant-comment-content-detail"
-          >
-            <p>
-              Sagittis id consectetur purus ut faucibus pulvinar elementum integer enim. Pellentesque massa placerat duis ultricies lacus sed turpis. Tempus urna et pharetra pharetra massa massa.
-            </p>
-          </div>
-        </div>
-        <div
-          class="ant-comment-avatar"
-        >
-          <span
-            class="ant-avatar ant-avatar-circle ant-avatar-image"
-          >
-            <img
-              alt="Han Solo"
-              src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-            />
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>,
-]
-`;
-
 exports[`renders ./components/comment/demo/editor.md correctly 1`] = `
-Array [
-  <form
-    class="ant-form ant-form-inline"
+<div>
+  <div
+    class="ant-comment"
   >
     <div
-      class="ant-row ant-form-item"
+      class="ant-comment-inner"
     >
       <div
-        class="ant-form-item-label"
+        class="ant-comment-avatar"
       >
-        <label
-          class=""
-          title="Editor direction"
+        <span
+          class="ant-avatar ant-avatar-circle ant-avatar-image"
         >
-          Editor direction
-        </label>
+          <img
+            alt="Han Solo"
+            src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+          />
+        </span>
       </div>
       <div
-        class="ant-form-item-control-wrapper"
+        class="ant-comment-content"
       >
         <div
-          class="ant-form-item-control"
+          class="ant-comment-content-author"
+        />
+        <div
+          class="ant-comment-content-detail"
         >
-          <span
-            class="ant-form-item-children"
+          <form
+            class="ant-form ant-form-horizontal"
           >
             <div
-              class="ant-radio-group ant-radio-group-outline ant-radio-group-default"
+              class="ant-row ant-form-item"
             >
-              <label
-                class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+              <div
+                class="ant-form-item-control-wrapper"
               >
-                <span
-                  class="ant-radio-button ant-radio-button-checked"
+                <div
+                  class="ant-form-item-control"
                 >
-                  <input
-                    checked=""
-                    class="ant-radio-button-input"
-                    type="radio"
-                    value="left"
-                  />
                   <span
-                    class="ant-radio-button-inner"
-                  />
-                </span>
-                <span>
-                  Left
-                </span>
-              </label>
-              <label
-                class="ant-radio-button-wrapper"
-              >
-                <span
-                  class="ant-radio-button"
-                >
-                  <input
-                    class="ant-radio-button-input"
-                    type="radio"
-                    value="right"
-                  />
-                  <span
-                    class="ant-radio-button-inner"
-                  />
-                </span>
-                <span>
-                  Right
-                </span>
-              </label>
+                    class="ant-form-item-children"
+                  >
+                    <textarea
+                      class="ant-input"
+                      data-__field="[object Object]"
+                      data-__meta="[object Object]"
+                      id="message"
+                      rows="4"
+                    />
+                  </span>
+                </div>
+              </div>
             </div>
-          </span>
-        </div>
-      </div>
-    </div>
-  </form>,
-  <div>
-    <div
-      class="ant-comment ant-comment-rtl"
-    >
-      <div
-        class="ant-comment-inner"
-      >
-        <div
-          class="ant-comment-avatar"
-        >
-          <span
-            class="ant-avatar ant-avatar-circle ant-avatar-image"
-          >
-            <img
-              alt="Han Solo"
-              src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-            />
-          </span>
-        </div>
-        <div
-          class="ant-comment-content"
-        >
-          <div
-            class="ant-comment-content-author"
-          />
-          <div
-            class="ant-comment-content-detail"
-          >
-            <form
-              class="ant-form ant-form-horizontal"
+            <div
+              class="ant-row ant-form-item"
             >
               <div
-                class="ant-row ant-form-item"
+                class="ant-form-item-control-wrapper"
               >
                 <div
-                  class="ant-form-item-control-wrapper"
+                  class="ant-form-item-control"
                 >
-                  <div
-                    class="ant-form-item-control"
+                  <span
+                    class="ant-form-item-children"
                   >
-                    <span
-                      class="ant-form-item-children"
+                    <button
+                      class="ant-btn ant-btn-primary"
+                      type="submit"
                     >
-                      <textarea
-                        class="ant-input"
-                        data-__field="[object Object]"
-                        data-__meta="[object Object]"
-                        id="message"
-                        rows="4"
-                      />
-                    </span>
-                  </div>
+                      <span>
+                        Add Comment
+                      </span>
+                    </button>
+                  </span>
                 </div>
               </div>
-              <div
-                class="ant-row ant-form-item"
-              >
-                <div
-                  class="ant-form-item-control-wrapper"
-                >
-                  <div
-                    class="ant-form-item-control"
-                  >
-                    <span
-                      class="ant-form-item-children"
-                    >
-                      <button
-                        class="ant-btn ant-btn-primary"
-                        type="submit"
-                      >
-                        <span>
-                          Add Comment
-                        </span>
-                      </button>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders ./components/comment/demo/list.md correctly 1`] = `
@@ -377,7 +225,7 @@ exports[`renders ./components/comment/demo/list.md correctly 1`] = `
     >
       <div>
         <div
-          class="ant-comment ant-comment-rtl"
+          class="ant-comment"
         >
           <div
             class="ant-comment-inner"
@@ -432,7 +280,7 @@ exports[`renders ./components/comment/demo/list.md correctly 1`] = `
       </div>
       <div>
         <div
-          class="ant-comment ant-comment-rtl"
+          class="ant-comment"
         >
           <div
             class="ant-comment-inner"
@@ -493,7 +341,7 @@ exports[`renders ./components/comment/demo/list.md correctly 1`] = `
 exports[`renders ./components/comment/demo/nested.md correctly 1`] = `
 <div>
   <div
-    class="ant-comment ant-comment-rtl"
+    class="ant-comment"
   >
     <div
       class="ant-comment-inner"
@@ -550,7 +398,7 @@ exports[`renders ./components/comment/demo/nested.md correctly 1`] = `
   >
     <div>
       <div
-        class="ant-comment ant-comment-rtl"
+        class="ant-comment"
       >
         <div
           class="ant-comment-inner"
@@ -607,7 +455,7 @@ exports[`renders ./components/comment/demo/nested.md correctly 1`] = `
       >
         <div>
           <div
-            class="ant-comment ant-comment-rtl"
+            class="ant-comment"
           >
             <div
               class="ant-comment-inner"
@@ -666,7 +514,7 @@ exports[`renders ./components/comment/demo/nested.md correctly 1`] = `
       >
         <div>
           <div
-            class="ant-comment ant-comment-rtl"
+            class="ant-comment"
           >
             <div
               class="ant-comment-inner"

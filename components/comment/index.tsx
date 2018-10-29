@@ -22,8 +22,6 @@ export interface CommentProps {
   style?: React.CSSProperties;
   /** A datetime element containing the time to be displayed */
   datetime?: React.ReactNode;
-  /** Direction of the comment left or right */
-  direction?: 'left' | 'right';
 }
 
 export default class Comment extends React.Component<CommentProps, {}> {
@@ -59,36 +57,16 @@ export default class Comment extends React.Component<CommentProps, {}> {
       children,
       className,
       content,
-      direction = 'left',
       prefixCls = 'ant-comment',
       style = {},
       datetime,
       ...otherProps
     } = this.props;
 
-    const classString = classNames(prefixCls, className, {
-      [`${prefixCls}-rtl`]: direction === 'left',
-      [`${prefixCls}-ltr`]: direction === 'right',
-    });
-
-    const authorElements = [];
-
-    if (author) {
-      authorElements.push(
-        <span key="name" className={`${prefixCls}-content-author-name`}>
-          {author}
-        </span>,
-      );
-    }
-
-    if (datetime) {
-      authorElements.push(
-        <span key="time" className={`${prefixCls}-content-author-time`}>{datetime}</span>,
-      );
-    }
+    const classString = classNames(prefixCls, className);
 
     const avatarDom = (
-      <div key="avatar" className={`${prefixCls}-avatar`}>
+      <div className={`${prefixCls}-avatar`}>
         {typeof avatar === 'string' ? <img src={avatar} /> : avatar}
       </div>
     );
@@ -99,12 +77,21 @@ export default class Comment extends React.Component<CommentProps, {}> {
 
     const authorContent = (
       <div className={`${prefixCls}-content-author`}>
-        {direction === 'left' ? authorElements : authorElements.reverse()}
+        {author && (
+          <span className={`${prefixCls}-content-author-name`}>
+            {author}
+          </span>
+        )}
+        {datetime && (
+          <span className={`${prefixCls}-content-author-time`}>
+            {datetime}
+          </span>
+        )}
       </div>
     );
 
     const contentDom = (
-      <div key="content" className={`${prefixCls}-content`}>
+      <div className={`${prefixCls}-content`}>
         {authorContent}
         <div className={`${prefixCls}-content-detail`}>
           {content}
@@ -116,10 +103,8 @@ export default class Comment extends React.Component<CommentProps, {}> {
     const comment = (
       <div {...otherProps} className={classString} style={style}>
         <div className={`${prefixCls}-inner`}>
-          {direction === 'left'
-            ? [avatarDom, contentDom]
-            : [contentDom, avatarDom]
-          }
+          {avatarDom}
+          {contentDom}
         </div>
       </div>
     )
