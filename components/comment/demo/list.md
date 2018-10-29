@@ -25,7 +25,7 @@ const data = [
     content: (
       <p>Nisl nisi scelerisque eu ultrices vitae auctor eu augue. Nulla at volutpat diam ut venenatis tellus in metus vulputate.</p>
     ),
-    time: (
+    datetime: (
       <Tooltip title={moment().subtract(1, 'days').format('YYYY-MM-DD HH:mm:ss')}>
         <span>{moment().subtract(1, 'days').fromNow()}</span>
       </Tooltip>
@@ -38,7 +38,7 @@ const data = [
     content: (
       <p>Sed turpis tincidunt id aliquet risus feugiat in ante metus. Faucibus nisl tincidunt eget nullam non.</p>
     ),
-    time: (
+    datetime: (
       <Tooltip title={moment().subtract(2, 'days').format('YYYY-MM-DD HH:mm:ss')}>
         <span>{moment().subtract(2, 'days').fromNow()}</span>
       </Tooltip>
@@ -58,7 +58,7 @@ ReactDOM.render(
         author={item.author}
         avatar={item.avatar}
         content={item.content}
-        time={item.time}
+        datetime={item.datetime}
       />
     )}
   />,
