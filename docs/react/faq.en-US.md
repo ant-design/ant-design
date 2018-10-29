@@ -15,7 +15,7 @@ No, but [the LICENSE of ant-design](https://github.com/ant-design/ant-design/blo
 
 No, actually, you can convert Less to Sass/Stylus(etc...) with tools (which you can Google).
 
-### `Select Dropdown DatePicker TimePicker Popover Popconfirm` will disappear when I click another popup component inside it, How to resolve it?
+### `Select Dropdown DatePicker TimePicker Popover Popconfirm` disappear when I click another popup component inside it, How to resolve it?
 
 Use `<Select getPopupContainer={trigger => trigger.parentNode}>` to render component inside Popover. (Or other getXxxxContainer props)
 
@@ -23,7 +23,7 @@ https://ant.design/components/select/#Select-props
 
 related issue: [#3487](https://github.com/ant-design/ant-design/issues/3487) [#3438](https://github.com/ant-design/ant-design/issues/3438)
 
-### `Select Dropdown DatePicker TimePicker Popover Popconfirm` will scroll with page?
+### `Select Dropdown DatePicker TimePicker Popover Popconfirm` scroll with the page?
 
 Use `<Select getPopupContainer={trigger => trigger.parentNode}>` to render component inside the scroll area. (Or other getXxxxContainer props).
 
@@ -31,7 +31,7 @@ https://ant.design/components/select/#Select-props
 
 related issue: [#3487](https://github.com/ant-design/ant-design/issues/3487) [#3438](https://github.com/ant-design/ant-design/issues/3438)
 
-### How to modify default theme of Ant Design?
+### How to modify the default theme of Ant Design?
 
 See: https://ant.design/docs/react/customize-theme .
 
@@ -41,7 +41,7 @@ No, we follow Ant Design specification. https://github.com/ant-design/ant-design
 
 ### How to modify `Menu`/`Button`(etc...)'s style?
 
-You can override its style. But we don't recommend to do so. antd is not only a set of React components but also a design specification.
+You can override its style, but we don't recommend doing so. antd is not only a set of React components but also a design specification.
 
 ### I just want to use `Menu`/`Button`(etc...), but it seems that I have to import the whole antd and its style.
 
@@ -64,7 +64,7 @@ See: https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
 
 ### It doesn't work when I change `defaultValue` dynamically.
 
-The `defaultXxxx` (like `defaultValue`) of `Input`/`Select`(etc...) only works in first render. It is a specification of React, please read [React's documentation](https://facebook.github.io/react/docs/forms.html#controlled-components).
+The `defaultXxxx` (like `defaultValue`) of `Input`/`Select`(etc...) only works in first render. It is a specification of React; please read [React's documentation](https://facebook.github.io/react/docs/forms.html#controlled-components).
 
 ### I set the `value` of `Input`/`Select`(etc...), and then, it cannot be changed by user's action.
 
@@ -72,9 +72,9 @@ Try `defaultValue` or `onChange` to change `value`, and please read [React's doc
 
 ### antd override my global styles!
 
-Yes, antd is designed to develop a complete background application, we override some global styles for styling convenience and it can't be removed now. More info trace https://github.com/ant-design/ant-design/issues/4331 .
+Yes, antd is designed to develop a complete background application, we override some global styles for styling convenience, and it can't be removed now. More info trace https://github.com/ant-design/ant-design/issues/4331 .
 
-Or follow instruction in [How to avoid modifying global styles?](docs/react/customize-theme#How-to-avoid-modifying-global-styles-?)
+Or, follow the instructions in [How to avoid modifying global styles?](docs/react/customize-theme#How-to-avoid-modifying-global-styles-?)
 
 ### I cannot install `antd` and `antd`'s dependencies(etc...). FYI, I live in China mainland.
 
@@ -94,13 +94,13 @@ Please check [And Design Mobile](http://mobile.ant.design) for details. `antd` h
 
 ### Does `antd` supply standalone files like 'react' do?
 
-Yep, you can [import `antd` with script tag](https://ant.design/docs/react/install?locale=en-US#Import-in-Browser). But we recommend use `npm` to import `antd`, it is simple and easy to maintain.
+Yep, you can [import `antd` with script tag](https://ant.design/docs/react/install?locale=en-US#Import-in-Browser). But we recommend using `npm` to import `antd`, it is simple and easy to maintain.
 
 ### I can't visit `icon` in my network environment.
 
 You should deploy the iconfont files to your network by following this [example](https://github.com/ant-design/antd-init/tree/7c1a33cadb98f2fd8688fe527dd7f98215b9bced/examples/local-iconfont). [#1070](https://github.com/ant-design/ant-design/issues/1070)
 
-After 3.9.x [we are using svg icon](/components/icon#svg-icons) so you don't need to deploy iconfont locally any more!
+After 3.9.x [we are using svg icon](/components/icon#svg-icons), so you don't need to deploy iconfont locally anymore!
 
 ### How to extend antd's components?
 
@@ -121,13 +121,13 @@ Here are some typical wrong examples:
 - ❌ antdesign
 - ❌ Antdesign
 
-### Do you guys have any channel for donation? like PayPal or Alipay.
+### Do you guys have any channel for donation, like PayPal or Alipay?
 
-No yet.
+Not yet.
 
 ### Why not?
 
-Alibaba will pay us.
+Alibaba pays us.
 
 ---
 
@@ -141,7 +141,7 @@ An [answer from StackOverflow](http://stackoverflow.com/questions/25034994/how-t
 
 ### React.createElement: type should not be null, undefined, boolean, or number. It should be a string (for DOM elements) or a ReactClass (for composite components)
 
-Please make sure that you import `antd`'s components correctly. Read the corresponding documentation of the `antd`'s version which you use. And pay attention to typo.
+Please make sure that you import `antd`'s components correctly. Read the corresponding documentation of the `antd`'s version which you use, and pay attention to typos.
 
 ### rm is not recognized as an internal or external command
 
@@ -149,7 +149,7 @@ Please read this [issue](https://github.com/ant-design/ant-design/issues/650#iss
 
 ### Failed propType: Invalid prop `AAA` of type `BBB` supplied to `CCC`, expected `DDD`. Check the render method of `EEE`.
 
-Please read the corresponding documentation of the `antd`'s version which you use, and make sure that you pass value with correct type to `antd`'s components,
+Please read the corresponding documentation of the `antd`'s version which you use, and make sure that you pass values with correct type to `antd`'s components,
 
 ### Unknown option: xxx/package.json.presets
 
@@ -157,4 +157,4 @@ An [answer from Stack Overflow](http://stackoverflow.com/questions/33685365/unkn
 
 ### Invariant Violation: findComponentRoot(...): Unable to find element.
 
-You may import React twice. Set React & ReactDOM as external, if you are using webpack, See: [#525](https://github.com/ant-design/ant-design/issues/525). If you are using others(browserify, etc...), please read its documentation and find options which can set React & ReactDOM as external.
+You may import React twice. Set React & ReactDOM as external, if you are using webpack, See [#525](https://github.com/ant-design/ant-design/issues/525). If you are using others (browserify, etc...), please read its documentation and find options which can set React & ReactDOM as external.
