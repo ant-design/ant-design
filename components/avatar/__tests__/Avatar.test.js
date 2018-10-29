@@ -90,4 +90,14 @@ describe('Avatar Render', () => {
     wrapper.detach();
     global.document.body.removeChild(div);
   });
+
+  it('deprecate passing icon as a string', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(<Avatar icon="star" />);
+    expect(errorSpy).toBeCalledWith(
+      'Warning: Passing an icon name as string to Avatar[icon] is deprecated, ' +
+        'please pass a icon element instead, example: `<Avatar icon={<StarOutlined />} />`',
+    );
+    errorSpy.mockRestore();
+  });
 });

@@ -10,7 +10,7 @@ Avatars can be used to represent people or objects. It supports images, `Icon`s,
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| icon | the `Icon` type for an icon avatar, see `Icon` Component | string | - |
+| icon | Set `Icon` for an icon avatar, see `Icon` Component | ReactNode | - |
 | shape | the shape of avatar | `circle` \| `square` | `circle` |
 | size | the size of the avatar | number \| string: `large` `small` `default` | `default` |
 | src | the address of the image for an image avatar | string | - |
