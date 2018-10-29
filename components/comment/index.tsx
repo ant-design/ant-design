@@ -14,20 +14,14 @@ export interface CommentProps {
   content: React.ReactNode;
   /** Nested comments should be provided as children of the Comment */
   children?: any;
-  /** Additional style for the comment content */
-  contentStyle?: React.CSSProperties;
-  /** Additional style for the comment avatar */
-  avatarStyle?: React.CSSProperties;
   /** Optional ID for the comment */
   id?: string;
-  /** Additional style for the comment inner wrapper */
-  innerStyle?: React.CSSProperties;
   /** Comment prefix defaults to '.ant-comment' */
   prefixCls?: string;
   /** Additional style for the comment */
   style?: React.CSSProperties;
-  /** A time element containing the time to be displayed */
-  time?: React.ReactNode;
+  /** A datetime element containing the time to be displayed */
+  datetime?: React.ReactNode;
   /** Direction of the comment left or right */
   direction?: 'left' | 'right';
 }
@@ -62,16 +56,13 @@ export default class Comment extends React.Component<CommentProps, {}> {
       actions,
       author,
       avatar,
-      avatarStyle = {},
       children,
       className,
       content,
-      contentStyle = {},
       direction = 'left',
-      innerStyle = {},
       prefixCls = 'ant-comment',
       style = {},
-      time,
+      datetime,
       ...otherProps
     } = this.props;
 
@@ -90,14 +81,14 @@ export default class Comment extends React.Component<CommentProps, {}> {
       );
     }
 
-    if (time) {
+    if (datetime) {
       authorElements.push(
-        <span key="time" className={`${prefixCls}-content-author-time`}>{time}</span>,
+        <span key="time" className={`${prefixCls}-content-author-time`}>{datetime}</span>,
       );
     }
 
     const avatarDom = (
-      <div key="avatar" className={`${prefixCls}-avatar`} style={avatarStyle}>
+      <div key="avatar" className={`${prefixCls}-avatar`}>
         {typeof avatar === 'string' ? <img src={avatar} /> : avatar}
       </div>
     );
@@ -113,7 +104,7 @@ export default class Comment extends React.Component<CommentProps, {}> {
     );
 
     const contentDom = (
-      <div key="content" className={`${prefixCls}-content`} style={contentStyle}>
+      <div key="content" className={`${prefixCls}-content`}>
         {authorContent}
         <div className={`${prefixCls}-content-detail`}>
           {content}
@@ -124,7 +115,7 @@ export default class Comment extends React.Component<CommentProps, {}> {
 
     const comment = (
       <div {...otherProps} className={classString} style={style}>
-        <div className={`${prefixCls}-inner`} style={innerStyle}>
+        <div className={`${prefixCls}-inner`}>
           {direction === 'left'
             ? [avatarDom, contentDom]
             : [contentDom, avatarDom]

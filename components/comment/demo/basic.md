@@ -84,7 +84,7 @@ class App extends React.Component {
         content={
           <p>Sagittis id consectetur purus ut faucibus pulvinar elementum integer enim. Pellentesque massa placerat duis ultricies lacus sed turpis. Tempus urna et pharetra pharetra massa massa.</p>
         }
-        time={
+        datetime={
           <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
             <span>{moment().fromNow()}</span>
           </Tooltip>

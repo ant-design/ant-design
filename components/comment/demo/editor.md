@@ -97,7 +97,7 @@ class App extends React.Component {
             author: 'Han Solo',
             avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
             content: values.message,
-            time: moment().fromNow(),
+            datetime: moment().fromNow(),
           },
           ...this.state.comments,
         ]
