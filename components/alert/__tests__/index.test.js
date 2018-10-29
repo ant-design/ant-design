@@ -29,6 +29,15 @@ describe('Alert', () => {
     expect(afterClose).toBeCalled();
   });
 
+  it('deprecate prop iconType', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
+    mount(<Alert iconType="success" />);
+    expect(errorSpy).toBeCalledWith(
+      "Warning: The prop 'iconType' is deprecated and will be removed in next major release. Please use 'icon' instead."
+    );
+    errorSpy.mockRestore();
+  });
+
   describe('data and aria props', () => {
     it('sets data attributes on input', () => {
       const wrapper = mount(<Alert data-test="test-id" data-id="12345" />);

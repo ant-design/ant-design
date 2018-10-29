@@ -5,6 +5,7 @@ import Icon, { ThemeType } from '../icon';
 import classNames from 'classnames';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
+import warning from '../_util/warning';
 
 function noop() {}
 
@@ -89,8 +90,7 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
     type = banner && type === undefined ? 'warning' : type || 'info';
 
     let iconTheme: ThemeType = 'filled';
-    // should we give a warning?
-    // warning(!iconType, `The property 'iconType' is deprecated. Use the property 'icon' instead.`);
+    warning(!iconType, `The prop 'iconType' is deprecated and will be removed in next major release. Please use 'icon' instead.`);
     if (!iconType) {
       switch (type) {
         case 'success':
