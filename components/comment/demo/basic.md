@@ -48,7 +48,7 @@ class App extends React.Component {
         <Tooltip title="Like">
           <Icon
             type="like"
-            theme={action === 'liked' ? 'twoTone' : 'filled'}
+            theme={action === 'liked' ? 'filled' : 'outlined'}
             onClick={this.like}
           />
         </Tooltip>
@@ -60,7 +60,7 @@ class App extends React.Component {
         <Tooltip title="Dislike">
           <Icon
             type="dislike"
-            theme={action === 'disliked' ? 'twoTone' : 'filled'}
+            theme={action === 'disliked' ? 'filled' : 'outlined'}
             onClick={this.dislike}
           />
         </Tooltip>
@@ -84,8 +84,11 @@ class App extends React.Component {
         content={
           <p>Sagittis id consectetur purus ut faucibus pulvinar elementum integer enim. Pellentesque massa placerat duis ultricies lacus sed turpis. Tempus urna et pharetra pharetra massa massa.</p>
         }
-        time={moment().fromNow()}
-        tooltipTime={moment().format('YYYY-MM-DD HH:mm:ss')}
+        time={
+          <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
+            <span>{moment().fromNow()}</span>
+          </Tooltip>
+        }
       />
     );
   }

@@ -1,27 +1,23 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import Tooltip from '../tooltip';
-import Editor from './Editor';
-
-export { CommentEditorProps } from './Editor';
 
 export interface CommentProps {
   /** List of action items rendered below the comment content */
   actions?: Array<React.ReactNode>;
   /** The element to display as the comment author. */
-  author: string;
+  author?: string;
   /** The element to display as the comment avatar - generally an antd Avatar */
-  avatar: React.ReactNode;
+  avatar?: React.ReactNode;
   /** className of comment */
   className?: string;
   /** The main content of the comment */
   content: React.ReactNode;
   /** Nested comments should be provided as children of the Comment */
-  children?: React.ReactNode;
+  children?: any;
   /** Additional style for the comment content */
   contentStyle?: React.CSSProperties;
-  /** Additional style for the comment head */
-  headStyle?: React.CSSProperties;
+  /** Additional style for the comment avatar */
+  avatarStyle?: React.CSSProperties;
   /** Optional ID for the comment */
   id?: string;
   /** Additional style for the comment inner wrapper */
@@ -32,13 +28,11 @@ export interface CommentProps {
   style?: React.CSSProperties;
   /** A time element containing the time to be displayed */
   time?: React.ReactNode;
-  /** A time element to be displayed as the time tooltip  */
-  tooltipTime?: React.ReactNode;
+  /** Direction of the comment left or right */
+  direction?: 'left' | 'right';
 }
 
 export default class Comment extends React.Component<CommentProps, {}> {
-  static Editor: typeof Editor = Editor;
-
   getAction(actions: React.ReactNode[]) {
     if (!actions || !actions.length) {
       return null;
@@ -52,12 +46,12 @@ export default class Comment extends React.Component<CommentProps, {}> {
     return actionList;
   }
 
-  renderNested = (child: React.ReactElement<any>) => {
+  renderNested = (child: any) => {
     const { prefixCls = 'ant-comment' } = this.props;
     const classString = classNames(`${prefixCls}-nested`);
 
     return (
-      <div className={classString}>
+      <div key={child.key} className={classString}>
         {child}
       </div>
     )
@@ -68,51 +62,43 @@ export default class Comment extends React.Component<CommentProps, {}> {
       actions,
       author,
       avatar,
+      avatarStyle = {},
       children,
       className,
       content,
       contentStyle = {},
-      headStyle = {},
+      direction = 'left',
       innerStyle = {},
       prefixCls = 'ant-comment',
       style = {},
       time,
-      tooltipTime,
       ...otherProps
     } = this.props;
 
-    const classString = classNames(prefixCls, className);
-    const avatarDom = typeof avatar === 'string'
-      ? <img src={avatar} />
-      : avatar;
+    const classString = classNames(prefixCls, className, {
+      [`${prefixCls}-rtl`]: direction === 'left',
+      [`${prefixCls}-ltr`]: direction === 'right',
+    });
 
-    let timeDom;
+    const authorElements = [];
+
+    if (author) {
+      authorElements.push(
+        <span key="name" className={`${prefixCls}-content-author-name`}>
+          {author}
+        </span>,
+      );
+    }
 
     if (time) {
-      timeDom = <span className={`${prefixCls}-header-author-time`}>{time}</span>
+      authorElements.push(
+        <span key="time" className={`${prefixCls}-content-author-time`}>{time}</span>,
+      );
     }
 
-    if (time && tooltipTime) {
-      timeDom = (
-        <Tooltip title={tooltipTime}>
-          <span className={`${prefixCls}-header-author-time ${prefixCls}-header-author-time-tooltip`}>
-            {time}
-          </span>
-        </Tooltip>
-      )
-    }
-
-    const headDom = (
-      <div className={`${prefixCls}-header`} style={headStyle}>
-        <span className={`${prefixCls}-header-avatar`}>
-          {avatarDom}
-        </span>
-        <div className={`${prefixCls}-header-author`}>
-          <span className={`${prefixCls}-header-author-name`}>
-            {author}
-          </span>
-          {timeDom}
-        </div>
+    const avatarDom = (
+      <div key="avatar" className={`${prefixCls}-avatar`} style={avatarStyle}>
+        {typeof avatar === 'string' ? <img src={avatar} /> : avatar}
       </div>
     );
 
@@ -120,8 +106,15 @@ export default class Comment extends React.Component<CommentProps, {}> {
       ? <ul className={`${prefixCls}-actions`}>{this.getAction(actions)}</ul>
       : null;
 
+    const authorContent = (
+      <div className={`${prefixCls}-content-author`}>
+        {direction === 'left' ? authorElements : authorElements.reverse()}
+      </div>
+    );
+
     const contentDom = (
-      <div className={`${prefixCls}-content`} style={contentStyle}>
+      <div key="content" className={`${prefixCls}-content`} style={contentStyle}>
+        {authorContent}
         <div className={`${prefixCls}-content-detail`}>
           {content}
         </div>
@@ -132,21 +125,24 @@ export default class Comment extends React.Component<CommentProps, {}> {
     const comment = (
       <div {...otherProps} className={classString} style={style}>
         <div className={`${prefixCls}-inner`} style={innerStyle}>
-          {headDom}
-          {contentDom}
+          {direction === 'left'
+            ? [avatarDom, contentDom]
+            : [contentDom, avatarDom]
+          }
         </div>
       </div>
     )
 
     const nestedComments =
-      React.Children.toArray(children).map((child: React.ReactElement<any>) =>
-        React.cloneElement(this.renderNested(child), {}));
+      React.Children
+        .toArray(children)
+        .map((child: React.ReactElement<any>) => this.renderNested(child))
 
     return (
       <div>
         {comment}
         {nestedComments}
       </div>
-    )
+    );
   }
 }

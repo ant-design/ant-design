@@ -1,7 +1,7 @@
 ---
 category: Components
 type: Data Display
-title: 评论
+title: Comment
 subtitle: 分割线
 cols: 1
 ---
@@ -23,23 +23,9 @@ cols: 1
 | className | 网格容器类名 | string | - |
 | content | 评论的主要内容 | ReactNode | - |
 | contentStyle | 要应用于评论内容的内联样式 | object | - |
-| headStyle | 要应用于注释头的内联样式 | object | - |
+| headStyle | 内联样式应用于评论头像 | object | - |
 | id | 评论的可选ID | string | - |
 | innerStyle | 内容的附加风格 | object | - |
 | prefixCls | 注释前缀className默认为`.ant-comment` | string | .ant-comment |
 | style | 评论的其他风格 | object | - |
 | time | 包含要显示的时间的时间元素 | ReactNode | - |
-| tooltipTime | 要显示为时间工具提示的时间元素 | ReactNode | - |
-
-# Comment.Editor
-
-| Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
-| avatar | 要显示为评论头像的元素 - 通常是antd `Avatar` | ReactNode | - |
-| className | 编辑器的className | string | - |
-| content | 要显示为编辑器的元素 | ReactNode | - |
-| editorStyle | 要应用于注释编辑器的内联样式 | object | - |
-| headStyle | 要应用于注释头的内联样式 | object | - |
-| innerStyle | 要应用于注释内部注释编辑器的内联样式 | object | - |
-| prefixCls | prefix className默认为`.ant-comment` | string | .ant-comment |
-| style | 编辑器的其他样式 | object | - |
