@@ -65,20 +65,10 @@ export default class MainContent extends React.Component {
     if (!window.location.hash && prevProps && prevProps.location.pathname !== location.pathname) {
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
-      return;
     }
-    if (this.timer) {
-      clearTimeout(this.timer);
-    }
-    this.timer = setTimeout(() => {
-      if (window.location.hash) {
-        document.querySelector(window.location.hash).scrollIntoView();
-      }
-    }, 50);
   }
 
   componentWillUnmount() {
-    clearTimeout(this.timer);
     this.scroller.disable();
   }
 

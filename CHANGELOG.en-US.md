@@ -15,6 +15,22 @@ timeline: true
 
 ---
 
+## 3.10.3
+
+`2018-10-27`
+
+- 🌟 Improve util function `getScroll` TypeScript definition. [#12784](https://github.com/ant-design/ant-design/pull/12784) [@ztplz](https://github.com/ztplz)
+- 🐞 Fixed that Checkbox inside CheckboxGroup do not trigger `onChange`. [#12642](https://github.com/ant-design/ant-design/issues/12642)
+- 🐞 Fixed Calendar month picker not correct when set with `validRange`. [#12675](https://github.com/ant-design/ant-design/issues/12675)
+- 🐞 Fixed multiple Select drop-down bug when set `dropdownMatchSelectWidth`. [#12816](https://github.com/ant-design/ant-design/pull/12816) [@hengkx](https://github.com/hengkx)
+- 🐞 Fixed Card title overflow bug. [#12680](https://github.com/ant-design/ant-design/issues/12680)
+- 🐞 Fixed Form[inline] help and extra overlapped. [#12725](https://github.com/ant-design/ant-design/issues/12725)
+- Table
+  - 🌟 Support custom Table filter backgrounds. [#12775](https://github.com/ant-design/ant-design/pull/12775) [@ivankravets](https://github.com/ivankravets)
+  - 🐞 Adjust small table placeholder style. [#12682](https://github.com/ant-design/ant-design/issues/12682)
+  - 🐞 Fixed small size table header border missing in Firefox. [#12840](https://github.com/ant-design/ant-design/issues/12840)
+  - 🐞 Fixed checkbox align of small/middle size table. [#12723](https://github.com/ant-design/ant-design/issues/12723)
+
 ## 3.10.2
 
 `2018-10-23`

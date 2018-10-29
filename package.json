@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "3.10.2",
+  "version": "3.10.3",
   "title": "Ant Design",
   "description": "An enterprise-class UI design language and React-based implementation",
   "homepage": "http://ant.design/",
@@ -110,7 +110,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "bezier-easing": "^2.1.0",
-    "bisheng": "^0.28.0",
+    "bisheng": "^0.28.4",
     "bisheng-plugin-antd": "^0.16.5",
     "bisheng-plugin-description": "^0.1.4",
     "bisheng-plugin-react": "^0.6.3",
@@ -175,7 +175,7 @@
     "reqwest": "^2.0.5",
     "rimraf": "^2.6.2",
     "scrollama": "^1.4.4",
-    "stylelint": "^9.6.0",
+    "stylelint": "~9.6.0",
     "stylelint-config-standard": "^18.2.0",
     "typescript": "~3.1.1",
     "unified": "^7.0.0",
@@ -185,7 +185,7 @@
     "xhr2": "^0.1.4"
   },
   "scripts": {
-    "test": "jest --config .jest.js",
+    "test": "jest --config .jest.js --verbose=false",
     "test-node": "jest --config .jest.node.js",
     "test-all": "./scripts/test-all.sh",
     "lint": "npm run lint:ts && npm run lint:es && npm run lint:demo && npm run lint:style",
