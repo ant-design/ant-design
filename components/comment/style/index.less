@@ -14,6 +14,7 @@
   &-avatar {
     flex-shrink: 0;
     position: relative;
+    margin-right: 12px;
     cursor: pointer;
     img {
       width: 32px;
@@ -33,7 +34,7 @@
       margin-bottom: 4px;
       font-size: 14px;
       display: flex;
-
+      justify-content: flex-start;
       & > a,
       & > span {
         height: 18px;
@@ -80,22 +81,6 @@
         }
       }
     }
-  }
-
-  &-rtl &-avatar {
-    margin-right: 12px;
-  }
-
-  &-rtl &-content-author {
-    justify-content: flex-start;
-  }
-
-  &-ltr &-avatar {
-    margin-left: 12px;
-  }
-
-  &-ltr &-content-author {
-    justify-content: flex-end;
   }
 
   &-nested {
