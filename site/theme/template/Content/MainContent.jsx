@@ -33,28 +33,39 @@ function fileNameToPath(filename) {
   return snippets[snippets.length - 1];
 }
 
-export default class MainContent extends React.Component {
+const getSideBarOpenKeys = (nextProps) => {
+  const { themeConfig } = nextProps;
+  const { pathname } = nextProps.location;
+  const locale = utils.isZhCN(pathname) ? 'zh-CN' : 'en-US';
+  const moduleData = getModuleData(nextProps);
+  const shouldOpenKeys = utils.getMenuItems(
+    moduleData,
+    locale,
+    themeConfig.categoryOrder,
+    themeConfig.typeOrder
+  ).map(m => m.title[locale] || m.title);
+  return shouldOpenKeys;
+};
+
+export default class MainContent extends React.PureComponent {
   static contextTypes = {
     intl: PropTypes.object.isRequired,
     isMobile: PropTypes.bool.isRequired,
   }
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      openKeys: this.getSideBarOpenKeys(props) || [],
-    };
+  state = {
+    openKeys: undefined,
   }
 
   componentDidMount() {
     this.componentDidUpdate();
   }
 
-  componentWillReceiveProps(nextProps) {
-    const openKeys = this.getSideBarOpenKeys(nextProps);
-    if (openKeys) {
-      this.setState({ openKeys });
-    }
+  static getDerivedStateFromProps(props, state) {
+    return {
+      ...state,
+      openKeys: getSideBarOpenKeys(props),
+    };
   }
 
   componentDidUpdate(prevProps) {
@@ -97,27 +108,6 @@ export default class MainContent extends React.Component {
 
   handleMenuOpenChange = (openKeys) => {
     this.setState({ openKeys });
-  }
-
-  getSideBarOpenKeys(nextProps) {
-    const { themeConfig } = nextProps;
-    const { pathname } = nextProps.location;
-    const prevModule = this.currentModule;
-    this.currentModule = pathname.replace(/^\//).split('/')[1] || 'components';
-    if (this.currentModule === 'react') {
-      this.currentModule = 'components';
-    }
-    const locale = utils.isZhCN(pathname) ? 'zh-CN' : 'en-US';
-    if (prevModule !== this.currentModule) {
-      const moduleData = getModuleData(nextProps);
-      const shouldOpenKeys = utils.getMenuItems(
-        moduleData,
-        locale,
-        themeConfig.categoryOrder,
-        themeConfig.typeOrder
-      ).map(m => m.title[locale] || m.title);
-      return shouldOpenKeys;
-    }
   }
 
   generateMenuItem(isTop, item, { before = null, after = null }) {
