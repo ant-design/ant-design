@@ -15,9 +15,11 @@ Use tag `<Icon />` to create an icon and set its type in the `type` prop. Specif
 
 ````jsx
 import { Icon } from 'antd';
+import AccountBookFilled from 'antd/icons/AccountBookFilled';
 
 ReactDOM.render(
   <div className="icons-list">
+    <AccountBookFilled />
     <Icon type="home" />
     <Icon type="setting" theme="filled" />
     <Icon type="smile" theme="outlined" />
