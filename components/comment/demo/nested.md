@@ -28,7 +28,7 @@ function ExampleComment({ children }) {
           alt="Han Solo"
         />
       }
-      content={<p>Sagittis id consectetur purus ut faucibus pulvinar elementum integer enim.</p>}
+      content={<p>We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure).</p>}
     >
       {children}
     </Comment>

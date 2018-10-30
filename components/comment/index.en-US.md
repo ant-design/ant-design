@@ -19,8 +19,5 @@ Comments can be used to enable discussions on an entity for example page, blog p
 | author | The element to display as the comment author | ReactNode | - |
 | avatar | The element to display as the comment avatar - generally an antd `Avatar` | ReactNode | - |
 | children | Nested comments should be provided as children of the Comment | ReactNode | - |
-| className | Addtional className for comment | string | - |
 | content | The main content of the comment | ReactNode | - |
-| id | Optional ID for the comment | string | - |
-| style | Additional style for the comment | object | - |
 | datetime | A datetime element containing the time to be displayed | ReactNode | - |

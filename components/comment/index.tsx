@@ -31,7 +31,7 @@ export default class Comment extends React.Component<CommentProps, {}> {
     }
     const actionList = actions.map((action, index) => (
         <li key={`action-${index}`}>
-          <span>{action}</span>
+          {action}
         </li>
       ),
     );
@@ -46,7 +46,7 @@ export default class Comment extends React.Component<CommentProps, {}> {
       <div key={child.key} className={classString}>
         {child}
       </div>
-    )
+    );
   }
 
   render() {
@@ -107,12 +107,11 @@ export default class Comment extends React.Component<CommentProps, {}> {
           {contentDom}
         </div>
       </div>
-    )
+    );
 
     const nestedComments =
       React.Children
-        .toArray(children)
-        .map((child: React.ReactElement<any>) => this.renderNested(child))
+        .map(children, (child: React.ReactElement<any>) => this.renderNested(child));
 
     return (
       <div>
