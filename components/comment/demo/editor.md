@@ -32,7 +32,7 @@ function CommentList({ comments }) {
       dataSource={comments}
       renderItem={props => <Comment {...props} />}
     />
-  )
+  );
 }
 
 class Editor extends React.Component {
@@ -100,7 +100,7 @@ class App extends React.Component {
           },
           ...this.state.comments,
         ]
-      })
+      });
       if (cb) cb();
     }, 1000);
   }

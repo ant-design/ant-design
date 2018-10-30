@@ -23,7 +23,7 @@ const data = [
     author: 'Han Solo',
     avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
     content: (
-      <p>Nisl nisi scelerisque eu ultrices vitae auctor eu augue. Nulla at volutpat diam ut venenatis tellus in metus vulputate.</p>
+      <p>We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.</p>
     ),
     datetime: (
       <Tooltip title={moment().subtract(1, 'days').format('YYYY-MM-DD HH:mm:ss')}>
@@ -36,7 +36,7 @@ const data = [
     author: 'Han Solo',
     avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
     content: (
-      <p>Sed turpis tincidunt id aliquet risus feugiat in ante metus. Faucibus nisl tincidunt eget nullam non.</p>
+      <p>We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.</p>
     ),
     datetime: (
       <Tooltip title={moment().subtract(2, 'days').format('YYYY-MM-DD HH:mm:ss')}>

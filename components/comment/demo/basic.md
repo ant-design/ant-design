@@ -82,7 +82,7 @@ class App extends React.Component {
           />
         }
         content={
-          <p>Sagittis id consectetur purus ut faucibus pulvinar elementum integer enim. Pellentesque massa placerat duis ultricies lacus sed turpis. Tempus urna et pharetra pharetra massa massa.</p>
+          <p>We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.</p>
         }
         datetime={
           <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
