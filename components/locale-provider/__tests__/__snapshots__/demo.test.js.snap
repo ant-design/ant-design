@@ -78,14 +78,13 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="left"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
-                viewBox="64 64 896 896"
                 width="1em"
               >
-                <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                <use
+                  href="#left"
                 />
               </svg>
             </i>
@@ -152,14 +151,13 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="right"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
-                viewBox="64 64 896 896"
                 width="1em"
               >
-                <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                <use
+                  href="#right"
                 />
               </svg>
             </i>
@@ -204,14 +202,13 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <svg
                     aria-hidden="true"
                     class=""
-                    data-icon="down"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
-                    viewBox="64 64 896 896"
                     width="1em"
                   >
-                    <path
-                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                    <use
+                      href="#down"
                     />
                   </svg>
                 </i>
@@ -273,14 +270,13 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="down"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
-                viewBox="64 64 896 896"
                 width="1em"
               >
-                <path
-                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                <use
+                  href="#down"
                 />
               </svg>
             </i>
@@ -304,14 +300,13 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
             <svg
               aria-hidden="true"
               class=""
-              data-icon="calendar"
               fill="currentColor"
+              focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
               width="1em"
             >
-              <path
-                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              <use
+                href="#calendar"
               />
             </svg>
           </i>
@@ -337,17 +332,13 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
             <svg
               aria-hidden="true"
               class=""
-              data-icon="clock-circle"
               fill="currentColor"
+              focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
               width="1em"
             >
-              <path
-                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-              />
-              <path
-                d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
+              <use
+                href="#clock-circle"
               />
             </svg>
           </i>
@@ -387,14 +378,13 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
             <svg
               aria-hidden="true"
               class=""
-              data-icon="calendar"
               fill="currentColor"
+              focusable="false"
               height="1em"
-              viewBox="64 64 896 896"
               width="1em"
             >
-              <path
-                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              <use
+                href="#calendar"
               />
             </svg>
           </i>
@@ -495,14 +485,13 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                     <svg
                       aria-hidden="true"
                       class=""
-                      data-icon="search"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
-                      viewBox="64 64 896 896"
                       width="1em"
                     >
-                      <path
-                        d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                      <use
+                        href="#search"
                       />
                     </svg>
                   </i>
@@ -547,14 +536,13 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="right"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
-                viewBox="64 64 896 896"
                 width="1em"
               >
-                <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                <use
+                  href="#right"
                 />
               </svg>
             </i>
@@ -571,14 +559,13 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="left"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
-                viewBox="64 64 896 896"
                 width="1em"
               >
-                <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                <use
+                  href="#left"
                 />
               </svg>
             </i>
@@ -639,14 +626,13 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                     <svg
                       aria-hidden="true"
                       class=""
-                      data-icon="search"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
-                      viewBox="64 64 896 896"
                       width="1em"
                     >
-                      <path
-                        d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                      <use
+                        href="#search"
                       />
                     </svg>
                   </i>
@@ -723,14 +709,13 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <svg
                     aria-hidden="true"
                     class=""
-                    data-icon="down"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
-                    viewBox="64 64 896 896"
                     width="1em"
                   >
-                    <path
-                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                    <use
+                      href="#down"
                     />
                   </svg>
                 </i>
@@ -773,14 +758,13 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <svg
                     aria-hidden="true"
                     class=""
-                    data-icon="down"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
-                    viewBox="64 64 896 896"
                     width="1em"
                   >
-                    <path
-                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                    <use
+                      href="#down"
                     />
                   </svg>
                 </i>
@@ -1768,14 +1752,13 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                             <svg
                               aria-hidden="true"
                               class=""
-                              data-icon="filter"
                               fill="currentColor"
+                              focusable="false"
                               height="1em"
-                              viewBox="64 64 896 896"
                               width="1em"
                             >
-                              <path
-                                d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                              <use
+                                href="#filter"
                               />
                             </svg>
                           </i>
@@ -1846,14 +1829,13 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
           <svg
             aria-hidden="true"
             class=""
-            data-icon="left"
             fill="currentColor"
+            focusable="false"
             height="1em"
-            viewBox="64 64 896 896"
             width="1em"
           >
-            <path
-              d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+            <use
+              href="#left"
             />
           </svg>
         </i>
@@ -1920,14 +1902,13 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
           <svg
             aria-hidden="true"
             class=""
-            data-icon="right"
             fill="currentColor"
+            focusable="false"
             height="1em"
-            viewBox="64 64 896 896"
             width="1em"
           >
-            <path
-              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+            <use
+              href="#right"
             />
           </svg>
         </i>
@@ -1972,14 +1953,13 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="down"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
-                viewBox="64 64 896 896"
                 width="1em"
               >
-                <path
-                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                <use
+                  href="#down"
                 />
               </svg>
             </i>

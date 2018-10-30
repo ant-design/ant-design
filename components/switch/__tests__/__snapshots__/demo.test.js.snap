@@ -54,14 +54,13 @@ exports[`renders ./components/switch/demo/loading.md correctly 1`] = `
       <svg
         aria-hidden="true"
         class="anticon-spin"
-        data-icon="loading"
         fill="currentColor"
+        focusable="false"
         height="1em"
-        viewBox="0 0 1024 1024"
         width="1em"
       >
-        <path
-          d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 0 0-94.3-139.9 437.71 437.71 0 0 0-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+        <use
+          href="#loading"
         />
       </svg>
     </i>
@@ -84,14 +83,13 @@ exports[`renders ./components/switch/demo/loading.md correctly 1`] = `
       <svg
         aria-hidden="true"
         class="anticon-spin"
-        data-icon="loading"
         fill="currentColor"
+        focusable="false"
         height="1em"
-        viewBox="0 0 1024 1024"
         width="1em"
       >
-        <path
-          d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 0 0-94.3-139.9 437.71 437.71 0 0 0-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+        <use
+          href="#loading"
         />
       </svg>
     </i>
@@ -172,14 +170,13 @@ exports[`renders ./components/switch/demo/text.md correctly 1`] = `
         <svg
           aria-hidden="true"
           class=""
-          data-icon="check"
           fill="currentColor"
+          focusable="false"
           height="1em"
-          viewBox="64 64 896 896"
           width="1em"
         >
-          <path
-            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 0 0-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+          <use
+            href="#check"
           />
         </svg>
       </i>

@@ -201,17 +201,13 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
       <svg
         aria-hidden="true"
         class=""
-        data-icon="clock-circle"
         fill="currentColor"
+        focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
         width="1em"
       >
-        <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-        />
-        <path
-          d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
+        <use
+          href="#clock-circle"
         />
       </svg>
     </i>
@@ -405,14 +401,13 @@ exports[`renders ./components/badge/demo/change.md correctly 1`] = `
           <svg
             aria-hidden="true"
             class=""
-            data-icon="minus"
             fill="currentColor"
+            focusable="false"
             height="1em"
-            viewBox="64 64 896 896"
             width="1em"
           >
-            <path
-              d="M872 474H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+            <use
+              href="#minus"
             />
           </svg>
         </i>
@@ -428,14 +423,13 @@ exports[`renders ./components/badge/demo/change.md correctly 1`] = `
           <svg
             aria-hidden="true"
             class=""
-            data-icon="plus"
             fill="currentColor"
+            focusable="false"
             height="1em"
-            viewBox="64 64 896 896"
             width="1em"
           >
-            <path
-              d="M848 474H550V152h-76v322H176c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h298v322h76V550h298c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+            <use
+              href="#plus"
             />
           </svg>
         </i>
@@ -484,14 +478,13 @@ exports[`renders ./components/badge/demo/dot.md correctly 1`] = `
       <svg
         aria-hidden="true"
         class=""
-        data-icon="notification"
         fill="currentColor"
+        focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
         width="1em"
       >
-        <path
-          d="M880 112c-3.8 0-7.7.7-11.6 2.3L292 345.9H128c-8.8 0-16 7.4-16 16.6v299c0 9.2 7.2 16.6 16 16.6h101.7c-3.7 11.6-5.7 23.9-5.7 36.4 0 65.9 53.8 119.5 120 119.5 55.4 0 102.1-37.6 115.9-88.4l408.6 164.2c3.9 1.5 7.8 2.3 11.6 2.3 16.9 0 32-14.2 32-33.2V145.2C912 126.2 897 112 880 112zM344 762.3c-26.5 0-48-21.4-48-47.8 0-11.2 3.9-21.9 11-30.4l84.9 34.1c-2 24.6-22.7 44.1-47.9 44.1zm496 58.4L318.8 611.3l-12.9-5.2H184V417.9h121.9l12.9-5.2L840 203.3v617.4z"
+        <use
+          href="#notification"
         />
       </svg>
     </i>
@@ -510,14 +503,13 @@ exports[`renders ./components/badge/demo/dot.md correctly 1`] = `
       <svg
         aria-hidden="true"
         class=""
-        data-icon="notification"
         fill="currentColor"
+        focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
         width="1em"
       >
-        <path
-          d="M880 112c-3.8 0-7.7.7-11.6 2.3L292 345.9H128c-8.8 0-16 7.4-16 16.6v299c0 9.2 7.2 16.6 16 16.6h101.7c-3.7 11.6-5.7 23.9-5.7 36.4 0 65.9 53.8 119.5 120 119.5 55.4 0 102.1-37.6 115.9-88.4l408.6 164.2c3.9 1.5 7.8 2.3 11.6 2.3 16.9 0 32-14.2 32-33.2V145.2C912 126.2 897 112 880 112zM344 762.3c-26.5 0-48-21.4-48-47.8 0-11.2 3.9-21.9 11-30.4l84.9 34.1c-2 24.6-22.7 44.1-47.9 44.1zm496 58.4L318.8 611.3l-12.9-5.2H184V417.9h121.9l12.9-5.2L840 203.3v617.4z"
+        <use
+          href="#notification"
         />
       </svg>
     </i>
