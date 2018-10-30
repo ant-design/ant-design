@@ -104,8 +104,6 @@
     "antd-tools": "^5.2.2",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^10.0.1",
-    "babel-plugin-import": "^1.9.1",
-    "babel-plugin-transform-runtime": "^6.23.0",
     "bezier-easing": "^2.1.0",
     "bisheng": "^0.28.4",
     "bisheng-plugin-antd": "^0.16.5",
