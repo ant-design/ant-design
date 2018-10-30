@@ -141,7 +141,7 @@
     "jest": "^23.6.0",
     "jsdom": "^12.1.0",
     "jsonml.js": "^0.1.0",
-    "lint-staged": "^7.3.0",
+    "lint-staged": "^8.0.2",
     "lz-string": "^1.4.4",
     "majo": "^0.6.2",
     "mockdate": "^2.0.2",
