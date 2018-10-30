@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { findDOMNode } from 'react-dom';
 import RcMenu, { Divider, ItemGroup } from 'rc-menu';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -79,7 +78,6 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     collapsedWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   };
   switchModeFromInline: boolean;
-  leaveAnimationExecutedWhenInlineCollapsed: boolean;
   inlineOpenKeys: string[] = [];
   constructor(props: MenuProps) {
     super(props);
@@ -113,7 +111,6 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     };
   }
   componentWillReceiveProps(nextProps: MenuProps, nextContext: SiderContext) {
-    const { prefixCls } = this.props;
     if (this.props.mode === 'inline' &&
         nextProps.mode !== 'inline') {
       this.switchModeFromInline = true;
@@ -124,9 +121,7 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     }
     if ((nextProps.inlineCollapsed && !this.props.inlineCollapsed) ||
         (nextContext.siderCollapsed && !this.context.siderCollapsed)) {
-      const menuNode = findDOMNode(this) as Element;
-      this.switchModeFromInline =
-        !!this.state.openKeys.length && !!menuNode.querySelectorAll(`.${prefixCls}-submenu-open`).length;
+      this.switchModeFromInline = true;
       this.inlineOpenKeys = this.state.openKeys;
       this.setState({ openKeys: [] });
     }
