@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { findDOMNode } from 'react-dom';
 import RcMenu, { Divider, ItemGroup } from 'rc-menu';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -121,7 +122,10 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     }
     if ((nextProps.inlineCollapsed && !this.props.inlineCollapsed) ||
         (nextContext.siderCollapsed && !this.context.siderCollapsed)) {
-      this.switchModeFromInline = true;
+      const { prefixCls } = this.props;
+      const menuNode = findDOMNode(this) as Element;
+      this.switchModeFromInline =
+        !!this.state.openKeys.length && !!menuNode.querySelectorAll(`.${prefixCls}-submenu-open`).length;
       this.inlineOpenKeys = this.state.openKeys;
       this.setState({ openKeys: [] });
     }
