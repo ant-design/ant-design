@@ -134,7 +134,7 @@
     "immutability-helper": "^2.8.1",
     "intersection-observer": "^0.5.0",
     "jest": "^23.6.0",
-    "jsdom": "^12.1.0",
+    "jsdom": "^13.0.0",
     "jsonml.js": "^0.1.0",
     "lint-staged": "^8.0.2",
     "lz-string": "^1.4.4",
