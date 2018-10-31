@@ -74,9 +74,17 @@ export default class MainContent extends React.PureComponent {
       this.bindScroller();
     }
     if (!window.location.hash && prevProps && prevProps.location.pathname !== location.pathname) {
-      document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
     }
+    setTimeout(() => {
+      if (
+        window.location.hash
+        && document.querySelector(decodeURIComponent(window.location.hash))
+        && document.documentElement.scrollTop === 0
+      ) {
+        document.querySelector(decodeURIComponent(window.location.hash)).scrollIntoView();
+      }
+    }, 0);
   }
 
   componentWillUnmount() {
