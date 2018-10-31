@@ -13,9 +13,9 @@ describe('Slider', () => {
     expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
   });
 
-  it('should show tooltip always when alwaysShowTooltip is true', () => {
+  it('should show tooltip always when tooltipVisible is true', () => {
     const wrapper = mount(
-      <Slider defaultValue={30} alwaysShowTooltip />
+      <Slider defaultValue={30} tooltipVisible />
     );
     expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
   });

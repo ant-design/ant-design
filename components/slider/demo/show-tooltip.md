@@ -7,17 +7,17 @@ title:
 
 ## zh-CN
 
-当 `alwaysShowTooltip` 为 `true` 时，将始终显示ToolTip。
+当 `tooltipVisible` 为 `true` 时，将始终显示ToolTip。
 
 ## en-US
 
-When `alwaysShowTooltip` is `true`, ToolTip will show always.
+When `tooltipVisible` is `true`, ToolTip will show always.
 
 
  ````jsx
 
 import Slider from '..';
 
-ReactDOM.render(<Slider defaultValue={30} alwaysShowTooltip />, mountNode);
+ReactDOM.render(<Slider defaultValue={30} tooltipVisible />, mountNode);
 
 ````
