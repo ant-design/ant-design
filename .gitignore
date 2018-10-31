@@ -27,6 +27,7 @@ _data
 dist
 /lib
 /es
+/icons
 elasticsearch-*
 config/base.yaml
 /.vscode/

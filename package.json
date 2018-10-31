@@ -30,7 +30,8 @@
   "files": [
     "dist",
     "lib",
-    "es"
+    "es",
+    "icons"
   ],
   "typings": "lib/index.d.ts",
   "license": "MIT",
@@ -175,6 +176,7 @@
     "reqwest": "^2.0.5",
     "rimraf": "^2.6.2",
     "scrollama": "^1.4.4",
+    "shelljs": "^0.8.2",
     "stylelint": "~9.10.1",
     "stylelint-config-prettier": "^4.0.0",
     "stylelint-config-standard": "^18.2.0",
@@ -201,7 +203,8 @@
     "dist": "antd-tools run dist",
     "compile": "antd-tools run compile",
     "tsc": "tsc",
-    "generate-icons": "node scripts/generateIcons.js",
+    "postcompile": "node scripts/generateIconEntries.js",
+    "icons:generate": "node scripts/generateIcons.js",
     "start": "rimraf _site && mkdir _site && node ./scripts/generateColorLess.js && cross-env NODE_ENV=development bisheng start -c ./site/bisheng.config.js",
     "start:preact": "node ./scripts/generateColorLess.js && cross-env NODE_ENV=development REACT_ENV=preact bisheng start -c ./site/bisheng.config.js",
     "site": "cross-env NODE_ENV=production bisheng build --ssr -c ./site/bisheng.config.js && node ./scripts/generateColorLess.js",
