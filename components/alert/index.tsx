@@ -34,17 +34,20 @@ export interface AlertProps {
   icon?: React.ReactNode;
 }
 
-export default class Alert extends React.Component<AlertProps, any> {
-  constructor(props: AlertProps) {
-    super(props);
-    this.state = {
-      closing: true,
-      closed: false,
-    };
-  }
+export interface AlertState {
+  closing: boolean,
+  closed: boolean
+}
+
+export default class Alert extends React.Component<AlertProps, AlertState> {
+  state: AlertState = {
+    closing: true,
+    closed: false,
+  };
+
   handleClose = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    let dom = ReactDOM.findDOMNode(this) as HTMLElement;
+    const dom = ReactDOM.findDOMNode(this) as HTMLElement;
     dom.style.height = `${dom.offsetHeight}px`;
     // Magic code
     // 重复一次后才能正确设置 height
@@ -55,6 +58,7 @@ export default class Alert extends React.Component<AlertProps, any> {
     });
     (this.props.onClose || noop)(e);
   }
+
   animationEnd = () => {
     this.setState({
       closed: true,
@@ -62,6 +66,7 @@ export default class Alert extends React.Component<AlertProps, any> {
     });
     (this.props.afterClose || noop)();
   }
+
   render() {
     let {
       closable, description, type, prefixCls = 'ant-alert', message, closeText, showIcon, banner,
@@ -126,7 +131,7 @@ export default class Alert extends React.Component<AlertProps, any> {
           icon,
           {
             className: classNames({
-              [icon.props.className!]: icon.props.className,
+              [icon.props.className as string]: icon.props.className,
               [`${prefixCls}-icon`]: true,
             }),
           },
