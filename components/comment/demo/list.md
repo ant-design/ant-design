@@ -14,7 +14,7 @@ title:
 A basic comment used with `antd` List component to render a series of comments.
 
 ````jsx
-import { Comment, Icon, Tooltip, List } from 'antd';
+import { Comment, Tooltip, List } from 'antd';
 import moment from 'moment';
 
 const data = [

@@ -14,7 +14,7 @@ title:
 Comment can be used as editor, user can customize the editor component.
 
 ````jsx
-import { Comment, Icon, Tooltip, Avatar, Form, Button, List, Input } from 'antd';
+import { Comment, Avatar, Form, Button, List, Input } from 'antd';
 import moment from 'moment';
 
 const FormItem = Form.Item;
@@ -49,7 +49,7 @@ class Editor extends React.Component {
   }
 
   render() {
-    const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = this.props.form;
+    const { getFieldDecorator, getFieldsError } = this.props.form;
 
     return (
       <Form onSubmit={this.handleSubmit}>
@@ -99,7 +99,7 @@ class App extends React.Component {
             datetime: moment().fromNow(),
           },
           ...this.state.comments,
-        ]
+        ],
       });
       if (cb) cb();
     }, 1000);
@@ -107,27 +107,27 @@ class App extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div>
         {this.state.comments.length > 0 && (
           <CommentList
             comments={this.state.comments}
           />
         )}
         <Comment
-          avatar={
+          avatar={(
             <Avatar
               src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
               alt="Han Solo"
             />
-          }
-          content={
+          )}
+          content={(
             <EditorForm
               submitting={this.state.submitting}
               onSubmit={this.handleSubmit}
             />
-          }
+          )}
         />
-      </React.Fragment>
+      </div>
     );
   }
 }
