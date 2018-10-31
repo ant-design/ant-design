@@ -70,11 +70,16 @@ export default class Affix extends React.Component<AffixProps, AffixState> {
     target: PropTypes.func,
   };
 
-  scrollEvent: any;
-  resizeEvent: any;
-  timeout: any;
+  state: AffixState = {
+    affixStyle: undefined,
+    placeholderStyle: undefined,
+  };
 
-  events = [
+  private timeout: number;
+  private eventHandlers: Record<string, any> = {};
+  private fixedNode: HTMLElement;
+  private placeholderNode: HTMLElement;
+  private readonly events = [
     'resize',
     'scroll',
     'touchstart',
@@ -84,19 +89,7 @@ export default class Affix extends React.Component<AffixProps, AffixState> {
     'load',
   ];
 
-  eventHandlers: {
-    [key: string]: any;
-  } = {};
-
-  state: AffixState = {
-    affixStyle: undefined,
-    placeholderStyle: undefined,
-  };
-
-  private fixedNode: HTMLElement;
-  private placeholderNode: HTMLElement;
-
-  setAffixStyle(e: any, affixStyle: React.CSSProperties | null) {
+  setAffixStyle(e: Event, affixStyle: React.CSSProperties | null) {
     const { onChange = noop, target = getDefaultTarget } = this.props;
     const originalAffixStyle = this.state.affixStyle;
     const isWindow = target() === window;
@@ -123,7 +116,7 @@ export default class Affix extends React.Component<AffixProps, AffixState> {
     this.setState({ placeholderStyle: placeholderStyle as React.CSSProperties });
   }
 
-  syncPlaceholderStyle(e: any) {
+  syncPlaceholderStyle(e: Event) {
     const { affixStyle } = this.state;
     if (!affixStyle) {
       return;
@@ -139,7 +132,7 @@ export default class Affix extends React.Component<AffixProps, AffixState> {
   }
 
   @throttleByAnimationFrameDecorator()
-  updatePosition(e: any) {
+  updatePosition(e: Event) {
     let { offsetTop, offsetBottom, offset, target = getDefaultTarget } = this.props;
     const targetNode = target();
 
@@ -231,13 +224,13 @@ export default class Affix extends React.Component<AffixProps, AffixState> {
       this.setTargetEventListeners(nextProps.target!);
 
       // Mock Event object.
-      this.updatePosition({});
+      this.updatePosition({} as Event);
     }
     if (
       this.props.offsetTop !== nextProps.offsetTop ||
       this.props.offsetBottom !== nextProps.offsetBottom
     ) {
-      this.updatePosition({});
+      this.updatePosition({} as Event);
     }
   }
 
