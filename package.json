@@ -170,7 +170,7 @@
     "reqwest": "^2.0.5",
     "rimraf": "^2.6.2",
     "scrollama": "^1.4.4",
-    "stylelint": "~9.6.0",
+    "stylelint": "^9.7.1",
     "stylelint-config-standard": "^18.2.0",
     "typescript": "~3.1.1",
     "unified": "^7.0.0",
