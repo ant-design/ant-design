@@ -37,7 +37,7 @@ class App extends React.Component {
       likes: 0,
       dislikes: 1,
       action: 'disliked',
-    })
+    });
   }
 
   render() {
@@ -75,20 +75,20 @@ class App extends React.Component {
       <Comment
         actions={actions}
         author={<a>Han Solo</a>}
-        avatar={
+        avatar={(
           <Avatar
             src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
             alt="Han Solo"
           />
-        }
-        content={
+        )}
+        content={(
           <p>We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.</p>
-        }
-        datetime={
+        )}
+        datetime={(
           <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
             <span>{moment().fromNow()}</span>
           </Tooltip>
-        }
+        )}
       />
     );
   }

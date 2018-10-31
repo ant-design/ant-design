@@ -14,20 +14,19 @@ title:
 Comment can be nested
 
 ````jsx
-import { Comment, Icon, Tooltip, Avatar } from 'antd';
-import moment from 'moment';
+import { Comment, Avatar } from 'antd';
 
 function ExampleComment({ children }) {
   return (
     <Comment
       actions={[<span>Reply to</span>]}
       author={<a>Han Solo</a>}
-      avatar={
+      avatar={(
         <Avatar
           src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
           alt="Han Solo"
         />
-      }
+      )}
       content={<p>We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure).</p>}
     >
       {children}

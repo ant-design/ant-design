@@ -117,84 +117,86 @@ exports[`renders ./components/comment/demo/basic.md correctly 1`] = `
 
 exports[`renders ./components/comment/demo/editor.md correctly 1`] = `
 <div>
-  <div
-    class="ant-comment"
-  >
+  <div>
     <div
-      class="ant-comment-inner"
+      class="ant-comment"
     >
       <div
-        class="ant-comment-avatar"
-      >
-        <span
-          class="ant-avatar ant-avatar-circle ant-avatar-image"
-        >
-          <img
-            alt="Han Solo"
-            src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-          />
-        </span>
-      </div>
-      <div
-        class="ant-comment-content"
+        class="ant-comment-inner"
       >
         <div
-          class="ant-comment-content-author"
-        />
-        <div
-          class="ant-comment-content-detail"
+          class="ant-comment-avatar"
         >
-          <form
-            class="ant-form ant-form-horizontal"
+          <span
+            class="ant-avatar ant-avatar-circle ant-avatar-image"
           >
-            <div
-              class="ant-row ant-form-item"
+            <img
+              alt="Han Solo"
+              src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+            />
+          </span>
+        </div>
+        <div
+          class="ant-comment-content"
+        >
+          <div
+            class="ant-comment-content-author"
+          />
+          <div
+            class="ant-comment-content-detail"
+          >
+            <form
+              class="ant-form ant-form-horizontal"
             >
               <div
-                class="ant-form-item-control-wrapper"
+                class="ant-row ant-form-item"
               >
                 <div
-                  class="ant-form-item-control"
+                  class="ant-form-item-control-wrapper"
                 >
-                  <span
-                    class="ant-form-item-children"
+                  <div
+                    class="ant-form-item-control"
                   >
-                    <textarea
-                      class="ant-input"
-                      data-__field="[object Object]"
-                      data-__meta="[object Object]"
-                      id="message"
-                      rows="4"
-                    />
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div
-              class="ant-row ant-form-item"
-            >
-              <div
-                class="ant-form-item-control-wrapper"
-              >
-                <div
-                  class="ant-form-item-control"
-                >
-                  <span
-                    class="ant-form-item-children"
-                  >
-                    <button
-                      class="ant-btn ant-btn-primary"
-                      type="submit"
+                    <span
+                      class="ant-form-item-children"
                     >
-                      <span>
-                        Add Comment
-                      </span>
-                    </button>
-                  </span>
+                      <textarea
+                        class="ant-input"
+                        data-__field="[object Object]"
+                        data-__meta="[object Object]"
+                        id="message"
+                        rows="4"
+                      />
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
-          </form>
+              <div
+                class="ant-row ant-form-item"
+              >
+                <div
+                  class="ant-form-item-control-wrapper"
+                >
+                  <div
+                    class="ant-form-item-control"
+                  >
+                    <span
+                      class="ant-form-item-children"
+                    >
+                      <button
+                        class="ant-btn ant-btn-primary"
+                        type="submit"
+                      >
+                        <span>
+                          Add Comment
+                        </span>
+                      </button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
