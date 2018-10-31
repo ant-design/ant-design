@@ -24,7 +24,7 @@ and so on.
 | centered | Centered Modal | Boolean | `false` |
 | closable | Whether a close (x) button is visible on top right of the modal dialog or not | boolean | true |
 | confirmLoading | Whether to apply loading visual effect for OK button or not | boolean | false |
-| destroyOnClose | Whether to unmount child compenents on onClose | boolean | false |
+| destroyOnClose | Whether to unmount child components on onClose | boolean | false |
 | footer | Footer content, set as `footer={null}` when you don't need default buttons | string\|ReactNode | OK and Cancel buttons |
 | getContainer | Return the mount node for Modal | (instance): HTMLElement | () => document.body |
 | mask | Whether show mask or not. | Boolean | true |
