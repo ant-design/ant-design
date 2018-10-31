@@ -14,8 +14,6 @@ export interface CommentProps {
   content: React.ReactNode;
   /** Nested comments should be provided as children of the Comment */
   children?: any;
-  /** Optional ID for the comment */
-  id?: string;
   /** Comment prefix defaults to '.ant-comment' */
   prefixCls?: string;
   /** Additional style for the comment */
@@ -101,11 +99,9 @@ export default class Comment extends React.Component<CommentProps, {}> {
     );
 
     const comment = (
-      <div {...otherProps} className={classString} style={style}>
-        <div className={`${prefixCls}-inner`}>
-          {avatarDom}
-          {contentDom}
-        </div>
+      <div className={`${prefixCls}-inner`}>
+        {avatarDom}
+        {contentDom}
       </div>
     );
 
@@ -114,7 +110,7 @@ export default class Comment extends React.Component<CommentProps, {}> {
         .map(children, (child: React.ReactElement<any>) => this.renderNested(child));
 
     return (
-      <div>
+      <div {...otherProps} className={classString} style={style}>
         {comment}
         {nestedComments}
       </div>
