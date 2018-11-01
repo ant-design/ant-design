@@ -55,7 +55,7 @@ export interface SelectProps extends AbstractSelectProps {
   onDeselect?: (value: SelectValue) => any;
   onBlur?: (value: SelectValue) => void;
   onFocus?: () => void;
-  onPopupScroll?: () => any;
+  onPopupScroll?: (e: React.KeyboardEvent<HTMLInputElement>) => any;
   onInputKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   onMouseEnter?: (e: React.MouseEvent<HTMLInputElement>) => any;
   onMouseLeave?: (e: React.MouseEvent<HTMLInputElement>) => any;
