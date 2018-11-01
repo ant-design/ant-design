@@ -23,6 +23,10 @@ export interface CommentProps {
 }
 
 export default class Comment extends React.Component<CommentProps, {}> {
+  static defaultProps = {
+    prefixCls: 'ant-comment',
+  }
+
   getAction(actions: React.ReactNode[]) {
     if (!actions || !actions.length) {
       return null;
@@ -37,7 +41,7 @@ export default class Comment extends React.Component<CommentProps, {}> {
   }
 
   renderNested = (child: any) => {
-    const { prefixCls = 'ant-comment' } = this.props;
+    const { prefixCls } = this.props;
     const classString = classNames(`${prefixCls}-nested`);
 
     return (
@@ -55,13 +59,11 @@ export default class Comment extends React.Component<CommentProps, {}> {
       children,
       className,
       content,
-      prefixCls = 'ant-comment',
-      style = {},
+      prefixCls,
+      style,
       datetime,
       ...otherProps
     } = this.props;
-
-    const classString = classNames(prefixCls, className);
 
     const avatarDom = (
       <div className={`${prefixCls}-avatar`}>
@@ -110,7 +112,7 @@ export default class Comment extends React.Component<CommentProps, {}> {
         .map(children, (child: React.ReactElement<any>) => this.renderNested(child));
 
     return (
-      <div {...otherProps} className={classString} style={style}>
+      <div {...otherProps} className={classNames(prefixCls, className)} style={style}>
         {comment}
         {nestedComments}
       </div>
