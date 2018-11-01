@@ -30,7 +30,6 @@ function getOffsetTop(element: HTMLElement, container: AnchorContainer): number 
     }
     return rect.top - (container as HTMLElement).getBoundingClientRect().top;
   }
-
   return rect.top;
 }
 
@@ -91,7 +90,7 @@ export interface AnchorProps {
   affix?: boolean;
   showInkInFixed?: boolean;
   getContainer?: () => AnchorContainer;
-  onClick?: (e: React.MouseEvent<HTMLElement>, link: { title: React.ReactNode, href: string }) => void;
+  onClick?: (e: React.MouseEvent<HTMLElement>, link: { title: string, href: string }) => void;
 }
 
 export interface AnchorState {
@@ -110,7 +109,7 @@ export interface AntAnchor {
   unregisterLink: (link: string) => void;
   activeLink: string | null;
   scrollTo: (link: string) => void;
-  onClick?: (e: React.MouseEvent<HTMLElement>, link: { title: React.ReactNode, href: string }) => void;
+  onClick?: (e: React.MouseEvent<HTMLElement>, link: { title: string, href: string }) => void;
 }
 
 export default class Anchor extends React.Component<AnchorProps, AnchorState> {
@@ -127,12 +126,11 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
     antAnchor: PropTypes.object,
   };
 
-  state = {
+  state: AnchorState = {
     activeLink: null,
   };
 
   private inkNode: HTMLSpanElement;
-
   private links: string[] = [];
   private scrollEvent: any;
   private animating: boolean;
@@ -231,7 +229,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
     const anchorNode = ReactDOM.findDOMNode(this) as Element;
     const linkNode = anchorNode.getElementsByClassName(`${prefixCls}-link-title-active`)[0];
     if (linkNode) {
-      this.inkNode.style.top = `${(linkNode as any).offsetTop + linkNode.clientHeight / 2 - 4.5}px`;
+      this.inkNode.style.top = `${(linkNode as HTMLElement).offsetTop + linkNode.clientHeight / 2 - 4.5}px`;
     }
   }
 

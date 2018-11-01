@@ -6,13 +6,13 @@ import { AntAnchor } from './Anchor';
 export interface AnchorLinkProps {
   prefixCls?: string;
   href: string;
-  title: React.ReactNode;
-  children?: any;
+  title: string;
 }
 
-export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
+export default class AnchorLink extends React.Component<AnchorLinkProps, {}> {
   static defaultProps = {
     prefixCls: 'ant-anchor',
+    title: '',
     href: '#',
   };
 
@@ -68,7 +68,7 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
         <a
           className={titleClassName}
           href={href}
-          title={typeof title === 'string' ? title : ''}
+          title={title}
           onClick={this.handleClick}
         >
           {title}
