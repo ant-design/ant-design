@@ -30,6 +30,7 @@ title: Slider
 | vertical | 值为 `true` 时，Slider 为垂直方向 | Boolean | false |
 | onAfterChange | 与 `onmouseup` 触发时机一致，把当前值作为参数传入。 | Function(value) | NOOP |
 | onChange | 当 Slider 的值发生改变时，会触发 onChange 事件，并把改变后的值作为参数传入。 | Function(value) | NOOP |
+| tooltipVisible | 值为`true`时，Tooltip 将会始终显示；否则始终不显示，哪怕在拖拽及移入时。 | Boolean | |
 
 ## 方法
 

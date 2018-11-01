@@ -12,4 +12,15 @@ describe('Slider', () => {
     wrapper.find('.ant-slider-handle').at(0).simulate('mouseLeave');
     expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
   });
+
+  it('when tooltipVisible is true, tooltip should show always, or should never show', () => {
+    let wrapper = mount(<Slider defaultValue={30} tooltipVisible />);
+    expect(wrapper.find('.ant-tooltip-content').at(0).hasClass('ant-tooltip-hidden')).toBe(false);
+    wrapper.find('.ant-slider-handle').at(0).simulate('mouseEnter');
+    expect(wrapper.find('.ant-tooltip-content').at(0).hasClass('ant-tooltip-hidden')).toBe(false);
+    wrapper.find('.ant-slider-handle').at(0).simulate('click');
+    expect(wrapper.find('.ant-tooltip-content').at(0).hasClass('ant-tooltip-hidden')).toBe(false);
+    wrapper = mount(<Slider defaultValue={30} tooltipVisible={false} />);
+    expect(wrapper.find('.ant-tooltip-content').length).toBe(0);
+  });
 });
