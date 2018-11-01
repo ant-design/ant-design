@@ -42,7 +42,7 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| column | column of grid | number | - |
+| column | column of grid, [optional number](https://github.com/ant-design/ant-design/blob/a7f17b4cdebbca07b3b9ce5698de61e772d46237/components/list/index.tsx#L16) | number | - |
 | gutter | spacing between grid | number | 0 |
 | size | Size of list | `default` \| `middle` \| `small` | `default` |
 | xs | `<576px` column of grid | number | - |
