@@ -55,6 +55,10 @@
     &-submenu-popup {
       position: absolute;
       z-index: @zindex-dropdown;
+
+      > .@{dropdown-prefix-cls}-menu {
+        transform-origin: 0 0;
+      }
     }
 
     &-item,

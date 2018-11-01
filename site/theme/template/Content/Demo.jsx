@@ -26,18 +26,10 @@ export default class Demo extends React.Component {
 
   state = {
     codeExpand: false,
-    sourceCode: '',
     copied: false,
     copyTooltipVisible: false,
     showRiddleButton: false,
   };
-
-  componentWillReceiveProps(nextProps) {
-    const { highlightedCode } = nextProps;
-    const div = document.createElement('div');
-    div.innerHTML = highlightedCode[1].highlighted;
-    this.setState({ sourceCode: div.textContent });
-  }
 
   shouldComponentUpdate(nextProps, nextState) {
     const { codeExpand, copied, copyTooltipVisible } = this.state;
@@ -52,7 +44,6 @@ export default class Demo extends React.Component {
     if (meta.id === location.hash.slice(1)) {
       this.anchor.click();
     }
-    this.componentWillReceiveProps(this.props);
 
     this.pingTimer = ping((status) => {
       if (status !== 'timeout' && status !== 'error') {
@@ -61,6 +52,16 @@ export default class Demo extends React.Component {
         });
       }
     });
+  }
+
+  getSourceCode() {
+    const { highlightedCode } = this.props;
+    if (typeof document !== 'undefined') {
+      const div = document.createElement('div');
+      div.innerHTML = highlightedCode[1].highlighted;
+      return div.textContent;
+    }
+    return '';
   }
 
   handleCodeExpand = () => {
@@ -130,10 +131,12 @@ export default class Demo extends React.Component {
   var mountNode = document.getElementById('container');
 </script>`;
 
+    const sourceCode = this.getSourceCode();
+
     const codepenPrefillConfig = {
       title: `${localizedTitle} - Ant Design Demo`,
       html,
-      js: state.sourceCode
+      js: sourceCode
         .replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'antd';/, 'const { $1 } = antd;')
         .replace("import moment from 'moment';", ''),
       css: prefillStyle,
@@ -149,10 +152,10 @@ export default class Demo extends React.Component {
     };
     const riddlePrefillConfig = {
       title: `${localizedTitle} - Ant Design Demo`,
-      js: state.sourceCode,
+      js: sourceCode,
       css: prefillStyle,
     };
-    const dependencies = state.sourceCode.split('\n').reduce((acc, line) => {
+    const dependencies = sourceCode.split('\n').reduce((acc, line) => {
       const matches = line.match(/import .+? from '(.+)';$/);
       if (matches && matches[1]) {
         acc[matches[1]] = 'latest';
@@ -175,7 +178,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
 import './index.css';
-${state.sourceCode.replace('mountNode', 'document.getElementById(\'container\')')}
+${sourceCode.replace('mountNode', 'document.getElementById(\'container\')')}
           `,
         },
         'index.html': {
@@ -247,7 +250,7 @@ ${state.sourceCode.replace('mountNode', 'document.getElementById(\'container\')'
                 </Tooltip>
               </form>
               <CopyToClipboard
-                text={state.sourceCode}
+                text={sourceCode}
                 onCopy={this.handleCodeCopied}
               >
                 <Tooltip
