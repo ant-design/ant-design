@@ -1,17 +1,17 @@
 ---
 order: 1
 title:
-  zh-CN: 用法用名单
+  zh-CN: 配合 List 组件
   en-US: Usage with list
 ---
 
 ## zh-CN
 
-基本评论使用`antd` List组件来呈现一系列注释。
+配合 List 组件展现评论列表。
 
 ## en-US
 
-A basic comment used with `antd` List component to render a series of comments.
+Displaying a series of comments using the `antd` List Component.
 
 ````jsx
 import { Comment, Tooltip, List } from 'antd';
