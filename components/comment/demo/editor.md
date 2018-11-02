@@ -60,6 +60,10 @@ class App extends React.Component {
   }
 
   handleSubmit = () => {
+    if (!this.state.value) {
+      return;
+    }
+
     this.setState({
       submitting: true,
     });
