@@ -5,11 +5,11 @@ title: Comment
 cols: 1
 ---
 
-Single comment component.
+A comment displays user feedback and discussion to website content.
 
 ## When To Use
 
-Comments can be used to enable discussions on an entity for example page, blog post, issue or other.
+Comments can be used to enable discussions on an entity such as a page, blog post, issue or other.
 
 ## API
 

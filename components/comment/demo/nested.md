@@ -2,16 +2,16 @@
 order: 2
 title:
   zh-CN: 嵌套评论
-  en-US: Nested comment
+  en-US: Nested comments
 ---
 
 ## zh-CN
 
-评论可以嵌套
+评论可以嵌套。
 
 ## en-US
 
-Comment can be nested
+Comments can be nested.
 
 ````jsx
 import { Comment, Avatar } from 'antd';
@@ -39,6 +39,5 @@ ReactDOM.render(
       <ExampleComment />
     </ExampleComment>
   </ExampleComment>,
-  mountNode
-);
+  mountNode);
 ````
