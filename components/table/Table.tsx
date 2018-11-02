@@ -358,6 +358,17 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     };
   }
 
+  isSameColumn(a: ColumnProps<T> | null, b: ColumnProps<T> | null) {
+    if (a && b && a.key && a.key === b.key) {
+      return true;
+    }
+    return a === b || shallowEqual(a, b, (value: any, other: any) => {
+      if (typeof value === 'function' && typeof other === 'function') {
+        return value === other || value.toString() === other.toString();
+      }
+    });
+  }
+
   toggleSortOrder(column: ColumnProps<T>) {
     if (!column.sorter) {
       return;
@@ -366,8 +377,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     // 只同时允许一列进行排序，否则会导致排序顺序的逻辑问题
     let newSortOrder: 'descend' | 'ascend' | undefined;
     // 切换另一列时，丢弃 sortOrder 的状态
-    const oldSortOrder = (sortColumn === column || shallowEqual(sortColumn, column))
-      ? sortOrder : undefined;
+    const oldSortOrder = this.isSameColumn(sortColumn, column) ? sortOrder : undefined;
     // 切换排序状态，按照降序/升序/不排序的顺序
     if (!oldSortOrder) {
       newSortOrder = 'descend';

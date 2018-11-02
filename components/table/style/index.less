@@ -205,7 +205,7 @@
     transition: all .3s, height 0s;
     &.@{table-prefix-cls}-row-hover,
     &:hover {
-      & > td {
+      &:not(.@{table-prefix-cls}-expanded-row) > td {
         background: @table-row-hover-bg;
       }
     }
@@ -546,6 +546,10 @@
     &,
     &:hover {
       background: @table-expanded-row-bg;
+    }
+
+    .@{table-prefix-cls}-wrapper {
+      margin: -@table-padding-vertical -@table-padding-horizontal -@table-padding-vertical - 1px;
     }
   }
 
