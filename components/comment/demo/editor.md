@@ -20,70 +20,46 @@ import moment from 'moment';
 const FormItem = Form.Item;
 const TextArea = Input.TextArea;
 
-function hasErrors(fieldsError) {
-  return Object.keys(fieldsError).some(field => fieldsError[field]);
-}
-
-function CommentList({ comments }) {
+const CommentList = ({ comments }) => {
   return (
     <List
+      dataSource={comments}
       header={`${comments.length} ${comments.length > 1 ? 'replies' : 'reply'}`}
       itemLayout="horizontal"
-      dataSource={comments}
       renderItem={props => <Comment {...props} />}
     />
   );
-}
+};
 
-class Editor extends React.Component {
-  handleSubmit = (e) => {
-    e.preventDefault();
-    this.props.form.validateFields((err, values) => {
-      if (!err) {
-        this.props.onSubmit(
-          values,
-          () => this.props.form.resetFields()
-        );
-      }
-    });
-  }
-
-  render() {
-    const { getFieldDecorator, getFieldsError } = this.props.form;
-
-    return (
-      <Form onSubmit={this.handleSubmit}>
-        <FormItem>
-          {getFieldDecorator('message', {
-            rules: [{ required: true, message: 'Please input your message!' }],
-          })(
-            <TextArea rows={4} />
-          )}
-        </FormItem>
-        <FormItem>
-          <Button
-            disabled={hasErrors(getFieldsError())}
-            htmlType="submit"
-            loading={this.props.submitting}
-            type="primary"
-          >
-            Add Comment
-          </Button>
-        </FormItem>
-      </Form>
-    );
-  }
-}
-
-const EditorForm = Form.create()(Editor);
+const Editor = ({ onChange, onSubmit, submitting, value }) => {
+  return (
+    <div>
+      <FormItem>
+        <TextArea rows={4} onChange={onChange} value={value} />
+      </FormItem>
+      <FormItem>
+        <Button
+          disabled={submitting}
+          htmlType="submit"
+          loading={submitting}
+          onClick={onSubmit}
+          type="primary"
+        >
+          Add Comment
+        </Button>
+      </FormItem>
+    </div>
+  );
+};
 
 class App extends React.Component {
   state = {
     comments: [],
     submitting: false,
+    value: '',
   }
 
-  handleSubmit = (values, cb) => {
+  handleSubmit = () => {
     this.setState({
       submitting: true,
     });
@@ -91,28 +67,32 @@ class App extends React.Component {
     setTimeout(() => {
       this.setState({
         submitting: false,
+        value: '',
         comments: [
           {
             author: 'Han Solo',
             avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-            content: values.message,
+            content: this.state.value,
             datetime: moment().fromNow(),
           },
           ...this.state.comments,
         ],
       });
-      if (cb) cb();
     }, 1000);
   }
 
+  handleChange = (e) => {
+    this.setState({
+      value: e.target.value,
+    });
+  }
+
   render() {
+    const { comments, submitting, value } = this.state;
+
     return (
       <div>
-        {this.state.comments.length > 0 && (
-          <CommentList
-            comments={this.state.comments}
-          />
-        )}
+        {comments.length > 0 && <CommentList comments={comments} />}
         <Comment
           avatar={(
             <Avatar
@@ -121,9 +101,11 @@ class App extends React.Component {
             />
           )}
           content={(
-            <EditorForm
-              submitting={this.state.submitting}
+            <Editor
+              onChange={this.handleChange}
               onSubmit={this.handleSubmit}
+              submitting={submitting}
+              value={value}
             />
           )}
         />
