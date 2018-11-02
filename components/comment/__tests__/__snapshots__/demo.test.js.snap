@@ -480,10 +480,6 @@ exports[`renders ./components/comment/demo/nested.md correctly 1`] = `
             </div>
           </div>
         </div>
-      </div>
-      <div
-        class="ant-comment-nested"
-      >
         <div
           class="ant-comment"
         >
