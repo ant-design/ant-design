@@ -142,9 +142,7 @@ exports[`renders ./components/comment/demo/editor.md correctly 1`] = `
         <div
           class="ant-comment-content-detail"
         >
-          <form
-            class="ant-form ant-form-horizontal"
-          >
+          <div>
             <div
               class="ant-row ant-form-item"
             >
@@ -159,9 +157,6 @@ exports[`renders ./components/comment/demo/editor.md correctly 1`] = `
                   >
                     <textarea
                       class="ant-input"
-                      data-__field="[object Object]"
-                      data-__meta="[object Object]"
-                      id="message"
                       rows="4"
                     />
                   </span>
@@ -192,7 +187,7 @@ exports[`renders ./components/comment/demo/editor.md correctly 1`] = `
                 </div>
               </div>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>
