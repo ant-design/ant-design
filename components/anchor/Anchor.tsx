@@ -90,18 +90,11 @@ export interface AnchorProps {
   affix?: boolean;
   showInkInFixed?: boolean;
   getContainer?: () => AnchorContainer;
-  onClick?: (e: React.MouseEvent<HTMLElement>, link: { title: string, href: string }) => void;
+  onClick?: (e: React.MouseEvent<HTMLElement>, link: { title: React.ReactNode, href: string }) => void;
 }
 
 export interface AnchorState {
   activeLink: null | string;
-}
-
-export interface AnchorDefaultProps extends AnchorProps {
-  prefixCls: string;
-  affix: boolean;
-  showInkInFixed: boolean;
-  getContainer: () => AnchorContainer;
 }
 
 export interface AntAnchor {
@@ -109,7 +102,7 @@ export interface AntAnchor {
   unregisterLink: (link: string) => void;
   activeLink: string | null;
   scrollTo: (link: string) => void;
-  onClick?: (e: React.MouseEvent<HTMLElement>, link: { title: string, href: string }) => void;
+  onClick?: (e: React.MouseEvent<HTMLElement>, link: { title: React.ReactNode, href: string }) => void;
 }
 
 export default class Anchor extends React.Component<AnchorProps, AnchorState> {
@@ -156,8 +149,8 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
   }
 
   componentDidMount() {
-    const { getContainer } = this.props as AnchorDefaultProps;
-    this.scrollEvent = addEventListener(getContainer(), 'scroll', this.handleScroll);
+    const { getContainer } = this.props;
+    this.scrollEvent = addEventListener((getContainer!)(), 'scroll', this.handleScroll);
     this.handleScroll();
   }
 
@@ -182,23 +175,22 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
   }
 
   handleScrollTo = (link: string) => {
-    const { offsetTop, getContainer } = this.props as AnchorDefaultProps;
+    const { offsetTop, getContainer } = this.props;
     this.animating = true;
     this.setState({ activeLink: link });
-    scrollTo(link, offsetTop, getContainer, () => {
+    scrollTo(link, offsetTop, getContainer!, () => {
       this.animating = false;
     });
   }
 
   getCurrentAnchor(offsetTop = 0, bounds = 5): string {
-    let activeLink = '';
     if (typeof document === 'undefined') {
-      return activeLink;
+      return '';
     }
 
     const linkSections: Array<Section> = [];
-    const { getContainer } = this.props as AnchorDefaultProps;
-    const container = getContainer();
+    const { getContainer } = this.props;
+    const container = (getContainer!)();
     this.links.forEach(link => {
       const sharpLinkMatch = sharpMatcherRegx.exec(link.toString());
       if (!sharpLinkMatch) { return; }
