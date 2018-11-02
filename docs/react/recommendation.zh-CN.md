@@ -18,7 +18,7 @@ title: 社区精选组件
 页面 meta 属性 | [react-helmet](https://github.com/nfl/react-helmet) [react-document-title](https://github.com/gaearon/react-document-title)
 图标 | [react-fa](https://github.com/andreypopp/react-fa) [react-icons](https://github.com/gorangajic/react-icons)
 二维码  | [qrcode.react](https://github.com/zpao/qrcode.react)
-可视化图表 | [BizCharts](https://github.com/alibaba/BizCharts) [recharts](https://github.com/recharts/recharts/) [victory](https://github.com/FormidableLabs/victory)
+可视化图表 | [BizCharts](https://github.com/alibaba/BizCharts) [recharts](https://github.com/recharts/recharts/) [victory](https://github.com/FormidableLabs/victory) [GGEditor](https://github.com/gaoli/GGEditor)
 顶部进度条 | [nprogress](https://github.com/rstacruz/nprogress)
 应用国际化 | [react-intl](https://github.com/yahoo/react-intl)
 代码高亮 | [react-syntax-highlighter](https://github.com/conorhastings/react-syntax-highlighter)
