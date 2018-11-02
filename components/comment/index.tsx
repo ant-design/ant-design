@@ -40,13 +40,12 @@ export default class Comment extends React.Component<CommentProps, {}> {
     return actionList;
   }
 
-  renderNested = (child: any) => {
+  renderNested = (children: any) => {
     const { prefixCls } = this.props;
-    const classString = classNames(`${prefixCls}-nested`);
 
     return (
-      <div key={child.key} className={classString}>
-        {child}
+      <div className={classNames(`${prefixCls}-nested`)}>
+        {children}
       </div>
     );
   }
@@ -107,14 +106,10 @@ export default class Comment extends React.Component<CommentProps, {}> {
       </div>
     );
 
-    const nestedComments =
-      React.Children
-        .map(children, (child: React.ReactElement<any>) => this.renderNested(child));
-
     return (
       <div {...otherProps} className={classNames(prefixCls, className)} style={style}>
         {comment}
-        {nestedComments}
+        {children ? this.renderNested(children) : null}
       </div>
     );
   }
