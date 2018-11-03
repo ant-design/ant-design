@@ -19,6 +19,7 @@ Document head manager | [react-helmet](https://github.com/nfl/react-helmet) [rea
 Icons | [react-fa](https://github.com/andreypopp/react-fa) [react-icons](https://github.com/gorangajic/react-icons)
 QR Code | [qrcode.react](https://github.com/zpao/qrcode.react)
 Charts | [BizCharts](https://github.com/alibaba/BizCharts) [recharts](https://github.com/recharts/recharts/) [victory](https://github.com/FormidableLabs/victory)
+Visual Graph Editor | [GGEditor](https://github.com/gaoli/GGEditor)
 Top Progress Bar | [nprogress](https://github.com/rstacruz/nprogress)
 i18n | [react-intl](https://github.com/yahoo/react-intl)
 Code highlight | [react-syntax-highlighter](https://github.com/conorhastings/react-syntax-highlighter)
