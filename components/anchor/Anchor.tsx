@@ -150,7 +150,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
 
   componentDidMount() {
     const { getContainer } = this.props;
-    this.scrollEvent = addEventListener((getContainer!)(), 'scroll', this.handleScroll);
+    this.scrollEvent = addEventListener(getContainer!(), 'scroll', this.handleScroll);
     this.handleScroll();
   }
 
@@ -190,7 +190,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
 
     const linkSections: Array<Section> = [];
     const { getContainer } = this.props;
-    const container = (getContainer!)();
+    const container = getContainer!();
     this.links.forEach(link => {
       const sharpLinkMatch = sharpMatcherRegx.exec(link.toString());
       if (!sharpLinkMatch) { return; }
