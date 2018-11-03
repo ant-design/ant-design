@@ -15,6 +15,26 @@ timeline: true
 
 ---
 
+## 3.10.4
+
+`2018-11-03`
+
+- 🌟 Support custom modal header style through less variable `@modal-header-bg`. [#12914](https://github.com/ant-design/ant-design/issues/12914)
+- 🐞 Fixed mask style not working for Modal.mehtod. [#12688](https://github.com/ant-design/ant-design/issues/12688)
+- 🐞 Fixed Checkbox missing check mark inside table in IE 11. [#12597](https://github.com/ant-design/ant-design/issues/12597)
+- 🐞 Fixed FormItem having different height with help info. [#12803](https://github.com/ant-design/ant-design/issues/12803)
+- 🐞 Fixed Divider expands Popover card width under Chrome. [#10914](https://github.com/ant-design/ant-design/issues/10914)
+- 🐞 Fixed Avatar content not aligned in Popover. [#10917](https://github.com/ant-design/ant-design/issues/#10917)
+- Button
+  - 🐞 Fixed unable to find node on unmounted components error. [#12843](https://github.com/ant-design/ant-design/issues/12843) 
+  - 🐞 Fixed icon margin style. [546c59a](https://github.com/ant-design/ant-design/commit/546c59a4c1a6b482afecbcb4a3cb1e385c0bbdb6)
+- Table
+  - 🐞 Fixed sorter issue when render function is present in column. [#12870](https://github.com/ant-design/ant-design/issues/12870) [#12737](https://github.com/ant-design/ant-design/issues/12737)
+  - 🐞 Fixed fixed-columns border issue. [#9687](https://github.com/ant-design/ant-design/issues/9687)
+- TypeScript
+  - 🐞 Fixed Select `onPopupScroll` props definition. [#12913](https://github.com/ant-design/ant-design/pull/12913)
+  - 🐞 Fixed `onFocus` and `onBlur` missing in AutoComplete props. [@muzea](https://github.com/muzea) [#12793](https://github.com/ant-design/ant-design/issues/12793);
+
 ## 3.10.3
 
 `2018-10-27`
