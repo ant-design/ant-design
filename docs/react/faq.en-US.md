@@ -108,8 +108,9 @@ If you need some features which should not be included in antd, try to extend an
 
 ### How to spell Ant Design correctly?
 
-- ✅ **Ant Design**: Capitalized with space, for the design language
-- ✅ **antd**: all lowercase, for the React UI library
+- ✅ **Ant Design**: Capitalized with space, for the design language.
+- ✅ **antd**: all lowercase, for the React UI library.
+- ✅ **ant.design**：For ant.design website url.
 
 Here are some typical wrong examples:
 
