@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 步骤条
-type: Navigation
+type: 导航
 cols: 1
 title: Steps
 ---

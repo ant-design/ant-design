@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Data Display
+type: 数据展示
 title: List
 subtitle: 列表
 cols: 1

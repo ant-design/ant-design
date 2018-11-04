@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 时间选择框
-type: Data Entry
+type: 数据录入
 title: TimePicker
 ---
 

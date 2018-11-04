@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 气泡卡片
-type: Data Display
+type: 数据展示
 title: Popover
 ---
 
