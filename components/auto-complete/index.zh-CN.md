@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 自动完成
-type: Data Entry
+type: 数据录入
 cols: 2
 title: AutoComplete
 ---

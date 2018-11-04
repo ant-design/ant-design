@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 骨架屏
-type: Feedback
+type: 反馈
 title: Skeleton
 cols: 1
 ---

@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Feedback
+type: 反馈
 title: Spin
 subtitle: 加载中
 ---

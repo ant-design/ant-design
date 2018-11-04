@@ -92,8 +92,17 @@ ReactDOM.render(<LinksList />, mountNode);
 - [美团](http://www.meituan.com)
 - [滴滴](http://www.xiaojukeji.com/)
 - [饿了么](https://www.ele.me/)
+- [其他用户](https://github.com/ant-design/ant-design/issues/477)
 
 > 如果你的公司和产品使用了 Ant Design，欢迎到 [这里](https://github.com/ant-design/ant-design/issues/477) 留言。
+
+## 社区评价
+
+- 知乎：[如何评价 Ant Design 这个项目？](https://www.zhihu.com/question/33629737)
+- Hacknews: [Show HN: Antd – A set of high-quality React components](https://news.ycombinator.com/item?id=13053137)
+- Alligator: [Crafting Beautiful UIs in React Using Ant Design](https://alligator.io/react/beautiful-uis-ant-design/)
+- Hackernoon: [Interesting JavaScript Libraries born in China](https://hackernoon.com/interesting-javascript-libraries-born-in-china-d50d1bb81355)
+- [漫谈 Material Design & Ant Design](http://dwbbb.com/blog/MaterialDesignAntDesign/)
 
 ## 如何贡献
 

@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 分页
-type: Navigation
+type: 导航
 title: Pagination
 cols: 1
 ---

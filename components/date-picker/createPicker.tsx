@@ -30,17 +30,20 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
       showToday: true,
     };
 
-    static getDerivedStateFromProps(nextProps: PickerProps, prevState: any) {
+    static getDerivedStateFromProps(nextProps: PickerProps, prevState: PickerState) {
       const state: Partial<PickerState> = {};
+      let open: boolean = prevState.open;
+
       if ('open' in nextProps) {
         state.open = nextProps.open;
+        open = nextProps.open || false;
       }
       if ('value' in nextProps) {
         state.value = nextProps.value;
 
         if (
           nextProps.value !== prevState.value ||
-          (!nextProps.open && nextProps.value !== prevState.showDate)
+          (!open && nextProps.value !== prevState.showDate)
         ) {
           state.showDate = nextProps.value;
         }

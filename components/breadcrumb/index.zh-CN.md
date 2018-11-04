@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 面包屑
-type: Navigation
+type: 导航
 title: Breadcrumb
 ---
 

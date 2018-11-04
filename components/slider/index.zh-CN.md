@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 滑动输入条
-type: Data Entry
+type: 数据录入
 title: Slider
 ---
 
