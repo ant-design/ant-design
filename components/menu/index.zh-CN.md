@@ -1,7 +1,7 @@
 ---
 category: Components
 cols: 1
-type: Navigation
+type: 导航
 title: Menu
 subtitle: 导航菜单
 ---

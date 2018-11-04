@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 选择器
-type: Data Entry
+type: 数据录入
 title: Select
 ---
 
