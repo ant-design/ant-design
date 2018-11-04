@@ -106,8 +106,9 @@ import { Menu, Breadcrumb, Icon } from 'antd';
 
 ### 如何正确的拼写 Ant Design？
 
-- ✅ **Ant Design**：用空格分隔的首字母大写单词，指代设计语言
-- ✅ **antd**：全小写，指代 React UI 组件库
+- ✅ **Ant Design**：用空格分隔的首字母大写单词，指代设计语言。
+- ✅ **antd**：全小写，指代 React UI 组件库。
+- ✅ **ant.design**：特指 ant.design 网站网址。
 
 下面是一些典型的错误例子：
 
