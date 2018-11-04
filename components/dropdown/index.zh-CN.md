@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 下拉菜单
-type: Navigation
+type: 导航
 title: Dropdown
 ---
 

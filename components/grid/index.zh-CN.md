@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 栅格
-type: Layout
+type: 布局
 cols: 1
 title: Grid
 ---

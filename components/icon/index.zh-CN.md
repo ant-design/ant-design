@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 图标
-type: General
+type: 通用
 title: Icon
 toc: false
 ---

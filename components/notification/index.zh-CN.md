@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Feedback
+type: 反馈
 noinstant: true
 title: Notification
 subtitle: 通知提醒框
