@@ -6,8 +6,12 @@ import Progress from '../progress';
 import classNames from 'classnames';
 import { UploadListProps, UploadFile, UploadListType } from './interface';
 
+const imageTypes: string[] = ['image', 'webp', 'png', 'svg', 'gif', 'jpg', 'jpeg', 'bmp'];
 // https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
 const previewFile = (file: File, callback: Function) => {
+  if (file.type && !imageTypes.includes(file.type)) {
+    callback('');
+  }
   const reader = new FileReader();
   reader.onloadend = () => callback(reader.result);
   reader.readAsDataURL(file);
@@ -22,7 +26,6 @@ const extname = (url: string) => {
   const filenameWithoutSuffix = filename.split(/#|\?/)[0];
   return (/\.[^./\\]*$/.exec(filenameWithoutSuffix) || [''])[0];
 };
-const imageTypes: string[] = ['image', 'webp', 'png', 'svg', 'gif', 'jpg', 'jpeg', 'bmp'];
 const isImageUrl = (file: UploadFile): boolean => {
   if (imageTypes.includes(file.type)) {
     return true;
@@ -76,8 +79,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
           typeof window === 'undefined' ||
           !(window as any).FileReader || !(window as any).File ||
           !(file.originFileObj instanceof File) ||
-          file.thumbUrl !== undefined ||
-          !imageTypes.includes(file.type)) {
+          file.thumbUrl !== undefined) {
         return;
       }
       /*eslint-disable */
