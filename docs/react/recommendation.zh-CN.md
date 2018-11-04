@@ -31,6 +31,8 @@ Emoji | [emoji-mart](https://github.com/missive/emoji-mart)
 分割面板 | [react-split-pane](https://github.com/tomkp/react-split-pane)
 图片裁切 | [react-image-crop](https://github.com/DominicTobias/react-image-crop)
 趋势线 | [react-sparklines](https://github.com/borisyankov/react-sparklines)
+格式化输入 | [text-mask](https://github.com/text-mask/text-mask)
+动画 | [react-move](https://github.com/react-tools/react-move) [Ant Motion](https://motion.ant.design/components/tween-one)
 
 <style>
 .markdown table td:first-child {
