@@ -76,7 +76,8 @@ export default class UploadList extends React.Component<UploadListProps, any> {
           typeof window === 'undefined' ||
           !(window as any).FileReader || !(window as any).File ||
           !(file.originFileObj instanceof File) ||
-          file.thumbUrl !== undefined) {
+          file.thumbUrl !== undefined ||
+          !imageTypes.includes(file.type)) {
         return;
       }
       /*eslint-disable */
