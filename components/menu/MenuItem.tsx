@@ -3,7 +3,15 @@ import { Item } from 'rc-menu';
 import * as PropTypes from 'prop-types';
 import Tooltip from '../tooltip';
 
-class MenuItem extends React.Component<any, any> {
+interface MenuItemProps {
+  rootPrefixCls?: string;
+  disabled?: boolean;
+  level?: number;
+  title?: React.ReactNode;
+  children?: React.ReactNode;
+}
+
+class MenuItem extends React.Component<MenuItemProps, any> {
   static contextTypes = {
     inlineCollapsed: PropTypes.bool,
   };
@@ -17,14 +25,20 @@ class MenuItem extends React.Component<any, any> {
   }
   render() {
     const { inlineCollapsed } = this.context;
-    const props = this.props;
+    const { title, level, children, rootPrefixCls } = this.props;
+
+    let titleNode;
+    if (inlineCollapsed) {
+      titleNode = title || (level === 1 ? children : '');
+    }
+
     return (
       <Tooltip
-        title={inlineCollapsed && props.level === 1 ? props.children : ''}
+        title={titleNode}
         placement="right"
-        overlayClassName={`${props.rootPrefixCls}-inline-collapsed-tooltip`}
+        overlayClassName={`${rootPrefixCls}-inline-collapsed-tooltip`}
       >
-        <Item {...props} ref={this.saveMenuItem} />
+        <Item {...this.props} ref={this.saveMenuItem} />
       </Tooltip>
     );
   }
