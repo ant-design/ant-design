@@ -30,8 +30,8 @@ title: Steps
 | --- | --- | --- | --- |
 | current | 指定当前步骤，从 0 开始记数。在子 Step 元素中，可以通过 `status` 属性覆盖状态 | number | 0 |
 | direction | 指定步骤条方向。目前支持水平（`horizontal`）和竖直（`vertical`）两种方向 | string | horizontal |
-| labelPlacement | 指定标签放置位置，默认水平放图标右侧，可选`vertical`放图标下方 | string | `horizontal` |
-| progressDot | 点状步骤条，可以设置为一个 function,labelPlacement 将强制为`vertical` | Boolean or (iconDot, {index, status, title, description}) => ReactNode | false |
+| labelPlacement | 指定标签放置位置，默认水平放图标右侧，可选 `vertical` 放图标下方 | string | `horizontal` |
+| progressDot | 点状步骤条，可以设置为一个 function，labelPlacement 将强制为 `vertical` | Boolean or (iconDot, {index, status, title, description}) => ReactNode | false |
 | size | 指定大小，目前支持普通（`default`）和迷你（`small`） | string | default |
 | status | 指定当前步骤的状态，可选 `wait` `process` `finish` `error` | string | process |
 | initial | 起始序号，从 0 开始记数 | number | 0 |
