@@ -25,7 +25,8 @@ class MenuItem extends React.Component<MenuItemProps, any> {
   }
   render() {
     const { inlineCollapsed } = this.context;
-    const { title, level, children, rootPrefixCls } = this.props;
+    const { level, children, rootPrefixCls } = this.props;
+    const { title, ...rest } = this.props;
 
     let titleNode;
     if (inlineCollapsed) {
@@ -38,7 +39,7 @@ class MenuItem extends React.Component<MenuItemProps, any> {
         placement="right"
         overlayClassName={`${rootPrefixCls}-inline-collapsed-tooltip`}
       >
-        <Item {...this.props} ref={this.saveMenuItem} />
+        <Item {...rest} title={inlineCollapsed ? null : title} ref={this.saveMenuItem} />
       </Tooltip>
     );
   }
