@@ -62,7 +62,7 @@ class Demo extends React.Component {
       value: this.state.value,
       onChange: this.onChange,
       treeCheckable: true,
-      showCheckedStrategy: SHOW_PARENT,
+      showCheckedStrategy: SHOW_ALL,
       searchPlaceholder: 'Please select',
       style: {
         width: 300,
