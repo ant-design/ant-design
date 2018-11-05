@@ -103,7 +103,6 @@ module.exports = {
   },
   doraConfig: {
     verbose: true,
-    plugins: ['dora-plugin-upload'],
   },
   webpackConfig(config) {
     config.resolve.alias = {
