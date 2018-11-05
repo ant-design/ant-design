@@ -113,6 +113,7 @@
     "commander": "^2.18.0",
     "cross-env": "^5.2.0",
     "css-split-webpack-plugin": "^0.2.6",
+    "danger": "^6.0.2",
     "dekko": "^0.2.1",
     "delegate": "^3.2.0",
     "docsearch.js": "^2.5.2",
