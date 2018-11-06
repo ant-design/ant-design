@@ -26,6 +26,8 @@ import { Layout, Menu, Breadcrumb, Icon, ConfigProvider } from 'antd';
 const { Header, Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 
+// 代码中 ConfigProvider 仅用于官网示例修正使用，你的代码并不需要用到 setContainerRef, getPopupContainer 和 ConfigProvider。删除即可。
+// `ConfigProvider` in sample is only for site demo fix usag, your real code needn't use setContainerRef, getPopupContainer & ConfigProvider. Just remove them.
 class SiderDemo extends React.Component {
   state = {
     collapsed: false,
@@ -46,6 +48,8 @@ class SiderDemo extends React.Component {
     return (
       <ConfigProvider getPopupContainer={this.getPopupContainer}>
         <Layout style={{ minHeight: '100vh' }}>
+
+          {/* 真实代码中请删除下行(Real coding please remove follow line) */}
           <div ref={this.setContainerRef} />
 
           <Sider
