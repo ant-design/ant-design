@@ -18,7 +18,7 @@ const CopyableIcon: React.SFC<CopyableIconProps> = ({
 }) => {
   return (
     <CopyToClipboard
-      text={`<Icon type="${type}" theme="${theme}" />`}
+      text={theme === 'outlined' ? <Icon type="${type}" /> : `<Icon type="${type}" theme="${theme}" />`}
       onCopy={() => onCopied(type)}
     >
       <li className={justCopied === type ? 'copied' : ''}>
