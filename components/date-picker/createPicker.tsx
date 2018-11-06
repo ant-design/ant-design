@@ -12,25 +12,43 @@ import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 
 export interface PickerProps {
   value?: moment.Moment;
+  open?: boolean;
   prefixCls: string;
 }
 
+export interface PickerState {
+  open: boolean;
+  value: moment.Moment | null;
+  showDate: moment.Moment | null;
+}
+
 export default function createPicker(TheCalendar: React.ComponentClass): any {
-  class CalenderWrapper extends React.Component<any, any> {
+  class CalenderWrapper extends React.Component<any, PickerState> {
     static defaultProps = {
       prefixCls: 'ant-calendar',
       allowClear: true,
       showToday: true,
     };
 
-    static getDerivedStateFromProps(nextProps: PickerProps) {
-      if ('value' in nextProps) {
-        return {
-          value: nextProps.value,
-          showDate: nextProps.value,
-        };
+    static getDerivedStateFromProps(nextProps: PickerProps, prevState: PickerState) {
+      const state: Partial<PickerState> = {};
+      let open: boolean = prevState.open;
+
+      if ('open' in nextProps) {
+        state.open = nextProps.open;
+        open = nextProps.open || false;
       }
-      return null;
+      if ('value' in nextProps) {
+        state.value = nextProps.value;
+
+        if (
+          nextProps.value !== prevState.value ||
+          (!open && nextProps.value !== prevState.showDate)
+        ) {
+          state.showDate = nextProps.value;
+        }
+      }
+      return state;
     }
 
     private input: any;
@@ -47,6 +65,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
       this.state = {
         value,
         showDate: value,
+        open: false,
       };
     }
 
@@ -74,11 +93,23 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
         });
       }
       props.onChange(value, (value && value.format(props.format)) || '');
+      this.focus();
     }
 
     handleCalendarChange = (value: moment.Moment) => {
       this.setState({ showDate: value });
     }
+
+    handleOpenChange = (open: boolean) => {
+      const { onOpenChange } = this.props;
+      if (!('open' in this.props)) {
+        this.setState({ open });
+      }
+
+      if (onOpenChange) {
+        onOpenChange(open);
+      }
+    };
 
     focus() {
       this.input.focus();
@@ -93,9 +124,9 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
     }
 
     render() {
-      const { value, showDate } = this.state;
+      const { value, showDate, open } = this.state;
       const props = omit(this.props, ['onChange']);
-      const { prefixCls, locale, localeCode } = props;
+      const { prefixCls, locale, localeCode, suffixIcon } = props;
 
       const placeholder = ('placeholder' in props)
         ? props.placeholder : locale.lang.placeholder;
@@ -113,11 +144,13 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
 
       let pickerProps: Object = {};
       let calendarProps: any = {};
+      const pickerStyle: { width?: number } = {};
       if (props.showTime) {
         calendarProps = {
           // fix https://github.com/ant-design/ant-design/issues/1902
           onSelect: this.handleChange,
         };
+        pickerStyle.width = 195;
       } else {
         pickerProps = {
           onChange: this.handleChange,
@@ -153,11 +186,26 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
 
       const clearIcon = (!props.disabled && props.allowClear && value) ? (
         <Icon
-          type="cross-circle"
+          type="close-circle"
           className={`${prefixCls}-picker-clear`}
           onClick={this.clearSelection}
+          theme="filled"
         />
       ) : null;
+
+      const inputIcon = suffixIcon && (
+        React.isValidElement<{ className?: string }>(suffixIcon)
+          ? React.cloneElement(
+            suffixIcon,
+            {
+              className: classNames({
+                [suffixIcon.props.className!]: suffixIcon.props.className,
+                [`${prefixCls}-picker-icon`]: true,
+              }),
+            },
+          ) : <span className={`${prefixCls}-picker-icon`}>{suffixIcon}</span>) || (
+          <Icon type="calendar" className={`${prefixCls}-picker-icon`} />
+        );
 
       const dataOrAriaProps = getDataOrAriaProps(props);
       const input = ({ value: inputValue }: { value: moment.Moment | null }) => (
@@ -172,7 +220,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
             {...dataOrAriaProps}
           />
           {clearIcon}
-          <span className={`${prefixCls}-picker-icon`} />
+          {inputIcon}
         </div>
       );
 
@@ -180,9 +228,11 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
         <span
           id={props.id}
           className={classNames(props.className, props.pickerClass)}
-          style={props.style}
+          style={{ ...pickerStyle, ...props.style }}
           onFocus={props.onFocus}
           onBlur={props.onBlur}
+          onMouseEnter={props.onMouseEnter}
+          onMouseLeave={props.onMouseLeave}
         >
           <RcDatePicker
             {...props}
@@ -191,6 +241,8 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
             value={value}
             prefixCls={`${prefixCls}-picker-container`}
             style={props.popupStyle}
+            open={open}
+            onOpenChange={this.handleOpenChange}
           >
             {input}
           </RcDatePicker>

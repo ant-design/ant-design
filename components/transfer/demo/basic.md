@@ -14,7 +14,7 @@ title:
 The most basic usage of `Transfer` involves providing the source data and target keys arrays, plus the rendering and some callback functions.
 
 ````jsx
-import { Transfer } from 'antd';
+import { Transfer, Switch } from 'antd';
 
 const mockData = [];
 for (let i = 0; i < 20; i++) {
@@ -26,20 +26,21 @@ for (let i = 0; i < 20; i++) {
   });
 }
 
-const targetKeys = mockData
+const oriTargetKeys = mockData
   .filter(item => +item.key % 3 > 1)
   .map(item => item.key);
 
 class App extends React.Component {
   state = {
-    targetKeys,
+    targetKeys: oriTargetKeys,
     selectedKeys: [],
+    disabled: false,
   }
 
   handleChange = (nextTargetKeys, direction, moveKeys) => {
     this.setState({ targetKeys: nextTargetKeys });
 
-    console.log('targetKeys: ', targetKeys);
+    console.log('targetKeys: ', nextTargetKeys);
     console.log('direction: ', direction);
     console.log('moveKeys: ', moveKeys);
   }
@@ -56,19 +57,28 @@ class App extends React.Component {
     console.log('target:', e.target);
   }
 
+  handleDisable = (disabled) => {
+    this.setState({ disabled });
+  };
+
   render() {
-    const state = this.state;
+    const { targetKeys, selectedKeys, disabled } = this.state;
     return (
-      <Transfer
-        dataSource={mockData}
-        titles={['Source', 'Target']}
-        targetKeys={state.targetKeys}
-        selectedKeys={state.selectedKeys}
-        onChange={this.handleChange}
-        onSelectChange={this.handleSelectChange}
-        onScroll={this.handleScroll}
-        render={item => item.title}
-      />
+      <div>
+        <Transfer
+          dataSource={mockData}
+          titles={['Source', 'Target']}
+          targetKeys={targetKeys}
+          selectedKeys={selectedKeys}
+          onChange={this.handleChange}
+          onSelectChange={this.handleSelectChange}
+          onScroll={this.handleScroll}
+          render={item => item.title}
+          disabled={disabled}
+        />
+
+        <Switch unCheckedChildren="disabled" checkedChildren="disabled" checked={disabled} onChange={this.handleDisable} />
+      </div>
     );
   }
 }

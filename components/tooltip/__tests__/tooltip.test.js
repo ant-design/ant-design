@@ -2,6 +2,11 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Tooltip from '..';
 import Button from '../../button';
+import DatePicker from '../../date-picker';
+import Input from '../../input';
+import Group from '../../input/Group';
+
+const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
 
 describe('Tooltip', () => {
   it('check `onVisibleChange` arguments', () => {
@@ -173,5 +178,58 @@ describe('Tooltip', () => {
     };
 
     jest.dontMock('rc-trigger', suit);
+  });
+
+  it('should works for date picker', async () => {
+    const onVisibleChange = jest.fn();
+
+    const wrapper = mount(
+      <Tooltip
+        title="date picker"
+        onVisibleChange={onVisibleChange}
+      >
+        <DatePicker />
+      </Tooltip>
+    );
+
+    expect(wrapper.find('span.ant-calendar-picker')).toHaveLength(1);
+    const picker = wrapper.find('span.ant-calendar-picker').at(0);
+    picker.simulate('mouseenter');
+    await delay(100);
+    expect(onVisibleChange).toBeCalledWith(true);
+    expect(wrapper.instance().tooltip.props.visible).toBe(true);
+
+    picker.simulate('mouseleave');
+    await delay(100);
+    expect(onVisibleChange).toBeCalledWith(false);
+    expect(wrapper.instance().tooltip.props.visible).toBe(false);
+  });
+
+  it('should works for input group', async () => {
+    const onVisibleChange = jest.fn();
+
+    const wrapper = mount(
+      <Tooltip
+        title="hello"
+        onVisibleChange={onVisibleChange}
+      >
+        <Group>
+          <Input style={{ width: '50%' }} />
+          <Input style={{ width: '50%' }} />
+        </Group>
+      </Tooltip>
+    );
+
+    expect(wrapper.find('Group')).toHaveLength(1);
+    const picker = wrapper.find('Group').at(0);
+    picker.simulate('mouseenter');
+    await delay(100);
+    expect(onVisibleChange).toBeCalledWith(true);
+    expect(wrapper.instance().tooltip.props.visible).toBe(true);
+
+    picker.simulate('mouseleave');
+    await delay(100);
+    expect(onVisibleChange).toBeCalledWith(false);
+    expect(wrapper.instance().tooltip.props.visible).toBe(false);
   });
 });

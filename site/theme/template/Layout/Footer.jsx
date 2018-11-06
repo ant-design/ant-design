@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import { Modal, message, Row, Col } from 'antd';
+import { Modal, message, Row, Col, Badge, Icon } from 'antd';
 import { isLocalStorageNameSupported, loadScript } from '../utils';
 import ColorPicker from '../Color/ColorPicker';
 
@@ -38,18 +38,20 @@ class Footer extends React.Component {
       window.less.modifyVars({
         '@primary-color': color,
       }).then(() => {
+        Icon.setTwoToneColor({ primaryColor: color });
         message.success(messages['app.footer.primary-color-changed']);
         this.setState({ color });
       });
     };
 
-    const lessUrl = 'https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js';
+    const lessUrl = 'https://gw.alipayobjects.com/os/lib/less.js/3.8.1/less.min.js';
 
     if (this.lessLoaded) {
       changeColor();
     } else {
       window.less = {
         async: true,
+        javascriptEnabled: true,
       };
       loadScript(lessUrl).then(() => {
         this.lessLoaded = true;
@@ -103,19 +105,27 @@ class Footer extends React.Component {
                   Ant Design of Angular
                 </div>
                 <div>
+                  <a href="http://ng.mobile.ant.design">NG-ZORRO-MOBILE</a>
+                </div>
+                <div>
                   <a target="_blank " href="https://github.com/websemantics/awesome-ant-design">
                     <FormattedMessage id="app.footer.awesome" />
                   </a>
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="http://kitchen.alipay.com">Kitchen</a>
-                  <span> - </span>
-                  <FormattedMessage id="app.footer.kitchen" />
+                  <Badge dot offset={[3, 0]}>
+                    <a target="_blank" rel="noopener noreferrer" href="http://kitchen.alipay.com">Kitchen</a>
+                    <span> - </span>
+                    <FormattedMessage id="app.footer.kitchen" />
+                  </Badge>
                 </div>
                 <div>
                   <a href="http://scaffold.ant.design">Scaffolds</a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.scaffolds" />
+                </div>
+                <div>
+                  <a target="_blank" rel="noopener noreferrer" href="http://umijs.org/">Umi</a> - <FormattedMessage id="app.footer.umi" />
                 </div>
                 <div>
                   <a target="_blank" rel="noopener noreferrer" href="https://github.com/dvajs/dva">dva</a> - <FormattedMessage id="app.footer.dva" />
@@ -172,6 +182,11 @@ class Footer extends React.Component {
                   <span> - </span>
                   <FormattedMessage id="app.footer.seeconf" />
                 </div>
+                <div>
+                  <a target="_blank " href="/docs/spec/work-with-us">
+                    <FormattedMessage id="app.footer.work_with_us" />
+                  </a>
+                </div>
               </div>
             </Col>
             <Col md={6} sm={24} xs={24}>
@@ -188,7 +203,12 @@ class Footer extends React.Component {
                   </a>
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="https://github.com/ant-design/ant-design/wiki/FAQ">
+                  <a target="_blank " href="https://www.yuque.com/ant-design/course">
+                    <FormattedMessage id="app.footer.course" />
+                  </a>
+                </div>
+                <div>
+                  <a target="_blank" rel="noopener noreferrer" href="/docs/react/faq">
                     <FormattedMessage id="app.footer.faq" />
                   </a>
                 </div>
@@ -288,7 +308,7 @@ class Footer extends React.Component {
         </div>
         <div className="bottom-bar">
           Made with <span className="heart">❤</span> by
-          <a target="_blank" rel="noopener noreferrer" href="https://yuque.com/afx/blog">
+          <a target="_blank" rel="noopener noreferrer" href="https://xtech.antfin.com">
             <FormattedMessage id="app.footer.company" />
           </a>
         </div>

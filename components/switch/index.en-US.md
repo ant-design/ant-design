@@ -24,6 +24,7 @@ Switching Selector.
 | size | the size of the `Switch`, options: `default` `small` | string | default |
 | unCheckedChildren | content to be shown when the state is unchecked | string\|ReactNode |  |
 | onChange | a callback function, can be executed when the checked state is changing | Function(checked:Boolean) |  |
+| className | additional class to Switch | string | - |
 
 ## Methods
 

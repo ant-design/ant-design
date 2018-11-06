@@ -28,13 +28,59 @@ title: 介绍
 
 我们采用 [React](http://facebook.github.io/react/) 封装了一套 Ant Design 的组件库，也欢迎社区其他框架的实现版本。
 
-- [Ant Design of React](/docs/react/introduce)（官方实现）
-- <div class="outside-link"><a href="http://ng.ant.design" target="_blank">NG-ZORRO - Ant Design of Angular</a></div>
-- <div class="outside-link"><a href="https://github.com/FE-Driver/vue-beauty" target="_blank">vue-beauty (vue)</a></div>
-- <div class="outside-link"><a href="https://github.com/priornix/antizer" target="_blank">antizer (ClojureScript)</a></div>
-- <div class="outside-link"><a href="https://github.com/idcos/antd-ember" target="_blank">antd-ember</a></div>
-- <div class="outside-link"><a href="https://github.com/zzuu666/antue" target="_blank">antue (vue)</a></div>
-- <div class="outside-link"><a href="https://github.com/vueComponent/ant-design" target="_blank">vue-antd-ui - Ant Design of Vue.js 2.5.0+</a></div>
+```__react
+import { Icon } from 'antd';
+
+const LinkIcon = () => (
+  <Icon type="export" className="outside-link-icon" />
+);
+
+const LinksList = () => (
+  <ul>
+    <li>
+      <a href="/docs/react/introduce" target="_blank">Ant Design of React</a>
+      （官方实现）
+    </li>
+    <li>
+      <a href="http://ng.ant.design" target="_blank">
+        NG-ZORRO - Ant Design of Angular<LinkIcon />
+      </a>
+    </li>
+    <li>
+      <a href="http://ng.mobile.ant.design" target="_blank">
+        NG-ZORRO-MOBILE - Ant Design Mobile of Angular<LinkIcon />
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/FE-Driver/vue-beauty" target="_blank">
+        vue-beauty (vue)<LinkIcon />
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/priornix/antizer" target="_blank">
+        antizer (ClojureScript)<LinkIcon />
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/idcos/antd-ember" target="_blank">
+        antd-ember<LinkIcon />
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/zzuu666/antue" target="_blank">
+        antue (vue)<LinkIcon />
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/vueComponent/ant-design" target="_blank">
+        vue-antd-ui - Ant Design of Vue.js 2.5.0+<LinkIcon />
+      </a>
+    </li>
+  </ul>
+);
+
+ReactDOM.render(<LinksList />, mountNode);
+```
 
 ## 谁在使用
 
@@ -46,8 +92,17 @@ title: 介绍
 - [美团](http://www.meituan.com)
 - [滴滴](http://www.xiaojukeji.com/)
 - [饿了么](https://www.ele.me/)
+- [其他用户](https://github.com/ant-design/ant-design/issues/477)
 
 > 如果你的公司和产品使用了 Ant Design，欢迎到 [这里](https://github.com/ant-design/ant-design/issues/477) 留言。
+
+## 社区评价
+
+- 知乎：[如何评价 Ant Design 这个项目？](https://www.zhihu.com/question/33629737)
+- Hacknews: [Show HN: Antd – A set of high-quality React components](https://news.ycombinator.com/item?id=13053137)
+- Alligator: [Crafting Beautiful UIs in React Using Ant Design](https://alligator.io/react/beautiful-uis-ant-design/)
+- Hackernoon: [Interesting JavaScript Libraries born in China](https://hackernoon.com/interesting-javascript-libraries-born-in-china-d50d1bb81355)
+- [漫谈 Material Design & Ant Design](http://dwbbb.com/blog/MaterialDesignAntDesign/)
 
 ## 如何贡献
 

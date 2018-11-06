@@ -5,6 +5,7 @@ import { polyfill } from 'react-lifecycles-compat';
 import RangeCalendar from 'rc-calendar/lib/RangeCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
+import shallowequal from 'shallowequal';
 import Icon from '../icon';
 import Tag from '../tag';
 import warning from '../_util/warning';
@@ -67,6 +68,7 @@ function fixLocale(value: RangePickerValue | undefined, localeCode: string) {
 class RangePicker extends React.Component<any, RangePickerState> {
   static defaultProps = {
     prefixCls: 'ant-calendar',
+    tagPrefixCls: 'ant-tag',
     allowClear: true,
     showToday: false,
   };
@@ -77,8 +79,13 @@ class RangePicker extends React.Component<any, RangePickerState> {
       const value = nextProps.value || [];
       state = {
         value,
-        showDate: getShowDateFromValue(value) || prevState.showDate,
       };
+      if (!shallowequal(nextProps.value, prevState.value)) {
+        state = {
+          ...state,
+          showDate: getShowDateFromValue(value) || prevState.showDate,
+        };
+      }
     }
     if (('open' in nextProps) && prevState.open !== nextProps.open) {
       state = {
@@ -133,6 +140,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
       formatValue(value[0], props.format),
       formatValue(value[1], props.format),
     ]);
+    this.focus();
   }
 
   handleOpenChange = (open: boolean) => {
@@ -177,9 +185,13 @@ class RangePicker extends React.Component<any, RangePickerState> {
 
     this.setValue(value, true);
 
-    const { onOk } = this.props;
+    const { onOk, onOpenChange } = this.props;
     if (onOk) {
       onOk(value);
+    }
+
+    if (onOpenChange) {
+      onOpenChange(false);
     }
   }
 
@@ -203,7 +215,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
   }
 
   renderFooter = (...args: any[]) => {
-    const { prefixCls, ranges, renderExtraFooter } = this.props;
+    const { prefixCls, ranges, renderExtraFooter, tagPrefixCls } = this.props;
     if (!ranges && !renderExtraFooter) {
       return null;
     }
@@ -217,6 +229,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
       return (
         <Tag
           key={range}
+          prefixCls={tagPrefixCls}
           color="blue"
           onClick={() => this.handleRangeClick(value)}
           onMouseEnter={() => this.setState({ hoverValue: value })}
@@ -226,11 +239,11 @@ class RangePicker extends React.Component<any, RangePickerState> {
         </Tag>
       );
     });
-    const rangeNode = (
+    const rangeNode = (operations && operations.length > 0) ? (
       <div className={`${prefixCls}-footer-extra ${prefixCls}-range-quick-selector`} key="range">
         {operations}
       </div>
-    );
+    ) : null;
     return [rangeNode, customFooter];
   }
 
@@ -242,7 +255,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
       disabledDate, disabledTime,
       showTime, showToday,
       ranges, onOk, locale, localeCode, format,
-      dateRender, onCalendarChange,
+      dateRender, onCalendarChange, suffixIcon,
     } = props;
 
     fixLocale(value, localeCode);
@@ -309,11 +322,26 @@ class RangePicker extends React.Component<any, RangePickerState> {
 
     const clearIcon = (!props.disabled && props.allowClear && value && (value[0] || value[1])) ? (
       <Icon
-        type="cross-circle"
+        type="close-circle"
         className={`${prefixCls}-picker-clear`}
         onClick={this.clearSelection}
+        theme="filled"
       />
     ) : null;
+
+    const inputIcon = suffixIcon && (
+      React.isValidElement<{ className?: string }>(suffixIcon)
+        ? React.cloneElement(
+          suffixIcon,
+          {
+            className: classNames({
+              [suffixIcon.props.className!]: suffixIcon.props.className,
+              [`${prefixCls}-picker-icon`]: true,
+            }),
+          },
+        ) : <span className={`${prefixCls}-picker-icon`}>{suffixIcon}</span>) || (
+        <Icon type="calendar" className={`${prefixCls}-picker-icon`} />
+      );
 
     const input = ({ value: inputValue }: { value: any }) => {
       const start = inputValue[0];
@@ -338,7 +366,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
             tabIndex={-1}
           />
           {clearIcon}
-          <span className={`${prefixCls}-picker-icon`} />
+          {inputIcon}
         </span>
       );
     };
@@ -352,6 +380,8 @@ class RangePicker extends React.Component<any, RangePickerState> {
         tabIndex={props.disabled ? -1 : 0}
         onFocus={props.onFocus}
         onBlur={props.onBlur}
+        onMouseEnter={props.onMouseEnter}
+        onMouseLeave={props.onMouseLeave}
       >
         <RcDatePicker
           {...props}

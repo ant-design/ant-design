@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { cloneElement } from 'react';
+import { polyfill } from 'react-lifecycles-compat';
 import RcTooltip from 'rc-tooltip';
 import classNames from 'classnames';
 import getPlacements, { AdjustOverflow, PlacementsConfig } from './placements';
@@ -13,6 +14,18 @@ export type TooltipPlacement =
   'leftTop' | 'leftBottom' | 'rightTop' | 'rightBottom';
 
 export type TooltipTrigger = 'hover' | 'focus' | 'click' | 'contextMenu';
+
+// https://github.com/react-component/tooltip
+// https://github.com/yiminghe/dom-align
+export interface TooltipAlignConfig {
+  points?: [string, string],
+  offset?: [number | string, number | string],
+  targetOffset?: [number | string, number | string],
+  overflow?: { adjustX: boolean, adjustY: boolean },
+  useCssRight?: boolean,
+  useCssBottom?: boolean,
+  useCssTransform?: boolean
+}
 
 export interface AbstractTooltipProps {
   prefixCls?: string;
@@ -35,6 +48,8 @@ export interface AbstractTooltipProps {
   getTooltipContainer?: (triggerNode: Element) => HTMLElement;
   getPopupContainer?: (triggerNode: Element) => HTMLElement;
   children?: React.ReactNode;
+  // align is a more higher api
+  align?: TooltipAlignConfig;
 }
 
 export type RenderFunction = () => React.ReactNode;
@@ -56,7 +71,7 @@ const splitObject = (obj: any, keys: string[]) => {
   return { picked, omitted };
 };
 
-export default class Tooltip extends React.Component<TooltipProps, any> {
+class Tooltip extends React.Component<TooltipProps, any> {
   static defaultProps = {
     prefixCls: 'ant-tooltip',
     placement: 'top' as TooltipPlacement,
@@ -67,6 +82,13 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
     autoAdjustOverflow: true,
   };
 
+  static getDerivedStateFromProps(nextProps: TooltipProps) {
+    if ('visible' in nextProps) {
+      return { visible: nextProps.visible };
+    }
+    return null;
+  }
+
   private tooltip: typeof RcTooltip;
 
   constructor(props: TooltipProps) {
@@ -75,12 +97,6 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
     this.state = {
       visible: !!props.visible || !!props.defaultVisible,
     };
-  }
-
-  componentWillReceiveProps(nextProps: TooltipProps) {
-    if ('visible' in nextProps) {
-      this.setState({ visible: nextProps.visible });
-    }
   }
 
   onVisibleChange = (visible: boolean) => {
@@ -226,3 +242,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
     );
   }
 }
+
+polyfill(Tooltip);
+
+export default Tooltip;

@@ -41,4 +41,9 @@ describe('Progress', () => {
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  it('render strokeColor', () => {
+    const wrapper = mount(<Progress type="circle" percent={50} strokeColor="red" />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });

@@ -86,7 +86,15 @@ describe('Table.pagination', () => {
         pageSize: 2,
       },
       {},
-      {}
+      {},
+      {
+        currentDataSource: [
+          { key: 0, name: 'Jack' },
+          { key: 1, name: 'Lucy' },
+          { key: 2, name: 'Tom' },
+          { key: 3, name: 'Jerry' },
+        ],
+      },
     );
 
     expect(handlePaginationChange).toBeCalledWith(2, 2);

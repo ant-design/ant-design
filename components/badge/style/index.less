@@ -9,11 +9,9 @@
   position: relative;
   display: inline-block;
   line-height: 1;
-  vertical-align: middle;
+  color: unset;
 
   &-count {
-    position: absolute;
-    transform: translateX(-50%);
     top: -@badge-height / 2;
     height: @badge-height;
     border-radius: @badge-height / 2;
@@ -26,7 +24,6 @@
     font-size: @badge-font-size;
     font-weight: @badge-font-weight;
     white-space: nowrap;
-    transform-origin: -10% center;
     box-shadow: 0 0 0 1px #fff;
     a,
     a:hover {
@@ -39,9 +36,6 @@
   }
 
   &-dot {
-    position: absolute;
-    transform: translateX(-50%);
-    transform-origin: 0 center;
     top: -@badge-dot-size / 2;
     height: @badge-dot-size;
     width: @badge-dot-size;
@@ -49,6 +43,14 @@
     background: @highlight-color;
     z-index: 10;
     box-shadow: 0 0 0 1px #fff;
+  }
+
+  &-count,
+  &-dot {
+    position: absolute;
+    right: 0;
+    transform: translateX(50%);
+    transform-origin: 100%;
   }
 
   &-status {
@@ -109,14 +111,18 @@
     animation-fill-mode: both;
   }
 
-  &-not-a-wrapper .@{ant-prefix}-scroll-number {
-    top: auto;
-    display: block;
-    position: relative;
-  }
+  &-not-a-wrapper {
+    vertical-align: middle;
 
-  &-not-a-wrapper .@{badge-prefix-cls}-count {
-    transform: none;
+    .@{ant-prefix}-scroll-number {
+      top: auto;
+      display: block;
+      position: relative;
+    }
+
+    .@{badge-prefix-cls}-count {
+      transform: none;
+    }
   }
 }
 
@@ -147,19 +153,19 @@
 @keyframes antZoomBadgeIn {
   0% {
     opacity: 0;
-    transform: scale(0) translateX(-50%);
+    transform: scale(0) translateX(50%);
   }
   100% {
-    transform: scale(1) translateX(-50%);
+    transform: scale(1) translateX(50%);
   }
 }
 
 @keyframes antZoomBadgeOut {
   0% {
-    transform: scale(1) translateX(-50%);
+    transform: scale(1) translateX(50%);
   }
   100% {
     opacity: 0;
-    transform: scale(0) translateX(-50%);
+    transform: scale(0) translateX(50%);
   }
 }

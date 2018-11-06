@@ -12,6 +12,7 @@ export interface CascaderOptionType {
   label?: React.ReactNode;
   disabled?: boolean;
   children?: Array<CascaderOptionType>;
+
   [key: string]: any;
 }
 
@@ -82,6 +83,7 @@ export interface CascaderProps {
   getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
   popupVisible?: boolean;
   fieldNames?: FieldNamesType;
+  suffixIcon?: React.ReactNode;
 }
 
 export interface CascaderState {
@@ -253,6 +255,7 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     const unwrappedValue = Array.isArray(value[0]) ? value[0] : value;
     const selectedOptions: CascaderOptionType[] = arrayTreeFilter(options,
       (o: CascaderOptionType, level: number) => o[names.value] === unwrappedValue[level],
+      { childrenKeyName: names.children },
     );
     const label = selectedOptions.map(o => o[names.label]);
     return displayRender(label, selectedOptions);
@@ -339,7 +342,7 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     const { props, state } = this;
     const {
       prefixCls, inputPrefixCls, children, placeholder, size, disabled,
-      className, style, allowClear, showSearch = false, ...otherProps
+      className, style, allowClear, showSearch = false, suffixIcon, ...otherProps
     } = props;
     const { value, inputFocused } = state;
 
@@ -349,7 +352,8 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     });
     const clearIcon = (allowClear && !disabled && value.length > 0) || state.inputValue ? (
       <Icon
-        type="cross-circle"
+        type="close-circle"
+        theme="filled"
         className={`${prefixCls}-picker-clear`}
         onClick={this.clearSelection}
       />
@@ -360,12 +364,12 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     });
     const pickerCls = classNames(
       className, `${prefixCls}-picker`, {
-      [`${prefixCls}-picker-with-value`]: state.inputValue,
-      [`${prefixCls}-picker-disabled`]: disabled,
-      [`${prefixCls}-picker-${size}`]: !!size,
-      [`${prefixCls}-picker-show-search`]: !!showSearch,
-      [`${prefixCls}-picker-focused`]: inputFocused,
-    });
+        [`${prefixCls}-picker-with-value`]: state.inputValue,
+        [`${prefixCls}-picker-disabled`]: disabled,
+        [`${prefixCls}-picker-${size}`]: !!size,
+        [`${prefixCls}-picker-show-search`]: !!showSearch,
+        [`${prefixCls}-picker-focused`]: inputFocused,
+      });
 
     // Fix bug of https://github.com/facebook/react/pull/5004
     // and https://fb.me/react-unknown-prop
@@ -411,6 +415,20 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
       dropdownMenuColumnStyle.width = this.input.input.offsetWidth;
     }
 
+    const inputIcon = suffixIcon && (
+      React.isValidElement<{ className?: string }>(suffixIcon)
+        ? React.cloneElement(
+          suffixIcon,
+          {
+            className: classNames({
+              [suffixIcon.props.className!]: suffixIcon.props.className,
+              [`${prefixCls}-picker-arrow`]: true,
+            }),
+          },
+        ) : <span className={`${prefixCls}-picker-arrow`}>{suffixIcon}</span>) || (
+        <Icon type="down" className={arrowCls} />
+      );
+
     const input = children || (
       <span
         style={style}
@@ -435,19 +453,33 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
           onChange={showSearch ? this.handleInputChange : undefined}
         />
         {clearIcon}
-        <Icon type="down" className={arrowCls} />
+        {inputIcon}
       </span>
     );
 
+    const expandIcon = (
+      <Icon type="right" />
+    );
+
+    const loadingIcon = (
+      <span className={`${prefixCls}-menu-item-loading-icon`}>
+        <Icon type="redo" spin />
+      </span>
+    );
+
+    const rest = omit(props, ['inputIcon', 'expandIcon', 'loadingIcon']);
+
     return (
       <RcCascader
-        {...props}
+        {...rest}
         options={options}
         value={value}
         popupVisible={state.popupVisible}
         onPopupVisibleChange={this.handlePopupVisibleChange}
         onChange={this.handleChange}
         dropdownMenuColumnStyle={dropdownMenuColumnStyle}
+        expandIcon={expandIcon}
+        loadingIcon={loadingIcon}
       >
         {input}
       </RcCascader>

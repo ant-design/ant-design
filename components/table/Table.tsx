@@ -1,8 +1,9 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import RcTable from 'rc-table';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
+import shallowEqual from 'shallowequal';
 import Pagination from '../pagination';
 import Icon from '../icon';
 import Spin from '../spin';
@@ -33,6 +34,7 @@ import {
   TableSelectWay,
   TableRowSelection,
   PaginationConfig,
+  PrepareParamsArgumentsReturn,
 } from './interface';
 import { RadioChangeEvent } from '../radio';
 import { CheckboxChangeEvent } from '../checkbox';
@@ -124,6 +126,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       // 减少状态
       filters: this.getFiltersFromColumns(),
       pagination: this.getDefaultPagination(props),
+      pivot: undefined,
     };
 
     this.CheckboxPropsCache = {};
@@ -250,6 +253,11 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     }
     if (selectWay === 'onSelect' && rowSelection.onSelect) {
       rowSelection.onSelect(record!, checked!, selectedRows, nativeEvent!);
+    } else if (selectWay === 'onSelectMultiple' && rowSelection.onSelectMultiple) {
+      const changeRows = data.filter(
+        (row, i) => changeRowKeys!.indexOf(this.getRecordKey(row, i)) >= 0,
+      );
+      rowSelection.onSelectMultiple(checked!, selectedRows, changeRows);
     } else if (selectWay === 'onSelectAll' && rowSelection.onSelectAll) {
       const changeRows = data.filter(
         (row, i) => changeRowKeys!.indexOf(this.getRecordKey(row, i)) >= 0,
@@ -334,8 +342,8 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     };
   }
 
-  getSorterFn() {
-    const { sortOrder, sortColumn } = this.state;
+  getSorterFn(state: TableState<T>) {
+    const { sortOrder, sortColumn } = state || this.state;
     if (!sortOrder || !sortColumn ||
         typeof sortColumn.sorter !== 'function') {
       return;
@@ -350,24 +358,38 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     };
   }
 
-  toggleSortOrder(order: 'ascend'|'descend', column: ColumnProps<T>) {
-    let { sortColumn, sortOrder } = this.state;
-    // 只同时允许一列进行排序，否则会导致排序顺序的逻辑问题
-    let isSortColumn = this.isSortColumn(column);
-    if (!isSortColumn) {  // 当前列未排序
-      sortOrder = order;
-      sortColumn = column;
-    } else {                      // 当前列已排序
-      if (sortOrder === order) {  // 切换为未排序状态
-        sortOrder = undefined;
-        sortColumn = null;
-      } else {                    // 切换为排序状态
-        sortOrder = order;
-      }
+  isSameColumn(a: ColumnProps<T> | null, b: ColumnProps<T> | null) {
+    if (a && b && a.key && a.key === b.key) {
+      return true;
     }
+    return a === b || shallowEqual(a, b, (value: any, other: any) => {
+      if (typeof value === 'function' && typeof other === 'function') {
+        return value === other || value.toString() === other.toString();
+      }
+    });
+  }
+
+  toggleSortOrder(column: ColumnProps<T>) {
+    if (!column.sorter) {
+      return;
+    }
+    const { sortOrder, sortColumn } = this.state;
+    // 只同时允许一列进行排序，否则会导致排序顺序的逻辑问题
+    let newSortOrder: 'descend' | 'ascend' | undefined;
+    // 切换另一列时，丢弃 sortOrder 的状态
+    const oldSortOrder = this.isSameColumn(sortColumn, column) ? sortOrder : undefined;
+    // 切换排序状态，按照降序/升序/不排序的顺序
+    if (!oldSortOrder) {
+      newSortOrder = 'descend';
+    } else if (oldSortOrder === 'descend') {
+      newSortOrder = 'ascend';
+    } else {
+      newSortOrder = undefined;
+    }
+
     const newState = {
-      sortOrder,
-      sortColumn,
+      sortOrder: newSortOrder,
+      sortColumn: newSortOrder ? column : null,
     };
 
     // Controlled
@@ -375,7 +397,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       this.setState(newState);
     }
 
-    const onChange = this.props.onChange;
+    const { onChange } = this.props;
     if (onChange) {
       onChange.apply(null, this.prepareParamsArguments({
         ...this.state,
@@ -438,7 +460,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       this.store.setState({
         selectionDirty: false,
       });
-      const onChange = this.props.onChange;
+      const { onChange } = this.props;
       if (onChange) {
         onChange.apply(null, this.prepareParamsArguments({
           ...this.state,
@@ -456,21 +478,67 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     const defaultSelection = this.store.getState().selectionDirty ? [] : this.getDefaultSelection();
     let selectedRowKeys = this.store.getState().selectedRowKeys.concat(defaultSelection);
     let key = this.getRecordKey(record, rowIndex);
-    if (checked) {
-      selectedRowKeys.push(this.getRecordKey(record, rowIndex));
-    } else {
-      selectedRowKeys = selectedRowKeys.filter((i: string) => key !== i);
+    const { pivot } = this.state;
+    const rows = this.getFlatCurrentPageData();
+    let realIndex = rowIndex;
+    if (this.props.expandedRowRender) {
+      realIndex = rows.findIndex(row => this.getRecordKey(row, rowIndex) === key);
     }
-    this.store.setState({
-      selectionDirty: true,
-    });
-    this.setSelectedRowKeys(selectedRowKeys, {
-      selectWay: 'onSelect',
-      record,
-      checked,
-      changeRowKeys: void(0),
-      nativeEvent,
-    });
+
+    if (nativeEvent.shiftKey && pivot !== undefined && realIndex !== pivot) {
+      const changeRowKeys = [];
+      const direction = Math.sign(pivot - realIndex);
+      const dist = Math.abs(pivot - realIndex);
+      let step = 0;
+      while (step <= dist) {
+        const i = realIndex + (step * direction);
+        step += 1;
+        const row = rows[i];
+        const rowKey = this.getRecordKey(row, i);
+        const checkboxProps = this.getCheckboxPropsByItem(row, i);
+        if (!checkboxProps.disabled) {
+          if (selectedRowKeys.includes(rowKey)) {
+            if (!checked) {
+              selectedRowKeys = selectedRowKeys.filter((j: string) => rowKey !== j);
+              changeRowKeys.push(rowKey);
+            }
+          } else if (checked) {
+            selectedRowKeys.push(rowKey);
+            changeRowKeys.push(rowKey);
+          }
+        }
+      }
+
+      this.setState({ pivot: realIndex });
+      this.store.setState({
+        selectionDirty: true,
+      });
+      this.setSelectedRowKeys(selectedRowKeys, {
+        selectWay: 'onSelectMultiple',
+        record,
+        checked,
+        changeRowKeys,
+        nativeEvent,
+      });
+    } else {
+      if (checked) {
+        selectedRowKeys.push(this.getRecordKey(record, realIndex));
+      } else {
+        selectedRowKeys = selectedRowKeys.filter((i: string) => key !== i);
+      }
+
+      this.setState({ pivot: realIndex });
+      this.store.setState({
+        selectionDirty: true,
+      });
+      this.setSelectedRowKeys(selectedRowKeys, {
+        selectWay: 'onSelect',
+        record,
+        checked,
+        changeRowKeys: void(0),
+        nativeEvent,
+      });
+    }
   }
 
   handleRadioSelect = (record: T, rowIndex: number, e: RadioChangeEvent) => {
@@ -587,7 +655,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       selectionDirty: false,
     });
 
-    const onChange = this.props.onChange;
+    const { onChange } = this.props;
     if (onChange) {
       onChange.apply(null, this.prepareParamsArguments({
         ...this.state,
@@ -599,11 +667,11 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
 
   renderSelectionBox = (type: RowSelectionType | undefined) => {
     return (_: any, record: T, index: number) => {
-      let rowIndex = this.getRecordKey(record, index); // 从 1 开始
+      const rowKey = this.getRecordKey(record, index);
       const props = this.getCheckboxPropsByItem(record, index);
       const handleChange = (e: RadioChangeEvent | CheckboxChangeEvent) => {
-        type === 'radio' ? this.handleRadioSelect(record, rowIndex, e) :
-                           this.handleSelect(record, rowIndex, e);
+        type === 'radio' ? this.handleRadioSelect(record, index, e) :
+                           this.handleSelect(record, index, e);
       };
 
       return (
@@ -611,7 +679,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
           <SelectionBox
             type={type}
             store={this.store}
-            rowIndex={rowIndex}
+            rowIndex={rowKey}
             onChange={handleChange}
             defaultSelection={this.getDefaultSelection()}
             {...props}
@@ -622,7 +690,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   }
 
   getRecordKey = (record: T, index: number) => {
-    const rowKey = this.props.rowKey;
+    const { rowKey } = this.props;
     const recordKey = (typeof rowKey === 'function') ?
       rowKey(record, index) :  (record as any)[rowKey as string];
     warning(recordKey !== undefined,
@@ -656,10 +724,11 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         className: selectionColumnClass,
         fixed: rowSelection.fixed,
         width: rowSelection.columnWidth,
+        title: rowSelection.columnTitle,
       };
       if (rowSelection.type !== 'radio') {
         const checkboxAllDisabled = data.every((item, index) => this.getCheckboxPropsByItem(item, index).disabled);
-        selectionColumn.title  = (
+        selectionColumn.title  = selectionColumn.title || (
           <SelectionCheckboxAll
             store={this.store}
             locale={locale}
@@ -694,7 +763,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   }
 
   getMaxCurrent(total: number) {
-    const { current, pageSize } = this.state.pagination;
+    const { pagination: { current, pageSize } } = this.state;
     if ((current! - 1) * pageSize! >= total) {
       return Math.floor((total - 1) / pageSize!) + 1;
     }
@@ -712,11 +781,11 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   renderColumnsDropdown(columns: ColumnProps<T>[], locale: TableLocale) {
     const { prefixCls, dropdownPrefixCls } = this.props;
     const { sortOrder } = this.state;
-    return treeMap(columns, (originColumn, i) => {
-      let column = { ...originColumn };
-      let key = this.getColumnKey(column, i) as string;
+    return treeMap(columns, (column, i) => {
+      const key = this.getColumnKey(column, i) as string;
       let filterDropdown;
       let sortButton;
+      const isSortColumn = this.isSortColumn(column);
       if ((column.filters && column.filters.length > 0) || column.filterDropdown) {
         let colFilters = this.state.filters[key] || [];
         filterDropdown = (
@@ -728,55 +797,66 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
             prefixCls={`${prefixCls}-filter`}
             dropdownPrefixCls={dropdownPrefixCls || 'ant-dropdown'}
             getPopupContainer={this.getPopupContainer}
+            key="filter-dropdown"
           />
         );
       }
       if (column.sorter) {
-        let isSortColumn = this.isSortColumn(column);
-        if (isSortColumn) {
-          column.className = classNames(column.className, {
-            [`${prefixCls}-column-sort`]: sortOrder,
-          });
-        }
         const isAscend = isSortColumn && sortOrder === 'ascend';
         const isDescend = isSortColumn && sortOrder === 'descend';
         sortButton = (
-          <div className={`${prefixCls}-column-sorter`}>
-            <span
+          <div className={`${prefixCls}-column-sorter`} key="sorter">
+            <Icon
               className={`${prefixCls}-column-sorter-up ${isAscend ? 'on' : 'off'}`}
-              title="↑"
-              onClick={() => this.toggleSortOrder('ascend', column)}
-            >
-              <Icon type="caret-up" />
-            </span>
-            <span
+              type="caret-up"
+              theme="filled"
+            />
+            <Icon
               className={`${prefixCls}-column-sorter-down ${isDescend ? 'on' : 'off'}`}
-              title="↓"
-              onClick={() => this.toggleSortOrder('descend', column)}
-            >
-              <Icon type="caret-down" />
-            </span>
+              type="caret-down"
+              theme="filled"
+            />
           </div>
         );
       }
-      column.title = (
-        <span key={key}>
-          {column.title}
-          {sortButton}
-          {filterDropdown}
-        </span>
-      );
-
-      if (sortButton || filterDropdown) {
-        column.className = classNames(`${prefixCls}-column-has-filters`, column.className);
-      }
-
-      return column;
+      return {
+        ...column,
+        className: classNames(column.className, {
+          [`${prefixCls}-column-has-actions`]: sortButton || filterDropdown,
+          [`${prefixCls}-column-has-filters`]: filterDropdown,
+          [`${prefixCls}-column-has-sorters`]: sortButton,
+          [`${prefixCls}-column-sort`]: isSortColumn && sortOrder,
+        }),
+        title: [
+          <div
+            key="title"
+            title={sortButton ? locale.sortTitle : undefined}
+            className={sortButton ? `${prefixCls}-column-sorters` : undefined}
+            onClick={() => this.toggleSortOrder(column)}
+          >
+            {this.renderColumnTitle(column.title)}
+            {sortButton}
+          </div>,
+          filterDropdown,
+        ],
+      };
     });
   }
 
+  renderColumnTitle(title: ColumnProps<T>['title']) {
+    const { filters, sortOrder } = this.state;
+    // https://github.com/ant-design/ant-design/issues/11246#issuecomment-405009167
+    if (title instanceof Function) {
+      return title({
+        filters,
+        sortOrder,
+      });
+    }
+    return title;
+  }
+
   handleShowSizeChange = (current: number, pageSize: number) => {
-    const pagination = this.state.pagination;
+    const { pagination } = this.state;
     pagination.onShowSizeChange!(current, pageSize);
     const nextPagination = {
       ...pagination,
@@ -785,7 +865,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     };
     this.setState({ pagination: nextPagination });
 
-    const onChange = this.props.onChange;
+    const { onChange } = this.props;
     if (onChange) {
       onChange.apply(null, this.prepareParamsArguments({
         ...this.state,
@@ -823,7 +903,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   }
 
   // Get pagination, filters, sorter
-  prepareParamsArguments(state: any): [any, string[], Object] {
+  prepareParamsArguments(state: any): PrepareParamsArgumentsReturn<T> {
     const pagination = { ...state.pagination };
     // remove useless handle function in Table.onChange
     delete pagination.onChange;
@@ -836,7 +916,12 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       sorter.field = state.sortColumn.dataIndex;
       sorter.columnKey = this.getColumnKey(state.sortColumn);
     }
-    return [pagination, filters, sorter];
+
+    const extra = {
+      currentDataSource: this.getLocalData(state),
+    };
+
+    return [pagination, filters, sorter, extra];
   }
 
   findColumn(myKey: string | number) {
@@ -891,24 +976,24 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     } : item));
   }
 
-  getLocalData() {
-    const state = this.state;
+  getLocalData(state?: TableState<T>) {
+    const currentState: TableState<T> = state || this.state;
     const { dataSource } = this.props;
     let data = dataSource || [];
     // 优化本地排序
     data = data.slice(0);
-    const sorterFn = this.getSorterFn();
+    const sorterFn = this.getSorterFn(currentState);
     if (sorterFn) {
       data = this.recursiveSort(data, sorterFn);
     }
     // 筛选
-    if (state.filters) {
-      Object.keys(state.filters).forEach((columnKey) => {
+    if (currentState.filters) {
+      Object.keys(currentState.filters).forEach((columnKey) => {
         let col = this.findColumn(columnKey) as any;
         if (!col) {
           return;
         }
-        let values = state.filters[columnKey] || [];
+        let values = currentState.filters[columnKey] || [];
         if (values.length === 0) {
           return;
         }

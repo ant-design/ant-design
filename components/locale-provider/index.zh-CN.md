@@ -2,7 +2,7 @@
 category: Components
 subtitle: 国际化
 cols: 1
-type: Other
+type: 其他
 title: LocaleProvider
 ---
 
@@ -45,4 +45,4 @@ return <LocaleProvider locale={locales.en_US}><App /></LocaleProvider>;
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| locale | 语言包配置，语言包可到 `antd/lib/locale-provider/` 目录下寻找 | object | - |
+| locale | 语言包配置，语言包可到 [antd/lib/locale-provider](http://unpkg.com/antd/lib/locale-provider/) 目录下寻找 | object | - |

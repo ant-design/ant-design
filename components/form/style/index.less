@@ -8,7 +8,7 @@
 @form-prefix-cls: ~"@{ant-prefix}-form";
 @form-component-height: @input-height-base;
 @form-component-max-height: @input-height-lg;
-@form-feedback-icon-size: 14px;
+@form-feedback-icon-size: @font-size-base;
 @form-help-margin-top: (@form-component-height - @form-component-max-height) / 2 + 2px;
 
 .@{form-prefix-cls} {
@@ -131,7 +131,9 @@ input[type="checkbox"] {
 .@{form-prefix-cls}-explain,
 .@{form-prefix-cls}-extra {
   color: @text-color-secondary;
-  line-height: @line-height-base;
+  // Magic tweak pixel number to float line-height diff in windows
+  // Fix https://github.com/ant-design/ant-design/issues/12803
+  line-height: @line-height-base + 0.024;
   transition: color .3s @ease-out; // sync input color transition
   margin-top: @form-help-margin-top;
   clear: both;
@@ -381,9 +383,10 @@ form {
       margin-bottom: 24px;
     }
 
-    > .@{form-prefix-cls}-item-control-wrapper, > .@{form-prefix-cls}-item-label {
+    > .@{form-prefix-cls}-item-control-wrapper,
+    > .@{form-prefix-cls}-item-label {
       display: inline-block;
-      vertical-align: middle;
+      vertical-align: top;
     }
   }
 
@@ -394,11 +397,6 @@ form {
   .has-feedback {
     display: inline-block;
   }
-
-  // Fix https://github.com/ant-design/ant-design/issues/1040
-  .@{form-prefix-cls}-explain {
-    position: absolute;
-  }
 }
 
 // Validation state
@@ -406,7 +404,7 @@ form {
 .has-warning,
 .has-error,
 .is-validating {
-  &.has-feedback .@{form-prefix-cls}-item-children:after {
+  &.has-feedback .@{form-prefix-cls}-item-children-icon {
     position: absolute;
     top: 50%;
     right: 0;
@@ -419,15 +417,22 @@ form {
     text-align: center;
     font-size: @form-feedback-icon-size;
     animation: zoomIn .3s @ease-out-back;
-    .iconfont-font("");
     z-index: 1;
+
+    & svg {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+    }
   }
 }
 
 .has-success {
-  &.has-feedback .@{form-prefix-cls}-item-children:after {
+  &.has-feedback .@{form-prefix-cls}-item-children-icon {
     animation-name: diffZoomIn1 !important;
-    content: '\e630';
     color: @success-color;
   }
 }
@@ -435,8 +440,7 @@ form {
 .has-warning {
   .form-control-validation(@warning-color; @warning-color;);
 
-  &.has-feedback .@{form-prefix-cls}-item-children:after {
-    content: '\e62c';
+  &.has-feedback .@{form-prefix-cls}-item-children-icon {
     color: @warning-color;
     animation-name: diffZoomIn3 !important;
   }
@@ -482,8 +486,7 @@ form {
 .has-error {
   .form-control-validation(@error-color; @error-color;);
 
-  &.has-feedback .@{form-prefix-cls}-item-children:after {
-    content: '\e62e';
+  &.has-feedback .@{form-prefix-cls}-item-children-icon {
     color: @error-color;
     animation-name: diffZoomIn2 !important;
   }
@@ -552,10 +555,8 @@ form {
 }
 
 .is-validating {
-  &.has-feedback .@{form-prefix-cls}-item-children:after {
+  &.has-feedback .@{form-prefix-cls}-item-children-icon {
     display: inline-block;
-    animation: loadingCircle 1s infinite linear;
-    content: "\e64d";
     color: @primary-color;
   }
 }

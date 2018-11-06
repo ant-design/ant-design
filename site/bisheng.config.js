@@ -1,8 +1,8 @@
 const path = require('path');
 const CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default;
-const OfflinePlugin = require('@yesmeck/offline-plugin');
 const replaceLib = require('antd-tools/lib/replaceLib');
-const getExternalResources = require('./getExternalResources');
+const webpack = require('webpack');
+const WebpackBar = require('webpackbar');
 
 const isDev = process.env.NODE_ENV === 'development';
 const usePreact = process.env.REACT_ENV === 'preact';
@@ -20,6 +20,23 @@ function alertBabelConfig(rules) {
       alertBabelConfig(rule.use);
     }
   });
+}
+
+function usePrettyWebpackBar(config) {
+  // remove old progress plugin.
+  config.plugins = config.plugins
+    .filter((plugin) => {
+      return !(plugin instanceof webpack.ProgressPlugin)
+        && !(plugin instanceof WebpackBar);
+    });
+
+  // use brand new progress bar.
+  config.plugins.push(
+    new WebpackBar({
+      name: '📦  Site',
+      minimal: false,
+    })
+  );
 }
 
 module.exports = {
@@ -54,8 +71,14 @@ module.exports = {
       'Data Entry': 3,
       'Data Display': 4,
       Feedback: 5,
-      Localization: 6,
-      Other: 7,
+      Other: 6,
+      通用: 0,
+      布局: 1,
+      导航: 2,
+      数据录入: 3,
+      数据展示: 4,
+      反馈: 5,
+      其他: 6,
     },
     docVersions: {
       '0.9.x': 'http://09x.ant.design',
@@ -80,7 +103,6 @@ module.exports = {
   },
   doraConfig: {
     verbose: true,
-    plugins: ['dora-plugin-upload'],
   },
   webpackConfig(config) {
     config.resolve.alias = {
@@ -109,29 +131,10 @@ module.exports = {
     }
 
     alertBabelConfig(config.module.rules);
+    usePrettyWebpackBar(config);
 
     config.plugins.push(
       new CSSSplitWebpackPlugin({ size: 4000 }),
-      new OfflinePlugin({
-        appShell: '/app-shell',
-        caches: {
-          main: [':rest:'],
-          additional: [':externals:'],
-        },
-        externals: [
-          '/app-shell',
-          'https://at.alicdn.com/t/font_148784_v4ggb6wrjmkotj4i.woff',
-          'https://at.alicdn.com/t/font_148784_v4ggb6wrjmkotj4i.eot',
-          'https://at.alicdn.com/t/font_148784_v4ggb6wrjmkotj4i.svg',
-          'https://at.alicdn.com/t/font_148784_v4ggb6wrjmkotj4i.ttf',
-        ].concat(getExternalResources()),
-        responseStrategy: 'network-first',
-        safeToUseOptionalCaches: true,
-        ServiceWorker: {
-          events: true,
-        },
-        AppCache: false,
-      }),
     );
 
     return config;

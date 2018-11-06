@@ -61,6 +61,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 | placeholder | placeholder of date input | string\|RangePicker\[] | - |
 | popupStyle | to customize the style of the popup calendar | object | {} |
 | size | determine the size of the input box, the height of `large` and `small`, are 40px and 24px respectively, while default size is 32px | string | - |
+| suffixIcon | The custom suffix icon | ReactNode | - |
 | style | to customize the style of the input box | object | {} |
 | onOpenChange | a callback function, can be executed whether the popup calendar is popped up or closed | function(status) | - |
 | onPanelChange | callback when picker panel mode is changed | function(value, mode) | - |
@@ -115,7 +116,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 | defaultValue | to set default date | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)] | - |
 | disabledTime | to specify the time that cannot be selected | function(dates: [moment, moment], partial: `'start'|'end'`) | - |
 | format | to set the date format | string | "YYYY-MM-DD HH:mm:ss" |
-| ranges | preseted ranges for quick selection | { \[range: string]: [moment](http://momentjs.com/)\[] } \| () => { \[range: string]: [moment](http://momentjs.com/)\[] } | - |
+| ranges | preseted ranges for quick selection | { \[range: string]: [moment](http://momentjs.com/)\[] } \| { \[range: string]: () => [moment](http://momentjs.com/)\[] } | - |
 | renderExtraFooter | render extra footer in panel | () => React.ReactNode | - |
 | showTime | to provide an additional time selection | object\|boolean | [TimePicker Options](/components/time-picker/#API) |
 | showTime.defaultValue | to set default time of selected date, [demo](#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/)\[] | [moment(), moment()] |

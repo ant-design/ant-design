@@ -49,7 +49,6 @@
 
   &-success-bg,
   &-bg {
-    border-radius: 100px;
     background-color: @progress-default-color;
     transition: all .4s @ease-out-circ 0s;
     position: relative;
@@ -70,6 +69,7 @@
     margin-left: 8px;
     vertical-align: middle;
     display: inline-block;
+    white-space: nowrap;
     color: @text-color-secondary;
     line-height: 1;
     .@{iconfont-css-prefix} {
@@ -132,7 +132,9 @@
     transform: translateY(-50%);
     left: 0;
     margin: 0;
-    color: @text-color;
+    color: @progress-text-color;
+    white-space: normal;
+    padding: 0 6px;
 
     .@{iconfont-css-prefix} {
       font-size: 14 / 12em;

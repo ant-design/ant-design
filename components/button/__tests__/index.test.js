@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { render, mount } from 'enzyme';
+import renderer from 'react-test-renderer';
 import Button from '..';
 import Icon from '../../icon';
 
@@ -9,6 +10,13 @@ describe('Button', () => {
       <Button>Follow</Button>
     );
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it('mount correctly', () => {
+    if (process.env.REACT === '15') {
+      return;
+    }
+    expect(() => renderer.create(<Button>Follow</Button>)).not.toThrow();
   });
 
   it('renders Chinese characters correctly', () => {

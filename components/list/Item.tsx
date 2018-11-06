@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Col } from '../grid';
 import { ListGridType, ColumnType } from './index';
@@ -10,7 +10,7 @@ export interface ListItemProps {
   prefixCls?: string;
   style?: React.CSSProperties;
   extra?: React.ReactNode;
-  actions?: Array<React.ReactNode>;
+  actions?: React.ReactNode[];
   grid?: ListGridType;
 }
 

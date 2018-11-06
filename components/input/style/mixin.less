@@ -263,12 +263,32 @@
     display: block;
     .clearfix;
 
+    &-addon,
+    &-wrap,
+    > .@{inputClass} {
+      &:not(:first-child):not(:last-child) {
+        border-right-width: 1px;
+        border-right-color: transparent;
+        &:hover {
+          .hover();
+        }
+        &:focus {
+          .active();
+        }
+      }
+    }
+
     & > * {
       border-radius: 0;
       border-right-width: 0;
       vertical-align: top; // https://github.com/ant-design/ant-design-pro/issues/139
       float: none;
       display: inline-block;
+    }
+
+    // https://github.com/ant-design/ant-design/issues/11863
+    & > span:not(:last-child) > .@{inputClass} {
+      border-right-width: 0;
     }
 
     // Undo float for .ant-input-group .ant-input
@@ -284,7 +304,14 @@
     & > .@{ant-prefix}-mention-wrapper .@{ant-prefix}-mention-editor,
     & > .@{ant-prefix}-time-picker .@{ant-prefix}-time-picker-input {
       border-radius: 0;
-      border-right-width: 0;
+      border-right-width: 1px;
+      border-right-color: transparent;
+      &:hover {
+        .hover();
+      }
+      &:focus {
+        .active();
+      }
     }
 
     & > *:first-child,
@@ -303,11 +330,27 @@
     & > .@{ant-prefix}-calendar-picker:last-child .@{ant-prefix}-input,
     & > .@{ant-prefix}-select-auto-complete:last-child .@{ant-prefix}-input,
     & > .@{ant-prefix}-cascader-picker:last-child .@{ant-prefix}-input,
+    & > .@{ant-prefix}-cascader-picker-focused:last-child .@{ant-prefix}-input,
     & > .@{ant-prefix}-mention-wrapper:last-child .@{ant-prefix}-mention-editor,
     & > .@{ant-prefix}-time-picker:last-child .@{ant-prefix}-time-picker-input {
       border-top-right-radius: @border-radius-base;
       border-bottom-right-radius: @border-radius-base;
       border-right-width: 1px;
+      border-right-color: @input-border-color;
+      &:hover {
+        .hover();
+      }
+      &:focus {
+        .active();
+        .@{ant-prefix}-cascader-input {
+          .active();
+        }
+      }
+    }
+
+    // https://github.com/ant-design/ant-design/issues/12493
+    & > .@{ant-prefix}-select-auto-complete .@{ant-prefix}-input {
+      vertical-align: top;
     }
   }
 }

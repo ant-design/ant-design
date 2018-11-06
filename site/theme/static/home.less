@@ -8,6 +8,7 @@
   position: relative; // will-change: transform;
   color: @home-text-color;
   font-family: Avenir, @font-family;
+  font-variant: tabular-nums;
   .page {
     width: 100%;
     max-width: 1200px;
@@ -76,6 +77,7 @@
       margin: 8px 0 28px;
       letter-spacing: 0;
       font-family: Avenir, @font-family;
+      font-variant: tabular-nums;
     }
     p {
       font-size: 20px;
@@ -90,6 +92,10 @@
     position: absolute;
     right: 0;
     bottom: 26px;
+
+    img {
+      max-width: 100%;
+    }
   }
 
   .banner-btns {
@@ -111,6 +117,7 @@
     text-decoration: none;
     border: 1px solid #2f54eb;
     font-family: @font-family;
+    font-variant: tabular-nums;
   }
 
   .banner-btn.components {
@@ -266,6 +273,11 @@ svg {
             vertical-align: middle;
           }
         }
+        .more-mobile-react, .more-mobile-angular {
+          display: block;
+          color: @home-bg-color;
+          margin-top: 16px;
+        }
       }
       .block-image-wrapper {
         height: 104px;
@@ -365,5 +377,15 @@ svg {
     video {
       display: block;
     }
+  }
+}
+
+.banner-1024 {
+  cursor: pointer;
+  transition: all .4s;
+  display: block;
+
+  &:hover {
+    transform: translateY(-16px) scale(1.01);
   }
 }

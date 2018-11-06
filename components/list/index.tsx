@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { SpinProps } from '../spin';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
@@ -237,11 +237,13 @@ export default class List extends React.Component<ListProps> {
       const items = splitDataSource.map((item: any, index: number) =>
         this.renderItem(item, index),
       );
-      const childrenList = React.Children.map(items, (child: any, index) =>
-        React.cloneElement(child, {
+
+      const childrenList: Array<React.ReactNode> = [];
+      React.Children.forEach(items, (child: any, index) => {
+        childrenList.push(React.cloneElement(child, {
           key: this.keys[index],
-        }),
-      );
+        }));
+      });
 
       childrenContent = grid ? (
         <Row gutter={grid.gutter}>{childrenList}</Row>

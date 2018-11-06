@@ -9,6 +9,8 @@ import TransferItem from '../item';
 import Button from '../../button';
 import Checkbox from '../../checkbox';
 
+const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
 const listCommonProps = {
   dataSource: [{
     key: 'a',
@@ -93,14 +95,14 @@ describe('Transfer', () => {
   it('should move selected keys to corresponding list', () => {
     const handleChange = jest.fn();
     const wrapper = mount(<Transfer {...listCommonProps} onChange={handleChange} />);
-    wrapper.find(TransferOperation).find(Button).at(1).simulate('click'); // move selected keys to right list
+    wrapper.find(TransferOperation).find(Button).at(0).simulate('click'); // move selected keys to right list
     expect(handleChange).toHaveBeenCalledWith(['a', 'b'], 'right', ['a']);
   });
 
   it('should move selected keys expect disabled to corresponding list', () => {
     const handleChange = jest.fn();
     const wrapper = mount(<Transfer {...listDisabledProps} onChange={handleChange} />);
-    wrapper.find(TransferOperation).find(Button).at(1).simulate('click'); // move selected keys to right list
+    wrapper.find(TransferOperation).find(Button).at(0).simulate('click'); // move selected keys to right list
     expect(handleChange).toHaveBeenCalledWith(['b'], 'right', ['b']);
   });
 
@@ -148,6 +150,13 @@ describe('Transfer', () => {
     expect(wrapper.find(TransferList).at(0).find(TransferItem).find(Checkbox)).toHaveLength(1);
   });
 
+  const headerText = wrapper => wrapper
+    .find(TransferList).at(0)
+    .find('.ant-transfer-list-header-selected > span').at(0)
+    .first()
+    .text()
+    .trim();
+
   it('should display the correct count of items when filter by input', () => {
     const filterOption = (inputValue, option) => option.description.indexOf(inputValue) > -1;
     const renderFunc = item => item.title;
@@ -160,10 +169,60 @@ describe('Transfer', () => {
       />
     );
     wrapper.find(TransferSearch).at(0).find('input').simulate('change', { target: { value: 'content2' } });
-    expect(wrapper.find(TransferList).at(0).find('.ant-transfer-list-header-selected > span').at(0)
-      .first()
-      .text()
-      .trim()).toEqual('1 items');
+    expect(headerText(wrapper)).toEqual('1 items');
+  });
+
+  it('should display the correct locale', () => {
+    const emptyProps = { dataSource: [], selectedKeys: [], targetKeys: [] };
+    const locale = { itemUnit: 'Person', notFoundContent: 'Nothing', searchPlaceholder: 'Search' };
+    const wrapper = mount(<Transfer {...listCommonProps} {...emptyProps} showSearch locale={locale} />);
+
+    expect(headerText(wrapper)).toEqual('0 Person');
+
+    expect(
+      wrapper
+        .find(TransferList).at(0)
+        .find('.ant-transfer-list-search').at(0)
+        .prop('placeholder')
+    ).toEqual('Search');
+
+    expect(
+      wrapper
+        .find(TransferList).at(0)
+        .find('.ant-transfer-list-body-not-found').at(0)
+        .text()
+    ).toEqual('Nothing');
+  });
+
+  it('should display the correct locale using old API', () => {
+    const emptyProps = { dataSource: [], selectedKeys: [], targetKeys: [] };
+    const locale = { notFoundContent: 'old1', searchPlaceholder: 'old2' };
+    const wrapper = mount(<Transfer {...listCommonProps} {...emptyProps} {...locale} showSearch />);
+
+    expect(
+      wrapper
+        .find(TransferList).at(0)
+        .find('.ant-transfer-list-search').at(0)
+        .prop('placeholder')
+    ).toEqual('old2');
+
+    expect(
+      wrapper
+        .find(TransferList).at(0)
+        .find('.ant-transfer-list-body-not-found').at(0)
+        .text()
+    ).toEqual('old1');
+
+    expect(consoleErrorSpy).toBeCalledWith(
+      'Warning: Transfer[notFoundContent] and Transfer[searchPlaceholder] will be removed, please use Transfer[locale] instead.'
+    );
+    consoleErrorSpy.mockRestore();
+  });
+
+  it('should display the correct items unit', () => {
+    const wrapper = mount(<Transfer {...listCommonProps} locale={{ itemsUnit: 'People' }} />);
+
+    expect(headerText(wrapper)).toEqual('1/2 People');
   });
 
   it('should just check the filtered item when click on check all after search by input', () => {
@@ -209,7 +268,7 @@ describe('Transfer', () => {
       .simulate('change', { target: { value: 'content2' } });
     wrapper.find(TransferList).at(0).find('.ant-transfer-list-header input[type="checkbox"]').filterWhere(n => !n.prop('checked'))
       .simulate('change');
-    wrapper.find(TransferOperation).find(Button).at(1).simulate('click');
+    wrapper.find(TransferOperation).find(Button).at(0).simulate('click');
     expect(handleChange).toHaveBeenCalledWith(['1', '3', '4'], 'right', ['1']);
   });
 

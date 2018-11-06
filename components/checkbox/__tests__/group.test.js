@@ -64,4 +64,32 @@ describe('CheckboxGroup', () => {
 
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('should be controlled by value', () => {
+    const options = [
+      { label: 'Apple', value: 'Apple' },
+      { label: 'Orange', value: 'Orange' },
+    ];
+
+    const wrapper = mount(
+      <Checkbox.Group options={options} />
+    );
+
+    expect(wrapper.instance().state.value).toEqual([]);
+    wrapper.setProps({ value: ['Apple'] });
+    expect(wrapper.instance().state.value).toEqual(['Apple']);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/12642
+  it('should trigger onChange in sub Checkbox', () => {
+    const onChange = jest.fn();
+    const wrapper = mount(
+      <Checkbox.Group>
+        <Checkbox value="my" onChange={onChange} />
+      </Checkbox.Group>
+    );
+    wrapper.find('.ant-checkbox-input').at(0).simulate('change');
+    expect(onChange).toBeCalled();
+    expect(onChange.mock.calls[0][0].target.value).toEqual('my');
+  });
 });

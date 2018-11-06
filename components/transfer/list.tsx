@@ -39,10 +39,11 @@ export interface TransferListProps {
   notFoundContent: React.ReactNode;
   itemUnit: string;
   itemsUnit: string;
-  body?: (props: any) => any;
-  footer?: (props: any) => void;
+  body?: (props: TransferListProps) => React.ReactNode;
+  footer?: (props: TransferListProps) => React.ReactNode;
   lazy?: boolean | {};
   onScroll: Function;
+  disabled?: boolean;
 }
 
 export default class TransferList extends React.Component<TransferListProps, any> {
@@ -160,14 +161,14 @@ export default class TransferList extends React.Component<TransferListProps, any
 
   render() {
     const {
-      prefixCls, dataSource, titleText, checkedKeys, lazy,
-      body = noop, footer = noop, showSearch, style, filter,
+      prefixCls, dataSource, titleText, checkedKeys, lazy, disabled,
+      body, footer, showSearch, style, filter,
       searchPlaceholder, notFoundContent, itemUnit, itemsUnit, onScroll,
     } = this.props;
 
     // Custom Layout
-    const footerDom = footer({ ...this.props });
-    const bodyDom = body({ ...this.props });
+    const footerDom = footer && footer(this.props);
+    const bodyDom = body && body(this.props);
 
     const listCls = classNames(prefixCls, {
       [`${prefixCls}-with-footer`]: !!footerDom,
@@ -192,6 +193,7 @@ export default class TransferList extends React.Component<TransferListProps, any
       const checked = checkedKeys.indexOf(item.key) >= 0;
       return (
         <Item
+          disabled={disabled}
           key={item.key}
           item={item}
           lazy={lazy}
@@ -219,7 +221,7 @@ export default class TransferList extends React.Component<TransferListProps, any
     ) : null;
 
     const listBody = bodyDom || (
-      <div className={showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`}>
+      <div className={classNames(showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`)}>
         {search}
         <Animate
           component="ul"
@@ -247,6 +249,7 @@ export default class TransferList extends React.Component<TransferListProps, any
     const checkAllCheckbox = (
       <Checkbox
         ref="checkbox"
+        disabled={disabled}
         checked={checkedAll}
         indeterminate={checkStatus === 'part'}
         onChange={() => this.props.handleSelectAll(filteredDataSource, checkedAll)}

@@ -159,11 +159,23 @@ export default class Header extends React.Component {
             rel="noopener noreferrer"
           >
             <FormattedMessage id="app.header.menu.pro" />
-            <span style={{ display: 'inline-block', position: 'relative', top: -2, width: 6, marginLeft: 8 }}>
-              <Badge dot />
-            </span>
           </a>
         </Menu.Item>
+        {isZhCN ? (
+          <Menu.Item key="course">
+            <a
+              href="https://www.yuque.com/ant-design/course"
+              className="header-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              教程
+              <span style={{ display: 'inline-block', position: 'relative', top: -2, width: 6, marginLeft: 8 }}>
+                <Badge dot />
+              </span>
+            </a>
+          </Menu.Item>
+        ) : null}
       </Menu>,
     ];
 
@@ -188,13 +200,13 @@ export default class Header extends React.Component {
           </Popover>
         )}
         <Row>
-          <Col xxl={4} xl={5} lg={5} md={6} sm={24} xs={24}>
+          <Col xxl={4} xl={5} lg={5} md={5} sm={24} xs={24}>
             <Link to={utils.getLocalizedPathname('/', isZhCN)} id="logo">
               <img alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" />
               <img alt="Ant Design" src="https://gw.alipayobjects.com/zos/rmsportal/DkKNubTaaVsKURhcVGkh.svg" />
             </Link>
           </Col>
-          <Col xxl={20} xl={19} lg={19} md={18} sm={0} xs={0}>
+          <Col xxl={20} xl={19} lg={19} md={19} sm={0} xs={0}>
             <div id="search-box">
               <Icon type="search" />
               <Input ref={ref => this.searchInput = ref} placeholder={searchPlaceholder} />

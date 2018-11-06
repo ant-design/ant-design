@@ -16,12 +16,17 @@
     &:active,
     &.active {
       .button-color(@btn-disable-color; @btn-disable-bg; @btn-disable-border);
+      text-shadow: none;
+      box-shadow: none;
     }
   }
 }
 
 .button-variant-primary(@color; @background) {
   .button-color(@color; @background; @background);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, .12);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, .035);
+
   &:hover,
   &:focus {
     .button-color(@color; ~`colorPalette("@{background}", 5)`; ~`colorPalette("@{background}", 5)`);
@@ -72,6 +77,7 @@
 
 .button-variant-ghost(@color) {
   .button-color(@color; transparent; @color);
+  text-shadow: none;
 
   &:hover,
   &:focus {
@@ -158,6 +164,7 @@
   user-select: none;
   transition: all .3s @ease-in-out;
   position: relative;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, .015);
 
   > .@{iconfont-css-prefix} {
     line-height: 1;
@@ -176,6 +183,7 @@
   &:not([disabled]):active {
     outline: 0;
     transition: none;
+    box-shadow: none;
   }
 
   &.disabled,

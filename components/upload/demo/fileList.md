@@ -31,7 +31,7 @@ import { Upload, Button, Icon } from 'antd';
 class MyUpload extends React.Component {
   state = {
     fileList: [{
-      uid: -1,
+      uid: '-1',
       name: 'xxx.png',
       status: 'done',
       url: 'http://www.baidu.com/xxx.png',
@@ -42,10 +42,10 @@ class MyUpload extends React.Component {
     let fileList = info.fileList;
 
     // 1. Limit the number of uploaded files
-    //    Only to show two recent uploaded files, and old ones will be replaced by the new
+    // Only to show two recent uploaded files, and old ones will be replaced by the new
     fileList = fileList.slice(-2);
 
-    // 2. read from response and show file link
+    // 2. Read from response and show file link
     fileList = fileList.map((file) => {
       if (file.response) {
         // Component will show file.url as link
@@ -54,7 +54,7 @@ class MyUpload extends React.Component {
       return file;
     });
 
-    // 3. filter successfully uploaded files according to response from server
+    // 3. Filter successfully uploaded files according to response from server
     fileList = fileList.filter((file) => {
       if (file.response) {
         return file.response.status === 'success';
@@ -74,7 +74,7 @@ class MyUpload extends React.Component {
     return (
       <Upload {...props} fileList={this.state.fileList}>
         <Button>
-          <Icon type="upload" /> upload
+          <Icon type="upload" /> Upload
         </Button>
       </Upload>
     );

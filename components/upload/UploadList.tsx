@@ -22,8 +22,12 @@ const extname = (url: string) => {
   const filenameWithoutSuffix = filename.split(/#|\?/)[0];
   return (/\.[^./\\]*$/.exec(filenameWithoutSuffix) || [''])[0];
 };
-
-const isImageUrl = (url: string): boolean => {
+const imageTypes: string[] = ['image', 'webp', 'png', 'svg', 'gif', 'jpg', 'jpeg', 'bmp'];
+const isImageUrl = (file: UploadFile): boolean => {
+  if (imageTypes.includes(file.type)) {
+    return true;
+  }
+  const url: string = (file.thumbUrl || file.url) as string;
   const extension = extname(url);
   if (/^data:image\//.test(url) || /(webp|svg|png|gif|jpg|jpeg|bmp)$/i.test(extension)) {
     return true;
@@ -99,7 +103,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         } else if (!file.thumbUrl && !file.url) {
           icon = <Icon className={`${prefixCls}-list-item-thumbnail`} type="picture" />;
         } else {
-          let thumbnail = isImageUrl((file.thumbUrl || file.url) as string)
+          let thumbnail = isImageUrl(file)
             ? <img src={file.thumbUrl || file.url} alt={file.name} />
             : <Icon type="file" className={`${prefixCls}-list-item-icon`} />;
           icon = (
@@ -132,15 +136,17 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         [`${prefixCls}-list-item`]: true,
         [`${prefixCls}-list-item-${file.status}`]: true,
       });
+      const linkProps = typeof file.linkProps === 'string'
+        ? JSON.parse(file.linkProps) : file.linkProps;
       const preview = file.url ? (
         <a
-          {...file.linkProps}
-          href={file.url}
           target="_blank"
           rel="noopener noreferrer"
           className={`${prefixCls}-list-item-name`}
-          onClick={e => this.handlePreview(file, e)}
           title={file.name}
+          {...linkProps}
+          href={file.url}
+          onClick={e => this.handlePreview(file, e)}
         >
           {file.name}
         </a>
@@ -172,12 +178,12 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       const removeIcon = showRemoveIcon ? (
         <Icon type="delete" title={locale.removeFile} onClick={() => this.handleClose(file)} />
       ) : null;
-      const removeIconCross = showRemoveIcon ? (
-        <Icon type="cross" title={locale.removeFile} onClick={() => this.handleClose(file)} />
+      const removeIconClose = showRemoveIcon ? (
+        <Icon type="close" title={locale.removeFile} onClick={() => this.handleClose(file)} />
       ) : null;
       const actions = (listType === 'picture-card' && file.status !== 'uploading')
         ? <span className={`${prefixCls}-list-item-actions`}>{previewIcon}{removeIcon}</span>
-        : removeIconCross;
+        : removeIconClose;
       let message;
       if (file.response && typeof file.response === 'string') {
         message = file.response;

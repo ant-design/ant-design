@@ -38,6 +38,9 @@ const dataSource = ['12345', '23456', '34567'];
 | onFocus | Called when entering the component | function() | - |
 | onSearch | Called when searching items. | function(value) | - |
 | onSelect | Called when a option is selected. param is option's value and option instance. | function(value, option) | - |
+| defaultOpen | Initial open state of dropdown | boolean | - |
+| open | Controlled open state of dropdown | boolean | - |
+| onDropdownVisibleChange | Call when dropdown open | function(open) | - |
 
 ## Methods
 

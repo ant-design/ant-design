@@ -1,8 +1,10 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import RcSwitch from 'rc-switch';
 import classNames from 'classnames';
 import omit from 'omit.js';
+import Wave from '../_util/wave';
+import Icon from '../icon';
 
 export interface SwitchProps {
   prefixCls?: string;
@@ -15,6 +17,7 @@ export interface SwitchProps {
   unCheckedChildren?: React.ReactNode;
   disabled?: boolean;
   loading?: boolean;
+  autoFocus?: boolean;
 }
 
 export default class Switch extends React.Component<SwitchProps, {}> {
@@ -50,12 +53,21 @@ export default class Switch extends React.Component<SwitchProps, {}> {
       [`${prefixCls}-small`]: size === 'small',
       [`${prefixCls}-loading`]: loading,
     });
-    return (
-      <RcSwitch
-        {...omit(this.props, ['loading'])}
-        className={classes}
-        ref={this.saveSwitch}
+    const loadingIcon = loading ? (
+      <Icon
+        type="loading"
+        className={`${prefixCls}-loading-icon`}
       />
+    ) : null;
+    return (
+      <Wave insertExtraNode>
+        <RcSwitch
+          {...omit(this.props, ['loading'])}
+          className={classes}
+          ref={this.saveSwitch}
+          loadingIcon={loadingIcon}
+        />
+      </Wave>
     );
   }
 }

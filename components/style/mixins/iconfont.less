@@ -1,25 +1,29 @@
 .iconfont-mixin() {
   display: inline-block;
   font-style: normal;
-  vertical-align: baseline;
+  vertical-align: -0.125em; // for SVG icon, see https://blog.prototypr.io/align-svg-icons-to-text-and-say-goodbye-to-font-icons-d44b3d7b26b4
   text-align: center;
   text-transform: none;
-  line-height: 1;
+  line-height: 0;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  &:before {
-    display: block;
-    font-family: "anticon" !important;
-  }
-}
 
-.iconfont-font(@content) {
-  font-family: 'anticon';
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  content: @content;
+  > * {
+    line-height: 1;
+  }
+
+  svg {
+    display: inline-block;
+  }
+
+  &:before {
+    display: none; // dont display old icon.
+  }
+
+  & &-icon {
+    display: block;
+  }
 }
 
 // for iconfont font size

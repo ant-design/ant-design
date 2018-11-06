@@ -2,13 +2,13 @@ import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import debounce from 'lodash/debounce';
-import { getFullKeyList, calcExpandedKeys } from 'rc-tree/lib/util';
+import { conductExpandParent, convertTreeToEntities } from 'rc-tree/lib/util';
 
 import Tree, {
   TreeProps, AntdTreeNodeAttribute,
   AntTreeNodeExpandedEvent, AntTreeNodeSelectedEvent, AntTreeNode,
 } from './Tree';
-import { calcRangeKeys } from './util';
+import { calcRangeKeys, getFullKeyList } from './util';
 import Icon from '../icon';
 
 export type ExpandAction = false | 'click' | 'doubleClick';
@@ -38,6 +38,7 @@ export default class DirectoryTree extends React.Component<DirectoryTreeProps, D
   };
 
   state: DirectoryTreeState;
+  tree: Tree;
   onDebounceExpand: (event: React.MouseEvent<HTMLElement>, node: AntTreeNode) => void;
 
   // Shift click usage
@@ -47,7 +48,8 @@ export default class DirectoryTree extends React.Component<DirectoryTreeProps, D
   constructor(props: DirectoryTreeProps) {
     super(props);
 
-    const { defaultExpandAll, defaultExpandParent, expandedKeys, defaultExpandedKeys } = props;
+    const { defaultExpandAll, defaultExpandParent, expandedKeys, defaultExpandedKeys, children } = props;
+    const { keyEntities } = convertTreeToEntities(children);
 
     // Selected keys
     this.state = {
@@ -58,9 +60,9 @@ export default class DirectoryTree extends React.Component<DirectoryTreeProps, D
     if (defaultExpandAll) {
       this.state.expandedKeys = getFullKeyList(props.children);
     } else if (defaultExpandParent) {
-      this.state.expandedKeys = calcExpandedKeys(expandedKeys || defaultExpandedKeys, props);
+      this.state.expandedKeys = conductExpandParent(expandedKeys || defaultExpandedKeys, keyEntities);
     } else {
-      this.state.expandedKeys = defaultExpandedKeys;
+      this.state.expandedKeys = expandedKeys || defaultExpandedKeys;
     }
 
     this.onDebounceExpand = debounce(this.expandFolderNode, 200, {
@@ -156,35 +158,23 @@ export default class DirectoryTree extends React.Component<DirectoryTreeProps, D
     this.setUncontrolledState(newState);
   }
 
+  setTreeRef = (node: Tree) => {
+    this.tree = node;
+  };
+
   expandFolderNode = (event: React.MouseEvent<HTMLElement>, node: AntTreeNode) => {
-    const { expandedKeys = [] } = this.state;
-    const { onExpand } = this.props;
-    const { eventKey = '', expanded, isLeaf } = node.props;
+    const { isLeaf } = node.props;
 
     if (isLeaf || event.shiftKey || event.metaKey || event.ctrlKey) {
       return;
     }
 
-    let newExpandedKeys: string[] = expandedKeys.slice();
-    const index = newExpandedKeys.indexOf(eventKey);
+    // Get internal rc-tree
+    const internalTree = this.tree.tree;
 
-    if (expanded && index >= 0) {
-      newExpandedKeys.splice(index, 1);
-    } else if (!expanded && index === -1) {
-      newExpandedKeys.push(eventKey);
-    }
-
-    this.setUncontrolledState({
-      expandedKeys: newExpandedKeys,
-    });
-
-    if (onExpand) {
-      onExpand(newExpandedKeys, {
-        expanded: !expanded,
-        node,
-        nativeEvent: event.nativeEvent,
-      });
-    }
+    // Call internal rc-tree expand function
+    // https://github.com/ant-design/ant-design/issues/12567
+    internalTree.onNodeExpand(event, node);
   }
 
   setUncontrolledState = (state: DirectoryTreeState) => {
@@ -203,6 +193,7 @@ export default class DirectoryTree extends React.Component<DirectoryTreeProps, D
     return (
       <Tree
         icon={getIcon}
+        ref={this.setTreeRef}
         {...props}
 
         prefixCls={prefixCls}

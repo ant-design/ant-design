@@ -13,7 +13,7 @@
     background-color: transparent !important;
     cursor: pointer;
     width: 100%;
-    position: static;
+    position: relative;
   }
 
   &-picker-show-search &-input.@{ant-prefix}-input {
@@ -101,13 +101,9 @@
       margin-top: -6px;
       line-height: 12px;
       color: @disabled-color;
-      &:before {
-        transition: transform .2s;
-      }
+      transition: transform .2s;
       &&-expand {
-        &:before {
-          transform: rotate(180deg);
-        }
+        transform: rotate(180deg);
       }
     }
   }
@@ -165,6 +161,8 @@
     padding: 0;
     border-right: @border-width-base @border-style-base @border-color-split;
     overflow: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar; // https://github.com/ant-design/ant-design/issues/11857
+
     &:first-child {
       border-radius: @border-radius-base 0 0 @border-radius-base;
     }
@@ -203,17 +201,14 @@
     &-expand {
       position: relative;
       padding-right: 24px;
-      &:after {
-        .iconfont-font("\e61f");
-        .iconfont-size-under-12px(8px);
-        color: @text-color-secondary;
-        position: absolute;
-        right: @control-padding-horizontal;
-      }
     }
-    &-loading:after {
-      .iconfont-font("\e64d");
-      animation: loadingCircle 1s infinite linear;
+
+    &-expand &-expand-icon,
+    &-expand &-loading-icon {
+      .iconfont-size-under-12px(10px);
+      color: @text-color-secondary;
+      position: absolute;
+      right: @control-padding-horizontal;
     }
 
     & &-keyword {

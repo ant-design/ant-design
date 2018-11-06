@@ -8,6 +8,8 @@
   flex-direction: column;
   flex: auto;
   background: @layout-body-background;
+  /* fix firefox can't set height smaller than content on flex item */
+  min-height: 0;
 
   &,
   * {
@@ -43,6 +45,8 @@
 
   &-content {
     flex: auto;
+    /* fix firefox can't set height smaller than content on flex item */
+    min-height: 0;
   }
 
   &-sider {

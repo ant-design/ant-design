@@ -1,7 +1,7 @@
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
 if (typeof window !== 'undefined') {
-  const matchMediaPolyfill = (mediaQuery: string): MediaQueryList => {
+  const matchMediaPolyfill = (mediaQuery: string) => {
     return {
       media: mediaQuery,
       matches: false,
@@ -15,9 +15,10 @@ if (typeof window !== 'undefined') {
 }
 
 import * as React from 'react';
+import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import Icon from '../icon';
 import isNumeric from '../_util/isNumeric';
 
@@ -67,7 +68,7 @@ const generateId = (() => {
   };
 })();
 
-export default class Sider extends React.Component<SiderProps, SiderState> {
+class Sider extends React.Component<SiderProps, SiderState> {
   static __ANT_LAYOUT_SIDER: any = true;
 
   static defaultProps = {
@@ -89,6 +90,15 @@ export default class Sider extends React.Component<SiderProps, SiderState> {
   static contextTypes = {
     siderHook: PropTypes.object,
   };
+
+  static getDerivedStateFromProps(nextProps: SiderProps) {
+    if ('collapsed' in nextProps) {
+      return {
+        collapsed: nextProps.collapsed,
+      };
+    }
+    return null;
+  }
 
   private mql: MediaQueryList;
   private uniqueId: string;
@@ -122,14 +132,6 @@ export default class Sider extends React.Component<SiderProps, SiderState> {
     };
   }
 
-  componentWillReceiveProps(nextProps: SiderProps) {
-    if ('collapsed' in nextProps) {
-      this.setState({
-        collapsed: nextProps.collapsed,
-      });
-    }
-  }
-
   componentDidMount() {
     if (this.mql) {
       this.mql.addListener(this.responsiveHandler);
@@ -143,7 +145,7 @@ export default class Sider extends React.Component<SiderProps, SiderState> {
 
   componentWillUnmount() {
     if (this.mql) {
-      this.mql.removeListener(this.responsiveHandler);
+      this.mql.removeListener(this.responsiveHandler as any);
     }
 
     if (this.context.siderHook) {
@@ -151,7 +153,7 @@ export default class Sider extends React.Component<SiderProps, SiderState> {
     }
   }
 
-  responsiveHandler = (mql: MediaQueryList) => {
+  responsiveHandler = (mql: MediaQueryListEvent | MediaQueryList) => {
     this.setState({ below: mql.matches });
     const { onBreakpoint } = this.props;
     if (onBreakpoint) {
@@ -234,3 +236,7 @@ export default class Sider extends React.Component<SiderProps, SiderState> {
     );
   }
 }
+
+polyfill(Sider);
+
+export default Sider;

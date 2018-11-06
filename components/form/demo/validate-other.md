@@ -68,7 +68,7 @@ class Demo extends React.Component {
           })(
             <Select placeholder="Please select a country">
               <Option value="china">China</Option>
-              <Option value="use">U.S.A</Option>
+              <Option value="usa">U.S.A</Option>
             </Select>
           )}
         </FormItem>

@@ -28,6 +28,11 @@
     }
   }
 
+  &-close-icon {
+    font-size: @font-size-base;
+    cursor: pointer;
+  }
+
   &-notice {
     padding: @notification-padding;
     border-radius: @border-radius-base;
@@ -55,7 +60,6 @@
         &:before {
           content: '';
           display: block;
-          padding-bottom: 100%;
         }
       }
     }
@@ -97,13 +101,6 @@
       &-error {
         color: @error-color;
       }
-    }
-
-    &-close-x:after {
-      font-size: @font-size-base;
-      content: "\e633";
-      font-family: "anticon";
-      cursor: pointer;
     }
 
     &-close {
