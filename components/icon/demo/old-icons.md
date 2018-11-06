@@ -93,6 +93,7 @@ const icons = [
   'exclamation-circle-o',
   'exclamation-circle',
   'close',
+  'cross',
   'close-circle',
   'close-circle-o',
   'close-square',
