@@ -27,7 +27,7 @@ const { Header, Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 
 // 代码中 ConfigProvider 仅用于官网示例修正使用，你的代码并不需要用到 setContainerRef, getPopupContainer 和 ConfigProvider。删除即可。
-// `ConfigProvider` in sample is only for site demo fix usag, your real code needn't use setContainerRef, getPopupContainer & ConfigProvider. Just remove them.
+// `ConfigProvider` in sample is only for site demo fix usage, your real code needn't use setContainerRef, getPopupContainer & ConfigProvider. Just remove them.
 class SiderDemo extends React.Component {
   state = {
     collapsed: false,
