@@ -3,6 +3,7 @@ import { cloneElement } from 'react';
 import { polyfill } from 'react-lifecycles-compat';
 import RcTooltip from 'rc-tooltip';
 import classNames from 'classnames';
+import { ConfigConsumer, ConfigProviderProps } from '../config-provider';
 import getPlacements, { AdjustOverflow, PlacementsConfig } from './placements';
 import Button from '../button/index';
 
@@ -27,7 +28,7 @@ export interface TooltipAlignConfig {
   useCssTransform?: boolean
 }
 
-export interface AbstractTooltipProps {
+export interface AbstractTooltipProps extends ConfigProviderProps {
   prefixCls?: string;
   overlayClassName?: string;
   style?: React.CSSProperties;
@@ -46,7 +47,6 @@ export interface AbstractTooltipProps {
   autoAdjustOverflow?: boolean | AdjustOverflow;
   // getTooltipContainer had been rename to getPopupContainer
   getTooltipContainer?: (triggerNode: Element) => HTMLElement;
-  getPopupContainer?: (triggerNode: Element) => HTMLElement;
   children?: React.ReactNode;
   // align is a more higher api
   align?: TooltipAlignConfig;
@@ -208,7 +208,7 @@ class Tooltip extends React.Component<TooltipProps, any> {
     this.tooltip = node;
   }
 
-  render() {
+  renderTooltip = ({ getPopupContainer: getContextPopupContainer }: ConfigProviderProps) => {
     const { props, state } = this;
     const { prefixCls, title, overlay, openClassName, getPopupContainer, getTooltipContainer } = props;
     const children = props.children as React.ReactElement<any>;
@@ -229,7 +229,7 @@ class Tooltip extends React.Component<TooltipProps, any> {
     return (
       <RcTooltip
         {...this.props}
-        getTooltipContainer={getPopupContainer || getTooltipContainer}
+        getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}
         ref={this.saveTooltip}
         builtinPlacements={this.getPlacements()}
         overlay={overlay || title || ''}
@@ -239,6 +239,14 @@ class Tooltip extends React.Component<TooltipProps, any> {
       >
         {visible ? cloneElement(child, { className: childCls }) : child}
       </RcTooltip>
+    );
+  }
+
+  render() {
+    return (
+      <ConfigConsumer>
+        {this.renderTooltip}
+      </ConfigConsumer>
     );
   }
 }
