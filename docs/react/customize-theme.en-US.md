@@ -105,7 +105,7 @@ If you need to integrate ant-design as a part of an existing website, it's likel
 
 While there's no canonical way to do it, you can take one of the following paths :
 
-### Configure webpack to load an alternale less file and scope global styles
+### Configure webpack to load an alternate less file and scope global styles
 
 It's possible to configure webpack to load an alternate less file:
 
