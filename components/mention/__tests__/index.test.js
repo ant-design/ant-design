@@ -80,7 +80,7 @@ describe('Mention', () => {
     if (process.env.REACT === '15') {
       return;
     }
-    wrapper.find('.ant-mention-dropdown-item').at(0).simulate('mouseDown');
+    wrapper.find('.ant-mention-dropdown-item').at(0).simulate('mouseUp');
     jest.runAllTimers();
     expect(onSelect).toBeCalled();
     expect(wrapper.find('.public-DraftStyleDefault-block').text()).toBe('@afc163 ');
