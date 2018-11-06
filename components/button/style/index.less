@@ -186,11 +186,13 @@
 }
 
 a.@{btn-prefix-cls} {
-  line-height: @btn-height-base - 2px;
-  &-lg {
+  > span {
+    line-height: @btn-height-base - 2px;
+  }
+  &-lg > span {
     line-height: @btn-height-lg - 2px;
   }
-  &-sm {
+  &-sm > span {
     line-height: @btn-height-sm - 2px;
   }
 }
