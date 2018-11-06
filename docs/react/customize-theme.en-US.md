@@ -98,6 +98,10 @@ Another approach to customize theme is creating a `less` file within variables t
 
 Note: This way will load the styles of all components, regardless of your demand, which cause `style` option of `babel-plugin-import` not working.
 
+### Customize using scss
+
+If you use SCSS throughout your webpack project, there is a way to customize your ant design theme to write it in SCSS so you can import it to your other SCSS files. Check out [Ant-scss-theme-plugin](https://github.com/intoli/antd-scss-theme-plugin)
+
 ## How to avoid modifying global styles?
 
 Currently ant-design is designed as a whole experience and modify global styles (eg `body` etc).
