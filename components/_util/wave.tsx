@@ -21,7 +21,7 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
   }
 
   onClick = (node: HTMLElement, waveColor: string) => {
-    if (node.className.indexOf('-leave') >= 0) {
+    if (!node || node.className.indexOf('-leave') >= 0) {
       return;
     }
     const { insertExtraNode } = this.props;
@@ -113,7 +113,11 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
   }
 
   componentDidMount() {
-    this.instance = this.bindAnimationEvent(findDOMNode(this) as HTMLElement);
+    const node = findDOMNode(this) as HTMLElement;
+    if (node.nodeType !== 1) {
+      return;
+    }
+    this.instance = this.bindAnimationEvent(node);
   }
 
   componentWillUnmount() {
