@@ -8,13 +8,13 @@ Broadly speaking, anything telling users where they are, where to go and how to 
 
 - Provide visual and contextual cues as many as possible, to prevent users from getting lost
 - Maintain consistency between form and behavior, or reduce the number of items in navigation, to decrease user's learning cost
-- Minimize page transitions (i.e. reduce the number of page tranistions required by a task from several to just once or twice), to ensure that user travels only a short distance from any page to another
+- Minimize page transitions (i.e. reduce the number of page transitions required by a task from several to just once or twice), to ensure that user travels only a short distance from any page to another
 
 ---
 
 ## Menu
 
-Navigation menu is an effective and user-friendly way for reprensenting site structure to users. A proper form of navigation should be utilized, once the information architecture of your site becomes clear and stable.
+Navigation menu is an effective and user-friendly way for representing site structure to users. A proper form of navigation should be utilized, once the information architecture of your site becomes clear and stable.
 
 ### Top Navigation
 
