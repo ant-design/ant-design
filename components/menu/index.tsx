@@ -131,14 +131,21 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
       this.inlineOpenKeys = [];
     }
   }
+  restoreModeVerticalFromInline() {
+    if (this.switchingModeFromInline) {
+      this.switchingModeFromInline = false;
+      this.setState({});
+    }
+  }
   handleTransitionEnd = (e: TransitionEvent) => {
     // when inlineCollapsed menu width animation finished
     // https://github.com/ant-design/ant-design/issues/12864
-    if (e.propertyName === 'width' &&
-        e.target === e.currentTarget &&
-        this.switchingModeFromInline) {
-      this.switchingModeFromInline = false;
-      this.setState({});
+    const widthCollapsed = e.propertyName === 'width' && e.target === e.currentTarget;
+    // Fix for <Menu style={{ width: '100%' }} />, the width transition won't trigger when menu is collapsed
+    // https://github.com/ant-design/ant-design-pro/issues/2783
+    const iconScaled = e.propertyName === 'font-size' && (e.target as HTMLElement).className.indexOf('anticon') >= 0;
+    if (widthCollapsed || iconScaled) {
+      this.restoreModeVerticalFromInline();
     }
   }
   handleClick = (e: ClickParam) => {
