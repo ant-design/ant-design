@@ -47,7 +47,7 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
     'build', 'border', 'crown',
     'experiment', 'fire',
     'money-collect', 'property-safety', 'read', 'reconciliation',
-    'rest', 'security-scan', 'insurance', 'interation', 'safety-certificate',
+    'rest', 'security-scan', 'insurance', 'interaction', 'safety-certificate',
     'project', 'thunderbolt', 'block', 'cluster', 'deployment-unit',
     'dollar', 'euro', 'pound', 'file-done', 'file-exclamation', 'file-protect',
     'file-search', 'file-sync', 'gateway', 'gold', 'robot',
