@@ -55,7 +55,7 @@ More layouts with navigation: [layout](/components/layout).
 | ----- | ----------- | ---- | ------------- |
 | disabled | whether menu item is disabled or not | boolean | false |
 | key | unique id of the menu item | string |  |
-| title | set display title for collaped item | string |  |
+| title | set display title for collapsed item | string |  |
 
 ### Menu.SubMenu
 
