@@ -3,7 +3,6 @@ import * as PropTypes from 'prop-types';
 import { AbstractCheckboxProps } from '../checkbox/Checkbox';
 import Radio from './radio';
 import { RadioChangeEvent } from './interface';
-import Wave from '../_util/wave';
 
 export type RadioButtonProps = AbstractCheckboxProps<RadioChangeEvent>;
 
@@ -24,10 +23,6 @@ export default class RadioButton extends React.Component<RadioButtonProps, any> 
       radioProps.disabled = this.props.disabled || this.context.radioGroup.disabled;
     }
 
-    return (
-      <Wave>
-        <Radio {...radioProps} />
-      </Wave>
-    );
+    return <Radio {...radioProps} />;
   }
 }
