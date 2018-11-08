@@ -4,6 +4,11 @@ import TransitionEvents from 'css-animation/lib/Event';
 
 let styleForPesudo: HTMLStyleElement | null;
 
+// Where el is the DOM element you'd like to test for visibility
+function isHidden(element: HTMLElement) {
+  return !element || element.offsetParent === null;
+}
+
 export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
   private instance?: {
     cancel: () => void;
@@ -21,7 +26,7 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
   }
 
   onClick = (node: HTMLElement, waveColor: string) => {
-    if (!node || node.className.indexOf('-leave') >= 0) {
+    if (!node || isHidden(node) || node.className.indexOf('-leave') >= 0) {
       return;
     }
     const { insertExtraNode } = this.props;
@@ -61,7 +66,7 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
     }
     const onClick = (e: MouseEvent) => {
       // Fix radio button click twice
-      if ((e.target as HTMLElement).tagName === 'INPUT') {
+      if ((e.target as HTMLElement).tagName === 'INPUT' || isHidden(e.target as HTMLElement)) {
         return;
       }
       this.resetEffect(node);
