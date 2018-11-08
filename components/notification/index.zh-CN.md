@@ -41,6 +41,7 @@ config 参数如下：
 | placement | 弹出位置，可选 `topLeft` `topRight` `bottomLeft` `bottomRight` | string | topRight |
 | style | 自定义内联样式 | [React.CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |
 | onClose | 点击默认关闭按钮时触发的回调函数 | Function | - |
+| onClick | 点击通知时触发的回调函数 | Function | - |
 
 还提供了一个全局配置方法，在调用前提前配置，全局一次生效。
 
