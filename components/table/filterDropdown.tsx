@@ -8,6 +8,7 @@ import Dropdown from '../dropdown';
 import Icon from '../icon';
 import Checkbox from '../checkbox';
 import Radio from '../radio';
+import { ConfigConsumer, ConfigProviderProps } from '../config-provider';
 import FilterDropdownMenuWrapper from './FilterDropdownMenuWrapper';
 import { FilterMenuProps, FilterMenuState, ColumnProps, ColumnFilterItem } from './interface';
 
@@ -211,7 +212,7 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
     );
   }
 
-  render() {
+  renderDropdown = ({ getPopupContainer: getContextPopupContainer }: ConfigProviderProps) => {
     const { column, locale, prefixCls, dropdownPrefixCls, getPopupContainer } = this.props;
     // default multiple selection in filter dropdown
     const multiple = ('filterMultiple' in column) ? column.filterMultiple : true;
@@ -273,11 +274,19 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
         overlay={menus}
         visible={this.getDropdownVisible()}
         onVisibleChange={this.onVisibleChange}
-        getPopupContainer={getPopupContainer}
+        getPopupContainer={getPopupContainer || getContextPopupContainer}
         forceRender
       >
         {this.renderFilterIcon()}
       </Dropdown>
+    );
+  }
+
+  render() {
+    return (
+      <ConfigConsumer>
+        {this.renderDropdown}
+      </ConfigConsumer>
     );
   }
 }
