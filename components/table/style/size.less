@@ -18,6 +18,10 @@
       }
     }
   }
+
+  tr.@{table-prefix-cls}-expanded-row .@{table-prefix-cls}-wrapper {
+    margin: -@table-padding-vertical*3/4 -@table-padding-horizontal -@table-padding-vertical*3/4 - 1px;
+  }
 }
 
 .@{table-prefix-cls}-small {
@@ -124,5 +128,9 @@
       border-left: @border-width-base @border-style-base @border-color-split;
       border-right: @border-width-base @border-style-base @border-color-split;
     }
+  }
+
+  tr.@{table-prefix-cls}-expanded-row .@{table-prefix-cls}-wrapper {
+    margin: -@table-padding-vertical/2 -@table-padding-horizontal -@table-padding-vertical/2 - 1px;
   }
 }
