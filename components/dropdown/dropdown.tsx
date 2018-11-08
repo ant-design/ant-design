@@ -2,6 +2,7 @@ import * as React from 'react';
 import RcDropdown from 'rc-dropdown';
 import classNames from 'classnames';
 import DropdownButton from './dropdown-button';
+import { ConfigConsumer, ConfigProviderProps } from '../config-provider';
 import warning from '../_util/warning';
 import Icon from '../icon';
 
@@ -51,8 +52,8 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
     }
   }
 
-  render() {
-    const { children, prefixCls, overlay: overlayElements, trigger, disabled } = this.props;
+  renderDropDown = ({ getPopupContainer: getContextPopupContainer }: ConfigProviderProps) => {
+    const { children, prefixCls, overlay: overlayElements, trigger, disabled, getPopupContainer } = this.props;
 
     const child = React.Children.only(children);
     const overlay = React.Children.only(overlayElements);
@@ -89,12 +90,21 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
       <RcDropdown
         alignPoint={alignPoint}
         {...this.props}
+        getPopupContainer={getPopupContainer || getContextPopupContainer}
         transitionName={this.getTransitionName()}
         trigger={triggerActions}
         overlay={fixedModeOverlay}
       >
         {dropdownTrigger}
       </RcDropdown>
+    );
+  }
+
+  render() {
+    return (
+      <ConfigConsumer>
+        {this.renderDropDown}
+      </ConfigConsumer>
     );
   }
 }
