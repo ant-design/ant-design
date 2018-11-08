@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { TreeSelectProps } from './interface';
 import { SelectLocale } from '../select';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import { ConfigConsumer, ConfigProviderProps } from '../config-provider';
 import warning from '../_util/warning';
 import Icon from '../icon';
 import { AntTreeNodeProps } from '../tree';
@@ -76,6 +77,7 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
       dropdownStyle,
       dropdownClassName,
       suffixIcon,
+      getPopupContainer,
       ...restProps
     } = this.props;
     const rest = omit(restProps, ['inputIcon', 'removeIcon', 'clearIcon', 'switcherIcon']);
@@ -105,20 +107,27 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
     );
 
     return (
-      <RcTreeSelect
-        switcherIcon={this.renderSwitcherIcon}
-        inputIcon={inputIcon}
-        removeIcon={removeIcon}
-        clearIcon={clearIcon}
-        {...rest}
-        dropdownClassName={classNames(dropdownClassName, `${prefixCls}-tree-dropdown`)}
-        prefixCls={prefixCls}
-        className={cls}
-        dropdownStyle={{ maxHeight: '100vh', overflow: 'auto', ...dropdownStyle }}
-        treeCheckable={checkable}
-        notFoundContent={notFoundContent || locale.notFoundContent}
-        ref={this.saveTreeSelect}
-      />
+      <ConfigConsumer>
+        {({ getPopupContainer: getContextPopupContainer }: ConfigProviderProps) => {
+          return (
+            <RcTreeSelect
+              switcherIcon={this.renderSwitcherIcon}
+              inputIcon={inputIcon}
+              removeIcon={removeIcon}
+              clearIcon={clearIcon}
+              {...rest}
+              getPopupContainer={getPopupContainer || getContextPopupContainer}
+              dropdownClassName={classNames(dropdownClassName, `${prefixCls}-tree-dropdown`)}
+              prefixCls={prefixCls}
+              className={cls}
+              dropdownStyle={{ maxHeight: '100vh', overflow: 'auto', ...dropdownStyle }}
+              treeCheckable={checkable}
+              notFoundContent={notFoundContent || locale.notFoundContent}
+              ref={this.saveTreeSelect}
+            />
+          );
+        }}
+      </ConfigConsumer>
     );
   }
 
