@@ -26,7 +26,7 @@ class Footer extends React.Component {
     //   2. 超过截止日期后不再提示
     if (
       localStorage.getItem('antd@3.0.0-notification-sent') !== 'true'
-        && Date.now() < new Date('2017/12/20').getTime()
+      && Date.now() < new Date('2017/12/20').getTime()
     ) {
       this.infoNewVersion();
     }
@@ -113,10 +113,15 @@ class Footer extends React.Component {
                   </a>
                 </div>
                 <div>
+                  <a target="_blank" rel="noopener noreferrer" href="http://kitchen.alipay.com">Kitchen</a>
+                  <span> - </span>
+                  <FormattedMessage id="app.footer.kitchen" />
+                </div>
+                <div>
                   <Badge dot offset={[3, 0]}>
-                    <a target="_blank" rel="noopener noreferrer" href="http://kitchen.alipay.com">Kitchen</a>
+                    <a target="_blank" rel="noopener noreferrer" href="http://landing.ant.design">Ant Design Landing</a>
                     <span> - </span>
-                    <FormattedMessage id="app.footer.kitchen" />
+                    <FormattedMessage id="app.footer.landing" />
                   </Badge>
                 </div>
                 <div>
