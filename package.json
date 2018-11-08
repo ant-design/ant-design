@@ -106,7 +106,7 @@
     "babel-eslint": "^10.0.1",
     "bezier-easing": "^2.1.0",
     "bisheng": "^0.28.4",
-    "bisheng-plugin-antd": "^0.16.5",
+    "bisheng-plugin-antd": "^0.17.0",
     "bisheng-plugin-description": "^0.1.4",
     "bisheng-plugin-react": "^0.6.3",
     "bisheng-plugin-toc": "^0.4.4",
