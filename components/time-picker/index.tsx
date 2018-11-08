@@ -4,6 +4,7 @@ import { polyfill } from 'react-lifecycles-compat';
 import RcTimePicker from 'rc-time-picker/lib/TimePicker';
 import classNames from 'classnames';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import { ConfigConsumer, ConfigProviderProps } from '../config-provider';
 import defaultLocale from './locale/en_US';
 import interopDefault from '../_util/interopDefault';
 import Icon from '../icon';
@@ -136,9 +137,7 @@ class TimePicker extends React.Component<TimePickerProps, any> {
   }
 
   renderTimePicker = (locale: TimePickerLocale) => {
-    const props = {
-      ...this.props,
-    };
+    const { getPopupContainer, ...props } = this.props;
     delete props.defaultValue;
 
     const format = this.getDefaultFormat();
@@ -188,21 +187,28 @@ class TimePicker extends React.Component<TimePickerProps, any> {
     );
 
     return (
-      <RcTimePicker
-        {...generateShowHourMinuteSecond(format)}
-        {...props}
-        ref={this.saveTimePicker}
-        format={format}
-        className={className}
-        value={this.state.value}
-        placeholder={props.placeholder === undefined ? locale.placeholder : props.placeholder}
-        onChange={this.handleChange}
-        onOpen={this.handleOpenClose}
-        onClose={this.handleOpenClose}
-        addon={addon}
-        inputIcon={inputIcon}
-        clearIcon={clearIcon}
-      />
+      <ConfigConsumer>
+        {({ getPopupContainer: getContextPopupContainer }: ConfigProviderProps) => {
+          return (
+            <RcTimePicker
+              {...generateShowHourMinuteSecond(format)}
+              {...props}
+              getPopupContainer={getPopupContainer || getContextPopupContainer}
+              ref={this.saveTimePicker}
+              format={format}
+              className={className}
+              value={this.state.value}
+              placeholder={props.placeholder === undefined ? locale.placeholder : props.placeholder}
+              onChange={this.handleChange}
+              onOpen={this.handleOpenClose}
+              onClose={this.handleOpenClose}
+              addon={addon}
+              inputIcon={inputIcon}
+              clearIcon={clearIcon}
+            />
+          );
+        }}
+      </ConfigConsumer>
     );
   }
 
