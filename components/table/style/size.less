@@ -1,7 +1,12 @@
+@table-padding-vertical-md: @table-padding-vertical * 3 / 4;
+@table-padding-horizontal-md: @table-padding-horizontal / 2;
+@table-padding-vertical-sm: @table-padding-vertical / 2;
+@table-padding-horizontal-sm: @table-padding-horizontal / 2;
+
 .@{table-prefix-cls}-middle {
   > .@{table-prefix-cls}-title,
   > .@{table-prefix-cls}-footer {
-    padding: @table-padding-vertical*3/4 @table-padding-horizontal/2;
+    padding: @table-padding-vertical-md @table-padding-horizontal-md;
   }
   > .@{table-prefix-cls}-content {
     > .@{table-prefix-cls}-header > table,
@@ -14,13 +19,13 @@
     > .@{table-prefix-cls}-fixed-right > .@{table-prefix-cls}-body-outer > .@{table-prefix-cls}-body-inner > table {
       > .@{table-prefix-cls}-thead > tr > th,
       > .@{table-prefix-cls}-tbody > tr > td {
-        padding: @table-padding-vertical*3/4 @table-padding-horizontal/2;
+        padding: @table-padding-vertical-md @table-padding-horizontal-md;
       }
     }
   }
 
   tr.@{table-prefix-cls}-expanded-row .@{table-prefix-cls}-wrapper {
-    margin: -@table-padding-vertical*3/4 -@table-padding-horizontal -@table-padding-vertical*3/4 - 1px;
+    margin: -@table-padding-vertical-md -@table-padding-horizontal -@table-padding-vertical-md - 1px;
   }
 }
 
@@ -30,7 +35,7 @@
 
   > .@{table-prefix-cls}-title,
   > .@{table-prefix-cls}-footer {
-    padding: @table-padding-vertical/2 @table-padding-horizontal/2;
+    padding: @table-padding-vertical-sm @table-padding-horizontal-sm;
   }
 
   > .@{table-prefix-cls}-title {
@@ -40,7 +45,7 @@
 
   > .@{table-prefix-cls}-content {
     > .@{table-prefix-cls}-body {
-      margin: 0 @table-padding-horizontal/2;
+      margin: 0 @table-padding-horizontal-sm;
     }
 
     > .@{table-prefix-cls}-header > table,
@@ -54,7 +59,7 @@
       border: 0;
       > .@{table-prefix-cls}-thead > tr > th,
       > .@{table-prefix-cls}-tbody > tr > td {
-        padding: @table-padding-vertical/2 @table-padding-horizontal/2;
+        padding: @table-padding-vertical-sm @table-padding-horizontal-sm;
       }
       > .@{table-prefix-cls}-thead > tr > th {
         background-color: @component-background;
@@ -131,6 +136,6 @@
   }
 
   tr.@{table-prefix-cls}-expanded-row .@{table-prefix-cls}-wrapper {
-    margin: -@table-padding-vertical/2 -@table-padding-horizontal -@table-padding-vertical/2 - 1px;
+    margin: -@table-padding-vertical-sm -@table-padding-horizontal -@table-padding-vertical-sm - 1px;
   }
 }
