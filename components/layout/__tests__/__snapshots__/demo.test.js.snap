@@ -957,7 +957,6 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
   class="ant-layout"
   style="min-height:100vh"
 >
-  <div />
   <div
     class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-has-trigger"
     style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"

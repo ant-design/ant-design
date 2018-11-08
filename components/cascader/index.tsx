@@ -6,6 +6,7 @@ import omit from 'omit.js';
 import KeyCode from 'rc-util/lib/KeyCode';
 import Input from '../input';
 import Icon from '../icon';
+import { ConfigConsumer, ConfigProviderProps } from '../config-provider';
 
 export interface CascaderOptionType {
   value?: string;
@@ -348,7 +349,7 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     this.input = node;
   }
 
-  render() {
+  renderCascader = ({ getPopupContainer: getContextPopupContainer }: ConfigProviderProps) => {
     const { props, state } = this;
     const {
       prefixCls, inputPrefixCls, children, placeholder, size, disabled,
@@ -478,11 +479,13 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
       </span>
     );
 
+    const getPopupContainer = props.getPopupContainer || getContextPopupContainer;
     const rest = omit(props, ['inputIcon', 'expandIcon', 'loadingIcon']);
 
     return (
       <RcCascader
         {...rest}
+        getPopupContainer={getPopupContainer}
         options={options}
         value={value}
         popupVisible={state.popupVisible}
@@ -494,6 +497,14 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
       >
         {input}
       </RcCascader>
+    );
+  }
+
+  render() {
+    return (
+      <ConfigConsumer>
+        {this.renderCascader}
+      </ConfigConsumer>
     );
   }
 }
