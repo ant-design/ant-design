@@ -4,6 +4,7 @@ import RcSelect, { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale-provider/default';
+import { ConfigConsumer, ConfigProviderProps } from '../config-provider';
 import omit from 'omit.js';
 import warning from 'warning';
 import Icon from '../icon';
@@ -163,6 +164,7 @@ export default class Select extends React.Component<SelectProps, {}> {
       size,
       mode,
       suffixIcon,
+      getPopupContainer,
       ...restProps
     } = this.props;
     const rest = omit(restProps, ['inputIcon', 'removeIcon', 'clearIcon']);
@@ -203,19 +205,26 @@ export default class Select extends React.Component<SelectProps, {}> {
     );
 
     return (
-      <RcSelect
-        inputIcon={inputIcon}
-        removeIcon={removeIcon}
-        clearIcon={clearIcon}
-        menuItemSelectedIcon={menuItemSelectedIcon}
-        {...rest}
-        {...modeConfig}
-        prefixCls={prefixCls}
-        className={cls}
-        optionLabelProp={optionLabelProp || 'children'}
-        notFoundContent={this.getNotFoundContent(locale)}
-        ref={this.saveSelect}
-      />
+      <ConfigConsumer>
+        {({ getPopupContainer: getContextPopupContainer }: ConfigProviderProps) => {
+          return (
+            <RcSelect
+              inputIcon={inputIcon}
+              removeIcon={removeIcon}
+              clearIcon={clearIcon}
+              menuItemSelectedIcon={menuItemSelectedIcon}
+              {...rest}
+              {...modeConfig}
+              prefixCls={prefixCls}
+              className={cls}
+              optionLabelProp={optionLabelProp || 'children'}
+              notFoundContent={this.getNotFoundContent(locale)}
+              getPopupContainer={getPopupContainer || getContextPopupContainer}
+              ref={this.saveSelect}
+            />
+          );
+        }}
+      </ConfigConsumer>
     );
   }
 
