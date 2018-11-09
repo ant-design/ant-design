@@ -214,7 +214,7 @@ class NameColumn extends Table.Column<IUser> {}
 // TypeScript 2.9 之后也可以这样写
 // https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-9.html#generic-type-arguments-in-jsx-elements
 <Table<IUser> columns={columns} dataSource={data} />
-<Table<IUser>  dataSource={data}>
+<Table<IUser> dataSource={data}>
   <Table.Column<IUser> key="name" title="Name" dataIndex="name" />
 </Table>
 
