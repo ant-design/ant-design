@@ -13,10 +13,10 @@ Please find below some of the design resources and tools about Ant Design that w
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">
-        Desktop Components Beta
-        <span class="resource-card-hot-badge">3.10.5 RENEW!</span>
+        RENEW Symbols
+        <span class="resource-card-hot-badge">BETA</span>
       </span>
-      <span class="resource-card-description">Sketch Template for Desktop</span>
+      <span class="resource-card-description">Sketch Symbols for Desktop</span>
     </div>
   </a>
   <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.3.0.Components.sketch" class="resource-card">
@@ -25,9 +25,9 @@ Please find below some of the design resources and tools about Ant Design that w
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">
-        Desktop Components
+        Sketch Symbols
       </span>
-      <span class="resource-card-description">Sketch Template for Desktop</span>
+      <span class="resource-card-description">Sketch Symbols File for Desktop</span>
     </div>
   </a>
   <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Mobile.Template.sketch" class="resource-card">
@@ -36,7 +36,7 @@ Please find below some of the design resources and tools about Ant Design that w
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">Mobile Components</span>
-      <span class="resource-card-description">Sketch Template for Mobile</span>
+      <span class="resource-card-description">Sketch Symbols File for Mobile</span>
     </div>
   </a>
   <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Pro.sketch" class="resource-card">

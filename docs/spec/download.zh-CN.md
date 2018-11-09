@@ -13,10 +13,10 @@ title: 设计资源
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">
-        Desktop Components Beta
-        <span class="resource-card-hot-badge">3.10.5 重装上阵!</span>
+        新 Sketch Symbols 组件
+        <span class="resource-card-hot-badge">BETA</span>
       </span>
-      <span class="resource-card-description">桌面组件 Sketch 模板</span>
+      <span class="resource-card-description">桌面组件 Sketch 模板包</span>
     </div>
   </a>
   <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.3.0.Components.sketch" class="resource-card">
@@ -25,9 +25,9 @@ title: 设计资源
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">
-        Desktop Components Beta
+        Sketch Symbols 组件
       </span>
-      <span class="resource-card-description">桌面组件 Sketch 模板</span>
+      <span class="resource-card-description">桌面组件 Sketch 模板包</span>
     </div>
   </a>
   <a target="_blank" href="http://p.tb.cn/rmsportal_3436_AntDesignMobile_20Template_20V1.0.sketch" class="resource-card">
