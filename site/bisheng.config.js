@@ -33,7 +33,7 @@ function usePrettyWebpackBar(config) {
   // use brand new progress bar.
   config.plugins.push(
     new WebpackBar({
-      name: '📦  Site',
+      name: '📦 Ant Design Site',
       minimal: false,
     })
   );
