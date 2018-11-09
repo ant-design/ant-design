@@ -20,6 +20,8 @@ export default class Radio extends React.Component<RadioProps, {}> {
     radioGroup: PropTypes.any,
   };
 
+  context: any;
+
   private rcCheckbox: any;
 
   shouldComponentUpdate(nextProps: RadioProps, nextState: {}, nextContext: RadioGroupContext) {
