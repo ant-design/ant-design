@@ -174,7 +174,7 @@
     "typescript": "~3.1.1",
     "unified": "^7.0.0",
     "values.js": "^1.0.3",
-    "webpackbar": "^2.6.3",
+    "webpackbar": "^3.1.2",
     "xhr-mock": "^2.4.1",
     "xhr2": "^0.1.4"
   },
