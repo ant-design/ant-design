@@ -1006,7 +1006,7 @@ exports[`renders ./components/select/demo/suffix.md correctly 1`] = `
         unselectable="on"
       >
         <i
-          class="anticon anticon-smile"
+          class="anticon anticon-smile ant-select-arrow-icon"
         >
           <svg
             aria-hidden="true"
@@ -1055,7 +1055,7 @@ exports[`renders ./components/select/demo/suffix.md correctly 1`] = `
         unselectable="on"
       >
         <i
-          class="anticon anticon-meh"
+          class="anticon anticon-meh ant-select-arrow-icon"
         >
           <svg
             aria-hidden="true"
