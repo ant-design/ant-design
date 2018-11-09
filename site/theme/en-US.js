@@ -31,6 +31,7 @@ module.exports = {
     'app.home.components-explain': 'Based on the Ant Design language, we have provided a suite of out-of-the-box with high quality for developing and serving enterprise background applications,including the official React implementation and Angular, Vue implementations',
     'app.home.product-pro-slogan': 'Out-of-the-box front-end / Design solution',
     'app.home.product-mobile-slogan': 'antd-mobile is the implementation of Ant Design\'s mobile specification',
+    'app.home.product-landing-slogan': 'Landing Pages templates and specifications based of Ant Design language',
     'app.home.product-antv-slogan': 'Simple, professional, with unlimited possibilities for data visualization solutions',
     'app.home.tool-title': 'Tools & Resources',
     'app.home.tool-package-title': 'Ant Design Resources',
