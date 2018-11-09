@@ -49,6 +49,7 @@ module.exports = {
     'app.footer.chinamirror': '国内镜像站点 🇨🇳',
     'app.footer.primary-color-changed': '修改主题色成功！',
     'app.footer.kitchen': 'Sketch 工具集',
+    'app.footer.landing': 'Landing 模板集',
     'app.footer.scaffold': '脚手架',
     'app.footer.scaffolds': '脚手架市场',
     'app.footer.dev-tools': '开发工具',

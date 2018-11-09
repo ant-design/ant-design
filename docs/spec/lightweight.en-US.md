@@ -14,7 +14,7 @@ Fitts’s Law is an ergonomic principle that ties the size of a target and its c
 
 ## Always-Visible Tools
 
-<img class="preview-img" align="right" alt="example of Always-Visible Tools, from Zhihu" description="Status No.1: A clear clickable area makes it easier to highlight the button on the page.<br>Status No.2: As hovering over the button, the mouse pointer turns into a hand symbol, and the fill colour of the button changes to a dark colour, which provides a clear call to action.<br>Status No.3: The style of the button obviously changes once clicked." src="https://gw.alipayobjects.com/zos/rmsportal/ofpeZpgdrqXcRpTlVXTp.png">
+<img class="preview-img" align="right" alt="example of Always-Visible Tools, from Zhihu" description="Status No.1: A clear clickable area makes it easier to highlight the button on the page.<br>Status No.2: As hovering over the button, the mouse pointer turns into a hand symbol, and the fill color of the button changes to a dark color, which provides a clear call to action.<br>Status No.3: The style of the button obviously changes once clicked." src="https://gw.alipayobjects.com/zos/rmsportal/ofpeZpgdrqXcRpTlVXTp.png">
 
 If an action is critical, expose it directly in the interface and keep it always visible.
 

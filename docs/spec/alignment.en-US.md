@@ -13,7 +13,7 @@ As is described in the Law of Continuity of Gestalt psychology, in the perceptua
 ## Text Alignment
 
 <img class="preview-img good" align="right" alt="good example" description="Align the title and text to the left; use one visual starting point." src="https://gw.alipayobjects.com/zos/rmsportal/lVDlIgxvuXSMQvJJVMnu.png">
-<img class="preview-img bad" align="right" asslt="bad example" description="The tile and the text start in different visual point. This is not recommended except the differences between title and text are emphasized. " src="https://gw.alipayobjects.com/zos/rmsportal/DAhkAEIoXYdljmxsJTjl.png">
+<img class="preview-img bad" align="right" alt="bad example" description="The tile and the text start in different visual point. This is not recommended except the differences between title and text are emphasized. " src="https://gw.alipayobjects.com/zos/rmsportal/DAhkAEIoXYdljmxsJTjl.png">
 
 If the paragraphs or the length of the words are too short or too loose, then a unified visual starting point is needed.
 
