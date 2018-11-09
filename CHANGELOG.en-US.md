@@ -15,6 +15,28 @@ timeline: true
 
 ---
 
+## 3.10.5
+
+`2018-11-09`
+
+- 🎉 [Landing Templates](https://landing.ant.design) released!
+- 📖 Published the new [sketch resource](https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Components.Beta.3.10.5.sketch) of Ant Design.
+- Button
+	- 🐞 Fix the style of vertical align in small `Button.Group`. [#12972](https://github.com/ant-design/ant-design/issues/12972)
+	- 🐞 Fix the style of vertical align with `href` prop. [#12978](https://github.com/ant-design/ant-design/issues/12978)
+- 🐞 Fix the imcompatibility for `Cascader[filedNames]` after `3.7.0` version. [#12970](https://github.com/ant-design/ant-design/issues/12970)
+- 🐞 Fix that the show date in pop-up layer should be reset when date value is not modified successfully for `DatePicker`. [#12929](https://github.com/ant-design/ant-design/issues/12929)
+- 🐞 Fix the lose of type `cross` for Icon. [#12970](https://github.com/ant-design/ant-design/issues/12970)
+- 🐞 Fix the incorrect `mode` for collapsed Menu. [#2782](https://github.com/ant-design/ant-design-pro/issues/2782) [#2783](https://github.com/ant-design/ant-design-pro/issues/2783) [#2786](https://github.com/ant-design/ant-design-pro/issues/2786)
+- 🐞 Fix the unnecessary `reflow` to avoid weird wave animation for Popover and Tooltip. [#12942](https://github.com/ant-design/ant-design/issues/12942)
+- Table
+	- 🐞 Fix the style of overflow when nested in other components. [#13025](https://github.com/ant-design/ant-design/issues/13025)
+	- 🐞 Fix the style of overlap between the overlong head content and sort icon. [#12552](https://github.com/ant-design/ant-design/issues/12552) [#12650](https://github.com/ant-design/ant-design/issues/12650)
+- 🐞 Fix the disapperance when nested in Popover and Popconfirm for Tooltip whose children is `disabled`. [#13001](https://github.com/ant-design/ant-design/issues/13001)
+- 🐞 Fix the stuck problem when upload non-image file for Upload. [#12948](https://github.com/ant-design/ant-design/issues/12948)
+- 🐞 Fix that `DOM Object` doesn't support property or method `removeAttribute` in `IE` and `Edge`. [#2423](https://github.com/ant-design/ant-design-pro/issues/2423)
+- 🐞 Remove the unnecessary wave animation for hidden elements. [#12967](https://github.com/ant-design/ant-design/issues/12967)
+
 ## 3.10.4
 
 `2018-11-03`
