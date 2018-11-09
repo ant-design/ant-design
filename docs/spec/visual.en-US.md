@@ -17,7 +17,7 @@ We provide comprehensive design principles & guidelines and design resource file
 
 ## Front end implementation
 
-We encapsulate a set of AntV component libraries based on native JavaScipt, which includes a high-interaction base chart library G2, a chart library G6 focusing on process and relationship analysis, a chart library F2 for mobile applications, and other frameworks in the community. Implementation version.
+We encapsulate a set of AntV component libraries based on native JavaScript, which includes a high-interaction base chart library G2, a chart library G6 focusing on process and relationship analysis, a chart library F2 for mobile applications, and other frameworks in the community. Implementation version.
 
 - [G2 (official implementation)] (https://antv.alipay.com/zh-cn/g2/3.x/index.html)
 - [G6 (official implementation)] (https://antv.alipay.com/zh-cn/g6/1.x/index.html)
