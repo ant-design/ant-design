@@ -32,6 +32,7 @@ module.exports = {
     'app.home.product-pro-slogan': '开箱即用的中台前端/设计解决方案',
     'app.home.product-mobile-slogan': 'antd-mobile 是 Ant Design 移动规范的实现',
     'app.home.product-antv-slogan': '简单、专业、拥有无限可能的数据可视化解决方案',
+    'app.home.product-landing-slogan': '基于 Ant Design 设计语言的 Landing 模板与规范',
     'app.home.tool-title': '工具和资源',
     'app.home.tool-package-title': 'Ant Design 资源包',
     'app.home.tool-package-content': 'Ant Design 相关设计资源下载',
