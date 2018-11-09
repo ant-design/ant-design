@@ -181,7 +181,7 @@ const columns = [{
 
 ## 在 TypeScript 中使用
 
-```jsx
+```tsx
 import { Table } from 'antd';
 import { ColumnProps } from 'antd/lib/table';
 
@@ -210,6 +210,14 @@ class NameColumn extends Table.Column<IUser> {}
 <UserTable dataSource={data}>
   <NameColumn key="name" title="Name" dataIndex="name" />
 </UserTable>
+
+// TypeScript 2.9 之后也可以这样写
+// https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-9.html#generic-type-arguments-in-jsx-elements
+<Table<IUser> columns={columns} dataSource={data} />
+<Table<IUser> dataSource={data}>
+  <Table.Column<IUser> key="name" title="Name" dataIndex="name" />
+</Table>
+
 ```
 
 ## 注意

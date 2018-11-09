@@ -15,6 +15,8 @@ export default class RadioButton extends React.Component<RadioButtonProps, any> 
     radioGroup: PropTypes.any,
   };
 
+  context: any;
+
   render() {
     const radioProps: RadioButtonProps = { ...this.props };
     if (this.context.radioGroup) {
