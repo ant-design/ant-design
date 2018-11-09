@@ -9,6 +9,7 @@ class SubMenu extends React.Component<any, any> {
   };
   // fix issue:https://github.com/ant-design/ant-design/issues/8666
   static isSubMenu = 1;
+  context: any;
   private subMenu: any;
   onKeyDown = (e: React.MouseEvent<HTMLElement>) => {
     this.subMenu.onKeyDown(e);
