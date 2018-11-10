@@ -133,7 +133,8 @@ export default class Affix extends React.Component<AffixProps, AffixState> {
 
   @throttleByAnimationFrameDecorator()
   updatePosition(e: Event) {
-    let { offsetTop, offsetBottom, offset, target = getDefaultTarget } = this.props;
+    const { offsetBottom, offset, target = getDefaultTarget } = this.props;
+    let { offsetTop } = this.props;
     const targetNode = target();
 
     // Backwards support

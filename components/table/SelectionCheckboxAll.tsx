@@ -69,7 +69,7 @@ export default class SelectionCheckboxAll<T> extends
     const checked = this.getCheckState(props);
     const indeterminate = this.getIndeterminateState(props);
     this.setState((prevState) => {
-      let newState: SelectionCheckboxAllState = {};
+      const newState: SelectionCheckboxAllState = {};
       if (indeterminate !== prevState.indeterminate) {
         newState.indeterminate = indeterminate;
       }
@@ -118,7 +118,7 @@ export default class SelectionCheckboxAll<T> extends
   }
 
   handleSelectAllChagne = (e: CheckboxChangeEvent) => {
-    let checked = e.target.checked;
+    const checked = e.target.checked;
     this.props.onSelect(checked ? 'all' : 'removeAll', 0, null);
   }
 
@@ -142,12 +142,12 @@ export default class SelectionCheckboxAll<T> extends
     const { disabled, prefixCls, selections, getPopupContainer } = this.props;
     const { checked, indeterminate } = this.state;
 
-    let selectionPrefixCls = `${prefixCls}-selection`;
+    const selectionPrefixCls = `${prefixCls}-selection`;
 
     let customSelections: React.ReactNode = null;
 
     if (selections) {
-      let newSelections = Array.isArray(selections) ? this.defaultSelections.concat(selections)
+      const newSelections = Array.isArray(selections) ? this.defaultSelections.concat(selections)
       : this.defaultSelections;
 
       const menu = (
