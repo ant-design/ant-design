@@ -25,7 +25,7 @@
 .button-variant-primary(@color; @background) {
   .button-color(@color; @background; @background);
   text-shadow: 0 -1px 0 rgba(0, 0, 0, .12);
-  box-shadow: 0 2px 0 rgba(0, 0, 0, .035);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, .045);
 
   &:hover,
   &:focus {
@@ -182,7 +182,6 @@
 
   &:not([disabled]):active {
     outline: 0;
-    transition: none;
     box-shadow: none;
   }
 
