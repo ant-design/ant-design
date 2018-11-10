@@ -1,8 +1,6 @@
 const path = require('path');
 const CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default;
 const replaceLib = require('antd-tools/lib/replaceLib');
-const webpack = require('webpack');
-const WebpackBar = require('webpackbar');
 
 const isDev = process.env.NODE_ENV === 'development';
 const usePreact = process.env.REACT_ENV === 'preact';
@@ -20,23 +18,6 @@ function alertBabelConfig(rules) {
       alertBabelConfig(rule.use);
     }
   });
-}
-
-function usePrettyWebpackBar(config) {
-  // remove old progress plugin.
-  config.plugins = config.plugins
-    .filter((plugin) => {
-      return !(plugin instanceof webpack.ProgressPlugin)
-        && !(plugin instanceof WebpackBar);
-    });
-
-  // use brand new progress bar.
-  config.plugins.push(
-    new WebpackBar({
-      name: '📦 Ant Design Site',
-      minimal: false,
-    })
-  );
 }
 
 module.exports = {
@@ -131,7 +112,6 @@ module.exports = {
     }
 
     alertBabelConfig(config.module.rules);
-    usePrettyWebpackBar(config);
 
     config.plugins.push(
       new CSSSplitWebpackPlugin({ size: 4000 }),
