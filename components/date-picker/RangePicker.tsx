@@ -269,7 +269,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
     });
 
     // 需要选择时间时，点击 ok 时才触发 onChange
-    let pickerChangeHandler = {
+    const pickerChangeHandler = {
       onChange: this.handleChange,
     };
     let calendarProps: any = {

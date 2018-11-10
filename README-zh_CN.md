@@ -63,7 +63,7 @@ ReactDOM.render(<DatePicker />, mountNode);
 import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 ```
 
-你也可以[按需加载组件](https://ant.design/docs/react/getting-started-cn#按需加载)。
+你也可以 [按需加载组件](https://ant.design/docs/react/getting-started-cn#按需加载)。
 
 ### TypeScript
 

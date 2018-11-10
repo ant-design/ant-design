@@ -21,7 +21,7 @@ export default function throttleByAnimationFrame(fn: (...args: any[]) => void) {
 
 export function throttleByAnimationFrameDecorator() {
   return function(target: any, key: string, descriptor: any) {
-    let fn = descriptor.value;
+    const fn = descriptor.value;
     let definingProperty = false;
     return {
       configurable: true,
@@ -30,7 +30,7 @@ export function throttleByAnimationFrameDecorator() {
           return fn;
         }
 
-        let boundFn = throttleByAnimationFrame(fn.bind(this));
+        const boundFn = throttleByAnimationFrame(fn.bind(this));
         definingProperty = true;
         Object.defineProperty(this, key, {
           value: boundFn,

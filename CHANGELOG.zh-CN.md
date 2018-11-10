@@ -15,6 +15,28 @@ timeline: true
 
 ---
 
+## 3.10.5
+
+`2018-11-09`
+
+- 🎉 发布 [Landing 模板集](https://landing.ant.design)！
+- 📖 发布  Ant Design [新版 Sketch 模版文件](https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Components.Beta.3.10.5.sketch)。
+- Button
+	- 🐞 修复在小尺寸的 `Button.Group` 中没有垂直对齐的问题。[#12972](https://github.com/ant-design/ant-design/issues/12972)
+	- 🐞 修复设置了 `href` 属性没有垂直对齐的问题。[#12978](https://github.com/ant-design/ant-design/issues/12978)
+- 🐞 修复 Cascader 组件的 `filedNames` 属性在 `3.7.0` 版本后的兼容性问题。[#12970](https://github.com/ant-design/ant-design/issues/12970)
+- 🐞 修复 DatePicker 组件的日期值没有被成功修改，浮层中显示的日期应该被重置的问题。[#12929](https://github.com/ant-design/ant-design/issues/12929)
+- 🐞 修复 Icon 组件丢失 `cross` 类型图标的问题。[#12970](https://github.com/ant-design/ant-design/issues/12970)
+- 🐞 修复 Menu 组件处于折叠状态时菜单类型不正确的问题。[#2782](https://github.com/ant-design/ant-design-pro/issues/2782) [#2783](https://github.com/ant-design/ant-design-pro/issues/2783) [#2786](https://github.com/ant-design/ant-design-pro/issues/2786)
+- 🐞 修复 Popover 和 Tooltip 组件中出现不必要的回流问题，避免出现奇怪的动画。[#12942](https://github.com/ant-design/ant-design/issues/12942)
+- Table
+	- 🐞 修复嵌套在其他组件中时样式溢出的问题。[#13025](https://github.com/ant-design/ant-design/issues/13025)
+	- 🐞 修复表头内容过长会与排序图表重合的问题。[#12552](https://github.com/ant-design/ant-design/issues/12552) [#12650](https://github.com/ant-design/ant-design/issues/12650)
+- 🐞 修复 Tooltip 组件嵌套在 `Popover/Popconfirm` 下，并且子元素为 `disabled` 状态时不消失的问题。[#13001](https://github.com/ant-design/ant-design/issues/13001)
+- 🐞 修复 Upload 组件在上传非图片类型文件时会将文件读取至内存，造成浏览器卡顿的问题。[#12948](https://github.com/ant-design/ant-design/issues/12948)
+- 🐞 修复在 `IE` 和 `Edge` 浏览器下 `DOM 对象` 不支持 `removeAttribute` 属性的问题。[#2423](https://github.com/ant-design/ant-design-pro/issues/2423)
+- 🐞 对于隐藏元素去掉不必要的波浪动画。[#12967](https://github.com/ant-design/ant-design/issues/12967)
+
 ## 3.10.4
 
 `2018-11-03`
