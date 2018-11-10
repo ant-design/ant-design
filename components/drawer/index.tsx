@@ -216,7 +216,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
 
   // render Provider for Multi-level drawe
   renderProvider = (value: Drawer) => {
-    let { zIndex, style, placement, className, wrapClassName, width, height, ...rest } = this.props;
+    const { zIndex, style, placement, className, wrapClassName, width, height, ...rest } = this.props;
     warning(wrapClassName === undefined, 'wrapClassName is deprecated, please use className instead.');
     const haveMask = rest.mask ? "" : "no-mask";
     this.parentDrawer = value;
