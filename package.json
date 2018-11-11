@@ -171,7 +171,8 @@
     "stylelint-config-standard": "^18.2.0",
     "typescript": "~3.1.1",
     "unified": "^7.0.0",
-    "xhr-mock": "^2.4.1"
+    "xhr-mock": "^2.4.1",
+    "xhr2": "^0.1.4"
   },
   "scripts": {
     "test": "jest --config .jest.js --verbose=false",
