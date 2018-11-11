@@ -12,7 +12,10 @@
 // Button styles
 // -----------------------------
 .@{btn-prefix-cls} {
-  line-height: @line-height-base;
+  // Fixing https://github.com/ant-design/ant-design/issues/12978
+  // It is a render problem of chrome, which is only happened in the codesandbox demo
+  // 0.001px solution works and I don't why
+  line-height: @line-height-base - 0.001px;
   .btn;
   .btn-default;
 
@@ -186,13 +189,11 @@
 }
 
 a.@{btn-prefix-cls} {
-  > span {
-    line-height: @btn-height-base - 2px;
-  }
-  &-lg > span {
+  line-height: @btn-height-base - 2px;
+  &-lg {
     line-height: @btn-height-lg - 2px;
   }
-  &-sm > span {
+  &-sm {
     line-height: @btn-height-sm - 2px;
   }
 }
