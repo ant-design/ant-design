@@ -15,6 +15,12 @@ timeline: true
 
 ---
 
+## 3.10.6
+
+`2018-11-11`
+
+- 🐞 Reverted [adee2f3](https://github.com/ant-design/ant-design/commit/adee2f33294b9223bda959e6ae27b4d7dadcec49) for fixing link button broken style, and changed another way to resolve [#12978](https://github.com/ant-design/ant-design/issues/12978).
+
 ## 3.10.5
 
 `2018-11-09`
@@ -48,7 +54,7 @@ timeline: true
 - 🐞 Fixed Divider expands Popover card width under Chrome. [#10914](https://github.com/ant-design/ant-design/issues/10914)
 - 🐞 Fixed Avatar content not aligned in Popover. [#10917](https://github.com/ant-design/ant-design/issues/#10917)
 - Button
-  - 🐞 Fixed unable to find node on unmounted components error. [#12843](https://github.com/ant-design/ant-design/issues/12843) 
+  - 🐞 Fixed unable to find node on unmounted components error. [#12843](https://github.com/ant-design/ant-design/issues/12843)
   - 🐞 Fixed icon margin style. [546c59a](https://github.com/ant-design/ant-design/commit/546c59a4c1a6b482afecbcb4a3cb1e385c0bbdb6)
 - Table
   - 🐞 Fixed sorter issue when render function is present in column. [#12870](https://github.com/ant-design/ant-design/issues/12870) [#12737](https://github.com/ant-design/ant-design/issues/12737)

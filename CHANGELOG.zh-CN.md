@@ -15,6 +15,12 @@ timeline: true
 
 ---
 
+## 3.10.6
+
+`2018-11-11`
+
+- 🐞 回滚了 [adee2f3](https://github.com/ant-design/ant-design/commit/adee2f33294b9223bda959e6ae27b4d7dadcec49) 以修复一个链接按钮样式问题，并且换了一个方式修复 [#12978](https://github.com/ant-design/ant-design/issues/12978)。
+
 ## 3.10.5
 
 `2018-11-09`
@@ -49,7 +55,7 @@ timeline: true
 - 🐞 修复 Chrome 下 Divider 在 Popover 中会撑宽 Popover card 的问题。[#10914](https://github.com/ant-design/ant-design/issues/10914)
 - 🐞 修复 Avatar 内容在 Popover 中没有对齐的问题。[#10917](https://github.com/ant-design/ant-design/issues/#10917)
 - Button
-  - 🐞 修复 unable to find node on unmounted components 报错问题。[#12843](https://github.com/ant-design/ant-design/issues/12843) 
+  - 🐞 修复 unable to find node on unmounted components 报错问题。[#12843](https://github.com/ant-design/ant-design/issues/12843)
   - 🐞 修复 icon margin 样式。[546c59a](https://github.com/ant-design/ant-design/commit/546c59a4c1a6b482afecbcb4a3cb1e385c0bbdb6)
 - Table
   - 🐞 修复在 Column 中使用 render function 时的排序问题。[#12870](https://github.com/ant-design/ant-design/issues/12870) [#12737](https://github.com/ant-design/ant-design/issues/12737)
