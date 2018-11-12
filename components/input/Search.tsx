@@ -69,7 +69,7 @@ export default class Search extends React.Component<SearchProps, any> {
   }
 
   render() {
-    const { className, prefixCls, inputPrefixCls, size, suffix,  enterButton, ...others } = this.props;
+    const { className, prefixCls, inputPrefixCls, size, suffix, enterButton, ...others } = this.props;
     delete (others as any).onSearch;
     const buttonOrIcon = this.getButtonOrIcon();
     const searchSuffix = suffix ? [suffix, buttonOrIcon] : buttonOrIcon;

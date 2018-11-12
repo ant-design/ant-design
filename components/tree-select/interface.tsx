@@ -30,29 +30,30 @@ export interface TreeDataSimpleMode {
 }
 
 export interface TreeSelectProps extends AbstractSelectProps {
-  value?: string | number | Array<any>;
   defaultValue?: string | number | Array<any>;
-  multiple?: boolean;
+  dropdownStyle?: React.CSSProperties;
+  filterTreeNode?: (inputValue: string, treeNode: any) => boolean | boolean;
+  getPopupContainer?: (triggerNode: Element) => HTMLElement;
+  labelInValue?: boolean;
+  loadData?: (node: any) => void;
   maxTagCount?: number;
-  onSelect?: (value: any) => void;
+  maxTagPlaceholder?: React.ReactNode | ((omittedValues: any[]) => React.ReactNode);
+  multiple?: boolean;
   onChange?: (value: any, label: any, extra: any) => void;
   onSearch?: (value: any) => void;
+  onSelect?: (value: any) => void;
+  onTreeExpand?: (keys: Array<string>) => void;
   searchPlaceholder?: string;
-  dropdownStyle?: React.CSSProperties;
-  treeDefaultExpandAll?: boolean;
+  showCheckedStrategy?: 'SHOW_ALL' | 'SHOW_PARENT' | 'SHOW_CHILD';
+  suffixIcon?: React.ReactNode;
   treeCheckable?: boolean | React.ReactNode;
-  treeDefaultExpandedKeys?: Array<string>;
-  filterTreeNode?: (inputValue: string, treeNode: any) => boolean | boolean;
-  treeNodeFilterProp?: string;
-  treeNodeLabelProp?: string;
+  treeCheckStrictly?: boolean;
   treeData?: Array<TreeNode>;
   treeDataSimpleMode?: boolean | TreeDataSimpleMode;
-  loadData?: (node: any) => void;
-  showCheckedStrategy?: 'SHOW_ALL' | 'SHOW_PARENT' | 'SHOW_CHILD';
-  labelInValue?: boolean;
-  treeCheckStrictly?: boolean;
-  getPopupContainer?: (triggerNode: Element) => HTMLElement;
-  suffixIcon?: React.ReactNode;
+  treeDefaultExpandAll?: boolean;
+  treeDefaultExpandedKeys?: Array<string>;
   treeExpandedKeys?: Array<string>;
-  onTreeExpand?: (keys: Array<string>) => void;
+  treeNodeFilterProp?: string;
+  treeNodeLabelProp?: string;
+  value?: string | number | Array<any>;
 }

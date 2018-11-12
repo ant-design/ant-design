@@ -77,6 +77,7 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     siderCollapsed: PropTypes.bool,
     collapsedWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   };
+  context: any;
   switchingModeFromInline: boolean;
   inlineOpenKeys: string[] = [];
   constructor(props: MenuProps) {

@@ -301,7 +301,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   }
 
   getFiltersFromColumns(columns?: ColumnProps<T>[]) {
-    let filters: any = {};
+    const filters: any = {};
     this.getFilteredValueColumns(columns).forEach((col: ColumnProps<T>) => {
       const colKey = this.getColumnKey(col) as string;
       filters[colKey] = col.filteredValue;
@@ -312,7 +312,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   getDefaultSortOrder(columns?: ColumnProps<T>[]) {
     const definedSortState = this.getSortStateFromColumns(columns);
 
-    let defaultSortedColumn = flatFilter(columns || [], (column: ColumnProps<T>) => column.defaultSortOrder != null)[0];
+    const defaultSortedColumn = flatFilter(columns || [], (column: ColumnProps<T>) => column.defaultSortOrder != null)[0];
 
     if (defaultSortedColumn && !definedSortState.sortColumn) {
       return {
@@ -408,7 +408,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
 
   handleFilter = (column: ColumnProps<T>, nextFilters: string[]) => {
     const props = this.props;
-    let pagination = { ...this.state.pagination };
+    const pagination = { ...this.state.pagination };
     const filters = {
       ...this.state.filters,
       [this.getColumnKey(column) as string]: nextFilters,
@@ -477,7 +477,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     const nativeEvent = e.nativeEvent;
     const defaultSelection = this.store.getState().selectionDirty ? [] : this.getDefaultSelection();
     let selectedRowKeys = this.store.getState().selectedRowKeys.concat(defaultSelection);
-    let key = this.getRecordKey(record, rowIndex);
+    const key = this.getRecordKey(record, rowIndex);
     const { pivot } = this.state;
     const rows = this.getFlatCurrentPageData();
     let realIndex = rowIndex;
@@ -546,7 +546,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     const nativeEvent = e.nativeEvent;
     const defaultSelection = this.store.getState().selectionDirty ? [] : this.getDefaultSelection();
     let selectedRowKeys = this.store.getState().selectedRowKeys.concat(defaultSelection);
-    let key = this.getRecordKey(record, rowIndex);
+    const key = this.getRecordKey(record, rowIndex);
     selectedRowKeys = [key];
     this.store.setState({
       selectionDirty: true,
@@ -568,7 +568,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       .filter((item, i) => !this.getCheckboxPropsByItem(item, i).disabled)
       .map((item, i) => this.getRecordKey(item, i));
 
-    let changeRowKeys: string[] = [];
+    const changeRowKeys: string[] = [];
     let selectWay: TableSelectWay = 'onSelectAll';
     let checked;
     // handle default selection
@@ -629,7 +629,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
 
   handlePageChange = (current: number, ...otherArguments: any[]) => {
     const props = this.props;
-    let pagination = { ...this.state.pagination };
+    const pagination = { ...this.state.pagination };
     if (current) {
       pagination.current = current;
     } else {
@@ -715,7 +715,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         }
         return true;
       });
-      let selectionColumnClass = classNames(`${prefixCls}-selection-column`, {
+      const selectionColumnClass = classNames(`${prefixCls}-selection-column`, {
         [`${prefixCls}-selection-column-custom`]: rowSelection.selections,
       });
       const selectionColumn: ColumnProps<any> = {
@@ -787,7 +787,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       let sortButton;
       const isSortColumn = this.isSortColumn(column);
       if ((column.filters && column.filters.length > 0) || column.filterDropdown) {
-        let colFilters = this.state.filters[key] || [];
+        const colFilters = this.state.filters[key] || [];
         filterDropdown = (
           <FilterDropdown
             locale={locale}
@@ -886,8 +886,8 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     } else if (this.props.size as string === 'middle' || this.props.size === 'small') {
       size = 'small';
     }
-    let position = pagination.position || 'bottom';
-    let total = pagination.total || this.getLocalData().length;
+    const position = pagination.position || 'bottom';
+    const total = pagination.total || this.getLocalData().length;
     return (total > 0 && (position === paginationPosition || position === 'both')) ? (
       <Pagination
         key={`pagination-${paginationPosition}`}
@@ -938,7 +938,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     let data = this.getLocalData();
     let current: number;
     let pageSize: number;
-    let state = this.state;
+    const state = this.state;
     // 如果没有分页的话，默认全部展示
     if (!this.hasPagination()) {
       pageSize = Number.MAX_VALUE;
@@ -989,11 +989,11 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     // 筛选
     if (currentState.filters) {
       Object.keys(currentState.filters).forEach((columnKey) => {
-        let col = this.findColumn(columnKey) as any;
+        const col = this.findColumn(columnKey) as any;
         if (!col) {
           return;
         }
-        let values = currentState.filters[columnKey] || [];
+        const values = currentState.filters[columnKey] || [];
         if (values.length === 0) {
           return;
         }

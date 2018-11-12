@@ -127,7 +127,7 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
   }
 
   render() {
-    let props = {
+    const props = {
       ...this.props,
     };
 
