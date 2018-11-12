@@ -22,6 +22,7 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
   private clickWaveTimeoutId: number;
   private animationStartId: number;
   private animationStart: boolean = false;
+  private destroy: boolean = false
 
   isNotGrey(color: string) {
     const match = (color || '').match(/rgba?\((\d*), (\d*), (\d*)(, [\.\d]*)?\)/);
@@ -121,6 +122,8 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
   }
 
   onTransitionStart = (e: AnimationEvent) => {
+    if (this.destroy) return;
+
     const node = findDOMNode(this) as HTMLElement;
     if (!e || e.target !== node) {
       return;
@@ -159,6 +162,8 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
     if (this.clickWaveTimeoutId) {
       clearTimeout(this.clickWaveTimeoutId);
     }
+
+    this.destroy = true;
   }
 
   render() {
