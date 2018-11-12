@@ -44,10 +44,11 @@ import thTH from '../th_TH';
 import trTR from '../tr_TR';
 import ukUA from '../uk_UA';
 import viVN from '../vi_VN';
+import idID from '../id_ID';
 import zhCN from '../zh_CN';
 import zhTW from '../zh_TW';
 
-const locales = [arEG, bgBG, caES, csCZ, daDK, deDE, elGR, enGB, enUS, esES, etEE, faIR, fiFI, frBE, frFR, heIL, huHU, isIS, itIT, jaJP, koKR, kuIQ, mnMN, nbNO, neNP, nlBE, nlNL, plPL, ptBR, ptPT, ruRU, skSK, slSI, srRS, svSE, thTH, trTR, ukUA, viVN, zhCN, zhTW];
+const locales = [arEG, bgBG, caES, csCZ, daDK, deDE, elGR, enGB, enUS, esES, etEE, faIR, fiFI, frBE, frFR, heIL, huHU, isIS, itIT, jaJP, koKR, kuIQ, mnMN, nbNO, neNP, nlBE, nlNL, plPL, ptBR, ptPT, ruRU, skSK, slSI, srRS, svSE, thTH, trTR, ukUA, viVN, idID, zhCN, zhTW];
 
 const { Option } = Select;
 const { RangePicker } = DatePicker;
