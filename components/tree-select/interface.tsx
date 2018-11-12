@@ -43,6 +43,8 @@ export interface TreeSelectProps extends AbstractSelectProps {
   onSearch?: (value: any) => void;
   onSelect?: (value: any) => void;
   onTreeExpand?: (keys: Array<string>) => void;
+  onFocus?: React.FocusEventHandler<HTMLInputElement>;
+  onBlur?: React.FocusEventHandler<HTMLInputElement>;
   searchPlaceholder?: string;
   showCheckedStrategy?: 'SHOW_ALL' | 'SHOW_PARENT' | 'SHOW_CHILD';
   suffixIcon?: React.ReactNode;
