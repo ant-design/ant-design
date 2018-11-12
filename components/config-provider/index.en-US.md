@@ -9,7 +9,7 @@ title: ConfigProvider
 
 ## Usage
 
-`ConfigProvider` takes use of [context](https://facebook.github.io/react/docs/context.html), a feature of React, to accomplish global effectiveness by wrapping the app only once.
+This component provides a configuration to all React components underneath itself via the [context API](https://facebook.github.io/react/docs/context.html), In the render tree all components will have access to the provided config.
 
 ```jsx
 import { ConfigProvider } from 'antd';
