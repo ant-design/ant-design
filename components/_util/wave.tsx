@@ -6,6 +6,9 @@ let styleForPesudo: HTMLStyleElement | null;
 
 // Where el is the DOM element you'd like to test for visibility
 function isHidden(element: HTMLElement) {
+  if (process.env.NODE_ENV === 'test') {
+    return false;
+  }
   return !element || element.offsetParent === null;
 }
 
