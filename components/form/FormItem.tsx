@@ -25,8 +25,8 @@ export interface FormItemProps {
   colon?: boolean;
 }
 
-function intersperseSpace<T>(list?: Array<T>): Array<T | string> {
-  return (list || [])
+function intersperseSpace<T>(list: Array<T>): Array<T | string> {
+  return list
     .reduce((current, item) => (
       [...current, ' ', item]
     ), [])
