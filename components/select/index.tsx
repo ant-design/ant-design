@@ -67,6 +67,9 @@ export interface SelectProps extends AbstractSelectProps {
   getInputElement?: () => React.ReactElement<any>;
   autoFocus?: boolean;
   suffixIcon?: React.ReactNode;
+  removeIcon?: React.ReactNode;
+  clearIcon?: React.ReactNode;
+  menuItemSelectedIcon?: React.ReactNode;
 }
 
 export interface OptionProps {
@@ -163,9 +166,12 @@ export default class Select extends React.Component<SelectProps, {}> {
       size,
       mode,
       suffixIcon,
+      removeIcon,
+      clearIcon,
+      menuItemSelectedIcon,
       ...restProps
     } = this.props;
-    const rest = omit(restProps, ['inputIcon', 'removeIcon', 'clearIcon']);
+    const rest = omit(restProps, ['inputIcon']);
 
     const cls = classNames({
       [`${prefixCls}-lg`]: size === 'large',
@@ -185,29 +191,67 @@ export default class Select extends React.Component<SelectProps, {}> {
     };
 
     const inputIcon = suffixIcon && (
-      React.isValidElement<{ className?: string }>(suffixIcon)
-        ? React.cloneElement(suffixIcon) : suffixIcon) || (
+      React.isValidElement<{ className?: string }>(suffixIcon) ?
+        React.cloneElement(
+          suffixIcon,
+          {
+            className: classNames(
+              suffixIcon.props.className,
+              `${prefixCls}-arrow-icon`,
+            ),
+          },
+        ) : suffixIcon) || (
         <Icon type="down" className={`${prefixCls}-arrow-icon`} />
       );
 
-    const removeIcon = (
+    const finalRemoveIcon = removeIcon && (
+      React.isValidElement<{ className?: string }>(removeIcon) ?
+        React.cloneElement(
+          removeIcon,
+          {
+            className: classNames(
+              removeIcon.props.className,
+              `${prefixCls}-remove-icon`,
+            ),
+          },
+        ) : removeIcon) || (
       <Icon type="close" className={`${prefixCls}-remove-icon`} />
     );
 
-    const clearIcon = (
+    const finalClearIcon = clearIcon && (
+      React.isValidElement<{ className?: string }>(clearIcon) ?
+        React.cloneElement(
+          clearIcon,
+          {
+            className: classNames(
+              clearIcon.props.className,
+              `${prefixCls}-clear-icon`,
+            ),
+          },
+        ) : clearIcon) || (
       <Icon type="close-circle" theme="filled" className={`${prefixCls}-clear-icon`} />
     );
 
-    const menuItemSelectedIcon = (
+    const finalMenuItemSelectedIcon = menuItemSelectedIcon && (
+      React.isValidElement<{ className?: string }>(menuItemSelectedIcon) ?
+        React.cloneElement(
+          menuItemSelectedIcon,
+          {
+            className: classNames(
+              menuItemSelectedIcon.props.className,
+              `${prefixCls}-selected-icon`,
+            ),
+          },
+        ) : menuItemSelectedIcon) || (
       <Icon type="check" className={`${prefixCls}-selected-icon`} />
     );
 
     return (
       <RcSelect
         inputIcon={inputIcon}
-        removeIcon={removeIcon}
-        clearIcon={clearIcon}
-        menuItemSelectedIcon={menuItemSelectedIcon}
+        removeIcon={finalRemoveIcon}
+        clearIcon={finalClearIcon}
+        menuItemSelectedIcon={finalMenuItemSelectedIcon}
         {...rest}
         {...modeConfig}
         prefixCls={prefixCls}

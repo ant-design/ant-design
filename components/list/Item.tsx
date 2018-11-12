@@ -74,6 +74,8 @@ export default class Item extends React.Component<ListItemProps, any> {
     grid: PropTypes.any,
   };
 
+  context: any;
+
   render() {
     const { grid } = this.context;
     const { prefixCls = 'ant-list', children, actions, extra, className, ...others } = this.props;

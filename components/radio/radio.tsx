@@ -20,6 +20,8 @@ export default class Radio extends React.Component<RadioProps, {}> {
     radioGroup: PropTypes.any,
   };
 
+  context: any;
+
   private rcCheckbox: any;
 
   shouldComponentUpdate(nextProps: RadioProps, nextState: {}, nextContext: RadioGroupContext) {
@@ -50,7 +52,7 @@ export default class Radio extends React.Component<RadioProps, {}> {
       ...restProps
     } = props;
     const { radioGroup } = context;
-    let radioProps: RadioProps = { ...restProps };
+    const radioProps: RadioProps = { ...restProps };
     if (radioGroup) {
       radioProps.name = radioGroup.name;
       radioProps.onChange = radioGroup.onChange;

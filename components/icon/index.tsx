@@ -6,6 +6,7 @@ import createFromIconfontCN from './IconFont';
 import {
   svgBaseProps, withThemeSuffix,
   removeTypeTheme, getThemeFromTypeName,
+  alias,
 } from './utils';
 import warning from '../_util/warning';
 import { getTwoToneColor, setTwoToneColor } from './twoTonePrimaryColor';
@@ -135,7 +136,7 @@ const Icon: IconComponent<IconProps> = (props) => {
         ` the 'theme' prop '${theme}' will be ignored.`);
     }
     computedType = withThemeSuffix(
-      removeTypeTheme(type),
+      removeTypeTheme(alias(type)),
       dangerousTheme || theme || defaultTheme,
     );
     innerNode = (

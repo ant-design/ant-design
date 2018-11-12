@@ -107,13 +107,13 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
         <h3>{messages['app.docs.components.icon.pick-theme']}</h3>
         <Radio.Group value={this.state.theme} onChange={this.handleChangeTheme}>
           <Radio.Button value="outlined">
-            <Icon component={OutlinedIcon} /> Outlined
+            <Icon component={OutlinedIcon} /> {messages['app.docs.components.icon.outlined']}
           </Radio.Button>
           <Radio.Button value="filled">
-            <Icon component={FilledIcon} /> Filled
+            <Icon component={FilledIcon} /> {messages['app.docs.components.icon.filled']}
           </Radio.Button>
           <Radio.Button value="twoTone">
-            <Icon component={TwoToneIcon} /> Two Tone
+            <Icon component={TwoToneIcon} /> {messages['app.docs.components.icon.two-tone']}
           </Radio.Button>
         </Radio.Group>
         {this.renderCategories(list)}

@@ -68,10 +68,11 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
   }
 
   render() {
-    let {
-      closable, description, type, prefixCls = 'ant-alert', message, closeText, showIcon, banner,
-      className = '', style, iconType, icon,
+    const {
+      description, prefixCls = 'ant-alert', message, closeText, banner,
+      className = '', style, icon,
     } = this.props;
+    let { closable, type, showIcon, iconType } = this.props;
 
     // banner模式默认有 Icon
     showIcon = banner && showIcon === undefined ? true : showIcon;

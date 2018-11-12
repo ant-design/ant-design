@@ -138,7 +138,10 @@ export default class Demo extends React.Component {
       html,
       js: sourceCode
         .replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'antd';/, 'const { $1 } = antd;')
-        .replace("import moment from 'moment';", ''),
+        .replace("import moment from 'moment';", '')
+        .replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'react-router';/, 'const { $1 } = ReactRouter;')
+        .replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'react-router-dom';/, 'const { $1 } = ReactRouterDOM;')
+        .replace(/([a-zA-Z]*)\s+as\s+([a-zA-Z]*)/, '$1:$2'),
       css: prefillStyle,
       editors: '001',
       css_external: 'https://unpkg.com/antd/dist/antd.css',
@@ -147,6 +150,8 @@ export default class Demo extends React.Component {
         'react-dom@16.x/umd/react-dom.development.js',
         'moment/min/moment-with-locales.js',
         'antd/dist/antd-with-locales.js',
+        'react-router-dom/umd/react-router-dom.min.js',
+        'react-router@3.x/umd/ReactRouter.min.js',
       ].map(url => `https://unpkg.com/${url}`).join(';'),
       js_pre_processor: 'typescript',
     };
