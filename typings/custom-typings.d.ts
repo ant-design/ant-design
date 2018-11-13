@@ -93,8 +93,6 @@ declare module "*.json" {
 
 declare module "lodash/debounce";
 
-declare module "lodash/uniqBy";
-
 declare module 'intersperse';
 
 declare module "raf";
