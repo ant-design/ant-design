@@ -30,6 +30,7 @@ export interface TreeDataSimpleMode {
 }
 
 export interface TreeSelectProps extends AbstractSelectProps {
+  autoFocus?: boolean;
   defaultValue?: string | number | Array<any>;
   dropdownStyle?: React.CSSProperties;
   filterTreeNode?: (inputValue: string, treeNode: any) => boolean | boolean;
