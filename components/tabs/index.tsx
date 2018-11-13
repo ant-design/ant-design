@@ -51,6 +51,8 @@ export default class Tabs extends React.Component<TabsProps, any> {
   static defaultProps = {
     prefixCls: 'ant-tabs',
     hideAdd: false,
+    tabPosition: 'top',
+    size: 'default',
   };
 
   removeTab = (targetKey: string, e: React.MouseEvent<HTMLElement>) => {
@@ -167,7 +169,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
         className={cls}
         tabBarPosition={tabPosition}
         renderTabBar={() => <TabBar {...tabBarProps} tabBarExtraContent={tabBarExtraContent}/>}
-        renderTabContent={() => <TabContent animated={tabPaneAnimated} animatedWithMargin />}
+        renderTabContent={() => <TabContent className={`${prefixCls}-${tabPosition}-content`} animated={tabPaneAnimated} animatedWithMargin />}
         onChange={this.handleChange}
       >
         {childrenWithClose.length > 0 ? childrenWithClose : children}

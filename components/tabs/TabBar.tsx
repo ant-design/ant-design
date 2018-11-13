@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Icon from '../icon';
 import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
+import classNames from 'classnames';
 import { TabsProps } from './index';
 
 export default class TabBar extends React.Component<TabsProps> {
@@ -12,6 +13,8 @@ export default class TabBar extends React.Component<TabsProps> {
       tabBarExtraContent,
       tabPosition,
       prefixCls,
+      className,
+      size,
     } = this.props;
     const inkBarAnimated = typeof animated === 'object' ? animated.inkBar : animated;
 
@@ -29,6 +32,13 @@ export default class TabBar extends React.Component<TabsProps> {
       </span>
     );
 
+    // Additional className for style usage
+    const cls: string = classNames(
+      `${prefixCls}-${size}-bar`,
+      `${prefixCls}-${tabPosition}-bar`,
+      className,
+    );
+
     const renderProps = {
       ...this.props,
       inkBarAnimated,
@@ -36,6 +46,7 @@ export default class TabBar extends React.Component<TabsProps> {
       style: tabBarStyle,
       prevIcon,
       nextIcon,
+      className: cls,
     };
 
     let RenderTabBar: React.ReactElement<any>;
