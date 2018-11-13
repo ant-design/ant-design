@@ -35,12 +35,13 @@ export default class Article extends React.Component {
   }
 
   onResourceClick = (e) => {
-    if (!window.gtag && e.target.className !== 'resource-card') {
+    const cardNode = e.target.closest('.resource-card');
+    if (!window.gtag || !cardNode) {
       return;
     }
     window.gtag('event', 'resource', {
       event_category: 'Download',
-      event_label: e.target.href,
+      event_label: cardNode.href,
     });
   }
 
