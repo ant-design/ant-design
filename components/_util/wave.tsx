@@ -1,11 +1,15 @@
 import * as React from 'react';
 import { findDOMNode } from 'react-dom';
 import TransitionEvents from 'css-animation/lib/Event';
+import raf from '../_util/raf';
 
 let styleForPesudo: HTMLStyleElement | null;
 
 // Where el is the DOM element you'd like to test for visibility
 function isHidden(element: HTMLElement) {
+  if (process.env.NODE_ENV === 'test') {
+    return false;
+  }
   return !element || element.offsetParent === null;
 }
 
@@ -16,6 +20,9 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
 
   private extraNode: HTMLDivElement;
   private clickWaveTimeoutId: number;
+  private animationStartId: number;
+  private animationStart: boolean = false;
+  private destroy: boolean = false
 
   isNotGrey(color: string) {
     const match = (color || '').match(/rgba?\((\d*), (\d*), (\d*)(, [\.\d]*)?\)/);
@@ -54,6 +61,7 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
     if (insertExtraNode) {
       node.appendChild(extraNode);
     }
+    TransitionEvents.addStartEventListener(node, this.onTransitionStart);
     TransitionEvents.addEndEventListener(node, this.onTransitionEnd);
   }
 
@@ -76,6 +84,14 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
         getComputedStyle(node).getPropertyValue('border-color') ||
         getComputedStyle(node).getPropertyValue('background-color');
       this.clickWaveTimeoutId = window.setTimeout(() => this.onClick(node, waveColor), 0);
+
+      raf.cancel(this.animationStartId);
+      this.animationStart = true;
+
+      // Render to trigger transition event cost 3 frames. Let's delay 10 frames to reset this.
+      this.animationStartId = raf(() => {
+        this.animationStart = false;
+      }, 10);
     };
     node.addEventListener('click', onClick, true);
     return {
@@ -101,7 +117,21 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
     if (insertExtraNode && this.extraNode && node.contains(this.extraNode)) {
       node.removeChild(this.extraNode);
     }
+    TransitionEvents.removeStartEventListener(node, this.onTransitionStart);
     TransitionEvents.removeEndEventListener(node, this.onTransitionEnd);
+  }
+
+  onTransitionStart = (e: AnimationEvent) => {
+    if (this.destroy) return;
+
+    const node = findDOMNode(this) as HTMLElement;
+    if (!e || e.target !== node) {
+      return;
+    }
+
+    if (!this.animationStart) {
+      this.resetEffect(node);
+    }
   }
 
   onTransitionEnd = (e: AnimationEvent) => {
@@ -132,6 +162,8 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
     if (this.clickWaveTimeoutId) {
       clearTimeout(this.clickWaveTimeoutId);
     }
+
+    this.destroy = true;
   }
 
   render() {
