@@ -15,6 +15,7 @@ export default class TabBar extends React.Component<TabsProps> {
       prefixCls,
       className,
       size,
+      type = 'line',
     } = this.props;
     const inkBarAnimated = typeof animated === 'object' ? animated.inkBar : animated;
 
@@ -36,6 +37,9 @@ export default class TabBar extends React.Component<TabsProps> {
     const cls: string = classNames(
       `${prefixCls}-${size}-bar`,
       `${prefixCls}-${tabPosition}-bar`,
+      {
+        [`${prefixCls}-card-bar`]: type.indexOf('card') >= 0,
+      },
       className,
     );
 
