@@ -13,6 +13,8 @@ export interface AvatarProps {
   size?: 'large' | 'small' | 'default' | number;
   /** Src of image avatar */
   src?: string;
+  /** Srcset of image avatar */
+  srcSet?: string;
   /** Type of the Icon to be used in avatar */
   icon?: string;
   style?: React.CSSProperties;
@@ -85,7 +87,7 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
 
   render() {
     const {
-      prefixCls, shape, size, src, icon, className, alt, ...others
+      prefixCls, shape, size, src, srcSet, icon, className, alt, ...others
     } = this.props;
 
     const { isImgExist, scale } = this.state;
@@ -113,6 +115,7 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
       children = (
         <img
           src={src}
+          srcSet={srcSet}
           onError={this.handleImgLoadError}
           alt={alt}
         />
