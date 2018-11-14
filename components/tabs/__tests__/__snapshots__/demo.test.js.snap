@@ -5,7 +5,7 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
   class="ant-tabs ant-tabs-top ant-tabs-line"
 >
   <div
-    class="ant-tabs-bar"
+    class="ant-tabs-bar ant-tabs-top-bar"
     role="tablist"
     tabindex="0"
   >
@@ -108,7 +108,7 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-tabs-content ant-tabs-content-animated"
+    class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
     style="margin-left:0%"
   >
     <div
@@ -137,7 +137,7 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
   class="ant-tabs ant-tabs-top ant-tabs-card ant-tabs-no-animation"
 >
   <div
-    class="ant-tabs-bar"
+    class="ant-tabs-bar ant-tabs-top-bar ant-tabs-card-bar"
     role="tablist"
     tabindex="0"
   >
@@ -240,7 +240,7 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-tabs-content ant-tabs-content-no-animated"
+    class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content ant-tabs-card-content"
   >
     <div
       aria-hidden="false"
@@ -271,7 +271,7 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
     class="ant-tabs ant-tabs-top ant-tabs-card ant-tabs-no-animation"
   >
     <div
-      class="ant-tabs-bar"
+      class="ant-tabs-bar ant-tabs-top-bar ant-tabs-card-bar"
       role="tablist"
       tabindex="0"
     >
@@ -374,7 +374,7 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-tabs-content ant-tabs-content-no-animated"
+      class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content ant-tabs-card-content"
     >
       <div
         aria-hidden="false"
@@ -424,7 +424,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
     class="ant-tabs ant-tabs-top ant-tabs-card ant-tabs-editable-card ant-tabs-no-animation"
   >
     <div
-      class="ant-tabs-bar"
+      class="ant-tabs-bar ant-tabs-top-bar ant-tabs-card-bar"
       role="tablist"
       tabindex="0"
     >
@@ -557,7 +557,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-tabs-content ant-tabs-content-no-animated"
+      class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content ant-tabs-card-content"
     >
       <div
         aria-hidden="false"
@@ -584,7 +584,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
     <div>
       <div />
       <div
-        class="ant-tabs-bar"
+        class="ant-tabs-bar ant-tabs-top-bar"
         role="tablist"
         style="z-index:1;background:#fff"
         tabindex="0"
@@ -689,7 +689,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-tabs-content ant-tabs-content-animated"
+      class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
       style="margin-left:0%"
     >
       <div
@@ -720,7 +720,7 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
   class="ant-tabs ant-tabs-top ant-tabs-line"
 >
   <div
-    class="ant-tabs-bar"
+    class="ant-tabs-bar ant-tabs-top-bar"
     role="tablist"
     tabindex="0"
   >
@@ -823,7 +823,7 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-tabs-content ant-tabs-content-animated"
+    class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
     style="margin-left:0%"
   >
     <div
@@ -852,7 +852,7 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
   class="ant-tabs ant-tabs-top ant-tabs-card ant-tabs-editable-card ant-tabs-no-animation"
 >
   <div
-    class="ant-tabs-bar"
+    class="ant-tabs-bar ant-tabs-top-bar ant-tabs-card-bar"
     role="tablist"
     tabindex="0"
   >
@@ -1021,7 +1021,7 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-tabs-content ant-tabs-content-no-animated"
+    class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content ant-tabs-card-content"
   >
     <div
       aria-hidden="false"
@@ -1049,7 +1049,7 @@ exports[`renders ./components/tabs/demo/extra.md correctly 1`] = `
   class="ant-tabs ant-tabs-top ant-tabs-line"
 >
   <div
-    class="ant-tabs-bar"
+    class="ant-tabs-bar ant-tabs-top-bar"
     role="tablist"
     tabindex="0"
   >
@@ -1165,7 +1165,7 @@ exports[`renders ./components/tabs/demo/extra.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-tabs-content ant-tabs-content-animated"
+    class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
     style="margin-left:0%"
   >
     <div
@@ -1194,7 +1194,7 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
   class="ant-tabs ant-tabs-top ant-tabs-line"
 >
   <div
-    class="ant-tabs-bar"
+    class="ant-tabs-bar ant-tabs-top-bar"
     role="tablist"
     tabindex="0"
   >
@@ -1327,7 +1327,7 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-tabs-content ant-tabs-content-animated"
+    class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
     style="margin-left:-100%"
   >
     <div
@@ -1405,7 +1405,7 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
     class="ant-tabs ant-tabs-top ant-tabs-line"
   >
     <div
-      class="ant-tabs-bar"
+      class="ant-tabs-bar ant-tabs-top-bar"
       role="tablist"
       tabindex="0"
     >
@@ -1508,7 +1508,7 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-tabs-content ant-tabs-content-animated"
+      class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
       style="margin-left:0%"
     >
       <div
@@ -1602,7 +1602,7 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
     class="ant-tabs ant-tabs-top ant-tabs-small ant-tabs-line"
   >
     <div
-      class="ant-tabs-bar"
+      class="ant-tabs-bar ant-tabs-top-bar ant-tabs-small-bar"
       role="tablist"
       tabindex="0"
     >
@@ -1705,7 +1705,7 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-tabs-content ant-tabs-content-animated"
+      class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
       style="margin-left:0%"
     >
       <div
@@ -1781,7 +1781,7 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
     style="height:220px"
   >
     <div
-      class="ant-tabs-bar"
+      class="ant-tabs-bar ant-tabs-top-bar"
       role="tablist"
       tabindex="0"
     >
@@ -1948,7 +1948,7 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-tabs-content ant-tabs-content-animated"
+      class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
       style="margin-left:0%"
     >
       <div

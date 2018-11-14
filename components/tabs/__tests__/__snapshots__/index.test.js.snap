@@ -8,7 +8,7 @@ exports[`Tabs renderTabBar custom-tab-bar 1`] = `
     custom-tab-bar
   </div>
   <div
-    class="ant-tabs-content ant-tabs-content-animated"
+    class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
     style="margin-left:0%"
   >
     <div
@@ -27,7 +27,7 @@ exports[`Tabs tabPosition remove card 1`] = `
   class="ant-tabs ant-tabs-left ant-tabs-vertical ant-tabs-line"
 >
   <div
-    class="ant-tabs-bar"
+    class="ant-tabs-bar ant-tabs-left-bar"
     role="tablist"
     tabindex="0"
   >
@@ -119,7 +119,7 @@ exports[`Tabs tabPosition remove card 1`] = `
     </div>
   </div>
   <div
-    class="ant-tabs-content ant-tabs-content-animated"
+    class="ant-tabs-content ant-tabs-content-animated ant-tabs-left-content"
     style="margin-top:0%"
   >
     <div
