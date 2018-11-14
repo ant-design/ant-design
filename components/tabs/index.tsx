@@ -52,7 +52,6 @@ export default class Tabs extends React.Component<TabsProps, any> {
     prefixCls: 'ant-tabs',
     hideAdd: false,
     tabPosition: 'top',
-    size: 'default',
   };
 
   removeTab = (targetKey: string, e: React.MouseEvent<HTMLElement>) => {

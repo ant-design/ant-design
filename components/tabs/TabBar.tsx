@@ -35,9 +35,9 @@ export default class TabBar extends React.Component<TabsProps> {
 
     // Additional className for style usage
     const cls: string = classNames(
-      `${prefixCls}-${size}-bar`,
       `${prefixCls}-${tabPosition}-bar`,
       {
+        [`${prefixCls}-${size}-bar`]: !!size,
         [`${prefixCls}-card-bar`]: type.indexOf('card') >= 0,
       },
       className,
