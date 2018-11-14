@@ -138,7 +138,7 @@ class Tooltip extends React.Component<TooltipProps, any> {
         display: 'inline-block',  // default inline-block is important
         ...picked,
         cursor: 'not-allowed',
-        width: element.props.block? '100%' : null,
+        width: element.props.block ? '100%' : null,
       };
       const buttonStyle = {
         ...omitted,
