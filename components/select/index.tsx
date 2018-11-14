@@ -11,6 +11,7 @@ import Icon from '../icon';
 export interface AbstractSelectProps {
   prefixCls?: string;
   className?: string;
+  showAction?: string | string[];
   size?: 'default' | 'large' | 'small';
   notFoundContent?: React.ReactNode | null;
   transitionName?: string;
