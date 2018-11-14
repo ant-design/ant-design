@@ -46,17 +46,19 @@
   }
 
   // https://github.com/ant-design/ant-design/issues/9104
-  &-bottom &-bar {
+  &-bottom &-bottom-bar {
+    margin-bottom: 0;
+    margin-top: 16px;
     border-bottom: none;
     border-top: @border-width-base @border-style-base @border-color-split;
   }
 
-  &-bottom &-ink-bar {
+  &-bottom &-bottom-bar &-ink-bar {
     bottom: auto;
     top: 1px;
   }
 
-  &-bottom &-nav-container {
+  &-bottom &-bottom-bar &-nav-container {
     margin-bottom: 0;
     margin-top: -1px;
   }
@@ -374,12 +376,6 @@
     padding-right: 24px;
     border-right: @border-width-base @border-style-base @border-color-split;
   }
-
-  // Horizontal Bar
-  &-bottom &-bottom-bar {
-    margin-bottom: 0;
-    margin-top: 16px;
-  }
 }
 
 .@{tab-prefix-cls}-top .@{tab-prefix-cls}-ink-bar-animated,
@@ -394,7 +390,7 @@
 
 // No animation
 .tabs-no-animation() {
-  .@{tab-prefix-cls}-content-animated {
+  > .@{tab-prefix-cls}-content-animated {
     transform: none !important;
     margin-left: 0 !important;
   }
