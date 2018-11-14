@@ -1,5 +1,5 @@
 ---
-order: 0
+order: 99
 debug: true
 title:
   zh-CN: 基本
