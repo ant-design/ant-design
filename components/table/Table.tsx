@@ -780,14 +780,14 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
 
   renderColumnsDropdown(columns: ColumnProps<T>[], locale: TableLocale) {
     const { prefixCls, dropdownPrefixCls } = this.props;
-    const { sortOrder } = this.state;
+    const { sortOrder, filters } = this.state;
     return treeMap(columns, (column, i) => {
       const key = this.getColumnKey(column, i) as string;
       let filterDropdown;
       let sortButton;
       const isSortColumn = this.isSortColumn(column);
       if ((column.filters && column.filters.length > 0) || column.filterDropdown) {
-        const colFilters = this.state.filters[key] || [];
+        const colFilters = key in filters ? filters[key] : [];
         filterDropdown = (
           <FilterDropdown
             locale={locale}
