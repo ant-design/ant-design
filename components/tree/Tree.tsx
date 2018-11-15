@@ -74,6 +74,8 @@ export interface AntTreeNodeDropEvent {
   node: AntTreeNode;
   dragNode: AntTreeNode;
   dragNodesKeys: string[];
+  dropPosition: number;
+  dropToGap?: boolean;
   event: React.MouseEventHandler<any>;
 }
 
