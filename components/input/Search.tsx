@@ -85,7 +85,6 @@ export default class Search extends React.Component<SearchProps, any> {
       [`${prefixCls}-enter-button`]: !!enterButton,
       [`${prefixCls}-${size}`]: !!size,
     });
-    console.log(searchSuffix);
     return (
       <Input
         onPressEnter={this.onSearch}
