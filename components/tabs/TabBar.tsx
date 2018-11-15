@@ -1,8 +1,8 @@
 import * as React from 'react';
-import Icon from '../icon';
 import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
 import classNames from 'classnames';
 import { TabsProps } from './index';
+import Icon from '../icon';
 
 export default class TabBar extends React.Component<TabsProps> {
   render() {
