@@ -1,7 +1,7 @@
 ---
 category: Components
 cols: 1
-type: Data Display
+type: 数据展示
 title: Table
 subtitle: 表格
 ---
@@ -115,7 +115,7 @@ const columns = [{
 | align | 设置列内容的对齐方式 | 'left' \| 'right' \| 'center' | 'left' |
 | className | 列的 className | string | - |
 | colSpan | 表头列合并,设置为 0 时，不渲染 | number |  |
-| dataIndex | 列数据在数据项中对应的 key，支持 `a.b.c` 的嵌套写法 | string | - |
+| dataIndex | 列数据在数据项中对应的 key，支持 `a.b.c`、`a[0].b.c[1]` 的嵌套写法 | string | - |
 | defaultSortOrder | 默认排序顺序 | 'ascend' \| 'descend' | - |
 | filterDropdown | 可以自定义筛选菜单，此函数只负责渲染图层，需要自行编写各种交互 | ReactNode | - |
 | filterDropdownVisible | 用于控制自定义筛选菜单是否可见 | boolean | - |
@@ -181,7 +181,7 @@ const columns = [{
 
 ## 在 TypeScript 中使用
 
-```jsx
+```tsx
 import { Table } from 'antd';
 import { ColumnProps } from 'antd/lib/table';
 
@@ -210,6 +210,14 @@ class NameColumn extends Table.Column<IUser> {}
 <UserTable dataSource={data}>
   <NameColumn key="name" title="Name" dataIndex="name" />
 </UserTable>
+
+// TypeScript 2.9 之后也可以这样写
+// https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-9.html#generic-type-arguments-in-jsx-elements
+<Table<IUser> columns={columns} dataSource={data} />
+<Table<IUser> dataSource={data}>
+  <Table.Column<IUser> key="name" title="Name" dataIndex="name" />
+</Table>
+
 ```
 
 ## 注意

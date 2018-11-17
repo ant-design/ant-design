@@ -38,7 +38,7 @@ export interface CheckboxChangeEvent {
   nativeEvent: MouseEvent;
 }
 
-export default class Checkbox extends React.Component<CheckboxProps, {}> {
+export default class Checkbox extends React.Component<CheckboxProps, {}, {}> {
   static Group: typeof CheckboxGroup;
   static defaultProps = {
     prefixCls: 'ant-checkbox',
@@ -48,6 +48,8 @@ export default class Checkbox extends React.Component<CheckboxProps, {}> {
   static contextTypes = {
     checkboxGroup: PropTypes.any,
   };
+
+  context: any;
 
   private rcCheckbox: any;
 
@@ -82,9 +84,14 @@ export default class Checkbox extends React.Component<CheckboxProps, {}> {
       ...restProps
     } = props;
     const { checkboxGroup } = context;
-    let checkboxProps: CheckboxProps = { ...restProps };
+    const checkboxProps: CheckboxProps = { ...restProps };
     if (checkboxGroup) {
-      checkboxProps.onChange = () => checkboxGroup.toggleOption({ label: children, value: props.value });
+      checkboxProps.onChange = (...args) => {
+        if (restProps.onChange) {
+          restProps.onChange(...args);
+        }
+        checkboxGroup.toggleOption({ label: children, value: props.value });
+      };
       checkboxProps.checked = checkboxGroup.value.indexOf(props.value) !== -1;
       checkboxProps.disabled = props.disabled || checkboxGroup.disabled;
     }

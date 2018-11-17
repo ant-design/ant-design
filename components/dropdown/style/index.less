@@ -55,6 +55,10 @@
     &-submenu-popup {
       position: absolute;
       z-index: @zindex-dropdown;
+
+      > .@{dropdown-prefix-cls}-menu {
+        transform-origin: 0 0;
+      }
     }
 
     &-item,
@@ -183,7 +187,7 @@
 
 .@{dropdown-prefix-cls}-trigger,
 .@{dropdown-prefix-cls}-link {
-  .@{iconfont-css-prefix}:not(.@{iconfont-css-prefix}-ellipsis) {
+  > .@{iconfont-css-prefix}:not(.@{iconfont-css-prefix}-ellipsis) {
     .iconfont-size-under-12px(10px);
   }
 }

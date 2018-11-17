@@ -9,7 +9,7 @@ Category | Recommended Components
 ---------|-----------------------
 Router | [react-router](https://github.com/ReactTraining/react-router)
 Layout | [@rebass/grid](https://github.com/rebassjs/grid) [react-blocks](http://whoisandy.github.io/react-blocks/) [react-flexbox-grid](https://github.com/roylee0704/react-flexbox-grid)
-Drag and drop | [react-dnd](https://github.com/gaearon/react-dnd)  [react-draggable](https://github.com/mzabriskie/react-draggable) [react-sortable-hoc](https://github.com/clauderic/react-sortable-hoc)
+Drag and drop | [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd/) [react-dnd](https://github.com/gaearon/react-dnd) [react-sortable-hoc](https://github.com/clauderic/react-sortable-hoc)
 Code Editor | [react-codemirror2](https://github.com/scniro/react-codemirror2)
 Rich Text Editor | [react-quill](https://github.com/zenoamaro/react-quill)  [react-draft-wysiwyg](https://github.com/jpuri/react-draft-wysiwyg) [react-lz-editor (Ant Design style)](https://github.com/leejaen/react-lz-editor) [braft-editor](https://github.com/margox/braft-editor)
 Color Picker | [rc-color-picker](https://github.com/react-component/color-picker) [react-color](http://casesandberg.github.io/react-color/)
@@ -19,6 +19,7 @@ Document head manager | [react-helmet](https://github.com/nfl/react-helmet) [rea
 Icons | [react-fa](https://github.com/andreypopp/react-fa) [react-icons](https://github.com/gorangajic/react-icons)
 QR Code | [qrcode.react](https://github.com/zpao/qrcode.react)
 Charts | [BizCharts](https://github.com/alibaba/BizCharts) [recharts](https://github.com/recharts/recharts/) [victory](https://github.com/FormidableLabs/victory)
+Visual Graph Editor | [GGEditor](https://github.com/gaoli/GGEditor)
 Top Progress Bar | [nprogress](https://github.com/rstacruz/nprogress)
 i18n | [react-intl](https://github.com/yahoo/react-intl)
 Code highlight | [react-syntax-highlighter](https://github.com/conorhastings/react-syntax-highlighter)
@@ -30,6 +31,8 @@ Emoji | [emoji-mart](https://github.com/missive/emoji-mart)
 Split View | [react-split-pane](https://github.com/tomkp/react-split-pane)
 Image Crop | [react-image-crop](https://github.com/DominicTobias/react-image-crop)
 Trend Lines | [react-sparklines](https://github.com/borisyankov/react-sparklines)
+Formatted Input | [text-mask](https://github.com/text-mask/text-mask)
+Animation | [react-move](https://github.com/react-tools/react-move) [Ant Motion](https://motion.ant.design/components/tween-one)
 
 <style>
 .markdown table td:first-child {

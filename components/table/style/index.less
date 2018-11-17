@@ -3,6 +3,8 @@
 
 @table-prefix-cls: ~"@{ant-prefix}-table";
 @table-header-icon-color: #bfbfbf;
+@table-header-sort-active-bg: darken(@table-header-bg, 3%);
+@table-header-filter-active-bg: darken(@table-header-sort-active-bg, 5%);
 
 .@{table-prefix-cls}-wrapper {
   .clearfix;
@@ -103,7 +105,7 @@
         .@{table-prefix-cls}-filter-icon {
           &.@{table-prefix-cls}-filter-open {
             color: @text-color-secondary;
-            background: #ebebeb;
+            background: @table-header-filter-active-bg;
           }
         }
         // Very complicated styles logic but neccessary
@@ -112,7 +114,7 @@
           .@{table-prefix-cls}-filter-icon {
             &:hover {
               color: @text-color-secondary;
-              background: #ebebeb;
+              background: @table-header-filter-active-bg;
             }
             &:active {
               color: @text-color;
@@ -124,10 +126,10 @@
       &.@{table-prefix-cls}-column-has-sorters {
         cursor: pointer;
         &:hover {
-          background: #f5f5f5;
+          background: @table-header-sort-active-bg;
           .@{iconfont-css-prefix}-filter,
           .@{table-prefix-cls}-filter-icon {
-            background: #f5f5f5;
+            background: @table-header-sort-active-bg;
           }
         }
         &:active {
@@ -138,24 +140,21 @@
         }
       }
 
-      // Repeat the class selector for prority
-      // https://github.com/ant-design/ant-design/commit/55a13a11fcea23fc4b5694cad7e2c32edc9128ee#r30842052
-      &.@{table-prefix-cls}-align-right.@{table-prefix-cls}-align-right {
-        &.@{table-prefix-cls}-column-has-sorters,
-        &.@{table-prefix-cls}-column-has-filters {
-          padding-right: 30px;
-        }
+      // https://github.com/ant-design/ant-design/issues/12650
+      &.@{table-prefix-cls}-column-has-sorters,
+      &.@{table-prefix-cls}-column-has-filters {
+        padding-right: 30px !important;
+      }
 
-        &.@{table-prefix-cls}-column-has-sorters.@{table-prefix-cls}-column-has-filters {
-          padding-right: 54px;
-        }
+      &.@{table-prefix-cls}-column-has-sorters.@{table-prefix-cls}-column-has-filters {
+        padding-right: 54px !important;
       }
     }
 
     .@{table-prefix-cls}-column-sorters {
       &:before {
         position: absolute;
-        content: '';
+        content: "";
         top: 0;
         left: 0;
         right: 0;
@@ -203,7 +202,7 @@
     transition: all .3s, height 0s;
     &.@{table-prefix-cls}-row-hover,
     &:hover {
-      & > td {
+      &:not(.@{table-prefix-cls}-expanded-row) > td {
         background: @table-row-hover-bg;
       }
     }
@@ -220,7 +219,7 @@
     position: relative;
     border-top: @border-width-base @border-style-base @border-color-split;
     &:before {
-      content: '';
+      content: "";
       height: 1px;
       background: @table-header-bg;
       position: absolute;
@@ -286,8 +285,9 @@
   }
 
   &-thead > tr > th.@{table-prefix-cls}-selection-column-custom {
-    padding-left: 16px;
-    padding-right: 0;
+    .@{table-prefix-cls}-selection {
+      margin-right: -15px;
+    }
   }
 
   &-thead > tr > th.@{table-prefix-cls}-selection-column,
@@ -543,6 +543,10 @@
     &,
     &:hover {
       background: @table-expanded-row-bg;
+    }
+
+    td > .@{table-prefix-cls}-wrapper {
+      margin: -@table-padding-vertical -@table-padding-horizontal -@table-padding-vertical - 1px;
     }
   }
 

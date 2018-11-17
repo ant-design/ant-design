@@ -191,6 +191,7 @@ describe('Menu', () => {
     // 动画结束后套样式;
     jest.runAllTimers();
     wrapper.update();
+    wrapper.simulate('transitionEnd', { propertyName: 'width' });
 
     expect(wrapper.find('ul.ant-menu-root').at(0).hasClass('ant-menu-vertical')).toBe(true);
     expect(wrapper.find('ul.ant-menu-sub').length).toBe(0);
@@ -224,6 +225,7 @@ describe('Menu', () => {
     wrapper.setProps({ inlineCollapsed: true });
     jest.runAllTimers();
     wrapper.update();
+    wrapper.simulate('transitionEnd', { propertyName: 'width' });
     wrapper.find('.ant-menu-submenu-title').at(0).simulate('mouseEnter');
     jest.runAllTimers();
     wrapper.update();

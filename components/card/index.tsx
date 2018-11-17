@@ -38,7 +38,7 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   className?: string;
   type?: CardType;
   cover?: React.ReactNode;
-  actions?: Array<React.ReactNode>;
+  actions?: React.ReactNode[];
   tabList?: CardTabListType[];
   onTabChange?: (key: string) => void;
   activeTabKey?: string;

@@ -11,6 +11,7 @@ export interface CollapsePanelProps {
   showArrow?: boolean;
   prefixCls?: string;
   forceRender?: boolean;
+  id?: string;
 }
 
 export default class CollapsePanel extends React.Component<CollapsePanelProps, {}> {

@@ -39,7 +39,6 @@ export interface AntTreeNodeProps {
   selectable?: boolean;
   icon?: ((treeNode: AntdTreeNodeAttribute) => React.ReactNode) | React.ReactNode;
   children?: React.ReactNode;
-
   [customProp: string]: any;
 }
 
@@ -75,6 +74,8 @@ export interface AntTreeNodeDropEvent {
   node: AntTreeNode;
   dragNode: AntTreeNode;
   dragNodesKeys: string[];
+  dropPosition: number;
+  dropToGap?: boolean;
   event: React.MouseEventHandler<any>;
 }
 
@@ -208,7 +209,7 @@ export default class Tree extends React.Component<TreeProps, any> {
   render() {
     const props = this.props;
     const { prefixCls, className, showIcon } = props;
-    let checkable = props.checkable;
+    const checkable = props.checkable;
     return (
       <RcTree
         ref={this.setTreeRef}

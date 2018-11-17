@@ -131,7 +131,9 @@ input[type="checkbox"] {
 .@{form-prefix-cls}-explain,
 .@{form-prefix-cls}-extra {
   color: @text-color-secondary;
-  line-height: @line-height-base;
+  // Magic tweak pixel number to float line-height diff in windows
+  // Fix https://github.com/ant-design/ant-design/issues/12803
+  line-height: @line-height-base + 0.024;
   transition: color .3s @ease-out; // sync input color transition
   margin-top: @form-help-margin-top;
   clear: both;
@@ -381,9 +383,10 @@ form {
       margin-bottom: 24px;
     }
 
-    > .@{form-prefix-cls}-item-control-wrapper, > .@{form-prefix-cls}-item-label {
+    > .@{form-prefix-cls}-item-control-wrapper,
+    > .@{form-prefix-cls}-item-label {
       display: inline-block;
-      vertical-align: middle;
+      vertical-align: top;
     }
   }
 
@@ -393,11 +396,6 @@ form {
 
   .has-feedback {
     display: inline-block;
-  }
-
-  // Fix https://github.com/ant-design/ant-design/issues/1040
-  .@{form-prefix-cls}-explain {
-    position: absolute;
   }
 }
 

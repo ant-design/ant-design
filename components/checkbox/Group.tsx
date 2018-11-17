@@ -4,7 +4,7 @@ import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
 import omit from 'omit.js';
-import Checkbox from './Checkbox';
+import Checkbox, { CheckboxChangeEvent } from './Checkbox';
 
 export type CheckboxValueType = string | number | boolean;
 
@@ -12,6 +12,7 @@ export interface CheckboxOptionType {
   label: string;
   value: CheckboxValueType;
   disabled?: boolean;
+  onChange?: (e: CheckboxChangeEvent) => void;
 }
 
 export interface AbstractCheckboxGroupProps {
@@ -132,7 +133,7 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
           disabled={'disabled' in option ? option.disabled : props.disabled}
           value={option.value}
           checked={state.value.indexOf(option.value) !== -1}
-          onChange={() => this.toggleOption(option)}
+          onChange={option.onChange}
           className={`${groupPrefixCls}-item`}
         >
           {option.label}

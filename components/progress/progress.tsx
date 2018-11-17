@@ -4,7 +4,7 @@ import Icon from '../icon';
 import { Circle } from 'rc-progress';
 import classNames from 'classnames';
 
-const statusColorMap = {
+const statusColorMap: Record<string, string> = {
   normal: '#108ee9',
   exception: '#ff5500',
   success: '#87d068',
@@ -19,7 +19,7 @@ export interface ProgressProps {
   type?: ProgressType;
   percent?: number;
   successPercent?: number;
-  format?: (percent?: number, successPercent?: number) => string;
+  format?: (percent?: number, successPercent?: number) => React.ReactNode;
   status?: 'success' | 'active' | 'exception';
   showInfo?: boolean;
   strokeWidth?: number;
@@ -43,16 +43,13 @@ const validProgress = (progress: number | undefined) => {
 };
 
 export default class Progress extends React.Component<ProgressProps, {}> {
-  static Line: any;
-  static Circle: any;
-
   static defaultProps = {
-    type: 'line' as ProgressType,
+    type: 'line',
     percent: 0,
     showInfo: true,
     trailColor: '#f3f3f3',
     prefixCls: 'ant-progress',
-    size: 'default' as ProgressSize,
+    size: 'default',
   };
 
   static propTypes = {
@@ -145,7 +142,7 @@ export default class Progress extends React.Component<ProgressProps, {}> {
             percent={validProgress(percent)}
             strokeWidth={circleWidth}
             trailWidth={circleWidth}
-            strokeColor={strokeColor || (statusColorMap as any)[progressStatus]}
+            strokeColor={strokeColor || statusColorMap[progressStatus]}
             strokeLinecap={strokeLinecap}
             trailColor={trailColor}
             prefixCls={prefixCls}

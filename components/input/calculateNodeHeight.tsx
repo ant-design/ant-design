@@ -41,7 +41,7 @@ export interface NodeType {
   boxSizing: string;
 }
 
-let computedStyleCache: {[key: string]: NodeType} = {};
+const computedStyleCache: {[key: string]: NodeType} = {};
 let hiddenTextarea: HTMLTextAreaElement;
 
 function calculateNodeStyling(node: HTMLElement, useCache = false) {
@@ -112,7 +112,7 @@ export default function calculateNodeHeight(
 
   // Copy all CSS properties that have an impact on the height of the content in
   // the textbox
-  let {
+  const {
     paddingSize, borderSize,
     boxSizing, sizingStyle,
   } = calculateNodeStyling(uiTextNode, useCache);
@@ -139,7 +139,7 @@ export default function calculateNodeHeight(
   if (minRows !== null || maxRows !== null) {
     // measure height of a textarea with a single row
     hiddenTextarea.value = ' ';
-    let singleRowHeight = hiddenTextarea.scrollHeight - paddingSize;
+    const singleRowHeight = hiddenTextarea.scrollHeight - paddingSize;
     if (minRows !== null) {
       minHeight = singleRowHeight * minRows;
       if (boxSizing === 'border-box') {

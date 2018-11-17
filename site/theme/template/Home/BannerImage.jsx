@@ -1,6 +1,7 @@
 import React from 'react';
 import TweenOne from 'rc-tween-one';
 import PathPlugin from 'rc-tween-one/lib/plugin/PathPlugin';
+import moment from 'moment';
 
 TweenOne.plugins.push(PathPlugin);
 const duration = 7000;
@@ -58,6 +59,21 @@ function TweenOneG(props) {
 }
 
 export default function BannerImage() {
+  if (moment().format('YYYY-MM-DD') === '2018-10-24') {
+    return (
+      <a
+        href="https://1024.yuque.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="banner-1024"
+      >
+        <img
+          src="https://gw.alipayobjects.com/zos/rmsportal/BaqKyDBXRAzoncSoBQGU.svg"
+          alt="1024"
+        />
+      </a>
+    );
+  }
   return (
     <svg width="482px" height="500px" viewBox="0 0 482 500">
       <defs>

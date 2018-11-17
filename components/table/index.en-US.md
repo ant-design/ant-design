@@ -110,7 +110,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | align | specify how content is aligned | 'left' \| 'right' \| 'center' | 'left' |
 | className | className of this column | string | - |
 | colSpan | Span of this column's title | number |  |
-| dataIndex | Display field of the data record, could be set like `a.b.c` | string | - |
+| dataIndex | Display field of the data record, could be set like `a.b.c`、`a[0].b.c[1]` | string | - |
 | defaultSortOrder | Default order of sorted values | 'ascend' \| 'descend' | - |
 | filterDropdown | Customized filter overlay | ReactNode | - |
 | filterDropdownVisible | Whether `filterDropdown` is visible | boolean | - |
@@ -176,7 +176,7 @@ Properties for row selection.
 
 ## Using in TypeScript
 
-```jsx
+```tsx
 import { Table } from 'antd';
 import { ColumnProps } from 'antd/lib/table';
 
@@ -206,6 +206,13 @@ class NameColumn extends Table.Column<IUser> {}
 <UserTable dataSource={data}>
   <NameColumn key="name" title="Name" dataIndex="name" />
 </UserTable>
+
+// after TypeScript 2.9 can write like this
+// https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-9.html#generic-type-arguments-in-jsx-elements
+<Table<IUser> columns={columns} dataSource={data} />
+<Table<IUser> dataSource={data}>
+  <Table.Column<IUser> key="name" title="Name" dataIndex="name" />
+</Table>
 ```
 
 ## Note

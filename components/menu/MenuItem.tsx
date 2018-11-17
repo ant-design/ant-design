@@ -8,6 +8,7 @@ class MenuItem extends React.Component<any, any> {
     inlineCollapsed: PropTypes.bool,
   };
   static isMenuItem = 1;
+  context: any;
   private menuItem: any;
   onKeyDown = (e: React.MouseEvent<HTMLElement>) => {
     this.menuItem.onKeyDown(e);
