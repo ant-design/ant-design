@@ -16,6 +16,7 @@ export { CardGridProps } from './Grid';
 export { CardMetaProps } from './Meta';
 
 export type CardType = 'inner';
+export type CardSize = 'default' | 'small';
 
 export interface CardTabListType {
   key: string;
@@ -37,6 +38,7 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   children?: React.ReactNode;
   id?: string;
   className?: string;
+  size?: CardSize;
   type?: CardType;
   cover?: React.ReactNode;
   actions?: React.ReactNode[];
@@ -157,6 +159,7 @@ export default class Card extends React.Component<CardProps, CardState> {
       title,
       loading,
       bordered = true,
+      size = 'default',
       type,
       cover,
       actions,
@@ -176,6 +179,7 @@ export default class Card extends React.Component<CardProps, CardState> {
       [`${prefixCls}-padding-transition`]: this.updateWiderPaddingCalled,
       [`${prefixCls}-contain-grid`]: this.isContainGrid(),
       [`${prefixCls}-contain-tabs`]: tabList && tabList.length,
+      [`${prefixCls}-${size}`]: size !== 'default',
       [`${prefixCls}-type-${type}`]: !!type,
     });
 
