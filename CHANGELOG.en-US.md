@@ -25,7 +25,7 @@ timeline: true
 - 🐞 Fixed a issue where RangePicker was not aligned in `small` mode.[#13105](https://github.com/ant-design/ant-design/issues/13105)
 - 🐞 Fix the problem that the Dropdown font size affects the avatar.[#13091](https://github.com/ant-design/ant-design/issues/13091)
 - 🐞 Fixed an issue where tabBarGutter could not work in vertical mode.[#12968](https://github.com/ant-design/ant-design/issues/12968)
-- 🌟 Adjusted the types of multiple typesscript.
+- 🌟 Adjusted the types of multiple typescript.
 
 # 3.10.7
 
