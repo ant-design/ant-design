@@ -138,6 +138,7 @@ class Tooltip extends React.Component<TooltipProps, any> {
         display: 'inline-block',  // default inline-block is important
         ...picked,
         cursor: 'not-allowed',
+        width: element.props.block ? '100%' : null,
       };
       const buttonStyle = {
         ...omitted,
@@ -210,6 +211,7 @@ class Tooltip extends React.Component<TooltipProps, any> {
     const child = this.getDisabledCompatibleChildren(
       React.isValidElement(children) ? children : <span>{children}</span>,
     );
+
     const childProps = child.props;
     const childCls = classNames(childProps.className, {
       [openClassName || `${prefixCls}-open`]: true,

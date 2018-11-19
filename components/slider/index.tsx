@@ -39,6 +39,7 @@ export interface SliderProps {
   tipFormatter?: null | ((value: number) => React.ReactNode);
   className?: string;
   id?: string;
+  style?: React.CSSProperties;
   tooltipVisible?: boolean;
 }
 
