@@ -98,6 +98,7 @@ export interface CascaderState {
   flattenOptions: CascaderOptionType[][] | undefined;
 }
 
+// We limit the filtered item count by default
 const defaultLimit = 50;
 
 function highlightKeyword(str: string, keyword: string, prefixCls: string | undefined) {
