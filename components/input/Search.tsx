@@ -72,7 +72,15 @@ export default class Search extends React.Component<SearchProps, any> {
     const { className, prefixCls, inputPrefixCls, size, suffix, enterButton, ...others } = this.props;
     delete (others as any).onSearch;
     const buttonOrIcon = this.getButtonOrIcon();
-    const searchSuffix = suffix ? [suffix, buttonOrIcon] : buttonOrIcon;
+    let searchSuffix = suffix ? [suffix, buttonOrIcon] : buttonOrIcon;
+    if (Array.isArray(searchSuffix)) {
+      searchSuffix = (searchSuffix as React.ReactElement<any>[]).map((item, index) => {
+        if (!React.isValidElement(item) || item.key) {
+          return item;
+        }
+        return React.cloneElement(item, {key: index});
+      });
+    }
     const inputClassName = classNames(prefixCls, className, {
       [`${prefixCls}-enter-button`]: !!enterButton,
       [`${prefixCls}-${size}`]: !!size,
