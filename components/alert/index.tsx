@@ -148,10 +148,10 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
         onEnd={this.animationEnd}
       >
         <div data-show={this.state.closing} className={alertCls} style={style} {...dataOrAriaProps}>
+          {closeIcon}
           {showIcon ? iconNode : null}
           <span className={`${prefixCls}-message`}>{message}</span>
           <span className={`${prefixCls}-description`}>{description}</span>
-          {closeIcon}
         </div>
       </Animate>
     );
