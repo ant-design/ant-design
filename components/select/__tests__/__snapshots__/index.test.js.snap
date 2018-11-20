@@ -1,307 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Select Select Custom Icons should support customized icons 1`] = `
-<Select
-  choiceTransitionName="zoom"
-  clearIcon={
-    <Icon
-      type="close"
-    />
-  }
-  count={10}
-  menuItemSelectedIcon={
-    <Icon
-      type="close"
-    />
-  }
-  prefixCls="ant-select"
-  removeIcon={
-    <Icon
-      type="close"
-    />
-  }
-  showSearch={false}
-  transitionName="slide-up"
+<div
+  class="ant-select ant-select-enabled"
 >
-  <LocaleReceiver
-    componentName="Select"
-    defaultLocale={
-      Object {
-        "notFoundContent": "Not Found",
-      }
-    }
-  >
-    <Select
-      allowClear={false}
-      autoClearSearchValue={true}
-      backfill={false}
-      choiceTransitionName="zoom"
-      className=""
-      clearIcon={
-        <Icon
-          className="ant-select-clear-icon"
-          type="close"
-        />
-      }
-      combobox={false}
-      count={10}
-      defaultActiveFirstOption={true}
-      defaultOpen={false}
-      dropdownMatchSelectWidth={true}
-      dropdownMenuStyle={Object {}}
-      dropdownStyle={Object {}}
-      inputIcon={
-        <Icon
-          className="ant-select-arrow-icon"
-          type="down"
-        />
-      }
-      labelInValue={false}
-      menuItemSelectedIcon={
-        <Icon
-          className="ant-select-selected-icon"
-          type="close"
-        />
-      }
-      multiple={false}
-      notFoundContent="Not Found"
-      onBlur={[Function]}
-      onChange={[Function]}
-      onDeselect={[Function]}
-      onFocus={[Function]}
-      onInputKeyDown={[Function]}
-      onSearch={[Function]}
-      onSelect={[Function]}
-      optionFilterProp="value"
-      optionLabelProp="children"
-      placeholder=""
-      prefixCls="ant-select"
-      removeIcon={
-        <Icon
-          className="ant-select-remove-icon"
-          type="close"
-        />
-      }
-      showAction={
-        Array [
-          "click",
-        ]
-      }
-      showArrow={true}
-      showSearch={false}
-      tags={false}
-      tokenSeparators={Array []}
-      transitionName="slide-up"
-    >
-      <SelectTrigger
-        combobox={false}
-        defaultActiveFirstOption={true}
-        dropdownMatchSelectWidth={true}
-        dropdownMenuStyle={Object {}}
-        dropdownStyle={Object {}}
-        inputValue=""
-        menuItemSelectedIcon={
-          <Icon
-            className="ant-select-selected-icon"
-            type="close"
-          />
-        }
-        multiple={false}
-        onDropdownVisibleChange={[Function]}
-        onMenuDeselect={[Function]}
-        onMenuSelect={[Function]}
-        onPopupFocus={[Function]}
-        options={Array []}
-        prefixCls="ant-select"
-        showAction={
-          Array [
-            "click",
-          ]
-        }
-        showSearch={false}
-        transitionName="slide-up"
-        value={Array []}
-        visible={false}
-      >
-        <Trigger
-          action={Array []}
-          afterPopupVisibleChange={[Function]}
-          blurDelay={0.15}
-          builtinPlacements={
-            Object {
-              "bottomLeft": Object {
-                "offset": Array [
-                  0,
-                  4,
-                ],
-                "overflow": Object {
-                  "adjustX": 0,
-                  "adjustY": 1,
-                },
-                "points": Array [
-                  "tl",
-                  "bl",
-                ],
-              },
-              "topLeft": Object {
-                "offset": Array [
-                  0,
-                  -4,
-                ],
-                "overflow": Object {
-                  "adjustX": 0,
-                  "adjustY": 1,
-                },
-                "points": Array [
-                  "bl",
-                  "tl",
-                ],
-              },
-            }
-          }
-          combobox={false}
-          defaultActiveFirstOption={true}
-          defaultPopupVisible={false}
-          destroyPopupOnHide={false}
-          dropdownMatchSelectWidth={true}
-          dropdownMenuStyle={Object {}}
-          dropdownStyle={Object {}}
-          focusDelay={0}
-          getDocument={[Function]}
-          getPopupClassNameFromAlign={[Function]}
-          hideAction={
-            Array [
-              "click",
-            ]
-          }
-          inputValue=""
-          mask={false}
-          maskClosable={true}
-          menuItemSelectedIcon={
-            <Icon
-              className="ant-select-selected-icon"
-              type="close"
-            />
-          }
-          mouseEnterDelay={0}
-          mouseLeaveDelay={0.1}
-          multiple={false}
-          onDropdownVisibleChange={[Function]}
-          onMenuDeselect={[Function]}
-          onMenuSelect={[Function]}
-          onPopupAlign={[Function]}
-          onPopupVisibleChange={[Function]}
-          options={Array []}
-          popup={
-            <DropdownMenu
-              defaultActiveFirstOption={true}
-              dropdownMenuStyle={Object {}}
-              inputValue=""
-              menuItemSelectedIcon={
-                <Icon
-                  className="ant-select-selected-icon"
-                  type="close"
-                />
-              }
-              menuItems={Array []}
-              multiple={false}
-              onMenuDeselect={[Function]}
-              onMenuSelect={[Function]}
-              onPopupFocus={[Function]}
-              prefixCls="ant-select-dropdown"
-              value={Array []}
-              visible={false}
-            />
-          }
-          popupAlign={Object {}}
-          popupClassName="ant-select-dropdown--single"
-          popupPlacement="bottomLeft"
-          popupStyle={Object {}}
-          popupTransitionName="slide-up"
-          popupVisible={false}
-          prefixCls="ant-select-dropdown"
-          showAction={
-            Array [
-              "click",
-            ]
-          }
-          showSearch={false}
-          transitionName="slide-up"
-          value={Array []}
-          visible={false}
-        >
-          <div
-            className="ant-select ant-select-enabled"
-            key="trigger"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseDown={[Function]}
-            onMouseOut={[Function]}
-            onMouseUp={[Function]}
-            onTouchStart={[Function]}
-          >
-            <div
-              aria-autocomplete="list"
-              aria-expanded={false}
-              aria-haspopup="true"
-              className="ant-select-selection
+  <div
+    aria-autocomplete="list"
+    aria-expanded="false"
+    aria-haspopup="true"
+    class="ant-select-selection
             ant-select-selection--single"
-              key="selection"
-              onKeyDown={[Function]}
-              role="combobox"
-              tabIndex={0}
-            >
-              <div
-                className="ant-select-selection__rendered"
-              />
-              <span
-                className="ant-select-arrow"
-                key="arrow"
-                onClick={[Function]}
-                style={
-                  Object {
-                    "WebkitUserSelect": "none",
-                    "userSelect": "none",
-                  }
-                }
-                unselectable="on"
-              >
-                <Icon
-                  className="ant-select-arrow-icon"
-                  type="down"
-                >
-                  <i
-                    className="anticon anticon-down ant-select-arrow-icon"
-                  >
-                    <IconReact
-                      className=""
-                      type="down-o"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        className=""
-                        data-icon="down"
-                        fill="currentColor"
-                        height="1em"
-                        key="svg-down"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                          key="svg-down-svg-0"
-                        />
-                      </svg>
-                    </IconReact>
-                  </i>
-                </Icon>
-              </span>
-            </div>
-          </div>
-        </Trigger>
-      </SelectTrigger>
-    </Select>
-  </LocaleReceiver>
-</Select>
+    role="combobox"
+    tabindex="0"
+  >
+    <div
+      class="ant-select-selection__rendered"
+    />
+    <span
+      class="ant-select-arrow"
+      unselectable="on"
+    >
+      <i
+        class="anticon anticon-down ant-select-arrow-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </i>
+    </span>
+  </div>
+</div>
 `;

@@ -93,7 +93,7 @@ describe('Select', () => {
       );
       wrapper.setProps({ count: 10 });
       jest.runAllTimers();
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.render()).toMatchSnapshot();
     });
   });
 });
