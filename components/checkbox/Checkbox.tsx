@@ -97,6 +97,8 @@ export default class Checkbox extends React.Component<CheckboxProps, {}, {}> {
     }
     const classString = classNames(className, {
       [`${prefixCls}-wrapper`]: true,
+      [`${prefixCls}-wrapper-checked`]: checkboxProps.checked,
+      [`${prefixCls}-wrapper-disabled`]: checkboxProps.disabled,
     });
     const checkboxClass = classNames({
       [`${prefixCls}-indeterminate`]: indeterminate,
