@@ -272,4 +272,11 @@ describe('Cascader', () => {
     );
     errorSpy.mockReset();
   });
+
+  it('limit filtered item count', () => {
+    const wrapper = mount(<Cascader options={options} showSearch={{ filter, limit: 1 }} />);
+    wrapper.find('input').simulate('click');
+    wrapper.find('input').simulate('change', { target: { value: 'a' } });
+    expect(wrapper.find('.ant-cascader-menu-item').length).toBe(1);
+  });
 });
