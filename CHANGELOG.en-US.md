@@ -15,6 +15,18 @@ timeline: true
 
 ---
 
+# 3.10.8
+
+`2018-11-17`
+
+- 🐞 Fix pop-up menu background transparency.[#13104](https://github.com/ant-design/ant-design/issues/13104)
+- 🐞 Fixed an issue where disabled Button does not full width in Popconfirm.[#13119](https://github.com/ant-design/ant-design/issues/13119)
+- 🐞 Fixed an issue where Radio.Button in Radio.Group overridden Badge.[#13132](https://github.com/ant-design/ant-design/issues/13132)
+- 🐞 Fixed a issue where RangePicker was not aligned in `small` mode.[#13105](https://github.com/ant-design/ant-design/issues/13105)
+- 🐞 Fix the problem that the Dropdown font size affects the avatar.[#13091](https://github.com/ant-design/ant-design/issues/13091)
+- 🐞 Fixed an issue where tabBarGutter could not work in vertical mode.[#12968](https://github.com/ant-design/ant-design/issues/12968)
+- 🌟 Adjusted the types of multiple typescript.
+
 # 3.10.7
 
 `2018-11-11`

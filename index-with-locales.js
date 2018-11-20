@@ -1,4 +1,5 @@
 const antd = require('./components');
+
 const req = require.context('./components', true, /^\.\/locale-provider\/.+_.+\.tsx$/);
 
 antd.locales = {};
