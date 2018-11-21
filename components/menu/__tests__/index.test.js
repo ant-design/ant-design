@@ -306,4 +306,33 @@ describe('Menu', () => {
       expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).toBe(true);
     });
   });
+
+  it('inline title', () => {
+    jest.useFakeTimers();
+    const wrapper = mount(
+      <Menu
+        mode="inline"
+        inlineCollapsed
+      >
+        <Menu.Item key="1" title="bamboo lucky">
+          <Icon type="pie-chart" />
+          <span>
+            Option 1
+            <img
+              style={{ width: 20 }}
+              alt="test"
+              src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+            />
+          </span>
+        </Menu.Item>
+      </Menu>
+    );
+
+    wrapper.find('.ant-menu-item').simulate('mouseenter');
+    jest.runAllTimers();
+    wrapper.update();
+
+    const text = wrapper.find('.ant-tooltip-inner').text();
+    expect(text).toBe('bamboo lucky');
+  });
 });
