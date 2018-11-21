@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Select from '..';
-import Icon from '../../Icon';
+import Icon from '../../icon';
 import focusTest from '../../../tests/shared/focusTest';
 
 const { Option } = Select;
@@ -93,7 +93,7 @@ describe('Select', () => {
       );
       wrapper.setProps({ count: 10 });
       jest.runAllTimers();
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.render()).toMatchSnapshot();
     });
   });
 });
