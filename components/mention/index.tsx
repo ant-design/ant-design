@@ -1,9 +1,9 @@
 import * as React from 'react';
 import RcMention, { Nav, toString, toEditorState, getMentions } from 'rc-editor-mention';
+import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
 import shallowequal from 'shallowequal';
 import Icon from '../icon';
-
 export type MentionPlacement = 'top' | 'bottom';
 
 export interface MentionProps {
@@ -35,7 +35,7 @@ export interface MentionState {
   focus?: Boolean;
 }
 
-export default class Mention extends React.Component<MentionProps, MentionState> {
+class Mention extends React.Component<MentionProps, MentionState> {
   static getMentions = getMentions;
   static defaultProps = {
     prefixCls: 'ant-mention',
@@ -47,6 +47,17 @@ export default class Mention extends React.Component<MentionProps, MentionState>
   static Nav = Nav;
   static toString = toString;
   static toContentState = toEditorState;
+
+  static getDerivedStateFromProps(nextProps: MentionProps, state: MentionState) {
+    const { suggestions } = nextProps;
+    if (!shallowequal(suggestions, state.suggestions)) {
+      return {
+        suggestions,
+      };
+    }
+    return null
+  }
+
   private mentionEle: any;
   constructor(props: MentionProps) {
     super(props);
@@ -54,15 +65,6 @@ export default class Mention extends React.Component<MentionProps, MentionState>
       suggestions: props.suggestions,
       focus: false,
     };
-  }
-
-  componentWillReceiveProps(nextProps: MentionProps) {
-    const { suggestions } = nextProps;
-    if (!shallowequal(suggestions, this.props.suggestions)) {
-      this.setState({
-        suggestions,
-      });
-    }
   }
 
   onSearchChange = (value: string, prefix: string) => {
@@ -144,3 +146,6 @@ export default class Mention extends React.Component<MentionProps, MentionState>
     );
   }
 }
+
+polyfill(Mention)
+export default Mention
