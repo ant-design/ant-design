@@ -153,8 +153,11 @@
 
   &-loading,
   &-disabled {
-    pointer-events: none;
+    cursor: not-allowed;
     opacity: @switch-disabled-opacity;
+    * {
+      cursor: not-allowed;
+    }
   }
 }
 
