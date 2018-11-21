@@ -53,7 +53,7 @@ describe('Mention', () => {
     jest.runAllTimers();
     expect(container.getDOMNode().querySelectorAll('.ant-mention-dropdown-item').length).toBe(2);
     expect(container.getDOMNode().querySelectorAll('.ant-mention-dropdown-item')[0].innerHTML).toBe('afc163');
-    wrapper.setState({ suggestions: ['yesmeck', 'yiminghe', 'lucy'] });
+    wrapper.setProps({ suggestions: ['yesmeck', 'yiminghe', 'lucy'] });
     jest.runAllTimers();
     expect(container.getDOMNode().querySelectorAll('.ant-mention-dropdown-item').length).toBe(3);
     expect(container.getDOMNode().querySelectorAll('.ant-mention-dropdown-item')[0].innerHTML).toBe('yesmeck');
