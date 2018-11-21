@@ -143,4 +143,13 @@ describe('Button', () => {
     );
     expect(wrapper2).toMatchSnapshot();
   });
+
+  it('should has click wave effect', async () => {
+    const wrapper = mount(
+      <Button type="primary">button</Button>
+    );
+    wrapper.find('.ant-btn').getDOMNode().click();
+    await new Promise(resolve => setTimeout(resolve, 0));
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });

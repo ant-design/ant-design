@@ -15,11 +15,23 @@ timeline: true
 
 ---
 
+# 3.10.8
+
+`2018-11-17`
+
+- 🐞 Fix pop-up menu background transparency.[#13104](https://github.com/ant-design/ant-design/issues/13104)
+- 🐞 Fixed an issue where disabled Button does not full width in Popconfirm.[#13119](https://github.com/ant-design/ant-design/issues/13119)
+- 🐞 Fixed an issue where Radio.Button in Radio.Group overridden Badge.[#13132](https://github.com/ant-design/ant-design/issues/13132)
+- 🐞 Fixed a issue where RangePicker was not aligned in `small` mode.[#13105](https://github.com/ant-design/ant-design/issues/13105)
+- 🐞 Fix the problem that the Dropdown font size affects the avatar.[#13091](https://github.com/ant-design/ant-design/issues/13091)
+- 🐞 Fixed an issue where tabBarGutter could not work in vertical mode.[#12968](https://github.com/ant-design/ant-design/issues/12968)
+- 🌟 Adjusted the types of multiple typescript.
+
 # 3.10.7
 
 `2018-11-11`
 
-- 🐞 Fix a button `line-height` typo. [74aeace](https://github.com/ant-design/ant-design/commit/74aeaceaa88034b8cb669efb8aa3b6de41ff6f9d)
+- 🐞 Fix a Button `line-height` typo. [74aeace](https://github.com/ant-design/ant-design/commit/74aeaceaa88034b8cb669efb8aa3b6de41ff6f9d)
 
 ## 3.10.6
 
@@ -31,7 +43,7 @@ timeline: true
 
 `2018-11-09`
 
-- 🎉 [Landing Templates](https://landing.ant.design) released!
+- 🎉 [Ant Design Landing](https://landing.ant.design) released!
 - 📖 Published the new [sketch resource](https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Components.Beta.3.10.5.sketch) of Ant Design.
 - Button
   - 🐞 Fix the style of vertical align in small `Button.Group`. [#12972](https://github.com/ant-design/ant-design/issues/12972)

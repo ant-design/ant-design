@@ -16,9 +16,12 @@ export default class ColorPicker extends Component {
   }
 
   static getDerivedStateFromProps(props) {
-    return {
-      color: props.color,
-    };
+    if ('color' in props) {
+      return {
+        color: props.color,
+      };
+    }
+    return null;
   }
 
   state = {

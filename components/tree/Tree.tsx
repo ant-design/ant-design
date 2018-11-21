@@ -39,7 +39,6 @@ export interface AntTreeNodeProps {
   selectable?: boolean;
   icon?: ((treeNode: AntdTreeNodeAttribute) => React.ReactNode) | React.ReactNode;
   children?: React.ReactNode;
-
   [customProp: string]: any;
 }
 
@@ -75,6 +74,8 @@ export interface AntTreeNodeDropEvent {
   node: AntTreeNode;
   dragNode: AntTreeNode;
   dragNodesKeys: string[];
+  dropPosition: number;
+  dropToGap?: boolean;
   event: React.MouseEventHandler<any>;
 }
 

@@ -6,6 +6,8 @@ title: 设计资源
 
 这里提供 Ant Design 相关设计资源和设计工具的下载，更多设计资源正在整理和完善中。
 
+- 新版本 Sketch Symbols 组件反馈地址：[🦜 反馈地址](https://www.yuque.com/kitchen/topics/51)
+
 <div class="resource-cards">
   <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Components.Beta.3.10.5.sketch" class="resource-card">
     <div class="resource-card-icon">

@@ -40,7 +40,6 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
       }
       if ('value' in nextProps) {
         state.value = nextProps.value;
-
         if (
           nextProps.value !== prevState.value ||
           (!open && nextProps.value !== prevState.showDate)
@@ -48,7 +47,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
           state.showDate = nextProps.value;
         }
       }
-      return state;
+      return Object.keys(state).length > 0 ? state : null;
     }
 
     private input: any;

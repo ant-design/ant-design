@@ -51,7 +51,6 @@ class Tag extends React.Component<TagProps, TagState> {
           closed: !nextProps.visible,
         };
       }
-
       return newState;
     }
     return null;
