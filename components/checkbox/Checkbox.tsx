@@ -116,7 +116,7 @@ export default class Checkbox extends React.Component<CheckboxProps, {}, {}> {
           className={checkboxClass}
           ref={this.saveCheckbox}
         />
-        {children !== undefined ? <span>{children}</span> : null}
+        {children !== undefined && <span>{children}</span>}
       </label>
     );
   }
