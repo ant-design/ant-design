@@ -5,17 +5,22 @@ import { TabsProps } from './index';
 import Icon from '../icon';
 
 export default class TabBar extends React.Component<TabsProps> {
+  static defaultProps = {
+    animated: true,
+    type: 'line',
+  };
+
   render() {
     const {
       tabBarStyle,
-      animated = true,
+      animated,
       renderTabBar,
       tabBarExtraContent,
       tabPosition,
       prefixCls,
       className,
       size,
-      type = 'line',
+      type,
     } = this.props;
     const inkBarAnimated = typeof animated === 'object' ? animated.inkBar : animated;
 
@@ -38,7 +43,7 @@ export default class TabBar extends React.Component<TabsProps> {
       `${prefixCls}-${tabPosition}-bar`,
       {
         [`${prefixCls}-${size}-bar`]: !!size,
-        [`${prefixCls}-card-bar`]: type.indexOf('card') >= 0,
+        [`${prefixCls}-card-bar`]: type && type.indexOf('card') >= 0,
       },
       className,
     );
