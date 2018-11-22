@@ -81,6 +81,8 @@ describe('Mention', () => {
       return;
     }
     wrapper.find('.ant-mention-dropdown-item').at(0).simulate('mouseDown');
+    wrapper.find('.ant-mention-dropdown-item').at(0).simulate('mouseUp');
+    wrapper.find('.ant-mention-dropdown-item').at(0).simulate('click');
     jest.runAllTimers();
     expect(onSelect).toBeCalled();
     expect(wrapper.find('.public-DraftStyleDefault-block').text()).toBe('@afc163 ');

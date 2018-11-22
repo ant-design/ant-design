@@ -52,6 +52,7 @@ export interface MenuProps {
   subMenuOpenDelay?: number;
   getPopupContainer?: (triggerNode: Element) => HTMLElement;
   focusable?: boolean;
+  onMouseEnter?: (e: MouseEvent) => void;
 }
 
 export interface MenuState {
@@ -77,6 +78,7 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     siderCollapsed: PropTypes.bool,
     collapsedWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   };
+  context: any;
   switchingModeFromInline: boolean;
   inlineOpenKeys: string[] = [];
   constructor(props: MenuProps) {
@@ -131,14 +133,31 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
       this.inlineOpenKeys = [];
     }
   }
+  restoreModeVerticalFromInline() {
+    if (this.switchingModeFromInline) {
+      this.switchingModeFromInline = false;
+      this.setState({});
+    }
+  }
+  // Restore vertical mode when menu is collapsed responsively when mounted
+  // https://github.com/ant-design/ant-design/issues/13104
+  // TODO: not a perfect solution, looking a new way to avoid setting switchingModeFromInline in this situation
+  handleMouseEnter = (e: MouseEvent) => {
+    this.restoreModeVerticalFromInline();
+    const { onMouseEnter } = this.props;
+    if (onMouseEnter) {
+      onMouseEnter(e);
+    }
+  }
   handleTransitionEnd = (e: TransitionEvent) => {
     // when inlineCollapsed menu width animation finished
     // https://github.com/ant-design/ant-design/issues/12864
-    if (e.propertyName === 'width' &&
-        e.target === e.currentTarget &&
-        this.switchingModeFromInline) {
-      this.switchingModeFromInline = false;
-      this.setState({});
+    const widthCollapsed = e.propertyName === 'width' && e.target === e.currentTarget;
+    // Fix for <Menu style={{ width: '100%' }} />, the width transition won't trigger when menu is collapsed
+    // https://github.com/ant-design/ant-design-pro/issues/2783
+    const iconScaled = e.propertyName === 'font-size' && (e.target as HTMLElement).className.indexOf('anticon') >= 0;
+    if (widthCollapsed || iconScaled) {
+      this.restoreModeVerticalFromInline();
     }
   }
   handleClick = (e: ClickParam) => {
@@ -244,6 +263,7 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
         {...this.props}
         {...menuProps}
         onTransitionEnd={this.handleTransitionEnd}
+        onMouseEnter={this.handleMouseEnter}
       />
     );
   }

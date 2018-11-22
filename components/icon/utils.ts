@@ -47,3 +47,13 @@ export function withThemeSuffix(type: string, theme: ThemeType) {
   }
   return result;
 }
+
+// For alias or compatibility
+export function alias(type: string) {
+  switch (type) {
+    case 'cross':
+      return 'close';
+    default:
+  }
+  return type;
+}

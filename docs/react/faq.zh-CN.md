@@ -3,7 +3,7 @@ order: 9
 title: FAQ
 ---
 
-有问题请先问 React：https://reactfaq.site 。
+以下整理了一些 Ant Design 社区常见的问题和官方答复，在提问之前建议找找有没有类似的问题。此外我们也维护了一个反馈较多 [FAQ issues 标签](https://github.com/ant-design/ant-design/issues?q=label%3AFAQ+is%3Aclosed) 亦可参考。
 
 ---
 

@@ -27,6 +27,14 @@
     &.dragging {
       cursor: pointer;
     }
+
+    .slick-slide {
+      pointer-events: none;
+
+      &.slick-active {
+        pointer-events: auto;
+      }
+    }
   }
   .slick-slider .slick-track,
   .slick-slider .slick-list {

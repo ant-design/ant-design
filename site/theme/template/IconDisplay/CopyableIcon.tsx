@@ -10,7 +10,7 @@ export interface CopyableIconProps {
   theme: ThemeType;
   isNew: boolean;
   justCopied: string | null;
-  onCopied: (type: string) => any;
+  onCopied: (type: string, text: string) => any;
 }
 
 const CopyableIcon: React.SFC<CopyableIconProps> = ({
@@ -18,8 +18,8 @@ const CopyableIcon: React.SFC<CopyableIconProps> = ({
 }) => {
   return (
     <CopyToClipboard
-      text={theme === 'outlined' ? <Icon type="${type}" /> : `<Icon type="${type}" theme="${theme}" />`}
-      onCopy={() => onCopied(type)}
+      text={theme === 'outlined' ? `<Icon type="${type}" />` : `<Icon type="${type}" theme="${theme}" />`}
+      onCopy={(text: string) => onCopied(type, text)}
     >
       <li className={justCopied === type ? 'copied' : ''}>
         <Icon type={type} theme={theme}/>
