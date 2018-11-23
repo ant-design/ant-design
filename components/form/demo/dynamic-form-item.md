@@ -18,6 +18,8 @@ import { Form, Input, Icon, Button } from 'antd';
 
 const FormItem = Form.Item;
 
+let id = 0;
+
 class DynamicFieldSet extends React.Component {
   remove = (k) => {
     const { form } = this.props;
@@ -37,8 +39,9 @@ class DynamicFieldSet extends React.Component {
   add = () => {
     const { form } = this.props;
     // can use data-binding to get
+    const myId = id++;
     const keys = form.getFieldValue('keys');
-    const nextKeys = keys.concat(keys.length);
+    const nextKeys = keys.concat(myId);
     // can use data-binding to set
     // important! notify form to detect changes
     form.setFieldsValue({
