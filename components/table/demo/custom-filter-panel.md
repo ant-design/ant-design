@@ -84,7 +84,7 @@ class App extends React.Component {
         const { searchText } = this.state;
         return searchText ? (
           <span>
-            {text.split(new RegExp(`(?<=${searchText})|(?=${searchText})`, 'i')).map((fragment, i) => (
+            {text.split(new RegExp(`(${searchText})`, 'gi')).map((fragment, i) => (
               fragment.toLowerCase() === searchText.toLowerCase()
                 ? <span key={i} className="highlight">{fragment}</span> : fragment // eslint-disable-line
             ))}
