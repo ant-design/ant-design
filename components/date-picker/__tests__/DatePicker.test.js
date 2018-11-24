@@ -177,4 +177,16 @@ describe('DatePicker', () => {
     wrapper.find('.ant-calendar-prev-month-btn').simulate('click');
     expect(wrapper.find('.ant-calendar-my-select').text()).toBe('Jun2017');
   });
+
+  it('disabled date', () => {
+    function disabledDate(current) {
+      return current && current < moment().endOf('day');
+    }
+
+    const wrapper = mount(
+      <DatePicker disabledDate={disabledDate} />
+    );
+
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });
