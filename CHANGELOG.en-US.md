@@ -15,6 +15,18 @@ timeline: true
 
 ---
 
+# 3.10.9
+
+`2018-11-24`
+
+- 🌟 Checkbox provides status css class.[#13199](https://github.com/ant-design/ant-design/issues/13199) [@walker27](https://github.com/walker27)
+- 🐞 Fix TimePicker input exceeds the boundary of container.[#13194](https://github.com/ant-design/ant-design/issues/13194)
+- 🌟 Adjust Table sort order from desc -> asc to asc -> desc.[#13069](https://github.com/ant-design/ant-design/pull/13069) [@OvestLabs](https://github.com/OvestLabs)
+- 🐞 Fix Switch can be operated when loading.[#13219](https://github.com/ant-design/ant-design/pull/13219) [@jojoLockLock](https://github.com/jojoLockLock)
+- 🐞 Fix Carousel can not be interactive in fade mode.[#13215](https://github.com/ant-design/ant-design/issues/13215)
+- 🌟 DatePicker add `tabIndex` prop.[#13265](https://github.com/ant-design/ant-design/pull/13265) [@arifemrecelik](https://github.com/arifemrecelik)
+- 🌟 TreeSelect do not call `loadData` when searching.[#13245](https://github.com/ant-design/ant-design/issues/13245)
+
 # 3.10.8
 
 `2018-11-17`
