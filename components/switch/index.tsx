@@ -18,6 +18,7 @@ export interface SwitchProps {
   disabled?: boolean;
   loading?: boolean;
   autoFocus?: boolean;
+  style?: React.CSSProperties;
 }
 
 export default class Switch extends React.Component<SwitchProps, {}> {
