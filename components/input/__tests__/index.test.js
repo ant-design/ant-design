@@ -106,3 +106,15 @@ describe('Input.Search', () => {
     expect(wrapper).toMatchSnapshot();
   });
 });
+
+describe('Input.Password', () => {
+  it('should change type when click', () => {
+    const wrapper = mount(<Input.Password />);
+
+    wrapper.find('.ant-input-password-icon').at(0).simulate('click');
+    expect(wrapper.find('.ant-input').prop('type')).toBe('password');
+
+    wrapper.find('.ant-input-password-icon').at(0).simulate('click');
+    expect(wrapper.find('.ant-input').prop('type')).toBe('text');
+  });
+});
