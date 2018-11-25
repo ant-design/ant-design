@@ -99,7 +99,7 @@ Ok, you should now see a blue primary button displayed on the page. Next you can
 We are successfully running antd components now but in the real world, there are still lots of problems about antd-demo.
 For instance, we actually import all styles of components in the project which may be a network performance issue.
 
-Now we need to customize the default webpack config. We can achieve that by using [react-app-rewired](https://github.com/timarney/react-app-rewired) which is one of create-react-app's custom config solutions.
+Now we need to customize the default webpack config. We can achieve that by using [react-app-rewired](https://github.com/timarney/react-app-rewired) which is one of create-react-app's custom config solutions ([react-app-rewired](https://github.com/timarney/react-app-rewired) doesn't support [create-react-app](https://github.com/facebook/create-react-app) 2.0).
 
 Import react-app-rewired and modify the `scripts` field in package.json.
 
