@@ -92,6 +92,11 @@ export default class TextArea extends React.Component<TextAreaProps, TextAreaSta
     if (!('value' in this.props)) {
       this.resizeTextarea();
     }
+    /*
+     * WebKit Bug: https://bugs.webkit.org/show_bug.cgi?id=182725
+     * Smart paste can result in exceeding maxlength, so check the input
+     * length with js for better browser compatibility
+    */
     const { maxLength } = this.props;
     if (maxLength && e.target.value.length > maxLength) {
       e.target.value = e.target.value.substring(0, maxLength);
