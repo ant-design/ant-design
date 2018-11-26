@@ -273,10 +273,35 @@ describe('Cascader', () => {
     errorSpy.mockReset();
   });
 
-  it('limit filtered item count', () => {
-    const wrapper = mount(<Cascader options={options} showSearch={{ filter, limit: 1 }} />);
-    wrapper.find('input').simulate('click');
-    wrapper.find('input').simulate('change', { target: { value: 'a' } });
-    expect(wrapper.find('.ant-cascader-menu-item').length).toBe(1);
+  describe('limit filtered item count', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    afterAll(() => {
+      errorSpy.mockRestore();
+    });
+
+    it('limit with positive number', () => {
+      const wrapper = mount(<Cascader options={options} showSearch={{ filter, limit: 1 }} />);
+      wrapper.find('input').simulate('click');
+      wrapper.find('input').simulate('change', { target: { value: 'a' } });
+      expect(wrapper.find('.ant-cascader-menu-item').length).toBe(1);
+    });
+
+    it('not limit', () => {
+      const wrapper = mount(<Cascader options={options} showSearch={{ filter, limit: false }} />);
+      wrapper.find('input').simulate('click');
+      wrapper.find('input').simulate('change', { target: { value: 'a' } });
+      expect(wrapper.find('.ant-cascader-menu-item').length).toBe(2);
+    });
+
+    it('negative limit', () => {
+      const wrapper = mount(<Cascader options={options} showSearch={{ filter, limit: -1 }} />);
+      wrapper.find('input').simulate('click');
+      wrapper.find('input').simulate('change', { target: { value: 'a' } });
+      expect(wrapper.find('.ant-cascader-menu-item').length).toBe(2);
+      expect(errorSpy).toBeCalledWith(
+        'Warning: \'limit\' of showSearch in Cascader should be positive number or false.'
+      );
+    });
   });
 });

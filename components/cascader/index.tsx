@@ -6,6 +6,7 @@ import omit from 'omit.js';
 import KeyCode from 'rc-util/lib/KeyCode';
 import Input from '../input';
 import Icon from '../icon';
+import warning from '../_util/warning';
 
 export interface CascaderOptionType {
   value?: string;
@@ -40,7 +41,7 @@ export interface ShowSearchType {
   ) => React.ReactNode;
   sort?: (a: CascaderOptionType[], b: CascaderOptionType[], inputValue: string, names: FilledFieldNamesType) => number;
   matchInputWidth?: boolean;
-  limit?: number;
+  limit?: number | false;
 }
 
 export interface CascaderProps {
@@ -341,6 +342,10 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
         return matchCount >= limit;
       });
     } else {
+      warning(
+        typeof limit !== 'number',
+        '\'limit\' of showSearch in Cascader should be positive number or false.',
+      );
       filtered = flattenOptions.filter((path) => filter(this.state.inputValue, path, names));
     }
 
