@@ -22,7 +22,7 @@ export default class Password extends React.Component<PasswordProps, any> {
 
   state: PreviewState = {
     theme: undefined,
-    type: "text",
+    type: "password",
   };
 
   private input: Input;
@@ -41,20 +41,23 @@ export default class Password extends React.Component<PasswordProps, any> {
 
   onChange = () => {
     const { theme } = this.state;
+    let inputState = {};
 
     this.input.blur();
 
     if(theme === 'filled') {
-      this.setState({
+      inputState = {
         theme: undefined,
-        type: "text",
-      })
-    } else {
-      this.setState({
-        theme: "filled",
         type: "password",
-      })
+      };
+    } else {
+      inputState = {
+        theme: "filled",
+        type: "text",
+      };
     }
+
+    this.setState(inputState);
   }
 
   getTrigger = () => {
@@ -87,6 +90,7 @@ export default class Password extends React.Component<PasswordProps, any> {
       {
         className: `${prefixCls}-icon`,
         type: "eye",
+        theme: this.state.theme,
         key: "passwordIcon",
         [iconTrigger]: this.onChange,
       },

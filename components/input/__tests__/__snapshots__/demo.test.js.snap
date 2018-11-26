@@ -882,7 +882,7 @@ exports[`renders ./components/input/demo/password-input.md correctly 1`] = `
       action="click"
       class="ant-input"
       placeholder="input password"
-      type="text"
+      type="password"
     />
     <span
       class="ant-input-suffix"
