@@ -9,7 +9,7 @@ export interface ConfigProviderProps {
 const ConfigContext: Context<ConfigProviderProps | null> = createReactContext({});
 
 const ConfigProvider: React.SFC<ConfigProviderProps> = (props) => {
-  const { getPopupContainer, prefixCls = 'ant', children } = props;
+  const { getPopupContainer, prefixCls = 'ant-', children } = props;
   const config = {
     getPopupContainer,
     rootPrefixCls: prefixCls,
