@@ -1,86 +1,86 @@
 ---
 category:
-  zh-CN: 模式
+  zh-CN: Patterns
   en-US: Patterns
 order: 6
 title:
-  zh-CN: 文案
+  zh-CN: Copywriting
   en-US: Copywriting
 ---
-在界面中，我们需要通过对话的方式与用户产生共鸣。精准、清晰的语言会更容易让用户理解，合适的语气更容易让用户建立信任感。因此在界面设计时，文案也应当被重视。 在使用和书写文案时有以下几点需要注意：
+In the interface, we need to resonate with the user through the way we talk. Accurate, clear language will make it easier for users to understand, and the right tone makes it easier for users to build a sense of trust. Therefore, in the interface design, copywriting should also be taken seriously. The following points need to be noted when using and writing a copy:
 
-- 从用户角度出发
-- 表述一致
-- 重要的信息放在显著位置
-- 专业、精准、完整
-- 精简、友好、正面
+- From a user's point of view
+- Consistency of expression
+- Important information in a prominent position
+- Professional, accurate and complete
+- Streamlined, friendly, positive
 
 * * *
 
-## 语言
+## Language
 
-在界面中，文案是我们与用户沟通的基础，语言文字的表述也需要精心推敲，仔细设计。清晰、准确、简洁的文案设计能够让界面拥有更好的可用性， 同时让用户体验更加友好。
+In the interface, copywriting is the basis of our communication with users, the expression of language and writing also needs to be carefully crafted, carefully designed. A clear, accurate, and concise copy design allows for better usability of the interface, while making the user experience more friendly.
 
-### 明确表述立足点
+### A clear statement of foothold
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/uBzzoUAMupDWPXFUeRIn.png" alt="正确示范" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/EOVTgwoOsYptbkUqpMKn.png" alt="错误示范" description="侧重在『我们』为用户提供了什么，而不是以用户视角的关注点为中心。" />
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/uBzzoUAMupDWPXFUeRIn.png" alt="Correct demonstration" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/EOVTgwoOsYptbkUqpMKn.png" alt="Error demonstration" description="侧重在『我们』为用户提供了什么，而不是以用户视角的关注点为中心。" />
 
-在表述内容时，关注点应该是用户和他们能用你的产品做什么，而不是你和你的产品在为他们做什么，所以内容表述的立足点很重要。
+When expressing content, the focus should be on the user and what they can do with your product, not what you and your product are doing for them, so the foothold of the content presentation is important.
 
-既然以用户为中心，文案就应该尽量以用户为主体来写作。
+Since the user as the center, the copy should try to use the user as the main body to write.
 
-> 注：当用户向后台反馈问题、提出建议或申诉时，使用『我们』是合理的语境，例如『我们将会审核你的申诉』。
+> Note: When users feedback questions, make suggestions or complaints to the background, using "we" is a reasonable context, such as "We will review your complaint."
 
-### 精简语句
+### Streamlined statements
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/dAcEgVUcAcUqbMjaEydw.png" alt="正确示范" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/xRUVqOQsBOqzdmZIQDLa.png" alt="错误示范" />
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/dAcEgVUcAcUqbMjaEydw.png" alt="Correct demonstration" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/xRUVqOQsBOqzdmZIQDLa.png" alt="Error demonstration" />
 
-省略无用词汇，不重复用户已知事实；在绝大多数交互场景下，都无需界面描述出全部的细节。
+Omit useless words without repeating the facts known to the user; In most interactive scenarios, no interface is required to describe all the details.
 
-尽量提供简短、易于快速获取的内容。
+Try to provide content that is short and easy to get quickly.
 
-### 使用用户熟悉的语言
+### Use a language that is familiar to the user
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/FOcLNnbiaZOTMRHAyeVZ.png" alt="正确示范" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/tUmMsssHDlGqlKbRwYlH.png" alt="错误示范" description="站在用户的角度，说用户熟悉的话。" />
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/FOcLNnbiaZOTMRHAyeVZ.png" alt="Correct demonstration" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/tUmMsssHDlGqlKbRwYlH.png" alt="Error demonstration" description="站在用户的角度，说用户熟悉的话。" />
 
-使用简单、直接、易于理解的词汇，让内容和指示更容易被用户接受和理解。
+Use simple, straightforward, easy-to-understand vocabulary to make content and instructions more acceptable and understandable to users.
 
-间接、暧昧模糊的说法，生僻和过于『文雅』的用词，会增加用户的认知负荷，所以应当尽量避免使用这类用户无法识别的词汇。
+Indirect, ambiguous and vague statements, eccentric and too "elegant" words, will increase the user's cognitive load, so should try to avoid the use of such users can not recognize the vocabulary.
 
-### 表述一致
+### Consistency of expression
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/ToMaEybHQCrcAfcYRbxF.png" alt="正确示范" description="备注描述使用相同的介词。" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/BUFFQwfvLqTLrOzaEccX.png" alt="错误示范" description="同一区块描述中出现了『受』和『被』两个不同的介词。" />
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/ToMaEybHQCrcAfcYRbxF.png" alt="Correct demonstration" description="备注描述使用相同的介词。" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/BUFFQwfvLqTLrOzaEccX.png" alt="Error demonstration" description="同一区块描述中出现了『受』和『被』两个不同的介词。" />
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/AAaXSGqNUBlZChkrMbYl.png" alt="正确示范" description="在同一页面、同一区域在语序上一致。" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/DYCoXTphnpdkMMCtyMdN.png" alt="错误示范" description="语序上不一致，会影响用户理解成本。" />
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/AAaXSGqNUBlZChkrMbYl.png" alt="Correct demonstration" description="在同一页面、同一区域在语序上一致。" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/DYCoXTphnpdkMMCtyMdN.png" alt="Error demonstration" description="语序上不一致，会影响用户理解成本。" />
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/sNqQYWEJCAzCxcYCBGYD.png" description="操作名称和目标页面的标题一致。" />
 
-- 描述同一个事物的词汇要保持统一;
-- 上下文的语法、语种、语序要保持统一;
-- 操作的名称和目标页面标题的名称保持一致。
+- The words that describe the same thing should remain uniform;
+- The syntax, language and word order of the context should be kept unified;
+- The name of the operation is consistent with the name of the destination page title.
 
-### 重要的信息放在显著位置
+### Important information in a prominent position
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/clWcgMqBypLAAosLQHes.png" alt="正确示范" description="在有限的空间内将重要的信息放在最前面（或通过高亮、留白等方式突出重要信息）。" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/hSiLeNGgmeqWvVHCNoeE.png" alt="错误示范" description="用户最关心的信息内容藏在段落中，不易搜寻。" />
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/clWcgMqBypLAAosLQHes.png" alt="Correct demonstration" description="在有限的空间内将重要的信息放在最前面（或通过高亮、留白等方式突出重要信息）。" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/hSiLeNGgmeqWvVHCNoeE.png" alt="Error demonstration" description="用户最关心的信息内容藏在段落中，不易搜寻。" />
 
-让用户第一眼看到最重要的内容，不用到段落中寻找。
+Let the user see the most important content at the first sight, without looking in the paragraph.
 
-> 注：如考虑安全性问题时，隐私信息也可调整为『点击后可见』的方式。
+> Note: If you consider security issues, the privacy information can also be adjusted to "visible after clicking" method.
 
-### 完整、直接得阐述信息
+### Complete and direct description of information
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/ioBKvBqCNzUwQDyjMiIa.png" alt="正确示范" description="用户可以从中了解了设置后会有什么好处。" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/EiwnPMETQAmWlHSGAWEX.png" alt="错误示范" description="用户感受不到设置的意义，不会去设置。" />
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/ioBKvBqCNzUwQDyjMiIa.png" alt="Correct demonstration" description="用户可以从中了解了设置后会有什么好处。" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/EiwnPMETQAmWlHSGAWEX.png" alt="Error demonstration" description="用户感受不到设置的意义，不会去设置。" />
 
-当我们希望用户进行一个操作时，要专注于用户能得到什么，以及用户的感受。在操作前引导告知用户操作的目的或重要性，能促进用户更愿意去执行。
+When we want users to do an action, focus on what the user can get and how the user feels. Booting the user's purpose or importance of the operation before operation can promote the user's willingness to execute.
 
   
 
 
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/dlAkFzezQEwtNnZDWpQh.png" alt="正确示范" description="相对于『失败』，『无法完成』是更加客观的结果，更容易让用户在心理上接受。用户需要知道在出现问题的情况下如何进行下一步操作。" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/qqrgyclPnhBFgPEYsBXd.png" alt="错误示范" description="对于异常情况不是冷冰冰告诉你『失败』。" />
 
-报错是 UI 中常见的功能，它同样是用户体验中不可小视的组成部分。当用户填写的内容出错的时候，你的报错信息应当符合用户的认知，用易于理解的方式表述出来。
+Error is a common feature in the UI, and it is also a part of the user experience that cannot be underestimated. When the content filled out by the user is wrong, your error message should conform to the user's cognition and be expressed in a way that is easy to understand.
 
-### 用词精准完整
+### Precise and complete use of words
 
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/mCusyeTfzbyDCYxvwEPM.png" alt="正确示范" description="完整的表达。" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/cugctFUEXcVUNnsZRLMD.png" alt="错误示范" description="不完整，有歧义或太口语化。" />
 
@@ -91,15 +91,15 @@ title:
 <table style="font-size:12px;float:right;width:496px;margin-left:60px;margin-bottom:100px;clear:both;">
   <tr>
     <th style="border-bottom: 2px solid #108ee9;width:20%;">
-      使用
+      Use
     </th>
     
     <th style="border-bottom: 2px solid #f04134;width:25%;">
-      不使用
+      Don't use
     </th>
     
     <th>
-      备注
+      Remarks
     </th>
   </tr>
   
@@ -186,84 +186,84 @@ title:
   </tr>
 </table>
 
-通用基本用词要规范，不要写错字，词语表达要完整。
+General basic words to standardize, do not write wrong words, word expression to be complete.
 
-专业用语要精准，并是所属行业认可通用用词；时间的表述必须明确。
+Professional terms should be accurate, and the industry recognizes the general use of words; the expression of time must be clear.
 
 * * *
 
-## 语气
+## Tone
 
-语言定义的是内容，而情绪和气氛更多的是通过语气来表达，并且同样的内容面对不同的用户我们可以使用不同的语气来表达；例如，我们对应专业的运维人员和小白用户应有不同的表达方式。
+Language defines content, and emotions and atmosphere are expressed more through tone, and the same content can be expressed in different tones to different users, for example, our professional operations personnel and small white users should have different ways of expression.
 
-### 拉近彼此的距离
+### Bring each other closer together.
 
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/LXVkAEabvRXwOTYkewzV.png" alt="正确示范" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/KxSWWhUiCPYaadFucIEr.png" alt="错误示范" description="建议不要使用『您』，太过客气，让用户感觉有些疏远。" />
 
-直接使用『你』、『我』来和用户对话，与用户建立亲密感。避免使用『您』，让用户感觉太过疏远。
+Use "You" and "me" directly to talk to users and build intimacy with users. Avoid using "You" to make users feel too alienated.
 
   
 
 
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/mkFlHfRJxVaFpCVnhJxz.png" alt="正确示范" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/SwzkNWboQRPncuORBPmL.png" alt="错误示范" description="同时出现了称谓『我』和『你』，用户会感到迷惑，不清楚到底指代对象是谁。" />
 
-> 注：不要在同一个句式中混用『你』和『我』，交互中指代混乱会让用户相当纠结。
+> Note: Do not mix "you" and "Me" in the same sentence, the interaction of the middle finger confusion will make the user quite entangled.
 
-### 友好、尊重用户
+### Friendly, respectful user
 
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/SiyDiAnuljqDrZgcFiXn.png" alt="正确示范" description="引导用户正确输入内容。" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/ZSgEJWJJeOYBDDsenOuS.png" alt="错误示范" description="不能、不要、请勿都给人命令或强迫的感觉。" />
 
-多给用户支持与鼓励，不要命令和强迫用户。
+Give users more support and encouragement, do not command and force users.
 
-如果你想留住你的用户，当出错的时候就不要责怪用户。专注于解决问题，而不是指责。
+If you want to keep your users, don't blame them when something goes wrong. Focus on solving problems, not blaming them.
 
-### 表述不应过于极端
+### The expression should not be too extreme
 
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/zXLrYMCesvdZXdSoJEcP.png" alt="正确示范" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/MTIsErHJIswPHVfUFQnI.png" alt="错误示范" description="『绝不』过于绝对，让用户感到不适。" />
 
-不要使用过于绝对的表述，这样会让用户觉得不适。
+Do not use an overly absolute statement, which will make the user feel uncomfortable.
 
-## 大小写和标点符号
+## Case and punctuation
 
-### 英文名词大小写规范
+### Specification for case writing of English nouns
 
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/ruuIBHvkqfJrCNuWrGZZ.png" alt="正确示范" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/yEqZfFLnyUACJhprXCqt.png" alt="错误示范" />
 
-产品名称全称，首字母大写。产品名称缩写需要全部大写，如：ESC、SLB 等；
+Full name of the product, uppercase of the first letter. Product name abbreviations need to be all uppercase, such as: ESC, SLB, etc.;
 
-> 注：整个单词都大写不利于阅读和识别，应尽量避免这种用法。
+> Note: The entire word uppercase is not conducive to reading and recognition, and you should try to avoid this usage.
 
   
 
 
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/aVOygdsFMYeQZJNWDouv.png" alt="正确示范" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/obNsZSLYKAqMtsXrEHYg.png" alt="错误示范" />
 
-正确使用专有名词的大小写规范。
+Correct use of the case specification for proper nouns.
 
   
 
 
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/sDSMymVeCJGoMJLBpoHe.png" alt="正确示范" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/tUQvbqMLPGFjwiywBmJP.png" alt="错误示范" />
 
-全英文的标题，标签，菜单项等等都要遵循英文句式中首字母大写的规范。
+All English titles, labels, menu items and so on should follow the English sentence in the first letter uppercase specification.
 
-### 统计数据使用阿拉伯数字
+### Statistical data using Arabic numerals
 
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/WOtjvzMQnfuAHJXcifgW.png" alt="正确示范" description="阿拉伯数字的信息传递效率更高" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/LhJSOSsQrMFCxtFHqNqL.png" alt="错误示范" />
 
-这也是常见问题，用户对于数字的感知速度更快，使用数字而非文字表述会更加有效。
+This is also a common problem, with users perceiving numbers more quickly and using numbers rather than text representations to be more efficient.
 
-### 省略不必要的标点
+### Omit unnecessary punctuation
 
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/QGpLpUFgZnTDzYJCeuun.png" alt="正确示范" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/fQhiFpjLcHJtJJGzElUT.png" alt="错误示范" />
 
-为了帮助用户更加高效得扫视文本内容，可以省略不必要的断句点。
+To help users scan text content more efficiently, unnecessary break points can be omitted.
 
-以下元素单独出现时可以省略标点：
+Punctuation can be omitted when the following elements appear alone:
 
-- 标签
-- 标题
-- 输入框下的提示
+- Label
+- Title
+- Tips Under the input box
 - 悬停文本中的提示
 - 表格中的句子
 
@@ -278,7 +278,7 @@ title:
 
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/CJAEXjDelaghIOHZAxgh.png" alt="正确示范" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/SgcrhDeaVpNmeFWRiJnc.png" alt="错误示范" />
 
-感叹号会让文案显得过于激动，容易让气氛变得过于紧张。
+The exclamation point will make the copy appear too excited and easy to make the atmosphere too tense.
 
 > 注：当向用户表达问候或祝贺时，使用『！』是合理的语境，例如『欢迎回到社区！』。
 
