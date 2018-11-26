@@ -813,7 +813,7 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
         class="ant-tabs ant-tabs-top ant-card-head-tabs ant-tabs-large ant-tabs-line"
       >
         <div
-          class="ant-tabs-bar"
+          class="ant-tabs-bar ant-tabs-top-bar ant-tabs-large-bar"
           role="tablist"
           tabindex="0"
         >
@@ -908,7 +908,7 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
           </div>
         </div>
         <div
-          class="ant-tabs-content ant-tabs-content-animated"
+          class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
           style="margin-left:0%"
         >
           <div
@@ -948,7 +948,7 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
         class="ant-tabs ant-tabs-top ant-card-head-tabs ant-tabs-large ant-tabs-line"
       >
         <div
-          class="ant-tabs-bar"
+          class="ant-tabs-bar ant-tabs-top-bar ant-tabs-large-bar"
           role="tablist"
           tabindex="0"
         >
@@ -1051,7 +1051,7 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
           </div>
         </div>
         <div
-          class="ant-tabs-content ant-tabs-content-animated"
+          class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
           style="margin-left:-100%"
         >
           <div
