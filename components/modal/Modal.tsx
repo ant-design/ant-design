@@ -26,7 +26,7 @@ export interface ModalProps {
   /** 点击模态框右上角叉、取消按钮、Props.maskClosable 值为 true 时的遮罩层或键盘按下 Esc 时的回调*/
   onCancel?: (e: React.MouseEvent<any>) => void;
   afterClose?: () => void;
-  /** 居中 */
+  /** 垂直居中 */
   centered?: boolean;
   /** 宽度*/
   width?: string | number;
