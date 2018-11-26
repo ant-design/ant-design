@@ -43,7 +43,6 @@ export default class Input extends React.Component<InputProps, any> {
     ]),
     size: PropTypes.oneOf(['small', 'default', 'large']),
     maxLength: PropTypes.oneOfType([
-      PropTypes.string,
       PropTypes.number,
     ]),
     disabled: PropTypes.bool,
