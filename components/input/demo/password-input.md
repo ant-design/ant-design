@@ -13,17 +13,10 @@ title:
 
 Input type of password.
 
-```jsx
+````jsx
+
 import { Input } from 'antd';
 
-const Password = Input.Password;
+ReactDOM.render(<Input.Password placeholder="input password" />, mountNode);
 
-ReactDOM.render(
-  <div>
-    <Password
-      placeholder="input password"
-      style={{ width: 200 }}
-    />
-  </div>,
-  mountNode);
-```
+````
