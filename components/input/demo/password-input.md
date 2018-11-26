@@ -14,6 +14,7 @@ title:
 Input type of password.
 
 ````jsx
+
 import { Input } from 'antd';
 
 const Password = Input.Password;
@@ -26,4 +27,5 @@ ReactDOM.render(
     />
   </div>,
   mountNode);
+
 ````

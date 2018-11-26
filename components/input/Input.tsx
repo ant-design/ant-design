@@ -5,7 +5,7 @@ import omit from 'omit.js';
 import Group from './Group';
 import Search from './Search';
 import TextArea from './TextArea';
-import Password from './Password'
+import Password from './Password';
 import { Omit } from '../_util/type';
 
 function fixControlledValue<T>(value: T) {
