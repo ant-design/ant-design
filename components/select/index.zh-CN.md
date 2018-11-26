@@ -32,6 +32,7 @@ title: Select
 | disabled | 是否禁用 | boolean | false |
 | dropdownClassName | 下拉菜单的 className 属性 | string | - |
 | dropdownMatchSelectWidth | 下拉菜单和选择器同宽 | boolean | true |
+| dropdownRender | 自定义下来框内容 | (menuNode: ReactNode, props) => ReactNode | - |
 | dropdownStyle | 下拉菜单的 style 属性 | object | - |
 | filterOption | 是否根据输入项进行筛选。当其为一个函数时，会接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 `true`，反之则返回 `false`。 | boolean or function(inputValue, option) | true |
 | firstActiveValue | 默认高亮的选项 | string\|string\[] | - |
