@@ -51,6 +51,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
   static defaultProps = {
     prefixCls: 'ant-tabs',
     hideAdd: false,
+    tabPosition: 'top',
   };
 
   removeTab = (targetKey: string, e: React.MouseEvent<HTMLElement>) => {
@@ -160,6 +161,10 @@ export default class Tabs extends React.Component<TabsProps, any> {
     ) : null;
 
     const { className: dropped, ...tabBarProps } = this.props;
+    const contentCls: string = classNames(
+      `${prefixCls}-${tabPosition}-content`,
+      type.indexOf('card') >= 0 && `${prefixCls}-card-content`,
+    );
 
     return (
       <RcTabs
@@ -167,7 +172,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
         className={cls}
         tabBarPosition={tabPosition}
         renderTabBar={() => <TabBar {...tabBarProps} tabBarExtraContent={tabBarExtraContent}/>}
-        renderTabContent={() => <TabContent animated={tabPaneAnimated} animatedWithMargin />}
+        renderTabContent={() => <TabContent className={contentCls} animated={tabPaneAnimated} animatedWithMargin />}
         onChange={this.handleChange}
       >
         {childrenWithClose.length > 0 ? childrenWithClose : children}
