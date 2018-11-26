@@ -92,6 +92,10 @@ export default class TextArea extends React.Component<TextAreaProps, TextAreaSta
     if (!('value' in this.props)) {
       this.resizeTextarea();
     }
+    const { maxLength } = this.props;
+    if (maxLength && e.target.value.length > maxLength) {
+      e.target.value = e.target.value.substring(0, maxLength);
+    }
     const { onChange } = this.props;
     if (onChange) {
       onChange(e);
