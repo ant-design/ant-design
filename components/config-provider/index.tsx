@@ -3,14 +3,16 @@ import createReactContext, { Context } from 'create-react-context';
 
 export interface ConfigProviderProps {
   getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
+  prefixCls?: string;
 }
 
 const ConfigContext: Context<ConfigProviderProps | null> = createReactContext({});
 
 const ConfigProvider: React.SFC<ConfigProviderProps> = (props) => {
-  const { getPopupContainer, children } = props;
+  const { getPopupContainer, prefixCls = 'ant', children } = props;
   const config = {
     getPopupContainer,
+    rootPrefixCls: prefixCls,
   };
 
   return (
