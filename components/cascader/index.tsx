@@ -6,6 +6,7 @@ import omit from 'omit.js';
 import KeyCode from 'rc-util/lib/KeyCode';
 import Input from '../input';
 import Icon from '../icon';
+import warning from '../_util/warning';
 
 export interface CascaderOptionType {
   value?: string;
@@ -40,6 +41,7 @@ export interface ShowSearchType {
   ) => React.ReactNode;
   sort?: (a: CascaderOptionType[], b: CascaderOptionType[], inputValue: string, names: FilledFieldNamesType) => number;
   matchInputWidth?: boolean;
+  limit?: number | false;
 }
 
 export interface CascaderProps {
@@ -96,6 +98,9 @@ export interface CascaderState {
   popupVisible: boolean | undefined;
   flattenOptions: CascaderOptionType[][] | undefined;
 }
+
+// We limit the filtered item count by default
+const defaultLimit = 50;
 
 function highlightKeyword(str: string, keyword: string, prefixCls: string | undefined) {
   return str.split(keyword)
@@ -317,10 +322,34 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
       filter = defaultFilterOption,
       render = defaultRenderFilteredOption,
       sort = defaultSortFilteredOption,
+      limit = defaultLimit,
     } = showSearch as ShowSearchType;
     const { flattenOptions = [], inputValue } = this.state;
-    const filtered = flattenOptions.filter((path) => filter(this.state.inputValue, path, names))
-      .sort((a, b) => sort(a, b, inputValue, names));
+
+    // Limit the filter if needed
+    let filtered: Array<CascaderOptionType[]>;
+    if (limit > 0) {
+      filtered = [];
+      let matchCount = 0;
+
+      // Perf optimization to filter items only below the limit
+      flattenOptions.some((path) => {
+        const match = filter(this.state.inputValue, path, names);
+        if (match) {
+          filtered.push(path);
+          matchCount += 1;
+        }
+        return matchCount >= limit;
+      });
+    } else {
+      warning(
+        typeof limit !== 'number',
+        '\'limit\' of showSearch in Cascader should be positive number or false.',
+      );
+      filtered = flattenOptions.filter((path) => filter(this.state.inputValue, path, names));
+    }
+
+    filtered.sort((a, b) => sort(a, b, inputValue, names));
 
     if (filtered.length > 0) {
       return filtered.map((path: CascaderOptionType[]) => {
