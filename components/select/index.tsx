@@ -37,6 +37,8 @@ export interface AbstractSelectProps {
   open?: boolean;
   onDropdownVisibleChange?: (open: boolean) => void;
   autoClearSearchValue?: boolean;
+  dropdownRender?: (menu: React.ReactNode) => React.ReactNode;
+  loading?: boolean;
 }
 
 export interface LabeledValue {
@@ -161,13 +163,30 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
     return mode === 'combobox' || mode === Select.SECRET_COMBOBOX_MODE_DO_NOT_USE;
   }
 
+  renderSuffixIcon() {
+    const {
+      prefixCls,
+      loading,
+      suffixIcon,
+    } = this.props;
+    if (suffixIcon) {
+      return React.isValidElement<{ className?: string }>(suffixIcon) ?
+        React.cloneElement(suffixIcon, {
+          className: classNames(suffixIcon.props.className, `${prefixCls}-arrow-icon`),
+        }) : suffixIcon;
+    }
+    if (loading) {
+      return <Icon type="loading" />;
+    }
+    return <Icon type="down" className={`${prefixCls}-arrow-icon`} />;
+  }
+
   renderSelect = (locale: SelectLocale) => {
     const {
       prefixCls,
       className = '',
       size,
       mode,
-      suffixIcon,
       getPopupContainer,
       removeIcon,
       clearIcon,
@@ -192,20 +211,6 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
       tags: mode === 'tags',
       combobox: this.isCombobox(),
     };
-
-    const inputIcon = suffixIcon && (
-      React.isValidElement<{ className?: string }>(suffixIcon) ?
-        React.cloneElement(
-          suffixIcon,
-          {
-            className: classNames(
-              suffixIcon.props.className,
-              `${prefixCls}-arrow-icon`,
-            ),
-          },
-        ) : suffixIcon) || (
-        <Icon type="down" className={`${prefixCls}-arrow-icon`} />
-      );
 
     const finalRemoveIcon = removeIcon && (
       React.isValidElement<{ className?: string }>(removeIcon) ?
@@ -254,7 +259,7 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
         {({ getPopupContainer: getContextPopupContainer }: ConfigProviderProps) => {
           return (
             <RcSelect
-              inputIcon={inputIcon}
+              inputIcon={this.renderSuffixIcon()}
               removeIcon={finalRemoveIcon}
               clearIcon={finalClearIcon}
               menuItemSelectedIcon={finalMenuItemSelectedIcon}

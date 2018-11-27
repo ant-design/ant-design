@@ -63,6 +63,8 @@ Select component to select value from options.
 | defaultOpen | Initial open state of dropdown | boolean | - |
 | open | Controlled open state of dropdown | boolean | - |
 | onDropdownVisibleChange | Call when dropdown open | function(open) | - |
+| dropdownRender | custom dropdown content | (menu) => ReactNode | - |
+| loading | indicate loading state | Boolean | false |
 
 ### Select Methods
 
