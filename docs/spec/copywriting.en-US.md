@@ -61,7 +61,7 @@ Indirect, ambiguous and vague statements, eccentric and too "elegant" words, wil
 
 ### Important information in a prominent position
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/clWcgMqBypLAAosLQHes.png" alt="Correct demonstration" description="在有限的空间内将重要的信息放在最前面（或通过高亮、留白等方式突出重要信息）。" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/hSiLeNGgmeqWvVHCNoeE.png" alt="Error demonstration" description="用户最关心的信息内容藏在段落中，不易搜寻。" />
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/clWcgMqBypLAAosLQHes.png" alt="Correct demonstration" description="在有限的空间内将重要的信息放在最前面（或通过高亮、留白等方式突出重要信息）。" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/hSiLeNGgmeqWvVHCNoeE.png" alt="Don't." description="用户最关心的信息内容藏在段落中，不易搜寻。" />
 
 Let the user see the most important content at the first sight, without looking in the paragraph.
 
@@ -113,7 +113,7 @@ Error is a common feature in the UI, and it is also a part of the user experienc
     </td>
     
     <td>
-      『其他』的应用范围更广
+      "其他" has a wider range of applications
     </td>
   </tr>
   
@@ -133,27 +133,27 @@ Error is a common feature in the UI, and it is also a part of the user experienc
   
   <tr>
     <th>
-      验证码
+      Authentication Code
     </th>
     
     <td>
     </td>
     
     <td>
-      4位或多位数字或字母图片，可有效防止黑客发起对账户的登录尝试。
+      A 4-bit or multiple-digit or alphanumeric image that effectively prevents hackers from initiating a logon attempt on an account.
     </td>
   </tr>
   
   <tr>
     <th>
-      校验码
+      Checksum code
     </th>
     
     <td>
     </td>
     
     <td>
-      手机或即时通讯工具收到的6位数字，用于验证用户的身份。
+      A 6-digit number received by the phone or instant messaging tool to authenticate the user.
     </td>
   </tr>
   
@@ -167,7 +167,7 @@ Error is a common feature in the UI, and it is also a part of the user experienc
     </td>
     
     <td>
-      登记记录用户输入的注册账号和密码。
+      登记记录用户输入的注册账号和密码
     </td>
   </tr>
   
@@ -181,7 +181,7 @@ Error is a common feature in the UI, and it is also a part of the user experienc
     </td>
     
     <td>
-      当要表达当前事物时，『此』更加明确。
+      "此" is clearer when you want to express the current thing.
     </td>
   </tr>
 </table>
@@ -198,20 +198,20 @@ Language defines content, and emotions and atmosphere are expressed more through
 
 ### Bring each other closer together.
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/LXVkAEabvRXwOTYkewzV.png" alt="正确示范" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/KxSWWhUiCPYaadFucIEr.png" alt="错误示范" description="建议不要使用『您』，太过客气，让用户感觉有些疏远。" />
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/LXVkAEabvRXwOTYkewzV.png" alt="Do." /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/KxSWWhUiCPYaadFucIEr.png" alt="Don't." description="建议不要使用『您』，太过客气，让用户感觉有些疏远。" />
 
 Use "You" and "me" directly to talk to users and build intimacy with users. Avoid using "You" to make users feel too alienated.
 
   
 
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/mkFlHfRJxVaFpCVnhJxz.png" alt="正确示范" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/SwzkNWboQRPncuORBPmL.png" alt="错误示范" description="同时出现了称谓『我』和『你』，用户会感到迷惑，不清楚到底指代对象是谁。" />
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/mkFlHfRJxVaFpCVnhJxz.png" alt="Do." /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/SwzkNWboQRPncuORBPmL.png" alt="Don't." description="同时出现了称谓『我』和『你』，用户会感到迷惑，不清楚到底指代对象是谁。" />
 
 > Note: Do not mix "you" and "Me" in the same sentence, the interaction of the middle finger confusion will make the user quite entangled.
 
 ### Friendly, respectful user
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/SiyDiAnuljqDrZgcFiXn.png" alt="正确示范" description="引导用户正确输入内容。" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/ZSgEJWJJeOYBDDsenOuS.png" alt="错误示范" description="不能、不要、请勿都给人命令或强迫的感觉。" />
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/SiyDiAnuljqDrZgcFiXn.png" alt="Do." description="引导用户正确输入内容。" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/ZSgEJWJJeOYBDDsenOuS.png" alt="Don't." description="不能、不要、请勿都给人命令或强迫的感觉。" />
 
 Give users more support and encouragement, do not command and force users.
 
@@ -219,7 +219,7 @@ If you want to keep your users, don't blame them when something goes wrong. Focu
 
 ### The expression should not be too extreme
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/zXLrYMCesvdZXdSoJEcP.png" alt="正确示范" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/MTIsErHJIswPHVfUFQnI.png" alt="错误示范" description="『绝不』过于绝对，让用户感到不适。" />
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/zXLrYMCesvdZXdSoJEcP.png" alt="Do." /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/MTIsErHJIswPHVfUFQnI.png" alt="Don't." description="『绝不』过于绝对，让用户感到不适。" />
 
 Do not use an overly absolute statement, which will make the user feel uncomfortable.
 
@@ -227,7 +227,7 @@ Do not use an overly absolute statement, which will make the user feel uncomfort
 
 ### Specification for case writing of English nouns
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/ruuIBHvkqfJrCNuWrGZZ.png" alt="正确示范" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/yEqZfFLnyUACJhprXCqt.png" alt="错误示范" />
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/ruuIBHvkqfJrCNuWrGZZ.png" alt="Do." /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/yEqZfFLnyUACJhprXCqt.png" alt="Don't." />
 
 Full name of the product, uppercase of the first letter. Product name abbreviations need to be all uppercase, such as: ESC, SLB, etc.;
 
@@ -236,26 +236,26 @@ Full name of the product, uppercase of the first letter. Product name abbreviati
   
 
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/aVOygdsFMYeQZJNWDouv.png" alt="正确示范" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/obNsZSLYKAqMtsXrEHYg.png" alt="错误示范" />
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/aVOygdsFMYeQZJNWDouv.png" alt="Do." /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/obNsZSLYKAqMtsXrEHYg.png" alt="Don't." />
 
 Correct use of the case specification for proper nouns.
 
   
 
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/sDSMymVeCJGoMJLBpoHe.png" alt="正确示范" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/tUQvbqMLPGFjwiywBmJP.png" alt="错误示范" />
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/sDSMymVeCJGoMJLBpoHe.png" alt="Do." /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/tUQvbqMLPGFjwiywBmJP.png" alt="Don't." />
 
 All English titles, labels, menu items and so on should follow the English sentence in the first letter uppercase specification.
 
 ### Statistical data using Arabic numerals
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/WOtjvzMQnfuAHJXcifgW.png" alt="正确示范" description="阿拉伯数字的信息传递效率更高" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/LhJSOSsQrMFCxtFHqNqL.png" alt="错误示范" />
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/WOtjvzMQnfuAHJXcifgW.png" alt="Do." description="阿拉伯数字的信息传递效率更高" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/LhJSOSsQrMFCxtFHqNqL.png" alt="Don't." />
 
 This is also a common problem, with users perceiving numbers more quickly and using numbers rather than text representations to be more efficient.
 
 ### Omit unnecessary punctuation
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/QGpLpUFgZnTDzYJCeuun.png" alt="正确示范" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/fQhiFpjLcHJtJJGzElUT.png" alt="错误示范" />
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/QGpLpUFgZnTDzYJCeuun.png" alt="Do." /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/fQhiFpjLcHJtJJGzElUT.png" alt="Don't." />
 
 To help users scan text content more efficiently, unnecessary break points can be omitted.
 
@@ -264,85 +264,85 @@ Punctuation can be omitted when the following elements appear alone:
 - Label
 - Title
 - Tips Under the input box
-- 悬停文本中的提示
-- 表格中的句子
+- Tips in hover text
+- The sentences in the table
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/UMLpWSOrmsYFlozQFGXu.png" alt="正确示范" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/raqemTlQncDdOczUCKvo.png" alt="错误示范" />
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/UMLpWSOrmsYFlozQFGXu.png" alt="Do." /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/raqemTlQncDdOczUCKvo.png" alt="Don't." />
 
-以下元素单独出现时需要加上标点：
+Punctuation needs to be added when the following elements appear alone:
 
-- 多句或多段的文案和列表内容。
-- 任何文字链前的句子。
+- Multiple or multiple paragraphs of copywriting and list content.
+- Any sentence before the word chain.
 
-### 谨慎使用感叹号
+### Use exclamation points with caution
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/CJAEXjDelaghIOHZAxgh.png" alt="正确示范" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/SgcrhDeaVpNmeFWRiJnc.png" alt="错误示范" />
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/CJAEXjDelaghIOHZAxgh.png" alt="Do." /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/SgcrhDeaVpNmeFWRiJnc.png" alt="Don't." />
 
 The exclamation point will make the copy appear too excited and easy to make the atmosphere too tense.
 
-> 注：当向用户表达问候或祝贺时，使用『！』是合理的语境，例如『欢迎回到社区！』。
+> Note: When expressing greetings or congratulations to the user, use "! "is a reasonable context, such as" Welcome back to the community! " 』。
 
-### 基本标点规范
+### Basic Punctuation Specification
 
 <table style="font-size:12px;float:right;width:496px;margin-left:60px;margin-bottom:100px;">
   <tr>
     <th>
-      标点名称
+      Punctuation Name
     </th>
     
     <th>
-      字符
+      Character
     </th>
     
     <th>
-      描述
+      Description
     </th>
   </tr>
   
   <tr>
     <th>
-      空格
+      Space
     </th>
     
     <td>
     </td>
     
     <td>
-      段落句子中的链接和文字之间增加空格； 全角字符和半角字符搭配时，需要添加空格，如：两个、2 个、50%。
+      Add spaces between links and text in paragraph sentences; when paired with full-width characters and half-width characters, you need to add spaces, such as: Two, 2, 50%.
     </td>
   </tr>
   
   <tr>
     <th>
-      句号
+      Period
     </th>
     
     <td>
-      。
+      .
     </td>
     
     <td>
-      以下情况中不使用句号：输入框下的提示；表格中的句子；句末为文字链（链接前使用句号）；按钮和标题。
+      A period is not used in the following cases: a hint under the input box; a sentence in a table; a text chain at the end of a sentence (a period used before a link); a button and a title.
     </td>
   </tr>
   
   <tr>
     <th>
-      感叹号
+      Exclamation mark
     </th>
     
     <td>
-      ！
+      !
     </td>
     
     <td>
-      只在需要表达强烈情感的情况下使用。
+      Use only when strong emotions need to be expressed.
     </td>
   </tr>
   
   <tr>
     <th>
-      连接号
+      Connection mark
     </th>
     
     <td>
@@ -350,27 +350,27 @@ The exclamation point will make the copy appear too excited and easy to make the
     </td>
     
     <td>
-      不使用中文全角的连接号。如：2012-11-12。
+      Do not use the connection mark of the full corner of Chinese. For example: 2012-11-12.
     </td>
   </tr>
   
   <tr>
     <th>
-      省略号
+      Ellipsis
     </th>
     
     <td>
-      …
+      ...
     </td>
     
     <td>
-      使用半角的『…』为省略号。
+      Use the half-angle "..." as the ellipsis.
     </td>
   </tr>
   
   <tr>
     <th>
-      隐藏符号
+      Hide Symbols
     </th>
     
     <td>
@@ -378,11 +378,11 @@ The exclamation point will make the copy appear too excited and easy to make the
     </td>
     
     <td>
-      多用于替换显示隐私信息。
+      Mostly used to replace display privacy information.
     </td>
   </tr>
 </table>
 
-正确得使用标点符号会让句子看起来更清晰和具有可读性。
+Using punctuation correctly will make the sentence look clearer and more readable.
 
-具体使用请参考1995年中国标准出版社出版的[《标点符号用法》](http://www.gddx.gov.cn/jjxjyb/resource/cms/2016/05/2016051420583039892.pdf)，右图为重点列出的在设计中需要注意的部分。
+For specific use, please refer to ["punctuation usage" ](http://www.gddx.gov.cn/jjxjyb/resource/cms/2016/05/2016051420583039892.pdf) published by China Standards Press in 1995. The right image focuses on the parts of the design that need attention.
