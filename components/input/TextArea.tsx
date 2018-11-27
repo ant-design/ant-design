@@ -82,7 +82,6 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     if (!this.resizeObserver && this.props.autosize) {
       // Add resize observer
       this.resizeObserver = new ResizeObserver(this.resizeOnNextFrame);
-
       this.resizeObserver.observe(this.textAreaRef);
     } else if (this.resizeObserver && !this.props.autosize) {
       // Remove resize observer
