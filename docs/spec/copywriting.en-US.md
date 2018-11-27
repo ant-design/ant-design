@@ -76,17 +76,17 @@ When we want users to do an action, focus on what the user can get and how the u
   
 
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/dlAkFzezQEwtNnZDWpQh.png" alt="正确示范" description="相对于『失败』，『无法完成』是更加客观的结果，更容易让用户在心理上接受。用户需要知道在出现问题的情况下如何进行下一步操作。" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/qqrgyclPnhBFgPEYsBXd.png" alt="错误示范" description="对于异常情况不是冷冰冰告诉你『失败』。" />
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/dlAkFzezQEwtNnZDWpQh.png" alt="Do." description="相对于『失败』，『无法完成』是更加客观的结果，更容易让用户在心理上接受。用户需要知道在出现问题的情况下如何进行下一步操作。" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/qqrgyclPnhBFgPEYsBXd.png" alt="Don't." description="对于异常情况不是冷冰冰告诉你『失败』。" />
 
 Error is a common feature in the UI, and it is also a part of the user experience that cannot be underestimated. When the content filled out by the user is wrong, your error message should conform to the user's cognition and be expressed in a way that is easy to understand.
 
 ### Precise and complete use of words
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/mCusyeTfzbyDCYxvwEPM.png" alt="正确示范" description="完整的表达。" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/cugctFUEXcVUNnsZRLMD.png" alt="错误示范" description="不完整，有歧义或太口语化。" />
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/mCusyeTfzbyDCYxvwEPM.png" alt="Do." description="完整的表达。" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/cugctFUEXcVUNnsZRLMD.png" alt="Don't." description="不完整，有歧义或太口语化。" />
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/jvYzIkRbdICzNvxeVfBr.png" alt="正确示范" description="专业用语精准。" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/TFhFTbqHlEXTMOyCxIvN.png" alt="错误示范" description="专业的行业用词有别字。" />
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/jvYzIkRbdICzNvxeVfBr.png" alt="Correct demonstration" description="专业用语精准。" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/TFhFTbqHlEXTMOyCxIvN.png" alt="Don't." description="专业的行业用词有别字。" />
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/qIwLlXOyJQlAqFwWSUuo.png" alt="正确示范" description="时间信息的表述精准完整。" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/HBCyJcXZYmtLECZUtjzE.png" alt="错误示范" description="时间信息的描述词不是具体的『日』、『月』，容易让用户产生困扰。" />
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/qIwLlXOyJQlAqFwWSUuo.png" alt="Do." description="时间信息的表述精准完整。" /> <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/HBCyJcXZYmtLECZUtjzE.png" alt="Don't." description="时间信息的描述词不是具体的『日』、『月』，容易让用户产生困扰。" />
 
 <table style="font-size:12px;float:right;width:496px;margin-left:60px;margin-bottom:100px;clear:both;">
   <tr>
@@ -127,7 +127,7 @@ Error is a common feature in the UI, and it is also a part of the user experienc
     </td>
     
     <td>
-      如果是我们系统造成的结果，可以使用『抱歉』，如果是用户自己造成的结果，不能使用。
+      If it is the result of our system, you can use "sorry", if it is the user's own results, cannot be used.
     </td>
   </tr>
   
