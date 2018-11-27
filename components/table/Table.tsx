@@ -380,9 +380,9 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     const oldSortOrder = this.isSameColumn(sortColumn, column) ? sortOrder : undefined;
     // 切换排序状态，按照降序/升序/不排序的顺序
     if (!oldSortOrder) {
-      newSortOrder = 'descend';
-    } else if (oldSortOrder === 'descend') {
       newSortOrder = 'ascend';
+    } else if (oldSortOrder === 'ascend') {
+      newSortOrder = 'descend';
     } else {
       newSortOrder = undefined;
     }

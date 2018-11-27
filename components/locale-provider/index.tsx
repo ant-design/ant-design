@@ -59,16 +59,11 @@ export default class LocaleProvider extends React.Component<LocaleProviderProps,
     };
   }
 
-  componentWillReceiveProps(nextProps: LocaleProviderProps) {
+  componentDidUpdate(prevProps: LocaleProviderProps) {
     const { locale } = this.props;
-    const nextLocale = nextProps.locale;
-    if (locale !== nextLocale) {
-      setMomentLocale(nextProps.locale);
+    if (prevProps.locale !== locale) {
+      setMomentLocale(locale);
     }
-  }
-
-  componentDidUpdate() {
-    const { locale } = this.props;
     changeConfirmLocale(locale && locale.Modal);
   }
 

@@ -156,9 +156,5 @@ export default function calculateNodeHeight(
       height = Math.min(maxHeight, height);
     }
   }
-  // Remove scroll bar flash when autosize without maxRows
-  if (!maxRows) {
-    overflowY = 'hidden';
-  }
   return { height, minHeight, maxHeight, overflowY };
 }

@@ -86,7 +86,6 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 | showTime.defaultValue | to set default time of selected date, [demo](#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/) | moment() |
 | showToday | whether to show "Today" button | boolean | true |
 | value | to set date | [moment](http://momentjs.com/) | - |
-| onCalendarChange | a callback function, can be executed when the start time or the end time of the range is changing | function(dates: [moment, moment], dateStrings: [string, string]) | 无 |
 | onChange | a callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |
 | onOk | callback when click ok button | function() | - |
 
@@ -125,6 +124,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 | showTime | to provide an additional time selection | object\|boolean | [TimePicker Options](/components/time-picker/#API) |
 | showTime.defaultValue | to set default time of selected date, [demo](#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/)\[] | [moment(), moment()] |
 | value | to set date | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)] | - |
+| onCalendarChange | a callback function, can be executed when the start time or the end time of the range is changing | function(dates: [moment, moment], dateStrings: [string, string]) | - |
 | onChange | a callback function, can be executed when the selected time is changing | function(dates: [moment, moment], dateStrings: [string, string]) | - |
 | onOk | callback when click ok button | function() | - |
 

@@ -216,6 +216,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
             value={(inputValue && inputValue.format(props.format)) || ''}
             placeholder={placeholder}
             className={props.pickerInputClass}
+            tabIndex={props.tabIndex}
             {...dataOrAriaProps}
           />
           {clearIcon}
