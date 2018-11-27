@@ -87,6 +87,7 @@
     "react-lazy-load": "^3.0.13",
     "react-lifecycles-compat": "^3.0.4",
     "react-slick": "~0.23.2",
+    "resize-observer-polyfill": "^1.5.0",
     "shallowequal": "^1.1.0",
     "warning": "~4.0.2"
   },
