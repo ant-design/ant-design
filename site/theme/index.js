@@ -1,5 +1,5 @@
-import 'core-js/es6/string';
-import path from 'path';
+require('core-js/es6/string');
+const path = require('path');
 
 const homeTmpl = './template/Home/index';
 const contentTmpl = './template/Content/index';
