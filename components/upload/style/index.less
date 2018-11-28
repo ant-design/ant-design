@@ -236,16 +236,17 @@
       top: 8px;
       left: 8px;
       text-align: center;
+      line-height: 54px;
+      font-size: 26px;
+      opacity: .8;
     }
 
     .@{upload-item}-icon {
-      color: @disabled-color;
-      font-size: 36px;
+      font-size: 26px;
       position: absolute;
       top: 50%;
       left: 50%;
-      margin-top: -18px;
-      margin-left: -18px;
+      transform: translate(-50%, -50%);
     }
 
     .@{upload-item}-thumbnail img {
@@ -253,12 +254,6 @@
       height: 48px;
       display: block;
       overflow: hidden;
-    }
-
-    .@{upload-item}-thumbnail.@{iconfont-css-prefix}:before {
-      line-height: 48px;
-      font-size: 24px;
-      color: @text-color-secondary;
     }
 
     .@{upload-item}-name {
