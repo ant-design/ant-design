@@ -44,23 +44,23 @@ export interface LabeledValue {
 
 export type SelectValue = string | string[] | number | number[] | LabeledValue | LabeledValue[];
 
-export interface SelectProps extends AbstractSelectProps {
-  value?: SelectValue;
-  defaultValue?: SelectValue;
+export interface SelectProps<T = SelectValue> extends AbstractSelectProps {
+  value?: T;
+  defaultValue?: T;
   mode?: 'default' | 'multiple' | 'tags' | 'combobox' | string;
   optionLabelProp?: string;
   firstActiveValue?: string | string[];
-  onChange?: (value: SelectValue, option: React.ReactElement<any> | React.ReactElement<any>[]) => void;
-  onSelect?: (value: SelectValue, option: React.ReactElement<any>) => any;
-  onDeselect?: (value: SelectValue) => any;
-  onBlur?: (value: SelectValue) => void;
+  onChange?: (value: T, option: React.ReactElement<any> | React.ReactElement<any>[]) => void;
+  onSelect?: (value: T, option: React.ReactElement<any>) => any;
+  onDeselect?: (value: T) => any;
+  onBlur?: (value: T) => void;
   onFocus?: () => void;
   onPopupScroll?: React.UIEventHandler<HTMLDivElement>;
   onInputKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   onMouseEnter?: (e: React.MouseEvent<HTMLInputElement>) => any;
   onMouseLeave?: (e: React.MouseEvent<HTMLInputElement>) => any;
   maxTagCount?: number;
-  maxTagPlaceholder?: React.ReactNode | ((omittedValues: SelectValue[]) => React.ReactNode);
+  maxTagPlaceholder?: React.ReactNode | ((omittedValues: T[]) => React.ReactNode);
   optionFilterProp?: string;
   labelInValue?: boolean;
   tokenSeparators?: string[];
@@ -102,7 +102,7 @@ const SelectPropTypes = {
 // => It is needless to export the declaration of below two inner components.
 // export { Option, OptGroup };
 
-export default class Select extends React.Component<SelectProps, {}> {
+export default class Select<T = SelectValue> extends React.Component<SelectProps<T>, {}> {
   static Option = Option as React.ClassicComponentClass<OptionProps>;
   static OptGroup = OptGroup as React.ClassicComponentClass<OptGroupProps>;
 
@@ -119,7 +119,7 @@ export default class Select extends React.Component<SelectProps, {}> {
 
   private rcSelect: any;
 
-  constructor(props: SelectProps) {
+  constructor(props: SelectProps<T>) {
     super(props);
 
     warning(

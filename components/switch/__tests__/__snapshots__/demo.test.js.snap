@@ -42,7 +42,8 @@ exports[`renders ./components/switch/demo/loading.md correctly 1`] = `
 <div>
   <button
     aria-checked="true"
-    class="ant-switch-loading ant-switch ant-switch-checked"
+    class="ant-switch-loading ant-switch ant-switch-checked ant-switch-disabled"
+    disabled=""
     role="switch"
     type="button"
   >
@@ -70,7 +71,8 @@ exports[`renders ./components/switch/demo/loading.md correctly 1`] = `
   <br />
   <button
     aria-checked="false"
-    class="ant-switch-small ant-switch-loading ant-switch"
+    class="ant-switch-small ant-switch-loading ant-switch ant-switch-disabled"
+    disabled=""
     role="switch"
     type="button"
   >

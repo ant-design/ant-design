@@ -100,6 +100,8 @@ class Sider extends React.Component<SiderProps, SiderState> {
     return null;
   }
 
+  context: any;
+
   private mql: MediaQueryList;
   private uniqueId: string;
 

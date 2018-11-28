@@ -88,7 +88,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
   }
 
   render() {
-    let {
+    const {
       prefixCls,
       className = '',
       size,
@@ -96,9 +96,9 @@ export default class Tabs extends React.Component<TabsProps, any> {
       tabPosition,
       children,
       animated = true,
-      tabBarExtraContent,
       hideAdd,
     } = this.props;
+    let { tabBarExtraContent } = this.props;
 
     let tabPaneAnimated = typeof animated === 'object' ? animated.tabPane : animated;
 

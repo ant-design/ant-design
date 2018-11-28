@@ -211,7 +211,7 @@ So far, we have completed a separate model and component. How do we connect them
 
 dva provides a `connect` method. If you are familiar with redux, this connect is from react-redux.
 
-Edit `src/pages/products.js` and replact it with the following,
+Edit `src/pages/products.js` and replace it with the following,
 
 ```js
 import { connect } from 'dva';
@@ -299,7 +299,7 @@ We have completed a simple application, but you may still have lots of questions
 
 You can:
 
-* Visit [umi offcial website](https://umijs.org/) and [dva offcial website](https://dvajs.com/)
+* Visit [umi official website](https://umijs.org/) and [dva official website](https://dvajs.com/)
 * Know [the umi routes](https://umijs.org/zh/guide/router.html)
 * Know [how to deploy umi application](https://umijs.org/zh/guide/deploy.html)
 * Checkout [dva knowledge](https://dvajs.com/knowledgemap/), including all the basic knowledge with ES6, React, dva

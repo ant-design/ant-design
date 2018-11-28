@@ -268,7 +268,7 @@ describe('Cascader', () => {
     wrapper.instance().handleChange(['zhejiang', 'hangzhou', 'xihu'], customerOptions);
     expect(wrapper.find('.ant-cascader-picker-label').text().split('/').length).toBe(3);
     expect(errorSpy).toHaveBeenLastCalledWith(
-      'Warning: `filedNames` of Cascader is a typo usage and deprecated, please use `fieldNames` intead.'
+      'Warning: `filedNames` of Cascader is a typo usage and deprecated, please use `fieldNames` instead.'
     );
     errorSpy.mockReset();
   });

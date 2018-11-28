@@ -305,6 +305,7 @@
 
       .@{tab-prefix-cls}-ink-bar {
         width: 2px;
+        top: 0;
         left: auto;
         height: auto;
         bottom: auto;
@@ -385,12 +386,12 @@
 
 .@{tab-prefix-cls}-top .@{tab-prefix-cls}-ink-bar-animated,
 .@{tab-prefix-cls}-bottom .@{tab-prefix-cls}-ink-bar-animated {
-  transition: transform .3s @ease-in-out, width .3s @ease-in-out;
+  transition: transform .3s @ease-in-out, width .3s @ease-in-out, left .3s @ease-in-out;
 }
 
 .@{tab-prefix-cls}-left .@{tab-prefix-cls}-ink-bar-animated,
 .@{tab-prefix-cls}-right .@{tab-prefix-cls}-ink-bar-animated {
-  transition: transform .3s @ease-in-out, height .3s @ease-in-out;
+  transition: transform .3s @ease-in-out, height .3s @ease-in-out, top .3s @ease-in-out;
 }
 
 .no-flex,

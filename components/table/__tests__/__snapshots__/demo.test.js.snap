@@ -11071,7 +11071,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                   >
                     <span>
                       <label
-                        class="ant-checkbox-wrapper"
+                        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
                       >
                         <span
                           class="ant-checkbox ant-checkbox-disabled"

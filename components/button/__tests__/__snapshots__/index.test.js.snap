@@ -189,6 +189,18 @@ exports[`Button renders correctly 1`] = `
 </button>
 `;
 
+exports[`Button should has click wave effect 1`] = `
+<button
+  ant-click-animating-without-extra-node="true"
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    button
+  </span>
+</button>
+`;
+
 exports[`Button should support link button 1`] = `
 <a
   class="ant-btn"
