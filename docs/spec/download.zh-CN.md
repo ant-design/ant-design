@@ -77,7 +77,7 @@ title: 设计资源
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">
-        ant design landing 
+        Ant Design Landing 
         <span class="resource-card-hot-badge">NEW</span>
       </span>
       <span class="resource-card-description">Landing 模板集</span>
