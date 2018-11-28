@@ -1,5 +1,6 @@
+/* eslint no-param-reassign: 0 */
 // This config is for building dist files
-const webpack = require('webpack');
+const webpack = require('webpack'); // eslint-disable-line
 const getWebpackConfig = require('antd-tools/lib/getWebpackConfig');
 
 // noParse still leave `require('./locale' + name)` in dist files

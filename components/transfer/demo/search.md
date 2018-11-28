@@ -44,9 +44,7 @@ class App extends React.Component {
     this.setState({ mockData, targetKeys });
   }
 
-  filterOption = (inputValue, option) => {
-    return option.description.indexOf(inputValue) > -1;
-  }
+  filterOption = (inputValue, option) => option.description.indexOf(inputValue) > -1
 
   handleChange = (targetKeys) => {
     this.setState({ targetKeys });

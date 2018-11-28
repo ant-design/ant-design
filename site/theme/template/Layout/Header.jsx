@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
-import { Select, Menu, Row, Col, Icon, Popover, Input, Badge, Button } from 'antd';
+import {
+  Select, Menu, Row, Col, Icon, Popover, Input, Badge, Button,
+} from 'antd';
 import * as utils from '../utils';
 import { version as antdVersion } from '../../../../package.json';
 
@@ -26,8 +28,8 @@ function initDocSearch(locale) {
     algoliaOptions: { facetFilters: [`tags:${lang}`] },
     transformData(hits) {
       hits.forEach((hit) => {
-        hit.url = hit.url.replace('ant.design', location.host);
-        hit.url = hit.url.replace('https:', location.protocol);
+        hit.url = hit.url.replace('ant.design', window.location.host); // eslint-disable-line
+        hit.url = hit.url.replace('https:', window.location.protocol); // eslint-disable-line
       });
       return hits;
     },
@@ -170,7 +172,10 @@ export default class Header extends React.Component {
               rel="noopener noreferrer"
             >
               教程
-              <span style={{ display: 'inline-block', position: 'relative', top: -2, width: 6, marginLeft: 8 }}>
+              <span style={{
+                display: 'inline-block', position: 'relative', top: -2, width: 6, marginLeft: 8,
+              }}
+              >
                 <Badge dot />
               </span>
             </a>
@@ -209,7 +214,7 @@ export default class Header extends React.Component {
           <Col xxl={20} xl={19} lg={19} md={19} sm={0} xs={0}>
             <div id="search-box">
               <Icon type="search" />
-              <Input ref={ref => this.searchInput = ref} placeholder={searchPlaceholder} />
+              <Input ref={(ref) => { this.searchInput = ref; }} placeholder={searchPlaceholder} />
             </div>
             {!isMobile && menu}
           </Col>

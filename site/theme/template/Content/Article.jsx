@@ -23,7 +23,9 @@ export default class Article extends React.Component {
     }
     this.pingTimer = ping((status) => {
       if (status !== 'timeout' && status !== 'error') {
-        links.forEach(link => (link.style.display = 'block'));
+        links.forEach((link) => {
+          link.style.display = 'block'; // eslint-disable-line
+        });
       } else {
         links.forEach(link => link.parentNode.removeChild(link));
       }

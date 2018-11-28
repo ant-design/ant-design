@@ -158,8 +158,12 @@ describe('Tooltip', () => {
         </Tooltip>
       );
       wrapper2.find('button').at(0).simulate('click');
-      const popupLeftArrowPointAtCenter = parseInt(wrapper2.instance().getPopupDomNode().style.left, 10);
-      expect(popupLeftArrowPointAtCenter - popupLeftDefault).toBe((triggerWidth / 2) - horizontalArrowShift - arrowWidth);
+      const popupLeftArrowPointAtCenter = parseInt(
+        wrapper2.instance().getPopupDomNode().style.left,
+        10
+      );
+      expect(popupLeftArrowPointAtCenter - popupLeftDefault)
+        .toBe((triggerWidth / 2) - horizontalArrowShift - arrowWidth);
     };
 
     jest.dontMock('rc-trigger', suit);

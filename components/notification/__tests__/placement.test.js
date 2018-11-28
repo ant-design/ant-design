@@ -7,10 +7,8 @@ describe('Notification.placement', () => {
     return document.body.querySelectorAll(className);
   }
 
-  function getStyle(el, prop, getComputedStyle, style) {
-    getComputedStyle = getComputedStyle || window.getComputedStyle;
-    style = getComputedStyle ? getComputedStyle(el) : el.currentStyle;
-
+  function getStyle(el, prop) {
+    const style = window.getComputedStyle ? window.getComputedStyle(el) : el.currentStyle;
     // If a css property's value is `auto`, it will return an empty string.
     return prop ? style[prop] : style;
   }

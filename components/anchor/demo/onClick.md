@@ -32,5 +32,6 @@ ReactDOM.render(
       <Link href="#Link-Props" title="Link Props" />
     </Link>
   </Anchor>,
-  mountNode);
+  mountNode
+);
 ```

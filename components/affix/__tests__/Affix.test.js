@@ -12,9 +12,7 @@ class AffixMounter extends React.Component {
     });
   }
 
-  getTarget = () => {
-    return this.container;
-  }
+  getTarget = () => this.container
 
   render() {
     return (
@@ -34,7 +32,7 @@ class AffixMounter extends React.Component {
         >
           <Affix
             target={() => this.container}
-            ref={ele => this.affix = ele}
+            ref={(ele) => { this.affix = ele; }}
             {...this.props}
           >
             <Button type="primary">
@@ -59,11 +57,9 @@ describe('Affix Render', () => {
   });
 
   const scrollTo = (top) => {
-    wrapper.instance().affix.fixedNode.parentNode.getBoundingClientRect = jest.fn(() => {
-      return {
-        bottom: 100, height: 28, left: 0, right: 0, top: 50 - top, width: 195,
-      };
-    });
+    wrapper.instance().affix.fixedNode.parentNode.getBoundingClientRect = jest.fn(() => ({
+      bottom: 100, height: 28, left: 0, right: 0, top: 50 - top, width: 195,
+    }));
     wrapper.instance().container.scrollTop = top;
     events.scroll({
       type: 'scroll',

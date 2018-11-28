@@ -45,5 +45,6 @@ ReactDOM.render(
     <Option value="lucy">Lucy</Option>
     <Option value="tom">Tom</Option>
   </Select>,
-  mountNode);
+  mountNode
+);
 ````

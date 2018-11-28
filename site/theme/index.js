@@ -1,5 +1,5 @@
-require('core-js/es6/string');
-const path = require('path');
+import 'core-js/es6/string';
+import path from 'path';
 
 const homeTmpl = './template/Home/index';
 const contentTmpl = './template/Content/index';
@@ -16,6 +16,7 @@ function pickerGenerator(module) {
         meta: markdownData.meta,
       };
     }
+    return null;
   };
 }
 
@@ -30,8 +31,9 @@ module.exports = {
     components(markdownData) {
       const { filename } = markdownData.meta;
       if (!/^components/.test(filename)
-          || /[/\\]demo$/.test(path.dirname(filename))) return;
-
+          || /[/\\]demo$/.test(path.dirname(filename))) {
+        return null;
+      }
       return {
         meta: markdownData.meta,
       };
@@ -42,6 +44,7 @@ module.exports = {
           meta: markdownData.meta,
         };
       }
+      return null;
     },
     'docs/pattern': pickerGenerator('pattern'),
     'docs/react': pickerGenerator('react'),

@@ -14,7 +14,9 @@ title:
 The example of infinite load with [react-infinite-scroller](https://github.com/CassetteRocks/react-infinite-scroller).
 
 ````jsx
-import { List, message, Avatar, Spin } from 'antd';
+import {
+  List, message, Avatar, Spin,
+} from 'antd';
 import reqwest from 'reqwest';
 
 import InfiniteScroll from 'react-infinite-scroller';
@@ -28,7 +30,15 @@ class InfiniteListExample extends React.Component {
     hasMore: true,
   }
 
-  getData = (callback) => {
+  componentDidMount() {
+    this.fetchData((res) => {
+      this.setState({
+        data: res.results,
+      });
+    });
+  }
+
+  fetchData = (callback) => {
     reqwest({
       url: fakeDataUrl,
       type: 'json',
@@ -37,14 +47,6 @@ class InfiniteListExample extends React.Component {
       success: (res) => {
         callback(res);
       },
-    });
-  }
-
-  componentDidMount() {
-    this.getData((res) => {
-      this.setState({
-        data: res.results,
-      });
     });
   }
 
@@ -61,7 +63,7 @@ class InfiniteListExample extends React.Component {
       });
       return;
     }
-    this.getData((res) => {
+    this.fetchData((res) => {
       data = data.concat(res.results);
       this.setState({
         data,

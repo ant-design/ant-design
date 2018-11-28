@@ -47,19 +47,17 @@ function asciiSort(prev, next) {
 // follow the alphabet order
 function alphabetSort(nodes) {
   // use toLowerCase to keep `case insensitive`
-  return nodes.sort((...comparison) => {
-    return asciiSort(...comparison.map(val => getCellValue(val).toLowerCase()));
-  });
+  return nodes.sort((...comparison) => (
+    asciiSort(...comparison.map(val => getCellValue(val).toLowerCase()))
+  ));
 }
 
 function sizeSort(nodes) {
-  return nodes.sort((...comparison) => {
-    return asciiSort(
-      ...comparison.map(val => (
-        sizeBreakPoints.indexOf(getCellValue(val).toLowerCase())
-      ))
-    );
-  });
+  return nodes.sort((...comparison) => asciiSort(
+    ...comparison.map(val => (
+      sizeBreakPoints.indexOf(getCellValue(val).toLowerCase())
+    ))
+  ));
 }
 
 function sort(ast) {
@@ -85,6 +83,7 @@ function sort(ast) {
         }
       });
 
+      // eslint-disable-next-line
       child.children = [
         child.children[0],
         ...alphabetSort(staticProps),

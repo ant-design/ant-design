@@ -30,5 +30,6 @@ ReactDOM.render(
   <Popconfirm title="Are you sure delete this task?" onConfirm={confirm} onCancel={cancel} okText="Yes" cancelText="No">
     <a href="#">Delete</a>
   </Popconfirm>,
-  mountNode);
+  mountNode
+);
 ````

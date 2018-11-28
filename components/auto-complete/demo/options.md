@@ -35,9 +35,7 @@ class Complete extends React.Component {
 
   render() {
     const { result } = this.state;
-    const children = result.map((email) => {
-      return <Option key={email}>{email}</Option>;
-    });
+    const children = result.map(email => <Option key={email}>{email}</Option>);
     return (
       <AutoComplete
         style={{ width: 200 }}

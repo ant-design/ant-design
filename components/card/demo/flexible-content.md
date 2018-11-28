@@ -30,5 +30,6 @@ ReactDOM.render(
       description="www.instagram.com"
     />
   </Card>,
-  mountNode);
+  mountNode
+);
 ````

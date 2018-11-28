@@ -44,5 +44,6 @@ ReactDOM.render(
       <p>{text}</p>
     </Panel>
   </Collapse>,
-  mountNode);
+  mountNode
+);
 ````

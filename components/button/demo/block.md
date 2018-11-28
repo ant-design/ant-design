@@ -23,5 +23,6 @@ ReactDOM.render(
     <Button type="dashed" block>Dashed</Button>
     <Button type="danger" block>danger</Button>
   </div>,
-  mountNode);
+  mountNode
+);
 ````

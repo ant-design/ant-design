@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import Tree from '../index';
 import { calcRangeKeys } from '../util';
 
-const TreeNode = Tree.TreeNode;
+const { TreeNode } = Tree;
 
 describe('Tree util', () => {
   it('calc range keys', () => {

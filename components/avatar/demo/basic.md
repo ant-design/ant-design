@@ -31,7 +31,8 @@ ReactDOM.render(
       <Avatar shape="square" size="small" icon="user" />
     </div>
   </div>,
-  mountNode);
+  mountNode
+);
 ````
 
 <style>

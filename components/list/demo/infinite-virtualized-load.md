@@ -18,7 +18,9 @@ An example of infinite list & virtualized loading using [react-virtualized](http
 `Virtualized` rendering is a technique to mount big sets of data. It reduces the amount of rendered DOM nodes by tracking and hiding whatever isn't currently visible.
 
 ````jsx
-import { List, message, Avatar, Spin } from 'antd';
+import {
+  List, message, Avatar, Spin,
+} from 'antd';
 
 import reqwest from 'reqwest';
 
@@ -37,7 +39,15 @@ class VirtualizedExample extends React.Component {
 
   loadedRowsMap = {}
 
-  getData = (callback) => {
+  componentDidMount() {
+    this.fetchData((res) => {
+      this.setState({
+        data: res.results,
+      });
+    });
+  }
+
+  fetchData = (callback) => {
     reqwest({
       url: fakeDataUrl,
       type: 'json',
@@ -46,14 +56,6 @@ class VirtualizedExample extends React.Component {
       success: (res) => {
         callback(res);
       },
-    });
-  }
-
-  componentDidMount() {
-    this.getData((res) => {
-      this.setState({
-        data: res.results,
-      });
     });
   }
 
@@ -73,7 +75,7 @@ class VirtualizedExample extends React.Component {
       });
       return;
     }
-    this.getData((res) => {
+    this.fetchData((res) => {
       data = data.concat(res.results);
       this.setState({
         data,
@@ -82,9 +84,7 @@ class VirtualizedExample extends React.Component {
     });
   }
 
-  isRowLoaded = ({ index }) => {
-    return !!this.loadedRowsMap[index];
-  }
+  isRowLoaded = ({ index }) => !!this.loadedRowsMap[index]
 
   renderItem = ({ index, key, style }) => {
     const { data } = this.state;
@@ -103,7 +103,9 @@ class VirtualizedExample extends React.Component {
 
   render() {
     const { data } = this.state;
-    const vlist = ({ height, isScrolling, onChildScroll, scrollTop, onRowsRendered, width }) => (
+    const vlist = ({
+      height, isScrolling, onChildScroll, scrollTop, onRowsRendered, width,
+    }) => (
       <VList
         autoHeight
         height={height}
@@ -118,18 +120,26 @@ class VirtualizedExample extends React.Component {
         width={width}
       />
     );
-    const autoSize = ({ height, isScrolling, onChildScroll, scrollTop, onRowsRendered }) => (
+    const autoSize = ({
+      height, isScrolling, onChildScroll, scrollTop, onRowsRendered,
+    }) => (
       <AutoSizer disableHeight>
-        {({ width }) => vlist({ height, isScrolling, onChildScroll, scrollTop, onRowsRendered, width })}
+        {({ width }) => vlist({
+          height, isScrolling, onChildScroll, scrollTop, onRowsRendered, width,
+        })}
       </AutoSizer>
     );
-    const infiniteLoader = ({ height, isScrolling, onChildScroll, scrollTop }) => (
+    const infiniteLoader = ({
+      height, isScrolling, onChildScroll, scrollTop,
+    }) => (
       <InfiniteLoader
         isRowLoaded={this.isRowLoaded}
         loadMoreRows={this.handleInfiniteOnLoad}
         rowCount={data.length}
       >
-        {({ onRowsRendered }) => autoSize({ height, isScrolling, onChildScroll, scrollTop, onRowsRendered })}
+        {({ onRowsRendered }) => autoSize({
+          height, isScrolling, onChildScroll, scrollTop, onRowsRendered,
+        })}
       </InfiniteLoader>
     );
     return (

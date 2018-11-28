@@ -3,8 +3,10 @@ import React from 'react';
 import { mount } from 'enzyme';
 import moment from 'moment';
 import MockDate from 'mockdate';
-import { LocaleProvider, Pagination, DatePicker, TimePicker, Calendar,
-  Popconfirm, Table, Modal, Select, Transfer } from '../..';
+import {
+  LocaleProvider, Pagination, DatePicker, TimePicker, Calendar,
+  Popconfirm, Table, Modal, Select, Transfer,
+} from '../..';
 import enGB from '../en_GB';
 import frFR from '../fr_FR';
 import nlBE from '../nl_BE';
@@ -43,7 +45,13 @@ import zhCN from '../zh_CN';
 import kuIQ from '../ku_IQ';
 import mnMN from '../mn_MN';
 
-const locales = [enUS, ptBR, ptPT, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR, etEE, skSK, jaJP, trTR, zhTW, fiFI, plPL, bgBG, enGB, frFR, nlBE, itIT, viVN, thTH, faIR, elGR, nbNO, srRS, slSI, isIS, arEG, ukUA, zhCN, kuIQ, mnMN];
+const locales = [
+  enUS, ptBR, ptPT, ruRU, esES, svSE, frBE, deDE,
+  nlNL, caES, csCZ, koKR, etEE, skSK, jaJP, trTR,
+  zhTW, fiFI, plPL, bgBG, enGB, frFR, nlBE, itIT,
+  viVN, thTH, faIR, elGR, nbNO, srRS, slSI, isIS,
+  arEG, ukUA, zhCN, kuIQ, mnMN,
+];
 
 const { Option } = Select;
 const { RangePicker } = DatePicker;

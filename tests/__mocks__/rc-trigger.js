@@ -4,9 +4,9 @@ let Trigger; // eslint-disable-line
 
 if (process.env.REACT === '15') {
   const ActualTrigger = require.requireActual('rc-trigger');
-  const render = ActualTrigger.prototype.render;
+  const { render } = ActualTrigger.prototype;
 
-  ActualTrigger.prototype.render = function () {
+  ActualTrigger.prototype.render = () => {
     const { popupVisible } = this.state; // eslint-disable-line
     let component;
 
@@ -26,6 +26,5 @@ if (process.env.REACT === '15') {
   const TriggerMock = require('rc-trigger/lib/mock'); // eslint-disable-line
   Trigger = TriggerMock;
 }
-
 
 export default Trigger;

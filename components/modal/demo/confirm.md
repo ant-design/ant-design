@@ -78,5 +78,6 @@ ReactDOM.render(
       With extra props
     </Button>
   </div>,
-  mountNode);
+  mountNode
+);
 ````

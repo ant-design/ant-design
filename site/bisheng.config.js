@@ -11,6 +11,7 @@ function alertBabelConfig(rules) {
       if (rule.options.plugins.indexOf(replaceLib) === -1) {
         rule.options.plugins.push(replaceLib);
       }
+      // eslint-disable-next-line
       rule.options.plugins = rule.options.plugins.filter(plugin => (
         !plugin.indexOf || plugin.indexOf('babel-plugin-add-module-exports') === -1
       ));
@@ -86,6 +87,7 @@ module.exports = {
     verbose: true,
   },
   webpackConfig(config) {
+    // eslint-disable-next-line
     config.resolve.alias = {
       'antd/lib': path.join(process.cwd(), 'components'),
       'antd/es': path.join(process.cwd(), 'components'),
@@ -94,11 +96,13 @@ module.exports = {
       'react-router': 'react-router/umd/ReactRouter',
     };
 
+    // eslint-disable-next-line
     config.externals = {
       'react-router-dom': 'ReactRouterDOM',
     };
 
     if (usePreact) {
+      // eslint-disable-next-line
       config.resolve.alias = Object.assign({}, config.resolve.alias, {
         react: 'preact-compat',
         'react-dom': 'preact-compat',
@@ -108,6 +112,7 @@ module.exports = {
     }
 
     if (isDev) {
+      // eslint-disable-next-line
       config.devtool = 'source-map';
     }
 

@@ -49,7 +49,7 @@ describe('Carousel', () => {
 
   it('cancel resize listener when unmount', async () => {
     const wrapper = mount(<Carousel autoplay><div>1</div><div>2</div><div>3</div></Carousel>);
-    const onWindowResized = wrapper.instance().onWindowResized;
+    const { onWindowResized } = wrapper.instance();
     const spy = jest.spyOn(wrapper.instance().onWindowResized, 'cancel');
     const spy2 = jest.spyOn(window, 'removeEventListener');
     wrapper.unmount();

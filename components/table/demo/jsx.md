@@ -91,5 +91,6 @@ ReactDOM.render(
       )}
     />
   </Table>,
-  mountNode);
+  mountNode
+);
 ````

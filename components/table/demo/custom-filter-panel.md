@@ -14,7 +14,9 @@ title:
 Implement a customized column search example via `filterDropdown`.
 
 ````jsx
-import { Table, Input, Button, Icon } from 'antd';
+import {
+  Table, Input, Button, Icon,
+} from 'antd';
 
 const data = [{
   key: '1',
@@ -58,7 +60,9 @@ class App extends React.Component {
       title: 'Name',
       dataIndex: 'name',
       key: 'name',
-      filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
+      filterDropdown: ({
+        setSelectedKeys, selectedKeys, confirm, clearFilters,
+      }) => (
         <div className="custom-filter-dropdown">
           <Input
             ref={ele => this.searchInput = ele}
