@@ -3,18 +3,21 @@ import { polyfill } from 'react-lifecycles-compat';
 import Tooltip, { AbstractTooltipProps }  from '../tooltip';
 import Icon from '../icon';
 import Button from '../button';
-import { ButtonType } from '../button/button';
+import { ButtonType, NativeButtonProps } from '../button/button';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale-provider/default';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode;
-  onConfirm?: (e: React.MouseEvent<any>) => void;
-  onCancel?: (e: React.MouseEvent<any>) => void;
+  onConfirm?: (e?: React.MouseEvent<any>) => void;
+  onCancel?: (e?: React.MouseEvent<any>) => void;
   okText?: React.ReactNode;
   okType?: ButtonType;
   cancelText?: React.ReactNode;
+  okButtonProps?: NativeButtonProps;
+  cancelButtonProps?: NativeButtonProps;
   icon?: React.ReactNode;
+  onVisibleChange?: (visible?: boolean, e?: React.MouseEvent<any>) => void;
 }
 
 export interface PopconfirmState {
@@ -33,12 +36,14 @@ class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
     placement: 'top',
     trigger: 'click',
     okType: 'primary',
-    icon: <Icon type="exclamation-circle" />,
+    icon: <Icon type="exclamation-circle" theme="filled" />,
   };
 
   static getDerivedStateFromProps(nextProps: PopconfirmProps) {
     if ('visible' in nextProps) {
       return { visible: nextProps.visible };
+    } else if ('defaultVisible' in nextProps) {
+      return { visible: nextProps.defaultVisible };
     }
     return null;
   }
@@ -58,7 +63,7 @@ class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
   }
 
   onConfirm = (e: React.MouseEvent<HTMLButtonElement>) => {
-    this.setVisible(false);
+    this.setVisible(false, e);
 
     const { onConfirm } = this.props;
     if (onConfirm) {
@@ -67,7 +72,7 @@ class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
   }
 
   onCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
-    this.setVisible(false);
+    this.setVisible(false, e);
 
     const { onCancel } = this.props;
     if (onCancel) {
@@ -79,7 +84,7 @@ class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
     this.setVisible(visible);
   }
 
-  setVisible(visible: boolean) {
+  setVisible(visible: boolean, e?: React.MouseEvent<HTMLButtonElement>) {
     const props = this.props;
     if (!('visible' in props)) {
       this.setState({ visible });
@@ -87,7 +92,7 @@ class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
 
     const { onVisibleChange } = props;
     if (onVisibleChange) {
-      onVisibleChange(visible);
+      onVisibleChange(visible, e);
     }
   }
 
@@ -96,7 +101,7 @@ class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
   }
 
   renderOverlay = (popconfirmLocale: PopconfirmLocale) => {
-    const { prefixCls, title, cancelText, okText, okType, icon } = this.props;
+    const { prefixCls, okButtonProps, cancelButtonProps, title, cancelText, okText, okType, icon } = this.props;
     return (
       <div>
         <div className={`${prefixCls}-inner-content`}>
@@ -105,10 +110,10 @@ class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
             <div className={`${prefixCls}-message-title`}>{title}</div>
           </div>
           <div className={`${prefixCls}-buttons`}>
-            <Button onClick={this.onCancel} size="small">
+            <Button onClick={this.onCancel} size="small" {...cancelButtonProps}>
               {cancelText || popconfirmLocale.cancelText}
             </Button>
-            <Button onClick={this.onConfirm} type={okType} size="small">
+            <Button onClick={this.onConfirm} type={okType} size="small" {...okButtonProps}>
               {okText || popconfirmLocale.okText}
             </Button>
           </div>

@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 4
 title: 在 TypeScript 中使用
 ---
 
@@ -199,6 +199,7 @@ $ yarn add react-app-rewire-less --dev
     };
 
 +   config = rewireLess.withLoaderOptions({
++     javascriptEnabled: true,
 +     modifyVars: { "@primary-color": "#1DA57A" },
 +   })(config, env);
 

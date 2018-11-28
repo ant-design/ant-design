@@ -2,7 +2,9 @@
 @import "../../style/mixins/index";
 
 @table-prefix-cls: ~"@{ant-prefix}-table";
-@table-header-icon-color: @text-color-secondary;
+@table-header-icon-color: #bfbfbf;
+@table-header-sort-active-bg: darken(@table-header-bg, 3%);
+@table-header-filter-active-bg: darken(@table-header-sort-active-bg, 5%);
 
 .@{table-prefix-cls}-wrapper {
   .clearfix;
@@ -23,8 +25,7 @@
 
   table {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
+    border-collapse: collapse;
     text-align: left;
     border-radius: @border-radius-base @border-radius-base 0 0;
   }
@@ -33,7 +34,7 @@
     background: @table-header-bg;
     transition: background .3s ease;
     text-align: left;
-    color: @heading-color;
+    color: @table-header-color;
     font-weight: 500;
     border-bottom: @border-width-base @border-style-base @border-color-split;
 
@@ -43,32 +44,135 @@
 
     .@{iconfont-css-prefix}-filter,
     .@{table-prefix-cls}-filter-icon {
-      position: relative;
-      margin-left: 8px;
-      font-size: @font-size-base;
+      font-size: @font-size-sm;
       cursor: pointer;
       color: @table-header-icon-color;
       transition: all .3s;
-      width: 14px;
-      font-weight: normal;
-      vertical-align: text-bottom;
+      width: 28px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      text-align: center;
 
-      &:hover {
-        color: @text-color;
+      > svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -@font-size-sm / 2 + 1px;
+        margin-left: -@font-size-sm / 2;
       }
-    }
-
-    .@{table-prefix-cls}-column-sorter + .@{iconfont-css-prefix}-filter {
-      margin-left: 4px;
     }
 
     .@{table-prefix-cls}-filter-selected.@{iconfont-css-prefix}-filter {
       color: @primary-color;
     }
 
-    // https://github.com/ant-design/ant-design/issues/8979
-    &.@{table-prefix-cls}-column-has-filters {
-      overflow: hidden;
+    .@{table-prefix-cls}-column-sorter {
+      position: absolute;
+      right: 6px;
+      top: 50%;
+      width: 14px;
+      height: @font-size-lg + 1px;
+      margin-top: -(@font-size-lg + 1px) / 2;
+      text-align: center;
+      color: @table-header-icon-color;
+      transition: all .3s;
+
+      &-up,
+      &-down {
+        .iconfont-size-under-12px(11px);
+        line-height: 4px;
+        height: 4px;
+        transition: all .3s;
+        display: block;
+        &.on {
+          color: @primary-color;
+        }
+      }
+
+      &-down {
+        margin-top: 4px;
+      }
+    }
+
+    &.@{table-prefix-cls}-column-has-actions {
+      position: relative;
+      background-clip: padding-box; // For Firefox background bug, https://github.com/ant-design/ant-design/issues/12628
+
+      &.@{table-prefix-cls}-column-has-filters {
+        .@{iconfont-css-prefix}-filter,
+        .@{table-prefix-cls}-filter-icon {
+          &.@{table-prefix-cls}-filter-open {
+            color: @text-color-secondary;
+            background: @table-header-filter-active-bg;
+          }
+        }
+        // Very complicated styles logic but neccessary
+        &:hover {
+          .@{iconfont-css-prefix}-filter,
+          .@{table-prefix-cls}-filter-icon {
+            &:hover {
+              color: @text-color-secondary;
+              background: @table-header-filter-active-bg;
+            }
+            &:active {
+              color: @text-color;
+            }
+          }
+        }
+      }
+
+      &.@{table-prefix-cls}-column-has-sorters {
+        cursor: pointer;
+        &:hover {
+          background: @table-header-sort-active-bg;
+          .@{iconfont-css-prefix}-filter,
+          .@{table-prefix-cls}-filter-icon {
+            background: @table-header-sort-active-bg;
+          }
+        }
+        &:active {
+          .@{table-prefix-cls}-column-sorter-up:not(.on),
+          .@{table-prefix-cls}-column-sorter-down:not(.on) {
+            color: @text-color-secondary;
+          }
+        }
+      }
+
+      // https://github.com/ant-design/ant-design/issues/12650
+      &.@{table-prefix-cls}-column-has-sorters,
+      &.@{table-prefix-cls}-column-has-filters {
+        padding-right: 30px !important;
+      }
+
+      &.@{table-prefix-cls}-column-has-sorters.@{table-prefix-cls}-column-has-filters {
+        padding-right: 54px !important;
+      }
+    }
+
+    .@{table-prefix-cls}-column-sorters {
+      &:before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: transparent;
+        transition: all .3s;
+      }
+      &:hover:before {
+        background: rgba(0, 0, 0, .04);
+      }
+    }
+
+    &.@{table-prefix-cls}-column-has-filters .@{table-prefix-cls}-column-sorter {
+      right: 28px + 6px;
+    }
+
+    &.@{table-prefix-cls}-column-has-sorters {
+      user-select: none;
     }
   }
 
@@ -90,15 +194,15 @@
 
   &-tbody > tr > td {
     border-bottom: @border-width-base @border-style-base @border-color-split;
-    transition: all .3s;
+    transition: all .3s, border 0s;
   }
 
   &-thead > tr,
   &-tbody > tr {
-    transition: all .3s;
+    transition: all .3s, height 0s;
     &.@{table-prefix-cls}-row-hover,
     &:hover {
-      & > td {
+      &:not(.@{table-prefix-cls}-expanded-row) > td {
         background: @table-row-hover-bg;
       }
     }
@@ -115,7 +219,7 @@
     position: relative;
     border-top: @border-width-base @border-style-base @border-color-split;
     &:before {
-      content: '';
+      content: "";
       height: 1px;
       background: @table-header-bg;
       position: absolute;
@@ -169,6 +273,10 @@
     background: @table-header-sort-bg;
   }
 
+  &-tbody > tr > td.@{table-prefix-cls}-column-sort {
+    background: @table-body-sort-bg;
+  }
+
   &-thead > tr > th,
   &-tbody > tr > td {
     padding: @table-padding-vertical @table-padding-horizontal;
@@ -177,8 +285,9 @@
   }
 
   &-thead > tr > th.@{table-prefix-cls}-selection-column-custom {
-    padding-left: 16px;
-    padding-right: 0;
+    .@{table-prefix-cls}-selection {
+      margin-right: -15px;
+    }
   }
 
   &-thead > tr > th.@{table-prefix-cls}-selection-column,
@@ -226,71 +335,6 @@
     }
     .@{table-prefix-cls}-without-pagination {
       margin-top: 10px;
-    }
-  }
-
-  &-column-sorter {
-    position: relative;
-    margin-left: 8px;
-    display: inline-block;
-    width: 14px;
-    height: @font-size-base;
-    vertical-align: middle;
-    text-align: center;
-    font-weight: normal;
-    color: @table-header-icon-color;
-
-    &-up,
-    &-down {
-      display: block;
-      width: 14px;
-      height: @font-size-base / 2 - 1px;
-      line-height: @font-size-base / 2 - 1px;
-      cursor: pointer;
-      position: relative;
-      &:hover .@{iconfont-css-prefix} {
-        color: @primary-4;
-      }
-      &.on {
-        .@{iconfont-css-prefix}-caret-up,
-        .@{iconfont-css-prefix}-caret-down {
-          color: @primary-color;
-        }
-      }
-
-      &:after {
-        position: absolute;
-        content: '';
-        height: 30px;
-        width: 14px;
-        left: 0;
-      }
-    }
-
-    &-up:after {
-      bottom: 0;
-    }
-
-    &-down:after {
-      top: 0;
-    }
-
-    .@{iconfont-css-prefix}-caret-up,
-    .@{iconfont-css-prefix}-caret-down {
-      .iconfont-size-under-12px(8px);
-      line-height: 4px;
-      height: 4px;
-      transition: all .3s;
-      position: relative;
-      display: block;
-    }
-
-    &-down {
-      margin-top: 1.5px;
-    }
-
-    .@{iconfont-css-prefix}-caret-up {
-      margin-top: 0.5px;
     }
   }
 
@@ -500,6 +544,10 @@
     &:hover {
       background: @table-expanded-row-bg;
     }
+
+    td > .@{table-prefix-cls}-wrapper {
+      margin: -@table-padding-vertical -@table-padding-horizontal -@table-padding-vertical - 1px;
+    }
   }
 
   .@{table-prefix-cls}-row-indent + .@{table-prefix-cls}-row-expand-icon {
@@ -532,6 +580,9 @@
     overflow: scroll;
     padding-bottom: 20px;
     margin-bottom: -20px;
+    // Workaround for additional scroll bar on the table header
+    // https://github.com/ant-design/ant-design/issues/6515#issuecomment-419634369
+    opacity: 0.9999;
   }
 
   &-fixed-left,

@@ -33,7 +33,7 @@ More layouts with navigation: [layout](/components/layout).
 | forceSubMenuRender | render submenu into DOM before it shows | boolean | false |
 | inlineCollapsed | specifies the collapsed status when menu is inline mode | boolean | - |
 | inlineIndent | indent px of inline menu item on each level | number | 24 |
-| mode | type of the menu; `vertical`, `horizontal`, and `inline` modes are supported | string: `vertical` \| `vertical-right` \| `horizontal` \| `inline` | `vertical` |
+| mode | type of the menu; `vertical`, `horizontal`, and `inline` modes are supported | string: `vertical` \| `horizontal` \| `inline` | `vertical` |
 | multiple | Allow selection of multiple items | boolean | false |
 | openKeys | array with the keys of currently opened sub menus | string\[] |  |
 | selectable | allow selecting menu items | boolean | true |

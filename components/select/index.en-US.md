@@ -24,6 +24,7 @@ Select component to select value from options.
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | allowClear | Show clear button. | boolean | false |
+| autoClearSearchValue | Whether the current search will be cleared on selecting an item. Only applies when `mode` is set to `multiple` or `tags`. | boolean | true |
 | autoFocus | Get focus by default | boolean | false |
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |
 | defaultValue | Initial selected option. | string\|string\[]<br />number\|number\[] | - |
@@ -37,7 +38,7 @@ Select component to select value from options.
 | labelInValue | whether to embed label in value, turn the format of value from `string` to `{key: string, label: ReactNode}` | boolean | false |
 | maxTagCount | Max tag count to show | number | - |
 | maxTagPlaceholder | Placeholder for not showing tags | ReactNode/function(omittedValues) | - |
-| mode | Set mode of Select (Support after 2.9) | 'default' \| 'multiple' \| 'tags' | 'default' |
+| mode | Set mode of Select | 'default' \| 'multiple' \| 'tags' | 'default' |
 | notFoundContent | Specify content to show when no result matches.. | string | 'Not Found' |
 | optionFilterProp | Which prop value of option will be used for filter if filterOption is true | string | value |
 | optionLabelProp | Which prop value of option will render as content of select. | string | `value` for `combobox`, `children` for other modes |
@@ -45,6 +46,7 @@ Select component to select value from options.
 | showArrow | Whether to show the drop-down arrow | boolean | true |
 | showSearch | Whether show search input in single mode. | boolean | false |
 | size | Size of Select input. `default` `large` `small` | string | default |
+| suffixIcon | The custom suffix icon | ReactNode | - |
 | tokenSeparators | Separator used to tokenize on tag/multiple mode | string\[] |  |
 | value | Current selected option. | string\|number\|string\[]\|number\[] | - |
 | onBlur | Called when blur | function | - |
@@ -57,6 +59,9 @@ Select component to select value from options.
 | onPopupScroll | Called when dropdown scrolls | function | - |
 | onSearch | Callback function that is fired when input changed. | function(value: string) |  |
 | onSelect | Called when a option is selected, the params are option's value (or key) and option instance. | function(value, option:Option) | - |
+| defaultOpen | Initial open state of dropdown | boolean | - |
+| open | Controlled open state of dropdown | boolean | - |
+| onDropdownVisibleChange | Call when dropdown open | function(open) | - |
 
 ### Select Methods
 
@@ -73,6 +78,7 @@ Select component to select value from options.
 | key | Same usage as `value`. If React request you to set this property, you can set it to value of option, and then omit value property. | string |  |
 | title | `title` of Select after select this Option | string | - |
 | value | default to filter with this property | string\|number | - |
+| className | additional class to option | string | - |
 
 ### OptGroup props
 

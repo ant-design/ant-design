@@ -22,7 +22,6 @@ export interface UploadFile {
   status?: UploadFileStatus;
   percent?: number;
   thumbUrl?: string;
-  isNotImage?: boolean;
   originFileObj?: File;
   response?: any;
   error?: any;
@@ -75,6 +74,7 @@ export interface UploadProps {
   prefixCls?: string;
   customRequest?: (option: any) => void;
   withCredentials?: boolean;
+  openFileDialogOnClick?: boolean;
   locale?: UploadLocale;
 }
 

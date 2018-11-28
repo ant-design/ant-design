@@ -275,10 +275,8 @@
       text-align: center;
       display: block;
     }
-    &-extra + &-btn {
-      border-top: @border-width-base @border-style-base @border-color-split;
-      margin: 0 -12px;
-      padding: 0 12px;
+    &-extra {
+      text-align: left;
     }
   }
 
@@ -311,7 +309,6 @@
   }
 
   .@{calendar-prefix-cls}-clear-btn:after {
-    .iconfont-font("\e62e");
     font-size: @font-size-base;
     color: @disabled-color;
     display: inline-block;

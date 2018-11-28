@@ -23,13 +23,19 @@ const page2Data = [
     img: 'https://gw.alipayobjects.com/zos/rmsportal/GobRAKexhfTSJdLFzDFY.svg',
     name: 'Ant Design Mobile',
     slogan: (<FormattedMessage id="app.home.product-mobile-slogan" />),
-    link: 'https://mobile.ant.design/index-cn',
   },
   {
     img: 'https://gw.alipayobjects.com/zos/rmsportal/slVtnOCcgeAcLEPwtewY.svg',
     name: 'AntV',
     slogan: (<FormattedMessage id="app.home.product-antv-slogan" />),
     link: 'https://antv.alipay.com/zh-cn/index.html',
+  },
+  {
+    img: 'https://gw.alipayobjects.com/zos/rmsportal/EAHlyTmYeDtTkZIPbUnP.svg',
+    name: 'Ant Design Landing',
+    slogan: (<FormattedMessage id="app.home.product-landing-slogan" />),
+    link: 'https://landing.ant.design',
+    new: true,
   },
 ];
 
@@ -58,7 +64,7 @@ const svgBgChild = [
       <g id="Group-11" transform="translate(1207.000000, 419.000000)" fill="#13C2C2">
         <image xlinkHref="https://gw.alipayobjects.com/zos/rmsportal/MnLEmwjipfhzPUmBJnJE.svg" />
       </g>
-      <g id="Group-28" transform="translate(884.000000, 821.000000)" fill="#2F54EB">
+      <g id="Group-28" transform="translate(884.000000, 880.000000)" fill="#2F54EB">
         <image xlinkHref="https://gw.alipayobjects.com/zos/rmsportal/dyNuxLOZtvjoHSVisbhQ.svg" />
       </g>
     </svg>
@@ -85,10 +91,24 @@ export default function Page2({ isMobile, locale }) {
     if (!isMobile && !i) {
       return null;
     }
-    const content = isMobile && !i ? componentButton : [
+    const mobileContent = (
+      <div className="components-button-wrapper">
+        <p key="p">{item.slogan}</p>
+        <a className="more-mobile-react" href="https://mobile.ant.design" target="_black">
+          <FormattedMessage id="app.home.more-mobile-react" />
+          <Icon type="right" />
+        </a>
+        <a className="more-mobile-angular" href="http://ng.mobile.ant.design" target="_black">
+          <FormattedMessage id="app.home.more-mobile-angular" />
+          <Icon type="right" />
+        </a>
+      </div>
+    );
+    const moreContent = i === 2 ? mobileContent : [
       <p key="p">{item.slogan}</p>,
       <span className="more" key="a"><FormattedMessage id="app.home.more" /> <Icon type="right" /></span>,
     ];
+    const content = isMobile && !i ? componentButton : moreContent;
     return (
       <a className="product-block" key={item.name} href={item.link} style={{ display: 'block' }}>
         <Row>
@@ -100,7 +120,7 @@ export default function Page2({ isMobile, locale }) {
             <img src={item.img} style={isMobile && i === 2 ? { marginLeft: 16 } : {}} alt="icon" />
           </Col>
           <Col xs={16} md={i === 2 ? 18 : 16} className="block-text-wrapper">
-            <h4>{item.name}</h4>
+            <h4>{item.name} {item.new && (<span className="new">NEW</span>)}</h4>
             {content}
           </Col>
         </Row>

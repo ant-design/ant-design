@@ -21,6 +21,15 @@ describe('Input.Search', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('should support ReactNode suffix without error', () => {
+    const fn = () => {
+      mount(
+        <Search suffix={<div>ok</div>} />
+      );
+    };
+    expect(fn).not.toThrow();
+  });
+
   it('should disable enter button when disabled prop is true', () => {
     const wrapper = mount(
       <Search placeholder="input search text" enterButton disabled />
@@ -33,7 +42,7 @@ describe('Input.Search', () => {
     const wrapper = mount(
       <Search defaultValue="search text" onSearch={onSearch} />
     );
-    wrapper.find('Icon').simulate('click');
+    wrapper.find('.anticon-search').simulate('click');
     expect(onSearch).toHaveBeenCalledTimes(1);
     expect(onSearch).toBeCalledWith('search text', expect.objectContaining({
       type: 'click',

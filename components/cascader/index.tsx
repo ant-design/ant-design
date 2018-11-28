@@ -12,6 +12,7 @@ export interface CascaderOptionType {
   label?: React.ReactNode;
   disabled?: boolean;
   children?: Array<CascaderOptionType>;
+
   [key: string]: any;
 }
 
@@ -81,7 +82,11 @@ export interface CascaderProps {
   inputPrefixCls?: string;
   getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
   popupVisible?: boolean;
+  /** use this after antd@3.7.0 */
   fieldNames?: FieldNamesType;
+  /** typo props name before antd@3.7.0 */
+  filedNames?: FieldNamesType;
+  suffixIcon?: React.ReactNode;
 }
 
 export interface CascaderState {
@@ -128,7 +133,16 @@ function defaultSortFilteredOption(
   return a.findIndex(callback) - b.findIndex(callback);
 }
 
-function getFilledFieldNames(fieldNames: FieldNamesType = {}) {
+function getFieldNames(props: CascaderProps) {
+  const { fieldNames, filedNames } = props;
+  if ('filedNames' in props) {
+    return filedNames; // For old compatibility
+  }
+  return fieldNames;
+}
+
+function getFilledFieldNames(props: CascaderProps) {
+  const fieldNames = getFieldNames(props) || {};
   const names: FilledFieldNamesType = {
     children: fieldNames.children || 'children',
     label: fieldNames.label || 'label',
@@ -164,7 +178,7 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
       inputFocused: false,
       popupVisible: props.popupVisible,
       flattenOptions:
-        props.showSearch ? this.flattenTree(props.options, props.changeOnSelect, props.fieldNames) : undefined,
+        props.showSearch ? this.flattenTree(props.options, props) : undefined,
     };
   }
 
@@ -177,7 +191,7 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     }
     if (nextProps.showSearch && this.props.options !== nextProps.options) {
       this.setState({
-        flattenOptions: this.flattenTree(nextProps.options, nextProps.changeOnSelect, nextProps.fieldNames),
+        flattenOptions: this.flattenTree(nextProps.options, nextProps),
       });
     }
   }
@@ -247,8 +261,8 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
   }
 
   getLabel() {
-    const { options, displayRender = defaultDisplayRender as Function, fieldNames } = this.props;
-    const names = getFilledFieldNames(fieldNames);
+    const { options, displayRender = defaultDisplayRender as Function } = this.props;
+    const names = getFilledFieldNames(this.props);
     const value = this.state.value;
     const unwrappedValue = Array.isArray(value[0]) ? value[0] : value;
     const selectedOptions: CascaderOptionType[] = arrayTreeFilter(options,
@@ -272,24 +286,22 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
 
   flattenTree(
     options: CascaderOptionType[],
-    changeOnSelect: boolean | undefined,
-    fieldNames: FieldNamesType | undefined,
+    props: CascaderProps,
     ancestor: CascaderOptionType[] = [],
   ) {
-    const names: FilledFieldNamesType = getFilledFieldNames(fieldNames);
+    const names: FilledFieldNamesType = getFilledFieldNames(props);
     let flattenOptions = [] as CascaderOptionType[][];
-    let childrenName = names.children;
+    const childrenName = names.children;
     options.forEach((option) => {
       const path = ancestor.concat(option);
-      if (changeOnSelect || !option[childrenName] || !option[childrenName].length) {
+      if (props.changeOnSelect || !option[childrenName] || !option[childrenName].length) {
         flattenOptions.push(path);
       }
       if (option[childrenName]) {
         flattenOptions = flattenOptions.concat(
           this.flattenTree(
             option[childrenName],
-            changeOnSelect,
-            fieldNames,
+            props,
             path,
           ),
         );
@@ -299,8 +311,8 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
   }
 
   generateFilteredOptions(prefixCls: string | undefined) {
-    const { showSearch, notFoundContent, fieldNames } = this.props;
-    const names: FilledFieldNamesType = getFilledFieldNames(fieldNames);
+    const { showSearch, notFoundContent } = this.props;
+    const names: FilledFieldNamesType = getFilledFieldNames(this.props);
     const {
       filter = defaultFilterOption,
       render = defaultRenderFilteredOption,
@@ -340,7 +352,7 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     const { props, state } = this;
     const {
       prefixCls, inputPrefixCls, children, placeholder, size, disabled,
-      className, style, allowClear, showSearch = false, ...otherProps
+      className, style, allowClear, showSearch = false, suffixIcon, ...otherProps
     } = props;
     const { value, inputFocused } = state;
 
@@ -350,7 +362,8 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     });
     const clearIcon = (allowClear && !disabled && value.length > 0) || state.inputValue ? (
       <Icon
-        type="cross-circle"
+        type="close-circle"
+        theme="filled"
         className={`${prefixCls}-picker-clear`}
         onClick={this.clearSelection}
       />
@@ -361,12 +374,12 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     });
     const pickerCls = classNames(
       className, `${prefixCls}-picker`, {
-      [`${prefixCls}-picker-with-value`]: state.inputValue,
-      [`${prefixCls}-picker-disabled`]: disabled,
-      [`${prefixCls}-picker-${size}`]: !!size,
-      [`${prefixCls}-picker-show-search`]: !!showSearch,
-      [`${prefixCls}-picker-focused`]: inputFocused,
-    });
+        [`${prefixCls}-picker-with-value`]: state.inputValue,
+        [`${prefixCls}-picker-disabled`]: disabled,
+        [`${prefixCls}-picker-${size}`]: !!size,
+        [`${prefixCls}-picker-show-search`]: !!showSearch,
+        [`${prefixCls}-picker-focused`]: inputFocused,
+      });
 
     // Fix bug of https://github.com/facebook/react/pull/5004
     // and https://fb.me/react-unknown-prop
@@ -388,6 +401,7 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
       'sortFilteredOption',
       'notFoundContent',
       'fieldNames',
+      'filedNames', // For old compatibility
     ]);
 
     let options = props.options;
@@ -411,6 +425,20 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     if (resultListMatchInputWidth && state.inputValue && this.input) {
       dropdownMenuColumnStyle.width = this.input.input.offsetWidth;
     }
+
+    const inputIcon = suffixIcon && (
+      React.isValidElement<{ className?: string }>(suffixIcon)
+        ? React.cloneElement(
+          suffixIcon,
+          {
+            className: classNames({
+              [suffixIcon.props.className!]: suffixIcon.props.className,
+              [`${prefixCls}-picker-arrow`]: true,
+            }),
+          },
+        ) : <span className={`${prefixCls}-picker-arrow`}>{suffixIcon}</span>) || (
+        <Icon type="down" className={arrowCls} />
+      );
 
     const input = children || (
       <span
@@ -436,19 +464,33 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
           onChange={showSearch ? this.handleInputChange : undefined}
         />
         {clearIcon}
-        <Icon type="down" className={arrowCls} />
+        {inputIcon}
       </span>
     );
 
+    const expandIcon = (
+      <Icon type="right" />
+    );
+
+    const loadingIcon = (
+      <span className={`${prefixCls}-menu-item-loading-icon`}>
+        <Icon type="redo" spin />
+      </span>
+    );
+
+    const rest = omit(props, ['inputIcon', 'expandIcon', 'loadingIcon']);
+
     return (
       <RcCascader
-        {...props}
+        {...rest}
         options={options}
         value={value}
         popupVisible={state.popupVisible}
         onPopupVisibleChange={this.handlePopupVisibleChange}
         onChange={this.handleChange}
         dropdownMenuColumnStyle={dropdownMenuColumnStyle}
+        expandIcon={expandIcon}
+        loadingIcon={loadingIcon}
       >
         {input}
       </RcCascader>

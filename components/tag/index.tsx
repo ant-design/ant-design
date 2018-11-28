@@ -28,6 +28,7 @@ export interface TagState {
   closing: boolean;
   closed: boolean;
   visible: boolean;
+  mounted: boolean;
 }
 
 class Tag extends React.Component<TagProps, TagState> {
@@ -37,14 +38,29 @@ class Tag extends React.Component<TagProps, TagState> {
     closable: false,
   };
 
-  static getDerivedStateFromProps(nextProps: TagProps) {
-    return  ('visible' in nextProps) ? { visible: nextProps.visible } : null;
+  static getDerivedStateFromProps(nextProps: TagProps, state: TagState) {
+    if ('visible' in nextProps) {
+      let newState: Partial<TagState> = {
+        visible: nextProps.visible,
+        mounted: true,
+      };
+
+      if (!state.mounted) {
+        newState = {
+          ...newState,
+          closed: !nextProps.visible,
+        };
+      }
+      return newState;
+    }
+    return null;
   }
 
   state = {
     closing: false,
     closed: false,
     visible: true,
+    mounted: false,
   };
 
   componentDidUpdate(_prevProps: TagProps, prevState: TagState) {
@@ -113,7 +129,7 @@ class Tag extends React.Component<TagProps, TagState> {
 
   render() {
     const { prefixCls, closable, color, className, children, style, ...otherProps } = this.props;
-    const closeIcon = closable ? <Icon type="cross" onClick={this.handleIconClick} /> : '';
+    const closeIcon = closable ? <Icon type="close" onClick={this.handleIconClick} /> : '';
     const isPresetColor = this.isPresetColor(color);
     const classString = classNames(prefixCls, {
       [`${prefixCls}-${color}`]: isPresetColor,
@@ -130,7 +146,7 @@ class Tag extends React.Component<TagProps, TagState> {
       backgroundColor: (color && !isPresetColor) ? color : null,
       ...style,
     };
-    const tag = this.state.closed ? null : (
+    const tag = this.state.closed ? <span/> : (
       <div
         data-show={!this.state.closing}
         {...divProps}
@@ -141,6 +157,7 @@ class Tag extends React.Component<TagProps, TagState> {
         {closeIcon}
       </div>
     );
+
     return (
       <Wave>
         <Animate

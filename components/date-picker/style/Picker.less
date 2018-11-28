@@ -42,6 +42,11 @@
     outline: none;
   }
 
+  &-input.@{ant-prefix}-input-sm {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
   &:hover &-input:not(.@{ant-prefix}-input-disabled) {
     border-color: @primary-color;
   }
@@ -62,11 +67,13 @@
     font-size: @font-size-sm;
     transition: all .3s;
     user-select: none;
+    z-index: 1;
   }
 
   &-clear {
     opacity: 0;
-    z-index: 1;
+    z-index: 2;
+    font-size: @font-size-base;
     color: @disabled-color;
     background: @input-bg;
     pointer-events: none;
@@ -82,15 +89,11 @@
   }
 
   &-icon {
+    font-family: "anticon";
+    font-size: @font-size-base;
     color: @disabled-color;
-    &:after {
-      content: "\e6bb";
-      font-family: "anticon";
-      font-size: @font-size-base;
-      color: @disabled-color;
-      display: inline-block;
-      line-height: 1;
-    }
+    display: inline-block;
+    line-height: 1;
   }
 
   &-small &-clear,

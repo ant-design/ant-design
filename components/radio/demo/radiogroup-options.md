@@ -9,13 +9,9 @@ title:
 
 通过配置 `options` 参数来渲染单选框。
 
-> `2.9.0` 之后支持。
-
 ## en-US
 
 Render radios by configuring `options`.
-
-> support after `2.9.0`.
 
 ```jsx
 import { Radio } from 'antd';

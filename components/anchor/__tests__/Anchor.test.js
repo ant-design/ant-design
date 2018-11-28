@@ -103,4 +103,25 @@ describe('Anchor Render', () => {
     wrapper.setProps({ href: '#API_1' });
     expect(anchorInstance.links).toEqual(['#API_1']);
   });
+
+  it('Anchor onClick event', () => {
+    let event;
+    let link;
+    const handleClick = (...arg) => ([event, link] = arg);
+
+    const href = '#API';
+    const title = 'API';
+
+    const wrapper = mount(
+      <Anchor onClick={handleClick}>
+        <Link href={href} title={title} />
+      </Anchor>
+    );
+
+    wrapper.find(`a[href="${href}"]`).simulate('click');
+
+    wrapper.instance().handleScroll();
+    expect(event).not.toBe(undefined);
+    expect(link).toEqual({ href, title });
+  });
 });

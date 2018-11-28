@@ -4,7 +4,9 @@ import RcSelect, { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale-provider/default';
+import omit from 'omit.js';
 import warning from 'warning';
+import Icon from '../icon';
 
 export interface AbstractSelectProps {
   prefixCls?: string;
@@ -29,6 +31,10 @@ export interface AbstractSelectProps {
   getPopupContainer?: (triggerNode: Element) => HTMLElement;
   filterOption?: boolean | ((inputValue: string, option: React.ReactElement<OptionProps>) => any);
   id?: string;
+  defaultOpen?: boolean;
+  open?: boolean;
+  onDropdownVisibleChange?: (open: boolean) => void;
+  autoClearSearchValue?: boolean;
 }
 
 export interface LabeledValue {
@@ -38,28 +44,29 @@ export interface LabeledValue {
 
 export type SelectValue = string | string[] | number | number[] | LabeledValue | LabeledValue[];
 
-export interface SelectProps extends AbstractSelectProps {
-  value?: SelectValue;
-  defaultValue?: SelectValue;
+export interface SelectProps<T = SelectValue> extends AbstractSelectProps {
+  value?: T;
+  defaultValue?: T;
   mode?: 'default' | 'multiple' | 'tags' | 'combobox' | string;
   optionLabelProp?: string;
   firstActiveValue?: string | string[];
-  onChange?: (value: SelectValue, option: React.ReactElement<any> | React.ReactElement<any>[]) => void;
-  onSelect?: (value: SelectValue, option: React.ReactElement<any>) => any;
-  onDeselect?: (value: SelectValue) => any;
-  onBlur?: () => any;
-  onFocus?: () => any;
-  onPopupScroll?: () => any;
+  onChange?: (value: T, option: React.ReactElement<any> | React.ReactElement<any>[]) => void;
+  onSelect?: (value: T, option: React.ReactElement<any>) => any;
+  onDeselect?: (value: T) => any;
+  onBlur?: (value: T) => void;
+  onFocus?: () => void;
+  onPopupScroll?: React.UIEventHandler<HTMLDivElement>;
   onInputKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   onMouseEnter?: (e: React.MouseEvent<HTMLInputElement>) => any;
   onMouseLeave?: (e: React.MouseEvent<HTMLInputElement>) => any;
   maxTagCount?: number;
-  maxTagPlaceholder?: React.ReactNode | ((omittedValues: SelectValue[]) => React.ReactNode);
+  maxTagPlaceholder?: React.ReactNode | ((omittedValues: T[]) => React.ReactNode);
   optionFilterProp?: string;
   labelInValue?: boolean;
   tokenSeparators?: string[];
   getInputElement?: () => React.ReactElement<any>;
   autoFocus?: boolean;
+  suffixIcon?: React.ReactNode;
 }
 
 export interface OptionProps {
@@ -67,6 +74,9 @@ export interface OptionProps {
   value?: string | number;
   title?: string;
   children?: React.ReactNode;
+  className?: string;
+  key?: string;
+  style?: React.CSSProperties;
 }
 
 export interface OptGroupProps {
@@ -92,7 +102,7 @@ const SelectPropTypes = {
 // => It is needless to export the declaration of below two inner components.
 // export { Option, OptGroup };
 
-export default class Select extends React.Component<SelectProps, {}> {
+export default class Select<T = SelectValue> extends React.Component<SelectProps<T>, {}> {
   static Option = Option as React.ClassicComponentClass<OptionProps>;
   static OptGroup = OptGroup as React.ClassicComponentClass<OptGroupProps>;
 
@@ -109,7 +119,7 @@ export default class Select extends React.Component<SelectProps, {}> {
 
   private rcSelect: any;
 
-  constructor(props: SelectProps) {
+  constructor(props: SelectProps<T>) {
     super(props);
 
     warning(
@@ -152,8 +162,11 @@ export default class Select extends React.Component<SelectProps, {}> {
       className = '',
       size,
       mode,
+      suffixIcon,
       ...restProps
     } = this.props;
+    const rest = omit(restProps, ['inputIcon', 'removeIcon', 'clearIcon']);
+
     const cls = classNames({
       [`${prefixCls}-lg`]: size === 'large',
       [`${prefixCls}-sm`]: size === 'small',
@@ -171,9 +184,31 @@ export default class Select extends React.Component<SelectProps, {}> {
       combobox: this.isCombobox(),
     };
 
+    const inputIcon = suffixIcon && (
+      React.isValidElement<{ className?: string }>(suffixIcon)
+        ? React.cloneElement(suffixIcon) : suffixIcon) || (
+        <Icon type="down" className={`${prefixCls}-arrow-icon`} />
+      );
+
+    const removeIcon = (
+      <Icon type="close" className={`${prefixCls}-remove-icon`} />
+    );
+
+    const clearIcon = (
+      <Icon type="close-circle" theme="filled" className={`${prefixCls}-clear-icon`} />
+    );
+
+    const menuItemSelectedIcon = (
+      <Icon type="check" className={`${prefixCls}-selected-icon`} />
+    );
+
     return (
       <RcSelect
-        {...restProps}
+        inputIcon={inputIcon}
+        removeIcon={removeIcon}
+        clearIcon={clearIcon}
+        menuItemSelectedIcon={menuItemSelectedIcon}
+        {...rest}
         {...modeConfig}
         prefixCls={prefixCls}
         className={cls}

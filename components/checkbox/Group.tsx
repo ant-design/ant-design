@@ -3,7 +3,8 @@ import * as PropTypes from 'prop-types';
 import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
-import Checkbox from './Checkbox';
+import omit from 'omit.js';
+import Checkbox, { CheckboxChangeEvent } from './Checkbox';
 
 export type CheckboxValueType = string | number | boolean;
 
@@ -11,6 +12,7 @@ export interface CheckboxOptionType {
   label: string;
   value: CheckboxValueType;
   disabled?: boolean;
+  onChange?: (e: CheckboxChangeEvent) => void;
 }
 
 export interface AbstractCheckboxGroupProps {
@@ -86,6 +88,7 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
     return !shallowEqual(this.props, nextProps) ||
       !shallowEqual(this.state, nextState);
   }
+
   getOptions() {
     const { options } = this.props;
     // https://github.com/Microsoft/TypeScript/issues/7960
@@ -99,6 +102,7 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
       return option;
     });
   }
+
   toggleOption = (option: CheckboxOptionType) => {
     const optionIndex = this.state.value.indexOf(option.value);
     const value = [...this.state.value];
@@ -115,10 +119,14 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
       onChange(value);
     }
   }
+
   render() {
     const { props, state } = this;
-    const { prefixCls, className, style, options } = props;
+    const { prefixCls, className, style, options, ...restProps } = props;
     const groupPrefixCls = `${prefixCls}-group`;
+
+    const domProps = omit(restProps, ['children', 'defaultValue', 'value', 'onChange', 'disabled']);
+
     let children = props.children;
     if (options && options.length > 0) {
       children = this.getOptions().map(option => (
@@ -128,7 +136,7 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
           disabled={'disabled' in option ? option.disabled : props.disabled}
           value={option.value}
           checked={state.value.indexOf(option.value) !== -1}
-          onChange={() => this.toggleOption(option)}
+          onChange={option.onChange}
           className={`${groupPrefixCls}-item`}
         >
           {option.label}
@@ -138,7 +146,7 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
 
     const classString = classNames(groupPrefixCls, className);
     return (
-      <div className={classString} style={style}>
+      <div className={classString} style={style} {...domProps}>
         {children}
       </div>
     );

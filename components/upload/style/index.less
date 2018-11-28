@@ -64,8 +64,11 @@
     width: 100%;
     height: 100%;
     position: relative;
-    padding: 16px 0;
     background: @background-color-light;
+
+    .@{upload-prefix-cls} {
+      padding: 16px 0;
+    }
 
     &.@{upload-prefix-cls}-drag-hover:not(.@{upload-prefix-cls}-disabled) {
       border: 2px dashed @primary-5;
@@ -154,16 +157,16 @@
       }
     }
 
-    .@{iconfont-css-prefix}-cross {
+    .@{iconfont-css-prefix}-close {
       .iconfont-size-under-12px(10px);
       transition: all .3s;
       opacity: 0;
       cursor: pointer;
       position: absolute;
-      top: 0;
+      top: 6px;
       right: 4px;
       color: @text-color-secondary;
-      line-height: 22px;
+      line-height: 0;
       &:hover {
         color: @text-color;
       }
@@ -173,7 +176,7 @@
       background-color: @item-hover-bg;
     }
 
-    &:hover .@{iconfont-css-prefix}-cross {
+    &:hover .@{iconfont-css-prefix}-close {
       opacity: 1;
     }
 
@@ -183,7 +186,7 @@
       color: @error-color;
     }
 
-    &-error .@{iconfont-css-prefix}-cross {
+    &-error .@{iconfont-css-prefix}-close {
       opacity: 1;
       color: @error-color !important;
     }
@@ -283,7 +286,7 @@
       width: ~"calc(100% - 24px)";
     }
 
-    .@{iconfont-css-prefix}-cross {
+    .@{iconfont-css-prefix}-close {
       position: absolute;
       right: 8px;
       top: 8px;
@@ -293,6 +296,9 @@
   }
 
   &-picture-card {
+    // https://github.com/ant-design/ant-design/issues/11183
+    float: left;
+
     &.@{upload-prefix-cls}-list:after {
       display: none;
     }

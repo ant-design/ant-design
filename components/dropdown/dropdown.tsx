@@ -3,9 +3,10 @@ import RcDropdown from 'rc-dropdown';
 import classNames from 'classnames';
 import DropdownButton from './dropdown-button';
 import warning from '../_util/warning';
+import Icon from '../icon';
 
 export interface DropDownProps {
-  trigger?: ('click' | 'hover'| 'contextMenu')[];
+  trigger?: ('click' | 'hover' | 'contextMenu')[];
   overlay: React.ReactNode;
   onVisibleChange?: (visible?: boolean) => void;
   visible?: boolean;
@@ -62,13 +63,20 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
     });
     // menu cannot be selectable in dropdown defaultly
     // menu should be focusable in dropdown defaultly
-    const { selectable = false, focusable = true }  = overlay.props;
+    const { selectable = false, focusable = true } = overlay.props;
+
+    const expandIcon = (
+      <span className={`${prefixCls}-menu-submenu-arrow`}>
+        <Icon type="right" className={`${prefixCls}-menu-submenu-arrow-icon`} />
+      </span>
+    );
 
     const fixedModeOverlay = typeof overlay.type === 'string'
       ? overlay : React.cloneElement(overlay, {
         mode: 'vertical',
         selectable,
         focusable,
+        expandIcon,
       });
 
     const triggerActions = disabled ? [] : trigger;

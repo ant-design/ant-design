@@ -36,7 +36,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                     <th
                       class="ant-table-fixed-columns-in-body ant-table-selection-column"
                     >
-                      <span>
+                      <div>
                         <div
                           class="ant-table-selection"
                         >
@@ -56,14 +56,14 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                             </span>
                           </label>
                         </div>
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div>
                         Name
-                      </span>
+                      </div>
                     </th>
                   </tr>
                 </thead>
@@ -71,7 +71,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                   class="ant-table-tbody"
                 >
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="0"
                   >
                     <td
@@ -106,7 +106,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="1"
                   >
                     <td
@@ -141,7 +141,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="2"
                   >
                     <td
@@ -176,7 +176,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row ant-table-row-level-0"
                     data-row-key="3"
                   >
                     <td
@@ -237,7 +237,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                       <th
                         class="ant-table-selection-column"
                       >
-                        <span>
+                        <div>
                           <div
                             class="ant-table-selection"
                           >
@@ -257,7 +257,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                               </span>
                             </label>
                           </div>
-                        </span>
+                        </div>
                       </th>
                     </tr>
                   </thead>
@@ -265,7 +265,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                     class="ant-table-tbody"
                   >
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="0"
                     >
                       <td
@@ -291,7 +291,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="1"
                     >
                       <td
@@ -317,7 +317,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="2"
                     >
                       <td
@@ -343,7 +343,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                       </td>
                     </tr>
                     <tr
-                      class="ant-table-row  ant-table-row-level-0"
+                      class="ant-table-row ant-table-row-level-0"
                       data-row-key="3"
                     >
                       <td
@@ -386,7 +386,25 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-left"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -404,7 +422,25 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            <i
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                />
+              </svg>
+            </i>
+          </a>
         </li>
       </ul>
     </div>

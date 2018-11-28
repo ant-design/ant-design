@@ -60,7 +60,7 @@ Tabs: Provides additional panels of information accessible by tab controls.
 
 ## Virtual Pages
 
-In the process of interaction design, Overlays allow you to bring additional interactions or content in a layer above the cur- rent page. Inlays allow you to do this within the page itself. However, another powerful approach to keeping users engaged on the current page is to create a virtual page. That is to say, we create the illusion of a larger virtual page.
+In the process of interaction design, Overlays allow you to bring additional interactions or content in a layer above the current page. Inlays allow you to do this within the page itself. However, another powerful approach to keeping users engaged on the current page is to create a virtual page. That is to say, we create the illusion of a larger virtual page.
 
 <br>
 

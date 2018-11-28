@@ -1,7 +1,12 @@
+@table-padding-vertical-md: @table-padding-vertical * 3 / 4;
+@table-padding-horizontal-md: @table-padding-horizontal / 2;
+@table-padding-vertical-sm: @table-padding-vertical / 2;
+@table-padding-horizontal-sm: @table-padding-horizontal / 2;
+
 .@{table-prefix-cls}-middle {
   > .@{table-prefix-cls}-title,
   > .@{table-prefix-cls}-footer {
-    padding: @table-padding-vertical*3/4 @table-padding-horizontal/2;
+    padding: @table-padding-vertical-md @table-padding-horizontal-md;
   }
   > .@{table-prefix-cls}-content {
     > .@{table-prefix-cls}-header > table,
@@ -14,9 +19,13 @@
     > .@{table-prefix-cls}-fixed-right > .@{table-prefix-cls}-body-outer > .@{table-prefix-cls}-body-inner > table {
       > .@{table-prefix-cls}-thead > tr > th,
       > .@{table-prefix-cls}-tbody > tr > td {
-        padding: @table-padding-vertical*3/4 @table-padding-horizontal/2;
+        padding: @table-padding-vertical-md @table-padding-horizontal-md;
       }
     }
+  }
+
+  tr.@{table-prefix-cls}-expanded-row td > .@{table-prefix-cls}-wrapper {
+    margin: -@table-padding-vertical-md -@table-padding-horizontal -@table-padding-vertical-md - 1px;
   }
 }
 
@@ -26,7 +35,7 @@
 
   > .@{table-prefix-cls}-title,
   > .@{table-prefix-cls}-footer {
-    padding: @table-padding-vertical/2 @table-padding-horizontal/2;
+    padding: @table-padding-vertical-sm @table-padding-horizontal-sm;
   }
 
   > .@{table-prefix-cls}-title {
@@ -35,6 +44,10 @@
   }
 
   > .@{table-prefix-cls}-content {
+    > .@{table-prefix-cls}-body {
+      margin: 0 @table-padding-horizontal-sm;
+    }
+
     > .@{table-prefix-cls}-header > table,
     > .@{table-prefix-cls}-body > table,
     > .@{table-prefix-cls}-scroll > .@{table-prefix-cls}-header > table,
@@ -44,14 +57,16 @@
     > .@{table-prefix-cls}-fixed-left > .@{table-prefix-cls}-body-outer > .@{table-prefix-cls}-body-inner > table,
     > .@{table-prefix-cls}-fixed-right > .@{table-prefix-cls}-body-outer > .@{table-prefix-cls}-body-inner > table {
       border: 0;
-      padding: 0 @table-padding-horizontal/2;
       > .@{table-prefix-cls}-thead > tr > th,
       > .@{table-prefix-cls}-tbody > tr > td {
-        padding: @table-padding-vertical/2 @table-padding-horizontal/2;
+        padding: @table-padding-vertical-sm @table-padding-horizontal-sm;
       }
       > .@{table-prefix-cls}-thead > tr > th {
-        background: @component-background;
+        background-color: @component-background;
         border-bottom: @border-width-base @border-style-base @border-color-split;
+      }
+      > .@{table-prefix-cls}-thead > tr > th.@{table-prefix-cls}-column-sort {
+        background-color: @table-body-sort-bg;
       }
     }
 
@@ -65,7 +80,7 @@
     }
 
     .@{table-prefix-cls}-header {
-      background: @component-background;
+      background-color: @component-background;
     }
 
     .@{table-prefix-cls}-placeholder,
@@ -99,6 +114,7 @@
     .@{table-prefix-cls}-placeholder {
       border-left: 0;
       border-bottom: 0;
+      border-right: 0;
     }
 
     .@{table-prefix-cls}-thead > tr > th:last-child,
@@ -114,7 +130,12 @@
     }
 
     .@{table-prefix-cls}-fixed-right {
+      border-left: @border-width-base @border-style-base @border-color-split;
       border-right: @border-width-base @border-style-base @border-color-split;
     }
+  }
+
+  tr.@{table-prefix-cls}-expanded-row td > .@{table-prefix-cls}-wrapper {
+    margin: -@table-padding-vertical-sm -@table-padding-horizontal -@table-padding-vertical-sm - 1px;
   }
 }

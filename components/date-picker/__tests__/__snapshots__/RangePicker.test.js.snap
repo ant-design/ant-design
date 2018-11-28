@@ -2988,18 +2988,18 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
           class="ant-calendar-footer ant-calendar-range-bottom ant-calendar-footer-show-ok"
         >
           <div
-            class="ant-calendar-footer-extra ant-calendar-range-quick-selector"
-          >
-            <div
-              class="ant-tag ant-tag-blue"
-              data-show="true"
-            >
-              My Birthday
-            </div>
-          </div>
-          <div
             class="ant-calendar-footer-btn"
           >
+            <div
+              class="ant-calendar-footer-extra ant-calendar-range-quick-selector"
+            >
+              <div
+                class="ant-tag ant-tag-blue"
+                data-show="true"
+              >
+                My Birthday
+              </div>
+            </div>
             <a
               class="ant-calendar-time-picker-btn"
               role="button"

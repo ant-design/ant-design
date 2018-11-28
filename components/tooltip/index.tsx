@@ -15,6 +15,18 @@ export type TooltipPlacement =
 
 export type TooltipTrigger = 'hover' | 'focus' | 'click' | 'contextMenu';
 
+// https://github.com/react-component/tooltip
+// https://github.com/yiminghe/dom-align
+export interface TooltipAlignConfig {
+  points?: [string, string],
+  offset?: [number | string, number | string],
+  targetOffset?: [number | string, number | string],
+  overflow?: { adjustX: boolean, adjustY: boolean },
+  useCssRight?: boolean,
+  useCssBottom?: boolean,
+  useCssTransform?: boolean
+}
+
 export interface AbstractTooltipProps {
   prefixCls?: string;
   overlayClassName?: string;
@@ -36,6 +48,8 @@ export interface AbstractTooltipProps {
   getTooltipContainer?: (triggerNode: Element) => HTMLElement;
   getPopupContainer?: (triggerNode: Element) => HTMLElement;
   children?: React.ReactNode;
+  // align is a more higher api
+  align?: TooltipAlignConfig;
 }
 
 export type RenderFunction = () => React.ReactNode;
@@ -108,23 +122,12 @@ class Tooltip extends React.Component<TooltipProps, any> {
     });
   }
 
-  isHoverTrigger() {
-    const { trigger } = this.props;
-    if (!trigger || trigger === 'hover') {
-      return true;
-    }
-    if (Array.isArray(trigger)) {
-      return trigger.indexOf('hover') >= 0;
-    }
-    return false;
-  }
-
   // Fix Tooltip won't hide at disabled button
   // mouse events don't trigger at disabled button in Chrome
   // https://github.com/react-component/tooltip/issues/18
   getDisabledCompatibleChildren(element: React.ReactElement<any>) {
     if (((element.type as typeof Button).__ANT_BUTTON || element.type === 'button') &&
-        element.props.disabled && this.isHoverTrigger()) {
+        element.props.disabled) {
       // Pick some layout related style properties up to span
       // Prevent layout bugs like https://github.com/ant-design/ant-design/issues/5254
       const { picked, omitted } = splitObject(
@@ -135,6 +138,7 @@ class Tooltip extends React.Component<TooltipProps, any> {
         display: 'inline-block',  // default inline-block is important
         ...picked,
         cursor: 'not-allowed',
+        width: element.props.block ? '100%' : null,
       };
       const buttonStyle = {
         ...omitted,
@@ -207,6 +211,7 @@ class Tooltip extends React.Component<TooltipProps, any> {
     const child = this.getDisabledCompatibleChildren(
       React.isValidElement(children) ? children : <span>{children}</span>,
     );
+
     const childProps = child.props;
     const childCls = classNames(childProps.className, {
       [openClassName || `${prefixCls}-open`]: true,

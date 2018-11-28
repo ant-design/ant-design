@@ -64,6 +64,7 @@ class WeekPicker extends React.Component<any, any> {
       this.setState({ value });
     }
     this.props.onChange(value, formatValue(value, this.props.format));
+    this.focus();
   }
   clearSelection = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
@@ -87,7 +88,7 @@ class WeekPicker extends React.Component<any, any> {
     const {
       prefixCls, className, disabled, pickerClass, popupStyle,
       pickerInputClass, format, allowClear, locale, localeCode, disabledDate,
-      style, onFocus, onBlur,
+      style, onFocus, onBlur, id, suffixIcon,
     } = this.props;
 
     const pickerValue = this.state.value;
@@ -112,12 +113,28 @@ class WeekPicker extends React.Component<any, any> {
     );
     const clearIcon = (!disabled && allowClear && this.state.value) ? (
       <Icon
-        type="cross-circle"
+        type="close-circle"
         className={`${prefixCls}-picker-clear`}
         onClick={this.clearSelection}
+        theme="filled"
       />
     ) : null;
-    const input = ({ value }: {  value: moment.Moment | undefined }) => {
+
+    const inputIcon = suffixIcon && (
+      React.isValidElement<{ className?: string }>(suffixIcon)
+        ? React.cloneElement(
+          suffixIcon,
+          {
+            className: classNames({
+              [suffixIcon.props.className!]: suffixIcon.props.className,
+              [`${prefixCls}-picker-icon`]: true,
+            }),
+          },
+        ) : <span className={`${prefixCls}-picker-icon`}>{suffixIcon}</span>) || (
+        <Icon type="calendar" className={`${prefixCls}-picker-icon`} />
+      );
+
+    const input = ({ value }: { value: moment.Moment | undefined }) => {
       return (
         <span>
           <input
@@ -129,15 +146,18 @@ class WeekPicker extends React.Component<any, any> {
             className={pickerInputClass}
             onFocus={onFocus}
             onBlur={onBlur}
-            style={style}
           />
           {clearIcon}
-          <span className={`${prefixCls}-picker-icon`} />
+          {inputIcon}
         </span>
       );
     };
     return (
-      <span className={classNames(className, pickerClass)} id={this.props.id}>
+      <span
+        className={classNames(className, pickerClass)}
+        style={style}
+        id={id}
+      >
         <RcDatePicker
           {...this.props}
           calendar={calendar}

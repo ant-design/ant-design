@@ -1,6 +1,9 @@
+/* eslint-disable react/no-multi-comp */
 import React from 'react';
 import { render, mount } from 'enzyme';
 import Table from '..';
+import Input from '../../input';
+import Button from '../../button';
 
 describe('Table.filter', () => {
   const filterFn = (value, record) => record.name.indexOf(value) !== -1;
@@ -220,7 +223,14 @@ describe('Table.filter', () => {
     dropdownWrapper.find('MenuItem').first().simulate('click');
     dropdownWrapper.find('.confirm').simulate('click');
 
-    expect(handleChange).toBeCalledWith({}, { name: ['boy'] }, {});
+    expect(handleChange).toBeCalledWith(
+      {},
+      { name: ['boy'] },
+      {},
+      {
+        currentDataSource: [],
+      }
+    );
   });
 
   it('should not fire change event on close filterDropdown without changing anything', () => {
@@ -377,6 +387,7 @@ describe('Table.filter', () => {
     wrapper.find('.ant-dropdown-trigger').first().simulate('click');
 
     expect(handleChange).toBeCalled();
+    expect(handleChange.mock.calls[0][3].currentDataSource.length).toBe(1);
   });
 
   it('renders custom filter icon correctly', () => {
@@ -396,5 +407,50 @@ describe('Table.filter', () => {
     wrapper.find('.ant-dropdown-menu-item').first().simulate('click');
     wrapper.find('.ant-dropdown-trigger').first().simulate('click');
     expect(wrapper.find('.ant-table-filter-icon').render()).toMatchSnapshot();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/13028
+  it('reset dropdown filter correctly', () => {
+    class Demo extends React.Component {
+      state = {};
+
+      onChange = () => {
+        this.setState({ name: '' });
+      };
+
+      render() {
+        const { name } = this.state;
+
+        return (createTable({
+          onChange: this.onChange,
+          columns: [{
+            title: 'Name',
+            dataIndex: 'name',
+            key: 'name',
+            filteredValue: name,
+            filterDropdown: ({ setSelectedKeys, selectedKeys, confirm }) => (
+              <div>
+                <Input
+                  value={selectedKeys[0]}
+                  onChange={(e) => {
+                    setSelectedKeys(e.target.value ? [e.target.value] : []);
+                  }}
+                />
+                <Button onClick={confirm}>Confirm</Button>
+              </div>
+            ),
+          }],
+        }));
+      }
+    }
+
+    const wrapper = mount(<Demo />);
+    wrapper.find('.ant-dropdown-trigger').first().simulate('click');
+    wrapper.find('.ant-input').simulate('change', { target: { value: 'test' } });
+    expect(wrapper.find('.ant-input').instance().value).toBe('test');
+    wrapper.find('.ant-btn').simulate('click');
+
+    wrapper.find('.ant-dropdown-trigger').first().simulate('click');
+    expect(wrapper.find('.ant-input').instance().value).toBe('');
   });
 });

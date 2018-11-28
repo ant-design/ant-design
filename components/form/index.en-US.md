@@ -34,9 +34,9 @@ A form field is defined using `<Form.Item />`.
 
 | Property | Description | Type | Default Value |
 | -------- | ----------- | ---- | ------------- |
-| form | Decorated by `Form.create()` will be automatically set `this.props.form` property, so just pass to form, you don't need to set it by yourself after 1.7.0. | object | n/a |
+| form | Decorated by `Form.create()` will be automatically set `this.props.form` property | object | n/a |
 | hideRequiredMark | Hide required mark of all form items | Boolean | false |
-| layout | Define form layout(Support after 2.8) | 'horizontal'\|'vertical'\|'inline' | 'horizontal' |
+| layout | Define form layout | 'horizontal'\|'vertical'\|'inline' | 'horizontal' |
 | onSubmit | Defines a function will be called if form data validation is successful. | Function(e:Event) |  |
 
 ### Form.create(options)
@@ -53,7 +53,7 @@ The following `options` are available:
 
 | Property | Description | Type |
 | -------- | ----------- | ---- |
-| mapPropsToFields | Convert props to field value(e.g. reading the values from Redux store). And you must mark returned fields with [`Form.createFormField`](#Form.createFormField) | (props) => Object{ fieldName: FormField { value } } |
+| mapPropsToFields | Convert props to field value(e.g. reading the values from Redux store). And you must mark returned fields with [`Form.createFormField`](#Form.createFormField) | (props) => ({ \[fieldName\]: FormField { value } }) |
 | validateMessages | Default validate message. And its format is similar with [newMessages](https://github.com/yiminghe/async-validator/blob/master/src/messages.js)'s returned value | Object { [nested.path]&#x3A; String } |
 | onFieldsChange | Specify a function that will be called when the value a `Form.Item` gets changed. Usage example: saving the field's value to Redux store. | Function(props, fields) |
 | onValuesChange | A handler while value of any field is changed | (props, changedValues, allValues) => void |
@@ -85,12 +85,25 @@ If the form has been decorated by `Form.create` then it has `this.props.form` pr
 | isFieldValidating | Check if the specified field is being validated. | Function(name) |
 | resetFields | Reset the specified fields' value(to `initialValue`) and status. If you don't specify a parameter, all the fields will be reset. | Function(\[names: string\[]]) |
 | setFields | Set the value and error of a field. [Code Sample](https://github.com/react-component/form/blob/3b9959b57ab30b41d8890ff30c79a7e7c383cad3/examples/server-validate.js#L74-L79) | Function({ [fieldName]&#x3A; { value: any, errors: [Error] } }) |
-| setFields |  | Function(obj: object) |
-| setFieldsValue | Set the value of a field.(Note: please don't use it in `componentWillReceiveProps`, otherwise, it will cause an endless loop, [more](https://github.com/ant-design/ant-design/issues/2985)) | Function({ [fieldName]&#x3A; value } |
-| validateFields | Validate the specified fields and get theirs values and errors. If you don't specify the parameter of fieldNames, you will vaildate all fields. | Function(\[fieldNames: string\[]], [options: object], callback: Function(errors, values)) |
+| setFields | Set value and error state of fields | ({<br />&nbsp;&nbsp;\[fieldName\]: {value: any, errors: \[Error\] }<br />}) => void |
+| setFieldsValue | Set the value of a field. (Note: please don't use it in `componentWillReceiveProps`, otherwise, it will cause an endless loop, [reason](https://github.com/ant-design/ant-design/issues/2985)) | ({ \[fieldName\]&#x3A; value }) => void |
+| validateFields | Validate the specified fields and get theirs values and errors. If you don't specify the parameter of fieldNames, you will validate all fields. | (<br />&nbsp;&nbsp;\[fieldNames: string\[]],<br />&nbsp;&nbsp;\[options: object\],<br />&nbsp;&nbsp;callback(errors, values)<br />) => void |
 | validateFieldsAndScroll | This function is similar to `validateFields`, but after validation, if the target field is not in visible area of form, form will be automatically scrolled to the target field area. | same as `validateFields` |
 
-### this.props.form.validateFields/validateFieldsAndScroll(\[fieldNames: string\[]], [options: object], callback: Function(errors, values))
+### validateFields/validateFieldsAndScroll
+
+```jsx
+const { form: { validateFields } } = this.props;
+validateFields((errors, values) => {
+  // ...
+});
+validateFields(['field1', 'field2'], (errors, values) => {
+  // ...
+});
+validateFields(['field1', 'field2'], options, (errors, values) => {
+  // ...
+});
+```
 
 | Method | Description | Type | Default |
 | ------ | ----------- | ---- | ------- |
@@ -142,7 +155,7 @@ To mark the returned fields data in `mapPropsToFields`, [demo](#components-form-
 After wrapped by `getFieldDecorator`, `value`(or other property defined by `valuePropName`) `onChange`(or other property defined by `trigger`) props will be added to form controls，the flow of form data will be handled by Form which will cause:
 
 1. You shouldn't use `onChange` to collect data, but you still can listen to `onChange`(and so on) events.
-2. You can not set value of form control via `value` `defaultValue` prop, and you should set default value with `initialValue` in `getFieldDecorator` instead.
+2. You cannot set value of form control via `value` `defaultValue` prop, and you should set default value with `initialValue` in `getFieldDecorator` instead.
 3. You shouldn't call `setState` manually, please use `this.props.form.setFieldsValue` to change value programmatically.
 
 #### Special attention
@@ -156,7 +169,8 @@ After wrapped by `getFieldDecorator`, `value`(or other property defined by `valu
 | -------- | ----------- | ---- | ------------- |
 | id | The unique identifier is required. support [nested fields format](https://github.com/react-component/form/pull/48). | string |  |
 | options.getValueFromEvent | Specify how to get value from event or other onChange arguments | function(..args) | [reference](https://github.com/react-component/form#option-object) |
-| options.initialValue | You can specify initial value, type, optional value of children node. (Note: Because `Form` will test equality with `===` internaly, we recommend to use vairable as `initialValue`, instead of literal) |  | n/a |
+| options.getValueProps | Get the component props according to field value. | function(value): any | [reference](https://github.com/react-component/form#option-object)
+| options.initialValue | You can specify initial value, type, optional value of children node. (Note: Because `Form` will test equality with `===` internally, we recommend to use variable as `initialValue`, instead of literal) |  | n/a |
 | options.normalize | Normalize value to form component, [a select-all example](https://codepen.io/afc163/pen/JJVXzG?editors=001) | function(value, prevValue, allValues): any | - |
 | options.rules | Includes validation rules. Please refer to "Validation Rules" part for details. | object\[] | n/a |
 | options.trigger | When to collect the value of children node | string | 'onChange' |
@@ -168,10 +182,7 @@ More option at [rc-form option](https://github.com/react-component/form#option-o
 
 ### Form.Item
 
-Note:
-
-- If Form.Item has multiple children that had been decorated by `getFieldDecorator`, `help` and `required` and `validateStatus` can't be generated automatically.
-- Before `2.2.0`, form controls must be child of Form.Item, otherwise, you need to set `help`, `required` and `validateStatus` by yourself.
+Note: if Form.Item has multiple children that had been decorated by `getFieldDecorator`, `help` and `required` and `validateStatus` can't be generated automatically.
 
 | Property | Description | Type | Default Value |
 | -------- | ----------- | ---- | ------------- |
@@ -203,12 +214,6 @@ Note:
 
 See more advanced usage at [async-validator](https://github.com/yiminghe/async-validator).
 
-<style>
-.code-box-demo .ant-form:not(.ant-form-inline):not(.ant-form-vertical) {
-  max-width: 600px;
-}
-</style>
-
 ## Using in TypeScript
 
 ```jsx
@@ -221,6 +226,16 @@ interface UserFormProps extends FormComponentProps {
 }
 
 class UserForm extends React.Component<UserFormProps, any> {
-
+  // ...
 }
 ```
+
+<style>
+.code-box-demo .ant-form:not(.ant-form-inline):not(.ant-form-vertical) {
+  max-width: 600px;
+}
+.markdown.api-container table td:last-child {
+  white-space: nowrap;
+  word-wrap: break-word;
+}
+</style>

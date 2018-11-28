@@ -66,7 +66,7 @@ class Demo extends React.Component {
     const dragKey = info.dragNode.props.eventKey;
     const dropPos = info.node.props.pos.split('-');
     const dropPosition = info.dropPosition - Number(dropPos[dropPos.length - 1]);
-    // const dragNodesKeys = info.dragNodesKeys;
+
     const loop = (data, key, callback) => {
       data.forEach((item, index, arr) => {
         if (item.key === key) {
@@ -78,12 +78,32 @@ class Demo extends React.Component {
       });
     };
     const data = [...this.state.gData];
+
+    // Find dragObject
     let dragObj;
     loop(data, dragKey, (item, index, arr) => {
       arr.splice(index, 1);
       dragObj = item;
     });
-    if (info.dropToGap) {
+
+    if (!info.dropToGap) {
+      // Drop on the content
+      loop(data, dropKey, (item) => {
+        item.children = item.children || [];
+        // where to insert 示例添加到尾部，可以是随意位置
+        item.children.push(dragObj);
+      });
+    } else if (
+      (info.node.props.children || []).length > 0 // Has children
+      && info.node.props.expanded // Is expanded
+      && dropPosition === 1 // On the bottom gap
+    ) {
+      loop(data, dropKey, (item) => {
+        item.children = item.children || [];
+        // where to insert 示例添加到尾部，可以是随意位置
+        item.children.unshift(dragObj);
+      });
+    } else {
       let ar;
       let i;
       loop(data, dropKey, (item, index, arr) => {
@@ -95,13 +115,8 @@ class Demo extends React.Component {
       } else {
         ar.splice(i + 1, 0, dragObj);
       }
-    } else {
-      loop(data, dropKey, (item) => {
-        item.children = item.children || [];
-        // where to insert 示例添加到尾部，可以是随意位置
-        item.children.push(dragObj);
-      });
     }
+
     this.setState({
       gData: data,
     });

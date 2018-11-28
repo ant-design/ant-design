@@ -35,33 +35,33 @@ exports[`Table renders JSX correctly 1`] = `
                     class=""
                     colspan="2"
                   >
-                    <span>
+                    <div>
                       Name
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                     rowspan="2"
                   >
-                    <span>
+                    <div>
                       Age
-                    </span>
+                    </div>
                   </th>
                 </tr>
                 <tr>
                   <th
                     class=""
                   >
-                    <span>
+                    <div>
                       First Name
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div>
                       Last Name
-                    </span>
+                    </div>
                   </th>
                 </tr>
               </thead>
@@ -69,7 +69,7 @@ exports[`Table renders JSX correctly 1`] = `
                 class="ant-table-tbody"
               >
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="1"
                 >
                   <td
@@ -93,7 +93,7 @@ exports[`Table renders JSX correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row ant-table-row-level-0"
                   data-row-key="2"
                 >
                   <td

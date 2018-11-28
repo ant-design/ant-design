@@ -6,9 +6,9 @@
 
 .resource-card {
   display: flex;
-  max-width: 420px;
+  max-width: 500px;
   width: ~"calc(50% - 24px)";
-  min-width: 300px;
+  min-width: 400px;
   height: 130px;
   border: 1px solid @border-color-base;
   border-radius: @border-radius-base;
@@ -62,6 +62,17 @@
   text-overflow: ellipsis;
   line-height: 1.2;
   margin-bottom: 6px;
+}
+
+.resource-card-hot-badge {
+  background: #f50;
+  border-radius: 2px;
+  padding: 0 3px;
+  color: #fff;
+  font-size: 12px;
+  line-height: 20px;
+  margin-left: 2px;
+  vertical-align: top;
 }
 
 .resource-card-description {

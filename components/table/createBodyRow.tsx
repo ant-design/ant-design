@@ -16,7 +16,7 @@ interface BodyRowState {
 
 export interface BodyRowClass extends React.ComponentClass {}
 
-export default function createTableRow(Component = 'tr') {
+export default function createTableRow(Component: React.ReactType = 'tr') {
   class BodyRow extends React.Component<BodyRowProps, BodyRowState> {
     private store: Store;
     private unsubscribe: () => void;

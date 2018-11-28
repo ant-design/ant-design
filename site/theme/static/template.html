@@ -6,7 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="An enterprise-class UI design language and React-based implementation with a set of high-quality React components, one of best React UI library for enterprises">
     <title>Ant Design - A UI Design Language</title>
-    <script src="https://as.alipayobjects.com/g/component/??es6-shim/0.35.1/es6-sham.min.js,es6-shim/0.35.1/es6-shim.min.js"></script>
+    <link rel="icon" href="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{{ root }}index-1.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ root }}index-2.css"/>
+    <style id="nprogress-style">
+      #nprogress { display: none }
+    </style>
+    <link rel="stylesheet/less" type="text/css" href="{{ root }}color.less"/>
+    <script src="https://gw.alipayobjects.com/os/lib/??es6-shim/0.35.3/es6-sham.min.js,es6-shim/0.35.3/es6-shim.min.js"></script>
+    <!--[if lte IE 10]>
+    <script src="https://as.alipayobjects.com/g/component/??console-polyfill/0.2.2/index.js,media-match/2.0.2/media.match.min.js"></script>
+    <![endif]-->
+    <script>
+    if (!window.Intl) {
+      document.writeln('<script src="https://as.alipayobjects.com/g/component/intl/1.0.1/??Intl.js,locale-data/jsonp/en.js,locale-data/jsonp/zh.js">' + '<' + '/script>');
+    }
+    </script>
     <script>
     (function() {
       function isLocalStorageNameSupported() {
@@ -58,17 +73,14 @@
       document.documentElement.className += isZhCN(pathname) ? 'zh-cn' : 'en-us';
     })()
     </script>
-    <link rel="icon" href="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="{{ root }}index-1.css"/>
-    <link rel="stylesheet" type="text/css" href="{{ root }}index-2.css"/>
-    <style id="nprogress-style">
-      #nprogress { display: none }
-    </style>
-    <!--[if lte IE 10]>
-      <script
-        src="https://as.alipayobjects.com/g/component/??console-polyfill/0.2.2/index.js,media-match/2.0.2/media.match.min.js"></script>
-    <![endif]-->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+  </head>
+  <body>
+    <div id="react-content">
+      {{ content | safe }}
+    </div>
+    <script src="{{ root }}common.js"></script>
+    <script src="{{ root }}index.js"></script>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-72788897-1"></script>
     <script>
     if (!location.port) {
@@ -77,14 +89,6 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'UA-72788897-1');
-    }
-    </script>
-    <script>
-    if (!window.Intl) {
-      document.writeln('<script src="https://as.alipayobjects.com/g/component/intl/1.0.1/??Intl.js,locale-data/jsonp/en.js,locale-data/jsonp/zh.js">' + '<' + '/script>');
-    }
-    if (!window.Promise) {
-      document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"' + '>' + '<' + '/' + 'script>');
     }
     </script>
     <!-- Hotjar Tracking Code for ant.design -->
@@ -98,13 +102,5 @@
       a.appendChild(r);
     })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
     </script>
-  </head>
-  <body>
-    <div id="react-content">
-      {{ content | safe }}
-    </div>
-    <link rel="stylesheet/less" type="text/css" href="{{ root }}color.less"/>
-    <script src="{{ root }}common.js"></script>
-    <script src="{{ root }}index.js"></script>
   </body>
 </html>

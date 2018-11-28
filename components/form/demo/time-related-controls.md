@@ -7,18 +7,17 @@ title:
 
 ## zh-CN
 
-`antd@2.0` 之后，时间类组件的 `value` 改为 `moment` 类型，所以在提交前需要预处理。
+时间类组件的 `value` 类型为 `moment` 对象，所以在提交服务器前需要预处理。
 
 ## en-US
 
-After `antd@2.0`, the `value` of time-related components had been changed to `moment`. So, we need to pre-process those values.
+The `value` of time-related components is a `moment` object, which we need to pre-process it before we submit to server.
 
 ````jsx
 import { Form, DatePicker, TimePicker, Button } from 'antd';
 
 const FormItem = Form.Item;
-const MonthPicker = DatePicker.MonthPicker;
-const RangePicker = DatePicker.RangePicker;
+const { MonthPicker, RangePicker } = DatePicker;
 
 class TimeRelatedForm extends React.Component {
   handleSubmit = (e) => {

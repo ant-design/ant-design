@@ -1,6 +1,5 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
-
 @import "./card-style";
 
 @tab-prefix-cls: ~"@{ant-prefix}-tabs";
@@ -18,13 +17,13 @@
     bottom: 1px;
     box-sizing: border-box;
     height: 2px;
-    background-color: @tabs-ink-bar-bg-color;
+    background-color: @tabs-ink-bar-color;
     transform-origin: 0 0;
   }
 
   &-bar {
     border-bottom: @border-width-base @border-style-base @border-color-split;
-    margin: @tab-bar-margin;
+    margin: @tabs-bar-margin;
     outline: none;
     transition: padding .3s @ease-in-out;
   }
@@ -41,8 +40,8 @@
     .clearfix;
 
     &-scrolling {
-      padding-left: @tab-scrolling-size;
-      padding-right: @tab-scrolling-size;
+      padding-left: @tabs-scrolling-size;
+      padding-right: @tabs-scrolling-size;
     }
   }
 
@@ -80,7 +79,7 @@
 
     &.@{tab-prefix-cls}-tab-arrow-show {
       opacity: 1;
-      width: @tab-scrolling-size;
+      width: @tabs-scrolling-size;
       height: 100%;
       pointer-events: auto;
     }
@@ -102,9 +101,8 @@
       text-align: center;
       text-transform: none;
 
-      &:before {
+      &-target {
         display: block;
-        font-family: "anticon" !important;
         .iconfont-size-under-12px(10px);
       }
     }
@@ -120,17 +118,10 @@
 
   &-tab-next {
     right: 2px;
-
-    &-icon:before {
-      content: "\e61f";
-    }
   }
 
   &-tab-prev {
     left: 0;
-    &-icon:before {
-      content: "\e620";
-    }
     :root & {
       filter: none;
     }
@@ -174,8 +165,8 @@
     .@{tab-prefix-cls}-tab {
       display: inline-block;
       height: 100%;
-      margin: @tab-horizontal-margin;
-      padding: @tab-horizontal-padding;
+      margin: @tabs-horizontal-margin;
+      padding: @tabs-horizontal-padding;
       box-sizing: border-box;
       position: relative;
 
@@ -188,11 +179,11 @@
       text-decoration: none;
 
       &:hover {
-        color: @tab-hover-color;
+        color: @tabs-hover-color;
       }
 
       &:active {
-        color: @tab-active-color;
+        color: @tabs-active-color;
       }
 
       .@{iconfont-css-prefix} {
@@ -201,25 +192,31 @@
     }
 
     .@{tab-prefix-cls}-tab-active {
-      color: @tab-highlight-color;
+      color: @tabs-highlight-color;
       font-weight: 500;
     }
   }
 
-  &-large &-nav-container {
-    font-size: @tabs-title-font-size-lg;
+  &-large {
+    > .@{tab-prefix-cls}-bar {
+        .@{tab-prefix-cls}-nav-container {
+          font-size: @tabs-title-font-size-lg;
+        }
+        .@{tab-prefix-cls}-tab {
+          padding: 16px;
+        }
+    }
   }
 
-  &-large &-tab {
-    padding: 16px;
-  }
-
-  &-small &-nav-container {
-    font-size: @tabs-title-font-size-sm;
-  }
-
-  &-small &-tab {
-    padding: 8px 16px;
+  &-small {
+    > .@{tab-prefix-cls}-bar {
+        .@{tab-prefix-cls}-nav-container {
+          font-size: @tabs-title-font-size-sm;
+        }
+        .@{tab-prefix-cls}-tab {
+          padding: 8px 16px;
+        }
+    }
   }
 
   &:not(&-vertical) {
@@ -256,20 +253,20 @@
       border-bottom: 0;
       height: 100%;
       &-tab-prev, &-tab-next {
-        width: @tab-scrolling-size;
+        width: @tabs-scrolling-size;
         height: 0;
         transition: height .3s @ease-in-out, opacity .3s @ease-in-out, color .3s @ease-in-out;
       }
       &-tab-prev.@{tab-prefix-cls}-tab-arrow-show,
       &-tab-next.@{tab-prefix-cls}-tab-arrow-show {
         width: 100%;
-        height: @tab-scrolling-size;
+        height: @tabs-scrolling-size;
       }
 
       .@{tab-prefix-cls}-tab {
         float: none;
-        margin: @tab-vertical-margin;
-        padding: @tab-vertical-padding;
+        margin: @tabs-vertical-margin;
+        padding: @tabs-vertical-padding;
         display: block;
 
         &:last-child {
@@ -294,7 +291,7 @@
         margin-bottom: 0;
 
         &.@{tab-prefix-cls}-nav-container-scrolling {
-          padding: @tab-scrolling-size 0;
+          padding: @tabs-scrolling-size 0;
         }
       }
 
@@ -308,27 +305,22 @@
 
       .@{tab-prefix-cls}-ink-bar {
         width: 2px;
+        top: 0;
         left: auto;
         height: auto;
-        top: 0;
+        bottom: auto;
       }
 
       .@{tab-prefix-cls}-tab-next {
         width: 100%;
         bottom: 0;
-        height: @tab-scrolling-size;
-        &-icon:before {
-          content: "\e61d";
-        }
+        height: @tabs-scrolling-size;
       }
 
       .@{tab-prefix-cls}-tab-prev {
         top: 0;
         width: 100%;
-        height: @tab-scrolling-size;
-        &-icon:before {
-          content: "\e61e";
-        }
+        height: @tabs-scrolling-size;
       }
     }
 
@@ -394,12 +386,12 @@
 
 .@{tab-prefix-cls}-top .@{tab-prefix-cls}-ink-bar-animated,
 .@{tab-prefix-cls}-bottom .@{tab-prefix-cls}-ink-bar-animated {
-  transition: transform .3s @ease-in-out, width .3s @ease-in-out;
+  transition: transform .3s @ease-in-out, width .3s @ease-in-out, left .3s @ease-in-out;
 }
 
 .@{tab-prefix-cls}-left .@{tab-prefix-cls}-ink-bar-animated,
 .@{tab-prefix-cls}-right .@{tab-prefix-cls}-ink-bar-animated {
-  transition: transform .3s @ease-in-out, height .3s @ease-in-out;
+  transition: transform .3s @ease-in-out, height .3s @ease-in-out, top .3s @ease-in-out;
 }
 
 .no-flex,

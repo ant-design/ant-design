@@ -16,6 +16,7 @@ export default {
     emptyText: '暂无数据',
     selectAll: '全选当页',
     selectInvert: '反选当页',
+    sortTitle: '排序',
   },
   Modal: {
     okText: '确定',

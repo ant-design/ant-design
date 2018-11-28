@@ -49,7 +49,7 @@ export default class BackTop extends React.Component<BackTopProps, any> {
     const getTarget = this.props.target || getDefaultTarget;
     const targetNode = getTarget();
     if (targetNode === window) {
-      return window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop;
+      return window.pageYOffset || document.body.scrollTop || document.documentElement!.scrollTop;
     }
     return (targetNode as HTMLElement).scrollTop;
   }
@@ -76,7 +76,7 @@ export default class BackTop extends React.Component<BackTopProps, any> {
     const targetNode = getTarget();
     if (targetNode === window) {
       document.body.scrollTop = value;
-      document.documentElement.scrollTop = value;
+      document.documentElement!.scrollTop = value;
     } else {
       (targetNode as HTMLElement).scrollTop = value;
     }

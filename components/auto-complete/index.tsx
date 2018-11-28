@@ -31,6 +31,8 @@ export interface AutoCompleteProps extends AbstractSelectProps {
   optionLabelProp?: string;
   onChange?: (value: SelectValue) => void;
   onSelect?: (value: SelectValue, option: Object) => any;
+  onBlur?: (value: SelectValue) => void;
+  onFocus?: () => void;
   children?: ValidInputElement |
     React.ReactElement<OptionProps> |
     Array<React.ReactElement<OptionProps>>;
@@ -80,7 +82,7 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, {}>
   }
 
   render() {
-    let {
+    const {
       size, className = '', notFoundContent, prefixCls, optionLabelProp, dataSource, children,
     } = this.props;
 

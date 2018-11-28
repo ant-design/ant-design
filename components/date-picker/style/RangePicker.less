@@ -134,7 +134,7 @@
       z-index: 1;
     }
     &:before {
-      content: '';
+      content: "";
       display: block;
       background: @item-active-bg;
       border-radius: 0;
@@ -145,6 +145,10 @@
       left: 0;
       right: 0;
     }
+  }
+
+  .@{calendar-prefix-cls}-footer-extra {
+    float: left;
   }
 
   // `div` for selector specificity

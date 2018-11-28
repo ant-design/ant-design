@@ -48,8 +48,9 @@
     width: 100%;
   }
   .preview-image-box {
-    padding-left: 0;
     margin: 10px 0;
+    width: 100%;
+    padding: 0;
   }
 
   .image-wrapper {
@@ -106,17 +107,6 @@
 
   .nav-phone-icon {
     display: block;
-  }
-
-  .nav-phone-icon:before {
-    content: "";
-    display: block;
-    border-radius: 2px;
-    width: 16px;
-    height: 2px;
-    background: #777;
-    box-shadow: 0 6px 0 0 #777, 0 12px 0 0 #777;
-    position: absolute;
   }
 
   .main {
@@ -244,10 +234,10 @@
     }
   }
   .page1 {
-    min-height: 1538px;
+    min-height: 1300px;
     .ant-row {
       margin: 24px auto 64px;
-      >div {
+      > div {
         margin-bottom: 48px;
       }
     }
@@ -303,6 +293,13 @@
             a {
               display: block;
             }
+          }
+          a.more-mobile-react, a.more-mobile-angular {
+            color: @link-color;
+            margin-top: 0;
+          }
+          a.more-mobile-react:hover, a.more-mobile-angular:hover {
+            color: #40a9ff;
           }
         }
       }

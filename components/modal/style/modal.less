@@ -65,12 +65,6 @@
       height: 56px;
       line-height: 56px;
       font-size: @font-size-lg;
-
-      &:before {
-        content: "\e633";
-        display: block;
-        font-family: "anticon" !important;
-      }
     }
 
     &:focus,
@@ -83,7 +77,7 @@
   &-header {
     padding: 16px 24px;
     border-radius: @border-radius-base @border-radius-base 0 0;
-    background: @component-background;
+    background: @modal-header-bg;
     color: @text-color;
     border-bottom: @border-width-base @border-style-base @border-color-split;
   }
@@ -111,6 +105,7 @@
     animation-duration: @animation-duration-slow;
     transform: none; // reset scale avoid mousePosition bug
     opacity: 0;
+    user-select: none; // https://github.com/ant-design/ant-design/issues/11777
   }
 
   &-mask {
@@ -119,7 +114,7 @@
     right: 0;
     left: 0;
     bottom: 0;
-    background-color: @modal-mask-bg; // lesshint duplicateProperty: false
+    background-color: @modal-mask-bg;
     height: 100%;
     z-index: @zindex-modal-mask;
     filter: ~"alpha(opacity=50)";
@@ -137,7 +132,7 @@
 .@{dialog-prefix-cls}-centered {
   text-align: center;
   &:before {
-    content: '';
+    content: "";
     display: inline-block;
     height: 100%;
     vertical-align: middle;
@@ -148,12 +143,6 @@
     vertical-align: middle;
     top: 0;
     text-align: left;
-  }
-  .@{table-prefix-cls} {
-    &-body {
-      white-space: nowrap;
-      overflow-x: auto;
-    }
   }
 }
 

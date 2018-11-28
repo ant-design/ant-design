@@ -1,7 +1,7 @@
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
 if (typeof window !== 'undefined') {
-  const matchMediaPolyfill = (mediaQuery: string): MediaQueryList => {
+  const matchMediaPolyfill = (mediaQuery: string) => {
     return {
       media: mediaQuery,
       matches: false,
@@ -100,6 +100,8 @@ class Sider extends React.Component<SiderProps, SiderState> {
     return null;
   }
 
+  context: any;
+
   private mql: MediaQueryList;
   private uniqueId: string;
 
@@ -145,7 +147,7 @@ class Sider extends React.Component<SiderProps, SiderState> {
 
   componentWillUnmount() {
     if (this.mql) {
-      this.mql.removeListener(this.responsiveHandler);
+      this.mql.removeListener(this.responsiveHandler as any);
     }
 
     if (this.context.siderHook) {
@@ -153,7 +155,7 @@ class Sider extends React.Component<SiderProps, SiderState> {
     }
   }
 
-  responsiveHandler = (mql: MediaQueryList) => {
+  responsiveHandler = (mql: MediaQueryListEvent | MediaQueryList) => {
     this.setState({ below: mql.matches });
     const { onBreakpoint } = this.props;
     if (onBreakpoint) {

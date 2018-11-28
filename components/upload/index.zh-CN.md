@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 上传
-type: Data Entry
+type: 数据录入
 title: Upload
 ---
 
@@ -22,7 +22,7 @@ title: Upload
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | accept | 接受上传的文件类型, 详见 [input accept Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-accept) | string | 无 |
-| action | 必选参数, 上传的地址 | string\|(file) => `Promise` | 无 |
+| action | 上传的地址 | string\|(file) => `Promise` | 无 |
 | directory | 支持上传文件夹（[caniuse](https://caniuse.com/#feat=input-file-directory)）| boolean | false |
 | beforeUpload | 上传文件之前的钩子，参数为上传的文件，若返回 `false` 则停止上传。支持返回一个 Promise 对象，Promise 对象 reject 时则停止上传，resolve 时开始上传。**注意：IE9 不支持该方法**。 | (file, fileList) => `boolean | Promise` | 无 |
 | customRequest | 通过覆盖默认的上传行为，可以自定义自己的上传实现 | Function | 无 |
@@ -37,6 +37,7 @@ title: Upload
 | showUploadList | 是否展示 uploadList, 可设为一个对象，用于单独设定 showPreviewIcon 和 showRemoveIcon | Boolean or { showPreviewIcon?: boolean, showRemoveIcon?: boolean } | true |
 | supportServerRender | 服务端渲染时需要打开这个 | boolean | false |
 | withCredentials | 上传请求时是否携带 cookie | boolean | false |
+| openFileDialogOnClick | 点击打开文件对话框 | boolean | true |
 | onChange | 上传文件改变时的状态，详见 [onChange](#onChange) | Function | 无 |
 | onPreview | 点击文件链接或预览图标时的回调 | Function(file) | 无 |
 | onRemove   | 点击移除文件时的回调，返回值为 false 时不移除。支持返回一个 Promise 对象，Promise 对象 resolve(false) 或 reject 时不移除。               | Function(file): `boolean | Promise` | 无   |
@@ -66,8 +67,6 @@ title: Upload
       linkProps: '{"download": "image"}', // 下载链接额外的 HTML 属性
    }
    ```
-
-   > `antd@1.9.0` 之前，multiple 模式下，此参数为一个对象数组 `[file, ...]`，`antd@1.9.0` 开始无论是否多选，均为一个对象。
 
 2. `fileList` 当前的文件列表。
 3. `event` 上传中的服务端响应内容，包含了上传进度等信息，高级浏览器支持。

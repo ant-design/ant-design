@@ -39,4 +39,15 @@ describe('Tabs', () => {
       expect(wrapper).toMatchSnapshot();
     });
   });
+
+  describe('renderTabBar', () => {
+    it('custom-tab-bar', () => {
+      const wrapper = render(
+        <Tabs renderTabBar={() => <div>custom-tab-bar</div>}>
+          <TabPane tab="foo" key="1">foo</TabPane>
+        </Tabs>
+      );
+      expect(wrapper).toMatchSnapshot();
+    });
+  });
 });

@@ -140,6 +140,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
       formatValue(value[0], props.format),
       formatValue(value[1], props.format),
     ]);
+    this.focus();
   }
 
   handleOpenChange = (open: boolean) => {
@@ -184,9 +185,13 @@ class RangePicker extends React.Component<any, RangePickerState> {
 
     this.setValue(value, true);
 
-    const { onOk } = this.props;
+    const { onOk, onOpenChange } = this.props;
     if (onOk) {
       onOk(value);
+    }
+
+    if (onOpenChange) {
+      onOpenChange(false);
     }
   }
 
@@ -234,11 +239,11 @@ class RangePicker extends React.Component<any, RangePickerState> {
         </Tag>
       );
     });
-    const rangeNode = (
+    const rangeNode = (operations && operations.length > 0) ? (
       <div className={`${prefixCls}-footer-extra ${prefixCls}-range-quick-selector`} key="range">
         {operations}
       </div>
-    );
+    ) : null;
     return [rangeNode, customFooter];
   }
 
@@ -250,7 +255,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
       disabledDate, disabledTime,
       showTime, showToday,
       ranges, onOk, locale, localeCode, format,
-      dateRender, onCalendarChange,
+      dateRender, onCalendarChange, suffixIcon,
     } = props;
 
     fixLocale(value, localeCode);
@@ -264,7 +269,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
     });
 
     // 需要选择时间时，点击 ok 时才触发 onChange
-    let pickerChangeHandler = {
+    const pickerChangeHandler = {
       onChange: this.handleChange,
     };
     let calendarProps: any = {
@@ -317,11 +322,26 @@ class RangePicker extends React.Component<any, RangePickerState> {
 
     const clearIcon = (!props.disabled && props.allowClear && value && (value[0] || value[1])) ? (
       <Icon
-        type="cross-circle"
+        type="close-circle"
         className={`${prefixCls}-picker-clear`}
         onClick={this.clearSelection}
+        theme="filled"
       />
     ) : null;
+
+    const inputIcon = suffixIcon && (
+      React.isValidElement<{ className?: string }>(suffixIcon)
+        ? React.cloneElement(
+          suffixIcon,
+          {
+            className: classNames({
+              [suffixIcon.props.className!]: suffixIcon.props.className,
+              [`${prefixCls}-picker-icon`]: true,
+            }),
+          },
+        ) : <span className={`${prefixCls}-picker-icon`}>{suffixIcon}</span>) || (
+        <Icon type="calendar" className={`${prefixCls}-picker-icon`} />
+      );
 
     const input = ({ value: inputValue }: { value: any }) => {
       const start = inputValue[0];
@@ -346,7 +366,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
             tabIndex={-1}
           />
           {clearIcon}
-          <span className={`${prefixCls}-picker-icon`} />
+          {inputIcon}
         </span>
       );
     };

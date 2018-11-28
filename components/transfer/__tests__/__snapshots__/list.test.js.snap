@@ -43,7 +43,7 @@ exports[`List should render correctly 1`] = `
         class="ant-transfer-list-content-item"
       >
         <label
-          class="ant-checkbox-wrapper"
+          class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
         >
           <span
             class="ant-checkbox ant-checkbox-checked"
@@ -84,7 +84,7 @@ exports[`List should render correctly 1`] = `
         class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
       >
         <label
-          class="ant-checkbox-wrapper"
+          class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
         >
           <span
             class="ant-checkbox ant-checkbox-disabled"

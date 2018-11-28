@@ -92,6 +92,10 @@
     position: absolute;
     right: 0;
     bottom: 26px;
+
+    img {
+      max-width: 100%;
+    }
   }
 
   .banner-btns {
@@ -198,7 +202,7 @@ svg {
     position: relative;
     z-index: 1;
     h2 {
-      margin-bottom: 142px;
+      margin-bottom: 112px;
     }
   }
   &-content {
@@ -207,7 +211,7 @@ svg {
   }
   &-components,
   &-product {
-    min-height: 554px;
+    min-height: 670px;
   }
   &-components {
     position: initial;
@@ -236,7 +240,7 @@ svg {
     background: #fff;
     padding: 48px 56px;
     .product-block {
-      margin-bottom: 34px;
+      margin-bottom: 24px;
       cursor: pointer;
       color: @home-text-color;
       &:last-child {
@@ -247,17 +251,33 @@ svg {
         }
       }
       .block-text-wrapper {
-        padding-bottom: 35px;
+        padding-bottom: 24px;
         position: relative;
         border-bottom: 1px solid #ebedf0;
         h4 {
           font-size: 20px;
           line-height: 28px;
           margin-bottom: 8px;
+          display: inline-block;
+          position: relative;
+          white-space: nowrap;
+          .new {
+            display: inline-block;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            padding: 0 2px;
+            font-size: 12px;
+            background: #f5222d;
+            line-height: 16px;
+            border-radius: 4px;
+            color: #fff;
+            transform: translate(~"calc(100% + 4px)", -50%); // 手机回行处理
+          }
         }
         p {
           line-height: 24px;
-          margin-bottom: 24px;
+          margin-bottom: 16px;
         }
         .more {
           display: inline-block;
@@ -268,6 +288,11 @@ svg {
             font-size: 12px;
             vertical-align: middle;
           }
+        }
+        .more-mobile-react, .more-mobile-angular {
+          display: block;
+          color: @home-bg-color;
+          margin-top: 8px;
         }
       }
       .block-image-wrapper {
@@ -368,5 +393,15 @@ svg {
     video {
       display: block;
     }
+  }
+}
+
+.banner-1024 {
+  cursor: pointer;
+  transition: all .4s;
+  display: block;
+
+  &:hover {
+    transform: translateY(-16px) scale(1.01);
   }
 }

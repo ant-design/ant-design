@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import List, { TransferListProps } from './list';
 import Operation from './operation';
 import Search from './search';
+import warning from '../_util/warning';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale-provider/default';
 
@@ -26,6 +27,7 @@ export interface TransferItem {
 export interface TransferProps {
   prefixCls?: string;
   className?: string;
+  disabled?: boolean;
   dataSource: TransferItem[];
   targetKeys?: string[];
   selectedKeys?: string[];
@@ -41,6 +43,7 @@ export interface TransferProps {
   filterOption?: (inputValue: any, item: any) => boolean;
   searchPlaceholder?: string;
   notFoundContent?: React.ReactNode;
+  locale?: {};
   footer?: (props: TransferListProps) => React.ReactNode;
   body?: (props: TransferListProps) => React.ReactNode;
   rowKey?: (record: TransferItem) => string;
@@ -66,11 +69,13 @@ export default class Transfer extends React.Component<TransferProps, any> {
   static defaultProps = {
     dataSource: [],
     render: noop,
+    locale: {},
     showSearch: false,
   };
 
   static propTypes = {
     prefixCls: PropTypes.string,
+    disabled: PropTypes.bool,
     dataSource: PropTypes.array,
     render: PropTypes.func,
     targetKeys: PropTypes.array,
@@ -86,6 +91,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
     filterOption: PropTypes.func,
     searchPlaceholder: PropTypes.string,
     notFoundContent: PropTypes.node,
+    locale: PropTypes.object,
     body: PropTypes.func,
     footer: PropTypes.func,
     rowKey: PropTypes.func,
@@ -99,6 +105,12 @@ export default class Transfer extends React.Component<TransferProps, any> {
 
   constructor(props: TransferProps) {
     super(props);
+
+    warning(
+      !('notFoundContent' in props || 'searchPlaceholder' in props),
+      'Transfer[notFoundContent] and Transfer[searchPlaceholder] will be removed, ' +
+      'please use Transfer[locale] instead.',
+    );
 
     const { selectedKeys = [], targetKeys = [] } = props;
     this.state = {
@@ -321,14 +333,26 @@ export default class Transfer extends React.Component<TransferProps, any> {
     return direction === 'left' ? 'sourceSelectedKeys' : 'targetSelectedKeys';
   }
 
-  renderTransfer = (locale: TransferLocale) => {
+  getLocale = (transferLocale: TransferLocale) => {
+    // Keep old locale props still working.
+    const oldLocale: { notFoundContent?: any, searchPlaceholder?: string } = {};
+    if ('notFoundContent' in this.props) {
+      oldLocale.notFoundContent = this.props.notFoundContent;
+    }
+    if ('searchPlaceholder' in this.props) {
+      oldLocale.searchPlaceholder = this.props.searchPlaceholder;
+    }
+
+    return ({ ...transferLocale, ...oldLocale, ...this.props.locale });
+  }
+
+  renderTransfer = (transferLocale: TransferLocale) => {
     const {
       prefixCls = 'ant-transfer',
       className,
+      disabled,
       operations = [],
       showSearch,
-      notFoundContent,
-      searchPlaceholder,
       body,
       footer,
       style,
@@ -338,13 +362,14 @@ export default class Transfer extends React.Component<TransferProps, any> {
       render,
       lazy,
     } = this.props;
+    const locale = this.getLocale(transferLocale);
     const { leftFilter, rightFilter, sourceSelectedKeys, targetSelectedKeys } = this.state;
 
     const { leftDataSource, rightDataSource } = this.separateDataSource(this.props);
     const leftActive = targetSelectedKeys.length > 0;
     const rightActive = sourceSelectedKeys.length > 0;
 
-    const cls = classNames(className, prefixCls);
+    const cls = classNames(className, prefixCls, disabled && `${prefixCls}-disabled`);
 
     const titles = this.getTitles(locale);
     return (
@@ -363,14 +388,12 @@ export default class Transfer extends React.Component<TransferProps, any> {
           handleSelectAll={this.handleLeftSelectAll}
           render={render}
           showSearch={showSearch}
-          searchPlaceholder={searchPlaceholder || locale.searchPlaceholder}
-          notFoundContent={notFoundContent || locale.notFoundContent}
-          itemUnit={locale.itemUnit}
-          itemsUnit={locale.itemsUnit}
           body={body}
           footer={footer}
           lazy={lazy}
           onScroll={this.handleLeftScroll}
+          disabled={disabled}
+          {...locale}
         />
         <Operation
           className={`${prefixCls}-operation`}
@@ -381,6 +404,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
           leftArrowText={operations[1]}
           moveToLeft={this.moveToLeft}
           style={operationStyle}
+          disabled={disabled}
         />
         <List
           prefixCls={`${prefixCls}-list`}
@@ -396,14 +420,12 @@ export default class Transfer extends React.Component<TransferProps, any> {
           handleSelectAll={this.handleRightSelectAll}
           render={render}
           showSearch={showSearch}
-          searchPlaceholder={searchPlaceholder || locale.searchPlaceholder}
-          notFoundContent={notFoundContent || locale.notFoundContent}
-          itemUnit={locale.itemUnit}
-          itemsUnit={locale.itemsUnit}
           body={body}
           footer={footer}
           lazy={lazy}
           onScroll={this.handleRightScroll}
+          disabled={disabled}
+          {...locale}
         />
       </div>
     );

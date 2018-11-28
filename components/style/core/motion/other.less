@@ -11,7 +11,7 @@
 
 [ant-click-animating-without-extra-node]:after,
 .ant-click-animating-node {
-  content: '';
+  content: "";
   position: absolute;
   top: -1px;
   left: -1px;
@@ -19,18 +19,25 @@
   right: -1px;
   border-radius: inherit;
   border: 0 solid @primary-color;
-  opacity: 0.4;
-  animation: waveEffect .4s cubic-bezier(.25, .8, .25, 1);
+  opacity: 0.2;
+  animation: fadeEffect 2s @ease-out-circ, waveEffect .4s @ease-out-circ;
+  animation-fill-mode: forwards;
   display: block;
+  pointer-events: none;
 }
 
 @keyframes waveEffect {
-  to {
-    opacity: 0;
+  100% {
     top: -@wave-animation-width;
     left: -@wave-animation-width;
     bottom: -@wave-animation-width;
     right: -@wave-animation-width;
     border-width: @wave-animation-width;
+  }
+}
+
+@keyframes fadeEffect {
+  100% {
+    opacity: 0;
   }
 }

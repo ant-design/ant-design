@@ -4,7 +4,7 @@ import debounce from 'lodash/debounce';
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
 if (typeof window !== 'undefined') {
-  const matchMediaPolyfill = (mediaQuery: string): MediaQueryList => {
+  const matchMediaPolyfill = (mediaQuery: string) => {
     return {
       media: mediaQuery,
       matches: false,
@@ -122,12 +122,12 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
     this.slick.slickPrev();
   }
 
-  goTo(slide: number) {
-    this.slick.slickGoTo(slide);
+  goTo(slide: number, dontAnimate = false) {
+    this.slick.slickGoTo(slide, dontAnimate);
   }
 
   render() {
-    let props = {
+    const props = {
       ...this.props,
     };
 

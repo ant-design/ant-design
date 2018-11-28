@@ -67,11 +67,18 @@ class Upload extends React.Component<UploadProps, UploadState> {
   }
 
   onStart = (file: RcFile) => {
-    let targetItem;
-    let nextFileList = this.state.fileList.concat();
-    targetItem = fileToObject(file);
+    const targetItem = fileToObject(file);
     targetItem.status = 'uploading';
-    nextFileList.push(targetItem);
+
+    const nextFileList = this.state.fileList.concat();
+
+    const fileIndex = nextFileList.findIndex(({ uid }) => uid === targetItem.uid);
+    if (fileIndex === -1) {
+      nextFileList.push(targetItem);
+    } else {
+      nextFileList[fileIndex] = targetItem;
+    }
+
     this.onChange({
       file: targetItem,
       fileList: nextFileList,
@@ -102,8 +109,8 @@ class Upload extends React.Component<UploadProps, UploadState> {
       }
     } catch (e) { /* do nothing */
     }
-    let fileList = this.state.fileList;
-    let targetItem = getFileItem(file, fileList);
+    const fileList = this.state.fileList;
+    const targetItem = getFileItem(file, fileList);
     // removed
     if (!targetItem) {
       return;
@@ -117,8 +124,8 @@ class Upload extends React.Component<UploadProps, UploadState> {
   }
 
   onProgress = (e: { percent: number }, file: UploadFile) => {
-    let fileList = this.state.fileList;
-    let targetItem = getFileItem(file, fileList);
+    const fileList = this.state.fileList;
+    const targetItem = getFileItem(file, fileList);
     // removed
     if (!targetItem) {
       return;
@@ -133,8 +140,8 @@ class Upload extends React.Component<UploadProps, UploadState> {
 
   onError = (error: Error, response: any, file: UploadFile) => {
     this.clearProgressTimer();
-    let fileList = this.state.fileList;
-    let targetItem = getFileItem(file, fileList);
+    const fileList = this.state.fileList;
+    const targetItem = getFileItem(file, fileList);
     // removed
     if (!targetItem) {
       return;

@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 3
 title: Use in create-react-app
 ---
 
@@ -104,7 +104,7 @@ Now we need to customize the default webpack config. We can achieve that by usin
 Import react-app-rewired and modify the `scripts` field in package.json.
 
 ```
-$ yarn add react-app-rewired --dev
+$ yarn add react-app-rewired
 ```
 
 ```diff
@@ -114,8 +114,8 @@ $ yarn add react-app-rewired --dev
 +   "start": "react-app-rewired start",
 -   "build": "react-scripts build",
 +   "build": "react-app-rewired build",
--   "test": "react-scripts test --env=jsdom",
-+   "test": "react-app-rewired test --env=jsdom",
+-   "test": "react-scripts test",
++   "test": "react-app-rewired test",
 }
 ```
 
@@ -133,14 +133,17 @@ module.exports = function override(config, env) {
 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) is a babel plugin for importing components on demand ([How does it work?](/docs/react/getting-started#Import-on-Demand)). We are now trying to install it and modify `config-overrides.js`.
 
 ```bash
-$ yarn add babel-plugin-import --dev
+$ yarn add babel-plugin-import
 ```
 
 ```diff
 + const { injectBabelPlugin } = require('react-app-rewired');
 
   module.exports = function override(config, env) {
-+   config = injectBabelPlugin(['import', { libraryName: 'antd', libraryDirectory: 'es', style: 'css' }], config);
++   config = injectBabelPlugin(
++     ['import', { libraryName: 'antd', libraryDirectory: 'es', style: 'css' }],
++     config,
++   );
     return config;
   };
 ```
@@ -174,7 +177,7 @@ Then reboot with `yarn start` and visit the demo page, you should not find any [
 According to the [Customize Theme documentation](/docs/react/customize-theme), to customize the theme, we need to modify `less` variables with tools such as [less-loader](https://github.com/webpack/less-loader). We can also use [react-app-rewire-less](http://npmjs.com/react-app-rewire-less) to achieve this. Import it and modify `config-overrides.js` like below.
 
 ```bash
-$ yarn add react-app-rewire-less --dev
+$ yarn add react-app-rewire-less
 ```
 
 ```diff
@@ -182,11 +185,14 @@ $ yarn add react-app-rewire-less --dev
 + const rewireLess = require('react-app-rewire-less');
 
   module.exports = function override(config, env) {
--   config = injectBabelPlugin(['import', { libraryName: 'antd', style: 'css' }], config);
-+   config = injectBabelPlugin(['import', { libraryName: 'antd', style: true }], config);  // change importing css to less
+    config = injectBabelPlugin(
+-     ['import', { libraryName: 'antd', libraryDirectory: 'es', style: 'css' }],
++     ['import', { libraryName: 'antd', libraryDirectory: 'es', style: true }], // change importing css to less
+      config,
+    );
 +   config = rewireLess.withLoaderOptions({
-+     javascriptEnabled: true,
 +     modifyVars: { "@primary-color": "#1DA57A" },
++     javascriptEnabled: true,
 +   })(config, env);
     return config;
   };

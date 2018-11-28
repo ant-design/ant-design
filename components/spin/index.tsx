@@ -52,6 +52,10 @@ function renderIndicator(props: SpinProps): React.ReactNode {
   );
 }
 
+function shouldDelay(spinning?: boolean, delay?: number): boolean {
+  return !!spinning && !!delay && !isNaN(Number(delay));
+}
+
 class Spin extends React.Component<SpinProps, SpinState> {
   static defaultProps = {
     prefixCls: 'ant-spin',
@@ -78,9 +82,10 @@ class Spin extends React.Component<SpinProps, SpinState> {
 
   constructor(props: SpinProps) {
     super(props);
-    const spinning = props.spinning;
+
+    const { spinning, delay } = props;
     this.state = {
-      spinning,
+      spinning: spinning && !shouldDelay(spinning, delay),
     };
   }
 
@@ -90,9 +95,8 @@ class Spin extends React.Component<SpinProps, SpinState> {
 
   componentDidMount() {
     const { spinning, delay } = this.props;
-    if (spinning && delay && !isNaN(Number(delay))) {
-      this.setState({ spinning: false });
-      this.delayTimeout = window.setTimeout(() => this.setState({ spinning }), delay);
+    if (shouldDelay(spinning, delay)) {
+      this.delayTimeout = window.setTimeout(this.delayUpdateSpinning, delay);
     }
   }
 
@@ -105,9 +109,12 @@ class Spin extends React.Component<SpinProps, SpinState> {
     }
   }
 
-  componentWillReceiveProps(nextProps: SpinProps) {
-    const currentSpinning = this.props.spinning;
-    const spinning = nextProps.spinning;
+  componentDidUpdate() {
+    const currentSpinning = this.state.spinning;
+    const spinning = this.props.spinning;
+    if (currentSpinning === spinning) {
+      return;
+    }
     const { delay } = this.props;
 
     if (this.debounceTimeout) {
@@ -119,16 +126,23 @@ class Spin extends React.Component<SpinProps, SpinState> {
         clearTimeout(this.delayTimeout);
       }
     } else {
-      if (spinning && delay && !isNaN(Number(delay))) {
+      if (shouldDelay(spinning, delay)) {
         if (this.delayTimeout) {
           clearTimeout(this.delayTimeout);
         }
-        this.delayTimeout = window.setTimeout(() => this.setState({ spinning }), delay);
+        this.delayTimeout = window.setTimeout(this.delayUpdateSpinning, delay);
       } else {
         this.setState({ spinning });
       }
     }
   }
+
+  delayUpdateSpinning = () => {
+    const { spinning } = this.props;
+    if (this.state.spinning !== spinning) {
+      this.setState({ spinning });
+    }
+  };
 
   render() {
     const { className, size, prefixCls, tip, wrapperClassName, ...restProps } = this.props;

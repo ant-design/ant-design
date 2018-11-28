@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import message from '..';
+import Icon from '../../icon';
 
 describe('message', () => {
   beforeEach(() => {
@@ -113,6 +114,16 @@ describe('message', () => {
     hide();
     jest.runAllTimers();
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
+  });
+
+  it('should allow custom icon', () => {
+    message.open({ content: 'Message', icon: <Icon type="smile-o" /> });
+    expect(document.querySelectorAll('.anticon-smile-o').length).toBe(1);
+  });
+
+  it('should have no icon', () => {
+    message.open({ content: 'Message' });
+    expect(document.querySelectorAll('.ant-message-notice .anticon').length).toBe(0);
   });
 
   // https://github.com/ant-design/ant-design/issues/8201

@@ -3,7 +3,7 @@ order: 1
 title: Getting Started
 ---
 
-Ant Design React is dedicated to providing a **good development experience** for programmers. Make sure that you had installed [Node.js](https://nodejs.org/)(> v6.5) correctly.
+Ant Design React is dedicated to providing a **good development experience** for programmers. Make sure that you had installed [Node.js](https://nodejs.org/)(> 8.0.0) correctly.
 
 > Before delving into Ant Design React, a good knowledge base of [React](http://facebook.github.io/react/) and [JavaScript ES2015](http://babeljs.io/docs/learn-es2015/) is needed.
 
@@ -13,7 +13,7 @@ Ant Design React is dedicated to providing a **good development experience** for
 
 The following CodeSandbox demo is the simplest use case, and it's also a good habit to fork this demo to provide a re-producible demo while reporting a bug.
 
-- [antd CodeSandbox](https://u.ant.design/codesandbox-repro)
+<iframe src="https://codesandbox.io/embed/wk04r016q8?fontsize=12" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
 
 ## First Local Development
 
@@ -21,7 +21,7 @@ During development, you may need to compile and debug JSX and ES2015 code, and e
 
 ### 1. Installation
 
-[antd-init](https://github.com/ant-design/antd-init/) is a demo-only scaffold tool. If you want to create real world projects, [dva-cli](https://github.com/dvajs/dva-cli) and [create-react-app](https://github.com/facebookincubator/create-react-app) is our recommendation.
+[antd-init](https://github.com/ant-design/antd-init/) is a demo-only scaffold tool. If you want to create real world projects, [create-umi](https://github.com/umijs/create-umi) and [create-react-app](https://github.com/facebookincubator/create-react-app) is our recommendation.
 
 ```bash
 $ npm install antd-init -g
@@ -29,17 +29,12 @@ $ npm install antd-init -g
 
 Read [the documentation of `antd-init`](https://github.com/ant-design/antd-init/) and [the documentation of `ant-tool`](http://ant-tool.github.io/) to explore more features.
 
-> Also, you can try other scaffolds which is provided below:
->
->   - [Ant Design Pro](http://pro.ant.design/)
->   - [antd-admin](https://github.com/zuiidea/antd-admin)
->   - [reactSPA](https://github.com/JasonBai007/reactSPA)
->   - [react-redux-antd by Justin-lu](https://github.com/Justin-lu/react-redux-antd)
->   - [react-redux-antd by okoala](https://github.com/okoala/react-redux-antd)
->   - [react-antd-admin](https://github.com/fireyy/react-antd-admin)
->   - [react-antd-redux-router-starter](https://github.com/yuzhouisme/react-antd-redux-router-starter)
->   - [react-redux-antd-starter](https://github.com/BetaRabbit/react-redux-antd-starter)
->   - more scaffolds at [Scaffold Market](http://scaffold.ant.design/)
+Also, you can try other scaffolds provided below:
+
+- [Ant Design Pro](http://pro.ant.design/)
+- [antd-admin](https://github.com/zuiidea/antd-admin)
+- [d2-admin](https://github.com/d2-projects/d2-admin)
+- more scaffolds at [Scaffold Market](http://scaffold.ant.design/)
 
 ### 2. Create a New Project
 

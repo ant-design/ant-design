@@ -61,7 +61,7 @@ describe('Upload List', () => {
       </Upload>
     );
     expect(wrapper.find('.ant-upload-list-item').length).toBe(2);
-    wrapper.find('.ant-upload-list-item').at(0).find('.anticon-cross').simulate('click');
+    wrapper.find('.ant-upload-list-item').at(0).find('.anticon-close').simulate('click');
     await delay(400);
     wrapper.update();
     expect(wrapper.find('.ant-upload-list-item').hostNodes().length).toBe(1);
@@ -145,66 +145,6 @@ describe('Upload List', () => {
 
     expect(wrapper.state().fileList.length).toBe(fileList.length + 1);
     expect(handleChange.mock.calls[0][0].fileList).toHaveLength(3);
-  });
-
-  // https://github.com/ant-design/ant-design/issues/7762
-  it('work with form validation', () => {
-    let errors;
-    class TestForm extends React.Component {
-      handleSubmit = () => {
-        const { form: { validateFields } } = this.props;
-        validateFields((err) => {
-          errors = err;
-        });
-      }
-
-      render() {
-        const { form: { getFieldDecorator } } = this.props;
-        return (
-          <Form onSubmit={this.handleSubmit}>
-            <Form.Item>
-              {getFieldDecorator('file', {
-                valuePropname: 'fileList',
-                getValueFromEvent: e => e.fileList,
-                rules: [
-                  {
-                    required: true,
-                    validator: (rule, value, callback) => {
-                      if (!value || value.length === 0) {
-                        callback('file required');
-                      } else {
-                        callback();
-                      }
-                    },
-                  },
-                ],
-              })(
-                <Upload
-                  beforeUpload={() => false}
-                >
-                  <button type="button">upload</button>
-                </Upload>
-              )}
-            </Form.Item>
-          </Form>
-        );
-      }
-    }
-
-    const App = Form.create()(TestForm);
-    const wrapper = mount(<App />);
-    wrapper.find(Form).simulate('submit');
-    expect(errors.file.errors).toEqual([{ message: 'file required', field: 'file' }]);
-
-    wrapper.find('input').simulate('change', {
-      target: {
-        files: [
-          { name: 'foo.png' },
-        ],
-      },
-    });
-    wrapper.find(Form).simulate('submit');
-    expect(errors).toBeNull();
   });
 
   it('should support onPreview', () => {
@@ -342,5 +282,65 @@ describe('Upload List', () => {
       </Upload>
     );
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/7762
+  it('work with form validation', () => {
+    let errors;
+    class TestForm extends React.Component {
+      handleSubmit = () => {
+        const { form: { validateFields } } = this.props;
+        validateFields((err) => {
+          errors = err;
+        });
+      }
+
+      render() {
+        const { form: { getFieldDecorator } } = this.props;
+        return (
+          <Form onSubmit={this.handleSubmit}>
+            <Form.Item>
+              {getFieldDecorator('file', {
+                valuePropname: 'fileList',
+                getValueFromEvent: e => e.fileList,
+                rules: [
+                  {
+                    required: true,
+                    validator: (rule, value, callback) => {
+                      if (!value || value.length === 0) {
+                        callback('file required');
+                      } else {
+                        callback();
+                      }
+                    },
+                  },
+                ],
+              })(
+                <Upload
+                  beforeUpload={() => false}
+                >
+                  <button type="button">upload</button>
+                </Upload>
+              )}
+            </Form.Item>
+          </Form>
+        );
+      }
+    }
+
+    const App = Form.create()(TestForm);
+    const wrapper = mount(<App />);
+    wrapper.find(Form).simulate('submit');
+    expect(errors.file.errors).toEqual([{ message: 'file required', field: 'file' }]);
+
+    wrapper.find('input').simulate('change', {
+      target: {
+        files: [
+          { name: 'foo.png' },
+        ],
+      },
+    });
+    wrapper.find(Form).simulate('submit');
+    expect(errors).toBeNull();
   });
 });

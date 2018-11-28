@@ -1,9 +1,10 @@
 import * as React from 'react';
-import RcDrawer from 'rc-drawer';
 import * as PropTypes from 'prop-types';
+import RcDrawer from 'rc-drawer';
 import createReactContext, { Context } from 'create-react-context';
 import warning from 'warning';
 import classNames from 'classnames';
+import Icon from '../icon';
 
 const DrawerContext: Context<Drawer | null> = createReactContext(null);
 
@@ -13,6 +14,7 @@ type EventType =
 
 type getContainerfunc = () => HTMLElement;
 
+type placementType =  'top' | 'right' | 'bottom' | 'left';
 export interface DrawerProps {
   closable?: boolean;
   destroyOnClose?: boolean;
@@ -24,12 +26,13 @@ export interface DrawerProps {
   title?: React.ReactNode;
   visible?: boolean;
   width?: number | string;
+  height?: number | string;
   /* deprecated, use className instead */
   wrapClassName?: string;
   zIndex?: number;
   prefixCls?: string;
   push?: boolean;
-  placement?: 'left' | 'right';
+  placement?: placementType;
   onClose?: (e: EventType) => void;
   className?: string;
 }
@@ -65,9 +68,11 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
   static defaultProps = {
     prefixCls: 'ant-drawer',
     width: 256,
+    height: 256,
     closable: true,
     placement: 'right',
     maskClosable: true,
+    mask: true,
     level: null,
   };
 
@@ -75,17 +80,19 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
     push: false,
   };
 
-  praentDrawer: Drawer;
+  parentDrawer: Drawer;
   destoryClose: boolean;
+
   public componentDidUpdate(preProps: DrawerProps) {
-    if (preProps.visible !== this.props.visible && this.praentDrawer) {
+    if (preProps.visible !== this.props.visible && this.parentDrawer) {
       if (this.props.visible) {
-        this.praentDrawer.push();
+        this.parentDrawer.push();
       } else {
-        this.praentDrawer.pull();
+        this.parentDrawer.pull();
       }
     }
   }
+
   close = (e: EventType) => {
     if (this.props.visible !== undefined) {
       if (this.props.onClose) {
@@ -94,22 +101,26 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
       return;
     }
   }
+
   onMaskClick = (e: EventType) => {
     if (!this.props.maskClosable) {
       return;
     }
     this.close(e);
   }
+
   push = () => {
     this.setState({
       push: true,
     });
   }
+
   pull = () => {
     this.setState({
       push: false,
     });
   }
+
   onDestoryTransitionEnd = () => {
     const isDestroyOnClose = this.getDestoryOnClose();
     if (!isDestroyOnClose) {
@@ -123,6 +134,17 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
 
   getDestoryOnClose = () => (this.props.destroyOnClose && !this.props.visible);
 
+  // get drawar push width or height
+  getPushTransform = (placement?: placementType) => {
+    if (placement === 'left' || placement === 'right') {
+      return `translateX(${placement === 'left' ? 180 : -180}px)`;
+    }
+    if (placement === 'top' || placement === 'bottom') {
+      return `translateY(${placement === 'top' ? 180 : -180}px)`;
+    }
+  }
+
+  // render drawer body dom
   renderBody = () => {
     if (this.destoryClose && !this.props.visible) {
       return null;
@@ -137,12 +159,15 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
       } : {};
 
     const isDestroyOnClose = this.getDestoryOnClose();
+
     if (isDestroyOnClose) {
       // Increase the opacity transition, delete children after closing.
       containerStyle.opacity = 0;
       containerStyle.transition = 'opacity .3s';
     }
     const { prefixCls, title, closable } = this.props;
+
+    // is have header dom
     let header;
     if (title) {
       header = (
@@ -151,6 +176,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
         </div>
       );
     }
+    // is have closer button
     let closer;
     if (closable) {
       closer = (
@@ -159,7 +185,9 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
           aria-label="Close"
           className={`${prefixCls}-close`}
         >
-          <span className={`${prefixCls}-close-x`} />
+          <span className={`${prefixCls}-close-x`}>
+            <Icon type="close"/>
+          </span>
         </button>
       );
     }
@@ -178,33 +206,52 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
       </div>
     );
   }
+
+  getRcDrawerStyle = () => {
+    const { zIndex, placement, maskStyle } = this.props;
+    return this.state.push
+    ? {
+      ...maskStyle,
+      zIndex,
+      transform: this.getPushTransform(placement),
+    }
+    : {
+      ...maskStyle,
+      zIndex,
+    };
+  }
+
+  // render Provider for Multi-level drawe
   renderProvider = (value: Drawer) => {
-    let { zIndex, style, placement, className, wrapClassName, ...rest } = this.props;
+    const { zIndex, style, placement, className, wrapClassName, width, height, ...rest } = this.props;
     warning(wrapClassName === undefined, 'wrapClassName is deprecated, please use className instead.');
-    const RcDrawerStyle = this.state.push
-      ? {
-        zIndex,
-        transform: `translateX(${placement === 'left' ? 180 : -180}px)`,
-      }
-      : { zIndex };
-    this.praentDrawer = value;
+    const haveMask = rest.mask ? "" : "no-mask";
+    this.parentDrawer = value;
+    const offsetStyle: any = {};
+    if (placement === 'left' || placement === 'right') {
+      offsetStyle.width = width;
+    } else {
+      offsetStyle.height = height;
+    }
     return (
       <DrawerContext.Provider value={this}>
         <RcDrawer
-          {...rest}
           handler={false}
+          {...rest}
+          {...offsetStyle}
           open={this.props.visible}
           onMaskClick={this.onMaskClick}
           showMask={this.props.mask}
           placement={placement}
-          style={RcDrawerStyle}
-          className={classNames(wrapClassName, className)}
+          style={this.getRcDrawerStyle()}
+          className={classNames(wrapClassName, className, haveMask)}
         >
           {this.renderBody()}
         </RcDrawer>
       </DrawerContext.Provider>
     );
   }
+
   render() {
     return (
       <DrawerContext.Consumer>{this.renderProvider}</DrawerContext.Consumer>

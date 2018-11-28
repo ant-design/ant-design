@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
+import RowContext from './RowContext';
 
 const stringOrNumber = PropTypes.oneOfType([PropTypes.string, PropTypes.number]);
 const objectOrNumber = PropTypes.oneOfType([PropTypes.object, PropTypes.number]);
@@ -76,6 +77,20 @@ export default class Col extends React.Component<ColProps, {}> {
       [`${prefixCls}-pull-${pull}`]: pull,
     }, className, sizeClassObj);
 
-    return <div {...others} className={classes}>{children}</div>;
+    return (
+      <RowContext.Consumer>
+        {({ gutter }) => {
+          let style = others.style;
+          if (gutter as number > 0) {
+            style = {
+              paddingLeft: (gutter as number) / 2,
+              paddingRight: (gutter as number) / 2,
+              ...style,
+            };
+          }
+          return <div {...others} style={style} className={classes}>{children}</div>;
+        }}
+      </RowContext.Consumer>
+    )
   }
 }

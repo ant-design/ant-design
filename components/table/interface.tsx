@@ -6,11 +6,14 @@ import { CheckboxChangeEvent } from '../checkbox';
 import { PaginationConfig } from '../pagination';
 export { PaginationConfig } from '../pagination';
 
-export type CompareFn<T> = ((a: T, b: T, sortOrder?: 'ascend' | 'descend') => number);
+export type CompareFn<T> = ((a: T, b: T, sortOrder?: SortOrder) => number);
 export type ColumnFilterItem = { text: string; value: string, children?: ColumnFilterItem[] };
 
 export interface ColumnProps<T> {
-  title?: React.ReactNode;
+  title?: React.ReactNode | ((options: {
+    filters: TableStateFilters,
+    sortOrder?: SortOrder,
+  }) => React.ReactNode);
   key?: React.Key;
   dataIndex?: string;
   render?: (text: any, record: T, index: number) => React.ReactNode;
@@ -22,14 +25,14 @@ export interface ColumnProps<T> {
   filterDropdownVisible?: boolean;
   onFilterDropdownVisibleChange?: (visible: boolean) => void;
   sorter?: boolean | CompareFn<T>;
-  defaultSortOrder?: 'ascend' | 'descend';
+  defaultSortOrder?: SortOrder;
   colSpan?: number;
   width?: string | number;
   className?: string;
   fixed?: boolean | ('left' | 'right');
-  filterIcon?: React.ReactNode;
+  filterIcon?: React.ReactNode | ((filtered: boolean) => React.ReactNode);
   filteredValue?: any[];
-  sortOrder?: 'ascend' | 'descend';
+  sortOrder?: SortOrder;
   children?: ColumnProps<T>[];
   onCellClick?: (record: T, event: any) => void;
   onCell?: (record: T) => any;
@@ -37,16 +40,16 @@ export interface ColumnProps<T> {
 }
 
 export interface TableComponents {
-  table?: any;
+  table?: React.ReactType;
   header?: {
-    wrapper?: any;
-    row?: any;
-    cell?: any;
+    wrapper?: React.ReactType;
+    row?: React.ReactType;
+    cell?: React.ReactType;
   };
   body?: {
-    wrapper?: any;
-    row?: any;
-    cell?: any;
+    wrapper?: React.ReactType;
+    row?: React.ReactType;
+    cell?: React.ReactType;
   };
 }
 
@@ -57,6 +60,7 @@ export interface TableLocale {
   emptyText?: React.ReactNode | (() => React.ReactNode);
   selectAll?: React.ReactNode;
   selectInvert?: React.ReactNode;
+  sortTitle?: string;
 }
 
 export type RowSelectionType = 'checkbox' | 'radio';
@@ -208,3 +212,12 @@ export interface FilterMenuState {
   keyPathOfSelectedItem: { [key: string]: string };
   visible?: boolean;
 }
+
+export type PrepareParamsArgumentsReturn<T> = [
+  any,
+  string[],
+  Object,
+  {
+    currentDataSource: T[],
+  }
+];

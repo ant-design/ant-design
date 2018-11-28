@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 面包屑
-type: Navigation
+type: 导航
 title: Breadcrumb
 ---
 
@@ -21,8 +21,6 @@ title: Breadcrumb
 | params | 路由的参数 | object |  | - |
 | routes | router 的路由栈信息 | object\[] |  | - |
 | separator | 分隔符自定义 | string\|ReactNode |  | '/' |
-
-> 2.0 之后，`linkRender` 和 `nameRender` 被移除，请使用 `itemRender` 来代替。
 
 ### 和 browserHistory 配合
 

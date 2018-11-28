@@ -3,6 +3,7 @@ import RcTree, { TreeNode } from 'rc-tree';
 import DirectoryTree from './DirectoryTree';
 import classNames from 'classnames';
 import animation from '../_util/openAnimation';
+import Icon from '../icon';
 
 export interface AntdTreeNodeAttribute {
   eventKey: string;
@@ -33,10 +34,12 @@ export interface AntTreeNodeProps {
   isLeaf?: boolean;
   checked?: boolean;
   expanded?: boolean;
+  loading?: boolean;
   selected?: boolean;
   selectable?: boolean;
   icon?: ((treeNode: AntdTreeNodeAttribute) => React.ReactNode) | React.ReactNode;
   children?: React.ReactNode;
+  [customProp: string]: any;
 }
 
 export interface AntTreeNode extends React.Component<AntTreeNodeProps, {}> { }
@@ -64,6 +67,15 @@ export interface AntTreeNodeExpandedEvent extends AntTreeNodeBaseEvent {
 
 export interface AntTreeNodeMouseEvent {
   node: AntTreeNode;
+  event: React.MouseEventHandler<any>;
+}
+
+export interface AntTreeNodeDropEvent {
+  node: AntTreeNode;
+  dragNode: AntTreeNode;
+  dragNodesKeys: string[];
+  dropPosition: number;
+  dropToGap?: boolean;
   event: React.MouseEventHandler<any>;
 }
 
@@ -100,7 +112,7 @@ export interface TreeProps {
   /** 展开/收起节点时触发 */
   onExpand?: (expandedKeys: string[], info: AntTreeNodeExpandedEvent) => void | PromiseLike<any>;
   /** 点击复选框触发 */
-  onCheck?: (checkedKeys: string[], e: AntTreeNodeCheckedEvent) => void;
+  onCheck?: (checkedKeys: string[] | { checked: string[]; halfChecked: string[] }, e: AntTreeNodeCheckedEvent) => void;
   /** 点击树节点触发 */
   onSelect?: (selectedKeys: string[], e: AntTreeNodeSelectedEvent) => void;
   /** 单击树节点触发 */
@@ -126,7 +138,7 @@ export interface TreeProps {
   /** dragleave 触发时调用 */
   onDragLeave?: (options: AntTreeNodeMouseEvent) => void;
   /** drop 触发时调用 */
-  onDrop?: (options: AntTreeNodeMouseEvent) => void;
+  onDrop?: (options: AntTreeNodeDropEvent) => void;
   style?: React.CSSProperties;
   showIcon?: boolean;
   icon?: (nodeProps: AntdTreeNodeAttribute) => React.ReactNode | React.ReactNode;
@@ -149,15 +161,62 @@ export default class Tree extends React.Component<TreeProps, any> {
     },
   };
 
+  tree: any;
+
+  renderSwitcherIcon = ({ isLeaf, expanded, loading }: AntTreeNodeProps) => {
+    const {
+      prefixCls,
+      showLine,
+    } = this.props;
+    if (loading) {
+      return (
+        <Icon
+          type="loading"
+          className={`${prefixCls}-switcher-loading-icon`}
+        />
+      );
+    }
+    if (showLine) {
+      if (isLeaf) {
+        return (
+          <Icon
+            type="file"
+            className={`${prefixCls}-switcher-line-icon`}
+          />
+        );
+      }
+      return (
+        <Icon
+          type={expanded ? 'minus-square' : 'plus-square'}
+          className={`${prefixCls}-switcher-line-icon`}
+          theme="outlined"
+        />
+      );
+    } else {
+      if (isLeaf) {
+        return null;
+      }
+      return (
+        <Icon type="caret-down" className={`${prefixCls}-switcher-icon`} theme="filled" />
+      );
+    }
+  }
+
+  setTreeRef = (node: any) => {
+    this.tree = node;
+  };
+
   render() {
     const props = this.props;
     const { prefixCls, className, showIcon } = props;
-    let checkable = props.checkable;
+    const checkable = props.checkable;
     return (
       <RcTree
+        ref={this.setTreeRef}
         {...props}
         className={classNames(!showIcon && `${prefixCls}-icon-hide`, className)}
         checkable={checkable ? <span className={`${prefixCls}-checkbox-inner`} /> : checkable}
+        switcherIcon={this.renderSwitcherIcon}
       >
         {this.props.children}
       </RcTree>
