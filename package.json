@@ -205,6 +205,9 @@
     "lint-staged:es": "eslint ./.*.js ./webpack.config.js",
     "lint-staged:demo": "cross-env RUN_ENV=DEMO eslint --ext '.md'"
   },
+  "pre-commit": [
+    "lint-staged"
+  ],
   "lint-staged": {
     "components/**/*.tsx": [
       "npm run lint-staged:ts"
@@ -217,9 +220,6 @@
       "npm run lint-staged:demo"
     ]
   },
-  "pre-commit": [
-    "lint-staged"
-  ],
   "sideEffects": [
     "dist/*",
     "es/**/style/*",

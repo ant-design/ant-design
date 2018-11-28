@@ -19,13 +19,13 @@ timeline: true
 
 `2018-11-24`
 
-- 🌟 Checkbox 添加状态相关 css class。[#13199](https://github.com/ant-design/ant-design/issues/13199) [@walker27](https://github.com/walker27)
+- 🐞 修复 Checkbox 标签名鼠标失效样式没有生效的问题。[#13199](https://github.com/ant-design/ant-design/issues/13199) [@walker27](https://github.com/walker27)
 - 🐞 修复 TimePicker 输入框超出边界的样式问题。[#13194](https://github.com/ant-design/ant-design/issues/13194)
 - 🌟 Table 排序调整为先升序后降序。[#13069](https://github.com/ant-design/ant-design/pull/13069) [@OvestLabs](https://github.com/OvestLabs)
 - 🐞 修复 loading 状态下，Switch 仍然可以被操作的问题。[#13219](https://github.com/ant-design/ant-design/pull/13219) [@jojoLockLock](https://github.com/jojoLockLock)
 - 🐞 修复 Carousel 组件渐显效果下轮播区域无法点击的问题。[#13215](https://github.com/ant-design/ant-design/issues/13215)
-- 🌟 DatePicker 添加 `tabIndex` 支持。[#13265](https://github.com/ant-design/ant-design/pull/13265) [@arifemrecelik](https://github.com/arifemrecelik)
-- 🌟 TreeSelect 现在在搜索时不再调用 `loadData` 以避免卡死。[#13245](https://github.com/ant-design/ant-design/issues/13245)
+- 🐞 修复 DatePicker 对 `tabIndex` 属性的支持。[#13265](https://github.com/ant-design/ant-design/pull/13265) [@arifemrecelik](https://github.com/arifemrecelik)
+- 🐞 TreeSelect 现在在搜索时不再调用 `loadData` 以避免卡死。[#13245](https://github.com/ant-design/ant-design/issues/13245)
 
 # 3.10.8
 
