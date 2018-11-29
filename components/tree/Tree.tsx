@@ -137,6 +137,8 @@ export interface TreeProps {
   onDragOver?: (options: AntTreeNodeMouseEvent) => void;
   /** dragleave 触发时调用 */
   onDragLeave?: (options: AntTreeNodeMouseEvent) => void;
+  /** dragend 触发时调用 */
+  onDragEnd?: (options: AntTreeNodeMouseEvent) => void;
   /** drop 触发时调用 */
   onDrop?: (options: AntTreeNodeDropEvent) => void;
   style?: React.CSSProperties;
