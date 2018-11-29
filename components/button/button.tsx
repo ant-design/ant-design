@@ -207,7 +207,7 @@ export default class Button extends React.Component<ButtonProps, any> {
 
     const title= isChristmas ? 'Ho Ho Ho!' : rest.title;
 
-    if ('href' in rest) {
+    if (rest.href !== undefined) {
       return (
         <a
           {...rest}

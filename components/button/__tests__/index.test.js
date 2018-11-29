@@ -129,6 +129,13 @@ describe('Button', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('fixbug does not render link button if href is undefined', () => {
+    const wrapper = mount(
+      <Button href={undefined}>not link button</Button>
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
   it('fixbug renders {0} , 0 and {false}', () => {
     const wrapper = render(
       <Button>{0}</Button>
