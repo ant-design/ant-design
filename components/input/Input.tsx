@@ -6,6 +6,7 @@ import Group from './Group';
 import Search from './Search';
 import TextArea from './TextArea';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import Password from './Password';
 import { Omit } from '../_util/type';
 
 function fixControlledValue<T>(value: T) {
@@ -29,6 +30,7 @@ export default class Input extends React.Component<InputProps, any> {
   static Group: typeof Group;
   static Search: typeof Search;
   static TextArea: typeof TextArea;
+  static Password: typeof Password;
 
   static defaultProps = {
     type: 'text',
