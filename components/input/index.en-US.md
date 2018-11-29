@@ -73,3 +73,7 @@ Supports all props of `Input`.
   <Input />
 </Input.Group>
 ```
+
+#### Input.Password
+
+`Input.Password` has no extra props.
