@@ -553,6 +553,25 @@ form {
   .@{ant-prefix}-cascader-picker:focus .@{ant-prefix}-cascader-input {
     .active(@error-color);
   }
+
+  // transfer
+  .@{ant-prefix}-transfer {
+    &-list {
+      border-color: @error-color;
+
+      &-search:not([disabled]) {
+        border-color: @input-border-color;
+
+        &:hover {
+          .hover();
+        }
+
+        &:focus {
+          .active();
+        }
+      }
+    }
+  }
 }
 
 .is-validating {
