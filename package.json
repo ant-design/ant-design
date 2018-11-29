@@ -36,7 +36,8 @@
   "license": "MIT",
   "peerDependencies": {
     "react": ">=16.0.0",
-    "react-dom": ">=16.0.0"
+    "react-dom": ">=16.0.0",
+    "moment": "^2.22.2"
   },
   "dependencies": {
     "@ant-design/icons": "~1.1.15",
