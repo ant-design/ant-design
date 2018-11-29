@@ -4,13 +4,17 @@ import Input, { InputProps } from './Input';
 import Icon from '../icon';
 
 export interface PasswordProps extends InputProps {
-  inputPrefixCls?: string;
-  action?: string;
+  readonly inputPrefixCls?: string;
+  readonly action: string;
 }
 
-export interface PreviewState {
-  theme: any,
-  type: string,
+export interface PasswordState {
+  visible: boolean,
+}
+
+const ActionMap: Record<string, string> = {
+  click: 'onClick',
+  hover: 'onMouseOver',
 }
 
 export default class Password extends React.Component<PasswordProps, any> {
@@ -20,9 +24,8 @@ export default class Password extends React.Component<PasswordProps, any> {
     action: 'click',
   };
 
-  state: PreviewState = {
-    theme: undefined,
-    type: "password",
+  state: PasswordState = {
+    visible: false,
   };
 
   private input: Input;
@@ -40,63 +43,29 @@ export default class Password extends React.Component<PasswordProps, any> {
   }
 
   onChange = () => {
-    const { theme } = this.state;
-    let inputState = {};
-
     this.input.blur();
 
-    if(theme === 'filled') {
-      inputState = {
-        theme: undefined,
-        type: "password",
-      };
-    } else {
-      inputState = {
-        theme: "filled",
-        type: "text",
-      };
-    }
-
-    this.setState(inputState);
-  }
-
-  getTrigger = () => {
-    const { action } = this.props;
-    let trigger;
-
-    switch(action) {
-      case 'click':
-        trigger = 'onClick';
-      break;
-
-      case 'hover':
-        trigger = 'onMouseOver';
-      break;
-
-      default:
-        trigger = '';
-      break;
-    }
-
-    return trigger;
+    this.setState({
+      visible: !this.state.visible,
+    });
   }
 
   getIcon() {
-    const { prefixCls } = this.props;
+    const { prefixCls, action } = this.props;
+    const iconTrigger = ActionMap[action] || '';
+    const iconProps = {
+      [iconTrigger]: this.onChange,
+    };
 
-    const iconTrigger = this.getTrigger();
-    const iconProps = Object.assign(
-      {},
-      {
-        className: `${prefixCls}-icon`,
-        type: "eye",
-        theme: this.state.theme,
-        key: "passwordIcon",
-        [iconTrigger]: this.onChange,
-      },
-    )
-
-    return React.cloneElement(<Icon {...iconProps} />);
+    return React.cloneElement(
+      <Icon
+        {...iconProps}
+        className={`${prefixCls}-icon`}
+        type="eye"
+        key="passwordIcon"
+        theme={this.state.visible ? 'filled' : 'outlined'}
+      />,
+    );
   }
 
   render() {
@@ -109,7 +78,7 @@ export default class Password extends React.Component<PasswordProps, any> {
     return (
       <Input
         {...restProps}
-        type={this.state.type}
+        type={this.state.visible ? 'text' : 'password'}
         size={size}
         className={inputClassName}
         prefixCls={inputPrefixCls}
