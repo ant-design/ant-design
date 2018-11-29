@@ -60,7 +60,7 @@ describe('RangePicker', () => {
     const wrapper = mount(
       <RangePicker
         ranges={{
-          'This Month': [moment().startOf('month'), moment().endOf('month')],
+          'This Month': [moment().startOf('month'), moment()],
         }}
         getCalendarContainer={trigger => trigger}
         format="YYYY/MM/DD"
