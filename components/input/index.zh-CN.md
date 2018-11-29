@@ -70,3 +70,7 @@ Input 的其他属性和 React 自带的 [input](https://facebook.github.io/reac
   <Input />
 </Input.Group>
 ```
+
+#### Input.Password
+
+`Input.Password` 没有额外的属性。
