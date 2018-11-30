@@ -14,7 +14,9 @@ title:
 A basic comment with author, avatar, time and actions.
 
 ````jsx
-import { Comment, Icon, Tooltip, Avatar } from 'antd';
+import {
+  Comment, Icon, Tooltip, Avatar,
+} from 'antd';
 import moment from 'moment';
 
 class App extends React.Component {
