@@ -52,7 +52,8 @@ ReactDOM.render(
       <Button>topRight</Button>
     </Dropdown>
   </div>,
-  mountNode);
+  mountNode
+);
 ````
 
 ````css

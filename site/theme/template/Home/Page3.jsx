@@ -55,7 +55,9 @@ export default function Page3({ locale }) {
           {item.title}
           {item.hot ? (
             <Tag
-              style={{ marginLeft: 8, position: 'relative', top: -3, height: 18, lineHeight: '16px', padding: '0 2px' }}
+              style={{
+                marginLeft: 8, position: 'relative', top: -3, height: 18, lineHeight: '16px', padding: '0 2px',
+              }}
               color="#f50"
             >
               HOT

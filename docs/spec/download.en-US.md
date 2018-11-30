@@ -30,6 +30,18 @@ Please find below some of the design resources and tools about Ant Design that w
       <span class="resource-card-description">Sketch Symbols File for Desktop</span>
     </div>
   </a>
+  <a target="_blank" href="https://landing.ant.design/docs/download" class="resource-card">
+    <div class="resource-card-icon">
+      <img width="65" src="https://gw.alipayobjects.com/zos/rmsportal/EAHlyTmYeDtTkZIPbUnP.svg">
+    </div>
+    <div class="resource-card-content">
+      <span class="resource-card-title">
+        Ant Design Landing 
+        <span class="resource-card-hot-badge">NEW</span>
+      </span>
+      <span class="resource-card-description">Landing Templates</span>
+    </div>
+  </a>
   <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Mobile.Template.sketch" class="resource-card">
     <div class="resource-card-icon">
       <img width="41" src="https://gw.alipayobjects.com/zos/rmsportal/rFMdPVzabtQwxONUuVFr.png">

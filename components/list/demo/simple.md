@@ -61,5 +61,6 @@ ReactDOM.render(
       renderItem={item => (<List.Item>{item}</List.Item>)}
     />
   </div>,
-  mountNode);
+  mountNode
+);
 ````

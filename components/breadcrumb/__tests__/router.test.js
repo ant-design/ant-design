@@ -1,5 +1,7 @@
 import React from 'react';
-import { Route, Switch, Link, withRouter, MemoryRouter } from 'react-router-dom';
+import {
+  Route, Switch, Link, withRouter, MemoryRouter,
+} from 'react-router-dom';
 import { mount } from 'enzyme';
 import Breadcrumb from '../index';
 

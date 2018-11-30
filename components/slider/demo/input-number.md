@@ -14,7 +14,9 @@ title:
 Synchronize with [InputNumber](/components/input-number/) component.
 
 ````jsx
-import { Slider, InputNumber, Row, Col } from 'antd';
+import {
+  Slider, InputNumber, Row, Col,
+} from 'antd';
 
 class IntegerStep extends React.Component {
   state = {
@@ -59,7 +61,7 @@ class DecimalStep extends React.Component {
   }
 
   onChange = (value) => {
-    if (isNaN(value)) {
+    if (Number.isNaN(value)) {
       return;
     }
     this.setState({
@@ -100,5 +102,6 @@ ReactDOM.render(
     <IntegerStep />
     <DecimalStep />
   </div>,
-  mountNode);
+  mountNode
+);
 ````

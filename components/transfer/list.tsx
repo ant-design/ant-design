@@ -216,6 +216,7 @@ export default class TransferList extends React.Component<TransferListProps, any
           handleClear={this.handleClear}
           placeholder={searchPlaceholder}
           value={filter}
+          disabled={disabled}
         />
       </div>
     ) : null;

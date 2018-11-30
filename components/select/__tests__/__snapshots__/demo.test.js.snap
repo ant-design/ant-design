@@ -7,6 +7,7 @@ exports[`renders ./components/select/demo/automatic-tokenization.md correctly 1`
 >
   <div
     aria-autocomplete="list"
+    aria-controls="test-uuid"
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
@@ -49,6 +50,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
+      aria-controls="test-uuid"
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -98,6 +100,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
+      aria-controls="test-uuid"
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -147,6 +150,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
+      aria-controls="test-uuid"
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -201,6 +205,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
+      aria-controls="test-uuid"
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -250,6 +255,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
+      aria-controls="test-uuid"
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -303,6 +309,7 @@ exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] 
 >
   <div
     aria-autocomplete="list"
+    aria-controls="test-uuid"
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
@@ -355,6 +362,7 @@ exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
 >
   <div
     aria-autocomplete="list"
+    aria-controls="test-uuid"
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
@@ -407,6 +415,7 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
 >
   <div
     aria-autocomplete="list"
+    aria-controls="test-uuid"
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
@@ -426,6 +435,7 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
       <ul>
         <li
           class="ant-select-selection__choice"
+          role="presentation"
           style="user-select:none;-webkit-user-select:none"
           title="a10"
           unselectable="on"
@@ -459,6 +469,7 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
         </li>
         <li
           class="ant-select-selection__choice"
+          role="presentation"
           style="user-select:none;-webkit-user-select:none"
           title="c12"
           unselectable="on"
@@ -521,6 +532,7 @@ exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
 >
   <div
     aria-autocomplete="list"
+    aria-controls="test-uuid"
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
@@ -573,6 +585,7 @@ exports[`renders ./components/select/demo/search.md correctly 1`] = `
 >
   <div
     aria-autocomplete="list"
+    aria-controls="test-uuid"
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
@@ -644,6 +657,7 @@ exports[`renders ./components/select/demo/search-box.md correctly 1`] = `
 >
   <div
     aria-autocomplete="list"
+    aria-controls="test-uuid"
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
@@ -692,6 +706,7 @@ exports[`renders ./components/select/demo/select-users.md correctly 1`] = `
 >
   <div
     aria-autocomplete="list"
+    aria-controls="test-uuid"
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
@@ -805,6 +820,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
+      aria-controls="test-uuid"
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -855,6 +871,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
+      aria-controls="test-uuid"
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -874,6 +891,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
         <ul>
           <li
             class="ant-select-selection__choice"
+            role="presentation"
             style="user-select:none;-webkit-user-select:none"
             title="a10"
             unselectable="on"
@@ -907,6 +925,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
           </li>
           <li
             class="ant-select-selection__choice"
+            role="presentation"
             style="user-select:none;-webkit-user-select:none"
             title="c12"
             unselectable="on"
@@ -967,6 +986,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
+      aria-controls="test-uuid"
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -986,6 +1006,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
         <ul>
           <li
             class="ant-select-selection__choice"
+            role="presentation"
             style="user-select:none;-webkit-user-select:none"
             title="a10"
             unselectable="on"
@@ -1019,6 +1040,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
           </li>
           <li
             class="ant-select-selection__choice"
+            role="presentation"
             style="user-select:none;-webkit-user-select:none"
             title="c12"
             unselectable="on"
@@ -1083,6 +1105,7 @@ exports[`renders ./components/select/demo/suffix.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
+      aria-controls="test-uuid"
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -1132,6 +1155,7 @@ exports[`renders ./components/select/demo/suffix.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
+      aria-controls="test-uuid"
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -1185,6 +1209,7 @@ exports[`renders ./components/select/demo/tags.md correctly 1`] = `
 >
   <div
     aria-autocomplete="list"
+    aria-controls="test-uuid"
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection

@@ -32,5 +32,6 @@ ReactDOM.render(
       format={dateFormat}
     />
   </div>,
-  mountNode);
+  mountNode
+);
 ````

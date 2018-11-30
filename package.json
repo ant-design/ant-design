@@ -45,7 +45,7 @@
     "babel-runtime": "6.x",
     "classnames": "~2.2.6",
     "create-react-class": "^15.6.3",
-    "create-react-context": "0.2.3",
+    "create-react-context": "0.2.2",
     "css-animation": "^1.5.0",
     "dom-closest": "^0.2.0",
     "enquire.js": "^2.1.6",
@@ -87,6 +87,7 @@
     "react-lazy-load": "^3.0.13",
     "react-lifecycles-compat": "^3.0.4",
     "react-slick": "~0.23.2",
+    "resize-observer-polyfill": "^1.5.0",
     "shallowequal": "^1.1.0",
     "warning": "~4.0.2"
   },
@@ -110,6 +111,7 @@
     "bisheng-plugin-react": "^0.6.3",
     "bisheng-plugin-toc": "^0.4.4",
     "commander": "^2.18.0",
+    "core-js": "^2.5.7",
     "cross-env": "^5.2.0",
     "css-split-webpack-plugin": "^0.2.6",
     "dekko": "^0.2.1",
@@ -157,6 +159,7 @@
     "react-resizable": "^1.7.5",
     "react-router-dom": "^4.3.1",
     "react-sticky": "^6.0.3",
+    "react-test-renderer": "^16.6.3",
     "react-virtualized": "~9.21.0",
     "remark-frontmatter": "^1.3.0",
     "remark-parse": "^6.0.0",
@@ -204,6 +207,9 @@
     "lint-staged:es": "eslint ./.*.js ./webpack.config.js",
     "lint-staged:demo": "cross-env RUN_ENV=DEMO eslint --ext '.md'"
   },
+  "pre-commit": [
+    "lint-staged"
+  ],
   "lint-staged": {
     "components/**/*.tsx": [
       "npm run lint-staged:ts"
@@ -216,9 +222,6 @@
       "npm run lint-staged:demo"
     ]
   },
-  "pre-commit": [
-    "lint-staged"
-  ],
   "sideEffects": [
     "dist/*",
     "es/**/style/*",

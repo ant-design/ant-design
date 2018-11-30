@@ -47,6 +47,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
           >
             <div
               aria-autocomplete="list"
+              aria-controls="test-uuid"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection
@@ -105,6 +106,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
           >
             <div
               aria-autocomplete="list"
+              aria-controls="test-uuid"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection
@@ -267,6 +269,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
+        aria-controls="test-uuid"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -326,6 +329,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
+        aria-controls="test-uuid"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -496,6 +500,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
+        aria-controls="test-uuid"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -544,6 +549,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
+        aria-controls="test-uuid"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -597,6 +603,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
+        aria-controls="test-uuid"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -669,6 +676,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
+        aria-controls="test-uuid"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -718,6 +726,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
+        aria-controls="test-uuid"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -791,6 +800,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
+        aria-controls="test-uuid"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -1030,6 +1040,28 @@ exports[`renders ./components/input/demo/textarea.md correctly 1`] = `
   class="ant-input"
   rows="4"
 />
+`;
+
+exports[`renders ./components/input/demo/textarea-resize.md correctly 1`] = `
+<div>
+  <button
+    class="ant-btn"
+    type="button"
+  >
+    <span>
+      Auto Resize: 
+    </span>
+    <span>
+      false
+    </span>
+  </button>
+  <textarea
+    class="ant-input"
+    rows="4"
+  >
+    autosize 属性适用于 textarea 节点，并且只有高度会自动变化。另外 autosize 可以设定为一个对象，指定最小行数和最大行数。autosize 属性适用于 textarea 节点，并且只有高度会自动变化。另外 autosize 可以设定为一个对象，指定最小行数和最大行数。autosize 属性适用于 textarea 节点，并且只有高度会自动变化。另外 autosize 可以设定为一个对象，指定最小行数和最大行数。autosize 属性适用于 textarea 节点，并且只有高度会自动变化。另外 autosize 可以设定为一个对象，指定最小行数和最大行数。autosize 属性适用于 textarea 节点，并且只有高度会自动变化。另外 autosize 可以设定为一个对象，指定最小行数和最大行数。autosize 属性适用于 textarea 节点，并且只有高度会自动变化。另外 autosize 可以设定为一个对象，指定最小行数和最大行数。autosize 属性适用于 textarea 节点，并且只有高度会自动变化。另外 autosize 可以设定为一个对象，指定最小行数和最大行数。ending
+  </textarea>
+</div>
 `;
 
 exports[`renders ./components/input/demo/tooltip.md correctly 1`] = `

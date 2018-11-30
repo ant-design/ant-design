@@ -22,5 +22,6 @@ ReactDOM.render(
       <span className="head-example" />
     </Badge>
   </a>,
-  mountNode);
+  mountNode
+);
 ````

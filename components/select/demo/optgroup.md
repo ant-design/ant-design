@@ -36,5 +36,6 @@ ReactDOM.render(
       <Option value="Yiminghe">yiminghe</Option>
     </OptGroup>
   </Select>,
-  mountNode);
+  mountNode
+);
 ````

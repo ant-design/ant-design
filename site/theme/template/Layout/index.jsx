@@ -43,11 +43,6 @@ export default class Layout extends React.Component {
     isMobile: PropTypes.bool,
   };
 
-  getChildContext() {
-    const { isMobile: mobile } = this.state;
-    return { isMobile: mobile };
-  }
-
   constructor(props) {
     super(props);
     const { pathname } = props.location;
@@ -58,6 +53,11 @@ export default class Layout extends React.Component {
       appLocale,
       isMobile,
     };
+  }
+
+  getChildContext() {
+    const { isMobile: mobile } = this.state;
+    return { isMobile: mobile };
   }
 
   componentDidMount() {

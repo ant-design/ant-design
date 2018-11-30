@@ -31,5 +31,6 @@ ReactDOM.render(
       disabled
     />
   </div>,
-  mountNode);
+  mountNode
+);
 ````

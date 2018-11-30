@@ -79,15 +79,13 @@ describe('Table.sorter', () => {
 
   it('provides sortOrder in the sorterFn', () => {
     let actualSortOrder;
-    mount(createTable({ },
-      {
-        sortOrder: 'ascend',
-        sorter: (a, b, sortOrder) => {
-          actualSortOrder = sortOrder;
-          return sorterFn(a, b);
-        },
+    mount(createTable({}, {
+      sortOrder: 'ascend',
+      sorter: (a, b, sortOrder) => {
+        actualSortOrder = sortOrder;
+        return sorterFn(a, b);
       },
-    ));
+    }));
     expect(actualSortOrder).toEqual('ascend');
   });
 

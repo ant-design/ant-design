@@ -14,7 +14,9 @@ title:
 Table with editable cells.
 
 ````jsx
-import { Table, Input, Button, Popconfirm, Form } from 'antd';
+import {
+  Table, Input, Button, Popconfirm, Form,
+} from 'antd';
 
 const FormItem = Form.Item;
 const EditableContext = React.createContext();
@@ -139,16 +141,14 @@ class EditableTable extends React.Component {
     }, {
       title: 'operation',
       dataIndex: 'operation',
-      render: (text, record) => {
-        return (
-          this.state.dataSource.length >= 1
-            ? (
-              <Popconfirm title="Sure to delete?" onConfirm={() => this.handleDelete(record.key)}>
-                <a href="javascript:;">Delete</a>
-              </Popconfirm>
-            ) : null
-        );
-      },
+      render: (text, record) => (
+        this.state.dataSource.length >= 1
+          ? (
+            <Popconfirm title="Sure to delete?" onConfirm={() => this.handleDelete(record.key)}>
+              <a href="javascript:;">Delete</a>
+            </Popconfirm>
+          ) : null
+      ),
     }];
 
     this.state = {

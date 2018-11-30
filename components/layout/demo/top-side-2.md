@@ -14,7 +14,9 @@ title:
 Both the top navigation and the sidebar, commonly used in application site.
 
 ````jsx
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import {
+  Layout, Menu, Breadcrumb, Icon,
+} from 'antd';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -68,13 +70,17 @@ ReactDOM.render(
           <Breadcrumb.Item>List</Breadcrumb.Item>
           <Breadcrumb.Item>App</Breadcrumb.Item>
         </Breadcrumb>
-        <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 280 }}>
+        <Content style={{
+          background: '#fff', padding: 24, margin: 0, minHeight: 280,
+        }}
+        >
           Content
         </Content>
       </Layout>
     </Layout>
   </Layout>,
-  mountNode);
+  mountNode
+);
 ````
 
 ````css

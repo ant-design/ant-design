@@ -12,6 +12,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
+        aria-controls="test-uuid"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -60,6 +61,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
+        aria-controls="test-uuid"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -1053,6 +1055,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
       >
         <div
           aria-autocomplete="list"
+          aria-controls="test-uuid"
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-select-selection
@@ -1101,6 +1104,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
       >
         <div
           aria-autocomplete="list"
+          aria-controls="test-uuid"
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-select-selection
@@ -2092,6 +2096,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
+        aria-controls="test-uuid"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -2140,6 +2145,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
+        aria-controls="test-uuid"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -3541,6 +3547,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
       >
         <div
           aria-autocomplete="list"
+          aria-controls="test-uuid"
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-select-selection
@@ -3589,6 +3596,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
       >
         <div
           aria-autocomplete="list"
+          aria-controls="test-uuid"
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-select-selection

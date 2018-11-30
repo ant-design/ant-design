@@ -83,7 +83,13 @@ describe('RangePicker with showTime', () => {
     const onChangeFn = jest.fn();
     const onOpenChangeFn = jest.fn();
     const wrapper = mount(
-      <RangePicker showTime open onOk={onOkFn} onChange={onChangeFn} onOpenChange={onOpenChangeFn} />
+      <RangePicker
+        showTime
+        open
+        onOk={onOkFn}
+        onChange={onChangeFn}
+        onOpenChange={onOpenChangeFn}
+      />
     );
 
     const calendarWrapper = mount(wrapper.find('Trigger').instance().getComponent());

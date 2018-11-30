@@ -32,7 +32,7 @@ describe('Form', () => {
       }
       const Wrapped = Form.create()(TestForm);
       let form;
-      mount(<Wrapped wrappedComponentRef={node => form = node} />);
+      mount(<Wrapped wrappedComponentRef={(node) => { form = node; }} />);
       expect(form).toBeInstanceOf(TestForm);
     });
   });

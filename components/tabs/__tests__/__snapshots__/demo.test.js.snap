@@ -108,6 +108,11 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
     </div>
   </div>
   <div
+    role="presentation"
+    style="width:0;height:0;overflow:hidden"
+    tabindex="0"
+  />
+  <div
     class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
     style="margin-left:0%"
   >
@@ -116,7 +121,17 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
       class="ant-tabs-tabpane ant-tabs-tabpane-active"
       role="tabpanel"
     >
+      <div
+        role="presentation"
+        style="width:0;height:0;overflow:hidden"
+        tabindex="0"
+      />
       Content of Tab Pane 1
+      <div
+        role="presentation"
+        style="width:0;height:0;overflow:hidden"
+        tabindex="0"
+      />
     </div>
     <div
       aria-hidden="true"
@@ -129,6 +144,11 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
       role="tabpanel"
     />
   </div>
+  <div
+    role="presentation"
+    style="width:0;height:0;overflow:hidden"
+    tabindex="0"
+  />
 </div>
 `;
 
@@ -240,6 +260,11 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
     </div>
   </div>
   <div
+    role="presentation"
+    style="width:0;height:0;overflow:hidden"
+    tabindex="0"
+  />
+  <div
     class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content ant-tabs-card-content"
   >
     <div
@@ -247,7 +272,17 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
       class="ant-tabs-tabpane ant-tabs-tabpane-active"
       role="tabpanel"
     >
+      <div
+        role="presentation"
+        style="width:0;height:0;overflow:hidden"
+        tabindex="0"
+      />
       Content of Tab Pane 1
+      <div
+        role="presentation"
+        style="width:0;height:0;overflow:hidden"
+        tabindex="0"
+      />
     </div>
     <div
       aria-hidden="true"
@@ -260,6 +295,11 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
       role="tabpanel"
     />
   </div>
+  <div
+    role="presentation"
+    style="width:0;height:0;overflow:hidden"
+    tabindex="0"
+  />
 </div>
 `;
 
@@ -374,6 +414,11 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
       </div>
     </div>
     <div
+      role="presentation"
+      style="width:0;height:0;overflow:hidden"
+      tabindex="0"
+    />
+    <div
       class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content ant-tabs-card-content"
     >
       <div
@@ -381,6 +426,11 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
         role="tabpanel"
       >
+        <div
+          role="presentation"
+          style="width:0;height:0;overflow:hidden"
+          tabindex="0"
+        />
         <p>
           Content of Tab Pane 1
         </p>
@@ -390,6 +440,11 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
         <p>
           Content of Tab Pane 1
         </p>
+        <div
+          role="presentation"
+          style="width:0;height:0;overflow:hidden"
+          tabindex="0"
+        />
       </div>
       <div
         aria-hidden="true"
@@ -402,6 +457,11 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
         role="tabpanel"
       />
     </div>
+    <div
+      role="presentation"
+      style="width:0;height:0;overflow:hidden"
+      tabindex="0"
+    />
   </div>
 </div>
 `;
@@ -557,6 +617,11 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
       </div>
     </div>
     <div
+      role="presentation"
+      style="width:0;height:0;overflow:hidden"
+      tabindex="0"
+    />
+    <div
       class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content ant-tabs-card-content"
     >
       <div
@@ -564,7 +629,17 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
         role="tabpanel"
       >
+        <div
+          role="presentation"
+          style="width:0;height:0;overflow:hidden"
+          tabindex="0"
+        />
         Content of Tab Pane 1
+        <div
+          role="presentation"
+          style="width:0;height:0;overflow:hidden"
+          tabindex="0"
+        />
       </div>
       <div
         aria-hidden="true"
@@ -572,6 +647,11 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
         role="tabpanel"
       />
     </div>
+    <div
+      role="presentation"
+      style="width:0;height:0;overflow:hidden"
+      tabindex="0"
+    />
   </div>
 </div>
 `;
@@ -689,6 +769,11 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
       </div>
     </div>
     <div
+      role="presentation"
+      style="width:0;height:0;overflow:hidden"
+      tabindex="0"
+    />
+    <div
       class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
       style="margin-left:0%"
     >
@@ -698,7 +783,17 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
         role="tabpanel"
         style="height:200px"
       >
+        <div
+          role="presentation"
+          style="width:0;height:0;overflow:hidden"
+          tabindex="0"
+        />
         Content of Tab Pane 1
+        <div
+          role="presentation"
+          style="width:0;height:0;overflow:hidden"
+          tabindex="0"
+        />
       </div>
       <div
         aria-hidden="true"
@@ -711,6 +806,11 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
         role="tabpanel"
       />
     </div>
+    <div
+      role="presentation"
+      style="width:0;height:0;overflow:hidden"
+      tabindex="0"
+    />
   </div>
 </div>
 `;
@@ -823,6 +923,11 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
     </div>
   </div>
   <div
+    role="presentation"
+    style="width:0;height:0;overflow:hidden"
+    tabindex="0"
+  />
+  <div
     class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
     style="margin-left:0%"
   >
@@ -831,7 +936,17 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
       class="ant-tabs-tabpane ant-tabs-tabpane-active"
       role="tabpanel"
     >
+      <div
+        role="presentation"
+        style="width:0;height:0;overflow:hidden"
+        tabindex="0"
+      />
       Tab 1
+      <div
+        role="presentation"
+        style="width:0;height:0;overflow:hidden"
+        tabindex="0"
+      />
     </div>
     <div
       aria-hidden="true"
@@ -844,6 +959,11 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
       role="tabpanel"
     />
   </div>
+  <div
+    role="presentation"
+    style="width:0;height:0;overflow:hidden"
+    tabindex="0"
+  />
 </div>
 `;
 
@@ -1021,6 +1141,11 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
     </div>
   </div>
   <div
+    role="presentation"
+    style="width:0;height:0;overflow:hidden"
+    tabindex="0"
+  />
+  <div
     class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content ant-tabs-card-content"
   >
     <div
@@ -1028,7 +1153,17 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
       class="ant-tabs-tabpane ant-tabs-tabpane-active"
       role="tabpanel"
     >
+      <div
+        role="presentation"
+        style="width:0;height:0;overflow:hidden"
+        tabindex="0"
+      />
       Content of Tab 1
+      <div
+        role="presentation"
+        style="width:0;height:0;overflow:hidden"
+        tabindex="0"
+      />
     </div>
     <div
       aria-hidden="true"
@@ -1041,6 +1176,11 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
       role="tabpanel"
     />
   </div>
+  <div
+    role="presentation"
+    style="width:0;height:0;overflow:hidden"
+    tabindex="0"
+  />
 </div>
 `;
 
@@ -1165,6 +1305,11 @@ exports[`renders ./components/tabs/demo/extra.md correctly 1`] = `
     </div>
   </div>
   <div
+    role="presentation"
+    style="width:0;height:0;overflow:hidden"
+    tabindex="0"
+  />
+  <div
     class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
     style="margin-left:0%"
   >
@@ -1173,7 +1318,17 @@ exports[`renders ./components/tabs/demo/extra.md correctly 1`] = `
       class="ant-tabs-tabpane ant-tabs-tabpane-active"
       role="tabpanel"
     >
+      <div
+        role="presentation"
+        style="width:0;height:0;overflow:hidden"
+        tabindex="0"
+      />
       Content of tab 1
+      <div
+        role="presentation"
+        style="width:0;height:0;overflow:hidden"
+        tabindex="0"
+      />
     </div>
     <div
       aria-hidden="true"
@@ -1186,6 +1341,11 @@ exports[`renders ./components/tabs/demo/extra.md correctly 1`] = `
       role="tabpanel"
     />
   </div>
+  <div
+    role="presentation"
+    style="width:0;height:0;overflow:hidden"
+    tabindex="0"
+  />
 </div>
 `;
 
@@ -1327,6 +1487,11 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
     </div>
   </div>
   <div
+    role="presentation"
+    style="width:0;height:0;overflow:hidden"
+    tabindex="0"
+  />
+  <div
     class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
     style="margin-left:-100%"
   >
@@ -1340,9 +1505,24 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
       class="ant-tabs-tabpane ant-tabs-tabpane-active"
       role="tabpanel"
     >
+      <div
+        role="presentation"
+        style="width:0;height:0;overflow:hidden"
+        tabindex="0"
+      />
       Tab 2
+      <div
+        role="presentation"
+        style="width:0;height:0;overflow:hidden"
+        tabindex="0"
+      />
     </div>
   </div>
+  <div
+    role="presentation"
+    style="width:0;height:0;overflow:hidden"
+    tabindex="0"
+  />
 </div>
 `;
 
@@ -1354,6 +1534,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
+      aria-controls="test-uuid"
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -1395,6 +1576,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
+      aria-controls="test-uuid"
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -1436,6 +1618,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
+      aria-controls="test-uuid"
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -1477,6 +1660,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
+      aria-controls="test-uuid"
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -1611,6 +1795,11 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
       </div>
     </div>
     <div
+      role="presentation"
+      style="width:0;height:0;overflow:hidden"
+      tabindex="0"
+    />
+    <div
       class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
       style="margin-left:0%"
     >
@@ -1619,6 +1808,11 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
         role="tabpanel"
       >
+        <div
+          role="presentation"
+          style="width:0;height:0;overflow:hidden"
+          tabindex="0"
+        />
         <div
           class="ant-tabs ant-tabs-top ant-tabs-line"
           style="height:300px"
@@ -1863,6 +2057,11 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
             </div>
           </div>
           <div
+            role="presentation"
+            style="width:0;height:0;overflow:hidden"
+            tabindex="0"
+          />
+          <div
             class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
             style="margin-left:-100%"
           >
@@ -1876,7 +2075,17 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
               class="ant-tabs-tabpane ant-tabs-tabpane-active"
               role="tabpanel"
             >
+              <div
+                role="presentation"
+                style="width:0;height:0;overflow:hidden"
+                tabindex="0"
+              />
               TTTT 1
+              <div
+                role="presentation"
+                style="width:0;height:0;overflow:hidden"
+                tabindex="0"
+              />
             </div>
             <div
               aria-hidden="true"
@@ -1969,7 +2178,17 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
               role="tabpanel"
             />
           </div>
+          <div
+            role="presentation"
+            style="width:0;height:0;overflow:hidden"
+            tabindex="0"
+          />
         </div>
+        <div
+          role="presentation"
+          style="width:0;height:0;overflow:hidden"
+          tabindex="0"
+        />
       </div>
       <div
         aria-hidden="true"
@@ -1977,6 +2196,11 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
         role="tabpanel"
       />
     </div>
+    <div
+      role="presentation"
+      style="width:0;height:0;overflow:hidden"
+      tabindex="0"
+    />
   </div>
 </div>
 `;
@@ -1992,6 +2216,7 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
+        aria-controls="test-uuid"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -2143,6 +2368,11 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
       </div>
     </div>
     <div
+      role="presentation"
+      style="width:0;height:0;overflow:hidden"
+      tabindex="0"
+    />
+    <div
       class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
       style="margin-left:0%"
     >
@@ -2151,7 +2381,17 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
         role="tabpanel"
       >
+        <div
+          role="presentation"
+          style="width:0;height:0;overflow:hidden"
+          tabindex="0"
+        />
         Content of Tab 1
+        <div
+          role="presentation"
+          style="width:0;height:0;overflow:hidden"
+          tabindex="0"
+        />
       </div>
       <div
         aria-hidden="true"
@@ -2164,6 +2404,11 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
         role="tabpanel"
       />
     </div>
+    <div
+      role="presentation"
+      style="width:0;height:0;overflow:hidden"
+      tabindex="0"
+    />
   </div>
 </div>
 `;
@@ -2340,6 +2585,11 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
       </div>
     </div>
     <div
+      role="presentation"
+      style="width:0;height:0;overflow:hidden"
+      tabindex="0"
+    />
+    <div
       class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
       style="margin-left:0%"
     >
@@ -2348,7 +2598,17 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
         role="tabpanel"
       >
+        <div
+          role="presentation"
+          style="width:0;height:0;overflow:hidden"
+          tabindex="0"
+        />
         Content of tab 1
+        <div
+          role="presentation"
+          style="width:0;height:0;overflow:hidden"
+          tabindex="0"
+        />
       </div>
       <div
         aria-hidden="true"
@@ -2361,6 +2621,11 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
         role="tabpanel"
       />
     </div>
+    <div
+      role="presentation"
+      style="width:0;height:0;overflow:hidden"
+      tabindex="0"
+    />
   </div>
 </div>
 `;
@@ -2583,6 +2848,11 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
       </div>
     </div>
     <div
+      role="presentation"
+      style="width:0;height:0;overflow:hidden"
+      tabindex="0"
+    />
+    <div
       class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
       style="margin-left:0%"
     >
@@ -2591,7 +2861,17 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
         role="tabpanel"
       >
+        <div
+          role="presentation"
+          style="width:0;height:0;overflow:hidden"
+          tabindex="0"
+        />
         Content of tab 1
+        <div
+          role="presentation"
+          style="width:0;height:0;overflow:hidden"
+          tabindex="0"
+        />
       </div>
       <div
         aria-hidden="true"
@@ -2644,6 +2924,11 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
         role="tabpanel"
       />
     </div>
+    <div
+      role="presentation"
+      style="width:0;height:0;overflow:hidden"
+      tabindex="0"
+    />
   </div>
 </div>
 `;

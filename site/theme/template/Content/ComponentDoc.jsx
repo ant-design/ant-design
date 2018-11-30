@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import DocumentTitle from 'react-document-title';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
-import { Row, Col, Icon, Affix, Tooltip } from 'antd';
+import {
+  Row, Col, Icon, Affix, Tooltip,
+} from 'antd';
 import { getChildren } from 'jsonml.js/lib/utils';
 import Demo from './Demo';
 import EditButton from './EditButton';
@@ -112,7 +114,8 @@ export default class ComponentDoc extends React.Component {
             </h2>
           </section>
           <Row gutter={16}>
-            <Col span={isSingleCol ? '24' : '12'}
+            <Col
+              span={isSingleCol ? '24' : '12'}
               className={
                 isSingleCol
                   ? 'code-boxes-col-1-1'
