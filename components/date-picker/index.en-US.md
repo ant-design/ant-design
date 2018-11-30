@@ -95,7 +95,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 | -------- | ----------- | ---- | ------- |
 | defaultValue | to set default date | [moment](http://momentjs.com/) | - |
 | defaultPickerValue | to set default picker date | [moment](http://momentjs.com/) | - |
-| format | to set the date format, refer to [moment.js](http://momentjs.com/) | string | "YYYY-MM" |
+| format | to set the date format. When an array is provided, all values are used for parsing and first value for display. refer to [moment.js](http://momentjs.com/) | string \| string[] | "YYYY-MM" |
 | monthCellContentRender | Custom month cell content render method | function(date, locale): ReactNode | - |
 | renderExtraFooter | render extra footer in panel | () => React.ReactNode | - |
 | value | to set date | [moment](http://momentjs.com/) | - |

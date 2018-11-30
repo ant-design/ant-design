@@ -56,7 +56,7 @@
     "prop-types": "^15.6.2",
     "raf": "^3.4.0",
     "rc-animate": "^2.5.4",
-    "rc-calendar": "~9.7.9",
+    "rc-calendar": "~9.8.0",
     "rc-cascader": "~0.16.0",
     "rc-checkbox": "~2.1.5",
     "rc-collapse": "~1.10.0",
