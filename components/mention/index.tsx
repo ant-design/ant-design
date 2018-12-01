@@ -55,7 +55,7 @@ class Mention extends React.Component<MentionProps, MentionState> {
         suggestions,
       };
     }
-    return null
+    return null;
   }
 
   private mentionEle: any;
@@ -147,5 +147,6 @@ class Mention extends React.Component<MentionProps, MentionState> {
   }
 }
 
-polyfill(Mention)
-export default Mention
+polyfill(Mention);
+
+export default Mention;
