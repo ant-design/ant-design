@@ -556,8 +556,7 @@ timeline: true
 `2018-06-23`
 
 - 🐞 修复 `Steps` 组件的 `@process-icon-color` 样式定义。[#10973](https://github.com/ant-design/ant-design/issues/10973)
-- 🐞 修复 `RangePicker` 组件使用预置范围时的样式问题。[#10986]
-  (https://github.com/ant-design/ant-design/issues/10986)
+- 🐞 修复 `RangePicker` 组件使用预置范围时的样式问题。[#10986](https://github.com/ant-design/ant-design/issues/10986)
 - 🐞 修复 `Dropdown` 组件可能报出的 `non-boolean attribute` 的警告。[#7798](https://github.com/ant-design/ant-design/issues/7798)
 - TypeScript
   - 🌟 给 `Tree` 组件添加 `className` 的定义。[#10950](https://github.com/ant-design/ant-design/issues/10950)
