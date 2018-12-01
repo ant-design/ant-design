@@ -37,6 +37,8 @@ export interface AbstractSelectProps {
   open?: boolean;
   onDropdownVisibleChange?: (open: boolean) => void;
   autoClearSearchValue?: boolean;
+  dropdownRender?: (menu: React.ReactNode) => React.ReactNode;
+  loading?: boolean;
 }
 
 export interface LabeledValue {
@@ -46,23 +48,23 @@ export interface LabeledValue {
 
 export type SelectValue = string | string[] | number | number[] | LabeledValue | LabeledValue[];
 
-export interface SelectProps extends AbstractSelectProps {
-  value?: SelectValue;
-  defaultValue?: SelectValue;
+export interface SelectProps<T = SelectValue> extends AbstractSelectProps {
+  value?: T;
+  defaultValue?: T;
   mode?: 'default' | 'multiple' | 'tags' | 'combobox' | string;
   optionLabelProp?: string;
   firstActiveValue?: string | string[];
-  onChange?: (value: SelectValue, option: React.ReactElement<any> | React.ReactElement<any>[]) => void;
-  onSelect?: (value: SelectValue, option: React.ReactElement<any>) => any;
-  onDeselect?: (value: SelectValue) => any;
-  onBlur?: (value: SelectValue) => void;
+  onChange?: (value: T, option: React.ReactElement<any> | React.ReactElement<any>[]) => void;
+  onSelect?: (value: T, option: React.ReactElement<any>) => any;
+  onDeselect?: (value: T) => any;
+  onBlur?: (value: T) => void;
   onFocus?: () => void;
   onPopupScroll?: React.UIEventHandler<HTMLDivElement>;
   onInputKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   onMouseEnter?: (e: React.MouseEvent<HTMLInputElement>) => any;
   onMouseLeave?: (e: React.MouseEvent<HTMLInputElement>) => any;
   maxTagCount?: number;
-  maxTagPlaceholder?: React.ReactNode | ((omittedValues: SelectValue[]) => React.ReactNode);
+  maxTagPlaceholder?: React.ReactNode | ((omittedValues: T[]) => React.ReactNode);
   optionFilterProp?: string;
   labelInValue?: boolean;
   tokenSeparators?: string[];
@@ -107,7 +109,7 @@ const SelectPropTypes = {
 // => It is needless to export the declaration of below two inner components.
 // export { Option, OptGroup };
 
-export default class Select extends React.Component<SelectProps, {}> {
+export default class Select<T = SelectValue> extends React.Component<SelectProps<T>, {}> {
   static Option = Option as React.ClassicComponentClass<OptionProps>;
   static OptGroup = OptGroup as React.ClassicComponentClass<OptGroupProps>;
 
@@ -124,7 +126,7 @@ export default class Select extends React.Component<SelectProps, {}> {
 
   private rcSelect: any;
 
-  constructor(props: SelectProps) {
+  constructor(props: SelectProps<T>) {
     super(props);
 
     warning(
@@ -161,13 +163,30 @@ export default class Select extends React.Component<SelectProps, {}> {
     return mode === 'combobox' || mode === Select.SECRET_COMBOBOX_MODE_DO_NOT_USE;
   }
 
+  renderSuffixIcon() {
+    const {
+      prefixCls,
+      loading,
+      suffixIcon,
+    } = this.props;
+    if (suffixIcon) {
+      return React.isValidElement<{ className?: string }>(suffixIcon) ?
+        React.cloneElement(suffixIcon, {
+          className: classNames(suffixIcon.props.className, `${prefixCls}-arrow-icon`),
+        }) : suffixIcon;
+    }
+    if (loading) {
+      return <Icon type="loading" />;
+    }
+    return <Icon type="down" className={`${prefixCls}-arrow-icon`} />;
+  }
+
   renderSelect = (locale: SelectLocale) => {
     const {
       prefixCls,
       className = '',
       size,
       mode,
-      suffixIcon,
       getPopupContainer,
       removeIcon,
       clearIcon,
@@ -192,20 +211,6 @@ export default class Select extends React.Component<SelectProps, {}> {
       tags: mode === 'tags',
       combobox: this.isCombobox(),
     };
-
-    const inputIcon = suffixIcon && (
-      React.isValidElement<{ className?: string }>(suffixIcon) ?
-        React.cloneElement(
-          suffixIcon,
-          {
-            className: classNames(
-              suffixIcon.props.className,
-              `${prefixCls}-arrow-icon`,
-            ),
-          },
-        ) : suffixIcon) || (
-        <Icon type="down" className={`${prefixCls}-arrow-icon`} />
-      );
 
     const finalRemoveIcon = removeIcon && (
       React.isValidElement<{ className?: string }>(removeIcon) ?
@@ -254,7 +259,7 @@ export default class Select extends React.Component<SelectProps, {}> {
         {({ getPopupContainer: getContextPopupContainer }: ConfigProviderProps) => {
           return (
             <RcSelect
-              inputIcon={inputIcon}
+              inputIcon={this.renderSuffixIcon()}
               removeIcon={finalRemoveIcon}
               clearIcon={finalClearIcon}
               menuItemSelectedIcon={finalMenuItemSelectedIcon}

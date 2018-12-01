@@ -104,11 +104,11 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         if (listType === 'picture-card' && file.status === 'uploading') {
           icon = <div className={`${prefixCls}-list-item-uploading-text`}>{locale.uploading}</div>;
         } else if (!file.thumbUrl && !file.url) {
-          icon = <Icon className={`${prefixCls}-list-item-thumbnail`} type="picture" />;
+          icon = <Icon className={`${prefixCls}-list-item-thumbnail`} type="picture" theme="twoTone" />;
         } else {
           const thumbnail = isImageUrl(file)
             ? <img src={file.thumbUrl || file.url} alt={file.name} />
-            : <Icon type="file" className={`${prefixCls}-list-item-icon`} />;
+            : <Icon type="file" className={`${prefixCls}-list-item-icon`} theme="twoTone" />;
           icon = (
             <a
               className={`${prefixCls}-list-item-thumbnail`}

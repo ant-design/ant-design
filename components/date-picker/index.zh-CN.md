@@ -80,7 +80,7 @@ moment.locale('zh-cn');
 | defaultValue | 默认日期 | [moment](http://momentjs.com/) | 无 |
 | defaultPickerValue | 默认面板日期 | [moment](http://momentjs.com/) | 无 |
 | disabledTime | 不可选择的时间 | function(date) | 无 |
-| format | 展示的日期格式，配置参考 [moment.js](http://momentjs.com/) | string | "YYYY-MM-DD" |
+| format | 设置日期格式，为数组时支持多格式匹配，展示以第一个为准。配置参考 [moment.js](http://momentjs.com/) | string \| string[] | "YYYY-MM-DD" |
 | mode | 日期面板的状态 | `time|date|month|year` | 'date' |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |
 | showTime | 增加时间选择功能 | Object\|boolean | [TimePicker Options](/components/time-picker/#API) |

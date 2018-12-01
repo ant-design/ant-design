@@ -80,16 +80,17 @@ describe('DatePicker', () => {
       onChange = (value) => {
         let { cleared } = this.state;
 
+        let newValue = value;
         if (cleared) {
-          value = moment(moment(value).format('YYYY-MM-DD 12:12:12'));
+          newValue = moment(moment(value).format('YYYY-MM-DD 12:12:12'));
           cleared = false;
         }
 
-        if (!value) {
+        if (!newValue) {
           cleared = true;
         }
 
-        this.setState({ value, cleared });
+        this.setState({ value: newValue, cleared });
       }
 
       render() {

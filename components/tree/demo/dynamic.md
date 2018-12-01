@@ -16,7 +16,7 @@ To load data asynchronously when click to expand a treeNode.
 ````jsx
 import { Tree } from 'antd';
 
-const TreeNode = Tree.TreeNode;
+const { TreeNode } = Tree;
 
 class Demo extends React.Component {
   state = {
@@ -27,37 +27,33 @@ class Demo extends React.Component {
     ],
   }
 
-  onLoadData = (treeNode) => {
-    return new Promise((resolve) => {
-      if (treeNode.props.children) {
-        resolve();
-        return;
-      }
-      setTimeout(() => {
-        treeNode.props.dataRef.children = [
-          { title: 'Child Node', key: `${treeNode.props.eventKey}-0` },
-          { title: 'Child Node', key: `${treeNode.props.eventKey}-1` },
-        ];
-        this.setState({
-          treeData: [...this.state.treeData],
-        });
-        resolve();
-      }, 1000);
-    });
-  }
+  onLoadData = treeNode => new Promise((resolve) => {
+    if (treeNode.props.children) {
+      resolve();
+      return;
+    }
+    setTimeout(() => {
+      treeNode.props.dataRef.children = [
+        { title: 'Child Node', key: `${treeNode.props.eventKey}-0` },
+        { title: 'Child Node', key: `${treeNode.props.eventKey}-1` },
+      ];
+      this.setState({
+        treeData: [...this.state.treeData],
+      });
+      resolve();
+    }, 1000);
+  })
 
-  renderTreeNodes = (data) => {
-    return data.map((item) => {
-      if (item.children) {
-        return (
-          <TreeNode title={item.title} key={item.key} dataRef={item}>
-            {this.renderTreeNodes(item.children)}
-          </TreeNode>
-        );
-      }
-      return <TreeNode {...item} dataRef={item} />;
-    });
-  }
+  renderTreeNodes = data => data.map((item) => {
+    if (item.children) {
+      return (
+        <TreeNode title={item.title} key={item.key} dataRef={item}>
+          {this.renderTreeNodes(item.children)}
+        </TreeNode>
+      );
+    }
+    return <TreeNode {...item} dataRef={item} />;
+  })
 
   render() {
     return (

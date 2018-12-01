@@ -4,7 +4,8 @@ let Trigger; // eslint-disable-line
 
 if (process.env.REACT === '15') {
   const ActualTrigger = require.requireActual('rc-trigger');
-  const render = ActualTrigger.prototype.render;
+  // cannot use object destruction, cause react 15 test cases fail
+  const render = ActualTrigger.prototype.render; // eslint-disable-line
 
   ActualTrigger.prototype.render = function () {
     const { popupVisible } = this.state; // eslint-disable-line
@@ -26,6 +27,5 @@ if (process.env.REACT === '15') {
   const TriggerMock = require('rc-trigger/lib/mock'); // eslint-disable-line
   Trigger = TriggerMock;
 }
-
 
 export default Trigger;

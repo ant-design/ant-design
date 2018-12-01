@@ -114,7 +114,10 @@ class Demo extends React.Component {
           label="Slider"
         >
           {getFieldDecorator('slider')(
-            <Slider marks={{ 0: 'A', 20: 'B', 40: 'C', 60: 'D', 80: 'E', 100: 'F' }} />
+            <Slider marks={{
+              0: 'A', 20: 'B', 40: 'C', 60: 'D', 80: 'E', 100: 'F',
+            }}
+            />
           )}
         </FormItem>
 

@@ -39,5 +39,6 @@ ReactDOM.render(
       <ExampleComment />
     </ExampleComment>
   </ExampleComment>,
-  mountNode);
+  mountNode,
+);
 ````

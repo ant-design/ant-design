@@ -23,5 +23,6 @@ ReactDOM.render(
     <Progress percent={70} size="small" status="exception" />
     <Progress percent={100} size="small" />
   </div>,
-  mountNode);
+  mountNode
+);
 ````

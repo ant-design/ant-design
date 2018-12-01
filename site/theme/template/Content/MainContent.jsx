@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
-import { Row, Col, Menu, Icon } from 'antd';
+import {
+  Row, Col, Menu, Icon,
+} from 'antd';
 import classNames from 'classnames';
 import MobileMenu from 'rc-drawer';
 import Article from './Article';
@@ -91,6 +93,58 @@ export default class MainContent extends React.PureComponent {
     this.scroller.disable();
   }
 
+  getMenuItems(footerNavIcons = {}) {
+    const { themeConfig } = this.props;
+    const { intl: { locale } } = this.context;
+    const moduleData = getModuleData(this.props);
+    const menuItems = utils.getMenuItems(
+      moduleData,
+      locale,
+      themeConfig.categoryOrder,
+      themeConfig.typeOrder,
+    );
+    return menuItems.map((menuItem) => {
+      if (menuItem.children) {
+        return (
+          <SubMenu title={<h4>{menuItem.title}</h4>} key={menuItem.title}>
+            {menuItem.children.map((child) => {
+              if (child.type === 'type') {
+                return (
+                  <Menu.ItemGroup title={child.title} key={child.title}>
+                    {
+                      child.children
+                        .sort((a, b) => a.title.charCodeAt(0) - b.title.charCodeAt(0))
+                        .map(leaf => this.generateMenuItem(false, leaf, footerNavIcons))
+                    }
+                  </Menu.ItemGroup>
+                );
+              }
+              return this.generateMenuItem(false, child, footerNavIcons);
+            })}
+          </SubMenu>
+        );
+      }
+      return this.generateMenuItem(true, menuItem, footerNavIcons);
+    });
+  }
+
+  getFooterNav(menuItems, activeMenuItem) {
+    const menuItemsList = this.flattenMenu(menuItems);
+    let activeMenuItemIndex = -1;
+    menuItemsList.forEach((menuItem, i) => {
+      if (menuItem && menuItem.key === activeMenuItem) {
+        activeMenuItemIndex = i;
+      }
+    });
+    const prev = menuItemsList[activeMenuItemIndex - 1];
+    const next = menuItemsList[activeMenuItemIndex + 1];
+    return { prev, next };
+  }
+
+  handleMenuOpenChange = (openKeys) => {
+    this.setState({ openKeys });
+  }
+
   bindScroller() {
     if (this.scroller) {
       this.scroller.disable();
@@ -105,17 +159,13 @@ export default class MainContent extends React.PureComponent {
       })
       .onStepEnter(({ element }) => {
         [].forEach.call(document.querySelectorAll('.toc-affix li a'), (node) => {
-          node.className = '';
+          node.className = ''; // eslint-disable-line
         });
         const currentNode = document.querySelectorAll(`.toc-affix li a[href="#${element.id}"]`)[0];
         if (currentNode) {
           currentNode.className = 'current';
         }
       });
-  }
-
-  handleMenuOpenChange = (openKeys) => {
-    this.setState({ openKeys });
   }
 
   generateMenuItem(isTop, item, { before = null, after = null }) {
@@ -152,39 +202,6 @@ export default class MainContent extends React.PureComponent {
     );
   }
 
-  getMenuItems(footerNavIcons = {}) {
-    const { themeConfig } = this.props;
-    const { intl: { locale } } = this.context;
-    const moduleData = getModuleData(this.props);
-    const menuItems = utils.getMenuItems(
-      moduleData,
-      locale,
-      themeConfig.categoryOrder,
-      themeConfig.typeOrder,
-    );
-    return menuItems.map((menuItem) => {
-      if (menuItem.children) {
-        return (
-          <SubMenu title={<h4>{menuItem.title}</h4>} key={menuItem.title}>
-            {menuItem.children.map((child) => {
-              if (child.type === 'type') {
-                return (
-                  <Menu.ItemGroup title={child.title} key={child.title}>
-                    {child.children.sort((a, b) => {
-                      return a.title.charCodeAt(0) - b.title.charCodeAt(0);
-                    }).map(leaf => this.generateMenuItem(false, leaf, footerNavIcons))}
-                  </Menu.ItemGroup>
-                );
-              }
-              return this.generateMenuItem(false, child, footerNavIcons);
-            })}
-          </SubMenu>
-        );
-      }
-      return this.generateMenuItem(true, menuItem, footerNavIcons);
-    });
-  }
-
   flattenMenu(menu) {
     if (menu && menu.type && menu.type.isMenuItem) {
       return menu;
@@ -193,19 +210,6 @@ export default class MainContent extends React.PureComponent {
       return menu.reduce((acc, item) => acc.concat(this.flattenMenu(item)), []);
     }
     return this.flattenMenu((menu.props && menu.props.children) || menu.children);
-  }
-
-  getFooterNav(menuItems, activeMenuItem) {
-    const menuItemsList = this.flattenMenu(menuItems);
-    let activeMenuItemIndex = -1;
-    menuItemsList.forEach((menuItem, i) => {
-      if (menuItem && menuItem.key === activeMenuItem) {
-        activeMenuItemIndex = i;
-      }
-    });
-    const prev = menuItemsList[activeMenuItemIndex - 1];
-    const next = menuItemsList[activeMenuItemIndex + 1];
-    return { prev, next };
   }
 
   render() {

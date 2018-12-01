@@ -88,15 +88,15 @@ describe('Table.filter', () => {
   });
 
   it('override custom filter correctly', () => {
-    const filter = ({ prefixCls, setSelectedKeys, confirm, clearFilters }) => {
-      return (
-        <div className={`${prefixCls}-view`} id="customFilter">
-          <span onClick={() => setSelectedKeys([42])} id="setSelectedKeys">setSelectedKeys</span>
-          <span onClick={() => confirm()} id="confirm">Confirm</span>
-          <span onClick={() => clearFilters()} id="reset">Reset</span>
-        </div>
-      );
-    };
+    const filter = ({
+      prefixCls, setSelectedKeys, confirm, clearFilters,
+    }) => (
+      <div className={`${prefixCls}-view`} id="customFilter">
+        <span onClick={() => setSelectedKeys([42])} id="setSelectedKeys">setSelectedKeys</span>
+        <span onClick={() => confirm()} id="confirm">Confirm</span>
+        <span onClick={() => clearFilters()} id="reset">Reset</span>
+      </div>
+    );
 
     const wrapper = mount(createTable({
       columns: [{

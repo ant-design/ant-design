@@ -92,7 +92,7 @@ describe('Anchor Render', () => {
     let anchorInstance = null;
     function AnchorUpdate({ href }) {
       return (
-        <Anchor ref={c => anchorInstance = c}>
+        <Anchor ref={(c) => { anchorInstance = c; }}>
           <Link href={href} title="API" />
         </Anchor>
       );
@@ -107,7 +107,7 @@ describe('Anchor Render', () => {
   it('Anchor onClick event', () => {
     let event;
     let link;
-    const handleClick = (...arg) => ([event, link] = arg);
+    const handleClick = (...arg) => { [event, link] = arg; };
 
     const href = '#API';
     const title = 'API';

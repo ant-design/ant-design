@@ -14,43 +14,43 @@ title:
 Comment can be used as editor, user can customize the editor component.
 
 ````jsx
-import { Comment, Avatar, Form, Button, List, Input } from 'antd';
+import {
+  Comment, Avatar, Form, Button, List, Input,
+} from 'antd';
 import moment from 'moment';
 
 const FormItem = Form.Item;
 const TextArea = Input.TextArea;
 
-const CommentList = ({ comments }) => {
-  return (
-    <List
-      dataSource={comments}
-      header={`${comments.length} ${comments.length > 1 ? 'replies' : 'reply'}`}
-      itemLayout="horizontal"
-      renderItem={props => <Comment {...props} />}
-    />
-  );
-};
+const CommentList = ({ comments }) => (
+  <List
+    dataSource={comments}
+    header={`${comments.length} ${comments.length > 1 ? 'replies' : 'reply'}`}
+    itemLayout="horizontal"
+    renderItem={props => <Comment {...props} />}
+  />
+);
 
-const Editor = ({ onChange, onSubmit, submitting, value }) => {
-  return (
-    <div>
-      <FormItem>
-        <TextArea rows={4} onChange={onChange} value={value} />
-      </FormItem>
-      <FormItem>
-        <Button
-          disabled={submitting}
-          htmlType="submit"
-          loading={submitting}
-          onClick={onSubmit}
-          type="primary"
-        >
-          Add Comment
-        </Button>
-      </FormItem>
-    </div>
-  );
-};
+const Editor = ({
+  onChange, onSubmit, submitting, value,
+}) => (
+  <div>
+    <FormItem>
+      <TextArea rows={4} onChange={onChange} value={value} />
+    </FormItem>
+    <FormItem>
+      <Button
+        disabled={submitting}
+        htmlType="submit"
+        loading={submitting}
+        onClick={onSubmit}
+        type="primary"
+      >
+        Add Comment
+      </Button>
+    </FormItem>
+  </div>
+);
 
 class App extends React.Component {
   state = {

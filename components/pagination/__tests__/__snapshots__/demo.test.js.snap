@@ -267,6 +267,7 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
+        aria-controls="test-uuid"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -926,6 +927,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
       >
         <div
           aria-autocomplete="list"
+          aria-controls="test-uuid"
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-select-selection

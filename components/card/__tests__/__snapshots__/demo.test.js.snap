@@ -908,6 +908,11 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
           </div>
         </div>
         <div
+          role="presentation"
+          style="width:0;height:0;overflow:hidden"
+          tabindex="0"
+        />
+        <div
           class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
           style="margin-left:0%"
         >
@@ -915,13 +920,29 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
             aria-hidden="false"
             class="ant-tabs-tabpane ant-tabs-tabpane-active"
             role="tabpanel"
-          />
+          >
+            <div
+              role="presentation"
+              style="width:0;height:0;overflow:hidden"
+              tabindex="0"
+            />
+            <div
+              role="presentation"
+              style="width:0;height:0;overflow:hidden"
+              tabindex="0"
+            />
+          </div>
           <div
             aria-hidden="true"
             class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
             role="tabpanel"
           />
         </div>
+        <div
+          role="presentation"
+          style="width:0;height:0;overflow:hidden"
+          tabindex="0"
+        />
       </div>
     </div>
     <div
@@ -1051,6 +1072,11 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
           </div>
         </div>
         <div
+          role="presentation"
+          style="width:0;height:0;overflow:hidden"
+          tabindex="0"
+        />
+        <div
           class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
           style="margin-left:-100%"
         >
@@ -1063,13 +1089,29 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
             aria-hidden="false"
             class="ant-tabs-tabpane ant-tabs-tabpane-active"
             role="tabpanel"
-          />
+          >
+            <div
+              role="presentation"
+              style="width:0;height:0;overflow:hidden"
+              tabindex="0"
+            />
+            <div
+              role="presentation"
+              style="width:0;height:0;overflow:hidden"
+              tabindex="0"
+            />
+          </div>
           <div
             aria-hidden="true"
             class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
             role="tabpanel"
           />
         </div>
+        <div
+          role="presentation"
+          style="width:0;height:0;overflow:hidden"
+          tabindex="0"
+        />
       </div>
     </div>
     <div

@@ -22,5 +22,6 @@ ReactDOM.render(
     <br />
     <Checkbox defaultChecked disabled />
   </div>,
-  mountNode);
+  mountNode
+);
 ````

@@ -34,5 +34,6 @@ ReactDOM.render(
     onSelect={onSelect}
     placement="top"
   />,
-  mountNode);
+  mountNode
+);
 ````

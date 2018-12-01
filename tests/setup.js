@@ -10,19 +10,14 @@ if (typeof window !== 'undefined') {
 
 // The built-in requestAnimationFrame and cancelAnimationFrame not working with jest.runFakeTimes()
 // https://github.com/facebook/jest/issues/5147
-global.requestAnimationFrame = function (cb) {
-  return setTimeout(cb, 0);
-};
-
-global.cancelAnimationFrame = function (cb) {
-  return clearTimeout(cb, 0);
-};
+global.requestAnimationFrame = cb => setTimeout(cb, 0);
+global.cancelAnimationFrame = cb => clearTimeout(cb, 0);
 
 const Enzyme = require('enzyme');
 
 let Adapter;
 if (process.env.REACT === '15') {
-  Adapter = require('enzyme-adapter-react-15');
+  Adapter = require('enzyme-adapter-react-15'); // eslint-disable-line
 } else {
   Adapter = require('enzyme-adapter-react-16');
 }

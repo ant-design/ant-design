@@ -29,7 +29,11 @@ export default class Palette extends React.Component {
 
   render() {
     this.colorNodes = this.colorNodes || {};
-    const { showTitle, direction, color: { name, description, english, chinese } } = this.props;
+    const {
+      showTitle, direction, color: {
+        name, description, english, chinese,
+      },
+    } = this.props;
     const className = direction === 'horizontal' ? 'color-palette-horizontal' : 'color-palette';
     const colors = [];
     const colorName = `${english} / ${chinese}`;

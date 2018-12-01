@@ -33,7 +33,9 @@ class Demo extends React.Component {
   };
 
   render() {
-    const { parentPos, childPos, parentType, childType } = this.state;
+    const {
+      parentPos, childPos, parentType, childType,
+    } = this.state;
 
     return (
       <div>
@@ -76,5 +78,6 @@ class Demo extends React.Component {
 
 ReactDOM.render(
   <Demo />,
-  mountNode);
+  mountNode,
+);
 ````

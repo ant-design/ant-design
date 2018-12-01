@@ -171,6 +171,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
           >
             <div
               aria-autocomplete="list"
+              aria-controls="test-uuid"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection
@@ -226,6 +227,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
       >
         <div
           aria-autocomplete="list"
+          aria-controls="test-uuid"
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-select-selection
@@ -653,6 +655,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
           >
             <div
               aria-autocomplete="list"
+              aria-controls="test-uuid"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection
@@ -701,6 +704,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
           >
             <div
               aria-autocomplete="list"
+              aria-controls="test-uuid"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection
@@ -1878,6 +1882,7 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
       >
         <div
           aria-autocomplete="list"
+          aria-controls="test-uuid"
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-select-selection

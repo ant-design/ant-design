@@ -44,5 +44,6 @@ ReactDOM.render(
       Inner Card content
     </Card>
   </Card>,
-  mountNode);
+  mountNode
+);
 ````

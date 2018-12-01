@@ -18,9 +18,7 @@ class ModalTester extends React.Component {
     this.container = container;
   }
 
-  getContainer = () => {
-    return this.container;
-  }
+  getContainer = () => this.container
 
   render() {
     const { visible } = this.state;

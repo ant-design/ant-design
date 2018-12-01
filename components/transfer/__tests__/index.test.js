@@ -175,7 +175,9 @@ describe('Transfer', () => {
   it('should display the correct locale', () => {
     const emptyProps = { dataSource: [], selectedKeys: [], targetKeys: [] };
     const locale = { itemUnit: 'Person', notFoundContent: 'Nothing', searchPlaceholder: 'Search' };
-    const wrapper = mount(<Transfer {...listCommonProps} {...emptyProps} showSearch locale={locale} />);
+    const wrapper = mount(
+      <Transfer {...listCommonProps} {...emptyProps} showSearch locale={locale} />
+    );
 
     expect(headerText(wrapper)).toEqual('0 Person');
 
@@ -278,7 +280,12 @@ describe('Transfer', () => {
     delete newProps.selectedKeys;
     const handleSelectChange = jest.fn();
     const wrapper = mount(
-      <Transfer {...newProps} showSearch onSelectChange={handleSelectChange} render={item => item.title} />
+      <Transfer
+        {...newProps}
+        showSearch
+        onSelectChange={handleSelectChange}
+        render={item => item.title}
+      />
     );
     wrapper.find(TransferItem).filterWhere(n => n.prop('item').key === 'b').simulate('click');
     expect(handleSelectChange).toHaveBeenLastCalledWith(['b'], []);
@@ -319,7 +326,14 @@ describe('Transfer', () => {
       backgroundColor: 'yellow',
     };
 
-    const component = mount(<Transfer {...listCommonProps} style={style} listStyle={listStyle} operationStyle={operationStyle} />);
+    const component = mount(
+      <Transfer
+        {...listCommonProps}
+        style={style}
+        listStyle={listStyle}
+        operationStyle={operationStyle}
+      />
+    );
 
     const wrapper = component.find('.ant-transfer');
     const listSource = component.find('.ant-transfer-list').first();

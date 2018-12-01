@@ -2,8 +2,7 @@ import React from 'react';
 import { mount, render } from 'enzyme';
 import Tree from '../index';
 
-const DirectoryTree = Tree.DirectoryTree;
-const TreeNode = Tree.TreeNode;
+const { DirectoryTree, TreeNode } = Tree;
 
 describe('Directory Tree', () => {
   beforeAll(() => {

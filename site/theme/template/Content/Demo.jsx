@@ -31,14 +31,6 @@ export default class Demo extends React.Component {
     showRiddleButton: false,
   };
 
-  shouldComponentUpdate(nextProps, nextState) {
-    const { codeExpand, copied, copyTooltipVisible } = this.state;
-    const { expand } = this.props;
-    return (codeExpand || expand) !== (nextState.codeExpand || nextProps.expand)
-      || copied !== nextState.copied
-      || copyTooltipVisible !== nextState.copyTooltipVisible;
-  }
-
   componentDidMount() {
     const { meta, location } = this.props;
     if (meta.id === location.hash.slice(1)) {
@@ -52,6 +44,14 @@ export default class Demo extends React.Component {
         });
       }
     });
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    const { codeExpand, copied, copyTooltipVisible } = this.state;
+    const { expand } = this.props;
+    return (codeExpand || expand) !== (nextState.codeExpand || nextProps.expand)
+      || copied !== nextState.copied
+      || copyTooltipVisible !== nextState.copyTooltipVisible;
   }
 
   getSourceCode() {
@@ -199,7 +199,7 @@ ${sourceCode.replace('mountNode', 'document.getElementById(\'container\')')}
           </ErrorBoundary>
           {
             style
-              ? <style dangerouslySetInnerHTML={{ __html: style }} />
+              ? <style dangerouslySetInnerHTML={{ __html: style }} /> // eslint-disable-line
               : null
           }
         </section>
@@ -281,7 +281,7 @@ ${sourceCode.replace('mountNode', 'document.getElementById(\'container\')')}
               ? (
                 <div key="style" className="highlight">
                   <pre>
-                    <code className="css" dangerouslySetInnerHTML={{ __html: highlightedStyle }} />
+                    <code className="css" dangerouslySetInnerHTML={{ __html: highlightedStyle }} /> {/* eslint-disable-line */}
                   </pre>
                 </div>
               ) : null

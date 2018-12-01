@@ -60,6 +60,7 @@ export default class Card extends React.Component<CardProps, CardState> {
   private resizeEvent: any;
   private updateWiderPaddingCalled: boolean = false;
   private container: HTMLDivElement;
+
   componentDidMount() {
     this.updateWiderPadding();
     this.resizeEvent = addEventListener(window, 'resize', this.updateWiderPadding);
@@ -72,12 +73,14 @@ export default class Card extends React.Component<CardProps, CardState> {
       warning(!!this.props.noHovering, '`noHovering={false}` of Card is deprecated, use `hoverable` instead.');
     }
   }
+
   componentWillUnmount() {
     if (this.resizeEvent) {
       this.resizeEvent.remove();
     }
     (this.updateWiderPadding as any).cancel();
   }
+
   @throttleByAnimationFrameDecorator()
   updateWiderPadding() {
     if (!this.container) {
@@ -96,14 +99,17 @@ export default class Card extends React.Component<CardProps, CardState> {
       });
     }
   }
+
   onTabChange = (key: string) => {
     if (this.props.onTabChange) {
       this.props.onTabChange(key);
     }
   }
+
   saveRef = (node: HTMLDivElement) => {
     this.container = node;
   }
+
   isContainGrid() {
     let containGrid;
     React.Children.forEach(this.props.children, (element: JSX.Element) => {
@@ -113,6 +119,7 @@ export default class Card extends React.Component<CardProps, CardState> {
     });
     return containGrid;
   }
+
   getAction(actions: React.ReactNode[]) {
     if (!actions || !actions.length) {
       return null;
@@ -125,6 +132,7 @@ export default class Card extends React.Component<CardProps, CardState> {
     );
     return actionList;
   }
+
   // For 2.x compatible
   getCompatibleHoverable() {
     const { noHovering, hoverable } = this.props;
@@ -133,6 +141,7 @@ export default class Card extends React.Component<CardProps, CardState> {
     }
     return !!hoverable;
   }
+
   render() {
     const {
       prefixCls = 'ant-card', className, extra, headStyle = {}, bodyStyle = {}, noHovering, hoverable, title, loading,

@@ -6,7 +6,7 @@ export interface PickerProps {
   id?: number | string;
   prefixCls?: string;
   inputPrefixCls?: string;
-  format?: string;
+  format?: string | string[];
   disabled?: boolean;
   allowClear?: boolean;
   className?: string;

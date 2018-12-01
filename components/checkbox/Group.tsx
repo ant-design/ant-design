@@ -88,6 +88,7 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
     return !shallowEqual(this.props, nextProps) ||
       !shallowEqual(this.state, nextState);
   }
+
   getOptions() {
     const { options } = this.props;
     // https://github.com/Microsoft/TypeScript/issues/7960
@@ -101,6 +102,7 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
       return option;
     });
   }
+
   toggleOption = (option: CheckboxOptionType) => {
     const optionIndex = this.state.value.indexOf(option.value);
     const value = [...this.state.value];
@@ -117,6 +119,7 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
       onChange(value);
     }
   }
+
   render() {
     const { props, state } = this;
     const { prefixCls, className, style, options, ...restProps } = props;
