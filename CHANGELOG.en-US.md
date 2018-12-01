@@ -19,23 +19,33 @@ timeline: true
 
 `2018-12-02`
 
+3.11.0 brings two new Component, and a lot of exciting changes and new features.
+
 - 🔥 Added a new component [Comment](https://ant.design/components/comment/). [#12770](https://github.com/ant-design/ant-design/pull/12770) [@ilanus](https://github.com/ilanus)
 - 🔥 Added a new component [ConfigProvider](https://ant.design/components/config-provider/) for user to customize some global setting. [#12991](https://github.com/ant-design/ant-design/pull/12991)
+
+Component Fixes / Enhancements:
+
 - 🌟 Avatar Added `srcSet` prop that is a list of sources to use for different screen resolutions. [#12525](https://github.com/ant-design/ant-design/pull/12525) [@philipodev](https://github.com/philipodev)
-- 🌟 Notification Added `onClick` prop that is called when the notification is clicked. [#11832](https://github.com/ant-design/ant-design/issues/11832)
+- 🌟 Upgrade `rc-notification` to `3.3.0`, Notification Added `onClick` prop that is called when the notification is clicked. [#11832](https://github.com/ant-design/ant-design/issues/11832)
 - Transfer
-  - 🌟 Added `onSearch` prop that is executed when search field are changed. [#12422](https://github.com/ant-design/ant-design/pull/12422)
+  - 🌟 Added `onSearch` prop that is executed when search field are changed and deprecated `onSearchChange`. [#12422](https://github.com/ant-design/ant-design/pull/12422)
   - 🌟 Added `disabled` prop that whether disabled transfer. [#13330](https://github.com/ant-design/ant-design/issues/13330)
 - 🌟 Refactor Badge, support `count` as custom component. [#12140](https://github.com/ant-design/ant-design/pull/12140) [@supra28](https://github.com/supra28)
 - 🌟 Slider Added `tooltipVisible` prop that whether Tooltip will show always. [#12915](https://github.com/ant-design/ant-design/pull/12915) [@zy410419243](https://github.com/zy410419243)
 - 🌟 Support custom font-variant style through less variable `@font-variant-base`. [#12691](https://github.com/ant-design/ant-design/pull/12691) [@neemski](https://github.com/neemski)
-- Select
+- Table upgrade `rc-table` to `6.4.0`
+  - 🌟 Added `expandIcon` prop that custom the default expand icon. [#236](https://github.com/react-component/table/pull/236) [@kagd](https://github.com/kagd)
+  - 💄 Support `data-*`、`aria-*` attributes. [#227](https://github.com/react-component/table/pull/227) [@kagd](https://github.com/kagd)
+  - 🌟 onCell added `index` prop. [#222](https://github.com/react-component/table/pull/222) [@yoyo837](https://github.com/yoyo837)
+- Select upgrade `rc-select` to `8.6.0`
   - 🌟 Added `removeIcon`、`clearIcon`、`menuItemSelectedIcon` prop，allow setting `remove`、`clear`、`menuItemSelected` custom icons. [#12958](https://github.com/ant-design/ant-design/pull/12958) [@kimochg](https://github.com/kimochg)
   - 🌟 Added `dropdownRender` prop that custom dropdown content. [#10831](https://github.com/ant-design/ant-design/issues/10831)
   - 🌟 Added `loading` prop that indicate loading state. [#11225](https://github.com/ant-design/ant-design/issues/11225)
-- 🌟 Added `title` prop that Menu.Item support tooltip title when collapsed. [#12952](https://github.com/ant-design/ant-design/pull/12952)
-- Cascader
-  - 🌟 Added `limit` field in `showSearch` prop that support limit filtered item count. [#13206](https://github.com/ant-design/ant-design/pull/13206)
+- 💄 Added `title` prop that Menu.Item support tooltip title when collapsed. [#12952](https://github.com/ant-design/ant-design/pull/12952)
+- Cascader upgrade `rc-calendar` to `9.8.0`
+  - 🌟 Support multiple date format. [#437](https://github.com/react-component/calendar/pull/437) [@onlyann](https://github.com/onlyann)
+  - 🌟 showSearch added `limit` prop that support limit filtered item count. [#13206](https://github.com/ant-design/ant-design/pull/13206)
 - 🐞 Fix TextArea use resize observer to check textarea size. [#13295](https://github.com/ant-design/ant-design/pull/13295)
 - 🐞 Fix Tabs renderTabBar style error when tabPosition is left or right. [#13118](https://github.com/ant-design/ant-design/pull/13118)
 - 🐞 Fix Upload thumbnail icon broken styles. [#13333](https://github.com/ant-design/ant-design/issues/13333)

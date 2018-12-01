@@ -19,23 +19,33 @@ timeline: true
 
 `2018-12-02`
 
+3.11.0 版本带来了两个新组件，还有很多激动人心的变化和新特性。
+
 - 🔥 增加了一个新组件 [Comment](https://ant.design/components/comment-cn/)。[#12770](https://github.com/ant-design/ant-design/pull/12770) [@ilanus](https://github.com/ilanus)
 - 🔥 增加了一个新组件 [ConfigProvider](https://ant.design/components/config-provider-cn/) 为组件提供统一的全局化配置。[#12991](https://github.com/ant-design/ant-design/pull/12991)
+
+组件修复/功能增强：
+
 - 🌟 Avatar 组件增加 `srcSet` 属性，用于设置图片类头像响应式资源地址。[#12525](https://github.com/ant-design/ant-design/pull/12525) [@philipodev](https://github.com/philipodev)
-- 🌟 Notification 组件增加 `onClick` 属性，用于设置图片类头像响应式资源地址。[#11832](https://github.com/ant-design/ant-design/issues/11832)
+- 🌟 Notification 组件升级 `rc-notification` 到 `3.3.0`，增加 `onClick` 属性，点击通知时触发的回调函数。[#11832](https://github.com/ant-design/ant-design/issues/11832)
 - Transfer
-  - 🌟 增加 `onSearch` 属性，搜索框内容时改变时的回调函数。[#12422](https://github.com/ant-design/ant-design/pull/12422)
+  - 🌟 增加 `onSearch` 属性，搜索框内容时改变时的回调函数，并废弃 `onSearchChange` 属性。[#12422](https://github.com/ant-design/ant-design/pull/12422)
   - 🌟 增加 `disabled` 属性，用于禁用搜索框。[#13330](https://github.com/ant-design/ant-design/issues/13330)
 - 🌟 Badge 进行了重构，`count` 支持自定义组件。[#12140](https://github.com/ant-design/ant-design/pull/12140) [@supra28](https://github.com/supra28)
 - 🌟 Slider 组件增加 `tooltipVisible` 属性，用于 Tooltip 是否始终显示。[#12915](https://github.com/ant-design/ant-design/pull/12915) [@zy410419243](https://github.com/zy410419243)
 - 🌟 增加 less 变量 `@font-variant-base` 定制 font-variant 样式。[#12691](https://github.com/ant-design/ant-design/pull/12691) [@neemski](https://github.com/neemski)
-- Select
+- Table 升级 `rc-table` 到 `6.4.0`
+  - 🌟 增加 `expandIcon` 属性，用于自定义表格展开图标。[#236](https://github.com/react-component/table/pull/236) [@kagd](https://github.com/kagd)
+  - 💄 支持 `data-*`、`aria-*` 属性。[#227](https://github.com/react-component/table/pull/227) [@kagd](https://github.com/kagd)
+  - 🌟 onCell 方法增加 `index` 参数。[#222](https://github.com/react-component/table/pull/222) [@yoyo837](https://github.com/yoyo837)
+- Select 组件升级 `rc-select` 到 `8.6.0`
   - 🌟 增加 `removeIcon`、`clearIcon`、`menuItemSelectedIcon` 属性，用于自定义删除、清空、选中的图标。[#12958](https://github.com/ant-design/ant-design/pull/12958) [@kimochg](https://github.com/kimochg)
   - 🌟 增加 `dropdownRender` 属性， 用于自定义下拉框内容。[#10831](https://github.com/ant-design/ant-design/issues/10831)
   - 🌟 增加 `loading` 属性， 用于展示加载中状态。 [#11225](https://github.com/ant-design/ant-design/issues/11225)
-- 🌟 Menu.Item 组件增加 `title` 属性，用于在收缩时展示的悬浮标题。[#12952](https://github.com/ant-design/ant-design/pull/12952)
-- Cascader
-  - 🌟 增加 `limit` 字段在 `showSearch` 中，用于限制搜索结果展示数量。[#13206](https://github.com/ant-design/ant-design/pull/13206)
+- 💄 Menu.Item 组件增加 `title` 属性，用于在收缩时展示的悬浮标题。[#12952](https://github.com/ant-design/ant-design/pull/12952)
+- Cascader 升级 `rc-calendar` 到 `9.8.0`
+  - 🌟 支持多种时间格式。[#437](https://github.com/react-component/calendar/pull/437) [@onlyann](https://github.com/onlyann)
+  - 🌟 showSearch 方法增加 `limit` 参数，用于限制搜索结果展示数量。[#13206](https://github.com/ant-design/ant-design/pull/13206)
 - 🐞 修复 TextArea 组件高度不能自适应问题。[#13295](https://github.com/ant-design/ant-design/pull/13295)
 - 🐞 修复 Tabs 组件当 tabPosition 为 left 或 right 的时候，renderTabBar 样式问题。[#13118](https://github.com/ant-design/ant-design/pull/13118)
 - 🐞 修复 Upload 缩略图图标样式错误。[#13333](https://github.com/ant-design/ant-design/issues/13333)
