@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Select from '..';
+import Icon from '../../icon';
 import focusTest from '../../../tests/shared/focusTest';
 
 const { Option } = Select;
@@ -77,5 +78,22 @@ describe('Select', () => {
     wrapper.find('.ant-select').simulate('click');
     expect(onDropdownVisibleChange).toHaveBeenLastCalledWith(true);
     expect(dropdownWrapper.props().visible).toBe(false);
+  });
+
+  describe('Select Custom Icons', () => {
+    it('should support customized icons', () => {
+      const wrapper = mount(
+        <Select
+          removeIcon={<Icon type="close" />}
+          clearIcon={<Icon type="close" />}
+          menuItemSelectedIcon={<Icon type="close" />}
+        >
+          <Option value="1">1</Option>
+        </Select>
+      );
+      wrapper.setProps({ count: 10 });
+      jest.runAllTimers();
+      expect(wrapper.render()).toMatchSnapshot();
+    });
   });
 });

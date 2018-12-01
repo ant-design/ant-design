@@ -112,6 +112,7 @@ export interface ArgsProps {
   prefixCls?: string;
   className?: string;
   readonly type?: IconType;
+  onClick?: () => void;
 }
 function notice(args: ArgsProps) {
   const outerPrefixCls = args.prefixCls || 'ant-notification';
@@ -142,7 +143,9 @@ function notice(args: ArgsProps) {
   getNotificationInstance(outerPrefixCls, args.placement || defaultPlacement, (notification: any) => {
     notification.notice({
       content: (
-        <div className={iconNode ? `${prefixCls}-with-icon` : ''}>
+        <div
+          className={iconNode ? `${prefixCls}-with-icon` : ''}
+        >
           {iconNode}
           <div className={`${prefixCls}-message`}>
             {autoMarginTag}
@@ -155,6 +158,7 @@ function notice(args: ArgsProps) {
       duration,
       closable: true,
       onClose: args.onClose,
+      onClick: args.onClick,
       key: args.key,
       style: args.style || {},
       className: args.className,

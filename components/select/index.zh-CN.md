@@ -32,6 +32,7 @@ title: Select
 | disabled | 是否禁用 | boolean | false |
 | dropdownClassName | 下拉菜单的 className 属性 | string | - |
 | dropdownMatchSelectWidth | 下拉菜单和选择器同宽 | boolean | true |
+| dropdownRender | 自定义下来框内容 | (menuNode: ReactNode, props) => ReactNode | - |
 | dropdownStyle | 下拉菜单的 style 属性 | object | - |
 | filterOption | 是否根据输入项进行筛选。当其为一个函数时，会接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 `true`，反之则返回 `false`。 | boolean or function(inputValue, option) | true |
 | firstActiveValue | 默认高亮的选项 | string\|string\[] | - |
@@ -62,6 +63,8 @@ title: Select
 | defaultOpen | 是否默认展开下拉菜单 | boolean | - |
 | open | 是否展开下拉菜单 | boolean | - |
 | onDropdownVisibleChange | 展开下拉菜单的回调 | function(open) | - |
+| dropdownRender | 自定义下拉菜单的内容 | (menu) => ReactNode | - |
+| loading | 加载中状态 | Boolean | false |
 
 > 注意，如果发现下拉菜单跟随页面滚动，或者需要在其他弹层中触发 Select，请尝试使用 `getPopupContainer={triggerNode => triggerNode.parentNode}` 将下拉弹层渲染节点固定在触发器的父元素中。
 

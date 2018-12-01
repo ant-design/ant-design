@@ -7,6 +7,7 @@ exports[`renders ./components/select/demo/automatic-tokenization.md correctly 1`
 >
   <div
     aria-autocomplete="list"
+    aria-controls="test-uuid"
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
@@ -49,6 +50,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
+      aria-controls="test-uuid"
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -98,6 +100,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
+      aria-controls="test-uuid"
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -141,6 +144,56 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
       </span>
     </div>
   </div>
+  <div
+    class="ant-select ant-select-enabled"
+    style="width:120px"
+  >
+    <div
+      aria-autocomplete="list"
+      aria-controls="test-uuid"
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="ant-select-selection
+            ant-select-selection--single"
+      role="combobox"
+      tabindex="0"
+    >
+      <div
+        class="ant-select-selection__rendered"
+      >
+        <div
+          class="ant-select-selection-selected-value"
+          style="display:block;opacity:1"
+          title="Lucy"
+        >
+          Lucy
+        </div>
+      </div>
+      <span
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <i
+          class="anticon anticon-loading"
+        >
+          <svg
+            aria-hidden="true"
+            class="anticon-spin"
+            data-icon="loading"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 0 0-94.3-139.9 437.71 437.71 0 0 0-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+            />
+          </svg>
+        </i>
+      </span>
+    </div>
+  </div>
 </div>
 `;
 
@@ -152,6 +205,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
+      aria-controls="test-uuid"
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -201,6 +255,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
+      aria-controls="test-uuid"
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -247,6 +302,59 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] = `
+<div
+  class="ant-select ant-select-enabled"
+  style="width:120px"
+>
+  <div
+    aria-autocomplete="list"
+    aria-controls="test-uuid"
+    aria-expanded="false"
+    aria-haspopup="true"
+    class="ant-select-selection
+            ant-select-selection--single"
+    role="combobox"
+    tabindex="0"
+  >
+    <div
+      class="ant-select-selection__rendered"
+    >
+      <div
+        class="ant-select-selection-selected-value"
+        style="display:block;opacity:1"
+        title="Lucy"
+      >
+        Lucy
+      </div>
+    </div>
+    <span
+      class="ant-select-arrow"
+      style="user-select:none;-webkit-user-select:none"
+      unselectable="on"
+    >
+      <i
+        class="anticon anticon-down ant-select-arrow-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </i>
+    </span>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
 <div
   class="ant-select ant-select-enabled"
@@ -254,6 +362,7 @@ exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
 >
   <div
     aria-autocomplete="list"
+    aria-controls="test-uuid"
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
@@ -306,6 +415,7 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
 >
   <div
     aria-autocomplete="list"
+    aria-controls="test-uuid"
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
@@ -325,6 +435,7 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
       <ul>
         <li
           class="ant-select-selection__choice"
+          role="presentation"
           style="user-select:none;-webkit-user-select:none"
           title="a10"
           unselectable="on"
@@ -358,6 +469,7 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
         </li>
         <li
           class="ant-select-selection__choice"
+          role="presentation"
           style="user-select:none;-webkit-user-select:none"
           title="c12"
           unselectable="on"
@@ -420,6 +532,7 @@ exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
 >
   <div
     aria-autocomplete="list"
+    aria-controls="test-uuid"
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
@@ -472,6 +585,7 @@ exports[`renders ./components/select/demo/search.md correctly 1`] = `
 >
   <div
     aria-autocomplete="list"
+    aria-controls="test-uuid"
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
@@ -543,6 +657,7 @@ exports[`renders ./components/select/demo/search-box.md correctly 1`] = `
 >
   <div
     aria-autocomplete="list"
+    aria-controls="test-uuid"
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
@@ -591,6 +706,7 @@ exports[`renders ./components/select/demo/select-users.md correctly 1`] = `
 >
   <div
     aria-autocomplete="list"
+    aria-controls="test-uuid"
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
@@ -704,6 +820,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
+      aria-controls="test-uuid"
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -754,6 +871,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
+      aria-controls="test-uuid"
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -773,6 +891,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
         <ul>
           <li
             class="ant-select-selection__choice"
+            role="presentation"
             style="user-select:none;-webkit-user-select:none"
             title="a10"
             unselectable="on"
@@ -806,6 +925,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
           </li>
           <li
             class="ant-select-selection__choice"
+            role="presentation"
             style="user-select:none;-webkit-user-select:none"
             title="c12"
             unselectable="on"
@@ -866,6 +986,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
+      aria-controls="test-uuid"
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -885,6 +1006,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
         <ul>
           <li
             class="ant-select-selection__choice"
+            role="presentation"
             style="user-select:none;-webkit-user-select:none"
             title="a10"
             unselectable="on"
@@ -918,6 +1040,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
           </li>
           <li
             class="ant-select-selection__choice"
+            role="presentation"
             style="user-select:none;-webkit-user-select:none"
             title="c12"
             unselectable="on"
@@ -982,6 +1105,7 @@ exports[`renders ./components/select/demo/suffix.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
+      aria-controls="test-uuid"
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -1006,7 +1130,7 @@ exports[`renders ./components/select/demo/suffix.md correctly 1`] = `
         unselectable="on"
       >
         <i
-          class="anticon anticon-smile"
+          class="anticon anticon-smile ant-select-arrow-icon"
         >
           <svg
             aria-hidden="true"
@@ -1031,6 +1155,7 @@ exports[`renders ./components/select/demo/suffix.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
+      aria-controls="test-uuid"
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -1055,7 +1180,7 @@ exports[`renders ./components/select/demo/suffix.md correctly 1`] = `
         unselectable="on"
       >
         <i
-          class="anticon anticon-meh"
+          class="anticon anticon-meh ant-select-arrow-icon"
         >
           <svg
             aria-hidden="true"
@@ -1084,6 +1209,7 @@ exports[`renders ./components/select/demo/tags.md correctly 1`] = `
 >
   <div
     aria-autocomplete="list"
+    aria-controls="test-uuid"
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection

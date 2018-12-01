@@ -2,6 +2,7 @@ import * as React from 'react';
 import RcMenu, { Divider, ItemGroup } from 'rc-menu';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { ConfigConsumer, ConfigProviderProps } from '../config-provider';
 import animation from '../_util/openAnimation';
 import warning from '../_util/warning';
 import SubMenu from './SubMenu';
@@ -27,7 +28,7 @@ export type MenuMode = 'vertical' | 'vertical-left' | 'vertical-right' | 'horizo
 
 export type MenuTheme = 'light' | 'dark';
 
-export interface MenuProps {
+export interface MenuProps extends ConfigProviderProps {
   id?: string;
   theme?: MenuTheme;
   mode?: MenuMode;
@@ -50,7 +51,6 @@ export interface MenuProps {
   inlineCollapsed?: boolean;
   subMenuCloseDelay?: number;
   subMenuOpenDelay?: number;
-  getPopupContainer?: (triggerNode: Element) => HTMLElement;
   focusable?: boolean;
   onMouseEnter?: (e: MouseEvent) => void;
 }
@@ -225,7 +225,7 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     return menuOpenAnimation;
   }
 
-  render() {
+  renderMenu = ({ getPopupContainer }: ConfigProviderProps) => {
     const { prefixCls, className, theme } = this.props;
     const menuMode = this.getRealMenuMode();
     const menuOpenAnimation = this.getMenuOpenAnimation(menuMode!);
@@ -260,11 +260,20 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
 
     return (
       <RcMenu
+        getPopupContainer={getPopupContainer}
         {...this.props}
         {...menuProps}
         onTransitionEnd={this.handleTransitionEnd}
         onMouseEnter={this.handleMouseEnter}
       />
+    );
+  }
+
+  render() {
+    return (
+      <ConfigConsumer>
+        {this.renderMenu}
+      </ConfigConsumer>
     );
   }
 }

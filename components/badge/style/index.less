@@ -47,11 +47,16 @@
   }
 
   &-count,
-  &-dot {
+  &-dot,
+  .@{number-prefix-cls}-custom-component {
     position: absolute;
     right: 0;
     transform: translateX(50%);
     transform-origin: 100%;
+  }
+
+  .@{number-prefix-cls}-custom-component {
+    transform: translate(50%, -50%);
   }
 
   &-status {
