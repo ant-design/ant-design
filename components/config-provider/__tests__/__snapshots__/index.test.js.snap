@@ -377,3 +377,45 @@ exports[`ConfigProvider components avatar prefixCls 1`] = `
   />
 </span>
 `;
+
+exports[`ConfigProvider components back-top configProvider 1`] = `
+<div
+  class="config-back-top"
+>
+  <div
+    class="config-back-top-content"
+  >
+    <div
+      class="config-back-top-icon"
+    />
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components back-top normal 1`] = `
+<div
+  class="ant-back-top"
+>
+  <div
+    class="ant-back-top-content"
+  >
+    <div
+      class="ant-back-top-icon"
+    />
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components back-top prefixCls 1`] = `
+<div
+  class="prefix-back-top"
+>
+  <div
+    class="prefix-back-top-content"
+  >
+    <div
+      class="prefix-back-top-icon"
+    />
+  </div>
+</div>
+`;

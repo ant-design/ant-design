@@ -5,6 +5,7 @@ import Alert from '../../alert';
 import Anchor from '../../anchor';
 import AutoComplete from '../../auto-complete';
 import Avatar from '../../avatar';
+import BackTop from '../../back-top';
 
 describe('ConfigProvider', () => {
   describe('components', () => {
@@ -51,6 +52,11 @@ describe('ConfigProvider', () => {
     // Avatar
     testPair('avatar', props => (
       <Avatar {...props} />
+    ));
+
+    // BackTop
+    testPair('back-top', props => (
+      <BackTop visible {...props} />
     ));
   });
 });
