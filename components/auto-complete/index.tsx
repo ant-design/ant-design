@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
-import Select, { AbstractSelectProps, SelectValue, OptionProps, OptGroupProps } from '../select';
-import Input from '../input';
 import InputElement from './InputElement';
+import Input from '../input';
+import Select, { AbstractSelectProps, SelectValue, OptionProps, OptGroupProps } from '../select';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface DataSourceItemObject { value: string; text: string; }
 export type DataSourceItemType =
@@ -47,7 +48,6 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, {}>
   static OptGroup = OptGroup as React.ClassicComponentClass<OptGroupProps>;
 
   static defaultProps = {
-    prefixCls: 'ant-select',
     transitionName: 'slide-up',
     optionLabelProp: 'children',
     choiceTransitionName: 'zoom',
@@ -81,10 +81,12 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, {}>
     this.select = node;
   }
 
-  render() {
+  renderAutoComplete = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
-      size, className = '', notFoundContent, prefixCls, optionLabelProp, dataSource, children,
+      prefixCls: customizePrefixCls,
+      size, className = '', notFoundContent, optionLabelProp, dataSource, children,
     } = this.props;
+    const prefixCls = getPrefixCls('select', customizePrefixCls);
 
     const cls = classNames({
       [`${prefixCls}-lg`]: size === 'large',
@@ -132,6 +134,14 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, {}>
       >
         {options}
       </Select>
+    );
+  }
+
+  render() {
+    return (
+      <ConfigConsumer>
+        {this.renderAutoComplete}
+      </ConfigConsumer>
     );
   }
 }

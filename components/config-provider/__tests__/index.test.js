@@ -3,6 +3,7 @@ import { render } from 'enzyme';
 import ConfigProvider from '..';
 import Alert from '../../alert';
 import Anchor from '../../anchor';
+import AutoComplete from '../../auto-complete';
 
 describe('ConfigProvider', () => {
   describe('components', () => {
@@ -39,6 +40,11 @@ describe('ConfigProvider', () => {
       <Anchor {...props}>
         <Anchor.Link {...props} href="#bamboo" title="Little Light" />
       </Anchor>
+    ));
+
+    // AutoComplete
+    testPair('auto-complete', props => (
+      <AutoComplete {...props} />
     ));
   });
 });
