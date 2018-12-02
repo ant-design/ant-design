@@ -3,6 +3,7 @@ order: 7
 title:
   en-US: Filter and sorter
   zh-CN: 筛选和排序
+  debug: true
 ---
 
 ## zh-CN
@@ -27,7 +28,13 @@ If a `sortOrder` or `defaultSortOrder` is specified with the value `ascend` or `
 import { Table } from 'antd';
 
 const columns = [{
-  title: 'Name',
+  title: (
+    <div title="title1">
+      <div title="title2">
+        <div title="title3">Name</div>
+      </div>
+    </div>
+  ),
   dataIndex: 'name',
   filters: [{
     text: 'Joe',

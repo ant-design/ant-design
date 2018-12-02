@@ -785,6 +785,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       const key = this.getColumnKey(column, i) as string;
       let filterDropdown;
       let sortButton;
+      let sortTitle = this.getColumnTitle(column.title, {}) || locale.sortTitle;
       const isSortColumn = this.isSortColumn(column);
       if ((column.filters && column.filters.length > 0) || column.filterDropdown) {
         const colFilters = key in filters ? filters[key] : [];
@@ -830,7 +831,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         title: [
           <div
             key="title"
-            title={sortButton ? locale.sortTitle : undefined}
+            title={sortButton ? sortTitle : undefined}
             className={sortButton ? `${prefixCls}-column-sorters` : undefined}
             onClick={() => this.toggleSortOrder(column)}
           >
@@ -853,6 +854,20 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       });
     }
     return title;
+  }
+
+  getColumnTitle: any = (node: any, parentNode: any) => {
+    if(!node) {
+      return;
+    }
+    if (typeof node !== 'string') {
+      const props = node.props;
+      if (props && props.children) {
+        return this.getColumnTitle(props.children, props);
+      }
+    } else {
+      return parentNode.title ? parentNode.title : node;
+    }
   }
 
   handleShowSizeChange = (current: number, pageSize: number) => {
