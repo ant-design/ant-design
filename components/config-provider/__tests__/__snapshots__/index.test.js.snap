@@ -347,3 +347,33 @@ exports[`ConfigProvider components auto-complete prefixCls 1`] = `
   </div>
 </div>
 `;
+
+exports[`ConfigProvider components avatar configProvider 1`] = `
+<span
+  class="config-avatar config-avatar-circle"
+>
+  <span
+    class="config-avatar-string"
+  />
+</span>
+`;
+
+exports[`ConfigProvider components avatar normal 1`] = `
+<span
+  class="ant-avatar ant-avatar-circle"
+>
+  <span
+    class="ant-avatar-string"
+  />
+</span>
+`;
+
+exports[`ConfigProvider components avatar prefixCls 1`] = `
+<span
+  class="prefix-avatar prefix-avatar-circle"
+>
+  <span
+    class="prefix-avatar-string"
+  />
+</span>
+`;

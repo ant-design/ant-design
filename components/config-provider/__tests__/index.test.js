@@ -4,6 +4,7 @@ import ConfigProvider from '..';
 import Alert from '../../alert';
 import Anchor from '../../anchor';
 import AutoComplete from '../../auto-complete';
+import Avatar from '../../avatar';
 
 describe('ConfigProvider', () => {
   describe('components', () => {
@@ -45,6 +46,11 @@ describe('ConfigProvider', () => {
     // AutoComplete
     testPair('auto-complete', props => (
       <AutoComplete {...props} />
+    ));
+
+    // Avatar
+    testPair('avatar', props => (
+      <Avatar {...props} />
     ));
   });
 });

@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import Icon from '../icon';
 import classNames from 'classnames';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface AvatarProps {
   /** Shape of avatar, options:`circle`, `square` */
@@ -34,7 +35,6 @@ export interface AvatarState {
 
 export default class Avatar extends React.Component<AvatarProps, AvatarState> {
   static defaultProps = {
-    prefixCls: 'ant-avatar',
     shape: 'circle',
     size: 'default',
   };
@@ -85,12 +85,15 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
     }
   }
 
-  render() {
+  renderAvatar = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
-      prefixCls, shape, size, src, srcSet, icon, className, alt, ...others
+      prefixCls: customizePrefixCls,
+      shape, size, src, srcSet, icon, className, alt, ...others
     } = this.props;
 
     const { isImgExist, scale } = this.state;
+
+    const prefixCls = getPrefixCls('avatar', customizePrefixCls);
 
     const sizeCls = classNames({
       [`${prefixCls}-lg`]: size === 'large',
@@ -163,6 +166,14 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
       >
         {children}
       </span>
+    );
+  }
+
+  render() {
+    return (
+      <ConfigConsumer>
+        {this.renderAvatar}
+      </ConfigConsumer>
     );
   }
 }
