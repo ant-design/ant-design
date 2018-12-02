@@ -40,7 +40,7 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                   >
                     <div
                       class="ant-table-column-sorters"
-                      title="Sort"
+                      title="Name"
                     >
                       Name
                       <div
@@ -7882,7 +7882,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     >
                       <div
                         class="ant-table-column-sorters"
-                        title="Sort"
+                        title="Age"
                       >
                         Age
                         <div
@@ -9073,9 +9073,21 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                   >
                     <div
                       class="ant-table-column-sorters"
-                      title="Sort"
+                      title="title3"
                     >
-                      Name
+                      <div
+                        title="title1"
+                      >
+                        <div
+                          title="title2"
+                        >
+                          <div
+                            title="title3"
+                          >
+                            Name
+                          </div>
+                        </div>
+                      </div>
                       <div
                         class="ant-table-column-sorter"
                       >
@@ -9139,7 +9151,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                   >
                     <div
                       class="ant-table-column-sorters"
-                      title="Sort"
+                      title="Age"
                     >
                       Age
                       <div
@@ -9187,7 +9199,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                   >
                     <div
                       class="ant-table-column-sorters"
-                      title="Sort"
+                      title="Address"
                     >
                       Address
                       <div
@@ -10185,7 +10197,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     >
                       <div
                         class="ant-table-column-sorters"
-                        title="Sort"
+                        title="Name"
                       >
                         Name
                         <div
@@ -10251,7 +10263,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     >
                       <div
                         class="ant-table-column-sorters"
-                        title="Sort"
+                        title="Age"
                       >
                         Age
                         <div
@@ -10299,7 +10311,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     >
                       <div
                         class="ant-table-column-sorters"
-                        title="Sort"
+                        title="Address"
                       >
                         Address
                         <div
