@@ -453,22 +453,4 @@ describe('Table.filter', () => {
     wrapper.find('.ant-dropdown-trigger').first().simulate('click');
     expect(wrapper.find('.ant-input').instance().value).toBe('');
   });
-
-  it('renders title correctly', () => {
-    const title = (
-      <div title="title1">
-        <div title="title2">
-          <div title="title3">test</div>
-        </div>
-      </div>
-    );
-    const wrapper = mount(createTable({
-      columns: [{
-        ...column,
-        title,
-      }],
-    }));
-
-    expect(wrapper).toMatchSnapshot();
-  });
 });
