@@ -785,7 +785,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       const key = this.getColumnKey(column, i) as string;
       let filterDropdown;
       let sortButton;
-      let sortTitle = this.getColumnTitle(column.title, {}) || locale.sortTitle;
+      const sortTitle = this.getColumnTitle(column.title, {}) || locale.sortTitle;
       const isSortColumn = this.isSortColumn(column);
       if ((column.filters && column.filters.length > 0) || column.filterDropdown) {
         const colFilters = key in filters ? filters[key] : [];
