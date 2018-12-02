@@ -19,7 +19,7 @@ timeline: true
 
 `2018-12-02`
 
-3.11.0 brings two new Component, and a lot of exciting changes and new features.
+3.11.0 brings two new Components, and a lot of exciting changes and new features.
 
 - 🔥 Added a new component [Comment](https://ant.design/components/comment/). [#12770](https://github.com/ant-design/ant-design/pull/12770) [@ilanus](https://github.com/ilanus)
 - 🔥 Added a new component [ConfigProvider](https://ant.design/components/config-provider/) for user to customize some global setting. [#12991](https://github.com/ant-design/ant-design/pull/12991)
