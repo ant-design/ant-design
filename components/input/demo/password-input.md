@@ -16,5 +16,8 @@ Input type of password.
 ````jsx
 import { Input } from 'antd';
 
-ReactDOM.render(<Input.Password placeholder="input password" />, mountNode);
+ReactDOM.render(
+  <Input.Password placeholder="input password" />,
+  mountNode
+);
 ````
