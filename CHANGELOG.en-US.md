@@ -32,7 +32,7 @@ Component Fixes / Enhancements:
   - 🌟 Added `onSearch` prop that is executed when search field are changed and deprecated `onSearchChange`. [#12422](https://github.com/ant-design/ant-design/pull/12422)
   - 🌟 Added `disabled` prop that whether disable transfer. [#13330](https://github.com/ant-design/ant-design/issues/13330)
 - 🌟 Refactor Badge, support `count` as custom component. [#12140](https://github.com/ant-design/ant-design/pull/12140) [@supra28](https://github.com/supra28)
-- 🌟 Slider Added `tooltipVisible` prop that whether Tooltip will show always. [#12915](https://github.com/ant-design/ant-design/pull/12915) [@zy410419243](https://github.com/zy410419243)
+- 🌟 Slider Added `tooltipVisible` prop that whether Tooltip will always show. [#12915](https://github.com/ant-design/ant-design/pull/12915) [@zy410419243](https://github.com/zy410419243)
 - 🌟 Support custom font-variant style through less variable `@font-variant-base`. [#12691](https://github.com/ant-design/ant-design/pull/12691) [@neemski](https://github.com/neemski)
 - Table upgrade `rc-table` to `6.4.0`
   - 🌟 Added `expandIcon` prop that custom the default expand icon. [#236](https://github.com/react-component/table/pull/236) [@kagd](https://github.com/kagd)
