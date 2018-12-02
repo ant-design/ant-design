@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from 'enzyme';
 import ConfigProvider from '..';
 import Alert from '../../alert';
+import Anchor from '../../anchor';
 
 describe('ConfigProvider', () => {
   describe('components', () => {
@@ -31,6 +32,13 @@ describe('ConfigProvider', () => {
     // Alert
     testPair('alert', props => (
       <Alert {...props} message="Bamboo is Little Light" type="success" />
+    ));
+
+    // Anchor
+    testPair('anchor', props => (
+      <Anchor {...props}>
+        <Anchor.Link {...props} href="#bamboo" title="Little Light" />
+      </Anchor>
     ));
   });
 });

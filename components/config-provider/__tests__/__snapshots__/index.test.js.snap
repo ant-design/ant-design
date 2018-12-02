@@ -47,3 +47,111 @@ exports[`ConfigProvider components alert prefixCls 1`] = `
   />
 </div>
 `;
+
+exports[`ConfigProvider components anchor configProvider 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <div
+      class="config-anchor-wrapper"
+      style="max-height:100vh"
+    >
+      <div
+        class="config-anchor"
+      >
+        <div
+          class="config-anchor-ink"
+        >
+          <span
+            class="config-anchor-ink-ball"
+          />
+        </div>
+        <div
+          class="config-anchor-link"
+        >
+          <a
+            class="config-anchor-link-title"
+            href="#bamboo"
+            title="Little Light"
+          >
+            Little Light
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components anchor normal 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <div
+      class="ant-anchor-wrapper"
+      style="max-height:100vh"
+    >
+      <div
+        class="ant-anchor"
+      >
+        <div
+          class="ant-anchor-ink"
+        >
+          <span
+            class="ant-anchor-ink-ball"
+          />
+        </div>
+        <div
+          class="ant-anchor-link"
+        >
+          <a
+            class="ant-anchor-link-title"
+            href="#bamboo"
+            title="Little Light"
+          >
+            Little Light
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components anchor prefixCls 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <div
+      class="prefix-anchor-wrapper"
+      style="max-height:100vh"
+    >
+      <div
+        class="prefix-anchor"
+      >
+        <div
+          class="prefix-anchor-ink"
+        >
+          <span
+            class="prefix-anchor-ink-ball"
+          />
+        </div>
+        <div
+          class="prefix-anchor-link"
+        >
+          <a
+            class="prefix-anchor-link-title"
+            href="#bamboo"
+            title="Little Light"
+          >
+            Little Light
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
