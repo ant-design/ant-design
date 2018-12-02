@@ -48,6 +48,9 @@ Select component to select value from options.
 | showSearch | Whether show search input in single mode. | boolean | false |
 | size | Size of Select input. `default` `large` `small` | string | default |
 | suffixIcon | The custom suffix icon | ReactNode | - |
+| removeIcon | The custom remove icon | ReactNode | - |
+| clearIcon | The custom clear icon | ReactNode | - |
+| menuItemSelectedIcon | The custom menuItemSelected icon | ReactNode | - |
 | tokenSeparators | Separator used to tokenize on tag/multiple mode | string\[] |  |
 | value | Current selected option. | string\|number\|string\[]\|number\[] | - |
 | onBlur | Called when blur | function | - |
