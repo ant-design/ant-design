@@ -9,6 +9,7 @@ interface MenuItemProps {
   level?: number;
   title?: React.ReactNode;
   children?: React.ReactNode;
+  className?: string;
 }
 
 class MenuItem extends React.Component<MenuItemProps, any> {
