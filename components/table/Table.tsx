@@ -858,7 +858,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
 
   getColumnTitle: any = (node: any, parentNode: any) => {
     if(!node) {
-      return;
+      return undefined;
     }
     if (typeof node !== 'string') {
       const props = node.props;
