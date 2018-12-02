@@ -46,6 +46,7 @@ Component Fixes / Enhancements:
 - Cascader upgrade `rc-calendar` to `9.8.0`
   - 🌟 Support multiple date format. [#437](https://github.com/react-component/calendar/pull/437) [@onlyann](https://github.com/onlyann)
   - 🌟 showSearch added `limit` prop that support limit filtered item count. [#13206](https://github.com/ant-design/ant-design/pull/13206)
+- 🌟 Added Hungarian locale. [#13026](https://github.com/ant-design/ant-design/pull/13026) [@ilanus](https://github.com/ilanus)
 - 🐞 Fix TextArea use resize observer to check textarea size. [#13295](https://github.com/ant-design/ant-design/pull/13295)
 - 🐞 Fix Tabs renderTabBar style error when tabPosition is left or right. [#13118](https://github.com/ant-design/ant-design/pull/13118)
 - 🐞 Fix Upload thumbnail icon broken styles. [#13333](https://github.com/ant-design/ant-design/issues/13333)
