@@ -17,7 +17,7 @@ const ActionMap: Record<string, string> = {
   hover: 'onMouseOver',
 }
 
-export default class Password extends React.Component<PasswordProps, any> {
+export default class Password extends React.Component<PasswordProps, PasswordState> {
   static defaultProps = {
     inputPrefixCls: 'ant-input',
     prefixCls: 'ant-input-password',
