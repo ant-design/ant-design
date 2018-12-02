@@ -805,7 +805,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         const isAscend = isSortColumn && sortOrder === 'ascend';
         const isDescend = isSortColumn && sortOrder === 'descend';
         sortButton = (
-          <div className={`${prefixCls}-column-sorter`} key="sorter">
+          <div className={`${prefixCls}-column-sorter`} key="sorter" title={locale.sortTitle}>
             <Icon
               className={`${prefixCls}-column-sorter-up ${isAscend ? 'on' : 'off'}`}
               type="caret-up"
@@ -830,7 +830,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         title: [
           <div
             key="title"
-            title={sortButton ? locale.sortTitle : undefined}
+            // title={sortButton ? locale.sortTitle : undefined}
             className={sortButton ? `${prefixCls}-column-sorters` : undefined}
             onClick={() => this.toggleSortOrder(column)}
           >
