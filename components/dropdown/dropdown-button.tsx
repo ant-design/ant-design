@@ -2,7 +2,7 @@ import * as React from 'react';
 import Button from '../button';
 import { ButtonHTMLType } from '../button/button';
 import { ButtonGroupProps } from '../button/button-group';
-import { ConfigConsumer, ConfigProviderProps } from '../config-provider';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Dropdown, { DropDownProps } from './dropdown';
 import classNames from 'classnames';
 const ButtonGroup = Button.Group;
@@ -22,7 +22,7 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
     prefixCls: 'ant-dropdown-button',
   };
 
-  renderButton = ({ getPopupContainer: getContextPopupContainer }: ConfigProviderProps) => {
+  renderButton = ({ getPopupContainer: getContextPopupContainer }: ConfigConsumerProps) => {
     const {
       type, disabled, onClick, htmlType, children,
       prefixCls, className, overlay, trigger, align,

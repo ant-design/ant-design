@@ -4,7 +4,7 @@ import RcSelect, { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale-provider/default';
-import { ConfigConsumer, ConfigProviderProps } from '../config-provider';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import omit from 'omit.js';
 import warning from 'warning';
 import Icon from '../icon';
@@ -256,7 +256,7 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
 
     return (
       <ConfigConsumer>
-        {({ getPopupContainer: getContextPopupContainer }: ConfigProviderProps) => {
+        {({ getPopupContainer: getContextPopupContainer }: ConfigConsumerProps) => {
           return (
             <RcSelect
               inputIcon={this.renderSuffixIcon()}

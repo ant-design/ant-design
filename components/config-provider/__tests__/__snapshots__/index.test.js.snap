@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConfigProvider components alert configProvider 1`] = `
+<div
+  class="config-alert config-alert-success config-alert-no-icon"
+  data-show="true"
+>
+  <span
+    class="config-alert-message"
+  >
+    Bamboo is Little Light
+  </span>
+  <span
+    class="config-alert-description"
+  />
+</div>
+`;
+
+exports[`ConfigProvider components alert normal 1`] = `
+<div
+  class="ant-alert ant-alert-success ant-alert-no-icon"
+  data-show="true"
+>
+  <span
+    class="ant-alert-message"
+  >
+    Bamboo is Little Light
+  </span>
+  <span
+    class="ant-alert-description"
+  />
+</div>
+`;
+
+exports[`ConfigProvider components alert prefixCls 1`] = `
+<div
+  class="prefix-alert prefix-alert-success prefix-alert-no-icon"
+  data-show="true"
+>
+  <span
+    class="prefix-alert-message"
+  >
+    Bamboo is Little Light
+  </span>
+  <span
+    class="prefix-alert-description"
+  />
+</div>
+`;

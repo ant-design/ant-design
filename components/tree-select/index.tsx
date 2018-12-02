@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { TreeSelectProps } from './interface';
 import { SelectLocale } from '../select';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import { ConfigConsumer, ConfigProviderProps } from '../config-provider';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 import Icon from '../icon';
 import { AntTreeNodeProps } from '../tree';
@@ -108,7 +108,7 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
 
     return (
       <ConfigConsumer>
-        {({ getPopupContainer: getContextPopupContainer }: ConfigProviderProps) => {
+        {({ getPopupContainer: getContextPopupContainer }: ConfigConsumerProps) => {
           return (
             <RcTreeSelect
               switcherIcon={this.renderSwitcherIcon}

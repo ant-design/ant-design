@@ -5,6 +5,7 @@ import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import classNames from 'classnames';
 import shallowequal from 'shallowequal';
 import omit from 'omit.js';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import getScroll from '../_util/getScroll';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
 
@@ -270,9 +271,10 @@ export default class Affix extends React.Component<AffixProps, AffixState> {
     this.placeholderNode = node;
   }
 
-  render() {
+  renderAffix = ({ getPrefixCls }: ConfigConsumerProps) => {
+    const { prefixCls } = this.props;
     const className = classNames({
-      [this.props.prefixCls || 'ant-affix']: this.state.affixStyle,
+      [getPrefixCls('affix', prefixCls)]: this.state.affixStyle,
     });
 
     const props = omit(this.props, ['prefixCls', 'offsetTop', 'offsetBottom', 'target', 'onChange']);
@@ -283,6 +285,14 @@ export default class Affix extends React.Component<AffixProps, AffixState> {
           {this.props.children}
         </div>
       </div>
+    );
+  };
+
+  render() {
+    return (
+      <ConfigConsumer>
+        {this.renderAffix}
+      </ConfigConsumer>
     );
   }
 }

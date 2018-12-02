@@ -6,7 +6,7 @@ import omit from 'omit.js';
 import KeyCode from 'rc-util/lib/KeyCode';
 import Input from '../input';
 import Icon from '../icon';
-import { ConfigConsumer, ConfigProviderProps } from '../config-provider';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 
 export interface CascaderOptionType {
@@ -378,7 +378,7 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     this.input = node;
   }
 
-  renderCascader = ({ getPopupContainer: getContextPopupContainer }: ConfigProviderProps) => {
+  renderCascader = ({ getPopupContainer: getContextPopupContainer }: ConfigConsumerProps) => {
     const { props, state } = this;
     const {
       prefixCls, inputPrefixCls, children, placeholder, size, disabled,

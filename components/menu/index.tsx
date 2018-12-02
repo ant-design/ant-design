@@ -2,7 +2,7 @@ import * as React from 'react';
 import RcMenu, { Divider, ItemGroup } from 'rc-menu';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { ConfigConsumer, ConfigProviderProps } from '../config-provider';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import animation from '../_util/openAnimation';
 import warning from '../_util/warning';
 import SubMenu from './SubMenu';
@@ -28,7 +28,7 @@ export type MenuMode = 'vertical' | 'vertical-left' | 'vertical-right' | 'horizo
 
 export type MenuTheme = 'light' | 'dark';
 
-export interface MenuProps extends ConfigProviderProps {
+export interface MenuProps {
   id?: string;
   theme?: MenuTheme;
   mode?: MenuMode;
@@ -53,6 +53,7 @@ export interface MenuProps extends ConfigProviderProps {
   subMenuOpenDelay?: number;
   focusable?: boolean;
   onMouseEnter?: (e: MouseEvent) => void;
+  getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
 }
 
 export interface MenuState {
@@ -225,7 +226,7 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     return menuOpenAnimation;
   }
 
-  renderMenu = ({ getPopupContainer }: ConfigProviderProps) => {
+  renderMenu = ({ getPopupContainer }: ConfigConsumerProps) => {
     const { prefixCls, className, theme } = this.props;
     const menuMode = this.getRealMenuMode();
     const menuOpenAnimation = this.getMenuOpenAnimation(menuMode!);

@@ -2,7 +2,7 @@ import * as React from 'react';
 import RcDropdown from 'rc-dropdown';
 import classNames from 'classnames';
 import DropdownButton from './dropdown-button';
-import { ConfigConsumer, ConfigProviderProps } from '../config-provider';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 import Icon from '../icon';
 
@@ -52,7 +52,7 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
     }
   }
 
-  renderDropDown = ({ getPopupContainer: getContextPopupContainer }: ConfigProviderProps) => {
+  renderDropDown = ({ getPopupContainer: getContextPopupContainer }: ConfigConsumerProps) => {
     const { children, prefixCls, overlay: overlayElements, trigger, disabled, getPopupContainer } = this.props;
 
     const child = React.Children.only(children);
