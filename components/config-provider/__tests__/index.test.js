@@ -17,6 +17,7 @@ import Checkbox from '../../checkbox';
 import Collapse from '../../collapse';
 import Comment from '../../comment';
 import DatePicker from '../../date-picker';
+import Divider from '../../divider';
 
 describe('ConfigProvider', () => {
   describe('components', () => {
@@ -195,5 +196,10 @@ describe('ConfigProvider', () => {
         </div>
       ));
     });
+
+    // Divider
+    testPair('Divider', props => (
+      <Divider {...props} />
+    ));
   });
 });
