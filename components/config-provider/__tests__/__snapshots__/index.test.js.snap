@@ -6866,3 +6866,114 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
   </div>
 </div>
 `;
+
+exports[`ConfigProvider components Dropdown configProvider 1`] = `
+<div
+  class="config-btn-group config-dropdown-button"
+>
+  <button
+    class="config-btn config-btn-default"
+    type="button"
+  >
+    <span>
+      Light
+    </span>
+  </button>
+  <button
+    class="config-btn config-dropdown-button-trigger config-btn-default config-btn-icon-only"
+    type="button"
+  >
+    <i
+      class="anticon anticon-ellipsis"
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="ellipsis"
+        fill="currentColor"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M176 511a56 56 0 1 0 112 0 56 56 0 1 0-112 0zm280 0a56 56 0 1 0 112 0 56 56 0 1 0-112 0zm280 0a56 56 0 1 0 112 0 56 56 0 1 0-112 0z"
+        />
+      </svg>
+    </i>
+  </button>
+</div>
+`;
+
+exports[`ConfigProvider components Dropdown normal 1`] = `
+<div
+  class="ant-btn-group ant-dropdown-button"
+>
+  <button
+    class="ant-btn ant-btn-default"
+    type="button"
+  >
+    <span>
+      Light
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-dropdown-button-trigger ant-btn-default ant-btn-icon-only"
+    type="button"
+  >
+    <i
+      class="anticon anticon-ellipsis"
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="ellipsis"
+        fill="currentColor"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M176 511a56 56 0 1 0 112 0 56 56 0 1 0-112 0zm280 0a56 56 0 1 0 112 0 56 56 0 1 0-112 0zm280 0a56 56 0 1 0 112 0 56 56 0 1 0-112 0z"
+        />
+      </svg>
+    </i>
+  </button>
+</div>
+`;
+
+exports[`ConfigProvider components Dropdown prefixCls 1`] = `
+<div
+  class="ant-btn-group prefix-Dropdown"
+>
+  <button
+    class="ant-btn ant-btn-default"
+    type="button"
+  >
+    <span>
+      Light
+    </span>
+  </button>
+  <button
+    class="ant-btn prefix-Dropdown-trigger ant-btn-default ant-btn-icon-only"
+    type="button"
+  >
+    <i
+      class="anticon anticon-ellipsis"
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="ellipsis"
+        fill="currentColor"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M176 511a56 56 0 1 0 112 0 56 56 0 1 0-112 0zm280 0a56 56 0 1 0 112 0 56 56 0 1 0-112 0zm280 0a56 56 0 1 0 112 0 56 56 0 1 0-112 0z"
+        />
+      </svg>
+    </i>
+  </button>
+</div>
+`;

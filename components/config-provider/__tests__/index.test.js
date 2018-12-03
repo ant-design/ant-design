@@ -19,6 +19,8 @@ import Comment from '../../comment';
 import DatePicker from '../../date-picker';
 import Divider from '../../divider';
 import Drawer from '../../drawer';
+import Dropdown from '../../dropdown';
+import Menu from '../../menu';
 
 describe('ConfigProvider', () => {
   describe('components', () => {
@@ -207,5 +209,20 @@ describe('ConfigProvider', () => {
     testPair('Drawer', props => (
       <Drawer {...props} visible getContainer={false} />
     ));
+
+    // Dropdown
+    testPair('Dropdown', (props) => {
+      const menu = (
+        <Menu {...props}>
+          <Menu.Item {...props}>Bamboo</Menu.Item>
+        </Menu>
+      );
+
+      return (
+        <Dropdown.Button {...props} overlay={menu}>
+          Light
+        </Dropdown.Button>
+      );
+    });
   });
 });

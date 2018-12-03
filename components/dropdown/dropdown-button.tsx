@@ -19,17 +19,18 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
   static defaultProps = {
     placement: 'bottomRight',
     type: 'default',
-    prefixCls: 'ant-dropdown-button',
   };
 
-  renderButton = ({ getPopupContainer: getContextPopupContainer }: ConfigConsumerProps) => {
+  renderButton = ({ getPopupContainer: getContextPopupContainer, getPrefixCls }: ConfigConsumerProps) => {
     const {
+      prefixCls: customizePrefixCls,
       type, disabled, onClick, htmlType, children,
-      prefixCls, className, overlay, trigger, align,
+      className, overlay, trigger, align,
       visible, onVisibleChange, placement, getPopupContainer,
       ...restProps
     } = this.props;
 
+    const prefixCls = getPrefixCls('dropdown-button', customizePrefixCls);
     const dropdownProps = {
       align,
       overlay,
@@ -56,7 +57,7 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
         >
           {children}
         </Button>
-        <Dropdown {...dropdownProps}>
+        <Dropdown {...dropdownProps} prefixCls={prefixCls}>
           <Button type={type} icon="ellipsis" />
         </Dropdown>
       </ButtonGroup>
