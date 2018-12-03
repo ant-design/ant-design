@@ -159,7 +159,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
   }
 
   // render drawer body dom
-  renderBody = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderBody = (prefixCls: string) => {
     if (this.destoryClose && !this.props.visible) {
       return null;
     }
@@ -179,8 +179,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
       containerStyle.opacity = 0;
       containerStyle.transition = 'opacity .3s';
     }
-    const { prefixCls: customizePrefixCls, title, closable } = this.props;
-    const prefixCls = getPrefixCls('drawer', customizePrefixCls);
+    const { title, closable } = this.props;
 
     // is have header dom
     let header;
@@ -224,7 +223,11 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
 
   // render Provider for Multi-level drawer
   renderProvider = (value: Drawer) => {
-    const { zIndex, style, placement, className, wrapClassName, width, height, ...rest } = this.props;
+    const {
+      prefixCls: customizePrefixCls,
+      zIndex, style, placement, className, wrapClassName, width, height,
+      ...rest
+    } = this.props;
     warning(wrapClassName === undefined, 'wrapClassName is deprecated, please use className instead.');
     const haveMask = rest.mask ? "" : "no-mask";
     this.parentDrawer = value;
@@ -236,21 +239,28 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
     }
     return (
       <DrawerContext.Provider value={this}>
-        <RcDrawer
-          handler={false}
-          {...rest}
-          {...offsetStyle}
-          open={this.props.visible}
-          onMaskClick={this.onMaskClick}
-          showMask={this.props.mask}
-          placement={placement}
-          style={this.getRcDrawerStyle()}
-          className={classNames(wrapClassName, className, haveMask)}
-        >
-          <ConfigConsumer>
-            {this.renderBody}
-          </ConfigConsumer>
-        </RcDrawer>
+        <ConfigConsumer>
+          {({ getPrefixCls }: ConfigConsumerProps) => {
+            const prefixCls = getPrefixCls('drawer', customizePrefixCls);
+
+            return (
+              <RcDrawer
+                handler={false}
+                {...rest}
+                {...offsetStyle}
+                prefixCls={prefixCls}
+                open={this.props.visible}
+                onMaskClick={this.onMaskClick}
+                showMask={this.props.mask}
+                placement={placement}
+                style={this.getRcDrawerStyle()}
+                className={classNames(wrapClassName, className, haveMask)}
+              >
+                {this.renderBody(prefixCls)}
+              </RcDrawer>
+            );
+          }}
+        </ConfigConsumer>
       </DrawerContext.Provider>
     );
   }

@@ -6701,17 +6701,17 @@ exports[`ConfigProvider components Drawer configProvider 1`] = `
   class=""
 >
   <div
-    class="drawer drawer-right"
+    class="config-drawer config-drawer-right"
   >
     <div
-      class="drawer-mask"
+      class="config-drawer-mask"
     />
     <div
-      class="drawer-content-wrapper"
+      class="config-drawer-content-wrapper"
       style="transform:translateX(100%);-ms-transform:translateX(100%);width:256px"
     >
       <div
-        class="drawer-content"
+        class="config-drawer-content"
       >
         <div
           class="config-drawer-wrapper-body"
@@ -6758,17 +6758,17 @@ exports[`ConfigProvider components Drawer normal 1`] = `
   class=""
 >
   <div
-    class="drawer drawer-right"
+    class="ant-drawer ant-drawer-right"
   >
     <div
-      class="drawer-mask"
+      class="ant-drawer-mask"
     />
     <div
-      class="drawer-content-wrapper"
+      class="ant-drawer-content-wrapper"
       style="transform:translateX(100%);-ms-transform:translateX(100%);width:256px"
     >
       <div
-        class="drawer-content"
+        class="ant-drawer-content"
       >
         <div
           class="ant-drawer-wrapper-body"
