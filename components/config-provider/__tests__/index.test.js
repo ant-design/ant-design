@@ -14,6 +14,7 @@ import Card from '../../card';
 import Carousel from '../../carousel';
 import Cascader from '../../cascader';
 import Checkbox from '../../checkbox';
+import Collapse from '../../collapse';
 
 describe('ConfigProvider', () => {
   describe('components', () => {
@@ -145,6 +146,15 @@ describe('ConfigProvider', () => {
       <Checkbox.Group {...props}>
         <Checkbox {...props}>Bamboo</Checkbox>
       </Checkbox.Group>
+    ));
+
+    // Collapse
+    testPair('Collapse', props => (
+      <Collapse {...props}>
+        <Collapse.Panel header="Bamboo">
+          <p>Light</p>
+        </Collapse.Panel>
+      </Collapse>
     ));
   });
 });

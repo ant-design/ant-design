@@ -5954,3 +5954,111 @@ exports[`ConfigProvider components Checkbox prefixCls 1`] = `
   </label>
 </div>
 `;
+
+exports[`ConfigProvider components Collapse configProvider 1`] = `
+<div
+  class="config-collapse"
+>
+  <div
+    class="config-collapse-item"
+  >
+    <div
+      aria-expanded="false"
+      class="config-collapse-header"
+      role="button"
+      tabindex="0"
+    >
+      <i
+        class="anticon anticon-right arrow"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="right"
+          fill="currentColor"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+          />
+        </svg>
+      </i>
+      Bamboo
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components Collapse normal 1`] = `
+<div
+  class="ant-collapse"
+>
+  <div
+    class="ant-collapse-item"
+  >
+    <div
+      aria-expanded="false"
+      class="ant-collapse-header"
+      role="button"
+      tabindex="0"
+    >
+      <i
+        class="anticon anticon-right arrow"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="right"
+          fill="currentColor"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+          />
+        </svg>
+      </i>
+      Bamboo
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components Collapse prefixCls 1`] = `
+<div
+  class="prefix-Collapse"
+>
+  <div
+    class="prefix-Collapse-item"
+  >
+    <div
+      aria-expanded="false"
+      class="prefix-Collapse-header"
+      role="button"
+      tabindex="0"
+    >
+      <i
+        class="anticon anticon-right arrow"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="right"
+          fill="currentColor"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+          />
+        </svg>
+      </i>
+      Bamboo
+    </div>
+  </div>
+</div>
+`;
