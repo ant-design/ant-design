@@ -12,6 +12,7 @@ import Button from '../../button';
 import Calendar from '../../calendar';
 import Card from '../../card';
 import Carousel from '../../carousel';
+import Cascader from '../../cascader';
 
 describe('ConfigProvider', () => {
   describe('components', () => {
@@ -118,23 +119,24 @@ describe('ConfigProvider', () => {
 
     // Card
     testPair('Card', props => (
-      <div>
-        <Card {...props}>
-          <Card.Grid {...props}>
-            <Card.Meta {...props} />
-          </Card.Grid>
-        </Card>
-      </div>
+      <Card {...props}>
+        <Card.Grid {...props}>
+          <Card.Meta {...props} />
+        </Card.Grid>
+      </Card>
     ));
 
     // Carousel
     testPair('Carousel', props => (
-      <div>
-        <Carousel {...props}>
-          <div><h3>Bamboo</h3></div>
-          <div><h3>Light</h3></div>
-        </Carousel>
-      </div>
+      <Carousel {...props}>
+        <div><h3>Bamboo</h3></div>
+        <div><h3>Light</h3></div>
+      </Carousel>
+    ));
+
+    // Cascader
+    testPair('Cascader', props => (
+      <Cascader {...props} options={[]} showSearch />
     ));
   });
 });

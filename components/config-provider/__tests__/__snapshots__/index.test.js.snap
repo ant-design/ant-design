@@ -5332,457 +5332,550 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
 `;
 
 exports[`ConfigProvider components Card configProvider 1`] = `
-<div>
+<div
+  class="config-card config-card-bordered config-card-contain-grid"
+>
   <div
-    class="config-card config-card-bordered config-card-contain-grid"
+    class="config-card-body"
   >
     <div
-      class="config-card-body"
+      class="config-card-grid"
     >
       <div
-        class="config-card-grid"
-      >
-        <div
-          class="config-card-meta"
-        />
-      </div>
+        class="config-card-meta"
+      />
     </div>
   </div>
 </div>
 `;
 
 exports[`ConfigProvider components Card normal 1`] = `
-<div>
+<div
+  class="ant-card ant-card-bordered ant-card-contain-grid"
+>
   <div
-    class="ant-card ant-card-bordered ant-card-contain-grid"
+    class="ant-card-body"
   >
     <div
-      class="ant-card-body"
+      class="ant-card-grid"
     >
       <div
-        class="ant-card-grid"
-      >
-        <div
-          class="ant-card-meta"
-        />
-      </div>
+        class="ant-card-meta"
+      />
     </div>
   </div>
 </div>
 `;
 
 exports[`ConfigProvider components Card prefixCls 1`] = `
-<div>
+<div
+  class="prefix-Card prefix-Card-bordered prefix-Card-contain-grid"
+>
   <div
-    class="prefix-Card prefix-Card-bordered prefix-Card-contain-grid"
+    class="prefix-Card-body"
   >
     <div
-      class="prefix-Card-body"
+      class="prefix-Card-grid"
     >
       <div
-        class="prefix-Card-grid"
-      >
-        <div
-          class="prefix-Card-meta"
-        />
-      </div>
+        class="prefix-Card-meta"
+      />
     </div>
   </div>
 </div>
 `;
 
 exports[`ConfigProvider components Carousel configProvider 1`] = `
-<div>
+<div
+  class="config-carousel"
+>
   <div
-    class="config-carousel"
+    class="slick-slider slick-initialized"
+    dir="ltr"
   >
     <div
-      class="slick-slider slick-initialized"
-      dir="ltr"
+      class="slick-list"
     >
       <div
-        class="slick-list"
+        class="slick-track"
+        style="width:500%;left:-100%"
       >
         <div
-          class="slick-track"
-          style="width:500%;left:-100%"
+          aria-hidden="true"
+          class="slick-slide slick-cloned"
+          data-index="-1"
+          style="width:20%"
+          tabindex="-1"
         >
-          <div
-            aria-hidden="true"
-            class="slick-slide slick-cloned"
-            data-index="-1"
-            style="width:20%"
-            tabindex="-1"
-          >
-            <div>
-              <div
-                style="width:100%;display:inline-block"
-                tabindex="-1"
-              >
-                <h3>
-                  Light
-                </h3>
-              </div>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                Light
+              </h3>
             </div>
           </div>
-          <div
-            aria-hidden="false"
-            class="slick-slide slick-active slick-current"
-            data-index="0"
-            style="outline:none;width:20%"
-            tabindex="-1"
-          >
-            <div>
-              <div
-                style="width:100%;display:inline-block"
-                tabindex="-1"
-              >
-                <h3>
-                  Bamboo
-                </h3>
-              </div>
+        </div>
+        <div
+          aria-hidden="false"
+          class="slick-slide slick-active slick-current"
+          data-index="0"
+          style="outline:none;width:20%"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                Bamboo
+              </h3>
             </div>
           </div>
-          <div
-            aria-hidden="true"
-            class="slick-slide"
-            data-index="1"
-            style="outline:none;width:20%"
-            tabindex="-1"
-          >
-            <div>
-              <div
-                style="width:100%;display:inline-block"
-                tabindex="-1"
-              >
-                <h3>
-                  Light
-                </h3>
-              </div>
+        </div>
+        <div
+          aria-hidden="true"
+          class="slick-slide"
+          data-index="1"
+          style="outline:none;width:20%"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                Light
+              </h3>
             </div>
           </div>
-          <div
-            aria-hidden="true"
-            class="slick-slide slick-cloned"
-            data-index="2"
-            style="width:20%"
-            tabindex="-1"
-          >
-            <div>
-              <div
-                style="width:100%;display:inline-block"
-                tabindex="-1"
-              >
-                <h3>
-                  Bamboo
-                </h3>
-              </div>
+        </div>
+        <div
+          aria-hidden="true"
+          class="slick-slide slick-cloned"
+          data-index="2"
+          style="width:20%"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                Bamboo
+              </h3>
             </div>
           </div>
-          <div
-            aria-hidden="true"
-            class="slick-slide slick-cloned"
-            data-index="3"
-            style="width:20%"
-            tabindex="-1"
-          >
-            <div>
-              <div
-                style="width:100%;display:inline-block"
-                tabindex="-1"
-              >
-                <h3>
-                  Light
-                </h3>
-              </div>
+        </div>
+        <div
+          aria-hidden="true"
+          class="slick-slide slick-cloned"
+          data-index="3"
+          style="width:20%"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                Light
+              </h3>
             </div>
           </div>
         </div>
       </div>
-      <ul
-        class="slick-dots"
-        style="display:block"
-      >
-        <li
-          class="slick-active"
-        >
-          <button>
-            1
-          </button>
-        </li>
-        <li
-          class=""
-        >
-          <button>
-            2
-          </button>
-        </li>
-      </ul>
     </div>
+    <ul
+      class="slick-dots"
+      style="display:block"
+    >
+      <li
+        class="slick-active"
+      >
+        <button>
+          1
+        </button>
+      </li>
+      <li
+        class=""
+      >
+        <button>
+          2
+        </button>
+      </li>
+    </ul>
   </div>
 </div>
 `;
 
 exports[`ConfigProvider components Carousel normal 1`] = `
-<div>
+<div
+  class="ant-carousel"
+>
   <div
-    class="ant-carousel"
+    class="slick-slider slick-initialized"
+    dir="ltr"
   >
     <div
-      class="slick-slider slick-initialized"
-      dir="ltr"
+      class="slick-list"
     >
       <div
-        class="slick-list"
+        class="slick-track"
+        style="width:500%;left:-100%"
       >
         <div
-          class="slick-track"
-          style="width:500%;left:-100%"
+          aria-hidden="true"
+          class="slick-slide slick-cloned"
+          data-index="-1"
+          style="width:20%"
+          tabindex="-1"
         >
-          <div
-            aria-hidden="true"
-            class="slick-slide slick-cloned"
-            data-index="-1"
-            style="width:20%"
-            tabindex="-1"
-          >
-            <div>
-              <div
-                style="width:100%;display:inline-block"
-                tabindex="-1"
-              >
-                <h3>
-                  Light
-                </h3>
-              </div>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                Light
+              </h3>
             </div>
           </div>
-          <div
-            aria-hidden="false"
-            class="slick-slide slick-active slick-current"
-            data-index="0"
-            style="outline:none;width:20%"
-            tabindex="-1"
-          >
-            <div>
-              <div
-                style="width:100%;display:inline-block"
-                tabindex="-1"
-              >
-                <h3>
-                  Bamboo
-                </h3>
-              </div>
+        </div>
+        <div
+          aria-hidden="false"
+          class="slick-slide slick-active slick-current"
+          data-index="0"
+          style="outline:none;width:20%"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                Bamboo
+              </h3>
             </div>
           </div>
-          <div
-            aria-hidden="true"
-            class="slick-slide"
-            data-index="1"
-            style="outline:none;width:20%"
-            tabindex="-1"
-          >
-            <div>
-              <div
-                style="width:100%;display:inline-block"
-                tabindex="-1"
-              >
-                <h3>
-                  Light
-                </h3>
-              </div>
+        </div>
+        <div
+          aria-hidden="true"
+          class="slick-slide"
+          data-index="1"
+          style="outline:none;width:20%"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                Light
+              </h3>
             </div>
           </div>
-          <div
-            aria-hidden="true"
-            class="slick-slide slick-cloned"
-            data-index="2"
-            style="width:20%"
-            tabindex="-1"
-          >
-            <div>
-              <div
-                style="width:100%;display:inline-block"
-                tabindex="-1"
-              >
-                <h3>
-                  Bamboo
-                </h3>
-              </div>
+        </div>
+        <div
+          aria-hidden="true"
+          class="slick-slide slick-cloned"
+          data-index="2"
+          style="width:20%"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                Bamboo
+              </h3>
             </div>
           </div>
-          <div
-            aria-hidden="true"
-            class="slick-slide slick-cloned"
-            data-index="3"
-            style="width:20%"
-            tabindex="-1"
-          >
-            <div>
-              <div
-                style="width:100%;display:inline-block"
-                tabindex="-1"
-              >
-                <h3>
-                  Light
-                </h3>
-              </div>
+        </div>
+        <div
+          aria-hidden="true"
+          class="slick-slide slick-cloned"
+          data-index="3"
+          style="width:20%"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                Light
+              </h3>
             </div>
           </div>
         </div>
       </div>
-      <ul
-        class="slick-dots"
-        style="display:block"
-      >
-        <li
-          class="slick-active"
-        >
-          <button>
-            1
-          </button>
-        </li>
-        <li
-          class=""
-        >
-          <button>
-            2
-          </button>
-        </li>
-      </ul>
     </div>
+    <ul
+      class="slick-dots"
+      style="display:block"
+    >
+      <li
+        class="slick-active"
+      >
+        <button>
+          1
+        </button>
+      </li>
+      <li
+        class=""
+      >
+        <button>
+          2
+        </button>
+      </li>
+    </ul>
   </div>
 </div>
 `;
 
 exports[`ConfigProvider components Carousel prefixCls 1`] = `
-<div>
+<div
+  class="prefix-Carousel"
+>
   <div
-    class="prefix-Carousel"
+    class="slick-slider slick-initialized"
+    dir="ltr"
   >
     <div
-      class="slick-slider slick-initialized"
-      dir="ltr"
+      class="slick-list"
     >
       <div
-        class="slick-list"
+        class="slick-track"
+        style="width:500%;left:-100%"
       >
         <div
-          class="slick-track"
-          style="width:500%;left:-100%"
+          aria-hidden="true"
+          class="slick-slide slick-cloned"
+          data-index="-1"
+          style="width:20%"
+          tabindex="-1"
         >
-          <div
-            aria-hidden="true"
-            class="slick-slide slick-cloned"
-            data-index="-1"
-            style="width:20%"
-            tabindex="-1"
-          >
-            <div>
-              <div
-                style="width:100%;display:inline-block"
-                tabindex="-1"
-              >
-                <h3>
-                  Light
-                </h3>
-              </div>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                Light
+              </h3>
             </div>
           </div>
-          <div
-            aria-hidden="false"
-            class="slick-slide slick-active slick-current"
-            data-index="0"
-            style="outline:none;width:20%"
-            tabindex="-1"
-          >
-            <div>
-              <div
-                style="width:100%;display:inline-block"
-                tabindex="-1"
-              >
-                <h3>
-                  Bamboo
-                </h3>
-              </div>
+        </div>
+        <div
+          aria-hidden="false"
+          class="slick-slide slick-active slick-current"
+          data-index="0"
+          style="outline:none;width:20%"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                Bamboo
+              </h3>
             </div>
           </div>
-          <div
-            aria-hidden="true"
-            class="slick-slide"
-            data-index="1"
-            style="outline:none;width:20%"
-            tabindex="-1"
-          >
-            <div>
-              <div
-                style="width:100%;display:inline-block"
-                tabindex="-1"
-              >
-                <h3>
-                  Light
-                </h3>
-              </div>
+        </div>
+        <div
+          aria-hidden="true"
+          class="slick-slide"
+          data-index="1"
+          style="outline:none;width:20%"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                Light
+              </h3>
             </div>
           </div>
-          <div
-            aria-hidden="true"
-            class="slick-slide slick-cloned"
-            data-index="2"
-            style="width:20%"
-            tabindex="-1"
-          >
-            <div>
-              <div
-                style="width:100%;display:inline-block"
-                tabindex="-1"
-              >
-                <h3>
-                  Bamboo
-                </h3>
-              </div>
+        </div>
+        <div
+          aria-hidden="true"
+          class="slick-slide slick-cloned"
+          data-index="2"
+          style="width:20%"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                Bamboo
+              </h3>
             </div>
           </div>
-          <div
-            aria-hidden="true"
-            class="slick-slide slick-cloned"
-            data-index="3"
-            style="width:20%"
-            tabindex="-1"
-          >
-            <div>
-              <div
-                style="width:100%;display:inline-block"
-                tabindex="-1"
-              >
-                <h3>
-                  Light
-                </h3>
-              </div>
+        </div>
+        <div
+          aria-hidden="true"
+          class="slick-slide slick-cloned"
+          data-index="3"
+          style="width:20%"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                Light
+              </h3>
             </div>
           </div>
         </div>
       </div>
-      <ul
-        class="slick-dots"
-        style="display:block"
-      >
-        <li
-          class="slick-active"
-        >
-          <button>
-            1
-          </button>
-        </li>
-        <li
-          class=""
-        >
-          <button>
-            2
-          </button>
-        </li>
-      </ul>
     </div>
+    <ul
+      class="slick-dots"
+      style="display:block"
+    >
+      <li
+        class="slick-active"
+      >
+        <button>
+          1
+        </button>
+      </li>
+      <li
+        class=""
+      >
+        <button>
+          2
+        </button>
+      </li>
+    </ul>
   </div>
 </div>
+`;
+
+exports[`ConfigProvider components Cascader configProvider 1`] = `
+<span
+  class="config-cascader-picker config-cascader-picker-show-search"
+  tabindex="0"
+>
+  <span
+    class="config-cascader-picker-label"
+  />
+  <input
+    autocomplete="off"
+    class="config-input config-cascader-input "
+    placeholder="Please select"
+    type="text"
+    value=""
+  />
+  <i
+    class="anticon anticon-down config-cascader-picker-arrow"
+  >
+    <svg
+      aria-hidden="true"
+      class=""
+      data-icon="down"
+      fill="currentColor"
+      height="1em"
+      viewBox="64 64 896 896"
+      width="1em"
+    >
+      <path
+        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+      />
+    </svg>
+  </i>
+</span>
+`;
+
+exports[`ConfigProvider components Cascader normal 1`] = `
+<span
+  class="ant-cascader-picker ant-cascader-picker-show-search"
+  tabindex="0"
+>
+  <span
+    class="ant-cascader-picker-label"
+  />
+  <input
+    autocomplete="off"
+    class="ant-input ant-cascader-input "
+    placeholder="Please select"
+    type="text"
+    value=""
+  />
+  <i
+    class="anticon anticon-down ant-cascader-picker-arrow"
+  >
+    <svg
+      aria-hidden="true"
+      class=""
+      data-icon="down"
+      fill="currentColor"
+      height="1em"
+      viewBox="64 64 896 896"
+      width="1em"
+    >
+      <path
+        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+      />
+    </svg>
+  </i>
+</span>
+`;
+
+exports[`ConfigProvider components Cascader prefixCls 1`] = `
+<span
+  class="prefix-Cascader-picker prefix-Cascader-picker-show-search"
+  tabindex="0"
+>
+  <span
+    class="prefix-Cascader-picker-label"
+  />
+  <input
+    autocomplete="off"
+    class="ant-input prefix-Cascader-input "
+    placeholder="Please select"
+    type="text"
+    value=""
+  />
+  <i
+    class="anticon anticon-down prefix-Cascader-picker-arrow"
+  >
+    <svg
+      aria-hidden="true"
+      class=""
+      data-icon="down"
+      fill="currentColor"
+      height="1em"
+      viewBox="64 64 896 896"
+      width="1em"
+    >
+      <path
+        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+      />
+    </svg>
+  </i>
+</span>
 `;
