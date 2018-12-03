@@ -1052,3 +1052,102 @@ exports[`ConfigProvider components breadcrumb prefixCls 1`] = `
   </span>
 </div>
 `;
+
+exports[`ConfigProvider components button configProvider 1`] = `
+<div>
+  <button
+    class="config-btn"
+    type="button"
+  >
+    <span>
+      Bamboo
+    </span>
+  </button>
+  <div
+    class="config-btn-group"
+  >
+    <button
+      class="config-btn"
+      type="button"
+    >
+      <span>
+        Little
+      </span>
+    </button>
+    <button
+      class="config-btn"
+      type="button"
+    >
+      <span>
+        Light
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components button normal 1`] = `
+<div>
+  <button
+    class="ant-btn"
+    type="button"
+  >
+    <span>
+      Bamboo
+    </span>
+  </button>
+  <div
+    class="ant-btn-group"
+  >
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        Little
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        Light
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components button prefixCls 1`] = `
+<div>
+  <button
+    class="prefix-button"
+    type="button"
+  >
+    <span>
+      Bamboo
+    </span>
+  </button>
+  <div
+    class="prefix-button"
+  >
+    <button
+      class="prefix-button"
+      type="button"
+    >
+      <span>
+        Little
+      </span>
+    </button>
+    <button
+      class="prefix-button"
+      type="button"
+    >
+      <span>
+        Light
+      </span>
+    </button>
+  </div>
+</div>
+`;

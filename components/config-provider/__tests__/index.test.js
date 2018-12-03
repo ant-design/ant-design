@@ -8,6 +8,7 @@ import Avatar from '../../avatar';
 import BackTop from '../../back-top';
 import Badge from '../../badge';
 import Breadcrumb from '../../breadcrumb';
+import Button from '../../button';
 
 describe('ConfigProvider', () => {
   describe('components', () => {
@@ -92,6 +93,17 @@ describe('ConfigProvider', () => {
         <Breadcrumb.Item {...props}>Bamboo</Breadcrumb.Item>
         <Breadcrumb.Item {...props}>Light</Breadcrumb.Item>
       </Breadcrumb>
+    ));
+
+    // Button
+    testPair('button', props => (
+      <div>
+        <Button {...props}>Bamboo</Button>
+        <Button.Group {...props}>
+          <Button {...props}>Little</Button>
+          <Button {...props}>Light</Button>
+        </Button.Group>
+      </div>
     ));
   });
 });
