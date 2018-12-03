@@ -20,7 +20,10 @@ import DatePicker from '../../date-picker';
 import Divider from '../../divider';
 import Drawer from '../../drawer';
 import Dropdown from '../../dropdown';
+import Form from '../../form';
+
 import Menu from '../../menu';
+import Input from '../../input';
 
 describe('ConfigProvider', () => {
   describe('components', () => {
@@ -224,5 +227,18 @@ describe('ConfigProvider', () => {
         </Dropdown.Button>
       );
     });
+
+    // Form
+    testPair('Form', props => (
+      <Form {...props}>
+        <Form.Item
+          {...props}
+          validateStatus="error"
+          help="Bamboo is Light"
+        >
+          <Input {...props} />
+        </Form.Item>
+      </Form>
+    ));
   });
 });
