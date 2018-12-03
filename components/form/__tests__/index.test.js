@@ -1,13 +1,13 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import Form from '..';
 
 describe('Form', () => {
   it('hideRequiredMark', () => {
-    const wrapper = shallow(
+    const wrapper = mount(
       <Form hideRequiredMark />
     );
-    expect(wrapper.hasClass('ant-form-hide-required-mark')).toBe(true);
+    expect(wrapper.find('form').hasClass('ant-form-hide-required-mark')).toBe(true);
   });
 
   describe('wrappedComponentRef', () => {
