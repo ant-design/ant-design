@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import Icon from '../icon';
-import Dialog, { ModalFuncProps } from './Modal';
+import Dialog, { ModalFuncProps, destroyFns } from './Modal';
 import ActionButton from './ActionButton';
 import { getConfirmLocale } from './locale';
 
@@ -140,6 +140,13 @@ export default function confirm(config: ModalFuncProps) {
     if (config.onCancel && triggerCancel) {
       config.onCancel(...args);
     }
+    for(let i = 0; i < destroyFns.length; i++) {
+      const fn = destroyFns[i]
+      if (fn === destroy) {
+        destroyFns.splice(i, 1)
+        break
+      }
+    }
   }
 
   function render(props: any) {
@@ -147,6 +154,8 @@ export default function confirm(config: ModalFuncProps) {
   }
 
   render(currentConfig);
+
+  destroyFns.push(close)
 
   return {
     destroy: close,

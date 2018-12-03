@@ -144,6 +144,23 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     jest.useRealTimers();
   });
 
+  it('could be Modal.destroy', () => {
+    jest.useFakeTimers();
+    ['info', 'success', 'warning', 'error'].forEach((type) => {
+      Modal[type]({
+        title: 'title',
+        content: 'content',
+      });
+      expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
+    });
+    Modal.destroy();
+    ['info', 'success', 'warning', 'error'].forEach((type) => {
+      jest.runAllTimers();
+      expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(0);
+    });
+    jest.useRealTimers();
+  });
+
   it('prefixCls', () => {
     open({ prefixCls: 'custom-modal' });
     expect($$('.custom-modal-mask')).toHaveLength(1);

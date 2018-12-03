@@ -97,3 +97,16 @@ modal.destroy();
   margin-right: 8px;
 }
 </style>
+
+- `Modal.destroy`
+
+使用 `Modal.destroy()` 可以销毁弹出的确认窗（即上述的 Modal.info、Modal.success、Modal.error、Modal.warning、Modal.confirm）。通常用于路由监听当中，处理路由前进、后退不能销毁确认对话框的问题，而不用各处去使用实例的返回值进行关闭（modal.destroy() 适用于主动关闭，而不是路由这样被动关闭）
+
+```jsx
+import { browserHistory } from 'react-router';
+
+// router change
+browserHistory.listen(() => {
+  Modal.destroy();
+});
+```

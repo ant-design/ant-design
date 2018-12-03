@@ -12,6 +12,7 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 let mousePosition: { x: number; y: number } | null;
 let mousePositionEventBinded: boolean;
+export const destroyFns: Array<() => void> = [];
 
 export interface ModalProps {
   /** 对话框是否可见*/
@@ -107,6 +108,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
   static warn: ModalFunc;
   static warning: ModalFunc;
   static confirm: ModalFunc;
+  static destroy: () => void;
 
   static defaultProps = {
     width: 520,

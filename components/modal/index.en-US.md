@@ -99,3 +99,16 @@ modal.destroy();
   margin-right: 8px;
 }
 </style>
+
+- `Modal.destroy`
+
+`Modal.destroy()` could destroy all confirmation modal dialogs(Modal.info/Modal.success/Modal.error/Modal.warning/Modal.confirm). Usually, you can use it in router change event to destroy confirm modal dialog automatically without use modal reference to close( it's too complex to use for all modal dialogs)
+
+```jsx
+import { browserHistory } from 'react-router';
+
+// router change
+browserHistory.listen(() => {
+  Modal.destroy();
+});
+```

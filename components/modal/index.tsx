@@ -1,4 +1,4 @@
-import Modal, { ModalFuncProps } from './Modal';
+import Modal, { ModalFuncProps, destroyFns } from './Modal';
 import confirm from './confirm';
 
 export { ActionButtonProps } from './ActionButton';
@@ -51,6 +51,15 @@ Modal.confirm = function(props: ModalFuncProps) {
     ...props,
   };
   return confirm(config);
+};
+
+Modal.destroy = function () {
+  while (destroyFns.length) {
+    const close = destroyFns.pop();
+    if (close) {
+      close();
+    }
+  }
 };
 
 export default Modal;
