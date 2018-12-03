@@ -5,6 +5,7 @@ import Calendar from 'rc-calendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
 import Icon from '../icon';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import interopDefault from '../_util/interopDefault';
 
 function formatValue(value: moment.Moment | null, format: string): string {
@@ -25,6 +26,7 @@ class WeekPicker extends React.Component<any, any> {
   }
 
   private input: any;
+  private prefixCls?: string;
 
   constructor(props: any) {
     super(props);
@@ -41,7 +43,7 @@ class WeekPicker extends React.Component<any, any> {
   }
   weekDateRender = (current: any) => {
     const selectedValue = this.state.value;
-    const { prefixCls } = this.props;
+    const { prefixCls } = this;
     if (selectedValue &&
       current.year() === selectedValue.year() &&
       current.week() === selectedValue.week()) {
@@ -84,12 +86,19 @@ class WeekPicker extends React.Component<any, any> {
     this.input = node;
   }
 
-  render() {
+  renderWeekPicker = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
-      prefixCls, className, disabled, pickerClass, popupStyle,
+      prefixCls: customizePrefixCls,
+      className, disabled, pickerClass, popupStyle,
       pickerInputClass, format, allowClear, locale, localeCode, disabledDate,
       style, onFocus, onBlur, id, suffixIcon,
     } = this.props;
+
+    const prefixCls = getPrefixCls('calendar', customizePrefixCls);
+    // To support old version react.
+    // Have to add prefixCls on the instance.
+    // https://github.com/facebook/react/issues/12397
+    this.prefixCls = prefixCls;
 
     const pickerValue = this.state.value;
     if (pickerValue && localeCode) {
@@ -169,6 +178,14 @@ class WeekPicker extends React.Component<any, any> {
           {input}
         </RcDatePicker>
       </span>
+    );
+  }
+
+  render() {
+    return (
+      <ConfigConsumer>
+        {this.renderWeekPicker}
+      </ConfigConsumer>
     );
   }
 }

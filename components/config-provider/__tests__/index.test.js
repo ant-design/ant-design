@@ -16,6 +16,7 @@ import Cascader from '../../cascader';
 import Checkbox from '../../checkbox';
 import Collapse from '../../collapse';
 import Comment from '../../comment';
+import DatePicker from '../../date-picker';
 
 describe('ConfigProvider', () => {
   describe('components', () => {
@@ -164,5 +165,14 @@ describe('ConfigProvider', () => {
         <Comment {...props} content="Light" />
       </Comment>
     ));
+
+    // DatePicker
+    describe('DatePicker', () => {
+      testPair('DatePicker', props => (
+        <div>
+          <DatePicker {...props} />
+        </div>
+      ));
+    });
   });
 });
