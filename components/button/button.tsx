@@ -207,10 +207,11 @@ export default class Button extends React.Component<ButtonProps, any> {
 
     const title= isChristmas ? 'Ho Ho Ho!' : rest.title;
 
-    if ('href' in rest) {
+    const linkButtonRestProps = rest as AnchorButtonProps;
+    if (linkButtonRestProps.href !== undefined) {
       return (
         <a
-          {...rest}
+          {...linkButtonRestProps}
           className={classes}
           onClick={this.handleClick}
           title={title}
@@ -219,24 +220,24 @@ export default class Button extends React.Component<ButtonProps, any> {
           {iconNode}{kids}
         </a>
       );
-    } else {
-      // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
-      const { htmlType, ...otherProps } = rest;
-
-      return (
-        <Wave>
-          <button
-            {...otherProps}
-            type={htmlType || 'button'}
-            className={classes}
-            onClick={this.handleClick}
-            title={title}
-            ref={this.saveButtonRef}
-          >
-            {iconNode}{kids}
-          </button>
-        </Wave>
-      );
     }
+
+    // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
+    const { htmlType, ...otherProps } = rest as NativeButtonProps;
+
+    return (
+      <Wave>
+        <button
+          {...(otherProps as NativeButtonProps)}
+          type={htmlType || 'button'}
+          className={classes}
+          onClick={this.handleClick}
+          title={title}
+          ref={this.saveButtonRef}
+        >
+          {iconNode}{kids}
+        </button>
+      </Wave>
+    );
   }
 }
