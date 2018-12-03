@@ -18,6 +18,7 @@ import Collapse from '../../collapse';
 import Comment from '../../comment';
 import DatePicker from '../../date-picker';
 import Divider from '../../divider';
+import Drawer from '../../drawer';
 
 describe('ConfigProvider', () => {
   describe('components', () => {
@@ -200,6 +201,11 @@ describe('ConfigProvider', () => {
     // Divider
     testPair('Divider', props => (
       <Divider {...props} />
+    ));
+
+    // Drawer
+    testPair('Drawer', props => (
+      <Drawer {...props} visible getContainer={false} />
     ));
   });
 });
