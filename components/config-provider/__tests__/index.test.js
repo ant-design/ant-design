@@ -7,6 +7,7 @@ import AutoComplete from '../../auto-complete';
 import Avatar from '../../avatar';
 import BackTop from '../../back-top';
 import Badge from '../../badge';
+import Breadcrumb from '../../breadcrumb';
 
 describe('ConfigProvider', () => {
   describe('components', () => {
@@ -84,5 +85,13 @@ describe('ConfigProvider', () => {
         </div>
       );
     });
+
+    // Breadcrumb
+    testPair('breadcrumb', props => (
+      <Breadcrumb {...props}>
+        <Breadcrumb.Item {...props}>Bamboo</Breadcrumb.Item>
+        <Breadcrumb.Item {...props}>Light</Breadcrumb.Item>
+      </Breadcrumb>
+    ));
   });
 });

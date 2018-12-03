@@ -959,3 +959,96 @@ exports[`ConfigProvider components badge prefixCls 1`] = `
   </span>
 </div>
 `;
+
+exports[`ConfigProvider components breadcrumb configProvider 1`] = `
+<div
+  class="config-breadcrumb"
+>
+  <span>
+    <span
+      class="config-breadcrumb-link"
+    >
+      Bamboo
+    </span>
+    <span
+      class="config-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+  <span>
+    <span
+      class="config-breadcrumb-link"
+    >
+      Light
+    </span>
+    <span
+      class="config-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+</div>
+`;
+
+exports[`ConfigProvider components breadcrumb normal 1`] = `
+<div
+  class="ant-breadcrumb"
+>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      Bamboo
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      Light
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+</div>
+`;
+
+exports[`ConfigProvider components breadcrumb prefixCls 1`] = `
+<div
+  class="prefix-breadcrumb"
+>
+  <span>
+    <span
+      class="prefix-breadcrumb-link"
+    >
+      Bamboo
+    </span>
+    <span
+      class="prefix-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+  <span>
+    <span
+      class="prefix-breadcrumb-link"
+    >
+      Light
+    </span>
+    <span
+      class="prefix-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+</div>
+`;
