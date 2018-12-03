@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from 'enzyme';
+import moment from 'moment';
 import ConfigProvider from '..';
 import Alert from '../../alert';
 import Anchor from '../../anchor';
@@ -123,8 +124,8 @@ describe('ConfigProvider', () => {
     // Calendar
     testPair('Calendar', props => (
       <div>
-        <Calendar {...props} mode="month" />
-        <Calendar {...props} mode="year" />
+        <Calendar {...props} value={moment('2000-09-03')} mode="month" />
+        <Calendar {...props} value={moment('2000-09-03')} mode="year" />
       </div>
     ));
 

@@ -347,13 +347,13 @@ export default class FormItem extends React.Component<FormItemProps, any> {
       style, colon, className,
     } = this.props;
     const prefixCls = getPrefixCls('form', customizePrefixCls);
+    const children = this.renderChildren(prefixCls);
     const itemClassName = {
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-with-help`]: this.helpShow,
       [`${prefixCls}-item-no-colon`]: !colon,
       [`${className}`]: !!className,
     };
-    const children = this.renderChildren(prefixCls);
     return (
       <Row className={classNames(itemClassName)} style={style}>
         {children}
