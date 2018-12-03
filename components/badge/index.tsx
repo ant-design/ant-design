@@ -1,8 +1,9 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import Animate from 'rc-animate';
-import ScrollNumber from './ScrollNumber';
 import classNames from 'classnames';
+import ScrollNumber from './ScrollNumber';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export { ScrollNumberProps } from './ScrollNumber';
 
@@ -26,8 +27,6 @@ export interface BadgeProps {
 
 export default class Badge extends React.Component<BadgeProps, any> {
   static defaultProps = {
-    prefixCls: 'ant-badge',
-    scrollNumberPrefixCls: 'ant-scroll-number',
     count: null,
     showZero: false,
     dot: false,
@@ -41,9 +40,8 @@ export default class Badge extends React.Component<BadgeProps, any> {
     overflowCount: PropTypes.number,
   };
 
-  getBadgeClassName() {
+  getBadgeClassName(prefixCls: string) {
     const {
-      prefixCls,
       className,
       status,
       children,
@@ -106,8 +104,8 @@ export default class Badge extends React.Component<BadgeProps, any> {
     } : style;
   }
 
-  renderStatusText() {
-    const { prefixCls, text } = this.props;
+  renderStatusText(prefixCls: string) {
+    const { text } = this.props;
     const hidden = this.isHidden();
     return (hidden || !text) ? null : (
       <span className={`${prefixCls}-status-text`}>{text}</span>
@@ -119,11 +117,9 @@ export default class Badge extends React.Component<BadgeProps, any> {
     return (count && typeof count === 'object') ? (count as React.ReactElement<any>) : undefined;
   }
 
-  renderBadgeNumber() {
+  renderBadgeNumber(prefixCls: string, scrollNumberPrefixCls: string) {
     const {
       count,
-      prefixCls,
-      scrollNumberPrefixCls,
       status,
     } = this.props;
 
@@ -154,12 +150,12 @@ export default class Badge extends React.Component<BadgeProps, any> {
     );
   }
 
-  render() {
+  renderBadge = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
       count,
       showZero,
-      prefixCls,
-      scrollNumberPrefixCls,
+      prefixCls: customizePrefixCls,
+      scrollNumberPrefixCls: customizeScrollNumberPrefixCls,
       overflowCount,
       className,
       style,
@@ -172,8 +168,11 @@ export default class Badge extends React.Component<BadgeProps, any> {
       ...restProps
     } = this.props;
 
-    const scrollNumber = this.renderBadgeNumber();
-    const statusText = this.renderStatusText();
+    const prefixCls = getPrefixCls('badge', customizePrefixCls);
+    const scrollNumberPrefixCls = getPrefixCls('scroll-number', customizeScrollNumberPrefixCls);
+
+    const scrollNumber = this.renderBadgeNumber(prefixCls, scrollNumberPrefixCls);
+    const statusText = this.renderStatusText(prefixCls);
 
     const statusCls = classNames({
       [`${prefixCls}-status-dot`]: !!status,
@@ -185,7 +184,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
     // <Badge status="success" />
     if (!children && status) {
       return (
-        <span {...restProps} className={this.getBadgeClassName()} style={styleWithOffset}>
+        <span {...restProps} className={this.getBadgeClassName(prefixCls)} style={styleWithOffset}>
           <span className={statusCls} />
           <span className={`${prefixCls}-status-text`}>{text}</span>
         </span>
@@ -193,7 +192,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
     }
 
     return (
-      <span {...restProps} className={this.getBadgeClassName()}>
+      <span {...restProps} className={this.getBadgeClassName(prefixCls)}>
         {children}
         <Animate
           component=""
@@ -205,6 +204,14 @@ export default class Badge extends React.Component<BadgeProps, any> {
         </Animate>
         {statusText}
       </span>
+    );
+  }
+
+  render() {
+    return (
+      <ConfigConsumer>
+        {this.renderBadge}
+      </ConfigConsumer>
     );
   }
 }

@@ -256,7 +256,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
 
     const prefixCls = getPrefixCls('anchor', customizePrefixCls);
 
-    // Headache. To support old version react.
+    // To support old version react.
     // Have to add prefixCls on the instance.
     // https://github.com/facebook/react/issues/12397
     this.prefixCls = prefixCls;
