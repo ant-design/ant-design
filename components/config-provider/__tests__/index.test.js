@@ -173,6 +173,12 @@ describe('ConfigProvider', () => {
           <DatePicker {...props} />
         </div>
       ));
+
+      testPair('RangePicker', props => (
+        <div>
+          <DatePicker.RangePicker {...props} />
+        </div>
+      ));
     });
   });
 });
