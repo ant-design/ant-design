@@ -174,9 +174,24 @@ describe('ConfigProvider', () => {
         </div>
       ));
 
+      // RangePicker
       testPair('RangePicker', props => (
         <div>
           <DatePicker.RangePicker {...props} />
+        </div>
+      ));
+
+      // MonthPicker
+      testPair('MonthPicker', props => (
+        <div>
+          <DatePicker.MonthPicker {...props} />
+        </div>
+      ));
+
+      // WeekPicker
+      testPair('WeekPicker', props => (
+        <div>
+          <DatePicker.WeekPicker {...props} />
         </div>
       ));
     });
