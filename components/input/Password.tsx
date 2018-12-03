@@ -61,9 +61,8 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
       <Icon
         {...iconProps}
         className={`${prefixCls}-icon`}
-        type="eye"
+        type={this.state.visible ? 'eye-invisible' : 'eye'}
         key="passwordIcon"
-        theme={this.state.visible ? 'filled' : 'outlined'}
       />,
     );
   }
