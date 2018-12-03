@@ -870,7 +870,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         return this.getColumnTitle(props.children, props);
       }
     } else {
-      return parentNode.title ? parentNode.title : title;
+      return parentNode.title || title;
     }
   }
 

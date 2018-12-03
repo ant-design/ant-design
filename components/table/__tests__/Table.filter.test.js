@@ -455,15 +455,10 @@ describe('Table.filter', () => {
   });
 
   it('render title correctly', () => {
-    const title = (
-      <div>
-        <div title="childTitle">testTitle</div>
-      </div>
-    );
     const wrapper = mount(createTable({
       columns: [{
         ...column,
-        title,
+        title: <div title="childTitle">testTitle</div>,
       }],
     }));
     expect(wrapper).toMatchSnapshot();
