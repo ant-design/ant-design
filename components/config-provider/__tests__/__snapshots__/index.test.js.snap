@@ -6062,3 +6062,162 @@ exports[`ConfigProvider components Collapse prefixCls 1`] = `
   </div>
 </div>
 `;
+
+exports[`ConfigProvider components Comment configProvider 1`] = `
+<div
+  class="config-comment"
+>
+  <div
+    class="config-comment-inner"
+  >
+    <div
+      class="config-comment-avatar"
+    />
+    <div
+      class="config-comment-content"
+    >
+      <div
+        class="config-comment-content-author"
+      />
+      <div
+        class="config-comment-content-detail"
+      >
+        Bamboo
+      </div>
+    </div>
+  </div>
+  <div
+    class="config-comment-nested"
+  >
+    <div
+      class="config-comment"
+    >
+      <div
+        class="config-comment-inner"
+      >
+        <div
+          class="config-comment-avatar"
+        />
+        <div
+          class="config-comment-content"
+        >
+          <div
+            class="config-comment-content-author"
+          />
+          <div
+            class="config-comment-content-detail"
+          >
+            Light
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components Comment normal 1`] = `
+<div
+  class="ant-comment"
+>
+  <div
+    class="ant-comment-inner"
+  >
+    <div
+      class="ant-comment-avatar"
+    />
+    <div
+      class="ant-comment-content"
+    >
+      <div
+        class="ant-comment-content-author"
+      />
+      <div
+        class="ant-comment-content-detail"
+      >
+        Bamboo
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-comment-nested"
+  >
+    <div
+      class="ant-comment"
+    >
+      <div
+        class="ant-comment-inner"
+      >
+        <div
+          class="ant-comment-avatar"
+        />
+        <div
+          class="ant-comment-content"
+        >
+          <div
+            class="ant-comment-content-author"
+          />
+          <div
+            class="ant-comment-content-detail"
+          >
+            Light
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components Comment prefixCls 1`] = `
+<div
+  class="prefix-Comment"
+>
+  <div
+    class="prefix-Comment-inner"
+  >
+    <div
+      class="prefix-Comment-avatar"
+    />
+    <div
+      class="prefix-Comment-content"
+    >
+      <div
+        class="prefix-Comment-content-author"
+      />
+      <div
+        class="prefix-Comment-content-detail"
+      >
+        Bamboo
+      </div>
+    </div>
+  </div>
+  <div
+    class="prefix-Comment-nested"
+  >
+    <div
+      class="prefix-Comment"
+    >
+      <div
+        class="prefix-Comment-inner"
+      >
+        <div
+          class="prefix-Comment-avatar"
+        />
+        <div
+          class="prefix-Comment-content"
+        >
+          <div
+            class="prefix-Comment-content-author"
+          />
+          <div
+            class="prefix-Comment-content-detail"
+          >
+            Light
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

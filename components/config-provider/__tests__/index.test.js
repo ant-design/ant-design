@@ -15,6 +15,7 @@ import Carousel from '../../carousel';
 import Cascader from '../../cascader';
 import Checkbox from '../../checkbox';
 import Collapse from '../../collapse';
+import Comment from '../../comment';
 
 describe('ConfigProvider', () => {
   describe('components', () => {
@@ -155,6 +156,13 @@ describe('ConfigProvider', () => {
           <p>Light</p>
         </Collapse.Panel>
       </Collapse>
+    ));
+
+    // Comment
+    testPair('Comment', props => (
+      <Comment {...props} content="Bamboo">
+        <Comment {...props} content="Light" />
+      </Comment>
     ));
   });
 });
