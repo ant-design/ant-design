@@ -51,7 +51,7 @@ timeline: true
 - 🐞 修复 Tabs 组件当 tabPosition 为 left 或 right 的时候，renderTabBar 样式问题。[#13118](https://github.com/ant-design/ant-design/pull/13118)
 - 🐞 修复 Upload 缩略图图标样式错误。[#13333](https://github.com/ant-design/ant-design/issues/13333)
 
-# 3.10.9
+## 3.10.9
 
 `2018-11-24`
 
@@ -63,7 +63,7 @@ timeline: true
 - 🐞 修复 DatePicker 对 `tabIndex` 属性的支持。[#13265](https://github.com/ant-design/ant-design/pull/13265) [@arifemrecelik](https://github.com/arifemrecelik)
 - 🐞 TreeSelect 现在在搜索时不再调用 `loadData` 以避免卡死。[#13245](https://github.com/ant-design/ant-design/issues/13245)
 
-# 3.10.8
+## 3.10.8
 
 `2018-11-17`
 
@@ -75,7 +75,7 @@ timeline: true
 - 🐞 修复 tabBarGutter 无法在垂直模式下工作的问题。[#12968](https://github.com/ant-design/ant-design/issues/12968)
 - 🌟 调整了多处 typescript 的类型。
 
-# 3.10.7
+## 3.10.7
 
 `2018-11-11`
 
