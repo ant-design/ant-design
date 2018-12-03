@@ -53,7 +53,7 @@ Modal.confirm = function(props: ModalFuncProps) {
   return confirm(config);
 };
 
-Modal.destroy = function () {
+Modal.destroyAll = function () {
   while (destroyFns.length) {
     const close = destroyFns.pop();
     if (close) {
