@@ -11,6 +11,7 @@ import Breadcrumb from '../../breadcrumb';
 import Button from '../../button';
 import Calendar from '../../calendar';
 import Card from '../../card';
+import Carousel from '../../carousel';
 
 describe('ConfigProvider', () => {
   describe('components', () => {
@@ -124,6 +125,16 @@ describe('ConfigProvider', () => {
             <Card.Meta {...props} />
           </Card.Grid>
         </Card>
+      </div>
+    ));
+
+    // Carousel
+    testPair('Carousel', props => (
+      <div>
+        <Carousel {...props}>
+          <div><h3>Bamboo</h3></div>
+          <div><h3>Light</h3></div>
+        </Carousel>
       </div>
     ));
   });
