@@ -1,5 +1,1157 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ConfigProvider components Alert configProvider 1`] = `
+<div
+  class="config-alert config-alert-success config-alert-no-icon"
+  data-show="true"
+>
+  <span
+    class="config-alert-message"
+  >
+    Bamboo is Little Light
+  </span>
+  <span
+    class="config-alert-description"
+  />
+</div>
+`;
+
+exports[`ConfigProvider components Alert normal 1`] = `
+<div
+  class="ant-alert ant-alert-success ant-alert-no-icon"
+  data-show="true"
+>
+  <span
+    class="ant-alert-message"
+  >
+    Bamboo is Little Light
+  </span>
+  <span
+    class="ant-alert-description"
+  />
+</div>
+`;
+
+exports[`ConfigProvider components Alert prefixCls 1`] = `
+<div
+  class="prefix-Alert prefix-Alert-success prefix-Alert-no-icon"
+  data-show="true"
+>
+  <span
+    class="prefix-Alert-message"
+  >
+    Bamboo is Little Light
+  </span>
+  <span
+    class="prefix-Alert-description"
+  />
+</div>
+`;
+
+exports[`ConfigProvider components Anchor configProvider 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <div
+      class="config-anchor-wrapper"
+      style="max-height:100vh"
+    >
+      <div
+        class="config-anchor"
+      >
+        <div
+          class="config-anchor-ink"
+        >
+          <span
+            class="config-anchor-ink-ball"
+          />
+        </div>
+        <div
+          class="config-anchor-link"
+        >
+          <a
+            class="config-anchor-link-title"
+            href="#bamboo"
+            title="Little Light"
+          >
+            Little Light
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components Anchor normal 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <div
+      class="ant-anchor-wrapper"
+      style="max-height:100vh"
+    >
+      <div
+        class="ant-anchor"
+      >
+        <div
+          class="ant-anchor-ink"
+        >
+          <span
+            class="ant-anchor-ink-ball"
+          />
+        </div>
+        <div
+          class="ant-anchor-link"
+        >
+          <a
+            class="ant-anchor-link-title"
+            href="#bamboo"
+            title="Little Light"
+          >
+            Little Light
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components Anchor prefixCls 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <div
+      class="prefix-Anchor-wrapper"
+      style="max-height:100vh"
+    >
+      <div
+        class="prefix-Anchor"
+      >
+        <div
+          class="prefix-Anchor-ink"
+        >
+          <span
+            class="prefix-Anchor-ink-ball"
+          />
+        </div>
+        <div
+          class="prefix-Anchor-link"
+        >
+          <a
+            class="prefix-Anchor-link-title"
+            href="#bamboo"
+            title="Little Light"
+          >
+            Little Light
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components AutoComplete configProvider 1`] = `
+<div
+  class="config-select-show-search config-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
+>
+  <div
+    aria-autocomplete="list"
+    aria-controls="test-uuid"
+    aria-expanded="false"
+    aria-haspopup="true"
+    class="ant-select-selection
+            ant-select-selection--single"
+    role="combobox"
+  >
+    <div
+      class="ant-select-selection__rendered"
+    >
+      <ul>
+        <li
+          class="ant-select-search ant-select-search--inline"
+        >
+          <div
+            class="ant-select-search__field__wrap"
+          >
+            <input
+              class="ant-input ant-select-search__field"
+              type="text"
+              value=""
+            />
+            <span
+              class="ant-select-search__field__mirror"
+            >
+               
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <span
+      class="ant-select-arrow"
+      style="user-select:none;-webkit-user-select:none"
+      unselectable="on"
+    >
+      <i
+        class="anticon anticon-down ant-select-arrow-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </i>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components AutoComplete normal 1`] = `
+<div
+  class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
+>
+  <div
+    aria-autocomplete="list"
+    aria-controls="test-uuid"
+    aria-expanded="false"
+    aria-haspopup="true"
+    class="ant-select-selection
+            ant-select-selection--single"
+    role="combobox"
+  >
+    <div
+      class="ant-select-selection__rendered"
+    >
+      <ul>
+        <li
+          class="ant-select-search ant-select-search--inline"
+        >
+          <div
+            class="ant-select-search__field__wrap"
+          >
+            <input
+              class="ant-input ant-select-search__field"
+              type="text"
+              value=""
+            />
+            <span
+              class="ant-select-search__field__mirror"
+            >
+               
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <span
+      class="ant-select-arrow"
+      style="user-select:none;-webkit-user-select:none"
+      unselectable="on"
+    >
+      <i
+        class="anticon anticon-down ant-select-arrow-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </i>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components AutoComplete prefixCls 1`] = `
+<div
+  class="prefix-AutoComplete-show-search prefix-AutoComplete-auto-complete prefix-AutoComplete prefix-AutoComplete-combobox prefix-AutoComplete-enabled"
+>
+  <div
+    aria-autocomplete="list"
+    aria-controls="test-uuid"
+    aria-expanded="false"
+    aria-haspopup="true"
+    class="prefix-AutoComplete-selection
+            prefix-AutoComplete-selection--single"
+    role="combobox"
+  >
+    <div
+      class="prefix-AutoComplete-selection__rendered"
+    >
+      <ul>
+        <li
+          class="prefix-AutoComplete-search prefix-AutoComplete-search--inline"
+        >
+          <div
+            class="prefix-AutoComplete-search__field__wrap"
+          >
+            <input
+              class="ant-input prefix-AutoComplete-search__field"
+              type="text"
+              value=""
+            />
+            <span
+              class="prefix-AutoComplete-search__field__mirror"
+            >
+               
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <span
+      class="prefix-AutoComplete-arrow"
+      style="user-select:none;-webkit-user-select:none"
+      unselectable="on"
+    >
+      <i
+        class="anticon anticon-down prefix-AutoComplete-arrow-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </i>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components Avatar configProvider 1`] = `
+<span
+  class="config-avatar config-avatar-circle"
+>
+  <span
+    class="config-avatar-string"
+  />
+</span>
+`;
+
+exports[`ConfigProvider components Avatar normal 1`] = `
+<span
+  class="ant-avatar ant-avatar-circle"
+>
+  <span
+    class="ant-avatar-string"
+  />
+</span>
+`;
+
+exports[`ConfigProvider components Avatar prefixCls 1`] = `
+<span
+  class="prefix-Avatar prefix-Avatar-circle"
+>
+  <span
+    class="prefix-Avatar-string"
+  />
+</span>
+`;
+
+exports[`ConfigProvider components BackTop configProvider 1`] = `
+<div
+  class="config-back-top"
+>
+  <div
+    class="config-back-top-content"
+  >
+    <div
+      class="config-back-top-icon"
+    />
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components BackTop normal 1`] = `
+<div
+  class="ant-back-top"
+>
+  <div
+    class="ant-back-top-content"
+  >
+    <div
+      class="ant-back-top-icon"
+    />
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components BackTop prefixCls 1`] = `
+<div
+  class="prefix-BackTop"
+>
+  <div
+    class="prefix-BackTop-content"
+  >
+    <div
+      class="prefix-BackTop-icon"
+    />
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components Badge configProvider 1`] = `
+<div>
+  <span
+    class="config-badge"
+  >
+    <span />
+    <sup
+      class="config-scroll-number config-badge-count"
+      data-show="true"
+      title="5"
+    >
+      <span
+        class="config-scroll-number-only"
+        style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
+      >
+        <p
+          class=""
+        >
+          0
+        </p>
+        <p
+          class=""
+        >
+          1
+        </p>
+        <p
+          class=""
+        >
+          2
+        </p>
+        <p
+          class=""
+        >
+          3
+        </p>
+        <p
+          class=""
+        >
+          4
+        </p>
+        <p
+          class=""
+        >
+          5
+        </p>
+        <p
+          class=""
+        >
+          6
+        </p>
+        <p
+          class=""
+        >
+          7
+        </p>
+        <p
+          class=""
+        >
+          8
+        </p>
+        <p
+          class=""
+        >
+          9
+        </p>
+        <p
+          class=""
+        >
+          0
+        </p>
+        <p
+          class=""
+        >
+          1
+        </p>
+        <p
+          class=""
+        >
+          2
+        </p>
+        <p
+          class=""
+        >
+          3
+        </p>
+        <p
+          class=""
+        >
+          4
+        </p>
+        <p
+          class="current"
+        >
+          5
+        </p>
+        <p
+          class=""
+        >
+          6
+        </p>
+        <p
+          class=""
+        >
+          7
+        </p>
+        <p
+          class=""
+        >
+          8
+        </p>
+        <p
+          class=""
+        >
+          9
+        </p>
+        <p
+          class=""
+        >
+          0
+        </p>
+        <p
+          class=""
+        >
+          1
+        </p>
+        <p
+          class=""
+        >
+          2
+        </p>
+        <p
+          class=""
+        >
+          3
+        </p>
+        <p
+          class=""
+        >
+          4
+        </p>
+        <p
+          class=""
+        >
+          5
+        </p>
+        <p
+          class=""
+        >
+          6
+        </p>
+        <p
+          class=""
+        >
+          7
+        </p>
+        <p
+          class=""
+        >
+          8
+        </p>
+        <p
+          class=""
+        >
+          9
+        </p>
+      </span>
+    </sup>
+  </span>
+  <span
+    class="config-badge"
+  >
+    <span />
+    <sup
+      class="config-scroll-number config-badge-dot"
+      data-show="true"
+    />
+  </span>
+</div>
+`;
+
+exports[`ConfigProvider components Badge normal 1`] = `
+<div>
+  <span
+    class="ant-badge"
+  >
+    <span />
+    <sup
+      class="ant-scroll-number ant-badge-count"
+      data-show="true"
+      title="5"
+    >
+      <span
+        class="ant-scroll-number-only"
+        style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
+      >
+        <p
+          class=""
+        >
+          0
+        </p>
+        <p
+          class=""
+        >
+          1
+        </p>
+        <p
+          class=""
+        >
+          2
+        </p>
+        <p
+          class=""
+        >
+          3
+        </p>
+        <p
+          class=""
+        >
+          4
+        </p>
+        <p
+          class=""
+        >
+          5
+        </p>
+        <p
+          class=""
+        >
+          6
+        </p>
+        <p
+          class=""
+        >
+          7
+        </p>
+        <p
+          class=""
+        >
+          8
+        </p>
+        <p
+          class=""
+        >
+          9
+        </p>
+        <p
+          class=""
+        >
+          0
+        </p>
+        <p
+          class=""
+        >
+          1
+        </p>
+        <p
+          class=""
+        >
+          2
+        </p>
+        <p
+          class=""
+        >
+          3
+        </p>
+        <p
+          class=""
+        >
+          4
+        </p>
+        <p
+          class="current"
+        >
+          5
+        </p>
+        <p
+          class=""
+        >
+          6
+        </p>
+        <p
+          class=""
+        >
+          7
+        </p>
+        <p
+          class=""
+        >
+          8
+        </p>
+        <p
+          class=""
+        >
+          9
+        </p>
+        <p
+          class=""
+        >
+          0
+        </p>
+        <p
+          class=""
+        >
+          1
+        </p>
+        <p
+          class=""
+        >
+          2
+        </p>
+        <p
+          class=""
+        >
+          3
+        </p>
+        <p
+          class=""
+        >
+          4
+        </p>
+        <p
+          class=""
+        >
+          5
+        </p>
+        <p
+          class=""
+        >
+          6
+        </p>
+        <p
+          class=""
+        >
+          7
+        </p>
+        <p
+          class=""
+        >
+          8
+        </p>
+        <p
+          class=""
+        >
+          9
+        </p>
+      </span>
+    </sup>
+  </span>
+  <span
+    class="ant-badge"
+  >
+    <span />
+    <sup
+      class="ant-scroll-number ant-badge-dot"
+      data-show="true"
+    />
+  </span>
+</div>
+`;
+
+exports[`ConfigProvider components Badge prefixCls 1`] = `
+<div>
+  <span
+    class="prefix-Badge"
+  >
+    <span />
+    <sup
+      class="prefix-scroll-number prefix-Badge-count"
+      data-show="true"
+      title="5"
+    >
+      <span
+        class="prefix-scroll-number-only"
+        style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
+      >
+        <p
+          class=""
+        >
+          0
+        </p>
+        <p
+          class=""
+        >
+          1
+        </p>
+        <p
+          class=""
+        >
+          2
+        </p>
+        <p
+          class=""
+        >
+          3
+        </p>
+        <p
+          class=""
+        >
+          4
+        </p>
+        <p
+          class=""
+        >
+          5
+        </p>
+        <p
+          class=""
+        >
+          6
+        </p>
+        <p
+          class=""
+        >
+          7
+        </p>
+        <p
+          class=""
+        >
+          8
+        </p>
+        <p
+          class=""
+        >
+          9
+        </p>
+        <p
+          class=""
+        >
+          0
+        </p>
+        <p
+          class=""
+        >
+          1
+        </p>
+        <p
+          class=""
+        >
+          2
+        </p>
+        <p
+          class=""
+        >
+          3
+        </p>
+        <p
+          class=""
+        >
+          4
+        </p>
+        <p
+          class="current"
+        >
+          5
+        </p>
+        <p
+          class=""
+        >
+          6
+        </p>
+        <p
+          class=""
+        >
+          7
+        </p>
+        <p
+          class=""
+        >
+          8
+        </p>
+        <p
+          class=""
+        >
+          9
+        </p>
+        <p
+          class=""
+        >
+          0
+        </p>
+        <p
+          class=""
+        >
+          1
+        </p>
+        <p
+          class=""
+        >
+          2
+        </p>
+        <p
+          class=""
+        >
+          3
+        </p>
+        <p
+          class=""
+        >
+          4
+        </p>
+        <p
+          class=""
+        >
+          5
+        </p>
+        <p
+          class=""
+        >
+          6
+        </p>
+        <p
+          class=""
+        >
+          7
+        </p>
+        <p
+          class=""
+        >
+          8
+        </p>
+        <p
+          class=""
+        >
+          9
+        </p>
+      </span>
+    </sup>
+  </span>
+  <span
+    class="prefix-Badge"
+  >
+    <span />
+    <sup
+      class="prefix-scroll-number prefix-Badge-dot"
+      data-show="true"
+    />
+  </span>
+</div>
+`;
+
+exports[`ConfigProvider components Breadcrumb configProvider 1`] = `
+<div
+  class="config-breadcrumb"
+>
+  <span>
+    <span
+      class="config-breadcrumb-link"
+    >
+      Bamboo
+    </span>
+    <span
+      class="config-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+  <span>
+    <span
+      class="config-breadcrumb-link"
+    >
+      Light
+    </span>
+    <span
+      class="config-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+</div>
+`;
+
+exports[`ConfigProvider components Breadcrumb normal 1`] = `
+<div
+  class="ant-breadcrumb"
+>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      Bamboo
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      Light
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+</div>
+`;
+
+exports[`ConfigProvider components Breadcrumb prefixCls 1`] = `
+<div
+  class="prefix-Breadcrumb"
+>
+  <span>
+    <span
+      class="prefix-Breadcrumb-link"
+    >
+      Bamboo
+    </span>
+    <span
+      class="prefix-Breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+  <span>
+    <span
+      class="prefix-Breadcrumb-link"
+    >
+      Light
+    </span>
+    <span
+      class="prefix-Breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+</div>
+`;
+
+exports[`ConfigProvider components Button configProvider 1`] = `
+<div>
+  <button
+    class="config-btn"
+    type="button"
+  >
+    <span>
+      Bamboo
+    </span>
+  </button>
+  <div
+    class="config-btn-group"
+  >
+    <button
+      class="config-btn"
+      type="button"
+    >
+      <span>
+        Little
+      </span>
+    </button>
+    <button
+      class="config-btn"
+      type="button"
+    >
+      <span>
+        Light
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components Button normal 1`] = `
+<div>
+  <button
+    class="ant-btn"
+    type="button"
+  >
+    <span>
+      Bamboo
+    </span>
+  </button>
+  <div
+    class="ant-btn-group"
+  >
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        Little
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        Light
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components Button prefixCls 1`] = `
+<div>
+  <button
+    class="prefix-Button"
+    type="button"
+  >
+    <span>
+      Bamboo
+    </span>
+  </button>
+  <div
+    class="prefix-Button"
+  >
+    <button
+      class="prefix-Button"
+      type="button"
+    >
+      <span>
+        Little
+      </span>
+    </button>
+    <button
+      class="prefix-Button"
+      type="button"
+    >
+      <span>
+        Light
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
 exports[`ConfigProvider components Calendar configProvider 1`] = `
 <div>
   <div
@@ -4631,1158 +5783,6 @@ exports[`ConfigProvider components Carousel prefixCls 1`] = `
         </li>
       </ul>
     </div>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components alert configProvider 1`] = `
-<div
-  class="config-alert config-alert-success config-alert-no-icon"
-  data-show="true"
->
-  <span
-    class="config-alert-message"
-  >
-    Bamboo is Little Light
-  </span>
-  <span
-    class="config-alert-description"
-  />
-</div>
-`;
-
-exports[`ConfigProvider components alert normal 1`] = `
-<div
-  class="ant-alert ant-alert-success ant-alert-no-icon"
-  data-show="true"
->
-  <span
-    class="ant-alert-message"
-  >
-    Bamboo is Little Light
-  </span>
-  <span
-    class="ant-alert-description"
-  />
-</div>
-`;
-
-exports[`ConfigProvider components alert prefixCls 1`] = `
-<div
-  class="prefix-alert prefix-alert-success prefix-alert-no-icon"
-  data-show="true"
->
-  <span
-    class="prefix-alert-message"
-  >
-    Bamboo is Little Light
-  </span>
-  <span
-    class="prefix-alert-description"
-  />
-</div>
-`;
-
-exports[`ConfigProvider components anchor configProvider 1`] = `
-<div>
-  <div
-    class=""
-  >
-    <div
-      class="config-anchor-wrapper"
-      style="max-height:100vh"
-    >
-      <div
-        class="config-anchor"
-      >
-        <div
-          class="config-anchor-ink"
-        >
-          <span
-            class="config-anchor-ink-ball"
-          />
-        </div>
-        <div
-          class="config-anchor-link"
-        >
-          <a
-            class="config-anchor-link-title"
-            href="#bamboo"
-            title="Little Light"
-          >
-            Little Light
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components anchor normal 1`] = `
-<div>
-  <div
-    class=""
-  >
-    <div
-      class="ant-anchor-wrapper"
-      style="max-height:100vh"
-    >
-      <div
-        class="ant-anchor"
-      >
-        <div
-          class="ant-anchor-ink"
-        >
-          <span
-            class="ant-anchor-ink-ball"
-          />
-        </div>
-        <div
-          class="ant-anchor-link"
-        >
-          <a
-            class="ant-anchor-link-title"
-            href="#bamboo"
-            title="Little Light"
-          >
-            Little Light
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components anchor prefixCls 1`] = `
-<div>
-  <div
-    class=""
-  >
-    <div
-      class="prefix-anchor-wrapper"
-      style="max-height:100vh"
-    >
-      <div
-        class="prefix-anchor"
-      >
-        <div
-          class="prefix-anchor-ink"
-        >
-          <span
-            class="prefix-anchor-ink-ball"
-          />
-        </div>
-        <div
-          class="prefix-anchor-link"
-        >
-          <a
-            class="prefix-anchor-link-title"
-            href="#bamboo"
-            title="Little Light"
-          >
-            Little Light
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components auto-complete configProvider 1`] = `
-<div
-  class="config-select-show-search config-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
->
-  <div
-    aria-autocomplete="list"
-    aria-controls="test-uuid"
-    aria-expanded="false"
-    aria-haspopup="true"
-    class="ant-select-selection
-            ant-select-selection--single"
-    role="combobox"
-  >
-    <div
-      class="ant-select-selection__rendered"
-    >
-      <ul>
-        <li
-          class="ant-select-search ant-select-search--inline"
-        >
-          <div
-            class="ant-select-search__field__wrap"
-          >
-            <input
-              class="ant-input ant-select-search__field"
-              type="text"
-              value=""
-            />
-            <span
-              class="ant-select-search__field__mirror"
-            >
-               
-            </span>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <span
-      class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none"
-      unselectable="on"
-    >
-      <i
-        class="anticon anticon-down ant-select-arrow-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="down"
-          fill="currentColor"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-          />
-        </svg>
-      </i>
-    </span>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components auto-complete normal 1`] = `
-<div
-  class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
->
-  <div
-    aria-autocomplete="list"
-    aria-controls="test-uuid"
-    aria-expanded="false"
-    aria-haspopup="true"
-    class="ant-select-selection
-            ant-select-selection--single"
-    role="combobox"
-  >
-    <div
-      class="ant-select-selection__rendered"
-    >
-      <ul>
-        <li
-          class="ant-select-search ant-select-search--inline"
-        >
-          <div
-            class="ant-select-search__field__wrap"
-          >
-            <input
-              class="ant-input ant-select-search__field"
-              type="text"
-              value=""
-            />
-            <span
-              class="ant-select-search__field__mirror"
-            >
-               
-            </span>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <span
-      class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none"
-      unselectable="on"
-    >
-      <i
-        class="anticon anticon-down ant-select-arrow-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="down"
-          fill="currentColor"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-          />
-        </svg>
-      </i>
-    </span>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components auto-complete prefixCls 1`] = `
-<div
-  class="prefix-auto-complete-show-search prefix-auto-complete-auto-complete prefix-auto-complete prefix-auto-complete-combobox prefix-auto-complete-enabled"
->
-  <div
-    aria-autocomplete="list"
-    aria-controls="test-uuid"
-    aria-expanded="false"
-    aria-haspopup="true"
-    class="prefix-auto-complete-selection
-            prefix-auto-complete-selection--single"
-    role="combobox"
-  >
-    <div
-      class="prefix-auto-complete-selection__rendered"
-    >
-      <ul>
-        <li
-          class="prefix-auto-complete-search prefix-auto-complete-search--inline"
-        >
-          <div
-            class="prefix-auto-complete-search__field__wrap"
-          >
-            <input
-              class="ant-input prefix-auto-complete-search__field"
-              type="text"
-              value=""
-            />
-            <span
-              class="prefix-auto-complete-search__field__mirror"
-            >
-               
-            </span>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <span
-      class="prefix-auto-complete-arrow"
-      style="user-select:none;-webkit-user-select:none"
-      unselectable="on"
-    >
-      <i
-        class="anticon anticon-down prefix-auto-complete-arrow-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="down"
-          fill="currentColor"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-          />
-        </svg>
-      </i>
-    </span>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components avatar configProvider 1`] = `
-<span
-  class="config-avatar config-avatar-circle"
->
-  <span
-    class="config-avatar-string"
-  />
-</span>
-`;
-
-exports[`ConfigProvider components avatar normal 1`] = `
-<span
-  class="ant-avatar ant-avatar-circle"
->
-  <span
-    class="ant-avatar-string"
-  />
-</span>
-`;
-
-exports[`ConfigProvider components avatar prefixCls 1`] = `
-<span
-  class="prefix-avatar prefix-avatar-circle"
->
-  <span
-    class="prefix-avatar-string"
-  />
-</span>
-`;
-
-exports[`ConfigProvider components back-top configProvider 1`] = `
-<div
-  class="config-back-top"
->
-  <div
-    class="config-back-top-content"
-  >
-    <div
-      class="config-back-top-icon"
-    />
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components back-top normal 1`] = `
-<div
-  class="ant-back-top"
->
-  <div
-    class="ant-back-top-content"
-  >
-    <div
-      class="ant-back-top-icon"
-    />
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components back-top prefixCls 1`] = `
-<div
-  class="prefix-back-top"
->
-  <div
-    class="prefix-back-top-content"
-  >
-    <div
-      class="prefix-back-top-icon"
-    />
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components badge configProvider 1`] = `
-<div>
-  <span
-    class="config-badge"
-  >
-    <span />
-    <sup
-      class="config-scroll-number config-badge-count"
-      data-show="true"
-      title="5"
-    >
-      <span
-        class="config-scroll-number-only"
-        style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
-      >
-        <p
-          class=""
-        >
-          0
-        </p>
-        <p
-          class=""
-        >
-          1
-        </p>
-        <p
-          class=""
-        >
-          2
-        </p>
-        <p
-          class=""
-        >
-          3
-        </p>
-        <p
-          class=""
-        >
-          4
-        </p>
-        <p
-          class=""
-        >
-          5
-        </p>
-        <p
-          class=""
-        >
-          6
-        </p>
-        <p
-          class=""
-        >
-          7
-        </p>
-        <p
-          class=""
-        >
-          8
-        </p>
-        <p
-          class=""
-        >
-          9
-        </p>
-        <p
-          class=""
-        >
-          0
-        </p>
-        <p
-          class=""
-        >
-          1
-        </p>
-        <p
-          class=""
-        >
-          2
-        </p>
-        <p
-          class=""
-        >
-          3
-        </p>
-        <p
-          class=""
-        >
-          4
-        </p>
-        <p
-          class="current"
-        >
-          5
-        </p>
-        <p
-          class=""
-        >
-          6
-        </p>
-        <p
-          class=""
-        >
-          7
-        </p>
-        <p
-          class=""
-        >
-          8
-        </p>
-        <p
-          class=""
-        >
-          9
-        </p>
-        <p
-          class=""
-        >
-          0
-        </p>
-        <p
-          class=""
-        >
-          1
-        </p>
-        <p
-          class=""
-        >
-          2
-        </p>
-        <p
-          class=""
-        >
-          3
-        </p>
-        <p
-          class=""
-        >
-          4
-        </p>
-        <p
-          class=""
-        >
-          5
-        </p>
-        <p
-          class=""
-        >
-          6
-        </p>
-        <p
-          class=""
-        >
-          7
-        </p>
-        <p
-          class=""
-        >
-          8
-        </p>
-        <p
-          class=""
-        >
-          9
-        </p>
-      </span>
-    </sup>
-  </span>
-  <span
-    class="config-badge"
-  >
-    <span />
-    <sup
-      class="config-scroll-number config-badge-dot"
-      data-show="true"
-    />
-  </span>
-</div>
-`;
-
-exports[`ConfigProvider components badge normal 1`] = `
-<div>
-  <span
-    class="ant-badge"
-  >
-    <span />
-    <sup
-      class="ant-scroll-number ant-badge-count"
-      data-show="true"
-      title="5"
-    >
-      <span
-        class="ant-scroll-number-only"
-        style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
-      >
-        <p
-          class=""
-        >
-          0
-        </p>
-        <p
-          class=""
-        >
-          1
-        </p>
-        <p
-          class=""
-        >
-          2
-        </p>
-        <p
-          class=""
-        >
-          3
-        </p>
-        <p
-          class=""
-        >
-          4
-        </p>
-        <p
-          class=""
-        >
-          5
-        </p>
-        <p
-          class=""
-        >
-          6
-        </p>
-        <p
-          class=""
-        >
-          7
-        </p>
-        <p
-          class=""
-        >
-          8
-        </p>
-        <p
-          class=""
-        >
-          9
-        </p>
-        <p
-          class=""
-        >
-          0
-        </p>
-        <p
-          class=""
-        >
-          1
-        </p>
-        <p
-          class=""
-        >
-          2
-        </p>
-        <p
-          class=""
-        >
-          3
-        </p>
-        <p
-          class=""
-        >
-          4
-        </p>
-        <p
-          class="current"
-        >
-          5
-        </p>
-        <p
-          class=""
-        >
-          6
-        </p>
-        <p
-          class=""
-        >
-          7
-        </p>
-        <p
-          class=""
-        >
-          8
-        </p>
-        <p
-          class=""
-        >
-          9
-        </p>
-        <p
-          class=""
-        >
-          0
-        </p>
-        <p
-          class=""
-        >
-          1
-        </p>
-        <p
-          class=""
-        >
-          2
-        </p>
-        <p
-          class=""
-        >
-          3
-        </p>
-        <p
-          class=""
-        >
-          4
-        </p>
-        <p
-          class=""
-        >
-          5
-        </p>
-        <p
-          class=""
-        >
-          6
-        </p>
-        <p
-          class=""
-        >
-          7
-        </p>
-        <p
-          class=""
-        >
-          8
-        </p>
-        <p
-          class=""
-        >
-          9
-        </p>
-      </span>
-    </sup>
-  </span>
-  <span
-    class="ant-badge"
-  >
-    <span />
-    <sup
-      class="ant-scroll-number ant-badge-dot"
-      data-show="true"
-    />
-  </span>
-</div>
-`;
-
-exports[`ConfigProvider components badge prefixCls 1`] = `
-<div>
-  <span
-    class="prefix-badge"
-  >
-    <span />
-    <sup
-      class="prefix-scroll-number prefix-badge-count"
-      data-show="true"
-      title="5"
-    >
-      <span
-        class="prefix-scroll-number-only"
-        style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
-      >
-        <p
-          class=""
-        >
-          0
-        </p>
-        <p
-          class=""
-        >
-          1
-        </p>
-        <p
-          class=""
-        >
-          2
-        </p>
-        <p
-          class=""
-        >
-          3
-        </p>
-        <p
-          class=""
-        >
-          4
-        </p>
-        <p
-          class=""
-        >
-          5
-        </p>
-        <p
-          class=""
-        >
-          6
-        </p>
-        <p
-          class=""
-        >
-          7
-        </p>
-        <p
-          class=""
-        >
-          8
-        </p>
-        <p
-          class=""
-        >
-          9
-        </p>
-        <p
-          class=""
-        >
-          0
-        </p>
-        <p
-          class=""
-        >
-          1
-        </p>
-        <p
-          class=""
-        >
-          2
-        </p>
-        <p
-          class=""
-        >
-          3
-        </p>
-        <p
-          class=""
-        >
-          4
-        </p>
-        <p
-          class="current"
-        >
-          5
-        </p>
-        <p
-          class=""
-        >
-          6
-        </p>
-        <p
-          class=""
-        >
-          7
-        </p>
-        <p
-          class=""
-        >
-          8
-        </p>
-        <p
-          class=""
-        >
-          9
-        </p>
-        <p
-          class=""
-        >
-          0
-        </p>
-        <p
-          class=""
-        >
-          1
-        </p>
-        <p
-          class=""
-        >
-          2
-        </p>
-        <p
-          class=""
-        >
-          3
-        </p>
-        <p
-          class=""
-        >
-          4
-        </p>
-        <p
-          class=""
-        >
-          5
-        </p>
-        <p
-          class=""
-        >
-          6
-        </p>
-        <p
-          class=""
-        >
-          7
-        </p>
-        <p
-          class=""
-        >
-          8
-        </p>
-        <p
-          class=""
-        >
-          9
-        </p>
-      </span>
-    </sup>
-  </span>
-  <span
-    class="prefix-badge"
-  >
-    <span />
-    <sup
-      class="prefix-scroll-number prefix-badge-dot"
-      data-show="true"
-    />
-  </span>
-</div>
-`;
-
-exports[`ConfigProvider components breadcrumb configProvider 1`] = `
-<div
-  class="config-breadcrumb"
->
-  <span>
-    <span
-      class="config-breadcrumb-link"
-    >
-      Bamboo
-    </span>
-    <span
-      class="config-breadcrumb-separator"
-    >
-      /
-    </span>
-  </span>
-  <span>
-    <span
-      class="config-breadcrumb-link"
-    >
-      Light
-    </span>
-    <span
-      class="config-breadcrumb-separator"
-    >
-      /
-    </span>
-  </span>
-</div>
-`;
-
-exports[`ConfigProvider components breadcrumb normal 1`] = `
-<div
-  class="ant-breadcrumb"
->
-  <span>
-    <span
-      class="ant-breadcrumb-link"
-    >
-      Bamboo
-    </span>
-    <span
-      class="ant-breadcrumb-separator"
-    >
-      /
-    </span>
-  </span>
-  <span>
-    <span
-      class="ant-breadcrumb-link"
-    >
-      Light
-    </span>
-    <span
-      class="ant-breadcrumb-separator"
-    >
-      /
-    </span>
-  </span>
-</div>
-`;
-
-exports[`ConfigProvider components breadcrumb prefixCls 1`] = `
-<div
-  class="prefix-breadcrumb"
->
-  <span>
-    <span
-      class="prefix-breadcrumb-link"
-    >
-      Bamboo
-    </span>
-    <span
-      class="prefix-breadcrumb-separator"
-    >
-      /
-    </span>
-  </span>
-  <span>
-    <span
-      class="prefix-breadcrumb-link"
-    >
-      Light
-    </span>
-    <span
-      class="prefix-breadcrumb-separator"
-    >
-      /
-    </span>
-  </span>
-</div>
-`;
-
-exports[`ConfigProvider components button configProvider 1`] = `
-<div>
-  <button
-    class="config-btn"
-    type="button"
-  >
-    <span>
-      Bamboo
-    </span>
-  </button>
-  <div
-    class="config-btn-group"
-  >
-    <button
-      class="config-btn"
-      type="button"
-    >
-      <span>
-        Little
-      </span>
-    </button>
-    <button
-      class="config-btn"
-      type="button"
-    >
-      <span>
-        Light
-      </span>
-    </button>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components button normal 1`] = `
-<div>
-  <button
-    class="ant-btn"
-    type="button"
-  >
-    <span>
-      Bamboo
-    </span>
-  </button>
-  <div
-    class="ant-btn-group"
-  >
-    <button
-      class="ant-btn"
-      type="button"
-    >
-      <span>
-        Little
-      </span>
-    </button>
-    <button
-      class="ant-btn"
-      type="button"
-    >
-      <span>
-        Light
-      </span>
-    </button>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components button prefixCls 1`] = `
-<div>
-  <button
-    class="prefix-button"
-    type="button"
-  >
-    <span>
-      Bamboo
-    </span>
-  </button>
-  <div
-    class="prefix-button"
-  >
-    <button
-      class="prefix-button"
-      type="button"
-    >
-      <span>
-        Little
-      </span>
-    </button>
-    <button
-      class="prefix-button"
-      type="button"
-    >
-      <span>
-        Light
-      </span>
-    </button>
   </div>
 </div>
 `;

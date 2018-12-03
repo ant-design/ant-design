@@ -39,34 +39,34 @@ describe('ConfigProvider', () => {
     }
 
     // Alert
-    testPair('alert', props => (
+    testPair('Alert', props => (
       <Alert {...props} message="Bamboo is Little Light" type="success" />
     ));
 
     // Anchor
-    testPair('anchor', props => (
+    testPair('Anchor', props => (
       <Anchor {...props}>
         <Anchor.Link {...props} href="#bamboo" title="Little Light" />
       </Anchor>
     ));
 
     // AutoComplete
-    testPair('auto-complete', props => (
+    testPair('AutoComplete', props => (
       <AutoComplete {...props} />
     ));
 
     // Avatar
-    testPair('avatar', props => (
+    testPair('Avatar', props => (
       <Avatar {...props} />
     ));
 
     // BackTop
-    testPair('back-top', props => (
+    testPair('BackTop', props => (
       <BackTop visible {...props} />
     ));
 
     // Badge
-    testPair('badge', (props) => {
+    testPair('Badge', (props) => {
       const newProps = {
         ...props,
       };
@@ -75,7 +75,6 @@ describe('ConfigProvider', () => {
       if (props.prefixCls) {
         newProps.scrollNumberPrefixCls = 'prefix-scroll-number';
       }
-
 
       return (
         <div>
@@ -91,7 +90,7 @@ describe('ConfigProvider', () => {
     });
 
     // Breadcrumb
-    testPair('breadcrumb', props => (
+    testPair('Breadcrumb', props => (
       <Breadcrumb {...props}>
         <Breadcrumb.Item {...props}>Bamboo</Breadcrumb.Item>
         <Breadcrumb.Item {...props}>Light</Breadcrumb.Item>
@@ -99,7 +98,7 @@ describe('ConfigProvider', () => {
     ));
 
     // Button
-    testPair('button', props => (
+    testPair('Button', props => (
       <div>
         <Button {...props}>Bamboo</Button>
         <Button.Group {...props}>
