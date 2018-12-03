@@ -453,4 +453,19 @@ describe('Table.filter', () => {
     wrapper.find('.ant-dropdown-trigger').first().simulate('click');
     expect(wrapper.find('.ant-input').instance().value).toBe('');
   });
+
+  it('render title correctly', () => {
+    const title = (
+      <div>
+        <div title="childTitle">testTitle</div>
+      </div>
+    );
+    const wrapper = mount(createTable({
+      columns: [{
+        ...column,
+        title,
+      }],
+    }));
+    expect(wrapper).toMatchSnapshot();
+  });
 });
