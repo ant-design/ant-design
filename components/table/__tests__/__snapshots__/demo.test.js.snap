@@ -9073,21 +9073,9 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                   >
                     <div
                       class="ant-table-column-sorters"
-                      title="title3"
+                      title="Name"
                     >
-                      <div
-                        title="title1"
-                      >
-                        <div
-                          title="title2"
-                        >
-                          <div
-                            title="title3"
-                          >
-                            Name
-                          </div>
-                        </div>
-                      </div>
+                      Name
                       <div
                         class="ant-table-column-sorter"
                       >
