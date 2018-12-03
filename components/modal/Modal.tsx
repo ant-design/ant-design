@@ -105,7 +105,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
   static warn: ModalFunc;
   static warning: ModalFunc;
   static confirm: ModalFunc;
-  static destroy: () => void;
+  static destroyAll: () => void;
 
   static defaultProps = {
     prefixCls: 'ant-modal',
