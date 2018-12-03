@@ -13,6 +13,7 @@ import Calendar from '../../calendar';
 import Card from '../../card';
 import Carousel from '../../carousel';
 import Cascader from '../../cascader';
+import Checkbox from '../../checkbox';
 
 describe('ConfigProvider', () => {
   describe('components', () => {
@@ -137,6 +138,13 @@ describe('ConfigProvider', () => {
     // Cascader
     testPair('Cascader', props => (
       <Cascader {...props} options={[]} showSearch />
+    ));
+
+    // Checkbox
+    testPair('Checkbox', props => (
+      <Checkbox.Group {...props}>
+        <Checkbox {...props}>Bamboo</Checkbox>
+      </Checkbox.Group>
     ));
   });
 });

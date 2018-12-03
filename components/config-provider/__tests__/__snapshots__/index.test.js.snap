@@ -5879,3 +5879,78 @@ exports[`ConfigProvider components Cascader prefixCls 1`] = `
   </i>
 </span>
 `;
+
+exports[`ConfigProvider components Checkbox configProvider 1`] = `
+<div
+  class="config-checkbox-group"
+>
+  <label
+    class="config-checkbox-wrapper"
+  >
+    <span
+      class="config-checkbox"
+    >
+      <input
+        class="config-checkbox-input"
+        type="checkbox"
+      />
+      <span
+        class="config-checkbox-inner"
+      />
+    </span>
+    <span>
+      Bamboo
+    </span>
+  </label>
+</div>
+`;
+
+exports[`ConfigProvider components Checkbox normal 1`] = `
+<div
+  class="ant-checkbox-group"
+>
+  <label
+    class="ant-checkbox-wrapper"
+  >
+    <span
+      class="ant-checkbox"
+    >
+      <input
+        class="ant-checkbox-input"
+        type="checkbox"
+      />
+      <span
+        class="ant-checkbox-inner"
+      />
+    </span>
+    <span>
+      Bamboo
+    </span>
+  </label>
+</div>
+`;
+
+exports[`ConfigProvider components Checkbox prefixCls 1`] = `
+<div
+  class="prefix-Checkbox-group"
+>
+  <label
+    class="prefix-Checkbox-wrapper"
+  >
+    <span
+      class="prefix-Checkbox"
+    >
+      <input
+        class="prefix-Checkbox-input"
+        type="checkbox"
+      />
+      <span
+        class="prefix-Checkbox-inner"
+      />
+    </span>
+    <span>
+      Bamboo
+    </span>
+  </label>
+</div>
+`;
