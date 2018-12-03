@@ -9,6 +9,7 @@ import BackTop from '../../back-top';
 import Badge from '../../badge';
 import Breadcrumb from '../../breadcrumb';
 import Button from '../../button';
+import Calendar from '../../calendar';
 
 describe('ConfigProvider', () => {
   describe('components', () => {
@@ -103,6 +104,14 @@ describe('ConfigProvider', () => {
           <Button {...props}>Little</Button>
           <Button {...props}>Light</Button>
         </Button.Group>
+      </div>
+    ));
+
+    // Calendar
+    testPair('Calendar', props => (
+      <div>
+        <Calendar {...props} mode="month" />
+        <Calendar {...props} mode="year" />
       </div>
     ));
   });
