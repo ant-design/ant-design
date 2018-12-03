@@ -45,7 +45,7 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
     // other
     'alert', 'audit', 'batch-folding', 'branches',
     'build', 'border', 'crown',
-    'experiment', 'fire',
+    'experiment', 'eye-invisible', 'fire',
     'money-collect', 'property-safety', 'read', 'reconciliation',
     'rest', 'security-scan', 'insurance', 'interation', 'safety-certificate',
     'project', 'thunderbolt', 'block', 'cluster', 'deployment-unit',

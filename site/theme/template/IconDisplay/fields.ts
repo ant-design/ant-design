@@ -59,7 +59,7 @@ export const categories = {
     'home', 'loading', 'loading-3-quarters',
     'cloud-upload',
     'star', 'heart', 'environment',
-    'eye', 'camera', 'save', 'team',
+    'eye', 'eye-invisible', 'camera', 'save', 'team',
     'solution', 'phone', 'filter', 'exception', 'export',
     'customer-service', 'qrcode', 'scan', 'like',
     'dislike', 'message', 'pay-circle',
