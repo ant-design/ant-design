@@ -4179,6 +4179,66 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
 </div>
 `;
 
+exports[`ConfigProvider components Card configProvider 1`] = `
+<div>
+  <div
+    class="config-card config-card-bordered config-card-contain-grid"
+  >
+    <div
+      class="config-card-body"
+    >
+      <div
+        class="config-card-grid"
+      >
+        <div
+          class="config-card-meta"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components Card normal 1`] = `
+<div>
+  <div
+    class="ant-card ant-card-bordered ant-card-contain-grid"
+  >
+    <div
+      class="ant-card-body"
+    >
+      <div
+        class="ant-card-grid"
+      >
+        <div
+          class="ant-card-meta"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components Card prefixCls 1`] = `
+<div>
+  <div
+    class="prefix-Card prefix-Card-bordered prefix-Card-contain-grid"
+  >
+    <div
+      class="prefix-Card-body"
+    >
+      <div
+        class="prefix-Card-grid"
+      >
+        <div
+          class="prefix-Card-meta"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`ConfigProvider components alert configProvider 1`] = `
 <div
   class="config-alert config-alert-success config-alert-no-icon"

@@ -10,6 +10,7 @@ import Badge from '../../badge';
 import Breadcrumb from '../../breadcrumb';
 import Button from '../../button';
 import Calendar from '../../calendar';
+import Card from '../../card';
 
 describe('ConfigProvider', () => {
   describe('components', () => {
@@ -112,6 +113,17 @@ describe('ConfigProvider', () => {
       <div>
         <Calendar {...props} mode="month" />
         <Calendar {...props} mode="year" />
+      </div>
+    ));
+
+    // Card
+    testPair('Card', props => (
+      <div>
+        <Card {...props}>
+          <Card.Grid {...props}>
+            <Card.Meta {...props} />
+          </Card.Grid>
+        </Card>
       </div>
     ));
   });
