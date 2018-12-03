@@ -28,13 +28,7 @@ If a `sortOrder` or `defaultSortOrder` is specified with the value `ascend` or `
 import { Table } from 'antd';
 
 const columns = [{
-  title: (
-    <div title="title1">
-      <div title="title2">
-        <div title="title3">Name</div>
-      </div>
-    </div>
-  ),
+  title: 'Name',
   dataIndex: 'name',
   filters: [{
     text: 'Joe',
