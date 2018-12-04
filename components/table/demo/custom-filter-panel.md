@@ -14,9 +14,7 @@ title:
 Implement a customized column search example via `filterDropdown`.
 
 ````jsx
-import {
-  Table, Input, Button, Icon,
-} from 'antd';
+import { Table, Input, Button, Icon } from 'antd';
 
 const data = [{
   key: '1',

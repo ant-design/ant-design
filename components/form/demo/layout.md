@@ -14,9 +14,7 @@ title:
 There are three layout for form: `horizontal`, `vertical`, `inline`.
 
 ````jsx
-import {
-  Form, Input, Button, Radio,
-} from 'antd';
+import { Form, Input, Button, Radio } from 'antd';
 
 const FormItem = Form.Item;
 

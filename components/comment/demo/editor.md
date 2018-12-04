@@ -14,9 +14,7 @@ title:
 Comment can be used as editor, user can customize the editor component.
 
 ````jsx
-import {
-  Comment, Avatar, Form, Button, List, Input,
-} from 'antd';
+import { Comment, Avatar, Form, Button, List, Input } from 'antd';
 import moment from 'moment';
 
 const FormItem = Form.Item;

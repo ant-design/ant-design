@@ -14,9 +14,7 @@ title:
 A drawer containing an editable form which needs to be collapsed by clicking the close button.
 
 ```jsx
-import {
-  Drawer, Form, Button, Col, Row, Input, Select, DatePicker,
-} from 'antd';
+import { Drawer, Form, Button, Col, Row, Input, Select, DatePicker } from 'antd';
 
 const { Option } = Select;
 

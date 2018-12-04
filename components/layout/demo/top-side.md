@@ -14,9 +14,7 @@ title:
 Both the top navigation and the sidebar, commonly used in documentation site.
 
 ````jsx
-import {
-  Layout, Menu, Breadcrumb, Icon,
-} from 'antd';
+import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 
 const { SubMenu } = Menu;
 const {

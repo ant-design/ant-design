@@ -19,9 +19,7 @@ Because the width of label is not fixed, you may need to adjust it by customizin
 
 
 ````jsx
-import {
-  Form, Row, Col, Input, Button, Icon,
-} from 'antd';
+import { Form, Row, Col, Input, Button, Icon } from 'antd';
 
 const FormItem = Form.Item;
 

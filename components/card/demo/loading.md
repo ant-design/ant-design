@@ -14,9 +14,7 @@ title:
 Shows a loading indicator while the contents of the card is being fetched.
 
 ````jsx
-import {
-  Skeleton, Switch, Card, Icon, Avatar,
-} from 'antd';
+import { Skeleton, Switch, Card, Icon, Avatar } from 'antd';
 
 const { Meta } = Card;
 

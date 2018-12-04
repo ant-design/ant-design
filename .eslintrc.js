@@ -53,6 +53,7 @@ if (process.env.RUN_ENV === 'DEMO') {
     'no-return-assign': 0, // TODO: remove later
     'no-param-reassign': 0, // TODO: remove later
     'import/no-extraneous-dependencies': 0,
+    'object-curly-newline': ['error', { ImportDeclaration: 'never' }],
   });
 }
 

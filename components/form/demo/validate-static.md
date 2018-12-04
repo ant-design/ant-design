@@ -22,9 +22,7 @@ We provide properties like `validateStatus` `help` `hasFeedback` to customize yo
 3. `help`: display validate message.
 
 ````jsx
-import {
-  Form, Input, DatePicker, Col, TimePicker, Select, Cascader, InputNumber,
-} from 'antd';
+import { Form, Input, DatePicker, Col, TimePicker, Select, Cascader, InputNumber } from 'antd';
 
 const FormItem = Form.Item;
 const Option = Select.Option;

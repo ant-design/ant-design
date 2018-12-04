@@ -14,10 +14,8 @@ title:
 Demostration for validataion configuration for form controls which are not show in the above demos.
 
 ````jsx
-import {
-  Form, Select, InputNumber, Switch, Radio,
-  Slider, Button, Upload, Icon, Rate,
-} from 'antd';
+import { Form, Select, InputNumber, Switch, Radio,
+  Slider, Button, Upload, Icon, Rate } from 'antd';
 
 const FormItem = Form.Item;
 const Option = Select.Option;

@@ -14,9 +14,7 @@ title:
 Synchronize with [InputNumber](/components/input-number/) component.
 
 ````jsx
-import {
-  Slider, InputNumber, Row, Col,
-} from 'antd';
+import { Slider, InputNumber, Row, Col } from 'antd';
 
 class IntegerStep extends React.Component {
   state = {

@@ -14,9 +14,7 @@ title:
 Perform different check rules according to different situations.
 
 ````jsx
-import {
-  Form, Input, Button, Checkbox,
-} from 'antd';
+import { Form, Input, Button, Checkbox } from 'antd';
 
 const FormItem = Form.Item;
 
