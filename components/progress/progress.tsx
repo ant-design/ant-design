@@ -20,7 +20,7 @@ export interface ProgressProps {
   percent?: number;
   successPercent?: number;
   format?: (percent?: number, successPercent?: number) => React.ReactNode;
-  status?: 'success' | 'active' | 'exception';
+  status?: 'success' | 'active' | 'exception' | 'normal';
   showInfo?: boolean;
   strokeWidth?: number;
   strokeLinecap?: string;
