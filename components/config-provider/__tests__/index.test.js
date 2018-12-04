@@ -33,6 +33,7 @@ import Modal from '../../modal';
 import Pagination from '../../pagination';
 import Popconfirm from '../../popconfirm';
 import Popover from '../../popover';
+import Progress from '../../progress';
 
 jest.mock('draft-js/lib/generateRandomKey', () => () => '123');
 jest.mock('rc-util/lib/Portal');
@@ -418,6 +419,11 @@ describe('ConfigProvider', () => {
           </Popover>
         )}
       </PortalTester>
+    ));
+
+    // Progress
+    testPair('Progress', props => (
+      <Progress {...props} />
     ));
   });
 });

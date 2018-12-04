@@ -9377,3 +9377,84 @@ exports[`ConfigProvider components Popover prefixCls 1`] = `
   </div>
 </div>
 `;
+
+exports[`ConfigProvider components Progress configProvider 1`] = `
+<div
+  class="config-progress config-progress-line config-progress-status-normal config-progress-show-info config-progress-default"
+>
+  <div>
+    <div
+      class="config-progress-outer"
+    >
+      <div
+        class="config-progress-inner"
+      >
+        <div
+          class="config-progress-bg"
+          style="width:0%;height:8px;border-radius:100px"
+        />
+      </div>
+    </div>
+    <span
+      class="config-progress-text"
+      title="0%"
+    >
+      0%
+    </span>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components Progress normal 1`] = `
+<div
+  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+>
+  <div>
+    <div
+      class="ant-progress-outer"
+    >
+      <div
+        class="ant-progress-inner"
+      >
+        <div
+          class="ant-progress-bg"
+          style="width:0%;height:8px;border-radius:100px"
+        />
+      </div>
+    </div>
+    <span
+      class="ant-progress-text"
+      title="0%"
+    >
+      0%
+    </span>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components Progress prefixCls 1`] = `
+<div
+  class="prefix-Progress prefix-Progress-line prefix-Progress-status-normal prefix-Progress-show-info prefix-Progress-default"
+>
+  <div>
+    <div
+      class="prefix-Progress-outer"
+    >
+      <div
+        class="prefix-Progress-inner"
+      >
+        <div
+          class="prefix-Progress-bg"
+          style="width:0%;height:8px;border-radius:100px"
+        />
+      </div>
+    </div>
+    <span
+      class="prefix-Progress-text"
+      title="0%"
+    >
+      0%
+    </span>
+  </div>
+</div>
+`;
