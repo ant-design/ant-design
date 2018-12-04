@@ -158,34 +158,34 @@ exports[`ConfigProvider components Anchor prefixCls 1`] = `
 
 exports[`ConfigProvider components AutoComplete configProvider 1`] = `
 <div
-  class="config-select-show-search config-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
+  class="config-select-show-search config-select-auto-complete config-select config-select-combobox config-select-enabled"
 >
   <div
     aria-autocomplete="list"
     aria-controls="test-uuid"
     aria-expanded="false"
     aria-haspopup="true"
-    class="ant-select-selection
-            ant-select-selection--single"
+    class="config-select-selection
+            config-select-selection--single"
     role="combobox"
   >
     <div
-      class="ant-select-selection__rendered"
+      class="config-select-selection__rendered"
     >
       <ul>
         <li
-          class="ant-select-search ant-select-search--inline"
+          class="config-select-search config-select-search--inline"
         >
           <div
-            class="ant-select-search__field__wrap"
+            class="config-select-search__field__wrap"
           >
             <input
-              class="config-input ant-select-search__field"
+              class="config-input config-select-search__field"
               type="text"
               value=""
             />
             <span
-              class="ant-select-search__field__mirror"
+              class="config-select-search__field__mirror"
             >
                
             </span>
@@ -194,12 +194,12 @@ exports[`ConfigProvider components AutoComplete configProvider 1`] = `
       </ul>
     </div>
     <span
-      class="ant-select-arrow"
+      class="config-select-arrow"
       style="user-select:none;-webkit-user-select:none"
       unselectable="on"
     >
       <i
-        class="anticon anticon-down ant-select-arrow-icon"
+        class="anticon anticon-down config-select-arrow-icon"
       >
         <svg
           aria-hidden="true"
@@ -1161,23 +1161,23 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
       class="config-fullcalendar-header"
     >
       <div
-        class="config-fullcalendar-year-select ant-select ant-select-enabled"
+        class="config-fullcalendar-year-select config-select config-select-enabled"
       >
         <div
           aria-autocomplete="list"
           aria-controls="test-uuid"
           aria-expanded="false"
           aria-haspopup="true"
-          class="ant-select-selection
-            ant-select-selection--single"
+          class="config-select-selection
+            config-select-selection--single"
           role="combobox"
           tabindex="0"
         >
           <div
-            class="ant-select-selection__rendered"
+            class="config-select-selection__rendered"
           >
             <div
-              class="ant-select-selection-selected-value"
+              class="config-select-selection-selected-value"
               style="display:block;opacity:1"
               title="2000"
             >
@@ -1185,12 +1185,12 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             </div>
           </div>
           <span
-            class="ant-select-arrow"
+            class="config-select-arrow"
             style="user-select:none;-webkit-user-select:none"
             unselectable="on"
           >
             <i
-              class="anticon anticon-down ant-select-arrow-icon"
+              class="anticon anticon-down config-select-arrow-icon"
             >
               <svg
                 aria-hidden="true"
@@ -1210,23 +1210,23 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
         </div>
       </div>
       <div
-        class="config-fullcalendar-month-select ant-select ant-select-enabled"
+        class="config-fullcalendar-month-select config-select config-select-enabled"
       >
         <div
           aria-autocomplete="list"
           aria-controls="test-uuid"
           aria-expanded="false"
           aria-haspopup="true"
-          class="ant-select-selection
-            ant-select-selection--single"
+          class="config-select-selection
+            config-select-selection--single"
           role="combobox"
           tabindex="0"
         >
           <div
-            class="ant-select-selection__rendered"
+            class="config-select-selection__rendered"
           >
             <div
-              class="ant-select-selection-selected-value"
+              class="config-select-selection-selected-value"
               style="display:block;opacity:1"
               title="Sep"
             >
@@ -1234,12 +1234,12 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             </div>
           </div>
           <span
-            class="ant-select-arrow"
+            class="config-select-arrow"
             style="user-select:none;-webkit-user-select:none"
             unselectable="on"
           >
             <i
-              class="anticon anticon-down ant-select-arrow-icon"
+              class="anticon anticon-down config-select-arrow-icon"
             >
               <svg
                 aria-hidden="true"
@@ -2198,23 +2198,23 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
       class="config-fullcalendar-header"
     >
       <div
-        class="config-fullcalendar-year-select ant-select ant-select-enabled"
+        class="config-fullcalendar-year-select config-select config-select-enabled"
       >
         <div
           aria-autocomplete="list"
           aria-controls="test-uuid"
           aria-expanded="false"
           aria-haspopup="true"
-          class="ant-select-selection
-            ant-select-selection--single"
+          class="config-select-selection
+            config-select-selection--single"
           role="combobox"
           tabindex="0"
         >
           <div
-            class="ant-select-selection__rendered"
+            class="config-select-selection__rendered"
           >
             <div
-              class="ant-select-selection-selected-value"
+              class="config-select-selection-selected-value"
               style="display:block;opacity:1"
               title="2000"
             >
@@ -2222,12 +2222,12 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             </div>
           </div>
           <span
-            class="ant-select-arrow"
+            class="config-select-arrow"
             style="user-select:none;-webkit-user-select:none"
             unselectable="on"
           >
             <i
-              class="anticon anticon-down ant-select-arrow-icon"
+              class="anticon anticon-down config-select-arrow-icon"
             >
               <svg
                 aria-hidden="true"
@@ -10402,4 +10402,262 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
     </div>
   </li>
 </ul>
+`;
+
+exports[`ConfigProvider components Select configProvider 1`] = `
+Array [
+  <div
+    class="config-select config-select-open config-select-focused config-select-enabled"
+  >
+    <div
+      aria-autocomplete="list"
+      aria-controls="test-uuid"
+      aria-expanded="true"
+      aria-haspopup="true"
+      class="config-select-selection
+            config-select-selection--single"
+      role="combobox"
+      tabindex="0"
+    >
+      <div
+        class="config-select-selection__rendered"
+      />
+      <span
+        class="config-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <i
+          class="anticon anticon-down config-select-arrow-icon"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </i>
+      </span>
+    </div>
+  </div>,
+  <div>
+    <div
+      class="config-select-dropdown config-select-dropdown--single config-select-dropdown-placement-bottomLeft "
+    >
+      <div
+        id="test-uuid"
+        style="overflow:auto;transform:translateZ(0)"
+      >
+        <ul
+          class="config-select-dropdown-menu  config-select-dropdown-menu-root config-select-dropdown-menu-vertical"
+          role="listbox"
+          tabindex="0"
+        >
+          <li
+            class=" config-select-dropdown-menu-item-group"
+          >
+            <div
+              class="config-select-dropdown-menu-item-group-title"
+              title="grp"
+            >
+              grp
+            </div>
+            <ul
+              class="config-select-dropdown-menu-item-group-list"
+            >
+              <li
+                aria-selected="false"
+                class="config-select-dropdown-menu-item config-select-dropdown-menu-item-active"
+                role="option"
+                style="user-select:none;-webkit-user-select:none"
+                unselectable="on"
+              >
+                Light
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`ConfigProvider components Select normal 1`] = `
+Array [
+  <div
+    class="ant-select ant-select-open ant-select-focused ant-select-enabled"
+  >
+    <div
+      aria-autocomplete="list"
+      aria-controls="test-uuid"
+      aria-expanded="true"
+      aria-haspopup="true"
+      class="ant-select-selection
+            ant-select-selection--single"
+      role="combobox"
+      tabindex="0"
+    >
+      <div
+        class="ant-select-selection__rendered"
+      />
+      <span
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <i
+          class="anticon anticon-down ant-select-arrow-icon"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </i>
+      </span>
+    </div>
+  </div>,
+  <div>
+    <div
+      class="ant-select-dropdown ant-select-dropdown--single ant-select-dropdown-placement-bottomLeft "
+    >
+      <div
+        id="test-uuid"
+        style="overflow:auto;transform:translateZ(0)"
+      >
+        <ul
+          class="ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical"
+          role="listbox"
+          tabindex="0"
+        >
+          <li
+            class=" ant-select-dropdown-menu-item-group"
+          >
+            <div
+              class="ant-select-dropdown-menu-item-group-title"
+              title="grp"
+            >
+              grp
+            </div>
+            <ul
+              class="ant-select-dropdown-menu-item-group-list"
+            >
+              <li
+                aria-selected="false"
+                class="ant-select-dropdown-menu-item ant-select-dropdown-menu-item-active"
+                role="option"
+                style="user-select:none;-webkit-user-select:none"
+                unselectable="on"
+              >
+                Light
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`ConfigProvider components Select prefixCls 1`] = `
+Array [
+  <div
+    class="prefix-Select prefix-Select-open prefix-Select-focused prefix-Select-enabled"
+  >
+    <div
+      aria-autocomplete="list"
+      aria-controls="test-uuid"
+      aria-expanded="true"
+      aria-haspopup="true"
+      class="prefix-Select-selection
+            prefix-Select-selection--single"
+      role="combobox"
+      tabindex="0"
+    >
+      <div
+        class="prefix-Select-selection__rendered"
+      />
+      <span
+        class="prefix-Select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <i
+          class="anticon anticon-down prefix-Select-arrow-icon"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </i>
+      </span>
+    </div>
+  </div>,
+  <div>
+    <div
+      class="prefix-Select-dropdown prefix-Select-dropdown--single prefix-Select-dropdown-placement-bottomLeft "
+    >
+      <div
+        id="test-uuid"
+        style="overflow:auto;transform:translateZ(0)"
+      >
+        <ul
+          class="prefix-Select-dropdown-menu  prefix-Select-dropdown-menu-root prefix-Select-dropdown-menu-vertical"
+          role="listbox"
+          tabindex="0"
+        >
+          <li
+            class=" prefix-Select-dropdown-menu-item-group"
+          >
+            <div
+              class="prefix-Select-dropdown-menu-item-group-title"
+              title="grp"
+            >
+              grp
+            </div>
+            <ul
+              class="prefix-Select-dropdown-menu-item-group-list"
+            >
+              <li
+                aria-selected="false"
+                class="prefix-Select-dropdown-menu-item prefix-Select-dropdown-menu-item-active"
+                role="option"
+                style="user-select:none;-webkit-user-select:none"
+                unselectable="on"
+              >
+                Light
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>,
+]
 `;

@@ -36,6 +36,7 @@ import Popover from '../../popover';
 import Progress from '../../progress';
 import Radio from '../../radio';
 import Rate from '../../rate';
+import Select from '../../select';
 
 jest.mock('draft-js/lib/generateRandomKey', () => () => '123');
 jest.mock('rc-util/lib/Portal');
@@ -443,6 +444,18 @@ describe('ConfigProvider', () => {
     // Rate
     testPair('Rate', props => (
       <Rate {...props} />
+    ));
+
+    // Select
+    testPair('Select', props => (
+      <Select
+        {...props}
+        open
+      >
+        <Select.OptGroup key="grp">
+          <Select.Option key="Bamboo">Light</Select.Option>
+        </Select.OptGroup>
+      </Select>
     ));
   });
 });
