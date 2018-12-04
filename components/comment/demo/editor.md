@@ -74,7 +74,7 @@ class App extends React.Component {
           {
             author: 'Han Solo',
             avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-            content: this.state.value,
+            content: <p>{this.state.value}</p>,
             datetime: moment().fromNow(),
           },
           ...this.state.comments,
