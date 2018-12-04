@@ -35,11 +35,11 @@
 
 .@{calendar-prefix-cls}-month-panel-selected-cell .@{calendar-prefix-cls}-month-panel-month {
   background: @primary-color;
-  color: #fff;
+  color: @text-color-inverse;
 
   &:hover {
     background: @primary-color;
-    color: #fff;
+    color: @text-color-inverse;
   }
 }
 
@@ -50,7 +50,7 @@
     &,
     &:hover {
       cursor: not-allowed;
-      color: #bcbcbc;
+      color: @disabled-color;
       background: @disabled-bg;
     }
   }
