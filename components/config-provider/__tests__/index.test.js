@@ -28,8 +28,9 @@ import InputNumber from '../../input-number';
 import Layout from '../../layout';
 import List from '../../list';
 import Mention from '../../mention';
-
 import Menu from '../../menu';
+
+jest.mock('draft-js/lib/generateRandomKey', () => () => '123');
 
 describe('ConfigProvider', () => {
   describe('components', () => {
@@ -326,6 +327,21 @@ describe('ConfigProvider', () => {
     // Mention
     testPair('Mention', props => (
       <Mention {...props} />
+    ));
+
+    // Menu
+    testPair('Menu', props => (
+      <Menu
+        {...props}
+        defaultOpenKeys={['bamboo']}
+        mode="inline"
+      >
+        <Menu.SubMenu {...props} key="bamboo" title="bamboo">
+          <Menu.ItemGroup {...props} key="g1" title="Item 1">
+            <Menu.Item {...props} key="1">Light</Menu.Item>
+          </Menu.ItemGroup>
+        </Menu.SubMenu>
+      </Menu>
     ));
   });
 });

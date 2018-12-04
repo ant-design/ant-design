@@ -7709,7 +7709,7 @@ exports[`ConfigProvider components Mention configProvider 1`] = `
           class="DraftEditor-editorContainer"
         >
           <div
-            aria-describedby="placeholder-erbdr"
+            aria-describedby="placeholder-123"
             class="notranslate public-DraftEditor-content"
             contenteditable="true"
             role="textbox"
@@ -7722,15 +7722,15 @@ exports[`ConfigProvider components Mention configProvider 1`] = `
               <div
                 class=""
                 data-block="true"
-                data-editor="erbdr"
-                data-offset-key="c51s4-0-0"
+                data-editor="123"
+                data-offset-key="123-0-0"
               >
                 <div
                   class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
-                  data-offset-key="c51s4-0-0"
+                  data-offset-key="123-0-0"
                 >
                   <span
-                    data-offset-key="c51s4-0-0"
+                    data-offset-key="123-0-0"
                   >
                     <br
                       data-text="true"
@@ -7767,7 +7767,7 @@ exports[`ConfigProvider components Mention normal 1`] = `
           class="DraftEditor-editorContainer"
         >
           <div
-            aria-describedby="placeholder-fafpe"
+            aria-describedby="placeholder-123"
             class="notranslate public-DraftEditor-content"
             contenteditable="true"
             role="textbox"
@@ -7780,15 +7780,15 @@ exports[`ConfigProvider components Mention normal 1`] = `
               <div
                 class=""
                 data-block="true"
-                data-editor="fafpe"
-                data-offset-key="799b-0-0"
+                data-editor="123"
+                data-offset-key="123-0-0"
               >
                 <div
                   class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
-                  data-offset-key="799b-0-0"
+                  data-offset-key="123-0-0"
                 >
                   <span
-                    data-offset-key="799b-0-0"
+                    data-offset-key="123-0-0"
                   >
                     <br
                       data-text="true"
@@ -7825,7 +7825,7 @@ exports[`ConfigProvider components Mention prefixCls 1`] = `
           class="DraftEditor-editorContainer"
         >
           <div
-            aria-describedby="placeholder-2amt4"
+            aria-describedby="placeholder-123"
             class="notranslate public-DraftEditor-content"
             contenteditable="true"
             role="textbox"
@@ -7838,15 +7838,15 @@ exports[`ConfigProvider components Mention prefixCls 1`] = `
               <div
                 class=""
                 data-block="true"
-                data-editor="2amt4"
-                data-offset-key="cs375-0-0"
+                data-editor="123"
+                data-offset-key="123-0-0"
               >
                 <div
                   class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
-                  data-offset-key="cs375-0-0"
+                  data-offset-key="123-0-0"
                 >
                   <span
-                    data-offset-key="cs375-0-0"
+                    data-offset-key="123-0-0"
                   >
                     <br
                       data-text="true"
@@ -7861,4 +7861,163 @@ exports[`ConfigProvider components Mention prefixCls 1`] = `
     </div>
   </div>
 </div>
+`;
+
+exports[`ConfigProvider components Menu configProvider 1`] = `
+<ul
+  class="config-menu config-menu-light config-menu-root config-menu-inline"
+  role="menu"
+>
+  <li
+    class="config-menu-submenu config-menu-submenu-inline config-menu-submenu-open"
+    role="menuitem"
+  >
+    <div
+      aria-expanded="true"
+      aria-haspopup="true"
+      aria-owns="bamboo$Menu"
+      class="config-menu-submenu-title"
+      style="padding-left:24px"
+      title="bamboo"
+    >
+      bamboo
+      <i
+        class="config-menu-submenu-arrow"
+      />
+    </div>
+    <ul
+      class="config-menu  config-menu-sub config-menu-inline"
+      id="bamboo$Menu"
+      role="menu"
+    >
+      <li
+        class=" config-menu-item-group"
+      >
+        <div
+          class="config-menu-item-group-title"
+          title="Item 1"
+        >
+          Item 1
+        </div>
+        <ul
+          class="config-menu-item-group-list"
+        >
+          <li
+            class="config-menu-item"
+            role="menuitem"
+            style="padding-left:48px"
+          >
+            Light
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+`;
+
+exports[`ConfigProvider components Menu normal 1`] = `
+<ul
+  class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
+  role="menu"
+>
+  <li
+    class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+    role="menuitem"
+  >
+    <div
+      aria-expanded="true"
+      aria-haspopup="true"
+      aria-owns="bamboo$Menu"
+      class="ant-menu-submenu-title"
+      style="padding-left:24px"
+      title="bamboo"
+    >
+      bamboo
+      <i
+        class="ant-menu-submenu-arrow"
+      />
+    </div>
+    <ul
+      class="ant-menu  ant-menu-sub ant-menu-inline"
+      id="bamboo$Menu"
+      role="menu"
+    >
+      <li
+        class=" ant-menu-item-group"
+      >
+        <div
+          class="ant-menu-item-group-title"
+          title="Item 1"
+        >
+          Item 1
+        </div>
+        <ul
+          class="ant-menu-item-group-list"
+        >
+          <li
+            class="ant-menu-item"
+            role="menuitem"
+            style="padding-left:48px"
+          >
+            Light
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+`;
+
+exports[`ConfigProvider components Menu prefixCls 1`] = `
+<ul
+  class="prefix-Menu prefix-Menu-light prefix-Menu-root prefix-Menu-inline"
+  role="menu"
+>
+  <li
+    class="prefix-Menu-submenu prefix-Menu-submenu-inline prefix-Menu-submenu-open"
+    role="menuitem"
+  >
+    <div
+      aria-expanded="true"
+      aria-haspopup="true"
+      aria-owns="bamboo$Menu"
+      class="prefix-Menu-submenu-title"
+      style="padding-left:24px"
+      title="bamboo"
+    >
+      bamboo
+      <i
+        class="prefix-Menu-submenu-arrow"
+      />
+    </div>
+    <ul
+      class="prefix-Menu  prefix-Menu-sub prefix-Menu-inline"
+      id="bamboo$Menu"
+      role="menu"
+    >
+      <li
+        class=" prefix-Menu-item-group"
+      >
+        <div
+          class="prefix-Menu-item-group-title"
+          title="Item 1"
+        >
+          Item 1
+        </div>
+        <ul
+          class="prefix-Menu-item-group-list"
+        >
+          <li
+            class="prefix-Menu-item"
+            role="menuitem"
+            style="padding-left:48px"
+          >
+            Light
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
 `;
