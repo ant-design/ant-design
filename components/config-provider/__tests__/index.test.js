@@ -30,6 +30,7 @@ import List from '../../list';
 import Mention from '../../mention';
 import Menu from '../../menu';
 import Modal from '../../modal';
+import Pagination from '../../pagination';
 
 jest.mock('draft-js/lib/generateRandomKey', () => () => '123');
 jest.mock('rc-util/lib/Portal');
@@ -375,5 +376,13 @@ describe('ConfigProvider', () => {
         <ModalTester {...props} />
       );
     });
+
+    // Pagination
+    testPair('Pagination', props => (
+      <div>
+        <Pagination showSizeChanger showQuickJumper {...props} />
+        <Pagination size="small" showSizeChanger showQuickJumper {...props} />
+      </div>
+    ));
   });
 });
