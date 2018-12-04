@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import RcRate from 'rc-rate';
 import Icon from '../icon';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface RateProps {
   prefixCls?: string;
@@ -25,7 +26,6 @@ export default class Rate extends React.Component<RateProps, any> {
   };
 
   static defaultProps = {
-    prefixCls: 'ant-rate',
     character: <Icon type="star" theme="filled" />,
   };
 
@@ -43,7 +43,19 @@ export default class Rate extends React.Component<RateProps, any> {
     this.rcRate = node;
   }
 
+  renderRate = ({ getPrefixCls }: ConfigConsumerProps) => (
+    <RcRate
+      ref={this.saveRate}
+      {...this.props}
+      prefixCls={getPrefixCls('rate', this.props.prefixCls)}
+    />
+  );
+
   render() {
-    return <RcRate ref={this.saveRate} {...this.props} />;
+    return (
+      <ConfigConsumer>
+        {this.renderRate}
+      </ConfigConsumer>
+    );
   }
 }

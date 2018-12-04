@@ -35,6 +35,7 @@ import Popconfirm from '../../popconfirm';
 import Popover from '../../popover';
 import Progress from '../../progress';
 import Radio from '../../radio';
+import Rate from '../../rate';
 
 jest.mock('draft-js/lib/generateRandomKey', () => () => '123');
 jest.mock('rc-util/lib/Portal');
@@ -437,6 +438,11 @@ describe('ConfigProvider', () => {
           <Radio.Button {...props}>Light</Radio.Button>
         </Radio.Group>
       </div>
+    ));
+
+    // Rate
+    testPair('Rate', props => (
+      <Rate {...props} />
     ));
   });
 });
