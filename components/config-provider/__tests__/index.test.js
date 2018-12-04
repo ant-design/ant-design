@@ -27,6 +27,7 @@ import Input from '../../input';
 import InputNumber from '../../input-number';
 import Layout from '../../layout';
 import List from '../../list';
+import Mention from '../../mention';
 
 import Menu from '../../menu';
 
@@ -320,6 +321,11 @@ describe('ConfigProvider', () => {
           </List.Item>
         )}
       />
+    ));
+
+    // Mention
+    testPair('Mention', props => (
+      <Mention {...props} />
     ));
   });
 });
