@@ -37,6 +37,7 @@ import Progress from '../../progress';
 import Radio from '../../radio';
 import Rate from '../../rate';
 import Select from '../../select';
+import Skeleton from '../../skeleton';
 
 jest.mock('draft-js/lib/generateRandomKey', () => () => '123');
 jest.mock('rc-util/lib/Portal');
@@ -456,6 +457,11 @@ describe('ConfigProvider', () => {
           <Select.Option key="Bamboo">Light</Select.Option>
         </Select.OptGroup>
       </Select>
+    ));
+
+    // Skeleton
+    testPair('Skeleton', props => (
+      <Skeleton title avatar paragraph {...props} />
     ));
   });
 });

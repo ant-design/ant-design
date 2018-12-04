@@ -10661,3 +10661,87 @@ Array [
   </div>,
 ]
 `;
+
+exports[`ConfigProvider components Skeleton configProvider 1`] = `
+<div
+  class="config-skeleton config-skeleton-with-avatar"
+>
+  <div
+    class="config-skeleton-header"
+  >
+    <span
+      class="config-skeleton-avatar config-skeleton-avatar-lg config-skeleton-avatar-circle"
+    />
+  </div>
+  <div
+    class="config-skeleton-content"
+  >
+    <h3
+      class="config-skeleton-title"
+      style="width:50%"
+    />
+    <ul
+      class="config-skeleton-paragraph"
+    >
+      <li />
+      <li />
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components Skeleton normal 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-with-avatar"
+>
+  <div
+    class="ant-skeleton-header"
+  >
+    <span
+      class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
+    />
+  </div>
+  <div
+    class="ant-skeleton-content"
+  >
+    <h3
+      class="ant-skeleton-title"
+      style="width:50%"
+    />
+    <ul
+      class="ant-skeleton-paragraph"
+    >
+      <li />
+      <li />
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components Skeleton prefixCls 1`] = `
+<div
+  class="prefix-Skeleton prefix-Skeleton-with-avatar"
+>
+  <div
+    class="prefix-Skeleton-header"
+  >
+    <span
+      class="prefix-Skeleton-avatar prefix-Skeleton-avatar-lg prefix-Skeleton-avatar-circle"
+    />
+  </div>
+  <div
+    class="prefix-Skeleton-content"
+  >
+    <h3
+      class="prefix-Skeleton-title"
+      style="width:50%"
+    />
+    <ul
+      class="prefix-Skeleton-paragraph"
+    >
+      <li />
+      <li />
+    </ul>
+  </div>
+</div>
+`;
