@@ -4,16 +4,17 @@ exports[`Input should support maxLength 1`] = `
 <Input
   disabled={false}
   maxLength="3"
-  prefixCls="ant-input"
   type="text"
 >
-  <input
-    className="ant-input"
-    disabled={false}
-    maxLength="3"
-    onKeyDown={[Function]}
-    type="text"
-  />
+  <Consumer>
+    <input
+      className="ant-input"
+      disabled={false}
+      maxLength="3"
+      onKeyDown={[Function]}
+      type="text"
+    />
+  </Consumer>
 </Input>
 `;
 
@@ -111,14 +112,15 @@ exports[`TextArea should support disabled 1`] = `
 exports[`TextArea should support maxLength 1`] = `
 <TextArea
   maxLength="10"
-  prefixCls="ant-input"
 >
-  <textarea
-    className="ant-input"
-    maxLength="10"
-    onChange={[Function]}
-    onKeyDown={[Function]}
-    style={Object {}}
-  />
+  <Consumer>
+    <textarea
+      className="ant-input"
+      maxLength="10"
+      onChange={[Function]}
+      onKeyDown={[Function]}
+      style={Object {}}
+    />
+  </Consumer>
 </TextArea>
 `;
