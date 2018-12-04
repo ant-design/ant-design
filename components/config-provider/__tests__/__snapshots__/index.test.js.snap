@@ -6983,7 +6983,7 @@ exports[`ConfigProvider components Form configProvider 1`] = `
   class="config-form config-form-horizontal"
 >
   <div
-    class="ant-row config-form-item config-form-item-with-help"
+    class="config-row config-form-item config-form-item-with-help"
   >
     <div
       class="config-form-item-control-wrapper"
@@ -7072,4 +7072,34 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
     </div>
   </div>
 </form>
+`;
+
+exports[`ConfigProvider components Grid configProvider 1`] = `
+<div
+  class="config-row"
+>
+  <div
+    class="config-col-1"
+  />
+</div>
+`;
+
+exports[`ConfigProvider components Grid normal 1`] = `
+<div
+  class="ant-row"
+>
+  <div
+    class="ant-col-1"
+  />
+</div>
+`;
+
+exports[`ConfigProvider components Grid prefixCls 1`] = `
+<div
+  class="prefix-row"
+>
+  <div
+    class="prefix-col-1"
+  />
+</div>
 `;

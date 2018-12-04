@@ -1,3 +1,6 @@
+
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
 let enquire: any;
@@ -112,11 +115,13 @@ export default class Row extends React.Component<RowProps, RowState> {
     }
     return gutter as number;
   }
-  render() {
+  renderRow = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
+      prefixCls: customizePrefixCls,
       type, justify, align, className, style, children,
-      prefixCls = 'ant-row', ...others
+      ...others
     } = this.props;
+    const prefixCls = getPrefixCls('row', customizePrefixCls);
     const gutter = this.getGutter();
     const classes = classNames({
       [prefixCls]: !type,
@@ -137,6 +142,14 @@ export default class Row extends React.Component<RowProps, RowState> {
           {children}
         </div>
       </RowContext.Provider>
+    );
+  }
+
+  render() {
+    return (
+      <ConfigConsumer>
+        {this.renderRow}
+      </ConfigConsumer>
     );
   }
 }

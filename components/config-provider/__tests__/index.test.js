@@ -22,6 +22,7 @@ import Divider from '../../divider';
 import Drawer from '../../drawer';
 import Dropdown from '../../dropdown';
 import Form from '../../form';
+import { Row, Col } from '../../grid';
 
 import Menu from '../../menu';
 import Input from '../../input';
@@ -241,5 +242,21 @@ describe('ConfigProvider', () => {
         </Form.Item>
       </Form>
     ));
+
+    // Grid
+    testPair('Grid', (props) => {
+      const rowProps = {};
+      const colProps = {};
+      if (props.prefixCls) {
+        rowProps.prefixCls = 'prefix-row';
+        colProps.prefixCls = 'prefix-col';
+      }
+
+      return (
+        <Row {...rowProps}>
+          <Col {...colProps} span={1} />
+        </Row>
+      );
+    });
   });
 });
