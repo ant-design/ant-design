@@ -20,7 +20,7 @@ export interface RangePickerState {
 }
 
 function getShowDateFromValue(value: RangePickerValue) {
-  const [start, end] = value;
+  const [ start, end ] = value;
   // value could be an empty array, then we should not reset showDate
   if (!start && !end) {
     return;
@@ -57,11 +57,12 @@ function fixLocale(value: RangePickerValue | undefined, localeCode: string) {
   if (!value || value.length === 0) {
     return;
   }
-  if (value[0]) {
-    value[0]!.locale(localeCode);
+  const [ start, end ] = value;
+  if (start) {
+    start!.locale(localeCode);
   }
-  if (value[1]) {
-    value[1]!.locale(localeCode);
+  if (end) {
+    end!.locale(localeCode);
   }
 }
 
@@ -101,9 +102,10 @@ class RangePicker extends React.Component<any, RangePickerState> {
   constructor(props: any) {
     super(props);
     const value = props.value || props.defaultValue || [];
+    const [ start, end ] = value;
     if (
-      value[0] && !interopDefault(moment).isMoment(value[0]) ||
-      value[1] && !interopDefault(moment).isMoment(value[1])
+      start && !interopDefault(moment).isMoment(start) ||
+      end && !interopDefault(moment).isMoment(end)
     ) {
       throw new Error(
         'The value/defaultValue of RangePicker must be a moment object array after `antd@2.0`, ' +
@@ -136,9 +138,10 @@ class RangePicker extends React.Component<any, RangePickerState> {
         showDate: getShowDateFromValue(value) || showDate,
       }));
     }
+    const [ start, end ] = value;
     props.onChange(value, [
-      formatValue(value[0], props.format),
-      formatValue(value[1], props.format),
+      formatValue(start, props.format),
+      formatValue(end, props.format),
     ]);
     this.focus();
   }
@@ -169,7 +172,8 @@ class RangePicker extends React.Component<any, RangePickerState> {
   }
 
   handleCalendarInputSelect = (value: RangePickerValue) => {
-    if (!value[0]) {
+    const [ start ] = value;
+    if (!start) {
       return;
     }
     this.setState(({ showDate }) => ({
@@ -319,8 +323,8 @@ class RangePicker extends React.Component<any, RangePickerState> {
     if (props.showTime) {
       pickerStyle.width = (style && style.width) || 350;
     }
-
-    const clearIcon = (!props.disabled && props.allowClear && value && (value[0] || value[1])) ? (
+    const [ startValue, endValue ] = value as RangePickerValue;
+    const clearIcon = (!props.disabled && props.allowClear && value && (startValue || endValue)) ? (
       <Icon
         type="close-circle"
         className={`${prefixCls}-picker-clear`}
@@ -344,8 +348,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
       );
 
     const input = ({ value: inputValue }: { value: any }) => {
-      const start = inputValue[0];
-      const end = inputValue[1];
+      const [ start, end ] = inputValue;
       return (
         <span className={props.pickerInputClass}>
           <input
