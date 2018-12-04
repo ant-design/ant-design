@@ -89,6 +89,33 @@ exports[`Progress render negetive successPercent 1`] = `
 </div>
 `;
 
+exports[`Progress render normal progress 1`] = `
+<div
+  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+>
+  <div>
+    <div
+      class="ant-progress-outer"
+    >
+      <div
+        class="ant-progress-inner"
+      >
+        <div
+          class="ant-progress-bg"
+          style="width: 0%; height: 8px; border-radius: 100px;"
+        />
+      </div>
+    </div>
+    <span
+      class="ant-progress-text"
+      title="0%"
+    >
+      0%
+    </span>
+  </div>
+</div>
+`;
+
 exports[`Progress render out-of-range progress 1`] = `
 <div
   class="ant-progress ant-progress-line ant-progress-status-success ant-progress-show-info ant-progress-default"
