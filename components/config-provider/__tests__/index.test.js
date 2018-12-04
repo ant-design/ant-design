@@ -24,6 +24,7 @@ import Dropdown from '../../dropdown';
 import Form from '../../form';
 import { Row, Col } from '../../grid';
 import Input from '../../input';
+import InputNumber from '../../input-number';
 
 import Menu from '../../menu';
 
@@ -268,6 +269,11 @@ describe('ConfigProvider', () => {
         </Input.Group>
         <Input.TextArea {...props} />
       </div>
+    ));
+
+    // InputNumber
+    testPair('InputNumber', props => (
+      <InputNumber {...props} />
     ));
   });
 });

@@ -10,7 +10,7 @@ export interface ConfigConsumerProps {
 interface ConfigProviderProps {
   getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
   prefixCls?: string;
-  children?: (props: ConfigConsumerProps) => React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const ConfigContext: Context<ConfigConsumerProps | null> = createReactContext({
