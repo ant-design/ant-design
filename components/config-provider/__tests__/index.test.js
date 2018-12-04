@@ -23,9 +23,9 @@ import Drawer from '../../drawer';
 import Dropdown from '../../dropdown';
 import Form from '../../form';
 import { Row, Col } from '../../grid';
+import Input from '../../input';
 
 import Menu from '../../menu';
-import Input from '../../input';
 
 describe('ConfigProvider', () => {
   describe('components', () => {
@@ -258,5 +258,16 @@ describe('ConfigProvider', () => {
         </Row>
       );
     });
+
+    // Input
+    testPair('Input', props => (
+      <div>
+        <Input.Group {...props}>
+          <Input {...props} />
+          <Input.Search {...props} />
+        </Input.Group>
+        <Input.TextArea {...props} />
+      </div>
+    ));
   });
 });

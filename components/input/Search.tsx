@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import Input, { InputProps } from './Input';
 import Icon from '../icon';
 import Button from '../button';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface SearchProps extends InputProps {
   inputPrefixCls?: string;
@@ -12,8 +13,6 @@ export interface SearchProps extends InputProps {
 
 export default class Search extends React.Component<SearchProps, any> {
   static defaultProps = {
-    inputPrefixCls: 'ant-input',
-    prefixCls: 'ant-input-search',
     enterButton: false,
   };
 
@@ -39,8 +38,8 @@ export default class Search extends React.Component<SearchProps, any> {
     this.input = node;
   }
 
-  getButtonOrIcon() {
-    const { enterButton, prefixCls, size, disabled } = this.props;
+  getButtonOrIcon(prefixCls: string) {
+    const { enterButton, size, disabled } = this.props;
     const enterButtonAsElement = enterButton as React.ReactElement<any>;
     let node;
     if (!enterButton) {
@@ -68,10 +67,16 @@ export default class Search extends React.Component<SearchProps, any> {
     });
   }
 
-  render() {
-    const { className, prefixCls, inputPrefixCls, size, suffix, enterButton, ...others } = this.props;
+  renderSearch = ({ getPrefixCls }: ConfigConsumerProps) => {
+    const {
+      prefixCls: customizePrefixCls, inputPrefixCls: customizeInputPrefixCls,
+      className, size, suffix, enterButton,
+      ...others
+    } = this.props;
     delete (others as any).onSearch;
-    const buttonOrIcon = this.getButtonOrIcon();
+    const prefixCls = getPrefixCls('input-search', customizePrefixCls);
+    const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
+    const buttonOrIcon = this.getButtonOrIcon(prefixCls);
     let searchSuffix = suffix ? [suffix, buttonOrIcon] : buttonOrIcon;
     if (Array.isArray(searchSuffix)) {
       searchSuffix = (searchSuffix as React.ReactElement<any>[]).map((item, index) => {
@@ -95,6 +100,14 @@ export default class Search extends React.Component<SearchProps, any> {
         suffix={searchSuffix}
         ref={this.saveInput}
       />
+    );
+  }
+
+  render() {
+    return (
+      <ConfigConsumer>
+        {this.renderSearch}
+      </ConfigConsumer>
     );
   }
 }
