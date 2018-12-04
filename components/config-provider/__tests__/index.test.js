@@ -34,6 +34,7 @@ import Pagination from '../../pagination';
 import Popconfirm from '../../popconfirm';
 import Popover from '../../popover';
 import Progress from '../../progress';
+import Radio from '../../radio';
 
 jest.mock('draft-js/lib/generateRandomKey', () => () => '123');
 jest.mock('rc-util/lib/Portal');
@@ -424,6 +425,18 @@ describe('ConfigProvider', () => {
     // Progress
     testPair('Progress', props => (
       <Progress {...props} />
+    ));
+
+    // Radio
+    testPair('Radio', props => (
+      <div>
+        <Radio.Group {...props}>
+          <Radio {...props}>Bamboo</Radio>
+        </Radio.Group>
+        <Radio.Group {...props}>
+          <Radio.Button {...props}>Light</Radio.Button>
+        </Radio.Group>
+      </div>
     ));
   });
 });

@@ -1259,22 +1259,22 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
         </div>
       </div>
       <div
-        class="ant-radio-group ant-radio-group-outline ant-radio-group-default"
+        class="config-radio-group config-radio-group-outline config-radio-group-default"
       >
         <label
-          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+          class="config-radio-button-wrapper config-radio-button-wrapper-checked"
         >
           <span
-            class="ant-radio-button ant-radio-button-checked"
+            class="config-radio-button config-radio-button-checked"
           >
             <input
               checked=""
-              class="ant-radio-button-input"
+              class="config-radio-button-input"
               type="radio"
               value="date"
             />
             <span
-              class="ant-radio-button-inner"
+              class="config-radio-button-inner"
             />
           </span>
           <span>
@@ -1282,18 +1282,18 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
           </span>
         </label>
         <label
-          class="ant-radio-button-wrapper"
+          class="config-radio-button-wrapper"
         >
           <span
-            class="ant-radio-button"
+            class="config-radio-button"
           >
             <input
-              class="ant-radio-button-input"
+              class="config-radio-button-input"
               type="radio"
               value="month"
             />
             <span
-              class="ant-radio-button-inner"
+              class="config-radio-button-inner"
             />
           </span>
           <span>
@@ -2247,21 +2247,21 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
         </div>
       </div>
       <div
-        class="ant-radio-group ant-radio-group-outline ant-radio-group-default"
+        class="config-radio-group config-radio-group-outline config-radio-group-default"
       >
         <label
-          class="ant-radio-button-wrapper"
+          class="config-radio-button-wrapper"
         >
           <span
-            class="ant-radio-button"
+            class="config-radio-button"
           >
             <input
-              class="ant-radio-button-input"
+              class="config-radio-button-input"
               type="radio"
               value="date"
             />
             <span
-              class="ant-radio-button-inner"
+              class="config-radio-button-inner"
             />
           </span>
           <span>
@@ -2269,19 +2269,19 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
           </span>
         </label>
         <label
-          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+          class="config-radio-button-wrapper config-radio-button-wrapper-checked"
         >
           <span
-            class="ant-radio-button ant-radio-button-checked"
+            class="config-radio-button config-radio-button-checked"
           >
             <input
               checked=""
-              class="ant-radio-button-input"
+              class="config-radio-button-input"
               type="radio"
               value="month"
             />
             <span
-              class="ant-radio-button-inner"
+              class="config-radio-button-inner"
             />
           </span>
           <span>
@@ -9455,6 +9455,159 @@ exports[`ConfigProvider components Progress prefixCls 1`] = `
     >
       0%
     </span>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components Radio configProvider 1`] = `
+<div>
+  <div
+    class="config-radio-group config-radio-group-outline"
+  >
+    <label
+      class="config-radio-wrapper config-radio-wrapper-checked"
+    >
+      <span
+        class="config-radio config-radio-checked"
+      >
+        <input
+          checked=""
+          class="config-radio-input"
+          type="radio"
+        />
+        <span
+          class="config-radio-inner"
+        />
+      </span>
+      <span>
+        Bamboo
+      </span>
+    </label>
+  </div>
+  <div
+    class="config-radio-group config-radio-group-outline"
+  >
+    <label
+      class="config-radio-button-wrapper config-radio-button-wrapper-checked"
+    >
+      <span
+        class="config-radio-button config-radio-button-checked"
+      >
+        <input
+          checked=""
+          class="config-radio-button-input"
+          type="radio"
+        />
+        <span
+          class="config-radio-button-inner"
+        />
+      </span>
+      <span>
+        Light
+      </span>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components Radio normal 1`] = `
+<div>
+  <div
+    class="ant-radio-group ant-radio-group-outline"
+  >
+    <label
+      class="ant-radio-wrapper ant-radio-wrapper-checked"
+    >
+      <span
+        class="ant-radio ant-radio-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-input"
+          type="radio"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        Bamboo
+      </span>
+    </label>
+  </div>
+  <div
+    class="ant-radio-group ant-radio-group-outline"
+  >
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+    >
+      <span
+        class="ant-radio-button ant-radio-button-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-button-input"
+          type="radio"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Light
+      </span>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components Radio prefixCls 1`] = `
+<div>
+  <div
+    class="prefix-Radio-group prefix-Radio-group-outline"
+  >
+    <label
+      class="prefix-Radio-wrapper prefix-Radio-wrapper-checked"
+    >
+      <span
+        class="prefix-Radio prefix-Radio-checked"
+      >
+        <input
+          checked=""
+          class="prefix-Radio-input"
+          type="radio"
+        />
+        <span
+          class="prefix-Radio-inner"
+        />
+      </span>
+      <span>
+        Bamboo
+      </span>
+    </label>
+  </div>
+  <div
+    class="prefix-Radio-group prefix-Radio-group-outline"
+  >
+    <label
+      class="prefix-Radio-wrapper prefix-Radio-wrapper-checked"
+    >
+      <span
+        class="prefix-Radio prefix-Radio-checked"
+      >
+        <input
+          checked=""
+          class="prefix-Radio-input"
+          type="radio"
+        />
+        <span
+          class="prefix-Radio-inner"
+        />
+      </span>
+      <span>
+        Light
+      </span>
+    </label>
   </div>
 </div>
 `;

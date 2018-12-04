@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
 import Radio from './radio';
 import { RadioGroupProps, RadioGroupState, RadioChangeEvent, RadioGroupButtonStyle } from './interface';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 function getCheckedValue(children: React.ReactNode) {
   let value = null;
@@ -20,7 +21,6 @@ function getCheckedValue(children: React.ReactNode) {
 export default class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
   static defaultProps = {
     disabled: false,
-    prefixCls: 'ant-radio',
     buttonStyle: 'outline' as RadioGroupButtonStyle,
   };
 
@@ -89,9 +89,10 @@ export default class RadioGroup extends React.Component<RadioGroupProps, RadioGr
       onChange(ev);
     }
   }
-  render() {
+  renderGroup = ({ getPrefixCls }: ConfigConsumerProps) => {
     const props = this.props;
-    const { prefixCls, className = '', options, buttonStyle } = props;
+    const { prefixCls: customizePrefixCls, className = '', options, buttonStyle } = props;
+    const prefixCls = getPrefixCls('radio', customizePrefixCls);
     const groupPrefixCls = `${prefixCls}-group`;
     const classString = classNames(groupPrefixCls, `${groupPrefixCls}-${buttonStyle}`, {
       [`${groupPrefixCls}-${props.size}`]: props.size,
@@ -142,6 +143,14 @@ export default class RadioGroup extends React.Component<RadioGroupProps, RadioGr
       >
         {children}
       </div>
+    );
+  }
+
+  render() {
+    return (
+      <ConfigConsumer>
+        {this.renderGroup}
+      </ConfigConsumer>
     );
   }
 }
