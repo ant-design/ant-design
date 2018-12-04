@@ -31,11 +31,30 @@ import Mention from '../../mention';
 import Menu from '../../menu';
 import Modal from '../../modal';
 import Pagination from '../../pagination';
+import Popconfirm from '../../popconfirm';
 
 jest.mock('draft-js/lib/generateRandomKey', () => () => '123');
 jest.mock('rc-util/lib/Portal');
 
 describe('ConfigProvider', () => {
+  class PortalTester extends React.Component {
+    saveContainer = (container) => {
+      this.container = container;
+    }
+
+    getContainer = () => this.container
+
+    render() {
+      const { children } = this.props;
+      return (
+        <div>
+          <div ref={this.saveContainer} />
+          {children(this.getContainer)}
+        </div>
+      );
+    }
+  }
+
   describe('components', () => {
     function testPair(name, renderComponent) {
       describe(name, () => {
@@ -348,34 +367,19 @@ describe('ConfigProvider', () => {
     ));
 
     // Modal
-    testPair('Modal', (props) => {
-      class ModalTester extends React.Component {
-        saveContainer = (container) => {
-          this.container = container;
-        }
-
-        getContainer = () => this.container
-
-        render() {
-          return (
-            <div>
-              <div ref={this.saveContainer} />
-              <Modal
-                {...this.props}
-                visible
-                getContainer={this.getContainer}
-              >
-                Bamboo is Little Light
-              </Modal>
-            </div>
-          );
-        }
-      }
-
-      return (
-        <ModalTester {...props} />
-      );
-    });
+    testPair('Modal', props => (
+      <PortalTester {...props}>
+        {getContainer => (
+          <Modal
+            {...props}
+            visible
+            getContainer={getContainer}
+          >
+            Bamboo is Little Light
+          </Modal>
+        )}
+      </PortalTester>
+    ));
 
     // Pagination
     testPair('Pagination', props => (
@@ -383,6 +387,21 @@ describe('ConfigProvider', () => {
         <Pagination showSizeChanger showQuickJumper {...props} />
         <Pagination size="small" showSizeChanger showQuickJumper {...props} />
       </div>
+    ));
+
+    // Popconfirm
+    testPair('Popconfirm', props => (
+      <PortalTester {...props}>
+        {getContainer => (
+          <Popconfirm
+            {...props}
+            visible
+            getContainer={getContainer}
+          >
+            <span>Bamboo</span>
+          </Popconfirm>
+        )}
+      </PortalTester>
     ));
   });
 });
