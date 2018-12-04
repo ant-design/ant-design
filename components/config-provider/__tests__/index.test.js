@@ -32,6 +32,7 @@ import Menu from '../../menu';
 import Modal from '../../modal';
 import Pagination from '../../pagination';
 import Popconfirm from '../../popconfirm';
+import Popover from '../../popover';
 
 jest.mock('draft-js/lib/generateRandomKey', () => () => '123');
 jest.mock('rc-util/lib/Portal');
@@ -400,6 +401,21 @@ describe('ConfigProvider', () => {
           >
             <span>Bamboo</span>
           </Popconfirm>
+        )}
+      </PortalTester>
+    ));
+
+    // Popover
+    testPair('Popover', props => (
+      <PortalTester {...props}>
+        {getContainer => (
+          <Popover
+            {...props}
+            visible
+            getContainer={getContainer}
+          >
+            <span>Light</span>
+          </Popover>
         )}
       </PortalTester>
     ));

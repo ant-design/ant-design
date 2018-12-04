@@ -9275,3 +9275,105 @@ exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
   </div>
 </div>
 `;
+
+exports[`ConfigProvider components Popover configProvider 1`] = `
+<div>
+  <div />
+  <span
+    class="config-popover-open"
+  >
+    Light
+  </span>
+  <div>
+    <div
+      class="config-popover  config-popover-placement-top "
+    >
+      <div
+        class="config-popover-content"
+      >
+        <div
+          class="config-popover-arrow"
+        />
+        <div
+          class="config-popover-inner"
+          role="tooltip"
+        >
+          <div>
+            <div
+              class="config-popover-inner-content"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components Popover normal 1`] = `
+<div>
+  <div />
+  <span
+    class="ant-popover-open"
+  >
+    Light
+  </span>
+  <div>
+    <div
+      class="ant-popover  ant-popover-placement-top "
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+          role="tooltip"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components Popover prefixCls 1`] = `
+<div>
+  <div />
+  <span
+    class="prefix-Popover-open"
+  >
+    Light
+  </span>
+  <div>
+    <div
+      class="prefix-Popover  prefix-Popover-placement-top "
+    >
+      <div
+        class="prefix-Popover-content"
+      >
+        <div
+          class="prefix-Popover-arrow"
+        />
+        <div
+          class="prefix-Popover-inner"
+          role="tooltip"
+        >
+          <div>
+            <div
+              class="prefix-Popover-inner-content"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
