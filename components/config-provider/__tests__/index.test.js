@@ -29,8 +29,10 @@ import Layout from '../../layout';
 import List from '../../list';
 import Mention from '../../mention';
 import Menu from '../../menu';
+import Modal from '../../modal';
 
 jest.mock('draft-js/lib/generateRandomKey', () => () => '123');
+jest.mock('rc-util/lib/Portal');
 
 describe('ConfigProvider', () => {
   describe('components', () => {
@@ -343,5 +345,35 @@ describe('ConfigProvider', () => {
         </Menu.SubMenu>
       </Menu>
     ));
+
+    // Modal
+    testPair('Modal', (props) => {
+      class ModalTester extends React.Component {
+        saveContainer = (container) => {
+          this.container = container;
+        }
+
+        getContainer = () => this.container
+
+        render() {
+          return (
+            <div>
+              <div ref={this.saveContainer} />
+              <Modal
+                {...this.props}
+                visible
+                getContainer={this.getContainer}
+              >
+                Bamboo is Little Light
+              </Modal>
+            </div>
+          );
+        }
+      }
+
+      return (
+        <ModalTester {...props} />
+      );
+    });
   });
 });

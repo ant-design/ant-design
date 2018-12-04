@@ -21,6 +21,8 @@ const ConfigContext: Context<ConfigConsumerProps | null> = createReactContext({
   },
 });
 
+export const ConfigConsumer = ConfigContext.Consumer;
+
 class ConfigProvider extends React.Component<ConfigProviderProps> {
   getPrefixCls = (suffixCls: string, customizePrefixCls?: string) => {
     const { prefixCls = 'ant' } = this.props;
@@ -30,10 +32,11 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
     return `${prefixCls}-${suffixCls}`;
   };
 
-  render() {
+  renderProvider = (context: ConfigConsumerProps) => {
     const { getPopupContainer, children } = this.props;
 
     const config: ConfigConsumerProps = {
+      ...context,
       getPopupContainer,
       getPrefixCls: this.getPrefixCls,
     };
@@ -44,8 +47,14 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       </ConfigContext.Provider>
     );
   }
-}
 
- export const ConfigConsumer = ConfigContext.Consumer;
+  render() {
+    return (
+      <ConfigConsumer>
+        {this.renderProvider}
+      </ConfigConsumer>
+    );
+  }
+}
 
  export default ConfigProvider;
