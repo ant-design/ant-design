@@ -7544,3 +7544,147 @@ exports[`ConfigProvider components Layout prefixCls 1`] = `
   </div>
 </div>
 `;
+
+exports[`ConfigProvider components List configProvider 1`] = `
+<div
+  class="config-list config-list-split"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="config-list-item"
+      >
+        <div
+          class="config-list-item-meta"
+        >
+          <div
+            class="config-list-item-meta-avatar"
+          >
+            <span
+              class="config-avatar config-avatar-circle config-avatar-image"
+            >
+              <img
+                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+              />
+            </span>
+          </div>
+          <div
+            class="config-list-item-meta-content"
+          >
+            <h4
+              class="config-list-item-meta-title"
+            >
+              Ant Design
+            </h4>
+            <div
+              class="config-list-item-meta-description"
+            >
+              Ant Design, a design language for background applications, is refined by Ant UED Team
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components List normal 1`] = `
+<div
+  class="ant-list ant-list-split"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-list-item"
+      >
+        <div
+          class="ant-list-item-meta"
+        >
+          <div
+            class="ant-list-item-meta-avatar"
+          >
+            <span
+              class="ant-avatar ant-avatar-circle ant-avatar-image"
+            >
+              <img
+                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+              />
+            </span>
+          </div>
+          <div
+            class="ant-list-item-meta-content"
+          >
+            <h4
+              class="ant-list-item-meta-title"
+            >
+              Ant Design
+            </h4>
+            <div
+              class="ant-list-item-meta-description"
+            >
+              Ant Design, a design language for background applications, is refined by Ant UED Team
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components List prefixCls 1`] = `
+<div
+  class="prefix-List prefix-List-split"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="prefix-List-item"
+      >
+        <div
+          class="prefix-List-item-meta"
+        >
+          <div
+            class="prefix-List-item-meta-avatar"
+          >
+            <span
+              class="ant-avatar ant-avatar-circle ant-avatar-image"
+            >
+              <img
+                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+              />
+            </span>
+          </div>
+          <div
+            class="prefix-List-item-meta-content"
+          >
+            <h4
+              class="prefix-List-item-meta-title"
+            >
+              Ant Design
+            </h4>
+            <div
+              class="prefix-List-item-meta-description"
+            >
+              Ant Design, a design language for background applications, is refined by Ant UED Team
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

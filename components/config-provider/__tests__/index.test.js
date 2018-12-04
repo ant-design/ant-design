@@ -26,6 +26,7 @@ import { Row, Col } from '../../grid';
 import Input from '../../input';
 import InputNumber from '../../input-number';
 import Layout from '../../layout';
+import List from '../../list';
 
 import Menu from '../../menu';
 
@@ -301,5 +302,24 @@ describe('ConfigProvider', () => {
         </Layout>
       );
     });
+
+    // List
+    testPair('List', props => (
+      <List
+        {...props}
+        itemLayout="horizontal"
+        dataSource={['']}
+        renderItem={() => (
+          <List.Item {...props}>
+            <List.Item.Meta
+              {...props}
+              avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+              title="Ant Design"
+              description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+            />
+          </List.Item>
+        )}
+      />
+    ));
   });
 });
