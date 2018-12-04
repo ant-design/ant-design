@@ -7460,3 +7460,87 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
   </div>
 </div>
 `;
+
+exports[`ConfigProvider components Layout configProvider 1`] = `
+<div
+  class="config-layout"
+>
+  <div
+    class="config-layout-sider config-layout-sider-dark"
+    style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
+  >
+    <div
+      class="config-layout-sider-children"
+    />
+  </div>
+  <div
+    class="config-layout"
+  >
+    <div
+      class="config-layout-header"
+    />
+    <div
+      class="config-layout-content"
+    />
+    <div
+      class="config-layout-footer"
+    />
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components Layout normal 1`] = `
+<div
+  class="ant-layout"
+>
+  <div
+    class="ant-layout-sider ant-layout-sider-dark"
+    style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
+  >
+    <div
+      class="ant-layout-sider-children"
+    />
+  </div>
+  <div
+    class="ant-layout"
+  >
+    <div
+      class="ant-layout-header"
+    />
+    <div
+      class="ant-layout-content"
+    />
+    <div
+      class="ant-layout-footer"
+    />
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components Layout prefixCls 1`] = `
+<div
+  class="prefix-Layout"
+>
+  <div
+    class="prefix-sider prefix-sider-dark"
+    style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
+  >
+    <div
+      class="prefix-sider-children"
+    />
+  </div>
+  <div
+    class="prefix-Layout"
+  >
+    <div
+      class="prefix-header"
+    />
+    <div
+      class="prefix-content"
+    />
+    <div
+      class="prefix-footer"
+    />
+  </div>
+</div>
+`;

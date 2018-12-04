@@ -25,6 +25,7 @@ import Form from '../../form';
 import { Row, Col } from '../../grid';
 import Input from '../../input';
 import InputNumber from '../../input-number';
+import Layout from '../../layout';
 
 import Menu from '../../menu';
 
@@ -275,5 +276,30 @@ describe('ConfigProvider', () => {
     testPair('InputNumber', props => (
       <InputNumber {...props} />
     ));
+
+    // Layout
+    testPair('Layout', (props) => {
+      const siderProps = {};
+      const headerProps = {};
+      const contentProps = {};
+      const footerProps = {};
+      if (props.prefixCls) {
+        siderProps.prefixCls = 'prefix-sider';
+        headerProps.prefixCls = 'prefix-header';
+        contentProps.prefixCls = 'prefix-content';
+        footerProps.prefixCls = 'prefix-footer';
+      }
+
+      return (
+        <Layout {...props}>
+          <Layout.Sider {...siderProps} />
+          <Layout {...props}>
+            <Layout.Header {...headerProps} />
+            <Layout.Content {...contentProps} />
+            <Layout.Footer {...footerProps} />
+          </Layout>
+        </Layout>
+      );
+    });
   });
 });
