@@ -7,7 +7,7 @@ if (process.env.REACT === '15') {
   // cannot use object destruction, cause react 15 test cases fail
   const render = ActualTrigger.prototype.render; // eslint-disable-line
 
-  ActualTrigger.prototype.render = function () {
+  ActualTrigger.prototype.render = function triggerRender() {
     const { popupVisible } = this.state; // eslint-disable-line
     let component;
 
