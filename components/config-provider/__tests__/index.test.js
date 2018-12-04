@@ -38,6 +38,7 @@ import Radio from '../../radio';
 import Rate from '../../rate';
 import Select from '../../select';
 import Skeleton from '../../skeleton';
+import Slider from '../../slider';
 
 jest.mock('draft-js/lib/generateRandomKey', () => () => '123');
 jest.mock('rc-util/lib/Portal');
@@ -463,5 +464,16 @@ describe('ConfigProvider', () => {
     testPair('Skeleton', props => (
       <Skeleton title avatar paragraph {...props} />
     ));
+
+    // Slider
+    testPair('Slider', (props) => {
+      const myProps = { ...props };
+      if (myProps.prefixCls) {
+        myProps.tooltipPrefixCls = `${myProps.prefixCls}-tooltip`;
+      }
+      return (
+        <Slider tooltipVisible {...myProps} />
+      );
+    });
   });
 });

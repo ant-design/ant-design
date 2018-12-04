@@ -10745,3 +10745,150 @@ exports[`ConfigProvider components Skeleton prefixCls 1`] = `
   </div>
 </div>
 `;
+
+exports[`ConfigProvider components Slider configProvider 1`] = `
+<div
+  class="config-slider"
+>
+  <div
+    class="config-slider-rail"
+  />
+  <div
+    class="config-slider-track"
+    style="left:0%;width:0%"
+  />
+  <div
+    class="config-slider-step"
+  />
+  <div
+    aria-disabled="false"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="0"
+    class="config-slider-handle config-tooltip-open"
+    role="slider"
+    style="left:0%"
+    tabindex="0"
+  />
+  <div>
+    <div
+      class="config-tooltip  config-tooltip-placement-top "
+    >
+      <div
+        class="config-tooltip-content"
+      >
+        <div
+          class="config-tooltip-arrow"
+        />
+        <div
+          class="config-tooltip-inner"
+          role="tooltip"
+        >
+          0
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="config-slider-mark"
+  />
+</div>
+`;
+
+exports[`ConfigProvider components Slider normal 1`] = `
+<div
+  class="ant-slider"
+>
+  <div
+    class="ant-slider-rail"
+  />
+  <div
+    class="ant-slider-track"
+    style="left:0%;width:0%"
+  />
+  <div
+    class="ant-slider-step"
+  />
+  <div
+    aria-disabled="false"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="0"
+    class="ant-slider-handle ant-tooltip-open"
+    role="slider"
+    style="left:0%"
+    tabindex="0"
+  />
+  <div>
+    <div
+      class="ant-tooltip  ant-tooltip-placement-top "
+    >
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-arrow"
+        />
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          0
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-slider-mark"
+  />
+</div>
+`;
+
+exports[`ConfigProvider components Slider prefixCls 1`] = `
+<div
+  class="prefix-Slider"
+>
+  <div
+    class="prefix-Slider-rail"
+  />
+  <div
+    class="prefix-Slider-track"
+    style="left:0%;width:0%"
+  />
+  <div
+    class="prefix-Slider-step"
+  />
+  <div
+    aria-disabled="false"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="0"
+    class="prefix-Slider-handle prefix-Slider-tooltip-open"
+    role="slider"
+    style="left:0%"
+    tabindex="0"
+  />
+  <div>
+    <div
+      class="prefix-Slider-tooltip  prefix-Slider-tooltip-placement-top "
+    >
+      <div
+        class="prefix-Slider-tooltip-content"
+      >
+        <div
+          class="prefix-Slider-tooltip-arrow"
+        />
+        <div
+          class="prefix-Slider-tooltip-inner"
+          role="tooltip"
+        >
+          0
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="prefix-Slider-mark"
+  />
+</div>
+`;
