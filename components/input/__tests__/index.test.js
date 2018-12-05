@@ -120,8 +120,8 @@ describe('Input.Password', () => {
 
   it('visibilityToggle should work', () => {
     const wrapper = mount(<Input.Password visibilityToggle={false} />);
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('.anticon-eye').length).toBe(0);
     wrapper.setProps({ visibilityToggle: true });
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('.anticon-eye').length).toBe(1);
   });
 });
