@@ -14597,3 +14597,90 @@ exports[`ConfigProvider components Timeline prefixCls 1`] = `
   </li>
 </ul>
 `;
+
+exports[`ConfigProvider components Tooltip configProvider 1`] = `
+Array [
+  <span
+    class="config-tooltip-open"
+  >
+    Light
+  </span>,
+  <div>
+    <div
+      class="config-tooltip  config-tooltip-placement-top "
+    >
+      <div
+        class="config-tooltip-content"
+      >
+        <div
+          class="config-tooltip-arrow"
+        />
+        <div
+          class="config-tooltip-inner"
+          role="tooltip"
+        >
+          Bamboo
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`ConfigProvider components Tooltip normal 1`] = `
+Array [
+  <span
+    class="ant-tooltip-open"
+  >
+    Light
+  </span>,
+  <div>
+    <div
+      class="ant-tooltip  ant-tooltip-placement-top "
+    >
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-arrow"
+        />
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          Bamboo
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`ConfigProvider components Tooltip prefixCls 1`] = `
+Array [
+  <span
+    class="prefix-Tooltip-open"
+  >
+    Light
+  </span>,
+  <div>
+    <div
+      class="prefix-Tooltip  prefix-Tooltip-placement-top "
+    >
+      <div
+        class="prefix-Tooltip-content"
+      >
+        <div
+          class="prefix-Tooltip-arrow"
+        />
+        <div
+          class="prefix-Tooltip-inner"
+          role="tooltip"
+        >
+          Bamboo
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;

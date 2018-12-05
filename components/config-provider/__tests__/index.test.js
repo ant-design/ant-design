@@ -47,6 +47,7 @@ import Tabs from '../../tabs';
 import Tag from '../../tag';
 import TimePicker from '../../time-picker';
 import Timeline from '../../timeline';
+import Tooltip from '../../tooltip';
 
 jest.mock('draft-js/lib/generateRandomKey', () => () => '123');
 jest.mock('rc-util/lib/Portal');
@@ -563,6 +564,13 @@ describe('ConfigProvider', () => {
       <Timeline {...props}>
         <Timeline.Item {...props}>Bamboo</Timeline.Item>
       </Timeline>
+    ));
+
+    // Tooltip
+    testPair('Tooltip', props => (
+      <Tooltip {...props} title="Bamboo" visible>
+        <span>Light</span>
+      </Tooltip>
     ));
   });
 });

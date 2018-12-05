@@ -74,7 +74,6 @@ const splitObject = (obj: any, keys: string[]) => {
 
 class Tooltip extends React.Component<TooltipProps, any> {
   static defaultProps = {
-    prefixCls: 'ant-tooltip',
     placement: 'top' as TooltipPlacement,
     transitionName: 'zoom-big-fast',
     mouseEnterDelay: 0.1,
@@ -199,10 +198,14 @@ class Tooltip extends React.Component<TooltipProps, any> {
     this.tooltip = node;
   }
 
-  renderTooltip = ({ getPopupContainer: getContextPopupContainer }: ConfigConsumerProps) => {
+  renderTooltip = ({ getPopupContainer: getContextPopupContainer, getPrefixCls }: ConfigConsumerProps) => {
     const { props, state } = this;
-    const { prefixCls, title, overlay, openClassName, getPopupContainer, getTooltipContainer } = props;
+    const {
+      prefixCls: customizePrefixCls,
+      title, overlay, openClassName, getPopupContainer, getTooltipContainer,
+    } = props;
     const children = props.children as React.ReactElement<any>;
+    const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
     let visible = state.visible;
     // Hide tooltip when there is no title
     if (!('visible' in props) && this.isNoTitle()) {
@@ -221,6 +224,7 @@ class Tooltip extends React.Component<TooltipProps, any> {
     return (
       <RcTooltip
         {...this.props}
+        prefixCls={prefixCls}
         getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}
         ref={this.saveTooltip}
         builtinPlacements={this.getPlacements()}
