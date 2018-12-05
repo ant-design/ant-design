@@ -43,6 +43,7 @@ import Spin from '../../spin';
 import Steps from '../../steps';
 import Switch from '../../switch';
 import Table from '../../table';
+import Tabs from '../../tabs';
 
 jest.mock('draft-js/lib/generateRandomKey', () => () => '123');
 jest.mock('rc-util/lib/Portal');
@@ -533,5 +534,12 @@ describe('ConfigProvider', () => {
         <Table columns={columns} {...props} />
       );
     });
+
+    // Tabs
+    testPair('Tabs', props => (
+      <Tabs {...props}>
+        <Tabs.TabPane tab="Bamboo" key="Light" />
+      </Tabs>
+    ));
   });
 });
