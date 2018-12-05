@@ -44,6 +44,7 @@ import Steps from '../../steps';
 import Switch from '../../switch';
 import Table from '../../table';
 import Tabs from '../../tabs';
+import Tag from '../../tag';
 
 jest.mock('draft-js/lib/generateRandomKey', () => () => '123');
 jest.mock('rc-util/lib/Portal');
@@ -540,6 +541,14 @@ describe('ConfigProvider', () => {
       <Tabs {...props}>
         <Tabs.TabPane tab="Bamboo" key="Light" />
       </Tabs>
+    ));
+
+    // Tags
+    testPair('Tags', props => (
+      <div>
+        <Tag {...props}>Bamboo</Tag>
+        <Tag.CheckableTag {...props}>Light</Tag.CheckableTag>
+      </div>
     ));
   });
 });

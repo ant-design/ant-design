@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface CheckableTagProps {
   prefixCls?: string;
@@ -15,8 +16,9 @@ export default class CheckableTag extends React.Component<CheckableTagProps> {
       onChange(!checked);
     }
   }
-  render() {
-    const { prefixCls = 'ant-tag', className, checked, ...restProps } = this.props;
+  renderCheckableTag = ({ getPrefixCls }: ConfigConsumerProps) => {
+    const { prefixCls: customizePrefixCls, className, checked, ...restProps } = this.props;
+    const prefixCls = getPrefixCls('tag', customizePrefixCls);
     const cls = classNames(prefixCls, {
       [`${prefixCls}-checkable`]: true,
       [`${prefixCls}-checkable-checked`]: checked,
@@ -29,6 +31,14 @@ export default class CheckableTag extends React.Component<CheckableTagProps> {
         className={cls}
         onClick={this.handleClick}
       />
+    );
+  }
+
+  render() {
+    return (
+      <ConfigConsumer>
+        {this.renderCheckableTag}
+      </ConfigConsumer>
     );
   }
 }

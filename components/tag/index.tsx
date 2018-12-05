@@ -6,6 +6,7 @@ import omit from 'omit.js';
 import { polyfill } from 'react-lifecycles-compat';
 import Icon from '../icon';
 import CheckableTag from './CheckableTag';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Wave from '../_util/wave';
 
 export { CheckableTagProps } from './CheckableTag';
@@ -34,7 +35,6 @@ export interface TagState {
 class Tag extends React.Component<TagProps, TagState> {
   static CheckableTag = CheckableTag;
   static defaultProps = {
-    prefixCls: 'ant-tag',
     closable: false,
   };
 
@@ -127,10 +127,15 @@ class Tag extends React.Component<TagProps, TagState> {
     );
   }
 
-  render() {
-    const { prefixCls, closable, color, className, children, style, ...otherProps } = this.props;
+  renderTag = ({ getPrefixCls }: ConfigConsumerProps) => {
+    const {
+      prefixCls: customizePrefixCls,
+      closable, color, className, children, style,
+      ...otherProps
+    } = this.props;
     const closeIcon = closable ? <Icon type="close" onClick={this.handleIconClick} /> : '';
     const isPresetColor = this.isPresetColor(color);
+    const prefixCls = getPrefixCls('tag', customizePrefixCls);
     const classString = classNames(prefixCls, {
       [`${prefixCls}-${color}`]: isPresetColor,
       [`${prefixCls}-has-color`]: (color && !isPresetColor),
@@ -170,6 +175,14 @@ class Tag extends React.Component<TagProps, TagState> {
           {tag}
         </Animate>
       </Wave>
+    );
+  }
+
+  render() {
+    return (
+      <ConfigConsumer>
+        {this.renderTag}
+      </ConfigConsumer>
     );
   }
 }
