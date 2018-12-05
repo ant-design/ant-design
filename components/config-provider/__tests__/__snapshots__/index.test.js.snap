@@ -11087,3 +11087,552 @@ exports[`ConfigProvider components Switch prefixCls 1`] = `
   />
 </button>
 `;
+
+exports[`ConfigProvider components Table configProvider 1`] = `
+<div
+  class="config-table-wrapper"
+>
+  <div
+    class="config-spin-nested-loading"
+  >
+    <div
+      class="config-spin-container"
+    >
+      <div
+        class="config-table config-table-default config-table-empty config-table-scroll-position-left"
+      >
+        <div
+          class="config-table-content"
+        >
+          <div
+            class="config-table-body"
+          >
+            <table
+              class=""
+            >
+              <colgroup>
+                <col />
+              </colgroup>
+              <thead
+                class="config-table-thead"
+              >
+                <tr>
+                  <th
+                    class="config-table-column-has-actions config-table-column-has-filters config-table-column-has-sorters"
+                  >
+                    <div
+                      class="config-table-column-sorters"
+                      title="Sort"
+                    >
+                      Name
+                      <div
+                        class="config-table-column-sorter"
+                      >
+                        <i
+                          class="anticon anticon-caret-up config-table-column-sorter-up off"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class=""
+                            data-icon="caret-up"
+                            fill="currentColor"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
+                          >
+                            <path
+                              d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                            />
+                          </svg>
+                        </i>
+                        <i
+                          class="anticon anticon-caret-down config-table-column-sorter-down off"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class=""
+                            data-icon="caret-down"
+                            fill="currentColor"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
+                          >
+                            <path
+                              d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                            />
+                          </svg>
+                        </i>
+                      </div>
+                    </div>
+                    <i
+                      class="anticon anticon-filter config-table-filter-open config-dropdown-trigger"
+                      title="Filter menu"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="filter"
+                        fill="currentColor"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                        />
+                      </svg>
+                    </i>
+                    <div>
+                      <div
+                        class="config-dropdown  config-dropdown-placement-bottomRight "
+                      >
+                        <div
+                          class="config-table-filter-dropdown"
+                        >
+                          <ul
+                            class="config-dropdown-menu  config-dropdown-menu-root config-dropdown-menu-vertical"
+                            role="menu"
+                            tabindex="0"
+                          >
+                            <li
+                              class="config-dropdown-menu-item"
+                              role="menuitem"
+                            >
+                              <label
+                                class="config-checkbox-wrapper"
+                              >
+                                <span
+                                  class="config-checkbox"
+                                >
+                                  <input
+                                    class="config-checkbox-input"
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="config-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                              <span>
+                                Joe
+                              </span>
+                            </li>
+                            <li
+                              class="config-dropdown-menu-submenu config-dropdown-menu-submenu-vertical"
+                              role="menuitem"
+                            >
+                              <div
+                                aria-expanded="false"
+                                aria-haspopup="true"
+                                class="config-dropdown-menu-submenu-title"
+                                title="Submenu"
+                              >
+                                Submenu
+                                <i
+                                  class="config-dropdown-menu-submenu-arrow"
+                                />
+                              </div>
+                            </li>
+                          </ul>
+                          <div
+                            class="config-table-filter-dropdown-btns"
+                          >
+                            <a
+                              class="config-table-filter-dropdown-link confirm"
+                            >
+                              OK
+                            </a>
+                            <a
+                              class="config-table-filter-dropdown-link clear"
+                            >
+                              Reset
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="config-table-tbody"
+              />
+            </table>
+          </div>
+          <div
+            class="config-table-placeholder"
+          >
+            No data
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components Table normal 1`] = `
+<div
+  class="ant-table-wrapper"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table ant-table-default ant-table-empty ant-table-scroll-position-left"
+      >
+        <div
+          class="ant-table-content"
+        >
+          <div
+            class="ant-table-body"
+          >
+            <table
+              class=""
+            >
+              <colgroup>
+                <col />
+              </colgroup>
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
+                  >
+                    <div
+                      class="ant-table-column-sorters"
+                      title="Sort"
+                    >
+                      Name
+                      <div
+                        class="ant-table-column-sorter"
+                      >
+                        <i
+                          class="anticon anticon-caret-up ant-table-column-sorter-up off"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class=""
+                            data-icon="caret-up"
+                            fill="currentColor"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
+                          >
+                            <path
+                              d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                            />
+                          </svg>
+                        </i>
+                        <i
+                          class="anticon anticon-caret-down ant-table-column-sorter-down off"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class=""
+                            data-icon="caret-down"
+                            fill="currentColor"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
+                          >
+                            <path
+                              d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                            />
+                          </svg>
+                        </i>
+                      </div>
+                    </div>
+                    <i
+                      class="anticon anticon-filter ant-table-filter-open ant-dropdown-trigger"
+                      title="Filter menu"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="filter"
+                        fill="currentColor"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                        />
+                      </svg>
+                    </i>
+                    <div>
+                      <div
+                        class="ant-dropdown  ant-dropdown-placement-bottomRight "
+                      >
+                        <div
+                          class="ant-table-filter-dropdown"
+                        >
+                          <ul
+                            class="ant-dropdown-menu  ant-dropdown-menu-root ant-dropdown-menu-vertical"
+                            role="menu"
+                            tabindex="0"
+                          >
+                            <li
+                              class="ant-dropdown-menu-item"
+                              role="menuitem"
+                            >
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                              <span>
+                                Joe
+                              </span>
+                            </li>
+                            <li
+                              class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
+                              role="menuitem"
+                            >
+                              <div
+                                aria-expanded="false"
+                                aria-haspopup="true"
+                                class="ant-dropdown-menu-submenu-title"
+                                title="Submenu"
+                              >
+                                Submenu
+                                <i
+                                  class="ant-dropdown-menu-submenu-arrow"
+                                />
+                              </div>
+                            </li>
+                          </ul>
+                          <div
+                            class="ant-table-filter-dropdown-btns"
+                          >
+                            <a
+                              class="ant-table-filter-dropdown-link confirm"
+                            >
+                              OK
+                            </a>
+                            <a
+                              class="ant-table-filter-dropdown-link clear"
+                            >
+                              Reset
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              />
+            </table>
+          </div>
+          <div
+            class="ant-table-placeholder"
+          >
+            No data
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components Table prefixCls 1`] = `
+<div
+  class="prefix-Table-wrapper"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="prefix-Table prefix-Table-default prefix-Table-empty prefix-Table-scroll-position-left"
+      >
+        <div
+          class="prefix-Table-content"
+        >
+          <div
+            class="prefix-Table-body"
+          >
+            <table
+              class=""
+            >
+              <colgroup>
+                <col />
+              </colgroup>
+              <thead
+                class="prefix-Table-thead"
+              >
+                <tr>
+                  <th
+                    class="prefix-Table-column-has-actions prefix-Table-column-has-filters prefix-Table-column-has-sorters"
+                  >
+                    <div
+                      class="prefix-Table-column-sorters"
+                      title="Sort"
+                    >
+                      Name
+                      <div
+                        class="prefix-Table-column-sorter"
+                      >
+                        <i
+                          class="anticon anticon-caret-up prefix-Table-column-sorter-up off"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class=""
+                            data-icon="caret-up"
+                            fill="currentColor"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
+                          >
+                            <path
+                              d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                            />
+                          </svg>
+                        </i>
+                        <i
+                          class="anticon anticon-caret-down prefix-Table-column-sorter-down off"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class=""
+                            data-icon="caret-down"
+                            fill="currentColor"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
+                          >
+                            <path
+                              d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                            />
+                          </svg>
+                        </i>
+                      </div>
+                    </div>
+                    <i
+                      class="anticon anticon-filter prefix-Table-filter-open ant-dropdown-trigger"
+                      title="Filter menu"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="filter"
+                        fill="currentColor"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                        />
+                      </svg>
+                    </i>
+                    <div>
+                      <div
+                        class="ant-dropdown  ant-dropdown-placement-bottomRight "
+                      >
+                        <div
+                          class="prefix-Table-filter-dropdown"
+                        >
+                          <ul
+                            class="ant-dropdown-menu  ant-dropdown-menu-root ant-dropdown-menu-vertical"
+                            role="menu"
+                            tabindex="0"
+                          >
+                            <li
+                              class="ant-dropdown-menu-item"
+                              role="menuitem"
+                            >
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                              <span>
+                                Joe
+                              </span>
+                            </li>
+                            <li
+                              class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
+                              role="menuitem"
+                            >
+                              <div
+                                aria-expanded="false"
+                                aria-haspopup="true"
+                                class="ant-dropdown-menu-submenu-title"
+                                title="Submenu"
+                              >
+                                Submenu
+                                <i
+                                  class="ant-dropdown-menu-submenu-arrow"
+                                />
+                              </div>
+                            </li>
+                          </ul>
+                          <div
+                            class="prefix-Table-filter-dropdown-btns"
+                          >
+                            <a
+                              class="prefix-Table-filter-dropdown-link confirm"
+                            >
+                              OK
+                            </a>
+                            <a
+                              class="prefix-Table-filter-dropdown-link clear"
+                            >
+                              Reset
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="prefix-Table-tbody"
+              />
+            </table>
+          </div>
+          <div
+            class="prefix-Table-placeholder"
+          >
+            No data
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

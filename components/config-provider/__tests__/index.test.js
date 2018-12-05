@@ -42,6 +42,7 @@ import Slider from '../../slider';
 import Spin from '../../spin';
 import Steps from '../../steps';
 import Switch from '../../switch';
+import Table from '../../table';
 
 jest.mock('draft-js/lib/generateRandomKey', () => () => '123');
 jest.mock('rc-util/lib/Portal');
@@ -501,5 +502,36 @@ describe('ConfigProvider', () => {
     testPair('Switch', props => (
       <Switch {...props} />
     ));
+
+    // Table
+    testPair('Table', (props) => {
+      const columns = [{
+        title: 'Name',
+        dataIndex: 'name',
+        filters: [{
+          text: 'Joe',
+          value: 'Joe',
+        }, {
+          text: 'Submenu',
+          value: 'Submenu',
+          children: [{
+            text: 'Green',
+            value: 'Green',
+          }],
+        }],
+        filterDropdownVisible: true,
+        onFilter: (value, record) => record.name.indexOf(value) === 0,
+        sorter: (a, b) => a.name.length - b.name.length,
+      }];
+
+      const myProps = { ...props };
+      if (props.prefixCls) {
+        myProps.dropdownPrefixCls = 'prefix-dropdown';
+      }
+
+      return (
+        <Table columns={columns} {...props} />
+      );
+    });
   });
 });
