@@ -57,24 +57,6 @@ jest.mock('draft-js/lib/generateRandomKey', () => () => '123');
 jest.mock('rc-util/lib/Portal');
 
 describe('ConfigProvider', () => {
-  class PortalTester extends React.Component {
-    saveContainer = (container) => {
-      this.container = container;
-    }
-
-    getContainer = () => this.container
-
-    render() {
-      const { children } = this.props;
-      return (
-        <div>
-          <div ref={this.saveContainer} />
-          {children(this.getContainer)}
-        </div>
-      );
-    }
-  }
-
   describe('components', () => {
     function testPair(name, renderComponent) {
       describe(name, () => {
@@ -388,17 +370,14 @@ describe('ConfigProvider', () => {
 
     // Modal
     testPair('Modal', props => (
-      <PortalTester {...props}>
-        {getContainer => (
-          <Modal
-            {...props}
-            visible
-            getContainer={getContainer}
-          >
-            Bamboo is Little Light
-          </Modal>
-        )}
-      </PortalTester>
+      <div>
+        <Modal
+          {...props}
+          visible
+        >
+          Bamboo is Little Light
+        </Modal>
+      </div>
     ));
 
     // Pagination
@@ -411,32 +390,26 @@ describe('ConfigProvider', () => {
 
     // Popconfirm
     testPair('Popconfirm', props => (
-      <PortalTester {...props}>
-        {getContainer => (
-          <Popconfirm
-            {...props}
-            visible
-            getContainer={getContainer}
-          >
-            <span>Bamboo</span>
-          </Popconfirm>
-        )}
-      </PortalTester>
+      <div>
+        <Popconfirm
+          {...props}
+          visible
+        >
+          <span>Bamboo</span>
+        </Popconfirm>
+      </div>
     ));
 
     // Popover
     testPair('Popover', props => (
-      <PortalTester {...props}>
-        {getContainer => (
-          <Popover
-            {...props}
-            visible
-            getContainer={getContainer}
-          >
-            <span>Light</span>
-          </Popover>
-        )}
-      </PortalTester>
+      <div>
+        <Popover
+          {...props}
+          visible
+        >
+          <span>Light</span>
+        </Popover>
+      </div>
     ));
 
     // Progress

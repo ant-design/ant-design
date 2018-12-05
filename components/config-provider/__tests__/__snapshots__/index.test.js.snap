@@ -8024,7 +8024,6 @@ exports[`ConfigProvider components Menu prefixCls 1`] = `
 
 exports[`ConfigProvider components Modal configProvider 1`] = `
 <div>
-  <div />
   <div>
     <div
       class="config-modal-mask"
@@ -8116,7 +8115,6 @@ exports[`ConfigProvider components Modal configProvider 1`] = `
 
 exports[`ConfigProvider components Modal normal 1`] = `
 <div>
-  <div />
   <div>
     <div
       class="ant-modal-mask"
@@ -8208,7 +8206,6 @@ exports[`ConfigProvider components Modal normal 1`] = `
 
 exports[`ConfigProvider components Modal prefixCls 1`] = `
 <div>
-  <div />
   <div>
     <div
       class="prefix-Modal-mask"
@@ -9041,7 +9038,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
 
 exports[`ConfigProvider components Popconfirm configProvider 1`] = `
 <div>
-  <div />
   <span
     class="config-popover-open"
   >
@@ -9120,7 +9116,6 @@ exports[`ConfigProvider components Popconfirm configProvider 1`] = `
 
 exports[`ConfigProvider components Popconfirm normal 1`] = `
 <div>
-  <div />
   <span
     class="ant-popover-open"
   >
@@ -9199,7 +9194,6 @@ exports[`ConfigProvider components Popconfirm normal 1`] = `
 
 exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
 <div>
-  <div />
   <span
     class="prefix-Popconfirm-open"
   >
@@ -9278,7 +9272,6 @@ exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
 
 exports[`ConfigProvider components Popover configProvider 1`] = `
 <div>
-  <div />
   <span
     class="config-popover-open"
   >
@@ -9312,7 +9305,6 @@ exports[`ConfigProvider components Popover configProvider 1`] = `
 
 exports[`ConfigProvider components Popover normal 1`] = `
 <div>
-  <div />
   <span
     class="ant-popover-open"
   >
@@ -9346,7 +9338,6 @@ exports[`ConfigProvider components Popover normal 1`] = `
 
 exports[`ConfigProvider components Popover prefixCls 1`] = `
 <div>
-  <div />
   <span
     class="prefix-Popover-open"
   >
