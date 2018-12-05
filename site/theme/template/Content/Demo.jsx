@@ -208,7 +208,7 @@ ${sourceCode.replace('mountNode', 'document.getElementById(\'container\')')}
             <a href={`#${meta.id}`} ref={this.saveAnchor}>
               {localizedTitle}
             </a>
-            <EditButton title={<FormattedMessage id="app.content.edit-page" />} filename={meta.filename} />
+            <EditButton title={<FormattedMessage id="app.content.edit-demo" />} filename={meta.filename} />
           </div>
           {introChildren}
           <Tooltip title={codeExpand ? 'Hide Code' : 'Show Code'}>
