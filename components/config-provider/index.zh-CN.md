@@ -29,3 +29,4 @@ return (
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | getPopupContainer | 弹出框（Select, Tooltip, Menu 等等）渲染父节点，默认渲染到 body 上。 | Function(triggerNode) | () => document.body |
+| prefixCls | 设置统一样式前缀 | string | ant |
