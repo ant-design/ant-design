@@ -866,8 +866,9 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         typeof title !== 'number'
     ) {
       const props = title.props;
+      const { children } = props;
       if (props && props.children) {
-        return this.getColumnTitle(props.children, props);
+        return this.getColumnTitle(children, props);
       }
     } else {
       return parentNode.title || title;
