@@ -34,7 +34,7 @@ exports[`renders ./components/alert/demo/banner.md correctly 1`] = `
   </div>
   <br />
   <div
-    class="ant-alert ant-alert-warning ant-alert-banner"
+    class="ant-alert ant-alert-warning ant-alert-banner ant-alert-closable"
     data-show="true"
   >
     <i
@@ -151,7 +151,7 @@ exports[`renders ./components/alert/demo/basic.md correctly 1`] = `
 exports[`renders ./components/alert/demo/closable.md correctly 1`] = `
 <div>
   <div
-    class="ant-alert ant-alert-warning ant-alert-no-icon"
+    class="ant-alert ant-alert-warning ant-alert-no-icon ant-alert-closable"
     data-show="true"
   >
     <span
@@ -185,7 +185,7 @@ exports[`renders ./components/alert/demo/closable.md correctly 1`] = `
     </a>
   </div>
   <div
-    class="ant-alert ant-alert-error ant-alert-with-description ant-alert-no-icon"
+    class="ant-alert ant-alert-error ant-alert-with-description ant-alert-no-icon ant-alert-closable"
     data-show="true"
   >
     <span
@@ -225,7 +225,7 @@ exports[`renders ./components/alert/demo/closable.md correctly 1`] = `
 
 exports[`renders ./components/alert/demo/close-text.md correctly 1`] = `
 <div
-  class="ant-alert ant-alert-info ant-alert-no-icon"
+  class="ant-alert ant-alert-info ant-alert-no-icon ant-alert-closable"
   data-show="true"
 >
   <span
@@ -843,7 +843,7 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
 exports[`renders ./components/alert/demo/smooth-closed.md correctly 1`] = `
 <div>
   <div
-    class="ant-alert ant-alert-success ant-alert-no-icon"
+    class="ant-alert ant-alert-success ant-alert-no-icon ant-alert-closable"
     data-show="true"
   >
     <span
