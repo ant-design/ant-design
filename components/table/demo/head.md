@@ -3,7 +3,6 @@ order: 7
 title:
   en-US: Filter and sorter
   zh-CN: 筛选和排序
-  debug: true
 ---
 
 ## zh-CN
