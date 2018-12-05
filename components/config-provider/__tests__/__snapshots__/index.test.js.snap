@@ -11048,3 +11048,42 @@ exports[`ConfigProvider components Steps prefixCls 1`] = `
   </div>
 </div>
 `;
+
+exports[`ConfigProvider components Switch configProvider 1`] = `
+<button
+  aria-checked="false"
+  class="config-switch"
+  role="switch"
+  type="button"
+>
+  <span
+    class="config-switch-inner"
+  />
+</button>
+`;
+
+exports[`ConfigProvider components Switch normal 1`] = `
+<button
+  aria-checked="false"
+  class="ant-switch"
+  role="switch"
+  type="button"
+>
+  <span
+    class="ant-switch-inner"
+  />
+</button>
+`;
+
+exports[`ConfigProvider components Switch prefixCls 1`] = `
+<button
+  aria-checked="false"
+  class="prefix-Switch"
+  role="switch"
+  type="button"
+>
+  <span
+    class="prefix-Switch-inner"
+  />
+</button>
+`;

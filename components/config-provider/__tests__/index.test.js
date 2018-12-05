@@ -41,6 +41,7 @@ import Skeleton from '../../skeleton';
 import Slider from '../../slider';
 import Spin from '../../spin';
 import Steps from '../../steps';
+import Switch from '../../switch';
 
 jest.mock('draft-js/lib/generateRandomKey', () => () => '123');
 jest.mock('rc-util/lib/Portal');
@@ -495,5 +496,10 @@ describe('ConfigProvider', () => {
         </Steps>
       );
     });
+
+    // Switch
+    testPair('Switch', props => (
+      <Switch {...props} />
+    ));
   });
 });
