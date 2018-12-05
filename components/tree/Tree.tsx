@@ -2,8 +2,9 @@ import * as React from 'react';
 import RcTree, { TreeNode } from 'rc-tree';
 import DirectoryTree from './DirectoryTree';
 import classNames from 'classnames';
-import animation from '../_util/openAnimation';
 import Icon from '../icon';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import animation from '../_util/openAnimation';
 
 export interface AntdTreeNodeAttribute {
   eventKey: string;
@@ -152,7 +153,6 @@ export default class Tree extends React.Component<TreeProps, any> {
   static DirectoryTree = DirectoryTree;
 
   static defaultProps = {
-    prefixCls: 'ant-tree',
     checkable: false,
     showIcon: false,
     openAnimation: {
@@ -163,9 +163,8 @@ export default class Tree extends React.Component<TreeProps, any> {
 
   tree: any;
 
-  renderSwitcherIcon = ({ isLeaf, expanded, loading }: AntTreeNodeProps) => {
+  renderSwitcherIcon = (prefixCls: string, { isLeaf, expanded, loading }: AntTreeNodeProps) => {
     const {
-      prefixCls,
       showLine,
     } = this.props;
     if (loading) {
@@ -206,20 +205,32 @@ export default class Tree extends React.Component<TreeProps, any> {
     this.tree = node;
   };
 
-  render() {
+  renderTree = ({ getPrefixCls }: ConfigConsumerProps) => {
     const props = this.props;
-    const { prefixCls, className, showIcon } = props;
+    const { prefixCls: customizePrefixCls, className, showIcon } = props;
     const checkable = props.checkable;
+    const prefixCls = getPrefixCls('tree', customizePrefixCls);
     return (
       <RcTree
         ref={this.setTreeRef}
         {...props}
+        prefixCls={prefixCls}
         className={classNames(!showIcon && `${prefixCls}-icon-hide`, className)}
         checkable={checkable ? <span className={`${prefixCls}-checkbox-inner`} /> : checkable}
-        switcherIcon={this.renderSwitcherIcon}
+        switcherIcon={(nodeProps: AntTreeNodeProps) => (
+          this.renderSwitcherIcon(prefixCls, nodeProps)
+        )}
       >
         {this.props.children}
       </RcTree>
+    );
+  }
+
+  render() {
+    return (
+      <ConfigConsumer>
+        {this.renderTree}
+      </ConfigConsumer>
     );
   }
 }

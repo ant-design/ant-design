@@ -49,6 +49,7 @@ import TimePicker from '../../time-picker';
 import Timeline from '../../timeline';
 import Tooltip from '../../tooltip';
 import Transfer from '../../transfer';
+import Tree from '../../tree';
 
 jest.mock('draft-js/lib/generateRandomKey', () => () => '123');
 jest.mock('rc-util/lib/Portal');
@@ -580,6 +581,19 @@ describe('ConfigProvider', () => {
         {...props}
         dataSource={[]}
       />
+    ));
+
+    // Tree
+    testPair('Tree', props => (
+      <div>
+        <Tree {...props}>
+          <Tree.TreeNode title="bamboo" />
+        </Tree>
+
+        <Tree.DirectoryTree {...props}>
+          <Tree.TreeNode title="bamboo" />
+        </Tree.DirectoryTree>
+      </div>
     ));
   });
 });
