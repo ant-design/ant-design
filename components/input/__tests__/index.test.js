@@ -117,4 +117,11 @@ describe('Input.Password', () => {
     wrapper.find('.ant-input-password-icon').at(0).simulate('click');
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('visibilityToggle should work', () => {
+    const wrapper = mount(<Input.Password visibilityToggle={false} />);
+    expect(wrapper).toMatchSnapshot();
+    wrapper.setProps({ visibilityToggle: true });
+    expect(wrapper).toMatchSnapshot();
+  });
 });

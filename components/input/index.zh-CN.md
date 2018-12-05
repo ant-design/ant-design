@@ -73,4 +73,6 @@ Input 的其他属性和 React 自带的 [input](https://facebook.github.io/reac
 
 #### Input.Password
 
-`Input.Password` 没有额外的属性。
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| visibilityToggle | 是否显示切换按钮 | boolean | true |

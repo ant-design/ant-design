@@ -76,4 +76,6 @@ Supports all props of `Input`.
 
 #### Input.Password
 
-`Input.Password` has no extra props.
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| visibilityToggle | Whether show toggle button | boolean | true |

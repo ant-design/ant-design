@@ -6,6 +6,7 @@ import Icon from '../icon';
 export interface PasswordProps extends InputProps {
   readonly inputPrefixCls?: string;
   readonly action: string;
+  visibilityToggle?: boolean,
 }
 
 export interface PasswordState {
@@ -22,6 +23,7 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
     inputPrefixCls: 'ant-input',
     prefixCls: 'ant-input-password',
     action: 'click',
+    visibilityToggle: true,
   };
 
   state: PasswordState = {
@@ -49,8 +51,16 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
   }
 
   render() {
-    const { className, prefixCls, inputPrefixCls, size, suffix, ...restProps } = this.props;
-    const suffixIcon = this.getIcon();
+    const {
+      className,
+      prefixCls,
+      inputPrefixCls,
+      size,
+      suffix,
+      visibilityToggle,
+      ...restProps
+    } = this.props;
+    const suffixIcon = visibilityToggle && this.getIcon();
     const inputClassName = classNames(prefixCls, className, {
       [`${prefixCls}-${size}`]: !!size,
     });
