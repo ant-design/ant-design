@@ -51,6 +51,7 @@ import Tooltip from '../../tooltip';
 import Transfer from '../../transfer';
 import Tree from '../../tree';
 import TreeSelect from '../../tree-select';
+import Upload from '../../upload';
 
 jest.mock('draft-js/lib/generateRandomKey', () => () => '123');
 jest.mock('rc-util/lib/Portal');
@@ -602,6 +603,20 @@ describe('ConfigProvider', () => {
       <TreeSelect {...props} open>
         <TreeSelect.TreeNode title="bamboo" value="light" />
       </TreeSelect>
+    ));
+
+    // Upload
+    testPair('Upload', props => (
+      <Upload
+        {...props}
+        defaultFileList={[{
+          uid: '1',
+          name: 'xxx.png',
+          status: 'done',
+        }]}
+      >
+        <span />
+      </Upload>
     ));
   });
 });
