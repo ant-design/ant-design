@@ -110,13 +110,11 @@ describe('Input.Search', () => {
 describe('Input.Password', () => {
   it('should change type when click', () => {
     const wrapper = mount(<Input.Password />);
-
-    expect(wrapper.find('.ant-input').prop('type')).toBe('password');
-
+    wrapper.find('input').simulate('change', { target: { value: '111' } });
+    expect(wrapper).toMatchSnapshot();
     wrapper.find('.ant-input-password-icon').at(0).simulate('click');
-    expect(wrapper.find('.ant-input').prop('type')).toBe('text');
-
+    expect(wrapper).toMatchSnapshot();
     wrapper.find('.ant-input-password-icon').at(0).simulate('click');
-    expect(wrapper.find('.ant-input').prop('type')).toBe('password');
+    expect(wrapper).toMatchSnapshot();
   });
 });
