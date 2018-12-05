@@ -39,6 +39,7 @@ import Rate from '../../rate';
 import Select from '../../select';
 import Skeleton from '../../skeleton';
 import Slider from '../../slider';
+import Spin from '../../spin';
 
 jest.mock('draft-js/lib/generateRandomKey', () => () => '123');
 jest.mock('rc-util/lib/Portal');
@@ -475,5 +476,10 @@ describe('ConfigProvider', () => {
         <Slider tooltipVisible {...myProps} />
       );
     });
+
+    // Spin
+    testPair('Spin', props => (
+      <Spin {...props} />
+    ));
   });
 });

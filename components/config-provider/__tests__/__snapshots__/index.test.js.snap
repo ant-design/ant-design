@@ -7550,10 +7550,10 @@ exports[`ConfigProvider components List configProvider 1`] = `
   class="config-list config-list-split"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="config-spin-nested-loading"
   >
     <div
-      class="ant-spin-container"
+      class="config-spin-container"
     >
       <div
         class="config-list-item"
@@ -10890,5 +10890,50 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
   <div
     class="prefix-Slider-mark"
   />
+</div>
+`;
+
+exports[`ConfigProvider components Spin configProvider 1`] = `
+<div
+  class="config-spin config-spin-spinning"
+>
+  <span
+    class="config-spin-dot config-spin-dot-spin"
+  >
+    <i />
+    <i />
+    <i />
+    <i />
+  </span>
+</div>
+`;
+
+exports[`ConfigProvider components Spin normal 1`] = `
+<div
+  class="ant-spin ant-spin-spinning"
+>
+  <span
+    class="ant-spin-dot ant-spin-dot-spin"
+  >
+    <i />
+    <i />
+    <i />
+    <i />
+  </span>
+</div>
+`;
+
+exports[`ConfigProvider components Spin prefixCls 1`] = `
+<div
+  class="prefix-Spin prefix-Spin-spinning"
+>
+  <span
+    class="prefix-Spin-dot prefix-Spin-dot-spin"
+  >
+    <i />
+    <i />
+    <i />
+    <i />
+  </span>
 </div>
 `;
