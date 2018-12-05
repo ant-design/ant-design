@@ -28,23 +28,7 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
     visible: false,
   };
 
-  private input: Input;
-
-  focus() {
-    this.input.focus();
-  }
-
-  blur() {
-    this.input.blur();
-  }
-
-  saveInput = (node: Input) => {
-    this.input = node;
-  }
-
   onChange = () => {
-    this.input.blur();
-
     this.setState({
       visible: !this.state.visible,
     });
@@ -53,10 +37,7 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
   getIcon() {
     const { prefixCls, action } = this.props;
     const iconTrigger = ActionMap[action] || '';
-    const iconProps = {
-      [iconTrigger]: this.onChange,
-    };
-
+    const iconProps = { [iconTrigger]: this.onChange };
     return React.cloneElement(
       <Icon
         {...iconProps}
@@ -73,7 +54,6 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
     const inputClassName = classNames(prefixCls, className, {
       [`${prefixCls}-${size}`]: !!size,
     });
-
     return (
       <Input
         {...restProps}
@@ -82,7 +62,6 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
         className={inputClassName}
         prefixCls={inputPrefixCls}
         suffix={suffixIcon}
-        ref={this.saveInput}
       />
     );
   }
