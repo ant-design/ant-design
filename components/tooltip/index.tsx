@@ -3,9 +3,9 @@ import { cloneElement } from 'react';
 import { polyfill } from 'react-lifecycles-compat';
 import RcTooltip from 'rc-tooltip';
 import classNames from 'classnames';
+import getPlacements, { AdjustOverflow, PlacementsConfig } from './placements';
 import Button from '../button/index';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import getPlacements, { AdjustOverflow, PlacementsConfig } from './placements';
 
 export { AdjustOverflow, PlacementsConfig };
 

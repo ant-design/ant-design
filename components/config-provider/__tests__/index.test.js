@@ -48,6 +48,7 @@ import Tag from '../../tag';
 import TimePicker from '../../time-picker';
 import Timeline from '../../timeline';
 import Tooltip from '../../tooltip';
+import Transfer from '../../transfer';
 
 jest.mock('draft-js/lib/generateRandomKey', () => () => '123');
 jest.mock('rc-util/lib/Portal');
@@ -571,6 +572,14 @@ describe('ConfigProvider', () => {
       <Tooltip {...props} title="Bamboo" visible>
         <span>Light</span>
       </Tooltip>
+    ));
+
+    // Transfer
+    testPair('Transfer', props => (
+      <Transfer
+        {...props}
+        dataSource={[]}
+      />
     ));
   });
 });

@@ -14684,3 +14684,444 @@ Array [
   </div>,
 ]
 `;
+
+exports[`ConfigProvider components Transfer configProvider 1`] = `
+<div
+  class="config-transfer"
+>
+  <div
+    class="config-transfer-list"
+  >
+    <div
+      class="config-transfer-list-header"
+    >
+      <label
+        class="config-checkbox-wrapper"
+      >
+        <span
+          class="config-checkbox"
+        >
+          <input
+            class="config-checkbox-input"
+            type="checkbox"
+          />
+          <span
+            class="config-checkbox-inner"
+          />
+        </span>
+      </label>
+      <span
+        class="config-transfer-list-header-selected"
+      >
+        <span>
+          0 item
+        </span>
+        <span
+          class="config-transfer-list-header-title"
+        />
+      </span>
+    </div>
+    <div
+      class="config-transfer-list-body"
+    >
+      <ul
+        class="config-transfer-list-content"
+      />
+      <div
+        class="config-transfer-list-body-not-found"
+      >
+        Not Found
+      </div>
+    </div>
+  </div>
+  <div
+    class="config-transfer-operation"
+  >
+    <button
+      class="config-btn config-btn-primary config-btn-sm config-btn-icon-only"
+      disabled=""
+      type="button"
+    >
+      <i
+        class="anticon anticon-right"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="right"
+          fill="currentColor"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+          />
+        </svg>
+      </i>
+    </button>
+    <button
+      class="config-btn config-btn-primary config-btn-sm config-btn-icon-only"
+      disabled=""
+      type="button"
+    >
+      <i
+        class="anticon anticon-left"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="left"
+          fill="currentColor"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+          />
+        </svg>
+      </i>
+    </button>
+  </div>
+  <div
+    class="config-transfer-list"
+  >
+    <div
+      class="config-transfer-list-header"
+    >
+      <label
+        class="config-checkbox-wrapper"
+      >
+        <span
+          class="config-checkbox"
+        >
+          <input
+            class="config-checkbox-input"
+            type="checkbox"
+          />
+          <span
+            class="config-checkbox-inner"
+          />
+        </span>
+      </label>
+      <span
+        class="config-transfer-list-header-selected"
+      >
+        <span>
+          0 item
+        </span>
+        <span
+          class="config-transfer-list-header-title"
+        />
+      </span>
+    </div>
+    <div
+      class="config-transfer-list-body"
+    >
+      <ul
+        class="config-transfer-list-content"
+      />
+      <div
+        class="config-transfer-list-body-not-found"
+      >
+        Not Found
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components Transfer normal 1`] = `
+<div
+  class="ant-transfer"
+>
+  <div
+    class="ant-transfer-list"
+  >
+    <div
+      class="ant-transfer-list-header"
+    >
+      <label
+        class="ant-checkbox-wrapper"
+      >
+        <span
+          class="ant-checkbox"
+        >
+          <input
+            class="ant-checkbox-input"
+            type="checkbox"
+          />
+          <span
+            class="ant-checkbox-inner"
+          />
+        </span>
+      </label>
+      <span
+        class="ant-transfer-list-header-selected"
+      >
+        <span>
+          0 item
+        </span>
+        <span
+          class="ant-transfer-list-header-title"
+        />
+      </span>
+    </div>
+    <div
+      class="ant-transfer-list-body"
+    >
+      <ul
+        class="ant-transfer-list-content"
+      />
+      <div
+        class="ant-transfer-list-body-not-found"
+      >
+        Not Found
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-transfer-operation"
+  >
+    <button
+      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      disabled=""
+      type="button"
+    >
+      <i
+        class="anticon anticon-right"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="right"
+          fill="currentColor"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+          />
+        </svg>
+      </i>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      disabled=""
+      type="button"
+    >
+      <i
+        class="anticon anticon-left"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="left"
+          fill="currentColor"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+          />
+        </svg>
+      </i>
+    </button>
+  </div>
+  <div
+    class="ant-transfer-list"
+  >
+    <div
+      class="ant-transfer-list-header"
+    >
+      <label
+        class="ant-checkbox-wrapper"
+      >
+        <span
+          class="ant-checkbox"
+        >
+          <input
+            class="ant-checkbox-input"
+            type="checkbox"
+          />
+          <span
+            class="ant-checkbox-inner"
+          />
+        </span>
+      </label>
+      <span
+        class="ant-transfer-list-header-selected"
+      >
+        <span>
+          0 item
+        </span>
+        <span
+          class="ant-transfer-list-header-title"
+        />
+      </span>
+    </div>
+    <div
+      class="ant-transfer-list-body"
+    >
+      <ul
+        class="ant-transfer-list-content"
+      />
+      <div
+        class="ant-transfer-list-body-not-found"
+      >
+        Not Found
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components Transfer prefixCls 1`] = `
+<div
+  class="prefix-Transfer"
+>
+  <div
+    class="prefix-Transfer-list"
+  >
+    <div
+      class="prefix-Transfer-list-header"
+    >
+      <label
+        class="ant-checkbox-wrapper"
+      >
+        <span
+          class="ant-checkbox"
+        >
+          <input
+            class="ant-checkbox-input"
+            type="checkbox"
+          />
+          <span
+            class="ant-checkbox-inner"
+          />
+        </span>
+      </label>
+      <span
+        class="prefix-Transfer-list-header-selected"
+      >
+        <span>
+          0 item
+        </span>
+        <span
+          class="prefix-Transfer-list-header-title"
+        />
+      </span>
+    </div>
+    <div
+      class="prefix-Transfer-list-body"
+    >
+      <ul
+        class="prefix-Transfer-list-content"
+      />
+      <div
+        class="prefix-Transfer-list-body-not-found"
+      >
+        Not Found
+      </div>
+    </div>
+  </div>
+  <div
+    class="prefix-Transfer-operation"
+  >
+    <button
+      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      disabled=""
+      type="button"
+    >
+      <i
+        class="anticon anticon-right"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="right"
+          fill="currentColor"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+          />
+        </svg>
+      </i>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      disabled=""
+      type="button"
+    >
+      <i
+        class="anticon anticon-left"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="left"
+          fill="currentColor"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+          />
+        </svg>
+      </i>
+    </button>
+  </div>
+  <div
+    class="prefix-Transfer-list"
+  >
+    <div
+      class="prefix-Transfer-list-header"
+    >
+      <label
+        class="ant-checkbox-wrapper"
+      >
+        <span
+          class="ant-checkbox"
+        >
+          <input
+            class="ant-checkbox-input"
+            type="checkbox"
+          />
+          <span
+            class="ant-checkbox-inner"
+          />
+        </span>
+      </label>
+      <span
+        class="prefix-Transfer-list-header-selected"
+      >
+        <span>
+          0 item
+        </span>
+        <span
+          class="prefix-Transfer-list-header-title"
+        />
+      </span>
+    </div>
+    <div
+      class="prefix-Transfer-list-body"
+    >
+      <ul
+        class="prefix-Transfer-list-content"
+      />
+      <div
+        class="prefix-Transfer-list-body-not-found"
+      >
+        Not Found
+      </div>
+    </div>
+  </div>
+</div>
+`;
