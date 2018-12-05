@@ -14531,3 +14531,69 @@ Array [
   </div>,
 ]
 `;
+
+exports[`ConfigProvider components Timeline configProvider 1`] = `
+<ul
+  class="config-timeline"
+>
+  <li
+    class="config-timeline-item config-timeline-item-last"
+  >
+    <div
+      class="config-timeline-item-tail"
+    />
+    <div
+      class="config-timeline-item-head config-timeline-item-head-blue"
+    />
+    <div
+      class="config-timeline-item-content"
+    >
+      Bamboo
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`ConfigProvider components Timeline normal 1`] = `
+<ul
+  class="ant-timeline"
+>
+  <li
+    class="ant-timeline-item ant-timeline-item-last"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Bamboo
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`ConfigProvider components Timeline prefixCls 1`] = `
+<ul
+  class="prefix-Timeline"
+>
+  <li
+    class="prefix-Timeline-item prefix-Timeline-item-last"
+  >
+    <div
+      class="prefix-Timeline-item-tail"
+    />
+    <div
+      class="prefix-Timeline-item-head prefix-Timeline-item-head-blue"
+    />
+    <div
+      class="prefix-Timeline-item-content"
+    >
+      Bamboo
+    </div>
+  </li>
+</ul>
+`;
