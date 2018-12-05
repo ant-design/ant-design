@@ -40,6 +40,7 @@ import Select from '../../select';
 import Skeleton from '../../skeleton';
 import Slider from '../../slider';
 import Spin from '../../spin';
+import Steps from '../../steps';
 
 jest.mock('draft-js/lib/generateRandomKey', () => () => '123');
 jest.mock('rc-util/lib/Portal');
@@ -481,5 +482,18 @@ describe('ConfigProvider', () => {
     testPair('Spin', props => (
       <Spin {...props} />
     ));
+
+    // Steps
+    testPair('Steps', (props) => {
+      const myProps = { ...props };
+      if (props.prefixCls) {
+        myProps.iconPrefix = 'prefixIcon';
+      }
+      return (
+        <Steps {...props}>
+          <Steps.Step title="Bamboo" description="Little Light" />
+        </Steps>
+      );
+    });
   });
 });

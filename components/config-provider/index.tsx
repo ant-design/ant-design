@@ -29,7 +29,7 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
 
     if (customizePrefixCls) return customizePrefixCls;
 
-    return `${prefixCls}-${suffixCls}`;
+    return suffixCls ? `${prefixCls}-${suffixCls}` : prefixCls;
   };
 
   renderProvider = (context: ConfigConsumerProps) => {
