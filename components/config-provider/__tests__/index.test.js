@@ -45,6 +45,7 @@ import Switch from '../../switch';
 import Table from '../../table';
 import Tabs from '../../tabs';
 import Tag from '../../tag';
+import TimePicker from '../../time-picker';
 
 jest.mock('draft-js/lib/generateRandomKey', () => () => '123');
 jest.mock('rc-util/lib/Portal');
@@ -549,6 +550,11 @@ describe('ConfigProvider', () => {
         <Tag {...props}>Bamboo</Tag>
         <Tag.CheckableTag {...props}>Light</Tag.CheckableTag>
       </div>
+    ));
+
+    // TimePicker
+    testPair('TimePicker', props => (
+      <TimePicker {...props} open defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} />
     ));
   });
 });
