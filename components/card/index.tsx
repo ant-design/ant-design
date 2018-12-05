@@ -7,6 +7,7 @@ import Meta from './Meta';
 import Tabs from '../tabs';
 import Row from '../row';
 import Col from '../col';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
 import warning from '../_util/warning';
 import { Omit } from '../_util/type';
@@ -142,12 +143,14 @@ export default class Card extends React.Component<CardProps, CardState> {
     return !!hoverable;
   }
 
-  render() {
+  renderCard = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
-      prefixCls = 'ant-card', className, extra, headStyle = {}, bodyStyle = {}, noHovering, hoverable, title, loading,
+      prefixCls: customizePrefixCls,
+      className, extra, headStyle = {}, bodyStyle = {}, noHovering, hoverable, title, loading,
       bordered = true, type, cover, actions, tabList, children, activeTabKey, defaultActiveTabKey, ...others
     } = this.props;
 
+    const prefixCls = getPrefixCls('card', customizePrefixCls);
     const classString = classNames(prefixCls, className, {
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-bordered`]: bordered,
@@ -268,6 +271,14 @@ export default class Card extends React.Component<CardProps, CardState> {
         {body}
         {actionDom}
       </div>
+    );
+  }
+
+  render() {
+    return (
+      <ConfigConsumer>
+        {this.renderCard}
+      </ConfigConsumer>
     );
   }
 }

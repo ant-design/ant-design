@@ -3,8 +3,6 @@ import { polyfill } from 'react-lifecycles-compat';
 import RcUpload from 'rc-upload';
 import classNames from 'classnames';
 import uniqBy from 'lodash/uniqBy';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import defaultLocale from '../locale-provider/default';
 import Dragger from './Dragger';
 import UploadList from './UploadList';
 import {
@@ -18,6 +16,9 @@ import {
   UploadListType,
 } from './interface';
 import { T, fileToObject, genPercentAdd, getFileItem, removeFileItem } from './utils';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import defaultLocale from '../locale-provider/default';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export { UploadProps };
 
@@ -25,7 +26,6 @@ class Upload extends React.Component<UploadProps, UploadState> {
   static Dragger: typeof Dragger;
 
   static defaultProps = {
-    prefixCls: 'ant-upload',
     type: 'select' as UploadType,
     multiple: false,
     action: '',
@@ -241,9 +241,9 @@ class Upload extends React.Component<UploadProps, UploadState> {
     );
   }
 
-  render() {
+  renderUpload = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
-      prefixCls = '',
+      prefixCls: customizePrefixCls,
       className,
       showUploadList,
       listType,
@@ -252,12 +252,15 @@ class Upload extends React.Component<UploadProps, UploadState> {
       children,
     } = this.props;
 
+    const prefixCls = getPrefixCls('upload', customizePrefixCls);
+
     const rcUploadProps = {
       onStart: this.onStart,
       onError: this.onError,
       onProgress: this.onProgress,
       onSuccess: this.onSuccess,
       ...this.props,
+      prefixCls,
       beforeUpload: this.beforeUpload,
     };
 
@@ -323,6 +326,14 @@ class Upload extends React.Component<UploadProps, UploadState> {
         {uploadButton}
         {uploadList}
       </span>
+    );
+  }
+
+  render() {
+    return (
+      <ConfigConsumer>
+        {this.renderUpload}
+      </ConfigConsumer>
     );
   }
 }

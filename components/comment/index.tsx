@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface CommentProps {
   /** List of action items rendered below the comment content */
@@ -23,10 +24,6 @@ export interface CommentProps {
 }
 
 export default class Comment extends React.Component<CommentProps, {}> {
-  static defaultProps = {
-    prefixCls: 'ant-comment',
-  }
-
   getAction(actions: React.ReactNode[]) {
     if (!actions || !actions.length) {
       return null;
@@ -40,9 +37,7 @@ export default class Comment extends React.Component<CommentProps, {}> {
     return actionList;
   }
 
-  renderNested = (children: any) => {
-    const { prefixCls } = this.props;
-
+  renderNested = (prefixCls: string, children: any) => {
     return (
       <div className={classNames(`${prefixCls}-nested`)}>
         {children}
@@ -50,7 +45,7 @@ export default class Comment extends React.Component<CommentProps, {}> {
     );
   }
 
-  render() {
+  renderComment = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
       actions,
       author,
@@ -58,11 +53,13 @@ export default class Comment extends React.Component<CommentProps, {}> {
       children,
       className,
       content,
-      prefixCls,
+      prefixCls: customizePrefixCls,
       style,
       datetime,
       ...otherProps
     } = this.props;
+
+    const prefixCls = getPrefixCls('comment', customizePrefixCls);
 
     const avatarDom = (
       <div className={`${prefixCls}-avatar`}>
@@ -109,8 +106,16 @@ export default class Comment extends React.Component<CommentProps, {}> {
     return (
       <div {...otherProps} className={classNames(prefixCls, className)} style={style}>
         {comment}
-        {children ? this.renderNested(children) : null}
+        {children ? this.renderNested(prefixCls, children) : null}
       </div>
+    );
+  }
+
+  render() {
+    return (
+      <ConfigConsumer>
+        {this.renderComment}
+      </ConfigConsumer>
     );
   }
 }

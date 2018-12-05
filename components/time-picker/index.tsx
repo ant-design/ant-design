@@ -4,7 +4,7 @@ import { polyfill } from 'react-lifecycles-compat';
 import RcTimePicker from 'rc-time-picker/lib/TimePicker';
 import classNames from 'classnames';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import { ConfigConsumer, ConfigProviderProps } from '../config-provider';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import defaultLocale from './locale/en_US';
 import interopDefault from '../_util/interopDefault';
 import Icon from '../icon';
@@ -60,7 +60,6 @@ export interface TimePickerLocale {
 
 class TimePicker extends React.Component<TimePickerProps, any> {
   static defaultProps = {
-    prefixCls: 'ant-time-picker',
     align: {
       offset: [0, -2],
     },
@@ -136,81 +135,81 @@ class TimePicker extends React.Component<TimePickerProps, any> {
     return 'HH:mm:ss';
   }
 
-  renderTimePicker = (locale: TimePickerLocale) => {
-    const { getPopupContainer, ...props } = this.props;
-    delete props.defaultValue;
+  renderTimePicker = (locale: TimePickerLocale) => (
+    <ConfigConsumer>
+      {({ getPopupContainer: getContextPopupContainer, getPrefixCls }: ConfigConsumerProps) => {
+        const { getPopupContainer, prefixCls: customizePrefixCls, ...props } = this.props;
+        delete props.defaultValue;
 
-    const format = this.getDefaultFormat();
-    const className = classNames(props.className, {
-      [`${props.prefixCls}-${props.size}`]: !!props.size,
-    });
+        const format = this.getDefaultFormat();
+        const prefixCls = getPrefixCls('time-picker', customizePrefixCls);
+        const className = classNames(props.className, {
+          [`${prefixCls}-${props.size}`]: !!props.size,
+        });
 
-    const addon = (panel: React.ReactElement<any>) => (
-      props.addon ? (
-        <div className={`${props.prefixCls}-panel-addon`}>
-          {props.addon(panel)}
-        </div>
-      ) : null
-    );
+        const addon = (panel: React.ReactElement<any>) => (
+          props.addon ? (
+            <div className={`${prefixCls}-panel-addon`}>
+              {props.addon(panel)}
+            </div>
+          ) : null
+        );
 
-    const { suffixIcon, prefixCls } = props;
-    const clockIcon = suffixIcon && (
-      React.isValidElement<{ className?: string }>(suffixIcon)
-        ? React.cloneElement(
-          suffixIcon,
-          {
-            className: classNames({
-              [suffixIcon.props.className!]: suffixIcon.props.className,
-              [`${prefixCls}-clock-icon`]: true,
-            }),
-          },
-        ) : <span className={`${prefixCls}-clock-icon`}>{suffixIcon}</span>) || (
-        <Icon
-          type="clock-circle"
-          className={`${prefixCls}-clock-icon`}
-          theme="outlined"
-        />
-      );
-
-    const inputIcon = (
-      <span className={`${prefixCls}-icon`}>
-        {clockIcon}
-      </span>
-    );
-
-    const clearIcon = (
-      <Icon
-        type="close-circle"
-        className={`${prefixCls}-panel-clear-btn-icon`}
-        theme="filled"
-      />
-    );
-
-    return (
-      <ConfigConsumer>
-        {({ getPopupContainer: getContextPopupContainer }: ConfigProviderProps) => {
-          return (
-            <RcTimePicker
-              {...generateShowHourMinuteSecond(format)}
-              {...props}
-              getPopupContainer={getPopupContainer || getContextPopupContainer}
-              ref={this.saveTimePicker}
-              format={format}
-              className={className}
-              value={this.state.value}
-              placeholder={props.placeholder === undefined ? locale.placeholder : props.placeholder}
-              onChange={this.handleChange}
-              onOpen={this.handleOpenClose}
-              onClose={this.handleOpenClose}
-              addon={addon}
-              inputIcon={inputIcon}
-              clearIcon={clearIcon}
+        const { suffixIcon } = props;
+        const clockIcon = suffixIcon && (
+          React.isValidElement<{ className?: string }>(suffixIcon)
+            ? React.cloneElement(
+              suffixIcon,
+              {
+                className: classNames({
+                  [suffixIcon.props.className!]: suffixIcon.props.className,
+                  [`${prefixCls}-clock-icon`]: true,
+                }),
+              },
+            ) : <span className={`${prefixCls}-clock-icon`}>{suffixIcon}</span>) || (
+            <Icon
+              type="clock-circle"
+              className={`${prefixCls}-clock-icon`}
+              theme="outlined"
             />
           );
-        }}
-      </ConfigConsumer>
-    );
-  }
+
+        const inputIcon = (
+          <span className={`${prefixCls}-icon`}>
+            {clockIcon}
+          </span>
+        );
+
+        const clearIcon = (
+          <Icon
+            type="close-circle"
+            className={`${prefixCls}-panel-clear-btn-icon`}
+            theme="filled"
+          />
+        );
+
+        return (
+          <RcTimePicker
+            {...generateShowHourMinuteSecond(format)}
+            {...props}
+            prefixCls={prefixCls}
+            getPopupContainer={getPopupContainer || getContextPopupContainer}
+            ref={this.saveTimePicker}
+            format={format}
+            className={className}
+            value={this.state.value}
+            placeholder={props.placeholder === undefined ? locale.placeholder : props.placeholder}
+            onChange={this.handleChange}
+            onOpen={this.handleOpenClose}
+            onClose={this.handleOpenClose}
+            addon={addon}
+            inputIcon={inputIcon}
+            clearIcon={clearIcon}
+          />
+        );
+      }}
+    </ConfigConsumer>
+  );
 
   render() {
     return (

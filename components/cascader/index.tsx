@@ -6,7 +6,7 @@ import omit from 'omit.js';
 import KeyCode from 'rc-util/lib/KeyCode';
 import Input from '../input';
 import Icon from '../icon';
-import { ConfigConsumer, ConfigProviderProps } from '../config-provider';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 
 export interface CascaderOptionType {
@@ -161,8 +161,6 @@ const defaultDisplayRender = (label: string[]) => label.join(' / ');
 
 export default class Cascader extends React.Component<CascaderProps, CascaderState> {
   static defaultProps = {
-    prefixCls: 'ant-cascader',
-    inputPrefixCls: 'ant-input',
     placeholder: 'Please select',
     transitionName: 'slide-up',
     popupPlacement: 'bottomLeft',
@@ -378,13 +376,17 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     this.input = node;
   }
 
-  renderCascader = ({ getPopupContainer: getContextPopupContainer }: ConfigProviderProps) => {
+  renderCascader = ({ getPopupContainer: getContextPopupContainer, getPrefixCls }: ConfigConsumerProps) => {
     const { props, state } = this;
     const {
-      prefixCls, inputPrefixCls, children, placeholder, size, disabled,
+      prefixCls: customizePrefixCls, inputPrefixCls: customizeInputPrefixCls,
+      children, placeholder, size, disabled,
       className, style, allowClear, showSearch = false, suffixIcon, ...otherProps
     } = props;
     const { value, inputFocused } = state;
+
+    const prefixCls = getPrefixCls('cascader', customizePrefixCls);
+    const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
 
     const sizeCls = classNames({
       [`${inputPrefixCls}-lg`]: size === 'large',
@@ -514,6 +516,7 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     return (
       <RcCascader
         {...rest}
+        prefixCls={prefixCls}
         getPopupContainer={getPopupContainer}
         options={options}
         value={value}

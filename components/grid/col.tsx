@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import RowContext from './RowContext';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 const stringOrNumber = PropTypes.oneOfType([PropTypes.string, PropTypes.number]);
 const objectOrNumber = PropTypes.oneOfType([PropTypes.object, PropTypes.number]);
@@ -46,9 +47,14 @@ export default class Col extends React.Component<ColProps, {}> {
     xxl: objectOrNumber,
   };
 
-  render() {
+  renderCol = ({ getPrefixCls }: ConfigConsumerProps) => {
     const props: any = this.props;
-    const { span, order, offset, push, pull, className, children, prefixCls = 'ant-col', ...others } = props;
+    const {
+      prefixCls: customizePrefixCls,
+      span, order, offset, push, pull, className, children,
+      ...others
+    } = props;
+    const prefixCls = getPrefixCls('col', customizePrefixCls);
     let sizeClassObj = {};
     ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].forEach(size => {
       let sizeProps: ColSize = {};
@@ -92,5 +98,13 @@ export default class Col extends React.Component<ColProps, {}> {
         }}
       </RowContext.Consumer>
     )
+  }
+
+  render() {
+    return (
+      <ConfigConsumer>
+        {this.renderCol}
+      </ConfigConsumer>
+    );
   }
 }

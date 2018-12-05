@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import debounce from 'lodash/debounce';
 import { conductExpandParent, convertTreeToEntities } from 'rc-tree/lib/util';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 import Tree, {
   TreeProps, AntdTreeNodeAttribute,
@@ -32,7 +33,6 @@ function getIcon(props: AntdTreeNodeAttribute): React.ReactNode {
 
 export default class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeState> {
   static defaultProps = {
-    prefixCls: 'ant-tree',
     showIcon: true,
     expandAction: 'click',
   };
@@ -184,10 +184,11 @@ export default class DirectoryTree extends React.Component<DirectoryTreeProps, D
     }
   }
 
-  render() {
-    const { prefixCls, className, ...props } = this.props;
+  renderDirectoryTree = ({ getPrefixCls }: ConfigConsumerProps) => {
+    const { prefixCls: customizePrefixCls, className, ...props } = this.props;
     const { expandedKeys, selectedKeys } = this.state;
 
+    const prefixCls = getPrefixCls('tree', customizePrefixCls);
     const connectClassName = classNames(`${prefixCls}-directory`, className);
 
     return (
@@ -205,6 +206,14 @@ export default class DirectoryTree extends React.Component<DirectoryTreeProps, D
         onDoubleClick={this.onDoubleClick}
         onExpand={this.onExpand}
       />
+    );
+  }
+
+  render() {
+    return (
+      <ConfigConsumer>
+        {this.renderDirectoryTree}
+      </ConfigConsumer>
     );
   }
 }

@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import Affix from '../affix';
 import AnchorLink from './AnchorLink';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import getScroll from '../_util/getScroll';
 import raf from 'raf';
 
@@ -117,7 +118,6 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
   static Link: typeof AnchorLink;
 
   static defaultProps = {
-    prefixCls: 'ant-anchor',
     affix: true,
     showInkInFixed: false,
     getContainer: getDefaultContainer,
@@ -136,6 +136,8 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
   private links: string[] = [];
   private scrollEvent: any;
   private animating: boolean;
+
+  private prefixCls?: string;
 
   getChildContext() {
     const antAnchor: AntAnchor = {
@@ -227,7 +229,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
     if (typeof document === 'undefined') {
       return;
     }
-    const { prefixCls } = this.props;
+    const prefixCls = this.prefixCls;
     const anchorNode = ReactDOM.findDOMNode(this) as Element;
     const linkNode = anchorNode.getElementsByClassName(`${prefixCls}-link-title-active`)[0];
     if (linkNode) {
@@ -239,9 +241,9 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
     this.inkNode = node;
   }
 
-  render() {
+  renderAnchor = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
-      prefixCls,
+      prefixCls: customizePrefixCls,
       className = '',
       style,
       offsetTop,
@@ -251,6 +253,13 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
       getContainer,
     } = this.props;
     const { activeLink } = this.state;
+
+    const prefixCls = getPrefixCls('anchor', customizePrefixCls);
+
+    // To support old version react.
+    // Have to add prefixCls on the instance.
+    // https://github.com/facebook/react/issues/12397
+    this.prefixCls = prefixCls;
 
     const inkClass = classNames(`${prefixCls}-ink-ball`, {
       visible: activeLink,
@@ -285,6 +294,14 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
       <Affix offsetTop={offsetTop} target={getContainer}>
         {anchorContent}
       </Affix>
+    );
+  }
+
+  render() {
+    return(
+      <ConfigConsumer>
+        {this.renderAnchor}
+      </ConfigConsumer>
     );
   }
 }

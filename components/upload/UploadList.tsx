@@ -1,10 +1,11 @@
 import * as React from 'react';
 import Animate from 'rc-animate';
+import classNames from 'classnames';
+import { UploadListProps, UploadFile, UploadListType } from './interface';
 import Icon from '../icon';
 import Tooltip from '../tooltip';
 import Progress from '../progress';
-import classNames from 'classnames';
-import { UploadListProps, UploadFile, UploadListType } from './interface';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 const imageTypes: string[] = ['image', 'webp', 'png', 'svg', 'gif', 'jpg', 'jpeg', 'bmp'];
 // https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
@@ -49,7 +50,6 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       strokeWidth: 2,
       showInfo: false,
     },
-    prefixCls: 'ant-upload',
     showRemoveIcon: true,
     showPreviewIcon: true,
   };
@@ -94,8 +94,12 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     });
   }
 
-  render() {
-    const { prefixCls, items = [], listType, showPreviewIcon, showRemoveIcon, locale } = this.props;
+  renderUploadList = ({ getPrefixCls }: ConfigConsumerProps) => {
+    const {
+      prefixCls: customizePrefixCls,
+      items = [], listType, showPreviewIcon, showRemoveIcon, locale,
+    } = this.props;
+    const prefixCls = getPrefixCls('upload', customizePrefixCls);
     const list = items.map(file => {
       let progress;
       let icon = <Icon type={file.status === 'uploading' ? 'loading' : 'paper-clip'} />;
@@ -223,6 +227,14 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       >
         {list}
       </Animate>
+    );
+  }
+
+  render() {
+    return (
+      <ConfigConsumer>
+        {this.renderUploadList}
+      </ConfigConsumer>
     );
   }
 }

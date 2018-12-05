@@ -4,6 +4,8 @@ import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
 import shallowequal from 'shallowequal';
 import Icon from '../icon';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
 export type MentionPlacement = 'top' | 'bottom';
 
 export interface MentionProps {
@@ -38,7 +40,6 @@ export interface MentionState {
 class Mention extends React.Component<MentionProps, MentionState> {
   static getMentions = getMentions;
   static defaultProps = {
-    prefixCls: 'ant-mention',
     notFoundContent: '无匹配结果，轻敲空格完成输入',
     loading: false,
     multiLines: false,
@@ -119,9 +120,10 @@ class Mention extends React.Component<MentionProps, MentionState> {
   mentionRef = (ele: any) => {
     this.mentionEle = ele;
   }
-  render() {
-    const { className = '', prefixCls, loading, placement } = this.props;
+  renderMention = ({ getPrefixCls }: ConfigConsumerProps) => {
+    const { prefixCls: customizePrefixCls, className = '', loading, placement } = this.props;
     const { suggestions, focus } = this.state;
+    const prefixCls = getPrefixCls('mention', customizePrefixCls);
     const cls = classNames(className, {
       [`${prefixCls}-active`]: focus,
       [`${prefixCls}-placement-top`]: placement === 'top',
@@ -134,6 +136,7 @@ class Mention extends React.Component<MentionProps, MentionState> {
     return (
       <RcMention
         {...this.props}
+        prefixCls={prefixCls}
         className={cls}
         ref={this.mentionRef}
         onSearchChange={this.onSearchChange}
@@ -143,6 +146,14 @@ class Mention extends React.Component<MentionProps, MentionState> {
         suggestions={suggestions}
         notFoundContent={notFoundContent}
       />
+    );
+  }
+
+  render() {
+    return (
+      <ConfigConsumer>
+        {this.renderMention}
+      </ConfigConsumer>
     );
   }
 }

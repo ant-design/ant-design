@@ -2,7 +2,7 @@ import * as React from 'react';
 import RcDropdown from 'rc-dropdown';
 import classNames from 'classnames';
 import DropdownButton from './dropdown-button';
-import { ConfigConsumer, ConfigProviderProps } from '../config-provider';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 import Icon from '../icon';
 
@@ -24,7 +24,6 @@ export interface DropDownProps {
 export default class Dropdown extends React.Component<DropDownProps, any> {
   static Button: typeof DropdownButton;
   static defaultProps = {
-    prefixCls: 'ant-dropdown',
     mouseEnterDelay: 0.15,
     mouseLeaveDelay: 0.1,
     placement: 'bottomLeft',
@@ -52,9 +51,13 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
     }
   }
 
-  renderDropDown = ({ getPopupContainer: getContextPopupContainer }: ConfigProviderProps) => {
-    const { children, prefixCls, overlay: overlayElements, trigger, disabled, getPopupContainer } = this.props;
+  renderDropDown = ({ getPopupContainer: getContextPopupContainer, getPrefixCls }: ConfigConsumerProps) => {
+    const {
+      prefixCls: customizePrefixCls,
+      children, overlay: overlayElements, trigger, disabled, getPopupContainer,
+    } = this.props;
 
+    const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
     const child = React.Children.only(children);
     const overlay = React.Children.only(overlayElements);
 
@@ -90,6 +93,7 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
       <RcDropdown
         alignPoint={alignPoint}
         {...this.props}
+        prefixCls={prefixCls}
         getPopupContainer={getPopupContainer || getContextPopupContainer}
         transitionName={this.getTransitionName()}
         trigger={triggerActions}

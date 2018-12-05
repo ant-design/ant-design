@@ -5,6 +5,7 @@ import createReactContext, { Context } from 'create-react-context';
 import warning from 'warning';
 import classNames from 'classnames';
 import Icon from '../icon';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 const DrawerContext: Context<Drawer | null> = createReactContext(null);
 
@@ -66,7 +67,6 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
   };
 
   static defaultProps = {
-    prefixCls: 'ant-drawer',
     width: 256,
     height: 256,
     closable: true,
@@ -144,8 +144,22 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
     }
   }
 
+  getRcDrawerStyle = () => {
+    const { zIndex, placement, maskStyle } = this.props;
+    return this.state.push
+    ? {
+      ...maskStyle,
+      zIndex,
+      transform: this.getPushTransform(placement),
+    }
+    : {
+      ...maskStyle,
+      zIndex,
+    };
+  }
+
   // render drawer body dom
-  renderBody = () => {
+  renderBody = (prefixCls: string) => {
     if (this.destoryClose && !this.props.visible) {
       return null;
     }
@@ -165,7 +179,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
       containerStyle.opacity = 0;
       containerStyle.transition = 'opacity .3s';
     }
-    const { prefixCls, title, closable } = this.props;
+    const { title, closable } = this.props;
 
     // is have header dom
     let header;
@@ -207,23 +221,13 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
     );
   }
 
-  getRcDrawerStyle = () => {
-    const { zIndex, placement, maskStyle } = this.props;
-    return this.state.push
-    ? {
-      ...maskStyle,
-      zIndex,
-      transform: this.getPushTransform(placement),
-    }
-    : {
-      ...maskStyle,
-      zIndex,
-    };
-  }
-
-  // render Provider for Multi-level drawe
+  // render Provider for Multi-level drawer
   renderProvider = (value: Drawer) => {
-    const { zIndex, style, placement, className, wrapClassName, width, height, ...rest } = this.props;
+    const {
+      prefixCls: customizePrefixCls,
+      zIndex, style, placement, className, wrapClassName, width, height,
+      ...rest
+    } = this.props;
     warning(wrapClassName === undefined, 'wrapClassName is deprecated, please use className instead.');
     const haveMask = rest.mask ? "" : "no-mask";
     this.parentDrawer = value;
@@ -235,19 +239,28 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
     }
     return (
       <DrawerContext.Provider value={this}>
-        <RcDrawer
-          handler={false}
-          {...rest}
-          {...offsetStyle}
-          open={this.props.visible}
-          onMaskClick={this.onMaskClick}
-          showMask={this.props.mask}
-          placement={placement}
-          style={this.getRcDrawerStyle()}
-          className={classNames(wrapClassName, className, haveMask)}
-        >
-          {this.renderBody()}
-        </RcDrawer>
+        <ConfigConsumer>
+          {({ getPrefixCls }: ConfigConsumerProps) => {
+            const prefixCls = getPrefixCls('drawer', customizePrefixCls);
+
+            return (
+              <RcDrawer
+                handler={false}
+                {...rest}
+                {...offsetStyle}
+                prefixCls={prefixCls}
+                open={this.props.visible}
+                onMaskClick={this.onMaskClick}
+                showMask={this.props.mask}
+                placement={placement}
+                style={this.getRcDrawerStyle()}
+                className={classNames(wrapClassName, className, haveMask)}
+              >
+                {this.renderBody(prefixCls)}
+              </RcDrawer>
+            );
+          }}
+        </ConfigConsumer>
       </DrawerContext.Provider>
     );
   }

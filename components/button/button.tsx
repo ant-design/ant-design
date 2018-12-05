@@ -1,9 +1,10 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Wave from '../_util/wave';
-import Icon from '../icon';
 import Group from './button-group';
+import Icon from '../icon';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import Wave from '../_util/wave';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
@@ -69,7 +70,6 @@ export default class Button extends React.Component<ButtonProps, any> {
   static __ANT_BUTTON = true;
 
   static defaultProps = {
-    prefixCls: 'ant-btn',
     loading: false,
     ghost: false,
     block: false,
@@ -166,12 +166,15 @@ export default class Button extends React.Component<ButtonProps, any> {
     return React.Children.count(children) === 1 && !icon;
   }
 
-  render() {
+  renderButton = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
-      type, shape, size, className, children, icon, prefixCls, ghost, loading: _loadingProp, block, ...rest
+      prefixCls: customizePrefixCls,
+      type, shape, size, className, children, icon, ghost, loading: _loadingProp, block,
+      ...rest
     } = this.props;
-
     const { loading, hasTwoCNChar } = this.state;
+
+    const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
     // large => lg
     // small => sm
@@ -238,5 +241,13 @@ export default class Button extends React.Component<ButtonProps, any> {
         </Wave>
       );
     }
+  }
+
+  render() {
+    return (
+      <ConfigConsumer>
+        {this.renderButton}
+      </ConfigConsumer>
+    );
   }
 }

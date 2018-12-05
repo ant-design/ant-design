@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { AntAnchor } from './Anchor';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface AnchorLinkProps {
   prefixCls?: string;
@@ -12,7 +13,6 @@ export interface AnchorLinkProps {
 
 export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
   static defaultProps = {
-    prefixCls: 'ant-anchor',
     href: '#',
   };
 
@@ -49,13 +49,14 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
     scrollTo(href);
   }
 
-  render() {
+  renderAnchorLink = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
-      prefixCls,
+      prefixCls: customizePrefixCls,
       href,
       title,
       children,
     } = this.props;
+    const prefixCls = getPrefixCls('anchor', customizePrefixCls);
     const active = this.context.antAnchor.activeLink === href;
     const wrapperClassName = classNames(`${prefixCls}-link`, {
       [`${prefixCls}-link-active`]: active,
@@ -75,6 +76,14 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
         </a>
         {children}
       </div>
+    );
+  }
+
+  render() {
+    return (
+      <ConfigConsumer>
+        {this.renderAnchorLink}
+      </ConfigConsumer>
     );
   }
 }

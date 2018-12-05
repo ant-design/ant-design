@@ -2,11 +2,11 @@ import * as React from 'react';
 import RcMenu, { Divider, ItemGroup } from 'rc-menu';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { ConfigConsumer, ConfigProviderProps } from '../config-provider';
-import animation from '../_util/openAnimation';
-import warning from '../_util/warning';
 import SubMenu from './SubMenu';
 import Item from './MenuItem';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import animation from '../_util/openAnimation';
+import warning from '../_util/warning';
 import { SiderContext } from '../layout/Sider';
 
 export interface SelectParam {
@@ -28,7 +28,7 @@ export type MenuMode = 'vertical' | 'vertical-left' | 'vertical-right' | 'horizo
 
 export type MenuTheme = 'light' | 'dark';
 
-export interface MenuProps extends ConfigProviderProps {
+export interface MenuProps {
   id?: string;
   theme?: MenuTheme;
   mode?: MenuMode;
@@ -53,6 +53,7 @@ export interface MenuProps extends ConfigProviderProps {
   subMenuOpenDelay?: number;
   focusable?: boolean;
   onMouseEnter?: (e: MouseEvent) => void;
+  getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
 }
 
 export interface MenuState {
@@ -65,7 +66,6 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
   static SubMenu = SubMenu;
   static ItemGroup = ItemGroup;
   static defaultProps: Partial<MenuProps> = {
-    prefixCls: 'ant-menu',
     className: '',
     theme: 'light', // or dark
     focusable: false,
@@ -225,11 +225,12 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     return menuOpenAnimation;
   }
 
-  renderMenu = ({ getPopupContainer }: ConfigProviderProps) => {
-    const { prefixCls, className, theme } = this.props;
+  renderMenu = ({ getPopupContainer, getPrefixCls }: ConfigConsumerProps) => {
+    const { prefixCls: customizePrefixCls, className, theme } = this.props;
     const menuMode = this.getRealMenuMode();
     const menuOpenAnimation = this.getMenuOpenAnimation(menuMode!);
 
+    const prefixCls = getPrefixCls('menu', customizePrefixCls);
     const menuClassName = classNames(className, `${prefixCls}-${theme}`, {
       [`${prefixCls}-inline-collapsed`]: this.getInlineCollapsed(),
     });
@@ -263,6 +264,7 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
         getPopupContainer={getPopupContainer}
         {...this.props}
         {...menuProps}
+        prefixCls={prefixCls}
         onTransitionEnd={this.handleTransitionEnd}
         onMouseEnter={this.handleMouseEnter}
       />

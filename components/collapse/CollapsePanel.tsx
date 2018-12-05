@@ -1,6 +1,7 @@
 import * as React from 'react';
 import RcCollapse from 'rc-collapse';
 import classNames from 'classnames';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface CollapsePanelProps {
   key: string;
@@ -15,11 +16,26 @@ export interface CollapsePanelProps {
 }
 
 export default class CollapsePanel extends React.Component<CollapsePanelProps, {}> {
-  render() {
-    const { prefixCls, className = '', showArrow = true } = this.props;
+  renderCollapsePanel = ({ getPrefixCls }: ConfigConsumerProps) => {
+    const { prefixCls: customizePrefixCls, className = '', showArrow = true } = this.props;
+    const prefixCls = getPrefixCls('collapse', customizePrefixCls);
     const collapsePanelClassName = classNames({
       [`${prefixCls}-no-arrow`]: !showArrow,
     }, className);
-    return <RcCollapse.Panel {...this.props} className={collapsePanelClassName} />;
+    return (
+      <RcCollapse.Panel
+        {...this.props}
+        prefixCls={prefixCls}
+        className={collapsePanelClassName}
+      />
+    );
+  }
+
+  render() {
+    return (
+      <ConfigConsumer>
+        {this.renderCollapsePanel}
+      </ConfigConsumer>
+    );
   }
 }

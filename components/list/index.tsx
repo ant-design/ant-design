@@ -3,6 +3,7 @@ import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { SpinProps } from '../spin';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import defaultLocale from '../locale-provider/default';
 
 import Spin from '../spin';
@@ -73,7 +74,6 @@ export default class List extends React.Component<ListProps> {
 
   static defaultProps = {
     dataSource: [],
-    prefixCls: 'ant-list',
     bordered: false,
     split: true,
     loading: false,
@@ -133,18 +133,19 @@ export default class List extends React.Component<ListProps> {
     return !!(loadMore || pagination || footer);
   }
 
-  renderEmpty = (contextLocale: ListLocale) => {
+  renderEmpty = (prefixCls: string, contextLocale: ListLocale) => {
     const locale = { ...contextLocale, ...this.props.locale };
     return (
-      <div className={`${this.props.prefixCls}-empty-text`}>
+      <div className={`${prefixCls}-empty-text`}>
         {locale.emptyText}
       </div>
     );
   }
 
-  render() {
+  renderList = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { paginationCurrent } = this.state;
     const {
+      prefixCls: customizePrefixCls,
       bordered,
       split,
       className,
@@ -152,7 +153,6 @@ export default class List extends React.Component<ListProps> {
       itemLayout,
       loadMore,
       pagination,
-      prefixCls,
       grid,
       dataSource,
       size,
@@ -165,6 +165,7 @@ export default class List extends React.Component<ListProps> {
       ...rest
     } = this.props;
 
+    const prefixCls = getPrefixCls('list', customizePrefixCls);
     let loadingProp = loading;
     if (typeof loadingProp === 'boolean') {
       loadingProp = {
@@ -256,7 +257,9 @@ export default class List extends React.Component<ListProps> {
           componentName="Table"
           defaultLocale={defaultLocale.Table}
         >
-          {this.renderEmpty}
+          {(contextLocale: ListLocale) => (
+            this.renderEmpty(prefixCls, contextLocale)
+          )}
         </LocaleReceiver>
       );
     }
@@ -274,6 +277,14 @@ export default class List extends React.Component<ListProps> {
         {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
         {loadMore || (paginationPosition === 'bottom' || paginationPosition === 'both') && paginationContent}
       </div>
+    );
+  }
+
+  render() {
+    return (
+      <ConfigConsumer>
+        {this.renderList}
+      </ConfigConsumer>
     );
   }
 }

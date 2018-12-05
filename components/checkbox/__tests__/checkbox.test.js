@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import Checkbox from '..';
 import focusTest from '../../../tests/shared/focusTest';
 
@@ -10,17 +10,17 @@ describe('Checkbox', () => {
     const onMouseEnter = jest.fn();
     const onMouseLeave = jest.fn();
 
-    const wrapper = shallow(
+    const wrapper = mount(
       <Checkbox
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
       />
     );
 
-    wrapper.simulate('mouseenter');
+    wrapper.find('label').simulate('mouseenter');
     expect(onMouseEnter).toHaveBeenCalled();
 
-    wrapper.simulate('mouseleave');
+    wrapper.find('label').simulate('mouseleave');
     expect(onMouseLeave).toHaveBeenCalled();
   });
 });

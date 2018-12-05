@@ -8,6 +8,7 @@ import classNames from 'classnames';
 import shallowequal from 'shallowequal';
 import Icon from '../icon';
 import Tag from '../tag';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 import interopDefault from '../_util/interopDefault';
 import { RangePickerValue, RangePickerPresetRange } from './interface';
@@ -67,8 +68,6 @@ function fixLocale(value: RangePickerValue | undefined, localeCode: string) {
 
 class RangePicker extends React.Component<any, RangePickerState> {
   static defaultProps = {
-    prefixCls: 'ant-calendar',
-    tagPrefixCls: 'ant-tag',
     allowClear: true,
     showToday: false,
   };
@@ -97,6 +96,8 @@ class RangePicker extends React.Component<any, RangePickerState> {
   }
 
   private picker: HTMLSpanElement;
+  private prefixCls?: string;
+  private tagPrefixCls?: string;
 
   constructor(props: any) {
     super(props);
@@ -215,7 +216,8 @@ class RangePicker extends React.Component<any, RangePickerState> {
   }
 
   renderFooter = (...args: any[]) => {
-    const { prefixCls, ranges, renderExtraFooter, tagPrefixCls } = this.props;
+    const { ranges, renderExtraFooter } = this.props;
+    const { prefixCls, tagPrefixCls } = this;
     if (!ranges && !renderExtraFooter) {
       return null;
     }
@@ -247,16 +249,26 @@ class RangePicker extends React.Component<any, RangePickerState> {
     return [rangeNode, customFooter];
   }
 
-  render() {
+  renderRangePicker = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { state, props } = this;
     const { value, showDate, hoverValue, open } = state;
     const {
-      prefixCls, popupStyle, style,
+      prefixCls: customizePrefixCls,
+      tagPrefixCls: customizeTagPrefixCls,
+      popupStyle, style,
       disabledDate, disabledTime,
       showTime, showToday,
       ranges, onOk, locale, localeCode, format,
       dateRender, onCalendarChange, suffixIcon,
     } = props;
+
+    const prefixCls = getPrefixCls('calendar', customizePrefixCls);
+    const tagPrefixCls = getPrefixCls('tag', customizeTagPrefixCls);
+    // To support old version react.
+    // Have to add prefixCls on the instance.
+    // https://github.com/facebook/react/issues/12397
+    this.prefixCls = prefixCls;
+    this.tagPrefixCls = tagPrefixCls;
 
     fixLocale(value, localeCode);
     fixLocale(showDate, localeCode);
@@ -396,6 +408,14 @@ class RangePicker extends React.Component<any, RangePickerState> {
           {input}
         </RcDatePicker>
       </span>
+    );
+  }
+
+  render() {
+    return (
+      <ConfigConsumer>
+        {this.renderRangePicker}
+      </ConfigConsumer>
     );
   }
 }
