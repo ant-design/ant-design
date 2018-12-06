@@ -9,7 +9,7 @@ import Checkbox, { CheckboxChangeEvent } from './Checkbox';
 export type CheckboxValueType = string | number | boolean;
 
 export interface CheckboxOptionType {
-  label: string;
+  label: React.ReactNode;
   value: CheckboxValueType;
   disabled?: boolean;
   onChange?: (e: CheckboxChangeEvent) => void;
