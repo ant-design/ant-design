@@ -50,7 +50,7 @@ class PriceInput extends React.Component {
 
   handleNumberChange = (e) => {
     const number = parseInt(e.target.value || 0, 10);
-    if (Number.Number.isNaN(number)) {
+    if (Number.isNaN(number)) {
       return;
     }
     if (!('value' in this.props)) {
