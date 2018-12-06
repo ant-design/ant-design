@@ -981,7 +981,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   }
 
   getFlatData() {
-    return flatArray(this.getLocalData());
+    return flatArray(this.getLocalData(null, false));
   }
 
   getFlatCurrentPageData() {
@@ -996,7 +996,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     } : item));
   }
 
-  getLocalData(state?: TableState<T>) {
+  getLocalData(state?: TableState<T> | null, filter: boolean = true): Array<T> {
     const currentState: TableState<T> = state || this.state;
     const { dataSource } = this.props;
     let data = dataSource || [];
@@ -1007,7 +1007,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       data = this.recursiveSort(data, sorterFn);
     }
     // 筛选
-    if (currentState.filters) {
+    if (filter && currentState.filters) {
       Object.keys(currentState.filters).forEach((columnKey) => {
         const col = this.findColumn(columnKey) as any;
         if (!col) {
