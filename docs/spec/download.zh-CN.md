@@ -101,4 +101,31 @@ title: 设计资源
       <span class="resource-card-description">网络字体图标的本地文件包</span>
     </div>
   </a>
+  <a target="_blank" href="https://www.xiaopiu.com/topic/ant-design?tab=mobile" class="resource-card">
+    <div class="resource-card-icon">
+      <img width="72" src="https://img.xiaopiu.com/userImages/img752167822272f8.png">
+    </div>
+    <div class="resource-card-content">
+      <span class="resource-card-title">Mobile 原型（xiaopiu）</span>
+      <span class="resource-card-description">可在线编辑的移动端交互原型和组件库</span>
+    </div>
+  </a>
+  <a target="_blank" href="https://www.xiaopiu.com/topic/ant-design?tab=web" class="resource-card">
+    <div class="resource-card-icon">
+      <img width="72" src="https://img.xiaopiu.com/userImages/img753167822272f8.png">
+    </div>
+    <div class="resource-card-content">
+      <span class="resource-card-title">Ant Design 组件库（xiaopiu）</span>
+      <span class="resource-card-description">专为产品经理和交互设计师打造的交互组件库</span>
+    </div>
+  </a>
+  <a target="_blank" href="https://www.xiaopiu.com/topic/ant-design?tab=pro" class="resource-card">
+    <div class="resource-card-icon">
+      <img width="72" src="https://img.xiaopiu.com/userImages/img751167822272f8.png">
+    </div>
+    <div class="resource-card-content">
+      <span class="resource-card-title">Ant Design Pro 原型（xiaopiu）</span>
+      <span class="resource-card-description">可在线编辑的网页端交互原型和组件库</span>
+    </div>
+  </a>
 </div>
