@@ -26,6 +26,7 @@ and so on.
 | confirmLoading | Whether to apply loading visual effect for OK button or not | boolean | false |
 | destroyOnClose | Whether to unmount child components on onClose | boolean | false |
 | footer | Footer content, set as `footer={null}` when you don't need default buttons | string\|ReactNode | OK and Cancel buttons |
+| forceRender | Force render Modal | boolean | false |
 | getContainer | Return the mount node for Modal | (instance): HTMLElement | () => document.body |
 | mask | Whether show mask or not. | Boolean | true |
 | maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean | true |
