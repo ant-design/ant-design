@@ -805,8 +805,11 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       const key = this.getColumnKey(column, i) as string;
       let filterDropdown;
       let sortButton;
-      const sortTitle = this.getColumnTitle(column.title, {}) || locale.sortTitle;
+      let sortTitle;
       const isSortColumn = this.isSortColumn(column);
+      if (!React.isValidElement(column.title)) {
+        sortTitle = this.getColumnTitle(column.title, {});
+      }
       if ((column.filters && column.filters.length > 0) || column.filterDropdown) {
         const colFilters = key in filters ? filters[key] : [];
         filterDropdown = (
@@ -826,7 +829,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         const isAscend = isSortColumn && sortOrder === 'ascend';
         const isDescend = isSortColumn && sortOrder === 'descend';
         sortButton = (
-          <div className={`${prefixCls}-column-sorter`} key="sorter">
+          <div className={`${prefixCls}-column-sorter`} key="sorter" title={locale.sortTitle}>
             <Icon
               className={`${prefixCls}-column-sorter-up ${isAscend ? 'on' : 'off'}`}
               type="caret-up"
@@ -851,7 +854,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         title: [
           <div
             key="title"
-            title={sortButton ? sortTitle : undefined}
+            title={sortTitle}
             className={sortButton ? `${prefixCls}-column-sorters` : undefined}
             onClick={() => this.toggleSortOrder(column)}
           >
@@ -880,8 +883,8 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     if (!title) {
       return;
     }
-    if (!(title instanceof Function) && typeof title !== 'string' && typeof title !== 'number') {
-      const props = title.props;
+    if (!React.isValidElement(title)) {
+      const props = title.props || {};
       const { children } = props;
       if (props && props.children) {
         return this.getColumnTitle(children, props);
