@@ -45,7 +45,8 @@
     border-radius: 50%;
     border: solid 2px @slider-handle-color;
     background-color: @component-background;
-    transition: border-color .3s, transform .3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    box-shadow: 0;
+    transition: border-color .3s, box-shadow .6s, transform .3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
 
     &:focus {
       border-color: @slider-handle-color-focus;
