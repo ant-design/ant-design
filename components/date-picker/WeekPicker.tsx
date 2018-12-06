@@ -39,6 +39,7 @@ class WeekPicker extends React.Component<any, any> {
       value,
     };
   }
+
   weekDateRender = (current: any) => {
     const selectedValue = this.state.value;
     const { prefixCls } = this.props;
@@ -59,13 +60,29 @@ class WeekPicker extends React.Component<any, any> {
       </div>
     );
   }
+
   handleChange = (value: moment.Moment | null) => {
     if (!('value' in this.props)) {
       this.setState({ value });
     }
     this.props.onChange(value, formatValue(value, this.props.format));
-    this.focus();
   }
+
+  handleOpenChange = (open: boolean) => {
+    const { onOpenChange } = this.props;
+    if (!('open' in this.props)) {
+      this.setState({ open });
+    }
+
+    if (onOpenChange) {
+      onOpenChange(open);
+    }
+
+    if (!open) {
+      this.focus();
+    }
+  };
+
   clearSelection = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     e.stopPropagation();
@@ -91,6 +108,7 @@ class WeekPicker extends React.Component<any, any> {
       style, onFocus, onBlur, id, suffixIcon,
     } = this.props;
 
+    const { open } = this.state;
     const pickerValue = this.state.value;
     if (pickerValue && localeCode) {
       pickerValue.locale(localeCode);
@@ -164,6 +182,8 @@ class WeekPicker extends React.Component<any, any> {
           prefixCls={`${prefixCls}-picker-container`}
           value={pickerValue}
           onChange={this.handleChange}
+          open={open}
+          onOpenChange={this.handleOpenChange}
           style={popupStyle}
         >
           {input}

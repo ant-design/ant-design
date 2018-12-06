@@ -92,7 +92,6 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
         });
       }
       props.onChange(value, (value && value.format(props.format)) || '');
-      this.focus();
     }
 
     handleCalendarChange = (value: moment.Moment) => {
@@ -107,6 +106,10 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
 
       if (onOpenChange) {
         onOpenChange(open);
+      }
+
+      if (!open) {
+        this.focus();
       }
     };
 
