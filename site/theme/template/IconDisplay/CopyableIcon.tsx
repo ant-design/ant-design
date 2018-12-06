@@ -14,19 +14,25 @@ export interface CopyableIconProps {
 }
 
 const CopyableIcon: React.SFC<CopyableIconProps> = ({
-  type, theme, isNew, justCopied, onCopied,
+  type,
+  theme,
+  isNew,
+  justCopied,
+  onCopied,
 }) => {
   return (
     <CopyToClipboard
-      text={theme === 'outlined' ? `<Icon type="${type}" />` : `<Icon type="${type}" theme="${theme}" />`}
+      text={
+        theme === 'outlined'
+          ? `<Icon type="${type}" />`
+          : `<Icon type="${type}" theme="${theme}" />`
+      }
       onCopy={(text: string) => onCopied(type, text)}
     >
       <li className={justCopied === type ? 'copied' : ''}>
-        <Icon type={type} theme={theme}/>
+        <Icon type={type} theme={theme} />
         <span className="anticon-class">
-          <Badge dot={isNew}>
-            {type}
-          </Badge>
+          <Badge dot={isNew}>{type}</Badge>
         </span>
       </li>
     </CopyToClipboard>

@@ -17,24 +17,26 @@ export default class BreadcrumbItem extends React.Component<BreadcrumbItemProps,
 
   static propTypes = {
     prefixCls: PropTypes.string,
-    separator: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.element,
-    ]),
+    separator: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
     href: PropTypes.string,
   };
 
   renderBreadcrumbItem = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const {
-      prefixCls: customizePrefixCls,
-      separator, children, ...restProps
-    } = this.props;
+    const { prefixCls: customizePrefixCls, separator, children, ...restProps } = this.props;
     const prefixCls = getPrefixCls('breadcrumb', customizePrefixCls);
     let link;
     if ('href' in this.props) {
-      link = <a className={`${prefixCls}-link`} {...restProps}>{children}</a>;
+      link = (
+        <a className={`${prefixCls}-link`} {...restProps}>
+          {children}
+        </a>
+      );
     } else {
-      link = <span className={`${prefixCls}-link`} {...restProps}>{children}</span>;
+      link = (
+        <span className={`${prefixCls}-link`} {...restProps}>
+          {children}
+        </span>
+      );
     }
     if (children) {
       return (
@@ -45,13 +47,9 @@ export default class BreadcrumbItem extends React.Component<BreadcrumbItemProps,
       );
     }
     return null;
-  }
+  };
 
   render() {
-    return (
-      <ConfigConsumer>
-        {this.renderBreadcrumbItem}
-      </ConfigConsumer>
-    );
+    return <ConfigConsumer>{this.renderBreadcrumbItem}</ConfigConsumer>;
   }
 }

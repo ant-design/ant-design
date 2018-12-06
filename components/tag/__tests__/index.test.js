@@ -13,9 +13,7 @@ describe('Tag', () => {
 
   it('should be closable', () => {
     const onClose = jest.fn();
-    const wrapper = mount(
-      <Tag closable onClose={onClose} />
-    );
+    const wrapper = mount(<Tag closable onClose={onClose} />);
     expect(wrapper.find('.anticon-close').length).toBe(1);
     expect(wrapper.find('.ant-tag').length).toBe(1);
     wrapper.find('.anticon-close').simulate('click');
@@ -26,12 +24,10 @@ describe('Tag', () => {
   });
 
   it('should not be closed when prevent default', () => {
-    const onClose = (e) => {
+    const onClose = e => {
       e.preventDefault();
     };
-    const wrapper = mount(
-      <Tag closable onClose={onClose} />
-    );
+    const wrapper = mount(<Tag closable onClose={onClose} />);
     expect(wrapper.find('.anticon-close').length).toBe(1);
     expect(wrapper.find('.ant-tag').length).toBe(1);
     wrapper.find('.anticon-close').simulate('click');
@@ -41,9 +37,7 @@ describe('Tag', () => {
 
   describe('visibility', () => {
     it('can be controlled by visible with visible as initial value', () => {
-      const wrapper = mount(
-        <Tag visible />
-      );
+      const wrapper = mount(<Tag visible />);
       expect(wrapper.render()).toMatchSnapshot();
       wrapper.setProps({ visible: false });
       jest.runAllTimers();
@@ -54,9 +48,7 @@ describe('Tag', () => {
     });
 
     it('can be controlled by visible with hidden as initial value', () => {
-      const wrapper = mount(
-        <Tag visible={false} />
-      );
+      const wrapper = mount(<Tag visible={false} />);
       expect(wrapper.render()).toMatchSnapshot();
       wrapper.setProps({ visible: true });
       jest.runAllTimers();

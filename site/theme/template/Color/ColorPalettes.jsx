@@ -78,7 +78,9 @@ const ColorPalettes = () => {
   ];
   return (
     <div className="color-palettes">
-      {colors.map(color => <Palette key={color.name} color={color} showTitle />)}
+      {colors.map(color => (
+        <Palette key={color.name} color={color} showTitle />
+      ))}
     </div>
   );
 };

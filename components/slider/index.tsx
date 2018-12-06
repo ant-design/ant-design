@@ -6,10 +6,12 @@ import Tooltip from '../tooltip';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface SliderMarks {
-  [key: number]: React.ReactNode | {
-    style: React.CSSProperties,
-    label: React.ReactNode,
-  };
+  [key: number]:
+    | React.ReactNode
+    | {
+        style: React.CSSProperties;
+        label: React.ReactNode;
+      };
 }
 
 export type SliderValue = number | [number, number];
@@ -19,8 +21,11 @@ interface HandleGeneratorInfo {
   dragging: boolean;
   index: number;
   rest: any[];
-};
-export type HandleGeneratorFn = (tooltipPrefixCls: string, info: HandleGeneratorInfo) => React.ReactElement<any>;
+}
+export type HandleGeneratorFn = (
+  tooltipPrefixCls: string,
+  info: HandleGeneratorInfo,
+) => React.ReactElement<any>;
 
 export interface SliderProps {
   prefixCls?: string;
@@ -72,11 +77,14 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
         [index]: visible,
       },
     }));
-  }
-  handleWithTooltip: HandleGeneratorFn = (tooltipPrefixCls: string, { value, dragging, index, ...restProps }) => {
+  };
+  handleWithTooltip: HandleGeneratorFn = (
+    tooltipPrefixCls: string,
+    { value, dragging, index, ...restProps },
+  ) => {
     const { tipFormatter, tooltipVisible } = this.props;
     const { visibles } = this.state;
-    const isTipFormatter = tipFormatter ? (visibles[index] || dragging) : false;
+    const isTipFormatter = tipFormatter ? visibles[index] || dragging : false;
     let visible;
     if (tooltipVisible) {
       visible = tooltipVisible || isTipFormatter;
@@ -100,7 +108,7 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
         />
       </Tooltip>
     );
-  }
+  };
 
   focus() {
     this.rcSlider.focus();
@@ -112,12 +120,14 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
 
   saveSlider = (node: any) => {
     this.rcSlider = node;
-  }
+  };
 
   renderSlider = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
-      prefixCls: customizePrefixCls, tooltipPrefixCls: customizeTooltipPrefixCls,
-      range, ...restProps
+      prefixCls: customizePrefixCls,
+      tooltipPrefixCls: customizeTooltipPrefixCls,
+      range,
+      ...restProps
     } = this.props;
     const prefixCls = getPrefixCls('slider', customizePrefixCls);
     const tooltipPrefixCls = getPrefixCls('tooltip', customizeTooltipPrefixCls);
@@ -126,9 +136,7 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
         <RcRange
           {...restProps}
           ref={this.saveSlider}
-          handle={(info: HandleGeneratorInfo) => (
-            this.handleWithTooltip(tooltipPrefixCls, info)
-          )}
+          handle={(info: HandleGeneratorInfo) => this.handleWithTooltip(tooltipPrefixCls, info)}
           prefixCls={prefixCls}
           tooltipPrefixCls={tooltipPrefixCls}
         />
@@ -138,20 +146,14 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
       <RcSlider
         {...restProps}
         ref={this.saveSlider}
-        handle={(info: HandleGeneratorInfo) => (
-          this.handleWithTooltip(tooltipPrefixCls, info)
-        )}
+        handle={(info: HandleGeneratorInfo) => this.handleWithTooltip(tooltipPrefixCls, info)}
         prefixCls={prefixCls}
         tooltipPrefixCls={tooltipPrefixCls}
       />
     );
-  }
+  };
 
   render() {
-    return (
-      <ConfigConsumer>
-        {this.renderSlider}
-      </ConfigConsumer>
-    );
+    return <ConfigConsumer>{this.renderSlider}</ConfigConsumer>;
   }
 }

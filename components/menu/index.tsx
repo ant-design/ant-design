@@ -87,12 +87,12 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     warning(
       !('onOpen' in props || 'onClose' in props),
       '`onOpen` and `onClose` are removed, please use `onOpenChange` instead, ' +
-      'see: https://u.ant.design/menu-on-open-change.',
+        'see: https://u.ant.design/menu-on-open-change.',
     );
 
     warning(
       !('inlineCollapsed' in props && props.mode !== 'inline'),
-      '`inlineCollapsed` should only be used when Menu\'s `mode` is inline.',
+      "`inlineCollapsed` should only be used when Menu's `mode` is inline.",
     );
 
     let openKeys;
@@ -113,22 +113,25 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     };
   }
   componentWillReceiveProps(nextProps: MenuProps, nextContext: SiderContext) {
-    if (this.props.mode === 'inline' &&
-        nextProps.mode !== 'inline') {
+    if (this.props.mode === 'inline' && nextProps.mode !== 'inline') {
       this.switchingModeFromInline = true;
     }
     if ('openKeys' in nextProps) {
       this.setState({ openKeys: nextProps.openKeys! });
       return;
     }
-    if ((nextProps.inlineCollapsed && !this.props.inlineCollapsed) ||
-        (nextContext.siderCollapsed && !this.context.siderCollapsed)) {
+    if (
+      (nextProps.inlineCollapsed && !this.props.inlineCollapsed) ||
+      (nextContext.siderCollapsed && !this.context.siderCollapsed)
+    ) {
       this.switchingModeFromInline = true;
       this.inlineOpenKeys = this.state.openKeys;
       this.setState({ openKeys: [] });
     }
-    if ((!nextProps.inlineCollapsed && this.props.inlineCollapsed) ||
-        (!nextContext.siderCollapsed && this.context.siderCollapsed)) {
+    if (
+      (!nextProps.inlineCollapsed && this.props.inlineCollapsed) ||
+      (!nextContext.siderCollapsed && this.context.siderCollapsed)
+    ) {
       this.setState({ openKeys: this.inlineOpenKeys });
       this.inlineOpenKeys = [];
     }
@@ -148,18 +151,19 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     if (onMouseEnter) {
       onMouseEnter(e);
     }
-  }
+  };
   handleTransitionEnd = (e: TransitionEvent) => {
     // when inlineCollapsed menu width animation finished
     // https://github.com/ant-design/ant-design/issues/12864
     const widthCollapsed = e.propertyName === 'width' && e.target === e.currentTarget;
     // Fix for <Menu style={{ width: '100%' }} />, the width transition won't trigger when menu is collapsed
     // https://github.com/ant-design/ant-design-pro/issues/2783
-    const iconScaled = e.propertyName === 'font-size' && (e.target as HTMLElement).className.indexOf('anticon') >= 0;
+    const iconScaled =
+      e.propertyName === 'font-size' && (e.target as HTMLElement).className.indexOf('anticon') >= 0;
     if (widthCollapsed || iconScaled) {
       this.restoreModeVerticalFromInline();
     }
-  }
+  };
   handleClick = (e: ClickParam) => {
     this.handleOpenChange([]);
 
@@ -167,7 +171,7 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     if (onClick) {
       onClick(e);
     }
-  }
+  };
   handleOpenChange = (openKeys: string[]) => {
     this.setOpenKeys(openKeys);
 
@@ -175,7 +179,7 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     if (onOpenChange) {
       onOpenChange(openKeys);
     }
-  }
+  };
   setOpenKeys(openKeys: string[]) {
     if (!('openKeys' in this.props)) {
       this.setState({ openKeys });
@@ -269,13 +273,9 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
         onMouseEnter={this.handleMouseEnter}
       />
     );
-  }
+  };
 
   render() {
-    return (
-      <ConfigConsumer>
-        {this.renderMenu}
-      </ConfigConsumer>
-    );
+    return <ConfigConsumer>{this.renderMenu}</ConfigConsumer>;
   }
 }

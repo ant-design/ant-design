@@ -28,22 +28,13 @@ export default class Comment extends React.Component<CommentProps, {}> {
     if (!actions || !actions.length) {
       return null;
     }
-    const actionList = actions.map((action, index) => (
-        <li key={`action-${index}`}>
-          {action}
-        </li>
-      ),
-    );
+    const actionList = actions.map((action, index) => <li key={`action-${index}`}>{action}</li>);
     return actionList;
   }
 
   renderNested = (prefixCls: string, children: any) => {
-    return (
-      <div className={classNames(`${prefixCls}-nested`)}>
-        {children}
-      </div>
-    );
-  }
+    return <div className={classNames(`${prefixCls}-nested`)}>{children}</div>;
+  };
 
   renderComment = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
@@ -67,31 +58,22 @@ export default class Comment extends React.Component<CommentProps, {}> {
       </div>
     );
 
-    const actionDom = actions && actions.length
-      ? <ul className={`${prefixCls}-actions`}>{this.getAction(actions)}</ul>
-      : null;
+    const actionDom =
+      actions && actions.length ? (
+        <ul className={`${prefixCls}-actions`}>{this.getAction(actions)}</ul>
+      ) : null;
 
     const authorContent = (
       <div className={`${prefixCls}-content-author`}>
-        {author && (
-          <span className={`${prefixCls}-content-author-name`}>
-            {author}
-          </span>
-        )}
-        {datetime && (
-          <span className={`${prefixCls}-content-author-time`}>
-            {datetime}
-          </span>
-        )}
+        {author && <span className={`${prefixCls}-content-author-name`}>{author}</span>}
+        {datetime && <span className={`${prefixCls}-content-author-time`}>{datetime}</span>}
       </div>
     );
 
     const contentDom = (
       <div className={`${prefixCls}-content`}>
         {authorContent}
-        <div className={`${prefixCls}-content-detail`}>
-          {content}
-        </div>
+        <div className={`${prefixCls}-content-detail`}>{content}</div>
         {actionDom}
       </div>
     );
@@ -109,13 +91,9 @@ export default class Comment extends React.Component<CommentProps, {}> {
         {children ? this.renderNested(prefixCls, children) : null}
       </div>
     );
-  }
+  };
 
   render() {
-    return (
-      <ConfigConsumer>
-        {this.renderComment}
-      </ConfigConsumer>
-    );
+    return <ConfigConsumer>{this.renderComment}</ConfigConsumer>;
   }
 }

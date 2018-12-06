@@ -7,7 +7,9 @@ import RangePicker from './RangePicker';
 import WeekPicker from './WeekPicker';
 import { DatePickerProps, DatePickerDecorator } from './interface';
 
-const DatePicker = wrapPicker(createPicker(RcCalendar)) as React.ClassicComponentClass<DatePickerProps>;
+const DatePicker = wrapPicker(createPicker(RcCalendar)) as React.ClassicComponentClass<
+  DatePickerProps
+>;
 
 const MonthPicker = wrapPicker(createPicker(MonthCalendar), 'YYYY-MM');
 

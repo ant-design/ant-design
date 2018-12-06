@@ -41,20 +41,12 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       getPrefixCls: this.getPrefixCls,
     };
 
-    return (
-      <ConfigContext.Provider value={config}>
-        {children}
-      </ConfigContext.Provider>
-    );
-  }
+    return <ConfigContext.Provider value={config}>{children}</ConfigContext.Provider>;
+  };
 
   render() {
-    return (
-      <ConfigConsumer>
-        {this.renderProvider}
-      </ConfigConsumer>
-    );
+    return <ConfigConsumer>{this.renderProvider}</ConfigConsumer>;
   }
 }
 
- export default ConfigProvider;
+export default ConfigProvider;

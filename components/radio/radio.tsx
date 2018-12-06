@@ -25,9 +25,11 @@ export default class Radio extends React.Component<RadioProps, {}> {
   private rcCheckbox: any;
 
   shouldComponentUpdate(nextProps: RadioProps, nextState: {}, nextContext: RadioGroupContext) {
-    return !shallowEqual(this.props, nextProps) ||
-           !shallowEqual(this.state, nextState) ||
-           !shallowEqual(this.context.radioGroup, nextContext.radioGroup);
+    return (
+      !shallowEqual(this.props, nextProps) ||
+      !shallowEqual(this.state, nextState) ||
+      !shallowEqual(this.context.radioGroup, nextContext.radioGroup)
+    );
   }
 
   focus() {
@@ -40,17 +42,11 @@ export default class Radio extends React.Component<RadioProps, {}> {
 
   saveCheckbox = (node: any) => {
     this.rcCheckbox = node;
-  }
+  };
 
   renderRadio = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { props, context } = this;
-    const {
-      prefixCls: customizePrefixCls,
-      className,
-      children,
-      style,
-      ...restProps
-    } = props;
+    const { prefixCls: customizePrefixCls, className, children, style, ...restProps } = props;
     const { radioGroup } = context;
     const prefixCls = getPrefixCls('radio', customizePrefixCls);
     const radioProps: RadioProps = { ...restProps };
@@ -73,21 +69,13 @@ export default class Radio extends React.Component<RadioProps, {}> {
         onMouseEnter={props.onMouseEnter}
         onMouseLeave={props.onMouseLeave}
       >
-        <RcCheckbox
-          {...radioProps}
-          prefixCls={prefixCls}
-          ref={this.saveCheckbox}
-        />
+        <RcCheckbox {...radioProps} prefixCls={prefixCls} ref={this.saveCheckbox} />
         {children !== undefined ? <span>{children}</span> : null}
       </label>
     );
-  }
+  };
 
   render() {
-    return (
-      <ConfigConsumer>
-        {this.renderRadio}
-      </ConfigConsumer>
-    );
+    return <ConfigConsumer>{this.renderRadio}</ConfigConsumer>;
   }
 }

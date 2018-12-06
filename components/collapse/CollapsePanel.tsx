@@ -19,23 +19,18 @@ export default class CollapsePanel extends React.Component<CollapsePanelProps, {
   renderCollapsePanel = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, className = '', showArrow = true } = this.props;
     const prefixCls = getPrefixCls('collapse', customizePrefixCls);
-    const collapsePanelClassName = classNames({
-      [`${prefixCls}-no-arrow`]: !showArrow,
-    }, className);
-    return (
-      <RcCollapse.Panel
-        {...this.props}
-        prefixCls={prefixCls}
-        className={collapsePanelClassName}
-      />
+    const collapsePanelClassName = classNames(
+      {
+        [`${prefixCls}-no-arrow`]: !showArrow,
+      },
+      className,
     );
-  }
+    return (
+      <RcCollapse.Panel {...this.props} prefixCls={prefixCls} className={collapsePanelClassName} />
+    );
+  };
 
   render() {
-    return (
-      <ConfigConsumer>
-        {this.renderCollapsePanel}
-      </ConfigConsumer>
-    );
+    return <ConfigConsumer>{this.renderCollapsePanel}</ConfigConsumer>;
   }
 }

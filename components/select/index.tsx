@@ -131,8 +131,8 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
     warning(
       props.mode !== 'combobox',
       'The combobox mode of Select is deprecated,' +
-      'it will be removed in next major version,' +
-      'please use AutoComplete instead',
+        'it will be removed in next major version,' +
+        'please use AutoComplete instead',
     );
   }
 
@@ -146,7 +146,7 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
 
   saveSelect = (node: any) => {
     this.rcSelect = node;
-  }
+  };
 
   getNotFoundContent(locale: SelectLocale) {
     const { notFoundContent } = this.props;
@@ -163,15 +163,13 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
   }
 
   renderSuffixIcon(prefixCls: string) {
-    const {
-      loading,
-      suffixIcon,
-    } = this.props;
+    const { loading, suffixIcon } = this.props;
     if (suffixIcon) {
-      return React.isValidElement<{ className?: string }>(suffixIcon) ?
-        React.cloneElement(suffixIcon, {
-          className: classNames(suffixIcon.props.className, `${prefixCls}-arrow-icon`),
-        }) : suffixIcon;
+      return React.isValidElement<{ className?: string }>(suffixIcon)
+        ? React.cloneElement(suffixIcon, {
+            className: classNames(suffixIcon.props.className, `${prefixCls}-arrow-icon`),
+          })
+        : suffixIcon;
     }
     if (loading) {
       return <Icon type="loading" />;
@@ -196,10 +194,13 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
         const rest = omit(restProps, ['inputIcon']);
 
         const prefixCls = getPrefixCls('select', customizePrefixCls);
-        const cls = classNames({
-          [`${prefixCls}-lg`]: size === 'large',
-          [`${prefixCls}-sm`]: size === 'small',
-        }, className);
+        const cls = classNames(
+          {
+            [`${prefixCls}-lg`]: size === 'large',
+            [`${prefixCls}-sm`]: size === 'small',
+          },
+          className,
+        );
 
         let { optionLabelProp } = this.props;
         if (this.isCombobox()) {
@@ -213,45 +214,31 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
           combobox: this.isCombobox(),
         };
 
-        const finalRemoveIcon = removeIcon && (
-          React.isValidElement<{ className?: string }>(removeIcon) ?
-            React.cloneElement(
-              removeIcon,
-              {
-                className: classNames(
-                  removeIcon.props.className,
-                  `${prefixCls}-remove-icon`,
-                ),
-              },
-            ) : removeIcon) || (
-          <Icon type="close" className={`${prefixCls}-remove-icon`} />
-        );
+        const finalRemoveIcon = (removeIcon &&
+          (React.isValidElement<{ className?: string }>(removeIcon)
+            ? React.cloneElement(removeIcon, {
+                className: classNames(removeIcon.props.className, `${prefixCls}-remove-icon`),
+              })
+            : removeIcon)) || <Icon type="close" className={`${prefixCls}-remove-icon`} />;
 
-        const finalClearIcon = clearIcon && (
-          React.isValidElement<{ className?: string }>(clearIcon) ?
-            React.cloneElement(
-              clearIcon,
-              {
-                className: classNames(
-                  clearIcon.props.className,
-                  `${prefixCls}-clear-icon`,
-                ),
-              },
-            ) : clearIcon) || (
+        const finalClearIcon = (clearIcon &&
+          (React.isValidElement<{ className?: string }>(clearIcon)
+            ? React.cloneElement(clearIcon, {
+                className: classNames(clearIcon.props.className, `${prefixCls}-clear-icon`),
+              })
+            : clearIcon)) || (
           <Icon type="close-circle" theme="filled" className={`${prefixCls}-clear-icon`} />
         );
 
-        const finalMenuItemSelectedIcon = menuItemSelectedIcon && (
-          React.isValidElement<{ className?: string }>(menuItemSelectedIcon) ?
-            React.cloneElement(
-              menuItemSelectedIcon,
-              {
+        const finalMenuItemSelectedIcon = (menuItemSelectedIcon &&
+          (React.isValidElement<{ className?: string }>(menuItemSelectedIcon)
+            ? React.cloneElement(menuItemSelectedIcon, {
                 className: classNames(
                   menuItemSelectedIcon.props.className,
                   `${prefixCls}-selected-icon`,
                 ),
-              },
-            ) : menuItemSelectedIcon) || (
+              })
+            : menuItemSelectedIcon)) || (
           <Icon type="check" className={`${prefixCls}-selected-icon`} />
         );
 
@@ -277,10 +264,7 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
 
   render() {
     return (
-      <LocaleReceiver
-        componentName="Select"
-        defaultLocale={defaultLocale.Select}
-      >
+      <LocaleReceiver componentName="Select" defaultLocale={defaultLocale.Select}>
         {this.renderSelect}
       </LocaleReceiver>
     );

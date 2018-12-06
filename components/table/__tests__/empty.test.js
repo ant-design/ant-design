@@ -15,10 +15,18 @@ const columns = [
 
 const columnsFixed = [
   {
-    title: 'Full Name', width: 100, dataIndex: 'name', key: 'name', fixed: 'left',
+    title: 'Full Name',
+    width: 100,
+    dataIndex: 'name',
+    key: 'name',
+    fixed: 'left',
   },
   {
-    title: 'Age', width: 100, dataIndex: 'age', key: 'age', fixed: 'left',
+    title: 'Age',
+    width: 100,
+    dataIndex: 'age',
+    key: 'age',
+    fixed: 'left',
   },
   { title: 'Column 1', dataIndex: 'address', key: '1' },
   { title: 'Column 2', dataIndex: 'address', key: '2' },
@@ -38,16 +46,12 @@ const columnsFixed = [
 
 describe('Table', () => {
   it('renders empty table', () => {
-    const wrapper = render(
-      <Table dataSource={[]} columns={columns} pagination={false} />
-    );
+    const wrapper = render(<Table dataSource={[]} columns={columns} pagination={false} />);
     expect(wrapper).toMatchSnapshot();
   });
 
   it('renders empty table with fixed columns', () => {
-    const wrapper = render(
-      <Table dataSource={[]} columns={columnsFixed} pagination={false} />
-    );
+    const wrapper = render(<Table dataSource={[]} columns={columnsFixed} pagination={false} />);
     expect(wrapper).toMatchSnapshot();
   });
 
@@ -58,15 +62,13 @@ describe('Table', () => {
         columns={columns}
         pagination={false}
         locale={{ emptyText: 'custom empty text ' }}
-      />
+      />,
     );
     expect(wrapper).toMatchSnapshot();
   });
 
   it('renders empty table without emptyText when loading', () => {
-    const wrapper = render(
-      <Table dataSource={[]} columns={columns} loading />
-    );
+    const wrapper = render(<Table dataSource={[]} columns={columns} loading />);
     expect(wrapper).toMatchSnapshot();
   });
 });

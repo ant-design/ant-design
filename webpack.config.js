@@ -30,7 +30,7 @@ function externalMoment(config) {
 
 const webpackConfig = getWebpackConfig(false);
 if (process.env.RUN_ENV === 'PRODUCTION') {
-  webpackConfig.forEach((config) => {
+  webpackConfig.forEach(config => {
     ignoreMomentLocale(config);
     externalMoment(config);
     addLocales(config);

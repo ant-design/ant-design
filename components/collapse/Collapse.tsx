@@ -24,21 +24,22 @@ export default class Collapse extends React.Component<CollapseProps, any> {
 
   static defaultProps = {
     bordered: true,
-    openAnimation: { ...animation, appear() { } },
+    openAnimation: { ...animation, appear() {} },
   };
 
   renderExpandIcon = () => {
-    return (
-      <Icon type="right" className={`arrow`} />
-    );
-  }
+    return <Icon type="right" className={`arrow`} />;
+  };
 
   renderCollapse = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, className = '', bordered } = this.props;
     const prefixCls = getPrefixCls('collapse', customizePrefixCls);
-    const collapseClassName = classNames({
-      [`${prefixCls}-borderless`]: !bordered,
-    }, className);
+    const collapseClassName = classNames(
+      {
+        [`${prefixCls}-borderless`]: !bordered,
+      },
+      className,
+    );
     return (
       <RcCollapse
         {...this.props}
@@ -47,13 +48,9 @@ export default class Collapse extends React.Component<CollapseProps, any> {
         expandIcon={this.renderExpandIcon}
       />
     );
-  }
+  };
 
   render() {
-    return (
-      <ConfigConsumer>
-        {this.renderCollapse}
-      </ConfigConsumer>
-    );
+    return <ConfigConsumer>{this.renderCollapse}</ConfigConsumer>;
   }
 }

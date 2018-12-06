@@ -55,12 +55,9 @@ export default function createTableRow(Component: React.ReactType = 'tr') {
 
     render() {
       const rowProps = omit(this.props, ['prefixCls', 'rowKey', 'store']);
-      const className = classnames(
-        this.props.className,
-        {
-          [`${this.props.prefixCls}-row-selected`]: this.state.selected,
-        },
-      );
+      const className = classnames(this.props.className, {
+        [`${this.props.prefixCls}-row-selected`]: this.state.selected,
+      });
 
       return (
         <Component {...rowProps} className={className}>

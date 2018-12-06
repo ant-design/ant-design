@@ -25,9 +25,8 @@ const Divider: React.SFC<DividerProps> = props => (
         ...restProps
       } = props;
       const prefixCls = getPrefixCls('divider', customizePrefixCls);
-      const orientationPrefix = (orientation.length > 0) ? '-' + orientation : orientation;
-      const classString = classNames(
-        className, prefixCls, `${prefixCls}-${type}`, {
+      const orientationPrefix = orientation.length > 0 ? '-' + orientation : orientation;
+      const classString = classNames(className, prefixCls, `${prefixCls}-${type}`, {
         [`${prefixCls}-with-text${orientationPrefix}`]: children,
         [`${prefixCls}-dashed`]: !!dashed,
       });

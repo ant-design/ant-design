@@ -23,12 +23,12 @@ describe('DropdownButton', () => {
     const wrapper = mount(<Dropdown.Button {...props} />);
     const dropdownProps = wrapper.find(Dropdown).props();
 
-    Object.keys(props).forEach((key) => {
+    Object.keys(props).forEach(key => {
       expect(dropdownProps[key]).toBe(props[key]); // eslint-disable-line
     });
   });
 
-  it('don\'t pass visible to Dropdown if it\'s not exits', () => {
+  it("don't pass visible to Dropdown if it's not exits", () => {
     const menu = (
       <Menu>
         <Menu.Item>foo</Menu.Item>

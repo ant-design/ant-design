@@ -10,12 +10,17 @@ describe('AutoComplete with Custom Input Element Render', () => {
     const wrapper = mount(
       <AutoComplete dataSource={['12345', '23456', '34567']}>
         <textarea />
-      </AutoComplete>
+      </AutoComplete>,
     );
 
     expect(wrapper.find('textarea').length).toBe(1);
     wrapper.find('textarea').simulate('change', { target: { value: '123' } });
-    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
+    const dropdownWrapper = mount(
+      wrapper
+        .find('Trigger')
+        .instance()
+        .getComponent(),
+    );
 
     // should not filter data source defaultly
     expect(dropdownWrapper.find('MenuItem').length).toBe(3);
@@ -26,7 +31,7 @@ describe('AutoComplete with Custom Input Element Render', () => {
     mount(
       <AutoComplete dataSource={[]}>
         <input ref={mockRef} />
-      </AutoComplete>
+      </AutoComplete>,
     );
     expect(mockRef).toHaveBeenCalled();
   });

@@ -45,24 +45,17 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
 
   saveTreeSelect = (node: typeof RcTreeSelect) => {
     this.rcTreeSelect = node;
-  }
+  };
 
   renderSwitcherIcon = (prefixCls: string, { isLeaf, loading }: AntTreeNodeProps) => {
     if (loading) {
-      return (
-        <Icon
-          type="loading"
-          className={`${prefixCls}-switcher-loading-icon`}
-        />
-      );
+      return <Icon type="loading" className={`${prefixCls}-switcher-loading-icon`} />;
     }
     if (isLeaf) {
       return null;
     }
-    return (
-      <Icon type="caret-down" className={`${prefixCls}-switcher-icon`} />
-    );
-  }
+    return <Icon type="caret-down" className={`${prefixCls}-switcher-icon`} />;
+  };
 
   renderTreeSelect = (locale: SelectLocale) => (
     <ConfigConsumer>
@@ -81,25 +74,25 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
         const rest = omit(restProps, ['inputIcon', 'removeIcon', 'clearIcon', 'switcherIcon']);
 
         const prefixCls = getPrefixCls('select', customizePrefixCls);
-        const cls = classNames({
-          [`${prefixCls}-lg`]: size === 'large',
-          [`${prefixCls}-sm`]: size === 'small',
-        }, className);
+        const cls = classNames(
+          {
+            [`${prefixCls}-lg`]: size === 'large',
+            [`${prefixCls}-sm`]: size === 'small',
+          },
+          className,
+        );
 
         let checkable = rest.treeCheckable;
         if (checkable) {
           checkable = <span className={`${prefixCls}-tree-checkbox-inner`} />;
         }
 
-        const inputIcon = suffixIcon && (
-          React.isValidElement<{ className?: string }>(suffixIcon)
-            ? React.cloneElement(suffixIcon) : suffixIcon) || (
-            <Icon type="down" className={`${prefixCls}-arrow-icon`} />
-          );
+        const inputIcon = (suffixIcon &&
+          (React.isValidElement<{ className?: string }>(suffixIcon)
+            ? React.cloneElement(suffixIcon)
+            : suffixIcon)) || <Icon type="down" className={`${prefixCls}-arrow-icon`} />;
 
-        const removeIcon = (
-          <Icon type="close" className={`${prefixCls}-remove-icon`} />
-        );
+        const removeIcon = <Icon type="close" className={`${prefixCls}-remove-icon`} />;
 
         const clearIcon = (
           <Icon type="close-circle" className={`${prefixCls}-clear-icon`} theme="filled" />
@@ -107,9 +100,9 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
 
         return (
           <RcTreeSelect
-            switcherIcon={(nodeProps: AntTreeNodeProps) => (
+            switcherIcon={(nodeProps: AntTreeNodeProps) =>
               this.renderSwitcherIcon(prefixCls, nodeProps)
-            )}
+            }
             inputIcon={inputIcon}
             removeIcon={removeIcon}
             clearIcon={clearIcon}
@@ -130,10 +123,7 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
 
   render() {
     return (
-      <LocaleReceiver
-        componentName="Select"
-        defaultLocale={{}}
-      >
+      <LocaleReceiver componentName="Select" defaultLocale={{}}>
         {this.renderTreeSelect}
       </LocaleReceiver>
     );

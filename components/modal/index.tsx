@@ -4,7 +4,7 @@ import confirm from './confirm';
 export { ActionButtonProps } from './ActionButton';
 export { ModalProps, ModalFuncProps } from './Modal';
 
-Modal.info = function (props: ModalFuncProps) {
+Modal.info = function(props: ModalFuncProps) {
   const config = {
     type: 'info',
     iconType: 'info-circle',
@@ -14,7 +14,7 @@ Modal.info = function (props: ModalFuncProps) {
   return confirm(config);
 };
 
-Modal.success = function (props: ModalFuncProps) {
+Modal.success = function(props: ModalFuncProps) {
   const config = {
     type: 'success',
     iconType: 'check-circle',
@@ -24,7 +24,7 @@ Modal.success = function (props: ModalFuncProps) {
   return confirm(config);
 };
 
-Modal.error = function (props: ModalFuncProps) {
+Modal.error = function(props: ModalFuncProps) {
   const config = {
     type: 'error',
     iconType: 'close-circle',
@@ -34,7 +34,7 @@ Modal.error = function (props: ModalFuncProps) {
   return confirm(config);
 };
 
-Modal.warning = Modal.warn = function (props: ModalFuncProps) {
+Modal.warning = Modal.warn = function(props: ModalFuncProps) {
   const config = {
     type: 'warning',
     iconType: 'exclamation-circle',
@@ -44,7 +44,7 @@ Modal.warning = Modal.warn = function (props: ModalFuncProps) {
   return confirm(config);
 };
 
-Modal.confirm = function (props: ModalFuncProps) {
+Modal.confirm = function(props: ModalFuncProps) {
   const config = {
     type: 'confirm',
     okCancel: true,
