@@ -29,12 +29,12 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
   constructor(props: FilterMenuProps<T>) {
     super(props);
 
-    const visible = ('filterDropdownVisible' in props.column) ?
-      props.column.filterDropdownVisible : false;
+    const visible =
+      'filterDropdownVisible' in props.column ? props.column.filterDropdownVisible : false;
 
     this.state = {
       selectedKeys: props.selectedKeys,
-      keyPathOfSelectedItem: {},    // 记录所有有选中子菜单的祖先菜单
+      keyPathOfSelectedItem: {}, // 记录所有有选中子菜单的祖先菜单
       visible,
     };
   }
@@ -59,7 +59,10 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
      * Fixes https://github.com/ant-design/ant-design/issues/10289 and
      * https://github.com/ant-design/ant-design/issues/10209
      */
-    if ('selectedKeys' in nextProps && !shallowequal(this.props.selectedKeys, nextProps.selectedKeys)) {
+    if (
+      'selectedKeys' in nextProps &&
+      !shallowequal(this.props.selectedKeys, nextProps.selectedKeys)
+    ) {
       newState.selectedKeys = nextProps.selectedKeys;
     }
     if ('filterDropdownVisible' in column) {
@@ -84,11 +87,11 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
       // https://github.com/ant-design/ant-design/issues/7909
       this.neverShown = !!column.fixed;
     }
-  }
+  };
 
   setSelectedKeys = ({ selectedKeys }: { selectedKeys: string[] }) => {
     this.setState({ selectedKeys });
-  }
+  };
 
   setVisible(visible: boolean) {
     const { column } = this.props;
@@ -101,10 +104,13 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
   }
 
   handleClearFilters = () => {
-    this.setState({
-      selectedKeys: [],
-    }, this.handleConfirm);
-  }
+    this.setState(
+      {
+        selectedKeys: [],
+      },
+      this.handleConfirm,
+    );
+  };
 
   handleConfirm = () => {
     this.setVisible(false);
@@ -112,14 +118,14 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
     // Call `setSelectedKeys` & `confirm` in the same time will make filter data not up to date
     // https://github.com/ant-design/ant-design/issues/12284
     this.setState({}, this.confirmFilter);
-  }
+  };
 
   onVisibleChange = (visible: boolean) => {
     this.setVisible(visible);
     if (!visible) {
       this.confirmFilter();
     }
-  }
+  };
 
   confirmFilter() {
     const { selectedKeys } = this.state;
@@ -132,10 +138,12 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
   renderMenuItem(item: ColumnFilterItem) {
     const { column } = this.props;
     const { selectedKeys } = this.state;
-    const multiple = ('filterMultiple' in column) ? column.filterMultiple : true;
-    const input = multiple
-      ? <Checkbox checked={selectedKeys && selectedKeys.indexOf(item.value.toString()) >= 0} />
-      : <Radio checked={selectedKeys && selectedKeys.indexOf(item.value.toString()) >= 0} />;
+    const multiple = 'filterMultiple' in column ? column.filterMultiple : true;
+    const input = multiple ? (
+      <Checkbox checked={selectedKeys && selectedKeys.indexOf(item.value.toString()) >= 0} />
+    ) : (
+      <Radio checked={selectedKeys && selectedKeys.indexOf(item.value.toString()) >= 0} />
+    );
 
     return (
       <MenuItem key={item.value}>
@@ -146,7 +154,9 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
   }
 
   hasSubMenu() {
-    const { column: { filters = [] } } = this.props;
+    const {
+      column: { filters = [] },
+    } = this.props;
     return filters.some(item => !!(item.children && item.children.length > 0));
   }
 
@@ -157,7 +167,9 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
         const containSelected = Object.keys(keyPathOfSelectedItem).some(
           key => keyPathOfSelectedItem[key].indexOf(item.value) >= 0,
         );
-        const subMenuCls = containSelected ? `${this.props.dropdownPrefixCls}-submenu-contain-selected` : '';
+        const subMenuCls = containSelected
+          ? `${this.props.dropdownPrefixCls}-submenu-contain-selected`
+          : '';
         return (
           <SubMenu title={item.text} className={subMenuCls} key={item.value.toString()}>
             {this.renderMenus(item.children)}
@@ -168,7 +180,7 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
     });
   }
 
-  handleMenuItemClick = (info: { keyPath: string, key: string }) => {
+  handleMenuItemClick = (info: { keyPath: string; key: string }) => {
     const { selectedKeys } = this.state;
     if (!info.keyPath || info.keyPath.length <= 1) {
       return;
@@ -182,7 +194,7 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
       keyPathOfSelectedItem[info.key] = info.keyPath;
     }
     this.setState({ keyPathOfSelectedItem });
-  }
+  };
 
   renderFilterIcon = () => {
     const { column, locale, prefixCls, selectedKeys } = this.props;
@@ -197,11 +209,13 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
       [`${prefixCls}-open`]: this.getDropdownVisible(),
     });
 
-    return filterIcon ? React.cloneElement(filterIcon as any, {
-      title: locale.filterTitle,
-      className: classNames(`${prefixCls}-icon`, dropdownIconClass, filterIcon.props.className),
-      onClick: stopPropagation,
-    }) : (
+    return filterIcon ? (
+      React.cloneElement(filterIcon as any, {
+        title: locale.filterTitle,
+        className: classNames(`${prefixCls}-icon`, dropdownIconClass, filterIcon.props.className),
+        onClick: stopPropagation,
+      })
+    ) : (
       <Icon
         title={locale.filterTitle}
         type="filter"
@@ -210,12 +224,12 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
         onClick={stopPropagation}
       />
     );
-  }
+  };
 
   render() {
     const { column, locale, prefixCls, dropdownPrefixCls, getPopupContainer } = this.props;
     // default multiple selection in filter dropdown
-    const multiple = ('filterMultiple' in column) ? column.filterMultiple : true;
+    const multiple = 'filterMultiple' in column ? column.filterMultiple : true;
     const dropdownMenuClass = classNames({
       [`${dropdownPrefixCls}-menu-without-submenu`]: !this.hasSubMenu(),
     });
@@ -233,9 +247,7 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
     }
 
     const menus = filterDropdown ? (
-      <FilterDropdownMenuWrapper>
-        {filterDropdown}
-      </FilterDropdownMenuWrapper>
+      <FilterDropdownMenuWrapper>{filterDropdown}</FilterDropdownMenuWrapper>
     ) : (
       <FilterDropdownMenuWrapper className={`${prefixCls}-dropdown`}>
         <Menu
@@ -251,16 +263,10 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
           {this.renderMenus(column.filters!)}
         </Menu>
         <div className={`${prefixCls}-dropdown-btns`}>
-          <a
-            className={`${prefixCls}-dropdown-link confirm`}
-            onClick={this.handleConfirm}
-          >
+          <a className={`${prefixCls}-dropdown-link confirm`} onClick={this.handleConfirm}>
             {locale.filterConfirm}
           </a>
-          <a
-            className={`${prefixCls}-dropdown-link clear`}
-            onClick={this.handleClearFilters}
-          >
+          <a className={`${prefixCls}-dropdown-link clear`} onClick={this.handleClearFilters}>
             {locale.filterReset}
           </a>
         </div>

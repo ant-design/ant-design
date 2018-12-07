@@ -10,13 +10,13 @@ const easeInOutCubic = (t: number, b: number, c: number, d: number) => {
   const cc = c - b;
   t /= d / 2;
   if (t < 1) {
-    return cc / 2 * t * t * t + b;
+    return (cc / 2) * t * t * t + b;
   } else {
-    return cc / 2 * ((t -= 2) * t * t + 2) + b;
+    return (cc / 2) * ((t -= 2) * t * t + 2) + b;
   }
 };
 
-function noop() { }
+function noop() {}
 
 function getDefaultTarget() {
   return window;
@@ -52,7 +52,7 @@ export default class BackTop extends React.Component<BackTopProps, any> {
       return window.pageYOffset || document.body.scrollTop || document.documentElement!.scrollTop;
     }
     return (targetNode as HTMLElement).scrollTop;
-  }
+  };
 
   scrollToTop = (e: React.MouseEvent<HTMLDivElement>) => {
     const scrollTop = this.getCurrentScrollTop();
@@ -69,7 +69,7 @@ export default class BackTop extends React.Component<BackTopProps, any> {
     };
     raf(frameFunc);
     (this.props.onClick || noop)(e);
-  }
+  };
 
   setScrollTop(value: number) {
     const getTarget = this.props.target || getDefaultTarget;
@@ -88,7 +88,7 @@ export default class BackTop extends React.Component<BackTopProps, any> {
     this.setState({
       visible: scrollTop > (visibilityHeight as number),
     });
-  }
+  };
 
   componentDidMount() {
     const getTarget = this.props.target || getDefaultTarget;

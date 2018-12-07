@@ -24,9 +24,20 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
 
   renderButton = ({ getPopupContainer: getContextPopupContainer }: ConfigProviderProps) => {
     const {
-      type, disabled, onClick, htmlType, children,
-      prefixCls, className, overlay, trigger, align,
-      visible, onVisibleChange, placement, getPopupContainer,
+      type,
+      disabled,
+      onClick,
+      htmlType,
+      children,
+      prefixCls,
+      className,
+      overlay,
+      trigger,
+      align,
+      visible,
+      onVisibleChange,
+      placement,
+      getPopupContainer,
       ...restProps
     } = this.props;
 
@@ -44,16 +55,8 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
     }
 
     return (
-      <ButtonGroup
-        {...restProps}
-        className={classNames(prefixCls, className)}
-      >
-        <Button
-          type={type}
-          disabled={disabled}
-          onClick={onClick}
-          htmlType={htmlType}
-        >
+      <ButtonGroup {...restProps} className={classNames(prefixCls, className)}>
+        <Button type={type} disabled={disabled} onClick={onClick} htmlType={htmlType}>
           {children}
         </Button>
         <Dropdown {...dropdownProps}>
@@ -61,13 +64,9 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
         </Dropdown>
       </ButtonGroup>
     );
-  }
+  };
 
   render() {
-    return (
-      <ConfigConsumer>
-        {this.renderButton}
-      </ConfigConsumer>
-    );
+    return <ConfigConsumer>{this.renderButton}</ConfigConsumer>;
   }
 }

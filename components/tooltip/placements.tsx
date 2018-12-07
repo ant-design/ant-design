@@ -36,7 +36,12 @@ export function getOverflowOptions(autoAdjustOverflow: any) {
 }
 
 export default function getPlacements(config: PlacementsConfig = {}) {
-  const { arrowWidth = 5, horizontalArrowShift = 16, verticalArrowShift = 12, autoAdjustOverflow = true } = config;
+  const {
+    arrowWidth = 5,
+    horizontalArrowShift = 16,
+    verticalArrowShift = 12,
+    autoAdjustOverflow = true,
+  } = config;
   const placementMap: any = {
     left: {
       points: ['cr', 'cl'],
@@ -88,14 +93,16 @@ export default function getPlacements(config: PlacementsConfig = {}) {
     },
   };
   Object.keys(placementMap).forEach(key => {
-    placementMap[key] = config.arrowPointAtCenter ? {
-      ...placementMap[key],
-      overflow: getOverflowOptions(autoAdjustOverflow),
-      targetOffset,
-    } : {
-      ...rcPlacements[key],
-      overflow: getOverflowOptions(autoAdjustOverflow),
-    };
+    placementMap[key] = config.arrowPointAtCenter
+      ? {
+          ...placementMap[key],
+          overflow: getOverflowOptions(autoAdjustOverflow),
+          targetOffset,
+        }
+      : {
+          ...rcPlacements[key],
+          overflow: getOverflowOptions(autoAdjustOverflow),
+        };
 
     placementMap[key].ignoreShake = true;
   });

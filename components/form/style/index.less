@@ -1,11 +1,11 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
-@import "../../input/style/mixin";
-@import "../../button/style/mixin";
-@import "../../grid/style/mixin";
-@import "./mixin";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
+@import '../../input/style/mixin';
+@import '../../button/style/mixin';
+@import '../../grid/style/mixin';
+@import './mixin';
 
-@form-prefix-cls: ~"@{ant-prefix}-form";
+@form-prefix-cls: ~'@{ant-prefix}-form';
 @form-component-height: @input-height-base;
 @form-component-max-height: @input-height-lg;
 @form-feedback-icon-size: @font-size-base;
@@ -19,7 +19,7 @@
 .@{form-prefix-cls}-item-required:before {
   display: inline-block;
   margin-right: 4px;
-  content: "*";
+  content: '*';
   font-family: SimSun;
   line-height: 1;
   font-size: @font-size-base;
@@ -30,8 +30,8 @@
 }
 
 // Radio && Checkbox
-input[type="radio"],
-input[type="checkbox"] {
+input[type='radio'],
+input[type='checkbox'] {
   &[disabled],
   &.disabled {
     cursor: not-allowed;
@@ -76,7 +76,7 @@ input[type="checkbox"] {
 
   // nested FormItem
   &-control > &:last-child,
-  & [class^="@{ant-prefix}-col-"] > &:only-child {
+  & [class^='@{ant-prefix}-col-'] > &:only-child {
     margin-bottom: -@form-item-margin-bottom;
   }
 
@@ -91,7 +91,8 @@ input[type="checkbox"] {
   }
 
   &-with-help {
-    margin-bottom: @form-item-margin-bottom - @font-size-base * @line-height-base - @form-help-margin-top;
+    margin-bottom: @form-item-margin-bottom - @font-size-base * @line-height-base -
+      @form-help-margin-top;
   }
 
   &-label {
@@ -107,10 +108,10 @@ input[type="checkbox"] {
 
       &:after {
         & when (@form-item-trailing-colon=true) {
-          content: ":";
+          content: ':';
         }
         & when not (@form-item-trailing-colon=true) {
-          content: " ";
+          content: ' ';
         }
         margin: 0 8px 0 2px;
         position: relative;
@@ -124,7 +125,7 @@ input[type="checkbox"] {
   }
 
   &-no-colon &-label label:after {
-    content: " ";
+    content: ' ';
   }
 }
 
@@ -134,7 +135,7 @@ input[type="checkbox"] {
   // Magic tweak pixel number to float line-height diff in windows
   // Fix https://github.com/ant-design/ant-design/issues/12803
   line-height: @line-height-base + 0.024;
-  transition: color .3s @ease-out; // sync input color transition
+  transition: color 0.3s @ease-out; // sync input color transition
   margin-top: @form-help-margin-top;
   clear: both;
 }
@@ -165,11 +166,15 @@ form {
     > .@{ant-prefix}-select .@{ant-prefix}-select-arrow,
     > .@{ant-prefix}-select .@{ant-prefix}-select-selection__clear,
     :not(.@{ant-prefix}-input-group-addon) > .@{ant-prefix}-select .@{ant-prefix}-select-arrow,
-    :not(.@{ant-prefix}-input-group-addon) > .@{ant-prefix}-select .@{ant-prefix}-select-selection__clear {
+    :not(.@{ant-prefix}-input-group-addon)
+      > .@{ant-prefix}-select
+      .@{ant-prefix}-select-selection__clear {
       right: 28px;
     }
     > .@{ant-prefix}-select .@{ant-prefix}-select-selection-selected-value,
-    :not(.@{ant-prefix}-input-group-addon) > .@{ant-prefix}-select .@{ant-prefix}-select-selection-selected-value {
+    :not(.@{ant-prefix}-input-group-addon)
+      > .@{ant-prefix}-select
+      .@{ant-prefix}-select-selection-selected-value {
       padding-right: 42px;
     }
 
@@ -209,8 +214,8 @@ form {
     background: transparent;
   }
 
-  input[type="radio"],
-  input[type="checkbox"] {
+  input[type='radio'],
+  input[type='checkbox'] {
     width: 14px;
     height: 14px;
   }
@@ -417,7 +422,7 @@ form {
     margin-top: -10px;
     text-align: center;
     font-size: @form-feedback-icon-size;
-    animation: zoomIn .3s @ease-out-back;
+    animation: zoomIn 0.3s @ease-out-back;
     z-index: 1;
 
     & svg {
@@ -586,7 +591,8 @@ form {
     margin-bottom: @form-item-margin-bottom;
 
     &-with-help {
-      margin-bottom: @form-item-margin-bottom - @font-size-base * @line-height-base - @form-help-margin-top;
+      margin-bottom: @form-item-margin-bottom - @font-size-base * @line-height-base -
+        @form-help-margin-top;
     }
   }
 }

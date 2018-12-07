@@ -31,24 +31,24 @@ function renderIndicator(props: SpinProps): React.ReactNode {
   const { prefixCls, indicator } = props;
   const dotClassName = `${prefixCls}-dot`;
   if (React.isValidElement(indicator)) {
-    return React.cloneElement((indicator as SpinIndicator), {
+    return React.cloneElement(indicator as SpinIndicator, {
       className: classNames((indicator as SpinIndicator).props.className, dotClassName),
     });
   }
 
   if (React.isValidElement(defaultIndicator)) {
-    return React.cloneElement((defaultIndicator as SpinIndicator), {
+    return React.cloneElement(defaultIndicator as SpinIndicator, {
       className: classNames((defaultIndicator as SpinIndicator).props.className, dotClassName),
     });
   }
 
   return (
     <span className={classNames(dotClassName, `${prefixCls}-dot-spin`)}>
-        <i />
-        <i />
-        <i />
-        <i />
-      </span>
+      <i />
+      <i />
+      <i />
+      <i />
+    </span>
   );
 }
 
@@ -148,22 +148,22 @@ class Spin extends React.Component<SpinProps, SpinState> {
     const { className, size, prefixCls, tip, wrapperClassName, ...restProps } = this.props;
     const { spinning } = this.state;
 
-    const spinClassName = classNames(prefixCls, {
-      [`${prefixCls}-sm`]: size === 'small',
-      [`${prefixCls}-lg`]: size === 'large',
-      [`${prefixCls}-spinning`]: spinning,
-      [`${prefixCls}-show-text`]: !!tip,
-    }, className);
+    const spinClassName = classNames(
+      prefixCls,
+      {
+        [`${prefixCls}-sm`]: size === 'small',
+        [`${prefixCls}-lg`]: size === 'large',
+        [`${prefixCls}-spinning`]: spinning,
+        [`${prefixCls}-show-text`]: !!tip,
+      },
+      className,
+    );
 
     // fix https://fb.me/react-unknown-prop
-    const divProps = omit(restProps, [
-      'spinning',
-      'delay',
-      'indicator',
-    ]);
+    const divProps = omit(restProps, ['spinning', 'delay', 'indicator']);
 
     const spinElement = (
-      <div {...divProps} className={spinClassName} >
+      <div {...divProps} className={spinClassName}>
         {renderIndicator(this.props)}
         {tip ? <div className={`${prefixCls}-text`}>{tip}</div> : null}
       </div>

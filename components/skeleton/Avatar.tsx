@@ -6,7 +6,7 @@ export interface SkeletonAvatarProps {
   className?: string;
   style?: object;
   size?: 'large' | 'small' | 'default';
-  shape?: 'circle'| 'square';
+  shape?: 'circle' | 'square';
 }
 
 class Title extends React.Component<SkeletonAvatarProps, any> {
@@ -28,9 +28,7 @@ class Title extends React.Component<SkeletonAvatarProps, any> {
       [`${prefixCls}-square`]: shape === 'square',
     });
 
-    return (
-      <span className={classNames(prefixCls, className, sizeCls, shapeCls)} style={style} />
-    );
+    return <span className={classNames(prefixCls, className, sizeCls, shapeCls)} style={style} />;
   }
 }
 

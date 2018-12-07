@@ -27,7 +27,11 @@ export interface PaginationProps {
   className?: string;
   prefixCls?: string;
   selectPrefixCls?: string;
-  itemRender?: (page: number, type: 'page' | 'prev' | 'next' | 'jump-prev' | 'jump-next', originalElement: HTMLElement) => React.ReactNode;
+  itemRender?: (
+    page: number,
+    type: 'page' | 'prev' | 'next' | 'jump-prev' | 'jump-next',
+    originalElement: HTMLElement,
+  ) => React.ReactNode;
   role?: string;
 }
 
@@ -59,10 +63,7 @@ export default class Pagination extends React.Component<PaginationProps, {}> {
       <a className={`${prefixCls}-item-link`}>
         {/* You can use transition effects in the container :) */}
         <div className={`${prefixCls}-item-container`}>
-          <Icon
-            className={`${prefixCls}-item-link-icon`}
-            type="double-left"
-          />
+          <Icon className={`${prefixCls}-item-link-icon`} type="double-left" />
           <span className={`${prefixCls}-item-ellipsis`}>•••</span>
         </div>
       </a>
@@ -71,10 +72,7 @@ export default class Pagination extends React.Component<PaginationProps, {}> {
       <a className={`${prefixCls}-item-link`}>
         {/* You can use transition effects in the container :) */}
         <div className={`${prefixCls}-item-container`}>
-          <Icon
-            className={`${prefixCls}-item-link-icon`}
-            type="double-right"
-          />
+          <Icon className={`${prefixCls}-item-link-icon`} type="double-right" />
           <span className={`${prefixCls}-item-ellipsis`}>•••</span>
         </div>
       </a>
@@ -85,7 +83,7 @@ export default class Pagination extends React.Component<PaginationProps, {}> {
       jumpPrevIcon,
       jumpNextIcon,
     };
-  }
+  };
 
   renderPagination = (contextLocale: PaginationLocale) => {
     const { className, size, locale: customLocale, ...restProps } = this.props;
@@ -100,14 +98,11 @@ export default class Pagination extends React.Component<PaginationProps, {}> {
         locale={locale}
       />
     );
-  }
+  };
 
   render() {
     return (
-      <LocaleReceiver
-        componentName="Pagination"
-        defaultLocale={enUS}
-      >
+      <LocaleReceiver componentName="Pagination" defaultLocale={enUS}>
         {this.renderPagination}
       </LocaleReceiver>
     );

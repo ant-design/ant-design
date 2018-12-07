@@ -1,7 +1,7 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@spin-prefix-cls: ~"@{ant-prefix}-spin";
+@spin-prefix-cls: ~'@{ant-prefix}-spin';
 @spin-dot-default: @text-color-secondary;
 
 .@{spin-prefix-cls} {
@@ -74,7 +74,7 @@
 
   &-container {
     position: relative;
-    transition: opacity .3s;
+    transition: opacity 0.3s;
     .clearfix;
   }
 
@@ -87,10 +87,10 @@
     filter: blur(0.5px);
 
     /* autoprefixer: off */
-    filter: ~"progid\:DXImageTransform\.Microsoft\.Blur(PixelRadius\=1, MakeShadow\=false)";
+    filter: ~'progid\:DXImageTransform\.Microsoft\.Blur(PixelRadius\=1, MakeShadow\=false)';
 
     &:after {
-      content: "";
+      content: '';
       position: absolute;
       left: 0;
       right: 0;
@@ -98,7 +98,7 @@
       bottom: 0;
       background: #fff;
       opacity: 0.3;
-      transition: all .3s;
+      transition: all 0.3s;
       z-index: 10;
     }
   }

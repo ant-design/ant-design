@@ -1,7 +1,7 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@tab-prefix-cls: ~"@{ant-prefix}-tabs";
+@tab-prefix-cls: ~'@{ant-prefix}-tabs';
 
 // card style
 .@{tab-prefix-cls} {
@@ -36,7 +36,7 @@
   }
   &&-card &-card-bar &-tab &-close-x {
     color: @text-color-secondary;
-    transition: all .3s;
+    transition: all 0.3s;
     font-size: @font-size-sm;
     margin-left: 3px;
     margin-right: -5px;
@@ -76,7 +76,7 @@
       border: @border-width-base @border-style-base @border-color-split;
       font-size: 12px;
       color: @text-color;
-      transition: all .3s;
+      transition: all 0.3s;
       &:hover {
         color: @tabs-card-active-color;
         border-color: @tabs-card-active-color;

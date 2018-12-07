@@ -31,7 +31,7 @@ function ariaConvert(wrapper) {
     (Array.isArray(children) ? children : [children]).forEach(process);
   }
 
-  Object.keys(wrapper).forEach((key) => {
+  Object.keys(wrapper).forEach(key => {
     const entry = wrapper[key];
     process(entry);
   });
@@ -42,7 +42,7 @@ function ariaConvert(wrapper) {
 export default function demoTest(component, options = {}) {
   const files = glob.sync(`./components/${component}/demo/*.md`);
 
-  files.forEach((file) => {
+  files.forEach(file => {
     let testMethod = options.skip === true ? test.skip : test;
     if (Array.isArray(options.skip) && options.skip.some(c => file.includes(c))) {
       testMethod = test.skip;

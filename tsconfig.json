@@ -8,14 +8,7 @@
     "noUnusedLocals": true,
     "noImplicitAny": true,
     "target": "es6",
-    "lib": [
-      "dom",
-      "es7"
-    ]
+    "lib": ["dom", "es7"]
   },
-  "exclude": [
-    "node_modules",
-    "lib",
-    "es"
-  ]
+  "exclude": ["node_modules", "lib", "es"]
 }

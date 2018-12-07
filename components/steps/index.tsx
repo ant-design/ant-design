@@ -37,8 +37,6 @@ export default class Steps extends React.Component<StepsProps, any> {
       finish: <Icon type="check" className={`${prefixCls}-finish-icon`} />,
       error: <Icon type="close" className={`${prefixCls}-error-icon`} />,
     };
-    return (
-      <RcSteps icons={icons} {...this.props} />
-    );
+    return <RcSteps icons={icons} {...this.props} />;
   }
 }

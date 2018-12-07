@@ -25,30 +25,21 @@ export interface CommentProps {
 export default class Comment extends React.Component<CommentProps, {}> {
   static defaultProps = {
     prefixCls: 'ant-comment',
-  }
+  };
 
   getAction(actions: React.ReactNode[]) {
     if (!actions || !actions.length) {
       return null;
     }
-    const actionList = actions.map((action, index) => (
-        <li key={`action-${index}`}>
-          {action}
-        </li>
-      ),
-    );
+    const actionList = actions.map((action, index) => <li key={`action-${index}`}>{action}</li>);
     return actionList;
   }
 
   renderNested = (children: any) => {
     const { prefixCls } = this.props;
 
-    return (
-      <div className={classNames(`${prefixCls}-nested`)}>
-        {children}
-      </div>
-    );
-  }
+    return <div className={classNames(`${prefixCls}-nested`)}>{children}</div>;
+  };
 
   render() {
     const {
@@ -70,31 +61,22 @@ export default class Comment extends React.Component<CommentProps, {}> {
       </div>
     );
 
-    const actionDom = actions && actions.length
-      ? <ul className={`${prefixCls}-actions`}>{this.getAction(actions)}</ul>
-      : null;
+    const actionDom =
+      actions && actions.length ? (
+        <ul className={`${prefixCls}-actions`}>{this.getAction(actions)}</ul>
+      ) : null;
 
     const authorContent = (
       <div className={`${prefixCls}-content-author`}>
-        {author && (
-          <span className={`${prefixCls}-content-author-name`}>
-            {author}
-          </span>
-        )}
-        {datetime && (
-          <span className={`${prefixCls}-content-author-time`}>
-            {datetime}
-          </span>
-        )}
+        {author && <span className={`${prefixCls}-content-author-name`}>{author}</span>}
+        {datetime && <span className={`${prefixCls}-content-author-time`}>{datetime}</span>}
       </div>
     );
 
     const contentDom = (
       <div className={`${prefixCls}-content`}>
         {authorContent}
-        <div className={`${prefixCls}-content-detail`}>
-          {content}
-        </div>
+        <div className={`${prefixCls}-content-detail`}>{content}</div>
         {actionDom}
       </div>
     );

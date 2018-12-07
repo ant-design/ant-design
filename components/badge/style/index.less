@@ -1,8 +1,8 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@badge-prefix-cls: ~"@{ant-prefix}-badge";
-@number-prefix-cls: ~"@{ant-prefix}-scroll-number";
+@badge-prefix-cls: ~'@{ant-prefix}-badge';
+@number-prefix-cls: ~'@{ant-prefix}-scroll-number';
 
 .@{badge-prefix-cls} {
   .reset-component;
@@ -86,7 +86,7 @@
         height: 100%;
         border-radius: 50%;
         border: 1px solid @processing-color;
-        content: "";
+        content: '';
         animation: antStatusProcessing 1.2s infinite ease-in-out;
       }
     }
@@ -108,12 +108,12 @@
 
   &-zoom-appear,
   &-zoom-enter {
-    animation: antZoomBadgeIn .3s @ease-out-back;
+    animation: antZoomBadgeIn 0.3s @ease-out-back;
     animation-fill-mode: both;
   }
 
   &-zoom-leave {
-    animation: antZoomBadgeOut .3s @ease-in-back;
+    animation: antZoomBadgeOut 0.3s @ease-in-back;
     animation-fill-mode: both;
   }
 
@@ -147,7 +147,7 @@
   overflow: hidden;
   &-only {
     display: inline-block;
-    transition: all .3s @ease-in-out;
+    transition: all 0.3s @ease-in-out;
     height: @badge-height;
     > p {
       height: @badge-height;

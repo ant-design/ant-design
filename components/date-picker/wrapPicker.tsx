@@ -28,12 +28,9 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, defaultFor
       format: defaultFormat || 'YYYY-MM-DD',
       transitionName: 'slide-up',
       popupStyle: {},
-      onChange() {
-      },
-      onOk() {
-      },
-      onOpenChange() {
-      },
+      onChange() {},
+      onOk() {},
+      onOpenChange() {},
       locale: {},
       prefixCls: 'ant-calendar',
       inputPrefixCls: 'ant-input',
@@ -51,35 +48,35 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, defaultFor
     handleOpenChange = (open: boolean) => {
       const { onOpenChange } = this.props;
       onOpenChange(open);
-    }
+    };
 
-    handleFocus: React.FocusEventHandler<HTMLInputElement> = (e) => {
+    handleFocus: React.FocusEventHandler<HTMLInputElement> = e => {
       const { onFocus } = this.props;
       if (onFocus) {
         onFocus(e);
       }
-    }
+    };
 
-    handleBlur: React.FocusEventHandler<HTMLInputElement> = (e) => {
+    handleBlur: React.FocusEventHandler<HTMLInputElement> = e => {
       const { onBlur } = this.props;
       if (onBlur) {
         onBlur(e);
       }
-    }
+    };
 
-    handleMouseEnter: React.MouseEventHandler<HTMLInputElement> = (e) => {
+    handleMouseEnter: React.MouseEventHandler<HTMLInputElement> = e => {
       const { onMouseEnter } = this.props;
       if (onMouseEnter) {
         onMouseEnter(e);
       }
-    }
+    };
 
-    handleMouseLeave: React.MouseEventHandler<HTMLInputElement> = (e) => {
+    handleMouseLeave: React.MouseEventHandler<HTMLInputElement> = e => {
       const { onMouseLeave } = this.props;
       if (onMouseLeave) {
         onMouseLeave(e);
       }
-    }
+    };
 
     focus() {
       this.picker.focus();
@@ -91,7 +88,7 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, defaultFor
 
     savePicker = (node: any) => {
       this.picker = node;
-    }
+    };
 
     getDefaultLocale = () => {
       const result = {
@@ -103,7 +100,7 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, defaultFor
         ...(this.props.locale || {}).lang,
       };
       return result;
-    }
+    };
 
     renderPicker = (locale: any, localeCode: string) => {
       const props = this.props;
@@ -121,7 +118,7 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, defaultFor
       const rcTimePickerProps = {
         ...generateShowHourMinuteSecond(timeFormat),
         format: timeFormat,
-        use12Hours: (props.showTime && props.showTime.use12Hours),
+        use12Hours: props.showTime && props.showTime.use12Hours,
       };
       const columns = getColumns(rcTimePickerProps);
       const timePickerCls = `${prefixCls}-time-picker-column-${columns}`;
@@ -152,14 +149,11 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, defaultFor
           onMouseLeave={this.handleMouseLeave}
         />
       );
-    }
+    };
 
     render() {
       return (
-        <LocaleReceiver
-          componentName="DatePicker"
-          defaultLocale={this.getDefaultLocale}
-        >
+        <LocaleReceiver componentName="DatePicker" defaultLocale={this.getDefaultLocale}>
           {this.renderPicker}
         </LocaleReceiver>
       );

@@ -2,13 +2,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Upload from '..';
-import {
-  T,
-  fileToObject,
-  genPercentAdd,
-  getFileItem,
-  removeFileItem,
-} from '../utils';
+import { T, fileToObject, genPercentAdd, getFileItem, removeFileItem } from '../utils';
 import { setup, teardown } from './mock';
 
 describe('Upload', () => {
@@ -35,13 +29,11 @@ describe('Upload', () => {
     expect(ref).toBeDefined();
   });
 
-  it('return promise in beforeUpload', (done) => {
+  it('return promise in beforeUpload', done => {
     const data = jest.fn();
     const props = {
       action: 'http://upload.com',
-      beforeUpload: () => new Promise(resolve => (
-        setTimeout(() => resolve('success'), 100)
-      )),
+      beforeUpload: () => new Promise(resolve => setTimeout(() => resolve('success'), 100)),
       data,
       onChange: ({ file }) => {
         if (file.status !== 'uploading') {
@@ -54,23 +46,23 @@ describe('Upload', () => {
     const wrapper = mount(
       <Upload {...props}>
         <button type="button">upload</button>
-      </Upload>
+      </Upload>,
     );
 
     wrapper.find('input').simulate('change', {
       target: {
-        files: [
-          { file: 'foo.png' },
-        ],
+        files: [{ file: 'foo.png' }],
       },
     });
   });
 
-  it('should not stop upload when return value of beforeUpload is false', (done) => {
-    const fileList = [{
-      uid: 'bar',
-      name: 'bar.png',
-    }];
+  it('should not stop upload when return value of beforeUpload is false', done => {
+    const fileList = [
+      {
+        uid: 'bar',
+        name: 'bar.png',
+      },
+    ];
     const mockFile = new File(['foo'], 'foo.png', {
       type: 'image/png',
     });
@@ -91,19 +83,17 @@ describe('Upload', () => {
     const wrapper = mount(
       <Upload {...props}>
         <button type="button">upload</button>
-      </Upload>
+      </Upload>,
     );
 
     wrapper.find('input').simulate('change', {
       target: {
-        files: [
-          mockFile,
-        ],
+        files: [mockFile],
       },
     });
   });
 
-  it('should increase percent automaticly when call autoUpdateProgress in IE', (done) => {
+  it('should increase percent automaticly when call autoUpdateProgress in IE', done => {
     let uploadInstance;
     let lastPercent = -1;
     const props = {
@@ -126,21 +116,19 @@ describe('Upload', () => {
     const wrapper = mount(
       <Upload {...props}>
         <button type="button">upload</button>
-      </Upload>
+      </Upload>,
     );
 
     wrapper.find('input').simulate('change', {
       target: {
-        files: [
-          { file: 'foo.png' },
-        ],
+        files: [{ file: 'foo.png' }],
       },
     });
 
     uploadInstance = wrapper.instance();
   });
 
-  it('should not stop upload when return value of beforeUpload is not false', (done) => {
+  it('should not stop upload when return value of beforeUpload is not false', done => {
     const data = jest.fn();
     const props = {
       action: 'http://upload.com',
@@ -155,28 +143,26 @@ describe('Upload', () => {
     const wrapper = mount(
       <Upload {...props}>
         <button type="button">upload</button>
-      </Upload>
+      </Upload>,
     );
 
     wrapper.find('input').simulate('change', {
       target: {
-        files: [
-          { file: 'foo.png' },
-        ],
+        files: [{ file: 'foo.png' }],
       },
     });
   });
 
   it('should be controlled by fileList', () => {
-    const fileList = [{
-      uid: '-1',
-      name: 'foo.png',
-      status: 'done',
-      url: 'http://www.baidu.com/xxx.png',
-    }];
-    const wrapper = mount(
-      <Upload />
-    );
+    const fileList = [
+      {
+        uid: '-1',
+        name: 'foo.png',
+        status: 'done',
+        url: 'http://www.baidu.com/xxx.png',
+      },
+    ];
+    const wrapper = mount(<Upload />);
     expect(wrapper.instance().state.fileList).toEqual([]);
     wrapper.setProps({ fileList });
     expect(wrapper.instance().state.fileList).toEqual(fileList);
@@ -192,7 +178,7 @@ describe('Upload', () => {
     it('should be able to copy file instance', () => {
       const file = new File([], 'aaa.zip');
       const copiedFile = fileToObject(file);
-      ['uid', 'lastModified', 'lastModifiedDate', 'name', 'size', 'type'].forEach((key) => {
+      ['uid', 'lastModified', 'lastModifiedDate', 'name', 'size', 'type'].forEach(key => {
         expect(key in copiedFile).toBe(true);
       });
     });
@@ -217,55 +203,63 @@ describe('Upload', () => {
 
     it('should be able to get fileItem', () => {
       const file = { uid: '-1', name: 'item.jpg' };
-      const fileList = [{
-        uid: '-1',
-        name: 'item.jpg',
-      }];
+      const fileList = [
+        {
+          uid: '-1',
+          name: 'item.jpg',
+        },
+      ];
       const targetItem = getFileItem(file, fileList);
       expect(targetItem).toBe(fileList[0]);
     });
 
     it('should be able to remove fileItem', () => {
       const file = { uid: '-1', name: 'item.jpg' };
-      const fileList = [{
-        uid: '-1',
-        name: 'item.jpg',
-      }, {
-        uid: '-2',
-        name: 'item2.jpg',
-      }];
+      const fileList = [
+        {
+          uid: '-1',
+          name: 'item.jpg',
+        },
+        {
+          uid: '-2',
+          name: 'item2.jpg',
+        },
+      ];
       const targetItem = removeFileItem(file, fileList);
       expect(targetItem).toEqual(fileList.slice(1));
     });
 
     it('should not be able to remove fileItem', () => {
       const file = { uid: '-3', name: 'item.jpg' };
-      const fileList = [{
-        uid: '-1',
-        name: 'item.jpg',
-      }, {
-        uid: '-2',
-        name: 'item2.jpg',
-      }];
+      const fileList = [
+        {
+          uid: '-1',
+          name: 'item.jpg',
+        },
+        {
+          uid: '-2',
+          name: 'item2.jpg',
+        },
+      ];
       const targetItem = removeFileItem(file, fileList);
       expect(targetItem).toBe(null);
     });
   });
 
   it('should support linkProps as object', () => {
-    const fileList = [{
-      uid: '-1',
-      name: 'foo.png',
-      status: 'done',
-      url: 'http://www.baidu.com/xxx.png',
-      linkProps: {
-        download: 'image',
-        rel: 'noopener',
+    const fileList = [
+      {
+        uid: '-1',
+        name: 'foo.png',
+        status: 'done',
+        url: 'http://www.baidu.com/xxx.png',
+        linkProps: {
+          download: 'image',
+          rel: 'noopener',
+        },
       },
-    }];
-    const wrapper = mount(
-      <Upload fileList={fileList} />
-    );
+    ];
+    const wrapper = mount(<Upload fileList={fileList} />);
     const linkNode = wrapper.find('a.ant-upload-list-item-name');
     expect(linkNode.props().download).toBe('image');
     expect(linkNode.props().rel).toBe('noopener');
@@ -276,16 +270,16 @@ describe('Upload', () => {
       download: 'image',
       rel: 'noopener',
     });
-    const fileList = [{
-      uid: '-1',
-      name: 'foo.png',
-      status: 'done',
-      url: 'http://www.baidu.com/xxx.png',
-      linkProps: linkPropsString,
-    }];
-    const wrapper = mount(
-      <Upload fileList={fileList} />
-    );
+    const fileList = [
+      {
+        uid: '-1',
+        name: 'foo.png',
+        status: 'done',
+        url: 'http://www.baidu.com/xxx.png',
+        linkProps: linkPropsString,
+      },
+    ];
+    const wrapper = mount(<Upload fileList={fileList} />);
     const linkNode = wrapper.find('a.ant-upload-list-item-name');
     expect(linkNode.props().download).toBe('image');
     expect(linkNode.props().rel).toBe('noopener');

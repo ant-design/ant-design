@@ -1,7 +1,7 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@table-prefix-cls: ~"@{ant-prefix}-table";
+@table-prefix-cls: ~'@{ant-prefix}-table';
 @table-header-icon-color: #bfbfbf;
 @table-header-sort-active-bg: darken(@table-header-bg, 3%);
 @table-header-filter-active-bg: darken(@table-header-sort-active-bg, 5%);
@@ -16,7 +16,7 @@
   clear: both;
 
   &-body {
-    transition: opacity .3s;
+    transition: opacity 0.3s;
   }
 
   &-empty &-body {
@@ -32,7 +32,7 @@
 
   &-thead > tr > th {
     background: @table-header-bg;
-    transition: background .3s ease;
+    transition: background 0.3s ease;
     text-align: left;
     color: @table-header-color;
     font-weight: 500;
@@ -47,7 +47,7 @@
       font-size: @font-size-sm;
       cursor: pointer;
       color: @table-header-icon-color;
-      transition: all .3s;
+      transition: all 0.3s;
       width: 28px;
       position: absolute;
       top: 0;
@@ -77,14 +77,14 @@
       margin-top: -(@font-size-lg + 1px) / 2;
       text-align: center;
       color: @table-header-icon-color;
-      transition: all .3s;
+      transition: all 0.3s;
 
       &-up,
       &-down {
         .iconfont-size-under-12px(11px);
         line-height: 4px;
         height: 4px;
-        transition: all .3s;
+        transition: all 0.3s;
         display: block;
         &.on {
           color: @primary-color;
@@ -154,16 +154,16 @@
     .@{table-prefix-cls}-column-sorters {
       &:before {
         position: absolute;
-        content: "";
+        content: '';
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
         background: transparent;
-        transition: all .3s;
+        transition: all 0.3s;
       }
       &:hover:before {
-        background: rgba(0, 0, 0, .04);
+        background: rgba(0, 0, 0, 0.04);
       }
     }
 
@@ -194,12 +194,12 @@
 
   &-tbody > tr > td {
     border-bottom: @border-width-base @border-style-base @border-color-split;
-    transition: all .3s, border 0s;
+    transition: all 0.3s, border 0s;
   }
 
   &-thead > tr,
   &-tbody > tr {
-    transition: all .3s, height 0s;
+    transition: all 0.3s, height 0s;
     &.@{table-prefix-cls}-row-hover,
     &:hover {
       &:not(.@{table-prefix-cls}-expanded-row) > td {
@@ -219,7 +219,7 @@
     position: relative;
     border-top: @border-width-base @border-style-base @border-color-split;
     &:before {
-      content: "";
+      content: '';
       height: 1px;
       background: @table-header-bg;
       position: absolute;
@@ -445,7 +445,9 @@
     }
 
     > .@{ant-prefix}-dropdown-menu > .@{ant-prefix}-dropdown-menu-item:last-child,
-    > .@{ant-prefix}-dropdown-menu > .@{ant-prefix}-dropdown-menu-submenu:last-child .@{ant-prefix}-dropdown-menu-submenu-title {
+    > .@{ant-prefix}-dropdown-menu
+      > .@{ant-prefix}-dropdown-menu-submenu:last-child
+      .@{ant-prefix}-dropdown-menu-submenu-title {
       border-radius: 0;
     }
 
@@ -479,7 +481,7 @@
 
     .@{iconfont-css-prefix}-down {
       color: @table-header-icon-color;
-      transition: all .3s;
+      transition: all 0.3s;
     }
 
     &-menu {
@@ -534,7 +536,7 @@
       }
     }
 
-    &[class*="@{table-prefix-cls}-row-level-0"] .@{table-prefix-cls}-selection-column > span {
+    &[class*='@{table-prefix-cls}-row-level-0'] .@{table-prefix-cls}-selection-column > span {
       display: inline-block;
     }
   }
@@ -590,7 +592,7 @@
     position: absolute;
     top: 0;
     overflow: hidden;
-    transition: box-shadow .3s ease;
+    transition: box-shadow 0.3s ease;
     border-radius: 0;
     table {
       width: auto;

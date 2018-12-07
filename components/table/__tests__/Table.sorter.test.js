@@ -22,10 +22,12 @@ describe('Table.sorter', () => {
   function createTable(tableProps, columnProps = {}) {
     return (
       <Table
-        columns={[{
-          ...column,
-          ...columnProps,
-        }]}
+        columns={[
+          {
+            ...column,
+            ...columnProps,
+          },
+        ]}
         dataSource={data}
         pagination={false}
         {...tableProps}
@@ -43,17 +45,27 @@ describe('Table.sorter', () => {
   });
 
   it('default sort order ascend', () => {
-    const wrapper = mount(createTable({}, {
-      defaultSortOrder: 'ascend',
-    }));
+    const wrapper = mount(
+      createTable(
+        {},
+        {
+          defaultSortOrder: 'ascend',
+        },
+      ),
+    );
 
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
   });
 
   it('default sort order descend', () => {
-    const wrapper = mount(createTable({}, {
-      defaultSortOrder: 'descend',
-    }));
+    const wrapper = mount(
+      createTable(
+        {},
+        {
+          defaultSortOrder: 'descend',
+        },
+      ),
+    );
 
     expect(renderedNames(wrapper)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
   });
@@ -71,21 +83,28 @@ describe('Table.sorter', () => {
   });
 
   it('can be controlled by sortOrder', () => {
-    const wrapper = mount(createTable({
-      columns: [{ ...column, sortOrder: 'ascend' }],
-    }));
+    const wrapper = mount(
+      createTable({
+        columns: [{ ...column, sortOrder: 'ascend' }],
+      }),
+    );
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
   });
 
   it('provides sortOrder in the sorterFn', () => {
     let actualSortOrder;
-    mount(createTable({}, {
-      sortOrder: 'ascend',
-      sorter: (a, b, sortOrder) => {
-        actualSortOrder = sortOrder;
-        return sorterFn(a, b);
-      },
-    }));
+    mount(
+      createTable(
+        {},
+        {
+          sortOrder: 'ascend',
+          sorter: (a, b, sortOrder) => {
+            actualSortOrder = sortOrder;
+            return sorterFn(a, b);
+          },
+        },
+      ),
+    );
     expect(actualSortOrder).toEqual('ascend');
   });
 
@@ -143,9 +162,7 @@ describe('Table.sorter', () => {
       { key: 2, name: 'Tom', age: 21 },
       { key: 3, name: 'Jerry', age: 22 },
     ];
-    const wrapper = mount(
-      <Table columns={columns} dataSource={testData} />
-    );
+    const wrapper = mount(<Table columns={columns} dataSource={testData} />);
 
     expect(renderedNames(wrapper)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
   });
@@ -165,9 +182,7 @@ describe('Table.sorter', () => {
       { key: 2, name: 'Tom', age: 21 },
       { key: 3, name: 'Jerry', age: 22 },
     ];
-    const wrapper = mount(
-      <Table columns={columns} dataSource={testData} />
-    );
+    const wrapper = mount(<Table columns={columns} dataSource={testData} />);
     expect(wrapper.find('.custom-title').text()).toEqual('');
     wrapper.find('.ant-table-column-sorters').simulate('click');
     expect(wrapper.find('.custom-title').text()).toEqual('ascend');
@@ -195,19 +210,37 @@ describe('Table.sorter', () => {
       { key: 2, name: 'Tom', age: 21 },
       { key: 3, name: 'Jerry', age: 22 },
     ];
-    const wrapper = mount(
-      <Table columns={columns} dataSource={testData} />
-    );
+    const wrapper = mount(<Table columns={columns} dataSource={testData} />);
     const nameColumn = wrapper.find('.ant-table-column-sorters').at(0);
     const ageColumn = wrapper.find('.ant-table-column-sorters').at(1);
     // sort name
     nameColumn.simulate('click');
-    expect(nameColumn.find('.ant-table-column-sorter-up').at(0).getDOMNode().className).toContain(' on');
-    expect(ageColumn.find('.ant-table-column-sorter-up').at(0).getDOMNode().className).toContain(' off');
+    expect(
+      nameColumn
+        .find('.ant-table-column-sorter-up')
+        .at(0)
+        .getDOMNode().className,
+    ).toContain(' on');
+    expect(
+      ageColumn
+        .find('.ant-table-column-sorter-up')
+        .at(0)
+        .getDOMNode().className,
+    ).toContain(' off');
     // sort age
     ageColumn.simulate('click');
-    expect(nameColumn.find('.ant-table-column-sorter-up').at(0).getDOMNode().className).toContain(' off');
-    expect(ageColumn.find('.ant-table-column-sorter-up').at(0).getDOMNode().className).toContain(' on');
+    expect(
+      nameColumn
+        .find('.ant-table-column-sorter-up')
+        .at(0)
+        .getDOMNode().className,
+    ).toContain(' off');
+    expect(
+      ageColumn
+        .find('.ant-table-column-sorter-up')
+        .at(0)
+        .getDOMNode().className,
+    ).toContain(' on');
   });
 
   // https://github.com/ant-design/ant-design/issues/12571
@@ -223,16 +256,18 @@ describe('Table.sorter', () => {
         pagination: {},
       };
 
-      onChange = (pagination) => {
+      onChange = pagination => {
         this.setState({ pagination });
-      }
+      };
 
       render() {
-        const columns = [{
-          title: 'name',
-          dataIndex: 'name',
-          sorter: true,
-        }];
+        const columns = [
+          {
+            title: 'name',
+            dataIndex: 'name',
+            sorter: true,
+          },
+        ];
         const { pagination } = this.state;
         return (
           <Table
@@ -247,20 +282,60 @@ describe('Table.sorter', () => {
 
     const wrapper = mount(<TableTest />);
     const nameColumn = wrapper.find('.ant-table-column-sorters').at(0);
-    expect(nameColumn.find('.ant-table-column-sorter-up').at(0).getDOMNode().className).toContain(' off');
-    expect(nameColumn.find('.ant-table-column-sorter-down').at(0).getDOMNode().className).toContain(' off');
+    expect(
+      nameColumn
+        .find('.ant-table-column-sorter-up')
+        .at(0)
+        .getDOMNode().className,
+    ).toContain(' off');
+    expect(
+      nameColumn
+        .find('.ant-table-column-sorter-down')
+        .at(0)
+        .getDOMNode().className,
+    ).toContain(' off');
     // sort name
     nameColumn.simulate('click');
-    expect(nameColumn.find('.ant-table-column-sorter-up').at(0).getDOMNode().className).toContain(' on');
-    expect(nameColumn.find('.ant-table-column-sorter-down').at(0).getDOMNode().className).toContain(' off');
+    expect(
+      nameColumn
+        .find('.ant-table-column-sorter-up')
+        .at(0)
+        .getDOMNode().className,
+    ).toContain(' on');
+    expect(
+      nameColumn
+        .find('.ant-table-column-sorter-down')
+        .at(0)
+        .getDOMNode().className,
+    ).toContain(' off');
     // sort name
     nameColumn.simulate('click');
-    expect(nameColumn.find('.ant-table-column-sorter-up').at(0).getDOMNode().className).toContain(' off');
-    expect(nameColumn.find('.ant-table-column-sorter-down').at(0).getDOMNode().className).toContain(' on');
+    expect(
+      nameColumn
+        .find('.ant-table-column-sorter-up')
+        .at(0)
+        .getDOMNode().className,
+    ).toContain(' off');
+    expect(
+      nameColumn
+        .find('.ant-table-column-sorter-down')
+        .at(0)
+        .getDOMNode().className,
+    ).toContain(' on');
     // sort name
     nameColumn.simulate('click');
-    expect(nameColumn.find('.ant-table-column-sorter-up').at(0).getDOMNode().className).toContain(' off');
-    expect(nameColumn.find('.ant-table-column-sorter-down').at(0).getDOMNode().className).toContain(' off');
+    expect(
+      nameColumn
+        .find('.ant-table-column-sorter-up')
+        .at(0)
+        .getDOMNode().className,
+    ).toContain(' off');
+    expect(
+      nameColumn
+        .find('.ant-table-column-sorter-down')
+        .at(0)
+        .getDOMNode().className,
+    ).toContain(' off');
   });
 
   // https://github.com/ant-design/ant-design/issues/12737
@@ -276,17 +351,19 @@ describe('Table.sorter', () => {
         pagination: {},
       };
 
-      onChange = (pagination) => {
+      onChange = pagination => {
         this.setState({ pagination });
-      }
+      };
 
       render() {
-        const columns = [{
-          title: 'name',
-          dataIndex: 'name',
-          sorter: true,
-          render: text => text,
-        }];
+        const columns = [
+          {
+            title: 'name',
+            dataIndex: 'name',
+            sorter: true,
+            render: text => text,
+          },
+        ];
         const { pagination } = this.state;
         return (
           <Table
@@ -301,20 +378,60 @@ describe('Table.sorter', () => {
 
     const wrapper = mount(<TableTest />);
     const nameColumn = wrapper.find('.ant-table-column-sorters').at(0);
-    expect(nameColumn.find('.ant-table-column-sorter-up').at(0).getDOMNode().className).toContain(' off');
-    expect(nameColumn.find('.ant-table-column-sorter-down').at(0).getDOMNode().className).toContain(' off');
+    expect(
+      nameColumn
+        .find('.ant-table-column-sorter-up')
+        .at(0)
+        .getDOMNode().className,
+    ).toContain(' off');
+    expect(
+      nameColumn
+        .find('.ant-table-column-sorter-down')
+        .at(0)
+        .getDOMNode().className,
+    ).toContain(' off');
     // sort name
     nameColumn.simulate('click');
-    expect(nameColumn.find('.ant-table-column-sorter-up').at(0).getDOMNode().className).toContain(' on');
-    expect(nameColumn.find('.ant-table-column-sorter-down').at(0).getDOMNode().className).toContain(' off');
+    expect(
+      nameColumn
+        .find('.ant-table-column-sorter-up')
+        .at(0)
+        .getDOMNode().className,
+    ).toContain(' on');
+    expect(
+      nameColumn
+        .find('.ant-table-column-sorter-down')
+        .at(0)
+        .getDOMNode().className,
+    ).toContain(' off');
     // sort name
     nameColumn.simulate('click');
-    expect(nameColumn.find('.ant-table-column-sorter-up').at(0).getDOMNode().className).toContain(' off');
-    expect(nameColumn.find('.ant-table-column-sorter-down').at(0).getDOMNode().className).toContain(' on');
+    expect(
+      nameColumn
+        .find('.ant-table-column-sorter-up')
+        .at(0)
+        .getDOMNode().className,
+    ).toContain(' off');
+    expect(
+      nameColumn
+        .find('.ant-table-column-sorter-down')
+        .at(0)
+        .getDOMNode().className,
+    ).toContain(' on');
     // sort name
     nameColumn.simulate('click');
-    expect(nameColumn.find('.ant-table-column-sorter-up').at(0).getDOMNode().className).toContain(' off');
-    expect(nameColumn.find('.ant-table-column-sorter-down').at(0).getDOMNode().className).toContain(' off');
+    expect(
+      nameColumn
+        .find('.ant-table-column-sorter-up')
+        .at(0)
+        .getDOMNode().className,
+    ).toContain(' off');
+    expect(
+      nameColumn
+        .find('.ant-table-column-sorter-down')
+        .at(0)
+        .getDOMNode().className,
+    ).toContain(' off');
   });
 
   // https://github.com/ant-design/ant-design/issues/12870
@@ -330,20 +447,22 @@ describe('Table.sorter', () => {
         pagination: {},
       };
 
-      onChange = (pagination) => {
+      onChange = pagination => {
         this.setState({ pagination });
-      }
+      };
 
       render() {
-        const columns = [{
-          title: 'name',
-          dataIndex: 'name',
-          sorter: true,
-          key: 'a',
-          style: {
-            fontSize: 18,
+        const columns = [
+          {
+            title: 'name',
+            dataIndex: 'name',
+            sorter: true,
+            key: 'a',
+            style: {
+              fontSize: 18,
+            },
           },
-        }];
+        ];
         const { pagination } = this.state;
         return (
           <Table
@@ -358,19 +477,59 @@ describe('Table.sorter', () => {
 
     const wrapper = mount(<TableTest />);
     const nameColumn = wrapper.find('.ant-table-column-sorters').at(0);
-    expect(nameColumn.find('.ant-table-column-sorter-up').at(0).getDOMNode().className).toContain(' off');
-    expect(nameColumn.find('.ant-table-column-sorter-down').at(0).getDOMNode().className).toContain(' off');
+    expect(
+      nameColumn
+        .find('.ant-table-column-sorter-up')
+        .at(0)
+        .getDOMNode().className,
+    ).toContain(' off');
+    expect(
+      nameColumn
+        .find('.ant-table-column-sorter-down')
+        .at(0)
+        .getDOMNode().className,
+    ).toContain(' off');
     // sort name
     nameColumn.simulate('click');
-    expect(nameColumn.find('.ant-table-column-sorter-up').at(0).getDOMNode().className).toContain(' on');
-    expect(nameColumn.find('.ant-table-column-sorter-down').at(0).getDOMNode().className).toContain(' off');
+    expect(
+      nameColumn
+        .find('.ant-table-column-sorter-up')
+        .at(0)
+        .getDOMNode().className,
+    ).toContain(' on');
+    expect(
+      nameColumn
+        .find('.ant-table-column-sorter-down')
+        .at(0)
+        .getDOMNode().className,
+    ).toContain(' off');
     // sort name
     nameColumn.simulate('click');
-    expect(nameColumn.find('.ant-table-column-sorter-up').at(0).getDOMNode().className).toContain(' off');
-    expect(nameColumn.find('.ant-table-column-sorter-down').at(0).getDOMNode().className).toContain(' on');
+    expect(
+      nameColumn
+        .find('.ant-table-column-sorter-up')
+        .at(0)
+        .getDOMNode().className,
+    ).toContain(' off');
+    expect(
+      nameColumn
+        .find('.ant-table-column-sorter-down')
+        .at(0)
+        .getDOMNode().className,
+    ).toContain(' on');
     // sort name
     nameColumn.simulate('click');
-    expect(nameColumn.find('.ant-table-column-sorter-up').at(0).getDOMNode().className).toContain(' off');
-    expect(nameColumn.find('.ant-table-column-sorter-down').at(0).getDOMNode().className).toContain(' off');
+    expect(
+      nameColumn
+        .find('.ant-table-column-sorter-up')
+        .at(0)
+        .getDOMNode().className,
+    ).toContain(' off');
+    expect(
+      nameColumn
+        .find('.ant-table-column-sorter-down')
+        .at(0)
+        .getDOMNode().className,
+    ).toContain(' off');
   });
 });

@@ -9,7 +9,7 @@ describe('Anchor Render', () => {
     const wrapper = mount(
       <Anchor>
         <Link href="#API" title="API" />
-      </Anchor>
+      </Anchor>,
     );
 
     wrapper.find('a[href="#API"]').simulate('click');
@@ -22,7 +22,7 @@ describe('Anchor Render', () => {
     const wrapper = mount(
       <Anchor>
         <Link href="http://www.example.com/#API" title="API" />
-      </Anchor>
+      </Anchor>,
     );
     wrapper.find('a[href="http://www.example.com/#API"]').simulate('click');
     expect(wrapper.instance().state.activeLink).toBe('http://www.example.com/#API');
@@ -39,7 +39,7 @@ describe('Anchor Render', () => {
     const wrapper = mount(
       <Anchor>
         <Link href="http://www.example.com/#API" title="API" />
-      </Anchor>
+      </Anchor>,
     );
     wrapper.instance().handleScroll();
     expect(wrapper.instance().state.activeLink).toBe('http://www.example.com/#API');
@@ -57,7 +57,7 @@ describe('Anchor Render', () => {
     const wrapper = mount(
       <Anchor>
         <Link href="##API" title="API" />
-      </Anchor>
+      </Anchor>,
     );
     wrapper.instance().handleScrollTo('##API');
     expect(wrapper.instance().state.activeLink).toBe('##API');
@@ -70,7 +70,7 @@ describe('Anchor Render', () => {
     const wrapper = mount(
       <Anchor>
         <Link href="#API" title="API" />
-      </Anchor>
+      </Anchor>,
     );
     const removeListenerSpy = jest.spyOn(wrapper.instance().scrollEvent, 'remove');
     wrapper.unmount();
@@ -81,7 +81,7 @@ describe('Anchor Render', () => {
     const wrapper = mount(
       <Anchor>
         <Link href="#API" title="API" />
-      </Anchor>
+      </Anchor>,
     );
     expect(wrapper.instance().links).toEqual(['#API']);
     wrapper.setProps({ children: null });
@@ -92,7 +92,11 @@ describe('Anchor Render', () => {
     let anchorInstance = null;
     function AnchorUpdate({ href }) {
       return (
-        <Anchor ref={(c) => { anchorInstance = c; }}>
+        <Anchor
+          ref={c => {
+            anchorInstance = c;
+          }}
+        >
           <Link href={href} title="API" />
         </Anchor>
       );
@@ -107,7 +111,9 @@ describe('Anchor Render', () => {
   it('Anchor onClick event', () => {
     let event;
     let link;
-    const handleClick = (...arg) => { [event, link] = arg; };
+    const handleClick = (...arg) => {
+      [event, link] = arg;
+    };
 
     const href = '#API';
     const title = 'API';
@@ -115,7 +121,7 @@ describe('Anchor Render', () => {
     const wrapper = mount(
       <Anchor onClick={handleClick}>
         <Link href={href} title={title} />
-      </Anchor>
+      </Anchor>,
     );
 
     wrapper.find(`a[href="${href}"]`).simulate('click');

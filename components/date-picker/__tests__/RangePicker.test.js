@@ -22,17 +22,18 @@ describe('RangePicker', () => {
   it('show month panel according to value', () => {
     const birthday = moment('2000-01-01', 'YYYY-MM-DD').locale('zh-cn');
     const wrapper = mount(
-      <RangePicker
-        getCalendarContainer={trigger => trigger}
-        format="YYYY/MM/DD"
-        showTime
-        open
-      />
+      <RangePicker getCalendarContainer={trigger => trigger} format="YYYY/MM/DD" showTime open />,
     );
 
     wrapper.setProps({ value: [birthday, birthday] });
-    expect(render(wrapper.find('Trigger').instance().getComponent()))
-      .toMatchSnapshot();
+    expect(
+      render(
+        wrapper
+          .find('Trigger')
+          .instance()
+          .getComponent(),
+      ),
+    ).toMatchSnapshot();
   });
 
   it('switch to corresponding month panel when click presetted ranges', () => {
@@ -46,14 +47,24 @@ describe('RangePicker', () => {
         format="YYYY/MM/DD"
         showTime
         open
-      />
+      />,
     );
 
-    const rangeCalendarWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-    rangeCalendarWrapper.find('.ant-calendar-range-quick-selector Tag')
-      .simulate('click');
-    expect(render(wrapper.find('Trigger').instance().getComponent()))
-      .toMatchSnapshot();
+    const rangeCalendarWrapper = mount(
+      wrapper
+        .find('Trigger')
+        .instance()
+        .getComponent(),
+    );
+    rangeCalendarWrapper.find('.ant-calendar-range-quick-selector Tag').simulate('click');
+    expect(
+      render(
+        wrapper
+          .find('Trigger')
+          .instance()
+          .getComponent(),
+      ),
+    ).toMatchSnapshot();
   });
 
   it('highlight range when hover presetted range', () => {
@@ -65,13 +76,22 @@ describe('RangePicker', () => {
         getCalendarContainer={trigger => trigger}
         format="YYYY/MM/DD"
         open
-      />
+      />,
     );
 
-    let rangeCalendarWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-    rangeCalendarWrapper.find('.ant-calendar-range-quick-selector Tag')
-      .simulate('mouseEnter');
-    rangeCalendarWrapper = mount(wrapper.find('Trigger').instance().getComponent());
+    let rangeCalendarWrapper = mount(
+      wrapper
+        .find('Trigger')
+        .instance()
+        .getComponent(),
+    );
+    rangeCalendarWrapper.find('.ant-calendar-range-quick-selector Tag').simulate('mouseEnter');
+    rangeCalendarWrapper = mount(
+      wrapper
+        .find('Trigger')
+        .instance()
+        .getComponent(),
+    );
     expect(rangeCalendarWrapper.find('.ant-calendar-selected-day').length).toBe(2);
   });
 
@@ -82,10 +102,18 @@ describe('RangePicker', () => {
         getCalendarContainer={trigger => trigger}
         onCalendarChange={onCalendarChangeFn}
         open
-      />
+      />,
     );
-    const rangeCalendarWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-    rangeCalendarWrapper.find('.ant-calendar-cell').at(15).simulate('click');
+    const rangeCalendarWrapper = mount(
+      wrapper
+        .find('Trigger')
+        .instance()
+        .getComponent(),
+    );
+    rangeCalendarWrapper
+      .find('.ant-calendar-cell')
+      .at(15)
+      .simulate('click');
     expect(onCalendarChangeFn).toHaveBeenCalled();
   });
 
@@ -93,34 +121,57 @@ describe('RangePicker', () => {
   it('should not throw error when value is reset to `[]`', () => {
     const birthday = moment('2000-01-01', 'YYYY-MM-DD');
     const wrapper = mount(
-      <RangePicker
-        getCalendarContainer={trigger => trigger}
-        value={[birthday, birthday]}
-        open
-      />
+      <RangePicker getCalendarContainer={trigger => trigger} value={[birthday, birthday]} open />,
     );
     wrapper.setProps({ value: [] });
-    const rangeCalendarWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-    expect(() => rangeCalendarWrapper.find('.ant-calendar-cell').at(15).simulate('click').simulate('click'))
-      .not.toThrow();
+    const rangeCalendarWrapper = mount(
+      wrapper
+        .find('Trigger')
+        .instance()
+        .getComponent(),
+    );
+    expect(() =>
+      rangeCalendarWrapper
+        .find('.ant-calendar-cell')
+        .at(15)
+        .simulate('click')
+        .simulate('click'),
+    ).not.toThrow();
   });
 
   // issue: https://github.com/ant-design/ant-design/issues/7077
   it('should not throw error when select after clear', () => {
-    const wrapper = mount(
-      <RangePicker
-        getCalendarContainer={trigger => trigger}
-        open
-      />
+    const wrapper = mount(<RangePicker getCalendarContainer={trigger => trigger} open />);
+    let rangeCalendarWrapper = mount(
+      wrapper
+        .find('Trigger')
+        .instance()
+        .getComponent(),
     );
-    let rangeCalendarWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-    rangeCalendarWrapper.find('.ant-calendar-cell').at(15).simulate('click').simulate('click');
+    rangeCalendarWrapper
+      .find('.ant-calendar-cell')
+      .at(15)
+      .simulate('click')
+      .simulate('click');
     wrapper.update();
-    wrapper.find('.ant-calendar-picker-clear').hostNodes().simulate('click');
+    wrapper
+      .find('.ant-calendar-picker-clear')
+      .hostNodes()
+      .simulate('click');
     wrapper.find('.ant-calendar-picker-input').simulate('click');
-    rangeCalendarWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-    expect(() => rangeCalendarWrapper.find('.ant-calendar-cell').at(15).simulate('click').simulate('click'))
-      .not.toThrow();
+    rangeCalendarWrapper = mount(
+      wrapper
+        .find('Trigger')
+        .instance()
+        .getComponent(),
+    );
+    expect(() =>
+      rangeCalendarWrapper
+        .find('.ant-calendar-cell')
+        .at(15)
+        .simulate('click')
+        .simulate('click'),
+    ).not.toThrow();
   });
 
   it('clear hover value after panel close', () => {
@@ -128,16 +179,25 @@ describe('RangePicker', () => {
     const wrapper = mount(
       <div>
         <RangePicker value={[moment(), moment().add(2, 'day')]} />
-      </div>
+      </div>,
     );
     wrapper.find('.ant-calendar-picker-input').simulate('click');
-    wrapper.find('.ant-calendar-cell').at(25).simulate('click');
-    wrapper.find('.ant-calendar-cell').at(27).simulate('mouseEnter');
+    wrapper
+      .find('.ant-calendar-cell')
+      .at(25)
+      .simulate('click');
+    wrapper
+      .find('.ant-calendar-cell')
+      .at(27)
+      .simulate('mouseEnter');
     document.dispatchEvent(new MouseEvent('mousedown'));
     jest.runAllTimers();
     wrapper.find('.ant-calendar-picker-input').simulate('click');
     expect(
-      wrapper.find('.ant-calendar-cell').at(23).hasClass('ant-calendar-in-range-cell')
+      wrapper
+        .find('.ant-calendar-cell')
+        .at(23)
+        .hasClass('ant-calendar-in-range-cell'),
     ).toBe(true);
   });
 
@@ -145,19 +205,20 @@ describe('RangePicker', () => {
     it('static range', () => {
       const range = [moment().subtract(2, 'd'), moment()];
       const format = 'YYYY-MM-DD HH:mm:ss';
-      const wrapper = mount(
-        <RangePicker
-          ranges={{ 'recent two days': range }}
-          format={format}
-        />
-      );
+      const wrapper = mount(<RangePicker ranges={{ 'recent two days': range }} format={format} />);
       wrapper.find('.ant-calendar-picker-input').simulate('click');
       wrapper.find('.ant-calendar-range-quick-selector Tag').simulate('click');
       expect(
-        wrapper.find('.ant-calendar-range-picker-input').first().getDOMNode().value
+        wrapper
+          .find('.ant-calendar-range-picker-input')
+          .first()
+          .getDOMNode().value,
       ).toBe(range[0].format(format));
       expect(
-        wrapper.find('.ant-calendar-range-picker-input').last().getDOMNode().value
+        wrapper
+          .find('.ant-calendar-range-picker-input')
+          .last()
+          .getDOMNode().value,
       ).toBe(range[1].format(format));
     });
 
@@ -165,18 +226,21 @@ describe('RangePicker', () => {
       const range = [moment().subtract(2, 'd'), moment()];
       const format = 'YYYY-MM-DD HH:mm:ss';
       const wrapper = mount(
-        <RangePicker
-          ranges={{ 'recent two days': () => range }}
-          format={format}
-        />
+        <RangePicker ranges={{ 'recent two days': () => range }} format={format} />,
       );
       wrapper.find('.ant-calendar-picker-input').simulate('click');
       wrapper.find('.ant-calendar-range-quick-selector Tag').simulate('click');
       expect(
-        wrapper.find('.ant-calendar-range-picker-input').first().getDOMNode().value
+        wrapper
+          .find('.ant-calendar-range-picker-input')
+          .first()
+          .getDOMNode().value,
       ).toBe(range[0].format(format));
       expect(
-        wrapper.find('.ant-calendar-range-picker-input').last().getDOMNode().value
+        wrapper
+          .find('.ant-calendar-range-picker-input')
+          .last()
+          .getDOMNode().value,
       ).toBe(range[1].format(format));
     });
   });
@@ -193,12 +257,7 @@ describe('RangePicker', () => {
   it('triggers onOk when click on preset range', () => {
     const handleOk = jest.fn();
     const range = [moment().subtract(2, 'd'), moment()];
-    const wrapper = mount(
-      <RangePicker
-        ranges={{ 'recent two days': range }}
-        onOk={handleOk}
-      />
-    );
+    const wrapper = mount(<RangePicker ranges={{ 'recent two days': range }} onOk={handleOk} />);
     wrapper.find('.ant-calendar-picker-input').simulate('click');
     wrapper.find('.ant-calendar-range-quick-selector Tag').simulate('click');
     expect(handleOk).toBeCalledWith(range);
@@ -211,25 +270,46 @@ describe('RangePicker', () => {
     selectDate(wrapper, moment('2017-09-18'), 0);
     selectDate(wrapper, moment('2017-10-18'), 1);
     wrapper.find('.ant-calendar-picker-input').simulate('click');
-    expect(() => (
-      wrapper.find('.ant-calendar-input').at(1).simulate('change', { target: { value: '2016-01-01' } })
-    )).not.toThrow();
+    expect(() =>
+      wrapper
+        .find('.ant-calendar-input')
+        .at(1)
+        .simulate('change', { target: { value: '2016-01-01' } }),
+    ).not.toThrow();
   });
 
   it('changes year/month when under control', () => {
     const wrapper = mount(<RangePicker value={[moment('2018-07-01'), moment('2018-07-02')]} />);
     openPanel(wrapper);
-    expect(wrapper.find('.ant-calendar-my-select').first().text()).toBe('Jul2018');
-    wrapper.find('.ant-calendar-prev-year-btn').first().simulate('click');
-    wrapper.find('.ant-calendar-prev-month-btn').first().simulate('click');
-    expect(wrapper.find('.ant-calendar-my-select').first().text()).toBe('Jun2017');
+    expect(
+      wrapper
+        .find('.ant-calendar-my-select')
+        .first()
+        .text(),
+    ).toBe('Jul2018');
+    wrapper
+      .find('.ant-calendar-prev-year-btn')
+      .first()
+      .simulate('click');
+    wrapper
+      .find('.ant-calendar-prev-month-btn')
+      .first()
+      .simulate('click');
+    expect(
+      wrapper
+        .find('.ant-calendar-my-select')
+        .first()
+        .text(),
+    ).toBe('Jun2017');
   });
 
   // https://github.com/ant-design/ant-design/issues/11631
   it('triggers onOpenChange when click on preset range', () => {
     const handleOpenChange = jest.fn();
     const range = [moment().subtract(2, 'd'), moment()];
-    const wrapper = mount(<RangePicker onOpenChange={handleOpenChange} ranges={{ 'recent two days': range }} />);
+    const wrapper = mount(
+      <RangePicker onOpenChange={handleOpenChange} ranges={{ 'recent two days': range }} />,
+    );
     wrapper.find('.ant-calendar-picker-input').simulate('click');
     wrapper.find('.ant-calendar-range-quick-selector Tag').simulate('click');
     expect(handleOpenChange).toBeCalledWith(false);

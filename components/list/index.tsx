@@ -15,15 +15,7 @@ export { ListItemProps, ListItemMetaProps } from './Item';
 
 export type ColumnCount = 1 | 2 | 3 | 4 | 6 | 8 | 12 | 24;
 
-export type ColumnType =
-  | 'gutter'
-  | 'column'
-  | 'xs'
-  | 'sm'
-  | 'md'
-  | 'lg'
-  | 'xl'
-  | 'xxl';
+export type ColumnType = 'gutter' | 'column' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 
 export interface ListGridType {
   gutter?: number;
@@ -126,7 +118,7 @@ export default class List extends React.Component<ListProps> {
     this.keys[index] = key;
 
     return renderItem(item, index);
-  }
+  };
 
   isSomethingAfterLastItem() {
     const { loadMore, pagination, footer } = this.props;
@@ -135,12 +127,8 @@ export default class List extends React.Component<ListProps> {
 
   renderEmpty = (contextLocale: ListLocale) => {
     const locale = { ...contextLocale, ...this.props.locale };
-    return (
-      <div className={`${this.props.prefixCls}-empty-text`}>
-        {locale.emptyText}
-      </div>
-    );
-  }
+    return <div className={`${this.props.prefixCls}-empty-text`}>{locale.emptyText}</div>;
+  };
 
   render() {
     const { paginationCurrent } = this.state;
@@ -200,30 +188,22 @@ export default class List extends React.Component<ListProps> {
       ...this.defaultPaginationProps,
       total: dataSource.length,
       current: paginationCurrent,
-      ...pagination || {},
+      ...(pagination || {}),
     };
 
-    const largestPage = Math.ceil(
-      paginationProps.total / paginationProps.pageSize,
-    );
+    const largestPage = Math.ceil(paginationProps.total / paginationProps.pageSize);
     if (paginationProps.current > largestPage) {
       paginationProps.current = largestPage;
     }
     const paginationContent = pagination ? (
       <div className={`${prefixCls}-pagination`}>
-        <Pagination
-          {...paginationProps}
-          onChange={this.defaultPaginationProps.onChange}
-        />
+        <Pagination {...paginationProps} onChange={this.defaultPaginationProps.onChange} />
       </div>
     ) : null;
 
     let splitDataSource = [...dataSource];
     if (pagination) {
-      if (
-        dataSource.length >
-        (paginationProps.current - 1) * paginationProps.pageSize
-      ) {
+      if (dataSource.length > (paginationProps.current - 1) * paginationProps.pageSize) {
         splitDataSource = [...dataSource].splice(
           (paginationProps.current - 1) * paginationProps.pageSize,
           paginationProps.pageSize,
@@ -234,28 +214,21 @@ export default class List extends React.Component<ListProps> {
     let childrenContent;
     childrenContent = isLoading && <div style={{ minHeight: 53 }} />;
     if (splitDataSource.length > 0) {
-      const items = splitDataSource.map((item: any, index: number) =>
-        this.renderItem(item, index),
-      );
+      const items = splitDataSource.map((item: any, index: number) => this.renderItem(item, index));
 
       const childrenList: Array<React.ReactNode> = [];
       React.Children.forEach(items, (child: any, index) => {
-        childrenList.push(React.cloneElement(child, {
-          key: this.keys[index],
-        }));
+        childrenList.push(
+          React.cloneElement(child, {
+            key: this.keys[index],
+          }),
+        );
       });
 
-      childrenContent = grid ? (
-        <Row gutter={grid.gutter}>{childrenList}</Row>
-      ) : (
-        childrenList
-      );
+      childrenContent = grid ? <Row gutter={grid.gutter}>{childrenList}</Row> : childrenList;
     } else if (!children && !isLoading) {
       childrenContent = (
-        <LocaleReceiver
-          componentName="Table"
-          defaultLocale={defaultLocale.Table}
-        >
+        <LocaleReceiver componentName="Table" defaultLocale={defaultLocale.Table}>
           {this.renderEmpty}
         </LocaleReceiver>
       );
@@ -272,7 +245,8 @@ export default class List extends React.Component<ListProps> {
           {children}
         </Spin>
         {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
-        {loadMore || (paginationPosition === 'bottom' || paginationPosition === 'both') && paginationContent}
+        {loadMore ||
+          ((paginationPosition === 'bottom' || paginationPosition === 'both') && paginationContent)}
       </div>
     );
   }
