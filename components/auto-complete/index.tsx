@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
 import Select, { AbstractSelectProps, SelectValue, OptionProps, OptGroupProps } from '../select';
-import Input from '../input';
+import Input, { InputProps } from '../input';
 import InputElement from './InputElement';
 
 export interface DataSourceItemObject { value: string; text: string; }
@@ -35,7 +35,8 @@ export interface AutoCompleteProps extends AbstractSelectProps {
   onFocus?: () => void;
   children?: ValidInputElement |
     React.ReactElement<OptionProps> |
-    Array<React.ReactElement<OptionProps>>;
+    Array<React.ReactElement<OptionProps>> |
+    React.ReactElement<InputProps>;
 }
 
 function isSelectOptionOrSelectOptGroup(child: any): Boolean {
