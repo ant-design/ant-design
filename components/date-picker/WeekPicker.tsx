@@ -167,7 +167,7 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
 
     const input = ({ value }: { value: moment.Moment | undefined }) => {
       return (
-        <span>
+        <span style={{ display: 'inline-block' }}>
           <input
             ref={this.saveInput}
             disabled={disabled}

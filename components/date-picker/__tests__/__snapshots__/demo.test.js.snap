@@ -111,7 +111,9 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
   <span
     class="ant-calendar-picker"
   >
-    <span>
+    <span
+      style="display:inline-block"
+    >
       <input
         class="ant-calendar-picker-input ant-input"
         placeholder="Select week"
@@ -1143,7 +1145,9 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
   <span
     class="ant-calendar-picker ant-calendar-picker-default"
   >
-    <span>
+    <span
+      style="display:inline-block"
+    >
       <input
         class="ant-calendar-picker-input ant-input"
         placeholder="Select Week"
@@ -1348,7 +1352,9 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
   <span
     class="ant-calendar-picker"
   >
-    <span>
+    <span
+      style="display:inline-block"
+    >
       <input
         class="ant-calendar-picker-input ant-input"
         placeholder="Select week"
@@ -1448,7 +1454,9 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
   <span
     class="ant-calendar-picker"
   >
-    <span>
+    <span
+      style="display:inline-block"
+    >
       <input
         class="ant-calendar-picker-input ant-input"
         placeholder="Select week"
