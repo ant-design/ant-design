@@ -7,6 +7,7 @@ import KeyCode from 'rc-util/lib/KeyCode';
 import Input from '../input';
 import Icon from '../icon';
 import { ConfigConsumer, ConfigProviderProps } from '../config-provider';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import warning from '../_util/warning';
 
 export interface CascaderOptionType {
@@ -14,7 +15,6 @@ export interface CascaderOptionType {
   label?: React.ReactNode;
   disabled?: boolean;
   children?: Array<CascaderOptionType>;
-
   [key: string]: any;
 }
 
@@ -105,6 +105,10 @@ export interface CascaderState {
   flattenOptions: CascaderOptionType[][] | undefined;
 }
 
+interface CascaderLocale {
+  placeholder?: string;
+}
+
 // We limit the filtered item count by default
 const defaultLimit = 50;
 
@@ -182,7 +186,6 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
   static defaultProps = {
     prefixCls: 'ant-cascader',
     inputPrefixCls: 'ant-input',
-    placeholder: 'Please select',
     transitionName: 'slide-up',
     popupPlacement: 'bottomLeft',
     options: [],
@@ -393,13 +396,16 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     this.input = node;
   };
 
-  renderCascader = ({ getPopupContainer: getContextPopupContainer }: ConfigProviderProps) => {
+  renderCascader = (
+    { getPopupContainer: getContextPopupContainer }: ConfigProviderProps,
+    locale: CascaderLocale,
+  ) => {
     const { props, state } = this;
     const {
       prefixCls,
       inputPrefixCls,
       children,
-      placeholder,
+      placeholder = locale.placeholder,
       size,
       disabled,
       className,
@@ -409,6 +415,7 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
       suffixIcon,
       ...otherProps
     } = props;
+
     const { value, inputFocused } = state;
 
     const sizeCls = classNames({
@@ -548,6 +555,12 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
   };
 
   render() {
-    return <ConfigConsumer>{this.renderCascader}</ConfigConsumer>;
+    return (
+      <ConfigConsumer>
+        {(configArgument: ConfigProviderProps) => (
+          <LocaleReceiver>{locale => this.renderCascader(configArgument, locale)}</LocaleReceiver>
+        )}
+      </ConfigConsumer>
+    );
   }
 }
