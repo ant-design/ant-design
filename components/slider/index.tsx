@@ -107,7 +107,7 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
   }
 
   blur() {
-    this.rcSlider.focus();
+    this.rcSlider.blur();
   }
 
   saveSlider = (node: any) => {

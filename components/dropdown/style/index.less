@@ -11,6 +11,16 @@
   z-index: @zindex-dropdown;
   display: block;
 
+  &:before {
+    position: absolute;
+    top: -7px;
+    left: -7px;
+    right: -7px;
+    bottom: -7px;
+    content: ' ';
+    opacity: .0001;
+  }
+
   &-wrap {
     position: relative;
 
