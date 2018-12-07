@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Item } from 'rc-menu';
 import * as PropTypes from 'prop-types';
 import Tooltip from '../tooltip';
+import { ClickParam } from './index'
 
 interface MenuItemProps {
   rootPrefixCls?: string;
@@ -10,6 +11,7 @@ interface MenuItemProps {
   title?: React.ReactNode;
   children?: React.ReactNode;
   className?: string;
+  onClick?: (param: ClickParam) => void;
 }
 
 class MenuItem extends React.Component<MenuItemProps, any> {
