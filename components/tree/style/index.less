@@ -1,20 +1,21 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
-@import "../../checkbox/style/mixin";
-@import "./mixin";
-@import "./directory";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
+@import '../../checkbox/style/mixin';
+@import './mixin';
+@import './directory';
 
-@tree-prefix-cls: ~"@{ant-prefix}-tree";
+@tree-prefix-cls: ~'@{ant-prefix}-tree';
 @tree-showline-icon-color: @text-color-secondary;
 
-.antCheckboxFn(@checkbox-prefix-cls: ~"@{ant-prefix}-tree-checkbox");
+.antCheckboxFn(@checkbox-prefix-cls: ~'@{ant-prefix}-tree-checkbox');
 
 .@{tree-prefix-cls} {
   .reset-component;
   margin: 0;
   padding: 0;
 
-  ol, ul {
+  ol,
+  ul {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -27,7 +28,7 @@
     white-space: nowrap;
     outline: 0;
     span[draggable],
-    span[draggable="true"] {
+    span[draggable='true'] {
       user-select: none;
       border-top: 2px transparent solid;
       border-bottom: 2px transparent solid;
@@ -107,7 +108,7 @@
       text-decoration: none;
       vertical-align: top;
       color: @text-color;
-      transition: all .3s;
+      transition: all 0.3s;
       height: @tree-title-height;
       line-height: @tree-title-height;
       &:hover {
@@ -206,13 +207,13 @@
           background: @component-background;
           color: @tree-showline-icon-color;
           &.@{tree-prefix-cls}-switcher-noop {
-            .antTreeShowLineIcon("tree-doc-icon");
+            .antTreeShowLineIcon('tree-doc-icon');
           }
           &.@{tree-prefix-cls}-switcher_open {
-            .antTreeShowLineIcon("tree-showline-open-icon");
+            .antTreeShowLineIcon('tree-showline-open-icon');
           }
           &.@{tree-prefix-cls}-switcher_close {
-            .antTreeShowLineIcon("tree-showline-close-icon");
+            .antTreeShowLineIcon('tree-showline-close-icon');
           }
         }
       }

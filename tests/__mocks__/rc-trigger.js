@@ -1,3 +1,5 @@
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable react/no-this-in-sfc */
 import React from 'react';
 
 let Trigger; // eslint-disable-line
@@ -11,7 +13,8 @@ if (process.env.REACT === '15') {
     const { popupVisible } = this.state; // eslint-disable-line
     let component;
 
-    if (popupVisible || this._component) { // eslint-disable-line
+    if (popupVisible || this._component) {
+      // eslint-disable-line
       component = this.getComponent(); // eslint-disable-line
     }
 

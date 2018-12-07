@@ -9,52 +9,118 @@ import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 import { categories, Categories, CategoriesKeys } from './fields';
 import { injectIntl, InjectedIntlProps } from 'react-intl';
 
-interface IconDisplayProps extends InjectedIntlProps {
-}
+interface IconDisplayProps extends InjectedIntlProps {}
 
 interface IconDisplayState {
   theme: ThemeType;
 }
 
 class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
-
   static cagetories: Categories = categories;
 
   static newIconNames: string[] = [
     // direction
-    'border-bottom', 'border-horizontal', 'border-inner',
-    'border-outter', 'border-left', 'border-right', 'border-top',
-    'border-verticle', 'pic-center', 'pic-left', 'pic-right',
-    'radius-bottomleft', 'radius-bottomright', 'radius-upleft', 'radius-upleft',
-    'fullscreen', 'fullscreen-exit',
+    'border-bottom',
+    'border-horizontal',
+    'border-inner',
+    'border-outter',
+    'border-left',
+    'border-right',
+    'border-top',
+    'border-verticle',
+    'pic-center',
+    'pic-left',
+    'pic-right',
+    'radius-bottomleft',
+    'radius-bottomright',
+    'radius-upleft',
+    'radius-upleft',
+    'fullscreen',
+    'fullscreen-exit',
     // suggestion
-    'issues-close', 'stop',
+    'issues-close',
+    'stop',
 
     // edit
-    'scissor', 'snippets', 'diff', 'highlight',
-    'align-center', 'align-left', 'align-right', 'bg-colors',
-    'bold', 'italic', 'underline', 'redo', 'undo', 'zoom-in', 'zoom-out',
-    'font-colors', 'font-size', 'line-height', 'colum-height', 'colum-width',
-    'dash', 'small-dash', 'sort-ascending', 'sort-descending',
-    'drag', 'ordered-list', 'radius-setting',
+    'scissor',
+    'snippets',
+    'diff',
+    'highlight',
+    'align-center',
+    'align-left',
+    'align-right',
+    'bg-colors',
+    'bold',
+    'italic',
+    'underline',
+    'redo',
+    'undo',
+    'zoom-in',
+    'zoom-out',
+    'font-colors',
+    'font-size',
+    'line-height',
+    'colum-height',
+    'colum-width',
+    'dash',
+    'small-dash',
+    'sort-ascending',
+    'sort-descending',
+    'drag',
+    'ordered-list',
+    'radius-setting',
 
     // data
-    'radar-chart', 'heat-map', 'fall', 'rise', 'stock', 'box-plot', 'fund',
+    'radar-chart',
+    'heat-map',
+    'fall',
+    'rise',
+    'stock',
+    'box-plot',
+    'fund',
     'sliders',
 
     // other
-    'alert', 'audit', 'batch-folding', 'branches',
-    'build', 'border', 'crown',
-    'experiment', 'fire',
-    'money-collect', 'property-safety', 'read', 'reconciliation',
-    'rest', 'security-scan', 'insurance', 'interation', 'safety-certificate',
-    'project', 'thunderbolt', 'block', 'cluster', 'deployment-unit',
-    'dollar', 'euro', 'pound', 'file-done', 'file-exclamation', 'file-protect',
-    'file-search', 'file-sync', 'gateway', 'gold', 'robot',
-    'strikethrough', 'shopping',
+    'alert',
+    'audit',
+    'batch-folding',
+    'branches',
+    'build',
+    'border',
+    'crown',
+    'experiment',
+    'fire',
+    'money-collect',
+    'property-safety',
+    'read',
+    'reconciliation',
+    'rest',
+    'security-scan',
+    'insurance',
+    'interation',
+    'safety-certificate',
+    'project',
+    'thunderbolt',
+    'block',
+    'cluster',
+    'deployment-unit',
+    'dollar',
+    'euro',
+    'pound',
+    'file-done',
+    'file-exclamation',
+    'file-protect',
+    'file-search',
+    'file-sync',
+    'gateway',
+    'gold',
+    'robot',
+    'strikethrough',
+    'shopping',
 
     // logo
-    'alibaba', 'yahoo',
+    'alibaba',
+    'yahoo',
   ];
 
   static themeTypeMapper: { [key: string]: ThemeFolderType } = {
@@ -69,13 +135,12 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
 
   getComputedDisplayList() {
     return Object.keys(IconDisplay.cagetories)
-      .map(
-        (category: CategoriesKeys) => ({
-          category,
-          icons: IconDisplay.cagetories[category]
-            .filter((name) => manifest[IconDisplay.themeTypeMapper[this.state.theme]].indexOf(name) !== -1),
-        }),
-      )
+      .map((category: CategoriesKeys) => ({
+        category,
+        icons: IconDisplay.cagetories[category].filter(
+          name => manifest[IconDisplay.themeTypeMapper[this.state.theme]].indexOf(name) !== -1,
+        ),
+      }))
       .filter(({ icons }) => Boolean(icons.length));
   }
 
@@ -83,9 +148,9 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
     this.setState({
       theme: e.target.value as ThemeType,
     });
-  }
+  };
 
-  renderCategories(list: Array<{ category: CategoriesKeys, icons: string[] }>) {
+  renderCategories(list: Array<{ category: CategoriesKeys; icons: string[] }>) {
     return list.map(({ category, icons }) => {
       return (
         <Category
@@ -100,7 +165,9 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
   }
 
   render() {
-    const { intl: { messages } } = this.props;
+    const {
+      intl: { messages },
+    } = this.props;
     const list = this.getComputedDisplayList();
     return (
       <div>

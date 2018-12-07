@@ -15,7 +15,7 @@ export interface SkeletonProps {
   paragraph?: SkeletonParagraphProps | boolean;
 }
 
-function getComponentProps<T>(prop: T | boolean | undefined): T | {}  {
+function getComponentProps<T>(prop: T | boolean | undefined): T | {} {
   if (prop && typeof prop === 'object') {
     return prop;
   }
@@ -70,8 +70,14 @@ class Skeleton extends React.Component<SkeletonProps, any> {
 
   render() {
     const {
-      loading, prefixCls, className, children,
-      avatar, title, paragraph, active,
+      loading,
+      prefixCls,
+      className,
+      children,
+      avatar,
+      title,
+      paragraph,
+      active,
     } = this.props;
 
     if (loading || !('loading' in this.props)) {
@@ -104,9 +110,7 @@ class Skeleton extends React.Component<SkeletonProps, any> {
             ...getComponentProps(title),
           };
 
-          $title = (
-            <Title {...titleProps} />
-          );
+          $title = <Title {...titleProps} />;
         }
 
         // Paragraph
@@ -117,9 +121,7 @@ class Skeleton extends React.Component<SkeletonProps, any> {
             ...getComponentProps(paragraph),
           };
 
-          paragraphNode = (
-            <Paragraph {...paragraphProps} />
-          );
+          paragraphNode = <Paragraph {...paragraphProps} />;
         }
 
         contentNode = (
@@ -130,13 +132,10 @@ class Skeleton extends React.Component<SkeletonProps, any> {
         );
       }
 
-      const cls = classNames(
-        prefixCls,
-        className, {
-          [`${prefixCls}-with-avatar`]: hasAvatar,
-          [`${prefixCls}-active`]: active,
-        },
-      );
+      const cls = classNames(prefixCls, className, {
+        [`${prefixCls}-with-avatar`]: hasAvatar,
+        [`${prefixCls}-active`]: active,
+      });
 
       return (
         <div className={cls}>

@@ -14,22 +14,18 @@ class ModalTester extends React.Component {
     this.setState({ visible: true }); // eslint-disable-line react/no-did-mount-set-state
   }
 
-  saveContainer = (container) => {
+  saveContainer = container => {
     this.container = container;
-  }
+  };
 
-  getContainer = () => this.container
+  getContainer = () => this.container;
 
   render() {
     const { visible } = this.state;
     return (
       <div>
         <div ref={this.saveContainer} />
-        <Modal
-          {...this.props}
-          visible={visible}
-          getContainer={this.getContainer}
-        >
+        <Modal {...this.props} visible={visible} getContainer={this.getContainer}>
           Here is content of Modal
         </Modal>
       </div>

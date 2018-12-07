@@ -7,19 +7,15 @@ export interface ConfigProviderProps {
 
 const ConfigContext: Context<ConfigProviderProps | null> = createReactContext({});
 
-const ConfigProvider: React.SFC<ConfigProviderProps> = (props) => {
+const ConfigProvider: React.SFC<ConfigProviderProps> = props => {
   const { getPopupContainer, children } = props;
   const config = {
     getPopupContainer,
   };
 
-  return (
-    <ConfigContext.Provider value={config}>
-      {children}
-    </ConfigContext.Provider>
-  );
- }
+  return <ConfigContext.Provider value={config}>{children}</ConfigContext.Provider>;
+};
 
- export const ConfigConsumer = ConfigContext.Consumer;
+export const ConfigConsumer = ConfigContext.Consumer;
 
- export default ConfigProvider;
+export default ConfigProvider;

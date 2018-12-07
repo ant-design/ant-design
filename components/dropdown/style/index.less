@@ -1,7 +1,7 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@dropdown-prefix-cls: ~"@{ant-prefix}-dropdown";
+@dropdown-prefix-cls: ~'@{ant-prefix}-dropdown';
 
 .@{dropdown-prefix-cls} {
   .reset-component;
@@ -18,7 +18,7 @@
     right: -7px;
     bottom: -7px;
     content: ' ';
-    opacity: .0001;
+    opacity: 0.0001;
   }
 
   &-wrap {
@@ -29,7 +29,7 @@
     }
 
     .@{iconfont-css-prefix}-down:before {
-      transition: transform .2s;
+      transition: transform 0.2s;
     }
   }
 
@@ -59,7 +59,7 @@
     &-item-group-title {
       color: @text-color-secondary;
       padding: 5px @control-padding-horizontal;
-      transition: all .3s;
+      transition: all 0.3s;
     }
 
     &-submenu-popup {
@@ -81,7 +81,7 @@
       color: @text-color;
       white-space: nowrap;
       cursor: pointer;
-      transition: all .3s;
+      transition: all 0.3s;
       line-height: 22px;
 
       > .anticon:first-child {
@@ -94,7 +94,7 @@
         display: block;
         padding: 5px @control-padding-horizontal;
         margin: -5px -@control-padding-horizontal;
-        transition: all .3s;
+        transition: all 0.3s;
         &:focus {
           text-decoration: none;
         }

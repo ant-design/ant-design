@@ -12,11 +12,7 @@ import Icon from '../icon';
 export function generateShowHourMinuteSecond(format: string) {
   // Ref: http://momentjs.com/docs/#/parsing/string-format/
   return {
-    showHour: (
-      format.indexOf('H') > -1 ||
-      format.indexOf('h') > -1 ||
-      format.indexOf('k') > -1
-    ),
+    showHour: format.indexOf('H') > -1 || format.indexOf('h') > -1 || format.indexOf('k') > -1,
     showMinute: format.indexOf('m') > -1,
     showSecond: format.indexOf('s') > -1,
   };
@@ -89,7 +85,7 @@ class TimePicker extends React.Component<TimePickerProps, any> {
     if (value && !interopDefault(moment).isMoment(value)) {
       throw new Error(
         'The value/defaultValue of TimePicker must be a moment object after `antd@2.0`, ' +
-        'see: https://u.ant.design/time-picker-value',
+          'see: https://u.ant.design/time-picker-value',
       );
     }
     this.state = {
@@ -105,18 +101,18 @@ class TimePicker extends React.Component<TimePickerProps, any> {
     if (onChange) {
       onChange(value, (value && value.format(format)) || '');
     }
-  }
+  };
 
   handleOpenClose = ({ open }: { open: boolean }) => {
     const { onOpenChange } = this.props;
     if (onOpenChange) {
       onOpenChange(open);
     }
-  }
+  };
 
   saveTimePicker = (timePickerRef: typeof RcTimePicker) => {
     this.timePickerRef = timePickerRef;
-  }
+  };
 
   focus() {
     this.timePickerRef.focus();
@@ -145,45 +141,28 @@ class TimePicker extends React.Component<TimePickerProps, any> {
       [`${props.prefixCls}-${props.size}`]: !!props.size,
     });
 
-    const addon = (panel: React.ReactElement<any>) => (
+    const addon = (panel: React.ReactElement<any>) =>
       props.addon ? (
-        <div className={`${props.prefixCls}-panel-addon`}>
-          {props.addon(panel)}
-        </div>
-      ) : null
-    );
+        <div className={`${props.prefixCls}-panel-addon`}>{props.addon(panel)}</div>
+      ) : null;
 
     const { suffixIcon, prefixCls } = props;
-    const clockIcon = suffixIcon && (
-      React.isValidElement<{ className?: string }>(suffixIcon)
-        ? React.cloneElement(
-          suffixIcon,
-          {
-            className: classNames({
-              [suffixIcon.props.className!]: suffixIcon.props.className,
-              [`${prefixCls}-clock-icon`]: true,
-            }),
-          },
-        ) : <span className={`${prefixCls}-clock-icon`}>{suffixIcon}</span>) || (
-        <Icon
-          type="clock-circle"
-          className={`${prefixCls}-clock-icon`}
-          theme="outlined"
-        />
-      );
+    const clockIcon = (suffixIcon &&
+      (React.isValidElement<{ className?: string }>(suffixIcon) ? (
+        React.cloneElement(suffixIcon, {
+          className: classNames({
+            [suffixIcon.props.className!]: suffixIcon.props.className,
+            [`${prefixCls}-clock-icon`]: true,
+          }),
+        })
+      ) : (
+        <span className={`${prefixCls}-clock-icon`}>{suffixIcon}</span>
+      ))) || <Icon type="clock-circle" className={`${prefixCls}-clock-icon`} theme="outlined" />;
 
-    const inputIcon = (
-      <span className={`${prefixCls}-icon`}>
-        {clockIcon}
-      </span>
-    );
+    const inputIcon = <span className={`${prefixCls}-icon`}>{clockIcon}</span>;
 
     const clearIcon = (
-      <Icon
-        type="close-circle"
-        className={`${prefixCls}-panel-clear-btn-icon`}
-        theme="filled"
-      />
+      <Icon type="close-circle" className={`${prefixCls}-panel-clear-btn-icon`} theme="filled" />
     );
 
     return (
@@ -210,14 +189,11 @@ class TimePicker extends React.Component<TimePickerProps, any> {
         }}
       </ConfigConsumer>
     );
-  }
+  };
 
   render() {
     return (
-      <LocaleReceiver
-        componentName="TimePicker"
-        defaultLocale={defaultLocale}
-      >
+      <LocaleReceiver componentName="TimePicker" defaultLocale={defaultLocale}>
         {this.renderTimePicker}
       </LocaleReceiver>
     );

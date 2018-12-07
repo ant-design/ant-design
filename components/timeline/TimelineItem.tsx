@@ -20,10 +20,13 @@ export default class TimelineItem extends React.Component<TimeLineItemProps, any
   render() {
     const { prefixCls, className, color = '', children, pending, dot, ...restProps } = this.props;
 
-    const itemClassName = classNames({
-      [`${prefixCls}-item`]: true,
-      [`${prefixCls}-item-pending`]: pending,
-    }, className);
+    const itemClassName = classNames(
+      {
+        [`${prefixCls}-item`]: true,
+        [`${prefixCls}-item-pending`]: pending,
+      },
+      className,
+    );
 
     const dotClassName = classNames({
       [`${prefixCls}-item-head`]: true,
@@ -40,9 +43,7 @@ export default class TimelineItem extends React.Component<TimeLineItemProps, any
         >
           {dot}
         </div>
-        <div className={`${prefixCls}-item-content`}>
-          {children}
-        </div>
+        <div className={`${prefixCls}-item-content`}>{children}</div>
       </li>
     );
   }

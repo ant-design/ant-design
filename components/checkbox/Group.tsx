@@ -71,7 +71,7 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
     super(props);
     this.state = {
       value: props.value || props.defaultValue || [],
-     };
+    };
   }
 
   getChildContext() {
@@ -85,8 +85,7 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
   }
 
   shouldComponentUpdate(nextProps: CheckboxGroupProps, nextState: CheckboxGroupState) {
-    return !shallowEqual(this.props, nextProps) ||
-      !shallowEqual(this.state, nextState);
+    return !shallowEqual(this.props, nextProps) || !shallowEqual(this.state, nextState);
   }
 
   getOptions() {
@@ -106,7 +105,7 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
   toggleOption = (option: CheckboxOptionType) => {
     const optionIndex = this.state.value.indexOf(option.value);
     const value = [...this.state.value];
-    if (optionIndex === - 1) {
+    if (optionIndex === -1) {
       value.push(option.value);
     } else {
       value.splice(optionIndex, 1);
@@ -118,7 +117,7 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
     if (onChange) {
       onChange(value);
     }
-  }
+  };
 
   render() {
     const { props, state } = this;

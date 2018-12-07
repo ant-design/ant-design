@@ -80,7 +80,7 @@ class Tag extends React.Component<TagProps, TagState> {
       return;
     }
     this.setState({ visible: false });
-  }
+  };
 
   close = () => {
     if (this.state.closing || this.state.closed) {
@@ -93,13 +93,13 @@ class Tag extends React.Component<TagProps, TagState> {
     this.setState({
       closing: true,
     });
-  }
+  };
 
   show = () => {
     this.setState({
       closed: false,
     });
-  }
+  };
 
   animationEnd = (_: string, existed: boolean) => {
     if (!existed && !this.state.closed) {
@@ -117,13 +117,14 @@ class Tag extends React.Component<TagProps, TagState> {
         closed: false,
       });
     }
-  }
+  };
 
   isPresetColor(color?: string): boolean {
-    if (!color) { return false; }
-    return (
-      /^(pink|red|yellow|orange|cyan|green|blue|purple|geekblue|magenta|volcano|gold|lime)(-inverse)?$/
-      .test(color)
+    if (!color) {
+      return false;
+    }
+    return /^(pink|red|yellow|orange|cyan|green|blue|purple|geekblue|magenta|volcano|gold|lime)(-inverse)?$/.test(
+      color,
     );
   }
 
@@ -131,28 +132,25 @@ class Tag extends React.Component<TagProps, TagState> {
     const { prefixCls, closable, color, className, children, style, ...otherProps } = this.props;
     const closeIcon = closable ? <Icon type="close" onClick={this.handleIconClick} /> : '';
     const isPresetColor = this.isPresetColor(color);
-    const classString = classNames(prefixCls, {
-      [`${prefixCls}-${color}`]: isPresetColor,
-      [`${prefixCls}-has-color`]: (color && !isPresetColor),
-      [`${prefixCls}-close`]: this.state.closing,
-    }, className);
+    const classString = classNames(
+      prefixCls,
+      {
+        [`${prefixCls}-${color}`]: isPresetColor,
+        [`${prefixCls}-has-color`]: color && !isPresetColor,
+        [`${prefixCls}-close`]: this.state.closing,
+      },
+      className,
+    );
     // fix https://fb.me/react-unknown-prop
-    const divProps = omit(otherProps, [
-      'onClose',
-      'afterClose',
-      'visible',
-    ]);
+    const divProps = omit(otherProps, ['onClose', 'afterClose', 'visible']);
     const tagStyle = {
-      backgroundColor: (color && !isPresetColor) ? color : null,
+      backgroundColor: color && !isPresetColor ? color : null,
       ...style,
     };
-    const tag = this.state.closed ? <span/> : (
-      <div
-        data-show={!this.state.closing}
-        {...divProps}
-        className={classString}
-        style={tagStyle}
-      >
+    const tag = this.state.closed ? (
+      <span />
+    ) : (
+      <div data-show={!this.state.closing} {...divProps} className={classString} style={tagStyle}>
         {children}
         {closeIcon}
       </div>

@@ -34,10 +34,7 @@ class Paragraph extends React.Component<SkeletonParagraphProps, {}> {
       <li key={index} style={{ width: this.getWidth(index) }} />
     ));
     return (
-      <ul
-        className={classNames(prefixCls, className)}
-        style={style}
-      >
+      <ul className={classNames(prefixCls, className)} style={style}>
         {rowList}
       </ul>
     );

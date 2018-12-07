@@ -60,7 +60,7 @@ class Home extends React.Component {
   static contextTypes = {
     intl: PropTypes.object.isRequired,
     isMobile: PropTypes.bool.isRequired,
-  }
+  };
 
   render() {
     const { isMobile, intl } = this.context;

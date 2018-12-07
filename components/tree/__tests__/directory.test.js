@@ -32,20 +32,36 @@ describe('Directory Tree', () => {
     it('click', () => {
       const wrapper = mount(createTree());
 
-      wrapper.find(TreeNode).find('.ant-tree-node-content-wrapper').at(0).simulate('click');
+      wrapper
+        .find(TreeNode)
+        .find('.ant-tree-node-content-wrapper')
+        .at(0)
+        .simulate('click');
       expect(wrapper.render()).toMatchSnapshot();
       jest.runAllTimers();
-      wrapper.find(TreeNode).find('.ant-tree-node-content-wrapper').at(0).simulate('click');
+      wrapper
+        .find(TreeNode)
+        .find('.ant-tree-node-content-wrapper')
+        .at(0)
+        .simulate('click');
       expect(wrapper.render()).toMatchSnapshot();
     });
 
     it('double click', () => {
       const wrapper = mount(createTree({ expandAction: 'doubleClick' }));
 
-      wrapper.find(TreeNode).find('.ant-tree-node-content-wrapper').at(0).simulate('doubleClick');
+      wrapper
+        .find(TreeNode)
+        .find('.ant-tree-node-content-wrapper')
+        .at(0)
+        .simulate('doubleClick');
       expect(wrapper.render()).toMatchSnapshot();
       jest.runAllTimers();
-      wrapper.find(TreeNode).find('.ant-tree-node-content-wrapper').at(0).simulate('doubleClick');
+      wrapper
+        .find(TreeNode)
+        .find('.ant-tree-node-content-wrapper')
+        .at(0)
+        .simulate('doubleClick');
       expect(wrapper.render()).toMatchSnapshot();
     });
 
@@ -55,7 +71,7 @@ describe('Directory Tree', () => {
           expandedKeys: [],
         };
 
-        onExpand = (expandedKeys) => {
+        onExpand = expandedKeys => {
           this.setState({ expandedKeys });
         };
 
@@ -72,13 +88,15 @@ describe('Directory Tree', () => {
         }
       }
 
-      ['click', 'doubleClick'].forEach((action) => {
+      ['click', 'doubleClick'].forEach(action => {
         it(action, () => {
-          const wrapper = mount(
-            <StateDirTree expandAction={action} />
-          );
+          const wrapper = mount(<StateDirTree expandAction={action} />);
 
-          wrapper.find(TreeNode).find('.ant-tree-node-content-wrapper').at(0).simulate(action);
+          wrapper
+            .find(TreeNode)
+            .find('.ant-tree-node-content-wrapper')
+            .at(0)
+            .simulate(action);
           jest.runAllTimers();
           expect(wrapper.render()).toMatchSnapshot();
         });
@@ -110,28 +128,42 @@ describe('Directory Tree', () => {
 
   it('group select', () => {
     let nativeEventProto = null;
-    const wrapper = mount(createTree({
-      defaultExpandAll: true,
-      expandAction: 'doubleClick',
-      multiple: true,
-      onClick: (e) => {
-        nativeEventProto = Object.getPrototypeOf(e.nativeEvent);
-      },
-    }));
+    const wrapper = mount(
+      createTree({
+        defaultExpandAll: true,
+        expandAction: 'doubleClick',
+        multiple: true,
+        onClick: e => {
+          nativeEventProto = Object.getPrototypeOf(e.nativeEvent);
+        },
+      }),
+    );
 
-    wrapper.find(TreeNode).find('.ant-tree-node-content-wrapper').at(0).simulate('click');
+    wrapper
+      .find(TreeNode)
+      .find('.ant-tree-node-content-wrapper')
+      .at(0)
+      .simulate('click');
 
     // React not simulate full of NativeEvent. Hook it.
     // Ref: https://github.com/facebook/react/blob/master/packages/react-dom/src/test-utils/ReactTestUtils.js#L360
     nativeEventProto.ctrlKey = true;
 
-    wrapper.find(TreeNode).find('.ant-tree-node-content-wrapper').at(1).simulate('click');
+    wrapper
+      .find(TreeNode)
+      .find('.ant-tree-node-content-wrapper')
+      .at(1)
+      .simulate('click');
     expect(wrapper.render()).toMatchSnapshot();
 
     delete nativeEventProto.ctrlKey;
     nativeEventProto.shiftKey = true;
 
-    wrapper.find(TreeNode).find('.ant-tree-node-content-wrapper').at(4).simulate('click');
+    wrapper
+      .find(TreeNode)
+      .find('.ant-tree-node-content-wrapper')
+      .at(4)
+      .simulate('click');
     expect(wrapper.render()).toMatchSnapshot();
 
     delete nativeEventProto.shiftKey;

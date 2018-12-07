@@ -1,16 +1,16 @@
-@import "../../style/mixins/index";
+@import '../../style/mixins/index';
 
-@tree-prefix-cls: ~"@{ant-prefix}-tree";
-@tree-select-prefix-cls: ~"@{ant-prefix}-select";
+@tree-prefix-cls: ~'@{ant-prefix}-tree';
+@tree-select-prefix-cls: ~'@{ant-prefix}-select';
 
-.antTreeSwitcherIcon(@type: "tree-default-open-icon") {
+.antTreeSwitcherIcon(@type: 'tree-default-open-icon') {
   .@{tree-prefix-cls}-switcher-icon,
   .@{tree-select-prefix-cls}-switcher-icon {
     .iconfont-size-under-12px(10px);
     display: inline-block;
     font-weight: bold;
     svg {
-      transition: transform .3s;
+      transition: transform 0.3s;
     }
   }
 }
@@ -22,7 +22,7 @@
     display: inline-block;
     font-weight: normal;
     svg {
-      transition: transform .3s;
+      transition: transform 0.3s;
     }
   }
 }

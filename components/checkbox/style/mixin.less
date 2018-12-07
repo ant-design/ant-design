@@ -1,7 +1,7 @@
-@import "../../style/mixins/index";
+@import '../../style/mixins/index';
 
-.antCheckboxFn(@checkbox-prefix-cls: ~"@{ant-prefix}-checkbox") {
-  @checkbox-inner-prefix-cls: ~"@{checkbox-prefix-cls}-inner";
+.antCheckboxFn(@checkbox-prefix-cls: ~'@{ant-prefix}-checkbox') {
+  @checkbox-inner-prefix-cls: ~'@{checkbox-prefix-cls}-inner';
   // 一般状态
   .@{checkbox-prefix-cls} {
     .reset-component;
@@ -28,7 +28,7 @@
       height: 100%;
       border-radius: @border-radius-sm;
       border: 1px solid @checkbox-color;
-      content: "";
+      content: '';
       animation: antCheckboxEffect 0.36s ease-in-out;
       animation-fill-mode: both;
       visibility: hidden;
@@ -49,7 +49,7 @@
       border: @checkbox-border-width @border-style-base @border-color-base;
       border-radius: @border-radius-sm;
       background-color: @checkbox-check-color;
-      transition: all .3s;
+      transition: all 0.3s;
       // Fix IE checked style
       // https://github.com/ant-design/ant-design/issues/12597
       border-collapse: separate;
@@ -68,7 +68,7 @@
         border-top: 0;
         border-left: 0;
         content: ' ';
-        transition: all .1s @ease-in-back, opacity .1s;
+        transition: all 0.1s @ease-in-back, opacity 0.1s;
         opacity: 0;
       }
     }
@@ -96,7 +96,7 @@
     border-top: 0;
     border-left: 0;
     content: ' ';
-    transition: all .2s @ease-out-back .1s;
+    transition: all 0.2s @ease-out-back 0.1s;
     opacity: 1;
   }
 

@@ -9,7 +9,7 @@ export interface ButtonGroupProps {
   prefixCls?: string;
 }
 
-const ButtonGroup: React.SFC<ButtonGroupProps> = (props) => {
+const ButtonGroup: React.SFC<ButtonGroupProps> = props => {
   const { prefixCls = 'ant-btn-group', size, className, ...others } = props;
 
   // large => lg
@@ -25,9 +25,13 @@ const ButtonGroup: React.SFC<ButtonGroupProps> = (props) => {
       break;
   }
 
-  const classes = classNames(prefixCls, {
-    [`${prefixCls}-${sizeCls}`]: sizeCls,
-  }, className);
+  const classes = classNames(
+    prefixCls,
+    {
+      [`${prefixCls}-${sizeCls}`]: sizeCls,
+    },
+    className,
+  );
 
   return <div {...others} className={classes} />;
 };

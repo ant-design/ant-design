@@ -24,17 +24,21 @@
 
 .button-variant-primary(@color; @background) {
   .button-color(@color; @background; @background);
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, .12);
-  box-shadow: 0 2px 0 rgba(0, 0, 0, .045);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
 
   &:hover,
   &:focus {
-    .button-color(@color; ~`colorPalette("@{background}", 5)`; ~`colorPalette("@{background}", 5)`);
+    .button-color(
+      @color; ~`colorPalette('@{background}', 5) `; ~`colorPalette('@{background}', 5) `
+    );
   }
 
   &:active,
   &.active {
-    .button-color(@color; ~`colorPalette("@{background}", 7)`; ~`colorPalette("@{background}", 7)`);
+    .button-color(
+      @color; ~`colorPalette('@{background}', 7) `; ~`colorPalette('@{background}', 7) `
+    );
   }
 
   .button-disabled();
@@ -60,16 +64,20 @@
   .button-color(@color; @background; @border);
 
   &:hover {
-    .button-color(@btn-primary-color; ~`colorPalette("@{color}", 5)`; ~`colorPalette("@{color}", 5)`);
+    .button-color(
+      @btn-primary-color; ~`colorPalette('@{color}', 5) `; ~`colorPalette('@{color}', 5) `
+    );
   }
 
   &:focus {
-    .button-color(~`colorPalette("@{color}", 5)`; #fff; ~`colorPalette("@{color}", 5)`);
+    .button-color(~`colorPalette('@{color}', 5) `; #fff; ~`colorPalette('@{color}', 5) `);
   }
 
   &:active,
   &.active {
-    .button-color(@btn-primary-color; ~`colorPalette("@{color}", 7)`; ~`colorPalette("@{color}", 7)`);
+    .button-color(
+      @btn-primary-color; ~`colorPalette('@{color}', 7) `; ~`colorPalette('@{color}', 7) `
+    );
   }
 
   .button-disabled();
@@ -81,12 +89,12 @@
 
   &:hover,
   &:focus {
-    .button-color(~`colorPalette("@{color}", 5)`; transparent; ~`colorPalette("@{color}", 5)`);
+    .button-color(~`colorPalette('@{color}', 5) `; transparent; ~`colorPalette('@{color}', 5) `);
   }
 
   &:active,
   &.active {
-    .button-color(~`colorPalette("@{color}", 7)`; transparent; ~`colorPalette("@{color}", 7)`);
+    .button-color(~`colorPalette('@{color}', 7) `; transparent; ~`colorPalette('@{color}', 7) `);
   }
 
   .button-disabled();
@@ -101,7 +109,7 @@
   > a:only-child {
     color: currentColor;
     &:after {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
@@ -161,9 +169,9 @@
   white-space: nowrap;
   .button-size(@btn-height-base; @btn-padding-base; @font-size-base; @btn-border-radius-base);
   user-select: none;
-  transition: all .3s @ease-in-out;
+  transition: all 0.3s @ease-in-out;
   position: relative;
-  box-shadow: 0 2px 0 rgba(0, 0, 0, .015);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
 
   > .@{iconfont-css-prefix} {
     line-height: 1;

@@ -42,12 +42,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
   };
 
   getBadgeClassName() {
-    const {
-      prefixCls,
-      className,
-      status,
-      children,
-    } = this.props;
+    const { prefixCls, className, status, children } = this.props;
     return classNames(className, prefixCls, {
       [`${prefixCls}-status`]: !!status,
       [`${prefixCls}-not-a-wrapper`]: !children,
@@ -76,7 +71,8 @@ export default class Badge extends React.Component<BadgeProps, any> {
 
   getNumberedDispayCount() {
     const { count, overflowCount } = this.props;
-    const displayCount = (count as number) > (overflowCount as number) ? `${overflowCount}+` : count;
+    const displayCount =
+      (count as number) > (overflowCount as number) ? `${overflowCount}+` : count;
     return displayCount as string | number | null;
   }
 
@@ -94,38 +90,33 @@ export default class Badge extends React.Component<BadgeProps, any> {
     if (title) {
       return title;
     }
-    return (typeof count === 'string' || typeof count === 'number') ? count : undefined;
+    return typeof count === 'string' || typeof count === 'number' ? count : undefined;
   }
 
   getStyleWithOffset() {
     const { offset, style } = this.props;
-    return offset ? {
-      right: -parseInt(offset[0] as string, 10),
-      marginTop: offset[1],
-      ...style,
-    } : style;
+    return offset
+      ? {
+          right: -parseInt(offset[0] as string, 10),
+          marginTop: offset[1],
+          ...style,
+        }
+      : style;
   }
 
   renderStatusText() {
     const { prefixCls, text } = this.props;
     const hidden = this.isHidden();
-    return (hidden || !text) ? null : (
-      <span className={`${prefixCls}-status-text`}>{text}</span>
-    );
+    return hidden || !text ? null : <span className={`${prefixCls}-status-text`}>{text}</span>;
   }
 
   renderDispayComponent() {
     const { count } = this.props;
-    return (count && typeof count === 'object') ? (count as React.ReactElement<any>) : undefined;
+    return count && typeof count === 'object' ? (count as React.ReactElement<any>) : undefined;
   }
 
   renderBadgeNumber() {
-    const {
-      count,
-      prefixCls,
-      scrollNumberPrefixCls,
-      status,
-    } = this.props;
+    const { count, prefixCls, scrollNumberPrefixCls, status } = this.props;
 
     const displayCount = this.getDispayCount();
     const isDot = this.isDot();
@@ -134,7 +125,8 @@ export default class Badge extends React.Component<BadgeProps, any> {
     const scrollNumberCls = classNames({
       [`${prefixCls}-dot`]: isDot,
       [`${prefixCls}-count`]: !isDot,
-      [`${prefixCls}-multiple-words`]: !isDot && count && count.toString && count.toString().length > 1,
+      [`${prefixCls}-multiple-words`]:
+        !isDot && count && count.toString && count.toString().length > 1,
       [`${prefixCls}-status-${status}`]: !!status,
     });
 

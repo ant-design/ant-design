@@ -70,7 +70,10 @@ export default class Card extends React.Component<CardProps, CardState> {
         !this.props.noHovering,
         '`noHovering` of Card is deprecated, you can remove it safely or use `hoverable` instead.',
       );
-      warning(!!this.props.noHovering, '`noHovering={false}` of Card is deprecated, use `hoverable` instead.');
+      warning(
+        !!this.props.noHovering,
+        '`noHovering={false}` of Card is deprecated, use `hoverable` instead.',
+      );
     }
   }
 
@@ -104,11 +107,11 @@ export default class Card extends React.Component<CardProps, CardState> {
     if (this.props.onTabChange) {
       this.props.onTabChange(key);
     }
-  }
+  };
 
   saveRef = (node: HTMLDivElement) => {
     this.container = node;
-  }
+  };
 
   isContainGrid() {
     let containGrid;
@@ -125,11 +128,10 @@ export default class Card extends React.Component<CardProps, CardState> {
       return null;
     }
     const actionList = actions.map((action, index) => (
-        <li style={{ width: `${100 / actions.length}%` }} key={`action-${index}`}>
-          <span>{action}</span>
-        </li>
-      ),
-    );
+      <li style={{ width: `${100 / actions.length}%` }} key={`action-${index}`}>
+        <span>{action}</span>
+      </li>
+    ));
     return actionList;
   }
 
@@ -144,8 +146,24 @@ export default class Card extends React.Component<CardProps, CardState> {
 
   render() {
     const {
-      prefixCls = 'ant-card', className, extra, headStyle = {}, bodyStyle = {}, noHovering, hoverable, title, loading,
-      bordered = true, type, cover, actions, tabList, children, activeTabKey, defaultActiveTabKey, ...others
+      prefixCls = 'ant-card',
+      className,
+      extra,
+      headStyle = {},
+      bodyStyle = {},
+      noHovering,
+      hoverable,
+      title,
+      loading,
+      bordered = true,
+      type,
+      cover,
+      actions,
+      tabList,
+      children,
+      activeTabKey,
+      defaultActiveTabKey,
+      ...others
     } = this.props;
 
     const classString = classNames(prefixCls, className, {
@@ -159,14 +177,11 @@ export default class Card extends React.Component<CardProps, CardState> {
       [`${prefixCls}-type-${type}`]: !!type,
     });
 
-    const loadingBlockStyle = (bodyStyle.padding === 0 || bodyStyle.padding === '0px')
-      ? { padding: 24 } : undefined;
+    const loadingBlockStyle =
+      bodyStyle.padding === 0 || bodyStyle.padding === '0px' ? { padding: 24 } : undefined;
 
     const loadingBlock = (
-      <div
-        className={`${prefixCls}-loading-content`}
-        style={loadingBlockStyle}
-      >
+      <div className={`${prefixCls}-loading-content`} style={loadingBlockStyle}>
         <Row gutter={8}>
           <Col span={22}>
             <div className={`${prefixCls}-loading-block`} />
@@ -229,16 +244,19 @@ export default class Card extends React.Component<CardProps, CardState> {
     };
 
     let head;
-    const tabs = tabList && tabList.length ? (
-      <Tabs
-        {...extraProps}
-        className={`${prefixCls}-head-tabs`}
-        size="large"
-        onChange={this.onTabChange}
-      >
-        {tabList.map(item => <Tabs.TabPane tab={item.tab} disabled={item.disabled} key={item.key} />)}
-      </Tabs>
-    ) : null;
+    const tabs =
+      tabList && tabList.length ? (
+        <Tabs
+          {...extraProps}
+          className={`${prefixCls}-head-tabs`}
+          size="large"
+          onChange={this.onTabChange}
+        >
+          {tabList.map(item => (
+            <Tabs.TabPane tab={item.tab} disabled={item.disabled} key={item.key} />
+          ))}
+        </Tabs>
+      ) : null;
     if (title || extra || tabs) {
       head = (
         <div className={`${prefixCls}-head`} style={headStyle}>
@@ -256,11 +274,11 @@ export default class Card extends React.Component<CardProps, CardState> {
         {loading ? loadingBlock : children}
       </div>
     );
-    const actionDom = actions && actions.length ?
-      <ul className={`${prefixCls}-actions`}>{this.getAction(actions)}</ul> : null;
-    const divProps = omit(others, [
-      'onTabChange',
-    ]);
+    const actionDom =
+      actions && actions.length ? (
+        <ul className={`${prefixCls}-actions`}>{this.getAction(actions)}</ul>
+      ) : null;
+    const divProps = omit(others, ['onTabChange']);
     return (
       <div {...divProps} className={classString} ref={this.saveRef}>
         {head}

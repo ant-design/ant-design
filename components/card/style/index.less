@@ -1,7 +1,7 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@card-prefix-cls: ~"@{ant-prefix}-card";
+@card-prefix-cls: ~'@{ant-prefix}-card';
 @card-head-height: 48px;
 @card-hover-border: rgba(0, 0, 0, 0.09);
 @card-radius: @border-radius-sm;
@@ -11,7 +11,7 @@
   background: @component-background;
   border-radius: @card-radius;
   position: relative;
-  transition: all .3s;
+  transition: all 0.3s;
 
   &-hoverable {
     cursor: pointer;
@@ -88,11 +88,13 @@
   &-grid {
     border-radius: 0;
     border: 0;
-    box-shadow: 1px 0 0 0 @border-color-split, 0 1px 0 0 @border-color-split, 1px 1px 0 0 @border-color-split, 1px 0 0 0 @border-color-split inset, 0 1px 0 0 @border-color-split inset;
+    box-shadow: 1px 0 0 0 @border-color-split, 0 1px 0 0 @border-color-split,
+      1px 1px 0 0 @border-color-split, 1px 0 0 0 @border-color-split inset,
+      0 1px 0 0 @border-color-split inset;
     width: 33.33%;
     float: left;
     padding: @card-padding-base;
-    transition: all .3s;
+    transition: all 0.3s;
     &:hover {
       position: relative;
       z-index: 1;
@@ -143,7 +145,7 @@
 
         &:hover {
           color: @primary-color;
-          transition: color .3s;
+          transition: color 0.3s;
         }
 
         & > .anticon {
@@ -179,7 +181,7 @@
 
   &-padding-transition &-head,
   &-padding-transition &-body {
-    transition: padding .3s;
+    transition: padding 0.3s;
   }
 
   &-type-inner &-head {
@@ -244,7 +246,12 @@
     height: 14px;
     margin: 4px 0;
     border-radius: @card-radius;
-    background: linear-gradient(90deg, rgba(207, 216, 220, .2), rgba(207, 216, 220, .4), rgba(207, 216, 220, .2));
+    background: linear-gradient(
+      90deg,
+      rgba(207, 216, 220, 0.2),
+      rgba(207, 216, 220, 0.4),
+      rgba(207, 216, 220, 0.2)
+    );
     animation: card-loading 1.4s ease infinite;
     background-size: 600% 600%;
   }
@@ -253,9 +260,9 @@
 @keyframes card-loading {
   0%,
   100% {
-		background-position: 0 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }

@@ -24,7 +24,7 @@ describe('Tree util', () => {
             <TreeNode key="0-2-0-2" />
           </TreeNode>
         </TreeNode>
-      </Tree>
+      </Tree>,
     );
 
     const { children } = wrapper.find(Tree).props();

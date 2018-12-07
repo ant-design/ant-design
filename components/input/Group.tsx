@@ -14,13 +14,17 @@ export interface GroupProps {
   compact?: boolean;
 }
 
-const Group: React.StatelessComponent<GroupProps> = (props) => {
+const Group: React.StatelessComponent<GroupProps> = props => {
   const { prefixCls = 'ant-input-group', className = '' } = props;
-  const cls = classNames(prefixCls, {
-    [`${prefixCls}-lg`]: props.size === 'large',
-    [`${prefixCls}-sm`]: props.size === 'small',
-    [`${prefixCls}-compact`]: props.compact,
-  }, className);
+  const cls = classNames(
+    prefixCls,
+    {
+      [`${prefixCls}-lg`]: props.size === 'large',
+      [`${prefixCls}-sm`]: props.size === 'small',
+      [`${prefixCls}-compact`]: props.compact,
+    },
+    className,
+  );
   return (
     <span
       className={cls}

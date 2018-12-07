@@ -38,7 +38,7 @@
     line-height: 44px;
     padding: 0 12px;
     margin-right: 4px;
-    transition: all .2s;
+    transition: all 0.2s;
     position: relative;
     font-family: Consolas;
     font-size: 14px;
@@ -54,7 +54,7 @@
     }
   }
   &-item &-text {
-    transition: all .3s;
+    transition: all 0.3s;
     float: left;
   }
   &-item &-value {
@@ -64,7 +64,7 @@
     opacity: 0;
     position: relative;
     left: 3px;
-    transition: all .3s;
+    transition: all 0.3s;
   }
 }
 
@@ -144,10 +144,10 @@
 
 .make-palatte(@color, @index: 1) when (@index <= 10) {
   .palatte-@{color}-@{index} {
-    @background: "@{color}-@{index}";
+    @background: '@{color}-@{index}';
     background: @@background;
   }
-  .make-palatte(@color, (@index + 1));    // next iteration
+  .make-palatte(@color, (@index + 1)); // next iteration
 }
 
 @grey-1: #fff;

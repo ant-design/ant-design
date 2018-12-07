@@ -58,7 +58,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
       if (value && !interopDefault(moment).isMoment(value)) {
         throw new Error(
           'The value/defaultValue of DatePicker or MonthPicker must be ' +
-          'a moment object after `antd@2.0`, see: https://u.ant.design/date-picker-value',
+            'a moment object after `antd@2.0`, see: https://u.ant.design/date-picker-value',
         );
       }
       this.state = {
@@ -71,17 +71,15 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
     renderFooter = (...args: any[]) => {
       const { prefixCls, renderExtraFooter } = this.props;
       return renderExtraFooter ? (
-        <div className={`${prefixCls}-footer-extra`}>
-          {renderExtraFooter(...args)}
-        </div>
+        <div className={`${prefixCls}-footer-extra`}>{renderExtraFooter(...args)}</div>
       ) : null;
-    }
+    };
 
     clearSelection = (e: React.MouseEvent<HTMLElement>) => {
       e.preventDefault();
       e.stopPropagation();
       this.handleChange(null);
-    }
+    };
 
     handleChange = (value: moment.Moment | null) => {
       const props = this.props;
@@ -92,11 +90,11 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
         });
       }
       props.onChange(value, (value && value.format(props.format)) || '');
-    }
+    };
 
     handleCalendarChange = (value: moment.Moment) => {
       this.setState({ showDate: value });
-    }
+    };
 
     handleOpenChange = (open: boolean) => {
       const { onOpenChange } = this.props;
@@ -123,15 +121,14 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
 
     saveInput = (node: any) => {
       this.input = node;
-    }
+    };
 
     render() {
       const { value, showDate, open } = this.state;
       const props = omit(this.props, ['onChange']);
       const { prefixCls, locale, localeCode, suffixIcon } = props;
 
-      const placeholder = ('placeholder' in props)
-        ? props.placeholder : locale.lang.placeholder;
+      const placeholder = 'placeholder' in props ? props.placeholder : locale.lang.placeholder;
 
       const disabledTime = props.showTime ? props.disabledTime : null;
 
@@ -162,7 +159,10 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
         calendarProps.mode = props.mode;
       }
 
-      warning(!('onOK' in props), 'It should be `DatePicker[onOk]` or `MonthPicker[onOk]`, instead of `onOK`!');
+      warning(
+        !('onOK' in props),
+        'It should be `DatePicker[onOk]` or `MonthPicker[onOk]`, instead of `onOK`!',
+      );
       const calendar = (
         <TheCalendar
           {...calendarProps}
@@ -186,28 +186,27 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
         />
       );
 
-      const clearIcon = (!props.disabled && props.allowClear && value) ? (
-        <Icon
-          type="close-circle"
-          className={`${prefixCls}-picker-clear`}
-          onClick={this.clearSelection}
-          theme="filled"
-        />
-      ) : null;
+      const clearIcon =
+        !props.disabled && props.allowClear && value ? (
+          <Icon
+            type="close-circle"
+            className={`${prefixCls}-picker-clear`}
+            onClick={this.clearSelection}
+            theme="filled"
+          />
+        ) : null;
 
-      const inputIcon = suffixIcon && (
-        React.isValidElement<{ className?: string }>(suffixIcon)
-          ? React.cloneElement(
-            suffixIcon,
-            {
-              className: classNames({
-                [suffixIcon.props.className!]: suffixIcon.props.className,
-                [`${prefixCls}-picker-icon`]: true,
-              }),
-            },
-          ) : <span className={`${prefixCls}-picker-icon`}>{suffixIcon}</span>) || (
-          <Icon type="calendar" className={`${prefixCls}-picker-icon`} />
-        );
+      const inputIcon = (suffixIcon &&
+        (React.isValidElement<{ className?: string }>(suffixIcon) ? (
+          React.cloneElement(suffixIcon, {
+            className: classNames({
+              [suffixIcon.props.className!]: suffixIcon.props.className,
+              [`${prefixCls}-picker-icon`]: true,
+            }),
+          })
+        ) : (
+          <span className={`${prefixCls}-picker-icon`}>{suffixIcon}</span>
+        ))) || <Icon type="calendar" className={`${prefixCls}-picker-icon`} />;
 
       const dataOrAriaProps = getDataOrAriaProps(props);
       const input = ({ value: inputValue }: { value: moment.Moment | null }) => (
