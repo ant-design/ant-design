@@ -109,17 +109,18 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
       }
     }
 
+    // closeable when closeText is assigned
+    if (closeText) {
+      closable = true;
+    }
+
     const alertCls = classNames(prefixCls, `${prefixCls}-${type}`, {
       [`${prefixCls}-close`]: !this.state.closing,
       [`${prefixCls}-with-description`]: !!description,
       [`${prefixCls}-no-icon`]: !showIcon,
       [`${prefixCls}-banner`]: !!banner,
+      [`${prefixCls}-closable`]: closable,
     }, className);
-
-    // closeable when closeText is assigned
-    if (closeText) {
-      closable = true;
-    }
 
     const closeIcon = closable ? (
       <a onClick={this.handleClose} className={`${prefixCls}-close-icon`}>

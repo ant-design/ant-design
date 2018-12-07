@@ -62,11 +62,10 @@ export default function createTableRow(Component: React.ReactType = 'tr') {
         },
       );
 
-      return (
-        <Component {...rowProps} className={className}>
-          {this.props.children}
-        </Component>
-      );
+      return React.createElement(Component, {
+        ...rowProps,
+        className,
+      }, this.props.children);
     }
   }
 

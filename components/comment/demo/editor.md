@@ -1,8 +1,8 @@
 ---
 order: 3
 title:
-  zh-CN: 编辑模式
-  en-US: Editor mode
+  zh-CN: 回复框
+  en-US: Reply Editor
 ---
 
 ## zh-CN
@@ -19,7 +19,6 @@ import {
 } from 'antd';
 import moment from 'moment';
 
-const FormItem = Form.Item;
 const TextArea = Input.TextArea;
 
 const CommentList = ({ comments }) => (
@@ -35,12 +34,11 @@ const Editor = ({
   onChange, onSubmit, submitting, value,
 }) => (
   <div>
-    <FormItem>
+    <Form.Item>
       <TextArea rows={4} onChange={onChange} value={value} />
-    </FormItem>
-    <FormItem>
+    </Form.Item>
+    <Form.Item>
       <Button
-        disabled={submitting}
         htmlType="submit"
         loading={submitting}
         onClick={onSubmit}
@@ -48,7 +46,7 @@ const Editor = ({
       >
         Add Comment
       </Button>
-    </FormItem>
+    </Form.Item>
   </div>
 );
 
@@ -76,7 +74,7 @@ class App extends React.Component {
           {
             author: 'Han Solo',
             avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-            content: this.state.value,
+            content: <p>{this.state.value}</p>,
             datetime: moment().fromNow(),
           },
           ...this.state.comments,

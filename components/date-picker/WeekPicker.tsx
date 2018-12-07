@@ -12,15 +12,27 @@ function formatValue(value: moment.Moment | null, format: string): string {
   return (value && value.format(format)) || '';
 }
 
-class WeekPicker extends React.Component<any, any> {
+interface WeekPickerState {
+  open: boolean;
+  value: moment.Moment | null;
+}
+
+class WeekPicker extends React.Component<any, WeekPickerState> {
   static defaultProps = {
     format: 'gggg-wo',
     allowClear: true,
   };
 
   static getDerivedStateFromProps(nextProps: any) {
-    if ('value' in nextProps) {
-      return { value: nextProps.value };
+    if ('value' in nextProps || 'open' in nextProps) {
+      const state = {} as WeekPickerState;
+      if ('value' in nextProps) {
+        state.value = nextProps.value;
+      }
+      if ('open' in nextProps) {
+        state.open = nextProps.open;
+      }
+      return state;
     }
     return null;
   }
@@ -39,8 +51,10 @@ class WeekPicker extends React.Component<any, any> {
     }
     this.state = {
       value,
+      open: props.open,
     };
   }
+
   weekDateRender = (current: any) => {
     const selectedValue = this.state.value;
     const { prefixCls } = this;
@@ -61,13 +75,29 @@ class WeekPicker extends React.Component<any, any> {
       </div>
     );
   }
+
   handleChange = (value: moment.Moment | null) => {
     if (!('value' in this.props)) {
       this.setState({ value });
     }
     this.props.onChange(value, formatValue(value, this.props.format));
-    this.focus();
   }
+
+  handleOpenChange = (open: boolean) => {
+    const { onOpenChange } = this.props;
+    if (!('open' in this.props)) {
+      this.setState({ open });
+    }
+
+    if (onOpenChange) {
+      onOpenChange(open);
+    }
+
+    if (!open) {
+      this.focus();
+    }
+  };
+
   clearSelection = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     e.stopPropagation();
@@ -100,6 +130,7 @@ class WeekPicker extends React.Component<any, any> {
     // https://github.com/facebook/react/issues/12397
     this.prefixCls = prefixCls;
 
+    const { open } = this.state;
     const pickerValue = this.state.value;
     if (pickerValue && localeCode) {
       pickerValue.locale(localeCode);
@@ -145,7 +176,7 @@ class WeekPicker extends React.Component<any, any> {
 
     const input = ({ value }: { value: moment.Moment | undefined }) => {
       return (
-        <span>
+        <span style={{ display: 'inline-block' }}>
           <input
             ref={this.saveInput}
             disabled={disabled}
@@ -173,6 +204,8 @@ class WeekPicker extends React.Component<any, any> {
           prefixCls={`${prefixCls}-picker-container`}
           value={pickerValue}
           onChange={this.handleChange}
+          open={open}
+          onOpenChange={this.handleOpenChange}
           style={popupStyle}
         >
           {input}

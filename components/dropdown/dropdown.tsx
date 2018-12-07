@@ -19,6 +19,8 @@ export interface DropDownProps {
   transitionName?: string;
   placement?: 'topLeft' | 'topCenter' | 'topRight' | 'bottomLeft' | 'bottomCenter' | 'bottomRight';
   forceRender?: boolean;
+  mouseEnterDelay?: number;
+  mouseLeaveDelay?: number;
 }
 
 export default class Dropdown extends React.Component<DropDownProps, any> {

@@ -789,6 +789,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       const key = this.getColumnKey(column, i) as string;
       let filterDropdown;
       let sortButton;
+      const sortTitle = this.getColumnTitle(column.title, {}) || locale.sortTitle;
       const isSortColumn = this.isSortColumn(column);
       if ((column.filters && column.filters.length > 0) || column.filterDropdown) {
         const colFilters = key in filters ? filters[key] : [];
@@ -834,7 +835,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         title: [
           <div
             key="title"
-            title={sortButton ? locale.sortTitle : undefined}
+            title={sortButton ? sortTitle : undefined}
             className={sortButton ? `${prefixCls}-column-sorters` : undefined}
             onClick={() => this.toggleSortOrder(column)}
           >
@@ -857,6 +858,25 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       });
     }
     return title;
+  }
+
+  getColumnTitle: any = (title: any, parentNode: any) => {
+    if(!title) {
+      return;
+    }
+    if (
+      !(title instanceof Function) &&
+        typeof title !== 'string' &&
+        typeof title !== 'number'
+    ) {
+      const props = title.props;
+      const { children } = props;
+      if (props && props.children) {
+        return this.getColumnTitle(children, props);
+      }
+    } else {
+      return parentNode.title || title;
+    }
   }
 
   handleShowSizeChange = (current: number, pageSize: number) => {
@@ -965,7 +985,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   }
 
   getFlatData() {
-    return flatArray(this.getLocalData());
+    return flatArray(this.getLocalData(null, false));
   }
 
   getFlatCurrentPageData() {
@@ -980,7 +1000,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     } : item));
   }
 
-  getLocalData(state?: TableState<T>) {
+  getLocalData(state?: TableState<T> | null, filter: boolean = true): Array<T> {
     const currentState: TableState<T> = state || this.state;
     const { dataSource } = this.props;
     let data = dataSource || [];
@@ -991,7 +1011,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       data = this.recursiveSort(data, sorterFn);
     }
     // 筛选
-    if (currentState.filters) {
+    if (filter && currentState.filters) {
       Object.keys(currentState.filters).forEach((columnKey) => {
         const col = this.findColumn(columnKey) as any;
         if (!col) {

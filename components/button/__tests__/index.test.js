@@ -152,4 +152,11 @@ describe('Button', () => {
     await new Promise(resolve => setTimeout(resolve, 0));
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  it('should not render as link button when href is undefined', async () => {
+    const wrapper = mount(
+      <Button type="primary" href={undefined}>button</Button>
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });

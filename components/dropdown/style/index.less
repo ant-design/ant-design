@@ -11,6 +11,16 @@
   z-index: @zindex-dropdown;
   display: block;
 
+  &:before {
+    position: absolute;
+    top: -7px;
+    left: -7px;
+    right: -7px;
+    bottom: -7px;
+    content: ' ';
+    opacity: .0001;
+  }
+
   &-wrap {
     position: relative;
 
@@ -187,7 +197,7 @@
 
 .@{dropdown-prefix-cls}-trigger,
 .@{dropdown-prefix-cls}-link {
-  > .@{iconfont-css-prefix}:not(.@{iconfont-css-prefix}-ellipsis) {
+  > .@{iconfont-css-prefix}.@{iconfont-css-prefix}-down {
     .iconfont-size-under-12px(10px);
   }
 }
@@ -199,7 +209,7 @@
     padding-left: @padding-xs;
     padding-right: @padding-xs;
   }
-  .@{iconfont-css-prefix}:not(.@{iconfont-css-prefix}-ellipsis) {
+  .@{iconfont-css-prefix}.@{iconfont-css-prefix}-down {
     .iconfont-size-under-12px(10px);
   }
 }

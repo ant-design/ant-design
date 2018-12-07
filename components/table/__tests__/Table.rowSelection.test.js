@@ -442,4 +442,61 @@ describe('Table.rowSelection', () => {
     });
     expect(wrapper.find('thead tr div').at(0).text()).toBe('单选');
   });
+
+  // https://github.com/ant-design/ant-design/issues/11384
+  it('should keep item even if in filter', () => {
+    const filterColumns = [{
+      title: 'Name',
+      dataIndex: 'name',
+      filters: [{
+        text: 'Jack',
+        value: 'Jack',
+      }, {
+        text: 'Lucy',
+        value: 'Lucy',
+      }],
+      filterDropdownVisible: true,
+      onFilter: (value, record) => record.name.indexOf(value) === 0,
+    }];
+
+    const onChange = jest.fn();
+    const rowSelection = {
+      onChange,
+    };
+
+    const wrapper = mount(
+      <Table
+        columns={filterColumns}
+        dataSource={data}
+        rowSelection={rowSelection}
+      />
+    );
+
+    function clickFilter(indexList) {
+      indexList.forEach((index) => {
+        wrapper.find('.ant-dropdown-menu-item .ant-checkbox-wrapper').at(index).simulate('click');
+      });
+      wrapper.find('.ant-table-filter-dropdown-btns .ant-table-filter-dropdown-link.confirm').simulate('click');
+    }
+
+    function clickItem() {
+      wrapper.find('tbody .ant-table-selection-column .ant-checkbox-input').at(0).simulate('change', {
+        target: { checked: true },
+      });
+    }
+
+    // Check Jack
+    clickFilter([0]);
+    expect(wrapper.find('tbody tr').length).toBe(1);
+    clickItem();
+    expect(onChange.mock.calls[0][0].length).toBe(1);
+    expect(onChange.mock.calls[0][1].length).toBe(1);
+
+    // Check Lucy
+    clickFilter([0, 1]);
+    expect(wrapper.find('tbody tr').length).toBe(1);
+    clickItem();
+    expect(onChange.mock.calls[1][0].length).toBe(2);
+    expect(onChange.mock.calls[1][1].length).toBe(2);
+  });
 });
