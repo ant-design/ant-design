@@ -2,22 +2,21 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import defaultLocaleData from './default';
 
-const defaultComponentName = 'global';
-
 export interface LocaleReceiverProps {
   componentName?: string;
   defaultLocale?: object | Function;
   children: (locale: object, localeCode?: string) => React.ReactElement<any>;
 }
 
+interface LocaleInterface { [key: string]: any }
+
 export interface LocaleReceiverContext {
-  antLocale?: { [key: string]: any };
+  antLocale?: LocaleInterface;
 }
 
 export default class LocaleReceiver extends React.Component<LocaleReceiverProps> {
   static defaultProps = {
-    componentName: defaultComponentName,
-    defaultLocale: defaultLocaleData[defaultComponentName],
+    componentName: 'global',
   };
 
   static contextTypes = {
@@ -28,10 +27,11 @@ export default class LocaleReceiver extends React.Component<LocaleReceiverProps>
 
   getLocale() {
     const { componentName, defaultLocale } = this.props;
+    const locale: object | Function = defaultLocale || (defaultLocaleData as LocaleInterface)[componentName || 'global'];
     const { antLocale } = this.context;
     const localeFromContext = componentName && antLocale ? antLocale[componentName] : {};
     return {
-      ...(typeof defaultLocale === 'function' ? defaultLocale() : defaultLocale),
+      ...(typeof locale === 'function' ? locale() : locale),
       ...(localeFromContext || {}),
     };
   }
