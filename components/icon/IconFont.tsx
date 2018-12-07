@@ -17,10 +17,13 @@ export default function create(options: CustomIconOptions = {}): React.SFC<IconP
    * The Custom Icon will create a <script/>
    * that loads SVG symbols and insert the SVG Element into the document body.
    */
-  if (typeof document !== 'undefined' && typeof window !== 'undefined'
-    && typeof document.createElement === 'function'
-    && typeof scriptUrl === 'string' && scriptUrl.length
-    && !customCache.has(scriptUrl)
+  if (
+    typeof document !== 'undefined' &&
+    typeof window !== 'undefined' &&
+    typeof document.createElement === 'function' &&
+    typeof scriptUrl === 'string' &&
+    scriptUrl.length &&
+    !customCache.has(scriptUrl)
   ) {
     const script = document.createElement('script');
     script.setAttribute('src', scriptUrl);
@@ -29,7 +32,7 @@ export default function create(options: CustomIconOptions = {}): React.SFC<IconP
     document.body.appendChild(script);
   }
 
-  const Iconfont: React.SFC<IconProps> = (props) => {
+  const Iconfont: React.SFC<IconProps> = props => {
     const { type, children, ...restProps } = props;
 
     // component > children > type
@@ -41,10 +44,7 @@ export default function create(options: CustomIconOptions = {}): React.SFC<IconP
       content = children;
     }
     return (
-      <Icon
-        {...restProps}
-        {...extraCommonProps}
-      >
+      <Icon {...restProps} {...extraCommonProps}>
         {content}
       </Icon>
     );

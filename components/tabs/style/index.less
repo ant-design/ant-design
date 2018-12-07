@@ -1,8 +1,8 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
-@import "./card-style";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
+@import './card-style';
 
-@tab-prefix-cls: ~"@{ant-prefix}-tabs";
+@tab-prefix-cls: ~'@{ant-prefix}-tabs';
 
 .@{tab-prefix-cls} {
   .reset-component;
@@ -25,7 +25,7 @@
     border-bottom: @border-width-base @border-style-base @border-color-split;
     margin: @tabs-bar-margin;
     outline: none;
-    transition: padding .3s @ease-in-out;
+    transition: padding 0.3s @ease-in-out;
   }
 
   &-nav-container {
@@ -36,7 +36,7 @@
     position: relative;
     white-space: nowrap;
     margin-bottom: -1px;
-    transition: padding .3s @ease-in-out;
+    transition: padding 0.3s @ease-in-out;
     .clearfix;
 
     &-scrolling {
@@ -75,7 +75,7 @@
     position: absolute;
     text-align: center;
     color: @text-color-secondary;
-    transition: width .3s @ease-in-out, opacity .3s @ease-in-out, color .3s @ease-in-out;
+    transition: width 0.3s @ease-in-out, opacity 0.3s @ease-in-out, color 0.3s @ease-in-out;
     opacity: 0;
     pointer-events: none;
 
@@ -151,7 +151,7 @@
     &:before,
     &:after {
       display: table;
-      content: " ";
+      content: ' ';
     }
 
     &:after {
@@ -225,7 +225,7 @@
     > .@{tab-prefix-cls}-tabpane {
       flex-shrink: 0;
       width: 100%;
-      transition: opacity .45s;
+      transition: opacity 0.45s;
       opacity: 1;
     }
 
@@ -252,10 +252,11 @@
   .@{tab-prefix-cls}-right-bar {
     border-bottom: 0;
     height: 100%;
-    &-tab-prev, &-tab-next {
+    &-tab-prev,
+    &-tab-next {
       width: @tabs-scrolling-size;
       height: 0;
-      transition: height .3s @ease-in-out, opacity .3s @ease-in-out, color .3s @ease-in-out;
+      transition: height 0.3s @ease-in-out, opacity 0.3s @ease-in-out, color 0.3s @ease-in-out;
     }
     &-tab-prev.@{tab-prefix-cls}-tab-arrow-show,
     &-tab-next.@{tab-prefix-cls}-tab-arrow-show {
@@ -380,12 +381,12 @@
 
 .@{tab-prefix-cls}-top .@{tab-prefix-cls}-ink-bar-animated,
 .@{tab-prefix-cls}-bottom .@{tab-prefix-cls}-ink-bar-animated {
-  transition: transform .3s @ease-in-out, width .3s @ease-in-out, left .3s @ease-in-out;
+  transition: transform 0.3s @ease-in-out, width 0.3s @ease-in-out, left 0.3s @ease-in-out;
 }
 
 .@{tab-prefix-cls}-left .@{tab-prefix-cls}-ink-bar-animated,
 .@{tab-prefix-cls}-right .@{tab-prefix-cls}-ink-bar-animated {
-  transition: transform .3s @ease-in-out, height .3s @ease-in-out, top .3s @ease-in-out;
+  transition: transform 0.3s @ease-in-out, height 0.3s @ease-in-out, top 0.3s @ease-in-out;
 }
 
 // No animation

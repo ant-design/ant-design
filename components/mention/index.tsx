@@ -73,26 +73,24 @@ class Mention extends React.Component<MentionProps, MentionState> {
       return this.props.onSearchChange(value, prefix);
     }
     return this.defaultSearchChange(value);
-  }
+  };
 
   onChange = (editorState: any) => {
     if (this.props.onChange) {
       this.props.onChange(editorState);
     }
-  }
+  };
 
   defaultSearchChange(value: string): void {
     const searchValue = value.toLowerCase();
-    const filteredSuggestions = (this.props.suggestions || []).filter(
-      suggestion => {
-        if (suggestion.type && suggestion.type === Nav) {
-          return suggestion.props.value ?
-            suggestion.props.value.toLowerCase().indexOf(searchValue) !== -1
-            : true;
-        }
-        return suggestion.toLowerCase().indexOf(searchValue) !== -1;
-      },
-    );
+    const filteredSuggestions = (this.props.suggestions || []).filter(suggestion => {
+      if (suggestion.type && suggestion.type === Nav) {
+        return suggestion.props.value
+          ? suggestion.props.value.toLowerCase().indexOf(searchValue) !== -1
+          : true;
+      }
+      return suggestion.toLowerCase().indexOf(searchValue) !== -1;
+    });
     this.setState({
       suggestions: filteredSuggestions,
     });
@@ -105,7 +103,7 @@ class Mention extends React.Component<MentionProps, MentionState> {
     if (this.props.onFocus) {
       this.props.onFocus(ev);
     }
-  }
+  };
   onBlur = (ev: React.FocusEvent<HTMLElement>) => {
     this.setState({
       focus: false,
@@ -113,13 +111,13 @@ class Mention extends React.Component<MentionProps, MentionState> {
     if (this.props.onBlur) {
       this.props.onBlur(ev);
     }
-  }
+  };
   focus = () => {
     this.mentionEle._editor.focusEditor();
-  }
+  };
   mentionRef = (ele: any) => {
     this.mentionEle = ele;
-  }
+  };
   renderMention = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, className = '', loading, placement } = this.props;
     const { suggestions, focus } = this.state;
@@ -129,9 +127,7 @@ class Mention extends React.Component<MentionProps, MentionState> {
       [`${prefixCls}-placement-top`]: placement === 'top',
     });
 
-    const notFoundContent = loading
-      ? <Icon type="loading" />
-      : this.props.notFoundContent;
+    const notFoundContent = loading ? <Icon type="loading" /> : this.props.notFoundContent;
 
     return (
       <RcMention
@@ -147,14 +143,10 @@ class Mention extends React.Component<MentionProps, MentionState> {
         notFoundContent={notFoundContent}
       />
     );
-  }
+  };
 
   render() {
-    return (
-      <ConfigConsumer>
-        {this.renderMention}
-      </ConfigConsumer>
-    );
+    return <ConfigConsumer>{this.renderMention}</ConfigConsumer>;
   }
 }
 

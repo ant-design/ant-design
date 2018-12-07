@@ -16,7 +16,7 @@ export interface SkeletonProps {
   paragraph?: SkeletonParagraphProps | boolean;
 }
 
-function getComponentProps<T>(prop: T | boolean | undefined): T | {}  {
+function getComponentProps<T>(prop: T | boolean | undefined): T | {} {
   if (prop && typeof prop === 'object') {
     return prop;
   }
@@ -71,8 +71,13 @@ class Skeleton extends React.Component<SkeletonProps, any> {
   renderSkeleton = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
-      loading, className, children,
-      avatar, title, paragraph, active,
+      loading,
+      className,
+      children,
+      avatar,
+      title,
+      paragraph,
+      active,
     } = this.props;
 
     const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
@@ -109,9 +114,7 @@ class Skeleton extends React.Component<SkeletonProps, any> {
             ...getComponentProps(title),
           };
 
-          $title = (
-            <Title {...titleProps} />
-          );
+          $title = <Title {...titleProps} />;
         }
 
         // Paragraph
@@ -123,9 +126,7 @@ class Skeleton extends React.Component<SkeletonProps, any> {
             ...getComponentProps(paragraph),
           };
 
-          paragraphNode = (
-            <Paragraph {...paragraphProps} />
-          );
+          paragraphNode = <Paragraph {...paragraphProps} />;
         }
 
         contentNode = (
@@ -136,13 +137,10 @@ class Skeleton extends React.Component<SkeletonProps, any> {
         );
       }
 
-      const cls = classNames(
-        prefixCls,
-        className, {
-          [`${prefixCls}-with-avatar`]: hasAvatar,
-          [`${prefixCls}-active`]: active,
-        },
-      );
+      const cls = classNames(prefixCls, className, {
+        [`${prefixCls}-with-avatar`]: hasAvatar,
+        [`${prefixCls}-active`]: active,
+      });
 
       return (
         <div className={cls}>
@@ -153,14 +151,10 @@ class Skeleton extends React.Component<SkeletonProps, any> {
     }
 
     return children;
-  }
+  };
 
   render() {
-    return (
-      <ConfigConsumer>
-        {this.renderSkeleton}
-      </ConfigConsumer>
-    );
+    return <ConfigConsumer>{this.renderSkeleton}</ConfigConsumer>;
   }
 }
 

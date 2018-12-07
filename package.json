@@ -122,6 +122,7 @@
     "enzyme-to-json": "^3.3.4",
     "eslint": "^5.6.1",
     "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^3.0.1",
     "eslint-plugin-babel": "^5.2.1",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
@@ -142,6 +143,7 @@
     "pre-commit": "^1.2.2",
     "preact": "^8.3.1",
     "preact-compat": "^3.18.4",
+    "prettier": "^1.15.3",
     "querystring": "^0.2.0",
     "rc-queue-anim": "^1.6.6",
     "rc-scroll-anim": "^2.5.5",
@@ -169,6 +171,7 @@
     "rimraf": "^2.6.2",
     "scrollama": "^1.4.4",
     "stylelint": "~9.6.0",
+    "stylelint-config-prettier": "^4.0.0",
     "stylelint-config-standard": "^18.2.0",
     "typescript": "~3.1.1",
     "unified": "^7.0.0",
@@ -205,21 +208,28 @@
     "lint-staged": "lint-staged",
     "lint-staged:ts": "tsc && node node_modules/tslint/bin/tslint",
     "lint-staged:es": "eslint ./.*.js ./webpack.config.js",
-    "lint-staged:demo": "cross-env RUN_ENV=DEMO eslint --ext '.md'"
+    "lint-staged:demo": "cross-env RUN_ENV=DEMO eslint --ext '.md'",
+    "prettier": "node ./scripts/prettier.js"
   },
   "pre-commit": [
     "lint-staged"
   ],
   "lint-staged": {
     "components/**/*.tsx": [
-      "npm run lint-staged:ts"
+      "npm run lint-staged:ts",
+      "node ./scripts/lint-prettier.js"
     ],
     "{tests,site,scripts,components}/**/*.{js,jsx}": [
-      "npm run lint-staged:es"
+      "npm run lint-staged:es",
+      "node ./scripts/lint-prettier.js"
     ],
-    "{site,components}/**/*.less": "stylelint --syntax less",
+    "{site,components}/**/*.less": [
+      "stylelint --syntax less",
+      "node ./scripts/lint-prettier.js"
+    ],
     "components/*/demo/*.md": [
-      "npm run lint-staged:demo"
+      "npm run lint-staged:demo",
+      "node ./scripts/lint-prettier.js"
     ]
   },
   "sideEffects": [

@@ -6,12 +6,15 @@ import Input from '../input';
 import Select, { AbstractSelectProps, SelectValue, OptionProps, OptGroupProps } from '../select';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
-export interface DataSourceItemObject { value: string; text: string; }
+export interface DataSourceItemObject {
+  value: string;
+  text: string;
+}
 export type DataSourceItemType =
-  string |
-  DataSourceItemObject |
-  React.ReactElement<OptionProps> |
-  React.ReactElement<OptGroupProps>;
+  | string
+  | DataSourceItemObject
+  | React.ReactElement<OptionProps>
+  | React.ReactElement<OptGroupProps>;
 
 export interface AutoCompleteInputProps {
   onChange?: React.FormEventHandler<any>;
@@ -19,9 +22,9 @@ export interface AutoCompleteInputProps {
 }
 
 export type ValidInputElement =
-  HTMLInputElement |
-  HTMLTextAreaElement |
-  React.ReactElement<AutoCompleteInputProps>;
+  | HTMLInputElement
+  | HTMLTextAreaElement
+  | React.ReactElement<AutoCompleteInputProps>;
 
 export interface AutoCompleteProps extends AbstractSelectProps {
   value?: SelectValue;
@@ -34,9 +37,10 @@ export interface AutoCompleteProps extends AbstractSelectProps {
   onSelect?: (value: SelectValue, option: Object) => any;
   onBlur?: (value: SelectValue) => void;
   onFocus?: () => void;
-  children?: ValidInputElement |
-    React.ReactElement<OptionProps> |
-    Array<React.ReactElement<OptionProps>>;
+  children?:
+    | ValidInputElement
+    | React.ReactElement<OptionProps>
+    | Array<React.ReactElement<OptionProps>>;
 }
 
 function isSelectOptionOrSelectOptGroup(child: any): Boolean {
@@ -59,15 +63,17 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, {}>
 
   getInputElement = () => {
     const { children } = this.props;
-    const element = children && React.isValidElement(children) && children.type !== Option ?
-      React.Children.only(this.props.children) : <Input />;
+    const element =
+      children && React.isValidElement(children) && children.type !== Option ? (
+        React.Children.only(this.props.children)
+      ) : (
+        <Input />
+      );
     const elementProps = { ...element.props };
     // https://github.com/ant-design/ant-design/pull/7742
     delete elementProps.children;
-    return (
-      <InputElement {...elementProps}>{element}</InputElement>
-    );
-  }
+    return <InputElement {...elementProps}>{element}</InputElement>;
+  };
 
   focus() {
     this.select.focus();
@@ -79,12 +85,17 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, {}>
 
   saveSelect = (node: any) => {
     this.select = node;
-  }
+  };
 
   renderAutoComplete = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
-      size, className = '', notFoundContent, optionLabelProp, dataSource, children,
+      size,
+      className = '',
+      notFoundContent,
+      optionLabelProp,
+      dataSource,
+      children,
     } = this.props;
     const prefixCls = getPrefixCls('select', customizePrefixCls);
 
@@ -98,28 +109,30 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, {}>
 
     let options;
     const childArray = React.Children.toArray(children);
-    if (childArray.length &&
-        isSelectOptionOrSelectOptGroup(childArray[0])
-      ) {
+    if (childArray.length && isSelectOptionOrSelectOptGroup(childArray[0])) {
       options = children;
     } else {
-      options = dataSource ? dataSource.map((item) => {
-        if (React.isValidElement(item)) {
-          return item;
-        }
-        switch (typeof item) {
-          case 'string':
-            return <Option key={item}>{item}</Option>;
-          case 'object':
-            return (
-              <Option key={(item as DataSourceItemObject).value}>
-                {(item as DataSourceItemObject).text}
-              </Option>
-            );
-          default:
-            throw new Error('AutoComplete[dataSource] only supports type `string[] | Object[]`.');
-        }
-      }) : [];
+      options = dataSource
+        ? dataSource.map(item => {
+            if (React.isValidElement(item)) {
+              return item;
+            }
+            switch (typeof item) {
+              case 'string':
+                return <Option key={item}>{item}</Option>;
+              case 'object':
+                return (
+                  <Option key={(item as DataSourceItemObject).value}>
+                    {(item as DataSourceItemObject).text}
+                  </Option>
+                );
+              default:
+                throw new Error(
+                  'AutoComplete[dataSource] only supports type `string[] | Object[]`.',
+                );
+            }
+          })
+        : [];
     }
 
     return (
@@ -135,13 +148,9 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, {}>
         {options}
       </Select>
     );
-  }
+  };
 
   render() {
-    return (
-      <ConfigConsumer>
-        {this.renderAutoComplete}
-      </ConfigConsumer>
-    );
+    return <ConfigConsumer>{this.renderAutoComplete}</ConfigConsumer>;
   }
 }

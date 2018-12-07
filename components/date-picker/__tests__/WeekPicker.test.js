@@ -9,9 +9,7 @@ describe('WeekPicker', () => {
   focusTest(WeekPicker);
 
   it('should support style prop', () => {
-    const wrapper = mount(
-      <WeekPicker style={{ width: 400 }} />
-    );
+    const wrapper = mount(<WeekPicker style={{ width: 400 }} />);
     expect(wrapper.render()).toMatchSnapshot();
   });
 });

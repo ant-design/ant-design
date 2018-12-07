@@ -47,15 +47,10 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
       onClick(e, { title, href });
     }
     scrollTo(href);
-  }
+  };
 
   renderAnchorLink = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const {
-      prefixCls: customizePrefixCls,
-      href,
-      title,
-      children,
-    } = this.props;
+    const { prefixCls: customizePrefixCls, href, title, children } = this.props;
     const prefixCls = getPrefixCls('anchor', customizePrefixCls);
     const active = this.context.antAnchor.activeLink === href;
     const wrapperClassName = classNames(`${prefixCls}-link`, {
@@ -77,13 +72,9 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
         {children}
       </div>
     );
-  }
+  };
 
   render() {
-    return (
-      <ConfigConsumer>
-        {this.renderAnchorLink}
-      </ConfigConsumer>
-    );
+    return <ConfigConsumer>{this.renderAnchorLink}</ConfigConsumer>;
   }
 }

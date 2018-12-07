@@ -13,16 +13,9 @@ describe('Tooltip', () => {
     const onVisibleChange = jest.fn();
 
     const wrapper = mount(
-      <Tooltip
-        title=""
-        mouseEnterDelay={0}
-        mouseLeaveDelay={0}
-        onVisibleChange={onVisibleChange}
-      >
-        <div id="hello">
-          Hello world!
-        </div>
-      </Tooltip>
+      <Tooltip title="" mouseEnterDelay={0} mouseLeaveDelay={0} onVisibleChange={onVisibleChange}>
+        <div id="hello">Hello world!</div>
+      </Tooltip>,
     );
 
     // `title` is empty.
@@ -67,8 +60,10 @@ describe('Tooltip', () => {
         mouseLeaveDelay={0}
         onVisibleChange={onVisibleChange}
       >
-        <button type="button" disabled>Hello world!</button>
-      </Tooltip>
+        <button type="button" disabled>
+          Hello world!
+        </button>
+      </Tooltip>,
     );
 
     expect(wrapper.find('span')).toHaveLength(1);
@@ -92,7 +87,7 @@ describe('Tooltip', () => {
         onVisibleChange={onVisibleChange}
       >
         <Button disabled>Hello world!</Button>
-      </Tooltip>
+      </Tooltip>,
     );
 
     expect(wrapper.render()).toMatchSnapshot();
@@ -110,15 +105,27 @@ describe('Tooltip', () => {
     const wrapper1 = mount(
       <Tooltip title="xxxxx">
         <Button disabled>Hello world!</Button>
-      </Tooltip>
+      </Tooltip>,
     );
     const wrapper2 = mount(
       <Tooltip title="xxxxx">
-        <Button disabled style={{ display: 'block' }}>Hello world!</Button>
-      </Tooltip>
+        <Button disabled style={{ display: 'block' }}>
+          Hello world!
+        </Button>
+      </Tooltip>,
     );
-    expect(wrapper1.find('span').first().getDOMNode().style.display).toBe('inline-block');
-    expect(wrapper2.find('span').first().getDOMNode().style.display).toBe('block');
+    expect(
+      wrapper1
+        .find('span')
+        .first()
+        .getDOMNode().style.display,
+    ).toBe('inline-block');
+    expect(
+      wrapper2
+        .find('span')
+        .first()
+        .getDOMNode().style.display,
+    ).toBe('block');
   });
 
   it('should works for arrowPointAtCenter', () => {
@@ -138,9 +145,12 @@ describe('Tooltip', () => {
           <button type="button" style={{ width: triggerWidth }}>
             Hello world!
           </button>
-        </Tooltip>
+        </Tooltip>,
       );
-      wrapper.find('button').at(0).simulate('click');
+      wrapper
+        .find('button')
+        .at(0)
+        .simulate('click');
       const popupLeftDefault = parseInt(wrapper.instance().getPopupDomNode().style.left, 10);
 
       const wrapper2 = mount(
@@ -155,15 +165,19 @@ describe('Tooltip', () => {
           <button type="button" style={{ width: triggerWidth }}>
             Hello world!
           </button>
-        </Tooltip>
+        </Tooltip>,
       );
-      wrapper2.find('button').at(0).simulate('click');
+      wrapper2
+        .find('button')
+        .at(0)
+        .simulate('click');
       const popupLeftArrowPointAtCenter = parseInt(
         wrapper2.instance().getPopupDomNode().style.left,
-        10
+        10,
       );
-      expect(popupLeftArrowPointAtCenter - popupLeftDefault)
-        .toBe((triggerWidth / 2) - horizontalArrowShift - arrowWidth);
+      expect(popupLeftArrowPointAtCenter - popupLeftDefault).toBe(
+        triggerWidth / 2 - horizontalArrowShift - arrowWidth,
+      );
     };
 
     jest.dontMock('rc-trigger', suit);
@@ -173,12 +187,9 @@ describe('Tooltip', () => {
     const onVisibleChange = jest.fn();
 
     const wrapper = mount(
-      <Tooltip
-        title="date picker"
-        onVisibleChange={onVisibleChange}
-      >
+      <Tooltip title="date picker" onVisibleChange={onVisibleChange}>
         <DatePicker />
-      </Tooltip>
+      </Tooltip>,
     );
 
     expect(wrapper.find('span.ant-calendar-picker')).toHaveLength(1);
@@ -198,15 +209,12 @@ describe('Tooltip', () => {
     const onVisibleChange = jest.fn();
 
     const wrapper = mount(
-      <Tooltip
-        title="hello"
-        onVisibleChange={onVisibleChange}
-      >
+      <Tooltip title="hello" onVisibleChange={onVisibleChange}>
         <Group>
           <Input style={{ width: '50%' }} />
           <Input style={{ width: '50%' }} />
         </Group>
-      </Tooltip>
+      </Tooltip>,
     );
 
     expect(wrapper.find('Group')).toHaveLength(1);

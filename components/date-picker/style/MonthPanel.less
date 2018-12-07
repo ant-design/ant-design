@@ -9,7 +9,8 @@
   background: @component-background;
   outline: none;
 
-  > div { // TODO: this is a useless wrapper, and we need to remove it in rc-calendar
+  > div {
+    // TODO: this is a useless wrapper, and we need to remove it in rc-calendar
     height: 100%;
   }
 }
@@ -19,11 +20,11 @@
 }
 
 .@{calendar-prefix-cls}-month-panel-header {
-  .calendarPanelHeader(~"@{calendar-prefix-cls}-month-panel");
+  .calendarPanelHeader(~'@{calendar-prefix-cls}-month-panel');
 }
 
 .@{calendar-prefix-cls}-month-panel-body {
-  height: ~"calc(100% - 40px)";
+  height: ~'calc(100% - 40px)';
 }
 
 .@{calendar-prefix-cls}-month-panel-table {

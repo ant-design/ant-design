@@ -1,6 +1,6 @@
-@import "../../style/themes/default";
+@import '../../style/themes/default';
 
-@dawer-prefix-cls: ~"@{ant-prefix}-drawer";
+@dawer-prefix-cls: ~'@{ant-prefix}-drawer';
 
 .@{dawer-prefix-cls} {
   position: fixed;
@@ -169,7 +169,7 @@
     height: 0;
     opacity: 0;
     background-color: @modal-mask-bg;
-    filter: ~"alpha(opacity=50)";
+    filter: ~'alpha(opacity=50)';
     transition: opacity @animation-duration-slow linear, height 0s ease @animation-duration-slow;
   }
   &-open {

@@ -13,12 +13,14 @@ function isIEorEDGE() {
   return (document as any).documentMode || /Edge/.test(navigator.userAgent);
 }
 
-function noop() {
-}
+function noop() {}
 
 function isRenderResultPlainObject(result: any) {
-  return result && !React.isValidElement(result) &&
-    Object.prototype.toString.call(result) === '[object Object]';
+  return (
+    result &&
+    !React.isValidElement(result) &&
+    Object.prototype.toString.call(result) === '[object Object]'
+  );
 }
 
 export interface TransferListProps {
@@ -97,9 +99,9 @@ export default class TransferList extends React.Component<TransferListProps, any
 
   handleSelect = (selectedItem: TransferItem) => {
     const { checkedKeys } = this.props;
-    const result = checkedKeys.some((key) => key === selectedItem.key);
+    const result = checkedKeys.some(key => key === selectedItem.key);
     this.props.handleSelect(selectedItem, !result);
-  }
+  };
 
   handleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
     this.props.handleFilter(e);
@@ -116,12 +118,12 @@ export default class TransferList extends React.Component<TransferListProps, any
       }
     }, 0);
     this.fixIERepaint();
-  }
+  };
 
   handleClear = () => {
     this.props.handleClear();
     this.fixIERepaint();
-  }
+  };
 
   matchFilter = (text: string, item: TransferItem) => {
     const { filter, filterOption } = this.props;
@@ -129,7 +131,7 @@ export default class TransferList extends React.Component<TransferListProps, any
       return filterOption(filter, item);
     }
     return text.indexOf(filter) >= 0;
-  }
+  };
 
   renderItem = (item: TransferItem) => {
     const { render = noop } = this.props;
@@ -139,11 +141,11 @@ export default class TransferList extends React.Component<TransferListProps, any
       renderedText: isRenderResultPlain ? renderResult.value : renderResult,
       renderedEl: isRenderResultPlain ? renderResult.label : renderResult,
     };
-  }
+  };
 
   saveNotFoundRef = (node: HTMLDivElement) => {
     this.notFoundNode = node;
-  }
+  };
 
   // Fix IE/Edge repaint
   // https://github.com/ant-design/ant-design/issues/9697
@@ -161,9 +163,22 @@ export default class TransferList extends React.Component<TransferListProps, any
 
   render() {
     const {
-      prefixCls, dataSource, titleText, checkedKeys, lazy, disabled,
-      body, footer, showSearch, style, filter,
-      searchPlaceholder, notFoundContent, itemUnit, itemsUnit, onScroll,
+      prefixCls,
+      dataSource,
+      titleText,
+      checkedKeys,
+      lazy,
+      disabled,
+      body,
+      footer,
+      showSearch,
+      style,
+      filter,
+      searchPlaceholder,
+      notFoundContent,
+      itemUnit,
+      itemsUnit,
+      onScroll,
     } = this.props;
 
     // Custom Layout
@@ -177,7 +192,7 @@ export default class TransferList extends React.Component<TransferListProps, any
     const filteredDataSource: TransferItem[] = [];
     const totalDataSource: TransferItem[] = [];
 
-    const showItems = dataSource.map((item) => {
+    const showItems = dataSource.map(item => {
       const { renderedText, renderedEl } = this.renderItem(item);
       if (filter && filter.trim() && !this.matchFilter(renderedText, item)) {
         return null;
@@ -186,7 +201,7 @@ export default class TransferList extends React.Component<TransferListProps, any
       // all show items
       totalDataSource.push(item);
       if (!item.disabled) {
-         // response to checkAll items
+        // response to checkAll items
         filteredDataSource.push(item);
       }
 
@@ -222,7 +237,11 @@ export default class TransferList extends React.Component<TransferListProps, any
     ) : null;
 
     const listBody = bodyDom || (
-      <div className={classNames(showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`)}>
+      <div
+        className={classNames(
+          showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`,
+        )}
+      >
         {search}
         <Animate
           component="ul"
@@ -239,11 +258,7 @@ export default class TransferList extends React.Component<TransferListProps, any
       </div>
     );
 
-    const listFooter = footerDom ? (
-      <div className={`${prefixCls}-footer`}>
-        {footerDom}
-      </div>
-    ) : null;
+    const listFooter = footerDom ? <div className={`${prefixCls}-footer`}>{footerDom}</div> : null;
 
     const checkStatus = this.getCheckStatus(filteredDataSource);
     const checkedAll = checkStatus === 'all';
@@ -263,11 +278,10 @@ export default class TransferList extends React.Component<TransferListProps, any
           {checkAllCheckbox}
           <span className={`${prefixCls}-header-selected`}>
             <span>
-              {(checkedKeys.length > 0 ? `${checkedKeys.length}/` : '') + totalDataSource.length} {unit}
+              {(checkedKeys.length > 0 ? `${checkedKeys.length}/` : '') + totalDataSource.length}{' '}
+              {unit}
             </span>
-            <span className={`${prefixCls}-header-title`}>
-              {titleText}
-            </span>
+            <span className={`${prefixCls}-header-title`}>{titleText}</span>
           </span>
         </div>
         {listBody}

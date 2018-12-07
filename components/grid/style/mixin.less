@@ -1,4 +1,4 @@
-@import "../../style/mixins/index";
+@import '../../style/mixins/index';
 
 // mixins for grid system
 // ------------------------
@@ -12,12 +12,12 @@
 
 .make-grid-columns() {
   .col(@index) {
-    @item: ~".@{ant-prefix}-col-@{index}, .@{ant-prefix}-col-xs-@{index}, .@{ant-prefix}-col-sm-@{index}, .@{ant-prefix}-col-md-@{index}, .@{ant-prefix}-col-lg-@{index}";
+    @item: ~'.@{ant-prefix}-col-@{index}, .@{ant-prefix}-col-xs-@{index}, .@{ant-prefix}-col-sm-@{index}, .@{ant-prefix}-col-md-@{index}, .@{ant-prefix}-col-lg-@{index}';
     .col((@index + 1), @item);
   }
   .col(@index, @list) when (@index =< @grid-columns) {
-    @item: ~".@{ant-prefix}-col-@{index}, .@{ant-prefix}-col-xs-@{index}, .@{ant-prefix}-col-sm-@{index}, .@{ant-prefix}-col-md-@{index}, .@{ant-prefix}-col-lg-@{index}";
-    .col((@index + 1), ~"@{list}, @{item}");
+    @item: ~'.@{ant-prefix}-col-@{index}, .@{ant-prefix}-col-xs-@{index}, .@{ant-prefix}-col-sm-@{index}, .@{ant-prefix}-col-md-@{index}, .@{ant-prefix}-col-lg-@{index}';
+    .col((@index + 1), ~'@{list}, @{item}');
   }
   .col(@index, @list) when (@index > @grid-columns) {
     @{list} {
@@ -32,15 +32,18 @@
 }
 
 .float-grid-columns(@class) {
-  .col(@index) { // initial
-    @item: ~".@{ant-prefix}-col@{class}-@{index}";
+  .col(@index) {
+    // initial
+    @item: ~'.@{ant-prefix}-col@{class}-@{index}';
     .col((@index + 1), @item);
   }
-  .col(@index, @list) when (@index =< @grid-columns) { // general
-    @item: ~".@{ant-prefix}-col@{class}-@{index}";
-    .col((@index + 1), ~"@{list}, @{item}");
+  .col(@index, @list) when (@index =< @grid-columns) {
+    // general
+    @item: ~'.@{ant-prefix}-col@{class}-@{index}';
+    .col((@index + 1), ~'@{list}, @{item}');
   }
-  .col(@index, @list) when (@index > @grid-columns) { // terminal
+  .col(@index, @list) when (@index > @grid-columns) {
+    // terminal
     @{list} {
       float: left;
       flex: 0 0 auto;

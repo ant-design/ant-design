@@ -6581,7 +6581,9 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider 1`] = `
   <span
     class="config-calendar-picker"
   >
-    <span>
+    <span
+      style="display:inline-block"
+    >
       <input
         class="config-calendar-picker-input config-input"
         placeholder="Select date"
@@ -6615,7 +6617,9 @@ exports[`ConfigProvider components DatePicker WeekPicker normal 1`] = `
   <span
     class="ant-calendar-picker"
   >
-    <span>
+    <span
+      style="display:inline-block"
+    >
       <input
         class="ant-calendar-picker-input ant-input"
         placeholder="Select date"
@@ -6649,7 +6653,9 @@ exports[`ConfigProvider components DatePicker WeekPicker prefixCls 1`] = `
   <span
     class="prefix-WeekPicker-picker"
   >
-    <span>
+    <span
+      style="display:inline-block"
+    >
       <input
         class="prefix-WeekPicker-picker-input ant-input"
         placeholder="Select date"
@@ -11113,7 +11119,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                   >
                     <div
                       class="config-table-column-sorters"
-                      title="Sort"
+                      title="Name"
                     >
                       Name
                       <div
@@ -11296,7 +11302,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                   >
                     <div
                       class="ant-table-column-sorters"
-                      title="Sort"
+                      title="Name"
                     >
                       Name
                       <div
@@ -11479,7 +11485,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                   >
                     <div
                       class="prefix-Table-column-sorters"
-                      title="Sort"
+                      title="Name"
                     >
                       Name
                       <div

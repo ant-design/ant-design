@@ -13,10 +13,7 @@ import warning from '../_util/warning';
 type FormCreateOptionMessagesCallback = (...args: any[]) => string;
 
 interface FormCreateOptionMessages {
-  [messageId: string]:
-    | string
-    | FormCreateOptionMessagesCallback
-    | FormCreateOptionMessages;
+  [messageId: string]: string | FormCreateOptionMessagesCallback | FormCreateOptionMessages;
 }
 
 export interface FormCreateOption<T> {
@@ -109,7 +106,11 @@ export type WrappedFormUtils = {
   validateFields(options: Object): void;
   validateFields(): void;
   /** 与 `validateFields` 相似，但校验完后，如果校验不通过的菜单域不在可见范围内，则自动滚动进可见范围 */
-  validateFieldsAndScroll(fieldNames: Array<string>, options: Object, callback: ValidateCallback): void;
+  validateFieldsAndScroll(
+    fieldNames: Array<string>,
+    options: Object,
+    callback: ValidateCallback,
+  ): void;
   validateFieldsAndScroll(options: Object, callback: ValidateCallback): void;
   validateFieldsAndScroll(fieldNames: Array<string>, callback: ValidateCallback): void;
   validateFieldsAndScroll(fieldNames: Array<string>, options: Object): void;
@@ -127,7 +128,10 @@ export type WrappedFormUtils = {
   /** 重置一组输入控件的值与状态，如不传入参数，则重置所有组件 */
   resetFields(names?: Array<string>): void;
   // tslint:disable-next-line:max-line-length
-  getFieldDecorator<T extends Object = {}>(id: keyof T, options?: GetFieldDecoratorOptions): (node: React.ReactNode) => React.ReactNode;
+  getFieldDecorator<T extends Object = {}>(
+    id: keyof T,
+    options?: GetFieldDecoratorOptions,
+  ): (node: React.ReactNode) => React.ReactNode;
 };
 
 export interface FormComponentProps {
@@ -135,7 +139,7 @@ export interface FormComponentProps {
 }
 
 export interface RcBaseFormProps {
-   wrappedComponentRef?: any;
+  wrappedComponentRef?: any;
 }
 
 export interface ComponentDecorator {
@@ -169,7 +173,9 @@ export default class Form extends React.Component<FormProps, any> {
 
   static createFormField = createFormField;
 
-  static create = function<TOwnProps>(options: FormCreateOption<TOwnProps> = {}): ComponentDecorator {
+  static create = function<TOwnProps>(
+    options: FormCreateOption<TOwnProps> = {},
+  ): ComponentDecorator {
     return createDOMForm({
       fieldNameProp: 'id',
       ...options,
@@ -192,17 +198,18 @@ export default class Form extends React.Component<FormProps, any> {
   }
 
   renderForm = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const {
-      prefixCls: customizePrefixCls,
-      hideRequiredMark, className = '', layout,
-    } = this.props;
+    const { prefixCls: customizePrefixCls, hideRequiredMark, className = '', layout } = this.props;
     const prefixCls = getPrefixCls('form', customizePrefixCls);
-    const formClassName = classNames(prefixCls, {
-      [`${prefixCls}-horizontal`]: layout === 'horizontal',
-      [`${prefixCls}-vertical`]: layout === 'vertical',
-      [`${prefixCls}-inline`]: layout === 'inline',
-      [`${prefixCls}-hide-required-mark`]: hideRequiredMark,
-    }, className);
+    const formClassName = classNames(
+      prefixCls,
+      {
+        [`${prefixCls}-horizontal`]: layout === 'horizontal',
+        [`${prefixCls}-vertical`]: layout === 'vertical',
+        [`${prefixCls}-inline`]: layout === 'inline',
+        [`${prefixCls}-hide-required-mark`]: hideRequiredMark,
+      },
+      className,
+    );
 
     const formProps = omit(this.props, [
       'prefixCls',
@@ -213,13 +220,9 @@ export default class Form extends React.Component<FormProps, any> {
     ]);
 
     return <form {...formProps} className={formClassName} />;
-  }
+  };
 
   render() {
-    return (
-      <ConfigConsumer>
-        {this.renderForm}
-      </ConfigConsumer>
-    );
+    return <ConfigConsumer>{this.renderForm}</ConfigConsumer>;
   }
 }

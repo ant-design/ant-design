@@ -84,7 +84,14 @@ export default class Item extends React.Component<ListItemProps, any> {
 
   renderItem = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { grid } = this.context;
-    const { prefixCls: customizePrefixCls, children, actions, extra, className, ...others } = this.props;
+    const {
+      prefixCls: customizePrefixCls,
+      children,
+      actions,
+      extra,
+      className,
+      ...others
+    } = this.props;
     const prefixCls = getPrefixCls('list', customizePrefixCls);
     const classString = classNames(`${prefixCls}-item`, className);
 
@@ -100,19 +107,17 @@ export default class Item extends React.Component<ListItemProps, any> {
     });
 
     const contentClassString = classNames(`${prefixCls}-item-content`, {
-      [`${prefixCls}-item-content-single`]: (metaContent.length < 1),
+      [`${prefixCls}-item-content-single`]: metaContent.length < 1,
     });
-    const content = otherContent.length > 0 ? (
-      <div className={contentClassString}>
-        {otherContent}
-      </div>) : null;
+    const content =
+      otherContent.length > 0 ? <div className={contentClassString}>{otherContent}</div> : null;
 
     let actionsContent;
     if (actions && actions.length > 0) {
       const actionsContentItem = (action: React.ReactNode, i: number) => (
         <li key={`${prefixCls}-item-action-${i}`}>
           {action}
-          {i !== (actions.length - 1) && <em className={`${prefixCls}-item-action-split`}/>}
+          {i !== actions.length - 1 && <em className={`${prefixCls}-item-action-split`} />}
         </li>
       );
       actionsContent = (
@@ -160,13 +165,9 @@ export default class Item extends React.Component<ListItemProps, any> {
     );
 
     return mainContent;
-  }
+  };
 
   render() {
-    return (
-      <ConfigConsumer>
-        {this.renderItem}
-      </ConfigConsumer>
-    );
+    return <ConfigConsumer>{this.renderItem}</ConfigConsumer>;
   }
 }

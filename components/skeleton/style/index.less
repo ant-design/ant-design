@@ -1,10 +1,10 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@skeleton-prefix-cls: ~"@{ant-prefix}-skeleton";
-@skeleton-avatar-prefix-cls: ~"@{skeleton-prefix-cls}-avatar";
-@skeleton-title-prefix-cls: ~"@{skeleton-prefix-cls}-title";
-@skeleton-paragraph-prefix-cls: ~"@{skeleton-prefix-cls}-paragraph";
+@skeleton-prefix-cls: ~'@{ant-prefix}-skeleton';
+@skeleton-avatar-prefix-cls: ~'@{skeleton-prefix-cls}-avatar';
+@skeleton-title-prefix-cls: ~'@{skeleton-prefix-cls}-title';
+@skeleton-paragraph-prefix-cls: ~'@{skeleton-prefix-cls}-paragraph';
 
 @skeleton-to-color: shade(@skeleton-color, 5%);
 
@@ -108,8 +108,13 @@
 }
 
 .skeleton-color() {
-  background: linear-gradient(90deg, @skeleton-color 25%, @skeleton-to-color 37%, @skeleton-color 63%);
-  animation: ~"@{skeleton-prefix-cls}-loading" 1.4s ease infinite;
+  background: linear-gradient(
+    90deg,
+    @skeleton-color 25%,
+    @skeleton-to-color 37%,
+    @skeleton-color 63%
+  );
+  animation: ~'@{skeleton-prefix-cls}-loading' 1.4s ease infinite;
   background-size: 400% 100%;
 }
 

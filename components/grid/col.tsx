@@ -51,7 +51,13 @@ export default class Col extends React.Component<ColProps, {}> {
     const props: any = this.props;
     const {
       prefixCls: customizePrefixCls,
-      span, order, offset, push, pull, className, children,
+      span,
+      order,
+      offset,
+      push,
+      pull,
+      className,
+      children,
       ...others
     } = props;
     const prefixCls = getPrefixCls('col', customizePrefixCls);
@@ -70,41 +76,46 @@ export default class Col extends React.Component<ColProps, {}> {
         ...sizeClassObj,
         [`${prefixCls}-${size}-${sizeProps.span}`]: sizeProps.span !== undefined,
         [`${prefixCls}-${size}-order-${sizeProps.order}`]: sizeProps.order || sizeProps.order === 0,
-        [`${prefixCls}-${size}-offset-${sizeProps.offset}`]: sizeProps.offset || sizeProps.offset === 0,
+        [`${prefixCls}-${size}-offset-${sizeProps.offset}`]:
+          sizeProps.offset || sizeProps.offset === 0,
         [`${prefixCls}-${size}-push-${sizeProps.push}`]: sizeProps.push || sizeProps.push === 0,
         [`${prefixCls}-${size}-pull-${sizeProps.pull}`]: sizeProps.pull || sizeProps.pull === 0,
       };
     });
-    const classes = classNames({
-      [`${prefixCls}-${span}`]: span !== undefined,
-      [`${prefixCls}-order-${order}`]: order,
-      [`${prefixCls}-offset-${offset}`]: offset,
-      [`${prefixCls}-push-${push}`]: push,
-      [`${prefixCls}-pull-${pull}`]: pull,
-    }, className, sizeClassObj);
+    const classes = classNames(
+      {
+        [`${prefixCls}-${span}`]: span !== undefined,
+        [`${prefixCls}-order-${order}`]: order,
+        [`${prefixCls}-offset-${offset}`]: offset,
+        [`${prefixCls}-push-${push}`]: push,
+        [`${prefixCls}-pull-${pull}`]: pull,
+      },
+      className,
+      sizeClassObj,
+    );
 
     return (
       <RowContext.Consumer>
         {({ gutter }) => {
           let style = others.style;
-          if (gutter as number > 0) {
+          if ((gutter as number) > 0) {
             style = {
               paddingLeft: (gutter as number) / 2,
               paddingRight: (gutter as number) / 2,
               ...style,
             };
           }
-          return <div {...others} style={style} className={classes}>{children}</div>;
+          return (
+            <div {...others} style={style} className={classes}>
+              {children}
+            </div>
+          );
         }}
       </RowContext.Consumer>
-    )
-  }
+    );
+  };
 
   render() {
-    return (
-      <ConfigConsumer>
-        {this.renderCol}
-      </ConfigConsumer>
-    );
+    return <ConfigConsumer>{this.renderCol}</ConfigConsumer>;
   }
 }

@@ -7,7 +7,10 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface SearchProps extends InputProps {
   inputPrefixCls?: string;
-  onSearch?: (value: string, event?: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLInputElement>) => any;
+  onSearch?: (
+    value: string,
+    event?: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLInputElement>,
+  ) => any;
   enterButton?: boolean | React.ReactNode;
 }
 
@@ -24,7 +27,7 @@ export default class Search extends React.Component<SearchProps, any> {
       onSearch(this.input.input.value, e);
     }
     this.input.focus();
-  }
+  };
 
   focus() {
     this.input.focus();
@@ -36,7 +39,7 @@ export default class Search extends React.Component<SearchProps, any> {
 
   saveInput = (node: Input) => {
     this.input = node;
-  }
+  };
 
   getButtonOrIcon(prefixCls: string) {
     const { enterButton, size, disabled } = this.props;
@@ -45,10 +48,15 @@ export default class Search extends React.Component<SearchProps, any> {
     if (!enterButton) {
       node = <Icon className={`${prefixCls}-icon`} type="search" key="searchIcon" />;
     } else if (enterButtonAsElement.type === Button || enterButtonAsElement.type === 'button') {
-      node = React.cloneElement(enterButtonAsElement, enterButtonAsElement.type === Button ? {
-        className: `${prefixCls}-button`,
-        size,
-      } : {});
+      node = React.cloneElement(
+        enterButtonAsElement,
+        enterButtonAsElement.type === Button
+          ? {
+              className: `${prefixCls}-button`,
+              size,
+            }
+          : {},
+      );
     } else {
       node = (
         <Button
@@ -69,8 +77,12 @@ export default class Search extends React.Component<SearchProps, any> {
 
   renderSearch = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
-      prefixCls: customizePrefixCls, inputPrefixCls: customizeInputPrefixCls,
-      className, size, suffix, enterButton,
+      prefixCls: customizePrefixCls,
+      inputPrefixCls: customizeInputPrefixCls,
+      className,
+      size,
+      suffix,
+      enterButton,
       ...others
     } = this.props;
     delete (others as any).onSearch;
@@ -83,7 +95,7 @@ export default class Search extends React.Component<SearchProps, any> {
         if (!React.isValidElement(item) || item.key) {
           return item;
         }
-        return React.cloneElement(item, {key: index});
+        return React.cloneElement(item, { key: index });
       });
     }
     const inputClassName = classNames(prefixCls, className, {
@@ -101,13 +113,9 @@ export default class Search extends React.Component<SearchProps, any> {
         ref={this.saveInput}
       />
     );
-  }
+  };
 
   render() {
-    return (
-      <ConfigConsumer>
-        {this.renderSearch}
-      </ConfigConsumer>
-    );
+    return <ConfigConsumer>{this.renderSearch}</ConfigConsumer>;
   }
 }

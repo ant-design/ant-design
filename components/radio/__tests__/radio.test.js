@@ -15,12 +15,7 @@ describe('Radio', () => {
     const onMouseEnter = jest.fn();
     const onMouseLeave = jest.fn();
 
-    const wrapper = mount(
-      <Radio
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-      />
-    );
+    const wrapper = mount(<Radio onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />);
 
     wrapper.find('label').simulate('mouseenter');
     expect(onMouseEnter).toHaveBeenCalled();

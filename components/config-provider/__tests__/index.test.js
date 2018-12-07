@@ -72,11 +72,9 @@ describe('ConfigProvider', () => {
 
         // configProvider
         it('configProvider', () => {
-          expect(render(
-            <ConfigProvider prefixCls="config">
-              {renderComponent({})}
-            </ConfigProvider>
-          )).toMatchSnapshot();
+          expect(
+            render(<ConfigProvider prefixCls="config">{renderComponent({})}</ConfigProvider>),
+          ).toMatchSnapshot();
         });
       });
     }
@@ -94,22 +92,16 @@ describe('ConfigProvider', () => {
     ));
 
     // AutoComplete
-    testPair('AutoComplete', props => (
-      <AutoComplete {...props} />
-    ));
+    testPair('AutoComplete', props => <AutoComplete {...props} />);
 
     // Avatar
-    testPair('Avatar', props => (
-      <Avatar {...props} />
-    ));
+    testPair('Avatar', props => <Avatar {...props} />);
 
     // BackTop
-    testPair('BackTop', props => (
-      <BackTop visible {...props} />
-    ));
+    testPair('BackTop', props => <BackTop visible {...props} />);
 
     // Badge
-    testPair('Badge', (props) => {
+    testPair('Badge', props => {
       const newProps = {
         ...props,
       };
@@ -171,15 +163,17 @@ describe('ConfigProvider', () => {
     // Carousel
     testPair('Carousel', props => (
       <Carousel {...props}>
-        <div><h3>Bamboo</h3></div>
-        <div><h3>Light</h3></div>
+        <div>
+          <h3>Bamboo</h3>
+        </div>
+        <div>
+          <h3>Light</h3>
+        </div>
       </Carousel>
     ));
 
     // Cascader
-    testPair('Cascader', props => (
-      <Cascader {...props} options={[]} showSearch />
-    ));
+    testPair('Cascader', props => <Cascader {...props} options={[]} showSearch />);
 
     // Checkbox
     testPair('Checkbox', props => (
@@ -235,17 +229,13 @@ describe('ConfigProvider', () => {
     });
 
     // Divider
-    testPair('Divider', props => (
-      <Divider {...props} />
-    ));
+    testPair('Divider', props => <Divider {...props} />);
 
     // Drawer
-    testPair('Drawer', props => (
-      <Drawer {...props} visible getContainer={false} />
-    ));
+    testPair('Drawer', props => <Drawer {...props} visible getContainer={false} />);
 
     // Dropdown
-    testPair('Dropdown', (props) => {
+    testPair('Dropdown', props => {
       const menu = (
         <Menu {...props}>
           <Menu.Item {...props}>Bamboo</Menu.Item>
@@ -262,18 +252,14 @@ describe('ConfigProvider', () => {
     // Form
     testPair('Form', props => (
       <Form {...props}>
-        <Form.Item
-          {...props}
-          validateStatus="error"
-          help="Bamboo is Light"
-        >
+        <Form.Item {...props} validateStatus="error" help="Bamboo is Light">
           <Input {...props} />
         </Form.Item>
       </Form>
     ));
 
     // Grid
-    testPair('Grid', (props) => {
+    testPair('Grid', props => {
       const rowProps = {};
       const colProps = {};
       if (props.prefixCls) {
@@ -300,12 +286,10 @@ describe('ConfigProvider', () => {
     ));
 
     // InputNumber
-    testPair('InputNumber', props => (
-      <InputNumber {...props} />
-    ));
+    testPair('InputNumber', props => <InputNumber {...props} />);
 
     // Layout
-    testPair('Layout', (props) => {
+    testPair('Layout', props => {
       const siderProps = {};
       const headerProps = {};
       const contentProps = {};
@@ -339,7 +323,9 @@ describe('ConfigProvider', () => {
           <List.Item {...props}>
             <List.Item.Meta
               {...props}
-              avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+              avatar={
+                <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+              }
               title="Ant Design"
               description="Ant Design, a design language for background applications, is refined by Ant UED Team"
             />
@@ -349,20 +335,16 @@ describe('ConfigProvider', () => {
     ));
 
     // Mention
-    testPair('Mention', props => (
-      <Mention {...props} />
-    ));
+    testPair('Mention', props => <Mention {...props} />);
 
     // Menu
     testPair('Menu', props => (
-      <Menu
-        {...props}
-        defaultOpenKeys={['bamboo']}
-        mode="inline"
-      >
+      <Menu {...props} defaultOpenKeys={['bamboo']} mode="inline">
         <Menu.SubMenu {...props} key="bamboo" title="bamboo">
           <Menu.ItemGroup {...props} key="g1" title="Item 1">
-            <Menu.Item {...props} key="1">Light</Menu.Item>
+            <Menu.Item {...props} key="1">
+              Light
+            </Menu.Item>
           </Menu.ItemGroup>
         </Menu.SubMenu>
       </Menu>
@@ -371,10 +353,7 @@ describe('ConfigProvider', () => {
     // Modal
     testPair('Modal', props => (
       <div>
-        <Modal
-          {...props}
-          visible
-        >
+        <Modal {...props} visible>
           Bamboo is Little Light
         </Modal>
       </div>
@@ -391,10 +370,7 @@ describe('ConfigProvider', () => {
     // Popconfirm
     testPair('Popconfirm', props => (
       <div>
-        <Popconfirm
-          {...props}
-          visible
-        >
+        <Popconfirm {...props} visible>
           <span>Bamboo</span>
         </Popconfirm>
       </div>
@@ -403,19 +379,14 @@ describe('ConfigProvider', () => {
     // Popover
     testPair('Popover', props => (
       <div>
-        <Popover
-          {...props}
-          visible
-        >
+        <Popover {...props} visible>
           <span>Light</span>
         </Popover>
       </div>
     ));
 
     // Progress
-    testPair('Progress', props => (
-      <Progress {...props} />
-    ));
+    testPair('Progress', props => <Progress {...props} />);
 
     // Radio
     testPair('Radio', props => (
@@ -430,16 +401,11 @@ describe('ConfigProvider', () => {
     ));
 
     // Rate
-    testPair('Rate', props => (
-      <Rate {...props} />
-    ));
+    testPair('Rate', props => <Rate {...props} />);
 
     // Select
     testPair('Select', props => (
-      <Select
-        {...props}
-        open
-      >
+      <Select {...props} open>
         <Select.OptGroup key="grp">
           <Select.Option key="Bamboo">Light</Select.Option>
         </Select.OptGroup>
@@ -447,28 +413,22 @@ describe('ConfigProvider', () => {
     ));
 
     // Skeleton
-    testPair('Skeleton', props => (
-      <Skeleton title avatar paragraph {...props} />
-    ));
+    testPair('Skeleton', props => <Skeleton title avatar paragraph {...props} />);
 
     // Slider
-    testPair('Slider', (props) => {
+    testPair('Slider', props => {
       const myProps = { ...props };
       if (myProps.prefixCls) {
         myProps.tooltipPrefixCls = `${myProps.prefixCls}-tooltip`;
       }
-      return (
-        <Slider tooltipVisible {...myProps} />
-      );
+      return <Slider tooltipVisible {...myProps} />;
     });
 
     // Spin
-    testPair('Spin', props => (
-      <Spin {...props} />
-    ));
+    testPair('Spin', props => <Spin {...props} />);
 
     // Steps
-    testPair('Steps', (props) => {
+    testPair('Steps', props => {
       const myProps = { ...props };
       if (props.prefixCls) {
         myProps.iconPrefix = 'prefixIcon';
@@ -481,39 +441,42 @@ describe('ConfigProvider', () => {
     });
 
     // Switch
-    testPair('Switch', props => (
-      <Switch {...props} />
-    ));
+    testPair('Switch', props => <Switch {...props} />);
 
     // Table
-    testPair('Table', (props) => {
-      const columns = [{
-        title: 'Name',
-        dataIndex: 'name',
-        filters: [{
-          text: 'Joe',
-          value: 'Joe',
-        }, {
-          text: 'Submenu',
-          value: 'Submenu',
-          children: [{
-            text: 'Green',
-            value: 'Green',
-          }],
-        }],
-        filterDropdownVisible: true,
-        onFilter: (value, record) => record.name.indexOf(value) === 0,
-        sorter: (a, b) => a.name.length - b.name.length,
-      }];
+    testPair('Table', props => {
+      const columns = [
+        {
+          title: 'Name',
+          dataIndex: 'name',
+          filters: [
+            {
+              text: 'Joe',
+              value: 'Joe',
+            },
+            {
+              text: 'Submenu',
+              value: 'Submenu',
+              children: [
+                {
+                  text: 'Green',
+                  value: 'Green',
+                },
+              ],
+            },
+          ],
+          filterDropdownVisible: true,
+          onFilter: (value, record) => record.name.indexOf(value) === 0,
+          sorter: (a, b) => a.name.length - b.name.length,
+        },
+      ];
 
       const myProps = { ...props };
       if (props.prefixCls) {
         myProps.dropdownPrefixCls = 'prefix-dropdown';
       }
 
-      return (
-        <Table columns={columns} {...props} />
-      );
+      return <Table columns={columns} {...props} />;
     });
 
     // Tabs
@@ -551,12 +514,7 @@ describe('ConfigProvider', () => {
     ));
 
     // Transfer
-    testPair('Transfer', props => (
-      <Transfer
-        {...props}
-        dataSource={[]}
-      />
-    ));
+    testPair('Transfer', props => <Transfer {...props} dataSource={[]} />);
 
     // Tree
     testPair('Tree', props => (
@@ -582,11 +540,13 @@ describe('ConfigProvider', () => {
     testPair('Upload', props => (
       <Upload
         {...props}
-        defaultFileList={[{
-          uid: '1',
-          name: 'xxx.png',
-          status: 'done',
-        }]}
+        defaultFileList={[
+          {
+            uid: '1',
+            name: 'xxx.png',
+            status: 'done',
+          },
+        ]}
       >
         <span />
       </Upload>

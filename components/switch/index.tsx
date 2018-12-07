@@ -43,23 +43,17 @@ export default class Switch extends React.Component<SwitchProps, {}> {
 
   saveSwitch = (node: typeof RcSwitch) => {
     this.rcSwitch = node;
-  }
+  };
 
   renderSwitch = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const {
-      prefixCls: customizePrefixCls,
-      size, loading, className = '', disabled,
-    } = this.props;
+    const { prefixCls: customizePrefixCls, size, loading, className = '', disabled } = this.props;
     const prefixCls = getPrefixCls('switch', customizePrefixCls);
     const classes = classNames(className, {
       [`${prefixCls}-small`]: size === 'small',
       [`${prefixCls}-loading`]: loading,
     });
     const loadingIcon = loading ? (
-      <Icon
-        type="loading"
-        className={`${prefixCls}-loading-icon`}
-      />
+      <Icon type="loading" className={`${prefixCls}-loading-icon`} />
     ) : null;
     return (
       <Wave insertExtraNode>
@@ -73,13 +67,9 @@ export default class Switch extends React.Component<SwitchProps, {}> {
         />
       </Wave>
     );
-  }
+  };
 
   render() {
-    return (
-      <ConfigConsumer>
-        {this.renderSwitch}
-      </ConfigConsumer>
-    );
+    return <ConfigConsumer>{this.renderSwitch}</ConfigConsumer>;
   }
 }

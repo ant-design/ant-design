@@ -4,8 +4,8 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 
 export interface PopoverProps extends AbstractTooltipProps {
-   title?: React.ReactNode;
-   content?: React.ReactNode;
+  title?: React.ReactNode;
+  content?: React.ReactNode;
 }
 
 export default class Popover extends React.Component<PopoverProps, {}> {
@@ -29,21 +29,19 @@ export default class Popover extends React.Component<PopoverProps, {}> {
     warning(
       !('overlay' in this.props),
       'Popover[overlay] is removed, please use Popover[content] instead, ' +
-      'see: https://u.ant.design/popover-content',
+        'see: https://u.ant.design/popover-content',
     );
     return (
       <div>
         {title && <div className={`${prefixCls}-title`}>{title}</div>}
-        <div className={`${prefixCls}-inner-content`}>
-          {content}
-        </div>
+        <div className={`${prefixCls}-inner-content`}>{content}</div>
       </div>
     );
   }
 
   saveTooltip = (node: any) => {
     this.tooltip = node;
-  }
+  };
 
   renderPopover = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, ...props } = this.props;
@@ -57,13 +55,9 @@ export default class Popover extends React.Component<PopoverProps, {}> {
         overlay={this.getOverlay(prefixCls)}
       />
     );
-  }
+  };
 
   render() {
-    return (
-      <ConfigConsumer>
-        {this.renderPopover}
-      </ConfigConsumer>
-    );
+    return <ConfigConsumer>{this.renderPopover}</ConfigConsumer>;
   }
 }

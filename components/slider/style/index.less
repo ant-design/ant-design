@@ -1,7 +1,7 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@slider-prefix-cls: ~"@{ant-prefix}-slider";
+@slider-prefix-cls: ~'@{ant-prefix}-slider';
 
 .@{slider-prefix-cls} {
   .reset-component;
@@ -24,7 +24,7 @@
     height: 4px;
     border-radius: 2px;
     background-color: @slider-rail-background-color;
-    transition: background-color .3s;
+    transition: background-color 0.3s;
   }
 
   &-track {
@@ -46,7 +46,8 @@
     border: solid 2px @slider-handle-color;
     background-color: @component-background;
     box-shadow: 0;
-    transition: border-color .3s, box-shadow .6s, transform .3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    transition: border-color 0.3s, box-shadow 0.6s,
+      transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
 
     &:focus {
       border-color: @slider-handle-color-focus;

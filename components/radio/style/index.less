@@ -1,10 +1,10 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@radio-prefix-cls: ~"@{ant-prefix}-radio";
-@radio-group-prefix-cls: ~"@{radio-prefix-cls}-group";
-@radio-inner-prefix-cls: ~"@{radio-prefix-cls}-inner";
-@radio-duration: .3s;
+@radio-prefix-cls: ~'@{ant-prefix}-radio';
+@radio-group-prefix-cls: ~'@{radio-prefix-cls}-group';
+@radio-inner-prefix-cls: ~'@{radio-prefix-cls}-inner';
+@radio-duration: 0.3s;
 
 .@{radio-group-prefix-cls} {
   .reset-component;
@@ -46,7 +46,7 @@
     height: 100%;
     border-radius: 50%;
     border: 1px solid @radio-dot-color;
-    content: "";
+    content: '';
     animation: antRadioEffect 0.36s ease-in-out;
     animation-fill-mode: both;
     visibility: hidden;
@@ -105,7 +105,7 @@
   .@{radio-inner-prefix-cls} {
     border-color: @radio-dot-color;
     &:after {
-      transform: scale(.875);
+      transform: scale(0.875);
       opacity: 1;
       transition: all @radio-duration @ease-in-out-circ;
     }
@@ -178,7 +178,7 @@ span.@{radio-prefix-cls} + * {
 
   &:not(:first-child) {
     &::before {
-      content: "";
+      content: '';
       display: block;
       top: 0;
       left: -1px;
@@ -208,8 +208,8 @@ span.@{radio-prefix-cls} + * {
   }
 
   .@{radio-prefix-cls}-inner,
-  input[type="checkbox"],
-  input[type="radio"] {
+  input[type='checkbox'],
+  input[type='radio'] {
     opacity: 0;
     width: 0;
     height: 0;
@@ -296,7 +296,7 @@ span.@{radio-prefix-cls} + * {
 }
 
 // Firefox hack
-@supports (-moz-appearance:meterbar) and (background-blend-mode:difference,normal) {
+@supports (-moz-appearance: meterbar) and (background-blend-mode: difference, normal) {
   .@{radio-prefix-cls} {
     vertical-align: text-bottom;
   }

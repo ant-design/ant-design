@@ -9,10 +9,8 @@ if (typeof window !== 'undefined') {
     return {
       media: mediaQuery,
       matches: false,
-      addListener() {
-      },
-      removeListener() {
-      },
+      addListener() {},
+      removeListener() {},
     };
   };
   window.matchMedia = window.matchMedia || matchMediaPolyfill;
@@ -108,11 +106,11 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
     if (autoplay && this.slick && this.slick.innerSlider && this.slick.innerSlider.autoPlay) {
       this.slick.innerSlider.autoPlay();
     }
-  }
+  };
 
   saveSlick = (node: any) => {
     this.slick = node;
-  }
+  };
 
   next() {
     this.slick.slickNext();
@@ -145,13 +143,9 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
         <SlickCarousel ref={this.saveSlick} {...props} />
       </div>
     );
-  }
+  };
 
   render() {
-    return (
-      <ConfigConsumer>
-        {this.renderCarousel}
-      </ConfigConsumer>
-    );
+    return <ConfigConsumer>{this.renderCarousel}</ConfigConsumer>;
   }
 }
