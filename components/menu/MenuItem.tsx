@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Item } from 'rc-menu';
 import * as PropTypes from 'prop-types';
 import Tooltip from '../tooltip';
-import { ClickParam } from './index'
+import { ClickParam } from './index';
 
 interface MenuItemProps {
   rootPrefixCls?: string;
