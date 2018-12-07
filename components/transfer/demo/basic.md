@@ -76,8 +76,13 @@ class App extends React.Component {
           render={item => item.title}
           disabled={disabled}
         />
-
-        <Switch unCheckedChildren="disabled" checkedChildren="disabled" checked={disabled} onChange={this.handleDisable} />
+        <Switch
+          unCheckedChildren="disabled"
+          checkedChildren="disabled"
+          checked={disabled}
+          onChange={this.handleDisable}
+          style={{ marginTop: 16 }}
+        />
       </div>
     );
   }
