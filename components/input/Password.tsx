@@ -6,17 +6,17 @@ import Icon from '../icon';
 export interface PasswordProps extends InputProps {
   readonly inputPrefixCls?: string;
   readonly action: string;
-  visibilityToggle?: boolean,
+  visibilityToggle?: boolean;
 }
 
 export interface PasswordState {
-  visible: boolean,
+  visible: boolean;
 }
 
 const ActionMap: Record<string, string> = {
   click: 'onClick',
   hover: 'onMouseOver',
-}
+};
 
 export default class Password extends React.Component<PasswordProps, PasswordState> {
   static defaultProps = {
@@ -34,7 +34,7 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
     this.setState({
       visible: !this.state.visible,
     });
-  }
+  };
 
   getIcon() {
     const { prefixCls, action } = this.props;

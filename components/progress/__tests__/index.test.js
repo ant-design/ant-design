@@ -37,7 +37,7 @@ describe('Progress', () => {
         percent={50}
         successPercent={10}
         format={(percent, successPercent) => `${percent} ${successPercent}`}
-      />
+      />,
     );
     expect(wrapper.render()).toMatchSnapshot();
   });

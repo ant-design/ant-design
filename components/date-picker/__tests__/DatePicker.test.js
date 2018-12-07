@@ -3,14 +3,7 @@ import { mount } from 'enzyme';
 import moment from 'moment';
 import MockDate from 'mockdate';
 import DatePicker from '..';
-import {
-  selectDate,
-  openPanel,
-  clearInput,
-  nextYear,
-  nextMonth,
-  hasSelected,
-} from './utils';
+import { selectDate, openPanel, clearInput, nextYear, nextMonth, hasSelected } from './utils';
 import focusTest from '../../../tests/shared/focusTest';
 
 describe('DatePicker', () => {
@@ -28,10 +21,7 @@ describe('DatePicker', () => {
     const locale = {
       lang: {
         placeholder: 'Избери дата',
-        rangePlaceholder: [
-          'Начална дата',
-          'Крайна дата',
-        ],
+        rangePlaceholder: ['Начална дата', 'Крайна дата'],
         today: 'Днес',
         now: 'Сега',
         backToToday: 'Към днес',
@@ -63,9 +53,7 @@ describe('DatePicker', () => {
       },
     };
     const birthday = moment('2000-01-01', 'YYYY-MM-DD');
-    const wrapper = mount(
-      <DatePicker open locale={locale} value={birthday} />
-    );
+    const wrapper = mount(<DatePicker open locale={locale} value={birthday} />);
     expect(wrapper.render()).toMatchSnapshot();
   });
 
@@ -75,9 +63,9 @@ describe('DatePicker', () => {
       state = {
         cleared: false,
         value: moment(),
-      }
+      };
 
-      onChange = (value) => {
+      onChange = value => {
         let { cleared } = this.state;
 
         let newValue = value;
@@ -91,7 +79,7 @@ describe('DatePicker', () => {
         }
 
         this.setState({ value: newValue, cleared });
-      }
+      };
 
       render() {
         const { value } = this.state;
@@ -118,9 +106,7 @@ describe('DatePicker', () => {
 
   it('triggers onChange only when date was selected', () => {
     const handleChange = jest.fn();
-    const wrapper = mount(
-      <DatePicker onChange={handleChange} />
-    );
+    const wrapper = mount(<DatePicker onChange={handleChange} />);
     openPanel(wrapper);
     nextYear(wrapper);
     expect(handleChange).not.toBeCalled();
@@ -131,9 +117,7 @@ describe('DatePicker', () => {
   });
 
   it('clear input', () => {
-    const wrapper = mount(
-      <DatePicker />
-    );
+    const wrapper = mount(<DatePicker />);
     openPanel(wrapper);
     selectDate(wrapper, moment('2016-11-23'));
     clearInput(wrapper);
@@ -142,35 +126,27 @@ describe('DatePicker', () => {
   });
 
   it('sets data attributes on input', () => {
-    const wrapper = mount(
-      <DatePicker data-test="test-id" data-id="12345" />
-    );
+    const wrapper = mount(<DatePicker data-test="test-id" data-id="12345" />);
     const input = wrapper.find('.ant-calendar-picker-input').getDOMNode();
     expect(input.getAttribute('data-test')).toBe('test-id');
     expect(input.getAttribute('data-id')).toBe('12345');
   });
 
   it('sets aria attributes on input', () => {
-    const wrapper = mount(
-      <DatePicker aria-label="some-label" aria-labelledby="label-id" />
-    );
+    const wrapper = mount(<DatePicker aria-label="some-label" aria-labelledby="label-id" />);
     const input = wrapper.find('.ant-calendar-picker-input').getDOMNode();
     expect(input.getAttribute('aria-label')).toBe('some-label');
     expect(input.getAttribute('aria-labelledby')).toBe('label-id');
   });
 
   it('sets role attribute on input', () => {
-    const wrapper = mount(
-      <DatePicker role="search" />
-    );
+    const wrapper = mount(<DatePicker role="search" />);
     const input = wrapper.find('.ant-calendar-picker-input').getDOMNode();
     expect(input.getAttribute('role')).toBe('search');
   });
 
   it('changes year/month when under control', () => {
-    const wrapper = mount(
-      <DatePicker value={moment('2018-07-01')} />
-    );
+    const wrapper = mount(<DatePicker value={moment('2018-07-01')} />);
     openPanel(wrapper);
     expect(wrapper.find('.ant-calendar-my-select').text()).toBe('Jul2018');
     wrapper.find('.ant-calendar-prev-year-btn').simulate('click');
@@ -183,9 +159,7 @@ describe('DatePicker', () => {
       return current && current < moment().endOf('day');
     }
 
-    const wrapper = mount(
-      <DatePicker disabledDate={disabledDate} />
-    );
+    const wrapper = mount(<DatePicker disabledDate={disabledDate} />);
 
     expect(wrapper.render()).toMatchSnapshot();
   });

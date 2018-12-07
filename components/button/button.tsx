@@ -20,10 +20,13 @@ function insertSpace(child: React.ReactChild, needInserted: boolean) {
   }
   const SPACE = needInserted ? ' ' : '';
   // strictNullChecks oops.
-  if (typeof child !== 'string' && typeof child !== 'number' &&
-    isString(child.type) && isTwoCNChar(child.props.children)) {
-    return React.cloneElement(child, {},
-      child.props.children.split('').join(SPACE));
+  if (
+    typeof child !== 'string' &&
+    typeof child !== 'number' &&
+    isString(child.type) &&
+    isTwoCNChar(child.props.children)
+  ) {
+    return React.cloneElement(child, {}, child.props.children.split('').join(SPACE));
   }
   if (typeof child === 'string') {
     if (isTwoCNChar(child)) {
@@ -56,12 +59,14 @@ export type AnchorButtonProps = {
   href: string;
   target?: string;
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
-} & BaseButtonProps & React.AnchorHTMLAttributes<HTMLAnchorElement>;
+} & BaseButtonProps &
+  React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
 export type NativeButtonProps = {
   htmlType?: ButtonHTMLType;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
-} & BaseButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>;
+} & BaseButtonProps &
+  React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export type ButtonProps = AnchorButtonProps | NativeButtonProps;
 
@@ -129,7 +134,7 @@ export default class Button extends React.Component<ButtonProps, any> {
 
   saveButtonRef = (node: HTMLElement | null) => {
     this.buttonNode = node;
-  }
+  };
 
   fixTwoCNChar() {
     // Fix for HOC usage like <FormatMessage />
@@ -159,7 +164,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     if (onClick) {
       (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)(e);
     }
-  }
+  };
 
   isNeedInserted() {
     const { icon, children } = this.props;
@@ -169,7 +174,15 @@ export default class Button extends React.Component<ButtonProps, any> {
   renderButton = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
-      type, shape, size, className, children, icon, ghost, loading: _loadingProp, block,
+      type,
+      shape,
+      size,
+      className,
+      children,
+      icon,
+      ghost,
+      loading: _loadingProp,
+      block,
       ...rest
     } = this.props;
     const { loading, hasTwoCNChar } = this.state;
@@ -205,49 +218,50 @@ export default class Button extends React.Component<ButtonProps, any> {
 
     const iconType = loading ? 'loading' : icon;
     const iconNode = iconType ? <Icon type={iconType} /> : null;
-    const kids = (children || children === 0)
-      ? React.Children.map(children, child => insertSpace(child, this.isNeedInserted())) : null;
+    const kids =
+      children || children === 0
+        ? React.Children.map(children, child => insertSpace(child, this.isNeedInserted()))
+        : null;
 
-    const title= isChristmas ? 'Ho Ho Ho!' : rest.title;
+    const title = isChristmas ? 'Ho Ho Ho!' : rest.title;
 
-    if ('href' in rest) {
+    const linkButtonRestProps = rest as AnchorButtonProps;
+    if (linkButtonRestProps.href !== undefined) {
       return (
         <a
-          {...rest}
+          {...linkButtonRestProps}
           className={classes}
           onClick={this.handleClick}
           title={title}
           ref={this.saveButtonRef}
         >
-          {iconNode}{kids}
+          {iconNode}
+          {kids}
         </a>
       );
-    } else {
-      // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
-      const { htmlType, ...otherProps } = rest;
-
-      return (
-        <Wave>
-          <button
-            {...otherProps}
-            type={htmlType || 'button'}
-            className={classes}
-            onClick={this.handleClick}
-            title={title}
-            ref={this.saveButtonRef}
-          >
-            {iconNode}{kids}
-          </button>
-        </Wave>
-      );
     }
-  }
+
+    // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
+    const { htmlType, ...otherProps } = rest as NativeButtonProps;
+
+    return (
+      <Wave>
+        <button
+          {...otherProps as NativeButtonProps}
+          type={htmlType || 'button'}
+          className={classes}
+          onClick={this.handleClick}
+          title={title}
+          ref={this.saveButtonRef}
+        >
+          {iconNode}
+          {kids}
+        </button>
+      </Wave>
+    );
+  };
 
   render() {
-    return (
-      <ConfigConsumer>
-        {this.renderButton}
-      </ConfigConsumer>
-    );
+    return <ConfigConsumer>{this.renderButton}</ConfigConsumer>;
   }
 }

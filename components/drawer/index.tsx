@@ -9,13 +9,11 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 const DrawerContext: Context<Drawer | null> = createReactContext(null);
 
-type EventType =
-  | React.MouseEvent<HTMLDivElement>
-  | React.MouseEvent<HTMLButtonElement>;
+type EventType = React.MouseEvent<HTMLDivElement> | React.MouseEvent<HTMLButtonElement>;
 
 type getContainerfunc = () => HTMLElement;
 
-type placementType =  'top' | 'right' | 'bottom' | 'left';
+type placementType = 'top' | 'right' | 'bottom' | 'left';
 export interface DrawerProps {
   closable?: boolean;
   destroyOnClose?: boolean;
@@ -100,26 +98,26 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
       }
       return;
     }
-  }
+  };
 
   onMaskClick = (e: EventType) => {
     if (!this.props.maskClosable) {
       return;
     }
     this.close(e);
-  }
+  };
 
   push = () => {
     this.setState({
       push: true,
     });
-  }
+  };
 
   pull = () => {
     this.setState({
       push: false,
     });
-  }
+  };
 
   onDestoryTransitionEnd = () => {
     const isDestroyOnClose = this.getDestoryOnClose();
@@ -130,9 +128,9 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
       this.destoryClose = true;
       this.forceUpdate();
     }
-  }
+  };
 
-  getDestoryOnClose = () => (this.props.destroyOnClose && !this.props.visible);
+  getDestoryOnClose = () => this.props.destroyOnClose && !this.props.visible;
 
   // get drawar push width or height
   getPushTransform = (placement?: placementType) => {
@@ -142,21 +140,21 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
     if (placement === 'top' || placement === 'bottom') {
       return `translateY(${placement === 'top' ? 180 : -180}px)`;
     }
-  }
+  };
 
   getRcDrawerStyle = () => {
     const { zIndex, placement, maskStyle } = this.props;
     return this.state.push
-    ? {
-      ...maskStyle,
-      zIndex,
-      transform: this.getPushTransform(placement),
-    }
-    : {
-      ...maskStyle,
-      zIndex,
-    };
-  }
+      ? {
+          ...maskStyle,
+          zIndex,
+          transform: this.getPushTransform(placement),
+        }
+      : {
+          ...maskStyle,
+          zIndex,
+        };
+  };
 
   // render drawer body dom
   renderBody = (prefixCls: string) => {
@@ -166,11 +164,13 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
     this.destoryClose = false;
     const { placement } = this.props;
 
-    const containerStyle: React.CSSProperties = placement === 'left'
-      || placement === 'right' ? {
-        overflow: 'auto',
-        height: '100%',
-      } : {};
+    const containerStyle: React.CSSProperties =
+      placement === 'left' || placement === 'right'
+        ? {
+            overflow: 'auto',
+            height: '100%',
+          }
+        : {};
 
     const isDestroyOnClose = this.getDestoryOnClose();
 
@@ -194,13 +194,9 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
     let closer;
     if (closable) {
       closer = (
-        <button
-          onClick={this.close}
-          aria-label="Close"
-          className={`${prefixCls}-close`}
-        >
+        <button onClick={this.close} aria-label="Close" className={`${prefixCls}-close`}>
           <span className={`${prefixCls}-close-x`}>
-            <Icon type="close"/>
+            <Icon type="close" />
           </span>
         </button>
       );
@@ -219,17 +215,26 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
         </div>
       </div>
     );
-  }
+  };
 
   // render Provider for Multi-level drawer
   renderProvider = (value: Drawer) => {
     const {
       prefixCls: customizePrefixCls,
-      zIndex, style, placement, className, wrapClassName, width, height,
+      zIndex,
+      style,
+      placement,
+      className,
+      wrapClassName,
+      width,
+      height,
       ...rest
     } = this.props;
-    warning(wrapClassName === undefined, 'wrapClassName is deprecated, please use className instead.');
-    const haveMask = rest.mask ? "" : "no-mask";
+    warning(
+      wrapClassName === undefined,
+      'wrapClassName is deprecated, please use className instead.',
+    );
+    const haveMask = rest.mask ? '' : 'no-mask';
     this.parentDrawer = value;
     const offsetStyle: any = {};
     if (placement === 'left' || placement === 'right') {
@@ -263,11 +268,9 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
         </ConfigConsumer>
       </DrawerContext.Provider>
     );
-  }
+  };
 
   render() {
-    return (
-      <DrawerContext.Consumer>{this.renderProvider}</DrawerContext.Consumer>
-    );
+    return <DrawerContext.Consumer>{this.renderProvider}</DrawerContext.Consumer>;
   }
 }

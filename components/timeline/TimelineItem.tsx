@@ -11,20 +11,27 @@ export interface TimeLineItemProps {
   style?: React.CSSProperties;
 }
 
-const TimelineItem: React.SFC<TimeLineItemProps> = (props) => (
+const TimelineItem: React.SFC<TimeLineItemProps> = props => (
   <ConfigConsumer>
     {({ getPrefixCls }: ConfigConsumerProps) => {
       const {
         prefixCls: customizePrefixCls,
-        className, color = '', children, pending, dot,
+        className,
+        color = '',
+        children,
+        pending,
+        dot,
         ...restProps
       } = props;
 
       const prefixCls = getPrefixCls('timeline', customizePrefixCls);
-      const itemClassName = classNames({
-        [`${prefixCls}-item`]: true,
-        [`${prefixCls}-item-pending`]: pending,
-      }, className);
+      const itemClassName = classNames(
+        {
+          [`${prefixCls}-item`]: true,
+          [`${prefixCls}-item-pending`]: pending,
+        },
+        className,
+      );
 
       const dotClassName = classNames({
         [`${prefixCls}-item-head`]: true,
@@ -41,9 +48,7 @@ const TimelineItem: React.SFC<TimeLineItemProps> = (props) => (
           >
             {dot}
           </div>
-          <div className={`${prefixCls}-item-content`}>
-            {children}
-          </div>
+          <div className={`${prefixCls}-item-content`}>{children}</div>
         </li>
       );
     }}

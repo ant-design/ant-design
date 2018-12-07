@@ -4,8 +4,16 @@ import { mount } from 'enzyme';
 import moment from 'moment';
 import MockDate from 'mockdate';
 import {
-  LocaleProvider, Pagination, DatePicker, TimePicker, Calendar,
-  Popconfirm, Table, Modal, Select, Transfer,
+  LocaleProvider,
+  Pagination,
+  DatePicker,
+  TimePicker,
+  Calendar,
+  Popconfirm,
+  Table,
+  Modal,
+  Select,
+  Transfer,
 } from '../..';
 import arEG from '../ar_EG';
 import bgBG from '../bg_BG';
@@ -51,28 +59,69 @@ import zhCN from '../zh_CN';
 import zhTW from '../zh_TW';
 
 const locales = [
-  arEG, bgBG, caES, csCZ, daDK, deDE, elGR, enGB,
-  enUS, esES, etEE, faIR, fiFI, frBE, frFR, heIL,
-  huHU, isIS, itIT, jaJP, koKR, kuIQ, mnMN, nbNO,
-  neNP, nlBE, nlNL, plPL, ptBR, ptPT, ruRU, skSK,
-  slSI, srRS, svSE, thTH, trTR, ukUA, viVN, idID,
-  zhCN, zhTW,
+  arEG,
+  bgBG,
+  caES,
+  csCZ,
+  daDK,
+  deDE,
+  elGR,
+  enGB,
+  enUS,
+  esES,
+  etEE,
+  faIR,
+  fiFI,
+  frBE,
+  frFR,
+  heIL,
+  huHU,
+  isIS,
+  itIT,
+  jaJP,
+  koKR,
+  kuIQ,
+  mnMN,
+  nbNO,
+  neNP,
+  nlBE,
+  nlNL,
+  plPL,
+  ptBR,
+  ptPT,
+  ruRU,
+  skSK,
+  slSI,
+  srRS,
+  svSE,
+  thTH,
+  trTR,
+  ukUA,
+  viVN,
+  idID,
+  zhCN,
+  zhTW,
 ];
 
 const { Option } = Select;
 const { RangePicker } = DatePicker;
 
-const columns = [{
-  title: 'Name',
-  dataIndex: 'name',
-  filters: [{
-    text: 'filter1',
-    value: 'filter1',
-  }],
-}, {
-  title: 'Age',
-  dataIndex: 'age',
-}];
+const columns = [
+  {
+    title: 'Name',
+    dataIndex: 'name',
+    filters: [
+      {
+        text: 'filter1',
+        value: 'filter1',
+      },
+    ],
+  },
+  {
+    title: 'Age',
+    dataIndex: 'age',
+  },
+];
 
 const App = () => (
   <div>
@@ -87,12 +136,7 @@ const App = () => (
     <Popconfirm title="Question?" visible>
       <a>Click to confirm</a>
     </Popconfirm>
-    <Transfer
-      dataSource={[]}
-      showSearch
-      targetKeys={[]}
-      render={item => item.title}
-    />
+    <Transfer dataSource={[]} showSearch targetKeys={[]} render={item => item.title} />
     <Calendar fullscreen={false} value={moment()} />
     <Table dataSource={[]} columns={columns} />
     <Modal title="Locale Modal" visible>
@@ -110,12 +154,12 @@ describe('Locale Provider', () => {
     MockDate.reset();
   });
 
-  locales.forEach((locale) => {
+  locales.forEach(locale => {
     it(`should display the text as ${locale.locale}`, () => {
       const wrapper = mount(
         <LocaleProvider locale={locale}>
           <App />
-        </LocaleProvider>
+        </LocaleProvider>,
       );
       expect(wrapper.render()).toMatchSnapshot();
     });
@@ -133,14 +177,18 @@ describe('Locale Provider', () => {
         return null;
       }
     }
-    locales.forEach((locale) => {
+    locales.forEach(locale => {
       mount(
         <LocaleProvider locale={locale}>
           <ModalDemo />
-        </LocaleProvider>
+        </LocaleProvider>,
       );
-      const currentConfirmNode = document.querySelectorAll('.ant-modal-confirm')[document.querySelectorAll('.ant-modal-confirm').length - 1];
-      let cancelButtonText = currentConfirmNode.querySelectorAll('.ant-btn:not(.ant-btn-primary) span')[0].innerHTML;
+      const currentConfirmNode = document.querySelectorAll('.ant-modal-confirm')[
+        document.querySelectorAll('.ant-modal-confirm').length - 1
+      ];
+      let cancelButtonText = currentConfirmNode.querySelectorAll(
+        '.ant-btn:not(.ant-btn-primary) span',
+      )[0].innerHTML;
       let okButtonText = currentConfirmNode.querySelectorAll('.ant-btn-primary span')[0].innerHTML;
       if (locale.locale === 'zh-cn') {
         cancelButtonText = cancelButtonText.replace(' ', '');
@@ -155,7 +203,7 @@ describe('Locale Provider', () => {
     class Test extends React.Component {
       state = {
         locale: zhCN,
-      }
+      };
 
       render() {
         const { locale } = this.state;

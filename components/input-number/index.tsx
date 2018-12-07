@@ -8,7 +8,8 @@ import { Omit } from '../_util/type';
 // omitting this attrs because they conflicts with the ones defined in InputNumberProps
 export type OmitAttrs = 'defaultValue' | 'onChange' | 'size';
 
-export interface InputNumberProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, OmitAttrs> {
+export interface InputNumberProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, OmitAttrs> {
   prefixCls?: string;
   min?: number;
   max?: number;
@@ -48,16 +49,19 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
   renderInputNumber = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { className, size, prefixCls: customizePrefixCls, ...others } = this.props;
     const prefixCls = getPrefixCls('input-number', customizePrefixCls);
-    const inputNumberClass = classNames({
-      [`${prefixCls}-lg`]: size === 'large',
-      [`${prefixCls}-sm`]: size === 'small',
-    }, className);
-    const upIcon = <Icon type="up" className={`${prefixCls}-handler-up-inner`}/>;
-    const downIcon = <Icon type="down" className={`${prefixCls}-handler-down-inner`}/>;
+    const inputNumberClass = classNames(
+      {
+        [`${prefixCls}-lg`]: size === 'large',
+        [`${prefixCls}-sm`]: size === 'small',
+      },
+      className,
+    );
+    const upIcon = <Icon type="up" className={`${prefixCls}-handler-up-inner`} />;
+    const downIcon = <Icon type="down" className={`${prefixCls}-handler-down-inner`} />;
 
     return (
       <RcInputNumber
-        ref={(c: any) => this.inputNumberRef = c}
+        ref={(c: any) => (this.inputNumberRef = c)}
         className={inputNumberClass}
         upHandler={upIcon}
         downHandler={downIcon}
@@ -65,13 +69,9 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
         {...others}
       />
     );
-  }
+  };
 
   render() {
-    return (
-      <ConfigConsumer>
-        {this.renderInputNumber}
-      </ConfigConsumer>
-    );
+    return <ConfigConsumer>{this.renderInputNumber}</ConfigConsumer>;
   }
 }

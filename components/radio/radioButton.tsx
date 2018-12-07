@@ -24,13 +24,9 @@ export default class RadioButton extends React.Component<RadioButtonProps, any> 
     }
 
     return <Radio prefixCls={prefixCls} {...radioProps} />;
-  }
+  };
 
   render() {
-    return (
-      <ConfigConsumer>
-        {this.renderRadioButton}
-      </ConfigConsumer>
-    );
+    return <ConfigConsumer>{this.renderRadioButton}</ConfigConsumer>;
   }
 }

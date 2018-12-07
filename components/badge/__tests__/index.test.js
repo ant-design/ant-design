@@ -24,7 +24,12 @@ describe('Badge', () => {
 
   it('should have an overriden title attribute', () => {
     const badge = mount(<Badge count={10} title="Custom title" />);
-    expect(badge.find('.ant-scroll-number').getDOMNode().attributes.getNamedItem('title').value).toEqual('Custom title');
+    expect(
+      badge
+        .find('.ant-scroll-number')
+        .getDOMNode()
+        .attributes.getNamedItem('title').value,
+    ).toEqual('Custom title');
   });
 
   // https://github.com/ant-design/ant-design/issues/10626
@@ -32,7 +37,7 @@ describe('Badge', () => {
     const wrapper = mount(
       <Tooltip title="Fix the error">
         <Badge status="error" />
-      </Tooltip>
+      </Tooltip>,
     );
     wrapper.find('Badge').simulate('mouseenter');
     jest.runAllTimers();
@@ -59,7 +64,12 @@ describe('Badge', () => {
   });
 
   it('should be compatible with borderColor style', () => {
-    const wrapper = render(<Badge count={4} style={{ backgroundColor: '#fff', color: '#999', borderColor: '#d9d9d9' }} />);
+    const wrapper = render(
+      <Badge
+        count={4}
+        style={{ backgroundColor: '#fff', color: '#999', borderColor: '#d9d9d9' }}
+      />,
+    );
     expect(wrapper).toMatchSnapshot();
   });
 });

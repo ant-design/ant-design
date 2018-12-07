@@ -41,7 +41,7 @@ export default class Rate extends React.Component<RateProps, any> {
 
   saveRate = (node: any) => {
     this.rcRate = node;
-  }
+  };
 
   renderRate = ({ getPrefixCls }: ConfigConsumerProps) => (
     <RcRate
@@ -52,10 +52,6 @@ export default class Rate extends React.Component<RateProps, any> {
   );
 
   render() {
-    return (
-      <ConfigConsumer>
-        {this.renderRate}
-      </ConfigConsumer>
-    );
+    return <ConfigConsumer>{this.renderRate}</ConfigConsumer>;
   }
 }

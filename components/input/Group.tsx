@@ -15,16 +15,20 @@ export interface GroupProps {
   compact?: boolean;
 }
 
-const Group: React.StatelessComponent<GroupProps> = props => (
+const Group: React.StatelessComponent<GroupProps> = props => (
   <ConfigConsumer>
     {({ getPrefixCls }: ConfigConsumerProps) => {
       const { prefixCls: customizePrefixCls, className = '' } = props;
       const prefixCls = getPrefixCls('input-group', customizePrefixCls);
-      const cls = classNames(prefixCls, {
-        [`${prefixCls}-lg`]: props.size === 'large',
-        [`${prefixCls}-sm`]: props.size === 'small',
-        [`${prefixCls}-compact`]: props.compact,
-      }, className);
+      const cls = classNames(
+        prefixCls,
+        {
+          [`${prefixCls}-lg`]: props.size === 'large',
+          [`${prefixCls}-sm`]: props.size === 'small',
+          [`${prefixCls}-compact`]: props.compact,
+        },
+        className,
+      );
       return (
         <span
           className={cls}

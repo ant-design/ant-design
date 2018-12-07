@@ -12,12 +12,7 @@ class Title extends React.Component<SkeletonTitleProps, any> {
   render() {
     const { prefixCls, className, width, style } = this.props;
 
-    return (
-      <h3
-        className={classNames(prefixCls, className)}
-        style={{ width, ...style }}
-      />
-    );
+    return <h3 className={classNames(prefixCls, className)} style={{ width, ...style }} />;
   }
 }
 

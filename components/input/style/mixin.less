@@ -1,5 +1,5 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
 @input-affix-width: 19px;
 
@@ -18,16 +18,16 @@
 // input status
 // == when focus or actived
 .active(@color: @outline-color) {
-  border-color: ~`colorPalette("@{color}", 5)`;
+  border-color: ~`colorPalette('@{color}', 5) `;
   outline: 0;
   box-shadow: @input-outline-offset @outline-blur-size @outline-width fade(@color, 20%);
-  border-right-width: 1px !important;
+  border-right-width: @border-width-base !important;
 }
 
 // == when hoverd
 .hover(@color: @input-hover-border-color) {
-  border-color: ~`colorPalette("@{color}", 5)`;
-  border-right-width: 1px !important;
+  border-color: ~`colorPalette('@{color}', 5) `;
+  border-right-width: @border-width-base !important;
 }
 
 .disabled() {
@@ -55,7 +55,7 @@
   border: @border-width-base @border-style-base @input-border-color;
   border-radius: @border-radius-base;
   .placeholder(); // Reset placeholder
-  transition: all .3s;
+  transition: all 0.3s;
 
   &:hover {
     .hover();
@@ -74,7 +74,7 @@
     max-width: 100%; // prevent textearea resize from coming out of its container
     height: auto;
     vertical-align: bottom;
-    transition: all .3s, height 0s;
+    transition: all 0.3s, height 0s;
     min-height: @input-height-base;
   }
 
@@ -97,13 +97,13 @@
   width: 100%;
 
   // Undo padding and float of grid classes
-  &[class*="col-"] {
+  &[class*='col-'] {
     float: none;
     padding-left: 0;
     padding-right: 0;
   }
 
-  > [class*="col-"] {
+  > [class*='col-'] {
     padding-right: 8px;
     &:last-child {
       padding-right: 0;
@@ -156,7 +156,7 @@
     border: @border-width-base @border-style-base @input-border-color;
     border-radius: @border-radius-base;
     position: relative;
-    transition: all .3s;
+    transition: all 0.3s;
 
     // Reset Select's style in addon
     .@{ant-prefix}-select {
@@ -181,7 +181,7 @@
     // https://github.com/ant-design/ant-design/issues/3714
     > i:only-child:after {
       position: absolute;
-      content: "";
+      content: '';
       top: 0;
       left: 0;
       right: 0;

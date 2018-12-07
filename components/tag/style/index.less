@@ -1,7 +1,7 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@tag-prefix-cls: ~"@{ant-prefix}-tag";
+@tag-prefix-cls: ~'@{ant-prefix}-tag';
 
 .@{tag-prefix-cls} {
   .reset-component;
@@ -29,7 +29,7 @@
     color: @tag-default-color;
   }
 
-  >a:first-child:last-child {
+  > a:first-child:last-child {
     display: inline-block;
     margin: 0 -8px;
     padding: 0 8px;
@@ -39,7 +39,7 @@
     .iconfont-size-under-12px(10px);
     cursor: pointer;
     margin-left: 3px;
-    transition: all .3s;
+    transition: all 0.3s;
     color: @text-color-secondary;
     font-weight: bold;
 
@@ -85,24 +85,25 @@
 
   &-zoom-enter,
   &-zoom-appear {
-    animation: antFadeIn .2s @ease-in-out-circ;
+    animation: antFadeIn 0.2s @ease-in-out-circ;
     animation-fill-mode: both;
   }
 
   &-zoom-leave {
-    animation: antZoomOut .3s @ease-in-out-circ;
+    animation: antZoomOut 0.3s @ease-in-out-circ;
     animation-fill-mode: both;
   }
 
-  @colors: pink, magenta, red, volcano, orange, yellow, gold, cyan, lime, green, blue, geekblue, purple;
+  @colors: pink, magenta, red, volcano, orange, yellow, gold, cyan, lime, green, blue, geekblue,
+    purple;
 
   // mixin to iterate over colors and create CSS class for each one
   .make-color-classes(@i: length(@colors)) when (@i > 0) {
     .make-color-classes(@i - 1);
     @color: extract(@colors, @i);
-    @lightColor: "@{color}-1";
-    @lightBorderColor: "@{color}-3";
-    @darkColor: "@{color}-6";
+    @lightColor: '@{color}-1';
+    @lightBorderColor: '@{color}-3';
+    @darkColor: '@{color}-6';
     &-@{color} {
       color: @@darkColor;
       background: @@lightColor;

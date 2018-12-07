@@ -10,16 +10,12 @@ describe('Input', () => {
   focusTest(Input);
 
   it('should support maxLength', () => {
-    const wrapper = mount(
-      <Input maxLength="3" />
-    );
+    const wrapper = mount(<Input maxLength="3" />);
     expect(wrapper).toMatchSnapshot();
   });
 
   it('select()', () => {
-    const wrapper = mount(
-      <Input />
-    );
+    const wrapper = mount(<Input />);
     wrapper.instance().select();
   });
 });
@@ -36,9 +32,7 @@ describe('TextArea', () => {
   });
 
   it('should auto calculate height according to content length', () => {
-    const wrapper = mount(
-      <TextArea value="" readOnly autosize />
-    );
+    const wrapper = mount(<TextArea value="" readOnly autosize />);
     const mockFunc = jest.spyOn(wrapper.instance(), 'resizeTextarea');
     wrapper.setProps({ value: '1111\n2222\n3333' });
     jest.runAllTimers();
@@ -49,16 +43,12 @@ describe('TextArea', () => {
   });
 
   it('should support disabled', () => {
-    const wrapper = mount(
-      <TextArea disabled />
-    );
+    const wrapper = mount(<TextArea disabled />);
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should support maxLength', () => {
-    const wrapper = mount(
-      <TextArea maxLength="10" />
-    );
+    const wrapper = mount(<TextArea maxLength="10" />);
     expect(wrapper).toMatchSnapshot();
   });
 });
@@ -69,19 +59,19 @@ describe('As Form Control', () => {
       reset = () => {
         const { form } = this.props;
         form.resetFields();
-      }
+      };
 
       render() {
-        const { form: { getFieldDecorator } } = this.props;
+        const {
+          form: { getFieldDecorator },
+        } = this.props;
         return (
           <Form>
-            <Form.Item>
-              {getFieldDecorator('input')(<Input />)}
-            </Form.Item>
-            <Form.Item>
-              {getFieldDecorator('textarea')(<Input.TextArea />)}
-            </Form.Item>
-            <button type="button" onClick={this.reset}>reset</button>
+            <Form.Item>{getFieldDecorator('input')(<Input />)}</Form.Item>
+            <Form.Item>{getFieldDecorator('textarea')(<Input.TextArea />)}</Form.Item>
+            <button type="button" onClick={this.reset}>
+              reset
+            </button>
           </Form>
         );
       }
@@ -100,9 +90,7 @@ describe('As Form Control', () => {
 
 describe('Input.Search', () => {
   it('should support suffix', () => {
-    const wrapper = mount(
-      <Input.Search suffix="suffix" />
-    );
+    const wrapper = mount(<Input.Search suffix="suffix" />);
     expect(wrapper).toMatchSnapshot();
   });
 });
@@ -112,9 +100,15 @@ describe('Input.Password', () => {
     const wrapper = mount(<Input.Password />);
     wrapper.find('input').simulate('change', { target: { value: '111' } });
     expect(wrapper).toMatchSnapshot();
-    wrapper.find('.ant-input-password-icon').at(0).simulate('click');
+    wrapper
+      .find('.ant-input-password-icon')
+      .at(0)
+      .simulate('click');
     expect(wrapper).toMatchSnapshot();
-    wrapper.find('.ant-input-password-icon').at(0).simulate('click');
+    wrapper
+      .find('.ant-input-password-icon')
+      .at(0)
+      .simulate('click');
     expect(wrapper).toMatchSnapshot();
   });
 

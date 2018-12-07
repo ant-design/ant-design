@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Item } from 'rc-menu';
 import * as PropTypes from 'prop-types';
 import Tooltip from '../tooltip';
+import { ClickParam } from './index';
 
 interface MenuItemProps {
   rootPrefixCls?: string;
@@ -9,6 +10,8 @@ interface MenuItemProps {
   level?: number;
   title?: React.ReactNode;
   children?: React.ReactNode;
+  className?: string;
+  onClick?: (param: ClickParam) => void;
 }
 
 class MenuItem extends React.Component<MenuItemProps, any> {
@@ -20,10 +23,10 @@ class MenuItem extends React.Component<MenuItemProps, any> {
   private menuItem: any;
   onKeyDown = (e: React.MouseEvent<HTMLElement>) => {
     this.menuItem.onKeyDown(e);
-  }
+  };
   saveMenuItem = (menuItem: any) => {
     this.menuItem = menuItem;
-  }
+  };
   render() {
     const { inlineCollapsed } = this.context;
     const { level, children, rootPrefixCls } = this.props;

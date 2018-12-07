@@ -13,7 +13,7 @@ import cnLocale from '../../zh-CN';
 import * as utils from '../utils';
 
 if (typeof window !== 'undefined' && navigator.serviceWorker) {
-  navigator.serviceWorker.getRegistrations().then((registrations) => {
+  navigator.serviceWorker.getRegistrations().then(registrations => {
     registrations.forEach(registration => registration.unregister());
   });
 }
@@ -30,14 +30,14 @@ if (typeof window !== 'undefined') {
 }
 
 let isMobile = false;
-enquireScreen((b) => {
+enquireScreen(b => {
   isMobile = b;
 });
 
 export default class Layout extends React.Component {
   static contextTypes = {
     router: PropTypes.object.isRequired,
-  }
+  };
 
   static childContextTypes = {
     isMobile: PropTypes.bool,
@@ -62,7 +62,7 @@ export default class Layout extends React.Component {
 
   componentDidMount() {
     const { router } = this.context;
-    router.listen((loc) => {
+    router.listen(loc => {
       if (typeof window.ga !== 'undefined') {
         window.ga('send', 'pageview', loc.pathname + loc.search);
       }
@@ -80,7 +80,7 @@ export default class Layout extends React.Component {
       }, 0);
     }
 
-    enquireScreen((b) => {
+    enquireScreen(b => {
       this.setState({
         isMobile: !!b,
       });

@@ -57,7 +57,7 @@ describe('notification', () => {
   });
 
   it('should be able to open with icon', () => {
-    const openNotificationWithIcon = (type) => {
+    const openNotificationWithIcon = type => {
       const iconPrefix = '.ant-notification-notice-icon';
       notification[type]({
         message: 'Notification Title',
@@ -66,7 +66,7 @@ describe('notification', () => {
       });
       expect(document.querySelectorAll(`${iconPrefix}-${type}`).length).toBe(1);
     };
-    ['success', 'info', 'warning', 'error'].forEach((type) => {
+    ['success', 'info', 'warning', 'error'].forEach(type => {
       openNotificationWithIcon(type);
     });
   });
