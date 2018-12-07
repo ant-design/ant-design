@@ -483,6 +483,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
     aria-checked="false"
     class="ant-switch"
     role="switch"
+    style="margin-top:16px"
     type="button"
   >
     <span
