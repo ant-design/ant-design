@@ -11,15 +11,27 @@ function formatValue(value: moment.Moment | null, format: string): string {
   return (value && value.format(format)) || '';
 }
 
-class WeekPicker extends React.Component<any, any> {
+interface WeekPickerState {
+  open: boolean;
+  value: moment.Moment | null;
+}
+
+class WeekPicker extends React.Component<any, WeekPickerState> {
   static defaultProps = {
     format: 'gggg-wo',
     allowClear: true,
   };
 
   static getDerivedStateFromProps(nextProps: any) {
-    if ('value' in nextProps) {
-      return { value: nextProps.value };
+    if ('value' in nextProps || 'open' in nextProps) {
+      const state = {} as WeekPickerState;
+      if ('value' in nextProps) {
+        state.value = nextProps.value;
+      }
+      if ('open' in nextProps) {
+        state.open = nextProps.open;
+      }
+      return state;
     }
     return null;
   }
@@ -37,6 +49,7 @@ class WeekPicker extends React.Component<any, any> {
     }
     this.state = {
       value,
+      open: props.open,
     };
   }
 
