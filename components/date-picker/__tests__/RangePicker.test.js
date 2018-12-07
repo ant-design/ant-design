@@ -224,6 +224,7 @@ describe('RangePicker', () => {
     wrapper.find('.ant-calendar-prev-month-btn').first().simulate('click');
     expect(wrapper.find('.ant-calendar-my-select').first().text()).toBe('Jun2017');
   });
+
   // https://github.com/ant-design/ant-design/issues/11631
   it('triggers onOpenChange when click on preset range', () => {
     const handleOpenChange = jest.fn();
