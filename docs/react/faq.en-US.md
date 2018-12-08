@@ -49,7 +49,7 @@ Try [babel-plugin-import](https://github.com/ant-design/babel-plugin-import), or
 
 ```jsx
 import Menu from 'antd/lib/menu';
-import 'antd/lib/button/style/css';
+import 'antd/lib/menu/style/css';
 ```
 
 or (ES6 way with tree shaking):
