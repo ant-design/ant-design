@@ -8,7 +8,9 @@ export interface LocaleReceiverProps {
   children: (locale: object, localeCode?: string) => React.ReactElement<any>;
 }
 
-interface LocaleInterface { [key: string]: any }
+interface LocaleInterface {
+  [key: string]: any;
+}
 
 export interface LocaleReceiverContext {
   antLocale?: LocaleInterface;
@@ -27,7 +29,8 @@ export default class LocaleReceiver extends React.Component<LocaleReceiverProps>
 
   getLocale() {
     const { componentName, defaultLocale } = this.props;
-    const locale: object | Function = defaultLocale || (defaultLocaleData as LocaleInterface)[componentName || 'global'];
+    const locale: object | Function =
+      defaultLocale || (defaultLocaleData as LocaleInterface)[componentName || 'global'];
     const { antLocale } = this.context;
     const localeFromContext = componentName && antLocale ? antLocale[componentName] : {};
     return {
