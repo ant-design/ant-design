@@ -65,7 +65,7 @@ describe('Upload', () => {
           setTimeout(() => {
             const result = file;
             result.name = 'test.png';
-            resolve(file);
+            resolve(result);
           }, 100),
         ),
       data,
