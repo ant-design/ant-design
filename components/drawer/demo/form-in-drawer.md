@@ -40,7 +40,7 @@ class DrawerForm extends React.Component {
     return (
       <div>
         <Button type="primary" onClick={this.showDrawer}>
-          <Icon type="plus"/> New account
+          <Icon type="plus" /> New account
         </Button>
         <Drawer
           title="Create a new account"
