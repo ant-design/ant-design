@@ -100,10 +100,6 @@ export default class Pagination extends React.Component<PaginationProps, {}> {
   };
 
   render() {
-    return (
-      <LocaleReceiver componentName="Pagination">
-        {this.renderPagination}
-      </LocaleReceiver>
-    );
+    return <LocaleReceiver componentName="Pagination">{this.renderPagination}</LocaleReceiver>;
   }
 }

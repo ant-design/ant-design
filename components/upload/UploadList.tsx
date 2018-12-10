@@ -8,7 +8,7 @@ import { UploadListProps, UploadFile, UploadListType } from './interface';
 
 const imageTypes: string[] = ['image', 'webp', 'png', 'svg', 'gif', 'jpg', 'jpeg', 'bmp'];
 // https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
-const previewFile = (file: File, callback: Function) => {
+const previewFile = (file: File | Blob, callback: Function) => {
   if (file.type && !imageTypes.includes(file.type)) {
     callback('');
   }

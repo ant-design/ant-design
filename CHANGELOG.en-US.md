@@ -15,6 +15,31 @@ timeline: true
 
 ---
 
+## 3.11.1
+
+`2018-12-08`
+
+- 🐞 Fixed the issue where the Avatar icon could not be centered vertically. [#13408](https://github.com/ant-design/ant-design/issues/13408)
+- 🐞 Fixed the border problem of Button when setting the less variable `@border-width-base` to `1`. [#13413](https://github.com/ant-design/ant-design/issues/13413) [@morenyang](https://github.com/morenyang)
+- 🐞 Fixed Commnet does not correctly display line breaks. [#13429](https://github.com/ant-design/ant-design/issues/13429)
+- 🐞 Fixed the issue that when the Alert is in `closable`, the icon will be covered by the text. [#13440](https://github.com/ant-design/ant-design/issues/13440)
+- Button
+  - 🐞 Fixed the issue that when the `href` property is `undefined`, the Button will also be rendered as a anchor. [#13337](https://github.com/ant-design/ant-design/issues/13337)
+  - 🐞 Fixed the issue that Edge throws an error when setting the `loading` property. [#13216](https://github.com/ant-design/ant-design/issues/13216)
+- Dropdown
+  - 🐞 Fixed the issue that causes the icon in the Button to display smaller. [#13442](https://github.com/ant-design/ant-design/issues/13442)
+  - 🐞 Fixed the gap between the drop-down menu and the trigger element causes the drop-down menu to close. [#10481](https://github.com/ant-design/ant-design/issues/10481)
+- Table
+  - 🐞 Fixed the use of filter causes an inconsistency between `selectedRowKeys` and `selectedRows` in `onChange`. [#11384](https://github.com/ant-design/ant-design/issues/11384)
+  - 💄 Optimize the display of the title when the mouse hovers over the sortable header. [#13312](https://github.com/ant-design/ant-design/issues/13312)
+- DatePicker
+  - 🐞 Fixed the issue where the component lost focus after selecting the date. [#12475](https://github.com/ant-design/ant-design/issues/12475)
+  - 🐞 Fixed the issue that cause Safari to unresponsive. [#13424](https://github.com/ant-design/ant-design/issues/13424)
+  - 🐞 Fixed the issue where WeekPicker's date selection box was not aligned with the input box.
+- 🐞 Fixed the blur method of the Slider. [#13439](https://github.com/ant-design/ant-design/issues/13439)
+- 🐞 Fixed Cascader's i18n issues. [#13486](https://github.com/ant-design/ant-design/issues/13486)
+- 🐞 Fix some TypeScript definitions. [#13390](https://github.com/ant-design/ant-design/pull/13390) [#13488](https://github.com/ant-design/ant-design/pull/13488) [#13420](https://github.com/ant-design/ant-design/issues/13420)
+
 ## 3.11.0
 
 `2018-12-02`
