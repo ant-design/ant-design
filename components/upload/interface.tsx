@@ -21,7 +21,7 @@ export interface UploadFile {
   url?: string;
   status?: UploadFileStatus;
   percent?: number;
-  thumbUrl?: string;
+  thumbUrl?: string | ((file: UploadFile) => HTMLElement);
   originFileObj?: File;
   response?: any;
   error?: any;
