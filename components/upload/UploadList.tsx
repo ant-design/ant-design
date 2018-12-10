@@ -26,7 +26,7 @@ const extname = (url: string) => {
   const filenameWithoutSuffix = filename.split(/#|\?/)[0];
   return (/\.[^./\\]*$/.exec(filenameWithoutSuffix) || [''])[0];
 };
-const isImageUrl = (file: UploadFile): boolean => {
+const defaultIsImageUrl = (file: UploadFile): boolean => {
   if (imageTypes.includes(file.type)) {
     return true;
   }
@@ -54,6 +54,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     prefixCls: 'ant-upload',
     showRemoveIcon: true,
     showPreviewIcon: true,
+    isImageUrl: defaultIsImageUrl,
   };
 
   handleClose = (file: UploadFile) => {
@@ -100,7 +101,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
   }
 
   render() {
-    const { prefixCls, items = [], listType, showPreviewIcon, showRemoveIcon, locale } = this.props;
+    const { prefixCls, items = [], listType, showPreviewIcon, showRemoveIcon, locale, isImageUrl } = this.props;
     const list = items.map(file => {
       let progress;
       let icon = <Icon type={file.status === 'uploading' ? 'loading' : 'paper-clip'} />;
@@ -113,7 +114,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
             <Icon className={`${prefixCls}-list-item-thumbnail`} type="picture" theme="twoTone" />
           );
         } else {
-          const thumbnail = isImageUrl(file) ? (
+          const thumbnail = isImageUrl!(file) ? (
             <img src={file.thumbUrl || file.url} alt={file.name} />
           ) : (
             <Icon type="file" className={`${prefixCls}-list-item-icon`} theme="twoTone" />

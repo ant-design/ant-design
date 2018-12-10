@@ -230,7 +230,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
   };
 
   renderUploadList = (locale: UploadLocale) => {
-    const { showUploadList, listType, onPreview } = this.props;
+    const { showUploadList, listType, onPreview, isImageUrl } = this.props;
     const { showRemoveIcon, showPreviewIcon } = showUploadList as any;
     return (
       <UploadList
@@ -241,6 +241,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
         showRemoveIcon={showRemoveIcon}
         showPreviewIcon={showPreviewIcon}
         locale={{ ...locale, ...this.props.locale }}
+        isImageUrl={isImageUrl}
       />
     );
   };
