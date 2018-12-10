@@ -1,21 +1,21 @@
 ---
 order: 3
 title:
-  zh-CN: 对象编辑
-  en-US: Edit item in drawer
+  zh-CN: 抽屉表单
+  en-US: Submit form in drawer
 ---
 
 ## zh-CN
 
-用于承载编辑相关操作，需要点击关闭按钮关闭。
+在抽屉中使用表单。
 
 ## en-US
 
-A drawer containing an editable form which needs to be collapsed by clicking the close button.
+Use form in drawer with submit button.
 
 ```jsx
 import {
-  Drawer, Form, Button, Col, Row, Input, Select, DatePicker,
+  Drawer, Form, Button, Col, Row, Input, Select, DatePicker, Icon,
 } from 'antd';
 
 const { Option } = Select;
@@ -40,19 +40,17 @@ class DrawerForm extends React.Component {
     return (
       <div>
         <Button type="primary" onClick={this.showDrawer}>
-          Create
+          <Icon type="plus"/> New account
         </Button>
         <Drawer
-          title="Create"
+          title="Create a new account"
           width={720}
-          placement="right"
           onClose={this.onClose}
-          maskClosable={false}
           visible={this.state.visible}
           style={{
-            height: 'calc(100% - 55px)',
             overflow: 'auto',
-            paddingBottom: 53,
+            height: 'calc(100% - 108px)',
+            paddingBottom: '108px',
           }}
         >
           <Form layout="vertical" hideRequiredMark>
@@ -60,20 +58,20 @@ class DrawerForm extends React.Component {
               <Col span={12}>
                 <Form.Item label="Name">
                   {getFieldDecorator('name', {
-                    rules: [{ required: true, message: 'please enter user name' }],
-                  })(<Input placeholder="please enter user name" />)}
+                    rules: [{ required: true, message: 'Please enter user name' }],
+                  })(<Input placeholder="Please enter user name" />)}
                 </Form.Item>
               </Col>
               <Col span={12}>
                 <Form.Item label="Url">
                   {getFieldDecorator('url', {
-                    rules: [{ required: true, message: 'please enter url' }],
+                    rules: [{ required: true, message: 'Please enter url' }],
                   })(
                     <Input
                       style={{ width: '100%' }}
                       addonBefore="http://"
                       addonAfter=".com"
-                      placeholder="please enter url"
+                      placeholder="Please enter url"
                     />
                   )}
                 </Form.Item>
@@ -149,25 +147,21 @@ class DrawerForm extends React.Component {
           <div
             style={{
               position: 'absolute',
+              left: 0,
               bottom: 0,
               width: '100%',
-              borderTop: '1px solid #e8e8e8',
+              borderTop: '1px solid #e9e9e9',
               padding: '10px 16px',
-              textAlign: 'right',
-              left: 0,
               background: '#fff',
-              borderRadius: '0 0 4px 4px',
+              textAlign: 'right',
             }}
           >
-            <Button
-              style={{
-                marginRight: 8,
-              }}
-              onClick={this.onClose}
-            >
+            <Button onClick={this.onClose} style={{ marginRight: 8 }}>
               Cancel
             </Button>
-            <Button onClick={this.onClose} type="primary">Submit</Button>
+            <Button onClick={this.onClose} type="primary">
+              Submit
+            </Button>
           </div>
         </Drawer>
       </div>
