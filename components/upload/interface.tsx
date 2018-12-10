@@ -76,6 +76,7 @@ export interface UploadProps {
   withCredentials?: boolean;
   openFileDialogOnClick?: boolean;
   locale?: UploadLocale;
+  isImageUrl?: (file: UploadFile) => boolean;
 }
 
 export interface UploadState {
@@ -93,4 +94,5 @@ export interface UploadListProps {
   showRemoveIcon?: boolean;
   showPreviewIcon?: boolean;
   locale: UploadLocale;
+  isImageUrl?: (file: UploadFile) => boolean;
 }
