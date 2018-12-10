@@ -25,6 +25,23 @@
     .active(@border-color);
   }
 
+  .@{ant-prefix}-input-affix-wrapper {
+    .@{ant-prefix}-input{
+      &,
+      &:hover {
+        border-color: @border-color;
+      }
+
+      &:focus {
+        .active(@border-color);
+      }
+    }
+
+    &:hover .@{ant-prefix}-input:not(.@{ant-prefix}-input-disabled) {
+      border-color: @border-color;
+    }
+  }
+
   .@{ant-prefix}-input-prefix {
     color: @text-color;
   }
