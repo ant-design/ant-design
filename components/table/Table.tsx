@@ -554,10 +554,8 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   handleRadioSelect = (record: T, rowIndex: number, e: RadioChangeEvent) => {
     const checked = e.target.checked;
     const nativeEvent = e.nativeEvent;
-    const defaultSelection = this.store.getState().selectionDirty ? [] : this.getDefaultSelection();
-    let selectedRowKeys = this.store.getState().selectedRowKeys.concat(defaultSelection);
     const key = this.getRecordKey(record, rowIndex);
-    selectedRowKeys = [key];
+    const selectedRowKeys = [key];
     this.store.setState({
       selectionDirty: true,
     });
