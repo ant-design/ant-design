@@ -102,7 +102,7 @@ export default class Row extends React.Component<RowProps, RowState> {
   getGutter(): number | undefined {
     const { gutter } = this.props;
     if (typeof gutter === 'object') {
-      for (let i = 0; i <= responsiveArray.length; i++) {
+      for (let i = 0; i < responsiveArray.length; i++) {
         const breakpoint: Breakpoint = responsiveArray[i];
         if (this.state.screens[breakpoint] && gutter[breakpoint] !== undefined) {
           return gutter[breakpoint];
