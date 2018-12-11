@@ -5,3 +5,4 @@
 package.json
 .umi
 .umi-production
+scripts/dash/index.js

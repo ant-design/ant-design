@@ -43,3 +43,4 @@ site/theme/template/IconDisplay/*.js
 site/theme/template/IconDisplay/*.jsx
 site/theme/template/IconDisplay/fields.js
 *.tmp
+scripts/dash/Ant_Design.docset
