@@ -132,7 +132,7 @@ export default class DirectoryTree extends React.Component<DirectoryTreeProps, D
 
   onSelect = (keys: string[], event: AntTreeNodeSelectedEvent) => {
     const { onSelect, multiple, children } = this.props;
-    const { expandedKeys = [], selectedKeys = [] } = this.state;
+    const { expandedKeys = [] } = this.state;
     const { node, nativeEvent } = event;
     const { eventKey = '' } = node.props;
 
