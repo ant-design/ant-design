@@ -1,7 +1,7 @@
 ---
 order: 22
 title:
-  zh-CN: 已隐藏已选中
+  zh-CN: 隐藏已选择选项
   en-US: Hide Already Selected
 ---
 
@@ -38,9 +38,9 @@ class SelectWithHiddenSelectedOptions extends React.Component {
         onChange={this.handleChange}
         style={{ width: '100%' }}
       >
-        {filteredOptions.map(o => (
-          <Select.Option key={o} value={o}>
-            {o}
+        {filteredOptions.map(item => (
+          <Select.Option key={item} value={item}>
+            {item}
           </Select.Option>
         ))}
       </Select>
