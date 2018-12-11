@@ -217,19 +217,21 @@
   "lint-staged": {
     "components/**/*.tsx": [
       "npm run lint-staged:ts",
-      "node ./scripts/lint-prettier.js"
+      "node ./scripts/pre-prettier.js",
+      "git add"
     ],
     "{tests,site,scripts,components}/**/*.{js,jsx}": [
       "npm run lint-staged:es",
-      "node ./scripts/lint-prettier.js"
+      "node ./scripts/pre-prettier.js",
+      "git add"
     ],
     "{site,components}/**/*.less": [
       "stylelint --syntax less",
-      "node ./scripts/lint-prettier.js"
+      "node ./scripts/pre-prettier.js",
+      "git add"
     ],
     "components/*/demo/*.md": [
-      "npm run lint-staged:demo",
-      "node ./scripts/lint-prettier.js"
+      "npm run lint-staged:demo"
     ]
   },
   "sideEffects": [
