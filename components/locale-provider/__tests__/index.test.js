@@ -35,6 +35,7 @@ import huHU from '../hu_HU';
 import isIS from '../is_IS';
 import itIT from '../it_IT';
 import jaJP from '../ja_JP';
+import knIN from '../kn_IN';
 import koKR from '../ko_KR';
 import kuIQ from '../ku_IQ';
 import mnMN from '../mn_MN';
@@ -79,6 +80,7 @@ const locales = [
   isIS,
   itIT,
   jaJP,
+  knIN,
   koKR,
   kuIQ,
   mnMN,
