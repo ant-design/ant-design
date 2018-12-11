@@ -34,7 +34,7 @@ class ButtonSize extends React.Component {
     return (
       <div>
         <Radio.Group value={size} onChange={this.handleSizeChange}>
-          <Radio.Button value="large">Large</Radio.Button>
+          <Radio.Button value="large">aaaaa</Radio.Button>
           <Radio.Button value="default">Default</Radio.Button>
           <Radio.Button value="small">Small</Radio.Button>
         </Radio.Group>
