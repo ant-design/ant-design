@@ -138,7 +138,7 @@ const Icon: IconComponent<IconProps> = props => {
       );
     }
     computedType = withThemeSuffix(
-      removeTypeTheme(alias(type)),
+      removeTypeTheme(alias(computedType)),
       dangerousTheme || theme || defaultTheme,
     );
     innerNode = (

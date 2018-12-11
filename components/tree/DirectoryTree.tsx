@@ -143,7 +143,7 @@ export default class DirectoryTree extends React.Component<DirectoryTreeProps, D
     const shiftPick: boolean = nativeEvent.shiftKey;
 
     // Generate new selected keys
-    let newSelectedKeys = selectedKeys.slice();
+    let newSelectedKeys: string[];
     if (multiple && ctrlPick) {
       // Control click
       newSelectedKeys = keys;
