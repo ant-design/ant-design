@@ -74,8 +74,8 @@
 
 // LINK
 @link-color : @primary-color;
-@link-hover-color : color(~`colorPalette("@{link-color}", 5)`);
-@link-active-color : color(~`colorPalette("@{link-color}", 7)`);
+@link-hover-color : color-palette(@link-color, 5);
+@link-active-color : color-palette(@link-color, 7);
 @link-decoration : none;
 @link-hover-decoration : none;
 
