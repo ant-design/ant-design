@@ -29,16 +29,12 @@
 
   &:hover,
   &:focus {
-    .button-color(
-      @color; ~`colorPalette('@{background}', 5) `; ~`colorPalette('@{background}', 5) `
-    );
+    .button-color(@color; color-palette(@background, 5) ; color-palette(@background, 5));
   }
 
   &:active,
   &.active {
-    .button-color(
-      @color; ~`colorPalette('@{background}', 7) `; ~`colorPalette('@{background}', 7) `
-    );
+    .button-color(@color; color-palette(@background, 7) ; color-palette(@background, 7));
   }
 
   .button-disabled();
@@ -64,20 +60,16 @@
   .button-color(@color; @background; @border);
 
   &:hover {
-    .button-color(
-      @btn-primary-color; ~`colorPalette('@{color}', 5) `; ~`colorPalette('@{color}', 5) `
-    );
+    .button-color(@btn-primary-color; color-palette(@color, 5) ; color-palette(@color, 5));
   }
 
   &:focus {
-    .button-color(~`colorPalette('@{color}', 5) `; #fff; ~`colorPalette('@{color}', 5) `);
+    .button-color(color-palette(@color, 5) ; #fff; color-palette(@color, 5));
   }
 
   &:active,
   &.active {
-    .button-color(
-      @btn-primary-color; ~`colorPalette('@{color}', 7) `; ~`colorPalette('@{color}', 7) `
-    );
+    .button-color(@btn-primary-color; color-palette(@color, 7) ; color-palette(@color, 7));
   }
 
   .button-disabled();
@@ -89,12 +81,12 @@
 
   &:hover,
   &:focus {
-    .button-color(~`colorPalette('@{color}', 5) `; transparent; ~`colorPalette('@{color}', 5) `);
+    .button-color(color-palette(@color, 5) ; transparent; color-palette(@color, 5));
   }
 
   &:active,
   &.active {
-    .button-color(~`colorPalette('@{color}', 7) `; transparent; ~`colorPalette('@{color}', 7) `);
+    .button-color(color-palette(@color, 7) ; transparent; color-palette(@color, 7));
   }
 
   .button-disabled();

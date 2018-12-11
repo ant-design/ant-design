@@ -16,18 +16,19 @@
 
 // Color used by default to control hover and active backgrounds and for
 // alert info backgrounds.
-@primary-1: color(~`colorPalette('@{primary-color}', 1) `); // replace tint(@primary-color, 90%)
-@primary-2: color(~`colorPalette('@{primary-color}', 2) `); // replace tint(@primary-color, 80%)
-@primary-3: color(~`colorPalette('@{primary-color}', 3) `); // unused
-@primary-4: color(~`colorPalette('@{primary-color}', 4) `); // unused
-@primary-5: color(
-  ~`colorPalette('@{primary-color}', 5) `
+@primary-1: color-palette(@primary-color, 1); // replace tint(@primary-color, 90%)
+@primary-2: color-palette(@primary-color, 2); // replace tint(@primary-color, 80%)
+@primary-3: color-palette(@primary-color, 3); // unused
+@primary-4: color-palette(@primary-color, 4); // unused
+@primary-5: color-palette(
+  @primary-color,
+  5
 ); // color used to control the text color in many active and hover states, replace tint(@primary-color, 20%)
 @primary-6: @primary-color; // color used to control the text color of active buttons, don't use, use @primary-color
-@primary-7: color(~`colorPalette('@{primary-color}', 7) `); // replace shade(@primary-color, 5%)
-@primary-8: color(~`colorPalette('@{primary-color}', 8) `); // unused
-@primary-9: color(~`colorPalette('@{primary-color}', 9) `); // unused
-@primary-10: color(~`colorPalette('@{primary-color}', 10) `); // unused
+@primary-7: color-palette(@primary-color, 7); // replace shade(@primary-color, 5%)
+@primary-8: color-palette(@primary-color, 8); // unused
+@primary-9: color-palette(@primary-color, 9); // unused
+@primary-10: color-palette(@primary-color, 10); // unused
 
 // Base Scaffolding Variables
 // ---
@@ -520,17 +521,17 @@
 
 // Alert
 // ---
-@alert-success-border-color: ~`colorPalette('@{success-color}', 3) `;
-@alert-success-bg-color: ~`colorPalette('@{success-color}', 1) `;
+@alert-success-border-color: color-palette(@success-color, 3);
+@alert-success-bg-color: color-palette(@success-color, 1);
 @alert-success-icon-color: @success-color;
-@alert-info-border-color: ~`colorPalette('@{info-color}', 3) `;
-@alert-info-bg-color: ~`colorPalette('@{info-color}', 1) `;
+@alert-info-border-color: color-palette(@info-color, 3);
+@alert-info-bg-color: color-palette(@info-color, 1);
 @alert-info-icon-color: @info-color;
-@alert-warning-border-color: ~`colorPalette('@{warning-color}', 3) `;
-@alert-warning-bg-color: ~`colorPalette('@{warning-color}', 1) `;
+@alert-warning-border-color: color-palette(@warning-color, 3);
+@alert-warning-bg-color: color-palette(@warning-color, 1);
 @alert-warning-icon-color: @warning-color;
-@alert-error-border-color: ~`colorPalette('@{error-color}', 3) `;
-@alert-error-bg-color: ~`colorPalette('@{error-color}', 1) `;
+@alert-error-border-color: color-palette(@error-color, 3);
+@alert-error-bg-color: color-palette(@error-color, 1);
 @alert-error-icon-color: @error-color;
 
 // List
