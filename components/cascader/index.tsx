@@ -236,11 +236,11 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
 
   handlePopupVisibleChange = (popupVisible: boolean) => {
     if (!('popupVisible' in this.props)) {
-      this.setState({
+      this.setState(state => ({
         popupVisible,
         inputFocused: popupVisible,
-        inputValue: popupVisible ? this.state.inputValue : '',
-      });
+        inputValue: popupVisible ? state.inputValue : '',
+      }));
     }
 
     const onPopupVisibleChange = this.props.onPopupVisibleChange;
