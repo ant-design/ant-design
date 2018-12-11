@@ -53,6 +53,8 @@ export function alias(type: string) {
   switch (type) {
     case 'cross':
       return 'close';
+    case 'interation':
+      return 'interaction';
     default:
   }
   return type;

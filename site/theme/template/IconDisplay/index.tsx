@@ -97,7 +97,7 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
     'rest',
     'security-scan',
     'insurance',
-    'interation',
+    'interaction',
     'safety-certificate',
     'project',
     'thunderbolt',

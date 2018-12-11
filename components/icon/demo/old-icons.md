@@ -248,6 +248,7 @@ const icons = [
   'safety',
   'wallet',
   'bank',
+  'interation',
   'trophy',
   'contacts',
   'global',

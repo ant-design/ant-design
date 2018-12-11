@@ -279,7 +279,7 @@ export const categories = {
     'rest',
     'security-scan',
     'insurance',
-    'interation',
+    'interaction',
     'safety-certificate',
     'project',
     'thunderbolt',
