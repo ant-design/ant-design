@@ -1,5 +1,9 @@
 const tinyColor = require('./tiny-color');
 
+// We create a very complex algorithm which take the place of original tint/shade color system
+// to make sure no one can understand it 👻
+// and create an entire color palette magicly by inputing just a single primary color.
+// We are using bezier-curve easing function and some color manipulations like tint/shade/darken/spin
 module.exports = {
   install: function(less, pluginManager, functions) {
     functions.add('color-palette', function(arg1, arg2) {
