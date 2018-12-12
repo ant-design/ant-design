@@ -207,7 +207,7 @@ export default class Button extends React.Component<ButtonProps, any> {
       [`${prefixCls}-${type}`]: type,
       [`${prefixCls}-${shape}`]: shape,
       [`${prefixCls}-${sizeCls}`]: sizeCls,
-      [`${prefixCls}-icon-only`]: !children && icon,
+      [`${prefixCls}-icon-only`]: (!children && children!==0) && icon,
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-background-ghost`]: ghost,
       [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar,
