@@ -108,7 +108,7 @@
     "bisheng": "^1.0.0",
     "bisheng-plugin-antd": "^0.17.0",
     "bisheng-plugin-description": "^0.1.4",
-    "bisheng-plugin-react": "^0.6.3",
+    "bisheng-plugin-react": "^1.0.0",
     "bisheng-plugin-toc": "^0.4.4",
     "commander": "^2.18.0",
     "core-js": "^2.5.7",
