@@ -1,5 +1,8 @@
 @plugin 'color-palette';
-@import 'colorPalette';
+
+// Less has bug for inline plugin.
+// We have to import an empty nest file for the less tree parse.
+@import 'lessFix';
 
 // color palettes
 @blue-1: color-palette(@blue-6, 1);

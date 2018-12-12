@@ -136,6 +136,9 @@ tinycolor.prototype = {
   toHexString: function(allow3Char) {
     return '#' + this.toHex(allow3Char);
   },
+  toLessColor: function(less) {
+    return less.color([this._r, this._g, this._b], this._a);
+  },
   toHex8: function(allow4Char) {
     return rgbaToHex(this._r, this._g, this._b, this._a, allow4Char);
   },

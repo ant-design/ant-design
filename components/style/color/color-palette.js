@@ -65,11 +65,13 @@ module.exports = {
         var isLight = index <= 6;
         var hsv = tinyColor(color).toHsv();
         var i = isLight ? lightColorCount + 1 - index : index - lightColorCount - 1;
-        return tinyColor({
+        const newColor = tinyColor({
           h: getHue(hsv, i, isLight),
           s: getSaturation(hsv, i, isLight),
           v: getValue(hsv, i, isLight),
-        }).toHexString();
+        }).toLessColor(less);
+
+        return newColor;
       })();
     });
   },
