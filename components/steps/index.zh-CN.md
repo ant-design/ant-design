@@ -28,6 +28,7 @@ title: Steps
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
+| className | 步骤条类名 | string | - |
 | current | 指定当前步骤，从 0 开始记数。在子 Step 元素中，可以通过 `status` 属性覆盖状态 | number | 0 |
 | direction | 指定步骤条方向。目前支持水平（`horizontal`）和竖直（`vertical`）两种方向 | string | horizontal |
 | labelPlacement | 指定标签放置位置，默认水平放图标右侧，可选 `vertical` 放图标下方 | string | `horizontal` |
