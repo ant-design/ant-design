@@ -28,7 +28,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | data | Uploading params or function which can return uploading params. | object\|function(file) | - |
 | defaultFileList | Default list of files that have been uploaded. | object\[] | - |
 | disabled | disable upload button | boolean | false |
-| fileList | List of files that have been uploaded (controlled). Here is a common issue [#2423](https://github.com/ant-design/ant-design/issues/2423) when using it | object\[] | - |
+| fileList | Custom file [config](#fileList). List of files that have been uploaded (controlled). Here is a common issue [#2423](https://github.com/ant-design/ant-design/issues/2423) when using it | object\[] | - |
 | headers | Set request headers, valid above IE10. | object | - |
 | listType | Built-in stylesheets, support for three types: `text`, `picture` or `picture-card` | string | 'text' |
 | multiple | Whether to support selected multiple file. `IE10+` supported. You can select multiple files with CTRL holding down while multiple is set to be true | boolean | false |
@@ -40,6 +40,16 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | onChange | A callback function, can be executed when uploading state is changing. See [onChange](#onChange) | Function | - |
 | onPreview | A callback function, will be executed when file link or preview icon is clicked. | Function(file) | - |
 | onRemove | A callback function, will be executed when removing file button is clicked, remove event will be prevented when return value is `false` or a Promise which resolve(false) or reject. | Function(file): `boolean | Promise` | - |
+
+### fileList
+
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| uid | unique identifier，negative is recommend，to prevent interference with internal generated id | string | - |
+| name | file name | string | - |
+| status | file status, options:  `uploading` `done` `error` `success` `removed` | string | - |
+| thumbUrl | file thumbnail address. Support for customization | string\|Function(file: object) => `ReactNode` | - |
+| url | file address | string | - |
 
 ### onChange
 

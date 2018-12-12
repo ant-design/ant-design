@@ -29,7 +29,7 @@ title: Upload
 | data | 上传所需参数或返回上传参数的方法 | object\|(file) => object | 无 |
 | defaultFileList | 默认已经上传的文件列表 | object\[] | 无 |
 | disabled | 是否禁用 | boolean | false |
-| fileList | 已经上传的文件列表（受控），使用此参数时，如果遇到 `onChange` 只调用一次的问题，请参考 [#2423](https://github.com/ant-design/ant-design/issues/2423) | object\[] | 无 |
+| fileList | 自定义文件列表 [配置项](#fileList), 已经上传的文件列表（受控），使用此参数时，如果遇到 `onChange` 只调用一次的问题，请参考 [#2423](https://github.com/ant-design/ant-design/issues/2423) | object\[] | 无 |
 | headers | 设置上传的请求头部，IE10 以上有效 | object | 无 |
 | listType | 上传列表的内建样式，支持三种基本样式 `text`, `picture` 和 `picture-card` | string | 'text' |
 | multiple | 是否支持多选文件，`ie10+` 支持。开启后按住 ctrl 可选择多个文件。 | boolean | false |
@@ -41,6 +41,16 @@ title: Upload
 | onChange | 上传文件改变时的状态，详见 [onChange](#onChange) | Function | 无 |
 | onPreview | 点击文件链接或预览图标时的回调 | Function(file) | 无 |
 | onRemove   | 点击移除文件时的回调，返回值为 false 时不移除。支持返回一个 Promise 对象，Promise 对象 resolve(false) 或 reject 时不移除。               | Function(file): `boolean | Promise` | 无   |
+
+### fileList
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| uid | 文件唯一标识，建议设置为负数，防止和内部产生的 id 冲突 | string | - |
+| name | 文件名 | string | - |
+| status | 文件状态，枚举值： `uploading` `done` `error` `success` `removed` | string | - |
+| thumbUrl | 文件缩略图地址。支持自定义 | string\|Function(file: object) => `ReactNode` | - |
+| url | 文件地址 | string | - |
 
 ### onChange
 
