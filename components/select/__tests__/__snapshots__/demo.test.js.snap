@@ -355,6 +355,55 @@ exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] 
 </div>
 `;
 
+exports[`renders ./components/select/demo/hide-selected.md correctly 1`] = `
+<div
+  class="ant-select ant-select-enabled"
+  style="width:100%"
+>
+  <div
+    aria-autocomplete="list"
+    aria-controls="test-uuid"
+    aria-expanded="false"
+    aria-haspopup="true"
+    class="ant-select-selection
+            ant-select-selection--multiple"
+    role="combobox"
+  >
+    <div
+      class="ant-select-selection__rendered"
+    >
+      <div
+        class="ant-select-selection__placeholder"
+        style="display:block;user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        Inserted are removed
+      </div>
+      <ul>
+        <li
+          class="ant-select-search ant-select-search--inline"
+        >
+          <div
+            class="ant-select-search__field__wrap"
+          >
+            <input
+              autocomplete="off"
+              class="ant-select-search__field"
+              value=""
+            />
+            <span
+              class="ant-select-search__field__mirror"
+            >
+               
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
 <div
   class="ant-select ant-select-enabled"
