@@ -220,26 +220,19 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     const { openAnimation, openTransitionName } = this.props;
     let menuOpenAnimation = openAnimation || openTransitionName;
     if (openAnimation === undefined && openTransitionName === undefined) {
-      switch (menuMode) {
-        case 'horizontal':
-          menuOpenAnimation = 'slide-up';
-          break;
-        case 'vertical':
-        case 'vertical-left':
-        case 'vertical-right':
-          // When mode switch from inline
-          // submenu should hide without animation
-          if (this.switchingModeFromInline) {
-            menuOpenAnimation = '';
-            this.switchingModeFromInline = false;
-          } else {
-            menuOpenAnimation = 'zoom-big';
-          }
-          break;
-        case 'inline':
-          menuOpenAnimation = animation;
-          break;
-        default:
+      if (menuMode === 'horizontal') {
+        menuOpenAnimation = 'slide-up';
+      } else if (menuMode === 'inline') {
+        menuOpenAnimation = animation;
+      } else {
+        // When mode switch from inline
+        // submenu should hide without animation
+        if (this.switchingModeFromInline) {
+          menuOpenAnimation = '';
+          this.switchingModeFromInline = false;
+        } else {
+          menuOpenAnimation = 'zoom-big';
+        }
       }
     }
     return menuOpenAnimation;
