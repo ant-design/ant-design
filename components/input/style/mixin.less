@@ -18,7 +18,7 @@
 // input status
 // == when focus or actived
 .active(@color: @outline-color) {
-  border-color: ~`colorPalette('@{color}', 5) `;
+  border-color: color-palette(@color, 5);
   outline: 0;
   box-shadow: @input-outline-offset @outline-blur-size @outline-width fade(@color, 20%);
   border-right-width: @border-width-base !important;
@@ -26,7 +26,7 @@
 
 // == when hoverd
 .hover(@color: @input-hover-border-color) {
-  border-color: ~`colorPalette('@{color}', 5) `;
+  border-color: color-palette(@color, 5);
   border-right-width: @border-width-base !important;
 }
 
