@@ -55,26 +55,6 @@ tinycolor.prototype = {
   },
 };
 
-// If input is an object, force 1 into "1.0" to handle ratios properly
-// String input requires "1.0" as input, so 1 will be treated as 1
-tinycolor.fromRatio = function(color, opts) {
-  if (typeof color == 'object') {
-    var newColor = {};
-    for (var i in color) {
-      if (color.hasOwnProperty(i)) {
-        if (i === 'a') {
-          newColor[i] = color[i];
-        } else {
-          newColor[i] = convertToPercentage(color[i]);
-        }
-      }
-    }
-    color = newColor;
-  }
-
-  return tinycolor(color, opts);
-};
-
 // Given a string or object, convert that input to RGB
 // Possible string inputs:
 //
@@ -156,44 +136,6 @@ function rgbToRgb(r, g, b) {
     g: bound01(g, 255) * 255,
     b: bound01(b, 255) * 255,
   };
-}
-
-// rgbToHsl
-// Converts an RGB color value to HSL.
-// *Assumes:* r, g, and b are contained in [0, 255] or [0, 1]
-// *Returns:* { h, s, l } in [0,1]
-function rgbToHsl(r, g, b) {
-  r = bound01(r, 255);
-  g = bound01(g, 255);
-  b = bound01(b, 255);
-
-  var max = mathMax(r, g, b),
-    min = mathMin(r, g, b);
-  var h,
-    s,
-    l = (max + min) / 2;
-
-  if (max == min) {
-    h = s = 0; // achromatic
-  } else {
-    var d = max - min;
-    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
-    switch (max) {
-      case r:
-        h = (g - b) / d + (g < b ? 6 : 0);
-        break;
-      case g:
-        h = (b - r) / d + 2;
-        break;
-      case b:
-        h = (r - g) / d + 4;
-        break;
-    }
-
-    h /= 6;
-  }
-
-  return { h: h, s: s, l: l };
 }
 
 // hslToRgb
@@ -286,56 +228,6 @@ function hsvToRgb(h, s, v) {
     b = [p, p, t, v, v, q][mod];
 
   return { r: r * 255, g: g * 255, b: b * 255 };
-}
-
-// rgbToHex
-// Converts an RGB color to hex
-// Assumes r, g, and b are contained in the set [0, 255]
-// Returns a 3 or 6 character hex
-function rgbToHex(r, g, b, allow3Char) {
-  var hex = [
-    pad2(mathRound(r).toString(16)),
-    pad2(mathRound(g).toString(16)),
-    pad2(mathRound(b).toString(16)),
-  ];
-
-  // Return a 3 character hex if possible
-  if (
-    allow3Char &&
-    hex[0].charAt(0) == hex[0].charAt(1) &&
-    hex[1].charAt(0) == hex[1].charAt(1) &&
-    hex[2].charAt(0) == hex[2].charAt(1)
-  ) {
-    return hex[0].charAt(0) + hex[1].charAt(0) + hex[2].charAt(0);
-  }
-
-  return hex.join('');
-}
-
-// rgbaToHex
-// Converts an RGBA color plus alpha transparency to hex
-// Assumes r, g, b are contained in the set [0, 255] and
-// a in [0, 1]. Returns a 4 or 8 character rgba hex
-function rgbaToHex(r, g, b, a, allow4Char) {
-  var hex = [
-    pad2(mathRound(r).toString(16)),
-    pad2(mathRound(g).toString(16)),
-    pad2(mathRound(b).toString(16)),
-    pad2(convertDecimalToHex(a)),
-  ];
-
-  // Return a 4 character hex if possible
-  if (
-    allow4Char &&
-    hex[0].charAt(0) == hex[0].charAt(1) &&
-    hex[1].charAt(0) == hex[1].charAt(1) &&
-    hex[2].charAt(0) == hex[2].charAt(1) &&
-    hex[3].charAt(0) == hex[3].charAt(1)
-  ) {
-    return hex[0].charAt(0) + hex[1].charAt(0) + hex[2].charAt(0) + hex[3].charAt(0);
-  }
-
-  return hex.join('');
 }
 
 // Big List of Colors
