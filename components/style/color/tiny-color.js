@@ -6,8 +6,7 @@ var trimLeft = /^\s+/,
   tinyCounter = 0,
   mathRound = Math.round,
   mathMin = Math.min,
-  mathMax = Math.max,
-  mathRandom = Math.random;
+  mathMax = Math.max;
 
 function tinycolor(color, opts) {
   color = color ? color : '';
@@ -339,58 +338,6 @@ function rgbaToHex(r, g, b, a, allow4Char) {
   return hex.join('');
 }
 
-// rgbaToArgbHex
-// Converts an RGBA color to an ARGB Hex8 string
-// Rarely used, but required for "toFilter()"
-function rgbaToArgbHex(r, g, b, a) {
-  var hex = [
-    pad2(convertDecimalToHex(a)),
-    pad2(mathRound(r).toString(16)),
-    pad2(mathRound(g).toString(16)),
-    pad2(mathRound(b).toString(16)),
-  ];
-
-  return hex.join('');
-}
-
-// equals
-// Can be called with any tinycolor input
-tinycolor.equals = function(color1, color2) {
-  if (!color1 || !color2) {
-    return false;
-  }
-  return tinycolor(color1).toRgbString() == tinycolor(color2).toRgbString();
-};
-
-tinycolor.random = function() {
-  return tinycolor.fromRatio({
-    r: mathRandom(),
-    g: mathRandom(),
-    b: mathRandom(),
-  });
-};
-
-// Utility Functions
-// ---------------------
-
-tinycolor.mix = function(color1, color2, amount) {
-  amount = amount === 0 ? 0 : amount || 50;
-
-  var rgb1 = tinycolor(color1).toRgb();
-  var rgb2 = tinycolor(color2).toRgb();
-
-  var p = amount / 100;
-
-  var rgba = {
-    r: (rgb2.r - rgb1.r) * p + rgb1.r,
-    g: (rgb2.g - rgb1.g) * p + rgb1.g,
-    b: (rgb2.b - rgb1.b) * p + rgb1.b,
-    a: (rgb2.a - rgb1.a) * p + rgb1.a,
-  };
-
-  return tinycolor(rgba);
-};
-
 // Big List of Colors
 // ------------------
 // <http://www.w3.org/TR/css3-color/#svg-color>
@@ -546,22 +493,8 @@ var names = (tinycolor.names = {
   yellowgreen: '9acd32',
 });
 
-// Make it easy to access colors via hexNames[hex]
-var hexNames = (tinycolor.hexNames = flip(names));
-
 // Utilities
 // ---------
-
-// { 'name1': 'val1' } becomes { 'val1': 'name1' }
-function flip(o) {
-  var flipped = {};
-  for (var i in o) {
-    if (o.hasOwnProperty(i)) {
-      flipped[o[i]] = i;
-    }
-  }
-  return flipped;
-}
 
 // Return a valid alpha value [0,1] with all invalid values being set to 1
 function boundAlpha(a) {
