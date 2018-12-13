@@ -13,10 +13,6 @@ function tinycolor(color, opts) {
   color = color ? color : '';
   opts = opts || {};
 
-  // If input is already a tinycolor, return itself
-  if (color instanceof tinycolor) {
-    return color;
-  }
   // If we are called as a function, call using new instead
   if (!(this instanceof tinycolor)) {
     return new tinycolor(color, opts);
@@ -51,54 +47,6 @@ function tinycolor(color, opts) {
 }
 
 tinycolor.prototype = {
-  isDark: function() {
-    return this.getBrightness() < 128;
-  },
-  isLight: function() {
-    return !this.isDark();
-  },
-  isValid: function() {
-    return this._ok;
-  },
-  getOriginalInput: function() {
-    return this._originalInput;
-  },
-  getFormat: function() {
-    return this._format;
-  },
-  getAlpha: function() {
-    return this._a;
-  },
-  getBrightness: function() {
-    //http://www.w3.org/TR/AERT#color-contrast
-    var rgb = this.toRgb();
-    return (rgb.r * 299 + rgb.g * 587 + rgb.b * 114) / 1000;
-  },
-  getLuminance: function() {
-    //http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef
-    var rgb = this.toRgb();
-    var RsRGB, GsRGB, BsRGB, R, G, B;
-    RsRGB = rgb.r / 255;
-    GsRGB = rgb.g / 255;
-    BsRGB = rgb.b / 255;
-
-    if (RsRGB <= 0.03928) {
-      R = RsRGB / 12.92;
-    } else {
-      R = Math.pow((RsRGB + 0.055) / 1.055, 2.4);
-    }
-    if (GsRGB <= 0.03928) {
-      G = GsRGB / 12.92;
-    } else {
-      G = Math.pow((GsRGB + 0.055) / 1.055, 2.4);
-    }
-    if (BsRGB <= 0.03928) {
-      B = BsRGB / 12.92;
-    } else {
-      B = Math.pow((BsRGB + 0.055) / 1.055, 2.4);
-    }
-    return 0.2126 * R + 0.7152 * G + 0.0722 * B;
-  },
   setAlpha: function(value) {
     this._a = boundAlpha(value);
     this._roundA = mathRound(100 * this._a) / 100;
@@ -111,9 +59,6 @@ tinycolor.prototype = {
   toLessColor: function(less) {
     return less.color([this._r, this._g, this._b], this._a);
   },
-  clone: function() {
-    return tinycolor(this.toString());
-  },
 
   _applyModification: function(fn, args) {
     var color = fn.apply(null, [this].concat([].slice.call(args)));
@@ -122,27 +67,6 @@ tinycolor.prototype = {
     this._b = color._b;
     this.setAlpha(color._a);
     return this;
-  },
-  lighten: function() {
-    return this._applyModification(lighten, arguments);
-  },
-  brighten: function() {
-    return this._applyModification(brighten, arguments);
-  },
-  darken: function() {
-    return this._applyModification(darken, arguments);
-  },
-  desaturate: function() {
-    return this._applyModification(desaturate, arguments);
-  },
-  saturate: function() {
-    return this._applyModification(saturate, arguments);
-  },
-  greyscale: function() {
-    return this._applyModification(greyscale, arguments);
-  },
-  spin: function() {
-    return this._applyModification(spin, arguments);
   },
 
   _applyCombination: function(fn, args) {
@@ -482,65 +406,6 @@ tinycolor.random = function() {
   });
 };
 
-// Modification Functions
-// ----------------------
-// Thanks to less.js for some of the basics here
-// <https://github.com/cloudhead/less.js/blob/master/lib/less/functions.js>
-
-function desaturate(color, amount) {
-  amount = amount === 0 ? 0 : amount || 10;
-  var hsl = tinycolor(color).toHsl();
-  hsl.s -= amount / 100;
-  hsl.s = clamp01(hsl.s);
-  return tinycolor(hsl);
-}
-
-function saturate(color, amount) {
-  amount = amount === 0 ? 0 : amount || 10;
-  var hsl = tinycolor(color).toHsl();
-  hsl.s += amount / 100;
-  hsl.s = clamp01(hsl.s);
-  return tinycolor(hsl);
-}
-
-function greyscale(color) {
-  return tinycolor(color).desaturate(100);
-}
-
-function lighten(color, amount) {
-  amount = amount === 0 ? 0 : amount || 10;
-  var hsl = tinycolor(color).toHsl();
-  hsl.l += amount / 100;
-  hsl.l = clamp01(hsl.l);
-  return tinycolor(hsl);
-}
-
-function brighten(color, amount) {
-  amount = amount === 0 ? 0 : amount || 10;
-  var rgb = tinycolor(color).toRgb();
-  rgb.r = mathMax(0, mathMin(255, rgb.r - mathRound(255 * -(amount / 100))));
-  rgb.g = mathMax(0, mathMin(255, rgb.g - mathRound(255 * -(amount / 100))));
-  rgb.b = mathMax(0, mathMin(255, rgb.b - mathRound(255 * -(amount / 100))));
-  return tinycolor(rgb);
-}
-
-function darken(color, amount) {
-  amount = amount === 0 ? 0 : amount || 10;
-  var hsl = tinycolor(color).toHsl();
-  hsl.l -= amount / 100;
-  hsl.l = clamp01(hsl.l);
-  return tinycolor(hsl);
-}
-
-// Spin takes a positive or negative amount within [-360, 360] indicating the change of hue.
-// Values outside of this range will be wrapped into this range.
-function spin(color, amount) {
-  var hsl = tinycolor(color).toHsl();
-  var hue = (hsl.h + amount) % 360;
-  hsl.h = hue < 0 ? 360 + hue : hue;
-  return tinycolor(hsl);
-}
-
 // Combination Functions
 // ---------------------
 // Thanks to jQuery xColor for some of the ideas behind these
@@ -634,91 +499,6 @@ tinycolor.mix = function(color1, color2, amount) {
   };
 
   return tinycolor(rgba);
-};
-
-// Readability Functions
-// ---------------------
-// <http://www.w3.org/TR/2008/REC-WCAG20-20081211/#contrast-ratiodef (WCAG Version 2)
-
-// contrast
-// Analyze the 2 colors and returns the color contrast defined by (WCAG Version 2)
-tinycolor.readability = function(color1, color2) {
-  var c1 = tinycolor(color1);
-  var c2 = tinycolor(color2);
-  return (
-    (Math.max(c1.getLuminance(), c2.getLuminance()) + 0.05) /
-    (Math.min(c1.getLuminance(), c2.getLuminance()) + 0.05)
-  );
-};
-
-// isReadable
-// Ensure that foreground and background color combinations meet WCAG2 guidelines.
-// The third argument is an optional Object.
-//      the 'level' property states 'AA' or 'AAA' - if missing or invalid, it defaults to 'AA';
-//      the 'size' property states 'large' or 'small' - if missing or invalid, it defaults to 'small'.
-// If the entire object is absent, isReadable defaults to {level:"AA",size:"small"}.
-
-// *Example*
-//    tinycolor.isReadable("#000", "#111") => false
-//    tinycolor.isReadable("#000", "#111",{level:"AA",size:"large"}) => false
-tinycolor.isReadable = function(color1, color2, wcag2) {
-  var readability = tinycolor.readability(color1, color2);
-  var wcag2Parms, out;
-
-  out = false;
-
-  wcag2Parms = validateWCAG2Parms(wcag2);
-  switch (wcag2Parms.level + wcag2Parms.size) {
-    case 'AAsmall':
-    case 'AAAlarge':
-      out = readability >= 4.5;
-      break;
-    case 'AAlarge':
-      out = readability >= 3;
-      break;
-    case 'AAAsmall':
-      out = readability >= 7;
-      break;
-  }
-  return out;
-};
-
-// mostReadable
-// Given a base color and a list of possible foreground or background
-// colors for that base, returns the most readable color.
-// Optionally returns Black or White if the most readable color is unreadable.
-// *Example*
-//    tinycolor.mostReadable(tinycolor.mostReadable("#123", ["#124", "#125"],{includeFallbackColors:false}).toHexString(); // "#112255"
-//    tinycolor.mostReadable(tinycolor.mostReadable("#123", ["#124", "#125"],{includeFallbackColors:true}).toHexString();  // "#ffffff"
-//    tinycolor.mostReadable("#a8015a", ["#faf3f3"],{includeFallbackColors:true,level:"AAA",size:"large"}).toHexString(); // "#faf3f3"
-//    tinycolor.mostReadable("#a8015a", ["#faf3f3"],{includeFallbackColors:true,level:"AAA",size:"small"}).toHexString(); // "#ffffff"
-tinycolor.mostReadable = function(baseColor, colorList, args) {
-  var bestColor = null;
-  var bestScore = 0;
-  var readability;
-  var includeFallbackColors, level, size;
-  args = args || {};
-  includeFallbackColors = args.includeFallbackColors;
-  level = args.level;
-  size = args.size;
-
-  for (var i = 0; i < colorList.length; i++) {
-    readability = tinycolor.readability(baseColor, colorList[i]);
-    if (readability > bestScore) {
-      bestScore = readability;
-      bestColor = tinycolor(colorList[i]);
-    }
-  }
-
-  if (
-    tinycolor.isReadable(baseColor, bestColor, { level: level, size: size }) ||
-    !includeFallbackColors
-  ) {
-    return bestColor;
-  } else {
-    args.includeFallbackColors = false;
-    return tinycolor.mostReadable(baseColor, ['#fff', '#000'], args);
-  }
 };
 
 // Big List of Colors
@@ -1094,22 +874,6 @@ function stringInputToObject(color) {
   }
 
   return false;
-}
-
-function validateWCAG2Parms(parms) {
-  // return valid WCAG2 parms for isReadable.
-  // If input parms are invalid, return {"level":"AA", "size":"small"}
-  var level, size;
-  parms = parms || { level: 'AA', size: 'small' };
-  level = (parms.level || 'AA').toUpperCase();
-  size = (parms.size || 'small').toLowerCase();
-  if (level !== 'AA' && level !== 'AAA') {
-    level = 'AA';
-  }
-  if (size !== 'small' && size !== 'large') {
-    size = 'small';
-  }
-  return { level: level, size: size };
 }
 
 module.exports = tinycolor;
