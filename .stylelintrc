@@ -1,9 +1,6 @@
 {
   "extends": ["stylelint-config-standard", "stylelint-config-prettier"],
   "rules": {
-    "at-rule-no-unknown": [true, {
-      ignoreAtRules: ["plugin"]
-    }],
     "comment-empty-line-before": null,
     "declaration-empty-line-before": null,
     "function-comma-newline-after": null,
