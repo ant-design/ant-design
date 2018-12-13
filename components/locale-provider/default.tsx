@@ -9,6 +9,10 @@ export default {
   DatePicker,
   TimePicker,
   Calendar,
+  // locales for all comoponents
+  global: {
+    placeholder: 'Please select',
+  },
   Table: {
     filterTitle: 'Filter menu',
     filterConfirm: 'OK',

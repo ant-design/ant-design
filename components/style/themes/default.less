@@ -49,6 +49,7 @@
 @heading-color-dark : fade(@white, 100%);
 @text-color-dark : fade(@white, 85%);
 @text-color-secondary-dark: fade(@white, 65%);
+
 @font-variant-base : tabular-nums;
 @font-size-base : 14px;
 @font-size-lg : @font-size-base + 2px;
@@ -119,9 +120,7 @@
 @disabled-color-dark : fade(#fff, 35%);
 
 // Shadow
-@shadow-color : fade(@black, 15%);
 @shadow-color-inverse : @component-background;
-@box-shadow-base : @shadow-1-down;
 @shadow-1-up : 0 -2px 8px @shadow-color;
 @shadow-1-down : 0 2px 8px @shadow-color;
 @shadow-1-left : -2px 0 8px @shadow-color;
@@ -289,8 +288,6 @@
 //** Tooltip text color
 @tooltip-color: #fff;
 //** Tooltip background color
-@tooltip-bg: fade(@black, 75%);
-//** Tooltip arrow width
 @tooltip-arrow-width: 5px;
 //** Tooltip distance with trigger
 @tooltip-distance: @tooltip-arrow-width - 1px + 4px;
@@ -405,11 +402,7 @@
 @card-padding-base: 24px;
 @card-padding-wider: 32px;
 @card-actions-background: @background-color-light;
-@card-shadow: 0 2px 8px fade(@black, 9%);
 @card-background: #cfd8dc;
-
-// Comment
-// ---
 @comment-padding-base: 16px 0;
 @comment-nest-indent: 44px;
 @comment-author-name-color: @text-color-secondary;
@@ -495,7 +488,7 @@
 @slider-handle-color-tooltip-open: @primary-color;
 @slider-dot-border-color: @border-color-split;
 @slider-dot-border-color-active: tint(@primary-color, 50%);
-@slider-disabled-color: @disabled-color;
+
 @slider-disabled-background-color: @component-background;
 
 // Tree

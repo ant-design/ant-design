@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "3.11.0",
+  "version": "3.11.2",
   "title": "Ant Design",
   "description": "An enterprise-class UI design language and React-based implementation",
   "homepage": "http://ant.design/",
@@ -94,21 +94,21 @@
   "devDependencies": {
     "@types/classnames": "^2.2.6",
     "@types/prop-types": "^15.5.6",
-    "@types/react": "~16.7.11",
-    "@types/react-dom": "^16.0.8",
-    "@types/react-intl": "^2.3.11",
+    "@types/react": "~16.7.13",
+    "@types/react-dom": "^16.0.11",
+    "@types/react-intl": "^2.3.14",
     "@types/react-slick": "^0.23.2",
     "@yesmeck/offline-plugin": "^5.0.5",
     "ansi-styles": "^3.2.1",
     "ant-design-palettes": "^1.1.3",
     "antd-theme-generator": "^1.1.4",
-    "antd-tools": "^5.2.2",
+    "antd-tools": "^6.3.0",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^10.0.1",
-    "bisheng": "^0.28.4",
+    "bisheng": "^1.0.0",
     "bisheng-plugin-antd": "^0.17.0",
     "bisheng-plugin-description": "^0.1.4",
-    "bisheng-plugin-react": "^0.6.3",
+    "bisheng-plugin-react": "^1.0.0",
     "bisheng-plugin-toc": "^0.4.4",
     "commander": "^2.18.0",
     "core-js": "^2.5.7",
@@ -151,8 +151,8 @@
     "react": "^16.5.2",
     "react-color": "^2.14.1",
     "react-copy-to-clipboard": "^5.0.1",
-    "react-dnd": "^6.0.0",
-    "react-dnd-html5-backend": "^6.0.0",
+    "react-dnd": "^7.0.2",
+    "react-dnd-html5-backend": "^7.0.2",
     "react-document-title": "^2.0.3",
     "react-dom": "^16.5.2",
     "react-github-button": "^0.1.11",
@@ -173,7 +173,7 @@
     "stylelint": "~9.6.0",
     "stylelint-config-prettier": "^4.0.0",
     "stylelint-config-standard": "^18.2.0",
-    "typescript": "~3.1.1",
+    "typescript": "~3.2.2",
     "unified": "^7.0.0",
     "xhr-mock": "^2.4.1",
     "xhr2": "^0.1.4"
@@ -217,24 +217,27 @@
   "lint-staged": {
     "components/**/*.tsx": [
       "npm run lint-staged:ts",
-      "node ./scripts/lint-prettier.js"
+      "node ./scripts/pre-prettier.js",
+      "git add"
     ],
     "{tests,site,scripts,components}/**/*.{js,jsx}": [
       "npm run lint-staged:es",
-      "node ./scripts/lint-prettier.js"
+      "node ./scripts/pre-prettier.js",
+      "git add"
     ],
     "{site,components}/**/*.less": [
       "stylelint --syntax less",
-      "node ./scripts/lint-prettier.js"
+      "node ./scripts/pre-prettier.js",
+      "git add"
     ],
     "components/*/demo/*.md": [
-      "npm run lint-staged:demo",
-      "node ./scripts/lint-prettier.js"
+      "npm run lint-staged:demo"
     ]
   },
   "sideEffects": [
     "dist/*",
     "es/**/style/*",
-    "lib/**/style/*"
+    "lib/**/style/*",
+    "*.less"
   ]
 }

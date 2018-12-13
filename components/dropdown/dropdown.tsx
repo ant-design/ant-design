@@ -18,6 +18,8 @@ export interface DropDownProps {
   className?: string;
   transitionName?: string;
   placement?: 'topLeft' | 'topCenter' | 'topRight' | 'bottomLeft' | 'bottomCenter' | 'bottomRight';
+  overlayClassName?: string;
+  overlayStyle?: React.CSSProperties;
   forceRender?: boolean;
   mouseEnterDelay?: number;
   mouseLeaveDelay?: number;

@@ -83,6 +83,9 @@ module.exports = {
   doraConfig: {
     verbose: true,
   },
+  lessConfig: {
+    javascriptEnabled: true,
+  },
   webpackConfig(config) {
     // eslint-disable-next-line
     config.resolve.alias = {

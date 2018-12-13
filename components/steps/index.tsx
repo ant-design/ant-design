@@ -7,6 +7,7 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 export interface StepsProps {
   prefixCls?: string;
   iconPrefix?: string;
+  className?: string;
   current?: number;
   initial?: number;
   labelPlacement?: 'horizontal' | 'vertical';

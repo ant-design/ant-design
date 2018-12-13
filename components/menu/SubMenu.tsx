@@ -11,6 +11,7 @@ class SubMenu extends React.Component<any, any> {
   static isSubMenu = 1;
   context: any;
   private subMenu: any;
+
   onKeyDown = (e: React.MouseEvent<HTMLElement>) => {
     this.subMenu.onKeyDown(e);
   };

@@ -21,6 +21,7 @@ class MenuItem extends React.Component<MenuItemProps, any> {
   static isMenuItem = 1;
   context: any;
   private menuItem: any;
+
   onKeyDown = (e: React.MouseEvent<HTMLElement>) => {
     this.menuItem.onKeyDown(e);
   };

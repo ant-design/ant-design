@@ -15,6 +15,41 @@ timeline: true
 
 ---
 
+## 3.11.2
+
+`2018-12-10`
+
+- 🐞 修复 Table 使用自定义列头时报 `Cannot read property 'children' of undefined` 的问题。[#13542](https://github.com/ant-design/ant-design/issues/13542) [@geraldchen890806](https://github.com/geraldchen890806)
+- 🐞 修复另一个 Input 在自定义了 less 变量 `@border-width-base` 时的边框问题。[#13534](https://github.com/ant-design/ant-design/pull/13534) [@morenyang](https://github.com/morenyang)
+- 🐞 修复 Upload 的 `beforeUpload` 方法返回 Promise 时不支持 resolve `Blob` 对象的问题。[#13528](https://github.com/ant-design/ant-design/pull/13528/) [@huanz](https://github.com/huanz)
+-   https://github.com/ant-design/ant-design/pull/13536
+- 🐞 修复 Dropdown 两个属性的 TypeScript 定义。[#13536](https://github.com/ant-design/ant-design/pull/13536) [@wangxingkang](https://github.com/wangxingkang)
+
+## 3.11.1
+
+`2018-12-08`
+
+- 🐞 修复 Avatar 图标不能垂直居中的问题。[#13408](https://github.com/ant-design/ant-design/issues/13408)
+- 🐞 修复 Input 在自定义了 less 变量 `@border-width-base` 时的边框问题。[#13413](https://github.com/ant-design/ant-design/issues/13413) [@morenyang](https://github.com/morenyang)
+- 🐞 修复 Commnet 组件不能正确显示换行的问题。[#13429](https://github.com/ant-design/ant-design/issues/13429)
+- 🐞 修复 Alert 在 `closable` 时，关闭图标会被文字遮挡的问题。[#13440](https://github.com/ant-design/ant-design/issues/13440)
+- Button
+  - 🐞 修复 `href` 属性为 `undefined` 时，Button 也会被渲染为 a 标签的问题。[#13337](https://github.com/ant-design/ant-design/issues/13337)
+  - 🐞 修复设置 `loading` 属性时在 Edge 下会报错的问题。[#13216](https://github.com/ant-design/ant-design/issues/13216)
+- Dropdown
+  - 🐞 修复会导致 Button 中的图标显示变小的问题。[#13442](https://github.com/ant-design/ant-design/issues/13442)
+  - 🐞 修复下拉菜单跟触发元素之间的孔隙会导致下拉菜单关闭的问题。[#10481](https://github.com/ant-design/ant-design/issues/10481)
+- Table
+  - 🐞 修复使用 filter 会导致 `onChange` 中 `selectedRowKeys` 和 `selectedRows` 不一致的问题。[#11384](https://github.com/ant-design/ant-design/issues/11384)
+  - 💄 优化鼠标悬停在可排序的表头上时 title 的显示。[#13312](https://github.com/ant-design/ant-design/issues/13312)
+- DatePicker
+  - 🐞 修复选择日期后，组件会失去焦点的问题。[#12475](https://github.com/ant-design/ant-design/issues/12475)
+  - 🐞 修复会导致 Safari 假死的问题。[#13424](https://github.com/ant-design/ant-design/issues/13424)
+  - 🐞 修复 WeekPicker 的日期选择框跟输入框不对齐的问题。
+- 🐞 修复 Slider 的 blur 方法。[#13439](https://github.com/ant-design/ant-design/issues/13439)
+- 🐞 修复 Cascader 的国际化问题。[#13486](https://github.com/ant-design/ant-design/issues/13486)
+- 🐞 修复一些组件 TypeScript 定义。[#13390](https://github.com/ant-design/ant-design/pull/13390) [#13488](https://github.com/ant-design/ant-design/pull/13488) [#13420](https://github.com/ant-design/ant-design/issues/13420)
+
 ## 3.11.0
 
 `2018-12-02`
@@ -1079,11 +1114,14 @@ timeline: true
 - 新的 [Divider](https://ant.design/components/divider-cn/) 组件。
 - 新增 30 个[图标](https://ant.design/components/icon-cn/)。
 
+### ⚠️ 升级必读
+
+- 如果你从 2.x 升级到 3.x，建议直接升级到 3.x 的最新版本。
+- 3.x 后续的版本可能已经废弃了一些下面没有提到的改动，请参考控制台的警告提示相应升级。
+- 建议同时升级 React 到 16 或更新版本，以获得更好的性能和更完善的支持，升级方式见 [官方发布文档](https://reactjs.org/blog/2017/09/26/react-v16.0.html#upgrading)。
+- 最后请参照下面的不兼容改动进行升级。
+
 ### 不兼容改动
-
-> 如果你从 2.x 升级到 3.x，建议直接升级到 3.x 的最新版本。
-
-> 3.x 后续的版本可能已经废弃了一些下面没有提到的改动，请参考控制台的警告提示相应升级。
 
 此版本有部分不兼容的改动，升级时确保修改相应的使用代码。另外由于人肉查找代码中的废弃用法过于低效，所以我们提供了 [antd-migration-helper](https://github.com/ant-design/antd-migration-helper) 用于扫描代码中的废弃用法。
 

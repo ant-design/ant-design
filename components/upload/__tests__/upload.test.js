@@ -56,6 +56,41 @@ describe('Upload', () => {
     });
   });
 
+  it('upload promise return file in beforeUpload', done => {
+    const data = jest.fn();
+    const props = {
+      action: 'http://upload.com',
+      beforeUpload: file =>
+        new Promise(resolve =>
+          setTimeout(() => {
+            const result = file;
+            result.name = 'test.png';
+            resolve(result);
+          }, 100),
+        ),
+      data,
+      onChange: ({ file }) => {
+        if (file.status !== 'uploading') {
+          expect(data).toBeCalled();
+          expect(file.name).toEqual('test.png');
+          done();
+        }
+      },
+    };
+
+    const wrapper = mount(
+      <Upload {...props}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+
+    wrapper.find('input').simulate('change', {
+      target: {
+        files: [{ file: 'foo.png' }],
+      },
+    });
+  });
+
   it('should not stop upload when return value of beforeUpload is false', done => {
     const fileList = [
       {

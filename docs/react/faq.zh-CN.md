@@ -49,7 +49,7 @@ https://ant.design/components/select/#Select-props
 
 ```jsx
 import Menu from 'antd/lib/menu';
-import 'antd/lib/button/style/css';
+import 'antd/lib/menu/style/css';
 ```
 
 或者（ES6 支持的 tree shaking 方式）：

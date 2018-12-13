@@ -15,6 +15,41 @@ timeline: true
 
 ---
 
+## 3.11.2
+
+`2018-12-10`
+
+- 🐞 Fixed Table `Cannot read property 'children' of undefined` error when customize `column.title` as ReactNode. [#13542](https://github.com/ant-design/ant-design/issues/13542) [@geraldchen890806](https://github.com/geraldchen890806)
+- 🐞 Fixed another border problem of Button when customized less variable `@border-width-base`. [#13534](https://github.com/ant-design/ant-design/issues/13534) [@morenyang](https://github.com/morenyang)
+- 🐞 Fixed Upload don't support resolve `Blob` object when `beforeUpload` returns a Promise. [#13528](https://github.com/ant-design/ant-design/pull/13528/) [@huanz](https://github.com/huanz)
+-   https://github.com/ant-design/ant-design/pull/13536
+- 🐞 Fixed two props of Dropdown TypeScript definitions. [#13536](https://github.com/ant-design/ant-design/pull/13536) [@wangxingkang](https://github.com/wangxingkang)
+
+## 3.11.1
+
+`2018-12-08`
+
+- 🐞 Fixed the issue where the Avatar icon could not be centered vertically. [#13408](https://github.com/ant-design/ant-design/issues/13408)
+- 🐞 Fixed the border problem of Button when customized less variable `@border-width-base`. [#13413](https://github.com/ant-design/ant-design/issues/13413) [@morenyang](https://github.com/morenyang)
+- 🐞 Fixed Commnet does not correctly display line breaks. [#13429](https://github.com/ant-design/ant-design/issues/13429)
+- 🐞 Fixed the issue that when the Alert is in `closable`, the icon will be covered by the text. [#13440](https://github.com/ant-design/ant-design/issues/13440)
+- Button
+  - 🐞 Fixed the issue that when the `href` property is `undefined`, the Button will also be rendered as a anchor. [#13337](https://github.com/ant-design/ant-design/issues/13337)
+  - 🐞 Fixed the issue that Edge throws an error when setting the `loading` property. [#13216](https://github.com/ant-design/ant-design/issues/13216)
+- Dropdown
+  - 🐞 Fixed the issue that causes the icon in the Button to display smaller. [#13442](https://github.com/ant-design/ant-design/issues/13442)
+  - 🐞 Fixed the gap between the drop-down menu and the trigger element causes the drop-down menu to close. [#10481](https://github.com/ant-design/ant-design/issues/10481)
+- Table
+  - 🐞 Fixed the use of filter causes an inconsistency between `selectedRowKeys` and `selectedRows` in `onChange`. [#11384](https://github.com/ant-design/ant-design/issues/11384)
+  - 💄 Optimize the display of the title when the mouse hovers over the sortable header. [#13312](https://github.com/ant-design/ant-design/issues/13312)
+- DatePicker
+  - 🐞 Fixed the issue where the component lost focus after selecting the date. [#12475](https://github.com/ant-design/ant-design/issues/12475)
+  - 🐞 Fixed the issue that cause Safari to unresponsive. [#13424](https://github.com/ant-design/ant-design/issues/13424)
+  - 🐞 Fixed the issue where WeekPicker's date selection box was not aligned with the input box.
+- 🐞 Fixed the blur method of the Slider. [#13439](https://github.com/ant-design/ant-design/issues/13439)
+- 🐞 Fixed Cascader's i18n issues. [#13486](https://github.com/ant-design/ant-design/issues/13486)
+- 🐞 Fix some TypeScript definitions. [#13390](https://github.com/ant-design/ant-design/pull/13390) [#13488](https://github.com/ant-design/ant-design/pull/13488) [#13420](https://github.com/ant-design/ant-design/issues/13420)
+
 ## 3.11.0
 
 `2018-12-02`
@@ -1076,11 +1111,14 @@ Learn more in the [Ant Design 3.0 announcement post](https://medium.com/ant-desi
 - New [Divider](https://ant.design/components/divider/) component.
 - 30 New [icons](https://ant.design/components/icon/).
 
+### ⚠️ Read it before migration
+
+- We suggest you upgrade to latest 3.x version directly.
+- Some APIs may be deprecated in other 3.x versions which don't described below, please pay attention to warning in browser console and upgrade them.
+- We strongly suggest upgrade react to 16 or newest for better support and performance, which could be conduct via [React 16 upgrading](https://reactjs.org/blog/2017/09/26/react-v16.0.html#upgrading).
+- Then you can migrate to antd@3 by following `Breaking Changes` section.
+
 ### Breaking Changes
-
-> We suggest you upgrade to latest 3.x version directly.
-
-> Some APIs may be deprecated in other 3.x versions which don't described below, please pay attention to warning in browser console and upgrade them.
 
 We provide a [migration tool](https://github.com/ant-design/antd-migration-helper) to help you find deprecated usages in your codebase.
 

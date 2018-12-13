@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
 import InputElement from './InputElement';
-import Input from '../input';
+import Input, { InputProps } from '../input';
 import Select, { AbstractSelectProps, SelectValue, OptionProps, OptGroupProps } from '../select';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
@@ -39,6 +39,7 @@ export interface AutoCompleteProps extends AbstractSelectProps {
   onFocus?: () => void;
   children?:
     | ValidInputElement
+    | React.ReactElement<InputProps>
     | React.ReactElement<OptionProps>
     | Array<React.ReactElement<OptionProps>>;
 }
