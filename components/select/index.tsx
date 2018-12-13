@@ -37,7 +37,7 @@ export interface AbstractSelectProps {
   open?: boolean;
   onDropdownVisibleChange?: (open: boolean) => void;
   autoClearSearchValue?: boolean;
-  dropdownRender?: (menu: React.ReactNode) => React.ReactNode;
+  dropdownRender?: (menu: React.ReactNode, props: SelectProps) => React.ReactNode;
   loading?: boolean;
 }
 
