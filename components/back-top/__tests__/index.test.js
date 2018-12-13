@@ -11,7 +11,7 @@ describe('BackTop', () => {
     jest.useRealTimers();
   });
 
-  it('should scroll to top after click it', () => {
+  it('should scroll to top after click it', async () => {
     const wrapper = mount(<BackTop visibilityHeight={-1} />);
     document.documentElement.scrollTop = 400;
     // trigger scroll manually
@@ -19,6 +19,7 @@ describe('BackTop', () => {
     jest.runAllTimers();
     wrapper.find('.ant-back-top').simulate('click');
     jest.runAllTimers();
+    await new Promise(resolve => setTimeout(resolve, 0));
     expect(Math.abs(Math.round(document.documentElement.scrollTop))).toBe(0);
   });
 });
