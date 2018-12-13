@@ -41,7 +41,6 @@
 @font-family : "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif,
 "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 @code-family : "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-@heading-color : fade(@black, 85%);
 @text-color : fade(@black, 65%);
 @text-color-secondary : fade(@black, 45%);
 @text-color-inverse : @white;
@@ -50,7 +49,6 @@
 @text-color-dark : fade(@white, 85%);
 @text-color-secondary-dark: fade(@white, 65%);
 
-@font-variant-base : tabular-nums;
 @font-size-base : 14px;
 @font-size-lg : @font-size-base + 2px;
 @font-size-sm : 12px;
@@ -102,7 +100,7 @@
 // Border color
 @border-color-base : hsv(0, 0, 85%); // base border outline a component
 @border-color-split : hsv(0, 0, 91%); // split border inside a component
-@border-color-inverse : @white;
+@border-color-inverse: @white;
 @border-width-base : 1px; // width of the border for a component
 @border-style-base : solid; // style of a components border
 
@@ -120,8 +118,6 @@
 @disabled-color-dark : fade(#fff, 35%);
 
 // Shadow
-@shadow-color-inverse : @component-background;
-@shadow-1-up : 0 -2px 8px @shadow-color;
 @shadow-1-down : 0 2px 8px @shadow-color;
 @shadow-1-left : -2px 0 8px @shadow-color;
 @shadow-1-right : 2px 0 8px @shadow-color;
@@ -275,8 +271,8 @@
 @input-color : @text-color;
 @input-border-color : @border-color-base;
 @input-bg : #fff;
-@input-number-handler-active-bg : #f4f4f4;
-@input-addon-bg : @background-color-light;
+@input-number-handler-active-bg: #f4f4f4;
+@input-addon-bg: @background-color-light;
 @input-hover-border-color : @primary-color;
 @input-disabled-bg : @disabled-bg;
 @input-outline-offset : 0 0;
@@ -288,6 +284,8 @@
 //** Tooltip text color
 @tooltip-color: #fff;
 //** Tooltip background color
+@tooltip-bg: rgba(0, 0, 0, 0.75);
+//** Tooltip arrow width
 @tooltip-arrow-width: 5px;
 //** Tooltip distance with trigger
 @tooltip-distance: @tooltip-arrow-width - 1px + 4px;
@@ -403,6 +401,10 @@
 @card-padding-wider: 32px;
 @card-actions-background: @background-color-light;
 @card-background: #cfd8dc;
+@card-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
+
+// Comment
+// ---
 @comment-padding-base: 16px 0;
 @comment-nest-indent: 44px;
 @comment-author-name-color: @text-color-secondary;
