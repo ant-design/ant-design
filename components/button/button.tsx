@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Wave from '../_util/wave';
-import Icon from '../icon';
+import Icon, { IconProps } from '../icon';
 import Group from './button-group';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
@@ -44,6 +44,7 @@ export type ButtonHTMLType = 'submit' | 'button' | 'reset';
 export interface BaseButtonProps {
   type?: ButtonType;
   icon?: string;
+  iconProps?: IconProps;
   shape?: ButtonShape;
   size?: ButtonSize;
   loading?: boolean | { delay?: number };
@@ -78,6 +79,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     loading: false,
     ghost: false,
     block: false,
+    iconProps: {},
   };
 
   static propTypes = {
@@ -179,6 +181,7 @@ export default class Button extends React.Component<ButtonProps, any> {
       className,
       children,
       icon,
+      iconProps,
       prefixCls,
       ghost,
       loading: _loadingProp,
@@ -216,7 +219,11 @@ export default class Button extends React.Component<ButtonProps, any> {
     });
 
     const iconType = loading ? 'loading' : icon;
-    const iconNode = iconType ? <Icon type={iconType} /> : null;
+    const $iconProps: IconProps = { ...iconProps };
+    if (iconType) {
+      $iconProps.type = iconType;
+    }
+    const iconNode = Object.keys($iconProps).length ? <Icon {...$iconProps} /> : null;
     const kids =
       children || children === 0
         ? React.Children.map(children, child => insertSpace(child, this.isNeedInserted()))
