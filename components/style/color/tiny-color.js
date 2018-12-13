@@ -47,48 +47,12 @@ function tinycolor(color, opts) {
 }
 
 tinycolor.prototype = {
-  setAlpha: function(value) {
-    this._a = boundAlpha(value);
-    this._roundA = mathRound(100 * this._a) / 100;
-    return this;
-  },
   toHsv: function() {
     var hsv = rgbToHsv(this._r, this._g, this._b);
     return { h: hsv.h * 360, s: hsv.s, v: hsv.v, a: this._a };
   },
   toLessColor: function(less) {
     return less.color([this._r, this._g, this._b], this._a);
-  },
-
-  _applyModification: function(fn, args) {
-    var color = fn.apply(null, [this].concat([].slice.call(args)));
-    this._r = color._r;
-    this._g = color._g;
-    this._b = color._b;
-    this.setAlpha(color._a);
-    return this;
-  },
-
-  _applyCombination: function(fn, args) {
-    return fn.apply(null, [this].concat([].slice.call(args)));
-  },
-  analogous: function() {
-    return this._applyCombination(analogous, arguments);
-  },
-  complement: function() {
-    return this._applyCombination(complement, arguments);
-  },
-  monochromatic: function() {
-    return this._applyCombination(monochromatic, arguments);
-  },
-  splitcomplement: function() {
-    return this._applyCombination(splitcomplement, arguments);
-  },
-  triad: function() {
-    return this._applyCombination(triad, arguments);
-  },
-  tetrad: function() {
-    return this._applyCombination(tetrad, arguments);
   },
 };
 
@@ -405,80 +369,6 @@ tinycolor.random = function() {
     b: mathRandom(),
   });
 };
-
-// Combination Functions
-// ---------------------
-// Thanks to jQuery xColor for some of the ideas behind these
-// <https://github.com/infusion/jQuery-xcolor/blob/master/jquery.xcolor.js>
-
-function complement(color) {
-  var hsl = tinycolor(color).toHsl();
-  hsl.h = (hsl.h + 180) % 360;
-  return tinycolor(hsl);
-}
-
-function triad(color) {
-  var hsl = tinycolor(color).toHsl();
-  var h = hsl.h;
-  return [
-    tinycolor(color),
-    tinycolor({ h: (h + 120) % 360, s: hsl.s, l: hsl.l }),
-    tinycolor({ h: (h + 240) % 360, s: hsl.s, l: hsl.l }),
-  ];
-}
-
-function tetrad(color) {
-  var hsl = tinycolor(color).toHsl();
-  var h = hsl.h;
-  return [
-    tinycolor(color),
-    tinycolor({ h: (h + 90) % 360, s: hsl.s, l: hsl.l }),
-    tinycolor({ h: (h + 180) % 360, s: hsl.s, l: hsl.l }),
-    tinycolor({ h: (h + 270) % 360, s: hsl.s, l: hsl.l }),
-  ];
-}
-
-function splitcomplement(color) {
-  var hsl = tinycolor(color).toHsl();
-  var h = hsl.h;
-  return [
-    tinycolor(color),
-    tinycolor({ h: (h + 72) % 360, s: hsl.s, l: hsl.l }),
-    tinycolor({ h: (h + 216) % 360, s: hsl.s, l: hsl.l }),
-  ];
-}
-
-function analogous(color, results, slices) {
-  results = results || 6;
-  slices = slices || 30;
-
-  var hsl = tinycolor(color).toHsl();
-  var part = 360 / slices;
-  var ret = [tinycolor(color)];
-
-  for (hsl.h = (hsl.h - ((part * results) >> 1) + 720) % 360; --results; ) {
-    hsl.h = (hsl.h + part) % 360;
-    ret.push(tinycolor(hsl));
-  }
-  return ret;
-}
-
-function monochromatic(color, results) {
-  results = results || 6;
-  var hsv = tinycolor(color).toHsv();
-  var h = hsv.h,
-    s = hsv.s,
-    v = hsv.v;
-  var ret = [];
-  var modification = 1 / results;
-
-  while (results--) {
-    ret.push(tinycolor({ h: h, s: s, v: v }));
-    v = (v + modification) % 1;
-  }
-
-  return ret;
-}
 
 // Utility Functions
 // ---------------------
