@@ -41,6 +41,7 @@
 @font-family : "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif,
 "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 @code-family : "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+@heading-color : fade(#000, 85%);
 @text-color : fade(@black, 65%);
 @text-color-secondary : fade(@black, 45%);
 @text-color-inverse : @white;
@@ -48,7 +49,7 @@
 @heading-color-dark : fade(@white, 100%);
 @text-color-dark : fade(@white, 85%);
 @text-color-secondary-dark: fade(@white, 65%);
-
+@font-variant-base : tabular-nums;
 @font-size-base : 14px;
 @font-size-lg : @font-size-base + 2px;
 @font-size-sm : 12px;
@@ -118,6 +119,10 @@
 @disabled-color-dark : fade(#fff, 35%);
 
 // Shadow
+@shadow-color : rgba(0, 0, 0, .15);
+@shadow-color-inverse: @component-background;
+@box-shadow-base: @shadow-1-down;
+@shadow-1-up: 0 -2px 8px @shadow-color;
 @shadow-1-down : 0 2px 8px @shadow-color;
 @shadow-1-left : -2px 0 8px @shadow-color;
 @shadow-1-right : 2px 0 8px @shadow-color;
@@ -490,7 +495,7 @@
 @slider-handle-color-tooltip-open: @primary-color;
 @slider-dot-border-color: @border-color-split;
 @slider-dot-border-color-active: tint(@primary-color, 50%);
-
+@slider-disabled-color: @disabled-color;
 @slider-disabled-background-color: @component-background;
 
 // Tree
