@@ -719,6 +719,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
                   }
                   notFoundContent="Not Found"
                   onChange={[Function]}
+                  onItemDoubleClick={[Function]}
                   onPopupVisibleChange={[Function]}
                   onSelect={[Function]}
                   options={
@@ -867,6 +868,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
                         className="ant-cascader-menu-item"
                         key="jiangsu,nanjing,zhonghuamen"
                         onClick={[Function]}
+                        onDoubleClick={[Function]}
                         title=""
                       >
                         Jiangsu
@@ -879,6 +881,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
                         className="ant-cascader-menu-item"
                         key="zhejiang,hangzhou,xihu"
                         onClick={[Function]}
+                        onDoubleClick={[Function]}
                         title=""
                       >
                         Zhejiang
@@ -1118,6 +1121,7 @@ exports[`Cascader should render not found content 1`] = `
                   }
                   notFoundContent="Not Found"
                   onChange={[Function]}
+                  onItemDoubleClick={[Function]}
                   onPopupVisibleChange={[Function]}
                   onSelect={[Function]}
                   options={
@@ -1158,6 +1162,7 @@ exports[`Cascader should render not found content 1`] = `
                         className="ant-cascader-menu-item ant-cascader-menu-item-disabled"
                         key="ANT_CASCADER_NOT_FOUND"
                         onClick={[Function]}
+                        onDoubleClick={[Function]}
                         title="Not Found"
                       >
                         Not Found
