@@ -4,7 +4,9 @@ import classNames from 'classnames';
 import Wave from '../_util/wave';
 import Icon from '../icon';
 import Group from './button-group';
+import { polyfill } from 'react-lifecycles-compat';
 
+let delayTimeout = 0;
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
 function isString(str: any) {
@@ -69,7 +71,7 @@ export type NativeButtonProps = {
 
 export type ButtonProps = AnchorButtonProps | NativeButtonProps;
 
-export default class Button extends React.Component<ButtonProps, any> {
+class Button extends React.Component<ButtonProps, any> {
   static Group: typeof Group;
   static __ANT_BUTTON = true;
 
@@ -92,7 +94,24 @@ export default class Button extends React.Component<ButtonProps, any> {
     block: PropTypes.bool,
   };
 
-  private delayTimeout: number;
+  static getDerivedStateFromProps(nextProps: ButtonProps) {
+    const newState: Partial<ButtonProps> = {};
+    const currentLoading = nextProps.loading;
+    const loading = nextProps.loading;
+
+    if (currentLoading) {
+      clearTimeout(delayTimeout);
+    }
+
+    if (typeof loading !== 'boolean' && loading && loading.delay) {
+      delayTimeout = window.setTimeout(() => (newState.loading = loading), loading.delay);
+    } else {
+      newState.loading = loading;
+    }
+
+    return newState;
+  }
+
   private buttonNode: HTMLElement | null;
 
   constructor(props: ButtonProps) {
@@ -107,28 +126,13 @@ export default class Button extends React.Component<ButtonProps, any> {
     this.fixTwoCNChar();
   }
 
-  componentWillReceiveProps(nextProps: ButtonProps) {
-    const currentLoading = this.props.loading;
-    const loading = nextProps.loading;
-
-    if (currentLoading) {
-      clearTimeout(this.delayTimeout);
-    }
-
-    if (typeof loading !== 'boolean' && loading && loading.delay) {
-      this.delayTimeout = window.setTimeout(() => this.setState({ loading }), loading.delay);
-    } else {
-      this.setState({ loading });
-    }
-  }
-
   componentDidUpdate() {
     this.fixTwoCNChar();
   }
 
   componentWillUnmount() {
-    if (this.delayTimeout) {
-      clearTimeout(this.delayTimeout);
+    if (delayTimeout) {
+      clearTimeout(delayTimeout);
     }
   }
 
@@ -260,3 +264,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     );
   }
 }
+
+polyfill(Button);
+
+export default Button;
