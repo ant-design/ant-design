@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 提及
-type: Data Entry
+type: 数据录入
 title: Mention
 ---
 

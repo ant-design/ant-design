@@ -68,7 +68,7 @@ class Demo extends React.Component {
           })(
             <Select placeholder="Please select a country">
               <Option value="china">China</Option>
-              <Option value="use">U.S.A</Option>
+              <Option value="usa">U.S.A</Option>
             </Select>
           )}
         </FormItem>
@@ -114,7 +114,10 @@ class Demo extends React.Component {
           label="Slider"
         >
           {getFieldDecorator('slider')(
-            <Slider marks={{ 0: 'A', 20: 'B', 40: 'C', 60: 'D', 80: 'E', 100: 'F' }} />
+            <Slider marks={{
+              0: 'A', 20: 'B', 40: 'C', 60: 'D', 80: 'E', 100: 'F',
+            }}
+            />
           )}
         </FormItem>
 

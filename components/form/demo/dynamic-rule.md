@@ -14,7 +14,9 @@ title:
 Perform different check rules according to different situations.
 
 ````jsx
-import { Form, Input, Button, Checkbox } from 'antd';
+import {
+  Form, Input, Button, Checkbox,
+} from 'antd';
 
 const FormItem = Form.Item;
 
@@ -75,7 +77,7 @@ class DynamicRule extends React.Component {
         </FormItem>
         <FormItem {...formTailLayout}>
           <Checkbox
-            value={this.state.checkNick}
+            checked={this.state.checkNick}
             onChange={this.handleChange}
           >
             Nickname is required

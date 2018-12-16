@@ -12,7 +12,7 @@ export default function svgBgToParallax(children, i = 0) {
       key={ii.toString()}
       location="page2"
       animation={{
-        y: (Math.random() * -200) - 30 - (i * 20),
+        y: Math.random() * -200 - 30 - i * 20,
         playScale: [0, Math.random() + 2],
       }}
     >
@@ -50,7 +50,7 @@ if (typeof window !== 'undefined') {
     'https://gw.alipayobjects.com/zos/rmsportal/qggKjIGNFlVmMpwDUXPU.svg',
     'https://gw.alipayobjects.com/zos/rmsportal/dgjVqwkJvptQEtlfctvk.svg',
     'https://gw.alipayobjects.com/zos/rmsportal/vUxYuDdsbBBcMDxSGmwc.svg',
-  ].forEach((src) => {
+  ].forEach(src => {
     const img = new Image();
     img.src = src;
     div.appendChild(img);

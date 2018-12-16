@@ -28,7 +28,7 @@ export interface TabsProps {
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
-  animated?: boolean | { inkBar: boolean; tabPane: boolean; };
+  animated?: boolean | { inkBar: boolean; tabPane: boolean };
   tabBarGutter?: number;
   renderTabBar?: (props: TabsProps, DefaultTabBar: React.ReactNode) => React.ReactElement<any>;
 }
@@ -42,6 +42,7 @@ export interface TabPaneProps {
   className?: string;
   disabled?: boolean;
   forceRender?: boolean;
+  key?: string;
 }
 
 export default class Tabs extends React.Component<TabsProps, any> {
@@ -50,6 +51,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
   static defaultProps = {
     prefixCls: 'ant-tabs',
     hideAdd: false,
+    tabPosition: 'top',
   };
 
   removeTab = (targetKey: string, e: React.MouseEvent<HTMLElement>) => {
@@ -62,21 +64,21 @@ export default class Tabs extends React.Component<TabsProps, any> {
     if (onEdit) {
       onEdit(targetKey, 'remove');
     }
-  }
+  };
 
   handleChange = (activeKey: string) => {
     const onChange = this.props.onChange;
     if (onChange) {
       onChange(activeKey);
     }
-  }
+  };
 
   createNewTab = (targetKey: React.MouseEvent<HTMLElement>) => {
     const { onEdit } = this.props;
     if (onEdit) {
       onEdit(targetKey, 'add');
     }
-  }
+  };
 
   componentDidMount() {
     const NO_FLEX = ' no-flex';
@@ -87,7 +89,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
   }
 
   render() {
-    let {
+    const {
       prefixCls,
       className = '',
       size,
@@ -95,9 +97,9 @@ export default class Tabs extends React.Component<TabsProps, any> {
       tabPosition,
       children,
       animated = true,
-      tabBarExtraContent,
       hideAdd,
     } = this.props;
+    let { tabBarExtraContent } = this.props;
 
     let tabPaneAnimated = typeof animated === 'object' ? animated.tabPane : animated;
 
@@ -108,7 +110,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
 
     warning(
       !(type.indexOf('card') >= 0 && (size === 'small' || size === 'large')),
-      'Tabs[type=card|editable-card] doesn\'t have small or large size, it\'s by design.',
+      "Tabs[type=card|editable-card] doesn't have small or large size, it's by design.",
     );
     const cls = classNames(className, {
       [`${prefixCls}-vertical`]: tabPosition === 'left' || tabPosition === 'right',
@@ -121,26 +123,31 @@ export default class Tabs extends React.Component<TabsProps, any> {
     let childrenWithClose: React.ReactElement<any>[] = [];
     if (type === 'editable-card') {
       childrenWithClose = [];
-      React.Children.forEach(children as React.ReactNode, (child: React.ReactElement<any>, index) => {
-        let closable = child.props.closable;
-        closable = typeof closable === 'undefined' ? true : closable;
-        const closeIcon = closable ? (
-          <Icon
-            type="close"
-            className={`${prefixCls}-close-x`}
-            onClick={e => this.removeTab(child.key as string, e)}
-          />
-        ) : null;
-        childrenWithClose.push(React.cloneElement(child, {
-          tab: (
-            <div className={closable ? undefined : `${prefixCls}-tab-unclosable`}>
-              {child.props.tab}
-              {closeIcon}
-            </div>
-          ),
-          key: child.key || index,
-        }));
-      });
+      React.Children.forEach(
+        children as React.ReactNode,
+        (child: React.ReactElement<any>, index) => {
+          let closable = child.props.closable;
+          closable = typeof closable === 'undefined' ? true : closable;
+          const closeIcon = closable ? (
+            <Icon
+              type="close"
+              className={`${prefixCls}-close-x`}
+              onClick={e => this.removeTab(child.key as string, e)}
+            />
+          ) : null;
+          childrenWithClose.push(
+            React.cloneElement(child, {
+              tab: (
+                <div className={closable ? undefined : `${prefixCls}-tab-unclosable`}>
+                  {child.props.tab}
+                  {closeIcon}
+                </div>
+              ),
+              key: child.key || index,
+            }),
+          );
+        },
+      );
       // Add new tab handler
       if (!hideAdd) {
         tabBarExtraContent = (
@@ -153,18 +160,24 @@ export default class Tabs extends React.Component<TabsProps, any> {
     }
 
     tabBarExtraContent = tabBarExtraContent ? (
-      <div className={`${prefixCls}-extra-content`}>
-        {tabBarExtraContent}
-      </div>
+      <div className={`${prefixCls}-extra-content`}>{tabBarExtraContent}</div>
     ) : null;
+
+    const { className: dropped, ...tabBarProps } = this.props;
+    const contentCls: string = classNames(
+      `${prefixCls}-${tabPosition}-content`,
+      type.indexOf('card') >= 0 && `${prefixCls}-card-content`,
+    );
 
     return (
       <RcTabs
         {...this.props}
         className={cls}
         tabBarPosition={tabPosition}
-        renderTabBar={() => <TabBar {...this.props} tabBarExtraContent={tabBarExtraContent}/>}
-        renderTabContent={() => <TabContent animated={tabPaneAnimated} animatedWithMargin />}
+        renderTabBar={() => <TabBar {...tabBarProps} tabBarExtraContent={tabBarExtraContent} />}
+        renderTabContent={() => (
+          <TabContent className={contentCls} animated={tabPaneAnimated} animatedWithMargin />
+        )}
         onChange={this.handleChange}
       >
         {childrenWithClose.length > 0 ? childrenWithClose : children}

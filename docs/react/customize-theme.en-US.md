@@ -69,7 +69,7 @@ Note that do not exclude antd package in node_modules when using less-loader.
 
 ### Customize in roadhog or Umi
 
-You can easily use `theme` field in `.webpackrc` file of your project root directory if you are using [roadhog](https://github.com/sorrycc/roadhog) or [Umi](http://umijs.org/)，which could be a object or a javascript file path.
+You can easily use `theme` field in [.webpackrc](https://github.com/ant-design/ant-design-pro/blob/b7e7983661eb5e53dc807452e9653e93e74276d4/.webpackrc.js#L18) (roadhog) or [config/config.js](https://github.com/ant-design/ant-design-pro/blob/56e648ec14bdb9f6724169fd64830447e224ccb1/config/config.js#L45) (Umi) file of your project root directory if you are using [roadhog](https://github.com/sorrycc/roadhog) or [Umi](http://umijs.org/)，which could be a object or a javascript file path.
 
 ```js
 "theme": {
@@ -77,7 +77,7 @@ You can easily use `theme` field in `.webpackrc` file of your project root direc
 },
 ```
 
-Or just [a javascript file path](https://github.com/ant-design/ant-design-pro/blob/3c2a056ef0dac06ce3b4389192691bb1f5c448e2/.webpackrc.js#L19):
+Or just [a javascript file path](https://github.com/ant-design/ant-design-pro/blob/b7e7983661eb5e53dc807452e9653e93e74276d4/.webpackrc.js#L18):
 
 ```js
 "theme": "./theme.js",
@@ -98,14 +98,14 @@ Another approach to customize theme is creating a `less` file within variables t
 
 Note: This way will load the styles of all components, regardless of your demand, which cause `style` option of `babel-plugin-import` not working.
 
-## How to avoid modifying global styles ?
+## How to avoid modifying global styles?
 
 Currently ant-design is designed as a whole experience and modify global styles (eg `body` etc).
 If you need to integrate ant-design as a part of an existing website, it's likely you want to prevent ant-design to override global styles.
 
 While there's no canonical way to do it, you can take one of the following paths :
 
-### Configure webpack to load an alternale less file and scope global styles
+### Configure webpack to load an alternate less file and scope global styles
 
 It's possible to configure webpack to load an alternate less file:
 

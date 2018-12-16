@@ -52,6 +52,7 @@ exports[`renders ./components/notification/demo/placement.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
+      aria-controls="test-uuid"
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection

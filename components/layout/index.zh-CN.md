@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 布局
-type: Layout
+type: 布局
 cols: 1
 title: Layout
 ---

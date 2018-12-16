@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 3
 title: Use in create-react-app
 ---
 
@@ -114,8 +114,8 @@ $ yarn add react-app-rewired
 +   "start": "react-app-rewired start",
 -   "build": "react-scripts build",
 +   "build": "react-app-rewired build",
--   "test": "react-scripts test --env=jsdom",
-+   "test": "react-app-rewired test --env=jsdom",
+-   "test": "react-scripts test",
++   "test": "react-app-rewired test",
 }
 ```
 

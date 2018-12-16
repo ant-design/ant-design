@@ -2,7 +2,7 @@
 category: Components
 subtitle: 国际化
 cols: 1
-type: Other
+type: 其他
 title: LocaleProvider
 ---
 
@@ -15,7 +15,10 @@ LocaleProvider 使用 React 的 [context](https://facebook.github.io/react/docs/
 ```jsx
 import { LocaleProvider } from 'antd';
 import zh_CN from 'antd/lib/locale-provider/zh_CN';
+import moment from 'moment';
 import 'moment/locale/zh-cn';
+
+moment.locale('zh-cn');
 ...
 
 return <LocaleProvider locale={zh_CN}><App /></LocaleProvider>;

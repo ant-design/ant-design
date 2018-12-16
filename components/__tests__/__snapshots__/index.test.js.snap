@@ -18,6 +18,8 @@ Array [
   "Cascader",
   "Checkbox",
   "Col",
+  "Comment",
+  "ConfigProvider",
   "DatePicker",
   "Divider",
   "Dropdown",

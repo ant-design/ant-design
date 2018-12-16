@@ -1,5 +1,3 @@
 {
-  "extends": [
-    "./node_modules/antd-tools/lib/tslint.json"
-  ]
+  "extends": ["./node_modules/antd-tools/lib/tslint.json"]
 }

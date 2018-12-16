@@ -4,14 +4,12 @@ import debounce from 'lodash/debounce';
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
 if (typeof window !== 'undefined') {
-  const matchMediaPolyfill = (mediaQuery: string): MediaQueryList => {
+  const matchMediaPolyfill = (mediaQuery: string) => {
     return {
       media: mediaQuery,
       matches: false,
-      addListener() {
-      },
-      removeListener() {
-      },
+      addListener() {},
+      removeListener() {},
     };
   };
   window.matchMedia = window.matchMedia || matchMediaPolyfill;
@@ -108,11 +106,11 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
     if (autoplay && this.slick && this.slick.innerSlider && this.slick.innerSlider.autoPlay) {
       this.slick.innerSlider.autoPlay();
     }
-  }
+  };
 
   saveSlick = (node: any) => {
     this.slick = node;
-  }
+  };
 
   next() {
     this.slick.slickNext();
@@ -127,7 +125,7 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
   }
 
   render() {
-    let props = {
+    const props = {
       ...this.props,
     };
 

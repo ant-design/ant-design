@@ -545,6 +545,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
           >
             <div
               aria-autocomplete="list"
+              aria-controls="test-uuid"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection
@@ -661,6 +662,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
             >
               <div
                 aria-autocomplete="list"
+                aria-controls="test-uuid"
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-select-selection
@@ -904,7 +906,6 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-                value="false"
               />
               <span
                 class="ant-checkbox-inner"
@@ -1446,7 +1447,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
           class="ant-form-item-children"
         >
           <label
-            class="ant-checkbox-wrapper"
+            class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
           >
             <span
               class="ant-checkbox ant-checkbox-checked"
@@ -1781,6 +1782,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                 >
                   <div
                     aria-autocomplete="list"
+                    aria-controls="test-uuid"
                     aria-expanded="false"
                     aria-haspopup="true"
                     class="ant-select-selection
@@ -1870,6 +1872,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           >
             <div
               aria-autocomplete="list"
+              aria-controls="test-uuid"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection
@@ -2546,6 +2549,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           >
             <div
               aria-autocomplete="list"
+              aria-controls="test-uuid"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection
@@ -2624,6 +2628,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           >
             <div
               aria-autocomplete="list"
+              aria-controls="test-uuid"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection
@@ -2802,17 +2807,19 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         <span
           class="ant-form-item-children"
         >
-          <span
+          <button
+            aria-checked="false"
             class="ant-switch"
             data-__field="[object Object]"
             data-__meta="[object Object]"
             id="switch"
-            tabindex="0"
+            role="switch"
+            type="button"
           >
             <span
               class="ant-switch-inner"
             />
-          </span>
+          </button>
         </span>
       </div>
     </div>
@@ -3992,6 +3999,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           >
             <div
               aria-autocomplete="list"
+              aria-controls="test-uuid"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection

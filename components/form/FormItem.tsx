@@ -63,7 +63,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     warning(
       this.getControls(this.props.children, true).length <= 1,
       '`Form.Item` cannot generate `validateStatus` and `help` automatically, ' +
-      'while there are more than one `getFieldDecorator` in it.',
+        'while there are more than one `getFieldDecorator` in it.',
     );
   }
 
@@ -72,11 +72,14 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     if (help === undefined && this.getOnlyControl()) {
       const errors = this.getField().errors;
       if (errors) {
-        return intersperse(errors.map((e: any, index: number) => (
-          React.isValidElement(e.message)
-            ? React.cloneElement(e.message, { key: index })
-            : e.message
-        )), ' ');
+        return intersperse(
+          errors.map((e: any, index: number) =>
+            React.isValidElement(e.message)
+              ? React.cloneElement(e.message, { key: index })
+              : e.message,
+          ),
+          ' ',
+        );
       }
       return '';
     }
@@ -92,14 +95,17 @@ export default class FormItem extends React.Component<FormItemProps, any> {
       }
 
       const child = childrenArray[i] as React.ReactElement<any>;
-      if (child.type &&
-        (child.type as any === FormItem || (child.type as any).displayName === 'FormItem')) {
+      if (
+        child.type &&
+        ((child.type as any) === FormItem || (child.type as any).displayName === 'FormItem')
+      ) {
         continue;
       }
       if (!child.props) {
         continue;
       }
-      if (FIELD_META_PROP in child.props) { // And means FIELD_DATA_PROP in child.props, too.
+      if (FIELD_META_PROP in child.props) {
+        // And means FIELD_DATA_PROP in child.props, too.
         controls.push(child);
       } else if (child.props.children) {
         controls = controls.concat(this.getControls(child.props.children, recursively));
@@ -135,7 +141,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     if (!helpShow) {
       this.setState({});
     }
-  }
+  };
 
   renderHelp() {
     const prefixCls = this.props.prefixCls;
@@ -163,9 +169,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
   renderExtra() {
     const { prefixCls, extra } = this.props;
-    return extra ? (
-      <div className={`${prefixCls}-extra`}>{extra}</div>
-    ) : null;
+    return extra ? <div className={`${prefixCls}-extra`}>{extra}</div> : null;
   }
 
   getValidateStatus() {
@@ -190,9 +194,10 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   renderValidateWrapper(c1: React.ReactNode, c2: React.ReactNode, c3: React.ReactNode) {
     const props = this.props;
     const onlyControl = this.getOnlyControl;
-    const validateStatus = (props.validateStatus === undefined && onlyControl) ?
-      this.getValidateStatus() :
-      props.validateStatus;
+    const validateStatus =
+      props.validateStatus === undefined && onlyControl
+        ? this.getValidateStatus()
+        : props.validateStatus;
 
     let classes = `${this.props.prefixCls}-item-control`;
     if (validateStatus) {
@@ -224,17 +229,21 @@ export default class FormItem extends React.Component<FormItemProps, any> {
         break;
     }
 
-    const icon = (props.hasFeedback && iconType) ?
-      <span className={`${this.props.prefixCls}-item-children-icon`}>
-        <Icon type={iconType} theme={iconType === 'loading' ? 'outlined' : 'filled'} />
-      </span> : null;
+    const icon =
+      props.hasFeedback && iconType ? (
+        <span className={`${this.props.prefixCls}-item-children-icon`}>
+          <Icon type={iconType} theme={iconType === 'loading' ? 'outlined' : 'filled'} />
+        </span>
+      ) : null;
 
     return (
       <div className={classes}>
         <span className={`${this.props.prefixCls}-item-children`}>
-          {c1}{icon}
+          {c1}
+          {icon}
         </span>
-        {c2}{c3}
+        {c2}
+        {c3}
       </div>
     );
   }
@@ -261,9 +270,11 @@ export default class FormItem extends React.Component<FormItemProps, any> {
       const meta = this.getMeta() || {};
       const validate = meta.validate || [];
 
-      return validate.filter((item: any) => !!item.rules).some((item: any) => {
-        return item.rules.some((rule: any) => rule.required);
-      });
+      return validate
+        .filter((item: any) => !!item.rules)
+        .some((item: any) => {
+          return item.rules.some((rule: any) => rule.required);
+        });
     }
     return false;
   }
@@ -289,17 +300,14 @@ export default class FormItem extends React.Component<FormItemProps, any> {
         control.focus();
       }
     }
-  }
+  };
 
   renderLabel() {
     const { prefixCls, label, labelCol, colon, id } = this.props;
     const context = this.context;
     const required = this.isRequired();
 
-    const labelColClassName = classNames(
-      `${prefixCls}-item-label`,
-      labelCol && labelCol.className,
-    );
+    const labelColClassName = classNames(`${prefixCls}-item-label`, labelCol && labelCol.className);
     const labelClassName = classNames({
       [`${prefixCls}-item-required`]: required,
     });
@@ -331,11 +339,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     return [
       this.renderLabel(),
       this.renderWrapper(
-        this.renderValidateWrapper(
-          children,
-          this.renderHelp(),
-          this.renderExtra(),
-        ),
+        this.renderValidateWrapper(children, this.renderHelp(), this.renderExtra()),
       ),
     ];
   }

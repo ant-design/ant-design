@@ -69,14 +69,16 @@ exports[`renders ./components/spin/demo/delayAndDebounce.md correctly 1`] = `
     style="margin-top:16px"
   >
     Loading state：
-    <span
+    <button
+      aria-checked="false"
       class="ant-switch"
-      tabindex="0"
+      role="switch"
+      type="button"
     >
       <span
         class="ant-switch-inner"
       />
-    </span>
+    </button>
   </div>
 </div>
 `;
@@ -129,14 +131,16 @@ exports[`renders ./components/spin/demo/nested.md correctly 1`] = `
     style="margin-top:16px"
   >
     Loading state：
-    <span
+    <button
+      aria-checked="false"
       class="ant-switch"
-      tabindex="0"
+      role="switch"
+      type="button"
     >
       <span
         class="ant-switch-inner"
       />
-    </span>
+    </button>
   </div>
 </div>
 `;

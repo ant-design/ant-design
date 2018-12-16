@@ -5,7 +5,9 @@ exports[`WeekPicker should support style prop 1`] = `
   class="ant-calendar-picker"
   style="width: 400px;"
 >
-  <span>
+  <span
+    style="display: inline-block;"
+  >
     <input
       class="ant-calendar-picker-input ant-input"
       placeholder="Select date"

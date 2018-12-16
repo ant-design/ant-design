@@ -35,5 +35,6 @@ ReactDOM.render(
       Hover me <Icon type="down" />
     </a>
   </Dropdown>,
-  mountNode);
+  mountNode
+);
 ````

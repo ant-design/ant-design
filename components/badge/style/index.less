@@ -1,8 +1,8 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@badge-prefix-cls: ~"@{ant-prefix}-badge";
-@number-prefix-cls: ~"@{ant-prefix}-scroll-number";
+@badge-prefix-cls: ~'@{ant-prefix}-badge';
+@number-prefix-cls: ~'@{ant-prefix}-scroll-number';
 
 .@{badge-prefix-cls} {
   .reset-component;
@@ -25,6 +25,7 @@
     font-weight: @badge-font-weight;
     white-space: nowrap;
     box-shadow: 0 0 0 1px #fff;
+    z-index: 10;
     a,
     a:hover {
       color: #fff;
@@ -46,11 +47,16 @@
   }
 
   &-count,
-  &-dot {
+  &-dot,
+  .@{number-prefix-cls}-custom-component {
     position: absolute;
     right: 0;
     transform: translateX(50%);
     transform-origin: 100%;
+  }
+
+  .@{number-prefix-cls}-custom-component {
+    transform: translate(50%, -50%);
   }
 
   &-status {
@@ -102,23 +108,27 @@
 
   &-zoom-appear,
   &-zoom-enter {
-    animation: antZoomBadgeIn .3s @ease-out-back;
+    animation: antZoomBadgeIn 0.3s @ease-out-back;
     animation-fill-mode: both;
   }
 
   &-zoom-leave {
-    animation: antZoomBadgeOut .3s @ease-in-back;
+    animation: antZoomBadgeOut 0.3s @ease-in-back;
     animation-fill-mode: both;
   }
 
-  &-not-a-wrapper .@{ant-prefix}-scroll-number {
-    top: auto;
-    display: block;
-    position: relative;
-  }
+  &-not-a-wrapper {
+    vertical-align: middle;
 
-  &-not-a-wrapper .@{badge-prefix-cls}-count {
-    transform: none;
+    .@{ant-prefix}-scroll-number {
+      top: auto;
+      display: block;
+      position: relative;
+    }
+
+    .@{badge-prefix-cls}-count {
+      transform: none;
+    }
   }
 }
 
@@ -137,7 +147,7 @@
   overflow: hidden;
   &-only {
     display: inline-block;
-    transition: all .3s @ease-in-out;
+    transition: all 0.3s @ease-in-out;
     height: @badge-height;
     > p {
       height: @badge-height;

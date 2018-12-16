@@ -9,7 +9,7 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { getConfirmLocale } from './locale';
 import Icon from '../icon';
 
-let mousePosition: { x: number, y: number } | null;
+let mousePosition: { x: number; y: number } | null;
 let mousePositionEventBinded: boolean;
 
 export interface ModalProps {
@@ -26,7 +26,7 @@ export interface ModalProps {
   /** 点击模态框右上角叉、取消按钮、Props.maskClosable 值为 true 时的遮罩层或键盘按下 Esc 时的回调*/
   onCancel?: (e: React.MouseEvent<any>) => void;
   afterClose?: () => void;
-  /** 居中 */
+  /** 垂直居中 */
   centered?: boolean;
   /** 宽度*/
   width?: string | number;
@@ -66,6 +66,8 @@ export interface ModalFuncProps {
   content?: React.ReactNode;
   onOk?: (...args: any[]) => any | PromiseLike<any>;
   onCancel?: (...args: any[]) => any | PromiseLike<any>;
+  okButtonProps?: NativeButtonProps;
+  cancelButtonProps?: NativeButtonProps;
   centered?: boolean;
   width?: string | number;
   iconClassName?: string;
@@ -77,13 +79,18 @@ export interface ModalFuncProps {
   zIndex?: number;
   okCancel?: boolean;
   style?: React.CSSProperties;
+  maskStyle?: React.CSSProperties;
   type?: string;
   keyboard?: boolean;
   getContainer?: (instance: React.ReactInstance) => HTMLElement;
+  autoFocusButton?: null | 'ok' | 'cancel';
 }
 
-export type ModalFunc = (props: ModalFuncProps) => {
-  destroy: () => void,
+export type ModalFunc = (
+  props: ModalFuncProps,
+) => {
+  destroy: () => void;
+  update: (newConfig: ModalFuncProps) => void;
 };
 
 export interface ModalLocale {
@@ -133,14 +140,14 @@ export default class Modal extends React.Component<ModalProps, {}> {
     if (onCancel) {
       onCancel(e);
     }
-  }
+  };
 
   handleOk = (e: React.MouseEvent<HTMLButtonElement>) => {
     const onOk = this.props.onOk;
     if (onOk) {
       onOk(e);
     }
-  }
+  };
 
   componentDidMount() {
     if (mousePositionEventBinded) {
@@ -155,7 +162,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
       // 100ms 内发生过点击事件，则从点击位置动画展示
       // 否则直接 zoom 展示
       // 这样可以兼容非点击方式展开
-      setTimeout(() => mousePosition = null, 100);
+      setTimeout(() => (mousePosition = null), 100);
     });
     mousePositionEventBinded = true;
   }
@@ -164,10 +171,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
     const { okText, okType, cancelText, confirmLoading } = this.props;
     return (
       <div>
-        <Button
-          onClick={this.handleCancel}
-          {...this.props.cancelButtonProps}
-        >
+        <Button onClick={this.handleCancel} {...this.props.cancelButtonProps}>
           {cancelText || locale.cancelText}
         </Button>
         <Button
@@ -180,23 +184,20 @@ export default class Modal extends React.Component<ModalProps, {}> {
         </Button>
       </div>
     );
-  }
+  };
 
   render() {
     const { footer, visible, wrapClassName, centered, prefixCls, ...restProps } = this.props;
 
     const defaultFooter = (
-      <LocaleReceiver
-        componentName="Modal"
-        defaultLocale={getConfirmLocale()}
-      >
+      <LocaleReceiver componentName="Modal" defaultLocale={getConfirmLocale()}>
         {this.renderFooter}
       </LocaleReceiver>
     );
 
     const closeIcon = (
       <span className={`${prefixCls}-close-x`}>
-        <Icon className={`${prefixCls}-close-icon`} type={'close'}/>
+        <Icon className={`${prefixCls}-close-icon`} type={'close'} />
       </span>
     );
 

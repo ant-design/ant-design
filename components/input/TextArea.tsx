@@ -1,6 +1,8 @@
 import * as React from 'react';
 import omit from 'omit.js';
 import classNames from 'classnames';
+import { polyfill } from 'react-lifecycles-compat';
+import ResizeObserver from 'resize-observer-polyfill';
 import calculateNodeHeight from './calculateNodeHeight';
 
 function onNextFrame(cb: () => void) {
@@ -35,12 +37,13 @@ export interface TextAreaState {
   textareaStyles?: React.CSSProperties;
 }
 
-export default class TextArea extends React.Component<TextAreaProps, TextAreaState> {
+class TextArea extends React.Component<TextAreaProps, TextAreaState> {
   static defaultProps = {
     prefixCls: 'ant-input',
   };
 
   nextFrameActionId: number;
+  resizeObserver: ResizeObserver | null;
 
   state = {
     textareaStyles: {},
@@ -50,15 +53,40 @@ export default class TextArea extends React.Component<TextAreaProps, TextAreaSta
 
   componentDidMount() {
     this.resizeTextarea();
+    this.updateResizeObserverHook();
   }
 
-  componentWillReceiveProps(nextProps: TextAreaProps) {
+  componentDidUpdate(prevProps: TextAreaProps) {
     // Re-render with the new content then recalculate the height as required.
-    if (this.props.value !== nextProps.value) {
-      if (this.nextFrameActionId) {
-        clearNextFrameAction(this.nextFrameActionId);
-      }
-      this.nextFrameActionId = onNextFrame(this.resizeTextarea);
+    if (prevProps.value !== this.props.value) {
+      this.resizeOnNextFrame();
+    }
+    this.updateResizeObserverHook();
+  }
+
+  componentWillUnmount() {
+    if (this.resizeObserver) {
+      this.resizeObserver.disconnect();
+    }
+  }
+
+  resizeOnNextFrame = () => {
+    if (this.nextFrameActionId) {
+      clearNextFrameAction(this.nextFrameActionId);
+    }
+    this.nextFrameActionId = onNextFrame(this.resizeTextarea);
+  };
+
+  // We will update hooks if `autosize` prop change
+  updateResizeObserverHook() {
+    if (!this.resizeObserver && this.props.autosize) {
+      // Add resize observer
+      this.resizeObserver = new ResizeObserver(this.resizeOnNextFrame);
+      this.resizeObserver.observe(this.textAreaRef);
+    } else if (this.resizeObserver && !this.props.autosize) {
+      // Remove resize observer
+      this.resizeObserver.disconnect();
+      this.resizeObserver = null;
     }
   }
 
@@ -79,7 +107,7 @@ export default class TextArea extends React.Component<TextAreaProps, TextAreaSta
     const maxRows = autosize ? (autosize as AutoSizeType).maxRows : null;
     const textareaStyles = calculateNodeHeight(this.textAreaRef, false, minRows, maxRows);
     this.setState({ textareaStyles });
-  }
+  };
 
   getTextAreaClassName() {
     const { prefixCls, className, disabled } = this.props;
@@ -96,7 +124,7 @@ export default class TextArea extends React.Component<TextAreaProps, TextAreaSta
     if (onChange) {
       onChange(e);
     }
-  }
+  };
 
   handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     const { onPressEnter, onKeyDown } = this.props;
@@ -106,19 +134,15 @@ export default class TextArea extends React.Component<TextAreaProps, TextAreaSta
     if (onKeyDown) {
       onKeyDown(e);
     }
-  }
+  };
 
   saveTextAreaRef = (textArea: HTMLTextAreaElement) => {
     this.textAreaRef = textArea;
-  }
+  };
 
   render() {
     const props = this.props;
-    const otherProps = omit(props, [
-      'prefixCls',
-      'onPressEnter',
-      'autosize',
-    ]);
+    const otherProps = omit(props, ['prefixCls', 'onPressEnter', 'autosize']);
     const style = {
       ...props.style,
       ...this.state.textareaStyles,
@@ -140,3 +164,7 @@ export default class TextArea extends React.Component<TextAreaProps, TextAreaSta
     );
   }
 }
+
+polyfill(TextArea);
+
+export default TextArea;

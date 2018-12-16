@@ -44,13 +44,15 @@ class App extends React.Component {
     this.setState({ mockData, targetKeys });
   }
 
-  filterOption = (inputValue, option) => {
-    return option.description.indexOf(inputValue) > -1;
-  }
+  filterOption = (inputValue, option) => option.description.indexOf(inputValue) > -1
 
   handleChange = (targetKeys) => {
     this.setState({ targetKeys });
   }
+
+  handleSearch = (dir, value) => {
+    console.log('search:', dir, value);
+  };
 
   render() {
     return (
@@ -60,6 +62,7 @@ class App extends React.Component {
         filterOption={this.filterOption}
         targetKeys={this.state.targetKeys}
         onChange={this.handleChange}
+        onSearch={this.handleSearch}
         render={item => item.title}
       />
     );

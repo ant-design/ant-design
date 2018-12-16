@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import Tree from '../index';
 import { calcRangeKeys } from '../util';
 
-const TreeNode = Tree.TreeNode;
+const { TreeNode } = Tree;
 
 describe('Tree util', () => {
   it('calc range keys', () => {
@@ -24,7 +24,7 @@ describe('Tree util', () => {
             <TreeNode key="0-2-0-2" />
           </TreeNode>
         </TreeNode>
-      </Tree>
+      </Tree>,
     );
 
     const { children } = wrapper.find(Tree).props();

@@ -6,15 +6,16 @@ import { addLocaleData, IntlProvider } from 'react-intl';
 import 'moment/locale/zh-cn';
 import { LocaleProvider } from 'antd';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
-import OfflineRuntime from '@yesmeck/offline-plugin/runtime';
 import Header from './Header';
 import Footer from './Footer';
 import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
 import * as utils from '../utils';
 
-if (typeof window !== 'undefined') {
-  OfflineRuntime.install();
+if (typeof window !== 'undefined' && navigator.serviceWorker) {
+  navigator.serviceWorker.getRegistrations().then(registrations => {
+    registrations.forEach(registration => registration.unregister());
+  });
 }
 
 if (typeof window !== 'undefined') {
@@ -29,23 +30,18 @@ if (typeof window !== 'undefined') {
 }
 
 let isMobile = false;
-enquireScreen((b) => {
+enquireScreen(b => {
   isMobile = b;
 });
 
 export default class Layout extends React.Component {
   static contextTypes = {
     router: PropTypes.object.isRequired,
-  }
+  };
 
   static childContextTypes = {
     isMobile: PropTypes.bool,
   };
-
-  getChildContext() {
-    const { isMobile: mobile } = this.state;
-    return { isMobile: mobile };
-  }
 
   constructor(props) {
     super(props);
@@ -59,9 +55,14 @@ export default class Layout extends React.Component {
     };
   }
 
+  getChildContext() {
+    const { isMobile: mobile } = this.state;
+    return { isMobile: mobile };
+  }
+
   componentDidMount() {
     const { router } = this.context;
-    router.listen((loc) => {
+    router.listen(loc => {
       if (typeof window.ga !== 'undefined') {
         window.ga('send', 'pageview', loc.pathname + loc.search);
       }
@@ -79,7 +80,7 @@ export default class Layout extends React.Component {
       }, 0);
     }
 
-    enquireScreen((b) => {
+    enquireScreen(b => {
       this.setState({
         isMobile: !!b,
       });
@@ -95,15 +96,17 @@ export default class Layout extends React.Component {
     const { appLocale } = this.state;
 
     return (
-      <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
-        <LocaleProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null}>
-          <div className="page-wrapper">
-            <Header {...restProps} />
-            {children}
-            <Footer {...restProps} />
-          </div>
-        </LocaleProvider>
-      </IntlProvider>
+      <React.StrictMode>
+        <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
+          <LocaleProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null}>
+            <div className="page-wrapper">
+              <Header {...restProps} />
+              {children}
+              <Footer {...restProps} />
+            </div>
+          </LocaleProvider>
+        </IntlProvider>
+      </React.StrictMode>
     );
   }
 }

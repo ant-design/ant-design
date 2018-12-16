@@ -14,7 +14,9 @@ title:
 Select different settings to see the result.
 
 ````jsx
-import { Table, Icon, Switch, Radio, Form, Divider } from 'antd';
+import {
+  Table, Icon, Switch, Radio, Form, Divider,
+} from 'antd';
 
 const FormItem = Form.Item;
 
@@ -80,12 +82,11 @@ class Demo extends React.Component {
     footer,
     rowSelection: {},
     scroll: undefined,
+    hasData: true,
   }
 
-  handleToggle = (prop) => {
-    return (enable) => {
-      this.setState({ [prop]: enable });
-    };
+  handleToggle = prop => (enable) => {
+    this.setState({ [prop]: enable });
   }
 
   handleSizeChange = (e) => {
@@ -114,6 +115,10 @@ class Demo extends React.Component {
 
   handleScollChange = (enable) => {
     this.setState({ scroll: enable ? scroll : undefined });
+  }
+
+  handleDataChange = (hasData) => {
+    this.setState({ hasData });
   }
 
   handlePaginationChange = (e) => {
@@ -153,6 +158,9 @@ class Demo extends React.Component {
             <FormItem label="Fixed Header">
               <Switch checked={!!state.scroll} onChange={this.handleScollChange} />
             </FormItem>
+            <FormItem label="Has Data">
+              <Switch checked={!!state.hasData} onChange={this.handleDataChange} />
+            </FormItem>
             <FormItem label="Size">
               <Radio.Group size="default" value={state.size} onChange={this.handleSizeChange}>
                 <Radio.Button value="default">Default</Radio.Button>
@@ -173,7 +181,7 @@ class Demo extends React.Component {
             </FormItem>
           </Form>
         </div>
-        <Table {...this.state} columns={columns} dataSource={data} />
+        <Table {...this.state} columns={columns} dataSource={state.hasData ? data : null} />
       </div>
     );
   }

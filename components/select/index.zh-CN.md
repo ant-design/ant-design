@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 选择器
-type: Data Entry
+type: 数据录入
 title: Select
 ---
 
@@ -25,12 +25,14 @@ title: Select
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | allowClear | 支持清除 | boolean | false |
+| autoClearSearchValue | 是否在选中项后清空搜索框，只在 `mode` 为 `multiple` 或 `tags` 时有效。 | boolean | true |
 | autoFocus | 默认获取焦点 | boolean | false |
 | defaultActiveFirstOption | 是否默认高亮第一个选项。 | boolean | true |
 | defaultValue | 指定默认选中的条目 | string\|string\[]<br />number\|number\[] | - |
 | disabled | 是否禁用 | boolean | false |
 | dropdownClassName | 下拉菜单的 className 属性 | string | - |
 | dropdownMatchSelectWidth | 下拉菜单和选择器同宽 | boolean | true |
+| dropdownRender | 自定义下拉框内容 | (menuNode: ReactNode, props) => ReactNode | - |
 | dropdownStyle | 下拉菜单的 style 属性 | object | - |
 | filterOption | 是否根据输入项进行筛选。当其为一个函数时，会接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 `true`，反之则返回 `false`。 | boolean or function(inputValue, option) | true |
 | firstActiveValue | 默认高亮的选项 | string\|string\[] | - |
@@ -46,6 +48,10 @@ title: Select
 | showArrow | 是否显示下拉小箭头 | boolean | true |
 | showSearch | 使单选模式可搜索 | boolean | false |
 | size | 选择框大小，可选 `large` `small` | string | default |
+| suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |
+| removeIcon | 自定义的多选框清除图标 | ReactNode | - |
+| clearIcon | 自定义的多选框清空图标 | ReactNode | - |
+| menuItemSelectedIcon | 自定义当前选中的条目图标 | ReactNode | - |
 | tokenSeparators | 在 tags 和 multiple 模式下自动分词的分隔符 | string\[] |  |
 | value | 指定当前选中的条目 | string\|string\[]\|number\|number\[] | - |
 | onBlur | 失去焦点的时回调 | function | - |
@@ -57,8 +63,10 @@ title: Select
 | onPopupScroll | 下拉列表滚动时的回调 | function | - |
 | onSearch | 文本框值变化时回调 | function(value: string) |  |
 | onSelect | 被选中时调用，参数为选中项的 value (或 key) 值 | function(value, option:Option) | - |
+| defaultOpen | 是否默认展开下拉菜单 | boolean | - |
 | open | 是否展开下拉菜单 | boolean | - |
 | onDropdownVisibleChange | 展开下拉菜单的回调 | function(open) | - |
+| loading | 加载中状态 | Boolean | false |
 
 > 注意，如果发现下拉菜单跟随页面滚动，或者需要在其他弹层中触发 Select，请尝试使用 `getPopupContainer={triggerNode => triggerNode.parentNode}` 将下拉弹层渲染节点固定在触发器的父元素中。
 
@@ -77,6 +85,7 @@ title: Select
 | key | 和 value 含义一致。如果 React 需要你设置此项，此项值与 value 的值相同，然后可以省略 value 设置 | string |  |
 | title | 选中该 Option 后，Select 的 title | string | - |
 | value | 默认根据此属性值进行筛选 | string\|number | - |
+| className | Option 器类名 | string | - |
 
 ### OptGroup props
 

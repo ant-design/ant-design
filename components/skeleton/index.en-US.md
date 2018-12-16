@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Data Entry
+type: Feedback
 title: Skeleton
 cols: 1
 ---

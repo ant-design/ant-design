@@ -24,5 +24,6 @@ const success = () => {
 
 ReactDOM.render(
   <Button onClick={success}>Display a loading indicator</Button>,
-  mountNode);
+  mountNode
+);
 ````

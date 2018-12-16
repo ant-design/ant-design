@@ -5,9 +5,11 @@ subtitle:
 title: Drawer
 ---
 
-A Drawer is a panel that is typically overlaid on top of a page and slides in from the side. It contains a set of information or actions. Since that user can interact with the Drawer without leaving the current page, tasks can be achieved more efficient within the same context.
+Panel slides from screen edge.
 
 ## When To Use
+
+A Drawer is a panel that is typically overlaid on top of a page and slides in from the side. It contains a set of information or actions. Since that user can interact with the Drawer without leaving the current page, tasks can be achieved more efficient within the same context.
 
 * Use a Form to create or edit a set of information.
 * Processing subtasks. When subtasks are too heavy for Popover and we still want to keep the subtasks in the context of the main task, Drawer comes very handy.
@@ -19,7 +21,7 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 | --- | --- | --- | --- |
 | closable | Whether a close (x) button is visible on top right of the Drawer dialog or not. | boolean | true |
 | destroyOnClose | Whether to unmount child components on closing drawer or not. | boolean | false |
-| getContainer | Return the mounted node for Drawer. | HTMLElement \| `() => HTMLElement` \| selectors   | 'body' |
+| getContainer | Return the mounted node for Drawer. | HTMLElement \| `() => HTMLElement` \| Selectors | 'body' |
 | mask | Whether to show mask or not. | Boolean | true |
 | maskClosable | Clicking on the mask (area outside the Drawer) to close the Drawer or not. | boolean | true |
 | maskStyle | Style for Drawer's mask element. | object | {} |

@@ -7,13 +7,39 @@ title: Resources
 Please find below some of the design resources and tools about Ant Design that we consider valuable. More of this is still being collected.
 
 <div class="resource-cards">
+  <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Components.Beta.3.10.5.sketch" class="resource-card">
+    <div class="resource-card-icon">
+      <img width="65" src="https://gw.alipayobjects.com/zos/rmsportal/pKfDZnzocrbAOSzDQOQq.png">
+    </div>
+    <div class="resource-card-content">
+      <span class="resource-card-title">
+        RENEW Symbols
+        <span class="resource-card-hot-badge">BETA</span>
+      </span>
+      <span class="resource-card-description">Sketch Symbols for Desktop</span>
+    </div>
+  </a>
   <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.3.0.Components.sketch" class="resource-card">
     <div class="resource-card-icon">
       <img width="65" src="https://gw.alipayobjects.com/zos/rmsportal/pKfDZnzocrbAOSzDQOQq.png">
     </div>
     <div class="resource-card-content">
-      <span class="resource-card-title">Desktop Components</span>
-      <span class="resource-card-description">Sketch Template for Desktop</span>
+      <span class="resource-card-title">
+        Sketch Symbols
+      </span>
+      <span class="resource-card-description">Sketch Symbols File for Desktop</span>
+    </div>
+  </a>
+  <a target="_blank" href="https://landing.ant.design/docs/download" class="resource-card">
+    <div class="resource-card-icon">
+      <img width="65" src="https://gw.alipayobjects.com/zos/rmsportal/EAHlyTmYeDtTkZIPbUnP.svg">
+    </div>
+    <div class="resource-card-content">
+      <span class="resource-card-title">
+        Ant Design Landing 
+        <span class="resource-card-hot-badge">NEW</span>
+      </span>
+      <span class="resource-card-description">Landing Templates</span>
     </div>
   </a>
   <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Mobile.Template.sketch" class="resource-card">
@@ -22,7 +48,7 @@ Please find below some of the design resources and tools about Ant Design that w
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">Mobile Components</span>
-      <span class="resource-card-description">Sketch Template for Mobile</span>
+      <span class="resource-card-description">Sketch Symbols File for Mobile</span>
     </div>
   </a>
   <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Pro.sketch" class="resource-card">
@@ -71,6 +97,15 @@ Please find below some of the design resources and tools about Ant Design that w
     <div class="resource-card-content">
       <span class="resource-card-title">Web Font</span>
       <span class="resource-card-description">Icon font package for your local reference</span>
+    </div>
+  </a>
+  <a target="_blank" href="https://www.xiaopiu.com/topic/ant-design" class="resource-card">
+    <div class="resource-card-icon">
+      <img width="72" src="https://img.xiaopiu.com/userImages/img753167822272f8.png">
+    </div>
+    <div class="resource-card-content">
+      <span class="resource-card-title">Ant Design Prototype (xiaopiu)</span>
+      <span class="resource-card-description">Online Ant Design library and interactive prototype</span>
     </div>
   </a>
 </div>

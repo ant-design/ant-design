@@ -45,6 +45,11 @@ const LinksList = () => (
       </a>
     </li>
     <li>
+      <a href="http://ng.mobile.ant.design" target="_blank">
+        NG-ZORRO-MOBILE - Ant Design Mobile of Angular<LinkIcon />
+      </a>
+    </li>
+    <li>
       <a href="https://github.com/FE-Driver/vue-beauty" target="_blank">
         vue-beauty (vue)<LinkIcon />
       </a>
@@ -85,8 +90,15 @@ ReactDOM.render(<LinksList />, mountNode);
 - [Meituan](http://www.meituan.com)
 - [Didi](http://www.xiaojukeji.com/)
 - [Eleme](https://www.ele.me/)
+- [Other Users](https://github.com/ant-design/ant-design/issues/477)
 
 > If your company or products use Ant Design, and you'd like to be added to this growing list, click [here](https://github.com/ant-design/ant-design/issues/477) to leave us a message.
+
+## Words From Community
+
+- Hacknews: [Show HN: Antd – A set of high-quality React components](https://news.ycombinator.com/item?id=13053137)
+- Alligator: [Crafting Beautiful UIs in React Using Ant Design](https://alligator.io/react/beautiful-uis-ant-design/)
+- Hackernoon: [Interesting JavaScript Libraries born in China](https://hackernoon.com/interesting-javascript-libraries-born-in-china-d50d1bb81355)
 
 ## How to Contribute
 

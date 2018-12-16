@@ -15,7 +15,9 @@ Showing more detailed info of every row.
 
 ````jsx
 
-import { Table, Badge, Menu, Dropdown, Icon } from 'antd';
+import {
+  Table, Badge, Menu, Dropdown, Icon,
+} from 'antd';
 
 const menu = (
   <Menu>
@@ -105,38 +107,4 @@ function NestedTable() {
 }
 
 ReactDOM.render(<NestedTable />, mountNode);
-````
-
-````css
-.components-table-demo-nested .ant-table-expanded-row > td:last-child {
-  padding: 0 48px 0 8px;
-}
-
-.components-table-demo-nested .ant-table-expanded-row > td:last-child .ant-table-thead th {
-  border-bottom: 1px solid #e9e9e9;
-}
-
-.components-table-demo-nested .ant-table-expanded-row > td:last-child .ant-table-thead th:first-child {
-  padding-left: 0;
-}
-
-.components-table-demo-nested .ant-table-expanded-row > td:last-child .ant-table-row td:first-child {
-  padding-left: 0;
-}
-
-.components-table-demo-nested .ant-table-expanded-row .ant-table-row:last-child td {
-  border: none;
-}
-
-.components-table-demo-nested .ant-table-expanded-row .ant-table-thead > tr > th {
-  background: none;
-}
-
-.components-table-demo-nested .table-operation a:not(:last-child) {
-  margin-right: 24px;
-}
-
-.components-table-demo-nested .ant-table-expanded-row:hover > td {
-  background: #fbfbfb;
-}
 ````

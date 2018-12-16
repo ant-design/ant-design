@@ -3,7 +3,12 @@ import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
 import Radio from './radio';
-import { RadioGroupProps, RadioGroupState, RadioChangeEvent, RadioGroupButtonStyle } from './interface';
+import {
+  RadioGroupProps,
+  RadioGroupState,
+  RadioChangeEvent,
+  RadioGroupButtonStyle,
+} from './interface';
 
 function getCheckedValue(children: React.ReactNode) {
   let value = null;
@@ -71,8 +76,7 @@ export default class RadioGroup extends React.Component<RadioGroupProps, RadioGr
   }
 
   shouldComponentUpdate(nextProps: RadioGroupProps, nextState: RadioGroupState) {
-    return !shallowEqual(this.props, nextProps) ||
-      !shallowEqual(this.state, nextState);
+    return !shallowEqual(this.props, nextProps) || !shallowEqual(this.state, nextState);
   }
 
   onRadioChange = (ev: RadioChangeEvent) => {
@@ -88,21 +92,28 @@ export default class RadioGroup extends React.Component<RadioGroupProps, RadioGr
     if (onChange && value !== lastValue) {
       onChange(ev);
     }
-  }
+  };
   render() {
     const props = this.props;
     const { prefixCls, className = '', options, buttonStyle } = props;
     const groupPrefixCls = `${prefixCls}-group`;
-    const classString = classNames(groupPrefixCls, `${groupPrefixCls}-${buttonStyle}`, {
-      [`${groupPrefixCls}-${props.size}`]: props.size,
-    }, className);
+    const classString = classNames(
+      groupPrefixCls,
+      `${groupPrefixCls}-${buttonStyle}`,
+      {
+        [`${groupPrefixCls}-${props.size}`]: props.size,
+      },
+      className,
+    );
 
-    let children: React.ReactChildren[] | React.ReactElement<any>[] | React.ReactNode = props.children;
+    let children: React.ReactChildren[] | React.ReactElement<any>[] | React.ReactNode =
+      props.children;
 
     // 如果存在 options, 优先使用
     if (options && options.length > 0) {
       children = options.map((option, index) => {
-        if (typeof option === 'string') { // 此处类型自动推导为 string
+        if (typeof option === 'string') {
+          // 此处类型自动推导为 string
           return (
             <Radio
               key={index}
@@ -115,7 +126,8 @@ export default class RadioGroup extends React.Component<RadioGroupProps, RadioGr
               {option}
             </Radio>
           );
-        } else { // 此处类型自动推导为 { label: string value: string }
+        } else {
+          // 此处类型自动推导为 { label: string value: string }
           return (
             <Radio
               key={index}

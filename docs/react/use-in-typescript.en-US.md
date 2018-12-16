@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 4
 title: Use in TypeScript
 ---
 
@@ -224,4 +224,3 @@ $ create-react-app my-project --scripts-version=react-scripts-ts-antd
 ### error TS2605: JSX element type Xxx is not a constructor function for JSX elements.
 
 Before antd 3, You need setting `allowSyntheticDefaultImports` to `true` in tsconfig.json.
-

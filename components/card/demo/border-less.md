@@ -24,5 +24,6 @@ ReactDOM.render(
       <p>Card content</p>
     </Card>
   </div>,
-  mountNode);
+  mountNode
+);
 ````

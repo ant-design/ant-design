@@ -21,7 +21,7 @@ describe('Popconfirm', () => {
         onVisibleChange={onVisibleChange}
       >
         <span>Delete</span>
-      </Popconfirm>
+      </Popconfirm>,
     );
 
     const triggerNode = wrapper.find('span').at(0);
@@ -37,7 +37,7 @@ describe('Popconfirm', () => {
     const popconfirm = mount(
       <Popconfirm title="code">
         <span>show me your code</span>
-      </Popconfirm>
+      </Popconfirm>,
     );
 
     expect(popconfirm.instance().getPopupDomNode()).toBe(null);
@@ -56,7 +56,7 @@ describe('Popconfirm', () => {
     const popconfirm = mount(
       <Popconfirm title="code">
         <span>show me your code</span>
-      </Popconfirm>
+      </Popconfirm>,
     );
     expect(popconfirm.instance().getPopupDomNode()).toBeFalsy();
     popconfirm.setProps({ visible: true });
@@ -73,9 +73,14 @@ describe('Popconfirm', () => {
     const cancel = jest.fn();
     const onVisibleChange = jest.fn();
     const popconfirm = mount(
-      <Popconfirm title="code" onConfirm={confirm} onCancel={cancel} onVisibleChange={onVisibleChange}>
+      <Popconfirm
+        title="code"
+        onConfirm={confirm}
+        onCancel={cancel}
+        onVisibleChange={onVisibleChange}
+      >
         <span>show me your code</span>
-      </Popconfirm>
+      </Popconfirm>,
     );
     const triggerNode = popconfirm.find('span').at(0);
     triggerNode.simulate('click');
@@ -83,7 +88,10 @@ describe('Popconfirm', () => {
     expect(confirm).toHaveBeenCalled();
     expect(onVisibleChange).toHaveBeenLastCalledWith(false, eventObject);
     triggerNode.simulate('click');
-    popconfirm.find('.ant-btn').at(0).simulate('click');
+    popconfirm
+      .find('.ant-btn')
+      .at(0)
+      .simulate('click');
     expect(cancel).toHaveBeenCalled();
     expect(onVisibleChange).toHaveBeenLastCalledWith(false, eventObject);
   });
@@ -92,11 +100,38 @@ describe('Popconfirm', () => {
     const wrapper = mount(
       <Popconfirm title="code" icon={<span className="customize-icon">custom-icon</span>}>
         <span>show me your code</span>
-      </Popconfirm>
+      </Popconfirm>,
     );
 
     const triggerNode = wrapper.find('span').at(0);
     triggerNode.simulate('click');
     expect(wrapper.find('.customize-icon').length).toBe(1);
+  });
+
+  it('should prefixCls correctly', () => {
+    const btnPrefixCls = 'custom-btn';
+    const wrapper = mount(
+      <Popconfirm
+        visible
+        title="x"
+        prefixCls="custom-popconfirm"
+        okButtonProps={{ prefixCls: btnPrefixCls }}
+        cancelButtonProps={{ prefixCls: btnPrefixCls }}
+      >
+        <span>show me your code</span>
+      </Popconfirm>,
+    );
+
+    expect(wrapper.find('.custom-popconfirm').length).toBeGreaterThan(0);
+    expect(wrapper.find('.custom-btn').length).toBeGreaterThan(0);
+  });
+
+  it('should support defaultVisible', () => {
+    const popconfirm = mount(
+      <Popconfirm title="code" defaultVisible>
+        <span>show me your code</span>
+      </Popconfirm>,
+    );
+    expect(popconfirm.instance().getPopupDomNode()).toBeTruthy();
   });
 });

@@ -31,24 +31,24 @@ function renderIndicator(props: SpinProps): React.ReactNode {
   const { prefixCls, indicator } = props;
   const dotClassName = `${prefixCls}-dot`;
   if (React.isValidElement(indicator)) {
-    return React.cloneElement((indicator as SpinIndicator), {
+    return React.cloneElement(indicator as SpinIndicator, {
       className: classNames((indicator as SpinIndicator).props.className, dotClassName),
     });
   }
 
   if (React.isValidElement(defaultIndicator)) {
-    return React.cloneElement((defaultIndicator as SpinIndicator), {
+    return React.cloneElement(defaultIndicator as SpinIndicator, {
       className: classNames((defaultIndicator as SpinIndicator).props.className, dotClassName),
     });
   }
 
   return (
     <span className={classNames(dotClassName, `${prefixCls}-dot-spin`)}>
-        <i />
-        <i />
-        <i />
-        <i />
-      </span>
+      <i />
+      <i />
+      <i />
+      <i />
+    </span>
   );
 }
 
@@ -96,7 +96,7 @@ class Spin extends React.Component<SpinProps, SpinState> {
   componentDidMount() {
     const { spinning, delay } = this.props;
     if (shouldDelay(spinning, delay)) {
-      this.delayTimeout = window.setTimeout(() => this.setState({ spinning }), delay);
+      this.delayTimeout = window.setTimeout(this.delayUpdateSpinning, delay);
     }
   }
 
@@ -109,9 +109,12 @@ class Spin extends React.Component<SpinProps, SpinState> {
     }
   }
 
-  componentWillReceiveProps(nextProps: SpinProps) {
-    const currentSpinning = this.props.spinning;
-    const spinning = nextProps.spinning;
+  componentDidUpdate() {
+    const currentSpinning = this.state.spinning;
+    const spinning = this.props.spinning;
+    if (currentSpinning === spinning) {
+      return;
+    }
     const { delay } = this.props;
 
     if (this.debounceTimeout) {
@@ -123,37 +126,44 @@ class Spin extends React.Component<SpinProps, SpinState> {
         clearTimeout(this.delayTimeout);
       }
     } else {
-      if (spinning && delay && !isNaN(Number(delay))) {
+      if (shouldDelay(spinning, delay)) {
         if (this.delayTimeout) {
           clearTimeout(this.delayTimeout);
         }
-        this.delayTimeout = window.setTimeout(() => this.setState({ spinning }), delay);
+        this.delayTimeout = window.setTimeout(this.delayUpdateSpinning, delay);
       } else {
         this.setState({ spinning });
       }
     }
   }
 
+  delayUpdateSpinning = () => {
+    const { spinning } = this.props;
+    if (this.state.spinning !== spinning) {
+      this.setState({ spinning });
+    }
+  };
+
   render() {
     const { className, size, prefixCls, tip, wrapperClassName, ...restProps } = this.props;
     const { spinning } = this.state;
 
-    const spinClassName = classNames(prefixCls, {
-      [`${prefixCls}-sm`]: size === 'small',
-      [`${prefixCls}-lg`]: size === 'large',
-      [`${prefixCls}-spinning`]: spinning,
-      [`${prefixCls}-show-text`]: !!tip,
-    }, className);
+    const spinClassName = classNames(
+      prefixCls,
+      {
+        [`${prefixCls}-sm`]: size === 'small',
+        [`${prefixCls}-lg`]: size === 'large',
+        [`${prefixCls}-spinning`]: spinning,
+        [`${prefixCls}-show-text`]: !!tip,
+      },
+      className,
+    );
 
     // fix https://fb.me/react-unknown-prop
-    const divProps = omit(restProps, [
-      'spinning',
-      'delay',
-      'indicator',
-    ]);
+    const divProps = omit(restProps, ['spinning', 'delay', 'indicator']);
 
     const spinElement = (
-      <div {...divProps} className={spinClassName} >
+      <div {...divProps} className={spinClassName}>
         {renderIndicator(this.props)}
         {tip ? <div className={`${prefixCls}-text`}>{tip}</div> : null}
       </div>

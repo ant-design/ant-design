@@ -1,6 +1,6 @@
 ---
 category: 原则
-order: 6
+order: 7
 title: 简化交互
 ---
 
