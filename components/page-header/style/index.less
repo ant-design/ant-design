@@ -1,0 +1,28 @@
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
+
+@pageheader-prefix-cls: ~'@{ant-prefix}-pageheader';
+
+.@{pageheader-prefix-cls} {
+  .reset-component;
+  padding: 16px 32px;
+  background: @component-background;
+  .@{pageheader-prefix-cls}-back-icon {
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .ant-divider {
+    margin: 0 12px;
+    height: 14px;
+  }
+  .ant-breadcrumb {
+    margin-bottom: 12px;
+  }
+  .@{pageheader-prefix-cls}-title {
+    line-height: 24px;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.85);
+    font-weight: bold;
+  }
+}

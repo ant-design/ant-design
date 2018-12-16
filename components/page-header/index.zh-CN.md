@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Navigation
+type: 导航
 title: PageHeader
 subtitle: 页头
 
@@ -19,7 +19,6 @@ subtitle: 页头
 | content | 内容区 | ReactNode | - |
 | extraContent | 额外内容区，位于content的右侧 | ReactNode | - |
 | breadcrumb | 面包屑的配置 |  [breadcrumb](https://ant.design/components/breadcrumb-cn/)  | - |
-| tabBars | tab 页面导航列表 | array<{key: string, tab: ReactNode}> | -  |
+| tabBars | tabbar 配置列表 | array<{key: string, tab: ReactNode}> | -  |
 | tabsProps | tabs 的配置 | 同[Tab](https://ant.design/components/tabs-cn/#Tabs) | -  |
 | onBack | 返回按钮的点击事件 | ()=>void | - |
-
