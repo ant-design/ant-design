@@ -103,6 +103,7 @@ class Mention extends React.Component<MentionProps, MentionState> {
       this.props.onFocus(ev);
     }
   };
+
   onBlur = (ev: React.FocusEvent<HTMLElement>) => {
     this.setState({
       focus: false,
@@ -111,12 +112,15 @@ class Mention extends React.Component<MentionProps, MentionState> {
       this.props.onBlur(ev);
     }
   };
+
   focus = () => {
     this.mentionEle._editor.focusEditor();
   };
+
   mentionRef = (ele: any) => {
     this.mentionEle = ele;
   };
+
   render() {
     const { className = '', prefixCls, loading, placement } = this.props;
     const { suggestions, focus } = this.state;
@@ -124,7 +128,6 @@ class Mention extends React.Component<MentionProps, MentionState> {
       [`${prefixCls}-active`]: focus,
       [`${prefixCls}-placement-top`]: placement === 'top',
     });
-
     const notFoundContent = loading ? <Icon type="loading" /> : this.props.notFoundContent;
 
     return (
