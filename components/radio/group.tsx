@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
+import { polyfill } from 'react-lifecycles-compat';
 import Radio from './radio';
 import {
   RadioGroupProps,
@@ -22,7 +23,7 @@ function getCheckedValue(children: React.ReactNode) {
   return matched ? { value } : undefined;
 }
 
-export default class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
+class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
   static defaultProps = {
     disabled: false,
     prefixCls: 'ant-radio',
@@ -32,6 +33,22 @@ export default class RadioGroup extends React.Component<RadioGroupProps, RadioGr
   static childContextTypes = {
     radioGroup: PropTypes.any,
   };
+
+  static getDerivedStateFromProps(nextProps: RadioGroupProps) {
+    if ('value' in nextProps) {
+      return {
+        value: nextProps.value,
+      };
+    } else {
+      const checkedValue = getCheckedValue(nextProps.children);
+      if (checkedValue) {
+        return {
+          value: checkedValue.value,
+        };
+      }
+    }
+    return null;
+  }
 
   constructor(props: RadioGroupProps) {
     super(props);
@@ -58,21 +75,6 @@ export default class RadioGroup extends React.Component<RadioGroupProps, RadioGr
         name: this.props.name,
       },
     };
-  }
-
-  componentWillReceiveProps(nextProps: RadioGroupProps) {
-    if ('value' in nextProps) {
-      this.setState({
-        value: nextProps.value,
-      });
-    } else {
-      const checkedValue = getCheckedValue(nextProps.children);
-      if (checkedValue) {
-        this.setState({
-          value: checkedValue.value,
-        });
-      }
-    }
   }
 
   shouldComponentUpdate(nextProps: RadioGroupProps, nextState: RadioGroupState) {
@@ -157,3 +159,6 @@ export default class RadioGroup extends React.Component<RadioGroupProps, RadioGr
     );
   }
 }
+
+polyfill(RadioGroup);
+export default RadioGroup;
