@@ -49,12 +49,18 @@
 
   &:hover,
   &:focus {
-    .button-color(@primary-5; @background; @primary-5);
+    .button-color(
+      ~`colorPalette('@{btn-primary-bg}', 5) `; @background; ~`colorPalette('@{btn-primary-bg}', 5)
+        `
+    );
   }
 
   &:active,
   &.active {
-    .button-color(@primary-7; @background; @primary-7);
+    .button-color(
+      ~`colorPalette('@{btn-primary-bg}', 7) `; @background; ~`colorPalette('@{btn-primary-bg}', 7)
+        `
+    );
   }
 
   .button-disabled();
