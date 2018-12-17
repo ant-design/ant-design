@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Basic list.
+Breadcrumb Page Header
 
 ```jsx
 import { PageHeader } from 'antd';
@@ -31,5 +31,8 @@ const routes = [
   },
 ];
 
-ReactDOM.render(<PageHeader title="页面标题" breadcrumb={{ routes }} />, mountNode);
+ReactDOM.render(
+  <PageHeader title="页面标题" breadcrumb={{ routes }} subTitle="解释一下标题" />,
+  mountNode,
+);
 ```

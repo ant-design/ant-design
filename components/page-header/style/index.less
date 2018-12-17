@@ -19,10 +19,39 @@
   .ant-breadcrumb {
     margin-bottom: 12px;
   }
-  .@{pageheader-prefix-cls}-title {
-    line-height: 24px;
-    font-size: 16px;
-    color: rgba(0, 0, 0, 0.85);
-    font-weight: bold;
+  .@{pageheader-prefix-cls}-title-view {
+    display: inline-block;
+    .@{pageheader-prefix-cls}-title {
+      line-height: 24px;
+      font-size: 16px;
+      color: @heading-color;
+      font-weight: bold;
+      padding-right: 12px;
+    }
+    .@{pageheader-prefix-cls}-sub-title {
+      font-size: 14px;
+      color: @text-color-secondary;
+      line-height: 22px;
+      padding-right: 12px;
+    }
+    .@{pageheader-prefix-cls}-tags {
+      vertical-align: top;
+      display: inline-block;
+    }
+  }
+  .@{pageheader-prefix-cls}-content-view {
+    padding-top: 12px;
+    display: flex;
+    .@{pageheader-prefix-cls}-content {
+      width: 66.66%;
+      flex: 1;
+      float: left;
+    }
+    .@{pageheader-prefix-cls}-extra-content {
+      width: 33.33%;
+      min-width: 240px;
+      text-align: right;
+      float: right;
+    }
   }
 }
