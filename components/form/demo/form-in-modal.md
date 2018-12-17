@@ -20,7 +20,7 @@ import {
 
 const FormItem = Form.Item;
 
-const CollectionCreateForm = Form.create()(
+const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
   // eslint-disable-next-line
   class extends React.Component {
     render() {

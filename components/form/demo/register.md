@@ -263,7 +263,7 @@ class RegistrationForm extends React.Component {
   }
 }
 
-const WrappedRegistrationForm = Form.create()(RegistrationForm);
+const WrappedRegistrationForm = Form.create({ name: 'register' })(RegistrationForm);
 
 ReactDOM.render(<WrappedRegistrationForm />, mountNode);
 ````

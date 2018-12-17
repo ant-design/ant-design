@@ -122,7 +122,7 @@ class DynamicFieldSet extends React.Component {
   }
 }
 
-const WrappedDynamicFieldSet = Form.create()(DynamicFieldSet);
+const WrappedDynamicFieldSet = Form.create({ name: 'dynamic_form_item' })(DynamicFieldSet);
 ReactDOM.render(<WrappedDynamicFieldSet />, mountNode);
 ````
 

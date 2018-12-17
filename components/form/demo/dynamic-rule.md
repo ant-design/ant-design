@@ -93,7 +93,7 @@ class DynamicRule extends React.Component {
   }
 }
 
-const WrappedDynamicRule = Form.create()(DynamicRule);
+const WrappedDynamicRule = Form.create({ name: 'dynamic_rule' })(DynamicRule);
 ReactDOM.render(<WrappedDynamicRule />, mountNode);
 
 ````

@@ -23,6 +23,7 @@ import { Form, Input } from 'antd';
 const FormItem = Form.Item;
 
 const CustomizedForm = Form.create({
+  name: 'global_state',
   onFieldsChange(props, changedFields) {
     props.onChange(changedFields);
   },
