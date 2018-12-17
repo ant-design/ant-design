@@ -173,24 +173,22 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
         <span className={`${prefixCls}-picker-icon`}>{suffixIcon}</span>
       ))) || <Icon type="calendar" className={`${prefixCls}-picker-icon`} />;
 
-    const input = ({ value }: { value: moment.Moment | undefined }) => {
-      return (
-        <span style={{ display: 'inline-block' }}>
-          <input
-            ref={this.saveInput}
-            disabled={disabled}
-            readOnly
-            value={(value && value.format(format)) || ''}
-            placeholder={placeholder}
-            className={pickerInputClass}
-            onFocus={onFocus}
-            onBlur={onBlur}
-          />
-          {clearIcon}
-          {inputIcon}
-        </span>
-      );
-    };
+    const input = ({ value }: { value: moment.Moment | undefined }) => (
+      <span style={{ display: 'inline-block', width: '100%' }}>
+        <input
+          ref={this.saveInput}
+          disabled={disabled}
+          readOnly
+          value={(value && value.format(format)) || ''}
+          placeholder={placeholder}
+          className={pickerInputClass}
+          onFocus={onFocus}
+          onBlur={onBlur}
+        />
+        {clearIcon}
+        {inputIcon}
+      </span>
+    );
     return (
       <span className={classNames(className, pickerClass)} style={style} id={id}>
         <RcDatePicker
