@@ -5,5 +5,22 @@
 
 .@{empty-prefix-cls} {
   text-align: center;
-  font-size: @empty-size;
+  font-size: @empty-font-size;
+  line-height: @empty-line-height;
+
+  &-image {
+    margin-bottom: 8px;
+
+    img {
+      height: 100px;
+    }
+  }
+
+  &-description {
+    margin: 0;
+  }
+
+  &-footer {
+    margin-top: 16px;
+  }
 }

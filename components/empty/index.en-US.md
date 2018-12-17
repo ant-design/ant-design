@@ -24,11 +24,6 @@ When there is no data provided, display for friendly tips.
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| count | Number to show in badge | ReactNode |  |
-| dot | Whether to display a red dot instead of `count` | boolean | `false` |
-| offset | set offset of the badge dot, like`[x, y]` | `[number, number]` | - |
-| overflowCount | Max count to show | number | 99 |
-| showZero | Whether to show badge when `count` is zero | boolean | `false` |
-| status | Set Badge as a status dot | `success` \| `processing` \| `default` \| `error` \| `warning` | `''` |
-| text | If `status` is set, `text` sets the display text of the status `dot` | string | `''` |
-| title | Text to show when hovering over the badge | string | `count` |
+| description | Customize description | string \| ReactNode | - |
+| footer | Set footer content | ReactNode | - |
+| image | Display image or not. Customize image url when string provided | boolean \| string | false |

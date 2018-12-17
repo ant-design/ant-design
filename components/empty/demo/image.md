@@ -1,23 +1,23 @@
 ---
-order: 0
+order: 1
 title:
-  zh-CN: 基本
-  en-US: Basic
+  zh-CN: 带图片
+  en-US: With image
 ---
 
 ## zh-CN
 
-简单的展示。
+带图片的展示。
 
 ## en-US
 
-Simplest Usage.
+Empty with image.
 
 ```jsx
 import { Empty } from 'antd';
 
 ReactDOM.render(
-  <Empty />,
+  <Empty image />,
   mountNode
 );
 ```

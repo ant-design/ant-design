@@ -22,6 +22,9 @@ export default {
     selectInvert: 'Invert current page',
     sortTitle: 'Sort',
   },
+  Empty: {
+    description: 'No Data',
+  },
   Modal: {
     okText: 'OK',
     cancelText: 'Cancel',
