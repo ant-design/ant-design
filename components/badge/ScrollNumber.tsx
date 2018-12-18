@@ -164,7 +164,10 @@ export default class ScrollNumber extends Component<ScrollNumberProps, ScrollNum
     }
     if (displayComponent) {
       return React.cloneElement(displayComponent, {
-        className: `${prefixCls}-custom-component`,
+        className: classNames(
+          `${prefixCls}-custom-component`,
+          displayComponent.props && displayComponent.props.className,
+        ),
       });
     }
     return createElement(component as any, newProps, this.renderNumberElement());
