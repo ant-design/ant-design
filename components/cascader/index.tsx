@@ -4,6 +4,7 @@ import arrayTreeFilter from 'array-tree-filter';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import KeyCode from 'rc-util/lib/KeyCode';
+import { polyfill } from 'react-lifecycles-compat';
 import Input from '../input';
 import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -103,6 +104,7 @@ export interface CascaderState {
   value: string[];
   popupVisible: boolean | undefined;
   flattenOptions: CascaderOptionType[][] | undefined;
+  prevProps: CascaderProps;
 }
 
 interface CascaderLocale {
@@ -180,9 +182,29 @@ function getFilledFieldNames(props: CascaderProps) {
   return names;
 }
 
+function flattenTree(
+  options: CascaderOptionType[],
+  props: CascaderProps,
+  ancestor: CascaderOptionType[] = [],
+) {
+  const names: FilledFieldNamesType = getFilledFieldNames(props);
+  let flattenOptions = [] as CascaderOptionType[][];
+  const childrenName = names.children;
+  options.forEach(option => {
+    const path = ancestor.concat(option);
+    if (props.changeOnSelect || !option[childrenName] || !option[childrenName].length) {
+      flattenOptions.push(path);
+    }
+    if (option[childrenName]) {
+      flattenOptions = flattenOptions.concat(flattenTree(option[childrenName], props, path));
+    }
+  });
+  return flattenOptions;
+}
+
 const defaultDisplayRender = (label: string[]) => label.join(' / ');
 
-export default class Cascader extends React.Component<CascaderProps, CascaderState> {
+class Cascader extends React.Component<CascaderProps, CascaderState> {
   static defaultProps = {
     placeholder: 'Please select',
     transitionName: 'slide-up',
@@ -192,6 +214,24 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     allowClear: true,
     notFoundContent: 'Not Found',
   };
+
+  static getDerivedStateFromProps(nextProps: CascaderProps, { prevProps }: CascaderState) {
+    const newState: Partial<CascaderState> = {
+      prevProps: nextProps,
+    };
+
+    if ('value' in nextProps) {
+      newState.value = nextProps.value || [];
+    }
+    if ('popupVisible' in nextProps) {
+      newState.popupVisible = nextProps.popupVisible;
+    }
+    if (nextProps.showSearch && prevProps.options !== nextProps.options) {
+      newState.flattenOptions = flattenTree(nextProps.options, nextProps);
+    }
+
+    return newState;
+  }
 
   cachedOptions: CascaderOptionType[];
 
@@ -204,22 +244,9 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
       inputValue: '',
       inputFocused: false,
       popupVisible: props.popupVisible,
-      flattenOptions: props.showSearch ? this.flattenTree(props.options, props) : undefined,
+      flattenOptions: props.showSearch ? flattenTree(props.options, props) : undefined,
+      prevProps: props,
     };
-  }
-
-  componentWillReceiveProps(nextProps: CascaderProps) {
-    if ('value' in nextProps) {
-      this.setState({ value: nextProps.value || [] });
-    }
-    if ('popupVisible' in nextProps) {
-      this.setState({ popupVisible: nextProps.popupVisible });
-    }
-    if (nextProps.showSearch && this.props.options !== nextProps.options) {
-      this.setState({
-        flattenOptions: this.flattenTree(nextProps.options, nextProps),
-      });
-    }
   }
 
   handleChange = (value: any, selectedOptions: CascaderOptionType[]) => {
@@ -310,26 +337,6 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
       this.setState({ inputValue: '' });
     }
   };
-
-  flattenTree(
-    options: CascaderOptionType[],
-    props: CascaderProps,
-    ancestor: CascaderOptionType[] = [],
-  ) {
-    const names: FilledFieldNamesType = getFilledFieldNames(props);
-    let flattenOptions = [] as CascaderOptionType[][];
-    const childrenName = names.children;
-    options.forEach(option => {
-      const path = ancestor.concat(option);
-      if (props.changeOnSelect || !option[childrenName] || !option[childrenName].length) {
-        flattenOptions.push(path);
-      }
-      if (option[childrenName]) {
-        flattenOptions = flattenOptions.concat(this.flattenTree(option[childrenName], props, path));
-      }
-    });
-    return flattenOptions;
-  }
 
   generateFilteredOptions(prefixCls: string | undefined) {
     const { showSearch, notFoundContent } = this.props;
@@ -567,3 +574,7 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     );
   }
 }
+
+polyfill(Cascader);
+
+export default Cascader;

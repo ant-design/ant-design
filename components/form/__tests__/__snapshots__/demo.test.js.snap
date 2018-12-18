@@ -3126,6 +3126,163 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class=""
+        for="checkbox-group"
+        title="Checkbox.Group"
+      >
+        Checkbox.Group
+      </label>
+    </div>
+    <div
+      class="ant-col-14 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control has-success"
+      >
+        <span
+          class="ant-form-item-children"
+        >
+          <div
+            class="ant-checkbox-group"
+            data-__field="[object Object]"
+            data-__meta="[object Object]"
+            id="checkbox-group"
+            style="width:100%"
+          >
+            <div
+              class="ant-row"
+            >
+              <div
+                class="ant-col-8"
+              >
+                <label
+                  class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
+                >
+                  <span
+                    class="ant-checkbox ant-checkbox-checked"
+                  >
+                    <input
+                      checked=""
+                      class="ant-checkbox-input"
+                      type="checkbox"
+                      value="A"
+                    />
+                    <span
+                      class="ant-checkbox-inner"
+                    />
+                  </span>
+                  <span>
+                    A
+                  </span>
+                </label>
+              </div>
+              <div
+                class="ant-col-8"
+              >
+                <label
+                  class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled"
+                >
+                  <span
+                    class="ant-checkbox ant-checkbox-checked ant-checkbox-disabled"
+                  >
+                    <input
+                      checked=""
+                      class="ant-checkbox-input"
+                      disabled=""
+                      type="checkbox"
+                      value="B"
+                    />
+                    <span
+                      class="ant-checkbox-inner"
+                    />
+                  </span>
+                  <span>
+                    B
+                  </span>
+                </label>
+              </div>
+              <div
+                class="ant-col-8"
+              >
+                <label
+                  class="ant-checkbox-wrapper"
+                >
+                  <span
+                    class="ant-checkbox"
+                  >
+                    <input
+                      class="ant-checkbox-input"
+                      type="checkbox"
+                      value="C"
+                    />
+                    <span
+                      class="ant-checkbox-inner"
+                    />
+                  </span>
+                  <span>
+                    C
+                  </span>
+                </label>
+              </div>
+              <div
+                class="ant-col-8"
+              >
+                <label
+                  class="ant-checkbox-wrapper"
+                >
+                  <span
+                    class="ant-checkbox"
+                  >
+                    <input
+                      class="ant-checkbox-input"
+                      type="checkbox"
+                      value="D"
+                    />
+                    <span
+                      class="ant-checkbox-inner"
+                    />
+                  </span>
+                  <span>
+                    D
+                  </span>
+                </label>
+              </div>
+              <div
+                class="ant-col-8"
+              >
+                <label
+                  class="ant-checkbox-wrapper"
+                >
+                  <span
+                    class="ant-checkbox"
+                  >
+                    <input
+                      class="ant-checkbox-input"
+                      type="checkbox"
+                      value="E"
+                    />
+                    <span
+                      class="ant-checkbox-inner"
+                    />
+                  </span>
+                  <span>
+                    E
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col-6 ant-form-item-label"
+    >
+      <label
+        class=""
         for="rate"
         title="Rate"
       >

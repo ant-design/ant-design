@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Animate from 'rc-animate';
 import omit from 'omit.js';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
@@ -93,13 +92,6 @@ class Spin extends React.Component<SpinProps, SpinState> {
     return !!(this.props && this.props.children);
   }
 
-  componentDidMount() {
-    const { spinning, delay } = this.props;
-    if (shouldDelay(spinning, delay)) {
-      this.delayTimeout = window.setTimeout(this.delayUpdateSpinning, delay);
-    }
-  }
-
   componentWillUnmount() {
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
@@ -151,6 +143,7 @@ class Spin extends React.Component<SpinProps, SpinState> {
       size,
       tip,
       wrapperClassName,
+      style,
       ...restProps
     } = this.props;
     const { spinning } = this.state;
@@ -171,33 +164,22 @@ class Spin extends React.Component<SpinProps, SpinState> {
     const divProps = omit(restProps, ['spinning', 'delay', 'indicator']);
 
     const spinElement = (
-      <div {...divProps} className={spinClassName}>
+      <div {...divProps} style={style} className={spinClassName}>
         {renderIndicator(prefixCls, this.props)}
         {tip ? <div className={`${prefixCls}-text`}>{tip}</div> : null}
       </div>
     );
     if (this.isNestedPattern()) {
-      let animateClassName = prefixCls + '-nested-loading';
-      if (wrapperClassName) {
-        animateClassName += ' ' + wrapperClassName;
-      }
-      const containerClassName = classNames({
-        [`${prefixCls}-container`]: true,
+      const containerClassName = classNames(`${prefixCls}-container`, {
         [`${prefixCls}-blur`]: spinning,
       });
       return (
-        <Animate
-          {...divProps}
-          component="div"
-          className={animateClassName}
-          style={null}
-          transitionName="fade"
-        >
+        <div {...divProps} className={classNames(`${prefixCls}-nested-loading`, wrapperClassName)}>
           {spinning && <div key="loading">{spinElement}</div>}
           <div className={containerClassName} key="container">
             {this.props.children}
           </div>
-        </Animate>
+        </div>
       );
     }
     return spinElement;
