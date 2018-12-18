@@ -137,7 +137,7 @@ class Spin extends React.Component<SpinProps, SpinState> {
   };
 
   render() {
-    const { className, size, prefixCls, tip, wrapperClassName, ...restProps } = this.props;
+    const { className, size, prefixCls, tip, wrapperClassName, style, ...restProps } = this.props;
     const { spinning } = this.state;
 
     const spinClassName = classNames(
@@ -155,7 +155,7 @@ class Spin extends React.Component<SpinProps, SpinState> {
     const divProps = omit(restProps, ['spinning', 'delay', 'indicator']);
 
     const spinElement = (
-      <div {...divProps} className={spinClassName}>
+      <div {...divProps} style={style} className={spinClassName}>
         {renderIndicator(this.props)}
         {tip ? <div className={`${prefixCls}-text`}>{tip}</div> : null}
       </div>
