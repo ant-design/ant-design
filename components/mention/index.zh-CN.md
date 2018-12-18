@@ -34,6 +34,7 @@ title: Mention
 | --- | --- | --- | --- |
 | autoFocus | 自动获取焦点 | boolean | false |
 | defaultValue | 默认值 | ContentState, 可以用 `Mention.toContentState(text)` 把文字转换成 ContentState | null |
+| defaultSuggestions | 默认建议内容 | Array&lt;string\|Mention.Nav> | \[] |
 | disabled | 是否禁用状态. | boolean | false |
 | getSuggestionContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位 | function() | () => document.body |
 | loading | 加载中 | boolean | false |

@@ -33,6 +33,7 @@ When need to mention someone or something.
 | -------- | ----------- | ---- | ------- |
 | autoFocus | get focus when component mounted | boolean | false |
 | defaultValue | default value | ContentState, you can use `Mention.toContentState` to convert text to `ContentState` | null |
+| defaultSuggestions | default suggestion content | Array&lt;string\|Mention.Nav> | \[] |
 | disabled | Tell if the input is disabled. | boolean | false |
 | getSuggestionContainer | rendered to the root of the menu. Default rendered to the body dom. If gets any problem of the menu while scrolling. Try to make the root the dom scrolled, and make it position relative. | function | () => document.body |
 | loading | loading mode | boolean | false |
