@@ -96,4 +96,21 @@ describe('Mention', () => {
     expect(onSelect).toBeCalled();
     expect(wrapper.find('.public-DraftStyleDefault-block').text()).toBe('@afc163 ');
   });
+
+  it('defaultSuggestion filter', () => {
+    if (process.env.REACT === '15') {
+      return;
+    }
+
+    const wrapper = mount(<Mention defaultSuggestions={['light', 'bamboo']} />);
+
+    wrapper.find('DraftEditorContents').simulate('focus');
+    const ed = wrapper.find('.public-DraftEditor-content');
+    ed.simulate('beforeInput', { data: '@b' });
+    jest.runAllTimers();
+
+    const items = wrapper.find('div.ant-mention-dropdown-item');
+    expect(items.length).toBe(1);
+    expect(items.at(0).props().children).toBe('bamboo');
+  });
 });
