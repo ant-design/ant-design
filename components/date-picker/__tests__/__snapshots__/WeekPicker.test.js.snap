@@ -6,7 +6,7 @@ exports[`WeekPicker should support style prop 1`] = `
   style="width: 400px;"
 >
   <span
-    style="display: inline-block;"
+    style="display: inline-block; width: 100%;"
   >
     <input
       class="ant-calendar-picker-input ant-input"
