@@ -84,8 +84,7 @@ If the form has been decorated by `Form.create` then it has `this.props.form` pr
 | isFieldTouched | Check whether a field is touched by `getFieldDecorator`'s `options.trigger` event | (name: string) => boolean |
 | isFieldValidating | Check if the specified field is being validated. | Function(name) |
 | resetFields | Reset the specified fields' value(to `initialValue`) and status. If you don't specify a parameter, all the fields will be reset. | Function(\[names: string\[]]) |
-| setFields | Set the value and error of a field. [Code Sample](https://github.com/react-component/form/blob/3b9959b57ab30b41d8890ff30c79a7e7c383cad3/examples/server-validate.js#L74-L79) | Function({ [fieldName]&#x3A; { value: any, errors: [Error] } }) |
-| setFields | Set value and error state of fields | ({<br />&nbsp;&nbsp;\[fieldName\]: {value: any, errors: \[Error\] }<br />}) => void |
+| setFields | Set value and error state of fields. [Code Sample](https://github.com/react-component/form/blob/3b9959b57ab30b41d8890ff30c79a7e7c383cad3/examples/server-validate.js#L74-L79) | ({<br />&nbsp;&nbsp;\[fieldName\]: {value: any, errors: \[Error\] }<br />}) => void |
 | setFieldsValue | Set the value of a field. (Note: please don't use it in `componentWillReceiveProps`, otherwise, it will cause an endless loop, [reason](https://github.com/ant-design/ant-design/issues/2985)) | ({ \[fieldName\]&#x3A; value }) => void |
 | validateFields | Validate the specified fields and get theirs values and errors. If you don't specify the parameter of fieldNames, you will validate all fields. | (<br />&nbsp;&nbsp;\[fieldNames: string\[]],<br />&nbsp;&nbsp;\[options: object\],<br />&nbsp;&nbsp;callback(errors, values)<br />) => void |
 | validateFieldsAndScroll | This function is similar to `validateFields`, but after validation, if the target field is not in visible area of form, form will be automatically scrolled to the target field area. | same as `validateFields` |
