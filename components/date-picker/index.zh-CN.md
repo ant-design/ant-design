@@ -119,16 +119,16 @@ moment.locale('zh-cn');
 | --- | --- | --- | --- |
 | defaultValue | 默认日期 | [moment](http://momentjs.com/)\[] | 无 |
 | defaultPickerValue | 默认面板日期 | [moment](http://momentjs.com/)\[] | 无 |
-| disabledTime | 不可选择的时间 | function(dates: [moment, moment], partial: `'start'|'end'`) | 无 |
+| disabledTime | 不可选择的时间 | function(dates: \[moment, moment\], partial: `'start'|'end'`) | 无 |
 | format | 展示的日期格式 | string | "YYYY-MM-DD HH:mm:ss" |
 | ranges       | 预设时间范围快捷选择 | { \[range: string]: [moment](http://momentjs.com/)\[] } \| { \[range: string]: () => [moment](http://momentjs.com/)\[] } | 无 |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |
 | showTime | 增加时间选择功能 | Object\|boolean | [TimePicker Options](/components/time-picker/#API) |
 | showTime.defaultValue | 设置用户选择日期时默认的时分秒，[例子](#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/)\[] | [moment(), moment()] |
 | value | 日期 | [moment](http://momentjs.com/)\[] | 无 |
-| onCalendarChange | 待选日期发生变化的回调 | function(dates: [moment, moment], dateStrings: [string, string]) | 无 |
-| onChange | 日期范围发生变化的回调 | function(dates: [moment, moment], dateStrings: [string, string]) | 无 |
-| onOk | 点击确定按钮的回调 | function() | - |
+| onCalendarChange | 待选日期发生变化的回调 | function(dates: \[moment, moment\], dateStrings: \[string, string\]) | 无 |
+| onChange | 日期范围发生变化的回调 | function(dates: \[moment, moment\], dateStrings: \[string, string\]) | 无 |
+| onOk | 点击确定按钮的回调 | function(dates: [moment](http://momentjs.com/)\[]) | - |
 
 <style>
 .code-box-demo .ant-calendar-picker {
