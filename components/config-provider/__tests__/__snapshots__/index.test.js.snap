@@ -6582,7 +6582,7 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider 1`] = `
     class="config-calendar-picker"
   >
     <span
-      style="display:inline-block"
+      style="display:inline-block;width:100%"
     >
       <input
         class="config-calendar-picker-input config-input"
@@ -6618,7 +6618,7 @@ exports[`ConfigProvider components DatePicker WeekPicker normal 1`] = `
     class="ant-calendar-picker"
   >
     <span
-      style="display:inline-block"
+      style="display:inline-block;width:100%"
     >
       <input
         class="ant-calendar-picker-input ant-input"
@@ -6654,7 +6654,7 @@ exports[`ConfigProvider components DatePicker WeekPicker prefixCls 1`] = `
     class="prefix-WeekPicker-picker"
   >
     <span
-      style="display:inline-block"
+      style="display:inline-block;width:100%"
     >
       <input
         class="prefix-WeekPicker-picker-input ant-input"
