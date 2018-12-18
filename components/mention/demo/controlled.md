@@ -69,7 +69,7 @@ class App extends React.Component {
             initialValue: this.state.initValue,
           })(
             <Mention
-              suggestions={['afc163', 'benjycui', 'yiminghe', 'RaoHai', '中文', 'にほんご']}
+              defaultSuggestions={['afc163', 'benjycui', 'yiminghe', 'RaoHai', '中文', 'にほんご']}
             />
           )}
         </FormItem>
