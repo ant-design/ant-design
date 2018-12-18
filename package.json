@@ -49,7 +49,6 @@
     "css-animation": "^1.5.0",
     "dom-closest": "^0.2.0",
     "enquire.js": "^2.1.6",
-    "intersperse": "^1.0.0",
     "lodash": "^4.17.11",
     "moment": "^2.22.2",
     "omit.js": "^1.0.0",

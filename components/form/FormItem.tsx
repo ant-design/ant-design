@@ -2,7 +2,6 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
-import intersperse from 'intersperse';
 import Animate from 'rc-animate';
 import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
 import Row from '../grid/row';
@@ -25,6 +24,10 @@ export interface FormItemProps {
   required?: boolean;
   style?: React.CSSProperties;
   colon?: boolean;
+}
+
+function intersperseSpace<T>(list: Array<T>): Array<T | string> {
+  return list.reduce((current, item) => [...current, ' ', item], []).slice(1);
 }
 
 export interface FormItemContext {
@@ -72,13 +75,18 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     if (help === undefined && this.getOnlyControl()) {
       const errors = this.getField().errors;
       if (errors) {
-        return intersperse(
-          errors.map((e: any, index: number) =>
-            React.isValidElement(e.message)
-              ? React.cloneElement(e.message, { key: index })
-              : e.message,
-          ),
-          ' ',
+        return intersperseSpace(
+          errors.map((e: any, index: number) => {
+            let node: React.ReactElement<any> | null = null;
+
+            if (React.isValidElement(e)) {
+              node = e;
+            } else if (React.isValidElement(e.message)) {
+              node = e.message;
+            }
+
+            return node ? React.cloneElement(node, { key: index }) : e.message;
+          }),
         );
       }
       return '';
