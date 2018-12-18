@@ -32,6 +32,7 @@ Split View | [react-split-pane](https://github.com/tomkp/react-split-pane)
 Image Crop | [react-image-crop](https://github.com/DominicTobias/react-image-crop)
 Trend Lines | [react-sparklines](https://github.com/borisyankov/react-sparklines)
 Formatted Input | [text-mask](https://github.com/text-mask/text-mask)
+Keywords highlight | [react-highlight-words](https://github.com/bvaughn/react-highlight-words)
 Animation | [react-move](https://github.com/react-tools/react-move) [Ant Motion](https://motion.ant.design/components/tween-one)
 
 <style>

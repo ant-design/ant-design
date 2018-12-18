@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import moment from 'moment';
 import DatePicker from '..';
 
 const { RangePicker } = DatePicker;
@@ -38,6 +39,7 @@ describe('DatePicker with showTime', () => {
         onChange={onChangeFn}
         onOk={onOkFn}
         onOpenChange={onOpenChangeFn}
+        defaultValue={moment()}
       />,
     );
 

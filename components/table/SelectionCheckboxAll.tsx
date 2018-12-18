@@ -58,8 +58,13 @@ export default class SelectionCheckboxAll<T> extends React.Component<
     });
   }
 
-  checkSelection(data: T[], type: string, byDefaultChecked: boolean) {
-    const { store, getCheckboxPropsByItem, getRecordKey } = this.props;
+  checkSelection(
+    props: SelectionCheckboxAllProps<T>,
+    data: T[],
+    type: string,
+    byDefaultChecked: boolean,
+  ) {
+    const { store, getCheckboxPropsByItem, getRecordKey } = props || this.props;
     // type should be 'every' | 'some'
     if (type === 'every' || type === 'some') {
       return byDefaultChecked
@@ -93,8 +98,9 @@ export default class SelectionCheckboxAll<T> extends React.Component<
       checked = false;
     } else {
       checked = store.getState().selectionDirty
-        ? this.checkSelection(data, 'every', false)
-        : this.checkSelection(data, 'every', false) || this.checkSelection(data, 'every', true);
+        ? this.checkSelection(props, data, 'every', false)
+        : this.checkSelection(props, data, 'every', false) ||
+          this.checkSelection(props, data, 'every', true);
     }
     return checked;
   }
@@ -106,15 +112,17 @@ export default class SelectionCheckboxAll<T> extends React.Component<
       indeterminate = false;
     } else {
       indeterminate = store.getState().selectionDirty
-        ? this.checkSelection(data, 'some', false) && !this.checkSelection(data, 'every', false)
-        : (this.checkSelection(data, 'some', false) &&
-            !this.checkSelection(data, 'every', false)) ||
-          (this.checkSelection(data, 'some', true) && !this.checkSelection(data, 'every', true));
+        ? this.checkSelection(props, data, 'some', false) &&
+          !this.checkSelection(props, data, 'every', false)
+        : (this.checkSelection(props, data, 'some', false) &&
+            !this.checkSelection(props, data, 'every', false)) ||
+          (this.checkSelection(props, data, 'some', true) &&
+            !this.checkSelection(props, data, 'every', true));
     }
     return indeterminate;
   }
 
-  handleSelectAllChagne = (e: CheckboxChangeEvent) => {
+  handleSelectAllChange = (e: CheckboxChangeEvent) => {
     const checked = e.target.checked;
     this.props.onSelect(checked ? 'all' : 'removeAll', 0, null);
   };
@@ -171,7 +179,7 @@ export default class SelectionCheckboxAll<T> extends React.Component<
           checked={checked}
           indeterminate={indeterminate}
           disabled={disabled}
-          onChange={this.handleSelectAllChagne}
+          onChange={this.handleSelectAllChange}
         />
         {customSelections}
       </div>

@@ -43,6 +43,11 @@ export interface ColumnProps<T> {
   onHeaderCell?: (props: ColumnProps<T>) => any;
 }
 
+export interface AdditionalCellProps {
+  onClick?: React.MouseEventHandler<HTMLElement>;
+  [name: string]: any;
+}
+
 export interface TableComponents {
   table?: React.ReactType;
   header?: {

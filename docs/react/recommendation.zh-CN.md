@@ -32,6 +32,7 @@ Emoji | [emoji-mart](https://github.com/missive/emoji-mart)
 图片裁切 | [react-image-crop](https://github.com/DominicTobias/react-image-crop)
 趋势线 | [react-sparklines](https://github.com/borisyankov/react-sparklines)
 格式化输入 | [text-mask](https://github.com/text-mask/text-mask)
+关键字高亮 | [react-highlight-words](https://github.com/bvaughn/react-highlight-words)
 动画 | [react-move](https://github.com/react-tools/react-move) [Ant Motion](https://motion.ant.design/components/tween-one)
 
 <style>

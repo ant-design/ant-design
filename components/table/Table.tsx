@@ -26,6 +26,7 @@ import {
   TableComponents,
   RowSelectionType,
   TableLocale,
+  AdditionalCellProps,
   ColumnProps,
   CompareFn,
   TableStateFilters,
@@ -805,6 +806,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       const key = this.getColumnKey(column, i) as string;
       let filterDropdown;
       let sortButton;
+      let onHeaderCell = column.onHeaderCell;
       const sortTitle = this.getColumnTitle(column.title, {}) || locale.sortTitle;
       const isSortColumn = this.isSortColumn(column);
       if ((column.filters && column.filters.length > 0) || column.filterDropdown) {
@@ -839,7 +841,27 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
             />
           </div>
         );
+
+        onHeaderCell = (col: Column<T>) => {
+          let colProps: AdditionalCellProps = {};
+          // Get original first
+          if (column.onHeaderCell) {
+            colProps = {
+              ...column.onHeaderCell(col),
+            };
+          }
+          // Add sorter logic
+          const onHeaderCellClick = colProps.onClick;
+          colProps.onClick = (...args) => {
+            this.toggleSortOrder(column);
+            if (onHeaderCellClick) {
+              onHeaderCellClick(...args);
+            }
+          };
+          return colProps;
+        };
       }
+      const sortTitleString = sortButton && typeof sortTitle === 'string' ? sortTitle : undefined;
       return {
         ...column,
         className: classNames(column.className, {
@@ -851,15 +873,15 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         title: [
           <div
             key="title"
-            title={sortButton ? sortTitle : undefined}
+            title={sortTitleString}
             className={sortButton ? `${prefixCls}-column-sorters` : undefined}
-            onClick={() => this.toggleSortOrder(column)}
           >
             {this.renderColumnTitle(column.title)}
             {sortButton}
           </div>,
           filterDropdown,
         ],
+        onHeaderCell,
       };
     });
   }
