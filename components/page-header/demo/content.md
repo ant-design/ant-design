@@ -51,6 +51,7 @@ const content = (
       </a>
       <a>
         <img src="https://gw.alipayobjects.com/zos/rmsportal/ohOEPSYdDTNnyMbGuyLb.svg" alt="doc" />
+        产品文档
       </a>
     </p>
   </div>
