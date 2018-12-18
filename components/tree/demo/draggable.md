@@ -16,7 +16,7 @@ Drag treeNode to insert after the other treeNode or insert into the other parent
 ````jsx
 import { Tree } from 'antd';
 
-const TreeNode = Tree.TreeNode;
+const { TreeNode } = Tree;
 
 const x = 3;
 const y = 2;

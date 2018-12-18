@@ -2,6 +2,7 @@ import * as React from 'react';
 import RcDropdown from 'rc-dropdown';
 import classNames from 'classnames';
 import DropdownButton from './dropdown-button';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 import Icon from '../icon';
 
@@ -17,13 +18,16 @@ export interface DropDownProps {
   className?: string;
   transitionName?: string;
   placement?: 'topLeft' | 'topCenter' | 'topRight' | 'bottomLeft' | 'bottomCenter' | 'bottomRight';
+  overlayClassName?: string;
+  overlayStyle?: React.CSSProperties;
   forceRender?: boolean;
+  mouseEnterDelay?: number;
+  mouseLeaveDelay?: number;
 }
 
 export default class Dropdown extends React.Component<DropDownProps, any> {
   static Button: typeof DropdownButton;
   static defaultProps = {
-    prefixCls: 'ant-dropdown',
     mouseEnterDelay: 0.15,
     mouseLeaveDelay: 0.1,
     placement: 'bottomLeft',
@@ -51,9 +55,20 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
     }
   }
 
-  render() {
-    const { children, prefixCls, overlay: overlayElements, trigger, disabled } = this.props;
+  renderDropDown = ({
+    getPopupContainer: getContextPopupContainer,
+    getPrefixCls,
+  }: ConfigConsumerProps) => {
+    const {
+      prefixCls: customizePrefixCls,
+      children,
+      overlay: overlayElements,
+      trigger,
+      disabled,
+      getPopupContainer,
+    } = this.props;
 
+    const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
     const child = React.Children.only(children);
     const overlay = React.Children.only(overlayElements);
 
@@ -71,13 +86,15 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
       </span>
     );
 
-    const fixedModeOverlay = typeof overlay.type === 'string'
-      ? overlay : React.cloneElement(overlay, {
-        mode: 'vertical',
-        selectable,
-        focusable,
-        expandIcon,
-      });
+    const fixedModeOverlay =
+      typeof overlay.type === 'string'
+        ? overlay
+        : React.cloneElement(overlay, {
+            mode: 'vertical',
+            selectable,
+            focusable,
+            expandIcon,
+          });
 
     const triggerActions = disabled ? [] : trigger;
     let alignPoint;
@@ -89,6 +106,8 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
       <RcDropdown
         alignPoint={alignPoint}
         {...this.props}
+        prefixCls={prefixCls}
+        getPopupContainer={getPopupContainer || getContextPopupContainer}
         transitionName={this.getTransitionName()}
         trigger={triggerActions}
         overlay={fixedModeOverlay}
@@ -96,5 +115,9 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
         {dropdownTrigger}
       </RcDropdown>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderDropDown}</ConfigConsumer>;
   }
 }

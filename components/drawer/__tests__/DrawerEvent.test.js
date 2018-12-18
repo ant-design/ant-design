@@ -23,26 +23,20 @@ class DrawerEventTester extends React.Component {
     this.setState({
       visible: true,
     });
-  }
+  };
 
   render() {
     const { visible } = this.state;
     return (
       <div>
         <Button onClick={this.open}>open</Button>
-        <Drawer
-          visible={visible}
-          onClose={this.onClose}
-          getContainer={false}
-          {...this.props}
-        >
+        <Drawer visible={visible} onClose={this.onClose} getContainer={false} {...this.props}>
           Here is content of Drawer
         </Drawer>
       </div>
     );
   }
 }
-
 
 describe('Drawer', () => {
   it('render correctly', () => {

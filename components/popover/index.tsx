@@ -1,15 +1,15 @@
 import * as React from 'react';
 import Tooltip, { AbstractTooltipProps, TooltipPlacement, TooltipTrigger } from '../tooltip';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 
 export interface PopoverProps extends AbstractTooltipProps {
-   title?: React.ReactNode;
-   content?: React.ReactNode;
+  title?: React.ReactNode;
+  content?: React.ReactNode;
 }
 
 export default class Popover extends React.Component<PopoverProps, {}> {
   static defaultProps = {
-    prefixCls: 'ant-popover',
     placement: 'top' as TooltipPlacement,
     transitionName: 'zoom-big',
     trigger: 'hover' as TooltipTrigger,
@@ -24,36 +24,40 @@ export default class Popover extends React.Component<PopoverProps, {}> {
     return this.tooltip.getPopupDomNode();
   }
 
-  getOverlay() {
-    const { title, prefixCls, content } = this.props;
+  getOverlay(prefixCls: string) {
+    const { title, content } = this.props;
     warning(
       !('overlay' in this.props),
       'Popover[overlay] is removed, please use Popover[content] instead, ' +
-      'see: https://u.ant.design/popover-content',
+        'see: https://u.ant.design/popover-content',
     );
     return (
       <div>
         {title && <div className={`${prefixCls}-title`}>{title}</div>}
-        <div className={`${prefixCls}-inner-content`}>
-          {content}
-        </div>
+        <div className={`${prefixCls}-inner-content`}>{content}</div>
       </div>
     );
   }
 
   saveTooltip = (node: any) => {
     this.tooltip = node;
-  }
+  };
 
-  render() {
-    const props = { ...this.props };
+  renderPopover = ({ getPrefixCls }: ConfigConsumerProps) => {
+    const { prefixCls: customizePrefixCls, ...props } = this.props;
     delete props.title;
+    const prefixCls = getPrefixCls('popover', customizePrefixCls);
     return (
       <Tooltip
         {...props}
+        prefixCls={prefixCls}
         ref={this.saveTooltip}
-        overlay={this.getOverlay()}
+        overlay={this.getOverlay(prefixCls)}
       />
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderPopover}</ConfigConsumer>;
   }
 }

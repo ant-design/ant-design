@@ -15,6 +15,135 @@ timeline: true
 
 ---
 
+## 3.11.2
+
+`2018-12-10`
+
+- 🐞 Fixed Table `Cannot read property 'children' of undefined` error when customize `column.title` as ReactNode. [#13542](https://github.com/ant-design/ant-design/issues/13542) [@geraldchen890806](https://github.com/geraldchen890806)
+- 🐞 Fixed another border problem of Button when customized less variable `@border-width-base`. [#13534](https://github.com/ant-design/ant-design/issues/13534) [@morenyang](https://github.com/morenyang)
+- 🐞 Fixed Upload don't support resolve `Blob` object when `beforeUpload` returns a Promise. [#13528](https://github.com/ant-design/ant-design/pull/13528/) [@huanz](https://github.com/huanz)
+-   https://github.com/ant-design/ant-design/pull/13536
+- 🐞 Fixed two props of Dropdown TypeScript definitions. [#13536](https://github.com/ant-design/ant-design/pull/13536) [@wangxingkang](https://github.com/wangxingkang)
+
+## 3.11.1
+
+`2018-12-08`
+
+- 🐞 Fixed the issue where the Avatar icon could not be centered vertically. [#13408](https://github.com/ant-design/ant-design/issues/13408)
+- 🐞 Fixed the border problem of Button when customized less variable `@border-width-base`. [#13413](https://github.com/ant-design/ant-design/issues/13413) [@morenyang](https://github.com/morenyang)
+- 🐞 Fixed Commnet does not correctly display line breaks. [#13429](https://github.com/ant-design/ant-design/issues/13429)
+- 🐞 Fixed the issue that when the Alert is in `closable`, the icon will be covered by the text. [#13440](https://github.com/ant-design/ant-design/issues/13440)
+- Button
+  - 🐞 Fixed the issue that when the `href` property is `undefined`, the Button will also be rendered as a anchor. [#13337](https://github.com/ant-design/ant-design/issues/13337)
+  - 🐞 Fixed the issue that Edge throws an error when setting the `loading` property. [#13216](https://github.com/ant-design/ant-design/issues/13216)
+- Dropdown
+  - 🐞 Fixed the issue that causes the icon in the Button to display smaller. [#13442](https://github.com/ant-design/ant-design/issues/13442)
+  - 🐞 Fixed the gap between the drop-down menu and the trigger element causes the drop-down menu to close. [#10481](https://github.com/ant-design/ant-design/issues/10481)
+- Table
+  - 🐞 Fixed the use of filter causes an inconsistency between `selectedRowKeys` and `selectedRows` in `onChange`. [#11384](https://github.com/ant-design/ant-design/issues/11384)
+  - 💄 Optimize the display of the title when the mouse hovers over the sortable header. [#13312](https://github.com/ant-design/ant-design/issues/13312)
+- DatePicker
+  - 🐞 Fixed the issue where the component lost focus after selecting the date. [#12475](https://github.com/ant-design/ant-design/issues/12475)
+  - 🐞 Fixed the issue that cause Safari to unresponsive. [#13424](https://github.com/ant-design/ant-design/issues/13424)
+  - 🐞 Fixed the issue where WeekPicker's date selection box was not aligned with the input box.
+- 🐞 Fixed the blur method of the Slider. [#13439](https://github.com/ant-design/ant-design/issues/13439)
+- 🐞 Fixed Cascader's i18n issues. [#13486](https://github.com/ant-design/ant-design/issues/13486)
+- 🐞 Fix some TypeScript definitions. [#13390](https://github.com/ant-design/ant-design/pull/13390) [#13488](https://github.com/ant-design/ant-design/pull/13488) [#13420](https://github.com/ant-design/ant-design/issues/13420)
+
+## 3.11.0
+
+`2018-12-02`
+
+3.11.0 brings two new Components, a lot of exciting changes and new features.
+
+- 🔥 Added a new component [Comment](https://ant.design/components/comment/). [#12770](https://github.com/ant-design/ant-design/pull/12770) [@ilanus](https://github.com/ilanus)
+- 🔥 Added a new component [ConfigProvider](https://ant.design/components/config-provider/) for user to customize some global setting. [#12991](https://github.com/ant-design/ant-design/pull/12991)
+
+Component Fixes / Enhancements:
+
+- 🌟 Avatar Added `srcSet` prop that is a list of sources to use for different screen resolutions. [#12525](https://github.com/ant-design/ant-design/pull/12525) [@philipodev](https://github.com/philipodev)
+- 🌟 Upgrade `rc-notification` to `3.3.0`, Notification Added `onClick` prop that is called when the notification is clicked. [#11832](https://github.com/ant-design/ant-design/issues/11832)
+- Transfer
+  - 🌟 Added `onSearch` prop that is executed when search field are changed and deprecated `onSearchChange`. [#12422](https://github.com/ant-design/ant-design/pull/12422)
+  - 🌟 Added `disabled` prop that whether disable transfer. [#13330](https://github.com/ant-design/ant-design/issues/13330)
+- 🌟 Refactor Badge, support `count` as custom component. [#12140](https://github.com/ant-design/ant-design/pull/12140) [@supra28](https://github.com/supra28)
+- 🌟 Slider Added `tooltipVisible` prop that whether Tooltip will always show. [#12915](https://github.com/ant-design/ant-design/pull/12915) [@zy410419243](https://github.com/zy410419243)
+- 🌟 Support custom font-variant style through less variable `@font-variant-base`. [#12691](https://github.com/ant-design/ant-design/pull/12691) [@neemski](https://github.com/neemski)
+- Table upgrade `rc-table` to `6.4.0`
+  - 🌟 Added `expandIcon` prop that custom the default expand icon. [#236](https://github.com/react-component/table/pull/236) [@kagd](https://github.com/kagd)
+  - 💄 Support `data-*`、`aria-*` attributes. [#227](https://github.com/react-component/table/pull/227) [@kagd](https://github.com/kagd)
+  - 🌟 onCell added `index` prop. [#222](https://github.com/react-component/table/pull/222) [@yoyo837](https://github.com/yoyo837)
+- Select upgrade `rc-select` to `8.6.0`
+  - 🌟 Added `removeIcon`、`clearIcon`、`menuItemSelectedIcon` prop，allow setting `remove`、`clear`、`menuItemSelected` custom icons. [#12958](https://github.com/ant-design/ant-design/pull/12958) [@kimochg](https://github.com/kimochg)
+  - 🌟 Added `dropdownRender` prop that custom dropdown content. [#10831](https://github.com/ant-design/ant-design/issues/10831)
+  - 🌟 Added `loading` prop that indicate loading state. [#11225](https://github.com/ant-design/ant-design/issues/11225)
+- 💄 Added `title` prop that Menu.Item support tooltip title when collapsed. [#12952](https://github.com/ant-design/ant-design/pull/12952)
+- Cascader upgrade `rc-calendar` to `9.8.0`
+  - 🌟 Support multiple date format. [#437](https://github.com/react-component/calendar/pull/437) [@onlyann](https://github.com/onlyann)
+  - 🌟 showSearch added `limit` prop that support limit filtered item count. [#13206](https://github.com/ant-design/ant-design/pull/13206)
+- 🌟 Added Hungarian locale. [#13026](https://github.com/ant-design/ant-design/pull/13026) [@ilanus](https://github.com/ilanus)
+- 🐞 Fix TextArea use resize observer to check textarea size. [#13295](https://github.com/ant-design/ant-design/pull/13295)
+- 🐞 Fix Tabs renderTabBar style error when tabPosition is left or right. [#13118](https://github.com/ant-design/ant-design/pull/13118)
+- 🐞 Fix Upload thumbnail icon broken styles. [#13333](https://github.com/ant-design/ant-design/issues/13333)
+
+## 3.10.9
+
+`2018-11-24`
+
+- 🐞 Fix disabled Checkbox label cursor style. [#13199](https://github.com/ant-design/ant-design/issues/13199) [@walker27](https://github.com/walker27)
+- 🐞 Fix TimePicker input exceeds the boundary of container. [#13194](https://github.com/ant-design/ant-design/issues/13194)
+- 🌟 Adjust Table sort order from `desc -> asc` to `asc -> desc`. [#13069](https://github.com/ant-design/ant-design/pull/13069) [@OvestLabs](https://github.com/OvestLabs)
+- 🐞 Fix Switch can be operated when loading. [#13219](https://github.com/ant-design/ant-design/pull/13219) [@jojoLockLock](https://github.com/jojoLockLock)
+- 🐞 Fix Carousel can not be interactive in fade mode. [#13215](https://github.com/ant-design/ant-design/issues/13215)
+- 🐞 Fix DatePicker don't support `tabIndex` prop. [#13265](https://github.com/ant-design/ant-design/pull/13265) [@arifemrecelik](https://github.com/arifemrecelik)
+- 🐞 TreeSelect won't call `loadData` when searching to avoid lagging problem. [#13245](https://github.com/ant-design/ant-design/issues/13245)
+
+## 3.10.8
+
+`2018-11-17`
+
+- 🐞 Fix pop-up menu background transparency.[#13104](https://github.com/ant-design/ant-design/issues/13104)
+- 🐞 Fixed an issue where disabled Button does not full width in Popconfirm.[#13119](https://github.com/ant-design/ant-design/issues/13119)
+- 🐞 Fixed an issue where Radio.Button in Radio.Group overridden Badge.[#13132](https://github.com/ant-design/ant-design/issues/13132)
+- 🐞 Fixed a issue where RangePicker was not aligned in `small` mode.[#13105](https://github.com/ant-design/ant-design/issues/13105)
+- 🐞 Fix the problem that the Dropdown font size affects the avatar.[#13091](https://github.com/ant-design/ant-design/issues/13091)
+- 🐞 Fixed an issue where tabBarGutter could not work in vertical mode.[#12968](https://github.com/ant-design/ant-design/issues/12968)
+- 🌟 Adjusted the types of multiple typescript.
+
+## 3.10.7
+
+`2018-11-11`
+
+- 🐞 Fix a Button `line-height` typo. [74aeace](https://github.com/ant-design/ant-design/commit/74aeaceaa88034b8cb669efb8aa3b6de41ff6f9d)
+
+## 3.10.6
+
+`2018-11-11`
+
+- 🐞 Reverted [adee2f3](https://github.com/ant-design/ant-design/commit/adee2f33294b9223bda959e6ae27b4d7dadcec49) for fixing link button broken style, and changed another way to resolve [#12978](https://github.com/ant-design/ant-design/issues/12978).
+
+## 3.10.5
+
+`2018-11-09`
+
+- 🎉 [Ant Design Landing](https://landing.ant.design) released!
+- 📖 Published the new [sketch resource](https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Components.Beta.3.10.5.sketch) of Ant Design.
+- Button
+  - 🐞 Fix the style of vertical align in small `Button.Group`. [#12972](https://github.com/ant-design/ant-design/issues/12972)
+  - 🐞 Fix the style of vertical align with `href` prop. [#12978](https://github.com/ant-design/ant-design/issues/12978)
+- 🐞 Fix the incompatibility for `Cascader[filedNames]` after `3.7.0` version. [#12970](https://github.com/ant-design/ant-design/issues/12970)
+- 🐞 Fix that the show date in pop-up layer should be reset when date value is not modified successfully for `DatePicker`. [#12929](https://github.com/ant-design/ant-design/issues/12929)
+- 🐞 Fix the lose of type `cross` for Icon. [#12970](https://github.com/ant-design/ant-design/issues/12970)
+- 🐞 Fix the incorrect `mode` for collapsed Menu. [#2782](https://github.com/ant-design/ant-design-pro/issues/2782) [#2783](https://github.com/ant-design/ant-design-pro/issues/2783) [#2786](https://github.com/ant-design/ant-design-pro/issues/2786)
+- 🐞 Fix the unnecessary `reflow` to avoid weird wave animation for Popover and Tooltip. [#12942](https://github.com/ant-design/ant-design/issues/12942)
+- Table
+  - 🐞 Fix the style of overflow when nested in other components. [#13025](https://github.com/ant-design/ant-design/issues/13025)
+  - 🐞 Fix the style of overlap between the overlong head content and sort icon. [#12552](https://github.com/ant-design/ant-design/issues/12552) [#12650](https://github.com/ant-design/ant-design/issues/12650)
+- 🐞 Fix the disappearance when nested in Popover and Popconfirm for Tooltip whose children is `disabled`. [#13001](https://github.com/ant-design/ant-design/issues/13001)
+- 🐞 Fix the stuck problem when upload non-image file for Upload. [#12948](https://github.com/ant-design/ant-design/issues/12948)
+- 🐞 Fix that `DOM Object` doesn't support property or method `removeAttribute` in `IE` and `Edge`. [#2423](https://github.com/ant-design/ant-design-pro/issues/2423)
+- 🐞 Remove the unnecessary wave animation for hidden elements. [#12967](https://github.com/ant-design/ant-design/issues/12967)
+
 ## 3.10.4
 
 `2018-11-03`
@@ -26,7 +155,7 @@ timeline: true
 - 🐞 Fixed Divider expands Popover card width under Chrome. [#10914](https://github.com/ant-design/ant-design/issues/10914)
 - 🐞 Fixed Avatar content not aligned in Popover. [#10917](https://github.com/ant-design/ant-design/issues/#10917)
 - Button
-  - 🐞 Fixed unable to find node on unmounted components error. [#12843](https://github.com/ant-design/ant-design/issues/12843) 
+  - 🐞 Fixed unable to find node on unmounted components error. [#12843](https://github.com/ant-design/ant-design/issues/12843)
   - 🐞 Fixed icon margin style. [546c59a](https://github.com/ant-design/ant-design/commit/546c59a4c1a6b482afecbcb4a3cb1e385c0bbdb6)
 - Table
   - 🐞 Fixed sorter issue when render function is present in column. [#12870](https://github.com/ant-design/ant-design/issues/12870) [#12737](https://github.com/ant-design/ant-design/issues/12737)
@@ -982,11 +1111,14 @@ Learn more in the [Ant Design 3.0 announcement post](https://medium.com/ant-desi
 - New [Divider](https://ant.design/components/divider/) component.
 - 30 New [icons](https://ant.design/components/icon/).
 
+### ⚠️ Read it before migration
+
+- We suggest you upgrade to latest 3.x version directly.
+- Some APIs may be deprecated in other 3.x versions which don't described below, please pay attention to warning in browser console and upgrade them.
+- We strongly suggest upgrade react to 16 or newest for better support and performance, which could be conduct via [React 16 upgrading](https://reactjs.org/blog/2017/09/26/react-v16.0.html#upgrading).
+- Then you can migrate to antd@3 by following `Breaking Changes` section.
+
 ### Breaking Changes
-
-> We suggest you upgrade to latest 3.x version directly.
-
-> Some APIs may be deprecated in other 3.x versions which don't described below, please pay attention to warning in browser console and upgrade them.
 
 We provide a [migration tool](https://github.com/ant-design/antd-migration-helper) to help you find deprecated usages in your codebase.
 

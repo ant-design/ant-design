@@ -70,3 +70,9 @@ Input 的其他属性和 React 自带的 [input](https://facebook.github.io/reac
   <Input />
 </Input.Group>
 ```
+
+#### Input.Password
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| visibilityToggle | 是否显示切换按钮 | boolean | true |

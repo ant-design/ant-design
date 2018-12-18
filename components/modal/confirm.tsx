@@ -15,20 +15,32 @@ interface ConfirmDialogProps extends ModalFuncProps {
 const IS_REACT_16 = !!ReactDOM.createPortal;
 
 const ConfirmDialog = (props: ConfirmDialogProps) => {
-  const { onCancel, onOk, close, zIndex, afterClose, visible, keyboard, centered, getContainer, maskStyle, okButtonProps, cancelButtonProps } = props;
+  const {
+    onCancel,
+    onOk,
+    close,
+    zIndex,
+    afterClose,
+    visible,
+    keyboard,
+    centered,
+    getContainer,
+    maskStyle,
+    okButtonProps,
+    cancelButtonProps,
+  } = props;
   const iconType = props.iconType || 'question-circle';
   const okType = props.okType || 'primary';
   const prefixCls = props.prefixCls || 'ant-modal';
   const contentPrefixCls = `${prefixCls}-confirm`;
   // 默认为 true，保持向下兼容
-  const okCancel = ('okCancel' in props) ? props.okCancel! : true;
+  const okCancel = 'okCancel' in props ? props.okCancel! : true;
   const width = props.width || 416;
   const style = props.style || {};
   // 默认为 false，保持旧版默认行为
   const maskClosable = props.maskClosable === undefined ? false : props.maskClosable;
   const runtimeLocale = getConfirmLocale();
-  const okText = props.okText ||
-    (okCancel ? runtimeLocale.okText : runtimeLocale.justOkText);
+  const okText = props.okText || (okCancel ? runtimeLocale.okText : runtimeLocale.justOkText);
   const cancelText = props.cancelText || runtimeLocale.cancelText;
   const autoFocusButton = props.autoFocusButton === null ? false : props.autoFocusButton || 'ok';
 
@@ -39,7 +51,12 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
   );
 
   const cancelButton = okCancel && (
-    <ActionButton actionFn={onCancel} closeModal={close} autoFocus={autoFocusButton === 'cancel'} buttonProps={cancelButtonProps}>
+    <ActionButton
+      actionFn={onCancel}
+      closeModal={close}
+      autoFocus={autoFocusButton === 'cancel'}
+      buttonProps={cancelButtonProps}
+    >
       {cancelText}
     </ActionButton>
   );
@@ -73,7 +90,13 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
         </div>
         <div className={`${contentPrefixCls}-btns`}>
           {cancelButton}
-          <ActionButton type={okType} actionFn={onOk} closeModal={close} autoFocus={autoFocusButton === 'ok'} buttonProps={okButtonProps}>
+          <ActionButton
+            type={okType}
+            actionFn={onOk}
+            closeModal={close}
+            autoFocus={autoFocusButton === 'ok'}
+            buttonProps={okButtonProps}
+          >
             {okText}
           </ActionButton>
         </div>
@@ -88,7 +111,7 @@ export default function confirm(config: ModalFuncProps) {
   let currentConfig = { ...config, close, visible: true } as any;
 
   function close(...args: any[]) {
-    currentConfig =  {
+    currentConfig = {
       ...currentConfig,
       visible: false,
       afterClose: destroy.bind(this, ...args),
@@ -113,8 +136,7 @@ export default function confirm(config: ModalFuncProps) {
     if (unmountResult && div.parentNode) {
       div.parentNode.removeChild(div);
     }
-    const triggerCancel = args && args.length &&
-      args.some(param => param && param.triggerCancel);
+    const triggerCancel = args && args.length && args.some(param => param && param.triggerCancel);
     if (config.onCancel && triggerCancel) {
       config.onCancel(...args);
     }

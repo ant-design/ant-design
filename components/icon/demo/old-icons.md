@@ -312,5 +312,6 @@ ReactDOM.render(
   <div>
     {icons.map(icon => <Icon key={icon} type={icon} />)}
   </div>,
-  mountNode);
+  mountNode
+);
 ````

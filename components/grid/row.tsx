@@ -1,3 +1,5 @@
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
 let enquire: any;
@@ -6,10 +8,8 @@ if (typeof window !== 'undefined') {
     return {
       media: mediaQuery,
       matches: false,
-      addListener() {
-      },
-      removeListener() {
-      },
+      addListener() {},
+      removeListener() {},
     };
   };
   window.matchMedia = window.matchMedia || matchMediaPolyfill;
@@ -67,38 +67,39 @@ export default class Row extends React.Component<RowProps, RowState> {
   };
 
   componentDidMount() {
-    Object.keys(responsiveMap)
-      .map((screen: Breakpoint) => enquire.register(responsiveMap[screen], {
-          match: () => {
-            if (typeof this.props.gutter !== 'object') {
-              return;
-            }
-            this.setState((prevState) => ({
-              screens: {
-                ...prevState.screens,
-                [screen]: true,
-              },
-            }));
-          },
-          unmatch: () => {
-            if (typeof this.props.gutter !== 'object') {
-              return;
-            }
-            this.setState((prevState) => ({
-              screens: {
-                ...prevState.screens,
-                [screen]: false,
-              },
-            }));
-          },
-          // Keep a empty destory to avoid triggering unmatch when unregister
-          destroy() {},
+    Object.keys(responsiveMap).map((screen: Breakpoint) =>
+      enquire.register(responsiveMap[screen], {
+        match: () => {
+          if (typeof this.props.gutter !== 'object') {
+            return;
+          }
+          this.setState(prevState => ({
+            screens: {
+              ...prevState.screens,
+              [screen]: true,
+            },
+          }));
         },
-      ));
+        unmatch: () => {
+          if (typeof this.props.gutter !== 'object') {
+            return;
+          }
+          this.setState(prevState => ({
+            screens: {
+              ...prevState.screens,
+              [screen]: false,
+            },
+          }));
+        },
+        // Keep a empty destory to avoid triggering unmatch when unregister
+        destroy() {},
+      }),
+    );
   }
   componentWillUnmount() {
-    Object.keys(responsiveMap)
-      .map((screen: Breakpoint) => enquire.unregister(responsiveMap[screen]));
+    Object.keys(responsiveMap).map((screen: Breakpoint) =>
+      enquire.unregister(responsiveMap[screen]),
+    );
   }
   getGutter(): number | undefined {
     const { gutter } = this.props;
@@ -112,23 +113,36 @@ export default class Row extends React.Component<RowProps, RowState> {
     }
     return gutter as number;
   }
-  render() {
+  renderRow = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
-      type, justify, align, className, style, children,
-      prefixCls = 'ant-row', ...others
+      prefixCls: customizePrefixCls,
+      type,
+      justify,
+      align,
+      className,
+      style,
+      children,
+      ...others
     } = this.props;
+    const prefixCls = getPrefixCls('row', customizePrefixCls);
     const gutter = this.getGutter();
-    const classes = classNames({
-      [prefixCls]: !type,
-      [`${prefixCls}-${type}`]: type,
-      [`${prefixCls}-${type}-${justify}`]: type && justify,
-      [`${prefixCls}-${type}-${align}`]: type && align,
-    }, className);
-    const rowStyle = (gutter as number) > 0 ? {
-      marginLeft: (gutter as number) / -2,
-      marginRight: (gutter as number) / -2,
-      ...style,
-    } : style;
+    const classes = classNames(
+      {
+        [prefixCls]: !type,
+        [`${prefixCls}-${type}`]: type,
+        [`${prefixCls}-${type}-${justify}`]: type && justify,
+        [`${prefixCls}-${type}-${align}`]: type && align,
+      },
+      className,
+    );
+    const rowStyle =
+      (gutter as number) > 0
+        ? {
+            marginLeft: (gutter as number) / -2,
+            marginRight: (gutter as number) / -2,
+            ...style,
+          }
+        : style;
     const otherProps = { ...others };
     delete otherProps.gutter;
     return (
@@ -138,5 +152,9 @@ export default class Row extends React.Component<RowProps, RowState> {
         </div>
       </RowContext.Provider>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderRow}</ConfigConsumer>;
   }
 }

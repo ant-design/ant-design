@@ -1,8 +1,8 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@badge-prefix-cls: ~"@{ant-prefix}-badge";
-@number-prefix-cls: ~"@{ant-prefix}-scroll-number";
+@badge-prefix-cls: ~'@{ant-prefix}-badge';
+@number-prefix-cls: ~'@{ant-prefix}-scroll-number';
 
 .@{badge-prefix-cls} {
   .reset-component;
@@ -17,17 +17,18 @@
     border-radius: @badge-height / 2;
     min-width: @badge-height;
     background: @highlight-color;
-    color: #fff;
+    color: @badge-text-color;
     line-height: @badge-height;
     text-align: center;
     padding: 0 6px;
     font-size: @badge-font-size;
     font-weight: @badge-font-weight;
     white-space: nowrap;
-    box-shadow: 0 0 0 1px #fff;
+    box-shadow: 0 0 0 1px @shadow-color-inverse;
+    z-index: 10;
     a,
     a:hover {
-      color: #fff;
+      color: @badge-text-color;
     }
   }
 
@@ -42,7 +43,7 @@
     border-radius: 100%;
     background: @highlight-color;
     z-index: 10;
-    box-shadow: 0 0 0 1px #fff;
+    box-shadow: 0 0 0 1px @shadow-color-inverse;
   }
 
   &-count,
@@ -107,12 +108,12 @@
 
   &-zoom-appear,
   &-zoom-enter {
-    animation: antZoomBadgeIn .3s @ease-out-back;
+    animation: antZoomBadgeIn 0.3s @ease-out-back;
     animation-fill-mode: both;
   }
 
   &-zoom-leave {
-    animation: antZoomBadgeOut .3s @ease-in-back;
+    animation: antZoomBadgeOut 0.3s @ease-in-back;
     animation-fill-mode: both;
   }
 
@@ -146,7 +147,7 @@
   overflow: hidden;
   &-only {
     display: inline-block;
-    transition: all .3s @ease-in-out;
+    transition: all 0.3s @ease-in-out;
     height: @badge-height;
     > p {
       height: @badge-height;

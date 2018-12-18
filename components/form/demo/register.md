@@ -14,7 +14,9 @@ title:
 Fill in this form to create a new account for you.
 
 ````jsx
-import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete } from 'antd';
+import {
+  Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete,
+} from 'antd';
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -261,7 +263,7 @@ class RegistrationForm extends React.Component {
   }
 }
 
-const WrappedRegistrationForm = Form.create()(RegistrationForm);
+const WrappedRegistrationForm = Form.create({ name: 'register' })(RegistrationForm);
 
 ReactDOM.render(<WrappedRegistrationForm />, mountNode);
 ````

@@ -7,13 +7,17 @@ import { PaginationConfig } from '../pagination';
 export { PaginationConfig } from '../pagination';
 
 export type CompareFn<T> = ((a: T, b: T, sortOrder?: SortOrder) => number);
-export type ColumnFilterItem = { text: string; value: string, children?: ColumnFilterItem[] };
+export type ColumnFilterItem = { text: string; value: string; children?: ColumnFilterItem[] };
 
 export interface ColumnProps<T> {
-  title?: React.ReactNode | ((options: {
-    filters: TableStateFilters,
-    sortOrder?: SortOrder,
-  }) => React.ReactNode);
+  title?:
+    | React.ReactNode
+    | ((
+        options: {
+          filters: TableStateFilters;
+          sortOrder?: SortOrder;
+        },
+      ) => React.ReactNode);
   key?: React.Key;
   dataIndex?: string;
   render?: (text: any, record: T, index: number) => React.ReactNode;
@@ -37,6 +41,11 @@ export interface ColumnProps<T> {
   onCellClick?: (record: T, event: any) => void;
   onCell?: (record: T, rowIndex: number) => any;
   onHeaderCell?: (props: ColumnProps<T>) => any;
+}
+
+export interface AdditionalCellProps {
+  onClick?: React.MouseEventHandler<HTMLElement>;
+  [name: string]: any;
 }
 
 export interface TableComponents {
@@ -64,7 +73,12 @@ export interface TableLocale {
 }
 
 export type RowSelectionType = 'checkbox' | 'radio';
-export type SelectionSelectFn<T> = (record: T, selected: boolean, selectedRows: Object[], nativeEvent: Event) => any;
+export type SelectionSelectFn<T> = (
+  record: T,
+  selected: boolean,
+  selectedRows: Object[],
+  nativeEvent: Event,
+) => any;
 
 export type TableSelectWay = 'onSelect' | 'onSelectMultiple' | 'onSelectAll' | 'onSelectInvert';
 
@@ -111,7 +125,12 @@ export interface TableProps<T> {
   columns?: ColumnProps<T>[];
   rowKey?: string | ((record: T, index: number) => string);
   rowClassName?: (record: T, index: number) => string;
-  expandedRowRender?: (record: T, index: number, indent: number, expanded: boolean) => React.ReactNode;
+  expandedRowRender?: (
+    record: T,
+    index: number,
+    indent: number,
+    expanded: boolean,
+  ) => React.ReactNode;
   defaultExpandAllRows?: boolean;
   defaultExpandedRowKeys?: string[] | number[];
   expandedRowKeys?: string[] | number[];
@@ -137,7 +156,7 @@ export interface TableProps<T> {
   showHeader?: boolean;
   footer?: (currentPageData: Object[]) => React.ReactNode;
   title?: (currentPageData: Object[]) => React.ReactNode;
-  scroll?: { x?: boolean | number | string, y?: boolean | number | string };
+  scroll?: { x?: boolean | number | string; y?: boolean | number | string };
   childrenColumnName?: string;
   bodyStyle?: React.CSSProperties;
   className?: string;
@@ -227,6 +246,6 @@ export type PrepareParamsArgumentsReturn<T> = [
   string[],
   Object,
   {
-    currentDataSource: T[],
+    currentDataSource: T[];
   }
 ];

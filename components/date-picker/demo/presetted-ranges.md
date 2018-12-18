@@ -27,12 +27,12 @@ function onChange(dates, dateStrings) {
 ReactDOM.render(
   <div>
     <RangePicker
-      ranges={{ Today: [moment(), moment()], 'This Month': [moment(), moment().endOf('month')] }}
+      ranges={{ Today: [moment(), moment()], 'This Month': [moment().startOf('month'), moment().endOf('month')] }}
       onChange={onChange}
     />
     <br />
     <RangePicker
-      ranges={{ Today: [moment(), moment()], 'This Month': [moment(), moment().endOf('month')] }}
+      ranges={{ Today: [moment(), moment()], 'This Month': [moment().startOf('month'), moment().endOf('month')] }}
       showTime
       format="YYYY/MM/DD HH:mm:ss"
       onChange={onChange}

@@ -14,7 +14,9 @@ title:
 Normal login form which can contain more elements.
 
 ````jsx
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import {
+  Form, Icon, Input, Button, Checkbox,
+} from 'antd';
 
 const FormItem = Form.Item;
 
@@ -64,7 +66,7 @@ class NormalLoginForm extends React.Component {
   }
 }
 
-const WrappedNormalLoginForm = Form.create()(NormalLoginForm);
+const WrappedNormalLoginForm = Form.create({ name: 'normal_login' })(NormalLoginForm);
 
 ReactDOM.render(<WrappedNormalLoginForm />, mountNode);
 ````

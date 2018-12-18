@@ -62,5 +62,6 @@ ReactDOM.render(
       />
     )}
   />,
-  mountNode);
+  mountNode,
+);
 ````

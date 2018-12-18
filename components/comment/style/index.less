@@ -1,7 +1,7 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@comment-prefix-cls: ~"@{ant-prefix}-comment";
+@comment-prefix-cls: ~'@{ant-prefix}-comment';
 
 .@{comment-prefix-cls} {
   position: relative;
@@ -44,7 +44,7 @@
       }
 
       &-name {
-        transition: color .3s;
+        transition: color 0.3s;
         font-size: 14px;
         color: @comment-author-name-color;
         > * {
@@ -61,6 +61,10 @@
         white-space: nowrap;
       }
     }
+
+    &-detail p {
+      white-space: pre-wrap;
+    }
   }
 
   &-actions {
@@ -71,7 +75,7 @@
       color: @comment-action-color;
       > span {
         padding-right: 10px;
-        transition: color .3s;
+        transition: color 0.3s;
         font-size: 12px;
         color: @comment-action-color;
         cursor: pointer;

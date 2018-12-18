@@ -24,5 +24,6 @@ ReactDOM.render(
       type="info"
     />
   </Spin>,
-  mountNode);
+  mountNode
+);
 ````

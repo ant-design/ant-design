@@ -14,7 +14,9 @@ title:
 The `value` of time-related components is a `moment` object, which we need to pre-process it before we submit to server.
 
 ````jsx
-import { Form, DatePicker, TimePicker, Button } from 'antd';
+import {
+  Form, DatePicker, TimePicker, Button,
+} from 'antd';
 
 const FormItem = Form.Item;
 const { MonthPicker, RangePicker } = DatePicker;
@@ -128,7 +130,7 @@ class TimeRelatedForm extends React.Component {
   }
 }
 
-const WrappedTimeRelatedForm = Form.create()(TimeRelatedForm);
+const WrappedTimeRelatedForm = Form.create({ name: 'time_related_controls' })(TimeRelatedForm);
 
 ReactDOM.render(<WrappedTimeRelatedForm />, mountNode);
 ````

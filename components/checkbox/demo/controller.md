@@ -22,6 +22,21 @@ class App extends React.Component {
     disabled: false,
   };
 
+  toggleChecked = () => {
+    this.setState({ checked: !this.state.checked });
+  }
+
+  toggleDisable = () => {
+    this.setState({ disabled: !this.state.disabled });
+  }
+
+  onChange = (e) => {
+    console.log('checked = ', e.target.checked);
+    this.setState({
+      checked: e.target.checked,
+    });
+  }
+
   render() {
     const label = `${this.state.checked ? 'Checked' : 'Unchecked'}-${this.state.disabled ? 'Disabled' : 'Enabled'}`;
     return (
@@ -54,21 +69,6 @@ class App extends React.Component {
         </p>
       </div>
     );
-  }
-
-  toggleChecked = () => {
-    this.setState({ checked: !this.state.checked });
-  }
-
-  toggleDisable = () => {
-    this.setState({ disabled: !this.state.disabled });
-  }
-
-  onChange = (e) => {
-    console.log('checked = ', e.target.checked);
-    this.setState({
-      checked: e.target.checked,
-    });
   }
 }
 

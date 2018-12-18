@@ -27,9 +27,7 @@ function onSelect(suggestion) {
 }
 
 class PopoverContainer extends React.Component {
-  getSuggestionContainer = () => {
-    return this.popover.getPopupDomNode();
-  }
+  getSuggestionContainer = () => this.popover.getPopupDomNode()
 
   visibleChange = (visible) => {
     if (visible && this.mention) {

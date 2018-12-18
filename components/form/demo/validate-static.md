@@ -22,7 +22,9 @@ We provide properties like `validateStatus` `help` `hasFeedback` to customize yo
 3. `help`: display validate message.
 
 ````jsx
-import { Form, Input, DatePicker, Col, TimePicker, Select, Cascader, InputNumber } from 'antd';
+import {
+  Form, Input, DatePicker, Col, TimePicker, Select, Cascader, InputNumber,
+} from 'antd';
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -82,7 +84,7 @@ ReactDOM.render(
       hasFeedback
       validateStatus="warning"
     >
-      <Input placeholder="Warning" id="warning" />
+      <Input placeholder="Warning" id="warning2" />
     </FormItem>
 
     <FormItem
@@ -92,7 +94,7 @@ ReactDOM.render(
       validateStatus="error"
       help="Should be combination of numbers & alphabets"
     >
-      <Input placeholder="unavailable choice" id="error" />
+      <Input placeholder="unavailable choice" id="error2" />
     </FormItem>
 
     <FormItem
@@ -166,5 +168,6 @@ ReactDOM.render(
       <InputNumber style={{ width: '100%' }} />
     </FormItem>
   </Form>,
-  mountNode);
+  mountNode
+);
 ````

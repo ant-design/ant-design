@@ -16,7 +16,8 @@ Demostration for validataion configuration for form controls which are not show 
 ````jsx
 import {
   Form, Select, InputNumber, Switch, Radio,
-  Slider, Button, Upload, Icon, Rate,
+  Slider, Button, Upload, Icon, Rate, Checkbox,
+  Row, Col,
 } from 'antd';
 
 const FormItem = Form.Item;
@@ -114,7 +115,10 @@ class Demo extends React.Component {
           label="Slider"
         >
           {getFieldDecorator('slider')(
-            <Slider marks={{ 0: 'A', 20: 'B', 40: 'C', 60: 'D', 80: 'E', 100: 'F' }} />
+            <Slider marks={{
+              0: 'A', 20: 'B', 40: 'C', 60: 'D', 80: 'E', 100: 'F',
+            }}
+            />
           )}
         </FormItem>
 
@@ -143,6 +147,25 @@ class Demo extends React.Component {
             </RadioGroup>
           )}
         </FormItem>
+
+        <Form.Item
+          {...formItemLayout}
+          label="Checkbox.Group"
+        >
+          {getFieldDecorator("checkbox-group", {
+            initialValue: ["A", "B"],
+          })(
+            <Checkbox.Group style={{ width: "100%" }}>
+              <Row>
+                <Col span={8}><Checkbox value="A">A</Checkbox></Col>
+                <Col span={8}><Checkbox disabled value="B">B</Checkbox></Col>
+                <Col span={8}><Checkbox value="C">C</Checkbox></Col>
+                <Col span={8}><Checkbox value="D">D</Checkbox></Col>
+                <Col span={8}><Checkbox value="E">E</Checkbox></Col>
+              </Row>
+            </Checkbox.Group>
+          )}
+        </Form.Item>
 
         <FormItem
           {...formItemLayout}
@@ -202,7 +225,7 @@ class Demo extends React.Component {
   }
 }
 
-const WrappedDemo = Form.create()(Demo);
+const WrappedDemo = Form.create({ name: 'validate_other' })(Demo);
 
 ReactDOM.render(<WrappedDemo />, mountNode);
 ````

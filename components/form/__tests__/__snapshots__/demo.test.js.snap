@@ -21,7 +21,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
           >
             <label
               class="ant-form-item-required"
-              for="field-0"
+              for="advanced_search_field-0"
               title="Field 0"
             >
               Field 0
@@ -40,7 +40,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                   class="ant-input"
                   data-__field="[object Object]"
                   data-__meta="[object Object]"
-                  id="field-0"
+                  id="advanced_search_field-0"
                   placeholder="placeholder"
                   type="text"
                   value=""
@@ -62,7 +62,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
           >
             <label
               class="ant-form-item-required"
-              for="field-1"
+              for="advanced_search_field-1"
               title="Field 1"
             >
               Field 1
@@ -81,7 +81,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                   class="ant-input"
                   data-__field="[object Object]"
                   data-__meta="[object Object]"
-                  id="field-1"
+                  id="advanced_search_field-1"
                   placeholder="placeholder"
                   type="text"
                   value=""
@@ -103,7 +103,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
           >
             <label
               class="ant-form-item-required"
-              for="field-2"
+              for="advanced_search_field-2"
               title="Field 2"
             >
               Field 2
@@ -122,7 +122,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                   class="ant-input"
                   data-__field="[object Object]"
                   data-__meta="[object Object]"
-                  id="field-2"
+                  id="advanced_search_field-2"
                   placeholder="placeholder"
                   type="text"
                   value=""
@@ -144,7 +144,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
           >
             <label
               class="ant-form-item-required"
-              for="field-3"
+              for="advanced_search_field-3"
               title="Field 3"
             >
               Field 3
@@ -163,7 +163,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                   class="ant-input"
                   data-__field="[object Object]"
                   data-__meta="[object Object]"
-                  id="field-3"
+                  id="advanced_search_field-3"
                   placeholder="placeholder"
                   type="text"
                   value=""
@@ -185,7 +185,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
           >
             <label
               class="ant-form-item-required"
-              for="field-4"
+              for="advanced_search_field-4"
               title="Field 4"
             >
               Field 4
@@ -204,7 +204,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                   class="ant-input"
                   data-__field="[object Object]"
                   data-__meta="[object Object]"
-                  id="field-4"
+                  id="advanced_search_field-4"
                   placeholder="placeholder"
                   type="text"
                   value=""
@@ -226,7 +226,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
           >
             <label
               class="ant-form-item-required"
-              for="field-5"
+              for="advanced_search_field-5"
               title="Field 5"
             >
               Field 5
@@ -245,7 +245,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                   class="ant-input"
                   data-__field="[object Object]"
                   data-__meta="[object Object]"
-                  id="field-5"
+                  id="advanced_search_field-5"
                   placeholder="placeholder"
                   type="text"
                   value=""
@@ -267,7 +267,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
           >
             <label
               class="ant-form-item-required"
-              for="field-6"
+              for="advanced_search_field-6"
               title="Field 6"
             >
               Field 6
@@ -286,7 +286,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                   class="ant-input"
                   data-__field="[object Object]"
                   data-__meta="[object Object]"
-                  id="field-6"
+                  id="advanced_search_field-6"
                   placeholder="placeholder"
                   type="text"
                   value=""
@@ -308,7 +308,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
           >
             <label
               class="ant-form-item-required"
-              for="field-7"
+              for="advanced_search_field-7"
               title="Field 7"
             >
               Field 7
@@ -327,7 +327,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                   class="ant-input"
                   data-__field="[object Object]"
                   data-__meta="[object Object]"
-                  id="field-7"
+                  id="advanced_search_field-7"
                   placeholder="placeholder"
                   type="text"
                   value=""
@@ -349,7 +349,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
           >
             <label
               class="ant-form-item-required"
-              for="field-8"
+              for="advanced_search_field-8"
               title="Field 8"
             >
               Field 8
@@ -368,7 +368,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                   class="ant-input"
                   data-__field="[object Object]"
                   data-__meta="[object Object]"
-                  id="field-8"
+                  id="advanced_search_field-8"
                   placeholder="placeholder"
                   type="text"
                   value=""
@@ -390,7 +390,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
           >
             <label
               class="ant-form-item-required"
-              for="field-9"
+              for="advanced_search_field-9"
               title="Field 9"
             >
               Field 9
@@ -409,7 +409,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                   class="ant-input"
                   data-__field="[object Object]"
                   data-__meta="[object Object]"
-                  id="field-9"
+                  id="advanced_search_field-9"
                   placeholder="placeholder"
                   type="text"
                   value=""
@@ -489,7 +489,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
-        for="note"
+        for="coordinated_note"
         title="Note"
       >
         Note
@@ -508,7 +508,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
             class="ant-input"
             data-__field="[object Object]"
             data-__meta="[object Object]"
-            id="note"
+            id="coordinated_note"
             type="text"
             value=""
           />
@@ -524,7 +524,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
-        for="gender"
+        for="coordinated_gender"
         title="Gender"
       >
         Gender
@@ -541,10 +541,11 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
         >
           <div
             class="ant-select ant-select-enabled"
-            id="gender"
+            id="coordinated_gender"
           >
             <div
               aria-autocomplete="list"
+              aria-controls="test-uuid"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection
@@ -633,7 +634,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
     >
       <label
         class=""
-        for="price"
+        for="customized_form_controls_price"
         title="Price"
       >
         Price
@@ -661,6 +662,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
             >
               <div
                 aria-autocomplete="list"
+                aria-controls="test-uuid"
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-select-selection
@@ -819,7 +821,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
-        for="username"
+        for="dynamic_rule_username"
         title="Name"
       >
         Name
@@ -838,7 +840,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
             class="ant-input"
             data-__field="[object Object]"
             data-__meta="[object Object]"
-            id="username"
+            id="dynamic_rule_username"
             placeholder="Please input your name"
             type="text"
             value=""
@@ -855,7 +857,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
     >
       <label
         class=""
-        for="nickname"
+        for="dynamic_rule_nickname"
         title="Nickname"
       >
         Nickname
@@ -874,7 +876,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
             class="ant-input"
             data-__field="[object Object]"
             data-__meta="[object Object]"
-            id="nickname"
+            id="dynamic_rule_nickname"
             placeholder="Please input your nickname"
             type="text"
             value=""
@@ -970,7 +972,7 @@ exports[`renders ./components/form/demo/global-state.md correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
-          for="username"
+          for="global_state_username"
           title="Username"
         >
           Username
@@ -989,7 +991,7 @@ exports[`renders ./components/form/demo/global-state.md correctly 1`] = `
               class="ant-input"
               data-__field="[object Object]"
               data-__meta="[object Object]"
-              id="username"
+              id="global_state_username"
               type="text"
               value="benjycui"
             />
@@ -1055,7 +1057,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
               class="ant-input"
               data-__field="[object Object]"
               data-__meta="[object Object]"
-              id="userName"
+              id="horizontal_login_userName"
               placeholder="Username"
               type="text"
               value=""
@@ -1106,7 +1108,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
               class="ant-input"
               data-__field="[object Object]"
               data-__meta="[object Object]"
-              id="password"
+              id="horizontal_login_password"
               placeholder="Password"
               type="password"
               value=""
@@ -1371,7 +1373,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
               class="ant-input"
               data-__field="[object Object]"
               data-__meta="[object Object]"
-              id="userName"
+              id="normal_login_userName"
               placeholder="Username"
               type="text"
               value=""
@@ -1422,7 +1424,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
               class="ant-input"
               data-__field="[object Object]"
               data-__meta="[object Object]"
-              id="password"
+              id="normal_login_password"
               placeholder="Password"
               type="password"
               value=""
@@ -1445,7 +1447,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
           class="ant-form-item-children"
         >
           <label
-            class="ant-checkbox-wrapper"
+            class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
           >
             <span
               class="ant-checkbox ant-checkbox-checked"
@@ -1455,7 +1457,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
                 class="ant-checkbox-input"
                 data-__field="[object Object]"
                 data-__meta="[object Object]"
-                id="remember"
+                id="normal_login_remember"
                 type="checkbox"
               />
               <span
@@ -1505,7 +1507,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
-        for="email"
+        for="register_email"
         title="E-mail"
       >
         E-mail
@@ -1524,7 +1526,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             class="ant-input"
             data-__field="[object Object]"
             data-__meta="[object Object]"
-            id="email"
+            id="register_email"
             type="text"
             value=""
           />
@@ -1540,7 +1542,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
-        for="password"
+        for="register_password"
         title="Password"
       >
         Password
@@ -1559,7 +1561,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             class="ant-input"
             data-__field="[object Object]"
             data-__meta="[object Object]"
-            id="password"
+            id="register_password"
             type="password"
             value=""
           />
@@ -1575,7 +1577,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
-        for="confirm"
+        for="register_confirm"
         title="Confirm Password"
       >
         Confirm Password
@@ -1594,7 +1596,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             class="ant-input"
             data-__field="[object Object]"
             data-__meta="[object Object]"
-            id="confirm"
+            id="register_confirm"
             type="password"
             value=""
           />
@@ -1610,7 +1612,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
-        for="nickname"
+        for="register_nickname"
         title=""
       >
         <span>
@@ -1651,7 +1653,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             class="ant-input"
             data-__field="[object Object]"
             data-__meta="[object Object]"
-            id="nickname"
+            id="register_nickname"
             type="text"
             value=""
           />
@@ -1667,7 +1669,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
-        for="residence"
+        for="register_residence"
         title="Habitual Residence"
       >
         Habitual Residence
@@ -1696,7 +1698,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               class="ant-input ant-cascader-input "
               data-__field="[object Object]"
               data-__meta="[object Object]"
-              id="residence"
+              id="register_residence"
               readonly=""
               type="text"
               value=""
@@ -1748,7 +1750,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
-        for="phone"
+        for="register_phone"
         title="Phone Number"
       >
         Phone Number
@@ -1775,11 +1777,12 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               >
                 <div
                   class="ant-select ant-select-enabled"
-                  id="prefix"
+                  id="register_prefix"
                   style="width:70px"
                 >
                   <div
                     aria-autocomplete="list"
+                    aria-controls="test-uuid"
                     aria-expanded="false"
                     aria-haspopup="true"
                     class="ant-select-selection
@@ -1830,7 +1833,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                 class="ant-input"
                 data-__field="[object Object]"
                 data-__meta="[object Object]"
-                id="phone"
+                id="register_phone"
                 type="text"
                 value=""
               />
@@ -1848,7 +1851,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
-        for="website"
+        for="register_website"
         title="Website"
       >
         Website
@@ -1865,10 +1868,11 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         >
           <div
             class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
-            id="website"
+            id="register_website"
           >
             <div
               aria-autocomplete="list"
+              aria-controls="test-uuid"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection
@@ -1945,7 +1949,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
-        for="captcha"
+        for="register_captcha"
         title="Captcha"
       >
         Captcha
@@ -1972,7 +1976,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                 class="ant-input"
                 data-__field="[object Object]"
                 data-__meta="[object Object]"
-                id="captcha"
+                id="register_captcha"
                 type="text"
                 value=""
               />
@@ -2022,7 +2026,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                 class="ant-checkbox-input"
                 data-__field="[object Object]"
                 data-__meta="[object Object]"
-                id="agreement"
+                id="register_agreement"
                 type="checkbox"
               />
               <span
@@ -2081,7 +2085,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
     >
       <label
         class="ant-form-item-required"
-        for="date-picker"
+        for="time_related_controls_date-picker"
         title="DatePicker"
       >
         DatePicker
@@ -2098,7 +2102,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         >
           <span
             class="ant-calendar-picker"
-            id="date-picker"
+            id="time_related_controls_date-picker"
           >
             <div>
               <input
@@ -2138,7 +2142,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
     >
       <label
         class="ant-form-item-required"
-        for="date-time-picker"
+        for="time_related_controls_date-time-picker"
         title="DatePicker[showTime]"
       >
         DatePicker[showTime]
@@ -2155,7 +2159,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         >
           <span
             class="ant-calendar-picker"
-            id="date-time-picker"
+            id="time_related_controls_date-time-picker"
             style="width:195px"
           >
             <div>
@@ -2196,7 +2200,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
     >
       <label
         class="ant-form-item-required"
-        for="month-picker"
+        for="time_related_controls_month-picker"
         title="MonthPicker"
       >
         MonthPicker
@@ -2213,7 +2217,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         >
           <span
             class="ant-calendar-picker"
-            id="month-picker"
+            id="time_related_controls_month-picker"
           >
             <div>
               <input
@@ -2253,7 +2257,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
     >
       <label
         class="ant-form-item-required"
-        for="range-picker"
+        for="time_related_controls_range-picker"
         title="RangePicker"
       >
         RangePicker
@@ -2270,7 +2274,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         >
           <span
             class="ant-calendar-picker"
-            id="range-picker"
+            id="time_related_controls_range-picker"
             tabindex="0"
           >
             <span
@@ -2326,7 +2330,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
     >
       <label
         class="ant-form-item-required"
-        for="range-time-picker"
+        for="time_related_controls_range-time-picker"
         title="RangePicker[showTime]"
       >
         RangePicker[showTime]
@@ -2343,7 +2347,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         >
           <span
             class="ant-calendar-picker"
-            id="range-time-picker"
+            id="time_related_controls_range-time-picker"
             style="width:350px"
             tabindex="0"
           >
@@ -2400,7 +2404,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
     >
       <label
         class="ant-form-item-required"
-        for="time-picker"
+        for="time_related_controls_time-picker"
         title="TimePicker"
       >
         TimePicker
@@ -2420,7 +2424,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
           >
             <input
               class="ant-time-picker-input"
-              id="time-picker"
+              id="time_related_controls_time-picker"
               placeholder="Select time"
               type="text"
               value=""
@@ -2524,7 +2528,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
-        for="select"
+        for="validate_other_select"
         title="Select"
       >
         Select
@@ -2541,10 +2545,11 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         >
           <div
             class="ant-select ant-select-enabled"
-            id="select"
+            id="validate_other_select"
           >
             <div
               aria-autocomplete="list"
+              aria-controls="test-uuid"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection
@@ -2602,7 +2607,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
-        for="select-multiple"
+        for="validate_other_select-multiple"
         title="Select[multiple]"
       >
         Select[multiple]
@@ -2619,10 +2624,11 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         >
           <div
             class="ant-select ant-select-enabled"
-            id="select-multiple"
+            id="validate_other_select-multiple"
           >
             <div
               aria-autocomplete="list"
+              aria-controls="test-uuid"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection
@@ -2651,7 +2657,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                       <input
                         autocomplete="off"
                         class="ant-select-search__field"
-                        id="select-multiple"
+                        id="validate_other_select-multiple"
                         value=""
                       />
                       <span
@@ -2677,7 +2683,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class=""
-        for="input-number"
+        for="validate_other_input-number"
         title="InputNumber"
       >
         InputNumber
@@ -2761,7 +2767,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 class="ant-input-number-input"
                 data-__field="[object Object]"
                 data-__meta="[object Object]"
-                id="input-number"
+                id="validate_other_input-number"
                 max="10"
                 min="1"
                 step="1"
@@ -2786,7 +2792,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class=""
-        for="switch"
+        for="validate_other_switch"
         title="Switch"
       >
         Switch
@@ -2806,7 +2812,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             class="ant-switch"
             data-__field="[object Object]"
             data-__meta="[object Object]"
-            id="switch"
+            id="validate_other_switch"
             role="switch"
             type="button"
           >
@@ -2826,7 +2832,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class=""
-        for="slider"
+        for="validate_other_slider"
         title="Slider"
       >
         Slider
@@ -2942,7 +2948,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class=""
-        for="radio-group"
+        for="validate_other_radio-group"
         title="Radio.Group"
       >
         Radio.Group
@@ -2959,7 +2965,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         >
           <div
             class="ant-radio-group ant-radio-group-outline"
-            id="radio-group"
+            id="validate_other_radio-group"
           >
             <label
               class="ant-radio-wrapper"
@@ -3031,7 +3037,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class=""
-        for="radio-button"
+        for="validate_other_radio-button"
         title="Radio.Button"
       >
         Radio.Button
@@ -3048,7 +3054,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         >
           <div
             class="ant-radio-group ant-radio-group-outline"
-            id="radio-button"
+            id="validate_other_radio-button"
           >
             <label
               class="ant-radio-button-wrapper"
@@ -3120,7 +3126,164 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class=""
-        for="rate"
+        for="validate_other_checkbox-group"
+        title="Checkbox.Group"
+      >
+        Checkbox.Group
+      </label>
+    </div>
+    <div
+      class="ant-col-14 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control has-success"
+      >
+        <span
+          class="ant-form-item-children"
+        >
+          <div
+            class="ant-checkbox-group"
+            data-__field="[object Object]"
+            data-__meta="[object Object]"
+            id="validate_other_checkbox-group"
+            style="width:100%"
+          >
+            <div
+              class="ant-row"
+            >
+              <div
+                class="ant-col-8"
+              >
+                <label
+                  class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
+                >
+                  <span
+                    class="ant-checkbox ant-checkbox-checked"
+                  >
+                    <input
+                      checked=""
+                      class="ant-checkbox-input"
+                      type="checkbox"
+                      value="A"
+                    />
+                    <span
+                      class="ant-checkbox-inner"
+                    />
+                  </span>
+                  <span>
+                    A
+                  </span>
+                </label>
+              </div>
+              <div
+                class="ant-col-8"
+              >
+                <label
+                  class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled"
+                >
+                  <span
+                    class="ant-checkbox ant-checkbox-checked ant-checkbox-disabled"
+                  >
+                    <input
+                      checked=""
+                      class="ant-checkbox-input"
+                      disabled=""
+                      type="checkbox"
+                      value="B"
+                    />
+                    <span
+                      class="ant-checkbox-inner"
+                    />
+                  </span>
+                  <span>
+                    B
+                  </span>
+                </label>
+              </div>
+              <div
+                class="ant-col-8"
+              >
+                <label
+                  class="ant-checkbox-wrapper"
+                >
+                  <span
+                    class="ant-checkbox"
+                  >
+                    <input
+                      class="ant-checkbox-input"
+                      type="checkbox"
+                      value="C"
+                    />
+                    <span
+                      class="ant-checkbox-inner"
+                    />
+                  </span>
+                  <span>
+                    C
+                  </span>
+                </label>
+              </div>
+              <div
+                class="ant-col-8"
+              >
+                <label
+                  class="ant-checkbox-wrapper"
+                >
+                  <span
+                    class="ant-checkbox"
+                  >
+                    <input
+                      class="ant-checkbox-input"
+                      type="checkbox"
+                      value="D"
+                    />
+                    <span
+                      class="ant-checkbox-inner"
+                    />
+                  </span>
+                  <span>
+                    D
+                  </span>
+                </label>
+              </div>
+              <div
+                class="ant-col-8"
+              >
+                <label
+                  class="ant-checkbox-wrapper"
+                >
+                  <span
+                    class="ant-checkbox"
+                  >
+                    <input
+                      class="ant-checkbox-input"
+                      type="checkbox"
+                      value="E"
+                    />
+                    <span
+                      class="ant-checkbox-inner"
+                    />
+                  </span>
+                  <span>
+                    E
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col-6 ant-form-item-label"
+    >
+      <label
+        class=""
+        for="validate_other_rate"
         title="Rate"
       >
         Rate
@@ -3408,7 +3571,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class=""
-        for="upload"
+        for="validate_other_upload"
         title="Upload"
       >
         Upload
@@ -3451,7 +3614,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class=""
-        for="dragger"
+        for="validate_other_dragger"
         title="Dragger"
       >
         Dragger
@@ -3719,7 +3882,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         >
           <input
             class="ant-input"
-            id="warning"
+            id="warning2"
             placeholder="Warning"
             type="text"
           />
@@ -3772,7 +3935,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         >
           <input
             class="ant-input"
-            id="error"
+            id="error2"
             placeholder="unavailable choice"
             type="text"
           />
@@ -3993,6 +4156,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           >
             <div
               aria-autocomplete="list"
+              aria-controls="test-uuid"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection

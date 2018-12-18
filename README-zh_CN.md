@@ -63,7 +63,7 @@ ReactDOM.render(<DatePicker />, mountNode);
 import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 ```
 
-你也可以[按需加载组件](https://ant.design/docs/react/getting-started-cn#按需加载)。
+你也可以 [按需加载组件](https://ant.design/docs/react/getting-started-cn#按需加载)。
 
 ### TypeScript
 
@@ -79,11 +79,11 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 - [组件库](http://ant.design/docs/react/introduce)
 - [Ant Design Pro](http://pro.ant.design/)
 - [更新日志](CHANGELOG.en-US.md)
-- [脚手架市场](http://scaffold.ant.design)
 - [React 底层基础组件](http://react-component.github.io/)
 - [移动端组件](http://mobile.ant.design)
+- [首页模板集](https://landing.ant.design)
 - [动效](https://motion.ant.design)
-- [Landing 模板集](https://landing.ant.design)
+- [脚手架市场](http://scaffold.ant.design)
 - [设计规范速查手册](https://github.com/ant-design/ant-design/wiki/Ant-Design-%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80%E7%AE%80%E7%89%88)
 - [开发者说明](https://github.com/ant-design/ant-design/wiki/Development)
 - [版本发布规则](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
@@ -108,6 +108,8 @@ $ npm start
 请参考[贡献指南](https://ant.design/docs/react/contributing-cn).
 
 > 强烈推荐阅读 [《提问的智慧》](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way)、[《如何向开源社区提问题》](https://github.com/seajs/seajs/issues/545) 和 [《如何有效地报告 Bug》](http://www.chiark.greenend.org.uk/%7Esgtatham/bugs-cn.html)、[《如何向开源项目提交无法解答的问题》](https://zhuanlan.zhihu.com/p/25795393)，更好的问题更容易获得帮助。
+
+[![Let's fund issues in this repository](https://issuehunt.io/static/embed/issuehunt-button-v1.svg)](https://issuehunt.io/repos/34526884)
 
 ## 社区互助
 

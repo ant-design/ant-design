@@ -24,5 +24,6 @@ ReactDOM.render(
     <br />
     <Rate character="好" allowHalf />
   </div>,
-  mountNode);
+  mountNode
+);
 ````

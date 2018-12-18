@@ -1,5 +1,5 @@
-@dialog-prefix-cls: ~"@{ant-prefix}-modal";
-@table-prefix-cls: ~"@{ant-prefix}-table";
+@dialog-prefix-cls: ~'@{ant-prefix}-modal';
+@table-prefix-cls: ~'@{ant-prefix}-table';
 
 .@{dialog-prefix-cls} {
   .reset-component;
@@ -49,7 +49,7 @@
     font-weight: 700;
     line-height: 1;
     text-decoration: none;
-    transition: color .3s;
+    transition: color 0.3s;
     color: @text-color-secondary;
     outline: 0;
     padding: 0;
@@ -69,7 +69,7 @@
 
     &:focus,
     &:hover {
-      color: #444;
+      color: @icon-color-hover;
       text-decoration: none;
     }
   }
@@ -114,10 +114,10 @@
     right: 0;
     left: 0;
     bottom: 0;
-    background-color: @modal-mask-bg; // lesshint duplicateProperty: false
+    background-color: @modal-mask-bg;
     height: 100%;
     z-index: @zindex-modal-mask;
-    filter: ~"alpha(opacity=50)";
+    filter: ~'alpha(opacity=50)';
 
     &-hidden {
       display: none;

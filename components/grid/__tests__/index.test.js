@@ -4,16 +4,12 @@ import { Col, Row } from '..';
 
 describe('Grid', () => {
   it('should render Col', () => {
-    const wrapper = render(
-      <Col span="2" />
-    );
+    const wrapper = render(<Col span="2" />);
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should render Row', () => {
-    const wrapper = render(
-      <Row />
-    );
+    const wrapper = render(<Row />);
     expect(wrapper).toMatchSnapshot();
   });
 
@@ -25,7 +21,7 @@ describe('Grid', () => {
           <Col span="12" />
         </div>
         <MyCol />
-      </Row>
+      </Row>,
     );
     expect(wrapper).toMatchSnapshot();
   });

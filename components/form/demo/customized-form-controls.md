@@ -20,7 +20,9 @@ Customized or third-party form controls can be used in Form, too. Controls must 
 > * It must be a class component.
 
 ````jsx
-import { Form, Input, Select, Button } from 'antd';
+import {
+  Form, Input, Select, Button,
+} from 'antd';
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -48,7 +50,7 @@ class PriceInput extends React.Component {
 
   handleNumberChange = (e) => {
     const number = parseInt(e.target.value || 0, 10);
-    if (isNaN(number)) {
+    if (Number.isNaN(number)) {
       return;
     }
     if (!('value' in this.props)) {
@@ -134,7 +136,7 @@ class Demo extends React.Component {
   }
 }
 
-const WrappedDemo = Form.create()(Demo);
+const WrappedDemo = Form.create({ name: 'customized_form_controls' })(Demo);
 
 ReactDOM.render(<WrappedDemo />, mountNode);
 ````

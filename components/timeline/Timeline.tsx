@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import TimelineItem, { TimeLineItemProps } from './TimelineItem';
 import Icon from '../icon';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface TimelineProps {
   prefixCls?: string;
@@ -15,33 +16,37 @@ export interface TimelineProps {
 }
 
 export default class Timeline extends React.Component<TimelineProps, any> {
-  static Item = TimelineItem as React.ClassicComponentClass<TimeLineItemProps>;
+  static Item: React.SFC<TimeLineItemProps> = TimelineItem;
   static defaultProps = {
-    prefixCls: 'ant-timeline',
     reverse: false,
     mode: '',
   };
 
-  render() {
+  renderTimeline = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
-      prefixCls,
-      pending = null, pendingDot,
-      children, className, reverse,
+      prefixCls: customizePrefixCls,
+      pending = null,
+      pendingDot,
+      children,
+      className,
+      reverse,
       mode,
       ...restProps
     } = this.props;
+    const prefixCls = getPrefixCls('timeline', customizePrefixCls);
     const pendingNode = typeof pending === 'boolean' ? null : pending;
-    const classString = classNames(prefixCls, {
-      [`${prefixCls}-pending`]: !!pending,
-      [`${prefixCls}-reverse`]: !!reverse,
-      [`${prefixCls}-${mode}`]: !!mode,
-    }, className);
+    const classString = classNames(
+      prefixCls,
+      {
+        [`${prefixCls}-pending`]: !!pending,
+        [`${prefixCls}-reverse`]: !!reverse,
+        [`${prefixCls}-${mode}`]: !!mode,
+      },
+      className,
+    );
 
     const pendingItem = !!pending ? (
-      <TimelineItem
-        pending={!!pending}
-        dot={pendingDot || <Icon type="loading" />}
-      >
+      <TimelineItem pending={!!pending} dot={pendingDot || <Icon type="loading" />}>
         {pendingNode}
       </TimelineItem>
     ) : null;
@@ -58,12 +63,20 @@ export default class Timeline extends React.Component<TimelineProps, any> {
       React.cloneElement(ele, {
         className: classNames([
           ele.props.className,
-          (!reverse && !!pending)
-            ? (idx === itemsCount - 2) ? lastCls : ''
-            : (idx === itemsCount - 1) ? lastCls : '',
-          (mode === 'alternate')
-            ? (idx % 2 === 0) ? `${prefixCls}-item-left` : `${prefixCls}-item-right`
-            : (mode === 'right') ? `${prefixCls}-item-right` : '',
+          !reverse && !!pending
+            ? idx === itemsCount - 2
+              ? lastCls
+              : ''
+            : idx === itemsCount - 1
+            ? lastCls
+            : '',
+          mode === 'alternate'
+            ? idx % 2 === 0
+              ? `${prefixCls}-item-left`
+              : `${prefixCls}-item-right`
+            : mode === 'right'
+            ? `${prefixCls}-item-right`
+            : '',
         ]),
       }),
     );
@@ -73,5 +86,9 @@ export default class Timeline extends React.Component<TimelineProps, any> {
         {items}
       </ul>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderTimeline}</ConfigConsumer>;
   }
 }

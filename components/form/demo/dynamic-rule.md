@@ -14,7 +14,9 @@ title:
 Perform different check rules according to different situations.
 
 ````jsx
-import { Form, Input, Button, Checkbox } from 'antd';
+import {
+  Form, Input, Button, Checkbox,
+} from 'antd';
 
 const FormItem = Form.Item;
 
@@ -91,7 +93,7 @@ class DynamicRule extends React.Component {
   }
 }
 
-const WrappedDynamicRule = Form.create()(DynamicRule);
+const WrappedDynamicRule = Form.create({ name: 'dynamic_rule' })(DynamicRule);
 ReactDOM.render(<WrappedDynamicRule />, mountNode);
 
 ````

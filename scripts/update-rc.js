@@ -4,6 +4,4 @@
 
 'use strict';
 
-require('antd-tools/lib/updateComponents')((name) => {
-  return !!name.match(/^rc-/);
-});
+require('antd-tools/lib/updateComponents')(name => !!name.match(/^rc-/));

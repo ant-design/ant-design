@@ -19,7 +19,9 @@ Because the width of label is not fixed, you may need to adjust it by customizin
 
 
 ````jsx
-import { Form, Row, Col, Input, Button, Icon } from 'antd';
+import {
+  Form, Row, Col, Input, Button, Icon,
+} from 'antd';
 
 const FormItem = Form.Item;
 
@@ -27,22 +29,6 @@ class AdvancedSearchForm extends React.Component {
   state = {
     expand: false,
   };
-
-  handleSearch = (e) => {
-    e.preventDefault();
-    this.props.form.validateFields((err, values) => {
-      console.log('Received values of form: ', values);
-    });
-  }
-
-  handleReset = () => {
-    this.props.form.resetFields();
-  }
-
-  toggle = () => {
-    const { expand } = this.state;
-    this.setState({ expand: !expand });
-  }
 
   // To generate mock Form.Item
   getFields() {
@@ -68,6 +54,22 @@ class AdvancedSearchForm extends React.Component {
     return children;
   }
 
+  handleSearch = (e) => {
+    e.preventDefault();
+    this.props.form.validateFields((err, values) => {
+      console.log('Received values of form: ', values);
+    });
+  }
+
+  handleReset = () => {
+    this.props.form.resetFields();
+  }
+
+  toggle = () => {
+    const { expand } = this.state;
+    this.setState({ expand: !expand });
+  }
+
   render() {
     return (
       <Form
@@ -91,7 +93,7 @@ class AdvancedSearchForm extends React.Component {
   }
 }
 
-const WrappedAdvancedSearchForm = Form.create()(AdvancedSearchForm);
+const WrappedAdvancedSearchForm = Form.create({ name: 'advanced_search' })(AdvancedSearchForm);
 ReactDOM.render(
   <div>
     <WrappedAdvancedSearchForm />

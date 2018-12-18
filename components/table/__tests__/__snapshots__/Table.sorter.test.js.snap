@@ -10,7 +10,7 @@ exports[`Table.sorter renders sorter icon correctly 1`] = `
     >
       <div
         class="ant-table-column-sorters"
-        title="Sort"
+        title="Name"
       >
         Name
         <div

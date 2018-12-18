@@ -36,5 +36,6 @@ ReactDOM.render(
   <Button onClick={showConfirm}>
     Confirm
   </Button>,
-  mountNode);
+  mountNode
+);
 ````

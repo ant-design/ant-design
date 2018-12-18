@@ -1,7 +1,7 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@full-calendar-prefix-cls: ~"@{ant-prefix}-fullcalendar";
+@full-calendar-prefix-cls: ~'@{ant-prefix}-fullcalendar';
 
 .@{full-calendar-prefix-cls} {
   .reset-component;
@@ -84,7 +84,7 @@
   &-month,
   &-date {
     text-align: center;
-    transition: all .3s;
+    transition: all 0.3s;
   }
 
   &-value {
@@ -97,7 +97,7 @@
     padding: 0;
     background: transparent;
     line-height: 24px;
-    transition: all .3s;
+    transition: all 0.3s;
 
     &:hover {
       background: @item-hover-bg;
@@ -106,7 +106,7 @@
 
     &:active {
       background: @primary-color;
-      color: #fff;
+      color: @text-color-inverse;
     }
   }
 
@@ -122,7 +122,7 @@
   &-selected-day &-value,
   &-month-panel-selected-cell &-value {
     background: @primary-color;
-    color: #fff;
+    color: @text-color-inverse;
   }
 
   &-disabled-cell-first-of-row &-value {
@@ -180,7 +180,7 @@
     height: 116px;
     padding: 4px 8px;
     border-top: 2px solid @border-color-split;
-    transition: background .3s;
+    transition: background 0.3s;
 
     &:hover {
       background: @item-hover-bg;

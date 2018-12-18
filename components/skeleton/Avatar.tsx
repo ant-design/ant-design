@@ -6,12 +6,11 @@ export interface SkeletonAvatarProps {
   className?: string;
   style?: object;
   size?: 'large' | 'small' | 'default';
-  shape?: 'circle'| 'square';
+  shape?: 'circle' | 'square';
 }
 
 class Title extends React.Component<SkeletonAvatarProps, any> {
   static defaultProps: Partial<SkeletonAvatarProps> = {
-    prefixCls: 'ant-skeleton-avatar',
     size: 'large',
   };
 
@@ -28,9 +27,7 @@ class Title extends React.Component<SkeletonAvatarProps, any> {
       [`${prefixCls}-square`]: shape === 'square',
     });
 
-    return (
-      <span className={classNames(prefixCls, className, sizeCls, shapeCls)} style={style} />
-    );
+    return <span className={classNames(prefixCls, className, sizeCls, shapeCls)} style={style} />;
   }
 }
 

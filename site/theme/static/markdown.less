@@ -9,7 +9,7 @@
 }
 
 .markdown img {
-  max-width: ~"calc(100% - 32px)";
+  max-width: ~'calc(100% - 32px)';
 }
 
 .markdown p > img {
@@ -50,10 +50,18 @@
   clear: both;
 }
 
-.markdown h3 { font-size: 18px; }
-.markdown h4 { font-size: 16px; }
-.markdown h5 { font-size: 14px; }
-.markdown h6 { font-size: 12px; }
+.markdown h3 {
+  font-size: 18px;
+}
+.markdown h4 {
+  font-size: 16px;
+}
+.markdown h5 {
+  font-size: 14px;
+}
+.markdown h6 {
+  font-size: 12px;
+}
 
 .markdown hr {
   height: 1px;
@@ -91,16 +99,16 @@
 .markdown code {
   margin: 0 1px;
   background: #f2f4f5;
-  padding: .2em .4em;
+  padding: 0.2em 0.4em;
   border-radius: 3px;
-  font-size: .9em;
+  font-size: 0.9em;
   border: 1px solid #eee;
 }
 
 .markdown pre {
   border-radius: @border-radius-sm;
   background: #f2f4f5;
-  font-family: "Lucida Console", Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 }
 
 .markdown pre code {
@@ -204,7 +212,8 @@
   font-family: @code-family;
   border-width: 0;
   margin: 2em 0;
-  th, td {
+  th,
+  td {
     padding: 14px 16px;
     border-width: 1px 0;
     border-color: @border-color-split;
@@ -230,10 +239,58 @@
 }
 
 .grid-demo,
-[id^="components-grid-demo-"] {
+[id^='components-grid-demo-'] {
   .demo-row,
   .code-box-demo .demo-row {
-    background-image: linear-gradient(90deg, #f5f5f5 4.16666667%, transparent 4.16666667%, transparent 8.33333333%, #f5f5f5 8.33333333%, #f5f5f5 12.5%, transparent 12.5%, transparent 16.66666667%, #f5f5f5 16.66666667%, #f5f5f5 20.83333333%, transparent 20.83333333%, transparent 25%, #f5f5f5 25%, #f5f5f5 29.16666667%, transparent 29.16666667%, transparent 33.33333333%, #f5f5f5 33.33333333%, #f5f5f5 37.5%, transparent 37.5%, transparent 41.66666667%, #f5f5f5 41.66666667%, #f5f5f5 45.83333333%, transparent 45.83333333%, transparent 50%, #f5f5f5 50%, #f5f5f5 54.16666667%, transparent 54.16666667%, transparent 58.33333333%, #f5f5f5 58.33333333%, #f5f5f5 62.5%, transparent 62.5%, transparent 66.66666667%, #f5f5f5 66.66666667%, #f5f5f5 70.83333333%, transparent 70.83333333%, transparent 75%, #f5f5f5 75%, #f5f5f5 79.16666667%, transparent 79.16666667%, transparent 83.33333333%, #f5f5f5 83.33333333%, #f5f5f5 87.5%, transparent 87.5%, transparent 91.66666667%, #f5f5f5 91.66666667%, #f5f5f5 95.83333333%, transparent 95.83333333%);
+    background-image: linear-gradient(
+      90deg,
+      #f5f5f5 4.16666667%,
+      transparent 4.16666667%,
+      transparent 8.33333333%,
+      #f5f5f5 8.33333333%,
+      #f5f5f5 12.5%,
+      transparent 12.5%,
+      transparent 16.66666667%,
+      #f5f5f5 16.66666667%,
+      #f5f5f5 20.83333333%,
+      transparent 20.83333333%,
+      transparent 25%,
+      #f5f5f5 25%,
+      #f5f5f5 29.16666667%,
+      transparent 29.16666667%,
+      transparent 33.33333333%,
+      #f5f5f5 33.33333333%,
+      #f5f5f5 37.5%,
+      transparent 37.5%,
+      transparent 41.66666667%,
+      #f5f5f5 41.66666667%,
+      #f5f5f5 45.83333333%,
+      transparent 45.83333333%,
+      transparent 50%,
+      #f5f5f5 50%,
+      #f5f5f5 54.16666667%,
+      transparent 54.16666667%,
+      transparent 58.33333333%,
+      #f5f5f5 58.33333333%,
+      #f5f5f5 62.5%,
+      transparent 62.5%,
+      transparent 66.66666667%,
+      #f5f5f5 66.66666667%,
+      #f5f5f5 70.83333333%,
+      transparent 70.83333333%,
+      transparent 75%,
+      #f5f5f5 75%,
+      #f5f5f5 79.16666667%,
+      transparent 79.16666667%,
+      transparent 83.33333333%,
+      #f5f5f5 83.33333333%,
+      #f5f5f5 87.5%,
+      transparent 87.5%,
+      transparent 91.66666667%,
+      #f5f5f5 91.66666667%,
+      #f5f5f5 95.83333333%,
+      transparent 95.83333333%
+    );
     overflow: hidden;
     margin-bottom: 8px;
   }
@@ -257,7 +314,7 @@
   .code-box-demo .ant-row-flex > div:not(.gutter-row) {
     background: #00a0e9;
     padding: 16px 0;
-    &:nth-child(2n+1) {
+    &:nth-child(2n + 1) {
       background: fade(#00a0e9, 70%);
     }
   }
