@@ -91,7 +91,7 @@ title: Layout
 | breakpoint | 触发响应式布局的[断点](/components/grid#api) | Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' } | - |
 | className | 容器 className | string | - |
 | collapsed | 当前收起状态 | boolean | - |
-| collapsedWidth | 收缩宽度，设置为 0 会出现特殊 trigger | number | 64 |
+| collapsedWidth | 收缩宽度，设置为 0 会出现特殊 trigger | number | 80 |
 | collapsible | 是否可收起 | boolean | false |
 | defaultCollapsed | 是否默认收起 | boolean | false |
 | reverseArrow | 翻转折叠提示箭头的方向，当 Sider 在右边时可以使用 | boolean | false |

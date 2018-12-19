@@ -90,7 +90,7 @@ The sidebar.
 | breakpoint | [breakpoints](/components/grid#api) of the responsive layout | Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' } | - |
 | className | container className | string | - |
 | collapsed | to set the current status | boolean | - |
-| collapsedWidth | width of the collapsed sidebar, by setting to `0` a special trigger will appear | number | 64 |
+| collapsedWidth | width of the collapsed sidebar, by setting to `0` a special trigger will appear | number | 80 |
 | collapsible | whether can be collapsed | boolean | false |
 | defaultCollapsed | to set the initial status | boolean | false |
 | reverseArrow | reverse direction of arrow, for a sider that expands from the right | boolean | false |
