@@ -61,6 +61,7 @@ const columns = [{
 | defaultExpandedRowKeys | Initial expanded row keys | string\[] | - |
 | expandedRowKeys | Current expanded row keys | string\[] | - |
 | expandedRowRender | Expanded container render for each row | Function(record, index, indent, expanded):ReactNode | - |
+| expandIcon | Customize row expand Icon. Ref [example](http://react-component.github.io/table/examples/expandIcon.html) | Function(props):ReactNode | - |
 | expandRowByClick | Whether to expand row by clicking anywhere in the whole row | boolean | `false` |
 | footer | Table footer renderer | Function(currentPageData) |  |
 | indentSize | Indent size in pixels of tree data | number | 15 |

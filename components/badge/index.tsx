@@ -111,7 +111,16 @@ export default class Badge extends React.Component<BadgeProps, any> {
 
   renderDispayComponent() {
     const { count } = this.props;
-    return count && typeof count === 'object' ? (count as React.ReactElement<any>) : undefined;
+    const customNode = count as React.ReactElement<any>;
+    if (!customNode || typeof customNode !== 'object') {
+      return undefined;
+    }
+    return React.cloneElement(customNode, {
+      style: {
+        ...this.getStyleWithOffset(),
+        ...(customNode.props && customNode.props.style),
+      },
+    });
   }
 
   renderBadgeNumber(prefixCls: string, scrollNumberPrefixCls: string) {
@@ -129,8 +138,6 @@ export default class Badge extends React.Component<BadgeProps, any> {
       [`${prefixCls}-status-${status}`]: !!status,
     });
 
-    const styleWithOffset = this.getStyleWithOffset();
-
     return hidden ? null : (
       <ScrollNumber
         prefixCls={scrollNumberPrefixCls}
@@ -139,7 +146,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
         count={displayCount}
         displayComponent={this.renderDispayComponent()} // <Badge status="success" count={<Icon type="xxx" />}></Badge>
         title={this.getScollNumberTitle()}
-        style={styleWithOffset}
+        style={this.getStyleWithOffset()}
         key="scrollNumber"
       />
     );
@@ -174,12 +181,14 @@ export default class Badge extends React.Component<BadgeProps, any> {
       [`${prefixCls}-status-${status}`]: !!status,
     });
 
-    const styleWithOffset = this.getStyleWithOffset();
-
     // <Badge status="success" />
     if (!children && status) {
       return (
-        <span {...restProps} className={this.getBadgeClassName(prefixCls)} style={styleWithOffset}>
+        <span
+          {...restProps}
+          className={this.getBadgeClassName(prefixCls)}
+          style={this.getStyleWithOffset()}
+        >
           <span className={statusCls} />
           <span className={`${prefixCls}-status-text`}>{text}</span>
         </span>
