@@ -12,6 +12,8 @@
 
 [![CircleCI branch](https://img.shields.io/circleci/project/github/ant-design/ant-design/master.svg?style=flat-square)](https://circleci.com/gh/ant-design/ant-design)
 [![Codecov](https://img.shields.io/codecov/c/github/ant-design/ant-design/master.svg?style=flat-square)](https://codecov.io/gh/ant-design/ant-design/branch/master)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/ant-design/ant-design.svg?logo=lgtm&logoWidth=18&style=flat-square)](https://lgtm.com/projects/g/ant-design/ant-design/alerts/)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/ant-design/ant-design.svg?logo=lgtm&logoWidth=18&style=flat-square)](https://lgtm.com/projects/g/ant-design/ant-design/context:javascript)
 [![Dependencies](https://img.shields.io/david/ant-design/ant-design.svg?style=flat-square)](https://david-dm.org/ant-design/ant-design)
 [![DevDependencies](https://img.shields.io/david/dev/ant-design/ant-design.svg?style=flat-square)](https://david-dm.org/ant-design/ant-design?type=dev)
 
