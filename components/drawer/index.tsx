@@ -28,6 +28,7 @@ export interface DrawerProps {
   /* deprecated, use className instead */
   wrapClassName?: string;
   zIndex?: number;
+  bodyStyle?: React.CSSProperties;
   prefixCls?: string;
   push?: boolean;
   placement?: placementType;

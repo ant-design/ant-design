@@ -19,6 +19,7 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 
 | Props | Description | Type | Default |
 | --- | --- | --- | --- |
+| bodyStyle | Body style for Drawer body element. Such as height, padding etc. | object | {} |
 | closable | Whether a close (x) button is visible on top right of the Drawer dialog or not. | boolean | true |
 | destroyOnClose | Whether to unmount child components on closing drawer or not. | boolean | false |
 | getContainer | Return the mounted node for Drawer. | HTMLElement \| `() => HTMLElement` \| Selectors | 'body' |
