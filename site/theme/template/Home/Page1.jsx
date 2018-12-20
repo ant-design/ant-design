@@ -220,7 +220,7 @@ const page1Data = [
 ];
 
 const getTransformXY = t => {
-  const s = t.replace(/[a-z|(|)]/g, '').split(',');
+  const s = t.replace(/[a-z()]/g, '').split(',');
   return {
     x: s[0],
     y: s[1],
