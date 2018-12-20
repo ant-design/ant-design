@@ -62,6 +62,8 @@ const columns = [{
 | expandedRowKeys | Current expanded row keys | string\[] | - |
 | expandedRowRender | Expanded container render for each row | Function(record, index, indent, expanded):ReactNode | - |
 | expandIcon | Customize row expand Icon. Ref [example](http://react-component.github.io/table/examples/expandIcon.html) | Function(props):ReactNode | - |
+| expandIconAsCell | Whether to render expandIcon as a cell. | boolean | `false` |
+| expandIconColumnIndex | The index of expandIcon denoting which column will be inserted when expandIconAsCell is false. | number | 0 |
 | expandRowByClick | Whether to expand row by clicking anywhere in the whole row | boolean | `false` |
 | footer | Table footer renderer | Function(currentPageData) |  |
 | indentSize | Indent size in pixels of tree data | number | 15 |
@@ -77,7 +79,7 @@ const columns = [{
 | title | Table title renderer | Function(currentPageData) |  |
 | onChange | Callback executed when pagination, filters or sorter is changed | Function(pagination, filters, sorter, extra: { currentDataSource: [] }) |  |
 | onExpand | Callback executed when the row expand icon is clicked | Function(expanded, record) |  |
-| onExpandedRowsChange | Callback executed when the expanded rows change | Function(expandedRows) |  |
+| onExpandedRowsChange | Callback executed when the expanded rows change | Function(expandedRows) |  | 
 | onHeaderRow | Set props on per header row | Function(column, index) | - |
 | onRow | Set props on per row | Function(record, index) | - |
 
