@@ -439,6 +439,22 @@
       padding-left: 4px;
       padding-right: 4px;
     }
+
+    .@{menu-prefix-cls}-item-collapse {
+      display: flex;
+      flex-direction: column;
+      width: @menu-collapsed-width;
+      height: 75px;
+      padding: 12px 0 !important;
+
+      .anticon + span {
+        text-align: center;
+        font-size: 10px;
+        line-height: 10px;
+        max-width: @menu-collapsed-width;
+        opacity: 1;
+      }
+    }
   }
 
   &-item-group-list {
