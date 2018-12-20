@@ -234,6 +234,21 @@
     }
   }
 
+  &-loading {
+    overflow: hidden;
+    position: relative;
+
+    &:after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: @card-padding-base;
+      background: @component-background;
+      content: '';
+    }
+  }
+
   &-loading &-body {
     user-select: none;
   }

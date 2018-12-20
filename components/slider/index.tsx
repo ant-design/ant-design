@@ -85,12 +85,7 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
     const { tipFormatter, tooltipVisible } = this.props;
     const { visibles } = this.state;
     const isTipFormatter = tipFormatter ? visibles[index] || dragging : false;
-    let visible;
-    if (tooltipVisible) {
-      visible = tooltipVisible || isTipFormatter;
-    } else if (tooltipVisible === undefined) {
-      visible = isTipFormatter;
-    }
+    const visible = tooltipVisible || (tooltipVisible === undefined && isTipFormatter);
     return (
       <Tooltip
         prefixCls={tooltipPrefixCls}

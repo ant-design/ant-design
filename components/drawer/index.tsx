@@ -143,17 +143,14 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
   };
 
   getRcDrawerStyle = () => {
-    const { zIndex, placement, maskStyle } = this.props;
-    return this.state.push
-      ? {
-          ...maskStyle,
-          zIndex,
-          transform: this.getPushTransform(placement),
-        }
-      : {
-          ...maskStyle,
-          zIndex,
-        };
+    const { zIndex, placement, maskStyle, style } = this.props;
+    const { push } = this.state;
+    return {
+      ...maskStyle,
+      zIndex,
+      transform: push ? this.getPushTransform(placement) : undefined,
+      style,
+    };
   };
 
   // render drawer body dom
@@ -210,14 +207,12 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
       >
         {header}
         {closer}
-        <div className={`${prefixCls}-body`} style={this.props.style}>
-          {this.props.children}
-        </div>
+        <div className={`${prefixCls}-body`}>{this.props.children}</div>
       </div>
     );
   };
 
-  // render Provider for Multi-level drawer
+  // render Provider for Multi-level drawe
   renderProvider = (value: Drawer) => {
     const {
       prefixCls: customizePrefixCls,

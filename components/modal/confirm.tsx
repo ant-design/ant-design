@@ -136,7 +136,7 @@ export default function confirm(config: ModalFuncProps) {
     if (unmountResult && div.parentNode) {
       div.parentNode.removeChild(div);
     }
-    const triggerCancel = args && args.length && args.some(param => param && param.triggerCancel);
+    const triggerCancel = args.some(param => param && param.triggerCancel);
     if (config.onCancel && triggerCancel) {
       config.onCancel(...args);
     }
