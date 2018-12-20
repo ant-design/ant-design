@@ -489,7 +489,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     let selectedRowKeys = this.store.getState().selectedRowKeys.concat(defaultSelection);
     const key = this.getRecordKey(record, rowIndex);
     const { pivot } = this.state;
-    const rows = this.getFlatCurrentPageData();
+    const rows = this.getFlatCurrentPageData(this.props.childrenColumnName);
     let realIndex = rowIndex;
     if (this.props.expandedRowRender) {
       realIndex = rows.findIndex(row => this.getRecordKey(row, rowIndex) === key);
@@ -571,7 +571,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   };
 
   handleSelectRow = (selectionKey: string, index: number, onSelectFunc: SelectionItemSelectFn) => {
-    const data = this.getFlatCurrentPageData();
+    const data = this.getFlatCurrentPageData(this.props.childrenColumnName);
     const defaultSelection = this.store.getState().selectionDirty ? [] : this.getDefaultSelection();
     const selectedRowKeys = this.store.getState().selectedRowKeys.concat(defaultSelection);
     const changeableRowKeys = data
@@ -723,10 +723,10 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   };
 
   renderRowSelection(locale: TableLocale) {
-    const { prefixCls, rowSelection } = this.props;
+    const { prefixCls, rowSelection, childrenColumnName } = this.props;
     const columns = this.columns.concat();
     if (rowSelection) {
-      const data = this.getFlatCurrentPageData().filter((item, index) => {
+      const data = this.getFlatCurrentPageData(childrenColumnName).filter((item, index) => {
         if (rowSelection.getCheckboxProps) {
           return !this.getCheckboxPropsByItem(item, index).disabled;
         }
@@ -1025,8 +1025,8 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     return flatArray(this.getLocalData(null, false));
   }
 
-  getFlatCurrentPageData() {
-    return flatArray(this.getCurrentPageData());
+  getFlatCurrentPageData(childrenColumnName: string | undefined) {
+    return flatArray(this.getCurrentPageData(), childrenColumnName);
   }
 
   recursiveSort(data: T[], sorterFn: (a: any, b: any) => number): T[] {
