@@ -615,4 +615,40 @@ describe('Table.rowSelection', () => {
     expect(onChange.mock.calls[1][0].length).toBe(2);
     expect(onChange.mock.calls[1][1].length).toBe(2);
   });
+
+  it('render correctly when set childrenColumnName', () => {
+    const newDatas = [
+      {
+        key: 1,
+        name: 'Jack',
+        children: [
+          {
+            key: 11,
+            name: 'John Brown',
+          },
+        ],
+      },
+      {
+        key: 2,
+        name: 'Lucy',
+        children: [
+          {
+            key: 21,
+            name: 'Lucy Brown',
+          },
+        ],
+      },
+    ];
+    const wrapper = mount(
+      <Table columns={columns} dataSource={newDatas} childrenColumnName="test" rowSelection={{}} />,
+    );
+    const checkboxes = wrapper.find('input');
+    const checkboxAll = wrapper.find('SelectionCheckboxAll');
+
+    checkboxes.at(1).simulate('change', { target: { checked: true } });
+    expect(checkboxAll.instance().state).toEqual({ indeterminate: true, checked: false });
+
+    checkboxes.at(2).simulate('change', { target: { checked: true } });
+    expect(checkboxAll.instance().state).toEqual({ indeterminate: false, checked: true });
+  });
 });
