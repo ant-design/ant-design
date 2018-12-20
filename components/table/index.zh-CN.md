@@ -67,6 +67,8 @@ const columns = [{
 | expandedRowKeys | 展开的行，控制属性 | string\[] | - |
 | expandedRowRender | 额外的展开行 | Function(record, index, indent, expanded):ReactNode | - |
 | expandIcon | 自定义展开图标，参考[示例](http://react-component.github.io/table/examples/expandIcon.html) | Function(props):ReactNode | - |
+| expandIconAsCell | 是否将expandIcon呈现为单元格。 | boolean | `false` |
+| expandIconColumnIndex | expandIcon的索引，表示expandIconAsCell为false时将插入哪一列。 | number | 0 |
 | expandRowByClick | 通过点击行来展开子行 | boolean | `false` |
 | footer | 表格尾部 | Function(currentPageData) |  |
 | indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number | 15 |
