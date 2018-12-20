@@ -14,7 +14,7 @@ title:
 Breadcrumb Page Header
 
 ```jsx
-import { PageHeader } from 'antd';
+import { PageHeader } from 'antd'
 
 const routes = [
   {
@@ -65,26 +65,38 @@ const extraContent = (
 );
 
 ReactDOM.render(
-  <PageHeader
-    title="页面标题"
-    extraContent={extraContent}
-    breadcrumb={{ routes }}
-    content={content}
-  />,
+  <PageHeader title="页面标题" breadcrumb={{ routes }}>
+    <div className="wrap">
+      <div className="content">{content}</div>
+      <div className="extraContent">{extraContent}</div>
+    </div>
+  </PageHeader>,
   mountNode,
 );
 ```
 
 <style>
-  .contentLink{
-    padding-top:16px;
-  }
-  .contentLink a{
-    display: inline-block;
-    vertical-align: text-top;
-    margin-right:32px;
-  }
-  .contentLink a img{
-    margin-right:8px
-  }
+.wrap {
+  display: flex;
+}
+.content {
+  flex: 1;
+}
+.extraContent {
+  min-width: 240px;
+  text-align: right;
+  margin-top: -40px;
+}
+.contentLink {
+  padding-top: 16px;
+}
+.contentLink a {
+  display: inline-block;
+  vertical-align: text-top;
+  margin-right: 32px;
+}
+.contentLink a img {
+  margin-right: 8px;
+}
+
 </style>

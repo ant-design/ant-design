@@ -12,8 +12,7 @@ export interface IPageHeaderProps {
   style: React.CSSProperties;
   breadcrumb: BreadcrumbProps;
   tags: Tag[] | Tag;
-  content: React.ReactNode;
-  extraContent: React.ReactNode;
+  footer: React.ReactNode;
   onBack: (e: React.MouseEvent<HTMLElement>) => void;
 }
 export interface IPageHeaderState {}
@@ -65,17 +64,12 @@ class PageHeader extends React.PureComponent<Partial<IPageHeaderProps>, IPageHea
       </div>
     );
   }
-  renderContent(prefixCls: string) {
-    const { content, extraContent } = this.props;
-    if (!content && !extraContent) {
-      return null;
+
+  renderFooter(prefixCls: string) {
+    if (this.props.footer) {
+      return <div className={`${prefixCls}-footer`}>{this.props.footer}</div>;
     }
-    return (
-      <div className={`${prefixCls}-content-view`}>
-        <div className={`${prefixCls}-content`}>{content}</div>
-        <div className={`${prefixCls}-extra-content`}>{extraContent}</div>
-      </div>
-    );
+    return null;
   }
 
   render() {
@@ -88,7 +82,10 @@ class PageHeader extends React.PureComponent<Partial<IPageHeaderProps>, IPageHea
             <div className={prefixCls} style={style}>
               {this.renderHeader(prefixCls)}
               {this.renderTitle(prefixCls)}
-              {this.renderContent(prefixCls)}
+              {this.props.children && (
+                <div className={`${prefixCls}-content-view`}>{this.props.children}</div>
+              )}
+              {this.renderFooter(prefixCls)}
             </div>
           );
         }}
