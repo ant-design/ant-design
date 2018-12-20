@@ -445,6 +445,7 @@
       flex-direction: column;
       width: @menu-collapsed-width;
       height: 75px;
+      margin: 0 !important;
       padding: 12px 0 !important;
 
       .anticon + span {
@@ -453,6 +454,31 @@
         line-height: 10px;
         max-width: @menu-collapsed-width;
         opacity: 1;
+      }
+    }
+
+    .@{menu-prefix-cls}-submenu-collapse {
+      margin: 0;
+
+      .@{menu-prefix-cls}-submenu-title {
+        height: 75px;
+        margin: 0;
+        padding: 0 !important;
+
+        div {
+          display: flex;
+          flex-direction: column;
+          width: @menu-collapsed-width;
+          padding: 12px 0 !important;
+
+          .anticon + span {
+            text-align: center;
+            font-size: 10px;
+            line-height: 10px;
+            max-width: @menu-collapsed-width;
+            opacity: 1;
+          }
+        }
       }
     }
   }
