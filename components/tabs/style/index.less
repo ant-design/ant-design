@@ -158,12 +158,6 @@
       clear: both;
     }
 
-    .@{tab-prefix-cls}-tab-disabled {
-      pointer-events: none;
-      cursor: not-allowed;
-      color: @disabled-color;
-    }
-
     .@{tab-prefix-cls}-tab {
       display: inline-block;
       height: 100%;
@@ -191,11 +185,19 @@
       .@{iconfont-css-prefix} {
         margin-right: 8px;
       }
-    }
 
-    .@{tab-prefix-cls}-tab-active {
-      color: @tabs-highlight-color;
-      font-weight: 500;
+      &-disabled {
+        &,
+        &:hover {
+          cursor: not-allowed;
+          color: @disabled-color;
+        }
+      }
+
+      &-active {
+        color: @tabs-highlight-color;
+        font-weight: 500;
+      }
     }
   }
 
