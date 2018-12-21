@@ -379,13 +379,13 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     if (!column.sorter) {
       return;
     }
-    const { sortMethods } = this.props;
+    const sortMethods = column.sortMethods || this.props.sortMethods;
     const { sortOrder, sortColumn } = this.state;
     // 只同时允许一列进行排序，否则会导致排序顺序的逻辑问题
     let newSortOrder: 'descend' | 'ascend' | undefined;
     // 切换另一列时，丢弃 sortOrder 的状态
     if (this.isSameColumn(sortColumn, column) && sortOrder !== undefined) {
-      // 切换排序状态，按照降序/升序/不排序的顺序
+      // 按照sortMethods的内容依次切换排序状态
       const methodIndex = sortMethods.indexOf(sortOrder) + 1;
       newSortOrder = methodIndex === sortMethods.length ? undefined : sortMethods[methodIndex];
     } else {
@@ -799,7 +799,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   }
 
   renderColumnsDropdown(columns: ColumnProps<T>[], locale: TableLocale) {
-    const { prefixCls, dropdownPrefixCls, sortMethods } = this.props;
+    const { prefixCls, dropdownPrefixCls } = this.props;
     const { sortOrder, filters } = this.state;
     return treeMap(columns, (column, i) => {
       const key = this.getColumnKey(column, i) as string;
@@ -824,6 +824,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         );
       }
       if (column.sorter) {
+        const sortMethods = column.sortMethods || this.props.sortMethods;
         const isAscend = isSortColumn && sortOrder === 'ascend';
         const isDescend = isSortColumn && sortOrder === 'descend';
 

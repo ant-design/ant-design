@@ -568,4 +568,23 @@ describe('Table.sorter', () => {
     wrapper.find('.ant-table-column-sorters').simulate('click');
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
   });
+
+  it('should first sort by descend, then cancel sort. (column prop)', () => {
+    const wrapper = mount(
+      createTable(
+        {},
+        {
+          sortMethods: ['descend'],
+        },
+      ),
+    );
+
+    // descend
+    wrapper.find('.ant-table-column-sorters').simulate('click');
+    expect(renderedNames(wrapper)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
+
+    // cancel sort
+    wrapper.find('.ant-table-column-sorters').simulate('click');
+    expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+  });
 });
