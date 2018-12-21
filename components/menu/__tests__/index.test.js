@@ -498,12 +498,13 @@ describe('Menu', () => {
   it('should have collapse for issue #13726', () => {
     const wrapper = mount(
       <Menu mode="inline" inlineCollapsed>
-        <Menu.ItemCollapse key="1">
+        <Menu.Item key="1" showTextCollapsed>
           <Icon type="pie-chart" />
           <span>Option 1</span>
-        </Menu.ItemCollapse>
-        <Menu.SubMenuCollapse
+        </Menu.Item>
+        <Menu.SubMenu
           key="sub1"
+          showTextCollapsed
           title={
             <div>
               <Icon type="mail" />
@@ -515,7 +516,7 @@ describe('Menu', () => {
           <Menu.Item key="6">Option 6</Menu.Item>
           <Menu.Item key="7">Option 7</Menu.Item>
           <Menu.Item key="8">Option 8</Menu.Item>
-        </Menu.SubMenuCollapse>
+        </Menu.SubMenu>
       </Menu>,
     );
 

@@ -7,8 +7,6 @@ import animation from '../_util/openAnimation';
 import warning from '../_util/warning';
 import SubMenu from './SubMenu';
 import Item from './MenuItem';
-import ItemCollapse from './MenuItemCollapse';
-import SubMenuCollapse from './SubMenuCollapse';
 import { SiderContext } from '../layout/Sider';
 
 export interface SelectParam {
@@ -64,9 +62,7 @@ export interface MenuState {
 export default class Menu extends React.Component<MenuProps, MenuState> {
   static Divider = Divider;
   static Item = Item;
-  static ItemCollapse = ItemCollapse;
   static SubMenu = SubMenu;
-  static SubMenuCollapse = SubMenuCollapse;
   static ItemGroup = ItemGroup;
   static defaultProps: Partial<MenuProps> = {
     prefixCls: 'ant-menu',

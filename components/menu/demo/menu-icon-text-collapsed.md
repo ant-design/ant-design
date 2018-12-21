@@ -17,7 +17,7 @@ Collapsed menu with icon and text.
 ````jsx
 import { Menu, Icon, Button } from 'antd';
 
-const SubMenu = Menu.SubMenuCollapse;
+const SubMenu = Menu.SubMenu;
 
 class App extends React.Component {
   state = {
@@ -44,21 +44,21 @@ class App extends React.Component {
           inlineCollapsed={this.state.collapsed}
           width={90}
         >
-          <Menu.ItemCollapse key="1">
+          <Menu.Item key="1" showTextCollapsed>
             <Icon type="pie-chart" />
             <span>Option 1</span>
-          </Menu.ItemCollapse>
-          <Menu.ItemCollapse key="2">
+          </Menu.Item>
+          <Menu.Item key="2" showTextCollapsed>
             <Icon type="desktop" />
             <span>Option 2</span>
-          </Menu.ItemCollapse>
-          <SubMenu key="sub1" title={<div><Icon type="mail" /><span>Navigation One</span></div>}>
+          </Menu.Item>
+          <SubMenu key="sub1" showTextCollapsed title={<div><Icon type="mail" /><span>Navigation One</span></div>}>
             <Menu.Item key="5">Option 5</Menu.Item>
             <Menu.Item key="6">Option 6</Menu.Item>
             <Menu.Item key="7">Option 7</Menu.Item>
             <Menu.Item key="8">Option 8</Menu.Item>
           </SubMenu>
-          <SubMenu key="sub2" title={<div><Icon type="mail" /><span>Navigation Two</span></div>}>
+          <SubMenu key="sub2" showTextCollapsed title={<div><Icon type="mail" /><span>Navigation Two</span></div>}>
             <Menu.Item key="9">Option 9</Menu.Item>
             <Menu.Item key="10">Option 10</Menu.Item>
             <SubMenu key="sub3" title="Submenu">

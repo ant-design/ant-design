@@ -56,6 +56,7 @@ More layouts with navigation: [layout](/components/layout).
 | disabled | whether menu item is disabled or not | boolean | false |
 | key | unique id of the menu item | string |  |
 | title | set display title for collapsed item | string |  |
+| showTextCollapsed | whether show text in collapsed menu or not | boolean | false |
 
 ### Menu.SubMenu
 
@@ -66,6 +67,7 @@ More layouts with navigation: [layout](/components/layout).
 | key | unique id of the sub menu | string |  |
 | title | title of the sub menu | string\|ReactNode |  |
 | onTitleClick | callback executed when the sub menu title is clicked | function({ key, domEvent }) |  |
+| showTextCollapsed | whether show text in collapsed menu or not | boolean | false |
 
 ### Menu.ItemGroup
 
