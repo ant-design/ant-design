@@ -102,11 +102,6 @@ exports[`List should render correctly 1`] = `
         <span />
       </li>
     </ul>
-    <div
-      class="ant-transfer-list-body-not-found"
-    >
-      Not Found
-    </div>
   </div>
 </div>
 `;
