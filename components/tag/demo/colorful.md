@@ -40,8 +40,9 @@ ReactDOM.render(
       <Tag color="#87d068">#87d068</Tag>
       <Tag color="#108ee9">#108ee9</Tag>
     </div>
-  </div>
-, mountNode);
+  </div>,
+  mountNode
+);
 ````
 
 ````css

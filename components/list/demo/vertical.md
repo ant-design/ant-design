@@ -60,6 +60,7 @@ ReactDOM.render(
         {item.content}
       </List.Item>
     )}
-  />
-, mountNode);
+  />,
+  mountNode
+);
 ````

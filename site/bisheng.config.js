@@ -1,20 +1,19 @@
 const path = require('path');
 const CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default;
-const OfflinePlugin = require('offline-plugin');
 const replaceLib = require('antd-tools/lib/replaceLib');
-const getExternalResources = require('./getExternalResources');
 
 const isDev = process.env.NODE_ENV === 'development';
 const usePreact = process.env.REACT_ENV === 'preact';
 
 function alertBabelConfig(rules) {
-  rules.forEach((rule) => {
+  rules.forEach(rule => {
     if (rule.loader && rule.loader === 'babel-loader') {
       if (rule.options.plugins.indexOf(replaceLib) === -1) {
         rule.options.plugins.push(replaceLib);
       }
-      rule.options.plugins = rule.options.plugins.filter(plugin =>
-        !plugin.indexOf || plugin.indexOf('babel-plugin-add-module-exports') === -1
+      // eslint-disable-next-line
+      rule.options.plugins = rule.options.plugins.filter(
+        plugin => !plugin.indexOf || plugin.indexOf('babel-plugin-add-module-exports') === -1,
       );
     } else if (rule.use) {
       alertBabelConfig(rule.use);
@@ -27,10 +26,7 @@ module.exports = {
   source: {
     components: './components',
     docs: './docs',
-    changelog: [
-      'CHANGELOG.zh-CN.md',
-      'CHANGELOG.en-US.md',
-    ],
+    changelog: ['CHANGELOG.zh-CN.md', 'CHANGELOG.en-US.md'],
   },
   theme: './site/theme',
   htmlTemplate: './site/theme/static/template.html',
@@ -54,8 +50,14 @@ module.exports = {
       'Data Entry': 3,
       'Data Display': 4,
       Feedback: 5,
-      Localization: 6,
-      Other: 7,
+      Other: 6,
+      通用: 0,
+      布局: 1,
+      导航: 2,
+      数据录入: 3,
+      数据展示: 4,
+      反馈: 5,
+      其他: 6,
     },
     docVersions: {
       '0.9.x': 'http://09x.ant.design',
@@ -80,9 +82,12 @@ module.exports = {
   },
   doraConfig: {
     verbose: true,
-    plugins: ['dora-plugin-upload'],
+  },
+  lessConfig: {
+    javascriptEnabled: true,
   },
   webpackConfig(config) {
+    // eslint-disable-next-line
     config.resolve.alias = {
       'antd/lib': path.join(process.cwd(), 'components'),
       'antd/es': path.join(process.cwd(), 'components'),
@@ -91,11 +96,13 @@ module.exports = {
       'react-router': 'react-router/umd/ReactRouter',
     };
 
+    // eslint-disable-next-line
     config.externals = {
       'react-router-dom': 'ReactRouterDOM',
     };
 
     if (usePreact) {
+      // eslint-disable-next-line
       config.resolve.alias = Object.assign({}, config.resolve.alias, {
         react: 'preact-compat',
         'react-dom': 'preact-compat',
@@ -105,34 +112,13 @@ module.exports = {
     }
 
     if (isDev) {
+      // eslint-disable-next-line
       config.devtool = 'source-map';
     }
 
     alertBabelConfig(config.module.rules);
 
-    config.plugins.push(
-      new CSSSplitWebpackPlugin({ size: 4000 }),
-      new OfflinePlugin({
-        appShell: '/app-shell',
-        caches: {
-          main: [':rest:'],
-          additional: [':externals:'],
-        },
-        externals: [
-          '/app-shell',
-          'https://at.alicdn.com/t/font_148784_v4ggb6wrjmkotj4i.woff',
-          'https://at.alicdn.com/t/font_148784_v4ggb6wrjmkotj4i.eot',
-          'https://at.alicdn.com/t/font_148784_v4ggb6wrjmkotj4i.svg',
-          'https://at.alicdn.com/t/font_148784_v4ggb6wrjmkotj4i.ttf',
-        ].concat(getExternalResources()),
-        responseStrategy: 'network-first',
-        safeToUseOptionalCaches: true,
-        ServiceWorker: {
-          events: true,
-        },
-        AppCache: false,
-      }),
-    );
+    config.plugins.push(new CSSSplitWebpackPlugin({ size: 4000 }));
 
     return config;
   },

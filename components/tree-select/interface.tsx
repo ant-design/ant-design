@@ -1,34 +1,63 @@
 import * as React from 'react';
 import { AbstractSelectProps } from '../select';
 
-export interface TreeData {
+export type TreeNode = TreeNodeNormal | TreeNodeSimpleMode;
+
+export interface TreeNodeNormal {
+  value: string | number;
+  /**
+   * @deprecated Please use `title` instead.
+   */
+  label?: React.ReactNode;
+  title?: React.ReactNode;
   key: string;
-  value: string;
-  label: React.ReactNode;
-  children?: TreeData[];
+  isLeaf?: boolean;
+  disabled?: boolean;
+  disableCheckbox?: boolean;
+  selectable?: boolean;
+  children?: TreeNodeNormal[];
+}
+
+export interface TreeNodeSimpleMode {
+  /* It is possible to change `id` and `pId` prop keys using TreeDataSimpleMode so those keys can be anything */
+  [key: string]: string | boolean | React.ReactNode;
+}
+
+export interface TreeDataSimpleMode {
+  id?: string;
+  pId?: string;
+  rootPId?: string;
 }
 
 export interface TreeSelectProps extends AbstractSelectProps {
-  value?: string | Array<any>;
-  defaultValue?: string | Array<any>;
-  multiple?: boolean;
-  onSelect?: (value: any) => void;
-  onChange?: (value: any, label: any) => void;
-  onSearch?: (value: any) => void;
-  searchPlaceholder?: string;
+  autoFocus?: boolean;
+  defaultValue?: string | number | Array<any>;
   dropdownStyle?: React.CSSProperties;
-  dropdownMatchSelectWidth?: boolean;
-  treeDefaultExpandAll?: boolean;
-  treeCheckable?: boolean | React.ReactNode;
-  treeDefaultExpandedKeys?: Array<string>;
   filterTreeNode?: (inputValue: string, treeNode: any) => boolean | boolean;
+  getPopupContainer?: (triggerNode: Element) => HTMLElement;
+  labelInValue?: boolean;
+  loadData?: (node: any) => void;
+  maxTagCount?: number;
+  maxTagPlaceholder?: React.ReactNode | ((omittedValues: any[]) => React.ReactNode);
+  multiple?: boolean;
+  onChange?: (value: any, label: any, extra: any) => void;
+  onSearch?: (value: any) => void;
+  onSelect?: (value: any) => void;
+  onTreeExpand?: (keys: Array<string>) => void;
+  onFocus?: React.FocusEventHandler<HTMLInputElement>;
+  onBlur?: React.FocusEventHandler<HTMLInputElement>;
+  searchPlaceholder?: string;
+  searchValue?: string;
+  showCheckedStrategy?: 'SHOW_ALL' | 'SHOW_PARENT' | 'SHOW_CHILD';
+  suffixIcon?: React.ReactNode;
+  treeCheckable?: boolean | React.ReactNode;
+  treeCheckStrictly?: boolean;
+  treeData?: Array<TreeNode>;
+  treeDataSimpleMode?: boolean | TreeDataSimpleMode;
+  treeDefaultExpandAll?: boolean;
+  treeDefaultExpandedKeys?: Array<string>;
+  treeExpandedKeys?: Array<string>;
   treeNodeFilterProp?: string;
   treeNodeLabelProp?: string;
-  treeData?: Array<TreeData>;
-  treeDataSimpleMode?: boolean | Object;
-  loadData?: (node: any) => void;
-  showCheckedStrategy?: 'SHOW_ALL' | 'SHOW_PARENT' | 'SHOW_CHILD';
-  labelInValue?: boolean;
-  treeCheckStrictly?: boolean;
-  getPopupContainer?: (triggerNode: Element) => HTMLElement;
+  value?: string | number | Array<any>;
 }

@@ -17,6 +17,7 @@ Customize suggestions.
 
 ````jsx
 import { Mention, Avatar } from 'antd';
+
 const Nav = Mention.Nav;
 
 const webFrameworks = [
@@ -30,11 +31,10 @@ class CustomNavMention extends React.Component {
   state = {
     suggestions: [],
   }
+
   onSearchChange = (value) => {
     const searchValue = value.toLowerCase();
-    const filtered = webFrameworks.filter(item =>
-      item.name.toLowerCase().indexOf(searchValue) !== -1
-    );
+    const filtered = webFrameworks.filter(item => item.name.toLowerCase().indexOf(searchValue) !== -1);
     const suggestions = filtered.map(suggestion => (
       <Nav
         value={suggestion.name}
@@ -44,13 +44,16 @@ class CustomNavMention extends React.Component {
         <Avatar
           src={suggestion.icon}
           size="small"
-          style={{ width: 14, height: 14, marginRight: 8, top: 2, position: 'relative' }}
+          style={{
+            width: 14, height: 14, marginRight: 8, top: -1, position: 'relative',
+          }}
         />
         {suggestion.name} - {suggestion.type}
       </Nav>
     ));
     this.setState({ suggestions });
   }
+
   render() {
     const { suggestions } = this.state;
     return (

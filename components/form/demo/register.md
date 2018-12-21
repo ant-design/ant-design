@@ -14,7 +14,10 @@ title:
 Fill in this form to create a new account for you.
 
 ````jsx
-import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete } from 'antd';
+import {
+  Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete,
+} from 'antd';
+
 const FormItem = Form.Item;
 const Option = Select.Option;
 const AutoCompleteOption = AutoComplete.Option;
@@ -48,6 +51,7 @@ class RegistrationForm extends React.Component {
     confirmDirty: false,
     autoCompleteResult: [],
   };
+
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
@@ -56,10 +60,12 @@ class RegistrationForm extends React.Component {
       }
     });
   }
+
   handleConfirmBlur = (e) => {
     const value = e.target.value;
     this.setState({ confirmDirty: this.state.confirmDirty || !!value });
   }
+
   compareToFirstPassword = (rule, value, callback) => {
     const form = this.props.form;
     if (value && value !== form.getFieldValue('password')) {
@@ -68,6 +74,7 @@ class RegistrationForm extends React.Component {
       callback();
     }
   }
+
   validateToNextPassword = (rule, value, callback) => {
     const form = this.props.form;
     if (value && this.state.confirmDirty) {
@@ -75,6 +82,7 @@ class RegistrationForm extends React.Component {
     }
     callback();
   }
+
   handleWebsiteChange = (value) => {
     let autoCompleteResult;
     if (!value) {
@@ -84,6 +92,7 @@ class RegistrationForm extends React.Component {
     }
     this.setState({ autoCompleteResult });
   }
+
   render() {
     const { getFieldDecorator } = this.props.form;
     const { autoCompleteResult } = this.state;

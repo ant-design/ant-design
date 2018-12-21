@@ -60,18 +60,19 @@ class Home extends React.Component {
   static contextTypes = {
     intl: PropTypes.object.isRequired,
     isMobile: PropTypes.bool.isRequired,
-  }
+  };
+
   render() {
     const { isMobile, intl } = this.context;
     const childProps = { ...this.props, isMobile, locale: intl.locale };
     return (
-      <DocumentTitle title={`Ant Design - ${this.props.intl.formatMessage({ id: 'app.home.slogan' })}`}>
+      <DocumentTitle title={`Ant Design - ${intl.formatMessage({ id: 'app.home.slogan' })}`}>
         <div className="main-wrapper">
+          <style dangerouslySetInnerHTML={{ __html: getStyle() }} /> {/* eslint-disable-line */}
           <Banner {...childProps} />
           <Page1 {...childProps} />
           <Page2 {...childProps} />
           <Page3 {...childProps} />
-          <style dangerouslySetInnerHTML={{ __html: getStyle() }} />
         </div>
       </DocumentTitle>
     );

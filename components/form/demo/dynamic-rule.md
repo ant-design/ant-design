@@ -14,7 +14,10 @@ title:
 Perform different check rules according to different situations.
 
 ````jsx
-import { Form, Input, Button, Checkbox } from 'antd';
+import {
+  Form, Input, Button, Checkbox,
+} from 'antd';
+
 const FormItem = Form.Item;
 
 const formItemLayout = {
@@ -29,6 +32,7 @@ class DynamicRule extends React.Component {
   state = {
     checkNick: false,
   };
+
   check = () => {
     this.props.form.validateFields(
       (err) => {
@@ -38,6 +42,7 @@ class DynamicRule extends React.Component {
       },
     );
   }
+
   handleChange = (e) => {
     this.setState({
       checkNick: e.target.checked,
@@ -45,6 +50,7 @@ class DynamicRule extends React.Component {
       this.props.form.validateFields(['nickname'], { force: true });
     });
   }
+
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
@@ -71,7 +77,7 @@ class DynamicRule extends React.Component {
         </FormItem>
         <FormItem {...formTailLayout}>
           <Checkbox
-            value={this.state.checkNick}
+            checked={this.state.checkNick}
             onChange={this.handleChange}
           >
             Nickname is required

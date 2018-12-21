@@ -2,7 +2,7 @@
 order: 2
 title:
   zh-CN: 从数据直接生成
-  en-US: Generate form tree data
+  en-US: Generate from tree data
 ---
 
 ## zh-CN
@@ -13,25 +13,24 @@ title:
 
 The tree structure can be populated using `treeData` property. This is a quick and easy way to provide the tree content.
 
-
 ````jsx
 import { TreeSelect } from 'antd';
 
 const treeData = [{
-  label: 'Node1',
+  title: 'Node1',
   value: '0-0',
   key: '0-0',
   children: [{
-    label: 'Child Node1',
+    title: 'Child Node1',
     value: '0-0-1',
     key: '0-0-1',
   }, {
-    label: 'Child Node2',
+    title: 'Child Node2',
     value: '0-0-2',
     key: '0-0-2',
   }],
 }, {
-  label: 'Node2',
+  title: 'Node2',
   value: '0-1',
   key: '0-1',
 }];
@@ -40,10 +39,12 @@ class Demo extends React.Component {
   state = {
     value: undefined,
   }
+
   onChange = (value) => {
-    console.log(arguments);
+    console.log(value);
     this.setState({ value });
   }
+
   render() {
     return (
       <TreeSelect

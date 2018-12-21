@@ -23,9 +23,11 @@ class App extends React.Component {
     mockData: [],
     targetKeys: [],
   }
+
   componentDidMount() {
     this.getMock();
   }
+
   getMock = () => {
     const targetKeys = [];
     const mockData = [];
@@ -43,20 +45,21 @@ class App extends React.Component {
     }
     this.setState({ mockData, targetKeys });
   }
+
   handleChange = (targetKeys) => {
     this.setState({ targetKeys });
   }
-  renderFooter = () => {
-    return (
-      <Button
-        size="small"
-        style={{ float: 'right', margin: 5 }}
-        onClick={this.getMock}
-      >
+
+  renderFooter = () => (
+    <Button
+      size="small"
+      style={{ float: 'right', margin: 5 }}
+      onClick={this.getMock}
+    >
         reload
-      </Button>
-    );
-  }
+    </Button>
+  )
+
   render() {
     return (
       <Transfer

@@ -1,0 +1,190 @@
+@import '../../style/themes/default';
+
+@dawer-prefix-cls: ~'@{ant-prefix}-drawer';
+
+.@{dawer-prefix-cls} {
+  position: fixed;
+  top: 0;
+  width: 0%;
+  height: 100%;
+  z-index: @zindex-modal;
+  > * {
+    transition: transform @animation-duration-slow @ease-base-in;
+  }
+
+  &-content-wrapper {
+    position: fixed;
+  }
+  .@{dawer-prefix-cls}-content {
+    width: 100%;
+    height: 100%;
+  }
+  &-left,
+  &-right {
+    width: 0%;
+    height: 100%;
+    .@{dawer-prefix-cls}-content-wrapper {
+      height: 100%;
+    }
+    &.@{dawer-prefix-cls}-open {
+      width: 100%;
+    }
+    &.@{dawer-prefix-cls}-open.no-mask {
+      width: 0%;
+    }
+  }
+  &-left {
+    &.@{dawer-prefix-cls}-open {
+      .@{dawer-prefix-cls}-content-wrapper {
+        box-shadow: @shadow-1-right;
+      }
+    }
+  }
+  &-right {
+    .@{dawer-prefix-cls} {
+      &-content-wrapper {
+        right: 0;
+      }
+    }
+    &.@{dawer-prefix-cls}-open {
+      .@{dawer-prefix-cls}-content-wrapper {
+        box-shadow: @shadow-1-left;
+      }
+    }
+  }
+
+  &-top,
+  &-bottom {
+    width: 100%;
+    height: 0%;
+    .@{dawer-prefix-cls}-content-wrapper {
+      width: 100%;
+    }
+    &.@{dawer-prefix-cls}-open {
+      height: 100%;
+    }
+    &.@{dawer-prefix-cls}-open.no-mask {
+      height: 0%;
+    }
+  }
+  &-top {
+    &.@{dawer-prefix-cls}-open {
+      .@{dawer-prefix-cls}-content-wrapper {
+        box-shadow: @shadow-1-down;
+      }
+    }
+  }
+  &-bottom {
+    .@{dawer-prefix-cls} {
+      &-content-wrapper {
+        bottom: 0;
+      }
+    }
+    &.@{dawer-prefix-cls}-open {
+      .@{dawer-prefix-cls}-content-wrapper {
+        box-shadow: @shadow-1-up;
+      }
+    }
+  }
+  &.@{dawer-prefix-cls}-open {
+    .@{dawer-prefix-cls} {
+      &-mask {
+        opacity: 0.3;
+        height: 100%;
+        animation: antdDrawerFadeIn @animation-duration-slow @ease-base-out;
+        transition: none;
+      }
+    }
+  }
+
+  &-title {
+    margin: 0;
+    font-size: @font-size-lg;
+    line-height: 22px;
+    font-weight: 500;
+    color: @heading-color;
+  }
+
+  &-content {
+    position: relative;
+    background-color: @component-background;
+    border: 0;
+    background-clip: padding-box;
+    z-index: 1;
+  }
+
+  &-close {
+    cursor: pointer;
+    border: 0;
+    background: transparent;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    transition: color @animation-duration-slow;
+    color: @text-color-secondary;
+    outline: 0;
+    padding: 0;
+
+    &-x {
+      display: block;
+      font-style: normal;
+      text-align: center;
+      text-transform: none;
+      text-rendering: auto;
+      width: 56px;
+      height: 56px;
+      line-height: 56px;
+      font-size: @font-size-lg;
+    }
+
+    &:focus,
+    &:hover {
+      color: #444;
+      text-decoration: none;
+    }
+  }
+
+  &-header {
+    padding: 16px 24px;
+    border-radius: @border-radius-base @border-radius-base 0 0;
+    background: @component-background;
+    color: @text-color;
+    border-bottom: @border-width-base @border-style-base @border-color-split;
+  }
+
+  &-body {
+    padding: 24px;
+    font-size: @font-size-base;
+    line-height: @line-height-base;
+    word-wrap: break-word;
+  }
+
+  &-mask {
+    position: fixed;
+    width: 100%;
+    height: 0;
+    opacity: 0;
+    background-color: @modal-mask-bg;
+    filter: ~'alpha(opacity=50)';
+    transition: opacity @animation-duration-slow linear, height 0s ease @animation-duration-slow;
+  }
+  &-open {
+    transition: transform @animation-duration-slow @ease-base-out;
+    &-content {
+      box-shadow: @shadow-2;
+    }
+  }
+}
+
+@keyframes antdDrawerFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}

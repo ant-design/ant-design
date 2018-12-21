@@ -1,7 +1,7 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@message-prefix-cls: ~"@{ant-prefix}-message";
+@message-prefix-cls: ~'@{ant-prefix}-message';
 
 .@{message-prefix-cls} {
   .reset-component;
@@ -21,7 +21,7 @@
   }
 
   &-notice-content {
-    padding: 10px 16px;
+    padding: @message-notice-content-padding;
     border-radius: @border-radius-base;
     box-shadow: @shadow-2;
     background: @component-background;
@@ -56,7 +56,7 @@
   &-notice.move-up-leave.move-up-leave-active {
     animation-name: MessageMoveOut;
     overflow: hidden;
-    animation-duration: .3s;
+    animation-duration: 0.3s;
   }
 }
 

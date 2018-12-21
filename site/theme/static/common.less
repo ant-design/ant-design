@@ -5,6 +5,7 @@ body {
 
 body {
   font-family: @font-family;
+  font-variant: tabular-nums;
   line-height: 1.5;
   color: @site-text-color;
   font-size: 14px;
@@ -14,7 +15,7 @@ body {
 }
 
 a {
-  transition: color .3s ease;
+  transition: color 0.3s ease;
   &:focus {
     text-decoration: underline;
     text-decoration-skip: ink;
@@ -43,7 +44,7 @@ a {
 
 .aside-container {
   padding-bottom: 50px;
-  font-family: Lato, @font-family;
+  font-family: Avenir, @font-family;
 
   &.ant-menu-inline .ant-menu-submenu-title h4,
   &.ant-menu-inline > .ant-menu-item,
@@ -70,7 +71,7 @@ a {
       position: absolute;
       right: -10px;
       top: 16px;
-      transition: all .3s;
+      transition: all 0.3s;
     }
     &:hover .anticon {
       opacity: 1;
@@ -82,16 +83,14 @@ a {
   font-size: 12px;
   margin-left: 6px;
   font-weight: normal;
-  opacity: .67;
+  opacity: 0.67;
 }
 
 .outside-link {
   display: inline-block;
 }
 
-.outside-link:after {
-  content: '\e691';
-  font-family: 'anticon';
+.outside-link-icon {
   margin-left: 5px;
   font-size: 12px;
   color: #aaa;
@@ -112,7 +111,7 @@ a {
 }
 
 #react-content {
-  transition: transform .3s @ease-in-out-circ;
+  transition: transform 0.3s @ease-in-out-circ;
   height: 100%;
 }
 .page-wrapper {
@@ -130,4 +129,8 @@ a {
 
 .drawer {
   z-index: 1029;
+}
+
+#_hj_feedback_container .path1:before {
+  color: @primary-color !important;
 }

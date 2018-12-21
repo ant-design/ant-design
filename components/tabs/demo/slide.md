@@ -15,6 +15,7 @@ In order to fit in more tabs, they can slide left and right (or up and down).
 
 ````jsx
 import { Tabs, Radio } from 'antd';
+
 const TabPane = Tabs.TabPane;
 
 class SlidingTabsDemo extends React.Component {
@@ -24,10 +25,12 @@ class SlidingTabsDemo extends React.Component {
       mode: 'top',
     };
   }
+
   handleModeChange = (e) => {
     const mode = e.target.value;
     this.setState({ mode });
   }
+
   render() {
     const { mode } = this.state;
     return (

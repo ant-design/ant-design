@@ -28,8 +28,9 @@ ReactDOM.render(
     <Badge dot>
       <a href="#">Link something</a>
     </Badge>
-  </div>
-, mountNode);
+  </div>,
+  mountNode
+);
 ````
 
 <style>

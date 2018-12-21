@@ -20,11 +20,24 @@ Customized or third-party form controls can be used in Form, too. Controls must 
 > * It must be a class component.
 
 ````jsx
-import { Form, Input, Select, Button } from 'antd';
+import {
+  Form, Input, Select, Button,
+} from 'antd';
+
 const FormItem = Form.Item;
 const Option = Select.Option;
 
 class PriceInput extends React.Component {
+  static getDerivedStateFromProps(nextProps) {
+    // Should be a controlled component.
+    if ('value' in nextProps) {
+      return {
+        ...(nextProps.value || {}),
+      };
+    }
+    return null;
+  }
+
   constructor(props) {
     super(props);
 
@@ -34,16 +47,10 @@ class PriceInput extends React.Component {
       currency: value.currency || 'rmb',
     };
   }
-  componentWillReceiveProps(nextProps) {
-    // Should be a controlled component.
-    if ('value' in nextProps) {
-      const value = nextProps.value;
-      this.setState(value);
-    }
-  }
+
   handleNumberChange = (e) => {
     const number = parseInt(e.target.value || 0, 10);
-    if (isNaN(number)) {
+    if (Number.isNaN(number)) {
       return;
     }
     if (!('value' in this.props)) {
@@ -51,12 +58,14 @@ class PriceInput extends React.Component {
     }
     this.triggerChange({ number });
   }
+
   handleCurrencyChange = (currency) => {
     if (!('value' in this.props)) {
       this.setState({ currency });
     }
     this.triggerChange({ currency });
   }
+
   triggerChange = (changedValue) => {
     // Should provide an event to pass value to Form.
     const onChange = this.props.onChange;
@@ -64,6 +73,7 @@ class PriceInput extends React.Component {
       onChange(Object.assign({}, this.state, changedValue));
     }
   }
+
   render() {
     const { size } = this.props;
     const state = this.state;
@@ -99,6 +109,7 @@ class Demo extends React.Component {
       }
     });
   }
+
   checkPrice = (rule, value, callback) => {
     if (value.number > 0) {
       callback();
@@ -106,6 +117,7 @@ class Demo extends React.Component {
     }
     callback('Price must greater than zero!');
   }
+
   render() {
     const { getFieldDecorator } = this.props.form;
     return (

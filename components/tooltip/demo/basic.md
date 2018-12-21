@@ -19,6 +19,7 @@ import { Tooltip } from 'antd';
 ReactDOM.render(
   <Tooltip title="prompt text">
     <span>Tooltip will show when mouse enter.</span>
-  </Tooltip>
-, mountNode);
+  </Tooltip>,
+  mountNode
+);
 ````

@@ -9,16 +9,13 @@ title:
 
 通过配置 `options` 参数来渲染单选框。
 
-> `2.9.0` 之后支持。
-
 ## en-US
 
 Render radios by configuring `options`.
 
-> support after `2.9.0`.
-
 ```jsx
 import { Radio } from 'antd';
+
 const RadioGroup = Radio.Group;
 
 const plainOptions = ['Apple', 'Pear', 'Orange'];
@@ -39,24 +36,28 @@ class App extends React.Component {
     value2: 'Apple',
     value3: 'Apple',
   }
+
   onChange1 = (e) => {
     console.log('radio1 checked', e.target.value);
     this.setState({
       value1: e.target.value,
     });
   }
+
   onChange2 = (e) => {
     console.log('radio2 checked', e.target.value);
     this.setState({
       value2: e.target.value,
     });
   }
+
   onChange3 = (e) => {
     console.log('radio3 checked', e.target.value);
     this.setState({
       value3: e.target.value,
     });
   }
+
   render() {
     return (
       <div>

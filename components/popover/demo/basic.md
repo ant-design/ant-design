@@ -26,8 +26,9 @@ const content = (
 ReactDOM.render(
   <Popover content={content} title="Title">
     <Button type="primary">Hover me</Button>
-  </Popover>
-, mountNode);
+  </Popover>,
+  mountNode
+);
 ````
 
 <style>

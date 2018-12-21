@@ -21,6 +21,7 @@ function onPanelChange(value, mode) {
 }
 
 ReactDOM.render(
-  <Calendar onPanelChange={onPanelChange} />
-, mountNode);
+  <Calendar onPanelChange={onPanelChange} />,
+  mountNode
+);
 ````

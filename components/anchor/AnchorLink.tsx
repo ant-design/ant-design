@@ -1,6 +1,7 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { AntAnchor } from './Anchor';
 
 export interface AnchorLinkProps {
   prefixCls?: string;
@@ -20,28 +21,36 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
   };
 
   context: {
-    antAnchor: any;
+    antAnchor: AntAnchor;
   };
 
   componentDidMount() {
     this.context.antAnchor.registerLink(this.props.href);
   }
 
+  componentWillReceiveProps(nextProps: AnchorLinkProps) {
+    const { href } = nextProps;
+    if (this.props.href !== href) {
+      this.context.antAnchor.unregisterLink(this.props.href);
+      this.context.antAnchor.registerLink(href);
+    }
+  }
+
   componentWillUnmount() {
     this.context.antAnchor.unregisterLink(this.props.href);
   }
 
-  handleClick = () => {
-    this.context.antAnchor.scrollTo(this.props.href);
-  }
+  handleClick = (e: React.MouseEvent<HTMLElement>) => {
+    const { scrollTo, onClick } = this.context.antAnchor;
+    const { href, title } = this.props;
+    if (onClick) {
+      onClick(e, { title, href });
+    }
+    scrollTo(href);
+  };
 
   render() {
-    const {
-      prefixCls,
-      href,
-      title,
-      children,
-    } = this.props;
+    const { prefixCls, href, title, children } = this.props;
     const active = this.context.antAnchor.activeLink === href;
     const wrapperClassName = classNames(`${prefixCls}-link`, {
       [`${prefixCls}-link-active`]: active,

@@ -21,6 +21,7 @@ function onShowSizeChange(current, pageSize) {
 }
 
 ReactDOM.render(
-  <Pagination showSizeChanger onShowSizeChange={onShowSizeChange} defaultCurrent={3} total={500} />
-, mountNode);
+  <Pagination showSizeChanger onShowSizeChange={onShowSizeChange} defaultCurrent={3} total={500} />,
+  mountNode
+);
 ````

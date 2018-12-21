@@ -4,7 +4,7 @@ type: Data Entry
 title: Checkbox
 ---
 
-Checkbox.
+Checkbox component.
 
 ## When To Use
 
@@ -42,5 +42,5 @@ Checkbox.
 
 | Name | Description |
 | ---- | ----------- |
-| focus() | get focus |
 | blur() | remove focus |
+| focus() | get focus |

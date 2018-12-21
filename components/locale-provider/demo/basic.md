@@ -26,6 +26,7 @@ const App = () => (
 ReactDOM.render(
   <LocaleProvider locale={zhCN}>
     <App />
-  </LocaleProvider>
-, mountNode);
+  </LocaleProvider>,
+  mountNode
+);
 ````

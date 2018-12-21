@@ -15,6 +15,7 @@ A borderless style of Collapse.
 
 ````jsx
 import { Collapse } from 'antd';
+
 const Panel = Collapse.Panel;
 
 const text = (
@@ -36,6 +37,7 @@ ReactDOM.render(
     <Panel header="This is panel header 3" key="3">
       {text}
     </Panel>
-  </Collapse>
-, mountNode);
+  </Collapse>,
+  mountNode
+);
 ````

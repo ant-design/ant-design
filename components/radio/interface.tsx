@@ -2,6 +2,8 @@ import * as React from 'react';
 import { AbstractCheckboxGroupProps } from '../checkbox/Group';
 import { AbstractCheckboxProps } from '../checkbox/Checkbox';
 
+export type RadioGroupButtonStyle = 'outline' | 'solid';
+
 export interface RadioGroupProps extends AbstractCheckboxGroupProps {
   defaultValue?: any;
   value?: any;
@@ -12,6 +14,7 @@ export interface RadioGroupProps extends AbstractCheckboxGroupProps {
   name?: string;
   children?: React.ReactNode;
   id?: string;
+  buttonStyle?: RadioGroupButtonStyle;
 }
 
 export interface RadioGroupState {
@@ -37,5 +40,5 @@ export interface RadioChangeEvent {
   target: RadioChangeEventTarget;
   stopPropagation: () => void;
   preventDefault: () => void;
-  nativeEvent: Event;
+  nativeEvent: MouseEvent;
 }

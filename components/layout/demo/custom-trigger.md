@@ -15,17 +15,20 @@ If you want to use a customized trigger, you can hide the default one by setting
 
 ````jsx
 import { Layout, Menu, Icon } from 'antd';
+
 const { Header, Sider, Content } = Layout;
 
 class SiderDemo extends React.Component {
   state = {
     collapsed: false,
   };
+
   toggle = () => {
     this.setState({
       collapsed: !this.state.collapsed,
     });
   }
+
   render() {
     return (
       <Layout>
@@ -58,7 +61,10 @@ class SiderDemo extends React.Component {
               onClick={this.toggle}
             />
           </Header>
-          <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
+          <Content style={{
+            margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280,
+          }}
+          >
             Content
           </Content>
         </Layout>

@@ -15,6 +15,7 @@ Basic Usage.
 
 ````jsx
 import { Select } from 'antd';
+
 const Option = Select.Option;
 
 function handleChange(value) {
@@ -32,6 +33,10 @@ ReactDOM.render(
     <Select defaultValue="lucy" style={{ width: 120 }} disabled>
       <Option value="lucy">Lucy</Option>
     </Select>
-  </div>
-, mountNode);
+    <Select defaultValue="lucy" style={{ width: 120 }} loading>
+      <Option value="lucy">Lucy</Option>
+    </Select>
+  </div>,
+  mountNode
+);
 ````

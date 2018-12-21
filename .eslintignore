@@ -1,6 +1,9 @@
 components/**/*.js
 components/**/*.jsx
 components/*/__tests__/type.tsx
-!.eslintrc.js
 !components/*/__tests__/**/*.js
 !components/*/demo/*
+!.*.js
+# Docs templates
+site/theme/template/IconDisplay/*.js
+site/theme/template/IconDisplay/*.jsx

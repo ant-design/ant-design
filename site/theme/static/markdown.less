@@ -9,7 +9,7 @@
 }
 
 .markdown img {
-  max-width: ~"calc(100% - 32px)";
+  max-width: ~'calc(100% - 32px)';
 }
 
 .markdown p > img {
@@ -22,8 +22,9 @@
   font-weight: 500;
   margin-bottom: 20px;
   margin-top: 8px;
-  font-family: Lato, @font-family;
+  font-family: Avenir, @font-family;
   font-size: 30px;
+  font-variant: tabular-nums;
   line-height: 38px;
 
   .subtitle {
@@ -42,22 +43,31 @@
 .markdown h5,
 .markdown h6 {
   color: @site-heading-color;
-  font-family: Lato, @font-family;
+  font-family: Avenir, @font-family;
+  font-variant: tabular-nums;
   margin: 1.6em 0 0.6em;
   font-weight: 500;
   clear: both;
 }
 
-.markdown h3 { font-size: 18px; }
-.markdown h4 { font-size: 16px; }
-.markdown h5 { font-size: 14px; }
-.markdown h6 { font-size: 12px; }
+.markdown h3 {
+  font-size: 18px;
+}
+.markdown h4 {
+  font-size: 16px;
+}
+.markdown h5 {
+  font-size: 14px;
+}
+.markdown h6 {
+  font-size: 12px;
+}
 
 .markdown hr {
   height: 1px;
   border: 0;
   background: @site-border-color-split;
-  margin: 72px 0;
+  margin: 56px 0;
   clear: both;
 }
 
@@ -89,16 +99,16 @@
 .markdown code {
   margin: 0 1px;
   background: #f2f4f5;
-  padding: .2em .4em;
+  padding: 0.2em 0.4em;
   border-radius: 3px;
-  font-size: .9em;
+  font-size: 0.9em;
   border: 1px solid #eee;
 }
 
 .markdown pre {
   border-radius: @border-radius-sm;
   background: #f2f4f5;
-  font-family: "Lucida Console", Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 }
 
 .markdown pre code {
@@ -163,12 +173,9 @@
 }
 
 .markdown a.edit-button {
-  line-height: 12px;
   display: inline-block;
-  margin-left: 10px;
-  height: 12px;
+  margin-left: 8px;
   text-decoration: none;
-  font-weight: 400;
 
   i {
     color: @site-text-color-secondary;
@@ -202,28 +209,88 @@
 .markdown.api-container table {
   font-size: @font-size-base;
   line-height: @line-height-base;
+  font-family: @code-family;
+  border-width: 0;
+  margin: 2em 0;
+  th,
+  td {
+    padding: 14px 16px;
+    border-width: 1px 0;
+    border-color: @border-color-split;
+  }
+  th {
+    border-width: 0 0 2px 0;
+  }
   td:first-child {
     font-weight: 500;
     width: 20%;
-    font-family: "Lucida Console", Consolas, Menlo, Courier, monospace;
+    color: @blue-9;
   }
   td:nth-child(3) {
     width: 22%;
-    font-size: 12px;
-    font-family: "Lucida Console", Consolas, Menlo, Courier, monospace;
+    font-size: @font-size-base - 1px;
+    color: @magenta-7;
+    word-break: break-all;
   }
   td:last-child {
     width: 13%;
-    font-size: 12px;
-    font-family: "Lucida Console", Consolas, Menlo, Courier, monospace;
+    font-size: @font-size-base - 1px;
   }
 }
 
 .grid-demo,
-[id^="components-grid-demo-"] {
+[id^='components-grid-demo-'] {
   .demo-row,
   .code-box-demo .demo-row {
-    background-image: linear-gradient(90deg, #f5f5f5 4.16666667%, transparent 4.16666667%, transparent 8.33333333%, #f5f5f5 8.33333333%, #f5f5f5 12.5%, transparent 12.5%, transparent 16.66666667%, #f5f5f5 16.66666667%, #f5f5f5 20.83333333%, transparent 20.83333333%, transparent 25%, #f5f5f5 25%, #f5f5f5 29.16666667%, transparent 29.16666667%, transparent 33.33333333%, #f5f5f5 33.33333333%, #f5f5f5 37.5%, transparent 37.5%, transparent 41.66666667%, #f5f5f5 41.66666667%, #f5f5f5 45.83333333%, transparent 45.83333333%, transparent 50%, #f5f5f5 50%, #f5f5f5 54.16666667%, transparent 54.16666667%, transparent 58.33333333%, #f5f5f5 58.33333333%, #f5f5f5 62.5%, transparent 62.5%, transparent 66.66666667%, #f5f5f5 66.66666667%, #f5f5f5 70.83333333%, transparent 70.83333333%, transparent 75%, #f5f5f5 75%, #f5f5f5 79.16666667%, transparent 79.16666667%, transparent 83.33333333%, #f5f5f5 83.33333333%, #f5f5f5 87.5%, transparent 87.5%, transparent 91.66666667%, #f5f5f5 91.66666667%, #f5f5f5 95.83333333%, transparent 95.83333333%);
+    background-image: linear-gradient(
+      90deg,
+      #f5f5f5 4.16666667%,
+      transparent 4.16666667%,
+      transparent 8.33333333%,
+      #f5f5f5 8.33333333%,
+      #f5f5f5 12.5%,
+      transparent 12.5%,
+      transparent 16.66666667%,
+      #f5f5f5 16.66666667%,
+      #f5f5f5 20.83333333%,
+      transparent 20.83333333%,
+      transparent 25%,
+      #f5f5f5 25%,
+      #f5f5f5 29.16666667%,
+      transparent 29.16666667%,
+      transparent 33.33333333%,
+      #f5f5f5 33.33333333%,
+      #f5f5f5 37.5%,
+      transparent 37.5%,
+      transparent 41.66666667%,
+      #f5f5f5 41.66666667%,
+      #f5f5f5 45.83333333%,
+      transparent 45.83333333%,
+      transparent 50%,
+      #f5f5f5 50%,
+      #f5f5f5 54.16666667%,
+      transparent 54.16666667%,
+      transparent 58.33333333%,
+      #f5f5f5 58.33333333%,
+      #f5f5f5 62.5%,
+      transparent 62.5%,
+      transparent 66.66666667%,
+      #f5f5f5 66.66666667%,
+      #f5f5f5 70.83333333%,
+      transparent 70.83333333%,
+      transparent 75%,
+      #f5f5f5 75%,
+      #f5f5f5 79.16666667%,
+      transparent 79.16666667%,
+      transparent 83.33333333%,
+      #f5f5f5 83.33333333%,
+      #f5f5f5 87.5%,
+      transparent 87.5%,
+      transparent 91.66666667%,
+      #f5f5f5 91.66666667%,
+      #f5f5f5 95.83333333%,
+      transparent 95.83333333%
+    );
     overflow: hidden;
     margin-bottom: 8px;
   }
@@ -247,7 +314,7 @@
   .code-box-demo .ant-row-flex > div:not(.gutter-row) {
     background: #00a0e9;
     padding: 16px 0;
-    &:nth-child(2n+1) {
+    &:nth-child(2n + 1) {
       background: fade(#00a0e9, 70%);
     }
   }
@@ -315,7 +382,7 @@
       top: -14px;
       > h2 {
         margin-top: 0;
-        padding-top: 2px;
+        padding-top: 4px;
       }
     }
   }

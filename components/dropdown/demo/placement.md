@@ -51,8 +51,9 @@ ReactDOM.render(
     <Dropdown overlay={menu} placement="topRight">
       <Button>topRight</Button>
     </Dropdown>
-  </div>
-, mountNode);
+  </div>,
+  mountNode
+);
 ````
 
 ````css

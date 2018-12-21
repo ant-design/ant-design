@@ -36,8 +36,9 @@ ReactDOM.render(
         <div className="gutter-box">col-6</div>
       </Col>
     </Row>
-  </div>
-, mountNode);
+  </div>,
+  mountNode
+);
 ````
 
 ````css

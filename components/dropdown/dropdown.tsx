@@ -2,10 +2,12 @@ import * as React from 'react';
 import RcDropdown from 'rc-dropdown';
 import classNames from 'classnames';
 import DropdownButton from './dropdown-button';
+import { ConfigConsumer, ConfigProviderProps } from '../config-provider';
 import warning from '../_util/warning';
+import Icon from '../icon';
 
 export interface DropDownProps {
-  trigger?: ('click' | 'hover'| 'contextMenu')[];
+  trigger?: ('click' | 'hover' | 'contextMenu')[];
   overlay: React.ReactNode;
   onVisibleChange?: (visible?: boolean) => void;
   visible?: boolean;
@@ -16,7 +18,11 @@ export interface DropDownProps {
   className?: string;
   transitionName?: string;
   placement?: 'topLeft' | 'topCenter' | 'topRight' | 'bottomLeft' | 'bottomCenter' | 'bottomRight';
+  overlayClassName?: string;
+  overlayStyle?: React.CSSProperties;
   forceRender?: boolean;
+  mouseEnterDelay?: number;
+  mouseLeaveDelay?: number;
 }
 
 export default class Dropdown extends React.Component<DropDownProps, any> {
@@ -50,8 +56,15 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
     }
   }
 
-  render() {
-    const { children, prefixCls, overlay: overlayElements, trigger, disabled } = this.props;
+  renderDropDown = ({ getPopupContainer: getContextPopupContainer }: ConfigProviderProps) => {
+    const {
+      children,
+      prefixCls,
+      overlay: overlayElements,
+      trigger,
+      disabled,
+      getPopupContainer,
+    } = this.props;
 
     const child = React.Children.only(children);
     const overlay = React.Children.only(overlayElements);
@@ -62,21 +75,45 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
     });
     // menu cannot be selectable in dropdown defaultly
     // menu should be focusable in dropdown defaultly
-    const { selectable = false, focusable = true }  = overlay.props;
-    const fixedModeOverlay = React.cloneElement(overlay, {
-      mode: 'vertical',
-      selectable,
-      focusable,
-    });
+    const { selectable = false, focusable = true } = overlay.props;
+
+    const expandIcon = (
+      <span className={`${prefixCls}-menu-submenu-arrow`}>
+        <Icon type="right" className={`${prefixCls}-menu-submenu-arrow-icon`} />
+      </span>
+    );
+
+    const fixedModeOverlay =
+      typeof overlay.type === 'string'
+        ? overlay
+        : React.cloneElement(overlay, {
+            mode: 'vertical',
+            selectable,
+            focusable,
+            expandIcon,
+          });
+
+    const triggerActions = disabled ? [] : trigger;
+    let alignPoint;
+    if (triggerActions && triggerActions.indexOf('contextMenu') !== -1) {
+      alignPoint = true;
+    }
+
     return (
       <RcDropdown
+        alignPoint={alignPoint}
         {...this.props}
+        getPopupContainer={getPopupContainer || getContextPopupContainer}
         transitionName={this.getTransitionName()}
-        trigger={disabled ? [] : trigger}
+        trigger={triggerActions}
         overlay={fixedModeOverlay}
       >
         {dropdownTrigger}
       </RcDropdown>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderDropDown}</ConfigConsumer>;
   }
 }

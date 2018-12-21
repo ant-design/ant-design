@@ -10,12 +10,7 @@ describe('Checkbox', () => {
     const onMouseEnter = jest.fn();
     const onMouseLeave = jest.fn();
 
-    const wrapper = shallow(
-      <Checkbox
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-      />
-    );
+    const wrapper = shallow(<Checkbox onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />);
 
     wrapper.simulate('mouseenter');
     expect(onMouseEnter).toHaveBeenCalled();

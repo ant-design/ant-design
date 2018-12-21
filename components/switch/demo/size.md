@@ -21,6 +21,7 @@ ReactDOM.render(
     <Switch defaultChecked />
     <br />
     <Switch size="small" defaultChecked />
-  </div>
-, mountNode);
+  </div>,
+  mountNode
+);
 ````

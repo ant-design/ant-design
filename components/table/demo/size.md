@@ -49,8 +49,9 @@ ReactDOM.render(
     <Table columns={columns} dataSource={data} size="middle" />
     <h4>Small size table</h4>
     <Table columns={columns} dataSource={data} size="small" />
-  </div>
-, mountNode);
+  </div>,
+  mountNode
+);
 ````
 
 <style>#components-table-demo-size h4 { margin-bottom: 16px; }</style>

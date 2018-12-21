@@ -23,11 +23,13 @@ class AsyncMention extends React.Component {
     suggestions: [],
     loading: false,
   }
+
   fetchSuggestions = (value, callback) => {
     setTimeout(() => {
       callback(users.filter(item => item.indexOf(value) !== -1));
     }, 500);
   }
+
   onSearchChange = (value) => {
     this.fetchSuggestions(value, (suggestions) => {
       this.setState({
@@ -39,6 +41,7 @@ class AsyncMention extends React.Component {
       loading: true,
     });
   }
+
   render() {
     const { suggestions, loading } = this.state;
     return (

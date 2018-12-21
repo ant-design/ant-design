@@ -1,8 +1,8 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@upload-prefix-cls: ~"@{ant-prefix}-upload";
-@upload-item: ~"@{ant-prefix}-upload-list-item";
+@upload-prefix-cls: ~'@{ant-prefix}-upload';
+@upload-item: ~'@{ant-prefix}-upload-list-item';
 @upload-pictrue-card-size: 104px;
 
 .@{upload-prefix-cls} {
@@ -19,7 +19,7 @@
     outline: none;
   }
 
-  input[type="file"] {
+  input[type='file'] {
     cursor: pointer;
   }
 
@@ -57,15 +57,18 @@
 
   &&-drag {
     border: @border-width-base dashed @border-color-base;
-    transition: border-color .3s;
+    transition: border-color 0.3s;
     cursor: pointer;
     border-radius: @border-radius-base;
     text-align: center;
     width: 100%;
     height: 100%;
     position: relative;
-    padding: 16px 0;
     background: @background-color-light;
+
+    .@{upload-prefix-cls} {
+      padding: 16px 0;
+    }
 
     &.@{upload-prefix-cls}-drag-hover:not(.@{upload-prefix-cls}-disabled) {
       border: 2px dashed @primary-5;
@@ -107,7 +110,7 @@
     }
     .@{iconfont-css-prefix}-plus {
       font-size: 30px;
-      transition: all .3s;
+      transition: all 0.3s;
       color: @disabled-color;
       &:hover {
         color: @text-color-secondary;
@@ -139,7 +142,7 @@
     &-info {
       height: 100%;
       padding: 0 12px 0 4px;
-      transition: background-color .3s;
+      transition: background-color 0.3s;
 
       > span {
         display: block;
@@ -154,16 +157,16 @@
       }
     }
 
-    .@{iconfont-css-prefix}-cross {
+    .@{iconfont-css-prefix}-close {
       .iconfont-size-under-12px(10px);
-      transition: all .3s;
+      transition: all 0.3s;
       opacity: 0;
       cursor: pointer;
       position: absolute;
-      top: 0;
+      top: 6px;
       right: 4px;
       color: @text-color-secondary;
-      line-height: 22px;
+      line-height: 0;
       &:hover {
         color: @text-color;
       }
@@ -173,7 +176,7 @@
       background-color: @item-hover-bg;
     }
 
-    &:hover .@{iconfont-css-prefix}-cross {
+    &:hover .@{iconfont-css-prefix}-close {
       opacity: 1;
     }
 
@@ -183,7 +186,7 @@
       color: @error-color;
     }
 
-    &-error .@{iconfont-css-prefix}-cross {
+    &-error .@{iconfont-css-prefix}-close {
       opacity: 1;
       color: @error-color !important;
     }
@@ -233,16 +236,17 @@
       top: 8px;
       left: 8px;
       text-align: center;
+      line-height: 54px;
+      font-size: 26px;
+      opacity: 0.8;
     }
 
     .@{upload-item}-icon {
-      color: @disabled-color;
-      font-size: 36px;
+      font-size: 26px;
       position: absolute;
       top: 50%;
       left: 50%;
-      margin-top: -18px;
-      margin-left: -18px;
+      transform: translate(-50%, -50%);
     }
 
     .@{upload-item}-thumbnail img {
@@ -252,19 +256,13 @@
       overflow: hidden;
     }
 
-    .@{upload-item}-thumbnail.@{iconfont-css-prefix}:before {
-      line-height: 48px;
-      font-size: 24px;
-      color: @text-color-secondary;
-    }
-
     .@{upload-item}-name {
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
       margin: 0 0 0 8px;
       line-height: 44px;
-      transition: all .3s;
+      transition: all 0.3s;
       padding-left: 48px;
       padding-right: 8px;
       max-width: 100%;
@@ -280,19 +278,21 @@
       padding-left: 56px;
       margin-top: 0;
       bottom: 14px;
-      width: ~"calc(100% - 24px)";
+      width: ~'calc(100% - 24px)';
     }
 
-    .@{iconfont-css-prefix}-cross {
+    .@{iconfont-css-prefix}-close {
       position: absolute;
       right: 8px;
       top: 8px;
       line-height: 1;
+      opacity: 1;
     }
   }
 
   &-picture-card {
-    display: inline;
+    // https://github.com/ant-design/ant-design/issues/11183
+    float: left;
 
     &.@{upload-prefix-cls}-list:after {
       display: none;
@@ -314,7 +314,7 @@
         position: absolute;
         z-index: 1;
         background-color: rgba(0, 0, 0, 0.5);
-        transition: all .3s;
+        transition: all 0.3s;
         width: 100%;
         height: 100%;
         opacity: 0;
@@ -333,12 +333,12 @@
       z-index: 10;
       white-space: nowrap;
       opacity: 0;
-      transition: all .3s;
+      transition: all 0.3s;
 
       .@{iconfont-css-prefix}-eye-o,
       .@{iconfont-css-prefix}-delete {
         z-index: 10;
-        transition: all .3s;
+        transition: all 0.3s;
         cursor: pointer;
         font-size: 16px;
         width: 16px;
@@ -410,7 +410,7 @@
   .@{upload-prefix-cls}-animate-leave,
   .@{upload-prefix-cls}-animate-inline-enter,
   .@{upload-prefix-cls}-animate-inline-leave {
-    animation-duration: .3s;
+    animation-duration: 0.3s;
     animation-fill-mode: @ease-in-out-circ;
   }
 

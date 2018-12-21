@@ -31,6 +31,7 @@ ReactDOM.render(
       pageSize={20}
       defaultCurrent={1}
     />
-  </div>
-, mountNode);
+  </div>,
+  mountNode
+);
 ````

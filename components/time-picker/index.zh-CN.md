@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 时间选择框
-type: Data Entry
+type: 数据录入
 title: TimePicker
 ---
 
@@ -39,12 +39,13 @@ import moment from 'moment';
 | getPopupContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | 无 |
 | hideDisabledOptions | 隐藏禁止选择的选项 | boolean | false |
 | hourStep | 小时选项间隔 | number | 1 |
-| inputReadOnly | 设置输入框为只读（避免在移动设备上打开虚拟键盘）| boolean | false |
+| inputReadOnly | 设置输入框为只读（避免在移动设备上打开虚拟键盘） | boolean | false |
 | minuteStep | 分钟选项间隔 | number | 1 |
 | open | 面板是否打开 | boolean | false |
 | placeholder | 没有值的时候显示的内容 | string | "请选择时间" |
 | popupClassName | 弹出层类名 | string | '' |
 | secondStep | 秒选项间隔 | number | 1 |
+| suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |
 | use12Hours | 使用 12 小时制，为 true 时 `format` 默认为 `h:mm:ss a` | boolean | false |
 | value | 当前时间 | [moment](http://momentjs.com/) | 无 |
 | onChange | 时间发生变化的回调 | function(time: moment, timeString: string): void | 无 |

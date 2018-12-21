@@ -20,14 +20,17 @@ class App extends React.Component {
   state = {
     visible: false,
   }
+
   hide = () => {
     this.setState({
       visible: false,
     });
   }
+
   handleVisibleChange = (visible) => {
     this.setState({ visible });
   }
+
   render() {
     return (
       <Popover

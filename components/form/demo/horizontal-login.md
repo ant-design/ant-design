@@ -14,7 +14,10 @@ title:
 Horizontal login form is often used in navigation bar.
 
 ````jsx
-import { Form, Icon, Input, Button } from 'antd';
+import {
+  Form, Icon, Input, Button,
+} from 'antd';
+
 const FormItem = Form.Item;
 
 function hasErrors(fieldsError) {
@@ -26,6 +29,7 @@ class HorizontalLoginForm extends React.Component {
     // To disabled submit button at the beginning.
     this.props.form.validateFields();
   }
+
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
@@ -34,8 +38,11 @@ class HorizontalLoginForm extends React.Component {
       }
     });
   }
+
   render() {
-    const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = this.props.form;
+    const {
+      getFieldDecorator, getFieldsError, getFieldError, isFieldTouched,
+    } = this.props.form;
 
     // Only show error after a field is touched.
     const userNameError = isFieldTouched('userName') && getFieldError('userName');

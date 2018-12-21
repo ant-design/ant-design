@@ -30,6 +30,7 @@ ReactDOM.render(
     <Card.Grid style={gridStyle}>Content</Card.Grid>
     <Card.Grid style={gridStyle}>Content</Card.Grid>
     <Card.Grid style={gridStyle}>Content</Card.Grid>
-  </Card>
-, mountNode);
+  </Card>,
+  mountNode
+);
 ````

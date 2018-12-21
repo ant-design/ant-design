@@ -30,6 +30,7 @@ ReactDOM.render(
     <Badge count={1000} overflowCount={999}>
       <a href="#" className="head-example" />
     </Badge>
-  </div>
-, mountNode);
+  </div>,
+  mountNode
+);
 ````

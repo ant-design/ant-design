@@ -6,9 +6,7 @@ declare module 'rc-time-picker*';
 
 declare module 'rc-pagination*';
 
-declare module "object-assign";
-
-declare module "omit.js";
+declare module 'omit.js';
 
 declare module 'rc-animate';
 
@@ -18,11 +16,9 @@ declare module 'shallowequal';
 
 declare module 'warning';
 
-declare module 'css-animation';
+declare module 'css-animation*';
 
 declare module 'rc-select';
-
-declare module 'react-slick';
 
 declare module 'rc-cascader';
 
@@ -40,9 +36,12 @@ declare module 'rc-progress';
 
 declare module 'rc-menu';
 
+declare module 'rc-drawer';
+
 declare module 'rc-tabs*';
 
 declare module 'rc-tree';
+declare module 'rc-tree/lib/util';
 
 declare module 'rc-tooltip*';
 
@@ -86,18 +85,20 @@ declare module 'react-lazy-load';
 
 declare module 'dom-closest';
 
-declare module "*.json" {
+declare module '*.json' {
   const value: any;
   export const version: string;
   export default value;
 }
 
-declare module "prop-types";
+declare module 'lodash/debounce';
 
-declare module "lodash/debounce";
+declare module 'lodash/uniqBy';
 
-declare module "lodash/uniqBy";
+declare module 'raf';
 
 declare module 'intersperse';
 
-declare module "raf";
+declare module 'react-lifecycles-compat';
+
+declare module 'react-copy-to-clipboard';

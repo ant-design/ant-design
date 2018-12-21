@@ -7,7 +7,7 @@ title:
 
 ## zh-CN
 
-平滑、自然的卸载提示
+平滑、自然的卸载提示。
 
 ## en-US
 
@@ -20,9 +20,11 @@ class App extends React.Component {
   state = {
     visible: true,
   }
+
   handleClose = () => {
     this.setState({ visible: false });
   }
+
   render() {
     return (
       <div>
@@ -43,6 +45,7 @@ class App extends React.Component {
 }
 
 ReactDOM.render(
-  <App />
-, mountNode);
+  <App />,
+  mountNode
+);
 ````

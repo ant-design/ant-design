@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 标签
-type: Data Display
+type: 数据展示
 title: Tag
 ---
 
@@ -22,6 +22,7 @@ title: Tag
 | closable | 标签是否可以关闭 | boolean | false |
 | color | 标签色 | string | - |
 | onClose | 关闭时的回调 | (e) => void | - |
+| visible | 是否显示标签 | boolean | `true` |
 
 ### Tag.CheckableTag
 

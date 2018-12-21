@@ -1,8 +1,8 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
-@import "../../input/style/mixin";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
+@import '../../input/style/mixin';
 
-@select-prefix-cls: ~"@{ant-prefix}-select";
+@select-prefix-cls: ~'@{ant-prefix}-select';
 
 .selection__clear() {
   display: inline-block;
@@ -27,7 +27,6 @@
   transition: color 0.3s ease, opacity 0.15s ease;
   &:before {
     display: block;
-    .iconfont-font("\e62e");
   }
   &:hover {
     color: @text-color-secondary;
@@ -38,6 +37,7 @@
   .reset-component;
   display: inline-block;
   position: relative;
+  outline: 0;
 
   ul,
   ol {
@@ -63,13 +63,8 @@
     color: @disabled-color;
     font-size: @font-size-sm;
 
-    * {
-      display: none;
-    }
-
-    &:before {
-      content: '\e61d';
-      transition: transform .3s;
+    & &-icon svg {
+      transition: transform 0.3s;
     }
   }
 
@@ -86,7 +81,7 @@
     // strange align fix for chrome but works
     // https://gw.alipayobjects.com/zos/rmsportal/VFTfKXJuogBAXcvfAUWJ.gif
     border-top-width: @border-width-base + 0.02px;
-    transition: all .3s @ease-in-out;
+    transition: all 0.3s @ease-in-out;
 
     &:hover {
       .hover;
@@ -234,7 +229,8 @@
   }
 
   &-selection__placeholder,
-  &-search__field__placeholder { // for TreeSelect compatibility
+  &-search__field__placeholder {
+    // for TreeSelect compatibility
     position: absolute;
     top: 50%;
     left: 0;
@@ -257,9 +253,10 @@
   &-search__field__mirror {
     position: absolute;
     top: 0;
-    left: -9999px;
+    left: 0;
     white-space: pre;
     pointer-events: none;
+    opacity: 0;
   }
 
   &-search--inline {
@@ -317,7 +314,8 @@
     }
 
     > ul > li,
-    .@{select-prefix-cls}-selection__rendered > ul > li {  // for tree-select
+    .@{select-prefix-cls}-selection__rendered > ul > li {
+      // for tree-select
       margin-top: 3px;
       height: @input-height-base - 8px;
       line-height: @input-height-base - 8px - 2px;
@@ -334,7 +332,7 @@
       max-width: 99%;
       position: relative;
       overflow: hidden;
-      transition: padding .3s @ease-in-out;
+      transition: padding 0.3s @ease-in-out;
       padding: 0 20px 0 10px;
       &__disabled {
         padding: 0 10px;
@@ -347,7 +345,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       max-width: 100%;
-      transition: margin .3s @ease-in-out;
+      transition: margin 0.3s @ease-in-out;
     }
 
     .@{select-prefix-cls}-selection__choice__remove {
@@ -357,16 +355,13 @@
       cursor: pointer;
       display: inline-block;
       font-weight: bold;
-      transition: all .3s;
+      transition: all 0.3s;
       font-size: @font-size-sm;
       .iconfont-size-under-12px(10px);
       position: absolute;
       right: 4px;
       &:hover {
         color: #404040;
-      }
-      &:before {
-        content: "\e633";
       }
     }
 
@@ -384,8 +379,10 @@
   }
 
   &-open {
-    .@{select-prefix-cls}-arrow:before {
-      transform: rotate(180deg);
+    .@{select-prefix-cls}-arrow {
+      &-icon svg {
+        transform: rotate(180deg);
+      }
     }
     .@{select-prefix-cls}-selection {
       .active();
@@ -410,7 +407,7 @@
       height: 100%;
       position: relative;
       z-index: 1;
-      transition: all .3s @ease-in-out;
+      transition: all 0.3s @ease-in-out, height 0s;
       box-shadow: none;
     }
   }
@@ -421,6 +418,10 @@
 
 .@{select-prefix-cls}-dropdown {
   .reset-component;
+  // Fix select render lag of long text in chrome
+  // https://github.com/ant-design/ant-design/issues/11456
+  // https://github.com/ant-design/ant-design/issues/11843
+  font-variant: initial;
 
   &.slide-up-enter.slide-up-enter-active&-placement-bottomLeft,
   &.slide-up-appear.slide-up-appear-active&-placement-bottomLeft {
@@ -478,6 +479,11 @@
       height: 32px;
       line-height: 32px;
       font-size: @font-size-sm;
+    }
+
+    &-item-group-list &-item:first-child:not(:last-child),
+    &-item-group:not(:last-child) &-item-group-list &-item:last-child {
+      border-radius: 0;
     }
 
     &-item {
@@ -541,8 +547,8 @@
 
   &&--multiple {
     .@{select-prefix-cls}-dropdown-menu-item {
-      &:after {
-        .iconfont-font("\e632");
+      padding-right: @control-padding-horizontal + 20;
+      & .@{select-prefix-cls}-selected-icon {
         color: transparent;
         .iconfont-size-under-12px(10px);
         transition: all 0.2s ease;
@@ -554,16 +560,16 @@
         text-shadow: 0 0.1px 0, 0.1px 0 0, 0 -0.1px 0, -0.1px 0;
       }
 
-      &:hover:after {
+      &:hover .@{select-prefix-cls}-selected-icon {
         color: #ddd;
       }
 
-      &-disabled:after {
+      &-disabled .@{select-prefix-cls}-selected-icon {
         display: none;
       }
 
-      &-selected:after,
-      &-selected:hover:after {
+      &-selected .@{select-prefix-cls}-selected-icon,
+      &-selected:hover .@{select-prefix-cls}-selected-icon {
         color: @primary-color;
         display: inline-block;
       }

@@ -27,15 +27,20 @@ const dataSource = ['12345', '23456', '34567'];
 | children (for dataSource) | Data source for autocomplet | React.ReactElement<OptionProps> /  Array&lt;React.ReactElement<OptionProps>> | - |
 | dataSource | Data source for autocomplete | [DataSourceItemType](https://git.io/vMMKF)\[] |  |
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |
-| defaultValue | Initial selected option. | string\|string\[]\|{ key: string, label: string\|ReactNode }\|Array&lt;{ key: string, label: string\|ReactNode }> | - |
+| defaultValue | Initial selected option. | string\|string\[]\| - |
 | disabled | Whether disabled select | boolean | false |
 | filterOption | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns `true`, the option will be included in the filtered set; Otherwise, it will be excluded. | boolean or function(inputValue, option) | true |
 | optionLabelProp | Which prop value of option will render as content of select. | string | `children` |
 | placeholder | placeholder of input | string | - |
 | value | selected option | string\|string\[]\|{ key: string, label: string\|ReactNode }\|Array&lt;{ key: string, label: string\|ReactNode }> | - |
+| onBlur | Called when leaving the component. | function() | - |
 | onChange | Called when select an option or input value change, or value of input is changed | function(value) | - |
+| onFocus | Called when entering the component | function() | - |
 | onSearch | Called when searching items. | function(value) | - |
 | onSelect | Called when a option is selected. param is option's value and option instance. | function(value, option) | - |
+| defaultOpen | Initial open state of dropdown | boolean | - |
+| open | Controlled open state of dropdown | boolean | - |
+| onDropdownVisibleChange | Call when dropdown open | function(open) | - |
 
 ## Methods
 

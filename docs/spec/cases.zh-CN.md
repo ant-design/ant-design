@@ -24,7 +24,7 @@ OceanBase 是一款真正意义上的云端分布式关系型数据库，而 Oce
 
 [立即访问](http://oceanbase.alipay.com)
 
-![OceanBase 云平台](https://gw.alipayobjects.com/zos/rmsportal/hhtmRPAtPsUhwHpULFuu.png)
+![OceanBase 云平台](https://gw.alipayobjects.com/zos/rmsportal/OYGCAlMwSWkdaKfxIDtz.png)
 
 ### 语雀
 

@@ -15,6 +15,7 @@ To set the container of the suggestion.
 
 ````jsx
 import { Mention, Popover, Button } from 'antd';
+
 const { toString, toContentState } = Mention;
 
 function onChange(editorState) {
@@ -26,14 +27,14 @@ function onSelect(suggestion) {
 }
 
 class PopoverContainer extends React.Component {
-  getSuggestionContainer = () => {
-    return this.popover.getPopupDomNode();
-  }
+  getSuggestionContainer = () => this.popover.getPopupDomNode()
+
   visibleChange = (visible) => {
     if (visible && this.mention) {
       this.mention.focus();
     }
   }
+
   render() {
     const mention = (
       <Mention

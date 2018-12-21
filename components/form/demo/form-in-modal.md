@@ -14,13 +14,19 @@ title:
 When user visit a page with a list of items, and want to create a new item. The page can popup a form in Modal, then let user fill in the form to create an item.
 
 ````jsx
-import { Button, Modal, Form, Input, Radio } from 'antd';
+import {
+  Button, Modal, Form, Input, Radio,
+} from 'antd';
+
 const FormItem = Form.Item;
 
 const CollectionCreateForm = Form.create()(
+  // eslint-disable-next-line
   class extends React.Component {
     render() {
-      const { visible, onCancel, onCreate, form } = this.props;
+      const {
+        visible, onCancel, onCreate, form,
+      } = this.props;
       const { getFieldDecorator } = form;
       return (
         <Modal
@@ -62,12 +68,15 @@ class CollectionsPage extends React.Component {
   state = {
     visible: false,
   };
+
   showModal = () => {
     this.setState({ visible: true });
   }
+
   handleCancel = () => {
     this.setState({ visible: false });
   }
+
   handleCreate = () => {
     const form = this.formRef.props.form;
     form.validateFields((err, values) => {
@@ -80,9 +89,11 @@ class CollectionsPage extends React.Component {
       this.setState({ visible: false });
     });
   }
+
   saveFormRef = (formRef) => {
     this.formRef = formRef;
   }
+
   render() {
     return (
       <div>

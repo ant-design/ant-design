@@ -40,6 +40,7 @@ ReactDOM.render(
         <Card title={item.title}>Card content</Card>
       </List.Item>
     )}
-  />
-, mountNode);
+  />,
+  mountNode
+);
 ````

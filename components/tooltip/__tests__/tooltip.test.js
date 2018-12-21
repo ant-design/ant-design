@@ -2,20 +2,20 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Tooltip from '..';
 import Button from '../../button';
+import DatePicker from '../../date-picker';
+import Input from '../../input';
+import Group from '../../input/Group';
+
+const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
 
 describe('Tooltip', () => {
   it('check `onVisibleChange` arguments', () => {
     const onVisibleChange = jest.fn();
 
     const wrapper = mount(
-      <Tooltip
-        title=""
-        mouseEnterDelay={0}
-        mouseLeaveDelay={0}
-        onVisibleChange={onVisibleChange}
-      >
+      <Tooltip title="" mouseEnterDelay={0} mouseLeaveDelay={0} onVisibleChange={onVisibleChange}>
         <div id="hello">Hello world!</div>
-      </Tooltip>
+      </Tooltip>,
     );
 
     // `title` is empty.
@@ -60,8 +60,10 @@ describe('Tooltip', () => {
         mouseLeaveDelay={0}
         onVisibleChange={onVisibleChange}
       >
-        <button disabled>Hello world!</button>
-      </Tooltip>
+        <button type="button" disabled>
+          Hello world!
+        </button>
+      </Tooltip>,
     );
 
     expect(wrapper.find('span')).toHaveLength(1);
@@ -85,7 +87,7 @@ describe('Tooltip', () => {
         onVisibleChange={onVisibleChange}
       >
         <Button disabled>Hello world!</Button>
-      </Tooltip>
+      </Tooltip>,
     );
 
     expect(wrapper.render()).toMatchSnapshot();
@@ -103,30 +105,27 @@ describe('Tooltip', () => {
     const wrapper1 = mount(
       <Tooltip title="xxxxx">
         <Button disabled>Hello world!</Button>
-      </Tooltip>
+      </Tooltip>,
     );
     const wrapper2 = mount(
       <Tooltip title="xxxxx">
-        <Button disabled style={{ display: 'block' }}>Hello world!</Button>
-      </Tooltip>
+        <Button disabled style={{ display: 'block' }}>
+          Hello world!
+        </Button>
+      </Tooltip>,
     );
-    expect(wrapper1.find('span').first().getDOMNode().style.display).toBe('inline-block');
-    expect(wrapper2.find('span').first().getDOMNode().style.display).toBe('block');
-  });
-
-  it('should not wrap span when trigger is not hover', () => {
-    const wrapper = mount(
-      <Tooltip
-        title="xxxxx"
-        trigger="click"
-        mouseEnterDelay={0}
-        mouseLeaveDelay={0}
-      >
-        <button disabled>Hello world!</button>
-      </Tooltip>
-    );
-
-    expect(wrapper.find('span')).toHaveLength(0);
+    expect(
+      wrapper1
+        .find('span')
+        .first()
+        .getDOMNode().style.display,
+    ).toBe('inline-block');
+    expect(
+      wrapper2
+        .find('span')
+        .first()
+        .getDOMNode().style.display,
+    ).toBe('block');
   });
 
   it('should works for arrowPointAtCenter', () => {
@@ -143,12 +142,15 @@ describe('Tooltip', () => {
           mouseLeaveDelay={0}
           placement="bottomLeft"
         >
-          <button style={{ width: triggerWidth }}>
+          <button type="button" style={{ width: triggerWidth }}>
             Hello world!
           </button>
-        </Tooltip>
+        </Tooltip>,
       );
-      wrapper.find('button').at(0).simulate('click');
+      wrapper
+        .find('button')
+        .at(0)
+        .simulate('click');
       const popupLeftDefault = parseInt(wrapper.instance().getPopupDomNode().style.left, 10);
 
       const wrapper2 = mount(
@@ -160,16 +162,71 @@ describe('Tooltip', () => {
           placement="bottomLeft"
           arrowPointAtCenter
         >
-          <button style={{ width: triggerWidth }}>
+          <button type="button" style={{ width: triggerWidth }}>
             Hello world!
           </button>
-        </Tooltip>
+        </Tooltip>,
       );
-      wrapper2.find('button').at(0).simulate('click');
-      const popupLeftArrowPointAtCenter = parseInt(wrapper2.instance().getPopupDomNode().style.left, 10);
-      expect(popupLeftArrowPointAtCenter - popupLeftDefault).toBe((triggerWidth / 2) - horizontalArrowShift - arrowWidth);
+      wrapper2
+        .find('button')
+        .at(0)
+        .simulate('click');
+      const popupLeftArrowPointAtCenter = parseInt(
+        wrapper2.instance().getPopupDomNode().style.left,
+        10,
+      );
+      expect(popupLeftArrowPointAtCenter - popupLeftDefault).toBe(
+        triggerWidth / 2 - horizontalArrowShift - arrowWidth,
+      );
     };
 
     jest.dontMock('rc-trigger', suit);
+  });
+
+  it('should works for date picker', async () => {
+    const onVisibleChange = jest.fn();
+
+    const wrapper = mount(
+      <Tooltip title="date picker" onVisibleChange={onVisibleChange}>
+        <DatePicker />
+      </Tooltip>,
+    );
+
+    expect(wrapper.find('span.ant-calendar-picker')).toHaveLength(1);
+    const picker = wrapper.find('span.ant-calendar-picker').at(0);
+    picker.simulate('mouseenter');
+    await delay(100);
+    expect(onVisibleChange).toBeCalledWith(true);
+    expect(wrapper.instance().tooltip.props.visible).toBe(true);
+
+    picker.simulate('mouseleave');
+    await delay(100);
+    expect(onVisibleChange).toBeCalledWith(false);
+    expect(wrapper.instance().tooltip.props.visible).toBe(false);
+  });
+
+  it('should works for input group', async () => {
+    const onVisibleChange = jest.fn();
+
+    const wrapper = mount(
+      <Tooltip title="hello" onVisibleChange={onVisibleChange}>
+        <Group>
+          <Input style={{ width: '50%' }} />
+          <Input style={{ width: '50%' }} />
+        </Group>
+      </Tooltip>,
+    );
+
+    expect(wrapper.find('Group')).toHaveLength(1);
+    const picker = wrapper.find('Group').at(0);
+    picker.simulate('mouseenter');
+    await delay(100);
+    expect(onVisibleChange).toBeCalledWith(true);
+    expect(wrapper.instance().tooltip.props.visible).toBe(true);
+
+    picker.simulate('mouseleave');
+    await delay(100);
+    expect(onVisibleChange).toBeCalledWith(false);
+    expect(wrapper.instance().tooltip.props.visible).toBe(false);
   });
 });

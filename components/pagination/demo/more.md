@@ -17,6 +17,7 @@ More pages.
 import { Pagination } from 'antd';
 
 ReactDOM.render(
-  <Pagination defaultCurrent={6} total={500} />
-, mountNode);
+  <Pagination defaultCurrent={6} total={500} />,
+  mountNode
+);
 ````

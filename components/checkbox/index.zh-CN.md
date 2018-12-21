@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 多选框
-type: Data Entry
+type: 数据录入
 title: Checkbox
 ---
 
@@ -43,5 +43,5 @@ title: Checkbox
 
 | 名称 | 描述 |
 | --- | --- |
-| focus() | 获取焦点 |
 | blur() | 移除焦点 |
+| focus() | 获取焦点 |

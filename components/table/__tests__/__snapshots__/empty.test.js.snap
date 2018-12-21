@@ -11,7 +11,7 @@ exports[`Table renders empty table 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-large ant-table-empty ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-empty ant-table-scroll-position-left"
       >
         <div
           class="ant-table-content"
@@ -39,58 +39,58 @@ exports[`Table renders empty table 1`] = `
                   <th
                     class=""
                   >
-                    <span>
+                    <div>
                       Column 1
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div>
                       Column 2
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div>
                       Column 3
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div>
                       Column 4
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div>
                       Column 5
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div>
                       Column 6
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div>
                       Column 7
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div>
                       Column 8
-                    </span>
+                    </div>
                   </th>
                 </tr>
               </thead>
@@ -122,7 +122,7 @@ exports[`Table renders empty table with custom emptyText 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-large ant-table-empty ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-empty ant-table-scroll-position-left"
       >
         <div
           class="ant-table-content"
@@ -150,58 +150,58 @@ exports[`Table renders empty table with custom emptyText 1`] = `
                   <th
                     class=""
                   >
-                    <span>
+                    <div>
                       Column 1
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div>
                       Column 2
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div>
                       Column 3
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div>
                       Column 4
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div>
                       Column 5
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div>
                       Column 6
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div>
                       Column 7
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div>
                       Column 8
-                    </span>
+                    </div>
                   </th>
                 </tr>
               </thead>
@@ -233,7 +233,7 @@ exports[`Table renders empty table with fixed columns 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-large ant-table-empty ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-empty ant-table-scroll-position-left"
       >
         <div
           class="ant-table-content"
@@ -271,81 +271,81 @@ exports[`Table renders empty table with fixed columns 1`] = `
                 >
                   <tr>
                     <th
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
-                      <span>
+                      <div>
                         Full Name
-                      </span>
+                      </div>
                     </th>
                     <th
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
-                      <span>
+                      <div>
                         Age
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div>
                         Column 1
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div>
                         Column 2
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div>
                         Column 3
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div>
                         Column 4
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div>
                         Column 5
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div>
                         Column 6
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div>
                         Column 7
-                      </span>
+                      </div>
                     </th>
                     <th
                       class=""
                     >
-                      <span>
+                      <div>
                         Column 8
-                      </span>
+                      </div>
                     </th>
                     <th
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
-                      <span>
+                      <div>
                         Action
-                      </span>
+                      </div>
                     </th>
                   </tr>
                 </thead>
@@ -388,16 +388,16 @@ exports[`Table renders empty table with fixed columns 1`] = `
                       <th
                         class=""
                       >
-                        <span>
+                        <div>
                           Full Name
-                        </span>
+                        </div>
                       </th>
                       <th
                         class=""
                       >
-                        <span>
+                        <div>
                           Age
-                        </span>
+                        </div>
                       </th>
                     </tr>
                   </thead>
@@ -433,9 +433,9 @@ exports[`Table renders empty table with fixed columns 1`] = `
                       <th
                         class=""
                       >
-                        <span>
+                        <div>
                           Action
-                        </span>
+                        </div>
                       </th>
                     </tr>
                   </thead>
@@ -478,7 +478,7 @@ exports[`Table renders empty table without emptyText when loading 1`] = `
       class="ant-spin-container ant-spin-blur"
     >
       <div
-        class="ant-table ant-table-large ant-table-empty ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-empty ant-table-scroll-position-left"
       >
         <div
           class="ant-table-content"
@@ -506,58 +506,58 @@ exports[`Table renders empty table without emptyText when loading 1`] = `
                   <th
                     class=""
                   >
-                    <span>
+                    <div>
                       Column 1
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div>
                       Column 2
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div>
                       Column 3
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div>
                       Column 4
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div>
                       Column 5
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div>
                       Column 6
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div>
                       Column 7
-                    </span>
+                    </div>
                   </th>
                   <th
                     class=""
                   >
-                    <span>
+                    <div>
                       Column 8
-                    </span>
+                    </div>
                   </th>
                 </tr>
               </thead>

@@ -14,7 +14,7 @@ title:
 Simplest Usage. Badge will be hidden when `count` is `0`, but we can use `showZero` to show it.
 
 ````jsx
-import { Badge } from 'antd';
+import { Badge, Icon } from 'antd';
 
 ReactDOM.render(
   <div>
@@ -24,12 +24,16 @@ ReactDOM.render(
     <Badge count={0} showZero>
       <a href="#" className="head-example" />
     </Badge>
-  </div>
-, mountNode);
+    <Badge count={<Icon type="clock-circle" style={{ color: '#f5222d' }} />}>
+      <a href="#" className="head-example" />
+    </Badge>
+  </div>,
+  mountNode
+);
 ````
 
 <style>
-.ant-badge:not(.ant-badge-status) {
+.ant-badge:not(.ant-badge-not-a-wrapper) {
   margin-right: 20px;
 }
 .head-example {
@@ -38,5 +42,6 @@ ReactDOM.render(
   border-radius: 4px;
   background: #eee;
   display: inline-block;
+  vertical-align: middle;
 }
 </style>

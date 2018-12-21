@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import message from '..';
+import Icon from '../../icon';
 
 describe('message', () => {
   beforeEach(() => {
@@ -73,7 +74,7 @@ describe('message', () => {
     message.info('whatever', () => {});
   });
 
-  it('should have the default duration when using the onClose arguments', (done) => {
+  it('should have the default duration when using the onClose arguments', done => {
     jest.useRealTimers();
     const defaultDuration = 3;
     const now = Date.now();
@@ -103,6 +104,7 @@ describe('message', () => {
       componentDidMount() {
         hide = message.loading('Action in progress..', 0);
       }
+
       render() {
         return <div>test</div>;
       }
@@ -114,6 +116,16 @@ describe('message', () => {
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
   });
 
+  it('should allow custom icon', () => {
+    message.open({ content: 'Message', icon: <Icon type="smile-o" /> });
+    expect(document.querySelectorAll('.anticon-smile-o').length).toBe(1);
+  });
+
+  it('should have no icon', () => {
+    message.open({ content: 'Message' });
+    expect(document.querySelectorAll('.ant-message-notice .anticon').length).toBe(0);
+  });
+
   // https://github.com/ant-design/ant-design/issues/8201
   it('should destroy messages correctly', () => {
     // eslint-disable-next-line
@@ -123,6 +135,7 @@ describe('message', () => {
         message.loading('Action in progress2..', 0);
         setTimeout(() => message.destroy(), 1000);
       }
+
       render() {
         return <div>test</div>;
       }

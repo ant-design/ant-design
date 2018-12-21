@@ -64,8 +64,7 @@ $ yarn add antd
 
 在浏览器中使用 `script` 和 `link` 标签直接引入文件，并使用全局变量 `antd`。
 
-我们在 npm 发布包内的 `antd/dist` 目录下提供了 `antd.js` `antd.css` 以及 `antd.min.js` `antd.min.css`。你也可以通过 [![CDNJS](https://img.shields.io/cdnjs/v/antd.svg?style=flat-square)](https://cdnjs.com/libraries/antd)
- 或 [UNPKG](https://unpkg.com/antd/dist/) 进行下载。
+我们在 npm 发布包内的 `antd/dist` 目录下提供了 `antd.js` `antd.css` 以及 `antd.min.js` `antd.min.css`。你也可以通过 [![CDNJS](https://img.shields.io/cdnjs/v/antd.svg?style=flat-square)](https://cdnjs.com/libraries/antd)，[![](https://data.jsdelivr.com/v1/package/npm/antd/badge)](https://www.jsdelivr.com/package/npm/antd) 或 [UNPKG](https://unpkg.com/antd/dist/) 进行下载。
 
 > **强烈不推荐使用已构建文件**，这样无法按需加载，而且难以获得底层依赖模块的 bug 快速修复支持。
 
@@ -94,7 +93,11 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
    // .babelrc or babel-loader option
    {
      "plugins": [
-       ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }] // `style: true` 会加载 less 文件
+       ["import", {
+         "libraryName": "antd",
+         "libraryDirectory": "es",
+         "style": "css" // `style: true` 会加载 less 文件
+       }]
      ]
    }
    ```
@@ -129,7 +132,7 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 - [设计规范速查手册](https://github.com/ant-design/ant-design/wiki/Ant-Design-%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80%E7%AE%80%E7%89%88)
 - [开发者说明](https://github.com/ant-design/ant-design/wiki/Development)
 - [版本发布规则](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
-- [常见问题](https://github.com/ant-design/ant-design/wiki/FAQ)
+- [常见问题](/docs/react/faq)
 - [CodeSandbox 模板](https://u.ant.design/codesandbox-repro) for bug reports
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
 - [定制主题](/docs/react/customize-theme)

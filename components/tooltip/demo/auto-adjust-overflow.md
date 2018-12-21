@@ -33,8 +33,9 @@ ReactDOM.render(
     <Tooltip placement="left" title="Prompt Text" getPopupContainer={trigger => trigger.parentElement} autoAdjustOverflow={false}>
       <Button>Ingore / 不处理</Button>
     </Tooltip>
-  </div>
-, mountNode);
+  </div>,
+  mountNode
+);
 ````
 
 <style>

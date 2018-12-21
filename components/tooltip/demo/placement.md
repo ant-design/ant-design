@@ -66,8 +66,9 @@ ReactDOM.render(
         <Button>BR</Button>
       </Tooltip>
     </div>
-  </div>
-, mountNode);
+  </div>,
+  mountNode
+);
 ````
 
 <style>

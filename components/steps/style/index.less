@@ -1,8 +1,8 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@steps-prefix-cls: ~"@{ant-prefix}-steps";
-@process-icon-color: @processing-color;
+@steps-prefix-cls: ~'@{ant-prefix}-steps';
+@process-icon-color: @primary-color;
 @process-title-color: @heading-color;
 @process-description-color: @text-color;
 @process-tail-color: @border-color-split;
@@ -65,8 +65,8 @@
     border-radius: @steps-icon-size;
     font-size: @font-size-lg;
     margin-right: 8px;
-    transition: background-color .3s, border-color .3s;
-    font-family: @font-family-no-number;
+    transition: background-color 0.3s, border-color 0.3s;
+    font-family: @font-family;
 
     > .@{steps-prefix-cls}-icon {
       line-height: 1;
@@ -88,7 +88,7 @@
       height: 1px;
       border-radius: 1px;
       width: 100%;
-      transition: background .3s;
+      transition: background 0.3s;
     }
   }
   &-title {
@@ -147,15 +147,16 @@
     }
     &-description {
       max-width: @steps-desciption-max-width;
+      white-space: normal;
     }
   }
 }
 
 .step-item-status(@status) {
-  @icon-color: "@{status}-icon-color";
-  @title-color: "@{status}-title-color";
-  @description-color: "@{status}-description-color";
-  @tail-color: "@{status}-tail-color";
+  @icon-color: '@{status}-icon-color';
+  @title-color: '@{status}-title-color';
+  @description-color: '@{status}-description-color';
+  @tail-color: '@{status}-tail-color';
   &-@{status} &-icon {
     border-color: @@icon-color;
     background-color: @steps-background;
