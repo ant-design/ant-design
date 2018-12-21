@@ -27,7 +27,7 @@
     width: 100%;
     border-collapse: collapse;
     text-align: left;
-    border-radius: @border-radius-base @border-radius-base 0 0;
+    border-radius: @table-border-radius-base @table-border-radius-base 0 0;
   }
 
   &-thead > tr > th {
@@ -178,11 +178,11 @@
 
   &-thead > tr:first-child > th {
     &:first-child {
-      border-top-left-radius: @border-radius-base;
+      border-top-left-radius: @table-border-radius-base;
     }
 
     &:last-child {
-      border-top-right-radius: @border-radius-base;
+      border-top-right-radius: @table-border-radius-base;
     }
   }
 
@@ -215,7 +215,7 @@
   &-footer {
     padding: @table-padding-vertical @table-padding-horizontal;
     background: @table-header-bg;
-    border-radius: 0 0 @border-radius-base @border-radius-base;
+    border-radius: 0 0 @table-border-radius-base @table-border-radius-base;
     position: relative;
     border-top: @border-width-base @border-style-base @border-color-split;
     &:before {
@@ -237,7 +237,7 @@
     padding: @table-padding-vertical 0;
     position: relative;
     top: 1px;
-    border-radius: @border-radius-base @border-radius-base 0 0;
+    border-radius: @table-border-radius-base @table-border-radius-base 0 0;
   }
 
   &.@{table-prefix-cls}-bordered &-title {
@@ -248,7 +248,7 @@
 
   &-title + &-content {
     position: relative;
-    border-radius: @border-radius-base @border-radius-base 0 0;
+    border-radius: @table-border-radius-base @table-border-radius-base 0 0;
     overflow: hidden;
     .@{table-prefix-cls}-bordered & {
       &,
@@ -311,7 +311,7 @@
   }
 
   &-header table {
-    border-radius: @border-radius-base @border-radius-base 0 0;
+    border-radius: @table-border-radius-base @table-border-radius-base 0 0;
   }
 
   &-loading {
@@ -620,7 +620,7 @@
     }
     &,
     table {
-      border-radius: @border-radius-base 0 0 0;
+      border-radius: @table-border-radius-base 0 0 0;
     }
     .ant-table-thead > tr > th:last-child {
       border-top-right-radius: 0;
@@ -632,7 +632,7 @@
     box-shadow: -6px 0 6px -4px @shadow-color;
     &,
     table {
-      border-radius: 0 @border-radius-base 0 0;
+      border-radius: 0 @table-border-radius-base 0 0;
     }
     // hide expand row content in right-fixed Table
     // https://github.com/ant-design/ant-design/issues/1898
