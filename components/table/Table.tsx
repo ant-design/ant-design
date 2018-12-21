@@ -81,7 +81,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     onChange: PropTypes.func,
     locale: PropTypes.object,
     dropdownPrefixCls: PropTypes.string,
-    sortMethods: PropTypes.array,
+    sortDirections: PropTypes.array,
   };
 
   static defaultProps = {
@@ -96,7 +96,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     locale: {},
     rowKey: 'key',
     showHeader: true,
-    sortMethods: ['ascend', 'descend'],
+    sortDirections: ['ascend', 'descend'],
   };
 
   CheckboxPropsCache: {
@@ -379,17 +379,18 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     if (!column.sorter) {
       return;
     }
-    const sortMethods = column.sortMethods || this.props.sortMethods;
+    const sortDirections = column.sortDirections || this.props.sortDirections;
     const { sortOrder, sortColumn } = this.state;
     // 只同时允许一列进行排序，否则会导致排序顺序的逻辑问题
     let newSortOrder: 'descend' | 'ascend' | undefined;
     // 切换另一列时，丢弃 sortOrder 的状态
     if (this.isSameColumn(sortColumn, column) && sortOrder !== undefined) {
-      // 按照sortMethods的内容依次切换排序状态
-      const methodIndex = sortMethods.indexOf(sortOrder) + 1;
-      newSortOrder = methodIndex === sortMethods.length ? undefined : sortMethods[methodIndex];
+      // 按照sortDirections的内容依次切换排序状态
+      const methodIndex = sortDirections.indexOf(sortOrder) + 1;
+      newSortOrder =
+        methodIndex === sortDirections.length ? undefined : sortDirections[methodIndex];
     } else {
-      newSortOrder = sortMethods[0];
+      newSortOrder = sortDirections[0];
     }
 
     const newState = {
@@ -824,11 +825,11 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         );
       }
       if (column.sorter) {
-        const sortMethods = column.sortMethods || this.props.sortMethods;
+        const sortDirections = column.sortDirections || this.props.sortDirections;
         const isAscend = isSortColumn && sortOrder === 'ascend';
         const isDescend = isSortColumn && sortOrder === 'descend';
 
-        const ascend = sortMethods.indexOf('ascend') !== -1 && (
+        const ascend = sortDirections.indexOf('ascend') !== -1 && (
           <Icon
             className={`${prefixCls}-column-sorter-up ${isAscend ? 'on' : 'off'}`}
             type="caret-up"
@@ -836,7 +837,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
           />
         );
 
-        const descend = sortMethods.indexOf('descend') !== -1 && (
+        const descend = sortDirections.indexOf('descend') !== -1 && (
           <Icon
             className={`${prefixCls}-column-sorter-down ${isDescend ? 'on' : 'off'}`}
             type="caret-down"

@@ -41,7 +41,7 @@ export interface ColumnProps<T> {
   onCellClick?: (record: T, event: any) => void;
   onCell?: (record: T, rowIndex: number) => any;
   onHeaderCell?: (props: ColumnProps<T>) => any;
-  sortMethods?: SortOrder[];
+  sortDirections?: SortOrder[];
 }
 
 export interface AdditionalCellProps {
@@ -163,7 +163,7 @@ export interface TableProps<T> {
   className?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
-  sortMethods: SortOrder[];
+  sortDirections: SortOrder[];
 }
 
 export interface TableStateFilters {

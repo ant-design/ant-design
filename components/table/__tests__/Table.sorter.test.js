@@ -536,7 +536,7 @@ describe('Table.sorter', () => {
   it('should first sort by descend, then ascend, then cancel sort', () => {
     const wrapper = mount(
       createTable({
-        sortMethods: ['descend', 'ascend'],
+        sortDirections: ['descend', 'ascend'],
       }),
     );
 
@@ -556,7 +556,7 @@ describe('Table.sorter', () => {
   it('should first sort by descend, then cancel sort', () => {
     const wrapper = mount(
       createTable({
-        sortMethods: ['descend'],
+        sortDirections: ['descend'],
       }),
     );
 
@@ -574,7 +574,7 @@ describe('Table.sorter', () => {
       createTable(
         {},
         {
-          sortMethods: ['descend'],
+          sortDirections: ['descend'],
         },
       ),
     );
