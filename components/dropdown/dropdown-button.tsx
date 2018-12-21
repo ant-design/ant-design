@@ -12,6 +12,7 @@ export interface DropdownButtonProps extends ButtonGroupProps, DropDownProps {
   htmlType?: ButtonHTMLType;
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  href?: string;
   children?: any;
 }
 
@@ -40,6 +41,7 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
       onVisibleChange,
       placement,
       getPopupContainer,
+      href,
       ...restProps
     } = this.props;
 
@@ -59,7 +61,7 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
 
     return (
       <ButtonGroup {...restProps} className={classNames(prefixCls, className)}>
-        <Button type={type} disabled={disabled} onClick={onClick} htmlType={htmlType}>
+        <Button type={type} disabled={disabled} onClick={onClick} htmlType={htmlType} href={href}>
           {children}
         </Button>
         <Dropdown {...dropdownProps}>
