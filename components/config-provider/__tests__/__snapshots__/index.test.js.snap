@@ -11162,7 +11162,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                       </div>
                     </div>
                     <i
-                      class="anticon anticon-filter config-table-filter-open config-dropdown-trigger"
+                      class="anticon anticon-filter config-table-filter-open config-dropdown-trigger config-dropdown-open"
                       title="Filter menu"
                     >
                       <svg
@@ -11345,7 +11345,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                       </div>
                     </div>
                     <i
-                      class="anticon anticon-filter ant-table-filter-open ant-dropdown-trigger"
+                      class="anticon anticon-filter ant-table-filter-open ant-dropdown-trigger ant-dropdown-open"
                       title="Filter menu"
                     >
                       <svg
@@ -11528,7 +11528,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                       </div>
                     </div>
                     <i
-                      class="anticon anticon-filter prefix-Table-filter-open ant-dropdown-trigger"
+                      class="anticon anticon-filter prefix-Table-filter-open ant-dropdown-trigger ant-dropdown-open"
                       title="Filter menu"
                     >
                       <svg

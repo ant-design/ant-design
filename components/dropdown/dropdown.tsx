@@ -23,6 +23,7 @@ export interface DropDownProps {
   forceRender?: boolean;
   mouseEnterDelay?: number;
   mouseLeaveDelay?: number;
+  openClassName?: string;
 }
 
 export default class Dropdown extends React.Component<DropDownProps, any> {
