@@ -9,10 +9,6 @@ import Search from './search';
 import Item from './item';
 import triggerEvent from '../_util/triggerEvent';
 
-function isIEorEDGE() {
-  return (document as any).documentMode || /Edge/.test(navigator.userAgent);
-}
-
 function noop() {}
 
 function isRenderResultPlainObject(result: any) {
@@ -59,7 +55,6 @@ export default class TransferList extends React.Component<TransferListProps, any
 
   timer: number;
   triggerScrollTimer: number;
-  fixIERepaintTimer: number;
   notFoundNode: HTMLDivElement;
 
   constructor(props: TransferListProps) {
@@ -80,7 +75,6 @@ export default class TransferList extends React.Component<TransferListProps, any
   componentWillUnmount() {
     clearTimeout(this.timer);
     clearTimeout(this.triggerScrollTimer);
-    clearTimeout(this.fixIERepaintTimer);
   }
 
   shouldComponentUpdate(...args: any[]) {
@@ -117,12 +111,10 @@ export default class TransferList extends React.Component<TransferListProps, any
         triggerEvent(listNode, 'scroll');
       }
     }, 0);
-    this.fixIERepaint();
   };
 
   handleClear = () => {
     this.props.handleClear();
-    this.fixIERepaint();
   };
 
   matchFilter = (text: string, item: TransferItem) => {
@@ -142,24 +134,6 @@ export default class TransferList extends React.Component<TransferListProps, any
       renderedEl: isRenderResultPlain ? renderResult.label : renderResult,
     };
   };
-
-  saveNotFoundRef = (node: HTMLDivElement) => {
-    this.notFoundNode = node;
-  };
-
-  // Fix IE/Edge repaint
-  // https://github.com/ant-design/ant-design/issues/9697
-  // https://stackoverflow.com/q/27947912/3040605
-  fixIERepaint() {
-    if (!isIEorEDGE()) {
-      return;
-    }
-    this.fixIERepaintTimer = window.setTimeout(() => {
-      if (this.notFoundNode) {
-        this.notFoundNode.className = this.notFoundNode.className;
-      }
-    }, 0);
-  }
 
   render() {
     const {
@@ -236,6 +210,10 @@ export default class TransferList extends React.Component<TransferListProps, any
       </div>
     ) : null;
 
+    const searchNotFound = showItems.every(item => item === null) && (
+      <div className={`${prefixCls}-body-not-found`}>{notFoundContent}</div>
+    );
+
     const listBody = bodyDom || (
       <div
         className={classNames(
@@ -252,9 +230,7 @@ export default class TransferList extends React.Component<TransferListProps, any
         >
           {showItems}
         </Animate>
-        <div className={`${prefixCls}-body-not-found`} ref={this.saveNotFoundRef}>
-          {notFoundContent}
-        </div>
+        {searchNotFound}
       </div>
     );
 
