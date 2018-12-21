@@ -3,7 +3,6 @@ order: 3
 title:
   zh-CN: 全局化配置
   en-US: ConfigProvider
-only: true
 ---
 
 ## zh-CN
