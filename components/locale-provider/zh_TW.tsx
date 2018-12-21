@@ -32,13 +32,13 @@ export default {
     itemUnit: '項目',
     itemsUnit: '項目',
   },
-  Select: {
-    notFoundContent: '查無此資料',
-  },
   Upload: {
     uploading: '正在上傳...',
     removeFile: '刪除檔案',
     uploadError: '上傳失敗',
     previewFile: '檔案預覽',
+  },
+  Empty: {
+    description: '無此資料',
   },
 };

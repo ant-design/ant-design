@@ -22,9 +22,6 @@ export default {
     selectInvert: '反选当页',
     sortTitle: '排序',
   },
-  Empty: {
-    description: '暂无数据',
-  },
   Modal: {
     okText: '确定',
     cancelText: '取消',
@@ -40,13 +37,13 @@ export default {
     itemUnit: '项',
     itemsUnit: '项',
   },
-  Select: {
-    notFoundContent: '无匹配结果',
-  },
   Upload: {
     uploading: '文件上传中',
     removeFile: '删除文件',
     uploadError: '上传错误',
     previewFile: '预览文件',
+  },
+  Empty: {
+    description: '暂无数据',
   },
 };

@@ -3,6 +3,8 @@ import classNames from 'classnames';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 
+import emptyImg from './empty.svg';
+
 export interface TransferLocale {
   description: string;
 }
@@ -20,7 +22,7 @@ const Empty: React.SFC<EmptyProps> = (props: EmptyProps) => (
     {({ getPrefixCls }: ConfigConsumerProps) => {
       const { className, image, description, footer, ...restProps } = props;
       const prefixCls = getPrefixCls('empty', props.prefixCls);
-      const imgSrc = image === true ? 'TODO: !!!' : image;
+      const imgSrc = image === true ? emptyImg : image;
 
       return (
         <LocaleReceiver componentName="Empty">

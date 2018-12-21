@@ -22,9 +22,6 @@ export default {
     selectInvert: 'Invert current page',
     sortTitle: 'Sort',
   },
-  Empty: {
-    description: 'No Data',
-  },
   Modal: {
     okText: 'OK',
     cancelText: 'Cancel',
@@ -41,13 +38,13 @@ export default {
     itemUnit: 'item',
     itemsUnit: 'items',
   },
-  Select: {
-    notFoundContent: 'Not Found',
-  },
   Upload: {
     uploading: 'Uploading...',
     removeFile: 'Remove file',
     uploadError: 'Upload error',
     previewFile: 'Preview file',
+  },
+  Empty: {
+    description: 'No Data',
   },
 };
