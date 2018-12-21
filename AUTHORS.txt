@@ -284,6 +284,7 @@ Pyroboomka <qwaarty@mail.ru>
 Qiaosen Huang <joesonw@gmail.com>
 Qingrong Ke <keqingrong1992@gmail.com>
 Rafael Cosman <rafaelcosman@alumni.stanford.edu>
+Rahul Gurung <gurungrahul2@gmail.com>
 Rallets <rallet@rallets.com>
 Ramsés Moreno <ramses@cuatromedios.com>
 Randy <randypriv@gmail.com>
