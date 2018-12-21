@@ -85,12 +85,12 @@ export type TableSelectWay = 'onSelect' | 'onSelectMultiple' | 'onSelectAll' | '
 export interface TableRowSelection<T> {
   type?: RowSelectionType;
   selectedRowKeys?: string[] | number[];
-  onChange?: (selectedRowKeys: string[] | number[], selectedRows: Object[]) => void;
+  onChange?: (selectedRowKeys: string[] | number[], selectedRows: Array<T>) => void;
   getCheckboxProps?: (record: T) => Object;
   onSelect?: SelectionSelectFn<T>;
-  onSelectMultiple?: (selected: boolean, selectedRows: Object[], changeRows: Object[]) => void;
-  onSelectAll?: (selected: boolean, selectedRows: Object[], changeRows: Object[]) => void;
-  onSelectInvert?: (selectedRows: Object[]) => void;
+  onSelectMultiple?: (selected: boolean, selectedRows: Array<T>, changeRows: Array<T>) => void;
+  onSelectAll?: (selected: boolean, selectedRows: Array<T>, changeRows: Array<T>) => void;
+  onSelectInvert?: (selectedRowKeys: string[] | number[]) => void;
   selections?: SelectionItem[] | boolean;
   hideDefaultSelections?: boolean;
   fixed?: boolean;
