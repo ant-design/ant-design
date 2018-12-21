@@ -162,6 +162,7 @@ export interface TableProps<T> {
   className?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
+  sortMethods: SortOrder[];
 }
 
 export interface TableStateFilters {

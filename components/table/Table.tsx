@@ -81,6 +81,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     onChange: PropTypes.func,
     locale: PropTypes.object,
     dropdownPrefixCls: PropTypes.string,
+    sortMethods: PropTypes.array,
   };
 
   static defaultProps = {
@@ -95,6 +96,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     locale: {},
     rowKey: 'key',
     showHeader: true,
+    sortMethods: ['ascend', 'descend'],
   };
 
   CheckboxPropsCache: {
@@ -377,18 +379,17 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     if (!column.sorter) {
       return;
     }
+    const { sortMethods } = this.props;
     const { sortOrder, sortColumn } = this.state;
     // 只同时允许一列进行排序，否则会导致排序顺序的逻辑问题
     let newSortOrder: 'descend' | 'ascend' | undefined;
     // 切换另一列时，丢弃 sortOrder 的状态
-    const oldSortOrder = this.isSameColumn(sortColumn, column) ? sortOrder : undefined;
-    // 切换排序状态，按照降序/升序/不排序的顺序
-    if (!oldSortOrder) {
-      newSortOrder = 'ascend';
-    } else if (oldSortOrder === 'ascend') {
-      newSortOrder = 'descend';
+    if (this.isSameColumn(sortColumn, column) && sortOrder !== undefined) {
+      // 切换排序状态，按照降序/升序/不排序的顺序
+      const methodIndex = sortMethods.indexOf(sortOrder) + 1;
+      newSortOrder = methodIndex === sortMethods.length ? undefined : sortMethods[methodIndex];
     } else {
-      newSortOrder = undefined;
+      newSortOrder = sortMethods[0];
     }
 
     const newState = {
@@ -798,7 +799,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   }
 
   renderColumnsDropdown(columns: ColumnProps<T>[], locale: TableLocale) {
-    const { prefixCls, dropdownPrefixCls } = this.props;
+    const { prefixCls, dropdownPrefixCls, sortMethods } = this.props;
     const { sortOrder, filters } = this.state;
     return treeMap(columns, (column, i) => {
       const key = this.getColumnKey(column, i) as string;
@@ -825,18 +826,27 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       if (column.sorter) {
         const isAscend = isSortColumn && sortOrder === 'ascend';
         const isDescend = isSortColumn && sortOrder === 'descend';
+
+        const ascend = sortMethods.indexOf('ascend') !== -1 && (
+          <Icon
+            className={`${prefixCls}-column-sorter-up ${isAscend ? 'on' : 'off'}`}
+            type="caret-up"
+            theme="filled"
+          />
+        );
+
+        const descend = sortMethods.indexOf('descend') !== -1 && (
+          <Icon
+            className={`${prefixCls}-column-sorter-down ${isDescend ? 'on' : 'off'}`}
+            type="caret-down"
+            theme="filled"
+          />
+        );
+
         sortButton = (
           <div className={`${prefixCls}-column-sorter`} key="sorter">
-            <Icon
-              className={`${prefixCls}-column-sorter-up ${isAscend ? 'on' : 'off'}`}
-              type="caret-up"
-              theme="filled"
-            />
-            <Icon
-              className={`${prefixCls}-column-sorter-down ${isDescend ? 'on' : 'off'}`}
-              type="caret-down"
-              theme="filled"
-            />
+            {ascend}
+            {descend}
           </div>
         );
 
