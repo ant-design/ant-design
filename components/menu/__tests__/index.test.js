@@ -494,4 +494,32 @@ describe('Menu', () => {
     const text = wrapper.find('.ant-tooltip-inner').text();
     expect(text).toBe('bamboo lucky');
   });
+
+  it('should have collapse for issue #13726', () => {
+    const wrapper = mount(
+      <Menu mode="inline" inlineCollapsed>
+        <Menu.ItemCollapse key="1">
+          <Icon type="pie-chart" />
+          <span>Option 1</span>
+        </Menu.ItemCollapse>
+        <Menu.SubMenuCollapse
+          key="sub1"
+          title={
+            <div>
+              <Icon type="mail" />
+              <span>Navigation One</span>
+            </div>
+          }
+        >
+          <Menu.Item key="5">Option 5</Menu.Item>
+          <Menu.Item key="6">Option 6</Menu.Item>
+          <Menu.Item key="7">Option 7</Menu.Item>
+          <Menu.Item key="8">Option 8</Menu.Item>
+        </Menu.SubMenuCollapse>
+      </Menu>,
+    );
+
+    expect(wrapper.find('.ant-menu-item-collapse').length).toBe(3);
+    expect(wrapper.find('.ant-menu-submenu-collapse').length).toBe(3);
+  });
 });
