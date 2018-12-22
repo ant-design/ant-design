@@ -23,7 +23,7 @@ We provide properties like `validateStatus` `help` `hasFeedback` to customize yo
 
 ````jsx
 import {
-  Form, Input, DatePicker, Col, TimePicker, Select, Cascader, InputNumber,
+  Form, Input, DatePicker, TimePicker, Select, Cascader, InputNumber,
 } from 'antd';
 
 const FormItem = Form.Item;
@@ -141,22 +141,21 @@ ReactDOM.render(
     <FormItem
       label="inline"
       {...formItemLayout}
+      style={{ marginBottom: 0 }}
     >
-      <Col span={11}>
-        <FormItem validateStatus="error" help="Please select the correct date">
-          <DatePicker />
-        </FormItem>
-      </Col>
-      <Col span={2}>
-        <span style={{ display: 'inline-block', width: '100%', textAlign: 'center' }}>
-          -
-        </span>
-      </Col>
-      <Col span={11}>
-        <FormItem>
-          <DatePicker />
-        </FormItem>
-      </Col>
+      <FormItem
+        validateStatus="error"
+        help="Please select the correct date"
+        style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}
+      >
+        <DatePicker />
+      </FormItem>
+      <span style={{ display: 'inline-block', width: '24px', textAlign: 'center' }}>
+        -
+      </span>
+      <FormItem style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+        <DatePicker />
+      </FormItem>
     </FormItem>
 
     <FormItem
