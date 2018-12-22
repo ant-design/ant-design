@@ -49,7 +49,7 @@ const getSideBarOpenKeys = nextProps => {
   const moduleData = getModuleData(nextProps);
   const shouldOpenKeys = utils
     .getMenuItems(moduleData, locale, themeConfig.categoryOrder, themeConfig.typeOrder)
-    .map(m => m.title[locale] || m.title);
+    .map(m => (m.title && m.title[locale]) || m.title);
   return shouldOpenKeys;
 };
 
@@ -177,6 +177,9 @@ export default class MainContent extends React.PureComponent {
       intl: { locale },
     } = this.context;
     const key = fileNameToPath(item.filename);
+    if (!item.title) {
+      return null;
+    }
     const title = item.title[locale] || item.title;
     const text = isTop
       ? title
@@ -222,6 +225,9 @@ export default class MainContent extends React.PureComponent {
   }
 
   flattenMenu(menu) {
+    if (!menu) {
+      return null;
+    }
     if (menu && menu.type && menu.type.isMenuItem) {
       return menu;
     }
