@@ -172,6 +172,7 @@ After wrapped by `getFieldDecorator`, `value`(or other property defined by `valu
 | options.getValueProps | Get the component props according to field value. | function(value): any | [reference](https://github.com/react-component/form#option-object)
 | options.initialValue | You can specify initial value, type, optional value of children node. (Note: Because `Form` will test equality with `===` internally, we recommend to use variable as `initialValue`, instead of literal) |  | n/a |
 | options.normalize | Normalize value to form component, [a select-all example](https://codepen.io/afc163/pen/JJVXzG?editors=001) | function(value, prevValue, allValues): any | - |
+| options.preserve | Keep the field even if field removed | boolean | - |
 | options.rules | Includes validation rules. Please refer to "Validation Rules" part for details. | object\[] | n/a |
 | options.trigger | When to collect the value of children node | string | 'onChange' |
 | options.validateFirst | Whether stop validate on first rule of error for this field. | boolean | false |
