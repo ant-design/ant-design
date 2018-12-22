@@ -15,6 +15,44 @@ timeline: true
 
 ---
 
+## 3.11.3 🎅🏻
+
+`2018-12-22`
+
+- ⚡️ Upgrade our toolchains (babel and webpack) to latest version and prettier all codes!
+- Table
+  - 🐞 **Fixed that dropdown menu action not clickable**. [#13563](https://github.com/ant-design/ant-design/issues/13563)
+  - 🐞 Fixed hovering components on Table sortable column. [#13467](https://github.com/ant-design/ant-design/issues/13467)
+  - 🐞 Fixed crash issue of selection Table under IE9/10. [#13540](https://github.com/ant-design/ant-design/issues/13540)
+  - 🐞 Fixed check-all checkbox state when Table `childrenColumnName` is specified. [#13710](https://github.com/ant-design/ant-design/issues/13710)
+  - 💄 Remove work break styles in table cell for consistent behavior. [#13624](https://github.com/ant-design/ant-design/issues/13624)
+  - 💄 Rewrote the custom filter demo of Table. [Link](https://ant.design/components/table-cn/#components-table-demo-custom-filter-panel)
+- 🐞 Fixed padding of Button which children is `0`. [#13596](https://github.com/ant-design/ant-design/pull/13596) [@951565664](https://github.com/951565664)
+- 💄 Chore Card header and loading UI.
+- 💄 Optimized Spin wrapper styles and improve performance slightly. [2c7112b](https://github.com/ant-design/ant-design/commit/2c7112be7bf32c6e8362334b86b0799cc3a4a6c4)
+- 🐞 Fixed border color of validated Input.Group. [#13529](https://github.com/ant-design/ant-design/issues/13529) [@morenyang](https://github.com/morenyang)
+- 🐞 Fixed submenu animation of vertical-type Menu. [#13597](https://github.com/ant-design/ant-design/issues/13597)
+- 🐞 Fixed width of WeekPicker. [#13629](https://github.com/ant-design/ant-design/issues/13629)
+- 🐞 Fixed cursor style of disabled Radio.Button. [#13642](https://github.com/ant-design/ant-design/pull/13642) [@gianpaj](https://github.com/gianpaj)
+- Dropdown
+  - 🐞 Fixed slight shift when menu is poped in Chrome. [#12115](https://github.com/ant-design/ant-design/issues/12115) [@gurungrahul2](https://github.com/gurungrahul2)
+  - 🐞 Fixed unexpected scrollbar caused by dropdown placed at screen edge. [00564dd](https://github.com/ant-design/ant-design/commit/3aeca7c10ec6ee3441f024fe7fdb5ae9e00564dd)
+- 🐞 Fixed `offset` props when Bdage `count` is specified as a ReactNode. [#13694](https://github.com/ant-design/ant-design/issues/13694)
+- 📝 Added a Select demo of [Hide Already Selected](https://ant.design/components/select/#components-select-demo-hide-selected). [#13552](https://github.com/ant-design/ant-design/pull/13552) [@SergeyVolynkin](https://github.com/SergeyVolynkin)
+- 🐞 Fixed padding of Comment actions. [#13713](https://github.com/ant-design/ant-design/issues/13713)
+- 🐞 Fixed broken arrow style when customize Popover's background color. [#13533](https://github.com/ant-design/ant-design/issues/13533) [@gurungrahul2](https://github.com/gurungrahul2)
+- 🐞 Corrected Drawer `style` prop to outside wrapper. [#11504](https://github.com/ant-design/ant-design/issues/11504)
+- 🐞 Fixed one problem of incorrect state when Affix first mounted. [#13737](https://github.com/ant-design/ant-design/pull/13737) [@xuxinhang](https://github.com/xuxinhang)
+- 🐞 Fixed Tabs cursor style of disabled tab. [#13709](https://github.com/ant-design/ant-design/issues/13709)
+- 🌟 Added some less variables of [Tabs](https://github.com/ant-design/ant-design/pull/13727), [Table](https://github.com/ant-design/ant-design/pull/13754), [Alert](https://github.com/ant-design/ant-design/pull/13768).
+- TypeScript
+  - ⚡️ Enhanced Table `ColumnProps` types about `dataIndex`. [#13605](https://github.com/ant-design/ant-design/pull/13605) [@bondBo](https://github.com/bondBo)
+  - ⚡️ Enhanced Table `TableRowSelection.onChange` arguments with generic types.[#13761](https://github.com/ant-design/ant-design/issues/13761) [@hahabazinga](https://github.com/hahabazinga)
+  - 🐞 Fixed type of LocaleProvider's `children`. [#12974](https://github.com/ant-design/ant-design/issues/12974)
+  - 🐞 Fixed type of RangePicker `onOk`'s arguments. [#13650](https://github.com/ant-design/ant-design/pull/13650) [@iugo](https://github.com/iugo)
+  - 🐞 Fixed Comment `author` type from string to ReactNode。[#13670](https://github.com/ant-design/ant-design/pull/13670) [@reichjustin](https://github.com/reichjustin)
+  - 🐞 Fixed type of Select `dropdownProps`'s arguments. [#13617](https://github.com/ant-design/ant-design/pull/13617) [@SylvanasGone](https://github.com/SylvanasGone)
+
 ## 3.11.2
 
 `2018-12-10`
