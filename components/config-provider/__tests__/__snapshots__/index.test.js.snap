@@ -8335,6 +8335,15 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       </a>
     </li>
     <li
+      class="config-pagination-item config-pagination-item-0 config-pagination-disabled config-pagination-item-disabled"
+      tabindex="0"
+      title="0"
+    >
+      <a>
+        0
+      </a>
+    </li>
+    <li
       aria-disabled="true"
       class="config-pagination-disabled config-pagination-next"
       title="Next Page"
@@ -8453,6 +8462,15 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
             />
           </svg>
         </i>
+      </a>
+    </li>
+    <li
+      class="config-pagination-item config-pagination-item-0 config-pagination-disabled config-pagination-item-disabled"
+      tabindex="0"
+      title="0"
+    >
+      <a>
+        0
       </a>
     </li>
     <li
@@ -8582,6 +8600,15 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       </a>
     </li>
     <li
+      class="ant-pagination-item ant-pagination-item-0 ant-pagination-disabled ant-pagination-item-disabled"
+      tabindex="0"
+      title="0"
+    >
+      <a>
+        0
+      </a>
+    </li>
+    <li
       aria-disabled="true"
       class="ant-pagination-disabled ant-pagination-next"
       title="Next Page"
@@ -8700,6 +8727,15 @@ exports[`ConfigProvider components Pagination normal 1`] = `
             />
           </svg>
         </i>
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-0 ant-pagination-disabled ant-pagination-item-disabled"
+      tabindex="0"
+      title="0"
+    >
+      <a>
+        0
       </a>
     </li>
     <li
@@ -8829,6 +8865,15 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       </a>
     </li>
     <li
+      class="prefix-Pagination-item prefix-Pagination-item-0 prefix-Pagination-disabled prefix-Pagination-item-disabled"
+      tabindex="0"
+      title="0"
+    >
+      <a>
+        0
+      </a>
+    </li>
+    <li
       aria-disabled="true"
       class="prefix-Pagination-disabled prefix-Pagination-next"
       title="Next Page"
@@ -8947,6 +8992,15 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
             />
           </svg>
         </i>
+      </a>
+    </li>
+    <li
+      class="prefix-Pagination-item prefix-Pagination-item-0 prefix-Pagination-disabled prefix-Pagination-item-disabled"
+      tabindex="0"
+      title="0"
+    >
+      <a>
+        0
       </a>
     </li>
     <li
@@ -12013,7 +12067,6 @@ exports[`ConfigProvider components Tags configProvider 1`] = `
 <div>
   <div
     class="config-tag"
-    data-show="true"
   >
     Bamboo
   </div>
@@ -12029,7 +12082,6 @@ exports[`ConfigProvider components Tags normal 1`] = `
 <div>
   <div
     class="ant-tag"
-    data-show="true"
   >
     Bamboo
   </div>
@@ -12045,7 +12097,6 @@ exports[`ConfigProvider components Tags prefixCls 1`] = `
 <div>
   <div
     class="prefix-Tags"
-    data-show="true"
   >
     Bamboo
   </div>
