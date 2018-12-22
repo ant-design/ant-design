@@ -13,7 +13,22 @@ exports[`List renders empty list 1`] = `
       <div
         class="ant-list-empty-text"
       >
-        No data
+        <div
+          class="ant-empty ant-empty-normal"
+        >
+          <div
+            class="ant-empty-image"
+          >
+            <img
+              src="empty.svg"
+            />
+          </div>
+          <p
+            class="ant-empty-description"
+          >
+            No Data
+          </p>
+        </div>
       </div>
     </div>
   </div>

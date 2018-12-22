@@ -13,7 +13,6 @@ export default {
     filterTitle: 'Bộ ',
     filterConfirm: 'OK',
     filterReset: 'Tạo Lại',
-    emptyText: 'Trống',
     selectAll: 'Chọn Tất Cả',
     selectInvert: 'Chọn Ngược Lại',
   },
@@ -27,18 +26,17 @@ export default {
     cancelText: 'Huỷ',
   },
   Transfer: {
-    notFoundContent: 'Không Tìm Thấy',
     searchPlaceholder: 'Tìm ở đây',
     itemUnit: 'mục',
     itemsUnit: 'mục',
-  },
-  Select: {
-    notFoundContent: 'Không Tìm Thấy',
   },
   Upload: {
     uploading: 'Đang tải lên...',
     removeFile: 'Gỡ bỏ tập tin',
     uploadError: 'Lỗi tải lên',
     previewFile: 'Xem thử tập tin',
+  },
+  Empty: {
+    description: 'Trống',
   },
 };

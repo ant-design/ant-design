@@ -717,7 +717,6 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
                       />
                     </span>
                   }
-                  notFoundContent="Not Found"
                   onChange={[Function]}
                   onItemDoubleClick={[Function]}
                   onPopupVisibleChange={[Function]}
@@ -1119,7 +1118,6 @@ exports[`Cascader should render not found content 1`] = `
                       />
                     </span>
                   }
-                  notFoundContent="Not Found"
                   onChange={[Function]}
                   onItemDoubleClick={[Function]}
                   onPopupVisibleChange={[Function]}
@@ -1128,7 +1126,9 @@ exports[`Cascader should render not found content 1`] = `
                     Array [
                       Object {
                         "disabled": true,
-                        "label": "Not Found",
+                        "label": <Consumer>
+                          [Function]
+                        </Consumer>,
                         "value": "ANT_CASCADER_NOT_FOUND",
                       },
                     ]
@@ -1163,9 +1163,29 @@ exports[`Cascader should render not found content 1`] = `
                         key="ANT_CASCADER_NOT_FOUND"
                         onClick={[Function]}
                         onDoubleClick={[Function]}
-                        title="Not Found"
+                        title=""
                       >
-                        Not Found
+                        <Consumer>
+                          <Empty
+                            className="ant-empty-small"
+                          >
+                            <Consumer>
+                              <LocaleReceiver
+                                componentName="Empty"
+                              >
+                                <div
+                                  className="ant-empty ant-empty-small"
+                                >
+                                  <p
+                                    className="ant-empty-description"
+                                  >
+                                    No Data
+                                  </p>
+                                </div>
+                              </LocaleReceiver>
+                            </Consumer>
+                          </Empty>
+                        </Consumer>
                       </li>
                     </ul>
                   </div>

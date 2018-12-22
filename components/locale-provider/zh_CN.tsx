@@ -17,7 +17,6 @@ export default {
     filterTitle: '筛选',
     filterConfirm: '确定',
     filterReset: '重置',
-    emptyText: '暂无数据',
     selectAll: '全选当页',
     selectInvert: '反选当页',
     sortTitle: '排序',
@@ -32,7 +31,6 @@ export default {
     okText: '确定',
   },
   Transfer: {
-    notFoundContent: '无匹配结果',
     searchPlaceholder: '请输入搜索内容',
     itemUnit: '项',
     itemsUnit: '项',

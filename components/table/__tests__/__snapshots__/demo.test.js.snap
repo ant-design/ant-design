@@ -125,7 +125,22 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
           <div
             class="ant-table-placeholder"
           >
-            No data
+            <div
+              class="ant-empty ant-empty-normal"
+            >
+              <div
+                class="ant-empty-image"
+              >
+                <img
+                  src="empty.svg"
+                />
+              </div>
+              <p
+                class="ant-empty-description"
+              >
+                No Data
+              </p>
+            </div>
           </div>
         </div>
       </div>

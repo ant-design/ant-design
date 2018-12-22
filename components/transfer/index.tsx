@@ -107,6 +107,12 @@ export default class Transfer extends React.Component<TransferProps, any> {
   constructor(props: TransferProps) {
     super(props);
 
+    warning(
+      !('notFoundContent' in props || 'searchPlaceholder' in props),
+      'Transfer[notFoundContent] and Transfer[searchPlaceholder] will be removed, ' +
+        'please use Transfer[locale] instead.',
+    );
+
     const { selectedKeys = [], targetKeys = [] } = props;
     this.state = {
       leftFilter: '',

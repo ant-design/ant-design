@@ -79,7 +79,15 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
       <div
         class="ant-transfer-list-body-not-found"
       >
-        Not Found
+        <div
+          class="ant-empty ant-empty-small"
+        >
+          <p
+            class="ant-empty-description"
+          >
+            No Data
+          </p>
+        </div>
       </div>
     </div>
     <div
@@ -227,7 +235,15 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
       <div
         class="ant-transfer-list-body-not-found"
       >
-        Not Found
+        <div
+          class="ant-empty ant-empty-small"
+        >
+          <p
+            class="ant-empty-description"
+          >
+            No Data
+          </p>
+        </div>
       </div>
     </div>
     <div
@@ -531,7 +547,15 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
       <div
         class="ant-transfer-list-body-not-found"
       >
-        Not Found
+        <div
+          class="ant-empty ant-empty-small"
+        >
+          <p
+            class="ant-empty-description"
+          >
+            No Data
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -627,7 +651,15 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
       <div
         class="ant-transfer-list-body-not-found"
       >
-        Not Found
+        <div
+          class="ant-empty ant-empty-small"
+        >
+          <p
+            class="ant-empty-description"
+          >
+            No Data
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -679,7 +711,15 @@ exports[`renders ./components/transfer/demo/large-data.md correctly 1`] = `
       <div
         class="ant-transfer-list-body-not-found"
       >
-        Not Found
+        <div
+          class="ant-empty ant-empty-small"
+        >
+          <p
+            class="ant-empty-description"
+          >
+            No Data
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -774,7 +814,15 @@ exports[`renders ./components/transfer/demo/large-data.md correctly 1`] = `
       <div
         class="ant-transfer-list-body-not-found"
       >
-        Not Found
+        <div
+          class="ant-empty ant-empty-small"
+        >
+          <p
+            class="ant-empty-description"
+          >
+            No Data
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -859,7 +907,15 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
       <div
         class="ant-transfer-list-body-not-found"
       >
-        Not Found
+        <div
+          class="ant-empty ant-empty-small"
+        >
+          <p
+            class="ant-empty-description"
+          >
+            No Data
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -987,7 +1043,15 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
       <div
         class="ant-transfer-list-body-not-found"
       >
-        Not Found
+        <div
+          class="ant-empty ant-empty-small"
+        >
+          <p
+            class="ant-empty-description"
+          >
+            No Data
+          </p>
+        </div>
       </div>
     </div>
   </div>

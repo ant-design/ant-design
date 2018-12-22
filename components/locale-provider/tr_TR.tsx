@@ -13,7 +13,6 @@ export default {
     filterTitle: 'Menü Filtrele',
     filterConfirm: 'Tamam',
     filterReset: 'Sıfırla',
-    emptyText: 'Veri Yok',
     selectAll: 'Hepsini Seç',
     selectInvert: 'Tersini Seç',
   },
@@ -27,18 +26,17 @@ export default {
     cancelText: 'İptal',
   },
   Transfer: {
-    notFoundContent: 'Bulunamadı',
     searchPlaceholder: 'Arama',
     itemUnit: 'Öğe',
     itemsUnit: 'Öğeler',
-  },
-  Select: {
-    notFoundContent: 'Bulunamadı',
   },
   Upload: {
     uploading: 'Yükleniyor...',
     removeFile: `Dosyayı kaldır`,
     uploadError: 'Yükleme Hatası',
     previewFile: `Dosyayı Önizle`,
+  },
+  Empty: {
+    description: 'Veri Yok',
   },
 };

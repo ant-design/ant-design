@@ -507,7 +507,15 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
             <div
               class="ant-transfer-list-body-not-found"
             >
-              Not Found
+              <div
+                class="ant-empty ant-empty-small"
+              >
+                <p
+                  class="ant-empty-description"
+                >
+                  No Data
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -635,7 +643,15 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
             <div
               class="ant-transfer-list-body-not-found"
             >
-              Not Found
+              <div
+                class="ant-empty ant-empty-small"
+              >
+                <p
+                  class="ant-empty-description"
+                >
+                  No Data
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -1756,7 +1772,22 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                 <div
                   class="ant-table-placeholder"
                 >
-                  No data
+                  <div
+                    class="ant-empty ant-empty-normal"
+                  >
+                    <div
+                      class="ant-empty-image"
+                    >
+                      <img
+                        src="empty.svg"
+                      />
+                    </div>
+                    <p
+                      class="ant-empty-description"
+                    >
+                      No Data
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
