@@ -5,6 +5,7 @@ import createReactContext, { Context } from 'create-react-context';
 import warning from 'warning';
 import classNames from 'classnames';
 import Icon from '../icon';
+import { tuple } from '../_util/type';
 
 const DrawerContext: Context<Drawer | null> = createReactContext(null);
 
@@ -12,7 +13,8 @@ type EventType = React.MouseEvent<HTMLDivElement> | React.MouseEvent<HTMLButtonE
 
 type getContainerfunc = () => HTMLElement;
 
-type placementType = 'top' | 'right' | 'bottom' | 'left';
+const PlacementTypes = tuple('top', 'right', 'bottom', 'left');
+type placementType = (typeof PlacementTypes)[number];
 export interface DrawerProps {
   closable?: boolean;
   destroyOnClose?: boolean;
@@ -45,9 +47,8 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
     destroyOnClose: PropTypes.bool,
     getContainer: PropTypes.oneOfType([
       PropTypes.string,
-      PropTypes.object,
+      PropTypes.object as PropTypes.Requireable<HTMLElement>,
       PropTypes.func,
-      PropTypes.bool,
     ]),
     maskClosable: PropTypes.bool,
     mask: PropTypes.bool,
@@ -58,7 +59,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
     width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     zIndex: PropTypes.number,
     prefixCls: PropTypes.string,
-    placement: PropTypes.string,
+    placement: PropTypes.oneOf(PlacementTypes),
     onClose: PropTypes.func,
     className: PropTypes.string,
   };
@@ -68,7 +69,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
     width: 256,
     height: 256,
     closable: true,
-    placement: 'right',
+    placement: 'right' as placementType,
     maskClosable: true,
     mask: true,
     level: null,

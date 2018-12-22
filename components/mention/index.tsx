@@ -42,7 +42,7 @@ class Mention extends React.Component<MentionProps, MentionState> {
     notFoundContent: '无匹配结果，轻敲空格完成输入',
     loading: false,
     multiLines: false,
-    placement: 'bottom',
+    placement: 'bottom' as MentionPlacement,
   };
   static Nav = Nav;
   static toString = toString;

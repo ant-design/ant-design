@@ -9,6 +9,9 @@ import Col, { ColProps } from '../grid/col';
 import warning from '../_util/warning';
 import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
 import Icon from '../icon';
+import { tuple } from '../_util/type';
+
+const ValidateStatuses = tuple('success', 'warning', 'error', 'validating');
 
 export interface FormItemProps {
   prefixCls?: string;
@@ -19,7 +22,7 @@ export interface FormItemProps {
   wrapperCol?: ColProps;
   help?: React.ReactNode;
   extra?: React.ReactNode;
-  validateStatus?: 'success' | 'warning' | 'error' | 'validating';
+  validateStatus?: (typeof ValidateStatuses)[number];
   hasFeedback?: boolean;
   required?: boolean;
   style?: React.CSSProperties;
@@ -42,7 +45,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     labelCol: PropTypes.object,
     help: PropTypes.oneOfType([PropTypes.node, PropTypes.bool]),
-    validateStatus: PropTypes.oneOf(['', 'success', 'warning', 'error', 'validating']),
+    validateStatus: PropTypes.oneOf(ValidateStatuses),
     hasFeedback: PropTypes.bool,
     wrapperCol: PropTypes.object,
     className: PropTypes.string,
