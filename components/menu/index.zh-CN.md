@@ -57,7 +57,7 @@ subtitle: 导航菜单
 | disabled | 是否禁用 | boolean | false |
 | key | item 的唯一标志 | string |  |
 | title | 设置收缩时展示的悬浮标题 | string |  |
-| showTextCollapsed | 是否禁用 | boolean | false |
+| showTextInlineCollapsed | 是否禁用 | boolean | false |
 
 ### Menu.SubMenu
 
@@ -68,7 +68,7 @@ subtitle: 导航菜单
 | key | 唯一标志 | string |  |
 | title | 子菜单项值 | string\|ReactNode |  |
 | onTitleClick | 点击子菜单标题 | function({ key, domEvent }) |  |
-| showTextCollapsed | 是否禁用 | boolean | false |
+| showTextInlineCollapsed | 是否禁用 | boolean | false |
 
 ### Menu.ItemGroup
 

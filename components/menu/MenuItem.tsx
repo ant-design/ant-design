@@ -13,7 +13,7 @@ interface MenuItemProps {
   children?: React.ReactNode;
   className?: string;
   onClick?: (param: ClickParam) => void;
-  showTextCollapsed?: boolean;
+  showTextInlineCollapsed?: boolean;
 }
 
 class MenuItem extends React.Component<MenuItemProps, any> {
@@ -34,7 +34,7 @@ class MenuItem extends React.Component<MenuItemProps, any> {
 
   render() {
     const { inlineCollapsed } = this.context;
-    const { level, children, rootPrefixCls, showTextCollapsed } = this.props;
+    const { level, children, rootPrefixCls, showTextInlineCollapsed } = this.props;
     const { title, className, ...rest } = this.props;
 
     let titleNode;
@@ -43,10 +43,10 @@ class MenuItem extends React.Component<MenuItemProps, any> {
     }
 
     const itemClassName = classNames(className, {
-      [`${rootPrefixCls}-item-collapse`]: showTextCollapsed,
+      [`${rootPrefixCls}-item-collapse`]: showTextInlineCollapsed,
     });
 
-    if (showTextCollapsed) {
+    if (showTextInlineCollapsed) {
       return <Item {...rest} className={itemClassName} title={title} ref={this.saveMenuItem} />;
     }
 

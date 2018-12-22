@@ -21,8 +21,8 @@ class SubMenu extends React.Component<any, any> {
   };
 
   getCollapsedMode = () => {
-    const { mode, showTextCollapsed } = this.props;
-    return mode === 'vertical' && showTextCollapsed === true;
+    const { mode, showTextInlineCollapsed } = this.props;
+    return mode === 'vertical' && showTextInlineCollapsed === true;
   };
 
   render() {
