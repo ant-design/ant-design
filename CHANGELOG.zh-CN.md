@@ -38,6 +38,7 @@ timeline: true
   - 🐞 修复 Chrome 下菜单弹出时有轻微移动的问题。[#12115](https://github.com/ant-design/ant-design/issues/12115) [@gurungrahul2](https://github.com/gurungrahul2)
   - 🐞 修复一个屏幕边缘的 Dropdown 菜单引起的浏览器滚动条异常出现的问题。[00564dd](https://github.com/ant-design/ant-design/commit/3aeca7c10ec6ee3441f024fe7fdb5ae9e00564dd)
 - 🐞 修复 Badge 的 `count` 是自定义 ReactNode 时 `offset` 属性失效的问题。[#13694](https://github.com/ant-design/ant-design/issues/13694)
+- 🐞 去掉 Form.Item 内嵌负边距，改用其他的方式实现单行多个表单项。[#13748](https://github.com/ant-design/ant-design/issues/13748)
 - 📝 补充了一个 Select 选择后隐藏选项的[例子](https://ant.design/components/select-cn/#components-select-demo-hide-selected)。[#13552](https://github.com/ant-design/ant-design/pull/13552) [@SergeyVolynkin](https://github.com/SergeyVolynkin)
 - 🐞 修复 Comment 的操作链接边距样式。[#13713](https://github.com/ant-design/ant-design/issues/13713)
 - 🐞 修复自定义 Popover 背景色时箭头样式突兀的问题。[#13533](https://github.com/ant-design/ant-design/issues/13533) [@gurungrahul2](https://github.com/gurungrahul2)
