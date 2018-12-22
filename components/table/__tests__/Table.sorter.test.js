@@ -532,4 +532,59 @@ describe('Table.sorter', () => {
         .getDOMNode().className,
     ).toContain(' off');
   });
+
+  it('should first sort by descend, then ascend, then cancel sort', () => {
+    const wrapper = mount(
+      createTable({
+        sortDirections: ['descend', 'ascend'],
+      }),
+    );
+
+    // descend
+    wrapper.find('.ant-table-column-sorters').simulate('click');
+    expect(renderedNames(wrapper)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
+
+    // ascend
+    wrapper.find('.ant-table-column-sorters').simulate('click');
+    expect(renderedNames(wrapper)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
+
+    // cancel sort
+    wrapper.find('.ant-table-column-sorters').simulate('click');
+    expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+  });
+
+  it('should first sort by descend, then cancel sort', () => {
+    const wrapper = mount(
+      createTable({
+        sortDirections: ['descend'],
+      }),
+    );
+
+    // descend
+    wrapper.find('.ant-table-column-sorters').simulate('click');
+    expect(renderedNames(wrapper)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
+
+    // cancel sort
+    wrapper.find('.ant-table-column-sorters').simulate('click');
+    expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+  });
+
+  it('should first sort by descend, then cancel sort. (column prop)', () => {
+    const wrapper = mount(
+      createTable(
+        {},
+        {
+          sortDirections: ['descend'],
+        },
+      ),
+    );
+
+    // descend
+    wrapper.find('.ant-table-column-sorters').simulate('click');
+    expect(renderedNames(wrapper)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
+
+    // cancel sort
+    wrapper.find('.ant-table-column-sorters').simulate('click');
+    expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+  });
 });
