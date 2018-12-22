@@ -3,6 +3,7 @@ import { Item } from 'rc-menu';
 import * as PropTypes from 'prop-types';
 import Tooltip from '../tooltip';
 import { ClickParam } from './index';
+import classNames from 'classnames';
 
 interface MenuItemProps {
   rootPrefixCls?: string;
@@ -12,6 +13,7 @@ interface MenuItemProps {
   children?: React.ReactNode;
   className?: string;
   onClick?: (param: ClickParam) => void;
+  showTextInlineCollapsed?: boolean;
 }
 
 class MenuItem extends React.Component<MenuItemProps, any> {
@@ -30,12 +32,20 @@ class MenuItem extends React.Component<MenuItemProps, any> {
   };
   render() {
     const { inlineCollapsed } = this.context;
-    const { level, children, rootPrefixCls } = this.props;
-    const { title, ...rest } = this.props;
+    const { level, children, rootPrefixCls, showTextInlineCollapsed } = this.props;
+    const { title, className, ...rest } = this.props;
 
     let titleNode;
     if (inlineCollapsed) {
       titleNode = title || (level === 1 ? children : '');
+    }
+
+    const itemClassName = classNames(className, {
+      [`${rootPrefixCls}-item-collapse`]: showTextInlineCollapsed,
+    });
+
+    if (showTextInlineCollapsed) {
+      return <Item {...rest} className={itemClassName} title={title} ref={this.saveMenuItem} />;
     }
 
     return (
@@ -44,7 +54,12 @@ class MenuItem extends React.Component<MenuItemProps, any> {
         placement="right"
         overlayClassName={`${rootPrefixCls}-inline-collapsed-tooltip`}
       >
-        <Item {...rest} title={inlineCollapsed ? null : title} ref={this.saveMenuItem} />
+        <Item
+          {...rest}
+          className={itemClassName}
+          title={inlineCollapsed ? null : title}
+          ref={this.saveMenuItem}
+        />
       </Tooltip>
     );
   }
