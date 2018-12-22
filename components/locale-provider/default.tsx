@@ -9,7 +9,6 @@ export default {
   DatePicker,
   TimePicker,
   Calendar,
-  // locales for all comoponents
   global: {
     placeholder: 'Please select',
   },
@@ -17,7 +16,6 @@ export default {
     filterTitle: 'Filter menu',
     filterConfirm: 'OK',
     filterReset: 'Reset',
-    emptyText: 'No data',
     selectAll: 'Select current page',
     selectInvert: 'Invert current page',
     sortTitle: 'Sort',
@@ -33,7 +31,6 @@ export default {
   },
   Transfer: {
     titles: ['', ''],
-    notFoundContent: 'Not Found',
     searchPlaceholder: 'Search here',
     itemUnit: 'item',
     itemsUnit: 'items',
@@ -45,6 +42,6 @@ export default {
     previewFile: 'Preview file',
   },
   Empty: {
-    description: 'No Data',
+    description: 'No data',
   },
 };
