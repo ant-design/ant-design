@@ -232,7 +232,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     return newState;
   }
 
-  cachedOptions: CascaderOptionType[];
+  cachedOptions: CascaderOptionType[] = [];
 
   private input: Input;
 

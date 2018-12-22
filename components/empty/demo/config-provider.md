@@ -17,6 +17,8 @@ Use ConfigProvider set global empty style.
 import {
   ConfigProvider, Switch, Divider, Icon,
   TreeSelect, Select, Cascader,
+  Transfer,
+  Table,
 } from 'antd';
 
 const customizeRenderEmpty = () => (
@@ -50,7 +52,23 @@ class Demo extends React.Component {
         <ConfigProvider renderEmpty={customize && customizeRenderEmpty}>
           <Select style={style} />
           <TreeSelect style={style} treeData={[]} />
-          <Cascader style={style} showSearch />
+          <Cascader style={style} options={[]} showSearch />
+          <Transfer />
+          <Table
+            style={{ marginTop: 8 }}
+            columns={[
+              {
+                title: 'Name',
+                dataIndex: 'name',
+                key: 'name',
+              },
+              {
+                title: 'Age',
+                dataIndex: 'age',
+                key: 'age',
+              },
+            ]}
+          />
         </ConfigProvider>
       </div>
     );
