@@ -35,9 +35,9 @@ timeline: true
 - 🐞 Fixed width of WeekPicker. [#13629](https://github.com/ant-design/ant-design/issues/13629)
 - 🐞 Fixed cursor style of disabled Radio.Button. [#13642](https://github.com/ant-design/ant-design/pull/13642) [@gianpaj](https://github.com/gianpaj)
 - Dropdown
-  - 🐞 Fixed slight shift when menu is poped in Chrome. [#12115](https://github.com/ant-design/ant-design/issues/12115) [@gurungrahul2](https://github.com/gurungrahul2)
+  - 🐞 Fixed slight shift when menu is popped in Chrome. [#12115](https://github.com/ant-design/ant-design/issues/12115) [@gurungrahul2](https://github.com/gurungrahul2)
   - 🐞 Fixed unexpected scrollbar caused by dropdown placed at screen edge. [00564dd](https://github.com/ant-design/ant-design/commit/3aeca7c10ec6ee3441f024fe7fdb5ae9e00564dd)
-- 🐞 Fixed `offset` props when Bdage `count` is specified as a ReactNode. [#13694](https://github.com/ant-design/ant-design/issues/13694)
+- 🐞 Fixed `offset` props when Badge `count` is specified as a ReactNode. [#13694](https://github.com/ant-design/ant-design/issues/13694)
 - 🐞 Remove nested Form.Item negetive margin. [#13748](https://github.com/ant-design/ant-design/issues/13748)
 - 📝 Added a Select demo of [Hide Already Selected](https://ant.design/components/select/#components-select-demo-hide-selected). [#13552](https://github.com/ant-design/ant-design/pull/13552) [@SergeyVolynkin](https://github.com/SergeyVolynkin)
 - 🐞 Fixed padding of Comment actions. [#13713](https://github.com/ant-design/ant-design/issues/13713)
