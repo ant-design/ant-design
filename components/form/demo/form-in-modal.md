@@ -18,8 +18,6 @@ import {
   Button, Modal, Form, Input, Radio,
 } from 'antd';
 
-const FormItem = Form.Item;
-
 const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
   // eslint-disable-next-line
   class extends React.Component {
@@ -37,17 +35,17 @@ const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
           onOk={onCreate}
         >
           <Form layout="vertical">
-            <FormItem label="Title">
+            <Form.Item label="Title">
               {getFieldDecorator('title', {
                 rules: [{ required: true, message: 'Please input the title of collection!' }],
               })(
                 <Input />
               )}
-            </FormItem>
-            <FormItem label="Description">
+            </Form.Item>
+            <Form.Item label="Description">
               {getFieldDecorator('description')(<Input type="textarea" />)}
-            </FormItem>
-            <FormItem className="collection-create-form_last-form-item">
+            </Form.Item>
+            <Form.Item className="collection-create-form_last-form-item">
               {getFieldDecorator('modifier', {
                 initialValue: 'public',
               })(
@@ -56,7 +54,7 @@ const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
                   <Radio value="private">Private</Radio>
                 </Radio.Group>
               )}
-            </FormItem>
+            </Form.Item>
           </Form>
         </Modal>
       );

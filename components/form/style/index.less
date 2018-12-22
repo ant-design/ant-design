@@ -74,12 +74,6 @@ input[type='checkbox'] {
   margin-bottom: @form-item-margin-bottom;
   vertical-align: top;
 
-  // nested FormItem
-  &-control > &:last-child,
-  & [class^='@{ant-prefix}-col-'] > &:only-child {
-    margin-bottom: -@form-item-margin-bottom;
-  }
-
   &-control {
     line-height: @form-component-max-height - 0.0001px; // https://github.com/ant-design/ant-design/issues/8220
     position: relative;
