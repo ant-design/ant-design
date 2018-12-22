@@ -3,6 +3,7 @@ order: 3
 title:
   zh-CN: 全局化配置
   en-US: ConfigProvider
+only: true
 ---
 
 ## zh-CN
@@ -14,7 +15,7 @@ title:
 Use ConfigProvider set global empty style.
 
 ```jsx
-import { ConfigProvider, Select, Switch, Divider, Icon } from 'antd';
+import { ConfigProvider, TreeSelect, Select, Switch, Divider, Icon } from 'antd';
 
 const customizeRenderEmpty = () => (
   <div>
@@ -44,6 +45,7 @@ class Demo extends React.Component {
 
         <ConfigProvider renderEmpty={customize && customizeRenderEmpty}>
           <Select style={{ width: 100 }} />
+          <TreeSelect style={{ width: 100 }} treeData={[]} />
         </ConfigProvider>
       </div>
     );
