@@ -42,6 +42,6 @@ export default {
     previewFile: 'Preview file',
   },
   Empty: {
-    description: 'No data',
+    description: 'No Data',
   },
 };
