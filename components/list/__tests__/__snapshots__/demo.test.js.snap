@@ -347,6 +347,7 @@ exports[`renders ./components/list/demo/infinite-load.md correctly 1`] = `
                 class="ant-empty-image"
               >
                 <img
+                  alt="No Data"
                   src="empty.svg"
                 />
               </div>

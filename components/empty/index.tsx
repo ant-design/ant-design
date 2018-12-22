@@ -23,23 +23,26 @@ const Empty: React.SFC<EmptyProps> = (props: EmptyProps) => (
       const { className, image, description, footer, ...restProps } = props;
       const prefixCls = getPrefixCls('empty', props.prefixCls);
 
-      let imageNode: React.ReactNode = null;
-      if (image === true) {
-        imageNode = <img src={emptyImg} />;
-      } else if (typeof image === 'string') {
-        imageNode = <img src={image} />;
-      } else {
-        imageNode = image;
-      }
-
       return (
         <LocaleReceiver componentName="Empty">
           {(locale: TransferLocale) => {
+            const des = description || locale.description;
+            const alt = typeof des === 'string' ? des : 'empty';
+
+            let imageNode: React.ReactNode = null;
+            if (image === true) {
+              imageNode = <img alt={alt} src={emptyImg} />;
+            } else if (typeof image === 'string') {
+              imageNode = <img alt={alt} src={image} />;
+            } else {
+              imageNode = image;
+            }
+
             return (
               <div className={classNames(prefixCls, className)} {...restProps}>
                 {imageNode && <div className={`${prefixCls}-image`}>{imageNode}</div>}
 
-                <p className={`${prefixCls}-description`}>{description || locale.description}</p>
+                <p className={`${prefixCls}-description`}>{des}</p>
 
                 {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
               </div>

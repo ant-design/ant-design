@@ -1779,6 +1779,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                       class="ant-empty-image"
                     >
                       <img
+                        alt="No Data"
                         src="empty.svg"
                       />
                     </div>

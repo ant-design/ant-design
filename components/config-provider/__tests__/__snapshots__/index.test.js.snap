@@ -11320,6 +11320,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                 class="config-empty-image"
               >
                 <img
+                  alt="No Data"
                   src="empty.svg"
                 />
               </div>
@@ -11518,6 +11519,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                 class="ant-empty-image"
               >
                 <img
+                  alt="No Data"
                   src="empty.svg"
                 />
               </div>
@@ -11716,6 +11718,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                 class="ant-empty-image"
               >
                 <img
+                  alt="No Data"
                   src="empty.svg"
                 />
               </div>

@@ -20,6 +20,7 @@ exports[`List renders empty list 1`] = `
             class="ant-empty-image"
           >
             <img
+              alt="No Data"
               src="empty.svg"
             />
           </div>

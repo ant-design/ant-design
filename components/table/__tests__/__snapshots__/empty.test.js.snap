@@ -109,6 +109,7 @@ exports[`Table renders empty table 1`] = `
                 class="ant-empty-image"
               >
                 <img
+                  alt="No Data"
                   src="empty.svg"
                 />
               </div>
@@ -379,6 +380,7 @@ exports[`Table renders empty table with fixed columns 1`] = `
                   class="ant-empty-image"
                 >
                   <img
+                    alt="No Data"
                     src="empty.svg"
                   />
                 </div>
