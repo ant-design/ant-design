@@ -75,7 +75,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     useFixedHeader: PropTypes.bool,
     rowSelection: PropTypes.object,
     className: PropTypes.string,
-    size: PropTypes.string,
+    size: PropTypes.string as PropTypes.Requireable<TableSize>,
     loading: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
     bordered: PropTypes.bool,
     onChange: PropTypes.func,

@@ -35,8 +35,8 @@ export interface AvatarState {
 export default class Avatar extends React.Component<AvatarProps, AvatarState> {
   static defaultProps = {
     prefixCls: 'ant-avatar',
-    shape: 'circle',
-    size: 'default',
+    shape: 'circle' as AvatarProps['shape'],
+    size: 'default' as AvatarProps['size'],
   };
 
   state = {

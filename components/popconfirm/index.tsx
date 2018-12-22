@@ -33,9 +33,9 @@ class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
   static defaultProps = {
     prefixCls: 'ant-popover',
     transitionName: 'zoom-big',
-    placement: 'top',
-    trigger: 'click',
-    okType: 'primary',
+    placement: 'top' as PopconfirmProps['placement'],
+    trigger: 'click' as PopconfirmProps['trigger'],
+    okType: 'primary' as PopconfirmProps['okType'],
     icon: <Icon type="exclamation-circle" theme="filled" />,
   };
 
