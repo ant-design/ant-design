@@ -9,6 +9,8 @@ const renderEmpty = (componentName?: string): React.ReactNode => (
 
       switch (componentName) {
         case 'Select':
+        case 'TreeSelect':
+        case 'Cascader':
           return <Empty className={`${prefix}-collapse`} />;
 
         default:

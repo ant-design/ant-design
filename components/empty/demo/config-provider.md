@@ -3,7 +3,6 @@ order: 3
 title:
   zh-CN: 全局化配置
   en-US: ConfigProvider
-only: true
 ---
 
 ## zh-CN
@@ -15,13 +14,18 @@ only: true
 Use ConfigProvider set global empty style.
 
 ```jsx
-import { ConfigProvider, TreeSelect, Select, Switch, Divider, Icon } from 'antd';
+import {
+  ConfigProvider, Switch, Divider, Icon,
+  TreeSelect, Select, Cascader,
+} from 'antd';
 
 const customizeRenderEmpty = () => (
   <div>
     <Icon type="smile" /> Smile!
   </div>
 );
+
+const style = { width: 200, display: 'block', marginBottom: 16 };
 
 class Demo extends React.Component {
   state = {
@@ -44,8 +48,9 @@ class Demo extends React.Component {
         <Divider />
 
         <ConfigProvider renderEmpty={customize && customizeRenderEmpty}>
-          <Select style={{ width: 100 }} />
-          <TreeSelect style={{ width: 100 }} treeData={[]} />
+          <Select style={style} />
+          <TreeSelect style={style} treeData={[]} />
+          <Cascader style={style} showSearch />
         </ConfigProvider>
       </div>
     );
