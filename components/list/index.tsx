@@ -2,9 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { SpinProps } from '../spin';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import defaultLocale from '../locale-provider/default';
+import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 
 import Spin from '../spin';
 import Pagination, { PaginationConfig } from '../pagination';
@@ -50,7 +48,7 @@ export interface ListProps {
   split?: boolean;
   header?: React.ReactNode;
   footer?: React.ReactNode;
-  locale?: Object;
+  locale?: ListLocale;
 }
 
 export interface ListLocale {
@@ -125,12 +123,17 @@ export default class List extends React.Component<ListProps> {
     return !!(loadMore || pagination || footer);
   }
 
-  renderEmpty = (prefixCls: string, contextLocale: ListLocale) => {
-    const locale = { ...contextLocale, ...this.props.locale };
-    return <div className={`${prefixCls}-empty-text`}>{locale.emptyText}</div>;
+  renderEmpty = (prefixCls: string, renderEmpty: RenderEmptyHandler) => {
+    const { locale } = this.props;
+
+    return (
+      <div className={`${prefixCls}-empty-text`}>
+        {(locale && locale.emptyText) || renderEmpty('List')}
+      </div>
+    );
   };
 
-  renderList = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderList = ({ getPrefixCls, renderEmpty }: ConfigConsumerProps) => {
     const { paginationCurrent } = this.state;
     const {
       prefixCls: customizePrefixCls,
@@ -228,11 +231,7 @@ export default class List extends React.Component<ListProps> {
 
       childrenContent = grid ? <Row gutter={grid.gutter}>{childrenList}</Row> : childrenList;
     } else if (!children && !isLoading) {
-      childrenContent = (
-        <LocaleReceiver componentName="Table" defaultLocale={defaultLocale.Table}>
-          {(contextLocale: ListLocale) => this.renderEmpty(prefixCls, contextLocale)}
-        </LocaleReceiver>
-      );
+      childrenContent = this.renderEmpty(prefixCls, renderEmpty);
     }
 
     const paginationPosition = paginationProps.position || 'bottom';

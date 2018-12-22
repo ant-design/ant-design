@@ -9,10 +9,6 @@
   line-height: @empty-line-height;
   margin: 0 8px;
 
-  &.@{empty-prefix-cls}-collapse {
-    margin: 0;
-  }
-
   &-image {
     margin-bottom: 8px;
 
@@ -27,5 +23,20 @@
 
   &-footer {
     margin-top: 16px;
+  }
+
+  // antd internal empty style
+  &.@{empty-prefix-cls}-small {
+    margin: 0;
+  }
+
+  &.@{empty-prefix-cls}-normal {
+    margin: 32px 0;
+
+    .@{empty-prefix-cls}-image {
+      img {
+        height: 40px;
+      }
+    }
   }
 }
