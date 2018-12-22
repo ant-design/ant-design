@@ -228,7 +228,7 @@ export default class MainContent extends React.PureComponent {
     if (!menu) {
       return null;
     }
-    if (menu && menu.type && menu.type.isMenuItem) {
+    if (menu.type && menu.type.isMenuItem) {
       return menu;
     }
     if (Array.isArray(menu)) {
