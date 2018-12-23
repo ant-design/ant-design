@@ -15,6 +15,12 @@ timeline: true
 
 ---
 
+## 3.11.4
+
+`2018-12-23`
+
+- 🐞 Fixed DependencyNotFoundError `Could not find dependency: '@babel/runtime'`. [#13791](https://github.com/ant-design/ant-design/issues/13791)
+
 ## 3.11.3 🎅🏻
 
 `2018-12-22`
