@@ -1,5 +1,5 @@
 import React from 'react';
-import { generate } from 'ant-design-palettes';
+import { generate } from '@ant-design/colors';
 import ColorBlock from './ColorBlock';
 
 export default function ColorPatterns({ color }) {
