@@ -15,26 +15,31 @@ title:
 
 ```jsx
 import { Modal, Button } from 'antd';
-import { browserHistory } from 'react-router';
 
-// router change
-browserHistory.listen(() => {
+function destroyAll() {
   Modal.destroyAll();
-});
+}
 
 const confirm = Modal.confirm;
 
 function showConfirm() {
-  confirm({
-    title: 'confirm dialog',
-    content: 'click the browser [go back] button，this confirm modal dialog will destroy Automatically',
-    onOk() {
-      console.log('OK');
-    },
-    onCancel() {
-      console.log('Cancel');
-    },
-  });
+  for (let i = 0; i < 3; i += 1) {
+    setTimeout(() => {
+      confirm({
+        content: (
+          <Button onClick={destroyAll}>
+            Click to destroy all
+          </Button>
+        ),
+        onOk() {
+          console.log('OK');
+        },
+        onCancel() {
+          console.log('Cancel');
+        },
+      });
+    }, i * 500);
+  }
 }
 
 ReactDOM.render(
