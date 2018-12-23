@@ -2,6 +2,7 @@
 category: Components
 type: Data Display
 title: Empty
+cols: 1
 ---
 
 Empty state placeholder.
