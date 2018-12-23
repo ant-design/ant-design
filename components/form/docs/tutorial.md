@@ -1,8 +1,5 @@
----
-category: Tutorials
-subtitle: 表单实现原理
-type: Data Entry
-title: Form
+# 表单实现原理
+
 ---
 
 antd 中的 [Form](https://github.com/ant-design/ant-design/blob/master/components/form/index.zh-CN.md) 组件基于 [rc-form](https://github.com/react-component/form) 实现。本文第一部分将介绍 rc-form 库；第二部分再介绍 antd 中的 Form 组件；第三部分将结合表单组件的使用，回顾前两部分的内容。

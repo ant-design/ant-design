@@ -15,12 +15,12 @@ describe('Tag', () => {
     const onClose = jest.fn();
     const wrapper = mount(<Tag closable onClose={onClose} />);
     expect(wrapper.find('.anticon-close').length).toBe(1);
-    expect(wrapper.find('.ant-tag').length).toBe(1);
+    expect(wrapper.find('div.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
     wrapper.find('.anticon-close').simulate('click');
     expect(onClose).toBeCalled();
     jest.runAllTimers();
     wrapper.update();
-    expect(wrapper.find('.ant-tag').length).toBe(0);
+    expect(wrapper.find('div.ant-tag:not(.ant-tag-hidden)').length).toBe(0);
   });
 
   it('should not be closed when prevent default', () => {
@@ -29,10 +29,10 @@ describe('Tag', () => {
     };
     const wrapper = mount(<Tag closable onClose={onClose} />);
     expect(wrapper.find('.anticon-close').length).toBe(1);
-    expect(wrapper.find('.ant-tag').length).toBe(1);
+    expect(wrapper.find('div.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
     wrapper.find('.anticon-close').simulate('click');
     jest.runAllTimers();
-    expect(wrapper.find('.ant-tag').length).toBe(1);
+    expect(wrapper.find('div.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
   });
 
   describe('visibility', () => {
