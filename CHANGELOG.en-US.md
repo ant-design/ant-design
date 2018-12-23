@@ -20,6 +20,7 @@ timeline: true
 `2018-12-23`
 
 - 🐞 Fixed DependencyNotFoundError `Could not find dependency: '@babel/runtime'`. [#13791](https://github.com/ant-design/ant-design/issues/13791)
+- ⚡️ Refactor Tag component with less code and better performance. [b828741](https://github.com/ant-design/ant-design/commit/b828741dc06eaa69ff3f8c76024fd5527ed6d74f)
 
 ## 3.11.3 🎅🏻
 
