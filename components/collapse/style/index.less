@@ -21,6 +21,7 @@
     }
 
     > .@{collapse-prefix-cls}-header {
+      display: flex;
       line-height: 22px;
       padding: @collapse-header-padding;
       color: @heading-color;
@@ -47,6 +48,10 @@
 
       &:focus {
         outline: none;
+      }
+
+      .@{collapse-prefix-cls}-extra {
+        margin: 0 16px 0 auto;
       }
     }
 

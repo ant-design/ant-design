@@ -35,6 +35,7 @@ A content area which can be collapsed and expanded.
 | header | Title of the panel | string\|ReactNode | - |
 | key | Unique key identifying the panel from among its siblings | string | - |
 | showArrow | If `false`, panel will not show arrow icon | boolean | `true` |
+| extra | Content to render in the right of the panel header | string\|ReactNode | - |
 
 ## FAQ
 

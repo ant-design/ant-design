@@ -176,6 +176,13 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
         </svg>
       </i>
       This is panel header 2
+      <div
+        class="ant-collapse-extra"
+      >
+        <span>
+          ExtraNode
+        </span>
+      </div>
     </div>
   </div>
   <div
