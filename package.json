@@ -109,6 +109,7 @@
     "bisheng-plugin-description": "^0.1.4",
     "bisheng-plugin-react": "^1.0.0",
     "bisheng-plugin-toc": "^0.4.4",
+    "chalk": "^2.4.1",
     "commander": "^2.18.0",
     "core-js": "^2.5.7",
     "cross-env": "^5.2.0",
