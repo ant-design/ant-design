@@ -65,6 +65,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 | style | to customize the style of the input box | object | {} |
 | onOpenChange | a callback function, can be executed whether the popup calendar is popped up or closed | function(status) | - |
 | onPanelChange | callback when picker panel mode is changed | function(value, mode) | - |
+| renderFooter | renderer of picker panel footer | (mode) => ReactNode | - |
 
 ### Common Methods
 

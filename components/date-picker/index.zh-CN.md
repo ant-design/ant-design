@@ -65,6 +65,8 @@ moment.locale('zh-cn');
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |
 | style | 自定义输入框样式 | object | {} |
 | onOpenChange | 弹出日历和关闭日历的回调 | function(status) | 无 |
+| onPanelChange | 日历面板切换的回调 | function(value, mode) | - |
+| renderFooter | 渲染弹出层的页脚 | (mode) => ReactNode | - |
 
 ### 共同的方法
 
