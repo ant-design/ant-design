@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Group from './button-group';
+import omit from 'omit.js';
 import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Wave from '../_util/wave';
@@ -225,7 +226,7 @@ export default class Button extends React.Component<ButtonProps, any> {
 
     const title = isChristmas ? 'Ho Ho Ho!' : rest.title;
 
-    const linkButtonRestProps = rest as AnchorButtonProps;
+    const linkButtonRestProps = omit(rest as AnchorButtonProps, ['htmlType']);
     if (linkButtonRestProps.href !== undefined) {
       return (
         <a
