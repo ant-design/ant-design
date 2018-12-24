@@ -3,6 +3,7 @@
 @import '../../input/style/mixin';
 
 @select-prefix-cls: ~'@{ant-prefix}-select';
+@select-arrow-top: 50%;
 
 .selection__clear() {
   display: inline-block;
@@ -55,7 +56,7 @@
   &-arrow {
     .iconfont-mixin();
     position: absolute;
-    top: 50%;
+    top: @select-arrow-top;
     right: @control-padding-horizontal - 1px;
     line-height: 1;
     margin-top: -@font-size-sm / 2;
