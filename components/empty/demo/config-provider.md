@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Use ConfigProvider set global empty style.
+Use ConfigProvider set global Empty style.
 
 ```jsx
 import {
