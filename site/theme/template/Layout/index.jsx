@@ -7,7 +7,6 @@ import 'moment/locale/zh-cn';
 import { LocaleProvider } from 'antd';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
 import Header from './Header';
-import Footer from './Footer';
 import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
 import * as utils from '../utils';
@@ -102,7 +101,6 @@ export default class Layout extends React.Component {
             <div className="page-wrapper">
               <Header {...restProps} />
               {children}
-              <Footer {...restProps} />
             </div>
           </LocaleProvider>
         </IntlProvider>
