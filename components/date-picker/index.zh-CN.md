@@ -84,7 +84,7 @@ moment.locale('zh-cn');
 | disabledTime | 不可选择的时间 | function(date) | 无 |
 | format | 设置日期格式，为数组时支持多格式匹配，展示以第一个为准。配置参考 [moment.js](http://momentjs.com/) | string \| string[] | "YYYY-MM-DD" |
 | mode | 日期面板的状态 | `time|date|month|year` | 'date' |
-| renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |
+| renderExtraFooter | 在面板中添加额外的页脚 | (mode) => React.ReactNode | - |
 | showTime | 增加时间选择功能 | Object\|boolean | [TimePicker Options](/components/time-picker/#API) |
 | showTime.defaultValue | 设置用户选择日期时默认的时分秒，[例子](#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/) | moment() |
 | showToday | 是否展示“今天”按钮 | boolean | true |
