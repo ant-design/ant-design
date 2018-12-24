@@ -12,7 +12,7 @@ export interface EmptyProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
-  image?: string | true;
+  image?: string | boolean;
   description?: React.ReactNode;
   footer?: React.ReactNode;
 }
@@ -20,7 +20,7 @@ export interface EmptyProps {
 const Empty: React.SFC<EmptyProps> = (props: EmptyProps) => (
   <ConfigConsumer>
     {({ getPrefixCls }: ConfigConsumerProps) => {
-      const { className, image, description, footer, ...restProps } = props;
+      const { className, image = true, description, footer, ...restProps } = props;
       const prefixCls = getPrefixCls('empty', props.prefixCls);
 
       return (

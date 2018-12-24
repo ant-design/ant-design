@@ -17,7 +17,7 @@ const renderEmpty = (componentName?: string): React.ReactNode => (
         case 'TreeSelect':
         case 'Cascader':
         case 'Transfer':
-          return <Empty className={`${prefix}-small`} />;
+          return <Empty image={emptyImg} className={`${prefix}-small`} />;
 
         default:
           return <Empty />;
