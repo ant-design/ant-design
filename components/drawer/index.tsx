@@ -208,7 +208,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
     return {
       zIndex,
       transform: push ? this.getPushTransform(placement) : undefined,
-      style,
+      ...style,
     };
   };
 
