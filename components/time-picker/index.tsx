@@ -27,6 +27,7 @@ export interface TimePickerProps {
   format?: string;
   onChange?: (time: moment.Moment, timeString: string) => void;
   onOpenChange?: (open: boolean) => void;
+  onAmPmChange?: (ampm: 'AM' | 'PM') => void;
   disabled?: boolean;
   placeholder?: string;
   prefixCls?: string;
@@ -47,6 +48,7 @@ export interface TimePickerProps {
   clearText?: string;
   defaultOpenValue?: moment.Moment;
   popupClassName?: string;
+  popupStyle?: React.CSSProperties;
   suffixIcon?: React.ReactNode;
 }
 

@@ -7,7 +7,7 @@ import omit from 'omit.js';
 import FormItem from './FormItem';
 import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import { Omit } from '../_util/type';
+import { Omit, tuple } from '../_util/type';
 import warning from '../_util/warning';
 
 type FormCreateOptionMessagesCallback = (...args: any[]) => string;
@@ -24,7 +24,8 @@ export interface FormCreateOption<T> {
   withRef?: boolean;
 }
 
-export type FormLayout = 'horizontal' | 'inline' | 'vertical';
+const FormLayouts = tuple('horizontal', 'inline', 'vertical');
+export type FormLayout = (typeof FormLayouts)[number];
 
 export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   layout?: FormLayout;
@@ -161,7 +162,7 @@ export default class Form extends React.Component<FormProps, any> {
 
   static propTypes = {
     prefixCls: PropTypes.string,
-    layout: PropTypes.oneOf(['horizontal', 'inline', 'vertical']),
+    layout: PropTypes.oneOf(FormLayouts),
     children: PropTypes.any,
     onSubmit: PropTypes.func,
     hideRequiredMark: PropTypes.bool,

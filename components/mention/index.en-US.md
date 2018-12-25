@@ -48,7 +48,7 @@ When need to mention someone or something.
 | value | core state of mention | ContentState | null |
 | onBlur | Callback function called when mention component blur | function(e) | null |
 | onChange | Callback function called when content of input changes | function(contentState: ContentState) | null |
-| onFocus | Callback function called when mention component get focus | functione) | null |
+| onFocus | Callback function called when mention component get focus | function | null |
 | onSearchChange | Callback function called when search content changes | function(value:string, trigger: string) | \[] |
 | onSelect | Callback function called when select from suggestions | function(suggestion: string, data?: any) | null |
 

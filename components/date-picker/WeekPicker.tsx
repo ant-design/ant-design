@@ -100,6 +100,13 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
     this.handleChange(null);
   };
 
+  renderFooter = (...args: any[]) => {
+    const { prefixCls, renderExtraFooter } = this.props;
+    return renderExtraFooter ? (
+      <div className={`${prefixCls}-footer-extra`}>{renderExtraFooter(...args)}</div>
+    ) : null;
+  };
+
   focus() {
     this.input.focus();
   }
@@ -157,6 +164,7 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
         showDateInput={false}
         showToday={false}
         disabledDate={disabledDate}
+        renderFooter={this.renderFooter}
       />
     );
     const clearIcon =

@@ -4,6 +4,7 @@ import Icon from '../icon';
 import { Circle } from 'rc-progress';
 import classNames from 'classnames';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { tuple } from '../_util/type';
 
 const statusColorMap: Record<string, string> = {
   normal: '#108ee9',
@@ -11,7 +12,9 @@ const statusColorMap: Record<string, string> = {
   success: '#87d068',
 };
 
-export type ProgressType = 'line' | 'circle' | 'dashboard';
+const ProgressTypes = tuple('line', 'circle', 'dashboard');
+export type ProgressType = (typeof ProgressTypes)[number];
+const ProgressStatuses = tuple('normal', 'exception', 'active', 'success');
 export type ProgressSize = 'default' | 'small';
 
 export interface ProgressProps {
@@ -21,7 +24,7 @@ export interface ProgressProps {
   percent?: number;
   successPercent?: number;
   format?: (percent?: number, successPercent?: number) => React.ReactNode;
-  status?: 'success' | 'active' | 'exception' | 'normal';
+  status?: (typeof ProgressStatuses)[number];
   showInfo?: boolean;
   strokeWidth?: number;
   strokeLinecap?: string;
@@ -45,16 +48,16 @@ const validProgress = (progress: number | undefined) => {
 
 export default class Progress extends React.Component<ProgressProps, {}> {
   static defaultProps = {
-    type: 'line',
+    type: 'line' as ProgressProps['type'],
     percent: 0,
     showInfo: true,
     trailColor: '#f3f3f3',
-    size: 'default',
+    size: 'default' as ProgressSize,
   };
 
   static propTypes = {
-    status: PropTypes.oneOf(['normal', 'exception', 'active', 'success']),
-    type: PropTypes.oneOf(['line', 'circle', 'dashboard']),
+    status: PropTypes.oneOf(ProgressStatuses),
+    type: PropTypes.oneOf(ProgressTypes),
     showInfo: PropTypes.bool,
     percent: PropTypes.number,
     width: PropTypes.number,

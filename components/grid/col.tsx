@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import RowContext from './RowContext';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
-const stringOrNumber = PropTypes.oneOfType([PropTypes.string, PropTypes.number]);
 const objectOrNumber = PropTypes.oneOfType([PropTypes.object, PropTypes.number]);
 
 export interface ColSize {
@@ -32,11 +31,11 @@ export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export default class Col extends React.Component<ColProps, {}> {
   static propTypes = {
-    span: stringOrNumber,
-    order: stringOrNumber,
-    offset: stringOrNumber,
-    push: stringOrNumber,
-    pull: stringOrNumber,
+    span: PropTypes.number,
+    order: PropTypes.number,
+    offset: PropTypes.number,
+    push: PropTypes.number,
+    pull: PropTypes.number,
     className: PropTypes.string,
     children: PropTypes.node,
     xs: objectOrNumber,
