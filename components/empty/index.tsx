@@ -40,7 +40,7 @@ const Empty: React.SFC<EmptyProps> = (props: EmptyProps) => (
 
             return (
               <div className={classNames(prefixCls, className)} {...restProps}>
-                {imageNode && <div className={`${prefixCls}-image`}>{imageNode}</div>}
+                <div className={`${prefixCls}-image`}>{imageNode}</div>
 
                 <p className={`${prefixCls}-description`}>{des}</p>
 
