@@ -1,4 +1,5 @@
 const $ = require('dekko');
+const chalk = require('chalk');
 
 $('dist')
   .isDirectory()
@@ -8,4 +9,4 @@ $('dist')
   .hasFile('antd.min.js');
 
 // eslint-disable-next-line
-console.log('`dist` directory is valid.');
+console.log(chalk.green('✨ `dist` directory is valid.'));

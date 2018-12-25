@@ -39,15 +39,7 @@ class Banner extends React.PureComponent {
         <div className="banner-bg-wrapper">
           <svg width="400px" height="576px" viewBox="0 0 400 576" fill="none">
             <TweenOne component="g" animation={[{ opacity: 0, type: 'from' }, { ...loop, y: 15 }]}>
-              <ellipse
-                id="Oval-9-Copy-4"
-                cx="100"
-                cy="100"
-                rx="6"
-                ry="6"
-                stroke="#2F54EB"
-                strokeWidth="1.6"
-              />
+              <ellipse cx="100" cy="100" rx="6" ry="6" stroke="#2F54EB" strokeWidth="1.6" />
             </TweenOne>
             <TweenOne component="g" animation={[{ opacity: 0, type: 'from' }, { ...loop, y: -15 }]}>
               <g transform="translate(200 450)">

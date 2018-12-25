@@ -240,13 +240,11 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                     <span>
                       <div
                         class="ant-tag ant-tag-blue"
-                        data-show="true"
                       >
                         nice
                       </div>
                       <div
                         class="ant-tag ant-tag-blue"
-                        data-show="true"
                       >
                         developer
                       </div>
@@ -305,7 +303,6 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                     <span>
                       <div
                         class="ant-tag ant-tag-blue"
-                        data-show="true"
                       >
                         loser
                       </div>
@@ -364,13 +361,11 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                     <span>
                       <div
                         class="ant-tag ant-tag-blue"
-                        data-show="true"
                       >
                         cool
                       </div>
                       <div
                         class="ant-tag ant-tag-blue"
-                        data-show="true"
                       >
                         teacher
                       </div>
@@ -9649,13 +9644,11 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     <span>
                       <div
                         class="ant-tag ant-tag-blue"
-                        data-show="true"
                       >
                         nice
                       </div>
                       <div
                         class="ant-tag ant-tag-blue"
-                        data-show="true"
                       >
                         developer
                       </div>
@@ -9715,7 +9708,6 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     <span>
                       <div
                         class="ant-tag ant-tag-blue"
-                        data-show="true"
                       >
                         loser
                       </div>
@@ -9775,13 +9767,11 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     <span>
                       <div
                         class="ant-tag ant-tag-blue"
-                        data-show="true"
                       >
                         cool
                       </div>
                       <div
                         class="ant-tag ant-tag-blue"
-                        data-show="true"
                       >
                         teacher
                       </div>

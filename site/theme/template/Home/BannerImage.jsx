@@ -107,7 +107,6 @@ export default function BannerImage() {
         <g id="Group-13" transform="translate(0.000000, 41.000000)">
           <TweenOneG animation={animate.y}>
             <ellipse
-              id="Oval-9-Copy-4"
               fillOpacity="0.4"
               fill="#2F54EB"
               opacity="0.3"
@@ -118,19 +117,10 @@ export default function BannerImage() {
             />
           </TweenOneG>
           <TweenOneG animation={{ ...animate.yR, delay: 100 }}>
-            <circle
-              id="Oval-9-Copy-4"
-              fillOpacity="0.4"
-              fill="#2F54EB"
-              opacity="0.3"
-              cx="402"
-              cy="3"
-              r="3"
-            />
+            <circle fillOpacity="0.4" fill="#2F54EB" opacity="0.3" cx="402" cy="3" r="3" />
           </TweenOneG>
           <TweenOneG animation={{ ...animate.y, delay: 100 }}>
             <ellipse
-              id="Oval-9-Copy-4"
               stroke="#13C2C2"
               strokeWidth="1.6"
               cx="419"
@@ -141,7 +131,6 @@ export default function BannerImage() {
           </TweenOneG>
           <TweenOneG animation={{ ...animate.yR, delay: 150 }}>
             <rect
-              id="Rectangle-22"
               fill="#FFE600"
               opacity="0.6"
               transform="translate(285.224453, 179.218136) rotate(-340.000000) translate(-285.224453, -179.218136) "
@@ -154,7 +143,6 @@ export default function BannerImage() {
           </TweenOneG>
           <TweenOneG animation={{ ...animate.y, delay: 200 }}>
             <rect
-              id="Rectangle-22"
               stroke="#F5222D"
               strokeWidth="1.6"
               transform="translate(184.000000, 18.000000) rotate(8.000000) translate(-184.000000, -18.000000) "
@@ -168,7 +156,6 @@ export default function BannerImage() {
           <TweenOneG animation={{ ...animate.yR, delay: 200 }}>
             <path
               d="M11.6005591,127.582431 L14.1769733,132.010943 C15.1767883,133.729492 14.5941396,135.933161 12.8755911,136.932976 C12.325874,137.25279 11.7012453,137.421269 11.0652659,137.421269 L5.91243747,137.421269 C3.92421237,137.421269 2.31243747,135.809494 2.31243747,133.821269 C2.31243747,133.185289 2.48091636,132.560661 2.80073009,132.010943 L5.37714432,127.582431 C6.37695929,125.863883 8.58062832,125.281234 10.2991769,126.281049 C10.8384011,126.594758 11.2868499,127.043207 11.6005591,127.582431 Z"
-              id="Triangle-2"
               stroke="#13C2C2"
               strokeWidth="1.6"
               transform="translate(8.489147, 131.606717) rotate(18.000000) translate(-8.489147, -131.606717) "
@@ -177,7 +164,6 @@ export default function BannerImage() {
           <TweenOneG animation={{ ...animate.y, delay: 300 }}>
             <path
               d="M168.708021,336.081114 L171.995111,342.213024 C172.516977,343.186539 172.150843,344.398784 171.177328,344.920649 C170.88673,345.076428 170.562126,345.157945 170.232408,345.157945 L163.658227,345.157945 C162.553657,345.157945 161.658227,344.262514 161.658227,343.157945 C161.658227,342.828226 161.739744,342.503622 161.895523,342.213024 L165.182613,336.081114 C165.704478,335.1076 166.916723,334.741466 167.890238,335.263331 C168.237419,335.449442 168.52191,335.733933 168.708021,336.081114 Z"
-              id="Triangle-2"
               stroke="#2F54EB"
               strokeWidth="1.6"
               transform="translate(166.945513, 340.091794) rotate(18.000000) translate(-166.945513, -340.091794) "

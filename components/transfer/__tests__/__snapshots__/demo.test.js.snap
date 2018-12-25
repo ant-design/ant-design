@@ -349,11 +349,6 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
             style="height:32px"
           />
         </ul>
-        <div
-          class="ant-transfer-list-body-not-found"
-        >
-          Not Found
-        </div>
       </div>
     </div>
     <div
@@ -471,11 +466,6 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
             style="height:32px"
           />
         </ul>
-        <div
-          class="ant-transfer-list-body-not-found"
-        >
-          Not Found
-        </div>
       </div>
     </div>
   </div>

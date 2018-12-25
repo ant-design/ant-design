@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import Wave from '../_util/wave';
 import Icon from '../icon';
 import Group from './button-group';
+import { tuple } from '../_util/type';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
@@ -36,10 +37,14 @@ function insertSpace(child: React.ReactChild, needInserted: boolean) {
   return child;
 }
 
-export type ButtonType = 'default' | 'primary' | 'ghost' | 'dashed' | 'danger';
-export type ButtonShape = 'circle' | 'circle-outline';
-export type ButtonSize = 'small' | 'default' | 'large';
-export type ButtonHTMLType = 'submit' | 'button' | 'reset';
+const ButtonTypes = tuple('default', 'primary', 'ghost', 'dashed', 'danger');
+export type ButtonType = (typeof ButtonTypes)[number];
+const ButtonShapes = tuple('circle', 'circle-outline');
+export type ButtonShape = (typeof ButtonShapes)[number];
+const ButtonSizes = tuple('large', 'default', 'small');
+export type ButtonSize = (typeof ButtonSizes)[number];
+const ButtonHTMLTypes = tuple('submit', 'button', 'reset');
+export type ButtonHTMLType = (typeof ButtonHTMLTypes)[number];
 
 export interface BaseButtonProps {
   type?: ButtonType;
@@ -81,10 +86,10 @@ export default class Button extends React.Component<ButtonProps, any> {
   };
 
   static propTypes = {
-    type: PropTypes.string,
-    shape: PropTypes.oneOf(['circle', 'circle-outline']),
-    size: PropTypes.oneOf(['large', 'default', 'small']),
-    htmlType: PropTypes.oneOf(['submit', 'button', 'reset']),
+    type: PropTypes.oneOf(ButtonTypes),
+    shape: PropTypes.oneOf(ButtonShapes),
+    size: PropTypes.oneOf(ButtonSizes),
+    htmlType: PropTypes.oneOf(ButtonHTMLTypes),
     onClick: PropTypes.func,
     loading: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
     className: PropTypes.string,
@@ -201,8 +206,6 @@ export default class Button extends React.Component<ButtonProps, any> {
         break;
     }
 
-    const now = new Date();
-    const isChristmas = now.getMonth() === 11 && now.getDate() === 25;
     const classes = classNames(prefixCls, className, {
       [`${prefixCls}-${type}`]: type,
       [`${prefixCls}-${shape}`]: shape,
@@ -212,7 +215,6 @@ export default class Button extends React.Component<ButtonProps, any> {
       [`${prefixCls}-background-ghost`]: ghost,
       [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar,
       [`${prefixCls}-block`]: block,
-      christmas: isChristmas,
     });
 
     const iconType = loading ? 'loading' : icon;
@@ -221,9 +223,6 @@ export default class Button extends React.Component<ButtonProps, any> {
       children || children === 0
         ? React.Children.map(children, child => insertSpace(child, this.isNeedInserted()))
         : null;
-
-    const title = isChristmas ? 'Ho Ho Ho!' : rest.title;
-
     const linkButtonRestProps = rest as AnchorButtonProps;
     if (linkButtonRestProps.href !== undefined) {
       return (
@@ -231,7 +230,6 @@ export default class Button extends React.Component<ButtonProps, any> {
           {...linkButtonRestProps}
           className={classes}
           onClick={this.handleClick}
-          title={title}
           ref={this.saveButtonRef}
         >
           {iconNode}
@@ -250,7 +248,6 @@ export default class Button extends React.Component<ButtonProps, any> {
           type={htmlType || 'button'}
           className={classes}
           onClick={this.handleClick}
-          title={title}
           ref={this.saveButtonRef}
         >
           {iconNode}

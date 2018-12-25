@@ -5,7 +5,7 @@ import omit from 'omit.js';
 import Group from './Group';
 import Search from './Search';
 import TextArea from './TextArea';
-import { Omit } from '../_util/type';
+import { Omit, tuple } from '../_util/type';
 
 function fixControlledValue<T>(value: T) {
   if (typeof value === 'undefined' || value === null) {
@@ -14,10 +14,12 @@ function fixControlledValue<T>(value: T) {
   return value;
 }
 
+const InputSizes = tuple('small', 'default', 'large');
+
 export interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix'> {
   prefixCls?: string;
-  size?: 'large' | 'default' | 'small';
+  size?: (typeof InputSizes)[number];
   onPressEnter?: React.KeyboardEventHandler<HTMLInputElement>;
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
@@ -38,9 +40,9 @@ export default class Input extends React.Component<InputProps, any> {
 
   static propTypes = {
     type: PropTypes.string,
-    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    size: PropTypes.oneOf(['small', 'default', 'large']),
-    maxLength: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    id: PropTypes.string,
+    size: PropTypes.oneOf(InputSizes),
+    maxLength: PropTypes.number,
     disabled: PropTypes.bool,
     value: PropTypes.any,
     defaultValue: PropTypes.any,

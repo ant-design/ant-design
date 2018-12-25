@@ -18,8 +18,7 @@ import {
   Form, Select, Input, Button,
 } from 'antd';
 
-const FormItem = Form.Item;
-const Option = Select.Option;
+const { Option } = Select;
 
 class App extends React.Component {
   handleSubmit = (e) => {
@@ -42,7 +41,7 @@ class App extends React.Component {
     const { getFieldDecorator } = this.props.form;
     return (
       <Form onSubmit={this.handleSubmit}>
-        <FormItem
+        <Form.Item
           label="Note"
           labelCol={{ span: 5 }}
           wrapperCol={{ span: 12 }}
@@ -52,8 +51,8 @@ class App extends React.Component {
           })(
             <Input />
           )}
-        </FormItem>
-        <FormItem
+        </Form.Item>
+        <Form.Item
           label="Gender"
           labelCol={{ span: 5 }}
           wrapperCol={{ span: 12 }}
@@ -69,14 +68,14 @@ class App extends React.Component {
               <Option value="female">female</Option>
             </Select>
           )}
-        </FormItem>
-        <FormItem
+        </Form.Item>
+        <Form.Item
           wrapperCol={{ span: 12, offset: 5 }}
         >
           <Button type="primary" htmlType="submit">
             Submit
           </Button>
-        </FormItem>
+        </Form.Item>
       </Form>
     );
   }

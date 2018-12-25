@@ -7,7 +7,7 @@ import omit from 'omit.js';
 import warning from '../_util/warning';
 import FormItem from './FormItem';
 import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
-import { Omit } from '../_util/type';
+import { Omit, tuple } from '../_util/type';
 
 type FormCreateOptionMessagesCallback = (...args: any[]) => string;
 
@@ -23,7 +23,8 @@ export interface FormCreateOption<T> {
   withRef?: boolean;
 }
 
-export type FormLayout = 'horizontal' | 'inline' | 'vertical';
+const FormLayouts = tuple('horizontal', 'inline', 'vertical');
+export type FormLayout = (typeof FormLayouts)[number];
 
 export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   layout?: FormLayout;
@@ -83,6 +84,8 @@ export type GetFieldDecoratorOptions = {
   normalize?: (value: any, prevValue: any, allValues: any) => any;
   /** Whether stop validate on first rule of error for this field.  */
   validateFirst?: boolean;
+  /** 是否一直保留子节点的信息 */
+  preserve?: boolean;
 };
 
 // function create
@@ -159,7 +162,7 @@ export default class Form extends React.Component<FormProps, any> {
 
   static propTypes = {
     prefixCls: PropTypes.string,
-    layout: PropTypes.oneOf(['horizontal', 'inline', 'vertical']),
+    layout: PropTypes.oneOf(FormLayouts),
     children: PropTypes.any,
     onSubmit: PropTypes.func,
     hideRequiredMark: PropTypes.bool,
