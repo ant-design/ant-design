@@ -42,7 +42,7 @@ export interface ListProps {
   itemLayout?: string;
   loading?: boolean | SpinProps;
   loadMore?: React.ReactNode;
-  pagination?: PaginationConfig;
+  pagination?: PaginationConfig | false;
   prefixCls?: string;
   rowKey?: any;
   renderItem: any;
@@ -69,7 +69,7 @@ export default class List extends React.Component<ListProps> {
     bordered: false,
     split: true,
     loading: false,
-    pagination: false,
+    pagination: false as ListProps['pagination'],
   };
 
   state = {

@@ -8,12 +8,15 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import omit from 'omit.js';
 import warning from 'warning';
 import Icon from '../icon';
+import { tuple } from '../_util/type';
+
+const SelectSizes = tuple('default', 'large', 'small');
 
 export interface AbstractSelectProps {
   prefixCls?: string;
   className?: string;
   showAction?: string | string[];
-  size?: 'default' | 'large' | 'small';
+  size?: (typeof SelectSizes)[number];
   notFoundContent?: React.ReactNode | null;
   transitionName?: string;
   choiceTransitionName?: string;
@@ -97,7 +100,7 @@ export interface SelectLocale {
 const SelectPropTypes = {
   prefixCls: PropTypes.string,
   className: PropTypes.string,
-  size: PropTypes.oneOf(['default', 'large', 'small']),
+  size: PropTypes.oneOf(SelectSizes),
   notFoundContent: PropTypes.any,
   showSearch: PropTypes.bool,
   optionLabelProp: PropTypes.string,

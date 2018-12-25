@@ -7,8 +7,10 @@ import Dropdown, { DropDownProps } from './dropdown';
 import classNames from 'classnames';
 const ButtonGroup = Button.Group;
 
+type DropdownButtonType = 'primary' | 'ghost' | 'dashed';
+
 export interface DropdownButtonProps extends ButtonGroupProps, DropDownProps {
-  type?: 'primary' | 'ghost' | 'dashed';
+  type?: DropdownButtonType;
   htmlType?: ButtonHTMLType;
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
@@ -18,8 +20,8 @@ export interface DropdownButtonProps extends ButtonGroupProps, DropDownProps {
 
 export default class DropdownButton extends React.Component<DropdownButtonProps, any> {
   static defaultProps = {
-    placement: 'bottomRight',
-    type: 'default',
+    placement: 'bottomRight' as DropDownProps['placement'],
+    type: 'default' as DropdownButtonType,
   };
 
   renderButton = ({

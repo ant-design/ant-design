@@ -15,6 +15,18 @@ timeline: true
 
 ---
 
+## 3.11.6
+
+`2018-12-25`
+
+- 📝 Remove Christmas egg. [#13098](https://github.com/ant-design/ant-design/issues/13098)
+
+## 3.11.5
+
+`2018-12-24`
+
+- 🐞 Fixed `lib` missing css file match. [#13791](https://github.com/ant-design/ant-design/issues/13803)
+
 ## 3.11.4
 
 `2018-12-23`

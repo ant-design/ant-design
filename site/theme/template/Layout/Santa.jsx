@@ -6,7 +6,7 @@ export default () => {
   const isChristmas = now.getMonth() === 11 && now.getDate() === 25;
   return (
     isChristmas && (
-      <Tooltip title="🎅🏻 Merry Chrismas!">
+      <Tooltip title="🎅🏻 Merry Christmas!">
         <div className="santa">
           <div className="santa-body">
             <div className="santa-head">

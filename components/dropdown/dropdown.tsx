@@ -5,7 +5,17 @@ import DropdownButton from './dropdown-button';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 import Icon from '../icon';
+import { tuple } from '../_util/type';
 
+const Placements = tuple(
+  'topLeft',
+  'topCenter',
+  'topRight',
+  'bottomLeft',
+  'bottomCenter',
+  'bottomRight',
+);
+type Placement = (typeof Placements)[number];
 export interface DropDownProps {
   trigger?: ('click' | 'hover' | 'contextMenu')[];
   overlay: React.ReactNode;
@@ -17,7 +27,7 @@ export interface DropDownProps {
   prefixCls?: string;
   className?: string;
   transitionName?: string;
-  placement?: 'topLeft' | 'topCenter' | 'topRight' | 'bottomLeft' | 'bottomCenter' | 'bottomRight';
+  placement?: Placement;
   overlayClassName?: string;
   overlayStyle?: React.CSSProperties;
   forceRender?: boolean;
@@ -31,7 +41,7 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
   static defaultProps = {
     mouseEnterDelay: 0.15,
     mouseLeaveDelay: 0.1,
-    placement: 'bottomLeft',
+    placement: 'bottomLeft' as Placement,
   };
 
   getTransitionName() {

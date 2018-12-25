@@ -16,6 +16,7 @@ export { TransferSearchProps } from './search';
 function noop() {}
 
 export type TransferDirection = 'left' | 'right';
+type TransferRender = (record: TransferItem) => React.ReactNode;
 
 export interface TransferItem {
   key: string;
@@ -31,7 +32,7 @@ export interface TransferProps {
   dataSource: TransferItem[];
   targetKeys?: string[];
   selectedKeys?: string[];
-  render?: (record: TransferItem) => React.ReactNode;
+  render?: TransferRender;
   onChange?: (targetKeys: string[], direction: string, moveKeys: any) => void;
   onSelectChange?: (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => void;
   style?: React.CSSProperties;
@@ -69,7 +70,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
 
   static defaultProps = {
     dataSource: [],
-    render: noop,
+    render: noop as TransferRender,
     locale: {},
     showSearch: false,
   };
@@ -77,7 +78,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     disabled: PropTypes.bool,
-    dataSource: PropTypes.array,
+    dataSource: PropTypes.array as PropTypes.Validator<TransferItem[]>,
     render: PropTypes.func,
     targetKeys: PropTypes.array,
     onChange: PropTypes.func,

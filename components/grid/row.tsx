@@ -20,15 +20,17 @@ import * as React from 'react';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import RowContext from './RowContext';
+import { tuple } from '../_util/type';
 
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type BreakpointMap = Partial<Record<Breakpoint, string>>;
-
+const RowAligns = tuple('top', 'middle', 'bottom');
+const RowJustify = tuple('start', 'end', 'center', 'space-around', 'space-between');
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   gutter?: number | Partial<Record<Breakpoint, number>>;
   type?: 'flex';
-  align?: 'top' | 'middle' | 'bottom';
-  justify?: 'start' | 'end' | 'center' | 'space-around' | 'space-between';
+  align?: (typeof RowAligns)[number];
+  justify?: (typeof RowJustify)[number];
   prefixCls?: string;
 }
 
@@ -53,9 +55,9 @@ export default class Row extends React.Component<RowProps, RowState> {
   };
 
   static propTypes = {
-    type: PropTypes.string,
-    align: PropTypes.string,
-    justify: PropTypes.string,
+    type: PropTypes.oneOf<'flex'>(['flex']),
+    align: PropTypes.oneOf(RowAligns),
+    justify: PropTypes.oneOf(RowJustify),
     className: PropTypes.string,
     children: PropTypes.node,
     gutter: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),

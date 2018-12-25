@@ -25,7 +25,8 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 | mask | Whether to show mask or not. | Boolean | true |
 | maskClosable | Clicking on the mask (area outside the Drawer) to close the Drawer or not. | boolean | true |
 | maskStyle | Style for Drawer's mask element. | object | {} |
-| style | Style of floating layer, typically used for adjusting its position. | object | - |
+| style | Style of drawer wrapper | object | - |
+| bodyStyle | Style of floating layer, typically used for adjusting its position. | object | - |
 | title | The title for Drawer. | string\|ReactNode | - |
 | visible | Whether the Drawer dialog is visible or not. | boolean | false |
 | width | Width of the Drawer dialog. | string\|number | 256 |

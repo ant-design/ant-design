@@ -3,8 +3,10 @@ import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { tuple } from '../_util/type';
 
-export type SpinSize = 'small' | 'default' | 'large';
+const SpinSizes = tuple('small', 'default', 'large');
+export type SpinSize = (typeof SpinSizes)[number];
 export type SpinIndicator = React.ReactElement<any>;
 
 export interface SpinProps {
@@ -67,9 +69,9 @@ class Spin extends React.Component<SpinProps, SpinState> {
     prefixCls: PropTypes.string,
     className: PropTypes.string,
     spinning: PropTypes.bool,
-    size: PropTypes.oneOf(['small', 'default', 'large']),
+    size: PropTypes.oneOf(SpinSizes),
     wrapperClassName: PropTypes.string,
-    indicator: PropTypes.node,
+    indicator: PropTypes.element,
   };
 
   static setDefaultIndicator(indicator: React.ReactNode) {
