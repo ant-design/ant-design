@@ -24,7 +24,8 @@ title: Drawer
 | maskClosable | 点击蒙层是否允许关闭 | boolean | true |
 | mask | 是否展示遮罩 | Boolean | true |
 | maskStyle | 遮罩样式 | object | {} |
-| style | 可用于设置 Drawer 的样式，调整浮层位置等 | object | - |
+| style | 可用于设置 Drawer 最外层容器的样式 | object | - |
+| bodyStyle | 可用于设置 Drawer 的样式，调整浮层位置等 | object | - |
 | title | 标题 | string \| ReactNode | - |
 | visible | Drawer 是否可见 | boolean | - |
 | width | 宽度 | string \| number | 256 |
