@@ -776,7 +776,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   }
 
   getColumnKey(column: ColumnProps<T>, index?: number) {
-    return column.key || (column.dataIndex as string) || index;
+    return column.key || column.dataIndex || index;
   }
 
   getMaxCurrent(total: number) {
