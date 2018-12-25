@@ -15,6 +15,12 @@ timeline: true
 
 ---
 
+## 3.10.10
+
+`2018-12-25`
+
+- 📝 移除圣诞彩蛋。 [#13098](https://github.com/ant-design/ant-design/issues/13098)
+
 # 3.10.9
 
 `2018-11-24`

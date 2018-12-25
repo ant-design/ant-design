@@ -186,8 +186,6 @@ export default class Button extends React.Component<ButtonProps, any> {
         break;
     }
 
-    const now = new Date();
-    const isChristmas = now.getMonth() === 11 && now.getDate() === 25;
     const classes = classNames(prefixCls, className, {
       [`${prefixCls}-${type}`]: type,
       [`${prefixCls}-${shape}`]: shape,
@@ -197,7 +195,6 @@ export default class Button extends React.Component<ButtonProps, any> {
       [`${prefixCls}-background-ghost`]: ghost,
       [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar,
       [`${prefixCls}-block`]: block,
-      christmas: isChristmas,
     });
 
     const iconType = loading ? 'loading' : icon;
@@ -205,15 +202,12 @@ export default class Button extends React.Component<ButtonProps, any> {
     const kids = (children || children === 0)
       ? React.Children.map(children, child => insertSpace(child, this.isNeedInserted())) : null;
 
-    const title= isChristmas ? 'Ho Ho Ho!' : rest.title;
-
     if ('href' in rest) {
       return (
         <a
           {...rest}
           className={classes}
           onClick={this.handleClick}
-          title={title}
           ref={this.saveButtonRef}
         >
           {iconNode}{kids}
@@ -230,7 +224,6 @@ export default class Button extends React.Component<ButtonProps, any> {
             type={htmlType || 'button'}
             className={classes}
             onClick={this.handleClick}
-            title={title}
             ref={this.saveButtonRef}
           >
             {iconNode}{kids}
