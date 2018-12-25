@@ -203,10 +203,9 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
   };
 
   getRcDrawerStyle = () => {
-    const { zIndex, placement, maskStyle, style } = this.props;
+    const { zIndex, placement, style } = this.props;
     const { push } = this.state;
     return {
-      ...maskStyle,
       zIndex,
       transform: push ? this.getPushTransform(placement) : undefined,
       style,
