@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-自定义图片、描述、页脚。
+自定义图片、描述、附属内容。
 
 ## en-US
 
-Customize image, description and footer.
+Customize image, description and extra content.
 
 ```jsx
 import { Empty, Button } from 'antd';
@@ -24,10 +24,9 @@ ReactDOM.render(
         Customize <a href="#API">Description</a>
       </span>
     }
-    footer={
-      <Button type="primary">立即创建</Button>
-    }
-  />,
+  >
+    <Button type="primary">立即创建</Button>
+  </Empty>,
   mountNode
 );
 ```

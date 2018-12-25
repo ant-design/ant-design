@@ -17,5 +17,5 @@ cols: 1
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | description | 自定义描述内容 | string \| ReactNode | - |
-| footer | 设置页脚内容 | ReactNode | - |
-| image | 设置是否显示图片，为 string 时表示自定义图片地址 | boolean \| string | false |
+| image | 设置显示图片，为 string 时表示自定义图片地址 | string \| ReactNode | false |
+| children | 自定义附属内容 | ReactNode | - |

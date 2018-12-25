@@ -26,5 +26,5 @@ When there is no data provided, display for friendly tips.
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | description | Customize description | string \| ReactNode | - |
-| footer | Set footer content | ReactNode | - |
-| image | Display image or not. Customize image url when string provided | boolean \| string | false |
+| image | Customize image. Will tread as image url when string provided | string \| ReactNode | false |
+| children | Customize extra content | ReactNode | - |

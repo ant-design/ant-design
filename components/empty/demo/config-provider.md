@@ -22,8 +22,9 @@ import {
 } from 'antd';
 
 const customizeRenderEmpty = () => (
-  <div>
-    <Icon type="smile" /> Smile!
+  <div style={{ textAlign: 'center' }}>
+    <Icon type="smile" style={{ fontSize: 20 }} />
+    <p>Data Not Found</p>
   </div>
 );
 

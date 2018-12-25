@@ -12,15 +12,15 @@ export interface EmptyProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
-  image?: string | boolean;
+  image?: string;
   description?: React.ReactNode;
-  footer?: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const Empty: React.SFC<EmptyProps> = (props: EmptyProps) => (
   <ConfigConsumer>
     {({ getPrefixCls }: ConfigConsumerProps) => {
-      const { className, image = true, description, footer, ...restProps } = props;
+      const { className, image, description, children, ...restProps } = props;
       const prefixCls = getPrefixCls('empty', props.prefixCls);
 
       return (
@@ -30,7 +30,7 @@ const Empty: React.SFC<EmptyProps> = (props: EmptyProps) => (
             const alt = typeof des === 'string' ? des : 'empty';
 
             let imageNode: React.ReactNode = null;
-            if (image === true) {
+            if (!image) {
               imageNode = <img alt={alt} src={emptyImg} />;
             } else if (typeof image === 'string') {
               imageNode = <img alt={alt} src={image} />;
@@ -44,7 +44,7 @@ const Empty: React.SFC<EmptyProps> = (props: EmptyProps) => (
 
                 <p className={`${prefixCls}-description`}>{des}</p>
 
-                {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
+                {children && <div className={`${prefixCls}-footer`}>{children}</div>}
               </div>
             );
           }}
