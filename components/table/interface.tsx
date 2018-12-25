@@ -19,7 +19,7 @@ export interface ColumnProps<T> {
         },
       ) => React.ReactNode);
   key?: React.Key;
-  dataIndex?: keyof T;
+  dataIndex?: string;
   render?: (text: any, record: T, index: number) => React.ReactNode;
   align?: 'left' | 'right' | 'center';
   filters?: ColumnFilterItem[];
