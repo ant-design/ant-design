@@ -85,7 +85,9 @@ ReactDOM.render(
 .extraContent {
   min-width: 240px;
   text-align: right;
-  margin-top: -40px;
+}
+.extraContent img{
+  margin-top:-40px;
 }
 .contentLink {
   padding-top: 16px;

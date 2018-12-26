@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 2
 title:
   zh-CN: 带面包屑页头
   en-US: Breadcrumb Page Header
@@ -35,7 +35,6 @@ ReactDOM.render(
   <PageHeader
     title="页面标题"
     breadcrumb={{ routes }}
-    subTitle="解释一下标题"
   />,
   mountNode
 );

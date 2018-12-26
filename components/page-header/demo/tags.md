@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 3
 title:
   zh-CN: 和 tag 一起使用
   en-US: Tag Page Header

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Icon from '../icon';
+import classnames from 'classnames';
 import { BreadcrumbProps } from '../breadcrumb';
 import { Divider, Breadcrumb } from '../index';
 import Tag from '../tag';
@@ -13,6 +14,7 @@ export interface IPageHeaderProps {
   breadcrumb: BreadcrumbProps;
   tags: Tag[] | Tag;
   footer: React.ReactNode;
+  extra: React.ReactNode;
   onBack: (e: React.MouseEvent<HTMLElement>) => void;
 }
 export interface IPageHeaderState {}
@@ -55,12 +57,13 @@ class PageHeader extends React.PureComponent<Partial<IPageHeaderProps>, IPageHea
   }
 
   renderTitle(prefixCls: string) {
-    const { title, subTitle, tags } = this.props;
+    const { title, subTitle, tags, extra } = this.props;
     return (
       <div className={`${prefixCls}-title-view`}>
         <span className={`${prefixCls}-title`}>{title}</span>
         {subTitle && <span className={`${prefixCls}-sub-title`}>{subTitle}</span>}
         {tags && <span className={`${prefixCls}-tags`}>{tags}</span>}
+        {extra && <span className={`${prefixCls}-extra`}>{extra}</span>}
       </div>
     );
   }
@@ -76,10 +79,14 @@ class PageHeader extends React.PureComponent<Partial<IPageHeaderProps>, IPageHea
     return (
       <ConfigConsumer>
         {({ getPrefixCls }: ConfigConsumerProps) => {
-          const { prefixCls: customizePrefixCls, style } = this.props;
+          const { prefixCls: customizePrefixCls, style, footer } = this.props;
           const prefixCls = getPrefixCls('pageheader', customizePrefixCls);
+
+          const className = classnames(prefixCls, {
+            'have-footer': footer,
+          });
           return (
-            <div className={prefixCls} style={style}>
+            <div className={className} style={style}>
               {this.renderHeader(prefixCls)}
               {this.renderTitle(prefixCls)}
               {this.props.children && (
