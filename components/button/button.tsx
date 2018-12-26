@@ -105,9 +105,11 @@ class Button extends React.Component<ButtonProps, ButtonState> {
 
   static getDerivedStateFromProps(nextProps: ButtonProps, prevState: ButtonState) {
     if (nextProps.loading instanceof Boolean) {
-      return { loading: nextProps.loading }
+      return {
+        ...prevState,
+        loading: nextProps.loading,
+      };
     }
-
     return null;
   }
 
@@ -126,7 +128,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     this.fixTwoCNChar();
   }
 
-  componentDidUpdate(prevProps: ButtonProps, prevState: ButtonState) {
+  componentDidUpdate(prevProps: ButtonProps) {
     this.fixTwoCNChar();
 
     if (prevProps.loading && typeof prevProps.loading !== 'boolean') {
@@ -135,7 +137,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
 
     const { loading } = this.props;
     if (loading && typeof loading !== 'boolean' && loading.delay) {
-      this.delayTimeout = window.setTimeout(() => this.setState({loading}), loading.delay);
+      this.delayTimeout = window.setTimeout(() => this.setState({ loading }), loading.delay);
     } else if (prevProps.loading === this.props.loading) {
       return;
     } else {
