@@ -14,17 +14,12 @@ When there is no data provided, display for friendly tips.
 ## API
 
 ```jsx
-<Badge count={5}>
-  <a href="#" className="head-example" />
-</Badge>
-```
-
-```jsx
-<Badge count={5} />
+<Empty>
+  <Button>Create</Button>
+</Empty>
 ```
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | description | Customize description | string \| ReactNode | - |
 | image | Customize image. Will tread as image url when string provided | string \| ReactNode | false |
-| children | Customize extra content | ReactNode | - |
