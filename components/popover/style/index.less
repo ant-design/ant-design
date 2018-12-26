@@ -108,10 +108,6 @@
     display: block;
     border-width: sqrt(@popover-arrow-width * @popover-arrow-width * 2) / 2;
     border-style: solid;
-    border-top-color: transparent;
-    border-right-color: @popover-bg;
-    border-bottom-color: @popover-bg;
-    border-left-color: transparent;
   }
 
   &-placement-top > &-content > &-arrow,
@@ -119,6 +115,10 @@
   &-placement-topRight > &-content > &-arrow {
     bottom: @popover-distance - @popover-arrow-width + 1.5px;
     box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.07);
+    border-top-color: transparent;
+    border-right-color: @popover-bg;
+    border-bottom-color: @popover-bg;
+    border-left-color: transparent;
   }
   &-placement-top > &-content > &-arrow {
     left: 50%;
@@ -136,6 +136,10 @@
   &-placement-rightBottom > &-content > &-arrow {
     left: @popover-distance - @popover-arrow-width + 2px;
     box-shadow: -3px 3px 7px rgba(0, 0, 0, 0.07);
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: @popover-bg;
+    border-left-color: @popover-bg;
   }
   &-placement-right > &-content > &-arrow {
     top: 50%;
@@ -153,6 +157,10 @@
   &-placement-bottomRight > &-content > &-arrow {
     top: @popover-distance - @popover-arrow-width + 2px;
     box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.06);
+    border-top-color: @popover-bg;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: @popover-bg;
   }
   &-placement-bottom > &-content > &-arrow {
     left: 50%;
@@ -170,6 +178,10 @@
   &-placement-leftBottom > &-content > &-arrow {
     right: @popover-distance - @popover-arrow-width + 2px;
     box-shadow: 3px -3px 7px rgba(0, 0, 0, 0.07);
+    border-top-color: @popover-bg;
+    border-right-color: @popover-bg;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
   }
   &-placement-left > &-content > &-arrow {
     top: 50%;
