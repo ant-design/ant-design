@@ -1,7 +1,7 @@
-import Pagination from 'rc-pagination/lib/locale/en_US';
-import DatePicker from '../date-picker/locale/en_US';
-import TimePicker from '../time-picker/locale/en_US';
-import Calendar from '../calendar/locale/en_US';
+import Pagination from 'rc-pagination/lib/locale/kn_IN';
+import DatePicker from '../date-picker/locale/kn_IN';
+import TimePicker from '../time-picker/locale/kn_IN';
+import Calendar from '../calendar/locale/kn_IN';
 
 export default {
   locale: 'kn',
