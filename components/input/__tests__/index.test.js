@@ -119,3 +119,18 @@ describe('Input.Password', () => {
     expect(wrapper.find('.anticon-eye').length).toBe(1);
   });
 });
+
+describe('Input allowClear', () => {
+  it('should change type when click', () => {
+    const wrapper = mount(<Input allowClear />);
+    wrapper.find('input').simulate('change', { target: { value: '111' } });
+    expect(wrapper.find('input').getDOMNode().value).toEqual('111');
+    expect(wrapper).toMatchSnapshot();
+    wrapper
+      .find('.ant-input-clear-icon')
+      .at(0)
+      .simulate('click');
+    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('input').getDOMNode().value).toEqual('');
+  });
+});
