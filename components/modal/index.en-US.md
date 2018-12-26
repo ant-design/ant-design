@@ -68,7 +68,8 @@ The properties of the object are follows:
 | centered | Centered Modal | Boolean | `false` |
 | className | className of container | string | - |
 | content | Content | string\|ReactNode | - |
-| iconType | Icon `type` of the Icon component | string | `question-circle` |
+| icon | custom icon (`Added in 3.12.0`) | string\|ReactNode | `<Icon type="question-circle">` |
+| iconType | Icon `type` of the Icon component (deperated after `3.12.0`) | string | `question-circle` |
 | keyboard | Whether support press esc to close | Boolean | true |
 | maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | Boolean | `false` |
 | okText | Text of the OK button | string | `OK` |
