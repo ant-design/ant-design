@@ -6,6 +6,7 @@ import ScrollParallax from 'rc-scroll-anim/lib/ScrollParallax';
 import { Link } from 'bisheng/router';
 import { FormattedMessage } from 'react-intl';
 import GitHubButton from 'react-github-button';
+import { Button } from 'antd';
 import BannerImage from './BannerImage';
 import * as utils from '../utils';
 
@@ -67,17 +68,15 @@ class Banner extends React.PureComponent {
               <FormattedMessage id="app.home.introduce" />
             </p>
             <div className="banner-btns" key="buttons">
-              <Link
-                className="banner-btn components"
-                to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}
-              >
-                <FormattedMessage id="app.home.getting-started" />
+              <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
+                <Button type="primary" className="banner-btn components">
+                  <FormattedMessage id="app.home.getting-started" />
+                </Button>
               </Link>
-              <Link
-                className="banner-btn language"
-                to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN)}
-              >
-                <FormattedMessage id="app.home.design-language" />
+              <Link to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN)}>
+                <Button className="banner-btn language">
+                  <FormattedMessage id="app.home.design-language" />
+                </Button>
               </Link>
               {!isMobile && (
                 <GitHubButton

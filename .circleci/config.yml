@@ -84,6 +84,8 @@ jobs:
           root: ~/ant-design
           paths:
             - node_modules
+      - store_artifacts:
+          path: package-lock.json
 
   dist:
     <<: *container_config

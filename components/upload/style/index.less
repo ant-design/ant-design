@@ -4,6 +4,7 @@
 @upload-prefix-cls: ~'@{ant-prefix}-upload';
 @upload-item: ~'@{ant-prefix}-upload-list-item';
 @upload-pictrue-card-size: 104px;
+@upload-picture-card-border-style: @border-style-base;
 
 .@{upload-prefix-cls} {
   .reset-component;
@@ -206,7 +207,7 @@
     .@{upload-item} {
       padding: 8px;
       border-radius: @border-radius-base;
-      border: @border-width-base @border-style-base @border-color-base;
+      border: @border-width-base @upload-picture-card-border-style @border-color-base;
       height: 66px;
       position: relative;
       &:hover {
