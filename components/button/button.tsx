@@ -87,7 +87,7 @@ export default class Button extends React.Component<ButtonProps, any> {
   };
 
   static propTypes = {
-    type: PropTypes.oneOf(ButtonTypes),
+    type: PropTypes.string,
     shape: PropTypes.oneOf(ButtonShapes),
     size: PropTypes.oneOf(ButtonSizes),
     htmlType: PropTypes.oneOf(ButtonHTMLTypes),
