@@ -16,11 +16,11 @@ title: Slider
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | allowClear | 支持清除, 单选模式有效 | boolean | false |
-| defaultValue | 设置初始取值。当 `range` 为 `false` 时，使用 `number`，否则用 `[number, number]` | number\|number\[] | 0 or [0, 0] |
+| defaultValue | 设置初始取值。当 `range` 为 `false` 时，使用 `number`，否则用 `[number, number]` | number\|number\[] | 0 or \[0, 0] |
 | disabled | 值为 `true` 时，滑块为禁用状态 | boolean | false |
 | dots | 是否只能拖拽到刻度上 | boolean | false |
 | included | `marks` 不为空对象时有效，值为 true 时表示值为包含关系，false 表示并列 | boolean | true |
-| marks | 刻度标记，key 的类型必须为 `number` 且取值在闭区间 [min, max] 内，每个标签可以单独设置样式 | object | { number: string\|ReactNode } or { number: { style: object, label: string\|ReactNode } } |
+| marks | 刻度标记，key 的类型必须为 `number` 且取值在闭区间 \[min, max] 内，每个标签可以单独设置样式 | object | { number: string\|ReactNode } or { number: { style: object, label: string\|ReactNode } } |
 | max | 最大值 | number | 100 |
 | min | 最小值 | number | 0 |
 | range | 双滑块模式 | boolean | false |
