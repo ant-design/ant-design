@@ -116,7 +116,8 @@ class Tag extends React.Component<TagProps, TagState> {
     return closable ? <Icon type="close" onClick={this.handleIconClick} /> : null;
   }
 
-  renderTag = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderTag = (configProps: ConfigConsumerProps) => {
+    const { getPrefixCls } = configProps;
     const { prefixCls: customizePrefixCls, children, ...otherProps } = this.props;
     const { visible } = this.state;
     const prefixCls = getPrefixCls('tag', customizePrefixCls);
@@ -131,7 +132,7 @@ class Tag extends React.Component<TagProps, TagState> {
           <InnerTag
             show={visible}
             {...otherProps}
-            className={this.getTagClassName({ getPrefixCls })}
+            className={this.getTagClassName(configProps)}
             style={this.getTagStyle()}
           >
             {children}

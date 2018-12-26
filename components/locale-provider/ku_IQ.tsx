@@ -13,7 +13,6 @@ export default {
     filterTitle: 'Menuê peldanka',
     filterConfirm: 'Temam',
     filterReset: 'Jê bibe',
-    emptyText: 'Agahî tune',
     selectAll: 'Hemî hilbijêre',
     selectInvert: 'Hilbijartinan veguhere',
   },
@@ -27,18 +26,17 @@ export default {
     cancelText: 'Betal ke',
   },
   Transfer: {
-    notFoundContent: 'Peyda Nebû',
     searchPlaceholder: 'Lêgerîn',
     itemUnit: 'tişt',
     itemsUnit: 'tişt',
-  },
-  Select: {
-    notFoundContent: 'Peyda Nebû',
   },
   Upload: {
     uploading: 'Bardike...',
     removeFile: 'Pelê rabike',
     uploadError: 'Xeta barkirine',
     previewFile: 'Pelê pêşbibîne',
+  },
+  Empty: {
+    description: 'Agahî tune',
   },
 };

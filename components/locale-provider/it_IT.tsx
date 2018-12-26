@@ -13,7 +13,6 @@ export default {
     filterTitle: 'Menù Filtro',
     filterConfirm: 'OK',
     filterReset: 'Reset',
-    emptyText: 'Nessun dato',
     selectAll: 'Seleziona pagina corrente',
     selectInvert: 'Inverti selezione nella pagina corrente',
     sortTitle: 'Ordina',
@@ -28,18 +27,17 @@ export default {
     cancelText: 'Annulla',
   },
   Transfer: {
-    notFoundContent: 'Non trovato',
     searchPlaceholder: 'Cerca qui',
     itemUnit: 'articolo',
     itemsUnit: 'elementi',
-  },
-  Select: {
-    notFoundContent: 'Non trovato',
   },
   Upload: {
     uploading: 'Caricamento...',
     removeFile: 'Rimuovi il file',
     uploadError: 'Errore di caricamento',
     previewFile: 'Anteprima file',
+  },
+  Empty: {
+    description: 'Nessun dato',
   },
 };

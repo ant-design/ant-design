@@ -43,7 +43,7 @@ import { RadioChangeEvent } from '../radio';
 import { CheckboxChangeEvent } from '../checkbox';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale-provider/default';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import warning from '../_util/warning';
 
 function noop() {}
@@ -1109,14 +1109,19 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
 
   renderTable = (
     prefixCls: string,
+    renderEmpty: RenderEmptyHandler,
     dropdownPrefixCls: string,
     contextLocale: TableLocale,
     loading: SpinProps,
   ) => {
-    const locale = { ...contextLocale, ...this.props.locale };
-    const { style, className, showHeader, ...restProps } = this.props;
+    const { style, className, showHeader, locale, ...restProps } = this.props;
     const data = this.getCurrentPageData();
     const expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
+
+    const mergedLocale = { ...contextLocale, ...locale };
+    if (!locale || !locale.emptyText) {
+      mergedLocale.emptyText = renderEmpty('Table');
+    }
 
     const classString = classNames({
       [`${prefixCls}-${this.props.size}`]: true,
@@ -1125,8 +1130,8 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       [`${prefixCls}-without-column-header`]: !showHeader,
     });
 
-    let columns = this.renderRowSelection(prefixCls, locale);
-    columns = this.renderColumnsDropdown(prefixCls, dropdownPrefixCls, columns, locale);
+    let columns = this.renderRowSelection(prefixCls, mergedLocale);
+    columns = this.renderColumnsDropdown(prefixCls, dropdownPrefixCls, columns, mergedLocale);
     columns = columns.map((column, i) => {
       const newColumn = { ...column };
       newColumn.key = this.getColumnKey(newColumn, i);
@@ -1150,12 +1155,12 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         className={classString}
         expandIconColumnIndex={expandIconColumnIndex}
         expandIconAsCell={expandIconAsCell}
-        emptyText={!loading.spinning && locale.emptyText}
+        emptyText={!loading.spinning && mergedLocale.emptyText}
       />
     );
   };
 
-  renderComponent = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderComponent = ({ getPrefixCls, renderEmpty }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       dropdownPrefixCls: customizeDropdownPrefixCls,
@@ -1175,7 +1180,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     const dropdownPrefixCls = getPrefixCls('dropdown', customizeDropdownPrefixCls);
     const table = (
       <LocaleReceiver componentName="Table" defaultLocale={defaultLocale.Table}>
-        {locale => this.renderTable(prefixCls, dropdownPrefixCls, locale, loading)}
+        {locale => this.renderTable(prefixCls, renderEmpty, dropdownPrefixCls, locale, loading)}
       </LocaleReceiver>
     );
 

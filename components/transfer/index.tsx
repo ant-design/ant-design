@@ -7,7 +7,7 @@ import Search from './search';
 import warning from '../_util/warning';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale-provider/default';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 
 export { TransferListProps } from './list';
 export { TransferOperationProps } from './operation';
@@ -350,9 +350,11 @@ export default class Transfer extends React.Component<TransferProps, any> {
     return direction === 'left' ? 'sourceSelectedKeys' : 'targetSelectedKeys';
   }
 
-  getLocale = (transferLocale: TransferLocale) => {
+  getLocale = (transferLocale: TransferLocale, renderEmpty: RenderEmptyHandler) => {
     // Keep old locale props still working.
-    const oldLocale: { notFoundContent?: any; searchPlaceholder?: string } = {};
+    const oldLocale: { notFoundContent?: any; searchPlaceholder?: string } = {
+      notFoundContent: renderEmpty('Transfer'),
+    };
     if ('notFoundContent' in this.props) {
       oldLocale.notFoundContent = this.props.notFoundContent;
     }
@@ -365,7 +367,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
 
   renderTransfer = (transferLocale: TransferLocale) => (
     <ConfigConsumer>
-      {({ getPrefixCls }: ConfigConsumerProps) => {
+      {({ getPrefixCls, renderEmpty }: ConfigConsumerProps) => {
         const {
           prefixCls: customizePrefixCls,
           className,
@@ -382,7 +384,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
           lazy,
         } = this.props;
         const prefixCls = getPrefixCls('transfer', customizePrefixCls);
-        const locale = this.getLocale(transferLocale);
+        const locale = this.getLocale(transferLocale, renderEmpty);
         const { leftFilter, rightFilter, sourceSelectedKeys, targetSelectedKeys } = this.state;
 
         const { leftDataSource, rightDataSource } = this.separateDataSource(this.props);
