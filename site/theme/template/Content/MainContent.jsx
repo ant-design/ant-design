@@ -259,7 +259,7 @@ export default class MainContent extends React.PureComponent {
         inlineIndent="40"
         className="aside-container menu-site"
         mode="inline"
-        openKeys={openKeys}
+        defaultOpenKeys={openKeys}
         selectedKeys={[activeMenuItem]}
         onOpenChange={this.handleMenuOpenChange}
       >
