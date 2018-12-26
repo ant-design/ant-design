@@ -16,21 +16,21 @@ antd 中的 [Form](https://github.com/ant-design/ant-design/blob/master/componen
 
 建模方面，FieldsStore 实例以 fields 属性存储表单的实时数据，即由用户行为或开发者显式更新的数据。本文把实时数据已存入 fields 中的字段称为已收集字段；反之，称为未收集字段。以下是 fields\[name\] 中成员属性的意义（name 为字段名，下同）。
 
-  - value 字段的值。
-  - errors 校验文案，数组形式。
-  - validating 校验状态。
-  - dirty 脏值标识。真值时意味着字段的值已作变更，但未作校验。
-  - touched 用户行为标识。通常情况下，真值时意味着用户行为已促使字段的值发生了变更。
+- value 字段的值。
+- errors 校验文案，数组形式。
+- validating 校验状态。
+- dirty 脏值标识。真值时意味着字段的值已作变更，但未作校验。
+- touched 用户行为标识。通常情况下，真值时意味着用户行为已促使字段的值发生了变更。
 
 FieldsStore 实例又以 fieldsMeta 属性存储字段的元数据。元数据作为配置项，通常是指定后不再变更的数据，用于操控表单数据转换等行为。元数据通过下文中 getFieldProps, getFieldDecorator 方法的次参 fieldOption 配置。以下是 fieldsMeta\[name\] 中部分成员属性的意义（如不作特殊说明，该成员属性即 fieldOption 中的同名属性）。
 
-  - validate 校验规则和触发事件，用于约定在何种事件下以何种方式校验字段的值，\[{ rules, trigger }\] 形式。通过fieldOption.validate, fieldOption.rules, fieldOption.validateTrigger 配置。
-  - hidden 设置为 true 时，validateFields 将不会校验该字段，需要开发者手动校验，并且，getFieldsValue, getFieldsError 等方法也将无法获取该字段的数据及校验信息等实时数据。适用场景如勾选协议复选框，当其已勾选时，提交按钮才可点击，该复选框的值不会出现在全量表单数据中。本文假定配置了 hidden 为 true 的字段为虚拟隐藏项。
-  - getValueFromEvent(event) 用于从 event 对象中获取字段的值，适用场景如处理 input, radio 等原生组件。特别的，当字段组件输出的首参不是 event 对象时，getValueFromEvent 将对首参进行数据转化，以满足特定的场景，比如由开发者指定具体首参内容的自定义字段组件。
-  - initialValue 字段的初始值。当字段的值未作收集时，初始值用于作为字段的值。
-  - valuePropName 约定字段的值以何种 props 属性注入字段组件中，适用场景如将字段的值以 props.checked 属性注入 radio 组件中。注入字段组件的值数据 props 由 getFieldValuePropValue 方法生成，下同。
-  - getValueProps(value) 用于转化字段的值，输出 props 以注入字段组件中。适用场景如当 get, post 请求的数据结构不同时，且字段组件以 post 请求的数据结构输出字段的值、以 get 请求的数据结构接受字段的值，那就可以使用 getValueProps 将 post 请求的数据结构转换为 get 请求的数据结构。
-  - normalize(newValue, oldValue, values) 用于转化存入 FieldsStore 实例的字段的值。使用案例如[全选按钮](https://codepen.io/afc163/pen/JJVXzG?editors=001)。
+- validate 校验规则和触发事件，用于约定在何种事件下以何种方式校验字段的值，\[{ rules, trigger }\] 形式。通过fieldOption.validate, fieldOption.rules, fieldOption.validateTrigger 配置。
+- hidden 设置为 true 时，validateFields 将不会校验该字段，需要开发者手动校验，并且，getFieldsValue, getFieldsError 等方法也将无法获取该字段的数据及校验信息等实时数据。适用场景如勾选协议复选框，当其已勾选时，提交按钮才可点击，该复选框的值不会出现在全量表单数据中。本文假定配置了 hidden 为 true 的字段为虚拟隐藏项。
+- getValueFromEvent(event) 用于从 event 对象中获取字段的值，适用场景如处理 input, radio 等原生组件。特别的，当字段组件输出的首参不是 event 对象时，getValueFromEvent 将对首参进行数据转化，以满足特定的场景，比如由开发者指定具体首参内容的自定义字段组件。
+- initialValue 字段的初始值。当字段的值未作收集时，初始值用于作为字段的值。
+- valuePropName 约定字段的值以何种 props 属性注入字段组件中，适用场景如将字段的值以 props.checked 属性注入 radio 组件中。注入字段组件的值数据 props 由 getFieldValuePropValue 方法生成，下同。
+- getValueProps(value) 用于转化字段的值，输出 props 以注入字段组件中。适用场景如当 get, post 请求的数据结构不同时，且字段组件以 post 请求的数据结构输出字段的值、以 get 请求的数据结构接受字段的值，那就可以使用 getValueProps 将 post 请求的数据结构转换为 get 请求的数据结构。
+- normalize(newValue, oldValue, values) 用于转化存入 FieldsStore 实例的字段的值。使用案例如[全选按钮](https://codepen.io/afc163/pen/JJVXzG?editors=001)。
 
 在此基础上，FieldsStore 提供了一些便捷的访问器操作。需要说明的是，rc-form 借助 [lodash](https://github.com/lodash/lodash)，支持以嵌套结构定义字段名，即使用 '.', '\[|\]' 作为分割符，如 'a.b' 意味着 a 对象下的 b 属性；'c\[0\]' 意味着 c 数组的首项。本文约定匹配字段指，所有以指定字符串起始或等值的字段列表。为此，FieldsStore 提供 isValidNestedFieldName 用于校验字段名不能作为表单中另一个字段名的成员；flattenRegisteredFields 用于传参数据作扁平化处理；getValidFieldsFullName 用于获取匹配字段列表，但不包含虚拟隐藏项。除此以外，FieldsStore 提供了对实时数据和元数据的读取操作，特别的，部分 api 可用于获取匹配字段的实时数据，参见[文档](https://ant.design/components/form-cn/)。
 
@@ -46,8 +46,8 @@ FieldsStore 实例又以 fieldsMeta 属性存储字段的元数据。元数据�
 
 其次，由 BaseForm 提供的 getFieldProps 或 getFieldDecorator 实例方法完成字段组件的渲染。以下是 getFieldProps, getFieldDecorator 的意义。
 
-  - getFieldProps(name, fieldOption) 用于为 FieldsStore 实例收集字段的元数据，如经转化后的校验规则等；指定字段组件的 ref 引用函数；为字段组件绑定 onCollect, onCollectValidate 实例方法，以在指定事件触发时收集或校验字段的值；最终将输出注入字段组件的 props，包含全量的元数据和实时数据、以及字段的值。
-  - getFieldDecorator(name, fieldOption) 基于 getFieldProps 方法，直接装饰字段组件，这样就可以操控添加在字段组件上的 ref 引用函数及 props.onChange 等绑定函数。
+- getFieldProps(name, fieldOption) 用于为 FieldsStore 实例收集字段的元数据，如经转化后的校验规则等；指定字段组件的 ref 引用函数；为字段组件绑定 onCollect, onCollectValidate 实例方法，以在指定事件触发时收集或校验字段的值；最终将输出注入字段组件的 props，包含全量的元数据和实时数据、以及字段的值。
+- getFieldDecorator(name, fieldOption) 基于 getFieldProps 方法，直接装饰字段组件，这样就可以操控添加在字段组件上的 ref 引用函数及 props.onChange 等绑定函数。
 
 其次，当用户行为促使字段的值发生变更时，将执行 BaseForm 实例的 onCollect, onCollectValidate 方法，以收集或校验该字段的实时数据，并重绘表单。其中，rc-form 中的数据校验通过 [async-validate](https://github.com/yiminghe/async-validator) 库实现，具体实现为 BaseForm 实例的 validateFieldsInternal 方法。校验字段时，默认将沿用上一次的校验信息；当设置 force 为 true 时，将强制重新校验。
 
