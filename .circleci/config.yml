@@ -158,8 +158,13 @@ jobs:
     steps:
       - checkout
       - *attach_workspace
-      - run: npm test -- -w 1 --coverage
+      - run:
+          command: npm test -- -w 1 --coverage --ci --reporters=default --reporters=jest-junit
+          environment:
+            JEST_JUNIT_OUTPUT: "reports/jest/results.xml"
       - run: bash <(curl -s https://codecov.io/bash)
+      - store_test_results:
+          path: reports
 
   test_node:
     <<: *container_config
