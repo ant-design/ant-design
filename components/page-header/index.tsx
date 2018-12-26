@@ -29,31 +29,25 @@ class PageHeader extends React.PureComponent<Partial<PageHeaderProps>, null> {
       return null;
     }
     return (
-      <>
-        <div
-          className={`${prefixCls}-back-icon`}
-          onClick={e => {
-            if (this.props.onBack) {
-              this.props.onBack(e);
-              return;
-            }
-            history.back();
-          }}
-        >
-          {backNode}
-        </div>
+      <div
+        className={`${prefixCls}-back-icon`}
+        onClick={e => {
+          if (this.props.onBack) {
+            this.props.onBack(e);
+            return;
+          }
+          history.back();
+        }}
+      >
+        {backNode}
         <Divider type="vertical" />
-      </>
+      </div>
     );
   }
 
   renderBreadcrumb() {
     const { breadcrumb } = this.props;
-    return (
-      <>
-        <Breadcrumb {...breadcrumb} />
-      </>
-    );
+    return <Breadcrumb {...breadcrumb} />;
   }
 
   renderHeader(prefixCls: string) {

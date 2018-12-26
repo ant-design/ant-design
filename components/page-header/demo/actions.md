@@ -14,7 +14,7 @@ title:
 Basic Page Header
 
 ```jsx
-import { PageHeader, Tag, Tabs, Button, Row, Col } from "antd";
+import { PageHeader, Tag, Tabs, Button, Row, Col } from 'antd';
 
 const TabPane = Tabs.TabPane;
 

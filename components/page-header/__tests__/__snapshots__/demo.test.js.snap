@@ -24,10 +24,10 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
         />
       </svg>
     </i>
+    <div
+      class="ant-divider ant-divider-vertical"
+    />
   </div>
-  <div
-    class="ant-divider ant-divider-vertical"
-  />
   <div
     class="ant-pageheader-title-view"
   >
@@ -389,10 +389,10 @@ exports[`renders ./components/page-header/demo/basic.md correctly 1`] = `
         />
       </svg>
     </i>
+    <div
+      class="ant-divider ant-divider-vertical"
+    />
   </div>
-  <div
-    class="ant-divider ant-divider-vertical"
-  />
   <div
     class="ant-pageheader-title-view"
   >
@@ -618,10 +618,10 @@ exports[`renders ./components/page-header/demo/tags.md correctly 1`] = `
         />
       </svg>
     </i>
+    <div
+      class="ant-divider ant-divider-vertical"
+    />
   </div>
-  <div
-    class="ant-divider ant-divider-vertical"
-  />
   <div
     class="ant-pageheader-title-view"
   >

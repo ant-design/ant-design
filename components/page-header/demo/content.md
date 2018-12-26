@@ -14,7 +14,7 @@ title:
 Breadcrumb Page Header
 
 ```jsx
-import { PageHeader } from 'antd'
+import { PageHeader } from 'antd';
 
 const routes = [
   {
@@ -46,11 +46,17 @@ const content = (
         快速开始
       </a>
       <a>
-        <img src="https://gw.alipayobjects.com/zos/rmsportal/NbuDUAuBlIApFuDvWiND.svg" alt="info" />
+        <img
+          src="https://gw.alipayobjects.com/zos/rmsportal/NbuDUAuBlIApFuDvWiND.svg"
+          alt="info"
+        />
         产品简介
       </a>
       <a>
-        <img src="https://gw.alipayobjects.com/zos/rmsportal/ohOEPSYdDTNnyMbGuyLb.svg" alt="doc" />
+        <img
+          src="https://gw.alipayobjects.com/zos/rmsportal/ohOEPSYdDTNnyMbGuyLb.svg"
+          alt="doc"
+        />
         产品文档
       </a>
     </p>
