@@ -7,6 +7,7 @@ import Search from './Search';
 import TextArea from './TextArea';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Password from './Password';
+import Icon from '../icon';
 import { Omit, tuple } from '../_util/type';
 
 function fixControlledValue<T>(value: T) {
@@ -27,6 +28,7 @@ export interface InputProps
   addonAfter?: React.ReactNode;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
+  allowClear?: Boolean;
 }
 
 export default class Input extends React.Component<InputProps, any> {
@@ -38,6 +40,7 @@ export default class Input extends React.Component<InputProps, any> {
   static defaultProps = {
     type: 'text',
     disabled: false,
+    allowClear: false,
   };
 
   static propTypes = {
@@ -59,6 +62,11 @@ export default class Input extends React.Component<InputProps, any> {
     onBlur: PropTypes.func,
     prefix: PropTypes.node,
     suffix: PropTypes.node,
+    allowClear: PropTypes.bool,
+  };
+
+  state = {
+    value: '',
   };
 
   input: HTMLInputElement;
@@ -98,6 +106,64 @@ export default class Input extends React.Component<InputProps, any> {
     this.input = node;
   };
 
+  setValue(
+    value: string,
+    e: React.ChangeEvent<HTMLInputElement> | React.MouseEvent<HTMLElement, MouseEvent>,
+  ) {
+    const { onChange } = this.props;
+    if (!('value' in this.props)) {
+      this.setState({ value });
+    }
+    if (onChange) {
+      onChange(
+        e.target
+          ? (e as React.ChangeEvent<HTMLInputElement>)
+          : {
+              ...e,
+              target: this.input,
+              currentTarget: this.input,
+            },
+      );
+    }
+  }
+
+  handleReset = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    this.setValue('', e);
+  };
+
+  handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    this.setValue(e.target.value, e);
+  };
+
+  renderClearIcon(prefixCls: string) {
+    const { allowClear } = this.props;
+    const { value } = this.state;
+    if (!allowClear || value === undefined || value === '') {
+      return null;
+    }
+    return (
+      <Icon
+        type="close-circle"
+        theme="filled"
+        onClick={this.handleReset}
+        className={`${prefixCls}-clear-icon`}
+      />
+    );
+  }
+
+  renderSuffix(prefixCls: string) {
+    const { suffix, allowClear } = this.props;
+    if (suffix || allowClear) {
+      return (
+        <span className={`${prefixCls}-suffix`}>
+          {this.renderClearIcon(prefixCls)}
+          {suffix}
+        </span>
+      );
+    }
+    return null;
+  }
+
   renderLabeledInput(prefixCls: string, children: React.ReactElement<any>) {
     const props = this.props;
     // Not wrap when there is not addons
@@ -110,7 +176,6 @@ export default class Input extends React.Component<InputProps, any> {
     const addonBefore = props.addonBefore ? (
       <span className={addonClassName}>{props.addonBefore}</span>
     ) : null;
-
     const addonAfter = props.addonAfter ? (
       <span className={addonClassName}>{props.addonAfter}</span>
     ) : null;
@@ -139,16 +204,14 @@ export default class Input extends React.Component<InputProps, any> {
 
   renderLabeledIcon(prefixCls: string, children: React.ReactElement<any>) {
     const { props } = this;
-    if (!('prefix' in props || 'suffix' in props)) {
+    const suffix = this.renderSuffix(prefixCls);
+
+    if (!('prefix' in props) && !suffix) {
       return children;
     }
 
     const prefix = props.prefix ? (
       <span className={`${prefixCls}-prefix`}>{props.prefix}</span>
-    ) : null;
-
-    const suffix = props.suffix ? (
-      <span className={`${prefixCls}-suffix`}>{props.suffix}</span>
     ) : null;
 
     const affixWrapperCls = classNames(props.className, `${prefixCls}-affix-wrapper`, {
@@ -168,7 +231,8 @@ export default class Input extends React.Component<InputProps, any> {
   }
 
   renderInput(prefixCls: string) {
-    const { value, className } = this.props;
+    const { className } = this.props;
+    const { value } = this.state;
     // Fix https://fb.me/react-unknown-prop
     const otherProps = omit(this.props, [
       'prefixCls',
@@ -177,6 +241,7 @@ export default class Input extends React.Component<InputProps, any> {
       'addonAfter',
       'prefix',
       'suffix',
+      'allowClear',
     ]);
 
     if ('value' in this.props) {
@@ -189,6 +254,8 @@ export default class Input extends React.Component<InputProps, any> {
       prefixCls,
       <input
         {...otherProps}
+        value={value}
+        onChange={this.handleChange}
         className={classNames(this.getInputClassName(prefixCls), className)}
         onKeyDown={this.handleKeyDown}
         ref={this.saveInput}
