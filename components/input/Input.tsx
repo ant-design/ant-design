@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import omit from 'omit.js';
+import { polyfill } from 'react-lifecycles-compat';
 import Group from './Group';
 import Search from './Search';
 import TextArea from './TextArea';
@@ -31,7 +32,7 @@ export interface InputProps
   allowClear?: Boolean;
 }
 
-export default class Input extends React.Component<InputProps, any> {
+class Input extends React.Component<InputProps, any> {
   static Group: typeof Group;
   static Search: typeof Search;
   static TextArea: typeof TextArea;
@@ -40,7 +41,6 @@ export default class Input extends React.Component<InputProps, any> {
   static defaultProps = {
     type: 'text',
     disabled: false,
-    allowClear: false,
   };
 
   static propTypes = {
@@ -65,11 +65,25 @@ export default class Input extends React.Component<InputProps, any> {
     allowClear: PropTypes.bool,
   };
 
-  state = {
-    value: '',
-  };
+  static getDerivedStateFromProps(nextProps: InputProps, state: any) {
+    if ('value' in nextProps) {
+      return {
+        ...state,
+        value: nextProps.value,
+      };
+    }
+    return null;
+  }
 
   input: HTMLInputElement;
+
+  constructor(props: InputProps) {
+    super(props);
+    const value = props.value || props.defaultValue;
+    this.state = {
+      value,
+    };
+  }
 
   handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const { onPressEnter, onKeyDown } = this.props;
@@ -273,3 +287,7 @@ export default class Input extends React.Component<InputProps, any> {
     return <ConfigConsumer>{this.renderComponent}</ConfigConsumer>;
   }
 }
+
+polyfill(Input);
+
+export default Input;
