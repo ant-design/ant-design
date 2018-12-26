@@ -6,7 +6,8 @@ import { BreadcrumbProps } from '../breadcrumb';
 import { Divider, Breadcrumb } from '../index';
 import Tag from '../tag';
 
-export interface IPageHeaderProps {
+export interface PageHeaderProps {
+  backNode: React.ReactNode;
   prefixCls: string;
   title: React.ReactNode;
   subTitle: React.ReactNode;
@@ -17,14 +18,20 @@ export interface IPageHeaderProps {
   extra: React.ReactNode;
   onBack: (e: React.MouseEvent<HTMLElement>) => void;
 }
-export interface IPageHeaderState {}
 
-class PageHeader extends React.PureComponent<Partial<IPageHeaderProps>, IPageHeaderState> {
+class PageHeader extends React.PureComponent<Partial<PageHeaderProps>, null> {
+  static defaultProps = {
+    backNode: <Icon type="arrow-left" />,
+  };
   renderBack(prefixCls: string) {
+    const { backNode } = this.props;
+    if (!backNode) {
+      return null;
+    }
     return (
       <>
-        <Icon
-          type="arrow-left"
+        <div
+          className={`${prefixCls}-back-icon`}
           onClick={e => {
             if (this.props.onBack) {
               this.props.onBack(e);
@@ -32,8 +39,9 @@ class PageHeader extends React.PureComponent<Partial<IPageHeaderProps>, IPageHea
             }
             history.back();
           }}
-          className={`${prefixCls}-back-icon`}
-        />
+        >
+          {backNode}
+        </div>
         <Divider type="vertical" />
       </>
     );

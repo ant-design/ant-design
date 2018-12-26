@@ -34,7 +34,7 @@ const content = (
       <a>421421</a>
     </Description>
     <Description term="创建时间">2017-01-10</Description>
-    <Description term="生效日期">2017-01-10 ～ 2017-01-10</Description>
+    <Description term="生效日期">2017-10-10</Description>
     <Description term="单据备注">浙江省杭州市西湖区工专路</Description>
   </Row>
 );
@@ -70,7 +70,7 @@ ReactDOM.render(
     }
   >
     <div className="wrap">
-      <div className="content">{content}</div>
+      <div className="content padding">{content}</div>
       <div className="extraContent">{extraContent}</div>
     </div>
   </PageHeader>,
@@ -80,41 +80,44 @@ ReactDOM.render(
 ```
 
 <style>
+.content.padding {
+  padding-left: 40px;
+}
 .content .description {
-	display: table;
+  display: table;
 }
 .description .term {
-	display: table-cell;
-	margin-right: 8px;
-	padding-bottom: 8px;
-	white-space: nowrap;
-	line-height: 20px;
+  display: table-cell;
+  margin-right: 8px;
+  padding-bottom: 8px;
+  white-space: nowrap;
+  line-height: 20px;
 }
 .description .term:after {
-	position: relative;
-	top: -0.5px;
-	margin: 0 8px 0 2px;
-	content: ":";
+  position: relative;
+  top: -0.5px;
+  margin: 0 8px 0 2px;
+  content: ":";
 }
 .description .detail {
-	display: table-cell;
-	padding-bottom: 8px;
-	width: 100%;
-	line-height: 20px;
+  display: table-cell;
+  padding-bottom: 8px;
+  width: 100%;
+  line-height: 20px;
 }
-.extraContent .label{
+.extraContent .label {
   font-size: 14px;
-  color: rgba(0,0,0,0.45);
+  color: rgba(0, 0, 0, 0.45);
   line-height: 22px;
 }
-.extraContent .label{
+.extraContent .label {
   font-size: 14px;
-  color: rgba(0,0,0,0.45);
+  color: rgba(0, 0, 0, 0.45);
   line-height: 22px;
 }
-.extraContent .detail{
+.extraContent .detail {
   font-size: 20px;
-  color: rgba(0,0,0,0.85);
+  color: rgba(0, 0, 0, 0.85);
   line-height: 28px;
 }
 </style>

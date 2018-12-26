@@ -15,6 +15,7 @@ The header is used to declare the theme of the page, which contains the most imp
 |----------|------------------------------------------|-------------|-------|
 | title | title string | ReactNode | - |
 | subTitle | subTitle string | ReactNode | - |
+| backNode | Custom back icon, if false does not render back icon | ReactNode | <Icon type="arrow-left" /> |
 | tags | Tag list next to title | [Tag](https://ant.design/components/tag-cn/)[] \| [Tag](https://ant.design/components/tag-cn/) | - |
 | extra | Operating area, at the end of the line of the title line | ReactNode | - |
 | breadcrumb | breadcrumb config |  [breadcrumb](https://ant.design/components/breadcrumb-cn/)  | - |
