@@ -237,7 +237,7 @@
     ],
     "components/*/demo/*.md": [
       "npm run lint-staged:demo"
-    ],
+    ]
   },
   "sideEffects": [
     "dist/*",
