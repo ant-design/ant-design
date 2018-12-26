@@ -100,15 +100,18 @@
   // .popover-arrow is outer, .popover-arrow:after is inner
 
   &-arrow {
-    background: @popover-bg;
-    background-color: inherit;
+    background: transparent;
     width: sqrt(@popover-arrow-width * @popover-arrow-width * 2);
     height: sqrt(@popover-arrow-width * @popover-arrow-width * 2);
     transform: rotate(45deg);
     position: absolute;
     display: block;
-    border-color: transparent;
+    border-width: sqrt(@popover-arrow-width * @popover-arrow-width * 2) / 2;
     border-style: solid;
+    border-top-color: transparent;
+    border-right-color: @popover-bg;
+    border-bottom-color: @popover-bg;
+    border-left-color: transparent;
   }
 
   &-placement-top > &-content > &-arrow,
