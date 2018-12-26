@@ -16,7 +16,7 @@ antd 中的 [Form](https://github.com/ant-design/ant-design/blob/master/componen
 
 建模方面，FieldsStore 实例以 fields 属性存储表单的实时数据，即由用户行为或开发者显式更新的数据。本文把实时数据已存入 fields 中的字段称为已收集字段；反之，称为未收集字段。以下是 fields\[name\] 中成员属性的意义（name 为字段名，下同）。
 
- - value 字段的值。
+- value 字段的值。
 - errors 校验文案，数组形式。
 - validating 校验状态。
 - dirty 脏值标识。真值时意味着字段的值已作变更，但未作校验。

@@ -214,7 +214,6 @@
     "lint-staged:ts": "tsc && node node_modules/tslint/bin/tslint",
     "lint-staged:es": "eslint ./.*.js ./webpack.config.js",
     "lint-staged:demo": "cross-env RUN_ENV=DEMO eslint --ext '.md'",
-    "lint-staged:md": "cross-env RUN_ENV=DEMO eslint --ext '.md' && remark",
     "prettier": "node ./scripts/prettier.js"
   },
   "pre-commit": [
@@ -237,8 +236,8 @@
       "git add"
     ],
     "components/*/demo/*.md": [
-      "npm run lint-staged:md"
-    ]
+      "npm run lint-staged:demo"
+    ],
   },
   "sideEffects": [
     "dist/*",
