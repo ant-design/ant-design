@@ -2,9 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import RcSelect, { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import defaultLocale from '../locale-provider/default';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import omit from 'omit.js';
 import warning from 'warning';
 import Icon from '../icon';
@@ -151,13 +149,25 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
     this.rcSelect = node;
   };
 
-  getNotFoundContent(locale: SelectLocale) {
+  getNotFoundContent(renderEmpty: RenderEmptyHandler) {
     const { notFoundContent } = this.props;
-    if (this.isCombobox()) {
-      // AutoComplete don't have notFoundContent defaultly
-      return notFoundContent === undefined ? null : notFoundContent;
+    if (notFoundContent !== undefined) {
+      return notFoundContent;
     }
-    return notFoundContent === undefined ? locale.notFoundContent : notFoundContent;
+
+    if (this.isCombobox()) {
+      return null;
+    }
+
+    return renderEmpty('Select');
+
+    // if (this.isCombobox()) {
+    //   // AutoComplete don't have notFoundContent defaultly
+    //   return notFoundContent === undefined ? null : notFoundContent;
+    // }
+
+    // return renderEmpty('Select');
+    // // return notFoundContent === undefined ? locale.notFoundContent : notFoundContent;
   }
 
   isCombobox() {
@@ -180,96 +190,90 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
     return <Icon type="down" className={`${prefixCls}-arrow-icon`} />;
   }
 
-  renderSelect = (locale: SelectLocale) => (
-    <ConfigConsumer>
-      {({ getPopupContainer: getContextPopupContainer, getPrefixCls }: ConfigConsumerProps) => {
-        const {
-          prefixCls: customizePrefixCls,
-          className = '',
-          size,
-          mode,
-          getPopupContainer,
-          removeIcon,
-          clearIcon,
-          menuItemSelectedIcon,
-          ...restProps
-        } = this.props;
-        const rest = omit(restProps, ['inputIcon']);
+  renderSelect = ({
+    getPopupContainer: getContextPopupContainer,
+    getPrefixCls,
+    renderEmpty,
+  }: ConfigConsumerProps) => {
+    const {
+      prefixCls: customizePrefixCls,
+      className = '',
+      size,
+      mode,
+      getPopupContainer,
+      removeIcon,
+      clearIcon,
+      menuItemSelectedIcon,
+      ...restProps
+    } = this.props;
+    const rest = omit(restProps, ['inputIcon']);
 
-        const prefixCls = getPrefixCls('select', customizePrefixCls);
-        const cls = classNames(
-          {
-            [`${prefixCls}-lg`]: size === 'large',
-            [`${prefixCls}-sm`]: size === 'small',
-          },
-          className,
-        );
+    const prefixCls = getPrefixCls('select', customizePrefixCls);
+    const cls = classNames(
+      {
+        [`${prefixCls}-lg`]: size === 'large',
+        [`${prefixCls}-sm`]: size === 'small',
+      },
+      className,
+    );
 
-        let { optionLabelProp } = this.props;
-        if (this.isCombobox()) {
-          // children 带 dom 结构时，无法填入输入框
-          optionLabelProp = optionLabelProp || 'value';
-        }
+    let { optionLabelProp } = this.props;
+    if (this.isCombobox()) {
+      // children 带 dom 结构时，无法填入输入框
+      optionLabelProp = optionLabelProp || 'value';
+    }
 
-        const modeConfig = {
-          multiple: mode === 'multiple',
-          tags: mode === 'tags',
-          combobox: this.isCombobox(),
-        };
+    const modeConfig = {
+      multiple: mode === 'multiple',
+      tags: mode === 'tags',
+      combobox: this.isCombobox(),
+    };
 
-        const finalRemoveIcon = (removeIcon &&
-          (React.isValidElement<{ className?: string }>(removeIcon)
-            ? React.cloneElement(removeIcon, {
-                className: classNames(removeIcon.props.className, `${prefixCls}-remove-icon`),
-              })
-            : removeIcon)) || <Icon type="close" className={`${prefixCls}-remove-icon`} />;
+    const finalRemoveIcon = (removeIcon &&
+      (React.isValidElement<{ className?: string }>(removeIcon)
+        ? React.cloneElement(removeIcon, {
+            className: classNames(removeIcon.props.className, `${prefixCls}-remove-icon`),
+          })
+        : removeIcon)) || <Icon type="close" className={`${prefixCls}-remove-icon`} />;
 
-        const finalClearIcon = (clearIcon &&
-          (React.isValidElement<{ className?: string }>(clearIcon)
-            ? React.cloneElement(clearIcon, {
-                className: classNames(clearIcon.props.className, `${prefixCls}-clear-icon`),
-              })
-            : clearIcon)) || (
-          <Icon type="close-circle" theme="filled" className={`${prefixCls}-clear-icon`} />
-        );
+    const finalClearIcon = (clearIcon &&
+      (React.isValidElement<{ className?: string }>(clearIcon)
+        ? React.cloneElement(clearIcon, {
+            className: classNames(clearIcon.props.className, `${prefixCls}-clear-icon`),
+          })
+        : clearIcon)) || (
+      <Icon type="close-circle" theme="filled" className={`${prefixCls}-clear-icon`} />
+    );
 
-        const finalMenuItemSelectedIcon = (menuItemSelectedIcon &&
-          (React.isValidElement<{ className?: string }>(menuItemSelectedIcon)
-            ? React.cloneElement(menuItemSelectedIcon, {
-                className: classNames(
-                  menuItemSelectedIcon.props.className,
-                  `${prefixCls}-selected-icon`,
-                ),
-              })
-            : menuItemSelectedIcon)) || (
-          <Icon type="check" className={`${prefixCls}-selected-icon`} />
-        );
+    const finalMenuItemSelectedIcon = (menuItemSelectedIcon &&
+      (React.isValidElement<{ className?: string }>(menuItemSelectedIcon)
+        ? React.cloneElement(menuItemSelectedIcon, {
+            className: classNames(
+              menuItemSelectedIcon.props.className,
+              `${prefixCls}-selected-icon`,
+            ),
+          })
+        : menuItemSelectedIcon)) || <Icon type="check" className={`${prefixCls}-selected-icon`} />;
 
-        return (
-          <RcSelect
-            inputIcon={this.renderSuffixIcon(prefixCls)}
-            removeIcon={finalRemoveIcon}
-            clearIcon={finalClearIcon}
-            menuItemSelectedIcon={finalMenuItemSelectedIcon}
-            {...rest}
-            {...modeConfig}
-            prefixCls={prefixCls}
-            className={cls}
-            optionLabelProp={optionLabelProp || 'children'}
-            notFoundContent={this.getNotFoundContent(locale)}
-            getPopupContainer={getPopupContainer || getContextPopupContainer}
-            ref={this.saveSelect}
-          />
-        );
-      }}
-    </ConfigConsumer>
-  );
+    return (
+      <RcSelect
+        inputIcon={this.renderSuffixIcon(prefixCls)}
+        removeIcon={finalRemoveIcon}
+        clearIcon={finalClearIcon}
+        menuItemSelectedIcon={finalMenuItemSelectedIcon}
+        {...rest}
+        {...modeConfig}
+        prefixCls={prefixCls}
+        className={cls}
+        optionLabelProp={optionLabelProp || 'children'}
+        notFoundContent={this.getNotFoundContent(renderEmpty)}
+        getPopupContainer={getPopupContainer || getContextPopupContainer}
+        ref={this.saveSelect}
+      />
+    );
+  };
 
   render() {
-    return (
-      <LocaleReceiver componentName="Select" defaultLocale={defaultLocale.Select}>
-        {this.renderSelect}
-      </LocaleReceiver>
-    );
+    return <ConfigConsumer>{this.renderSelect}</ConfigConsumer>;
   }
 }

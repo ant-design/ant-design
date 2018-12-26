@@ -19,7 +19,7 @@ export interface ColumnProps<T> {
         },
       ) => React.ReactNode);
   key?: React.Key;
-  dataIndex?: keyof T;
+  dataIndex?: string; // Note: We can not use generic type here, since we need to support nested key, see #9393
   render?: (text: any, record: T, index: number) => React.ReactNode;
   align?: 'left' | 'right' | 'center';
   filters?: ColumnFilterItem[];
@@ -147,7 +147,11 @@ export interface TableProps<T> {
     sorter: SorterResult<T>,
   ) => void;
   loading?: boolean | SpinProps;
-  locale?: Object;
+  locale?: {
+    filterConfirm?: string;
+    filterReset?: string;
+    emptyText?: string;
+  };
   indentSize?: number;
   onRowClick?: (record: T, index: number, event: Event) => void;
   onRow?: (record: T, index: number) => any;

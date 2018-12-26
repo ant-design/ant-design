@@ -7,7 +7,7 @@ import KeyCode from 'rc-util/lib/KeyCode';
 import { polyfill } from 'react-lifecycles-compat';
 import Input from '../input';
 import Icon from '../icon';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import warning from '../_util/warning';
 
@@ -212,7 +212,6 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     options: [],
     disabled: false,
     allowClear: true,
-    notFoundContent: 'Not Found',
   };
 
   static getDerivedStateFromProps(nextProps: CascaderProps, { prevProps }: CascaderState) {
@@ -233,7 +232,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     return newState;
   }
 
-  cachedOptions: CascaderOptionType[];
+  cachedOptions: CascaderOptionType[] = [];
 
   private input: Input;
 
@@ -338,7 +337,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     }
   };
 
-  generateFilteredOptions(prefixCls: string | undefined) {
+  generateFilteredOptions(prefixCls: string | undefined, renderEmpty: RenderEmptyHandler) {
     const { showSearch, notFoundContent } = this.props;
     const names: FilledFieldNamesType = getFilledFieldNames(this.props);
     const {
@@ -386,7 +385,11 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       });
     }
     return [
-      { [names.label]: notFoundContent, [names.value]: 'ANT_CASCADER_NOT_FOUND', disabled: true },
+      {
+        [names.label]: notFoundContent || renderEmpty('Cascader'),
+        [names.value]: 'ANT_CASCADER_NOT_FOUND',
+        disabled: true,
+      },
     ];
   }
 
@@ -403,7 +406,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
   };
 
   renderCascader = (
-    { getPopupContainer: getContextPopupContainer, getPrefixCls }: ConfigConsumerProps,
+    { getPopupContainer: getContextPopupContainer, getPrefixCls, renderEmpty }: ConfigConsumerProps,
     locale: CascaderLocale,
   ) => {
     const { props, state } = this;
@@ -477,7 +480,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
 
     let options = props.options;
     if (state.inputValue) {
-      options = this.generateFilteredOptions(prefixCls);
+      options = this.generateFilteredOptions(prefixCls, renderEmpty);
     }
     // Dropdown menu should keep previous status until it is fully closed.
     if (!state.popupVisible) {
