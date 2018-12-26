@@ -11,8 +11,8 @@ subtitle: 页头
 
 ## API
 
-| 参数      | 说明                                      | 类型         | 默认值 |
-|----------|------------------------------------------|-------------|-------|
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
 | title | title 文字 | ReactNode | - |
 | subTitle | subTitle 文字 | ReactNode | - |
 | backNode | 自定义 back icon ，如果为 false 不渲染 back icon | ReactNode | `<Icon type="arrow-left" />` |

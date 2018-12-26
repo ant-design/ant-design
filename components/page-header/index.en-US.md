@@ -11,8 +11,8 @@ The header is used to declare the theme of the page, which contains the most imp
 
 ## API
 
-| 参数      | 说明                                      | 类型         | 默认值 |
-|----------|------------------------------------------|-------------|-------|
+| Param | Description | Type | Default value |
+| ----- | ----------- | ---- | ------------- |
 | title | title string | ReactNode | - |
 | subTitle | subTitle string | ReactNode | - |
 | backNode | Custom back icon, if false does not render back icon | ReactNode | `<Icon type="arrow-left" />` |
