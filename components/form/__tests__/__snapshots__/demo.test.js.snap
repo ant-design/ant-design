@@ -1264,6 +1264,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
               class="ant-input"
               placeholder="input placeholder"
               type="text"
+              value=""
             />
           </span>
         </div>
@@ -1295,6 +1296,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
               class="ant-input"
               placeholder="input placeholder"
               type="text"
+              value=""
             />
           </span>
         </div>
@@ -3720,6 +3722,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             id="error"
             placeholder="unavailable choice"
             type="text"
+            value=""
           />
         </span>
         <div
@@ -3757,6 +3760,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             id="warning"
             placeholder="Warning"
             type="text"
+            value=""
           />
         </span>
       </div>
@@ -3789,6 +3793,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             id="validating"
             placeholder="I'm the content is being validated"
             type="text"
+            value=""
           />
           <span
             class="ant-form-item-children-icon"
@@ -3847,6 +3852,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             id="success"
             placeholder="I'm the content"
             type="text"
+            value=""
           />
           <span
             class="ant-form-item-children-icon"
@@ -3900,6 +3906,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             id="warning2"
             placeholder="Warning"
             type="text"
+            value=""
           />
           <span
             class="ant-form-item-children-icon"
@@ -3953,6 +3960,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             id="error2"
             placeholder="unavailable choice"
             type="text"
+            value=""
           />
           <span
             class="ant-form-item-children-icon"

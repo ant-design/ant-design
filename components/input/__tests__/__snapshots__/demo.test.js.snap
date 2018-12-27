@@ -232,6 +232,7 @@ exports[`renders ./components/input/demo/basic.md correctly 1`] = `
   class="ant-input"
   placeholder="Basic usage"
   type="text"
+  value=""
 />
 `;
 
@@ -668,6 +669,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       placeholder="Minimum"
       style="width:100px;text-align:center"
       type="text"
+      value=""
     />
     <input
       class="ant-input ant-input-disabled"
@@ -675,12 +677,14 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       placeholder="~"
       style="width:30px;border-left:0;pointer-events:none;background-color:#fff"
       type="text"
+      value=""
     />
     <input
       class="ant-input"
       placeholder="Maximum"
       style="width:100px;text-align:center;border-left:0"
       type="text"
+      value=""
     />
   </span>
   <br />
@@ -907,6 +911,7 @@ exports[`renders ./components/input/demo/password-input.md correctly 1`] = `
     class="ant-input"
     placeholder="input password"
     type="password"
+    value=""
   />
   <span
     class="ant-input-suffix"
@@ -977,6 +982,7 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
       class="ant-input"
       placeholder="input search text"
       type="text"
+      value=""
     />
     <span
       class="ant-input-suffix"
@@ -1009,6 +1015,7 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
       class="ant-input"
       placeholder="input search text"
       type="text"
+      value=""
     />
     <span
       class="ant-input-suffix"
@@ -1046,6 +1053,7 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
       class="ant-input ant-input-lg"
       placeholder="input search text"
       type="text"
+      value=""
     />
     <span
       class="ant-input-suffix"
@@ -1071,16 +1079,19 @@ exports[`renders ./components/input/demo/size.md correctly 1`] = `
     class="ant-input ant-input-lg"
     placeholder="large size"
     type="text"
+    value=""
   />
   <input
     class="ant-input"
     placeholder="default size"
     type="text"
+    value=""
   />
   <input
     class="ant-input ant-input-sm"
     placeholder="small size"
     type="text"
+    value=""
   />
 </div>
 `;
