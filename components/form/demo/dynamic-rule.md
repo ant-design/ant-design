@@ -18,8 +18,6 @@ import {
   Form, Input, Button, Checkbox,
 } from 'antd';
 
-const FormItem = Form.Item;
-
 const formItemLayout = {
   labelCol: { span: 4 },
   wrapperCol: { span: 8 },
@@ -55,7 +53,7 @@ class DynamicRule extends React.Component {
     const { getFieldDecorator } = this.props.form;
     return (
       <div>
-        <FormItem {...formItemLayout} label="Name">
+        <Form.Item {...formItemLayout} label="Name">
           {getFieldDecorator('username', {
             rules: [{
               required: true,
@@ -64,8 +62,8 @@ class DynamicRule extends React.Component {
           })(
             <Input placeholder="Please input your name" />
           )}
-        </FormItem>
-        <FormItem {...formItemLayout} label="Nickname">
+        </Form.Item>
+        <Form.Item {...formItemLayout} label="Nickname">
           {getFieldDecorator('nickname', {
             rules: [{
               required: this.state.checkNick,
@@ -74,20 +72,20 @@ class DynamicRule extends React.Component {
           })(
             <Input placeholder="Please input your nickname" />
           )}
-        </FormItem>
-        <FormItem {...formTailLayout}>
+        </Form.Item>
+        <Form.Item {...formTailLayout}>
           <Checkbox
             checked={this.state.checkNick}
             onChange={this.handleChange}
           >
             Nickname is required
           </Checkbox>
-        </FormItem>
-        <FormItem {...formTailLayout}>
+        </Form.Item>
+        <Form.Item {...formTailLayout}>
           <Button type="primary" onClick={this.check}>
             Check
           </Button>
-        </FormItem>
+        </Form.Item>
       </div>
     );
   }

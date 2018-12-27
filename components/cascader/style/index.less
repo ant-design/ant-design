@@ -1,8 +1,8 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
-@import "../../input/style/mixin";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
+@import '../../input/style/mixin';
 
-@cascader-prefix-cls: ~"@{ant-prefix}-cascader";
+@cascader-prefix-cls: ~'@{ant-prefix}-cascader';
 
 .@{cascader-prefix-cls} {
   .reset-component;
@@ -28,7 +28,7 @@
     background-color: @component-background;
     border-radius: @border-radius-base;
     outline: 0;
-    transition: color .3s;
+    transition: color 0.3s;
 
     &-with-value &-label {
       color: transparent;
@@ -101,7 +101,7 @@
       margin-top: -6px;
       line-height: 12px;
       color: @disabled-color;
-      transition: transform .2s;
+      transition: transform 0.2s;
       &&-expand {
         transform: rotate(180deg);
       }

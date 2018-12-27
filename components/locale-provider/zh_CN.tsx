@@ -9,6 +9,10 @@ export default {
   DatePicker,
   TimePicker,
   Calendar,
+  // locales for all comoponents
+  global: {
+    placeholder: '请选择',
+  },
   Table: {
     filterTitle: '筛选',
     filterConfirm: '确定',

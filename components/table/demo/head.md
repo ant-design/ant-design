@@ -1,5 +1,5 @@
 ---
-order: 7
+order: 6
 title:
   en-US: Filter and sorter
   zh-CN: 筛选和排序

@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
-import {
-  Select, Menu, Row, Col, Icon, Popover, Input, Badge, Button,
-} from 'antd';
+import { Select, Menu, Row, Col, Icon, Popover, Input, Button } from 'antd';
+import Santa from './Santa';
 import * as utils from '../utils';
 import { version as antdVersion } from '../../../../package.json';
 
@@ -27,7 +26,7 @@ function initDocSearch(locale) {
     inputSelector: '#search-box input',
     algoliaOptions: { facetFilters: [`tags:${lang}`] },
     transformData(hits) {
-      hits.forEach((hit) => {
+      hits.forEach(hit => {
         hit.url = hit.url.replace('ant.design', window.location.host); // eslint-disable-line
         hit.url = hit.url.replace('https:', window.location.protocol); // eslint-disable-line
       });
@@ -42,7 +41,7 @@ export default class Header extends React.Component {
     router: PropTypes.object.isRequired,
     intl: PropTypes.object.isRequired,
     isMobile: PropTypes.bool.isRequired,
-  }
+  };
 
   state = {
     menuVisible: false,
@@ -52,7 +51,7 @@ export default class Header extends React.Component {
     const { intl, router } = this.context;
     router.listen(this.handleHideMenu);
     const { searchInput } = this;
-    document.addEventListener('keyup', (event) => {
+    document.addEventListener('keyup', event => {
       if (event.keyCode === 83 && event.target === document.body) {
         searchInput.focus();
       }
@@ -64,29 +63,32 @@ export default class Header extends React.Component {
     this.setState({
       menuVisible: true,
     });
-  }
+  };
 
   handleHideMenu = () => {
     this.setState({
       menuVisible: false,
     });
-  }
+  };
 
-  onMenuVisibleChange = (visible) => {
+  onMenuVisibleChange = visible => {
     this.setState({
       menuVisible: visible,
     });
-  }
+  };
 
-  handleVersionChange = (url) => {
+  handleVersionChange = url => {
     const currentUrl = window.location.href;
     const currentPathname = window.location.pathname;
-    window.location.href = currentUrl.replace(window.location.origin, url)
+    window.location.href = currentUrl
+      .replace(window.location.origin, url)
       .replace(currentPathname, utils.getLocalizedPathname(currentPathname));
-  }
+  };
 
   handleLangChange = () => {
-    const { location: { pathname } } = this.props;
+    const {
+      location: { pathname },
+    } = this.props;
     const currentProtocol = `${window.location.protocol}//`;
     const currentHref = window.location.href.substr(currentProtocol.length);
 
@@ -94,28 +96,37 @@ export default class Header extends React.Component {
       localStorage.setItem('locale', utils.isZhCN(pathname) ? 'en-US' : 'zh-CN');
     }
 
-    window.location.href = currentProtocol + currentHref.replace(
-      window.location.pathname,
-      utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname)),
-    );
-  }
+    window.location.href =
+      currentProtocol +
+      currentHref.replace(
+        window.location.pathname,
+        utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname)),
+      );
+  };
 
   render() {
     const { menuVisible } = this.state;
     const { isMobile } = this.context;
     const menuMode = isMobile ? 'inline' : 'horizontal';
-    const {
-      location, themeConfig,
-    } = this.props;
+    const { location, themeConfig } = this.props;
     const docVersions = { ...themeConfig.docVersions, [antdVersion]: antdVersion };
-    const versionOptions = Object.keys(docVersions)
-      .map(version => <Option value={docVersions[version]} key={version}>{version}</Option>);
-    const module = location.pathname.replace(/(^\/|\/$)/g, '').split('/').slice(0, -1).join('/');
+    const versionOptions = Object.keys(docVersions).map(version => (
+      <Option value={docVersions[version]} key={version}>
+        {version}
+      </Option>
+    ));
+    const module = location.pathname
+      .replace(/(^\/|\/$)/g, '')
+      .split('/')
+      .slice(0, -1)
+      .join('/');
     let activeMenuItem = module || 'home';
     if (activeMenuItem === 'components' || location.pathname === 'changelog') {
       activeMenuItem = 'docs/react';
     }
-    const { intl: { locale } } = this.context;
+    const {
+      intl: { locale },
+    } = this.context;
     const isZhCN = locale === 'zh-CN';
 
     const headerClassName = classNames({
@@ -123,7 +134,13 @@ export default class Header extends React.Component {
     });
 
     const menu = [
-      <Button ghost size="small" onClick={this.handleLangChange} className="header-lang-button" key="lang-button">
+      <Button
+        ghost
+        size="small"
+        onClick={this.handleLangChange}
+        className="header-lang-button"
+        key="lang-button"
+      >
         <FormattedMessage id="app.header.lang" />
       </Button>,
       <Select
@@ -137,8 +154,14 @@ export default class Header extends React.Component {
       >
         {versionOptions}
       </Select>,
-      <Menu className="menu-site" mode={menuMode} selectedKeys={[activeMenuItem]} id="nav" key="nav">
-        <Menu.Item key="home">
+      <Menu
+        className="menu-site"
+        mode={menuMode}
+        selectedKeys={[activeMenuItem]}
+        id="nav"
+        key="nav"
+      >
+        <Menu.Item key="home" className="hide-in-home-page">
           <Link to={utils.getLocalizedPathname('/', isZhCN)}>
             <FormattedMessage id="app.header.menu.home" />
           </Link>
@@ -153,7 +176,7 @@ export default class Header extends React.Component {
             <FormattedMessage id="app.header.menu.components" />
           </Link>
         </Menu.Item>
-        <Menu.Item key="pro">
+        <Menu.Item key="pro" className="hide-in-home-page">
           <a
             href="http://pro.ant.design"
             className="header-link"
@@ -164,7 +187,7 @@ export default class Header extends React.Component {
           </a>
         </Menu.Item>
         {isZhCN ? (
-          <Menu.Item key="course">
+          <Menu.Item key="course" className="hide-in-home-page">
             <a
               href="https://www.yuque.com/ant-design/course"
               className="header-link"
@@ -172,12 +195,6 @@ export default class Header extends React.Component {
               rel="noopener noreferrer"
             >
               教程
-              <span style={{
-                display: 'inline-block', position: 'relative', top: -2, width: 6, marginLeft: 8,
-              }}
-              >
-                <Badge dot />
-              </span>
             </a>
           </Menu.Item>
         ) : null}
@@ -197,24 +214,32 @@ export default class Header extends React.Component {
             arrowPointAtCenter
             onVisibleChange={this.onMenuVisibleChange}
           >
-            <Icon
-              className="nav-phone-icon"
-              type="menu"
-              onClick={this.handleShowMenu}
-            />
+            <Icon className="nav-phone-icon" type="menu" onClick={this.handleShowMenu} />
           </Popover>
         )}
         <Row>
           <Col xxl={4} xl={5} lg={5} md={5} sm={24} xs={24}>
             <Link to={utils.getLocalizedPathname('/', isZhCN)} id="logo">
-              <img alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" />
-              <img alt="Ant Design" src="https://gw.alipayobjects.com/zos/rmsportal/DkKNubTaaVsKURhcVGkh.svg" />
+              <img
+                alt="logo"
+                src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+              />
+              <img
+                alt="Ant Design"
+                src="https://gw.alipayobjects.com/zos/rmsportal/DkKNubTaaVsKURhcVGkh.svg"
+              />
+              <Santa />
             </Link>
           </Col>
           <Col xxl={20} xl={19} lg={19} md={19} sm={0} xs={0}>
             <div id="search-box">
               <Icon type="search" />
-              <Input ref={(ref) => { this.searchInput = ref; }} placeholder={searchPlaceholder} />
+              <Input
+                ref={ref => {
+                  this.searchInput = ref;
+                }}
+                placeholder={searchPlaceholder}
+              />
             </div>
             {!isMobile && menu}
           </Col>

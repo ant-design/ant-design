@@ -8,12 +8,15 @@ import { ConfigConsumer, ConfigProviderProps } from '../config-provider';
 import omit from 'omit.js';
 import warning from 'warning';
 import Icon from '../icon';
+import { tuple } from '../_util/type';
+
+const SelectSizes = tuple('default', 'large', 'small');
 
 export interface AbstractSelectProps {
   prefixCls?: string;
   className?: string;
   showAction?: string | string[];
-  size?: 'default' | 'large' | 'small';
+  size?: (typeof SelectSizes)[number];
   notFoundContent?: React.ReactNode | null;
   transitionName?: string;
   choiceTransitionName?: string;
@@ -37,7 +40,7 @@ export interface AbstractSelectProps {
   open?: boolean;
   onDropdownVisibleChange?: (open: boolean) => void;
   autoClearSearchValue?: boolean;
-  dropdownRender?: (menu: React.ReactNode) => React.ReactNode;
+  dropdownRender?: (menu?: React.ReactNode, props?: SelectProps) => React.ReactNode;
   loading?: boolean;
 }
 
@@ -97,7 +100,7 @@ export interface SelectLocale {
 const SelectPropTypes = {
   prefixCls: PropTypes.string,
   className: PropTypes.string,
-  size: PropTypes.oneOf(['default', 'large', 'small']),
+  size: PropTypes.oneOf(SelectSizes),
   notFoundContent: PropTypes.any,
   showSearch: PropTypes.bool,
   optionLabelProp: PropTypes.string,
@@ -131,9 +134,9 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
 
     warning(
       props.mode !== 'combobox',
-      'The combobox mode of Select is deprecated,' +
-      'it will be removed in next major version,' +
-      'please use AutoComplete instead',
+      'The combobox mode of Select is deprecated, ' +
+        'it will be removed in next major version, ' +
+        'please use AutoComplete instead',
     );
   }
 
@@ -147,7 +150,7 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
 
   saveSelect = (node: any) => {
     this.rcSelect = node;
-  }
+  };
 
   getNotFoundContent(locale: SelectLocale) {
     const { notFoundContent } = this.props;
@@ -164,16 +167,13 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
   }
 
   renderSuffixIcon() {
-    const {
-      prefixCls,
-      loading,
-      suffixIcon,
-    } = this.props;
+    const { prefixCls, loading, suffixIcon } = this.props;
     if (suffixIcon) {
-      return React.isValidElement<{ className?: string }>(suffixIcon) ?
-        React.cloneElement(suffixIcon, {
-          className: classNames(suffixIcon.props.className, `${prefixCls}-arrow-icon`),
-        }) : suffixIcon;
+      return React.isValidElement<{ className?: string }>(suffixIcon)
+        ? React.cloneElement(suffixIcon, {
+            className: classNames(suffixIcon.props.className, `${prefixCls}-arrow-icon`),
+          })
+        : suffixIcon;
     }
     if (loading) {
       return <Icon type="loading" />;
@@ -195,10 +195,13 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
     } = this.props;
     const rest = omit(restProps, ['inputIcon']);
 
-    const cls = classNames({
-      [`${prefixCls}-lg`]: size === 'large',
-      [`${prefixCls}-sm`]: size === 'small',
-    }, className);
+    const cls = classNames(
+      {
+        [`${prefixCls}-lg`]: size === 'large',
+        [`${prefixCls}-sm`]: size === 'small',
+      },
+      className,
+    );
 
     let { optionLabelProp } = this.props;
     if (this.isCombobox()) {
@@ -212,47 +215,31 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
       combobox: this.isCombobox(),
     };
 
-    const finalRemoveIcon = removeIcon && (
-      React.isValidElement<{ className?: string }>(removeIcon) ?
-        React.cloneElement(
-          removeIcon,
-          {
-            className: classNames(
-              removeIcon.props.className,
-              `${prefixCls}-remove-icon`,
-            ),
-          },
-        ) : removeIcon) || (
-      <Icon type="close" className={`${prefixCls}-remove-icon`} />
-    );
+    const finalRemoveIcon = (removeIcon &&
+      (React.isValidElement<{ className?: string }>(removeIcon)
+        ? React.cloneElement(removeIcon, {
+            className: classNames(removeIcon.props.className, `${prefixCls}-remove-icon`),
+          })
+        : removeIcon)) || <Icon type="close" className={`${prefixCls}-remove-icon`} />;
 
-    const finalClearIcon = clearIcon && (
-      React.isValidElement<{ className?: string }>(clearIcon) ?
-        React.cloneElement(
-          clearIcon,
-          {
-            className: classNames(
-              clearIcon.props.className,
-              `${prefixCls}-clear-icon`,
-            ),
-          },
-        ) : clearIcon) || (
+    const finalClearIcon = (clearIcon &&
+      (React.isValidElement<{ className?: string }>(clearIcon)
+        ? React.cloneElement(clearIcon, {
+            className: classNames(clearIcon.props.className, `${prefixCls}-clear-icon`),
+          })
+        : clearIcon)) || (
       <Icon type="close-circle" theme="filled" className={`${prefixCls}-clear-icon`} />
     );
 
-    const finalMenuItemSelectedIcon = menuItemSelectedIcon && (
-      React.isValidElement<{ className?: string }>(menuItemSelectedIcon) ?
-        React.cloneElement(
-          menuItemSelectedIcon,
-          {
+    const finalMenuItemSelectedIcon = (menuItemSelectedIcon &&
+      (React.isValidElement<{ className?: string }>(menuItemSelectedIcon)
+        ? React.cloneElement(menuItemSelectedIcon, {
             className: classNames(
               menuItemSelectedIcon.props.className,
               `${prefixCls}-selected-icon`,
             ),
-          },
-        ) : menuItemSelectedIcon) || (
-      <Icon type="check" className={`${prefixCls}-selected-icon`} />
-    );
+          })
+        : menuItemSelectedIcon)) || <Icon type="check" className={`${prefixCls}-selected-icon`} />;
 
     return (
       <ConfigConsumer>
@@ -276,14 +263,11 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
         }}
       </ConfigConsumer>
     );
-  }
+  };
 
   render() {
     return (
-      <LocaleReceiver
-        componentName="Select"
-        defaultLocale={defaultLocale.Select}
-      >
+      <LocaleReceiver componentName="Select" defaultLocale={defaultLocale.Select}>
         {this.renderSelect}
       </LocaleReceiver>
     );

@@ -88,7 +88,7 @@ describe('Test utils function', () => {
     });
   });
 
-  it('delayRaf', (done) => {
+  it('delayRaf', done => {
     jest.useRealTimers();
 
     let bamboo = false;
@@ -118,9 +118,13 @@ describe('Test utils function', () => {
 
   it('triggerEvent', () => {
     const button = document.createElement('button');
-    button.addEventListener('click', () => {
-      button.style.width = '100px';
-    }, true);
+    button.addEventListener(
+      'click',
+      () => {
+        button.style.width = '100px';
+      },
+      true,
+    );
     triggerEvent(button, 'click');
     expect(button.style.width).toBe('100px');
   });

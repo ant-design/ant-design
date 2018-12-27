@@ -8,18 +8,20 @@
 // Normalize is licensed MIT. https://github.com/necolas/normalize.css
 
 @font-face {
-  font-family: "Chinese Quote";
-  src: local("PingFang SC"), local("SimSun");
+  font-family: 'Chinese Quote';
+  src: local('PingFang SC'), local('SimSun');
   unicode-range: U+2018, U+2019, U+201c, U+201d;
 }
 
 // HTML & Body reset
-html, body {
+html,
+body {
   .square(100%);
 }
 
 // remove the clear button of a text input control in IE10+
-input::-ms-clear, input::-ms-reveal {
+input::-ms-clear,
+input::-ms-reveal {
   display: none;
 }
 
@@ -49,10 +51,22 @@ html {
 }
 
 // IE10+ doesn't honor `<meta name="viewport">` in some cases.
-@-ms-viewport { width: device-width; }
+@-ms-viewport {
+  width: device-width;
+}
 
 // Shim for "new" HTML5 structural elements to display correctly (IE10, older browsers)
-article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, section {
+article,
+aside,
+dialog,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
   display: block;
 }
 
@@ -76,7 +90,7 @@ body {
 // might still respond to pointer events.
 //
 // Credit: https://github.com/suitcss/base
-[tabindex="-1"]:focus {
+[tabindex='-1']:focus {
   outline: none !important;
 }
 
@@ -99,9 +113,14 @@ hr {
 //
 // By default, `<h1>`-`<h6>` all receive top and bottom margins. We nuke the top
 // margin for easier control within type scales as it avoids margin collapsing.
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin-top: 0;
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
   color: @heading-color;
   font-weight: 500;
 }
@@ -123,7 +142,8 @@ p {
 // 4. Duplicate behavior to the data-* attribute for our tooltip plugin
 
 abbr[title],
-abbr[data-original-title] { // 4
+abbr[data-original-title] {
+  // 4
   text-decoration: underline; // 2
   text-decoration: underline dotted; // 2
   cursor: help; // 3
@@ -136,9 +156,9 @@ address {
   line-height: inherit;
 }
 
-input[type="text"],
-input[type="password"],
-input[type="number"],
+input[type='text'],
+input[type='password'],
+input[type='number'],
 textarea {
   -webkit-appearance: none;
 }
@@ -162,7 +182,7 @@ dt {
 }
 
 dd {
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
   margin-left: 0; // Undo browser default
 }
 
@@ -196,8 +216,12 @@ sup {
   vertical-align: baseline;
 }
 
-sub { bottom: -.25em; }
-sup { top: -.5em; }
+sub {
+  bottom: -0.25em;
+}
+sup {
+  top: -0.5em;
+}
 
 //
 // Links
@@ -209,7 +233,7 @@ a {
   text-decoration: @link-decoration;
   outline: none;
   cursor: pointer;
-  transition: color .3s;
+  transition: color 0.3s;
   -webkit-text-decoration-skip: objects; // remove gaps in links underline in iOS 8+ and Safari 8+.
 
   &:focus {
@@ -293,8 +317,8 @@ svg:not(:root) {
 a,
 area,
 button,
-[role="button"],
-input:not([type=range]),
+[role='button'],
+input:not([type='range']),
 label,
 select,
 summary,
@@ -311,8 +335,8 @@ table {
 }
 
 caption {
-  padding-top: .75em;
-  padding-bottom: .3em;
+  padding-top: 0.75em;
+  padding-bottom: 0.3em;
   color: @text-color-secondary;
   text-align: left;
   caption-side: bottom;
@@ -362,23 +386,23 @@ html [type="button"], // 1
 
 // remove inner border and padding from Firefox, but don't restore the outline like Normalize.
 button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
   padding: 0;
   border-style: none;
 }
 
-input[type="radio"],
-input[type="checkbox"] {
+input[type='radio'],
+input[type='checkbox'] {
   box-sizing: border-box; // 1. Add the correct box sizing in IE 10-
   padding: 0; // 2. remove the padding in IE 10-
 }
 
-input[type="date"],
-input[type="time"],
-input[type="datetime-local"],
-input[type="month"] {
+input[type='date'],
+input[type='time'],
+input[type='datetime-local'],
+input[type='month'] {
   // remove the default appearance of temporal inputs to avoid a Mobile Safari
   // bug where setting a custom line-height prevents text from being vertically
   // centered within the input.
@@ -413,7 +437,7 @@ legend {
   width: 100%;
   max-width: 100%; // 1
   padding: 0;
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
   font-size: 1.5em;
   line-height: inherit;
   color: inherit; // 2
@@ -425,12 +449,12 @@ progress {
 }
 
 // Correct the cursor style of incement and decement buttons in Chrome.
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
   height: auto;
 }
 
-[type="search"] {
+[type='search'] {
   // This overrides the extra rounded corners on search inputs in iOS so that our
   // `.form-control` class can properly style them. Note that this cannot simply
   // be added to `.form-control` as it's not specific enough. For details, see
@@ -443,8 +467,8 @@ progress {
 // remove the inner padding and cancel buttons in Chrome and Safari on macOS.
 //
 
-[type="search"]::-webkit-search-cancel-button,
-[type="search"]::-webkit-search-decoration {
+[type='search']::-webkit-search-cancel-button,
+[type='search']::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -481,7 +505,7 @@ template {
 }
 
 mark {
-  padding: .2em;
+  padding: 0.2em;
   background-color: @yellow-1;
 }
 

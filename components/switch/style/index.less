@@ -1,8 +1,8 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@switch-prefix-cls: ~"@{ant-prefix}-switch";
-@switch-duration: .36s;
+@switch-prefix-cls: ~'@{ant-prefix}-switch';
+@switch-duration: 0.36s;
 
 .@{switch-prefix-cls} {
   .reset-component;
@@ -37,13 +37,13 @@
     top: 1px;
     border-radius: 18px;
     background-color: @component-background;
-    content: " ";
+    content: ' ';
     cursor: pointer;
     transition: all @switch-duration @ease-in-out-circ;
   }
 
   &:after {
-    box-shadow: 0 2px 4px 0 rgba(0, 35, 11, .2);
+    box-shadow: 0 2px 4px 0 rgba(0, 35, 11, 0.2);
   }
 
   &:active:before,

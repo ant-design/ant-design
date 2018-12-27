@@ -59,7 +59,7 @@ class MyUpload extends React.Component {
       if (file.response) {
         return file.response.status === 'success';
       }
-      return true;
+      return false;
     });
 
     this.setState({ fileList });

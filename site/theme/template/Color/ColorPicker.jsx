@@ -13,7 +13,7 @@ export default class ColorPicker extends Component {
     onChange: noop,
     onChangeComplete: noop,
     position: 'bottom',
-  }
+  };
 
   static getDerivedStateFromProps(props) {
     if ('color' in props) {
@@ -26,7 +26,7 @@ export default class ColorPicker extends Component {
 
   state = {
     displayColorPicker: false,
-  }
+  };
 
   handleClick = () => {
     const { displayColorPicker } = this.state;
@@ -37,13 +37,13 @@ export default class ColorPicker extends Component {
     this.setState({ displayColorPicker: false });
   };
 
-  handleChange = (color) => {
+  handleChange = color => {
     const { onChange } = this.props;
     this.setState({ color: color.hex });
     onChange(color.hex, color);
   };
 
-  handleChangeComplete = (color) => {
+  handleChangeComplete = color => {
     const { onChangeComplete } = this.props;
     this.setState({ color: color.hex });
     onChangeComplete(color.hex);
@@ -110,8 +110,18 @@ export default class ColorPicker extends Component {
     ) : null;
 
     if (position === 'top') {
-      return <div>{picker}{swatch}</div>;
+      return (
+        <div>
+          {picker}
+          {swatch}
+        </div>
+      );
     }
-    return <div>{swatch}{picker}</div>;
+    return (
+      <div>
+        {swatch}
+        {picker}
+      </div>
+    );
   }
 }

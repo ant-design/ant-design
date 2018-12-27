@@ -28,12 +28,18 @@ class Basic extends React.Component<BasicProps, any> {
     const { prefixCls, className, children, ...others } = this.props;
     const divCls = classNames(className, prefixCls);
     return (
-      <div className={divCls} {...others}>{children}</div>
+      <div className={divCls} {...others}>
+        {children}
+      </div>
     );
   }
 }
 
-class BasicLayout extends React.Component<BasicProps, any> {
+interface BasicLayoutState {
+  siders: string[];
+}
+
+class BasicLayout extends React.Component<BasicProps, BasicLayoutState> {
   static childContextTypes = {
     siderHook: PropTypes.object,
   };
@@ -43,14 +49,14 @@ class BasicLayout extends React.Component<BasicProps, any> {
     return {
       siderHook: {
         addSider: (id: string) => {
-          this.setState({
-            siders: [...this.state.siders, id],
-          });
+          this.setState(state => ({
+            siders: [...state.siders, id],
+          }));
         },
         removeSider: (id: string) => {
-          this.setState({
-            siders: this.state.siders.filter(currentId => currentId !== id),
-          });
+          this.setState(state => ({
+            siders: state.siders.filter(currentId => currentId !== id),
+          }));
         },
       },
     };
@@ -62,7 +68,9 @@ class BasicLayout extends React.Component<BasicProps, any> {
       [`${prefixCls}-has-sider`]: hasSider || this.state.siders.length > 0,
     });
     return (
-      <div className={divCls} {...others}>{children}</div>
+      <div className={divCls} {...others}>
+        {children}
+      </div>
     );
   }
 }

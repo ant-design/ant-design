@@ -38,7 +38,7 @@
     position: absolute;
     top: 0;
     color: @text-color-secondary;
-    font-family: Arial, "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Sans Serif", sans-serif;
+    font-family: Arial, 'Hiragino Sans GB', 'Microsoft Yahei', 'Microsoft Sans Serif', sans-serif;
     padding: 0 5px;
     font-size: 16px;
     display: inline-block;
@@ -214,7 +214,9 @@
     background: tint(@primary-color, 80%);
   }
 
-  &-selected-date, &-selected-start-date, &-selected-end-date {
+  &-selected-date,
+  &-selected-start-date,
+  &-selected-end-date {
     .@{calendar-prefix-cls}-date {
       background: @primary-color;
       color: #fff;
@@ -243,7 +245,7 @@
     padding-right: 5px;
     padding-left: 5px;
     &:before {
-      content: " ";
+      content: ' ';
       position: absolute;
       top: -1px;
       left: 5px;

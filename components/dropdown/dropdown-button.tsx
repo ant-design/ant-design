@@ -7,8 +7,10 @@ import Dropdown, { DropDownProps } from './dropdown';
 import classNames from 'classnames';
 const ButtonGroup = Button.Group;
 
+type DropdownButtonType = 'primary' | 'ghost' | 'dashed';
+
 export interface DropdownButtonProps extends ButtonGroupProps, DropDownProps {
-  type?: 'primary' | 'ghost' | 'dashed';
+  type?: DropdownButtonType;
   htmlType?: ButtonHTMLType;
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
@@ -17,16 +19,27 @@ export interface DropdownButtonProps extends ButtonGroupProps, DropDownProps {
 
 export default class DropdownButton extends React.Component<DropdownButtonProps, any> {
   static defaultProps = {
-    placement: 'bottomRight',
-    type: 'default',
+    placement: 'bottomRight' as DropDownProps['placement'],
+    type: 'default' as DropdownButtonType,
     prefixCls: 'ant-dropdown-button',
   };
 
   renderButton = ({ getPopupContainer: getContextPopupContainer }: ConfigProviderProps) => {
     const {
-      type, disabled, onClick, htmlType, children,
-      prefixCls, className, overlay, trigger, align,
-      visible, onVisibleChange, placement, getPopupContainer,
+      type,
+      disabled,
+      onClick,
+      htmlType,
+      children,
+      prefixCls,
+      className,
+      overlay,
+      trigger,
+      align,
+      visible,
+      onVisibleChange,
+      placement,
+      getPopupContainer,
       ...restProps
     } = this.props;
 
@@ -44,16 +57,8 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
     }
 
     return (
-      <ButtonGroup
-        {...restProps}
-        className={classNames(prefixCls, className)}
-      >
-        <Button
-          type={type}
-          disabled={disabled}
-          onClick={onClick}
-          htmlType={htmlType}
-        >
+      <ButtonGroup {...restProps} className={classNames(prefixCls, className)}>
+        <Button type={type} disabled={disabled} onClick={onClick} htmlType={htmlType}>
           {children}
         </Button>
         <Dropdown {...dropdownProps}>
@@ -61,13 +66,9 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
         </Dropdown>
       </ButtonGroup>
     );
-  }
+  };
 
   render() {
-    return (
-      <ConfigConsumer>
-        {this.renderButton}
-      </ConfigConsumer>
-    );
+    return <ConfigConsumer>{this.renderButton}</ConfigConsumer>;
   }
 }

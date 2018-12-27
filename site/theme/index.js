@@ -8,10 +8,9 @@ const appShellTmpl = './template/AppShell';
 
 function pickerGenerator(module) {
   const tester = new RegExp(`^docs/${module}`);
-  return (markdownData) => {
+  return markdownData => {
     const { filename } = markdownData.meta;
-    if (tester.test(filename)
-        && !/\/demo$/.test(path.dirname(filename))) {
+    if (tester.test(filename) && !/\/demo$/.test(path.dirname(filename))) {
       return {
         meta: markdownData.meta,
       };
@@ -30,8 +29,7 @@ module.exports = {
   pick: {
     components(markdownData) {
       const { filename } = markdownData.meta;
-      if (!/^components/.test(filename)
-          || /[/\\]demo$/.test(path.dirname(filename))) {
+      if (!/^components/.test(filename) || /[/\\]demo$/.test(path.dirname(filename))) {
         return null;
       }
       return {
@@ -61,39 +59,51 @@ module.exports = {
     path: '/',
     component: './template/Layout/index',
     indexRoute: { component: homeTmpl },
-    childRoutes: [{
-      path: 'app-shell',
-      component: appShellTmpl,
-    }, {
-      path: 'index-cn',
-      component: homeTmpl,
-    }, {
-      path: 'docs/pattern/:children',
-      component: redirectTmpl,
-    }, {
-      path: 'docs/react/:children',
-      component: contentTmpl,
-    }, {
-      path: 'changelog',
-      component: contentTmpl,
-    }, {
-      path: 'changelog-cn',
-      component: contentTmpl,
-    }, {
-      path: 'components/:children/',
-      component: contentTmpl,
-    }, {
-      path: 'docs/spec/feature',
-      component: redirectTmpl,
-    }, {
-      path: 'docs/spec/feature-cn',
-      component: redirectTmpl,
-    }, {
-      path: 'docs/spec/:children',
-      component: contentTmpl,
-    }, {
-      path: 'docs/resource/:children',
-      component: redirectTmpl,
-    }],
+    childRoutes: [
+      {
+        path: 'app-shell',
+        component: appShellTmpl,
+      },
+      {
+        path: 'index-cn',
+        component: homeTmpl,
+      },
+      {
+        path: 'docs/pattern/:children',
+        component: redirectTmpl,
+      },
+      {
+        path: 'docs/react/:children',
+        component: contentTmpl,
+      },
+      {
+        path: 'changelog',
+        component: contentTmpl,
+      },
+      {
+        path: 'changelog-cn',
+        component: contentTmpl,
+      },
+      {
+        path: 'components/:children/',
+        component: contentTmpl,
+      },
+      {
+        path: 'docs/spec/feature',
+        component: redirectTmpl,
+      },
+      {
+        path: 'docs/spec/feature-cn',
+        component: redirectTmpl,
+      },
+      {
+        path: 'docs/spec/:children',
+        component: contentTmpl,
+      },
+      {
+        path: 'docs/resource/:children',
+        component: redirectTmpl,
+      },
+    ],
   },
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import { message } from 'antd';
 import CopyToClipboard from 'react-copy-to-clipboard';
 
-const rgbToHex = (rgbString) => {
+const rgbToHex = rgbString => {
   const rgb = rgbString.match(/\d+/g);
   let r = parseInt(rgb[0], 10).toString(16);
   let g = parseInt(rgb[1], 10).toString(16);
@@ -16,7 +16,7 @@ const rgbToHex = (rgbString) => {
 export default class Palette extends React.Component {
   componentDidMount() {
     this.hexColors = {};
-    Object.keys(this.colorNodes).forEach((key) => {
+    Object.keys(this.colorNodes).forEach(key => {
       const computedColor = getComputedStyle(this.colorNodes[key])['background-color'];
       if (computedColor.indexOf('rgba') >= 0) {
         this.hexColors[key] = computedColor;
@@ -30,9 +30,9 @@ export default class Palette extends React.Component {
   render() {
     this.colorNodes = this.colorNodes || {};
     const {
-      showTitle, direction, color: {
-        name, description, english, chinese,
-      },
+      showTitle,
+      direction,
+      color: { name, description, english, chinese },
     } = this.props;
     const className = direction === 'horizontal' ? 'color-palette-horizontal' : 'color-palette';
     const colors = [];
@@ -47,8 +47,10 @@ export default class Palette extends React.Component {
         >
           <div
             key={i}
-            ref={(node) => { this.colorNodes[`${name}-${i}`] = node; }}
-            className={`main-color-item palatte-${name}-${i}`}
+            ref={node => {
+              this.colorNodes[`${name}-${i}`] = node;
+            }}
+            className={`main-color-item palette-${name}-${i}`}
             style={{
               color: (name === 'yellow' ? i > 6 : i > 5) ? '#fff' : 'unset',
               fontWeight: i === 6 ? 'bold' : 'normal',
@@ -56,11 +58,11 @@ export default class Palette extends React.Component {
             title="click to copy color"
           >
             <span className="main-color-text">{colorText}</span>
-            {this.hexColors
-              ? <span className="main-color-value">{this.hexColors[colorText]}</span>
-              : null}
+            {this.hexColors ? (
+              <span className="main-color-value">{this.hexColors[colorText]}</span>
+            ) : null}
           </div>
-        </CopyToClipboard>
+        </CopyToClipboard>,
       );
     }
     return (

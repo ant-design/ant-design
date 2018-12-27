@@ -37,13 +37,18 @@ describe('Progress', () => {
         percent={50}
         successPercent={10}
         format={(percent, successPercent) => `${percent} ${successPercent}`}
-      />
+      />,
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('render strokeColor', () => {
     const wrapper = mount(<Progress type="circle" percent={50} strokeColor="red" />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('render normal progress', () => {
+    const wrapper = mount(<Progress status="normal" />);
     expect(wrapper.render()).toMatchSnapshot();
   });
 });

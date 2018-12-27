@@ -18,8 +18,6 @@ import {
   Form, Input, Button, Radio,
 } from 'antd';
 
-const FormItem = Form.Item;
-
 class FormLayoutDemo extends React.Component {
   constructor() {
     super();
@@ -44,7 +42,7 @@ class FormLayoutDemo extends React.Component {
     return (
       <div>
         <Form layout={formLayout}>
-          <FormItem
+          <Form.Item
             label="Form Layout"
             {...formItemLayout}
           >
@@ -53,22 +51,22 @@ class FormLayoutDemo extends React.Component {
               <Radio.Button value="vertical">Vertical</Radio.Button>
               <Radio.Button value="inline">Inline</Radio.Button>
             </Radio.Group>
-          </FormItem>
-          <FormItem
+          </Form.Item>
+          <Form.Item
             label="Field A"
             {...formItemLayout}
           >
             <Input placeholder="input placeholder" />
-          </FormItem>
-          <FormItem
+          </Form.Item>
+          <Form.Item
             label="Field B"
             {...formItemLayout}
           >
             <Input placeholder="input placeholder" />
-          </FormItem>
-          <FormItem {...buttonItemLayout}>
+          </Form.Item>
+          <Form.Item {...buttonItemLayout}>
             <Button type="primary">Submit</Button>
-          </FormItem>
+          </Form.Item>
         </Form>
       </div>
     );

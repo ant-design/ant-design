@@ -1,7 +1,8 @@
 /* eslint no-param-reassign: 0 */
 // This config is for building dist files
-const webpack = require('webpack'); // eslint-disable-line
 const getWebpackConfig = require('antd-tools/lib/getWebpackConfig');
+
+const { webpack } = getWebpackConfig;
 
 // noParse still leave `require('./locale' + name)` in dist files
 // ignore is better: http://stackoverflow.com/q/25384360
@@ -30,7 +31,7 @@ function externalMoment(config) {
 
 const webpackConfig = getWebpackConfig(false);
 if (process.env.RUN_ENV === 'PRODUCTION') {
-  webpackConfig.forEach((config) => {
+  webpackConfig.forEach(config => {
     ignoreMomentLocale(config);
     externalMoment(config);
     addLocales(config);

@@ -25,19 +25,23 @@ describe('Search', () => {
   });
 
   it('onSearch', () => {
-    const dataSource = [{
-      key: 'a',
-      title: 'a',
-      description: 'a',
-    }, {
-      key: 'b',
-      title: 'b',
-      description: 'b',
-    }, {
-      key: 'c',
-      title: 'c',
-      description: 'c',
-    }];
+    const dataSource = [
+      {
+        key: 'a',
+        title: 'a',
+        description: 'a',
+      },
+      {
+        key: 'b',
+        title: 'b',
+        description: 'b',
+      },
+      {
+        key: 'c',
+        title: 'c',
+        description: 'c',
+      },
+    ];
 
     const onSearch = jest.fn();
     const wrapper = mount(
@@ -48,15 +52,21 @@ describe('Search', () => {
         render={item => item.title}
         onSearch={onSearch}
         showSearch
-      />
+      />,
     );
 
-    wrapper.find('.ant-input').at(0).simulate('change', { target: { value: 'a' } });
+    wrapper
+      .find('.ant-input')
+      .at(0)
+      .simulate('change', { target: { value: 'a' } });
     expect(onSearch).toBeCalledWith('left', 'a');
 
     onSearch.mockReset();
 
-    wrapper.find('.ant-transfer-list-search-action').at(0).simulate('click');
+    wrapper
+      .find('.ant-transfer-list-search-action')
+      .at(0)
+      .simulate('click');
     expect(onSearch).toBeCalledWith('left', '');
   });
 
@@ -64,17 +74,16 @@ describe('Search', () => {
     const onSearchChange = jest.fn();
 
     const wrapper = mount(
-      <Transfer
-        render={item => item.title}
-        onSearchChange={onSearchChange}
-        showSearch
-      />
+      <Transfer render={item => item.title} onSearchChange={onSearchChange} showSearch />,
     );
 
-    wrapper.find('.ant-input').at(0).simulate('change', { target: { value: 'a' } });
+    wrapper
+      .find('.ant-input')
+      .at(0)
+      .simulate('change', { target: { value: 'a' } });
 
     expect(errorSpy.mock.calls[0][0]).toMatch(
-      'Warning: `onSearchChange` in Transfer is deprecated. Please use `onSearch` instead.'
+      'Warning: `onSearchChange` in Transfer is deprecated. Please use `onSearch` instead.',
     );
     expect(onSearchChange.mock.calls[0][0]).toEqual('left');
     expect(onSearchChange.mock.calls[0][1].target.value).toEqual('a');

@@ -42,4 +42,4 @@ export default {
     uploadError: 'Feltöltési hiba',
     previewFile: 'Fájl előnézet',
   },
- };
+};

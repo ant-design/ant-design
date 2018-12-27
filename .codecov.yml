@@ -1,2 +1,6 @@
 codecov:
   branch: master
+
+coverage:
+  precision: 1
+  round: down

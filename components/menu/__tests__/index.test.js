@@ -33,7 +33,7 @@ describe('Menu', () => {
           </SubMenu>
         </SubMenu>
         <Menu.Item key="2">menu2</Menu.Item>
-      </Menu>
+      </Menu>,
     );
     expect(wrapper.find('.ant-menu-submenu-selected').length).toBe(1);
   });
@@ -46,9 +46,14 @@ describe('Menu', () => {
           <Menu.Item key="submenu2">Option 2</Menu.Item>
         </SubMenu>
         <Menu.Item key="2">menu2</Menu.Item>
-      </Menu>
+      </Menu>,
     );
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).not.toBe(true);
+    expect(
+      wrapper
+        .find('.ant-menu-sub')
+        .at(0)
+        .hasClass('ant-menu-hidden'),
+    ).not.toBe(true);
   });
 
   it('should accept defaultOpenKeys in mode inline', () => {
@@ -59,9 +64,14 @@ describe('Menu', () => {
           <Menu.Item key="submenu2">Option 2</Menu.Item>
         </SubMenu>
         <Menu.Item key="2">menu2</Menu.Item>
-      </Menu>
+      </Menu>,
     );
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).not.toBe(true);
+    expect(
+      wrapper
+        .find('.ant-menu-sub')
+        .at(0)
+        .hasClass('ant-menu-hidden'),
+    ).not.toBe(true);
   });
 
   it('should accept defaultOpenKeys in mode vertical', () => {
@@ -72,9 +82,14 @@ describe('Menu', () => {
           <Menu.Item key="submenu2">Option 2</Menu.Item>
         </SubMenu>
         <Menu.Item key="2">menu2</Menu.Item>
-      </Menu>
+      </Menu>,
     );
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).not.toBe(true);
+    expect(
+      wrapper
+        .find('.ant-menu-sub')
+        .at(0)
+        .hasClass('ant-menu-hidden'),
+    ).not.toBe(true);
   });
 
   it('horizontal', () => {
@@ -85,15 +100,33 @@ describe('Menu', () => {
           <Menu.Item key="submenu2">Option 2</Menu.Item>
         </SubMenu>
         <Menu.Item key="2">menu2</Menu.Item>
-      </Menu>
+      </Menu>,
     );
-    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(true);
+    expect(
+      wrapper
+        .find('.ant-menu-sub')
+        .hostNodes()
+        .at(0)
+        .hasClass('ant-menu-hidden'),
+    ).not.toBe(true);
     wrapper.setProps({ openKeys: [] });
     wrapper.update();
-    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).toBe(true);
+    expect(
+      wrapper
+        .find('.ant-menu-sub')
+        .hostNodes()
+        .at(0)
+        .hasClass('ant-menu-hidden'),
+    ).toBe(true);
     wrapper.setProps({ openKeys: ['1'] });
     wrapper.update();
-    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(true);
+    expect(
+      wrapper
+        .find('.ant-menu-sub')
+        .hostNodes()
+        .at(0)
+        .hasClass('ant-menu-hidden'),
+    ).not.toBe(true);
   });
 
   it('inline', () => {
@@ -104,15 +137,33 @@ describe('Menu', () => {
           <Menu.Item key="submenu2">Option 2</Menu.Item>
         </SubMenu>
         <Menu.Item key="2">menu2</Menu.Item>
-      </Menu>
+      </Menu>,
     );
-    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(true);
+    expect(
+      wrapper
+        .find('.ant-menu-sub')
+        .hostNodes()
+        .at(0)
+        .hasClass('ant-menu-hidden'),
+    ).not.toBe(true);
     wrapper.setProps({ openKeys: [] });
     wrapper.update();
-    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).toBe(true);
+    expect(
+      wrapper
+        .find('.ant-menu-sub')
+        .hostNodes()
+        .at(0)
+        .hasClass('ant-menu-hidden'),
+    ).toBe(true);
     wrapper.setProps({ openKeys: ['1'] });
     wrapper.update();
-    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(true);
+    expect(
+      wrapper
+        .find('.ant-menu-sub')
+        .hostNodes()
+        .at(0)
+        .hasClass('ant-menu-hidden'),
+    ).not.toBe(true);
   });
 
   it('vertical', () => {
@@ -123,15 +174,33 @@ describe('Menu', () => {
           <Menu.Item key="submenu2">Option 2</Menu.Item>
         </SubMenu>
         <Menu.Item key="2">menu2</Menu.Item>
-      </Menu>
+      </Menu>,
     );
-    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(true);
+    expect(
+      wrapper
+        .find('.ant-menu-sub')
+        .hostNodes()
+        .at(0)
+        .hasClass('ant-menu-hidden'),
+    ).not.toBe(true);
     wrapper.setProps({ openKeys: [] });
     wrapper.update();
-    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).toBe(true);
+    expect(
+      wrapper
+        .find('.ant-menu-sub')
+        .hostNodes()
+        .at(0)
+        .hasClass('ant-menu-hidden'),
+    ).toBe(true);
     wrapper.setProps({ openKeys: ['1'] });
     wrapper.update();
-    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(true);
+    expect(
+      wrapper
+        .find('.ant-menu-sub')
+        .hostNodes()
+        .at(0)
+        .hasClass('ant-menu-hidden'),
+    ).not.toBe(true);
   });
 
   // https://github.com/ant-design/ant-design/pulls/4677
@@ -144,7 +213,7 @@ describe('Menu', () => {
           <Menu.Item key="1">menu1</Menu.Item>
           <Menu.Item key="2">menu2</Menu.Item>
         </SubMenu>
-      </Menu>
+      </Menu>,
     );
     wrapper.update();
     // just expect no error emit
@@ -158,13 +227,28 @@ describe('Menu', () => {
           <Menu.Item key="submenu2">Option 2</Menu.Item>
         </SubMenu>
         <Menu.Item key="2">menu2</Menu.Item>
-      </Menu>
+      </Menu>,
     );
-    expect(wrapper.find('ul.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(false);
+    expect(
+      wrapper
+        .find('ul.ant-menu-sub')
+        .at(0)
+        .hasClass('ant-menu-hidden'),
+    ).toBe(false);
     wrapper.setProps({ mode: 'vertical' });
-    expect(wrapper.find('ul.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(false);
+    expect(
+      wrapper
+        .find('ul.ant-menu-sub')
+        .at(0)
+        .hasClass('ant-menu-hidden'),
+    ).toBe(false);
     wrapper.setProps({ mode: 'inline' });
-    expect(wrapper.find('ul.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(false);
+    expect(
+      wrapper
+        .find('ul.ant-menu-sub')
+        .at(0)
+        .hasClass('ant-menu-hidden'),
+    ).toBe(false);
   });
 
   it('should always follow openKeys when inlineCollapsed is switched', () => {
@@ -175,17 +259,23 @@ describe('Menu', () => {
           <span>Option</span>
         </Menu.Item>
         <SubMenu key="1" title="submenu1">
-          <Menu.Item key="submenu1">
-            Option
-          </Menu.Item>
-          <Menu.Item key="submenu2">
-            Option
-          </Menu.Item>
+          <Menu.Item key="submenu1">Option</Menu.Item>
+          <Menu.Item key="submenu2">Option</Menu.Item>
         </SubMenu>
-      </Menu>
+      </Menu>,
     );
-    expect(wrapper.find('ul.ant-menu-sub').at(0).hasClass('ant-menu-inline')).toBe(true);
-    expect(wrapper.find('ul.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(false);
+    expect(
+      wrapper
+        .find('ul.ant-menu-sub')
+        .at(0)
+        .hasClass('ant-menu-inline'),
+    ).toBe(true);
+    expect(
+      wrapper
+        .find('ul.ant-menu-sub')
+        .at(0)
+        .hasClass('ant-menu-hidden'),
+    ).toBe(false);
 
     wrapper.setProps({ inlineCollapsed: true });
     // 动画结束后套样式;
@@ -193,15 +283,30 @@ describe('Menu', () => {
     wrapper.update();
     wrapper.simulate('transitionEnd', { propertyName: 'width' });
 
-    expect(wrapper.find('ul.ant-menu-root').at(0).hasClass('ant-menu-vertical')).toBe(true);
+    expect(
+      wrapper
+        .find('ul.ant-menu-root')
+        .at(0)
+        .hasClass('ant-menu-vertical'),
+    ).toBe(true);
     expect(wrapper.find('ul.ant-menu-sub').length).toBe(0);
 
     wrapper.setProps({ inlineCollapsed: false });
     jest.runAllTimers();
     wrapper.update();
 
-    expect(wrapper.find('ul.ant-menu-sub').at(0).hasClass('ant-menu-inline')).toBe(true);
-    expect(wrapper.find('ul.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(false);
+    expect(
+      wrapper
+        .find('ul.ant-menu-sub')
+        .at(0)
+        .hasClass('ant-menu-inline'),
+    ).toBe(true);
+    expect(
+      wrapper
+        .find('ul.ant-menu-sub')
+        .at(0)
+        .hasClass('ant-menu-hidden'),
+    ).toBe(false);
   });
 
   it('inlineCollapsed should works well when specify a not existed default openKeys', () => {
@@ -212,27 +317,46 @@ describe('Menu', () => {
           <span>Option</span>
         </Menu.Item>
         <SubMenu key="1" title="submenu1">
-          <Menu.Item key="submenu1">
-            Option
-          </Menu.Item>
-          <Menu.Item key="submenu2">
-            Option
-          </Menu.Item>
+          <Menu.Item key="submenu1">Option</Menu.Item>
+          <Menu.Item key="submenu2">Option</Menu.Item>
         </SubMenu>
-      </Menu>
+      </Menu>,
     );
     expect(wrapper.find('.ant-menu-sub').length).toBe(0);
     wrapper.setProps({ inlineCollapsed: true });
     jest.runAllTimers();
     wrapper.update();
     wrapper.simulate('transitionEnd', { propertyName: 'width' });
-    wrapper.find('.ant-menu-submenu-title').at(0).simulate('mouseEnter');
+    wrapper
+      .find('.ant-menu-submenu-title')
+      .at(0)
+      .simulate('mouseEnter');
     jest.runAllTimers();
     wrapper.update();
-    expect(wrapper.find('.ant-menu-submenu').at(0).hasClass('ant-menu-submenu-vertical')).toBe(true);
-    expect(wrapper.find('.ant-menu-submenu').at(0).hasClass('ant-menu-submenu-open')).toBe(true);
-    expect(wrapper.find('ul.ant-menu-sub').at(0).hasClass('ant-menu-vertical')).toBe(true);
-    expect(wrapper.find('ul.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(false);
+    expect(
+      wrapper
+        .find('.ant-menu-submenu')
+        .at(0)
+        .hasClass('ant-menu-submenu-vertical'),
+    ).toBe(true);
+    expect(
+      wrapper
+        .find('.ant-menu-submenu')
+        .at(0)
+        .hasClass('ant-menu-submenu-open'),
+    ).toBe(true);
+    expect(
+      wrapper
+        .find('ul.ant-menu-sub')
+        .at(0)
+        .hasClass('ant-menu-vertical'),
+    ).toBe(true);
+    expect(
+      wrapper
+        .find('ul.ant-menu-sub')
+        .at(0)
+        .hasClass('ant-menu-hidden'),
+    ).toBe(false);
   });
 
   describe('open submenu when click submenu title', () => {
@@ -245,7 +369,10 @@ describe('Menu', () => {
     });
 
     const toggleMenu = (wrapper, index, event) => {
-      wrapper.find('.ant-menu-submenu-title').at(index).simulate(event);
+      wrapper
+        .find('.ant-menu-submenu-title')
+        .at(index)
+        .simulate(event);
       jest.runAllTimers();
       wrapper.update();
     };
@@ -258,16 +385,27 @@ describe('Menu', () => {
             <Menu.Item key="submenu2">Option 2</Menu.Item>
           </SubMenu>
           <Menu.Item key="2">menu2</Menu.Item>
-        </Menu>
+        </Menu>,
       );
       expect(wrapper.find('.ant-menu-sub').length).toBe(0);
       toggleMenu(wrapper, 0, 'click');
       expect(wrapper.find('.ant-menu-sub').hostNodes().length).toBe(1);
-      expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(true);
+      expect(
+        wrapper
+          .find('.ant-menu-sub')
+          .hostNodes()
+          .at(0)
+          .hasClass('ant-menu-hidden'),
+      ).not.toBe(true);
       toggleMenu(wrapper, 0, 'click');
-      expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).toBe(true);
+      expect(
+        wrapper
+          .find('.ant-menu-sub')
+          .hostNodes()
+          .at(0)
+          .hasClass('ant-menu-hidden'),
+      ).toBe(true);
     });
-
 
     it('vertical', () => {
       const wrapper = mount(
@@ -277,14 +415,26 @@ describe('Menu', () => {
             <Menu.Item key="submenu2">Option 2</Menu.Item>
           </SubMenu>
           <Menu.Item key="2">menu2</Menu.Item>
-        </Menu>
+        </Menu>,
       );
       expect(wrapper.find('.ant-menu-sub').length).toBe(0);
       toggleMenu(wrapper, 0, 'mouseenter');
       expect(wrapper.find('.ant-menu-sub').hostNodes().length).toBe(1);
-      expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(true);
+      expect(
+        wrapper
+          .find('.ant-menu-sub')
+          .hostNodes()
+          .at(0)
+          .hasClass('ant-menu-hidden'),
+      ).not.toBe(true);
       toggleMenu(wrapper, 0, 'mouseleave');
-      expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).toBe(true);
+      expect(
+        wrapper
+          .find('.ant-menu-sub')
+          .hostNodes()
+          .at(0)
+          .hasClass('ant-menu-hidden'),
+      ).toBe(true);
     });
 
     it('horizontal', () => {
@@ -296,24 +446,33 @@ describe('Menu', () => {
             <Menu.Item key="submenu2">Option 2</Menu.Item>
           </SubMenu>
           <Menu.Item key="2">menu2</Menu.Item>
-        </Menu>
+        </Menu>,
       );
       expect(wrapper.find('.ant-menu-sub').length).toBe(0);
       toggleMenu(wrapper, 0, 'mouseenter');
       expect(wrapper.find('.ant-menu-sub').hostNodes().length).toBe(1);
-      expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(true);
+      expect(
+        wrapper
+          .find('.ant-menu-sub')
+          .hostNodes()
+          .at(0)
+          .hasClass('ant-menu-hidden'),
+      ).not.toBe(true);
       toggleMenu(wrapper, 0, 'mouseleave');
-      expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).toBe(true);
+      expect(
+        wrapper
+          .find('.ant-menu-sub')
+          .hostNodes()
+          .at(0)
+          .hasClass('ant-menu-hidden'),
+      ).toBe(true);
     });
   });
 
   it('inline title', () => {
     jest.useFakeTimers();
     const wrapper = mount(
-      <Menu
-        mode="inline"
-        inlineCollapsed
-      >
+      <Menu mode="inline" inlineCollapsed>
         <Menu.Item key="1" title="bamboo lucky">
           <Icon type="pie-chart" />
           <span>
@@ -325,7 +484,7 @@ describe('Menu', () => {
             />
           </span>
         </Menu.Item>
-      </Menu>
+      </Menu>,
     );
 
     wrapper.find('.ant-menu-item').simulate('mouseenter');

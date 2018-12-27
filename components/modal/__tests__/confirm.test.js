@@ -93,7 +93,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
   it('trigger onCancel once when click on cancel button', () => {
     jest.useFakeTimers();
-    ['info', 'success', 'warning', 'error'].forEach((type) => {
+    ['info', 'success', 'warning', 'error'].forEach(type => {
       Modal[type]({
         title: 'title',
         content: 'content',
@@ -108,7 +108,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
   it('could be update', () => {
     jest.useFakeTimers();
-    ['info', 'success', 'warning', 'error'].forEach((type) => {
+    ['info', 'success', 'warning', 'error'].forEach(type => {
       const instance = Modal[type]({
         title: 'title',
         content: 'content',
@@ -131,7 +131,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
   it('could be destroy', () => {
     jest.useFakeTimers();
-    ['info', 'success', 'warning', 'error'].forEach((type) => {
+    ['info', 'success', 'warning', 'error'].forEach(type => {
       const instance = Modal[type]({
         title: 'title',
         content: 'content',

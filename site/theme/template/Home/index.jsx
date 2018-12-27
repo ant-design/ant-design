@@ -6,6 +6,8 @@ import Banner from './Banner';
 import Page1 from './Page1';
 import Page2 from './Page2';
 import Page3 from './Page3';
+import Footer from '../Layout/Footer';
+
 // To store style which is only for Home and has conflicts with others.
 function getStyle() {
   return `
@@ -27,8 +29,13 @@ function getStyle() {
     #header #logo {
       padding: 0;
     }
-    #header .ant-row > div:last-child .ant-menu,
     #header .nav-phone-icon {
+      display: none;
+    }
+    #header #nav .ant-menu-item {
+      border-color: transparent;
+    }
+    #header #nav .ant-menu-item.hide-in-home-page {
       display: none;
     }
     #header .ant-row > div:last-child .header-lang-button {
@@ -60,20 +67,21 @@ class Home extends React.Component {
   static contextTypes = {
     intl: PropTypes.object.isRequired,
     isMobile: PropTypes.bool.isRequired,
-  }
+  };
 
   render() {
     const { isMobile, intl } = this.context;
     const childProps = { ...this.props, isMobile, locale: intl.locale };
     return (
       <DocumentTitle title={`Ant Design - ${intl.formatMessage({ id: 'app.home.slogan' })}`}>
-        <div className="main-wrapper">
+        <>
           <style dangerouslySetInnerHTML={{ __html: getStyle() }} /> {/* eslint-disable-line */}
           <Banner {...childProps} />
           <Page1 {...childProps} />
           <Page2 {...childProps} />
           <Page3 {...childProps} />
-        </div>
+          <Footer />
+        </>
       </DocumentTitle>
     );
   }

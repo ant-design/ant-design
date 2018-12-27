@@ -2995,7 +2995,6 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
             >
               <div
                 class="ant-tag ant-tag-blue"
-                data-show="true"
               >
                 My Birthday
               </div>

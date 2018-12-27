@@ -6,6 +6,7 @@ import Icon from '../icon';
 export interface StepsProps {
   prefixCls?: string;
   iconPrefix?: string;
+  className?: string;
   current?: number;
   initial?: number;
   labelPlacement?: 'horizontal' | 'vertical';
@@ -37,8 +38,6 @@ export default class Steps extends React.Component<StepsProps, any> {
       finish: <Icon type="check" className={`${prefixCls}-finish-icon`} />,
       error: <Icon type="close" className={`${prefixCls}-error-icon`} />,
     };
-    return (
-      <RcSteps icons={icons} {...this.props} />
-    );
+    return <RcSteps icons={icons} {...this.props} />;
   }
 }

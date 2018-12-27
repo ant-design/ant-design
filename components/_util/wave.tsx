@@ -13,7 +13,7 @@ function isHidden(element: HTMLElement) {
   return !element || element.offsetParent === null;
 }
 
-export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
+export default class Wave extends React.Component<{ insertExtraNode?: boolean }> {
   private instance?: {
     cancel: () => void;
   };
@@ -22,7 +22,7 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
   private clickWaveTimeoutId: number;
   private animationStartId: number;
   private animationStart: boolean = false;
-  private destroy: boolean = false
+  private destroy: boolean = false;
 
   isNotGrey(color: string) {
     const match = (color || '').match(/rgba?\((\d*), (\d*), (\d*)(, [\.\d]*)?\)/);
@@ -45,15 +45,16 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
     node.setAttribute(attributeName, 'true');
     // Not white or transparnt or grey
     styleForPesudo = styleForPesudo || document.createElement('style');
-    if (waveColor &&
-        waveColor !== '#ffffff' &&
-        waveColor !== 'rgb(255, 255, 255)' &&
-        this.isNotGrey(waveColor) &&
-        !/rgba\(\d*, \d*, \d*, 0\)/.test(waveColor) &&  // any transparent rgba color
-        waveColor !== 'transparent') {
+    if (
+      waveColor &&
+      waveColor !== '#ffffff' &&
+      waveColor !== 'rgb(255, 255, 255)' &&
+      this.isNotGrey(waveColor) &&
+      !/rgba\(\d*, \d*, \d*, 0\)/.test(waveColor) && // any transparent rgba color
+      waveColor !== 'transparent'
+    ) {
       extraNode.style.borderColor = waveColor;
-      styleForPesudo.innerHTML =
-        `[ant-click-animating-without-extra-node]:after { border-color: ${waveColor}; }`;
+      styleForPesudo.innerHTML = `[ant-click-animating-without-extra-node]:after { border-color: ${waveColor}; }`;
       if (!document.body.contains(styleForPesudo)) {
         document.body.appendChild(styleForPesudo);
       }
@@ -63,13 +64,15 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
     }
     TransitionEvents.addStartEventListener(node, this.onTransitionStart);
     TransitionEvents.addEndEventListener(node, this.onTransitionEnd);
-  }
+  };
 
   bindAnimationEvent = (node: HTMLElement) => {
-    if (!node ||
-        !node.getAttribute ||
-        node.getAttribute('disabled') ||
-        node.className.indexOf('disabled') >= 0) {
+    if (
+      !node ||
+      !node.getAttribute ||
+      node.getAttribute('disabled') ||
+      node.className.indexOf('disabled') >= 0
+    ) {
       return;
     }
     const onClick = (e: MouseEvent) => {
@@ -99,7 +102,7 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
         node.removeEventListener('click', onClick, true);
       },
     };
-  }
+  };
 
   getAttributeName() {
     const { insertExtraNode } = this.props;
@@ -107,7 +110,7 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
   }
 
   resetEffect(node: HTMLElement) {
-    if (!node || node === this.extraNode) {
+    if (!node || node === this.extraNode || !(node instanceof Element)) {
       return;
     }
     const { insertExtraNode } = this.props;
@@ -132,14 +135,14 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
     if (!this.animationStart) {
       this.resetEffect(node);
     }
-  }
+  };
 
   onTransitionEnd = (e: AnimationEvent) => {
     if (!e || e.animationName !== 'fadeEffect') {
       return;
     }
     this.resetEffect(e.target as HTMLElement);
-  }
+  };
 
   removeExtraStyleNode() {
     if (styleForPesudo) {
