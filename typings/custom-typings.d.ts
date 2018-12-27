@@ -1,5 +1,3 @@
-declare module 'classnames';
-
 declare module 'rc-calendar*';
 
 declare module 'rc-time-picker*';
