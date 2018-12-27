@@ -95,16 +95,14 @@ export default class Layout extends React.Component {
     const { appLocale } = this.state;
 
     return (
-      <React.StrictMode>
-        <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
-          <LocaleProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null}>
-            <div className="page-wrapper">
-              <Header {...restProps} />
-              {children}
-            </div>
-          </LocaleProvider>
-        </IntlProvider>
-      </React.StrictMode>
+      <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
+        <LocaleProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null}>
+          <div className="page-wrapper">
+            <Header {...restProps} />
+            {children}
+          </div>
+        </LocaleProvider>
+      </IntlProvider>
     );
   }
 }

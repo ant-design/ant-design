@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { Row, Col, Menu, Icon, Affix } from 'antd';
@@ -55,7 +55,7 @@ const getSideBarOpenKeys = nextProps => {
   return shouldOpenKeys;
 };
 
-export default class MainContent extends React.PureComponent {
+export default class MainContent extends Component {
   static contextTypes = {
     intl: PropTypes.object.isRequired,
     isMobile: PropTypes.bool.isRequired,
