@@ -98,8 +98,10 @@ exports[`Input should support maxLength 1`] = `
       className="ant-input"
       disabled={false}
       maxLength={3}
+      onChange={[Function]}
       onKeyDown={[Function]}
       type="text"
+      value=""
     />
   </Consumer>
 </Input>
@@ -134,9 +136,11 @@ exports[`Input.Password should change type when click 1`] = `
           action="click"
           className="ant-input"
           disabled={false}
+          onChange={[Function]}
           onKeyDown={[Function]}
           style={null}
           type="password"
+          value="111"
         />
         <span
           className="ant-input-suffix"
@@ -209,9 +213,11 @@ exports[`Input.Password should change type when click 2`] = `
           action="click"
           className="ant-input"
           disabled={false}
+          onChange={[Function]}
           onKeyDown={[Function]}
           style={null}
           type="text"
+          value="111"
         />
         <span
           className="ant-input-suffix"
@@ -288,9 +294,11 @@ exports[`Input.Password should change type when click 3`] = `
           action="click"
           className="ant-input"
           disabled={false}
+          onChange={[Function]}
           onKeyDown={[Function]}
           style={null}
           type="password"
+          value="111"
         />
         <span
           className="ant-input-suffix"
@@ -364,9 +372,11 @@ exports[`Input.Search should support suffix 1`] = `
           <input
             className="ant-input"
             disabled={false}
+            onChange={[Function]}
             onKeyDown={[Function]}
             style={null}
             type="text"
+            value=""
           />
           <span
             className="ant-input-suffix"

@@ -256,19 +256,16 @@ class Input extends React.Component<InputProps, any> {
       'prefix',
       'suffix',
       'allowClear',
-    ]);
-
-    if ('value' in this.props) {
-      otherProps.value = fixControlledValue(value);
       // Input elements must be either controlled or uncontrolled,
       // specify either the value prop, or the defaultValue prop, but not both.
-      delete otherProps.defaultValue;
-    }
+      'defaultValue',
+    ]);
+
     return this.renderLabeledIcon(
       prefixCls,
       <input
         {...otherProps}
-        value={value}
+        value={fixControlledValue(value)}
         onChange={this.handleChange}
         className={classNames(this.getInputClassName(prefixCls), className)}
         onKeyDown={this.handleKeyDown}
