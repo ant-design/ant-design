@@ -3,35 +3,37 @@ import { createElement, Component } from 'react';
 import omit from 'omit.js';
 import classNames from 'classnames';
 
-function getNumberArray(num: string | number | undefined) {
-  return num ?
-    num.toString()
-      .split('')
-      .reverse()
-      .map(i => Number(i)) : [];
+function getNumberArray(num: string | number | undefined | null) {
+  return num
+    ? num
+        .toString()
+        .split('')
+        .reverse()
+        .map(i => Number(i))
+    : [];
 }
 
 export interface ScrollNumberProps {
   prefixCls?: string;
   className?: string;
-  count?: string | number;
+  count?: string | number | null;
+  displayComponent?: React.ReactElement<any>;
   component?: string;
   onAnimated?: Function;
   style?: React.CSSProperties;
-  title?: string | number;
+  title?: string | number | null;
 }
 
 export interface ScrollNumberState {
   animateStarted?: boolean;
-  count?: string | number;
+  count?: string | number | null;
 }
 
 export default class ScrollNumber extends Component<ScrollNumberProps, ScrollNumberState> {
   static defaultProps = {
     prefixCls: 'ant-scroll-number',
     count: null,
-    onAnimated() {
-    },
+    onAnimated() {},
   };
 
   lastCount: any;
@@ -70,68 +72,84 @@ export default class ScrollNumber extends Component<ScrollNumberProps, ScrollNum
       }
       this.lastCount = this.state.count;
       // 复原数字初始位置
-      this.setState({
-        animateStarted: true,
-      }, () => {
-        // 等待数字位置复原完毕
-        // 开始设置完整的数字
-        setTimeout(() => {
-          this.setState({
-            animateStarted: false,
-            count: nextProps.count,
-          }, () => {
-            const onAnimated = this.props.onAnimated;
-            if (onAnimated) {
-              onAnimated();
-            }
-          });
-        }, 5);
-      });
+      this.setState(
+        {
+          animateStarted: true,
+        },
+        () => {
+          // 等待数字位置复原完毕
+          // 开始设置完整的数字
+          setTimeout(() => {
+            this.setState(
+              {
+                animateStarted: false,
+                count: nextProps.count,
+              },
+              () => {
+                const onAnimated = this.props.onAnimated;
+                if (onAnimated) {
+                  onAnimated();
+                }
+              },
+            );
+          }, 5);
+        },
+      );
     }
   }
 
   renderNumberList(position: number) {
     const childrenToReturn: React.ReactElement<any>[] = [];
     for (let i = 0; i < 30; i++) {
-      const currentClassName = (position === i) ? 'current' : '';
-      childrenToReturn.push(<p key={i.toString()} className={currentClassName}>{i % 10}</p>);
+      const currentClassName = position === i ? 'current' : '';
+      childrenToReturn.push(
+        <p key={i.toString()} className={currentClassName}>
+          {i % 10}
+        </p>,
+      );
     }
     return childrenToReturn;
   }
 
   renderCurrentNumber(num: number, i: number) {
     const position = this.getPositionByNum(num, i);
-    const removeTransition = this.state.animateStarted ||
-      (getNumberArray(this.lastCount)[i] === undefined);
-    return createElement('span', {
-      className: `${this.props.prefixCls}-only`,
-      style: {
-        transition: removeTransition ? 'none' : undefined,
-        msTransform: `translateY(${-position * 100}%)`,
-        WebkitTransform: `translateY(${-position * 100}%)`,
-        transform: `translateY(${-position * 100}%)`,
+    const removeTransition =
+      this.state.animateStarted || getNumberArray(this.lastCount)[i] === undefined;
+    return createElement(
+      'span',
+      {
+        className: `${this.props.prefixCls}-only`,
+        style: {
+          transition: removeTransition ? 'none' : undefined,
+          msTransform: `translateY(${-position * 100}%)`,
+          WebkitTransform: `translateY(${-position * 100}%)`,
+          transform: `translateY(${-position * 100}%)`,
+        },
+        key: i,
       },
-      key: i,
-    }, this.renderNumberList(position));
+      this.renderNumberList(position),
+    );
   }
 
   renderNumberElement() {
-    const state = this.state;
-    if (!state.count || isNaN(state.count as number)) {
-      return state.count;
+    const { count } = this.state;
+    if (!count || isNaN(count as number)) {
+      return count;
     }
-    return getNumberArray(state.count)
-      .map((num, i) => this.renderCurrentNumber(num, i)).reverse();
+    return getNumberArray(count)
+      .map((num, i) => this.renderCurrentNumber(num, i))
+      .reverse();
   }
 
   render() {
-    const { prefixCls, className, style, title, component = 'sup' } = this.props;
+    const { prefixCls, className, style, title, component = 'sup', displayComponent } = this.props;
     // fix https://fb.me/react-unknown-prop
     const restProps = omit(this.props, [
       'count',
       'onAnimated',
       'component',
       'prefixCls',
+      'displayComponent',
     ]);
     const newProps = {
       ...restProps,
@@ -144,10 +162,14 @@ export default class ScrollNumber extends Component<ScrollNumberProps, ScrollNum
     if (style && style.borderColor) {
       newProps.style.boxShadow = `0 0 0 1px ${style.borderColor} inset`;
     }
-    return createElement(
-      component as any,
-      newProps,
-      this.renderNumberElement(),
-    );
+    if (displayComponent) {
+      return React.cloneElement(displayComponent, {
+        className: classNames(
+          `${prefixCls}-custom-component`,
+          displayComponent.props && displayComponent.props.className,
+        ),
+      });
+    }
+    return createElement(component as any, newProps, this.renderNumberElement());
   }
 }

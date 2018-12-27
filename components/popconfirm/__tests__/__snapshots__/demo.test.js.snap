@@ -18,15 +18,25 @@ exports[`renders ./components/popconfirm/demo/dynamic-trigger.md correctly 1`] =
   <br />
   <br />
   Whether directly execute：
-  <span
+  <button
+    aria-checked="true"
     class="ant-switch ant-switch-checked"
-    tabindex="0"
+    role="switch"
+    type="button"
   >
     <span
       class="ant-switch-inner"
     />
-  </span>
+  </button>
 </div>
+`;
+
+exports[`renders ./components/popconfirm/demo/icon.md correctly 1`] = `
+<a
+  href="#"
+>
+  Delete
+</a>
 `;
 
 exports[`renders ./components/popconfirm/demo/locale.md correctly 1`] = `

@@ -22,5 +22,6 @@ ReactDOM.render(
     <Progress type="circle" percent={70} width={80} status="exception" />
     <Progress type="circle" percent={100} width={80} />
   </div>,
-  mountNode);
+  mountNode
+);
 ````

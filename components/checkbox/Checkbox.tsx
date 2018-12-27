@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import RcCheckbox from 'rc-checkbox';
 import shallowEqual from 'shallowequal';
@@ -35,10 +35,10 @@ export interface CheckboxChangeEvent {
   target: CheckboxChangeEventTarget;
   stopPropagation: () => void;
   preventDefault: () => void;
-  nativeEvent: Event;
+  nativeEvent: MouseEvent;
 }
 
-export default class Checkbox extends React.Component<CheckboxProps, {}> {
+export default class Checkbox extends React.Component<CheckboxProps, {}, {}> {
   static Group: typeof CheckboxGroup;
   static defaultProps = {
     prefixCls: 'ant-checkbox',
@@ -49,12 +49,20 @@ export default class Checkbox extends React.Component<CheckboxProps, {}> {
     checkboxGroup: PropTypes.any,
   };
 
+  context: any;
+
   private rcCheckbox: any;
 
-  shouldComponentUpdate(nextProps: CheckboxProps, nextState: {}, nextContext: CheckboxGroupContext) {
-    return !shallowEqual(this.props, nextProps) ||
-           !shallowEqual(this.state, nextState) ||
-           !shallowEqual(this.context.checkboxGroup, nextContext.checkboxGroup);
+  shouldComponentUpdate(
+    nextProps: CheckboxProps,
+    nextState: {},
+    nextContext: CheckboxGroupContext,
+  ) {
+    return (
+      !shallowEqual(this.props, nextProps) ||
+      !shallowEqual(this.state, nextState) ||
+      !shallowEqual(this.context.checkboxGroup, nextContext.checkboxGroup)
+    );
   }
 
   focus() {
@@ -67,7 +75,7 @@ export default class Checkbox extends React.Component<CheckboxProps, {}> {
 
   saveCheckbox = (node: any) => {
     this.rcCheckbox = node;
-  }
+  };
 
   render() {
     const { props, context } = this;
@@ -82,14 +90,21 @@ export default class Checkbox extends React.Component<CheckboxProps, {}> {
       ...restProps
     } = props;
     const { checkboxGroup } = context;
-    let checkboxProps: CheckboxProps = { ...restProps };
+    const checkboxProps: CheckboxProps = { ...restProps };
     if (checkboxGroup) {
-      checkboxProps.onChange = () => checkboxGroup.toggleOption({ label: children, value: props.value });
+      checkboxProps.onChange = (...args) => {
+        if (restProps.onChange) {
+          restProps.onChange(...args);
+        }
+        checkboxGroup.toggleOption({ label: children, value: props.value });
+      };
       checkboxProps.checked = checkboxGroup.value.indexOf(props.value) !== -1;
       checkboxProps.disabled = props.disabled || checkboxGroup.disabled;
     }
     const classString = classNames(className, {
       [`${prefixCls}-wrapper`]: true,
+      [`${prefixCls}-wrapper-checked`]: checkboxProps.checked,
+      [`${prefixCls}-wrapper-disabled`]: checkboxProps.disabled,
     });
     const checkboxClass = classNames({
       [`${prefixCls}-indeterminate`]: indeterminate,
@@ -107,7 +122,7 @@ export default class Checkbox extends React.Component<CheckboxProps, {}> {
           className={checkboxClass}
           ref={this.saveCheckbox}
         />
-        {children !== undefined ? <span>{children}</span> : null}
+        {children !== undefined && <span>{children}</span>}
       </label>
     );
   }

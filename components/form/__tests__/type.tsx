@@ -50,7 +50,7 @@ const mapPropsToFields = (props: WithCreateOptionsProps) => {
   const { username } = props;
 
   return {
-    username: Form.createFormField({ value: username })
+    username: Form.createFormField({ value: username }),
   };
 };
 
@@ -58,4 +58,4 @@ const formOptions: FormCreateOption<WithCreateOptionsProps> = { mapPropsToFields
 
 const WithCreateOptionsForm = Form.create(formOptions)(WithCreateOptions);
 
-<WithCreateOptionsForm username="foo" />
+<WithCreateOptionsForm username="foo" />;

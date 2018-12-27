@@ -38,5 +38,6 @@ ReactDOM.render(
       {text}
     </Panel>
   </Collapse>,
-  mountNode);
+  mountNode
+);
 ````

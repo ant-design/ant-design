@@ -23,6 +23,7 @@ const success = () => {
 
 ReactDOM.render(
   <Button onClick={success}>Display a sequence of message</Button>,
-  mountNode);
+  mountNode
+);
 ````
 

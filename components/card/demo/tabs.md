@@ -65,6 +65,7 @@ class TabsCard extends React.Component {
           title="Card title"
           extra={<a href="#">More</a>}
           tabList={tabList}
+          activeTabKey={this.state.key}
           onTabChange={(key) => { this.onTabChange(key, 'key'); }}
         >
           {contentList[this.state.key]}
@@ -83,7 +84,5 @@ class TabsCard extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <TabsCard />,
-  mountNode);
+ReactDOM.render(<TabsCard />, mountNode);
 ````

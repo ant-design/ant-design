@@ -1,11 +1,10 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@radio-prefix-cls: ~"@{ant-prefix}-radio";
-@radio-group-prefix-cls: ~"@{radio-prefix-cls}-group";
-@radio-inner-prefix-cls: ~"@{radio-prefix-cls}-inner";
-@radio-duration: .3s;
+@radio-prefix-cls: ~'@{ant-prefix}-radio';
+@radio-group-prefix-cls: ~'@{radio-prefix-cls}-group';
+@radio-inner-prefix-cls: ~'@{radio-prefix-cls}-inner';
+@radio-duration: 0.3s;
 
 .@{radio-group-prefix-cls} {
   .reset-component;
@@ -30,7 +29,7 @@
   display: inline-block;
   position: relative;
   line-height: 1;
-  vertical-align: text-bottom;
+  vertical-align: sub;
   cursor: pointer;
   .@{radio-prefix-cls}-wrapper:hover &,
   &:hover,
@@ -106,7 +105,7 @@
   .@{radio-inner-prefix-cls} {
     border-color: @radio-dot-color;
     &:after {
-      transform: scale(.875);
+      transform: scale(0.875);
       opacity: 1;
       transition: all @radio-duration @ease-in-out-circ;
     }
@@ -117,6 +116,7 @@
   .@{radio-inner-prefix-cls} {
     border-color: @border-color-base !important;
     background-color: @input-disabled-bg;
+    cursor: not-allowed;
     &:after {
       background-color: #ccc;
     }
@@ -179,7 +179,7 @@ span.@{radio-prefix-cls} + * {
 
   &:not(:first-child) {
     &::before {
-      content: "";
+      content: '';
       display: block;
       top: 0;
       left: -1px;
@@ -209,11 +209,12 @@ span.@{radio-prefix-cls} + * {
   }
 
   .@{radio-prefix-cls}-inner,
-  input[type="checkbox"],
-  input[type="radio"] {
+  input[type='checkbox'],
+  input[type='radio'] {
     opacity: 0;
     width: 0;
     height: 0;
+    pointer-events: none;
   }
 
   &-checked {
@@ -241,6 +242,22 @@ span.@{radio-prefix-cls} + * {
       border-color: @radio-button-active-color;
       box-shadow: -1px 0 0 0 @radio-button-active-color;
       color: @radio-button-active-color;
+    }
+  }
+
+  .@{radio-group-prefix-cls}-solid &-checked:not(&-disabled) {
+    background: @radio-dot-color;
+    border-color: @radio-dot-color;
+    color: #fff;
+    &:hover {
+      border-color: @radio-button-hover-color;
+      background: @radio-button-hover-color;
+      color: #fff;
+    }
+    &:active {
+      border-color: @radio-button-active-color;
+      background: @radio-button-active-color;
+      color: #fff;
     }
   }
 
@@ -277,5 +294,12 @@ span.@{radio-prefix-cls} + * {
   100% {
     transform: scale(1.6);
     opacity: 0;
+  }
+}
+
+// Firefox hack
+@supports (-moz-appearance: meterbar) and (background-blend-mode: difference, normal) {
+  .@{radio-prefix-cls} {
+    vertical-align: text-bottom;
   }
 }

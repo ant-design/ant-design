@@ -1,7 +1,7 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@collapse-prefix-cls: ~"@{ant-prefix}-collapse";
+@collapse-prefix-cls: ~'@{ant-prefix}-collapse';
 
 .collapse-close() {
   transform: rotate(0);
@@ -33,21 +33,21 @@
       color: @heading-color;
       cursor: pointer;
       position: relative;
-      transition: all .3s;
+      transition: all 0.3s;
 
       .arrow {
         .iconfont-mixin();
-        .collapse-close();
         font-size: @font-size-sm;
         position: absolute;
         display: inline-block;
         line-height: 46px;
         vertical-align: top;
-        transition: transform 0.24s;
-        top: 0;
+        top: 50%;
+        transform: translateY(-50%);
         left: @padding-md;
-        &:before {
-          content: "\E61F";
+        & svg {
+          .collapse-close();
+          transition: transform 0.24s;
         }
       }
 
@@ -64,7 +64,7 @@
   }
 
   &-anim-active {
-    transition: height .2s @ease-out;
+    transition: height 0.2s @ease-out;
   }
 
   &-content {
@@ -88,8 +88,8 @@
     }
   }
 
-  & > &-item > &-header[aria-expanded="true"] {
-    .arrow {
+  & > &-item > &-header[aria-expanded='true'] {
+    .anticon-right svg {
       .collapse-open();
     }
   }

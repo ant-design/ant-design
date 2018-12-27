@@ -13,7 +13,6 @@ title:
 
 The Tab with Icon.
 
-
 ````jsx
 import { Tabs, Icon } from 'antd';
 
@@ -28,5 +27,6 @@ ReactDOM.render(
       Tab 2
     </TabPane>
   </Tabs>,
-  mountNode);
+  mountNode
+);
 ````

@@ -14,8 +14,10 @@ title:
 Components which need localization support are listed here, you can toggle the language in the demo.
 
 ````jsx
-import { LocaleProvider, Pagination, DatePicker, TimePicker, Calendar,
-  Popconfirm, Table, Modal, Button, Select, Transfer, Radio } from 'antd';
+import {
+  LocaleProvider, Pagination, DatePicker, TimePicker, Calendar,
+  Popconfirm, Table, Modal, Button, Select, Transfer, Radio,
+} from 'antd';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
@@ -107,7 +109,6 @@ class Page extends React.Component {
   }
 }
 
-let forceRerender = 0;
 class App extends React.Component {
   constructor() {
     super();
@@ -127,6 +128,7 @@ class App extends React.Component {
   }
 
   render() {
+    const { locale } = this.state;
     return (
       <div>
         <div className="change-locale">
@@ -136,8 +138,8 @@ class App extends React.Component {
             <Radio.Button key="cn" value={zhCN}>中文</Radio.Button>
           </Radio.Group>
         </div>
-        <LocaleProvider locale={this.state.locale}>
-          <Page key={forceRerender++ /* HACK: just refresh in production environment */} />
+        <LocaleProvider locale={locale}>
+          <Page key={locale ? locale.locale : 'en'/* Have to refresh for production environment */} />
         </LocaleProvider>
       </div>
     );

@@ -7,14 +7,17 @@ title:
 
 ## zh-CN
 
-通过 `filterDropdown`、`filterDropdownVisible` 和 `filterDropdownVisibleChange` 定义自定义的列筛选功能，并实现一个搜索列的示例。
+通过 `filterDropdown` 自定义的列筛选功能，并实现一个搜索列的示例。
 
 ## en-US
 
-Implement a customized column search example via `filterDropdown`, `filterDropdownVisible` and `filterDropdownVisibleChange`.
+Implement a customized column search example via `filterDropdown`.
 
 ````jsx
-import { Table, Input, Button, Icon } from 'antd';
+import {
+  Table, Input, Button, Icon,
+} from 'antd';
+import Highlighter from 'react-highlight-words';
 
 const data = [{
   key: '1',
@@ -40,40 +43,65 @@ const data = [{
 
 class App extends React.Component {
   state = {
-    filterDropdownVisible: false,
-    data,
     searchText: '',
-    filtered: false,
   };
 
-  onInputChange = (e) => {
-    this.setState({ searchText: e.target.value });
+  getColumnSearchProps = (dataIndex) => ({
+    filterDropdown: ({
+      setSelectedKeys, selectedKeys, confirm, clearFilters,
+    }) => (
+      <div className="custom-filter-dropdown">
+        <Input
+          ref={node => { this.searchInput = node; }}
+          placeholder={`Search ${dataIndex}`}
+          value={selectedKeys[0]}
+          onChange={e => setSelectedKeys(e.target.value ? [e.target.value] : [])}
+          onPressEnter={() => this.handleSearch(selectedKeys, confirm)}
+          style={{ width: 188, marginBottom: 8, display: 'block' }}
+        />
+        <Button
+          type="primary"
+          onClick={() => this.handleSearch(selectedKeys, confirm)}
+          icon="search"
+          size="small"
+          style={{ width: 90, marginRight: 8 }}
+        >
+          Search
+        </Button>
+        <Button
+          onClick={() => this.handleReset(clearFilters)}
+          size="small"
+          style={{ width: 90 }}
+        >
+          Reset
+        </Button>
+      </div>
+    ),
+    filterIcon: filtered => <Icon type="search" style={{ color: filtered ? '#1890ff' : undefined }} />,
+    onFilter: (value, record) => record[dataIndex].toString().toLowerCase().includes(value.toLowerCase()),
+    onFilterDropdownVisibleChange: (visible) => {
+      if (visible) {
+        setTimeout(() => this.searchInput.select());
+      }
+    },
+    render: (text) => (
+      <Highlighter
+        highlightStyle={{ backgroundColor: '#ffc069', padding: 0 }}
+        searchWords={[this.state.searchText]}
+        autoEscape
+        textToHighlight={text.toString()}
+      />
+    ),
+  })
+
+  handleSearch = (selectedKeys, confirm) => {
+    confirm();
+    this.setState({ searchText: selectedKeys[0] });
   }
 
-  onSearch = () => {
-    const { searchText } = this.state;
-    const reg = new RegExp(searchText, 'gi');
-    this.setState({
-      filterDropdownVisible: false,
-      filtered: !!searchText,
-      data: data.map((record) => {
-        const match = record.name.match(reg);
-        if (!match) {
-          return null;
-        }
-        return {
-          ...record,
-          name: (
-            <span>
-              {record.name.split(new RegExp(`(?<=${searchText})|(?=${searchText})`, 'i')).map((text, i) => (
-                text.toLowerCase() === searchText.toLowerCase()
-                  ? <span key={i} className="highlight">{text}</span> : text // eslint-disable-line
-              ))}
-            </span>
-          ),
-        };
-      }).filter(record => !!record),
-    });
+  handleReset = (clearFilters) => {
+    clearFilters();
+    this.setState({ searchText: '' });
   }
 
   render() {
@@ -81,43 +109,21 @@ class App extends React.Component {
       title: 'Name',
       dataIndex: 'name',
       key: 'name',
-      filterDropdown: (
-        <div className="custom-filter-dropdown">
-          <Input
-            ref={ele => this.searchInput = ele}
-            placeholder="Search name"
-            value={this.state.searchText}
-            onChange={this.onInputChange}
-            onPressEnter={this.onSearch}
-          />
-          <Button type="primary" onClick={this.onSearch}>Search</Button>
-        </div>
-      ),
-      filterIcon: <Icon type="smile-o" style={{ color: this.state.filtered ? '#108ee9' : '#aaa' }} />,
-      filterDropdownVisible: this.state.filterDropdownVisible,
-      onFilterDropdownVisibleChange: (visible) => {
-        this.setState({
-          filterDropdownVisible: visible,
-        }, () => this.searchInput && this.searchInput.focus());
-      },
+      width: '30%',
+      ...this.getColumnSearchProps('name'),
     }, {
       title: 'Age',
       dataIndex: 'age',
       key: 'age',
+      width: '20%',
+      ...this.getColumnSearchProps('age'),
     }, {
       title: 'Address',
       dataIndex: 'address',
       key: 'address',
-      filters: [{
-        text: 'London',
-        value: 'London',
-      }, {
-        text: 'New York',
-        value: 'New York',
-      }],
-      onFilter: (value, record) => record.address.indexOf(value) === 0,
+      ...this.getColumnSearchProps('address'),
     }];
-    return <Table columns={columns} dataSource={this.state.data} />;
+    return <Table columns={columns} dataSource={data} />;
   }
 }
 
@@ -127,17 +133,8 @@ ReactDOM.render(<App />, mountNode);
 ````css
 .custom-filter-dropdown {
   padding: 8px;
-  border-radius: 6px;
+  border-radius: 4px;
   background: #fff;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, .2);
-}
-
-.custom-filter-dropdown input {
-  width: 130px;
-  margin-right: 8px;
-}
-
-.highlight {
-  color: #f50;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .15);
 }
 ````

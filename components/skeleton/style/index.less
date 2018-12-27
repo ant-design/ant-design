@@ -1,0 +1,128 @@
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
+
+@skeleton-prefix-cls: ~'@{ant-prefix}-skeleton';
+@skeleton-avatar-prefix-cls: ~'@{skeleton-prefix-cls}-avatar';
+@skeleton-title-prefix-cls: ~'@{skeleton-prefix-cls}-title';
+@skeleton-paragraph-prefix-cls: ~'@{skeleton-prefix-cls}-paragraph';
+
+@skeleton-to-color: shade(@skeleton-color, 5%);
+
+.@{skeleton-prefix-cls} {
+  display: table;
+  width: 100%;
+
+  &-header {
+    display: table-cell;
+    vertical-align: top;
+    padding-right: 16px;
+
+    // Avatar
+    .@{skeleton-avatar-prefix-cls} {
+      display: inline-block;
+      vertical-align: top;
+      background: @skeleton-color;
+
+      .avatar-size(@avatar-size-base);
+
+      &-lg {
+        .avatar-size(@avatar-size-lg);
+      }
+
+      &-sm {
+        .avatar-size(@avatar-size-sm);
+      }
+    }
+  }
+
+  &-content {
+    display: table-cell;
+    vertical-align: top;
+    width: 100%;
+
+    // Title
+    .@{skeleton-title-prefix-cls} {
+      margin-top: 16px;
+      height: 16px;
+      width: 100%;
+      background: @skeleton-color;
+
+      + .@{skeleton-paragraph-prefix-cls} {
+        margin-top: 24px;
+      }
+    }
+
+    // paragraph
+    .@{skeleton-paragraph-prefix-cls} {
+      > li {
+        height: 16px;
+        background: @skeleton-color;
+        list-style: none;
+        width: 100%;
+
+        &:last-child:not(:first-child):not(:nth-child(2)) {
+          width: 61%;
+        }
+
+        + li {
+          margin-top: 16px;
+        }
+      }
+    }
+  }
+
+  &-with-avatar &-content {
+    // Title
+    .@{skeleton-title-prefix-cls} {
+      margin-top: 12px;
+
+      + .@{skeleton-paragraph-prefix-cls} {
+        margin-top: 28px;
+      }
+    }
+  }
+
+  // With active animation
+  &.@{skeleton-prefix-cls}-active {
+    & .@{skeleton-prefix-cls}-content {
+      .@{skeleton-title-prefix-cls},
+      .@{skeleton-paragraph-prefix-cls} > li {
+        .skeleton-color();
+      }
+    }
+
+    .@{skeleton-avatar-prefix-cls} {
+      .skeleton-color();
+    }
+  }
+}
+
+.avatar-size(@size) {
+  width: @size;
+  height: @size;
+  line-height: @size;
+
+  &.@{skeleton-avatar-prefix-cls}-circle {
+    border-radius: 50%;
+  }
+}
+
+.skeleton-color() {
+  background: linear-gradient(
+    90deg,
+    @skeleton-color 25%,
+    @skeleton-to-color 37%,
+    @skeleton-color 63%
+  );
+  animation: ~'@{skeleton-prefix-cls}-loading' 1.4s ease infinite;
+  background-size: 400% 100%;
+}
+
+@keyframes ~"@{skeleton-prefix-cls}-loading" {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}

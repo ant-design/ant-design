@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import createDOMForm from 'rc-form/lib/createDOMForm';
 import createFormField from 'rc-form/lib/createFormField';
@@ -7,26 +7,24 @@ import omit from 'omit.js';
 import warning from '../_util/warning';
 import FormItem from './FormItem';
 import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
-import { Omit } from '../_util/type';
+import { Omit, tuple } from '../_util/type';
 
 type FormCreateOptionMessagesCallback = (...args: any[]) => string;
 
 interface FormCreateOptionMessages {
-  [messageId: string]:
-    | string
-    | FormCreateOptionMessagesCallback
-    | FormCreateOptionMessages;
+  [messageId: string]: string | FormCreateOptionMessagesCallback | FormCreateOptionMessages;
 }
 
 export interface FormCreateOption<T> {
-  onFieldsChange?: (props: T, fields: Array<any>, allFields: any, add: string) => void;
+  onFieldsChange?: (props: T, fields: object, allFields: any, add: string) => void;
   onValuesChange?: (props: T, changedValues: any, allValues: any) => void;
   mapPropsToFields?: (props: T) => void;
   validateMessages?: FormCreateOptionMessages;
   withRef?: boolean;
 }
 
-export type FormLayout = 'horizontal' | 'inline' | 'vertical';
+const FormLayouts = tuple('horizontal', 'inline', 'vertical');
+export type FormLayout = (typeof FormLayouts)[number];
 
 export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   layout?: FormLayout;
@@ -40,7 +38,7 @@ export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
 
 export type ValidationRule = {
   /** validation error message */
-  message?: string;
+  message?: React.ReactNode;
   /** built-in validation type, available options: https://github.com/yiminghe/async-validator#type */
   type?: string;
   /** indicates whether field is required */
@@ -74,6 +72,8 @@ export type GetFieldDecoratorOptions = {
   trigger?: string;
   /** 可以把 onChange 的参数转化为控件的值，例如 DatePicker 可设为：(date, dateString) => dateString */
   getValueFromEvent?: (...args: any[]) => any;
+  /** Get the component props according to field value. */
+  getValueProps?: (value: any) => any;
   /** 校验子节点值的时机 */
   validateTrigger?: string | string[];
   /** 校验规则，参见 [async-validator](https://github.com/yiminghe/async-validator) */
@@ -84,6 +84,8 @@ export type GetFieldDecoratorOptions = {
   normalize?: (value: any, prevValue: any, allValues: any) => any;
   /** Whether stop validate on first rule of error for this field.  */
   validateFirst?: boolean;
+  /** 是否一直保留子节点的信息 */
+  preserve?: boolean;
 };
 
 // function create
@@ -98,15 +100,25 @@ export type WrappedFormUtils = {
   setFields(obj: Object): void;
   /** 校验并获取一组输入域的值与 Error */
   validateFields(fieldNames: Array<string>, options: Object, callback: ValidateCallback): void;
-  validateFields(fieldNames: Array<string>, callback: ValidateCallback): void;
   validateFields(options: Object, callback: ValidateCallback): void;
+  validateFields(fieldNames: Array<string>, callback: ValidateCallback): void;
+  validateFields(fieldNames: Array<string>, options: Object): void;
+  validateFields(fieldNames: Array<string>): void;
   validateFields(callback: ValidateCallback): void;
+  validateFields(options: Object): void;
   validateFields(): void;
   /** 与 `validateFields` 相似，但校验完后，如果校验不通过的菜单域不在可见范围内，则自动滚动进可见范围 */
-  validateFieldsAndScroll(fieldNames?: Array<string>, options?: Object, callback?: ValidateCallback): void;
-  validateFieldsAndScroll(fieldNames?: Array<string>, callback?: ValidateCallback): void;
-  validateFieldsAndScroll(options?: Object, callback?: ValidateCallback): void;
-  validateFieldsAndScroll(callback?: ValidateCallback): void;
+  validateFieldsAndScroll(
+    fieldNames: Array<string>,
+    options: Object,
+    callback: ValidateCallback,
+  ): void;
+  validateFieldsAndScroll(options: Object, callback: ValidateCallback): void;
+  validateFieldsAndScroll(fieldNames: Array<string>, callback: ValidateCallback): void;
+  validateFieldsAndScroll(fieldNames: Array<string>, options: Object): void;
+  validateFieldsAndScroll(fieldNames: Array<string>): void;
+  validateFieldsAndScroll(callback: ValidateCallback): void;
+  validateFieldsAndScroll(options: Object): void;
   validateFieldsAndScroll(): void;
   /** 获取某个输入控件的 Error */
   getFieldError(name: string): Object[];
@@ -117,8 +129,11 @@ export type WrappedFormUtils = {
   isFieldsTouched(names?: Array<string>): boolean;
   /** 重置一组输入控件的值与状态，如不传入参数，则重置所有组件 */
   resetFields(names?: Array<string>): void;
-
-  getFieldDecorator(id: string, options?: GetFieldDecoratorOptions): (node: React.ReactNode) => React.ReactNode;
+  // tslint:disable-next-line:max-line-length
+  getFieldDecorator<T extends Object = {}>(
+    id: keyof T,
+    options?: GetFieldDecoratorOptions,
+  ): (node: React.ReactNode) => React.ReactNode;
 };
 
 export interface FormComponentProps {
@@ -126,7 +141,7 @@ export interface FormComponentProps {
 }
 
 export interface RcBaseFormProps {
-   wrappedComponentRef?: any;
+  wrappedComponentRef?: any;
 }
 
 export interface ComponentDecorator {
@@ -147,7 +162,7 @@ export default class Form extends React.Component<FormProps, any> {
 
   static propTypes = {
     prefixCls: PropTypes.string,
-    layout: PropTypes.oneOf(['horizontal', 'inline', 'vertical']),
+    layout: PropTypes.oneOf(FormLayouts),
     children: PropTypes.any,
     onSubmit: PropTypes.func,
     hideRequiredMark: PropTypes.bool,
@@ -161,7 +176,9 @@ export default class Form extends React.Component<FormProps, any> {
 
   static createFormField = createFormField;
 
-  static create = function<TOwnProps>(options: FormCreateOption<TOwnProps> = {}): ComponentDecorator {
+  static create = function<TOwnProps>(
+    options: FormCreateOption<TOwnProps> = {},
+  ): ComponentDecorator {
     return createDOMForm({
       fieldNameProp: 'id',
       ...options,
@@ -184,15 +201,17 @@ export default class Form extends React.Component<FormProps, any> {
   }
 
   render() {
-    const {
-      prefixCls, hideRequiredMark, className = '', layout,
-    } = this.props;
-    const formClassName = classNames(prefixCls, {
-      [`${prefixCls}-horizontal`]: layout === 'horizontal',
-      [`${prefixCls}-vertical`]: layout === 'vertical',
-      [`${prefixCls}-inline`]: layout === 'inline',
-      [`${prefixCls}-hide-required-mark`]: hideRequiredMark,
-    }, className);
+    const { prefixCls, hideRequiredMark, className = '', layout } = this.props;
+    const formClassName = classNames(
+      prefixCls,
+      {
+        [`${prefixCls}-horizontal`]: layout === 'horizontal',
+        [`${prefixCls}-vertical`]: layout === 'vertical',
+        [`${prefixCls}-inline`]: layout === 'inline',
+        [`${prefixCls}-hide-required-mark`]: hideRequiredMark,
+      },
+      className,
+    );
 
     const formProps = omit(this.props, [
       'prefixCls',

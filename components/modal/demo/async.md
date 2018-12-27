@@ -54,8 +54,11 @@ class App extends React.Component {
     const { visible, confirmLoading, ModalText } = this.state;
     return (
       <div>
-        <Button type="primary" onClick={this.showModal}>Open</Button>
-        <Modal title="Title"
+        <Button type="primary" onClick={this.showModal}>
+          Open Modal with async logic
+        </Button>
+        <Modal
+          title="Title"
           visible={visible}
           onOk={this.handleOk}
           confirmLoading={confirmLoading}

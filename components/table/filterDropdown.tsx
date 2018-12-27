@@ -11,6 +11,13 @@ import Radio from '../radio';
 import FilterDropdownMenuWrapper from './FilterDropdownMenuWrapper';
 import { FilterMenuProps, FilterMenuState, ColumnProps, ColumnFilterItem } from './interface';
 
+function stopPropagation(e: React.SyntheticEvent<any>) {
+  e.stopPropagation();
+  if (e.nativeEvent.stopImmediatePropagation) {
+    e.nativeEvent.stopImmediatePropagation();
+  }
+}
+
 export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState> {
   static defaultProps = {
     handleFilter() {},
@@ -22,12 +29,12 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
   constructor(props: FilterMenuProps<T>) {
     super(props);
 
-    const visible = ('filterDropdownVisible' in props.column) ?
-      props.column.filterDropdownVisible : false;
+    const visible =
+      'filterDropdownVisible' in props.column ? props.column.filterDropdownVisible : false;
 
     this.state = {
       selectedKeys: props.selectedKeys,
-      keyPathOfSelectedItem: {},    // 记录所有有选中子菜单的祖先菜单
+      keyPathOfSelectedItem: {}, // 记录所有有选中子菜单的祖先菜单
       visible,
     };
   }
@@ -52,7 +59,10 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
      * Fixes https://github.com/ant-design/ant-design/issues/10289 and
      * https://github.com/ant-design/ant-design/issues/10209
      */
-    if ('selectedKeys' in nextProps && !shallowequal(this.props.selectedKeys, nextProps.selectedKeys)) {
+    if (
+      'selectedKeys' in nextProps &&
+      !shallowequal(this.props.selectedKeys, nextProps.selectedKeys)
+    ) {
       newState.selectedKeys = nextProps.selectedKeys;
     }
     if ('filterDropdownVisible' in column) {
@@ -61,6 +71,10 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
     if (Object.keys(newState).length > 0) {
       this.setState(newState);
     }
+  }
+
+  getDropdownVisible() {
+    return this.neverShown ? false : this.state.visible;
   }
 
   setNeverShown = (column: ColumnProps<T>) => {
@@ -73,11 +87,11 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
       // https://github.com/ant-design/ant-design/issues/7909
       this.neverShown = !!column.fixed;
     }
-  }
+  };
 
   setSelectedKeys = ({ selectedKeys }: { selectedKeys: string[] }) => {
     this.setState({ selectedKeys });
-  }
+  };
 
   setVisible(visible: boolean) {
     const { column } = this.props;
@@ -90,36 +104,46 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
   }
 
   handleClearFilters = () => {
-    this.setState({
-      selectedKeys: [],
-    }, this.handleConfirm);
-  }
+    this.setState(
+      {
+        selectedKeys: [],
+      },
+      this.handleConfirm,
+    );
+  };
 
   handleConfirm = () => {
     this.setVisible(false);
-    this.confirmFilter();
-  }
+
+    // Call `setSelectedKeys` & `confirm` in the same time will make filter data not up to date
+    // https://github.com/ant-design/ant-design/issues/12284
+    this.setState({}, this.confirmFilter);
+  };
 
   onVisibleChange = (visible: boolean) => {
     this.setVisible(visible);
     if (!visible) {
       this.confirmFilter();
     }
-  }
+  };
 
   confirmFilter() {
-    if (this.state.selectedKeys !== this.props.selectedKeys) {
-      this.props.confirmFilter(this.props.column, this.state.selectedKeys);
+    const { selectedKeys } = this.state;
+
+    if (!shallowequal(selectedKeys, this.props.selectedKeys)) {
+      this.props.confirmFilter(this.props.column, selectedKeys);
     }
   }
 
   renderMenuItem(item: ColumnFilterItem) {
     const { column } = this.props;
     const { selectedKeys } = this.state;
-    const multiple = ('filterMultiple' in column) ? column.filterMultiple : true;
-    const input = multiple
-      ? <Checkbox checked={selectedKeys.indexOf(item.value.toString()) >= 0} />
-      : <Radio checked={selectedKeys.indexOf(item.value.toString()) >= 0} />;
+    const multiple = 'filterMultiple' in column ? column.filterMultiple : true;
+    const input = multiple ? (
+      <Checkbox checked={selectedKeys && selectedKeys.indexOf(item.value.toString()) >= 0} />
+    ) : (
+      <Radio checked={selectedKeys && selectedKeys.indexOf(item.value.toString()) >= 0} />
+    );
 
     return (
       <MenuItem key={item.value}>
@@ -130,7 +154,9 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
   }
 
   hasSubMenu() {
-    const { column: { filters = [] } } = this.props;
+    const {
+      column: { filters = [] },
+    } = this.props;
     return filters.some(item => !!(item.children && item.children.length > 0));
   }
 
@@ -141,7 +167,9 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
         const containSelected = Object.keys(keyPathOfSelectedItem).some(
           key => keyPathOfSelectedItem[key].indexOf(item.value) >= 0,
         );
-        const subMenuCls = containSelected ? `${this.props.dropdownPrefixCls}-submenu-contain-selected` : '';
+        const subMenuCls = containSelected
+          ? `${this.props.dropdownPrefixCls}-submenu-contain-selected`
+          : '';
         return (
           <SubMenu title={item.text} className={subMenuCls} key={item.value.toString()}>
             {this.renderMenus(item.children)}
@@ -152,12 +180,13 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
     });
   }
 
-  handleMenuItemClick = (info: { keyPath: string, key: string }) => {
+  handleMenuItemClick = (info: { keyPath: string; key: string }) => {
+    const { selectedKeys } = this.state;
     if (!info.keyPath || info.keyPath.length <= 1) {
       return;
     }
     const keyPathOfSelectedItem = this.state.keyPathOfSelectedItem;
-    if (this.state.selectedKeys.indexOf(info.key) >= 0) {
+    if (selectedKeys && selectedKeys.indexOf(info.key) >= 0) {
       // deselect SubMenu child
       delete keyPathOfSelectedItem[info.key];
     } else {
@@ -165,29 +194,60 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
       keyPathOfSelectedItem[info.key] = info.keyPath;
     }
     this.setState({ keyPathOfSelectedItem });
-  }
+  };
 
   renderFilterIcon = () => {
-    const { column, locale, prefixCls } = this.props;
-    const filterIcon = column.filterIcon as any;
-    const dropdownSelectedClass = this.props.selectedKeys.length > 0 ? `${prefixCls}-selected` : '';
+    const { column, locale, prefixCls, selectedKeys } = this.props;
+    const filtered = selectedKeys && selectedKeys.length > 0;
+    let filterIcon = column.filterIcon as any;
+    if (typeof filterIcon === 'function') {
+      filterIcon = filterIcon(filtered);
+    }
 
-    return filterIcon ? React.cloneElement(filterIcon as any, {
-      title: locale.filterTitle,
-      className: classNames(`${prefixCls}-icon`, filterIcon.props.className),
-    }) : <Icon title={locale.filterTitle} type="filter" className={dropdownSelectedClass} />;
-  }
+    const dropdownIconClass = classNames({
+      [`${prefixCls}-selected`]: filtered,
+      [`${prefixCls}-open`]: this.getDropdownVisible(),
+    });
+
+    return filterIcon ? (
+      React.cloneElement(filterIcon as any, {
+        title: locale.filterTitle,
+        className: classNames(`${prefixCls}-icon`, dropdownIconClass, filterIcon.props.className),
+        onClick: stopPropagation,
+      })
+    ) : (
+      <Icon
+        title={locale.filterTitle}
+        type="filter"
+        theme="filled"
+        className={dropdownIconClass}
+        onClick={stopPropagation}
+      />
+    );
+  };
+
   render() {
     const { column, locale, prefixCls, dropdownPrefixCls, getPopupContainer } = this.props;
     // default multiple selection in filter dropdown
-    const multiple = ('filterMultiple' in column) ? column.filterMultiple : true;
+    const multiple = 'filterMultiple' in column ? column.filterMultiple : true;
     const dropdownMenuClass = classNames({
       [`${dropdownPrefixCls}-menu-without-submenu`]: !this.hasSubMenu(),
     });
-    const menus = column.filterDropdown ? (
-      <FilterDropdownMenuWrapper>
-        {column.filterDropdown}
-      </FilterDropdownMenuWrapper>
+    let { filterDropdown } = column;
+    if (filterDropdown instanceof Function) {
+      filterDropdown = filterDropdown({
+        prefixCls: `${dropdownPrefixCls}-custom`,
+        setSelectedKeys: (selectedKeys: Array<any>) => this.setSelectedKeys({ selectedKeys }),
+        selectedKeys: this.state.selectedKeys,
+        confirm: this.handleConfirm,
+        clearFilters: this.handleClearFilters,
+        filters: column.filters,
+        getPopupContainer: (triggerNode: HTMLElement) => triggerNode.parentNode,
+      });
+    }
+
+    const menus = filterDropdown ? (
+      <FilterDropdownMenuWrapper>{filterDropdown}</FilterDropdownMenuWrapper>
     ) : (
       <FilterDropdownMenuWrapper className={`${prefixCls}-dropdown`}>
         <Menu
@@ -203,16 +263,10 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
           {this.renderMenus(column.filters!)}
         </Menu>
         <div className={`${prefixCls}-dropdown-btns`}>
-          <a
-            className={`${prefixCls}-dropdown-link confirm`}
-            onClick={this.handleConfirm}
-          >
+          <a className={`${prefixCls}-dropdown-link confirm`} onClick={this.handleConfirm}>
             {locale.filterConfirm}
           </a>
-          <a
-            className={`${prefixCls}-dropdown-link clear`}
-            onClick={this.handleClearFilters}
-          >
+          <a className={`${prefixCls}-dropdown-link clear`} onClick={this.handleClearFilters}>
             {locale.filterReset}
           </a>
         </div>
@@ -222,8 +276,9 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
     return (
       <Dropdown
         trigger={['click']}
+        placement="bottomRight"
         overlay={menus}
-        visible={this.neverShown ? false : this.state.visible}
+        visible={this.getDropdownVisible()}
         onVisibleChange={this.onVisibleChange}
         getPopupContainer={getPopupContainer}
         forceRender

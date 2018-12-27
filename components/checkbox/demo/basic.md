@@ -22,5 +22,6 @@ function onChange(e) {
 
 ReactDOM.render(
   <Checkbox onChange={onChange}>Checkbox</Checkbox>,
-  mountNode);
+  mountNode
+);
 ````

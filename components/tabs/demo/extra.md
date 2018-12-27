@@ -13,7 +13,6 @@ title:
 
 You can add extra actions to the right of Tabs.
 
-
 ````jsx
 import { Tabs, Button } from 'antd';
 
@@ -27,5 +26,6 @@ ReactDOM.render(
     <TabPane tab="Tab 2" key="2">Content of tab 2</TabPane>
     <TabPane tab="Tab 3" key="3">Content of tab 3</TabPane>
   </Tabs>,
-  mountNode);
+  mountNode
+);
 ````

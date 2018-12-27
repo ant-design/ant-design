@@ -1,8 +1,8 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
-@import "../../input/style/mixin";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
+@import '../../input/style/mixin';
 
-@pagination-prefix-cls: ~"@{ant-prefix}-pagination";
+@pagination-prefix-cls: ~'@{ant-prefix}-pagination';
 
 .@{pagination-prefix-cls} {
   .reset-component;
@@ -15,7 +15,7 @@
   }
 
   &:after {
-    content: " ";
+    content: ' ';
     display: block;
     height: 0;
     clear: both;
@@ -57,7 +57,7 @@
 
     &:focus,
     &:hover {
-      transition: all .3s;
+      transition: all 0.3s;
       border-color: @primary-color;
       a {
         color: @primary-color;
@@ -87,40 +87,47 @@
   &-jump-prev,
   &-jump-next {
     outline: 0;
+    .@{pagination-prefix-cls}-item-container {
+      position: relative;
 
-    &:after {
-      content: "•••";
-      display: block;
-      letter-spacing: 2px;
-      color: @disabled-color;
-      text-align: center;
-    }
-
-    &:focus,
-    &:hover {
-      &:after {
+      .@{pagination-prefix-cls}-item-link-icon {
+        .iconfont-size-under-12px(12px);
         color: @primary-color;
-        .iconfont-size-under-12px(8px);
         letter-spacing: -1px;
-        font-family: "anticon";
+        opacity: 0;
+        transition: all 0.2s;
+        &-svg {
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          margin: auto;
+        }
+      }
+
+      .@{pagination-prefix-cls}-item-ellipsis {
+        position: absolute;
+        display: block;
+        letter-spacing: 2px;
+        color: @disabled-color;
+        text-align: center;
+        opacity: 1;
+        transition: all 0.2s;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
       }
     }
-  }
 
-  &-jump-prev {
     &:focus,
     &:hover {
-      &:after {
-        content: "\e620\e620";
+      .@{pagination-prefix-cls}-item-link-icon {
+        opacity: 1;
       }
-    }
-  }
-
-  &-jump-next {
-    &:focus,
-    &:hover {
-      &:after {
-        content: "\e61f\e61f";
+      .@{pagination-prefix-cls}-item-ellipsis {
+        opacity: 0;
       }
     }
   }
@@ -143,7 +150,7 @@
     height: @pagination-item-size;
     line-height: @pagination-item-size;
     text-align: center;
-    transition: all .3s;
+    transition: all 0.3s;
     display: inline-block;
     vertical-align: middle;
   }
@@ -167,36 +174,16 @@
       border-radius: @border-radius-base;
       outline: none;
       display: block;
-      transition: all .3s;
-
-      &:after {
-        font-size: 12px;
-        display: block;
-        height: @pagination-item-size - 2px;
-        font-family: "anticon";
-        text-align: center;
-        font-weight: 500;
-      }
+      transition: all 0.3s;
+      font-size: 12px;
+      height: 100%;
+      text-align: center;
     }
 
     &:focus .@{pagination-prefix-cls}-item-link,
     &:hover .@{pagination-prefix-cls}-item-link {
       border-color: @primary-color;
       color: @primary-color;
-    }
-  }
-
-  &-prev {
-    .@{pagination-prefix-cls}-item-link:after {
-      content: "\e620";
-      display: block;
-    }
-  }
-
-  &-next {
-    .@{pagination-prefix-cls}-item-link:after {
-      content: "\e61f";
-      display: block;
     }
   }
 
@@ -225,6 +212,7 @@
 
     &-size-changer.@{ant-prefix}-select {
       display: inline-block;
+      width: auto;
       margin-right: 8px;
     }
 
@@ -272,7 +260,7 @@
       padding: 0 6px;
       height: 100%;
       text-align: center;
-      transition: border-color .3s;
+      transition: border-color 0.3s;
 
       &:hover {
         border-color: @primary-color;

@@ -5,20 +5,24 @@ import RcHandle from 'rc-slider/lib/Handle';
 import Tooltip from '../tooltip';
 
 export interface SliderMarks {
-  [key: number]: React.ReactNode | {
-    style: React.CSSProperties,
-    label: React.ReactNode,
-  };
+  [key: number]:
+    | React.ReactNode
+    | {
+        style: React.CSSProperties;
+        label: React.ReactNode;
+      };
 }
 
 export type SliderValue = number | [number, number];
 
-export type HandleGeneratorFn = (info: {
-  value: number,
-  dragging: boolean,
-  index: number,
-  rest: any[],
-}) => React.ReactElement<any>;
+export type HandleGeneratorFn = (
+  info: {
+    value: number;
+    dragging: boolean;
+    index: number;
+    rest: any[];
+  },
+) => React.ReactElement<any>;
 
 export interface SliderProps {
   prefixCls?: string;
@@ -39,6 +43,8 @@ export interface SliderProps {
   tipFormatter?: null | ((value: number) => React.ReactNode);
   className?: string;
   id?: string;
+  style?: React.CSSProperties;
+  tooltipVisible?: boolean;
 }
 
 export interface SliderState {
@@ -70,11 +76,12 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
         [index]: visible,
       },
     }));
-  }
+  };
   handleWithTooltip: HandleGeneratorFn = ({ value, dragging, index, ...restProps }) => {
-    const { tooltipPrefixCls, tipFormatter } = this.props;
+    const { tooltipPrefixCls, tipFormatter, tooltipVisible } = this.props;
     const { visibles } = this.state;
-    const visible = tipFormatter ? (visibles[index] || dragging)  : false;
+    const isTipFormatter = tipFormatter ? visibles[index] || dragging : false;
+    const visible = tooltipVisible || (tooltipVisible === undefined && isTipFormatter);
     return (
       <Tooltip
         prefixCls={tooltipPrefixCls}
@@ -92,19 +99,19 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
         />
       </Tooltip>
     );
-  }
+  };
 
   focus() {
     this.rcSlider.focus();
   }
 
   blur() {
-    this.rcSlider.focus();
+    this.rcSlider.blur();
   }
 
   saveSlider = (node: any) => {
     this.rcSlider = node;
-  }
+  };
 
   render() {
     const { range, ...restProps } = this.props;

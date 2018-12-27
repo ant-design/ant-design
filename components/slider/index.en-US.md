@@ -15,11 +15,11 @@ To input a value in a range.
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | autoFocus | get focus when component mounted | boolean | false |
-| defaultValue | The default value of slider. When `range` is `false`, use `number`, otherwise, use `[number, number]` | number\|number\[] | 0 or [0, 0] |
+| defaultValue | The default value of slider. When `range` is `false`, use `number`, otherwise, use `[number, number]` | number\|number\[] | 0 or \[0, 0] |
 | disabled | If true, the slider will not be interactable. | boolean | false |
 | dots | Whether the thumb can drag over tick only. | boolean | false |
 | included | Make effect when `marks` not null，`true` means containment and `false` means coordinative | boolean | true |
-| marks | Tick mark of Slider, type of key must be `number`, and must in closed interval [min, max] ，each mark can declare its own style. | object | { number: string\|ReactNode } or { number: { style: object, label: string\|ReactNode } } |
+| marks | Tick mark of Slider, type of key must be `number`, and must in closed interval \[min, max] ，each mark can declare its own style. | object | { number: string\|ReactNode } or { number: { style: object, label: string\|ReactNode } } |
 | max | The maximum value the slider can slide to | number | 100 |
 | min | The minimum value the slider can slide to. | number | 0 |
 | range | dual thumb mode | boolean | false |
@@ -29,6 +29,7 @@ To input a value in a range.
 | vertical | If true, the slider will be vertical. | Boolean | false |
 | onAfterChange | Fire when  `onmouseup` is fired. | Function(value) | NOOP |
 | onChange | Callback function that is fired when the user changes the slider's value. | Function(value) | NOOP |
+| tooltipVisible | If true, Tooltip will show always, or it will not show anyway, even if dragging or hovering. | Boolean | |
 
 ## Methods
 

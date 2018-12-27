@@ -18,7 +18,7 @@ Using JSX style API (introduced in 2.5.0)
 > Since this is just a syntax sugar for the prop `columns`, you can't compose `Column` and `ColumnGroup` with other Components.
 
 ````jsx
-import { Table, Icon, Divider } from 'antd';
+import { Table, Divider, Tag } from 'antd';
 
 const { Column, ColumnGroup } = Table;
 
@@ -28,18 +28,21 @@ const data = [{
   lastName: 'Brown',
   age: 32,
   address: 'New York No. 1 Lake Park',
+  tags: ['nice', 'developer'],
 }, {
   key: '2',
   firstName: 'Jim',
   lastName: 'Green',
   age: 42,
   address: 'London No. 1 Lake Park',
+  tags: ['loser'],
 }, {
   key: '3',
   firstName: 'Joe',
   lastName: 'Black',
   age: 32,
   address: 'Sidney No. 1 Lake Park',
+  tags: ['cool', 'teacher'],
 }];
 
 ReactDOM.render(
@@ -67,20 +70,27 @@ ReactDOM.render(
       key="address"
     />
     <Column
+      title="Tags"
+      dataIndex="tags"
+      key="tags"
+      render={tags => (
+        <span>
+          {tags.map(tag => <Tag color="blue" key={tag}>{tag}</Tag>)}
+        </span>
+      )}
+    />
+    <Column
       title="Action"
       key="action"
       render={(text, record) => (
         <span>
-          <a href="javascript:;">Action 一 {record.name}</a>
+          <a href="javascript:;">Invite {record.lastName}</a>
           <Divider type="vertical" />
           <a href="javascript:;">Delete</a>
-          <Divider type="vertical" />
-          <a href="javascript:;" className="ant-dropdown-link">
-            More actions <Icon type="down" />
-          </a>
         </span>
       )}
     />
   </Table>,
-  mountNode);
+  mountNode
+);
 ````

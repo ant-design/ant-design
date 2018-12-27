@@ -13,7 +13,6 @@ title:
 
 Another type Tabs, which doesn't support vertical mode.
 
-
 ````jsx
 import { Tabs } from 'antd';
 
@@ -29,5 +28,6 @@ ReactDOM.render(
     <TabPane tab="Tab 2" key="2">Content of Tab Pane 2</TabPane>
     <TabPane tab="Tab 3" key="3">Content of Tab Pane 3</TabPane>
   </Tabs>,
-  mountNode);
+  mountNode
+);
 ````

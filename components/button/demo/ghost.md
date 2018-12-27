@@ -7,7 +7,7 @@ title:
 
 ## zh-CN
 
-幽灵按钮将其他按钮的内容反色，背景变为透明，常用在有色背景上。
+幽灵按钮将按钮的内容反色，背景变为透明，常用在有色背景上。
 
 ## en-US
 
@@ -23,5 +23,6 @@ ReactDOM.render(
     <Button type="dashed" ghost>Dashed</Button>
     <Button type="danger" ghost>danger</Button>
   </div>,
-  mountNode);
+  mountNode
+);
 ````

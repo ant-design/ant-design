@@ -9,6 +9,10 @@ export default {
   DatePicker,
   TimePicker,
   Calendar,
+  // locales for all comoponents
+  global: {
+    placeholder: '请选择',
+  },
   Table: {
     filterTitle: '筛选',
     filterConfirm: '确定',
@@ -16,6 +20,7 @@ export default {
     emptyText: '暂无数据',
     selectAll: '全选当页',
     selectInvert: '反选当页',
+    sortTitle: '排序',
   },
   Modal: {
     okText: '确定',

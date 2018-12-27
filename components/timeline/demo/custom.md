@@ -1,6 +1,6 @@
 ---
 order: 4
-title: 
+title:
   zh-CN: 自定义时间轴点
   en-US: Custom
 ---
@@ -9,7 +9,7 @@ title:
 
 可以设置为图标或其他自定义元素。
 
-## en-US 
+## en-US
 
 Set a node as an icon or other custom element.
 
@@ -23,5 +23,6 @@ ReactDOM.render(
     <Timeline.Item dot={<Icon type="clock-circle-o" style={{ fontSize: '16px' }} />} color="red">Technical testing 2015-09-01</Timeline.Item>
     <Timeline.Item>Network problems being solved 2015-09-01</Timeline.Item>
   </Timeline>,
-  mountNode);
+  mountNode
+);
 ````

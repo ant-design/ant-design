@@ -19,6 +19,7 @@ export type CardType = 'inner';
 export interface CardTabListType {
   key: string;
   tab: React.ReactNode;
+  disabled?: boolean;
 }
 
 export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
@@ -26,6 +27,7 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   title?: React.ReactNode;
   extra?: React.ReactNode;
   bordered?: boolean;
+  headStyle?: React.CSSProperties;
   bodyStyle?: React.CSSProperties;
   style?: React.CSSProperties;
   loading?: boolean;
@@ -36,7 +38,7 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   className?: string;
   type?: CardType;
   cover?: React.ReactNode;
-  actions?: Array<React.ReactNode>;
+  actions?: React.ReactNode[];
   tabList?: CardTabListType[];
   onTabChange?: (key: string) => void;
   activeTabKey?: string;
@@ -58,6 +60,7 @@ export default class Card extends React.Component<CardProps, CardState> {
   private resizeEvent: any;
   private updateWiderPaddingCalled: boolean = false;
   private container: HTMLDivElement;
+
   componentDidMount() {
     this.updateWiderPadding();
     this.resizeEvent = addEventListener(window, 'resize', this.updateWiderPadding);
@@ -67,15 +70,20 @@ export default class Card extends React.Component<CardProps, CardState> {
         !this.props.noHovering,
         '`noHovering` of Card is deprecated, you can remove it safely or use `hoverable` instead.',
       );
-      warning(!!this.props.noHovering, '`noHovering={false}` of Card is deprecated, use `hoverable` instead.');
+      warning(
+        !!this.props.noHovering,
+        '`noHovering={false}` of Card is deprecated, use `hoverable` instead.',
+      );
     }
   }
+
   componentWillUnmount() {
     if (this.resizeEvent) {
       this.resizeEvent.remove();
     }
     (this.updateWiderPadding as any).cancel();
   }
+
   @throttleByAnimationFrameDecorator()
   updateWiderPadding() {
     if (!this.container) {
@@ -94,14 +102,17 @@ export default class Card extends React.Component<CardProps, CardState> {
       });
     }
   }
+
   onTabChange = (key: string) => {
     if (this.props.onTabChange) {
       this.props.onTabChange(key);
     }
-  }
+  };
+
   saveRef = (node: HTMLDivElement) => {
     this.container = node;
-  }
+  };
+
   isContainGrid() {
     let containGrid;
     React.Children.forEach(this.props.children, (element: JSX.Element) => {
@@ -111,18 +122,19 @@ export default class Card extends React.Component<CardProps, CardState> {
     });
     return containGrid;
   }
+
   getAction(actions: React.ReactNode[]) {
     if (!actions || !actions.length) {
       return null;
     }
     const actionList = actions.map((action, index) => (
-        <li style={{ width: `${100 / actions.length}%` }} key={`action-${index}`}>
-          <span>{action}</span>
-        </li>
-      ),
-    );
+      <li style={{ width: `${100 / actions.length}%` }} key={`action-${index}`}>
+        <span>{action}</span>
+      </li>
+    ));
     return actionList;
   }
+
   // For 2.x compatible
   getCompatibleHoverable() {
     const { noHovering, hoverable } = this.props;
@@ -131,10 +143,27 @@ export default class Card extends React.Component<CardProps, CardState> {
     }
     return !!hoverable;
   }
+
   render() {
     const {
-      prefixCls = 'ant-card', className, extra, bodyStyle = {}, noHovering, hoverable, title, loading,
-      bordered = true, type, cover, actions, tabList, children, activeTabKey, defaultActiveTabKey, ...others
+      prefixCls = 'ant-card',
+      className,
+      extra,
+      headStyle = {},
+      bodyStyle = {},
+      noHovering,
+      hoverable,
+      title,
+      loading,
+      bordered = true,
+      type,
+      cover,
+      actions,
+      tabList,
+      children,
+      activeTabKey,
+      defaultActiveTabKey,
+      ...others
     } = this.props;
 
     const classString = classNames(prefixCls, className, {
@@ -148,14 +177,11 @@ export default class Card extends React.Component<CardProps, CardState> {
       [`${prefixCls}-type-${type}`]: !!type,
     });
 
-    const loadingBlockStyle = (bodyStyle.padding === 0 || bodyStyle.padding === '0px')
-      ? { padding: 24 } : undefined;
+    const loadingBlockStyle =
+      bodyStyle.padding === 0 || bodyStyle.padding === '0px' ? { padding: 24 } : undefined;
 
     const loadingBlock = (
-      <div
-        className={`${prefixCls}-loading-content`}
-        style={loadingBlockStyle}
-      >
+      <div className={`${prefixCls}-loading-content`} style={loadingBlockStyle}>
         <Row gutter={8}>
           <Col span={22}>
             <div className={`${prefixCls}-loading-block`} />
@@ -218,19 +244,22 @@ export default class Card extends React.Component<CardProps, CardState> {
     };
 
     let head;
-    const tabs = tabList && tabList.length ? (
-      <Tabs
-        {...extraProps}
-        className={`${prefixCls}-head-tabs`}
-        size="large"
-        onChange={this.onTabChange}
-      >
-        {tabList.map(item => <Tabs.TabPane tab={item.tab} key={item.key} />)}
-      </Tabs>
-    ) : null;
+    const tabs =
+      tabList && tabList.length ? (
+        <Tabs
+          {...extraProps}
+          className={`${prefixCls}-head-tabs`}
+          size="large"
+          onChange={this.onTabChange}
+        >
+          {tabList.map(item => (
+            <Tabs.TabPane tab={item.tab} disabled={item.disabled} key={item.key} />
+          ))}
+        </Tabs>
+      ) : null;
     if (title || extra || tabs) {
       head = (
-        <div className={`${prefixCls}-head`}>
+        <div className={`${prefixCls}-head`} style={headStyle}>
           <div className={`${prefixCls}-head-wrapper`}>
             {title && <div className={`${prefixCls}-head-title`}>{title}</div>}
             {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
@@ -245,11 +274,11 @@ export default class Card extends React.Component<CardProps, CardState> {
         {loading ? loadingBlock : children}
       </div>
     );
-    const actionDom = actions && actions.length ?
-      <ul className={`${prefixCls}-actions`}>{this.getAction(actions)}</ul> : null;
-    const divProps = omit(others, [
-      'onTabChange',
-    ]);
+    const actionDom =
+      actions && actions.length ? (
+        <ul className={`${prefixCls}-actions`}>{this.getAction(actions)}</ul>
+      ) : null;
+    const divProps = omit(others, ['onTabChange']);
     return (
       <div {...divProps} className={classString} ref={this.saveRef}>
         {head}

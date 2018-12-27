@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import RcRate from 'rc-rate';
 import Icon from '../icon';
 
@@ -26,7 +26,7 @@ export default class Rate extends React.Component<RateProps, any> {
 
   static defaultProps = {
     prefixCls: 'ant-rate',
-    character: <Icon type="star" />,
+    character: <Icon type="star" theme="filled" />,
   };
 
   private rcRate: any;
@@ -41,7 +41,7 @@ export default class Rate extends React.Component<RateProps, any> {
 
   saveRate = (node: any) => {
     this.rcRate = node;
-  }
+  };
 
   render() {
     return <RcRate ref={this.saveRate} {...this.props} />;

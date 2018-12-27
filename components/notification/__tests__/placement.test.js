@@ -7,10 +7,8 @@ describe('Notification.placement', () => {
     return document.body.querySelectorAll(className);
   }
 
-  function getStyle(el, prop, getComputedStyle, style) {
-    getComputedStyle = getComputedStyle || window.getComputedStyle;
-    style = getComputedStyle ? getComputedStyle(el) : el.currentStyle;
-
+  function getStyle(el, prop) {
+    const style = window.getComputedStyle ? window.getComputedStyle(el) : el.currentStyle;
     // If a css property's value is `auto`, it will return an empty string.
     return prop ? style[prop] : style;
   }
@@ -49,7 +47,6 @@ describe('Notification.placement', () => {
     });
     expect($$('.ant-notification-topLeft').length).toBe(1);
 
-
     // topRight
     open({
       placement: 'topRight',
@@ -64,7 +61,6 @@ describe('Notification.placement', () => {
     });
     expect($$('.ant-notification-topRight').length).toBe(1);
 
-
     // bottomRight
     open({
       placement: 'bottomRight',
@@ -78,7 +74,6 @@ describe('Notification.placement', () => {
       placement: 'bottomRight',
     });
     expect($$('.ant-notification-bottomRight').length).toBe(1);
-
 
     // bottomLeft
     open({

@@ -7,7 +7,7 @@ describe('Popover', () => {
     const popover = mount(
       <Popover content="console.log('hello world')" title="code" trigger="click">
         <span>show me your code</span>
-      </Popover>
+      </Popover>,
     );
 
     expect(popover.instance().getPopupDomNode()).toBe(null);

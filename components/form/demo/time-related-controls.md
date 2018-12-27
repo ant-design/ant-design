@@ -7,18 +7,18 @@ title:
 
 ## zh-CN
 
-`antd@2.0` 之后，时间类组件的 `value` 改为 `moment` 类型，所以在提交前需要预处理。
+时间类组件的 `value` 类型为 `moment` 对象，所以在提交服务器前需要预处理。
 
 ## en-US
 
-After `antd@2.0`, the `value` of time-related components had been changed to `moment`. So, we need to pre-process those values.
+The `value` of time-related components is a `moment` object, which we need to pre-process it before we submit to server.
 
 ````jsx
-import { Form, DatePicker, TimePicker, Button } from 'antd';
+import {
+  Form, DatePicker, TimePicker, Button,
+} from 'antd';
 
-const FormItem = Form.Item;
-const MonthPicker = DatePicker.MonthPicker;
-const RangePicker = DatePicker.RangePicker;
+const { MonthPicker, RangePicker } = DatePicker;
 
 class TimeRelatedForm extends React.Component {
   handleSubmit = (e) => {
@@ -68,62 +68,62 @@ class TimeRelatedForm extends React.Component {
     };
     return (
       <Form onSubmit={this.handleSubmit}>
-        <FormItem
+        <Form.Item
           {...formItemLayout}
           label="DatePicker"
         >
           {getFieldDecorator('date-picker', config)(
             <DatePicker />
           )}
-        </FormItem>
-        <FormItem
+        </Form.Item>
+        <Form.Item
           {...formItemLayout}
           label="DatePicker[showTime]"
         >
           {getFieldDecorator('date-time-picker', config)(
             <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />
           )}
-        </FormItem>
-        <FormItem
+        </Form.Item>
+        <Form.Item
           {...formItemLayout}
           label="MonthPicker"
         >
           {getFieldDecorator('month-picker', config)(
             <MonthPicker />
           )}
-        </FormItem>
-        <FormItem
+        </Form.Item>
+        <Form.Item
           {...formItemLayout}
           label="RangePicker"
         >
           {getFieldDecorator('range-picker', rangeConfig)(
             <RangePicker />
           )}
-        </FormItem>
-        <FormItem
+        </Form.Item>
+        <Form.Item
           {...formItemLayout}
           label="RangePicker[showTime]"
         >
           {getFieldDecorator('range-time-picker', rangeConfig)(
             <RangePicker showTime format="YYYY-MM-DD HH:mm:ss" />
           )}
-        </FormItem>
-        <FormItem
+        </Form.Item>
+        <Form.Item
           {...formItemLayout}
           label="TimePicker"
         >
           {getFieldDecorator('time-picker', config)(
             <TimePicker />
           )}
-        </FormItem>
-        <FormItem
+        </Form.Item>
+        <Form.Item
           wrapperCol={{
             xs: { span: 24, offset: 0 },
             sm: { span: 16, offset: 8 },
           }}
         >
           <Button type="primary" htmlType="submit">Submit</Button>
-        </FormItem>
+        </Form.Item>
       </Form>
     );
   }

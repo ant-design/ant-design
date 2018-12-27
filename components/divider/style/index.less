@@ -1,7 +1,7 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@divider-prefix-cls: ~"@{ant-prefix}-divider";
+@divider-prefix-cls: ~'@{ant-prefix}-divider';
 
 .@{divider-prefix-cls} {
   .reset-component;
@@ -21,6 +21,7 @@
     display: block;
     height: 1px;
     width: 100%;
+    min-width: 100%; // Fix https://github.com/ant-design/ant-design/issues/10914
     margin: 24px 0;
     clear: both;
   }
@@ -50,7 +51,6 @@
 
   &-horizontal&-with-text-left,
   &-horizontal&-with-text-right {
-    font-size: @font-size-base;
     .@{divider-prefix-cls}-inner-text {
       display: inline-block;
       padding: 0 10px;

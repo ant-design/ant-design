@@ -28,6 +28,7 @@ Keyboard and mouse can be used for providing or changing data.
 | suffix | The suffix icon for the Input. | string\|ReactNode |  |
 | type | The type of input, see: [MDN](https://developer.mozilla.org/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types)(use `Input.TextArea` instead of `type="textarea"`) | string | `text` |
 | value | The input content value | string |  |
+| onChange | callback when user input | function(e) | |
 | onPressEnter | The callback function that is triggered when Enter key is pressed. | function(e) |  |
 
 > When `Input` is used in a `Form.Item` context, if the `Form.Item` has the `id` and `options` props defined
@@ -54,8 +55,8 @@ The rest of the props of `Input.TextArea` are the same as the original [textarea
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| enterButton | to show a enter button after input | boolean\|ReactNode | false |
-| onSearch | The callback function that is triggered when you click on the search-icon or press Enter key. | function(value) |  |
+| enterButton | to show an enter button after input | boolean\|ReactNode | false |
+| onSearch | The callback function that is triggered when you click on the search-icon or press Enter key. | function(value, event) |  |
 
 Supports all props of `Input`.
 

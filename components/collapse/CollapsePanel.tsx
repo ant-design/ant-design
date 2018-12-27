@@ -11,14 +11,18 @@ export interface CollapsePanelProps {
   showArrow?: boolean;
   prefixCls?: string;
   forceRender?: boolean;
+  id?: string;
 }
 
 export default class CollapsePanel extends React.Component<CollapsePanelProps, {}> {
   render() {
     const { prefixCls, className = '', showArrow = true } = this.props;
-    const collapsePanelClassName = classNames({
-      [`${prefixCls}-no-arrow`]: !showArrow,
-    }, className);
+    const collapsePanelClassName = classNames(
+      {
+        [`${prefixCls}-no-arrow`]: !showArrow,
+      },
+      className,
+    );
     return <RcCollapse.Panel {...this.props} className={collapsePanelClassName} />;
   }
 }

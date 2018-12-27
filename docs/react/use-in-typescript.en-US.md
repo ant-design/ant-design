@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 4
 title: Use in TypeScript
 ---
 
@@ -90,11 +90,11 @@ $ yarn add react-app-rewired --dev
 ```diff
 /* package.json */
 "scripts": {
--   "start": "react-scripts start",
+-   "start": "react-scripts-ts start",
 +   "start": "react-app-rewired start --scripts-version react-scripts-ts",
--   "build": "react-scripts build",
+-   "build": "react-scripts-ts build",
 +   "build": "react-app-rewired build --scripts-version react-scripts-ts",
--   "test": "react-scripts test --env=jsdom",
+-   "test": "react-scripts-ts test --env=jsdom",
 +   "test": "react-app-rewired test --env=jsdom --scripts-version react-scripts-ts",
 }
 ```
@@ -200,6 +200,7 @@ $ yarn add react-app-rewire-less --dev
     };
 
 +   config = rewireLess.withLoaderOptions({
++     javascriptEnabled: true,
 +     modifyVars: { "@primary-color": "#1DA57A" },
 +   })(config, env);
 
@@ -223,4 +224,3 @@ $ create-react-app my-project --scripts-version=react-scripts-ts-antd
 ### error TS2605: JSX element type Xxx is not a constructor function for JSX elements.
 
 Before antd 3, You need setting `allowSyntheticDefaultImports` to `true` in tsconfig.json.
-

@@ -7,21 +7,21 @@ export interface HttpRequestHeader {
 }
 
 export interface RcFile extends File {
-  uid: number;
+  uid: string;
+  lastModifiedDate: Date;
 }
 
 export interface UploadFile {
-  uid: number;
+  uid: string;
   size: number;
   name: string;
-  filename?: string;
+  fileName?: string;
   lastModified?: number;
   lastModifiedDate?: Date;
   url?: string;
   status?: UploadFileStatus;
   percent?: number;
   thumbUrl?: string;
-  isNotImage?: boolean;
   originFileObj?: File;
   response?: any;
   error?: any;
@@ -55,7 +55,8 @@ export interface UploadProps {
   name?: string;
   defaultFileList?: Array<UploadFile>;
   fileList?: Array<UploadFile>;
-  action?: string;
+  action?: string | ((file: UploadFile) => PromiseLike<any>);
+  directory?: boolean;
   data?: Object | ((file: UploadFile) => any);
   headers?: HttpRequestHeader;
   showUploadList?: boolean | ShowUploadListInterface;
@@ -73,6 +74,7 @@ export interface UploadProps {
   prefixCls?: string;
   customRequest?: (option: any) => void;
   withCredentials?: boolean;
+  openFileDialogOnClick?: boolean;
   locale?: UploadLocale;
 }
 

@@ -1,10 +1,12 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@alert-prefix-cls: ~"@{ant-prefix}-alert";
+@alert-prefix-cls: ~'@{ant-prefix}-alert';
 
 @alert-message-color: @heading-color;
 @alert-text-color: @text-color;
+@alert-close-color: @text-color-secondary;
+@alert-close-hover-color: #404040;
 
 .@{alert-prefix-cls} {
   .reset-component;
@@ -16,8 +18,12 @@
     padding: 8px 15px;
   }
 
+  &&-closable {
+    padding-right: 30px;
+  }
+
   &-icon {
-    top: 8px + @font-size-base * @line-height-base / 2 - @font-size-base / 2 + 1px;
+    top: 8px + @font-size-base * @line-height-base / 2 - @font-size-base / 2;
     left: 16px;
     position: absolute;
   }
@@ -29,34 +35,34 @@
   }
 
   &-success {
-    border: @border-width-base @border-style-base ~`colorPalette("@{success-color}", 3)`;
-    background-color: ~`colorPalette("@{success-color}", 1)`;
+    border: @border-width-base @border-style-base @alert-success-border-color;
+    background-color: @alert-success-bg-color;
     .@{alert-prefix-cls}-icon {
-      color: @success-color;
+      color: @alert-success-icon-color;
     }
   }
 
   &-info {
-    border: @border-width-base @border-style-base ~`colorPalette("@{info-color}", 3)`;
-    background-color: ~`colorPalette("@{info-color}", 1)`;
+    border: @border-width-base @border-style-base @alert-info-border-color;
+    background-color: @alert-info-bg-color;
     .@{alert-prefix-cls}-icon {
-      color: @info-color;
+      color: @alert-info-icon-color;
     }
   }
 
   &-warning {
-    border: @border-width-base @border-style-base ~`colorPalette("@{warning-color}", 3)`;
-    background-color: ~`colorPalette("@{warning-color}", 1)`;
+    border: @border-width-base @border-style-base @alert-warning-border-color;
+    background-color: @alert-warning-bg-color;
     .@{alert-prefix-cls}-icon {
-      color: @warning-color;
+      color: @alert-warning-icon-color;
     }
   }
 
   &-error {
-    border: @border-width-base @border-style-base ~`colorPalette("@{error-color}", 3)`;
-    background-color: ~`colorPalette("@{error-color}", 1)`;
+    border: @border-width-base @border-style-base @alert-error-border-color;
+    background-color: @alert-error-bg-color;
     .@{alert-prefix-cls}-icon {
-      color: @error-color;
+      color: @alert-error-icon-color;
     }
   }
 
@@ -69,11 +75,11 @@
     overflow: hidden;
     cursor: pointer;
 
-    .@{iconfont-css-prefix}-cross {
-      color: @text-color-secondary;
-      transition: color .3s;
+    .@{iconfont-css-prefix}-close {
+      color: @alert-close-color;
+      transition: color 0.3s;
       &:hover {
-        color: #404040;
+        color: @alert-close-hover-color;
       }
     }
   }
@@ -87,7 +93,7 @@
     padding: 15px 15px 15px 64px;
     position: relative;
     border-radius: @border-radius-base;
-    color: @text-color;
+    color: @alert-text-color;
     line-height: @line-height-base;
   }
 
@@ -126,12 +132,12 @@
     margin: 0;
     padding-top: 0;
     padding-bottom: 0;
-    transition: all .3s @ease-in-out-circ;
+    transition: all 0.3s @ease-in-out-circ;
     transform-origin: 50% 0;
   }
 
   &-slide-up-leave {
-    animation: antAlertSlideUpOut .3s @ease-in-out-circ;
+    animation: antAlertSlideUpOut 0.3s @ease-in-out-circ;
     animation-fill-mode: both;
   }
 

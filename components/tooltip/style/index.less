@@ -1,7 +1,7 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@tooltip-prefix-cls: ~"@{ant-prefix}-tooltip";
+@tooltip-prefix-cls: ~'@{ant-prefix}-tooltip';
 
 // Base class
 .@{tooltip-prefix-cls} {
@@ -47,6 +47,7 @@
     border-radius: @border-radius-base;
     box-shadow: @box-shadow-base;
     min-height: 32px;
+    word-wrap: break-word;
   }
 
   // Arrows
