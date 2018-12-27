@@ -29,8 +29,13 @@ function getStyle() {
     #header #logo {
       padding: 0;
     }
-    #header .ant-row > div:last-child .ant-menu,
     #header .nav-phone-icon {
+      display: none;
+    }
+    #header #nav .ant-menu-item {
+      border-color: transparent;
+    }
+    #header #nav .ant-menu-item.hide-in-home-page {
       display: none;
     }
     #header .ant-row > div:last-child .header-lang-button {
