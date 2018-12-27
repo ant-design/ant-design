@@ -34,3 +34,9 @@ A content area which can be collapsed and expanded.
 | header | Title of the panel | string\|ReactNode | - |
 | key | Unique key identifying the panel from among its siblings | string | - |
 | showArrow | If `false`, panel will not show arrow icon | boolean | `true` |
+
+## FAQ
+
+### How to let the arrow to be on the right?
+
+You can adjust style of the arrow: <https://codesandbox.io/s/vpm8qwo37>
