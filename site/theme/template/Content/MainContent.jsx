@@ -70,10 +70,13 @@ export default class MainContent extends React.PureComponent {
   }
 
   static getDerivedStateFromProps(props, state) {
-    return {
-      ...state,
-      openKeys: getSideBarOpenKeys(props),
-    };
+    if (!state.openKeys) {
+      return {
+        ...state,
+        openKeys: getSideBarOpenKeys(props),
+      };
+    }
+    return null;
   }
 
   componentDidUpdate(prevProps) {
@@ -259,7 +262,7 @@ export default class MainContent extends React.PureComponent {
         inlineIndent="40"
         className="aside-container menu-site"
         mode="inline"
-        defaultOpenKeys={openKeys}
+        openKeys={openKeys}
         selectedKeys={[activeMenuItem]}
         onOpenChange={this.handleMenuOpenChange}
       >
