@@ -34,7 +34,7 @@ function insertSpace(child: React.ReactChild, needInserted: boolean) {
 }
 
 export type ButtonType = 'default' | 'primary' | 'ghost' | 'dashed' | 'danger';
-export type ButtonShape = 'circle' | 'circle-outline';
+export type ButtonShape = 'circle' | 'circle-outline' | 'rounded';
 export type ButtonSize = 'small' | 'default' | 'large';
 export type ButtonHTMLType = 'submit' | 'button' | 'reset';
 
@@ -77,7 +77,7 @@ export default class Button extends React.Component<ButtonProps, any> {
 
   static propTypes = {
     type: PropTypes.string,
-    shape: PropTypes.oneOf(['circle', 'circle-outline']),
+    shape: PropTypes.oneOf(['circle', 'circle-outline', 'rounded']),
     size: PropTypes.oneOf(['large', 'default', 'small']),
     htmlType: PropTypes.oneOf(['submit', 'button', 'reset']),
     onClick: PropTypes.func,
