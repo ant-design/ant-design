@@ -31,6 +31,8 @@ ReactDOM.render(
     <Button icon="search">Search</Button>
     <Button type="dashed" shape="circle" icon="search" />
     <Button type="dashed" icon="search">Search</Button>
+    <Button shape="rounded" icon="search">Search</Button>
+    <Button shape="rounded">Search</Button>
   </div>,
   mountNode
 );
