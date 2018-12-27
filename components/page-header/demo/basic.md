@@ -17,7 +17,7 @@ Basic Page Header
 import { PageHeader } from 'antd';
 
 ReactDOM.render(
-  <PageHeader title="页面标题" subTitle="解释一下标题" />,
+  <PageHeader title="页面标题" subTitle="这是一个附属标题" />,
   mountNode
 );
 ```

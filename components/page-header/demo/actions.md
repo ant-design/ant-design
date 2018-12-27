@@ -55,7 +55,7 @@ const extraContent = (
 ReactDOM.render(
   <PageHeader
     title="页面标题"
-    subTitle="解释一下标题"
+    subTitle="这是一个附属标题"
     tags={<Tag color="red">警告</Tag>}
     extra={[
       <Button key="3">次操作</Button>,

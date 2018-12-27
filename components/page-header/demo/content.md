@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 3
 title:
   zh-CN: 带面包屑页头
   en-US: Breadcrumb Page Header
