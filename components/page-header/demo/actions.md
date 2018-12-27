@@ -58,9 +58,9 @@ ReactDOM.render(
     subTitle="解释一下标题"
     tags={<Tag color="red">警告</Tag>}
     extra={[
-      <Button>次操作</Button>,
-      <Button>次操作</Button>,
-      <Button type="primary">主操作</Button>,
+      <Button key="3">次操作</Button>,
+      <Button key="2">次操作</Button>,
+      <Button key="1" type="primary">主操作</Button>,
     ]}
     footer={
       <Tabs defaultActiveKey="1">

@@ -36,7 +36,7 @@ class PageHeader extends React.PureComponent<Partial<PageHeaderProps>, null> {
             this.props.onBack(e);
             return;
           }
-          history.back();
+          window.history.back();
         }}
       >
         {backNode}
