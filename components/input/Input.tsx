@@ -29,7 +29,7 @@ export interface InputProps
   addonAfter?: React.ReactNode;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
-  allowClear?: Boolean;
+  allowClear?: boolean;
 }
 
 class Input extends React.Component<InputProps, any> {
@@ -128,16 +128,12 @@ class Input extends React.Component<InputProps, any> {
     if (!('value' in this.props)) {
       this.setState({ value });
     }
+    const newEvent = Object.create(e);
+    const eventTarget = this.input;
+    newEvent.target = eventTarget;
+    newEvent.currentTarget = eventTarget;
     if (onChange) {
-      onChange(
-        e.target
-          ? (e as React.ChangeEvent<HTMLInputElement>)
-          : {
-              ...e,
-              target: this.input,
-              currentTarget: this.input,
-            },
-      );
+      onChange(newEvent);
     }
   }
 
