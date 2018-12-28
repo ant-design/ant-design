@@ -34,8 +34,7 @@ const routes = [
 const content = (
   <div className="content">
     <p>
-      段落示意：蚂蚁金服务设计平台
-      ant.design，用最小的工作量，无缝接入蚂蚁金服生态，提供跨越设计与开发的体验解决方案。
+      段落示意：随着商业化的趋势，越来越多的企业级产品对更好的用户体验有了进一步的要求。带着这样的一个终极目标，我们（蚂蚁金服体验技术部）经过大量的项目实践和总结，逐步打磨出一个服务于企业级产品的设计体系 Ant Design。基于『确定』和『自然』的设计价值观，通过模块化的解决方案，降低冗余的生产成本，让设计者专注于更好的用户体验。
     </p>
     <p className="contentLink">
       <a>
@@ -91,9 +90,6 @@ ReactDOM.render(
 .extraContent {
   min-width: 240px;
   text-align: right;
-}
-.extraContent img{
-  margin-top:-40px;
 }
 .contentLink {
   padding-top: 16px;
