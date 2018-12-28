@@ -123,27 +123,25 @@ class Input extends React.Component<InputProps, any> {
     value: string,
     e: React.ChangeEvent<HTMLInputElement> | React.MouseEvent<HTMLElement, MouseEvent>,
   ) {
-    const { onChange } = this.props;
     if (!('value' in this.props)) {
       this.setState({ value });
     }
-    let event = e;
-    if (e.type === 'click') {
-      // click clear icon
-      event = Object.create(e);
-      event.target = this.input;
-      event.currentTarget = this.input;
-      const originalInputValue = this.input.value;
-      // change input value cause e.target.value should be '' when clear input
-      this.input.value = '';
-      if (onChange) {
-        onChange(event as React.ChangeEvent<HTMLInputElement>);
-      }
-      // reset input value
-      this.input.value = originalInputValue;
-      return;
-    }
+    const { onChange } = this.props;
     if (onChange) {
+      let event = e;
+      if (e.type === 'click') {
+        // click clear icon
+        event = Object.create(e);
+        event.target = this.input;
+        event.currentTarget = this.input;
+        const originalInputValue = this.input.value;
+        // change input value cause e.target.value should be '' when clear input
+        this.input.value = '';
+        onChange(event as React.ChangeEvent<HTMLInputElement>);
+        // reset input value
+        this.input.value = originalInputValue;
+        return;
+      }
       onChange(event as React.ChangeEvent<HTMLInputElement>);
     }
   }
