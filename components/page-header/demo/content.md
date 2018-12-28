@@ -93,7 +93,7 @@ ReactDOM.render(
 .content {
   flex: 1;
 }
-.content p{
+.content p {
   margin-bottom:8px;
 }
 .extraContent {
