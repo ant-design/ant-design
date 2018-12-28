@@ -25,12 +25,14 @@ exports[`Input allowClear should change type when click 1`] = `
         <Icon
           className="ant-input-clear-icon"
           onClick={[Function]}
+          role="button"
           theme="filled"
           type="close-circle"
         >
           <i
             className="anticon anticon-close-circle ant-input-clear-icon"
             onClick={[Function]}
+            role="button"
           >
             <IconReact
               className=""

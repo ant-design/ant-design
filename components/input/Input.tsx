@@ -65,10 +65,9 @@ class Input extends React.Component<InputProps, any> {
     allowClear: PropTypes.bool,
   };
 
-  static getDerivedStateFromProps(nextProps: InputProps, state: any) {
+  static getDerivedStateFromProps(nextProps: InputProps) {
     if ('value' in nextProps) {
       return {
-        ...state,
         value: nextProps.value,
       };
     }
@@ -129,7 +128,8 @@ class Input extends React.Component<InputProps, any> {
       this.setState({ value });
     }
     let event = e;
-    if (e.type === 'click') { // click clear icon
+    if (e.type === 'click') {
+      // click clear icon
       event = Object.create(e);
       event.target = this.input;
       event.currentTarget = this.input;
@@ -168,6 +168,7 @@ class Input extends React.Component<InputProps, any> {
         theme="filled"
         onClick={this.handleReset}
         className={`${prefixCls}-clear-icon`}
+        role="button"
       />
     );
   }
