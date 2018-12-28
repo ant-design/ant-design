@@ -78,7 +78,7 @@ class Input extends React.Component<InputProps, any> {
 
   constructor(props: InputProps) {
     super(props);
-    const value = props.value || props.defaultValue;
+    const value = typeof props.value === 'undefined' ? props.defaultValue : props.value;
     this.state = {
       value,
     };
