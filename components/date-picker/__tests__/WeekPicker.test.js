@@ -1,5 +1,6 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
+import { setMockDate, resetMockDate } from '../../../tests/utils';
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import { openPanel } from './utils';
@@ -7,6 +8,14 @@ import { openPanel } from './utils';
 const { WeekPicker } = DatePicker;
 
 describe('WeekPicker', () => {
+  beforeEach(() => {
+    setMockDate();
+  });
+
+  afterEach(() => {
+    resetMockDate();
+  });
+
   focusTest(WeekPicker);
 
   it('should support style prop', () => {
@@ -47,5 +56,19 @@ describe('WeekPicker', () => {
     extraNode = wrapper.find('.ant-calendar-decade-panel .extra-node');
     expect(extraNode.length).toBe(1);
     expect(extraNode.text()).toBe('decade');
+  });
+
+  it('should support dateRender', () => {
+    const wrapper = mount(
+      <WeekPicker open dateRender={current => <span>{current.format('YYYY-MM-DD')}</span>} />,
+    );
+    expect(
+      render(
+        wrapper
+          .find('Trigger')
+          .instance()
+          .getComponent(),
+      ),
+    ).toMatchSnapshot();
   });
 });

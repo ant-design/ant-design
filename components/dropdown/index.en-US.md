@@ -22,7 +22,7 @@ If there are too many operations to display, you can wrap them in a `Dropdown`. 
 | overlayClassName | Class name of the dropdown root element | string | - |
 | overlayStyle | Style of the dropdown root element | object | - |
 | placement | placement of pop menu: `bottomLeft` `bottomCenter` `bottomRight` `topLeft` `topCenter` `topRight` | String | `bottomLeft` |
-| trigger | the trigger mode which executes the drop-down action | Array&lt;`click`\|`hover`\|`contextMenu`> | `['hover']` |
+| trigger | the trigger mode which executes the drop-down action, hover doesn't work on mobile device | Array&lt;`click`\|`hover`\|`contextMenu`> | `['hover']` |
 | visible | whether the dropdown menu is visible | boolean | - |
 | onVisibleChange | a callback function takes an argument: `visible`, is executed when the visible state is changed | Function(visible) | - |
 

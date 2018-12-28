@@ -50,7 +50,7 @@ export default class Palette extends React.Component {
             ref={node => {
               this.colorNodes[`${name}-${i}`] = node;
             }}
-            className={`main-color-item palatte-${name}-${i}`}
+            className={`main-color-item palette-${name}-${i}`}
             style={{
               color: (name === 'yellow' ? i > 6 : i > 5) ? '#fff' : 'unset',
               fontWeight: i === 6 ? 'bold' : 'normal',

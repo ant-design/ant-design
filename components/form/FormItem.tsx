@@ -11,7 +11,7 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 import { tuple } from '../_util/type';
 
-const ValidateStatuses = tuple('success', 'warning', 'error', 'validating');
+const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
 
 export interface FormItemProps {
   prefixCls?: string;

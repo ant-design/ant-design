@@ -10,7 +10,7 @@ describe('Input', () => {
   focusTest(Input);
 
   it('should support maxLength', () => {
-    const wrapper = mount(<Input maxLength="3" />);
+    const wrapper = mount(<Input maxLength={3} />);
     expect(wrapper).toMatchSnapshot();
   });
 
@@ -48,7 +48,7 @@ describe('TextArea', () => {
   });
 
   it('should support maxLength', () => {
-    const wrapper = mount(<TextArea maxLength="10" />);
+    const wrapper = mount(<TextArea maxLength={10} />);
     expect(wrapper).toMatchSnapshot();
   });
 });
