@@ -30,6 +30,7 @@ Keyboard and mouse can be used for providing or changing data.
 | value | The input content value | string |  |
 | onChange | callback when user input | function(e) | |
 | onPressEnter | The callback function that is triggered when Enter key is pressed. | function(e) |  |
+| allowClear | allow to remove input content with clear icon | boolean | |
 
 > When `Input` is used in a `Form.Item` context, if the `Form.Item` has the `id` and `options` props defined
 > then `value`, `defaultValue`, and `id` props of `Input` are automatically set.
