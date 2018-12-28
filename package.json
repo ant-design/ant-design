@@ -69,7 +69,7 @@
     "rc-notification": "~3.3.0",
     "rc-pagination": "~1.17.7",
     "rc-progress": "~2.2.6",
-    "rc-rate": "~2.4.2",
+    "rc-rate": "~2.5.0",
     "rc-select": "^8.6.7",
     "rc-slider": "~8.6.3",
     "rc-steps": "~3.3.0",
