@@ -14,7 +14,7 @@ describe('Spin', () => {
         .find('.ant-spin-nested-loading')
         .at(0)
         .prop('style'),
-    ).toBe(null);
+    ).toBeFalsy();
     expect(
       wrapper
         .find('.ant-spin')

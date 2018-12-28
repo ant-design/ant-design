@@ -6,6 +6,7 @@ import warning from 'warning';
 import classNames from 'classnames';
 import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { tuple } from '../_util/type';
 
 const DrawerContext: Context<Drawer | null> = createReactContext(null);
 
@@ -13,7 +14,8 @@ type EventType = React.MouseEvent<HTMLDivElement> | React.MouseEvent<HTMLButtonE
 
 type getContainerfunc = () => HTMLElement;
 
-type placementType = 'top' | 'right' | 'bottom' | 'left';
+const PlacementTypes = tuple('top', 'right', 'bottom', 'left');
+type placementType = (typeof PlacementTypes)[number];
 export interface DrawerProps {
   closable?: boolean;
   destroyOnClose?: boolean;
@@ -46,7 +48,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
     destroyOnClose: PropTypes.bool,
     getContainer: PropTypes.oneOfType([
       PropTypes.string,
-      PropTypes.object,
+      PropTypes.object as PropTypes.Requireable<HTMLElement>,
       PropTypes.func,
       PropTypes.bool,
     ]),
@@ -59,7 +61,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
     width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     zIndex: PropTypes.number,
     prefixCls: PropTypes.string,
-    placement: PropTypes.string,
+    placement: PropTypes.oneOf(PlacementTypes),
     onClose: PropTypes.func,
     className: PropTypes.string,
   };
@@ -68,7 +70,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
     width: 256,
     height: 256,
     closable: true,
-    placement: 'right',
+    placement: 'right' as placementType,
     maskClosable: true,
     mask: true,
     level: null,
@@ -143,17 +145,13 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
   };
 
   getRcDrawerStyle = () => {
-    const { zIndex, placement, maskStyle } = this.props;
-    return this.state.push
-      ? {
-          ...maskStyle,
-          zIndex,
-          transform: this.getPushTransform(placement),
-        }
-      : {
-          ...maskStyle,
-          zIndex,
-        };
+    const { zIndex, placement, style } = this.props;
+    const { push } = this.state;
+    return {
+      zIndex,
+      transform: push ? this.getPushTransform(placement) : undefined,
+      ...style,
+    };
   };
 
   // render drawer body dom
@@ -210,14 +208,12 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
       >
         {header}
         {closer}
-        <div className={`${prefixCls}-body`} style={this.props.style}>
-          {this.props.children}
-        </div>
+        <div className={`${prefixCls}-body`}>{this.props.children}</div>
       </div>
     );
   };
 
-  // render Provider for Multi-level drawer
+  // render Provider for Multi-level drawe
   renderProvider = (value: Drawer) => {
     const {
       prefixCls: customizePrefixCls,

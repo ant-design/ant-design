@@ -12,6 +12,7 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 let mousePosition: { x: number; y: number } | null;
 let mousePositionEventBinded: boolean;
+export const destroyFns: Array<() => void> = [];
 
 export interface ModalProps {
   /** 对话框是否可见*/
@@ -75,6 +76,8 @@ export interface ModalFuncProps {
   okText?: string;
   okType?: ButtonType;
   cancelText?: string;
+  icon?: React.ReactNode;
+  /* Deperated */
   iconType?: string;
   maskClosable?: boolean;
   zIndex?: number;
@@ -107,6 +110,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
   static warn: ModalFunc;
   static warning: ModalFunc;
   static confirm: ModalFunc;
+  static destroyAll: () => void;
 
   static defaultProps = {
     width: 520,
@@ -123,8 +127,8 @@ export default class Modal extends React.Component<ModalProps, {}> {
     prefixCls: PropTypes.string,
     onOk: PropTypes.func,
     onCancel: PropTypes.func,
-    okText: PropTypes.node,
-    cancelText: PropTypes.node,
+    okText: PropTypes.string,
+    cancelText: PropTypes.string,
     centered: PropTypes.bool,
     width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     confirmLoading: PropTypes.bool,

@@ -7,7 +7,7 @@ import Search from './search';
 import warning from '../_util/warning';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale-provider/default';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 
 export { TransferListProps } from './list';
 export { TransferOperationProps } from './operation';
@@ -16,6 +16,7 @@ export { TransferSearchProps } from './search';
 function noop() {}
 
 export type TransferDirection = 'left' | 'right';
+type TransferRender = (record: TransferItem) => React.ReactNode;
 
 export interface TransferItem {
   key: string;
@@ -31,7 +32,7 @@ export interface TransferProps {
   dataSource: TransferItem[];
   targetKeys?: string[];
   selectedKeys?: string[];
-  render?: (record: TransferItem) => React.ReactNode;
+  render?: TransferRender;
   onChange?: (targetKeys: string[], direction: string, moveKeys: any) => void;
   onSelectChange?: (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => void;
   style?: React.CSSProperties;
@@ -69,7 +70,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
 
   static defaultProps = {
     dataSource: [],
-    render: noop,
+    render: noop as TransferRender,
     locale: {},
     showSearch: false,
   };
@@ -77,7 +78,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     disabled: PropTypes.bool,
-    dataSource: PropTypes.array,
+    dataSource: PropTypes.array as PropTypes.Validator<TransferItem[]>,
     render: PropTypes.func,
     targetKeys: PropTypes.array,
     onChange: PropTypes.func,
@@ -349,9 +350,11 @@ export default class Transfer extends React.Component<TransferProps, any> {
     return direction === 'left' ? 'sourceSelectedKeys' : 'targetSelectedKeys';
   }
 
-  getLocale = (transferLocale: TransferLocale) => {
+  getLocale = (transferLocale: TransferLocale, renderEmpty: RenderEmptyHandler) => {
     // Keep old locale props still working.
-    const oldLocale: { notFoundContent?: any; searchPlaceholder?: string } = {};
+    const oldLocale: { notFoundContent?: any; searchPlaceholder?: string } = {
+      notFoundContent: renderEmpty('Transfer'),
+    };
     if ('notFoundContent' in this.props) {
       oldLocale.notFoundContent = this.props.notFoundContent;
     }
@@ -364,7 +367,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
 
   renderTransfer = (transferLocale: TransferLocale) => (
     <ConfigConsumer>
-      {({ getPrefixCls }: ConfigConsumerProps) => {
+      {({ getPrefixCls, renderEmpty }: ConfigConsumerProps) => {
         const {
           prefixCls: customizePrefixCls,
           className,
@@ -381,7 +384,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
           lazy,
         } = this.props;
         const prefixCls = getPrefixCls('transfer', customizePrefixCls);
-        const locale = this.getLocale(transferLocale);
+        const locale = this.getLocale(transferLocale, renderEmpty);
         const { leftFilter, rightFilter, sourceSelectedKeys, targetSelectedKeys } = this.state;
 
         const { leftDataSource, rightDataSource } = this.separateDataSource(this.props);

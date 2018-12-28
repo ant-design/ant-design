@@ -46,4 +46,9 @@ describe('Progress', () => {
     const wrapper = mount(<Progress type="circle" percent={50} strokeColor="red" />);
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  it('render normal progress', () => {
+    const wrapper = mount(<Progress status="normal" />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });

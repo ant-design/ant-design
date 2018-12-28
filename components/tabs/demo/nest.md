@@ -41,13 +41,13 @@ class Demo extends React.Component {
       <div>
         <Select style={{ width: 200 }} onChange={(val) => { this.setState({ parentPos: val }); }}>
           {positionList.map(pos => (
-            <Option value={pos}>Parent - {pos}</Option>
+            <Option key={pos} value={pos}>Parent - {pos}</Option>
           ))}
         </Select>
 
         <Select style={{ width: 200 }} onChange={(val) => { this.setState({ childPos: val }); }}>
           {positionList.map(pos => (
-            <Option value={pos}>Child - {pos}</Option>
+            <Option key={pos} value={pos}>Child - {pos}</Option>
           ))}
         </Select>
 

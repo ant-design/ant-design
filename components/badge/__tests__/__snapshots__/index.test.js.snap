@@ -2195,3 +2195,18 @@ exports[`Badge should render when count is changed 5`] = `
   </Consumer>
 </Badge>
 `;
+
+exports[`Badge should support offset when count is a ReactNode 1`] = `
+<span
+  class="ant-badge"
+>
+  <a
+    class="head-example"
+    href="#"
+  />
+  <span
+    class="ant-scroll-number-custom-component custom"
+    style="right:-10px;margin-top:20px;color:#f5222d"
+  />
+</span>
+`;

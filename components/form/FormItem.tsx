@@ -2,7 +2,6 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
-import intersperse from 'intersperse';
 import Animate from 'rc-animate';
 import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
 import Row from '../grid/row';
@@ -10,6 +9,9 @@ import Col, { ColProps } from '../grid/col';
 import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
+import { tuple } from '../_util/type';
+
+const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
 
 export interface FormItemProps {
   prefixCls?: string;
@@ -20,11 +22,15 @@ export interface FormItemProps {
   wrapperCol?: ColProps;
   help?: React.ReactNode;
   extra?: React.ReactNode;
-  validateStatus?: 'success' | 'warning' | 'error' | 'validating';
+  validateStatus?: (typeof ValidateStatuses)[number];
   hasFeedback?: boolean;
   required?: boolean;
   style?: React.CSSProperties;
   colon?: boolean;
+}
+
+function intersperseSpace<T>(list: Array<T>): Array<T | string> {
+  return list.reduce((current, item) => [...current, ' ', item], []).slice(1);
 }
 
 export interface FormItemContext {
@@ -42,7 +48,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     labelCol: PropTypes.object,
     help: PropTypes.oneOfType([PropTypes.node, PropTypes.bool]),
-    validateStatus: PropTypes.oneOf(['', 'success', 'warning', 'error', 'validating']),
+    validateStatus: PropTypes.oneOf(ValidateStatuses),
     hasFeedback: PropTypes.bool,
     wrapperCol: PropTypes.object,
     className: PropTypes.string,
@@ -72,13 +78,18 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     if (help === undefined && this.getOnlyControl()) {
       const errors = this.getField().errors;
       if (errors) {
-        return intersperse(
-          errors.map((e: any, index: number) =>
-            React.isValidElement(e.message)
-              ? React.cloneElement(e.message, { key: index })
-              : e.message,
-          ),
-          ' ',
+        return intersperseSpace(
+          errors.map((e: any, index: number) => {
+            let node: React.ReactElement<any> | null = null;
+
+            if (React.isValidElement(e)) {
+              node = e;
+            } else if (React.isValidElement(e.message)) {
+              node = e.message;
+            }
+
+            return node ? React.cloneElement(node, { key: index }) : e.message;
+          }),
         );
       }
       return '';

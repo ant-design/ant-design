@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
-import { Row, Col, Menu, Icon } from 'antd';
+import { Row, Col, Menu, Icon, Affix } from 'antd';
 import classNames from 'classnames';
 import MobileMenu from 'rc-drawer';
 import Article from './Article';
+import PrevAndNext from './PrevAndNext';
+import Footer from '../Layout/Footer';
 import ComponentDoc from './ComponentDoc';
 import * as utils from '../utils';
 
@@ -49,11 +51,11 @@ const getSideBarOpenKeys = nextProps => {
   const moduleData = getModuleData(nextProps);
   const shouldOpenKeys = utils
     .getMenuItems(moduleData, locale, themeConfig.categoryOrder, themeConfig.typeOrder)
-    .map(m => m.title[locale] || m.title);
+    .map(m => (m.title && m.title[locale]) || m.title);
   return shouldOpenKeys;
 };
 
-export default class MainContent extends React.PureComponent {
+export default class MainContent extends Component {
   static contextTypes = {
     intl: PropTypes.object.isRequired,
     isMobile: PropTypes.bool.isRequired,
@@ -68,10 +70,13 @@ export default class MainContent extends React.PureComponent {
   }
 
   static getDerivedStateFromProps(props, state) {
-    return {
-      ...state,
-      openKeys: getSideBarOpenKeys(props),
-    };
+    if (!state.openKeys) {
+      return {
+        ...state,
+        openKeys: getSideBarOpenKeys(props),
+      };
+    }
+    return null;
   }
 
   componentDidUpdate(prevProps) {
@@ -177,6 +182,9 @@ export default class MainContent extends React.PureComponent {
       intl: { locale },
     } = this.context;
     const key = fileNameToPath(item.filename);
+    if (!item.title) {
+      return null;
+    }
     const title = item.title[locale] || item.title;
     const text = isTop
       ? title
@@ -222,7 +230,10 @@ export default class MainContent extends React.PureComponent {
   }
 
   flattenMenu(menu) {
-    if (menu && menu.type && menu.type.isMenuItem) {
+    if (!menu) {
+      return null;
+    }
+    if (menu.type && menu.type.isMenuItem) {
       return menu;
     }
     if (Array.isArray(menu)) {
@@ -271,39 +282,21 @@ export default class MainContent extends React.PureComponent {
             </MobileMenu>
           ) : (
             <Col xxl={4} xl={5} lg={6} md={24} sm={24} xs={24} className="main-menu">
-              {menuChild}
+              <Affix>
+                <section className="main-menu-inner">{menuChild}</section>
+              </Affix>
             </Col>
           )}
-          <Col xxl={20} xl={19} lg={18} md={24} sm={24} xs={24} className={mainContainerClass}>
-            {props.demos ? (
-              <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} />
-            ) : (
-              <Article {...props} content={localizedPageData} />
-            )}
-          </Col>
-        </Row>
-
-        <Row>
-          <Col
-            xxl={{ span: 20, offset: 4 }}
-            xl={{ span: 19, offset: 5 }}
-            lg={{ span: 18, offset: 6 }}
-            md={24}
-            sm={24}
-            xs={24}
-          >
-            <section className="prev-next-nav">
-              {prev
-                ? React.cloneElement(prev.props.children || prev.children[0], {
-                    className: 'prev-page',
-                  })
-                : null}
-              {next
-                ? React.cloneElement(next.props.children || next.children[0], {
-                    className: 'next-page',
-                  })
-                : null}
+          <Col xxl={20} xl={19} lg={18} md={24} sm={24} xs={24}>
+            <section className={mainContainerClass}>
+              {props.demos ? (
+                <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} />
+              ) : (
+                <Article {...props} content={localizedPageData} />
+              )}
             </section>
+            <PrevAndNext prev={prev} next={next} />
+            <Footer />
           </Col>
         </Row>
       </div>

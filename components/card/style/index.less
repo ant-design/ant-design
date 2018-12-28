@@ -4,7 +4,6 @@
 @card-prefix-cls: ~'@{ant-prefix}-card';
 @card-head-height: 48px;
 @card-hover-border: fade(@black, 9%);
-@card-radius: @border-radius-sm;
 
 @gradient-min: fade(@card-background, 20%);
 @gradient-max: fade(@card-background, 40%);
@@ -69,11 +68,10 @@
 
   &-extra {
     float: right;
-    padding: @card-head-padding + 1.5px 0;
+    padding: @card-head-padding 0;
     font-size: @font-size-base;
     color: @text-color;
     font-weight: normal;
-    text-align: right;
     // https://stackoverflow.com/a/22429853/3040605
     margin-left: auto;
   }
@@ -232,6 +230,21 @@
 
     &-description {
       color: @text-color-secondary;
+    }
+  }
+
+  &-loading {
+    overflow: hidden;
+    position: relative;
+
+    &:after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: @card-padding-base;
+      background: @component-background;
+      content: '';
     }
   }
 

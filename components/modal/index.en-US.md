@@ -68,7 +68,8 @@ The properties of the object are follows:
 | centered | Centered Modal | Boolean | `false` |
 | className | className of container | string | - |
 | content | Content | string\|ReactNode | - |
-| iconType | Icon `type` of the Icon component | string | `question-circle` |
+| icon | custom icon (`Added in 3.12.0`) | string\|ReactNode | `<Icon type="question-circle">` |
+| iconType | Icon `type` of the Icon component (deperated after `3.12.0`) | string | `question-circle` |
 | keyboard | Whether support press esc to close | Boolean | true |
 | maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | Boolean | `false` |
 | okText | Text of the OK button | string | `OK` |
@@ -99,3 +100,16 @@ modal.destroy();
   margin-right: 8px;
 }
 </style>
+
+- `Modal.destroyAll`
+
+`Modal.destroyAll()` could destroy all confirmation modal dialogs(Modal.info/Modal.success/Modal.error/Modal.warning/Modal.confirm). Usually, you can use it in router change event to destroy confirm modal dialog automatically without use modal reference to close( it's too complex to use for all modal dialogs)
+
+```jsx
+import { browserHistory } from 'react-router';
+
+// router change
+browserHistory.listen(() => {
+  Modal.destroyAll();
+});
+```

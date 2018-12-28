@@ -61,20 +61,8 @@ function getGrid(grid: ListGridType, t: ColumnType) {
   return grid[t] && Math.floor(24 / grid[t]!);
 }
 
-const GridColumns = ['', 1, 2, 3, 4, 6, 8, 12, 24];
-
 export default class Item extends React.Component<ListItemProps, any> {
   static Meta: typeof Meta = Meta;
-
-  static propTypes = {
-    column: PropTypes.oneOf(GridColumns),
-    xs: PropTypes.oneOf(GridColumns),
-    sm: PropTypes.oneOf(GridColumns),
-    md: PropTypes.oneOf(GridColumns),
-    lg: PropTypes.oneOf(GridColumns),
-    xl: PropTypes.oneOf(GridColumns),
-    xxl: PropTypes.oneOf(GridColumns),
-  };
 
   static contextTypes = {
     grid: PropTypes.any,

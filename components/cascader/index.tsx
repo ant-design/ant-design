@@ -4,9 +4,10 @@ import arrayTreeFilter from 'array-tree-filter';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import KeyCode from 'rc-util/lib/KeyCode';
+import { polyfill } from 'react-lifecycles-compat';
 import Input from '../input';
 import Icon from '../icon';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import warning from '../_util/warning';
 
@@ -103,6 +104,7 @@ export interface CascaderState {
   value: string[];
   popupVisible: boolean | undefined;
   flattenOptions: CascaderOptionType[][] | undefined;
+  prevProps: CascaderProps;
 }
 
 interface CascaderLocale {
@@ -180,9 +182,29 @@ function getFilledFieldNames(props: CascaderProps) {
   return names;
 }
 
+function flattenTree(
+  options: CascaderOptionType[],
+  props: CascaderProps,
+  ancestor: CascaderOptionType[] = [],
+) {
+  const names: FilledFieldNamesType = getFilledFieldNames(props);
+  let flattenOptions = [] as CascaderOptionType[][];
+  const childrenName = names.children;
+  options.forEach(option => {
+    const path = ancestor.concat(option);
+    if (props.changeOnSelect || !option[childrenName] || !option[childrenName].length) {
+      flattenOptions.push(path);
+    }
+    if (option[childrenName]) {
+      flattenOptions = flattenOptions.concat(flattenTree(option[childrenName], props, path));
+    }
+  });
+  return flattenOptions;
+}
+
 const defaultDisplayRender = (label: string[]) => label.join(' / ');
 
-export default class Cascader extends React.Component<CascaderProps, CascaderState> {
+class Cascader extends React.Component<CascaderProps, CascaderState> {
   static defaultProps = {
     placeholder: 'Please select',
     transitionName: 'slide-up',
@@ -190,10 +212,27 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     options: [],
     disabled: false,
     allowClear: true,
-    notFoundContent: 'Not Found',
   };
 
-  cachedOptions: CascaderOptionType[];
+  static getDerivedStateFromProps(nextProps: CascaderProps, { prevProps }: CascaderState) {
+    const newState: Partial<CascaderState> = {
+      prevProps: nextProps,
+    };
+
+    if ('value' in nextProps) {
+      newState.value = nextProps.value || [];
+    }
+    if ('popupVisible' in nextProps) {
+      newState.popupVisible = nextProps.popupVisible;
+    }
+    if (nextProps.showSearch && prevProps.options !== nextProps.options) {
+      newState.flattenOptions = flattenTree(nextProps.options, nextProps);
+    }
+
+    return newState;
+  }
+
+  cachedOptions: CascaderOptionType[] = [];
 
   private input: Input;
 
@@ -204,22 +243,9 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
       inputValue: '',
       inputFocused: false,
       popupVisible: props.popupVisible,
-      flattenOptions: props.showSearch ? this.flattenTree(props.options, props) : undefined,
+      flattenOptions: props.showSearch ? flattenTree(props.options, props) : undefined,
+      prevProps: props,
     };
-  }
-
-  componentWillReceiveProps(nextProps: CascaderProps) {
-    if ('value' in nextProps) {
-      this.setState({ value: nextProps.value || [] });
-    }
-    if ('popupVisible' in nextProps) {
-      this.setState({ popupVisible: nextProps.popupVisible });
-    }
-    if (nextProps.showSearch && this.props.options !== nextProps.options) {
-      this.setState({
-        flattenOptions: this.flattenTree(nextProps.options, nextProps),
-      });
-    }
   }
 
   handleChange = (value: any, selectedOptions: CascaderOptionType[]) => {
@@ -235,11 +261,11 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
 
   handlePopupVisibleChange = (popupVisible: boolean) => {
     if (!('popupVisible' in this.props)) {
-      this.setState({
+      this.setState(state => ({
         popupVisible,
         inputFocused: popupVisible,
-        inputValue: popupVisible ? this.state.inputValue : '',
-      });
+        inputValue: popupVisible ? state.inputValue : '',
+      }));
     }
 
     const onPopupVisibleChange = this.props.onPopupVisibleChange;
@@ -311,27 +337,7 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     }
   };
 
-  flattenTree(
-    options: CascaderOptionType[],
-    props: CascaderProps,
-    ancestor: CascaderOptionType[] = [],
-  ) {
-    const names: FilledFieldNamesType = getFilledFieldNames(props);
-    let flattenOptions = [] as CascaderOptionType[][];
-    const childrenName = names.children;
-    options.forEach(option => {
-      const path = ancestor.concat(option);
-      if (props.changeOnSelect || !option[childrenName] || !option[childrenName].length) {
-        flattenOptions.push(path);
-      }
-      if (option[childrenName]) {
-        flattenOptions = flattenOptions.concat(this.flattenTree(option[childrenName], props, path));
-      }
-    });
-    return flattenOptions;
-  }
-
-  generateFilteredOptions(prefixCls: string | undefined) {
+  generateFilteredOptions(prefixCls: string | undefined, renderEmpty: RenderEmptyHandler) {
     const { showSearch, notFoundContent } = this.props;
     const names: FilledFieldNamesType = getFilledFieldNames(this.props);
     const {
@@ -379,7 +385,11 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
       });
     }
     return [
-      { [names.label]: notFoundContent, [names.value]: 'ANT_CASCADER_NOT_FOUND', disabled: true },
+      {
+        [names.label]: notFoundContent || renderEmpty('Cascader'),
+        [names.value]: 'ANT_CASCADER_NOT_FOUND',
+        disabled: true,
+      },
     ];
   }
 
@@ -396,7 +406,7 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
   };
 
   renderCascader = (
-    { getPopupContainer: getContextPopupContainer, getPrefixCls }: ConfigConsumerProps,
+    { getPopupContainer: getContextPopupContainer, getPrefixCls, renderEmpty }: ConfigConsumerProps,
     locale: CascaderLocale,
   ) => {
     const { props, state } = this;
@@ -470,7 +480,7 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
 
     let options = props.options;
     if (state.inputValue) {
-      options = this.generateFilteredOptions(prefixCls);
+      options = this.generateFilteredOptions(prefixCls, renderEmpty);
     }
     // Dropdown menu should keep previous status until it is fully closed.
     if (!state.popupVisible) {
@@ -567,3 +577,7 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     );
   }
 }
+
+polyfill(Cascader);
+
+export default Cascader;

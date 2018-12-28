@@ -43,6 +43,7 @@ export interface IconProps {
   spin?: boolean;
   style?: React.CSSProperties;
   prefixCls?: string;
+  role?: string;
 }
 
 export interface IconComponent<P> extends React.SFC<P> {
@@ -138,7 +139,7 @@ const Icon: IconComponent<IconProps> = props => {
       );
     }
     computedType = withThemeSuffix(
-      removeTypeTheme(alias(type)),
+      removeTypeTheme(alias(computedType)),
       dangerousTheme || theme || defaultTheme,
     );
     innerNode = (

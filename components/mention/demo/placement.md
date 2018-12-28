@@ -30,7 +30,7 @@ ReactDOM.render(
   <Mention
     style={{ width: '100%' }}
     onChange={onChange}
-    suggestions={['afc163', 'benjycui', 'yiminghe', 'RaoHai', '中文', 'にほんご']}
+    defaultSuggestions={['afc163', 'benjycui', 'yiminghe', 'RaoHai', '中文', 'にほんご']}
     onSelect={onSelect}
     placement="top"
   />,

@@ -6,6 +6,7 @@
 @alert-message-color: @heading-color;
 @alert-text-color: @text-color;
 @alert-close-color: @text-color-secondary;
+@alert-close-hover-color: @icon-color-hover;
 
 .@{alert-prefix-cls} {
   .reset-component;
@@ -78,7 +79,7 @@
       color: @alert-close-color;
       transition: color 0.3s;
       &:hover {
-        color: @icon-color-hover;
+        color: @alert-close-hover-color;
       }
     }
   }

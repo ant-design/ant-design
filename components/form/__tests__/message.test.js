@@ -65,4 +65,26 @@ describe('Form', () => {
     wrapper.update();
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  it('support error message with reactNode', () => {
+    let myForm;
+    const Form1 = Form.create()(({ form }) => {
+      myForm = form;
+      return (
+        <Form>
+          <Form.Item label="Account">{form.getFieldDecorator('account')(<input />)}</Form.Item>
+        </Form>
+      );
+    });
+
+    const wrapper = mount(<Form1 />);
+
+    myForm.setFields({
+      account: {
+        errors: [<div>Error 1</div>, <div>Error 2</div>],
+      },
+    });
+
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });

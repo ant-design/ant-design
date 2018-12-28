@@ -219,6 +219,8 @@ export default class Affix extends React.Component<AffixProps, AffixState> {
     // Wait for parent component ref has its value
     this.timeout = setTimeout(() => {
       this.setTargetEventListeners(target);
+      // Mock Event object.
+      this.updatePosition({} as Event);
     });
   }
 

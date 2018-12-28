@@ -58,6 +58,8 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
   weekDateRender = (current: any) => {
     const selectedValue = this.state.value;
     const { prefixCls } = this;
+    const { dateRender } = this.props;
+    const dateNode = dateRender ? dateRender(current) : current.date();
     if (
       selectedValue &&
       current.year() === selectedValue.year() &&
@@ -65,11 +67,11 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
     ) {
       return (
         <div className={`${prefixCls}-selected-day`}>
-          <div className={`${prefixCls}-date`}>{current.date()}</div>
+          <div className={`${prefixCls}-date`}>{dateNode}</div>
         </div>
       );
     }
-    return <div className={`${prefixCls}-date`}>{current.date()}</div>;
+    return <div className={`${prefixCls}-date`}>{dateNode}</div>;
   };
 
   handleChange = (value: moment.Moment | null) => {
@@ -98,6 +100,13 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
     e.preventDefault();
     e.stopPropagation();
     this.handleChange(null);
+  };
+
+  renderFooter = (...args: any[]) => {
+    const { prefixCls, renderExtraFooter } = this.props;
+    return renderExtraFooter ? (
+      <div className={`${prefixCls}-footer-extra`}>{renderExtraFooter(...args)}</div>
+    ) : null;
   };
 
   focus() {
@@ -138,8 +147,7 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
     // https://github.com/facebook/react/issues/12397
     this.prefixCls = prefixCls;
 
-    const { open } = this.state;
-    const pickerValue = this.state.value;
+    const { open, value: pickerValue } = this.state;
     if (pickerValue && localeCode) {
       pickerValue.locale(localeCode);
     }
@@ -157,6 +165,7 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
         showDateInput={false}
         showToday={false}
         disabledDate={disabledDate}
+        renderFooter={this.renderFooter}
       />
     );
     const clearIcon =
@@ -181,24 +190,22 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
         <span className={`${prefixCls}-picker-icon`}>{suffixIcon}</span>
       ))) || <Icon type="calendar" className={`${prefixCls}-picker-icon`} />;
 
-    const input = ({ value }: { value: moment.Moment | undefined }) => {
-      return (
-        <span style={{ display: 'inline-block' }}>
-          <input
-            ref={this.saveInput}
-            disabled={disabled}
-            readOnly
-            value={(value && value.format(format)) || ''}
-            placeholder={placeholder}
-            className={pickerInputClass}
-            onFocus={onFocus}
-            onBlur={onBlur}
-          />
-          {clearIcon}
-          {inputIcon}
-        </span>
-      );
-    };
+    const input = ({ value }: { value: moment.Moment | undefined }) => (
+      <span style={{ display: 'inline-block', width: '100%' }}>
+        <input
+          ref={this.saveInput}
+          disabled={disabled}
+          readOnly
+          value={(value && value.format(format)) || ''}
+          placeholder={placeholder}
+          className={pickerInputClass}
+          onFocus={onFocus}
+          onBlur={onBlur}
+        />
+        {clearIcon}
+        {inputIcon}
+      </span>
+    );
     return (
       <span className={classNames(className, pickerClass)} style={style} id={id}>
         <RcDatePicker

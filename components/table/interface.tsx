@@ -19,7 +19,7 @@ export interface ColumnProps<T> {
         },
       ) => React.ReactNode);
   key?: React.Key;
-  dataIndex?: string;
+  dataIndex?: string; // Note: We can not use generic type here, since we need to support nested key, see #9393
   render?: (text: any, record: T, index: number) => React.ReactNode;
   align?: 'left' | 'right' | 'center';
   filters?: ColumnFilterItem[];
@@ -41,6 +41,12 @@ export interface ColumnProps<T> {
   onCellClick?: (record: T, event: any) => void;
   onCell?: (record: T, rowIndex: number) => any;
   onHeaderCell?: (props: ColumnProps<T>) => any;
+  sortDirections?: SortOrder[];
+}
+
+export interface AdditionalCellProps {
+  onClick?: React.MouseEventHandler<HTMLElement>;
+  [name: string]: any;
 }
 
 export interface TableComponents {
@@ -80,12 +86,12 @@ export type TableSelectWay = 'onSelect' | 'onSelectMultiple' | 'onSelectAll' | '
 export interface TableRowSelection<T> {
   type?: RowSelectionType;
   selectedRowKeys?: string[] | number[];
-  onChange?: (selectedRowKeys: string[] | number[], selectedRows: Object[]) => void;
+  onChange?: (selectedRowKeys: string[] | number[], selectedRows: T[]) => void;
   getCheckboxProps?: (record: T) => Object;
   onSelect?: SelectionSelectFn<T>;
-  onSelectMultiple?: (selected: boolean, selectedRows: Object[], changeRows: Object[]) => void;
-  onSelectAll?: (selected: boolean, selectedRows: Object[], changeRows: Object[]) => void;
-  onSelectInvert?: (selectedRows: Object[]) => void;
+  onSelectMultiple?: (selected: boolean, selectedRows: T[], changeRows: T[]) => void;
+  onSelectAll?: (selected: boolean, selectedRows: T[], changeRows: T[]) => void;
+  onSelectInvert?: (selectedRowKeys: string[] | number[]) => void;
   selections?: SelectionItem[] | boolean;
   hideDefaultSelections?: boolean;
   fixed?: boolean;
@@ -141,7 +147,11 @@ export interface TableProps<T> {
     sorter: SorterResult<T>,
   ) => void;
   loading?: boolean | SpinProps;
-  locale?: Object;
+  locale?: {
+    filterConfirm?: string;
+    filterReset?: string;
+    emptyText?: string;
+  };
   indentSize?: number;
   onRowClick?: (record: T, index: number, event: Event) => void;
   onRow?: (record: T, index: number) => any;
@@ -157,6 +167,7 @@ export interface TableProps<T> {
   className?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
+  sortDirections: SortOrder[];
 }
 
 export interface TableStateFilters {

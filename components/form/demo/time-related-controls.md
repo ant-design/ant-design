@@ -18,7 +18,6 @@ import {
   Form, DatePicker, TimePicker, Button,
 } from 'antd';
 
-const FormItem = Form.Item;
 const { MonthPicker, RangePicker } = DatePicker;
 
 class TimeRelatedForm extends React.Component {
@@ -69,62 +68,62 @@ class TimeRelatedForm extends React.Component {
     };
     return (
       <Form onSubmit={this.handleSubmit}>
-        <FormItem
+        <Form.Item
           {...formItemLayout}
           label="DatePicker"
         >
           {getFieldDecorator('date-picker', config)(
             <DatePicker />
           )}
-        </FormItem>
-        <FormItem
+        </Form.Item>
+        <Form.Item
           {...formItemLayout}
           label="DatePicker[showTime]"
         >
           {getFieldDecorator('date-time-picker', config)(
             <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />
           )}
-        </FormItem>
-        <FormItem
+        </Form.Item>
+        <Form.Item
           {...formItemLayout}
           label="MonthPicker"
         >
           {getFieldDecorator('month-picker', config)(
             <MonthPicker />
           )}
-        </FormItem>
-        <FormItem
+        </Form.Item>
+        <Form.Item
           {...formItemLayout}
           label="RangePicker"
         >
           {getFieldDecorator('range-picker', rangeConfig)(
             <RangePicker />
           )}
-        </FormItem>
-        <FormItem
+        </Form.Item>
+        <Form.Item
           {...formItemLayout}
           label="RangePicker[showTime]"
         >
           {getFieldDecorator('range-time-picker', rangeConfig)(
             <RangePicker showTime format="YYYY-MM-DD HH:mm:ss" />
           )}
-        </FormItem>
-        <FormItem
+        </Form.Item>
+        <Form.Item
           {...formItemLayout}
           label="TimePicker"
         >
           {getFieldDecorator('time-picker', config)(
             <TimePicker />
           )}
-        </FormItem>
-        <FormItem
+        </Form.Item>
+        <Form.Item
           wrapperCol={{
             xs: { span: 24, offset: 0 },
             sm: { span: 16, offset: 8 },
           }}
         >
           <Button type="primary" htmlType="submit">Submit</Button>
-        </FormItem>
+        </Form.Item>
       </Form>
     );
   }

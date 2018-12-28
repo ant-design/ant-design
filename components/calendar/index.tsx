@@ -52,7 +52,7 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
   static defaultProps = {
     locale: {},
     fullscreen: true,
-    mode: 'month',
+    mode: 'month' as CalendarMode,
     onSelect: noop,
     onPanelChange: noop,
     onChange: noop,
@@ -69,7 +69,7 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     className: PropTypes.string,
     style: PropTypes.object,
     onPanelChange: PropTypes.func,
-    value: PropTypes.object,
+    value: PropTypes.object as PropTypes.Requireable<moment.Moment>,
     onSelect: PropTypes.func,
     onChange: PropTypes.func,
   };

@@ -169,12 +169,12 @@ export default class Demo extends React.Component {
     const dependencies = sourceCode.split('\n').reduce(
       (acc, line) => {
         const matches = line.match(/import .+? from '(.+)';$/);
-        if (matches && matches[1]) {
+        if (matches && matches[1] && !line.includes('antd')) {
           acc[matches[1]] = 'latest';
         }
         return acc;
       },
-      { react: 'latest', 'react-dom': 'latest' },
+      { react: 'latest', 'react-dom': 'latest', antd: 'latest' },
     );
     const codesanboxPrefillConfig = {
       files: {

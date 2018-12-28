@@ -112,7 +112,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
     class="ant-calendar-picker"
   >
     <span
-      style="display:inline-block"
+      style="display:inline-block;width:100%"
     >
       <input
         class="ant-calendar-picker-input ant-input"
@@ -1146,7 +1146,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
     class="ant-calendar-picker ant-calendar-picker-default"
   >
     <span
-      style="display:inline-block"
+      style="display:inline-block;width:100%"
     >
       <input
         class="ant-calendar-picker-input ant-input"
@@ -1353,7 +1353,7 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
     class="ant-calendar-picker"
   >
     <span
-      style="display:inline-block"
+      style="display:inline-block;width:100%"
     >
       <input
         class="ant-calendar-picker-input ant-input"
@@ -1455,7 +1455,7 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
     class="ant-calendar-picker"
   >
     <span
-      style="display:inline-block"
+      style="display:inline-block;width:100%"
     >
       <input
         class="ant-calendar-picker-input ant-input"

@@ -86,11 +86,6 @@ exports[`Transfer should render correctly 1`] = `
           <span />
         </li>
       </ul>
-      <div
-        class="ant-transfer-list-body-not-found"
-      >
-        Not Found
-      </div>
     </div>
   </div>
   <div
@@ -201,11 +196,6 @@ exports[`Transfer should render correctly 1`] = `
           <span />
         </li>
       </ul>
-      <div
-        class="ant-transfer-list-body-not-found"
-      >
-        Not Found
-      </div>
     </div>
   </div>
 </div>
@@ -277,11 +267,6 @@ exports[`Transfer should show sorted targetkey 1`] = `
           </span>
         </li>
       </ul>
-      <div
-        class="ant-transfer-list-body-not-found"
-      >
-        Not Found
-      </div>
     </div>
   </div>
   <div
@@ -419,11 +404,6 @@ exports[`Transfer should show sorted targetkey 1`] = `
           </span>
         </li>
       </ul>
-      <div
-        class="ant-transfer-list-body-not-found"
-      >
-        Not Found
-      </div>
     </div>
   </div>
 </div>

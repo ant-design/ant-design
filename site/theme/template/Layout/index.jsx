@@ -7,7 +7,6 @@ import 'moment/locale/zh-cn';
 import { LocaleProvider } from 'antd';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
 import Header from './Header';
-import Footer from './Footer';
 import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
 import * as utils from '../utils';
@@ -96,17 +95,14 @@ export default class Layout extends React.Component {
     const { appLocale } = this.state;
 
     return (
-      <React.StrictMode>
-        <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
-          <LocaleProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null}>
-            <div className="page-wrapper">
-              <Header {...restProps} />
-              {children}
-              <Footer {...restProps} />
-            </div>
-          </LocaleProvider>
-        </IntlProvider>
-      </React.StrictMode>
+      <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
+        <LocaleProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null}>
+          <div className="page-wrapper">
+            <Header {...restProps} />
+            {children}
+          </div>
+        </LocaleProvider>
+      </IntlProvider>
     );
   }
 }

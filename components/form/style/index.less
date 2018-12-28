@@ -74,12 +74,6 @@ input[type='checkbox'] {
   margin-bottom: @form-item-margin-bottom;
   vertical-align: top;
 
-  // nested FormItem
-  &-control > &:last-child,
-  & [class^='@{ant-prefix}-col-'] > &:only-child {
-    margin-bottom: -@form-item-margin-bottom;
-  }
-
   &-control {
     line-height: @form-component-max-height - 0.0001px; // https://github.com/ant-design/ant-design/issues/8220
     position: relative;
@@ -455,6 +449,9 @@ form {
   .@{ant-prefix}-select {
     &-selection {
       border-color: @warning-color;
+      &:hover {
+        border-color: @warning-color;
+      }
     }
     &-open .@{ant-prefix}-select-selection,
     &-focused .@{ant-prefix}-select-selection {
@@ -501,6 +498,9 @@ form {
   .@{ant-prefix}-select {
     &-selection {
       border-color: @error-color;
+      &:hover {
+        border-color: @error-color;
+      }
     }
     &-open .@{ant-prefix}-select-selection,
     &-focused .@{ant-prefix}-select-selection {

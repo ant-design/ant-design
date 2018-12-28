@@ -13,7 +13,6 @@ export default {
     filterTitle: 'Хайх цэс',
     filterConfirm: 'OK',
     filterReset: 'Цэвэрлэх',
-    emptyText: 'Мэдээлэл байхгүй байна',
     selectAll: 'Бүгдийг сонгох',
     selectInvert: 'Бусдыг сонгох',
   },
@@ -27,18 +26,17 @@ export default {
     cancelText: 'Цуцлах',
   },
   Transfer: {
-    notFoundContent: 'Олдсонгүй',
     searchPlaceholder: 'Хайх',
     itemUnit: 'Зүйл',
     itemsUnit: 'Зүйлүүд',
-  },
-  Select: {
-    notFoundContent: 'Олдсонгүй',
   },
   Upload: {
     uploading: 'Хуулж байна...',
     removeFile: 'Файл устгах',
     uploadError: 'Хуулахад алдаа гарлаа',
     previewFile: 'Файлыг түргэн үзэх',
+  },
+  Empty: {
+    description: 'Мэдээлэл байхгүй байна',
   },
 };

@@ -18,8 +18,6 @@ import {
   Form, Icon, Input, Button,
 } from 'antd';
 
-const FormItem = Form.Item;
-
 function hasErrors(fieldsError) {
   return Object.keys(fieldsError).some(field => fieldsError[field]);
 }
@@ -49,7 +47,7 @@ class HorizontalLoginForm extends React.Component {
     const passwordError = isFieldTouched('password') && getFieldError('password');
     return (
       <Form layout="inline" onSubmit={this.handleSubmit}>
-        <FormItem
+        <Form.Item
           validateStatus={userNameError ? 'error' : ''}
           help={userNameError || ''}
         >
@@ -58,8 +56,8 @@ class HorizontalLoginForm extends React.Component {
           })(
             <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
           )}
-        </FormItem>
-        <FormItem
+        </Form.Item>
+        <Form.Item
           validateStatus={passwordError ? 'error' : ''}
           help={passwordError || ''}
         >
@@ -68,8 +66,8 @@ class HorizontalLoginForm extends React.Component {
           })(
             <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
           )}
-        </FormItem>
-        <FormItem>
+        </Form.Item>
+        <Form.Item>
           <Button
             type="primary"
             htmlType="submit"
@@ -77,7 +75,7 @@ class HorizontalLoginForm extends React.Component {
           >
             Log in
           </Button>
-        </FormItem>
+        </Form.Item>
       </Form>
     );
   }

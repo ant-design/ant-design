@@ -30,12 +30,12 @@ title: Transfer
 | lazy | Transfer 使用了 [react-lazy-load](https://github.com/loktar00/react-lazy-load) 优化性能，这里可以设置相关参数。设为 `false` 可以关闭懒加载。 | object\|boolean | `{ height: 32, offset: 32 }` |
 | listStyle | 两个穿梭框的自定义样式 | object |  |
 | locale | 各种语言 | object | `{ itemUnit: '项', itemsUnit: '项', notFoundContent: '列表为空', searchPlaceholder: '请输入搜索内容' }` |
-| operations | 操作文案集合，顺序从上至下 | string\[] | ['>', '<'] |
+| operations | 操作文案集合，顺序从上至下 | string\[] | \['>', '<'] |
 | render | 每行数据渲染函数，该函数的入参为 `dataSource` 中的项，返回值为 ReactElement。或者返回一个普通对象，其中 `label` 字段为 ReactElement，`value` 字段为 title | Function(record) |  |
 | selectedKeys | 设置哪些项应该被选中 | string\[] | \[] |
 | showSearch | 是否显示搜索框 | boolean | false |
 | targetKeys | 显示在右侧框数据的key集合 | string\[] | \[] |
-| titles | 标题集合，顺序从左至右 | string\[] | ['', ''] |
+| titles | 标题集合，顺序从左至右 | string\[] | \['', ''] |
 | onChange | 选项在两栏之间转移时的回调函数 | (targetKeys, direction, moveKeys): void |  |
 | onScroll | 选项列表滚动时的回调函数 | (direction, event): void |  |
 | onSearch | 搜索框内容时改变时的回调函数 | (direction: 'left'\|'right', value: string): void | - |

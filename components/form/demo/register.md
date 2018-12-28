@@ -18,8 +18,7 @@ import {
   Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete,
 } from 'antd';
 
-const FormItem = Form.Item;
-const Option = Select.Option;
+const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
 
 const residences = [{
@@ -134,7 +133,7 @@ class RegistrationForm extends React.Component {
 
     return (
       <Form onSubmit={this.handleSubmit}>
-        <FormItem
+        <Form.Item
           {...formItemLayout}
           label="E-mail"
         >
@@ -147,8 +146,8 @@ class RegistrationForm extends React.Component {
           })(
             <Input />
           )}
-        </FormItem>
-        <FormItem
+        </Form.Item>
+        <Form.Item
           {...formItemLayout}
           label="Password"
         >
@@ -161,8 +160,8 @@ class RegistrationForm extends React.Component {
           })(
             <Input type="password" />
           )}
-        </FormItem>
-        <FormItem
+        </Form.Item>
+        <Form.Item
           {...formItemLayout}
           label="Confirm Password"
         >
@@ -175,8 +174,8 @@ class RegistrationForm extends React.Component {
           })(
             <Input type="password" onBlur={this.handleConfirmBlur} />
           )}
-        </FormItem>
-        <FormItem
+        </Form.Item>
+        <Form.Item
           {...formItemLayout}
           label={(
             <span>
@@ -192,8 +191,8 @@ class RegistrationForm extends React.Component {
           })(
             <Input />
           )}
-        </FormItem>
-        <FormItem
+        </Form.Item>
+        <Form.Item
           {...formItemLayout}
           label="Habitual Residence"
         >
@@ -203,8 +202,8 @@ class RegistrationForm extends React.Component {
           })(
             <Cascader options={residences} />
           )}
-        </FormItem>
-        <FormItem
+        </Form.Item>
+        <Form.Item
           {...formItemLayout}
           label="Phone Number"
         >
@@ -213,8 +212,8 @@ class RegistrationForm extends React.Component {
           })(
             <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
           )}
-        </FormItem>
-        <FormItem
+        </Form.Item>
+        <Form.Item
           {...formItemLayout}
           label="Website"
         >
@@ -229,8 +228,8 @@ class RegistrationForm extends React.Component {
               <Input />
             </AutoComplete>
           )}
-        </FormItem>
-        <FormItem
+        </Form.Item>
+        <Form.Item
           {...formItemLayout}
           label="Captcha"
           extra="We must make sure that your are a human."
@@ -247,17 +246,17 @@ class RegistrationForm extends React.Component {
               <Button>Get captcha</Button>
             </Col>
           </Row>
-        </FormItem>
-        <FormItem {...tailFormItemLayout}>
+        </Form.Item>
+        <Form.Item {...tailFormItemLayout}>
           {getFieldDecorator('agreement', {
             valuePropName: 'checked',
           })(
             <Checkbox>I have read the <a href="">agreement</a></Checkbox>
           )}
-        </FormItem>
-        <FormItem {...tailFormItemLayout}>
+        </Form.Item>
+        <Form.Item {...tailFormItemLayout}>
           <Button type="primary" htmlType="submit">Register</Button>
-        </FormItem>
+        </Form.Item>
       </Form>
     );
   }

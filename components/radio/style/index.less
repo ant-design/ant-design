@@ -116,6 +116,7 @@
   .@{radio-inner-prefix-cls} {
     border-color: @border-color-base !important;
     background-color: @input-disabled-bg;
+    cursor: not-allowed;
     &:after {
       background-color: fade(@black, 20%);
     }
@@ -213,6 +214,7 @@ span.@{radio-prefix-cls} + * {
     opacity: 0;
     width: 0;
     height: 0;
+    pointer-events: none;
   }
 
   &-checked {
