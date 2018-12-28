@@ -241,7 +241,6 @@ svg {
     padding: 48px 56px;
     .product-block {
       margin-bottom: 24px;
-      cursor: pointer;
       color: @home-text-color;
       &:last-child {
         margin-bottom: 0;
@@ -309,10 +308,11 @@ svg {
           justify-content: flex-end;
         }
       }
-      &:hover {
-        h4 {
-          color: @home-bg-color;
-        }
+    }
+
+    a.product-block:hover {
+      h4 {
+        color: @home-bg-color;
       }
     }
   }
