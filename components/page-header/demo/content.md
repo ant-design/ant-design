@@ -94,7 +94,7 @@ ReactDOM.render(
   flex: 1;
 }
 .content p {
-  margin-bottom:8px;
+  margin-bottom: 8px;
 }
 .extraContent {
   min-width: 240px;
