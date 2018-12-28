@@ -100,12 +100,11 @@
     &-item {
       flex: 1;
       position: relative;
-      padding: 0;
       margin-right: 0;
       border-radius: 0;
       height: 86px;
       text-align: center;
-      padding-top: 37px;
+      padding: 37px 0 0;
       line-height: normal;
 
       .main-color-text {
@@ -142,12 +141,12 @@
   }
 }
 
-.make-palatte(@color, @index: 1) when (@index <= 10) {
-  .palatte-@{color}-@{index} {
+.make-palette(@color, @index: 1) when (@index <= 10) {
+  .palette-@{color}-@{index} {
     @background: '@{color}-@{index}';
     background: @@background;
   }
-  .make-palatte(@color, (@index + 1)); // next iteration
+  .make-palette(@color, (@index + 1)); // next iteration
 }
 
 @grey-1: #fff;
@@ -164,17 +163,17 @@
 @border-color: rgba(229, 231, 235, 100);
 
 .main-color {
-  .make-palatte(blue);
-  .make-palatte(purple);
-  .make-palatte(cyan);
-  .make-palatte(green);
-  .make-palatte(magenta);
-  .make-palatte(red);
-  .make-palatte(volcano);
-  .make-palatte(orange);
-  .make-palatte(gold);
-  .make-palatte(yellow);
-  .make-palatte(lime);
-  .make-palatte(geekblue);
-  .make-palatte(grey);
+  .make-palette(blue);
+  .make-palette(purple);
+  .make-palette(cyan);
+  .make-palette(green);
+  .make-palette(magenta);
+  .make-palette(red);
+  .make-palette(volcano);
+  .make-palette(orange);
+  .make-palette(gold);
+  .make-palette(yellow);
+  .make-palette(lime);
+  .make-palette(geekblue);
+  .make-palette(grey);
 }

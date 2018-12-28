@@ -55,7 +55,8 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
 
   weekDateRender = (current: any) => {
     const selectedValue = this.state.value;
-    const { prefixCls } = this.props;
+    const { prefixCls, dateRender } = this.props;
+    const dateNode = dateRender ? dateRender(current) : current.date();
     if (
       selectedValue &&
       current.year() === selectedValue.year() &&
@@ -63,11 +64,11 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
     ) {
       return (
         <div className={`${prefixCls}-selected-day`}>
-          <div className={`${prefixCls}-date`}>{current.date()}</div>
+          <div className={`${prefixCls}-date`}>{dateNode}</div>
         </div>
       );
     }
-    return <div className={`${prefixCls}-date`}>{current.date()}</div>;
+    return <div className={`${prefixCls}-date`}>{dateNode}</div>;
   };
 
   handleChange = (value: moment.Moment | null) => {
@@ -130,8 +131,7 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
       suffixIcon,
     } = this.props;
 
-    const { open } = this.state;
-    const pickerValue = this.state.value;
+    const { open, value: pickerValue } = this.state;
     if (pickerValue && localeCode) {
       pickerValue.locale(localeCode);
     }

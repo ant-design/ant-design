@@ -12,7 +12,6 @@
   color: unset;
 
   &-count {
-    top: -@badge-height / 2;
     height: @badge-height;
     border-radius: @badge-height / 2;
     min-width: @badge-height;
@@ -37,7 +36,6 @@
   }
 
   &-dot {
-    top: -@badge-dot-size / 2;
     height: @badge-dot-size;
     width: @badge-dot-size;
     border-radius: 100%;
@@ -51,12 +49,9 @@
   .@{number-prefix-cls}-custom-component {
     position: absolute;
     right: 0;
-    transform: translateX(50%);
-    transform-origin: 100%;
-  }
-
-  .@{number-prefix-cls}-custom-component {
+    top: 0;
     transform: translate(50%, -50%);
+    transform-origin: 100% 0%;
   }
 
   &-status {
@@ -159,19 +154,19 @@
 @keyframes antZoomBadgeIn {
   0% {
     opacity: 0;
-    transform: scale(0) translateX(50%);
+    transform: scale(0) translate(50%, -50%);
   }
   100% {
-    transform: scale(1) translateX(50%);
+    transform: scale(1) translate(50%, -50%);
   }
 }
 
 @keyframes antZoomBadgeOut {
   0% {
-    transform: scale(1) translateX(50%);
+    transform: scale(1) translate(50%, -50%);
   }
   100% {
     opacity: 0;
-    transform: scale(0) translateX(50%);
+    transform: scale(0) translate(50%, -50%);
   }
 }

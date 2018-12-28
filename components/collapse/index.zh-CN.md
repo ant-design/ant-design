@@ -31,3 +31,9 @@ cols: 1
 | forceRender | 被隐藏时是否渲染 DOM 结构 | boolean | false |
 | header | 面板头内容 | string\|ReactNode | 无 |
 | key | 对应 activeKey | string | 无 |
+
+## FAQ
+
+### 我希望箭头在右边，怎么做？
+
+通过样式调整，将箭头放到右边就行啦：<https://codesandbox.io/s/vpm8qwo37>

@@ -152,8 +152,14 @@ export default function Page2({ isMobile, locale }) {
             </span>,
           ];
     const content = isMobile && !i ? componentButton : moreContent;
+    const BlockElement = item.link ? 'a' : 'div';
     return (
-      <a className="product-block" key={item.name} href={item.link} style={{ display: 'block' }}>
+      <BlockElement
+        className="product-block"
+        key={item.name}
+        href={item.link}
+        style={{ display: 'block' }}
+      >
         <Row>
           <Col
             xs={8}
@@ -169,7 +175,7 @@ export default function Page2({ isMobile, locale }) {
             {content}
           </Col>
         </Row>
-      </a>
+      </BlockElement>
     );
   });
   return (
