@@ -133,4 +133,38 @@ describe('Input allowClear', () => {
     expect(wrapper).toMatchSnapshot();
     expect(wrapper.find('input').getDOMNode().value).toEqual('');
   });
+
+  it('should trigger event correctly', () => {
+    let argumentEventObject;
+    let argumentEventObjectValue;
+    const onChange = e => {
+      argumentEventObject = e;
+      argumentEventObjectValue = e.target.value;
+    };
+    const wrapper = mount(<Input allowClear defaultValue="111" onChange={onChange} />);
+    wrapper
+      .find('.ant-input-clear-icon')
+      .at(0)
+      .simulate('click');
+    expect(argumentEventObject.type).toBe('click');
+    expect(argumentEventObjectValue).toBe('');
+    expect(wrapper.find('input').at(0).getDOMNode().value).toBe('');
+  });
+
+  it('should trigger event correctly on controlled mode', () => {
+    let argumentEventObject;
+    let argumentEventObjectValue;
+    const onChange = e => {
+      argumentEventObject = e;
+      argumentEventObjectValue = e.target.value;
+    };
+    const wrapper = mount(<Input allowClear value="111" onChange={onChange} />);
+    wrapper
+      .find('.ant-input-clear-icon')
+      .at(0)
+      .simulate('click');
+    expect(argumentEventObject.type).toBe('click');
+    expect(argumentEventObjectValue).toBe('');
+    expect(wrapper.find('input').at(0).getDOMNode().value).toBe('111');
+  });
 });
