@@ -18,10 +18,10 @@ Use when you need the user to quickly understand what the current page is and wh
 | ----- | ----------- | ---- | ------------- |
 | title | title string | ReactNode | - |
 | subTitle | subTitle string | ReactNode | - |
-| backNode | Custom back icon, if false does not render back icon | ReactNode | `<Icon type="arrow-left" />` |
+| backIcon | custom back icon, if false the back icon will not be displayed | ReactNode | `<Icon type="arrow-left" />` |
 | tags | Tag list next to title | [Tag](https://ant.design/components/tag-cn/)[] \| [Tag](https://ant.design/components/tag-cn/) | - |
 | extra | Operating area, at the end of the line of the title line | ReactNode | - |
 | breadcrumb | breadcrumb config |  [breadcrumb](https://ant.design/components/breadcrumb-cn/)  | - |
 | footer | PageHeader's footer, generally used to render TabBar | ReactNode | -  |
-| onBack | back icon click event | ()=>void | ()=>{history.back();} |
+| onBack | back icon click event | `()=>void` | `()=>history.back()` |
 

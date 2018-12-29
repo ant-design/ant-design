@@ -80,42 +80,52 @@ ReactDOM.render(
 ```
 
 <style>
-.content.padding {
+#components-page-header-demo-actions .wrap {
+  display: flex;
+}
+#components-page-header-demo-actions .content {
+  flex: 1;
+}
+#components-page-header-demo-actions .extraContent {
+  min-width: 240px;
+  text-align: right;
+}
+#components-page-header-demo-actions .content.padding {
   padding-left: 40px;
 }
-.content .description {
+#components-page-header-demo-actions .content .description {
   display: table;
 }
-.description .term {
+#components-page-header-demo-actions .description .term {
   display: table-cell;
   margin-right: 8px;
   padding-bottom: 8px;
   white-space: nowrap;
   line-height: 20px;
 }
-.description .term:after {
+#components-page-header-demo-actions .description .term:after {
   position: relative;
   top: -0.5px;
   margin: 0 8px 0 2px;
   content: ":";
 }
-.description .detail {
+#components-page-header-demo-actions .description .detail {
   display: table-cell;
   padding-bottom: 8px;
   width: 100%;
   line-height: 20px;
 }
-.extraContent .label {
+#components-page-header-demo-actions .extraContent .label {
   font-size: 14px;
   color: rgba(0, 0, 0, 0.45);
   line-height: 22px;
 }
-.extraContent .label {
+#components-page-header-demo-actions .extraContent .label {
   font-size: 14px;
   color: rgba(0, 0, 0, 0.45);
   line-height: 22px;
 }
-.extraContent .detail {
+#components-page-header-demo-actions .extraContent .detail {
   font-size: 20px;
   color: rgba(0, 0, 0, 0.85);
   line-height: 28px;

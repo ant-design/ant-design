@@ -19,10 +19,10 @@ describe('PageHeader', () => {
       },
     ];
     const wrapper = mount(<PageHeader title="页面标题" breadcrumb={{ routes }} />);
-    expect(wrapper.find('.ant-pageheader-back-icon')).not.toHaveLength(1);
+    expect(wrapper.find('.ant-pageheader-back-icon')).toHaveLength(0);
   });
   it('pageHeader should  no contain back it back', async () => {
-    const wrapper = mount(<PageHeader title="页面标题" backNode={false} />);
+    const wrapper = mount(<PageHeader title="页面标题" backIcon={false} />);
     expect(wrapper.find('.ant-pageheader-back-icon')).not.toHaveLength(1);
   });
 

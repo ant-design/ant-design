@@ -87,29 +87,68 @@ ReactDOM.render(
 ```
 
 <style>
-.wrap {
+#components-page-header-demo-content .wrap {
   display: flex;
 }
-.content {
+#components-page-header-demo-content .content {
   flex: 1;
 }
-.content p {
+#components-page-header-demo-content .content p {
   margin-bottom: 8px;
 }
-.extraContent {
+#components-page-header-demo-content .extraContent {
   min-width: 240px;
   text-align: right;
 }
-.contentLink {
+#components-page-header-demo-content .contentLink {
   padding-top: 16px;
 }
-.contentLink a {
+#components-page-header-demo-content .contentLink a {
   display: inline-block;
   vertical-align: text-top;
   margin-right: 32px;
 }
-.contentLink a img {
+#components-page-header-demo-content .contentLink a img {
   margin-right: 8px;
 }
-
+#components-page-header-demo-content .content.padding {
+  padding-left: 40px;
+}
+#components-page-header-demo-content .content .description {
+  display: table;
+}
+#components-page-header-demo-content .description .term {
+  display: table-cell;
+  margin-right: 8px;
+  padding-bottom: 8px;
+  white-space: nowrap;
+  line-height: 20px;
+}
+#components-page-header-demo-content .description .term:after {
+  position: relative;
+  top: -0.5px;
+  margin: 0 8px 0 2px;
+  content: ":";
+}
+#components-page-header-demo-content .description .detail {
+  display: table-cell;
+  padding-bottom: 8px;
+  width: 100%;
+  line-height: 20px;
+}
+#components-page-header-demo-content .extraContent .label {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.45);
+  line-height: 22px;
+}
+#components-page-header-demo-content .extraContent .label {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.45);
+  line-height: 22px;
+}
+#components-page-header-demo-content .extraContent .detail {
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.85);
+  line-height: 28px;
+}
 </style>

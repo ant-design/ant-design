@@ -7,7 +7,7 @@ import { Divider, Breadcrumb } from '../index';
 import Tag from '../tag';
 
 export interface PageHeaderProps {
-  backNode: React.ReactNode;
+  backIcon: React.ReactNode;
   prefixCls: string;
   title: React.ReactNode;
   subTitle: React.ReactNode;
@@ -21,11 +21,11 @@ export interface PageHeaderProps {
 
 class PageHeader extends React.PureComponent<Partial<PageHeaderProps>, null> {
   static defaultProps = {
-    backNode: <Icon type="arrow-left" />,
+    backIcon: <Icon type="arrow-left" />,
   };
   renderBack(prefixCls: string) {
-    const { backNode } = this.props;
-    if (!backNode) {
+    const { backIcon } = this.props;
+    if (!backIcon) {
       return null;
     }
     return (
@@ -39,7 +39,7 @@ class PageHeader extends React.PureComponent<Partial<PageHeaderProps>, null> {
           window.history.back();
         }}
       >
-        {backNode}
+        {backIcon}
         <Divider type="vertical" />
       </div>
     );
