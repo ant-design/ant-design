@@ -89,7 +89,7 @@ function notice(args: ArgsProps): MessageType {
             }`}
           >
             {args.icon ? args.icon : iconType ? iconNode : ''}
-            <span>{args.content}</span>
+            <span className={`${prefixCls}-notice-content-text`}>{args.content}</span>
           </div>
         ),
         onClose: callback,
