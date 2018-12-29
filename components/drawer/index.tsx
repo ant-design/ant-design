@@ -50,6 +50,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
       PropTypes.string,
       PropTypes.object as PropTypes.Requireable<HTMLElement>,
       PropTypes.func,
+      PropTypes.bool,
     ]),
     maskClosable: PropTypes.bool,
     mask: PropTypes.bool,

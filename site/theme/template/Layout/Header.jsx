@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
-import { Select, Menu, Row, Col, Icon, Popover, Input, Badge, Button } from 'antd';
+import { Select, Menu, Row, Col, Icon, Popover, Input, Button } from 'antd';
 import Santa from './Santa';
 import * as utils from '../utils';
 import { version as antdVersion } from '../../../../package.json';
@@ -161,7 +161,7 @@ export default class Header extends React.Component {
         id="nav"
         key="nav"
       >
-        <Menu.Item key="home">
+        <Menu.Item key="home" className="hide-in-home-page">
           <Link to={utils.getLocalizedPathname('/', isZhCN)}>
             <FormattedMessage id="app.header.menu.home" />
           </Link>
@@ -176,7 +176,7 @@ export default class Header extends React.Component {
             <FormattedMessage id="app.header.menu.components" />
           </Link>
         </Menu.Item>
-        <Menu.Item key="pro">
+        <Menu.Item key="pro" className="hide-in-home-page">
           <a
             href="http://pro.ant.design"
             className="header-link"
@@ -187,7 +187,7 @@ export default class Header extends React.Component {
           </a>
         </Menu.Item>
         {isZhCN ? (
-          <Menu.Item key="course">
+          <Menu.Item key="course" className="hide-in-home-page">
             <a
               href="https://www.yuque.com/ant-design/course"
               className="header-link"
@@ -195,17 +195,6 @@ export default class Header extends React.Component {
               rel="noopener noreferrer"
             >
               教程
-              <span
-                style={{
-                  display: 'inline-block',
-                  position: 'relative',
-                  top: -2,
-                  width: 6,
-                  marginLeft: 8,
-                }}
-              >
-                <Badge dot />
-              </span>
             </a>
           </Menu.Item>
         ) : null}

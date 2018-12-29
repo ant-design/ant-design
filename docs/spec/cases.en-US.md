@@ -12,14 +12,14 @@ Currently, there are many products and sites using Ant Design. If your solutions
 
 ---
 
-### Ant Financial Cloud
+### Ant Financial Technology
 
 Cloud-oriented financial services, used by financial institutions that benefit from customized business cloud computing services.
 It assists financial institutions to upgrade to a new financial restructuring, promotion of capacity platforms, data and technology.
 
-[Visit](https://www.cloud.alipay.com)
+[Visit](https://tech.antfin.com)
 
-![Ant Financial Cloud](https://gw.alipayobjects.com/zos/rmsportal/KtMLtXsTucsJLWgfwZcw.png)
+![Ant Financial Technology](https://gw.alipayobjects.com/zos/rmsportal/zQMWTCnhWwYNzEURbDUn.png)
 
 ---
 

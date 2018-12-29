@@ -92,6 +92,15 @@
 
   .@{iconfont-css-prefix} {
     transition: margin-left 0.3s @ease-in-out;
+
+    // Follow icon blur under windows. Change the render.
+    // https://github.com/ant-design/ant-design/issues/13924
+    &.@{iconfont-css-prefix}-plus,
+    &.@{iconfont-css-prefix}-minus {
+      > svg {
+        shape-rendering: optimizeSpeed;
+      }
+    }
   }
 
   &&-loading:before {

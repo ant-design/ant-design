@@ -4,7 +4,7 @@ import { Col, Row } from '..';
 
 describe('Grid', () => {
   it('should render Col', () => {
-    const wrapper = render(<Col span="2" />);
+    const wrapper = render(<Col span={2} />);
     expect(wrapper).toMatchSnapshot();
   });
 
@@ -14,11 +14,11 @@ describe('Grid', () => {
   });
 
   it('renders wrapped Col correctly', () => {
-    const MyCol = () => <Col span="12" />;
+    const MyCol = () => <Col span={12} />;
     const wrapper = render(
       <Row gutter={20}>
         <div>
-          <Col span="12" />
+          <Col span={12} />
         </div>
         <MyCol />
       </Row>,
