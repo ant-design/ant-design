@@ -22,7 +22,7 @@ type OverlayFunc = () => React.ReactNode;
 export interface DropDownProps {
   trigger?: ('click' | 'hover' | 'contextMenu')[];
   overlay: React.ReactNode | OverlayFunc;
-  onVisibleChange?: (visible?: boolean) => void;
+  onVisibleChange?: (visible: boolean) => void;
   visible?: boolean;
   disabled?: boolean;
   align?: Object;
