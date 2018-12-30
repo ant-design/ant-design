@@ -23,7 +23,6 @@ timeline: true
 - 🌟 ConfigProvider support prefixCls. [#13389](https://github.com/ant-design/ant-design/pull/13389)
 - Less
   - 🌟 Add more less variables for support custom colors definitions of some components. [#13425](https://github.com/ant-design/ant-design/pull/13425) [@amedora](https://github.com/amedora)
-  - 🐞 Fixed less typo of palette. [#13941](https://github.com/ant-design/ant-design/pull/13941) [@taoweicn](https://github.com/taoweicn)
   - 🐞 Fixed font-family been reset in each component. [#13969](https://github.com/ant-design/ant-design/issues/13969)
 - Input
   - 🌟 Add Input.Password. [#13342](https://github.com/ant-design/ant-design/pull/13342) [@zy410419243](https://github.com/zy410419243)
@@ -31,10 +30,8 @@ timeline: true
 - Modal
   - 🌟 Add `forceRender` support. [f791a50](https://github.com/ant-design/ant-design/commit/f791a50084eda5692635fd373bc2ec4a6b8d98e1)
   - 🌟 Add `destroyAll`. [#13409](https://github.com/ant-design/ant-design/pull/13409) [@caolvchong](https://github.com/caolvchong)
-  - 🌟 Add `icon` to Modal.confirm/info/warning/error. [5c26635](https://github.com/ant-design/ant-design/commit/5c266355ec84d54d054ba89d35cc9280aef50a6e)
-- Card
-  - 🌟 Added `middle` and `small` classes. [#13180](https://github.com/ant-design/ant-design/pull/13180) [@ndbroadbent](https://github.com/ndbroadbent)
-  - 🐞 Fixed less var `card-radius` bug. [#13966](https://github.com/ant-design/ant-design/pull/13966) [@vthinkxie](https://github.com/vthinkxie)
+  - 🌟 Add `icon` to Modal.confirm/info/warning/error, `iconType` is deprecated. [5c26635](https://github.com/ant-design/ant-design/commit/5c266355ec84d54d054ba89d35cc9280aef50a6e)
+- 🌟 Add `middle` and `small` classes for Card component. [#13180](https://github.com/ant-design/ant-design/pull/13180) [@ndbroadbent](https://github.com/ndbroadbent)
 - Form
   - 🌟 Add `name` option to `Form.create`. [83b449b](https://github.com/ant-design/ant-design/commit/83b449b1ff00afadde57d96dea457e625509786f)
   - 🌟 FormItem support error message with reactNode. [#13046](https://github.com/ant-design/ant-design/pull/13046)
@@ -45,32 +42,28 @@ timeline: true
   - 🌟 Dropdown.Button support `href` prop. [607d080](https://github.com/ant-design/ant-design/commit/607d08094d4c59416c17d49e1ed5e87a166f61f7)
   - 🌟 Add `openClassName`. [c6f267d](https://github.com/ant-design/ant-design/commit/c6f267d740d82ffc3e4f2f2a84cd3b2cc159c595)
   - 🌟 Dropdown overlay support function callback. [#14003](https://github.com/ant-design/ant-design/pull/14003)
-  - 🐞 Fixed Dropdown `onVisibleChange` type define bug. [#13988](https://github.com/ant-design/ant-design/pull/13988) [@travikk](https://github.com/travikk)
 - Button
-  - 💄 Update color with `.button-variant-other` className. [#13777](https://github.com/ant-design/ant-design/pull/13777) [@JeffreyATW](https://github.com/JeffreyATW)
-  - 💄 Migrate Button to new lifecycle methods. [#12752](https://github.com/ant-design/ant-design/pull/12752) [@natanielcz](https://github.com/natanielcz)
   - 🐞 Fixed Button throw error when use a custom type. [#13915](https://github.com/ant-design/ant-design/issues/13915)
   - 🐞 Fixed plus and minus Icon style in Button on Window. [#13924](https://github.com/ant-design/ant-design/issues/13924)
 - 🌟 Add prop `sortDirections` for Table and Table.Column. [#13773](https://github.com/ant-design/ant-design/pull/13773) [@elfman](https://github.com/elfman)
 - DatePicker
   - 🌟 Add new `renderFooter` API for DatePicker. [3c007a8](https://github.com/ant-design/ant-design/commit/3c007a85dd8a670f66c7e0aed95d3537e25ef6ea)
   - 🐞 Fixed dateRender not supported at WeekPicker. [#13957](https://github.com/ant-design/ant-design/issues/13957)
-  - 🐞 Fixed type define of DatePicker prop `disabledDate`. [#14008](https://github.com/ant-design/ant-design/pull/14008) [@vnguyen94](https://github.com/vnguyen94)
 - 🌟 Calendar support prop `renderExtraFooter` in all mode. [#13813](https://github.com/ant-design/ant-design/pull/13813) [@elfman](https://github.com/elfman)
-- 🌟 TimePicker support new props `popupStyle` and `onAmPmChange`. [833c181](https://github.com/ant-design/ant-design/commit/833c18192247f265b4004afa11a054846c7ba662)
+- 🌟 TimePicker support new prop `popupStyle` and `onAmPmChange`. [833c181](https://github.com/ant-design/ant-design/commit/833c18192247f265b4004afa11a054846c7ba662)
 - 🌟 Update `rc-tree-select` to 2.5.0 to support use a ReactNode as `notFoundContent` in TreeSelect. [47b89e5](https://github.com/ant-design/ant-design/commit/47b89e56fbedfa07a4c263ca390a78d58132563f)
 - 🌟 Rate support `tooltips`. [192e188](https://github.com/ant-design/ant-design/commit/192e188fe87018ad9d004b9c2002e2b0045fa4b4)
 - 🐞 Fixed Drawer prop `style` not working. [#13850](https://github.com/ant-design/ant-design/issues/13850)
 - Upload
-  - 🌟 Add new less var `upload-picture-card-border-style`. [#13919](https://github.com/ant-design/ant-design/pull/13919) [@flexchen](https://github.com/flexchen)
-  - 🐞 Fixed less var `upload-picture-card-size` typo. [#13929](https://github.com/ant-design/ant-design/pull/13929) [@flexchen](https://github.com/flexchen)
+  - 💄 Add new less var `upload-picture-card-border-style` and Fixed `upload-picture-card-size` typo. [#13919](https://github.com/ant-design/ant-design/pull/13919) [#13929](https://github.com/ant-design/ant-design/pull/13929) [@flexchen](https://github.com/flexchen)
   - 🐞 Fixed recognize `dpg` file type as image in Upload. [#13988]
 - 🐞 Fixed Radio style bug in Chrome. [#3699](https://github.com/ant-design/ant-design/issues/3699)
 - 🐞 Fixed arrow of Popover shadow. [#13935](https://github.com/ant-design/ant-design/pull/13935) [@crazyurus](https://github.com/crazyurus)
 - Badge
   - 🐞 Fixed animation jump when count is ReactNode. [#13800](https://github.com/ant-design/ant-design/issues/13800)
-  - 🐞 Fixed `getScrollNumberTitle` typo bug. [#14005](https://github.com/ant-design/ant-design/pull/14005) [@nmsn](https://github.com/nmsn)
-
+- TypeScript
+  - 🐞 Fixed type define of DatePicker prop `disabledDate`. [#14008](https://github.com/ant-design/ant-design/pull/14008) [@vnguyen94](https://github.com/vnguyen94)
+  - 🐞 Fixed Dropdown `onVisibleChange` type define bug. [#13988](https://github.com/ant-design/ant-design/pull/13988) [@travikk](https://github.com/travikk)
 ## 3.11.6
 
 `2018-12-25`
