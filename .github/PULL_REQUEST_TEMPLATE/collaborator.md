@@ -1,6 +1,6 @@
 ### This is a ...
 
-- [x] New feature
+- [ ] New feature
 - [ ] Other
 
 ### What's the background?
@@ -23,10 +23,10 @@
 
 ### Self Check before Merge
 
-- [x] Doc is ready or not need
-- [x] Demo is provided or not need
-- [x] TypeScript definition is ready or not need
-- [x] Changelog provided
+- [ ] Doc is ready or not need
+- [ ] Demo is provided or not need
+- [ ] TypeScript definition is ready or not need
+- [ ] Changelog provided
 
 ### Additional Plan?
 
