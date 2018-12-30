@@ -171,10 +171,10 @@ export default class Tabs extends React.Component<TabsProps, any> {
 
     return (
       <RcTabs
+        renderTabBar={() => <TabBar {...tabBarProps} tabBarExtraContent={tabBarExtraContent} />}
         {...this.props}
         className={cls}
         tabBarPosition={tabPosition}
-        renderTabBar={() => <TabBar {...tabBarProps} tabBarExtraContent={tabBarExtraContent} />}
         renderTabContent={() => (
           <TabContent className={contentCls} animated={tabPaneAnimated} animatedWithMargin />
         )}
