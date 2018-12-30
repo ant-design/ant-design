@@ -2,16 +2,16 @@
 order: 5
 title:
   zh-CN: 复杂的例子
-  en-US: Basic Page Header
+  en-US: Complex example
 ---
 
 ## zh-CN
 
-使用操作区
+使用操作区，并自定义子节点
 
 ## en-US
 
-Basic Page Header
+Use the action area and customize the child nodes
 
 ```jsx
 import { PageHeader, Tag, Tabs, Button, Row, Col } from 'antd';

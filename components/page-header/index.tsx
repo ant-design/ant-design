@@ -7,19 +7,19 @@ import { Divider, Breadcrumb } from '../index';
 import Tag from '../tag';
 
 export interface PageHeaderProps {
-  backIcon: React.ReactNode;
-  prefixCls: string;
+  backIcon?: React.ReactNode;
+  prefixCls?: string;
   title: React.ReactNode;
-  subTitle: React.ReactNode;
-  style: React.CSSProperties;
-  breadcrumb: BreadcrumbProps;
-  tags: Tag[] | Tag;
-  footer: React.ReactNode;
-  extra: React.ReactNode;
-  onBack: (e: React.MouseEvent<HTMLElement>) => void;
+  subTitle?: React.ReactNode;
+  style?: React.CSSProperties;
+  breadcrumb?: BreadcrumbProps;
+  tags?: Tag[];
+  footer?: React.ReactNode;
+  extra?: React.ReactNode;
+  onBack?: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
-class PageHeader extends React.PureComponent<Partial<PageHeaderProps>, null> {
+class PageHeader extends React.PureComponent<PageHeaderProps, {}> {
   static defaultProps = {
     backIcon: <Icon type="arrow-left" />,
   };
@@ -82,7 +82,7 @@ class PageHeader extends React.PureComponent<Partial<PageHeaderProps>, null> {
       <ConfigConsumer>
         {({ getPrefixCls }: ConfigConsumerProps) => {
           const { prefixCls: customizePrefixCls, style, footer } = this.props;
-          const prefixCls = getPrefixCls('pageheader', customizePrefixCls);
+          const prefixCls = getPrefixCls('page-header', customizePrefixCls);
 
           const className = classnames(prefixCls, {
             'have-footer': footer,

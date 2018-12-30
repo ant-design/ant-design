@@ -1,7 +1,7 @@
 @import '../../style/themes/default';
 @import '../../style/mixins/index';
 
-@pageheader-prefix-cls: ~'@{ant-prefix}-pageheader';
+@pageheader-prefix-cls: ~'@{ant-prefix}-page-header';
 
 .@{pageheader-prefix-cls} {
   .reset-component;
@@ -29,7 +29,7 @@
     vertical-align: top;
   }
 
-  .ant-breadcrumb {
+  .@{ant-prefix}-breadcrumb {
     margin-bottom: 12px;
   }
 
@@ -78,10 +78,10 @@
   .@{pageheader-prefix-cls}-footer {
     margin: 0 -8px;
     padding-top: 24px;
-    .ant-tabs-bar {
+    .@{ant-prefix}-tabs-bar {
       margin-bottom: 1px;
       border-bottom: 0;
-      .ant-tabs-nav .ant-tabs-tab {
+      .@{ant-prefix}-tabs-nav .@{ant-prefix}-tabs-tab {
         padding: 12px 8px;
         padding-top: 0;
       }

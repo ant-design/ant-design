@@ -23,7 +23,7 @@ ReactDOM.render(
 ```
 
 <style>
-.ant-pageheader {
+.code-box-demo .ant-page-header {
   border: 1px solid rgb(235, 237, 240);
 }
 <style>

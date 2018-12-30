@@ -2,16 +2,16 @@
 order: 2
 title:
   zh-CN: 带面包屑页头
-  en-US: Breadcrumb Page Header
+  en-US: Use with breadcrumbs
 ---
 
 ## zh-CN
 
-与面包屑一起使用
+带面包屑页头
 
 ## en-US
 
-Breadcrumb Page Header
+Use with breadcrumbs
 
 ```jsx
 import { PageHeader } from 'antd';
