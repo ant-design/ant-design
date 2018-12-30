@@ -2,10 +2,10 @@
 
 exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
 <div
-  class="ant-pageheader have-footer"
+  class="ant-page-header have-footer"
 >
   <div
-    class="ant-pageheader-back-icon"
+    class="ant-page-header-back-icon"
   >
     <i
       class="anticon anticon-arrow-left"
@@ -29,20 +29,20 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
     />
   </div>
   <div
-    class="ant-pageheader-title-view"
+    class="ant-page-header-title-view"
   >
     <span
-      class="ant-pageheader-title"
+      class="ant-page-header-title"
     >
       页面标题
     </span>
     <span
-      class="ant-pageheader-sub-title"
+      class="ant-page-header-sub-title"
     >
       这是一个附属标题
     </span>
     <span
-      class="ant-pageheader-tags"
+      class="ant-page-header-tags"
     >
       <div
         class="ant-tag ant-tag-red"
@@ -51,7 +51,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
       </div>
     </span>
     <span
-      class="ant-pageheader-extra"
+      class="ant-page-header-extra"
     >
       <button
         class="ant-btn"
@@ -80,7 +80,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-pageheader-content-view"
+    class="ant-page-header-content-view"
   >
     <div
       class="wrap"
@@ -224,7 +224,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-pageheader-footer"
+    class="ant-page-header-footer"
   >
     <div
       class="ant-tabs ant-tabs-top ant-tabs-line"
@@ -367,10 +367,10 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
 
 exports[`renders ./components/page-header/demo/basic.md correctly 1`] = `
 <div
-  class="ant-pageheader"
+  class="ant-page-header"
 >
   <div
-    class="ant-pageheader-back-icon"
+    class="ant-page-header-back-icon"
   >
     <i
       class="anticon anticon-arrow-left"
@@ -394,15 +394,15 @@ exports[`renders ./components/page-header/demo/basic.md correctly 1`] = `
     />
   </div>
   <div
-    class="ant-pageheader-title-view"
+    class="ant-page-header-title-view"
   >
     <span
-      class="ant-pageheader-title"
+      class="ant-page-header-title"
     >
       页面标题
     </span>
     <span
-      class="ant-pageheader-sub-title"
+      class="ant-page-header-sub-title"
     >
       这是一个附属标题
     </span>
@@ -412,7 +412,7 @@ exports[`renders ./components/page-header/demo/basic.md correctly 1`] = `
 
 exports[`renders ./components/page-header/demo/breadcrumb.md correctly 1`] = `
 <div
-  class="ant-pageheader"
+  class="ant-page-header"
 >
   <div
     class="ant-breadcrumb"
@@ -465,10 +465,10 @@ exports[`renders ./components/page-header/demo/breadcrumb.md correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-pageheader-title-view"
+    class="ant-page-header-title-view"
   >
     <span
-      class="ant-pageheader-title"
+      class="ant-page-header-title"
     >
       页面标题
     </span>
@@ -478,7 +478,7 @@ exports[`renders ./components/page-header/demo/breadcrumb.md correctly 1`] = `
 
 exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
 <div
-  class="ant-pageheader"
+  class="ant-page-header"
 >
   <div
     class="ant-breadcrumb"
@@ -531,16 +531,16 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-pageheader-title-view"
+    class="ant-page-header-title-view"
   >
     <span
-      class="ant-pageheader-title"
+      class="ant-page-header-title"
     >
       页面标题
     </span>
   </div>
   <div
-    class="ant-pageheader-content-view"
+    class="ant-page-header-content-view"
   >
     <div
       class="wrap"
