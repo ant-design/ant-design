@@ -19,7 +19,7 @@ timeline: true
 
 - 🎉 New component [Empty](https://ant.design/components/empty/)! [13651](https://github.com/ant-design/ant-design/pull/13651)
 - 🎉 Kannada locale added (kn_IN). [#13776](https://github.com/ant-design/ant-design/pull/13776) [@gurungrahul2](https://github.com/gurungrahul2)
-- 🌟 Add eye-invisible icon. [b8630b3](https://github.com/ant-design/ant-design/commit/b8630b34556e58af31f51fb42d1299725ddd8219)
+- 🌟 Add `eye-invisible` Icon. [b8630b3](https://github.com/ant-design/ant-design/commit/b8630b34556e58af31f51fb42d1299725ddd8219)
 - 🌟 ConfigProvider support prefixCls. [#13389](https://github.com/ant-design/ant-design/pull/13389)
 - Less
   - 🌟 Add more less variables for support custom colors definitions of some components. [#13425](https://github.com/ant-design/ant-design/pull/13425) [@amedora](https://github.com/amedora)
@@ -41,7 +41,7 @@ timeline: true
 - Dropdown
   - 🌟 Dropdown.Button support `href` prop. [607d080](https://github.com/ant-design/ant-design/commit/607d08094d4c59416c17d49e1ed5e87a166f61f7)
   - 🌟 Add `openClassName`. [c6f267d](https://github.com/ant-design/ant-design/commit/c6f267d740d82ffc3e4f2f2a84cd3b2cc159c595)
-  - 🌟 Dropdown overlay support function callback. [#14003](https://github.com/ant-design/ant-design/pull/14003)
+  - 🌟 Dropdown `overlay` support function callback. [#14003](https://github.com/ant-design/ant-design/pull/14003)
 - Button
   - 🐞 Fixed Button throw error when use a custom type. [#13915](https://github.com/ant-design/ant-design/issues/13915)
   - 🐞 Fixed plus and minus Icon style in Button on Window. [#13924](https://github.com/ant-design/ant-design/issues/13924)
@@ -64,6 +64,7 @@ timeline: true
 - TypeScript
   - 🐞 Fixed type define of DatePicker prop `disabledDate`. [#14008](https://github.com/ant-design/ant-design/pull/14008) [@vnguyen94](https://github.com/vnguyen94)
   - 🐞 Fixed Dropdown `onVisibleChange` type define bug. [#13988](https://github.com/ant-design/ant-design/pull/13988) [@travikk](https://github.com/travikk)
+
 ## 3.11.6
 
 `2018-12-25`
