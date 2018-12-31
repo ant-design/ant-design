@@ -30,12 +30,12 @@ exports[`Drawer render correctly 1`] = `
             class="ant-drawer-wrapper-body"
             style="overflow: auto; height: 100%;"
           >
-            <button
-              aria-label="Close"
-              class="ant-drawer-close"
+            <div
+              class="ant-drawer-header"
             >
-              <span
-                class="ant-drawer-close-x"
+              <button
+                aria-label="Close"
+                class="ant-drawer-close"
               >
                 <i
                   class="anticon anticon-close"
@@ -54,8 +54,8 @@ exports[`Drawer render correctly 1`] = `
                     />
                   </svg>
                 </i>
-              </span>
-            </button>
+              </button>
+            </div>
             <div
               class="ant-drawer-body"
             >
