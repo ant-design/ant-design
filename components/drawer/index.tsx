@@ -144,13 +144,37 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
     }
   };
 
+  renderHeader() {
+    const { prefixCls, title, closable } = this.props;
+    if (!title && !closable) {
+      return null;
+    }
+    return (
+      <div className={`${prefixCls}-header`}>
+        {title && <div className={`${prefixCls}-title`}>{title}</div>}
+        {this.renderCloseIcon()}
+      </div>
+    );
+  }
+
+  renderCloseIcon() {
+    const { prefixCls, closable } = this.props;
+    return (
+      closable && (
+        <button onClick={this.close} aria-label="Close" className={`${prefixCls}-close`}>
+          <Icon type="close" />
+        </button>
+      )
+    );
+  }
+
   // render drawer body dom
   renderBody = () => {
-    if (this.destoryClose && !this.props.visible) {
+    const { placement, prefixCls, visible } = this.props;
+    if (this.destoryClose && !visible) {
       return null;
     }
     this.destoryClose = false;
-    const { placement } = this.props;
 
     const containerStyle: React.CSSProperties =
       placement === 'left' || placement === 'right'
@@ -167,28 +191,6 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
       containerStyle.opacity = 0;
       containerStyle.transition = 'opacity .3s';
     }
-    const { prefixCls, title, closable } = this.props;
-
-    // is have header dom
-    let header;
-    if (title) {
-      header = (
-        <div className={`${prefixCls}-header`}>
-          <div className={`${prefixCls}-title`}>{title}</div>
-        </div>
-      );
-    }
-    // is have closer button
-    let closer;
-    if (closable) {
-      closer = (
-        <button onClick={this.close} aria-label="Close" className={`${prefixCls}-close`}>
-          <span className={`${prefixCls}-close-x`}>
-            <Icon type="close" />
-          </span>
-        </button>
-      );
-    }
 
     return (
       <div
@@ -196,8 +198,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
         style={containerStyle}
         onTransitionEnd={this.onDestoryTransitionEnd}
       >
-        {header}
-        {closer}
+        {this.renderHeader()}
         <div className={`${prefixCls}-body`}>{this.props.children}</div>
       </div>
     );
