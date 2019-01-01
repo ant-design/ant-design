@@ -123,18 +123,17 @@
   }
 
   &-circle &-text {
-    display: block;
     position: absolute;
     width: 100%;
     text-align: center;
     line-height: 1;
     top: 50%;
-    transform: translateY(-50%);
-    left: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
     margin: 0;
+    padding: 0;
     color: @progress-text-color;
     white-space: normal;
-    padding: 0 6px;
 
     .@{iconfont-css-prefix} {
       font-size: 14 / 12em;
