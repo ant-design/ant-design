@@ -49,6 +49,8 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
   const okText = props.okText || (okCancel ? runtimeLocale.okText : runtimeLocale.justOkText);
   const cancelText = props.cancelText || runtimeLocale.cancelText;
   const autoFocusButton = props.autoFocusButton === null ? false : props.autoFocusButton || 'ok';
+  const transitionName = props.transitionName || 'zoom';
+  const maskTransitionName = props.maskTransitionName || 'fade';
 
   const classString = classNames(
     contentPrefixCls,
@@ -77,9 +79,9 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
       onCancel={close.bind(this, { triggerCancel: true })}
       visible={visible}
       title=""
-      transitionName="zoom"
+      transitionName={transitionName}
       footer=""
-      maskTransitionName="fade"
+      maskTransitionName={maskTransitionName}
       maskClosable={maskClosable}
       maskStyle={maskStyle}
       style={style}
