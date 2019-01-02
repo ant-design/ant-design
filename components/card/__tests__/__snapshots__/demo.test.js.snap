@@ -951,7 +951,7 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
         </div>
         <div
           role="presentation"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;position:absolute"
           tabindex="0"
         />
         <div
@@ -965,12 +965,12 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
           >
             <div
               role="presentation"
-              style="width:0;height:0;overflow:hidden"
+              style="width:0;height:0;overflow:hidden;position:absolute"
               tabindex="0"
             />
             <div
               role="presentation"
-              style="width:0;height:0;overflow:hidden"
+              style="width:0;height:0;overflow:hidden;position:absolute"
               tabindex="0"
             />
           </div>
@@ -982,7 +982,7 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
         </div>
         <div
           role="presentation"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;position:absolute"
           tabindex="0"
         />
       </div>
@@ -1115,7 +1115,7 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
         </div>
         <div
           role="presentation"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;position:absolute"
           tabindex="0"
         />
         <div
@@ -1134,12 +1134,12 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
           >
             <div
               role="presentation"
-              style="width:0;height:0;overflow:hidden"
+              style="width:0;height:0;overflow:hidden;position:absolute"
               tabindex="0"
             />
             <div
               role="presentation"
-              style="width:0;height:0;overflow:hidden"
+              style="width:0;height:0;overflow:hidden;position:absolute"
               tabindex="0"
             />
           </div>
@@ -1151,7 +1151,7 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
         </div>
         <div
           role="presentation"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;position:absolute"
           tabindex="0"
         />
       </div>

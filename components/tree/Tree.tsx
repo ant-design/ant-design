@@ -133,15 +133,11 @@ export interface TreeProps {
   onRightClick?: (options: AntTreeNodeMouseEvent) => void;
   /** 设置节点可拖拽（IE>8）*/
   draggable?: boolean;
-  /** 开始拖拽时调用 */
   onDragStart?: (options: AntTreeNodeMouseEvent) => void;
-  /** dragenter 触发时调用 */
   onDragEnter?: (options: AntTreeNodeMouseEvent) => void;
-  /** dragover 触发时调用 */
   onDragOver?: (options: AntTreeNodeMouseEvent) => void;
-  /** dragleave 触发时调用 */
   onDragLeave?: (options: AntTreeNodeMouseEvent) => void;
-  /** drop 触发时调用 */
+  onDragEnd?: (options: AntTreeNodeMouseEvent) => void;
   onDrop?: (options: AntTreeNodeDropEvent) => void;
   style?: React.CSSProperties;
   showIcon?: boolean;
