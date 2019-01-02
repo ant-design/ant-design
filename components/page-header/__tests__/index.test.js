@@ -7,33 +7,33 @@ describe('PageHeader', () => {
     const routes = [
       {
         path: 'index',
-        breadcrumbName: '一级菜单',
+        breadcrumbName: 'First menu',
       },
       {
         path: 'first',
-        breadcrumbName: '二级菜单',
+        breadcrumbName: 'Secondary menu',
       },
       {
         path: 'second',
-        breadcrumbName: '三级菜单',
+        breadcrumbName: 'Third level menu',
       },
     ];
-    const wrapper = mount(<PageHeader title="页面标题" breadcrumb={{ routes }} />);
+    const wrapper = mount(<PageHeader title="Page Title" breadcrumb={{ routes }} />);
     expect(wrapper.find('.ant-page-header-back-icon')).toHaveLength(0);
   });
   it('pageHeader should  no contain back it back', async () => {
-    const wrapper = mount(<PageHeader title="页面标题" backIcon={false} />);
+    const wrapper = mount(<PageHeader title="Page Title" backIcon={false} />);
     expect(wrapper.find('.ant-page-header-back-icon')).not.toHaveLength(1);
   });
 
   it('pageHeader should contain back it back', async () => {
-    const wrapper = mount(<PageHeader title="页面标题" />);
+    const wrapper = mount(<PageHeader title="Page Title" />);
     expect(wrapper.find('.ant-page-header-back-icon')).toHaveLength(1);
   });
 
   it('pageHeader onBack transfer', async () => {
     const callback = jest.fn(() => true);
-    const wrapper = mount(<PageHeader title="页面标题" onBack={callback} />);
+    const wrapper = mount(<PageHeader title="Page Title" onBack={callback} />);
     wrapper.find('.ant-page-header-back-icon').simulate('click');
     expect(callback).toBeCalled();
   });
@@ -41,7 +41,7 @@ describe('PageHeader', () => {
   it('pageHeader onBack transfer', async () => {
     const callback = jest.fn(() => true);
     window.history.back = callback;
-    const wrapper = mount(<PageHeader title="页面标题" />);
+    const wrapper = mount(<PageHeader title="Page Title" />);
     wrapper.find('.ant-page-header-back-icon').simulate('click');
     expect(callback).toBeCalled();
   });
