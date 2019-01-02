@@ -83,9 +83,8 @@ class PageHeader extends React.PureComponent<PageHeaderProps, {}> {
         {({ getPrefixCls }: ConfigConsumerProps) => {
           const { prefixCls: customizePrefixCls, style, footer } = this.props;
           const prefixCls = getPrefixCls('page-header', customizePrefixCls);
-
           const className = classnames(prefixCls, {
-            'have-footer': footer,
+            [`${prefixCls}-have-footer`]: footer,
           });
           return (
             <div className={className} style={style}>

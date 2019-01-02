@@ -2,7 +2,7 @@
 
 exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
 <div
-  class="ant-page-header have-footer"
+  class="ant-page-header ant-page-header-have-footer"
 >
   <div
     class="ant-page-header-back-icon"
