@@ -18,7 +18,7 @@ export interface PopconfirmProps extends AbstractTooltipProps {
   okButtonProps?: NativeButtonProps;
   cancelButtonProps?: NativeButtonProps;
   icon?: React.ReactNode;
-  onVisibleChange?: (visible?: boolean, e?: React.MouseEvent<any>) => void;
+  onVisibleChange?: (visible: boolean, e?: React.MouseEvent<any>) => void;
 }
 
 export interface PopconfirmState {

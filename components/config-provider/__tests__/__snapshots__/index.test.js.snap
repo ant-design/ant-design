@@ -6723,12 +6723,12 @@ exports[`ConfigProvider components Drawer configProvider 1`] = `
           class="config-drawer-wrapper-body"
           style="overflow:auto;height:100%"
         >
-          <button
-            aria-label="Close"
-            class="config-drawer-close"
+          <div
+            class="config-drawer-header"
           >
-            <span
-              class="config-drawer-close-x"
+            <button
+              aria-label="Close"
+              class="config-drawer-close"
             >
               <i
                 class="anticon anticon-close"
@@ -6747,8 +6747,8 @@ exports[`ConfigProvider components Drawer configProvider 1`] = `
                   />
                 </svg>
               </i>
-            </span>
-          </button>
+            </button>
+          </div>
           <div
             class="config-drawer-body"
           />
@@ -6780,12 +6780,12 @@ exports[`ConfigProvider components Drawer normal 1`] = `
           class="ant-drawer-wrapper-body"
           style="overflow:auto;height:100%"
         >
-          <button
-            aria-label="Close"
-            class="ant-drawer-close"
+          <div
+            class="ant-drawer-header"
           >
-            <span
-              class="ant-drawer-close-x"
+            <button
+              aria-label="Close"
+              class="ant-drawer-close"
             >
               <i
                 class="anticon anticon-close"
@@ -6804,8 +6804,8 @@ exports[`ConfigProvider components Drawer normal 1`] = `
                   />
                 </svg>
               </i>
-            </span>
-          </button>
+            </button>
+          </div>
           <div
             class="ant-drawer-body"
           />
@@ -6837,12 +6837,12 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
           class="prefix-Drawer-wrapper-body"
           style="overflow:auto;height:100%"
         >
-          <button
-            aria-label="Close"
-            class="prefix-Drawer-close"
+          <div
+            class="prefix-Drawer-header"
           >
-            <span
-              class="prefix-Drawer-close-x"
+            <button
+              aria-label="Close"
+              class="prefix-Drawer-close"
             >
               <i
                 class="anticon anticon-close"
@@ -6861,8 +6861,8 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
                   />
                 </svg>
               </i>
-            </span>
-          </button>
+            </button>
+          </div>
           <div
             class="prefix-Drawer-body"
           />
@@ -11883,7 +11883,7 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
   <div
@@ -11897,19 +11897,19 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
     >
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
     </div>
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
 </div>
@@ -12008,7 +12008,7 @@ exports[`ConfigProvider components Tabs normal 1`] = `
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
   <div
@@ -12022,19 +12022,19 @@ exports[`ConfigProvider components Tabs normal 1`] = `
     >
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
     </div>
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
 </div>
@@ -12133,7 +12133,7 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
   <div
@@ -12147,19 +12147,19 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
     >
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
     </div>
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
 </div>

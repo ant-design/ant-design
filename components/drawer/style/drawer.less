@@ -122,24 +122,20 @@
     top: 0;
     z-index: 10;
     font-weight: 700;
-    line-height: 1;
     text-decoration: none;
     transition: color @animation-duration-slow;
     color: @text-color-secondary;
     outline: 0;
     padding: 0;
-
-    &-x {
-      display: block;
-      font-style: normal;
-      text-align: center;
-      text-transform: none;
-      text-rendering: auto;
-      width: 56px;
-      height: 56px;
-      line-height: 56px;
-      font-size: @font-size-lg;
-    }
+    display: block;
+    font-style: normal;
+    text-align: center;
+    text-transform: none;
+    text-rendering: auto;
+    width: 56px;
+    height: 56px;
+    line-height: 56px;
+    font-size: @font-size-lg;
 
     &:focus,
     &:hover {
@@ -154,6 +150,7 @@
     background: @component-background;
     color: @text-color;
     border-bottom: @border-width-base @border-style-base @border-color-split;
+    position: relative;
   }
 
   &-body {

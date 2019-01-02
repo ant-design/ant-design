@@ -84,7 +84,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
     return this.getNumberedDispayCount();
   }
 
-  getScollNumberTitle() {
+  getScrollNumberTitle() {
     const { title, count } = this.props;
     if (title) {
       return title;
@@ -145,7 +145,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
         className={scrollNumberCls}
         count={displayCount}
         displayComponent={this.renderDispayComponent()} // <Badge status="success" count={<Icon type="xxx" />}></Badge>
-        title={this.getScollNumberTitle()}
+        title={this.getScrollNumberTitle()}
         style={this.getStyleWithOffset()}
         key="scrollNumber"
       />

@@ -81,10 +81,11 @@ export default class MainContent extends Component {
 
   componentDidUpdate(prevProps) {
     const { location } = this.props;
-    if (!prevProps || prevProps.location.pathname !== location.pathname) {
+    const { location: prevLocation = {} } = prevProps || {};
+    if (!prevProps || prevLocation.pathname !== location.pathname) {
       this.bindScroller();
     }
-    if (!window.location.hash && prevProps && prevProps.location.pathname !== location.pathname) {
+    if (!window.location.hash && prevLocation.pathname !== location.pathname) {
       document.documentElement.scrollTop = 0;
     }
     setTimeout(() => {

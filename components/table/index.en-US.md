@@ -87,11 +87,13 @@ Same as `onRow` `onHeaderRow` `onCell` `onHeaderCell`
 
 ```jsx
 <Table
-  onRow={(record) => {
+  onRow={(record, rowIndex) => {
     return {
-      onClick: () => {},       // click row
-      onMouseEnter: () => {},  // mouse enter row
-      onXxxx...
+      onClick: (event) => {},       // click row
+      onDoubleClick: (event) => {}, // double click row
+      onContextMenu: (event) => {}  // right button click row
+      onMouseEnter: (event) => {}   // mouse enter row
+      onMouseLeave: (event) => {}   // mouse leave row
     };
   }}
   onHeaderRow={(column) => {
