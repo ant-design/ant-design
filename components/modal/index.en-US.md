@@ -69,7 +69,7 @@ The properties of the object are follows:
 | content | Content | string\|ReactNode | - |
 | iconType | Icon `type` of the Icon component | string | `question-circle` |
 | keyboard | Whether support press esc to close | Boolean | true |
-| maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | Boolean | `false` |
+| maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | Boolean | `true` |
 | okText | Text of the OK button | string | `OK` |
 | okType | Button `type` of the OK button | string | `primary` |
 | okButtonProps | The ok button props | [ButtonProps](/components/button) | - |
