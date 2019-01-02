@@ -152,6 +152,9 @@
     }
 
     .@{table-prefix-cls}-column-sorters {
+      > *:not(.@{table-prefix-cls}-column-sorter) {
+        position: relative;
+      }
       &:before {
         position: absolute;
         content: '';

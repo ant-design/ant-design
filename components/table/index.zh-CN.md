@@ -94,9 +94,11 @@ const columns = [{
 <Table
   onRow={(record) => {
     return {
-      onClick: () => {},       // 点击行
-      onMouseEnter: () => {},  // 鼠标移入行
-      onXxxx...
+      onClick: (event) => {},       // 点击行
+      onDoubleClick: (event) => {},
+      onContextMenu: (event) => {},
+      onMouseEnter: (event) => {},  // 鼠标移入行
+      onMouseLeave: (event) => {}
     };
   }}
   onHeaderRow={(column) => {
