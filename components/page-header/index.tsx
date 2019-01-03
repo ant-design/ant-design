@@ -60,12 +60,13 @@ class PageHeader extends React.PureComponent<PageHeaderProps, {}> {
 
   renderTitle(prefixCls: string) {
     const { title, subTitle, tags, extra } = this.props;
+    const titlePrefixCls = `${prefixCls}-title-view`;
     return (
       <div className={`${prefixCls}-title-view`}>
-        <span className={`${prefixCls}-title`}>{title}</span>
-        {subTitle && <span className={`${prefixCls}-sub-title`}>{subTitle}</span>}
-        {tags && <span className={`${prefixCls}-tags`}>{tags}</span>}
-        {extra && <span className={`${prefixCls}-extra`}>{extra}</span>}
+        <span className={`${titlePrefixCls}-title`}>{title}</span>
+        {subTitle && <span className={`${titlePrefixCls}-sub-title`}>{subTitle}</span>}
+        {tags && <span className={`${titlePrefixCls}-tags`}>{tags}</span>}
+        {extra && <span className={`${titlePrefixCls}-extra`}>{extra}</span>}
       </div>
     );
   }
@@ -81,18 +82,16 @@ class PageHeader extends React.PureComponent<PageHeaderProps, {}> {
     return (
       <ConfigConsumer>
         {({ getPrefixCls }: ConfigConsumerProps) => {
-          const { prefixCls: customizePrefixCls, style, footer } = this.props;
+          const { prefixCls: customizePrefixCls, style, footer, children } = this.props;
           const prefixCls = getPrefixCls('page-header', customizePrefixCls);
           const className = classnames(prefixCls, {
-            [`${prefixCls}-have-footer`]: footer,
+            [`${prefixCls}-has-footer`]: footer,
           });
           return (
             <div className={className} style={style}>
               {this.renderHeader(prefixCls)}
               {this.renderTitle(prefixCls)}
-              {this.props.children && (
-                <div className={`${prefixCls}-content-view`}>{this.props.children}</div>
-              )}
+              {children && <div className={`${prefixCls}-content-view`}>{children}</div>}
               {this.renderFooter(prefixCls)}
             </div>
           );

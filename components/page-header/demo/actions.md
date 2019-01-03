@@ -18,14 +18,15 @@ import { PageHeader, Tag, Tabs, Button, Row, Col } from 'antd';
 
 const TabPane = Tabs.TabPane;
 
-const Description = ({ term, children }) => (
-  <Col span={12}>
+const Description = ({ term, children, span = 12 }) => (
+  <Col span={span}>
     <div className="description">
       <div className="term">{term}</div>
       <div className="detail">{children}</div>
     </div>
   </Col>
 );
+
 
 const content = (
   <Row>
@@ -35,7 +36,9 @@ const content = (
     </Description>
     <Description term="创建时间">2017-01-10</Description>
     <Description term="生效日期">2017-10-10</Description>
-    <Description term="单据备注">浙江省杭州市西湖区工专路</Description>
+    <Description term="单据备注" span={24}>
+      浙江省杭州市西湖区工专路
+    </Description>
   </Row>
 );
 

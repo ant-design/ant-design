@@ -9,12 +9,12 @@
   position: relative;
   background: @component-background;
 
-  &.@{pageheader-prefix-cls}-have-footer {
+  &.@{pageheader-prefix-cls}-has-footer {
     padding: 20px 32px;
     padding-bottom: 0;
   }
 
-  .@{pageheader-prefix-cls}-back-icon {
+  &-back-icon {
     cursor: pointer;
     font-size: 16px;
     line-height: 100%;
@@ -22,7 +22,7 @@
     display: inline-block;
   }
 
-  .ant-divider {
+  .@{ant-prefix}-divider {
     margin: 0 12px;
     height: 14px;
     margin-top: 3px;
@@ -33,10 +33,10 @@
     margin-bottom: 12px;
   }
 
-  .@{pageheader-prefix-cls}-title-view {
+  &-title-view {
     display: inline-block;
     line-height: 24px;
-    .@{pageheader-prefix-cls}-title {
+    &-title {
       line-height: 24px;
       display: inline-block;
       font-size: 16px;
@@ -45,7 +45,7 @@
       padding-right: 12px;
     }
 
-    .@{pageheader-prefix-cls}-sub-title {
+    &-sub-title {
       font-size: 14px;
       display: inline-block;
       color: @text-color-secondary;
@@ -53,12 +53,12 @@
       padding-right: 12px;
     }
 
-    .@{pageheader-prefix-cls}-tags {
+    &-tags {
       vertical-align: top;
       display: inline-block;
     }
 
-    .@{pageheader-prefix-cls}-extra {
+    &-extra {
       position: absolute;
       right: 32px;
       top: 16px;
@@ -71,11 +71,11 @@
     }
   }
 
-  .@{pageheader-prefix-cls}-content-view {
+  &-content-view {
     padding-top: 12px;
   }
 
-  .@{pageheader-prefix-cls}-footer {
+  &-footer {
     margin: 0 -8px;
     padding-top: 24px;
     .@{ant-prefix}-tabs-bar {
