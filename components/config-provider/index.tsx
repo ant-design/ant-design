@@ -64,4 +64,35 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
   }
 }
 
+// =========================== withConfigConsumer ===========================
+// We need define many types here. So let's put in the block region
+type IReactComponent<P = any> =
+  | React.StatelessComponent<P>
+  | React.ComponentClass<P>
+  | React.ClassicComponentClass<P>;
+
+interface BasicExportProps {
+  prefixCls?: string;
+}
+
+interface ConsumerConfig {
+  prefixCls: string;
+}
+
+export function withConfigConsumer<ExportProps extends BasicExportProps>(config: ConsumerConfig) {
+  return function(Component: IReactComponent): React.SFC<ExportProps> {
+    return (props: ExportProps) => (
+      <ConfigConsumer>
+        {(configProps: ConfigConsumerProps) => {
+          const { prefixCls: basicPrefixCls } = config;
+          const { getPrefixCls } = configProps;
+          const { prefixCls: customizePrefixCls } = props;
+          const prefixCls = getPrefixCls(basicPrefixCls, customizePrefixCls);
+          return <Component {...configProps} {...props} prefixCls={prefixCls} />;
+        }}
+      </ConfigConsumer>
+    );
+  };
+}
+
 export default ConfigProvider;
