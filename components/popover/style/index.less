@@ -55,6 +55,14 @@
     background-clip: padding-box;
     border-radius: @border-radius-base;
     box-shadow: @box-shadow-base;
+    border-top: ~'1px solid @{shadow-color} \9';
+  }
+
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    /* IE10+ */
+    &-inner {
+      border-top: none;
+    }
   }
 
   &-title {
