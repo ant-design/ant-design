@@ -278,6 +278,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
       >
         <div
           class="ant-calendar-date-panel"
+          tabindex="0"
         >
           <div
             class="ant-calendar-header"
