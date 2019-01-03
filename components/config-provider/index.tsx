@@ -81,17 +81,19 @@ interface ConsumerConfig {
 
 export function withConfigConsumer<ExportProps extends BasicExportProps>(config: ConsumerConfig) {
   return function(Component: IReactComponent): React.SFC<ExportProps> {
-    return (props: ExportProps) => (
+    const wrapper: React.SFC<ExportProps> = (props: ExportProps, ref?: Function) => (
       <ConfigConsumer>
         {(configProps: ConfigConsumerProps) => {
           const { prefixCls: basicPrefixCls } = config;
           const { getPrefixCls } = configProps;
           const { prefixCls: customizePrefixCls } = props;
           const prefixCls = getPrefixCls(basicPrefixCls, customizePrefixCls);
-          return <Component {...configProps} {...props} prefixCls={prefixCls} />;
+          return <Component ref={ref} {...configProps} {...props} prefixCls={prefixCls} />;
         }}
       </ConfigConsumer>
     );
+
+    return wrapper;
   };
 }
 
