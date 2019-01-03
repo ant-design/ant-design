@@ -2,7 +2,7 @@
 
 exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
 <div
-  class="ant-page-header ant-page-header-have-footer"
+  class="ant-page-header ant-page-header-has-footer"
 >
   <div
     class="ant-page-header-back-icon"
@@ -32,17 +32,17 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
     class="ant-page-header-title-view"
   >
     <span
-      class="ant-page-header-title"
+      class="ant-page-header-title-view-title"
     >
       页面标题
     </span>
     <span
-      class="ant-page-header-sub-title"
+      class="ant-page-header-title-view-sub-title"
     >
       这是一个附属标题
     </span>
     <span
-      class="ant-page-header-tags"
+      class="ant-page-header-title-view-tags"
     >
       <div
         class="ant-tag ant-tag-red"
@@ -51,7 +51,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
       </div>
     </span>
     <span
-      class="ant-page-header-extra"
+      class="ant-page-header-title-view-extra"
     >
       <button
         class="ant-btn"
@@ -166,7 +166,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
             </div>
           </div>
           <div
-            class="ant-col-12"
+            class="ant-col-24"
           >
             <div
               class="description"
@@ -397,12 +397,12 @@ exports[`renders ./components/page-header/demo/basic.md correctly 1`] = `
     class="ant-page-header-title-view"
   >
     <span
-      class="ant-page-header-title"
+      class="ant-page-header-title-view-title"
     >
       页面标题
     </span>
     <span
-      class="ant-page-header-sub-title"
+      class="ant-page-header-title-view-sub-title"
     >
       这是一个附属标题
     </span>
@@ -468,7 +468,7 @@ exports[`renders ./components/page-header/demo/breadcrumb.md correctly 1`] = `
     class="ant-page-header-title-view"
   >
     <span
-      class="ant-page-header-title"
+      class="ant-page-header-title-view-title"
     >
       页面标题
     </span>
@@ -534,7 +534,7 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
     class="ant-page-header-title-view"
   >
     <span
-      class="ant-page-header-title"
+      class="ant-page-header-title-view-title"
     >
       页面标题
     </span>
