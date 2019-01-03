@@ -1,22 +1,42 @@
-First of all, thank you for your contribution! :-)
+First of all, thank you for your contribution! 😄
 
-Please makes sure that these checkboxes are checked before submitting your pull request, thank you!
+Please makes sure that these form are filled before submitting your pull request, thank you!
 
-* [ ] Make sure that you propose pull request to right branch: bugfix for `master`, feature for branch `feature`.
-* [ ] Make sure that you follow antd's [code convention](https://github.com/ant-design/ant-design/wiki/Code-convention-for-antd).
-* [ ] Run `npm run lint` and fix those errors before submitting in order to keep consistent code style.
-* [ ] Rebase before creating a pull request to keep commit history clear.
-* [ ] Add some descriptions and refer relative issues for you pull request.
+[[中文版](?expand=1&template=pr_cn.md)]
 
-Extra checklist:
+### This is a ...
 
-**if** *isBugFix* **:**
+- [ ] New feature
+- [ ] Bug fix
+- [ ] Site / document update
+- [ ] Branch merge
+- [ ] Other (about what?)
 
-  * [ ] Make sure that you add at least one unit test for the bug which you had fixed.
+### What's the background?
+  
+> 1. Describe the source of requirement.
+> 2. Resolve what problem.
+> 3. Related issue link.
+  
+### API Realization (Optional if not new feature)
+  
+> 1. Basic thought of solution and other optional proposal.
+> 2. List final API realization and usage sample.
+> 3. GIF or snapshot should be provided if includes UI/interactive modification.
+  
+### What's the effect? (Optional if not new feature)
 
-**elif** *isNewFeature* **:**
+> 1. Does this PR affect user? Which part will be affected?
+> 2. What will say in changelog?
+> 3. Does this PR contains potential break change or other risk?
 
-  * [ ] Update API docs for the component.
-  * [ ] Update/Add demo to demonstrate new feature.
-  * [ ] Update TypeScript definition for the component.
-  * [ ] Add unit tests for the feature.
+### Self Check before Merge
+
+- [ ] Doc is updated/provided or not needed
+- [ ] Demo is updated/provided or not needed
+- [ ] TypeScript definition is updated/provided or not needed
+- [ ] Changelog provided
+
+### Additional Plan? (Optional if not new feature)
+
+> If this PR related with other PR or following info. You can type here.
