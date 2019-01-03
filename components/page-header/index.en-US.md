@@ -3,7 +3,7 @@ category: Components
 type: Navigation
 title: PageHeader
 cols: 1
-subtitle: PageHeader
+subtitle:
 ---
 
 The header is used to declare the theme of the page, which contains the most important information that the user is concerned about.
