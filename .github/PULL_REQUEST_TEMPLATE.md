@@ -1,6 +1,7 @@
 First of all, thank you for your contribution! :-)
 
 Please makes sure that these checkboxes are checked before submitting your pull request, thank you!
+([full PR template click here](?expand=1&template=collaborator.md))
 
 * [ ] Make sure that you propose pull request to right branch: bugfix for `master`, feature for branch `feature`.
 * [ ] Make sure that you follow antd's [code convention](https://github.com/ant-design/ant-design/wiki/Code-convention-for-antd).
