@@ -1,8 +1,8 @@
-First of all, thank you for your contribution! :-)
+First of all, thank you for your contribution! 😄
 
 Please makes sure that these form are filled before submitting your pull request, thank you!
 
-[[中文版 wiki](https://github.com/ant-design/ant-design/wiki/PR-%E8%A7%84%E8%8C%83#pull-request-%E6%A8%A1%E6%9D%BF)]
+[[中文版](?expand=1&template=pr_cn.md)]
 
 ### This is a ...
 
@@ -18,13 +18,13 @@ Please makes sure that these form are filled before submitting your pull request
 > 2. Resolve what problem.
 > 3. Related issue link.
   
-### API Realization (Optional)
+### API Realization (Optional if not new feature)
   
 > 1. Basic thought of solution and other optional proposal.
 > 2. List final API realization and usage sample.
 > 3. GIF or snapshot should be provided if includes UI/interactive modification.
   
-### What's the affect? (Optional)
+### What's the effect? (Optional if not new feature)
 
 > 1. Does this PR affect user? Which part will be affected?
 > 2. What will say in changelog?
@@ -32,11 +32,11 @@ Please makes sure that these form are filled before submitting your pull request
 
 ### Self Check before Merge
 
-- [ ] Doc is ready or not need
-- [ ] Demo is provided or not need
-- [ ] TypeScript definition is ready or not need
+- [ ] Doc is updated/provided or not needed
+- [ ] Demo is updated/provided or not needed
+- [ ] TypeScript definition is updated/provided or not needed
 - [ ] Changelog provided
 
-### Additional Plan? (Optional)
+### Additional Plan? (Optional if not new feature)
 
 > If this PR related with other PR or following info. You can type here.
