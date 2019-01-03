@@ -1,8 +1,8 @@
 ---
 order: 0
 title:
-  zh-CN: 基本
-  en-US: Basic
+  zh-CN: 单位
+  en-US: Unit
 ---
 
 ## zh-CN
@@ -19,10 +19,10 @@ import { Number, Row, Col } from 'antd';
 ReactDOM.render(
   <Row gutter={16}>
     <Col span={12}>
-      <Number title="活跃用户" value={112893} />
+      <Number title="活跃用户" value={93} unit="万" />
     </Col>
     <Col span={12}>
-      <Number title="新增用户" value={1024} />
+      <Number title="待合并" value={123} unit="/ 456" />
     </Col>
   </Row>,
   mountNode
