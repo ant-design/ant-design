@@ -10,19 +10,20 @@ exports[`Search should show cross icon when input value exists 1`] = `
       disabled={false}
       onChange={[Function]}
       placeholder=""
-      prefixCls="ant-input"
       type="text"
       value=""
     >
-      <input
-        className="ant-input"
-        disabled={false}
-        onChange={[Function]}
-        onKeyDown={[Function]}
-        placeholder=""
-        type="text"
-        value=""
-      />
+      <Consumer>
+        <input
+          className="ant-input"
+          disabled={false}
+          onChange={[Function]}
+          onKeyDown={[Function]}
+          placeholder=""
+          type="text"
+          value=""
+        />
+      </Consumer>
     </Input>
     <span
       className="undefined-action"
@@ -70,19 +71,20 @@ exports[`Search should show cross icon when input value exists 2`] = `
       disabled={false}
       onChange={[Function]}
       placeholder=""
-      prefixCls="ant-input"
       type="text"
       value="a"
     >
-      <input
-        className="ant-input"
-        disabled={false}
-        onChange={[Function]}
-        onKeyDown={[Function]}
-        placeholder=""
-        type="text"
-        value="a"
-      />
+      <Consumer>
+        <input
+          className="ant-input"
+          disabled={false}
+          onChange={[Function]}
+          onKeyDown={[Function]}
+          placeholder=""
+          type="text"
+          value="a"
+        />
+      </Consumer>
     </Input>
     <a
       className="undefined-action"

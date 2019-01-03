@@ -5,6 +5,7 @@ import omit from 'omit.js';
 import { polyfill } from 'react-lifecycles-compat';
 import Icon from '../icon';
 import CheckableTag from './CheckableTag';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Wave from '../_util/wave';
 
 export { CheckableTagProps } from './CheckableTag';
@@ -36,7 +37,6 @@ const InnerTag = ({ show, ...restProps }: InnterTagProps) => {
 class Tag extends React.Component<TagProps, TagState> {
   static CheckableTag = CheckableTag;
   static defaultProps = {
-    prefixCls: 'ant-tag',
     closable: false,
   };
 
@@ -95,10 +95,11 @@ class Tag extends React.Component<TagProps, TagState> {
     };
   }
 
-  getTagClassName() {
-    const { prefixCls, className, color } = this.props;
+  getTagClassName({ getPrefixCls }: ConfigConsumerProps) {
+    const { prefixCls: customizePrefixCls, className, color } = this.props;
     const { visible } = this.state;
     const isPresetColor = this.isPresetColor(color);
+    const prefixCls = getPrefixCls('tag', customizePrefixCls);
     return classNames(
       prefixCls,
       {
@@ -115,9 +116,11 @@ class Tag extends React.Component<TagProps, TagState> {
     return closable ? <Icon type="close" onClick={this.handleIconClick} /> : null;
   }
 
-  render() {
-    const { prefixCls, children, ...otherProps } = this.props;
+  renderTag = (configProps: ConfigConsumerProps) => {
+    const { getPrefixCls } = configProps;
+    const { prefixCls: customizePrefixCls, children, ...otherProps } = this.props;
     const { visible } = this.state;
+    const prefixCls = getPrefixCls('tag', customizePrefixCls);
     return (
       <Wave>
         <Animate
@@ -129,7 +132,7 @@ class Tag extends React.Component<TagProps, TagState> {
           <InnerTag
             show={visible}
             {...otherProps}
-            className={this.getTagClassName()}
+            className={this.getTagClassName(configProps)}
             style={this.getTagStyle()}
           >
             {children}
@@ -138,6 +141,10 @@ class Tag extends React.Component<TagProps, TagState> {
         </Animate>
       </Wave>
     );
+  }
+
+  render() {
+    return <ConfigConsumer>{this.renderTag}</ConfigConsumer>;
   }
 }
 

@@ -13,7 +13,6 @@ export default {
     filterTitle: '필터 메뉴',
     filterConfirm: '확인',
     filterReset: '초기화',
-    emptyText: '데이터 없음',
     selectAll: '모두 선택',
     selectInvert: '선택 반전',
   },
@@ -27,18 +26,17 @@ export default {
     cancelText: '취소',
   },
   Transfer: {
-    notFoundContent: '데이터 없음',
     searchPlaceholder: '여기에 검색하세요',
     itemUnit: '개',
     itemsUnit: '개',
-  },
-  Select: {
-    notFoundContent: '데이터 없음',
   },
   Upload: {
     uploading: '업로드 중...',
     removeFile: '파일 삭제',
     uploadError: '업로드 실패',
     previewFile: '파일 미리보기',
+  },
+  Empty: {
+    description: '데이터 없음',
   },
 };

@@ -314,7 +314,7 @@
         content: ' ';
         position: absolute;
         z-index: 1;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: fade(@black, 50%);
         transition: all 0.3s;
         width: 100%;
         height: 100%;
@@ -346,7 +346,7 @@
         color: @text-color-dark;
         margin: 0 4px;
         &:hover {
-          color: #fff;
+          color: @text-color-inverse;
         }
       }
     }

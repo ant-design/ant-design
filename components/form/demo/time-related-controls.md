@@ -129,7 +129,7 @@ class TimeRelatedForm extends React.Component {
   }
 }
 
-const WrappedTimeRelatedForm = Form.create()(TimeRelatedForm);
+const WrappedTimeRelatedForm = Form.create({ name: 'time_related_controls' })(TimeRelatedForm);
 
 ReactDOM.render(<WrappedTimeRelatedForm />, mountNode);
 ````
