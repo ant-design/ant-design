@@ -35,7 +35,7 @@
       position: relative;
       transition: all 0.3s;
 
-      .arrow {
+      .@{collapse-prefix-cls}-arrow {
         .iconfont-mixin();
         font-size: @font-size-sm;
         position: absolute;
@@ -43,6 +43,7 @@
         line-height: 46px;
         vertical-align: top;
         top: 50%;
+        margin-top: 2px;
         transform: translateY(-50%);
         left: @padding-md;
         & svg {
@@ -89,7 +90,7 @@
   }
 
   & > &-item > &-header[aria-expanded='true'] {
-    .anticon-right svg {
+    .@{collapse-prefix-cls}-arrow svg {
       .collapse-open();
     }
   }
