@@ -17,12 +17,14 @@ Simplest Usage.
 ```jsx
 import { Number, Row, Col } from 'antd';
 import moment from 'moment';
+
+const Countdown = Number.Countdown;
 const deadline = Date.now() + 300000 * 123456; // Moment is also OK
 
 ReactDOM.render(
   <Row gutter={16}>
     <Col span={12}>
-      <Number title="倒计时" formatter="countdown" value={deadline} />
+      <Countdown title="倒计时" value={deadline} />
     </Col>
   </Row>,
   mountNode

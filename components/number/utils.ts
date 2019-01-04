@@ -4,7 +4,7 @@ import padStart from 'lodash/padStart';
 
 export type valueType = number | string | moment.Moment;
 
-export type Formatter = false | 'number' | 'countdown' | ((value: valueType) => string);
+export type Formatter = false | 'number' | 'countdown' | ((value: valueType, config?: FormatConfig) => string);
 
 export interface FormatConfig {
   formatter?: Formatter;
@@ -40,7 +40,7 @@ function padTime(str: number) {
   return padStart(str, 2, '0');
 }
 
-function formatCountdown(value: valueType, config: FormatConfig) {
+export function formatCountdown(value: valueType, config: FormatConfig) {
   const target = moment(value).valueOf();
   const current = moment().valueOf();
   const diff = Math.max(target - current, 0);
@@ -56,11 +56,6 @@ export function formatValue(value: valueType, config: FormatConfig) {
   if (typeof formatter === 'function') {
     return formatter(value);
   }
-
-  switch (formatter) {
-    case 'countdown':
-      return formatCountdown(value, config);
-    default:
-      return formatNumber(value, config);
-  }
+  
+  return formatNumber(value, config);
 }
