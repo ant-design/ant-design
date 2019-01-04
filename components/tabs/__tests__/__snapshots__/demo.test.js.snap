@@ -109,7 +109,7 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
   <div
@@ -123,13 +123,13 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
     >
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
       Content of Tab Pane 1
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
     </div>
@@ -146,7 +146,7 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
 </div>
@@ -261,7 +261,7 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
   <div
@@ -274,13 +274,13 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
     >
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
       Content of Tab Pane 1
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
     </div>
@@ -297,7 +297,7 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
 </div>
@@ -415,7 +415,7 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
     </div>
     <div
       role="presentation"
-      style="width:0;height:0;overflow:hidden"
+      style="width:0;height:0;overflow:hidden;position:absolute"
       tabindex="0"
     />
     <div
@@ -428,7 +428,7 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
       >
         <div
           role="presentation"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;position:absolute"
           tabindex="0"
         />
         <p>
@@ -442,7 +442,7 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
         </p>
         <div
           role="presentation"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;position:absolute"
           tabindex="0"
         />
       </div>
@@ -459,7 +459,7 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
     </div>
     <div
       role="presentation"
-      style="width:0;height:0;overflow:hidden"
+      style="width:0;height:0;overflow:hidden;position:absolute"
       tabindex="0"
     />
   </div>
@@ -618,7 +618,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
     </div>
     <div
       role="presentation"
-      style="width:0;height:0;overflow:hidden"
+      style="width:0;height:0;overflow:hidden;position:absolute"
       tabindex="0"
     />
     <div
@@ -631,13 +631,13 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
       >
         <div
           role="presentation"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;position:absolute"
           tabindex="0"
         />
         Content of Tab Pane 1
         <div
           role="presentation"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;position:absolute"
           tabindex="0"
         />
       </div>
@@ -649,7 +649,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
     </div>
     <div
       role="presentation"
-      style="width:0;height:0;overflow:hidden"
+      style="width:0;height:0;overflow:hidden;position:absolute"
       tabindex="0"
     />
   </div>
@@ -770,7 +770,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
     </div>
     <div
       role="presentation"
-      style="width:0;height:0;overflow:hidden"
+      style="width:0;height:0;overflow:hidden;position:absolute"
       tabindex="0"
     />
     <div
@@ -785,13 +785,13 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
       >
         <div
           role="presentation"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;position:absolute"
           tabindex="0"
         />
         Content of Tab Pane 1
         <div
           role="presentation"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;position:absolute"
           tabindex="0"
         />
       </div>
@@ -808,7 +808,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
     </div>
     <div
       role="presentation"
-      style="width:0;height:0;overflow:hidden"
+      style="width:0;height:0;overflow:hidden;position:absolute"
       tabindex="0"
     />
   </div>
@@ -924,7 +924,7 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
   <div
@@ -938,13 +938,13 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
     >
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
       Tab 1
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
     </div>
@@ -961,7 +961,7 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
 </div>
@@ -1142,7 +1142,7 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
   <div
@@ -1155,13 +1155,13 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
     >
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
       Content of Tab 1
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
     </div>
@@ -1178,7 +1178,7 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
 </div>
@@ -1306,7 +1306,7 @@ exports[`renders ./components/tabs/demo/extra.md correctly 1`] = `
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
   <div
@@ -1320,13 +1320,13 @@ exports[`renders ./components/tabs/demo/extra.md correctly 1`] = `
     >
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
       Content of tab 1
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
     </div>
@@ -1343,7 +1343,7 @@ exports[`renders ./components/tabs/demo/extra.md correctly 1`] = `
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
 </div>
@@ -1488,7 +1488,7 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
   <div
@@ -1507,20 +1507,20 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
     >
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
       Tab 2
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
     </div>
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
 </div>
@@ -1796,7 +1796,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
     </div>
     <div
       role="presentation"
-      style="width:0;height:0;overflow:hidden"
+      style="width:0;height:0;overflow:hidden;position:absolute"
       tabindex="0"
     />
     <div
@@ -1810,7 +1810,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
       >
         <div
           role="presentation"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;position:absolute"
           tabindex="0"
         />
         <div
@@ -2058,7 +2058,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
           </div>
           <div
             role="presentation"
-            style="width:0;height:0;overflow:hidden"
+            style="width:0;height:0;overflow:hidden;position:absolute"
             tabindex="0"
           />
           <div
@@ -2077,13 +2077,13 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
             >
               <div
                 role="presentation"
-                style="width:0;height:0;overflow:hidden"
+                style="width:0;height:0;overflow:hidden;position:absolute"
                 tabindex="0"
               />
               TTTT 1
               <div
                 role="presentation"
-                style="width:0;height:0;overflow:hidden"
+                style="width:0;height:0;overflow:hidden;position:absolute"
                 tabindex="0"
               />
             </div>
@@ -2180,13 +2180,13 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
           </div>
           <div
             role="presentation"
-            style="width:0;height:0;overflow:hidden"
+            style="width:0;height:0;overflow:hidden;position:absolute"
             tabindex="0"
           />
         </div>
         <div
           role="presentation"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;position:absolute"
           tabindex="0"
         />
       </div>
@@ -2198,7 +2198,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
     </div>
     <div
       role="presentation"
-      style="width:0;height:0;overflow:hidden"
+      style="width:0;height:0;overflow:hidden;position:absolute"
       tabindex="0"
     />
   </div>
@@ -2369,7 +2369,7 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
     </div>
     <div
       role="presentation"
-      style="width:0;height:0;overflow:hidden"
+      style="width:0;height:0;overflow:hidden;position:absolute"
       tabindex="0"
     />
     <div
@@ -2383,13 +2383,13 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
       >
         <div
           role="presentation"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;position:absolute"
           tabindex="0"
         />
         Content of Tab 1
         <div
           role="presentation"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;position:absolute"
           tabindex="0"
         />
       </div>
@@ -2406,7 +2406,7 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
     </div>
     <div
       role="presentation"
-      style="width:0;height:0;overflow:hidden"
+      style="width:0;height:0;overflow:hidden;position:absolute"
       tabindex="0"
     />
   </div>
@@ -2586,7 +2586,7 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
     </div>
     <div
       role="presentation"
-      style="width:0;height:0;overflow:hidden"
+      style="width:0;height:0;overflow:hidden;position:absolute"
       tabindex="0"
     />
     <div
@@ -2600,13 +2600,13 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
       >
         <div
           role="presentation"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;position:absolute"
           tabindex="0"
         />
         Content of tab 1
         <div
           role="presentation"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;position:absolute"
           tabindex="0"
         />
       </div>
@@ -2623,7 +2623,7 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
     </div>
     <div
       role="presentation"
-      style="width:0;height:0;overflow:hidden"
+      style="width:0;height:0;overflow:hidden;position:absolute"
       tabindex="0"
     />
   </div>
@@ -2849,7 +2849,7 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
     </div>
     <div
       role="presentation"
-      style="width:0;height:0;overflow:hidden"
+      style="width:0;height:0;overflow:hidden;position:absolute"
       tabindex="0"
     />
     <div
@@ -2863,13 +2863,13 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
       >
         <div
           role="presentation"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;position:absolute"
           tabindex="0"
         />
         Content of tab 1
         <div
           role="presentation"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;position:absolute"
           tabindex="0"
         />
       </div>
@@ -2926,7 +2926,7 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
     </div>
     <div
       role="presentation"
-      style="width:0;height:0;overflow:hidden"
+      style="width:0;height:0;overflow:hidden;position:absolute"
       tabindex="0"
     />
   </div>
