@@ -83,10 +83,8 @@ class Number extends React.Component<NumberProps & ConfigConsumerProps, NumberSt
 
 polyfill(Number);
 
-const WrapperNumber = withConfigConsumer<NumberProps, NumberComponent>({
+const WrapperNumber = withConfigConsumer<NumberProps>({
   prefixCls: 'number',
-})(Number);
-
-WrapperNumber.propTypes
+})<NumberComponent>(Number);
 
 export default WrapperNumber;
