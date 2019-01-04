@@ -6,7 +6,6 @@ import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
 import Icon from '../icon';
 import interopDefault from '../_util/interopDefault';
-import { PickerProps } from './createPicker';
 
 function formatValue(value: moment.Moment | null, format: string): string {
   return (value && value.format(format)) || '';
@@ -54,8 +53,8 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
     };
   }
 
-  componentDidUpdate(prevProps: PickerProps) {
-    if ('open' in prevProps && prevProps.open) {
+  componentDidUpdate(prevProps: any, prevState: WeekPickerState) {
+    if (!('open' in prevProps) && prevState.open) {
       this.focus();
     }
   }
