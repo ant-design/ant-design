@@ -68,6 +68,12 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
       };
     }
 
+    componentDidUpdate(prevProps: PickerProps) {
+      if ('open' in prevProps && prevProps.open) {
+        this.focus();
+      }
+    }
+
     renderFooter = (...args: any[]) => {
       const { prefixCls, renderExtraFooter } = this.props;
       return renderExtraFooter ? (
@@ -104,10 +110,6 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
 
       if (onOpenChange) {
         onOpenChange(open);
-      }
-
-      if (!open) {
-        this.focus();
       }
     };
 

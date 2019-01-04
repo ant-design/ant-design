@@ -11,6 +11,7 @@ import Tag from '../tag';
 import warning from '../_util/warning';
 import interopDefault from '../_util/interopDefault';
 import { RangePickerValue, RangePickerPresetRange } from './interface';
+import { PickerProps } from './createPicker';
 
 export interface RangePickerState {
   value?: RangePickerValue;
@@ -123,6 +124,12 @@ class RangePicker extends React.Component<any, RangePickerState> {
     };
   }
 
+  componentDidUpdate(prevProps: PickerProps) {
+    if ('open' in prevProps && prevProps.open) {
+      this.focus();
+    }
+  }
+
   clearSelection = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     e.stopPropagation();
@@ -156,10 +163,6 @@ class RangePicker extends React.Component<any, RangePickerState> {
     const { onOpenChange } = this.props;
     if (onOpenChange) {
       onOpenChange(open);
-    }
-
-    if (!open) {
-      this.focus();
     }
   };
 
