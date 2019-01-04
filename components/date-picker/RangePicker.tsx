@@ -12,7 +12,6 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 import interopDefault from '../_util/interopDefault';
 import { RangePickerValue, RangePickerPresetRange } from './interface';
-import { PickerProps } from './createPicker';
 
 export interface RangePickerState {
   value?: RangePickerValue;
@@ -125,8 +124,8 @@ class RangePicker extends React.Component<any, RangePickerState> {
     };
   }
 
-  componentDidUpdate(prevProps: PickerProps) {
-    if ('open' in prevProps && prevProps.open) {
+  componentDidUpdate(prevProps: any, prevState: RangePickerState) {
+    if (!('open' in prevProps) && prevState.open) {
       this.focus();
     }
   }
