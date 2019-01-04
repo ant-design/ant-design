@@ -68,8 +68,8 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
       };
     }
 
-    componentDidUpdate(prevProps: PickerProps, prevState: PickerState) {
-      if (!('open' in prevProps) && prevState.open) {
+    componentDidUpdate(_: PickerProps, prevState: PickerState) {
+      if (!('open' in this.props) && prevState.open && !this.state.open) {
         this.focus();
       }
     }
