@@ -79,8 +79,8 @@ interface ConsumerConfig {
   prefixCls: string;
 }
 
-export function withConfigConsumer<ExportProps extends BasicExportProps>(config: ConsumerConfig) {
-  return function(Component: IReactComponent): React.SFC<ExportProps> {
+export function withConfigConsumer<ExportProps extends BasicExportProps, ComponentDef>(config: ConsumerConfig) {
+  return function(Component: IReactComponent): React.SFC<ExportProps> & ComponentDef {
     // Wrap with ConfigConsumer. Since we need compatible with react 15, be care when using ref methods
     return (props: ExportProps) => (
       <ConfigConsumer>

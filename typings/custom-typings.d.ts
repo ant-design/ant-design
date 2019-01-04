@@ -95,6 +95,8 @@ declare module 'lodash/debounce';
 
 declare module 'lodash/padEnd';
 
+declare module 'lodash/padStart';
+
 declare module 'lodash/uniqBy';
 
 declare module "raf";
