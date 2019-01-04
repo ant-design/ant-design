@@ -2,7 +2,7 @@ First of all, thank you for your contribution! 😄
 
 Please makes sure that these form are filled before submitting your pull request, thank you!
 
-[[中文版](?expand=1&template=pr_cn.md)]
+[[中文版](https://github.com/ant-design/ant-design/blob/master/.github/PULL_REQUEST_TEMPLATE/pr_cn.md)]
 
 ### This is a ...
 
