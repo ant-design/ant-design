@@ -13,7 +13,6 @@ export default {
     filterTitle: 'Filtro',
     filterConfirm: 'OK',
     filterReset: 'Resetar',
-    emptyText: 'Não há dados',
     selectAll: 'Selecionar página atual',
     selectInvert: 'Inverter seleção',
   },
@@ -27,18 +26,17 @@ export default {
     cancelText: 'Cancelar',
   },
   Transfer: {
-    notFoundContent: 'Não encontrado',
     searchPlaceholder: 'Procurar',
     itemUnit: 'item',
     itemsUnit: 'items',
-  },
-  Select: {
-    notFoundContent: 'Não encontrado',
   },
   Upload: {
     uploading: 'Enviando...',
     removeFile: 'Remover arquivo',
     uploadError: 'Erro no envio',
     previewFile: 'Visualizar arquivo',
+  },
+  Empty: {
+    description: 'Não há dados',
   },
 };

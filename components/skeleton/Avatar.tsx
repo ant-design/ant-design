@@ -11,7 +11,6 @@ export interface SkeletonAvatarProps {
 
 class Title extends React.Component<SkeletonAvatarProps, any> {
   static defaultProps: Partial<SkeletonAvatarProps> = {
-    prefixCls: 'ant-skeleton-avatar',
     size: 'large',
   };
 

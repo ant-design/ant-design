@@ -13,7 +13,6 @@ export default {
     filterTitle: 'Filtri menüü',
     filterConfirm: 'OK',
     filterReset: 'Nulli',
-    emptyText: 'Andmed puuduvad',
     selectAll: 'Vali kõik',
     selectInvert: 'Inverteeri valik',
   },
@@ -27,18 +26,17 @@ export default {
     cancelText: 'Tühista',
   },
   Transfer: {
-    notFoundContent: 'Ei leitud',
     searchPlaceholder: 'Otsi siit',
     itemUnit: 'kogus',
     itemsUnit: 'kogus',
-  },
-  Select: {
-    notFoundContent: 'Ei leitud',
   },
   Upload: {
     uploading: 'Üleslaadimine...',
     removeFile: 'Eemalda fail',
     uploadError: 'Üleslaadimise tõrge',
     previewFile: 'Faili eelvaade',
+  },
+  Empty: {
+    description: 'Andmed puuduvad',
   },
 };

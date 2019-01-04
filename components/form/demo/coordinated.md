@@ -81,7 +81,7 @@ class App extends React.Component {
   }
 }
 
-const WrappedApp = Form.create()(App);
+const WrappedApp = Form.create({ name: 'coordinated' })(App);
 
 ReactDOM.render(<WrappedApp />, mountNode);
 ````

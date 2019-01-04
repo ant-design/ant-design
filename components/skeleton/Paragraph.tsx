@@ -12,10 +12,6 @@ export interface SkeletonParagraphProps {
 }
 
 class Paragraph extends React.Component<SkeletonParagraphProps, {}> {
-  static defaultProps: Partial<SkeletonParagraphProps> = {
-    prefixCls: 'ant-skeleton-paragraph',
-  };
-
   getWidth(index: number) {
     const { width, rows = 2 } = this.props;
     if (Array.isArray(width)) {

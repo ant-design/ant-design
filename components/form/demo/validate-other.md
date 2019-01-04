@@ -222,7 +222,7 @@ class Demo extends React.Component {
   }
 }
 
-const WrappedDemo = Form.create()(Demo);
+const WrappedDemo = Form.create({ name: 'validate_other' })(Demo);
 
 ReactDOM.render(<WrappedDemo />, mountNode);
 ````
