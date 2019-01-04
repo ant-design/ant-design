@@ -32,8 +32,12 @@ const routes = [
 ];
 
 ReactDOM.render(
-  <PageHeader title="页面标题" breadcrumb={{ routes }} />,
-  mountNode,
+  <PageHeader
+    onBack={() => window.history.back()}
+    title="页面标题"
+    breadcrumb={{ routes }}
+  />,
+  mountNode
 );
 
 ```

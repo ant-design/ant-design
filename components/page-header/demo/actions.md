@@ -57,13 +57,16 @@ const extraContent = (
 
 ReactDOM.render(
   <PageHeader
+    onBack={() => window.history.back()}
     title="页面标题"
     subTitle="这是一个附属标题"
     tags={<Tag color="red">警告</Tag>}
     extra={[
       <Button key="3">次操作</Button>,
       <Button key="2">次操作</Button>,
-      <Button key="1" type="primary">主操作</Button>,
+      <Button key="1" type="primary">
+        主操作
+      </Button>,
     ]}
     footer={
       <Tabs defaultActiveKey="1">
