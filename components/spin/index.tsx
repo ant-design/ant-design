@@ -83,11 +83,14 @@ class Spin extends React.Component<SpinProps, SpinState> {
     super(props);
 
     const { spinning, delay } = props;
+    const shouldBeDelayed = shouldDelay(spinning, delay);
     this.state = {
-      spinning: spinning && !shouldDelay(spinning, delay),
+      spinning: spinning && !shouldBeDelayed,
     };
 
-    this.updateSpinning = debounce(this.updateSpinning, delay);
+    if (shouldBeDelayed) {
+      this.updateSpinning = debounce(this.updateSpinning, delay);
+    }
   }
 
   isNestedPattern() {
