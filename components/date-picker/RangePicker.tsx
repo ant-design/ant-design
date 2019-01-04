@@ -124,8 +124,8 @@ class RangePicker extends React.Component<any, RangePickerState> {
     };
   }
 
-  componentDidUpdate(prevProps: any, prevState: RangePickerState) {
-    if (!('open' in prevProps) && prevState.open) {
+  componentDidUpdate(_: any, prevState: RangePickerState) {
+    if (!('open' in this.props) && prevState.open && !this.state.open) {
       this.focus();
     }
   }
