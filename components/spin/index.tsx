@@ -94,6 +94,10 @@ class Spin extends React.Component<SpinProps, SpinState> {
     return !!(this.props && this.props.children);
   }
 
+  componentDidMount() {
+    this.componentDidUpdate();
+  }
+
   componentWillUnmount() {
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
