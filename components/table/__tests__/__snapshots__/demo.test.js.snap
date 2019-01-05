@@ -2064,7 +2064,9 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                   <col
                     class="ant-table-expand-icon-col"
                   />
-                  <col />
+                  <col
+                    style="width:62px;min-width:62px"
+                  />
                   <col
                     style="width:150px;min-width:150px"
                   />
@@ -4272,7 +4274,9 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
               class=""
             >
               <colgroup>
-                <col />
+                <col
+                  style="width:62px;min-width:62px"
+                />
                 <col />
                 <col
                   style="width:12%;min-width:12%"
@@ -10935,7 +10939,9 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
               class=""
             >
               <colgroup>
-                <col />
+                <col
+                  style="width:62px;min-width:62px"
+                />
                 <col />
                 <col />
                 <col />
@@ -11314,7 +11320,9 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                 class=""
               >
                 <colgroup>
-                  <col />
+                  <col
+                    style="width:62px;min-width:62px"
+                  />
                   <col />
                   <col />
                   <col />
@@ -11963,7 +11971,9 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
               class=""
             >
               <colgroup>
-                <col />
+                <col
+                  style="width:62px;min-width:62px"
+                />
                 <col />
                 <col />
                 <col />
