@@ -88,7 +88,7 @@ class Spin extends React.Component<SpinProps, SpinState> {
       spinning: spinning && !shouldBeDelayed,
     };
 
-    if (shouldBeDelayed) {
+    if (delay) {
       this.updateSpinning = debounce(this.updateSpinning, delay);
     }
   }
