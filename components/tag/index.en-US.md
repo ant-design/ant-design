@@ -19,14 +19,14 @@ Tag for categorizing or markup.
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | afterClose | Callback executed when close animation is completed | () => void | - |
-| closable | Whether the Tag can be closed | boolean | `false` |
+| closable | Whether the Tag can be closed | boolean | false |
 | color | Color of the Tag | string | - |
 | onClose | Callback executed when tag is closed | (e) => void | - |
-| visible | Whether the Tag is closed or not | boolean | `true` |
+| visible | Whether the Tag is closed or not | boolean | true |
 
 ### Tag.CheckableTag
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| checked | Checked status of Tag | boolean | `false` |
+| checked | Checked status of Tag | boolean | false |
 | onChange | Callback executed when Tag is checked/unchecked | (checked) => void | - |

@@ -17,12 +17,12 @@ A carousel component. Scales with its container.
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | afterChange | Callback function called after the current index changes | function(current) | - |
-| autoplay | Whether to scroll automatically | boolean | `false` |
+| autoplay | Whether to scroll automatically | boolean | false |
 | beforeChange | Callback function called before the current index changes | function(from, to) | - |
-| dots | Whether to show the dots at the bottom of the gallery | boolean | `true` |
-| easing | Transition interpolation function name | string | `linear` |
-| effect | Transition effect | `scrollx` \| `fade` | `scrollx` |
-| vertical | Whether to use a vertical display | boolean | `false` |
+| dots | Whether to show the dots at the bottom of the gallery | boolean | true |
+| easing | Transition interpolation function name | string | linear |
+| effect | Transition effect | scrollx \| fade | scrollx |
+| vertical | Whether to use a vertical display | boolean | false |
 
 ## Methods
 

@@ -87,7 +87,7 @@ If the form has been decorated by `Form.create` then it has `this.props.form` pr
 | setFields | Set value and error state of fields. [Code Sample](https://github.com/react-component/form/blob/3b9959b57ab30b41d8890ff30c79a7e7c383cad3/examples/server-validate.js#L74-L79) | ({<br />&nbsp;&nbsp;\[fieldName\]: {value: any, errors: \[Error\] }<br />}) => void |
 | setFieldsValue | Set the value of a field. (Note: please don't use it in `componentWillReceiveProps`, otherwise, it will cause an endless loop, [reason](https://github.com/ant-design/ant-design/issues/2985)) | ({ \[fieldName\]&#x3A; value }) => void |
 | validateFields | Validate the specified fields and get theirs values and errors. If you don't specify the parameter of fieldNames, you will validate all fields. | (<br />&nbsp;&nbsp;\[fieldNames: string\[]],<br />&nbsp;&nbsp;\[options: object\],<br />&nbsp;&nbsp;callback(errors, values)<br />) => void |
-| validateFieldsAndScroll | This function is similar to `validateFields`, but after validation, if the target field is not in visible area of form, form will be automatically scrolled to the target field area. | same as `validateFields` |
+| validateFieldsAndScroll | This function is similar to `validateFields`, but after validation, if the target field is not in visible area of form, form will be automatically scrolled to the target field area. | same as validateFields |
 
 ### validateFields/validateFieldsAndScroll
 
@@ -205,11 +205,11 @@ Note: if Form.Item has multiple children that had been decorated by `getFieldDec
 | message | validation error message | string\|ReactNode | - |
 | min | validate a min length of a field | number | - |
 | pattern | validate from a regular expression | RegExp | - |
-| required | indicates whether field is required | boolean | `false` |
+| required | indicates whether field is required | boolean | false |
 | transform | transform a value before validation | function(value) => transformedValue:any | - |
 | type | built-in validation type, [available options](https://github.com/yiminghe/async-validator#type) | string | 'string' |
 | validator | custom validate function (Note: [callback must be called](https://github.com/ant-design/ant-design/issues/5155)) | function(rule, value, callback) | - |
-| whitespace | treat required fields that only contain whitespace as errors | boolean | `false` |
+| whitespace | treat required fields that only contain whitespace as errors | boolean | false |
 
 See more advanced usage at [async-validator](https://github.com/yiminghe/async-validator).
 

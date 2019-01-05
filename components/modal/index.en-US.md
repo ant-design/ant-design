@@ -20,8 +20,8 @@ and so on.
 | -------- | ----------- | ---- | ------- |
 | afterClose | Specify a function that will be called when modal is closed completely. | function | - |
 | bodyStyle | Body style for modal body element. Such as height, padding etc. | object | {} |
-| cancelText | Text of the Cancel button | string | `Cancel` |
-| centered | Centered Modal | Boolean | `false` |
+| cancelText | Text of the Cancel button | string | Cancel |
+| centered | Centered Modal | Boolean | false |
 | closable | Whether a close (x) button is visible on top right of the modal dialog or not | boolean | true |
 | confirmLoading | Whether to apply loading visual effect for OK button or not | boolean | false |
 | destroyOnClose | Whether to unmount child components on onClose | boolean | false |
@@ -30,8 +30,8 @@ and so on.
 | mask | Whether show mask or not. | Boolean | true |
 | maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean | true |
 | maskStyle | Style for modal's mask element. | object | {} |
-| okText | Text of the OK button | string | `OK` |
-| okType | Button `type` of the OK button | string | `primary` |
+| okText | Text of the OK button | string | OK |
+| okType | Button `type` of the OK button | string | primary |
 | okButtonProps | The ok button props | [ButtonProps](/components/button) | - |
 | cancelButtonProps | The cancel button props | [ButtonProps](/components/button) | - |
 | style | Style of floating layer, typically used at least for adjusting the position. | object | - |

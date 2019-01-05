@@ -27,4 +27,4 @@ return (
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| getPopupContainer | to set the container of the popup element. The default is to create a `div` element in `body`. | Function(triggerNode) | `() => document.body` |
+| getPopupContainer | to set the container of the popup element. The default is to create a `div` element in `body`. | Function(triggerNode) | () => document.body |
