@@ -15,6 +15,10 @@ timeline: true
 
 ---
 
+## 3.12.1
+
+- 🐞 Fixed build error caused by importing svg.
+
 ## 3.12.0
 
 - 🎉 New component [Empty](https://ant.design/components/empty/)! [13651](https://github.com/ant-design/ant-design/pull/13651)
@@ -47,7 +51,7 @@ timeline: true
   - 🐞 Fixed plus and minus Icon style in Button on Window. [#13924](https://github.com/ant-design/ant-design/issues/13924)
 - Table
   - 🌟 Add prop `sortDirections` for Table and Table.Column. [#13773](https://github.com/ant-design/ant-design/pull/13773) [@elfman](https://github.com/elfman)
-  - 🐞 Fixed Badge component display over the fixed table column. [#13930](https://github.com/ant-design/ant-design/issues/13930) 
+  - 🐞 Fixed Badge component display over the fixed table column. [#13930](https://github.com/ant-design/ant-design/issues/13930)
   - 🐞 Fixed rowSelection columnWidth doesn't work. [#14115](https://github.com/ant-design/ant-design/pull/14115) [@dyygtfx](https://github.com/dyygtfx)
 - DatePicker
   - 🌟 Add new `renderFooter` API for DatePicker. [3c007a8](https://github.com/ant-design/ant-design/commit/3c007a85dd8a670f66c7e0aed95d3537e25ef6ea)

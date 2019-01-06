@@ -15,6 +15,10 @@ timeline: true
 
 ---
 
+## 3.12.1
+
+- 🐞 修复引用 svg 导致的构建错误。
+
 ## 3.12.0
 
 - 🎉 新的组件 [Empty](https://ant.design/components/empty/)！[13651](https://github.com/ant-design/ant-design/pull/13651)
@@ -47,7 +51,7 @@ timeline: true
   - 🐞 修复按钮中有 plus 和 minus 图标时在 Window 下的样式问题。[#13924](https://github.com/ant-design/ant-design/issues/13924)
 - Table
   - 🌟 添加属性 `sortDirections` 到 Table 和 Table.Column。[#13773](https://github.com/ant-design/ant-design/pull/13773) [@elfman](https://github.com/elfman)
-  - 🐞 修复 Badge 组件遮盖 Table 固定列的问题。[#13930](https://github.com/ant-design/ant-design/issues/13930) 
+  - 🐞 修复 Badge 组件遮盖 Table 固定列的问题。[#13930](https://github.com/ant-design/ant-design/issues/13930)
   - 🐞 修复行选择器列的 `columnWidth` 设置不生效的问题。[#14115](https://github.com/ant-design/ant-design/pull/14115) [@dyygtfx](https://github.com/dyygtfx)
 - DatePicker
   - 🌟 DatePicker component 添加 `renderFooter` api。[3c007a8](https://github.com/ant-design/ant-design/commit/3c007a85dd8a670f66c7e0aed95d3537e25ef6ea)
