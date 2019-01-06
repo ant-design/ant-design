@@ -188,7 +188,7 @@ function flattenTree(
   ancestor: CascaderOptionType[] = [],
 ) {
   const names: FilledFieldNamesType = getFilledFieldNames(props);
-  let flattenOptions = [] as CascaderOptionType[][];
+  let flattenOptions: CascaderOptionType[][] = [];
   const childrenName = names.children;
   options.forEach(option => {
     const path = ancestor.concat(option);
