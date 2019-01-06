@@ -1,0 +1,50 @@
+.@{steps-prefix-cls}-flex-not-supported {
+  &.@{steps-prefix-cls}-horizontal.@{steps-prefix-cls}-label-horizontal {
+    .@{steps-prefix-cls}-item {
+      background: @steps-background;
+      padding-left: 16px;
+      margin-left: -16px;
+    }
+
+    &.@{steps-prefix-cls}-small .@{steps-prefix-cls}-item {
+      padding-left: 12px;
+      margin-left: -12px;
+    }
+  }
+
+  &.@{steps-prefix-cls}-dot {
+    .@{steps-prefix-cls}-item {
+      &:last-child {
+        overflow: hidden;
+
+        .@{steps-prefix-cls}-icon-dot:after {
+          width: 200px;
+          right: -200px;
+        }
+      }
+
+      .@{steps-prefix-cls}-icon-dot:before,
+      .@{steps-prefix-cls}-icon-dot:after {
+        content: '';
+        position: absolute;
+        background: @steps-background;
+        width: 10px;
+        height: 8px;
+        top: 0;
+        left: -10px;
+      }
+
+      .@{steps-prefix-cls}-icon-dot:after {
+        left: auto;
+        right: -10px;
+      }
+    }
+
+    .@{steps-prefix-cls}-item-wait
+      .@{steps-prefix-cls}-item-icon
+      > .@{steps-prefix-cls}-icon
+      .@{steps-prefix-cls}-icon-dot {
+      background: #ccc;
+    }
+  }
+}

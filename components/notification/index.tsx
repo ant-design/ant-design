@@ -20,6 +20,7 @@ export interface ConfigProps {
   placement?: NotificationPlacement;
   getContainer?: () => HTMLElement;
 }
+
 function setNotificationConfig(options: ConfigProps) {
   const { duration, placement, bottom, top, getContainer } = options;
   if (duration !== undefined) {
@@ -121,6 +122,7 @@ export interface ArgsProps {
   readonly type?: IconType;
   onClick?: () => void;
 }
+
 function notice(args: ArgsProps) {
   const outerPrefixCls = args.prefixCls || 'ant-notification';
   const prefixCls = `${outerPrefixCls}-notice`;
@@ -206,4 +208,5 @@ export interface NotificationApi {
   config(options: ConfigProps): void;
   destroy(): void;
 }
+
 export default api as NotificationApi;

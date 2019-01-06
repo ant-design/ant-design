@@ -294,8 +294,6 @@
   &-thead > tr > th.@{table-prefix-cls}-selection-column,
   &-tbody > tr > td.@{table-prefix-cls}-selection-column {
     text-align: center;
-    min-width: 62px;
-    width: 62px;
     .@{ant-prefix}-radio-wrapper {
       margin-right: 0;
     }
@@ -596,6 +594,7 @@
     overflow: hidden;
     transition: box-shadow 0.3s ease;
     border-radius: 0;
+    z-index: @zindex-table-fixed;
     table {
       width: auto;
       background: @component-background;
