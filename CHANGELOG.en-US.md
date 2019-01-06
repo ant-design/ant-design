@@ -69,7 +69,6 @@ timeline: true
   - 🐞 Fixed arrow of Popover shadow. [#13935](https://github.com/ant-design/ant-design/pull/13935) [@crazyurus](https://github.com/crazyurus)
   - 🐞 Fixed Popover top border disappear in IE9. [#14064](https://github.com/ant-design/ant-design/issues/14064) [@gyh9457](https://github.com/gyh9457)
 - 🐞 Fixed Radio style bug in Chrome. [#3699](https://github.com/ant-design/ant-design/issues/3699)
-
 - 🐞 Fixed affix Menu flickering when scrolling. [#13662](https://github.com/ant-design/ant-design/issues/13662)
 - 🐞 Fixed Steps style issue on IE9. [#14001](https://github.com/ant-design/ant-design/issues/14001)
 - 🐞 Fixed nested Timeline last item missing line. [#14108](https://github.com/ant-design/ant-design/pull/14110)
