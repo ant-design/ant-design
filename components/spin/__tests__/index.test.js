@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, shallow, mount } from 'enzyme';
+import { render, mount } from 'enzyme';
 import Spin from '..';
 
 describe('Spin', () => {
@@ -39,7 +39,7 @@ describe('Spin', () => {
     });
 
     it("should render with delay when it's mounted with spinning=true and delay", () => {
-      const wrapper = shallow(<Spin spinning delay={500} />);
+      const wrapper = mount(<Spin spinning delay={500} />);
       expect(
         wrapper
           .find('.ant-spin')
