@@ -13,7 +13,6 @@ export default {
     filterTitle: 'Filtermenu',
     filterConfirm: 'OK',
     filterReset: 'Nulstil',
-    emptyText: 'Ingen data',
     selectAll: 'Vælg alle',
     selectInvert: 'Inverter valg',
   },
@@ -27,18 +26,17 @@ export default {
     cancelText: 'Afbryd',
   },
   Transfer: {
-    notFoundContent: 'Intet fundet',
     searchPlaceholder: 'Søg her',
     itemUnit: 'element',
     itemsUnit: 'elementer',
-  },
-  Select: {
-    notFoundContent: 'Intet fundet',
   },
   Upload: {
     uploading: 'Uploader...',
     removeFile: 'Fjern fil',
     uploadError: 'Fejl ved upload',
     previewFile: 'Forhåndsvisning',
+  },
+  Empty: {
+    description: 'Ingen data',
   },
 };

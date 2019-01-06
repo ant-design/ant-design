@@ -2,9 +2,10 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import Icon from '../icon';
-import Dialog, { ModalFuncProps } from './Modal';
+import Dialog, { ModalFuncProps, destroyFns } from './Modal';
 import ActionButton from './ActionButton';
 import { getConfirmLocale } from './locale';
+import warning from '../_util/warning';
 
 interface ConfirmDialogProps extends ModalFuncProps {
   afterClose?: () => void;
@@ -28,8 +29,13 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     maskStyle,
     okButtonProps,
     cancelButtonProps,
+    iconType = 'question-circle',
   } = props;
-  const iconType = props.iconType || 'question-circle';
+  warning(
+    !('iconType' in props),
+    `The property 'iconType' is deprecated. Use the property 'icon' instead.`,
+  );
+  const icon = props.icon ? props.icon : iconType;
   const okType = props.okType || 'primary';
   const prefixCls = props.prefixCls || 'ant-modal';
   const contentPrefixCls = `${prefixCls}-confirm`;
@@ -61,6 +67,8 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     </ActionButton>
   );
 
+  const iconNode = typeof icon === 'string' ? <Icon type={icon} /> : icon;
+
   return (
     <Dialog
       prefixCls={prefixCls}
@@ -84,7 +92,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     >
       <div className={`${contentPrefixCls}-body-wrapper`}>
         <div className={`${contentPrefixCls}-body`}>
-          <Icon type={iconType!} />
+          {iconNode}
           <span className={`${contentPrefixCls}-title`}>{props.title}</span>
           <div className={`${contentPrefixCls}-content`}>{props.content}</div>
         </div>
@@ -140,6 +148,13 @@ export default function confirm(config: ModalFuncProps) {
     if (config.onCancel && triggerCancel) {
       config.onCancel(...args);
     }
+    for (let i = 0; i < destroyFns.length; i++) {
+      const fn = destroyFns[i];
+      if (fn === destroy) {
+        destroyFns.splice(i, 1);
+        break;
+      }
+    }
   }
 
   function render(props: any) {
@@ -147,6 +162,8 @@ export default function confirm(config: ModalFuncProps) {
   }
 
   render(currentConfig);
+
+  destroyFns.push(close);
 
   return {
     destroy: close,

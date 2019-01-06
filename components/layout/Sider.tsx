@@ -1,3 +1,5 @@
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
 if (typeof window !== 'undefined') {
@@ -70,7 +72,6 @@ class Sider extends React.Component<SiderProps, SiderState> {
   static __ANT_LAYOUT_SIDER: any = true;
 
   static defaultProps = {
-    prefixCls: 'ant-layout-sider',
     collapsible: false,
     defaultCollapsed: false,
     reverseArrow: false,
@@ -185,9 +186,9 @@ class Sider extends React.Component<SiderProps, SiderState> {
     this.setState({ belowShow: !this.state.belowShow });
   };
 
-  render() {
+  renderSider = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
-      prefixCls,
+      prefixCls: customizePrefixCls,
       className,
       theme,
       collapsible,
@@ -198,6 +199,7 @@ class Sider extends React.Component<SiderProps, SiderState> {
       collapsedWidth,
       ...others
     } = this.props;
+    const prefixCls = getPrefixCls('layout-sider', customizePrefixCls);
     const divProps = omit(others, [
       'collapsed',
       'defaultCollapsed',
@@ -252,6 +254,10 @@ class Sider extends React.Component<SiderProps, SiderState> {
         {collapsible || (this.state.below && zeroWidthTrigger) ? triggerDom : null}
       </div>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderSider}</ConfigConsumer>;
   }
 }
 

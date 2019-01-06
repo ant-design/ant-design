@@ -7,6 +7,7 @@ import Search from './search';
 import warning from '../_util/warning';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale-provider/default';
+import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 
 export { TransferListProps } from './list';
 export { TransferOperationProps } from './operation';
@@ -349,9 +350,11 @@ export default class Transfer extends React.Component<TransferProps, any> {
     return direction === 'left' ? 'sourceSelectedKeys' : 'targetSelectedKeys';
   }
 
-  getLocale = (transferLocale: TransferLocale) => {
+  getLocale = (transferLocale: TransferLocale, renderEmpty: RenderEmptyHandler) => {
     // Keep old locale props still working.
-    const oldLocale: { notFoundContent?: any; searchPlaceholder?: string } = {};
+    const oldLocale: { notFoundContent?: any; searchPlaceholder?: string } = {
+      notFoundContent: renderEmpty('Transfer'),
+    };
     if ('notFoundContent' in this.props) {
       oldLocale.notFoundContent = this.props.notFoundContent;
     }
@@ -362,90 +365,95 @@ export default class Transfer extends React.Component<TransferProps, any> {
     return { ...transferLocale, ...oldLocale, ...this.props.locale };
   };
 
-  renderTransfer = (transferLocale: TransferLocale) => {
-    const {
-      prefixCls = 'ant-transfer',
-      className,
-      disabled,
-      operations = [],
-      showSearch,
-      body,
-      footer,
-      style,
-      listStyle,
-      operationStyle,
-      filterOption,
-      render,
-      lazy,
-    } = this.props;
-    const locale = this.getLocale(transferLocale);
-    const { leftFilter, rightFilter, sourceSelectedKeys, targetSelectedKeys } = this.state;
+  renderTransfer = (transferLocale: TransferLocale) => (
+    <ConfigConsumer>
+      {({ getPrefixCls, renderEmpty }: ConfigConsumerProps) => {
+        const {
+          prefixCls: customizePrefixCls,
+          className,
+          disabled,
+          operations = [],
+          showSearch,
+          body,
+          footer,
+          style,
+          listStyle,
+          operationStyle,
+          filterOption,
+          render,
+          lazy,
+        } = this.props;
+        const prefixCls = getPrefixCls('transfer', customizePrefixCls);
+        const locale = this.getLocale(transferLocale, renderEmpty);
+        const { leftFilter, rightFilter, sourceSelectedKeys, targetSelectedKeys } = this.state;
 
-    const { leftDataSource, rightDataSource } = this.separateDataSource(this.props);
-    const leftActive = targetSelectedKeys.length > 0;
-    const rightActive = sourceSelectedKeys.length > 0;
+        const { leftDataSource, rightDataSource } = this.separateDataSource(this.props);
+        const leftActive = targetSelectedKeys.length > 0;
+        const rightActive = sourceSelectedKeys.length > 0;
 
-    const cls = classNames(className, prefixCls, disabled && `${prefixCls}-disabled`);
+        const cls = classNames(className, prefixCls, disabled && `${prefixCls}-disabled`);
 
-    const titles = this.getTitles(locale);
-    return (
-      <div className={cls} style={style}>
-        <List
-          prefixCls={`${prefixCls}-list`}
-          titleText={titles[0]}
-          dataSource={leftDataSource}
-          filter={leftFilter}
-          filterOption={filterOption}
-          style={listStyle}
-          checkedKeys={sourceSelectedKeys}
-          handleFilter={this.handleLeftFilter}
-          handleClear={this.handleLeftClear}
-          handleSelect={this.handleLeftSelect}
-          handleSelectAll={this.handleLeftSelectAll}
-          render={render}
-          showSearch={showSearch}
-          body={body}
-          footer={footer}
-          lazy={lazy}
-          onScroll={this.handleLeftScroll}
-          disabled={disabled}
-          {...locale}
-        />
-        <Operation
-          className={`${prefixCls}-operation`}
-          rightActive={rightActive}
-          rightArrowText={operations[0]}
-          moveToRight={this.moveToRight}
-          leftActive={leftActive}
-          leftArrowText={operations[1]}
-          moveToLeft={this.moveToLeft}
-          style={operationStyle}
-          disabled={disabled}
-        />
-        <List
-          prefixCls={`${prefixCls}-list`}
-          titleText={titles[1]}
-          dataSource={rightDataSource}
-          filter={rightFilter}
-          filterOption={filterOption}
-          style={listStyle}
-          checkedKeys={targetSelectedKeys}
-          handleFilter={this.handleRightFilter}
-          handleClear={this.handleRightClear}
-          handleSelect={this.handleRightSelect}
-          handleSelectAll={this.handleRightSelectAll}
-          render={render}
-          showSearch={showSearch}
-          body={body}
-          footer={footer}
-          lazy={lazy}
-          onScroll={this.handleRightScroll}
-          disabled={disabled}
-          {...locale}
-        />
-      </div>
-    );
-  };
+        const titles = this.getTitles(locale);
+        return (
+          <div className={cls} style={style}>
+            <List
+              prefixCls={`${prefixCls}-list`}
+              titleText={titles[0]}
+              dataSource={leftDataSource}
+              filter={leftFilter}
+              filterOption={filterOption}
+              style={listStyle}
+              checkedKeys={sourceSelectedKeys}
+              handleFilter={this.handleLeftFilter}
+              handleClear={this.handleLeftClear}
+              handleSelect={this.handleLeftSelect}
+              handleSelectAll={this.handleLeftSelectAll}
+              render={render}
+              showSearch={showSearch}
+              body={body}
+              footer={footer}
+              lazy={lazy}
+              onScroll={this.handleLeftScroll}
+              disabled={disabled}
+              {...locale}
+            />
+            <Operation
+              className={`${prefixCls}-operation`}
+              rightActive={rightActive}
+              rightArrowText={operations[0]}
+              moveToRight={this.moveToRight}
+              leftActive={leftActive}
+              leftArrowText={operations[1]}
+              moveToLeft={this.moveToLeft}
+              style={operationStyle}
+              disabled={disabled}
+            />
+            <List
+              prefixCls={`${prefixCls}-list`}
+              titleText={titles[1]}
+              dataSource={rightDataSource}
+              filter={rightFilter}
+              filterOption={filterOption}
+              style={listStyle}
+              checkedKeys={targetSelectedKeys}
+              handleFilter={this.handleRightFilter}
+              handleClear={this.handleRightClear}
+              handleSelect={this.handleRightSelect}
+              handleSelectAll={this.handleRightSelectAll}
+              render={render}
+              showSearch={showSearch}
+              body={body}
+              footer={footer}
+              lazy={lazy}
+              onScroll={this.handleRightScroll}
+              disabled={disabled}
+              {...locale}
+            />
+          </div>
+        );
+      }}
+    </ConfigConsumer>
+  );
 
   render() {
     return (

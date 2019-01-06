@@ -41,6 +41,7 @@ export interface ColumnProps<T> {
   onCellClick?: (record: T, event: any) => void;
   onCell?: (record: T, rowIndex: number) => any;
   onHeaderCell?: (props: ColumnProps<T>) => any;
+  sortDirections?: SortOrder[];
 }
 
 export interface AdditionalCellProps {
@@ -146,7 +147,11 @@ export interface TableProps<T> {
     sorter: SorterResult<T>,
   ) => void;
   loading?: boolean | SpinProps;
-  locale?: Object;
+  locale?: {
+    filterConfirm?: string;
+    filterReset?: string;
+    emptyText?: string;
+  };
   indentSize?: number;
   onRowClick?: (record: T, index: number, event: Event) => void;
   onRow?: (record: T, index: number) => any;
@@ -162,6 +167,7 @@ export interface TableProps<T> {
   className?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
+  sortDirections: SortOrder[];
 }
 
 export interface TableStateFilters {

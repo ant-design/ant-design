@@ -1,8 +1,9 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Col } from '../grid';
 import { ListGridType, ColumnType } from './index';
+import { Col } from '../grid';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface ListItemProps {
   className?: string;
@@ -24,25 +25,37 @@ export interface ListItemMetaProps {
   title?: React.ReactNode;
 }
 
-export const Meta = (props: ListItemMetaProps) => {
-  const { prefixCls = 'ant-list', className, avatar, title, description, ...others } = props;
+export const Meta = (props: ListItemMetaProps) => (
+  <ConfigConsumer>
+    {({ getPrefixCls }: ConfigConsumerProps) => {
+      const {
+        prefixCls: customizePrefixCls,
+        className,
+        avatar,
+        title,
+        description,
+        ...others
+      } = props;
 
-  const classString = classNames(`${prefixCls}-item-meta`, className);
+      const prefixCls = getPrefixCls('list', customizePrefixCls);
+      const classString = classNames(`${prefixCls}-item-meta`, className);
 
-  const content = (
-    <div className={`${prefixCls}-item-meta-content`}>
-      {title && <h4 className={`${prefixCls}-item-meta-title`}>{title}</h4>}
-      {description && <div className={`${prefixCls}-item-meta-description`}>{description}</div>}
-    </div>
-  );
+      const content = (
+        <div className={`${prefixCls}-item-meta-content`}>
+          {title && <h4 className={`${prefixCls}-item-meta-title`}>{title}</h4>}
+          {description && <div className={`${prefixCls}-item-meta-description`}>{description}</div>}
+        </div>
+      );
 
-  return (
-    <div {...others} className={classString}>
-      {avatar && <div className={`${prefixCls}-item-meta-avatar`}>{avatar}</div>}
-      {(title || description) && content}
-    </div>
-  );
-};
+      return (
+        <div {...others} className={classString}>
+          {avatar && <div className={`${prefixCls}-item-meta-avatar`}>{avatar}</div>}
+          {(title || description) && content}
+        </div>
+      );
+    }}
+  </ConfigConsumer>
+);
 
 function getGrid(grid: ListGridType, t: ColumnType) {
   return grid[t] && Math.floor(24 / grid[t]!);
@@ -57,9 +70,17 @@ export default class Item extends React.Component<ListItemProps, any> {
 
   context: any;
 
-  render() {
+  renderItem = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { grid } = this.context;
-    const { prefixCls = 'ant-list', children, actions, extra, className, ...others } = this.props;
+    const {
+      prefixCls: customizePrefixCls,
+      children,
+      actions,
+      extra,
+      className,
+      ...others
+    } = this.props;
+    const prefixCls = getPrefixCls('list', customizePrefixCls);
     const classString = classNames(`${prefixCls}-item`, className);
 
     const metaContent: React.ReactElement<any>[] = [];
@@ -132,5 +153,9 @@ export default class Item extends React.Component<ListItemProps, any> {
     );
 
     return mainContent;
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderItem}</ConfigConsumer>;
   }
 }

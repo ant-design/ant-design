@@ -13,6 +13,8 @@
 @highlight-color : @red-6;
 @warning-color : @gold-6;
 @normal-color : #d9d9d9;
+@white : #fff;
+@black : #000;
 
 // Color used by default to control hover and active backgrounds and for
 // alert info backgrounds.
@@ -40,11 +42,13 @@
 "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 @code-family : "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
 @heading-color : fade(#000, 85%);
-@text-color : fade(#000, 65%);
-@text-color-secondary : fade(#000, 45%);
-@heading-color-dark : fade(#fff, 100%);
-@text-color-dark : fade(#fff, 85%);
-@text-color-secondary-dark: fade(#fff, 65%);
+@text-color : fade(@black, 65%);
+@text-color-secondary : fade(@black, 45%);
+@text-color-inverse : @white;
+@icon-color-hover : fade(@black, 75%);
+@heading-color-dark : fade(@white, 100%);
+@text-color-dark : fade(@white, 85%);
+@text-color-secondary-dark: fade(@white, 65%);
 @font-variant-base : tabular-nums;
 @font-size-base : 14px;
 @font-size-lg : @font-size-base + 2px;
@@ -97,6 +101,7 @@
 // Border color
 @border-color-base : hsv(0, 0, 85%); // base border outline a component
 @border-color-split : hsv(0, 0, 91%); // split border inside a component
+@border-color-inverse: @white;
 @border-width-base : 1px; // width of the border for a component
 @border-style-base : solid; // style of a components border
 
@@ -115,8 +120,9 @@
 
 // Shadow
 @shadow-color : rgba(0, 0, 0, .15);
-@box-shadow-base : @shadow-1-down;
-@shadow-1-up : 0 -2px 8px @shadow-color;
+@shadow-color-inverse: @component-background;
+@box-shadow-base: @shadow-1-down;
+@shadow-1-up: 0 -2px 8px @shadow-color;
 @shadow-1-down : 0 2px 8px @shadow-color;
 @shadow-1-left : -2px 0 8px @shadow-color;
 @shadow-1-right : 2px 0 8px @shadow-color;
@@ -163,6 +169,9 @@
 @checkbox-color : @primary-color;
 @checkbox-check-color : #fff;
 @checkbox-border-width : @border-width-base;
+
+// Empty
+@empty-font-size: @font-size-base;
 
 // Radio
 @radio-size : 16px;
@@ -274,7 +283,8 @@
 @input-color : @text-color;
 @input-border-color : @border-color-base;
 @input-bg : #fff;
-@input-addon-bg : @background-color-light;
+@input-number-handler-active-bg: #f4f4f4;
+@input-addon-bg: @background-color-light;
 @input-hover-border-color : @primary-color;
 @input-disabled-bg : @disabled-bg;
 @input-outline-offset : 0 0;
@@ -315,7 +325,7 @@
 // Modal
 // --
 @modal-header-bg: @component-background;
-@modal-mask-bg: rgba(0, 0, 0, 0.65);
+@modal-mask-bg: fade(@black, 65%);
 
 // Progress
 // --
@@ -387,6 +397,7 @@
 @badge-font-size: @font-size-sm;
 @badge-font-weight: normal;
 @badge-status-size: 6px;
+@badge-text-color: @component-background;
 
 // Rate
 // ---
@@ -402,6 +413,7 @@
 @card-padding-base: 24px;
 @card-padding-wider: 32px;
 @card-actions-background: @background-color-light;
+@card-background: #cfd8dc;
 @card-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
 @card-radius: @border-radius-sm;
 
@@ -460,6 +472,7 @@
 @switch-sm-checked-margin-left: -(@switch-sm-height - 3px);
 @switch-disabled-opacity: 0.4;
 @switch-color: @primary-color;
+@switch-shadow-color: fade(#00230b, 20%);
 
 // Pagination
 // ---
@@ -484,15 +497,15 @@
 @slider-margin: 14px 6px 10px;
 @slider-rail-background-color: @background-color-base;
 @slider-rail-background-color-hover: #e1e1e1;
-@slider-track-background-color: @primary-5;
-@slider-track-background-color-hover: @primary-6;
-@slider-handle-color: @primary-5;
-@slider-handle-color-hover: @primary-6;
+@slider-track-background-color: @primary-3;
+@slider-track-background-color-hover: @primary-4;
+@slider-handle-color: @primary-3;
+@slider-handle-color-hover: @primary-4;
 @slider-handle-color-focus: tint(@primary-color, 20%);
-@slider-handle-color-focus-shadow: fade(@primary-color, 20%);
+@slider-handle-color-focus-shadow: tint(@primary-color, 50%);
 @slider-handle-color-tooltip-open: @primary-color;
 @slider-dot-border-color: @border-color-split;
-@slider-dot-border-color-active: @primary-5;
+@slider-dot-border-color-active: tint(@primary-color, 50%);
 @slider-disabled-color: @disabled-color;
 @slider-disabled-background-color: @component-background;
 

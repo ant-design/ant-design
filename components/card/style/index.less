@@ -3,7 +3,10 @@
 
 @card-prefix-cls: ~'@{ant-prefix}-card';
 @card-head-height: 48px;
-@card-hover-border: rgba(0, 0, 0, 0.09);
+@card-hover-border: fade(@black, 9%);
+
+@gradient-min: fade(@card-background, 20%);
+@gradient-max: fade(@card-background, 40%);
 
 .@{card-prefix-cls} {
   .reset-component;
@@ -259,12 +262,7 @@
     height: 14px;
     margin: 4px 0;
     border-radius: @card-radius;
-    background: linear-gradient(
-      90deg,
-      rgba(207, 216, 220, 0.2),
-      rgba(207, 216, 220, 0.4),
-      rgba(207, 216, 220, 0.2)
-    );
+    background: linear-gradient(90deg, @gradient-min, @gradient-max, @gradient-min);
     animation: card-loading 1.4s ease infinite;
     background-size: 600% 600%;
   }
@@ -279,3 +277,5 @@
     background-position: 100% 50%;
   }
 }
+
+@import './size';
