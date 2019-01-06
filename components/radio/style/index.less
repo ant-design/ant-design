@@ -118,7 +118,7 @@
     background-color: @input-disabled-bg;
     cursor: not-allowed;
     &:after {
-      background-color: #ccc;
+      background-color: fade(@black, 20%);
     }
   }
 
@@ -248,16 +248,16 @@ span.@{radio-prefix-cls} + * {
   .@{radio-group-prefix-cls}-solid &-checked:not(&-disabled) {
     background: @radio-dot-color;
     border-color: @radio-dot-color;
-    color: #fff;
+    color: @component-background;
     &:hover {
       border-color: @radio-button-hover-color;
       background: @radio-button-hover-color;
-      color: #fff;
+      color: @component-background;
     }
     &:active {
       border-color: @radio-button-active-color;
       background: @radio-button-active-color;
-      color: #fff;
+      color: @component-background;
     }
   }
 
@@ -279,8 +279,8 @@ span.@{radio-prefix-cls} + * {
   }
 
   &-disabled&-checked {
-    color: #fff;
-    background-color: #e6e6e6;
+    color: @text-color-inverse;
+    background-color: fade(@black, 90%);
     border-color: @border-color-base;
     box-shadow: none;
   }

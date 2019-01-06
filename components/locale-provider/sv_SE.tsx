@@ -13,7 +13,6 @@ export default {
     filterTitle: 'Filtermeny',
     filterConfirm: 'OK',
     filterReset: 'Rensa',
-    emptyText: 'Ingen information',
   },
   Modal: {
     okText: 'OK',
@@ -25,12 +24,11 @@ export default {
     cancelText: 'Avbryt',
   },
   Transfer: {
-    notFoundContent: 'Info saknas',
     searchPlaceholder: 'Sök',
     itemUnit: 'element',
     itemsUnit: 'element',
   },
-  Select: {
-    notFoundContent: 'Info saknas',
+  Empty: {
+    description: 'Ingen information',
   },
 };

@@ -15,6 +15,7 @@ module.exports = {
     '\\.tsx?$': './node_modules/antd-tools/lib/jest/codePreprocessor',
     '\\.js$': './node_modules/antd-tools/lib/jest/codePreprocessor',
     '\\.md$': './node_modules/antd-tools/lib/jest/demoPreprocessor',
+    '\\.(jpg|png|gif|svg)$': './node_modules/antd-tools/lib/jest/imagePreprocessor',
   },
   testRegex: `${libDir === 'dist' ? 'demo' : '.*'}\\.test\\.js$`,
   collectCoverageFrom: [
