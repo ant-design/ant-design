@@ -1,5 +1,7 @@
 首先，感谢你的贡献！ 😄
 
+新特性请提交至 feature 分支，其余可提交至 master 分支。
+在一个维护者审核通过后合并。
 请确保填写以下 pull request 的信息，谢谢！~
 
 [[English Template / 英文模板](?expand=1)]
