@@ -141,7 +141,7 @@ class Tag extends React.Component<TagProps, TagState> {
         </Animate>
       </Wave>
     );
-  }
+  };
 
   render() {
     return <ConfigConsumer>{this.renderTag}</ConfigConsumer>;
