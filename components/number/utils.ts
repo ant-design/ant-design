@@ -40,15 +40,6 @@ function padTime(str: number) {
   return padStart(str, 2, '0');
 }
 
-export function formatCountdown(value: valueType, config: FormatConfig) {
-  const target = moment(value).valueOf();
-  const current = moment().valueOf();
-  const diff = Math.max(target - current, 0);
-  const duration = moment.duration(diff, 'milliseconds');
-
-  return `${padTime(duration.hours())}:${padTime(duration.minutes())}:${padTime(duration.seconds())}`;
-}
-
 export function formatValue(value: valueType, config: FormatConfig) {
   const { formatter = 'number' } = config;
 
@@ -58,4 +49,14 @@ export function formatValue(value: valueType, config: FormatConfig) {
   }
   
   return formatNumber(value, config);
+}
+
+export function formatCountdown(value: valueType, config: FormatConfig) {
+  const { format = 'HH:mm:SS' } = config;
+  const target = moment(value).valueOf();
+  const current = moment().valueOf();
+  const diff = Math.max(target - current, 0);
+  const duration = moment.duration(diff, 'milliseconds');
+
+  return `${padTime(duration.hours())}:${padTime(duration.minutes())}:${padTime(duration.seconds())}`;
 }
