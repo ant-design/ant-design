@@ -1,9 +1,8 @@
 ---
-order: 0
+order: 2
 title:
   zh-CN: 单位
   en-US: Unit
-only: true
 ---
 
 ## zh-CN
@@ -23,13 +22,13 @@ const deadline = Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30; // Moment is 
 ReactDOM.render(
   <Row gutter={16}>
     <Col span={12}>
-      <Countdown title="倒计时" value={deadline} />
+      <Countdown title="Countdown" value={deadline} />
     </Col>
     <Col span={12}>
-      <Countdown title="倒计时" value={deadline} format="HH:mm:ss:SSS" />
+      <Countdown title="Million Seconds" value={deadline} format="HH:mm:ss:SSS" />
     </Col>
     <Col span={24}>
-      <Countdown title="倒计时" value={deadline} format="D 天 H 时 m 分 s 秒" />
+      <Countdown title="Day Level" value={deadline} format="D 天 H 时 m 分 s 秒" />
     </Col>
   </Row>,
   mountNode

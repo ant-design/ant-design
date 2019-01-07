@@ -1,5 +1,5 @@
 ---
-order: 0
+order: 1
 title:
   zh-CN: 单位
   en-US: Unit
@@ -19,10 +19,10 @@ import { Number, Row, Col } from 'antd';
 ReactDOM.render(
   <Row gutter={16}>
     <Col span={12}>
-      <Number title="账户余额" value={1128} precision={2} unit="元" />
+      <Number title="Account Balance" value={1128} precision={2} prefix="¥" />
     </Col>
     <Col span={12}>
-      <Number title="待合并" value={93} unit="/ 100" />
+      <Number title="Unmerged" value={93} suffix="/ 100" />
     </Col>
   </Row>,
   mountNode

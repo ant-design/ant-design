@@ -16,7 +16,8 @@ export type NumberProps = {
   style?: React.CSSProperties;
   value?: valueType;
   title?: string;
-  unit?: string;
+  prefix?: React.ReactNode;
+  suffix?: React.ReactNode;
 } & FormatConfig;
 
 interface NumberState {}
@@ -32,15 +33,16 @@ class Number extends React.Component<NumberProps & ConfigConsumerProps, NumberSt
   }
 
   render() {
-    const { prefixCls, className, style, title, unit } = this.props;
+    const { prefixCls, className, style, title, prefix, suffix } = this.props;
     return (
       <div className={classNames(prefixCls, className)} style={style}>
         <div aria-hidden="true" className={`${prefixCls}-title`}>
           {title}
         </div>
         <div aria-label={title} className={`${prefixCls}-value`}>
+          {prefix && <span className={`${prefixCls}-value-prefix`}>{prefix}</span>}
           {this.getValue()}
-          {unit && <span className={`${prefixCls}-value-unit`}>{unit}</span>}
+          {suffix && <span className={`${prefixCls}-value-suffix`}>{suffix}</span>}
         </div>
       </div>
     );
