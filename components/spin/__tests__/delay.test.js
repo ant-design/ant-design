@@ -1,10 +1,10 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import Spin from '..';
 
 describe('delay spinning', () => {
   it('should render with delay when it\'s mounted with spinning=true and delay', () => {
-    const wrapper = shallow(<Spin spinning delay={500} />);
+    const wrapper = mount(<Spin spinning delay={500} />);
     expect(
       wrapper
         .find('.ant-spin')
