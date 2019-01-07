@@ -2,7 +2,7 @@ import * as React from 'react';
 import Number, { NumberProps } from './Number';
 import { formatCountdown, valueType, FormatConfig } from './utils';
 
-const REFRESH_INTERVAL = 200;
+const REFRESH_INTERVAL = 1000 / 30;
 
 interface CountdownProps extends NumberProps {
   format?: string;
@@ -22,7 +22,7 @@ export default class Countdown extends React.Component<CountdownProps, {}> {
 
   formatCountdown = (value: valueType, config: FormatConfig) => {
     const { format = 'HH:mm:ss' } = this.props;
-    return formatCountdown(value, config);
+    return formatCountdown(value, { ...config, format });
   };
 
   render() {

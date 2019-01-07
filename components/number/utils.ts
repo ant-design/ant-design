@@ -12,6 +12,10 @@ export interface FormatConfig {
   precision?: number;
 }
 
+export interface CountdownFormatConfig extends FormatConfig {
+  format: string;
+}
+
 // We trade number as string to avoid precision issue
 function formatNumber(value: valueType, config: FormatConfig) {
   const { decimalSeparator = '.', precision } = config;
@@ -36,10 +40,6 @@ function formatNumber(value: valueType, config: FormatConfig) {
   return `${int}${decimal}`;
 }
 
-function padTime(str: number) {
-  return padStart(str, 2, '0');
-}
-
 export function formatValue(value: valueType, config: FormatConfig) {
   const { formatter = 'number' } = config;
 
@@ -51,12 +51,43 @@ export function formatValue(value: valueType, config: FormatConfig) {
   return formatNumber(value, config);
 }
 
-export function formatCountdown(value: valueType, config: FormatConfig) {
-  const { format = 'HH:mm:SS' } = config;
+// Countdown
+const timeUnits: [string, number][] = [
+  ['Y', 1000 * 60 * 60 * 24 * 365], // years
+  ['M', 1000 * 60 * 60 * 24 * 30], // months
+  ['D', 1000 * 60 * 60 * 24], // days
+  ['H', 1000 * 60 * 60], // hours
+  ['m', 1000 * 60], // minutes
+  ['s', 1000], // seconds
+  ['S', 1], // million seconds
+];
+
+function formatTimeStr(duration: number, format: string) {
+  let leftDuration: number = duration;
+  let str: string = format;
+
+  timeUnits.forEach(([name, unit]) => {
+    if (str.indexOf(name) !== -1) {
+      const value = Math.floor(leftDuration / unit);
+      leftDuration -= value * unit;
+      str = str.replace(new RegExp(`${name}+`, 'g'), function(match: string) {
+        const len = match.length;
+        return padStart(value.toString(), len, '0');
+      });
+    }
+  });
+
+  return str;
+}
+
+export function formatCountdown(value: valueType, config: CountdownFormatConfig) {
+  const { format = 'HH:mm:ss' } = config;
   const target = moment(value).valueOf();
   const current = moment().valueOf();
   const diff = Math.max(target - current, 0);
-  const duration = moment.duration(diff, 'milliseconds');
+  // const duration = moment.duration(diff, 'milliseconds');
 
-  return `${padTime(duration.hours())}:${padTime(duration.minutes())}:${padTime(duration.seconds())}`;
+  return formatTimeStr(diff, format);
+
+  // return `${padTime(duration.hours())}:${padTime(duration.minutes())}:${padTime(duration.seconds())}`;
 }
