@@ -79,6 +79,8 @@ class Spin extends React.Component<SpinProps, SpinState> {
     defaultIndicator = indicator;
   }
 
+  originalUpdateSpinning: () => void;
+
   constructor(props: SpinProps) {
     super(props);
 
@@ -87,10 +89,8 @@ class Spin extends React.Component<SpinProps, SpinState> {
     this.state = {
       spinning: spinning && !shouldBeDelayed,
     };
-
-    if (delay) {
-      this.updateSpinning = debounce(this.updateSpinning, delay);
-    }
+    this.originalUpdateSpinning = this.updateSpinning;
+    this.debouncifyUpdateSpinning(props);
   }
 
   isNestedPattern() {
@@ -109,7 +109,15 @@ class Spin extends React.Component<SpinProps, SpinState> {
   }
 
   componentDidUpdate() {
+    this.debouncifyUpdateSpinning();
     this.updateSpinning();
+  }
+
+  debouncifyUpdateSpinning = (props?: SpinProps) => {
+    const { delay } = props || this.props;
+    if (delay) {
+      this.updateSpinning = debounce(this.originalUpdateSpinning, delay);
+    }
   }
 
   updateSpinning = () => {
