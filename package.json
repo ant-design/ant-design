@@ -101,7 +101,7 @@
     "@yesmeck/offline-plugin": "^5.0.5",
     "ansi-styles": "^3.2.1",
     "antd-theme-generator": "^1.1.4",
-    "antd-tools": "^6.4.4",
+    "antd-tools": "^6.5.0",
     "babel-eslint": "^10.0.1",
     "bisheng": "^1.0.0",
     "bisheng-plugin-antd": "^0.17.0",
