@@ -14,9 +14,9 @@ title:
 Simplest Usage.
 
 ```jsx
-import { Number, Row, Col } from 'antd';
+import { Statistic, Row, Col } from 'antd';
 
-const Countdown = Number.Countdown;
+const Countdown = Statistic.Countdown;
 const deadline = Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30; // Moment is also OK
 
 ReactDOM.render(

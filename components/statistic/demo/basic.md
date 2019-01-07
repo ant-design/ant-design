@@ -14,15 +14,15 @@ title:
 Simplest Usage.
 
 ```jsx
-import { Number, Row, Col } from 'antd';
+import { Statistic, Row, Col } from 'antd';
 
 ReactDOM.render(
   <Row gutter={16}>
     <Col span={12}>
-      <Number title="Active Users" value={112893} />
+      <Statistic title="Active Users" value={112893} />
     </Col>
     <Col span={12}>
-      <Number title="New Users" value={1024} />
+      <Statistic title="New Users" value={1024} />
     </Col>
   </Row>,
   mountNode

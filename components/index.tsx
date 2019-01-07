@@ -81,7 +81,7 @@ export { default as Menu } from './menu';
 
 export { default as Modal } from './modal';
 
-export { default as Number } from './number';
+export { default as Statistic } from './statistic';
 
 export { default as notification } from './notification';
 

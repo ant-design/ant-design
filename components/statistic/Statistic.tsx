@@ -6,11 +6,11 @@ import { withConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Countdown from './Countdown';
 import { valueType, FormatConfig, formatValue } from './utils';
 
-interface NumberComponent {
+interface StatisticComponent {
   Countdown: typeof Countdown;
 }
 
-export type NumberProps = {
+export type StatisticProps = {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
@@ -20,10 +20,10 @@ export type NumberProps = {
   suffix?: React.ReactNode;
 } & FormatConfig;
 
-interface NumberState {}
+interface StatisticState {}
 
-class Number extends React.Component<NumberProps & ConfigConsumerProps, NumberState> {
-  // static getDerivedStateFromProps(nextProps: NumberProps, prevState: NumberState) {
+class Statistic extends React.Component<StatisticProps & ConfigConsumerProps, StatisticState> {
+  // static getDerivedStateFromProps(nextProps: StatisticProps, prevState: StatisticState) {
 
   // }
 
@@ -49,10 +49,10 @@ class Number extends React.Component<NumberProps & ConfigConsumerProps, NumberSt
   }
 }
 
-polyfill(Number);
+polyfill(Statistic);
 
-const WrapperNumber = withConfigConsumer<NumberProps>({
+const WrapperStatistic = withConfigConsumer<StatisticProps>({
   prefixCls: 'number',
-})<NumberComponent>(Number);
+})<StatisticComponent>(Statistic);
 
-export default WrapperNumber;
+export default WrapperStatistic;

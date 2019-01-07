@@ -1,10 +1,10 @@
 import * as React from 'react';
-import Number, { NumberProps } from './Number';
+import Statistic, { StatisticProps } from './Statistic';
 import { formatCountdown, valueType, FormatConfig } from './utils';
 
 const REFRESH_INTERVAL = 1000 / 30;
 
-interface CountdownProps extends NumberProps {
+interface CountdownProps extends StatisticProps {
   format?: string;
 }
 
@@ -26,6 +26,6 @@ export default class Countdown extends React.Component<CountdownProps, {}> {
   };
 
   render() {
-    return <Number {...this.props} formatter={this.formatCountdown} />;
+    return <Statistic {...this.props} formatter={this.formatCountdown} />;
   }
 }
