@@ -15,7 +15,7 @@ export type StatisticProps = {
   className?: string;
   style?: React.CSSProperties;
   value?: valueType;
-  title?: string;
+  title?: React.ReactNode;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
 } & FormatConfig;
@@ -39,7 +39,7 @@ class Statistic extends React.Component<StatisticProps & ConfigConsumerProps, St
         <div aria-hidden="true" className={`${prefixCls}-title`}>
           {title}
         </div>
-        <div aria-label={title} className={`${prefixCls}-value`}>
+        <div aria-label={typeof title === 'string' ? title : ''} className={`${prefixCls}-value`}>
           {prefix && <span className={`${prefixCls}-value-prefix`}>{prefix}</span>}
           {this.getValue()}
           {suffix && <span className={`${prefixCls}-value-suffix`}>{suffix}</span>}
