@@ -94,7 +94,7 @@ ReactDOM.render(<LinksList />, mountNode);
 - [饿了么](https://www.ele.me/)
 - [其他用户](https://github.com/ant-design/ant-design/issues/477)
 
-> 如果你的公司和产品使用了 Ant Design，欢迎到 [这里](https://github.com/ant-design/ant-design/issues/477) 留言。
+> 如果你的公司和产品使用了 Ant Design，欢迎到 [这里](https://github.com/ant-design/ant-design/issues/477) 留言
 
 ## 社区评价
 
