@@ -146,7 +146,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
   it('could be Modal.destroyAll', () => {
     jest.useFakeTimers();
-    ['info', 'success', 'warning', 'error'].forEach((type) => {
+    ['info', 'success', 'warning', 'error'].forEach(type => {
       Modal[type]({
         title: 'title',
         content: 'content',
@@ -154,7 +154,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
       expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
     });
     Modal.destroyAll();
-    ['info', 'success', 'warning', 'error'].forEach((type) => {
+    ['info', 'success', 'warning', 'error'].forEach(type => {
       jest.runAllTimers();
       expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(0);
     });

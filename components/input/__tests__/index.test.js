@@ -148,7 +148,12 @@ describe('Input allowClear', () => {
       .simulate('click');
     expect(argumentEventObject.type).toBe('click');
     expect(argumentEventObjectValue).toBe('');
-    expect(wrapper.find('input').at(0).getDOMNode().value).toBe('');
+    expect(
+      wrapper
+        .find('input')
+        .at(0)
+        .getDOMNode().value,
+    ).toBe('');
   });
 
   it('should trigger event correctly on controlled mode', () => {
@@ -165,6 +170,11 @@ describe('Input allowClear', () => {
       .simulate('click');
     expect(argumentEventObject.type).toBe('click');
     expect(argumentEventObjectValue).toBe('');
-    expect(wrapper.find('input').at(0).getDOMNode().value).toBe('111');
+    expect(
+      wrapper
+        .find('input')
+        .at(0)
+        .getDOMNode().value,
+    ).toBe('111');
   });
 });
