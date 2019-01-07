@@ -22,7 +22,7 @@ timeline: true
 ## 3.12.0
 
 - 🎉 新的组件 [Empty](https://ant.design/components/empty/)，同时优化了各个组件的空数据状态样式！[13651](https://github.com/ant-design/ant-design/pull/13651)
-- 🎉 添加新的国际化资源（kn_IN）。[#13776](https://github.com/ant-design/ant-design/pull/13776) [@gurungrahul2](https://github.com/gurungrahul2)
+- 🎉 添加新的国际化资源北印度语（kn_IN）和坎那达语（kn_IN）。[#13776](https://github.com/ant-design/ant-design/pull/13759) [@gurungrahul2](https://github.com/aashutoshrathi) [#13776](https://github.com/ant-design/ant-design/pull/13776) [@gurungrahul2](https://github.com/gurungrahul2)
 - 🌟 新增 Icon `eye-invisible`。[b8630b3](https://github.com/ant-design/ant-design/commit/b8630b34556e58af31f51fb42d1299725ddd8219)
 - 🌟 ConfigProvider 组件添加 `prefixCls` 属性。[#13389](https://github.com/ant-design/ant-design/pull/13389)
 - Less

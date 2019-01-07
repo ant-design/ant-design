@@ -22,6 +22,7 @@ timeline: true
 ## 3.12.0
 
 - 🎉 New component [Empty](https://ant.design/components/empty/), and improved empty data style of all components! [13651](https://github.com/ant-design/ant-design/pull/13651)
+- 🎉 Hindi locale added (hi_IN). [#13776](https://github.com/ant-design/ant-design/pull/13759) [@gurungrahul2](https://github.com/aashutoshrathi)
 - 🎉 Kannada locale added (kn_IN). [#13776](https://github.com/ant-design/ant-design/pull/13776) [@gurungrahul2](https://github.com/gurungrahul2)
 - 🌟 Add `eye-invisible` Icon. [b8630b3](https://github.com/ant-design/ant-design/commit/b8630b34556e58af31f51fb42d1299725ddd8219)
 - 🌟 ConfigProvider component support prefixCls. [#13389](https://github.com/ant-design/ant-design/pull/13389)
