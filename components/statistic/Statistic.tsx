@@ -33,9 +33,11 @@ class Statistic extends React.Component<StatisticProps & ConfigConsumerProps, St
     const { prefixCls, className, style, valueStyle, title, prefix, suffix } = this.props;
     return (
       <div className={classNames(prefixCls, className)} style={style}>
-        <div aria-hidden="true" className={`${prefixCls}-title`}>
-          {title}
-        </div>
+        {title && (
+          <div aria-hidden="true" className={`${prefixCls}-title`}>
+            {title}
+          </div>
+        )}
         <div aria-label={typeof title === 'string' ? title : ''} className={`${prefixCls}-content`}>
           {prefix && <span className={`${prefixCls}-content-prefix`}>{prefix}</span>}
           <span style={valueStyle} className={`${prefixCls}-content-value`}>
