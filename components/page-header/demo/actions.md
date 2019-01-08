@@ -30,14 +30,14 @@ const Description = ({ term, children, span = 12 }) => (
 
 const content = (
   <Row>
-    <Description term="创建人">曲丽丽</Description>
-    <Description term="关联单据">
+    <Description term="Created">Lili Qu</Description>
+    <Description term="Association">
       <a>421421</a>
     </Description>
-    <Description term="创建时间">2017-01-10</Description>
-    <Description term="生效日期">2017-10-10</Description>
-    <Description term="单据备注" span={24}>
-      浙江省杭州市西湖区工专路
+    <Description term="Creation Time">2017-01-10</Description>
+    <Description term="Effective Time">2017-10-10</Description>
+    <Description term="Remarks" span={24}>
+      Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
     </Description>
   </Row>
 );
@@ -45,12 +45,12 @@ const content = (
 const extraContent = (
   <Row>
     <Col span={12}>
-      <span className="label">状态</span>
-      <p className="detail">待审批</p>
+      <span className="label">Status</span>
+      <p className="detail">Pending</p>
     </Col>
     <Col span={12}>
-      <span className="label"> 订单价格</span>
-      <p className="detail">¥ 568.08</p>
+      <span className="label">Price</span>
+      <p className="detail">$ 568.08</p>
     </Col>
   </Row>
 );
@@ -58,20 +58,20 @@ const extraContent = (
 ReactDOM.render(
   <PageHeader
     onBack={() => window.history.back()}
-    title="页面标题"
-    subTitle="这是一个附属标题"
-    tags={<Tag color="red">警告</Tag>}
+    title="Title"
+    subTitle="This is a subtitle"
+    tags={<Tag color="red">Warning</Tag>}
     extra={[
-      <Button key="3">次操作</Button>,
-      <Button key="2">次操作</Button>,
+      <Button key="3">Operation</Button>,
+      <Button key="2">Operation</Button>,
       <Button key="1" type="primary">
-        主操作
+        Primary
       </Button>,
     ]}
     footer={
       <Tabs defaultActiveKey="1">
-        <TabPane tab="详情" key="1" />
-        <TabPane tab="规则" key="2" />
+        <TabPane tab="Details" key="1" />
+        <TabPane tab="Rule" key="2" />
       </Tabs>
     }
   >

@@ -19,28 +19,29 @@ import { PageHeader } from 'antd';
 const routes = [
   {
     path: 'index',
-    breadcrumbName: '一级菜单',
+    breadcrumbName: 'First-level Menu',
   },
   {
     path: 'first',
-    breadcrumbName: '二级菜单',
+    breadcrumbName: 'Second-level Menu',
   },
   {
     path: 'second',
-    breadcrumbName: '三级菜单',
+    breadcrumbName: 'Third-level Menu',
   },
 ];
 
 const content = (
   <div className="content">
-    <p>Ant Design 将色彩体系解读成两个层面：系统级色彩体系和产品级色彩体系。</p>
     <p>
-      Ant Design 的设计团队倾向于采用 HSB
-      色彩模型进行设计，该模型更便于设计师在调整色彩时对于颜色有明确的心理预期，同时也方便团队间的沟通。
+      Ant Design interprets the color system into two levels: a system-level
+      color system and a product-level color system.
     </p>
     <p>
-      Ant Design 的基础色板共计 120 个颜色，包含 12
-      个主色以及衍生色。这些颜色基本可以满足中后台设计中对于颜色的需求
+      Ant Design&#x27;s design team preferred to design with the HSB color model,
+      which makes it easier for designers to have a clear psychological
+      expectation of color when adjusting colors, as well as facilitate
+      communication in teams.
     </p>
     <p className="contentLink">
       <a>
@@ -48,21 +49,21 @@ const content = (
           src="https://gw.alipayobjects.com/zos/rmsportal/MjEImQtenlyueSmVEfUD.svg"
           alt="start"
         />
-        快速开始
+        Quick Start
       </a>
       <a>
         <img
           src="https://gw.alipayobjects.com/zos/rmsportal/NbuDUAuBlIApFuDvWiND.svg"
           alt="info"
         />
-        产品简介
+        Product Info
       </a>
       <a>
         <img
           src="https://gw.alipayobjects.com/zos/rmsportal/ohOEPSYdDTNnyMbGuyLb.svg"
           alt="doc"
         />
-        产品文档
+        Product Doc
       </a>
     </p>
   </div>
@@ -76,7 +77,7 @@ const extraContent = (
 );
 
 ReactDOM.render(
-  <PageHeader title="页面标题" breadcrumb={{ routes }}>
+  <PageHeader title="Title" breadcrumb={{ routes }}>
     <div className="wrap">
       <div className="content">{content}</div>
       <div className="extraContent">{extraContent}</div>

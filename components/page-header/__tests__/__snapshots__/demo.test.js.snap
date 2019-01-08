@@ -34,12 +34,12 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
     <span
       class="ant-page-header-title-view-title"
     >
-      页面标题
+      Title
     </span>
     <span
       class="ant-page-header-title-view-sub-title"
     >
-      这是一个附属标题
+      This is a subtitle
     </span>
     <span
       class="ant-page-header-title-view-tags"
@@ -47,7 +47,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
       <div
         class="ant-tag ant-tag-red"
       >
-        警告
+        Warning
       </div>
     </span>
     <span
@@ -58,7 +58,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
         type="button"
       >
         <span>
-          次操作
+          Operation
         </span>
       </button>
       <button
@@ -66,7 +66,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
         type="button"
       >
         <span>
-          次操作
+          Operation
         </span>
       </button>
       <button
@@ -74,7 +74,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
         type="button"
       >
         <span>
-          主操作
+          Primary
         </span>
       </button>
     </span>
@@ -100,12 +100,12 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
               <div
                 class="term"
               >
-                创建人
+                Created
               </div>
               <div
                 class="detail"
               >
-                曲丽丽
+                Lili Qu
               </div>
             </div>
           </div>
@@ -118,7 +118,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
               <div
                 class="term"
               >
-                关联单据
+                Association
               </div>
               <div
                 class="detail"
@@ -138,7 +138,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
               <div
                 class="term"
               >
-                创建时间
+                Creation Time
               </div>
               <div
                 class="detail"
@@ -156,7 +156,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
               <div
                 class="term"
               >
-                生效日期
+                Effective Time
               </div>
               <div
                 class="detail"
@@ -174,12 +174,12 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
               <div
                 class="term"
               >
-                单据备注
+                Remarks
               </div>
               <div
                 class="detail"
               >
-                浙江省杭州市西湖区工专路
+                Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
               </div>
             </div>
           </div>
@@ -197,12 +197,12 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
             <span
               class="label"
             >
-              状态
+              Status
             </span>
             <p
               class="detail"
             >
-              待审批
+              Pending
             </p>
           </div>
           <div
@@ -211,12 +211,12 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
             <span
               class="label"
             >
-               订单价格
+              Price
             </span>
             <p
               class="detail"
             >
-              ¥ 568.08
+              $ 568.08
             </p>
           </div>
         </div>
@@ -305,7 +305,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
                     class="ant-tabs-tab-active ant-tabs-tab"
                     role="tab"
                   >
-                    详情
+                    Details
                   </div>
                   <div
                     aria-disabled="false"
@@ -313,7 +313,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
                     class=" ant-tabs-tab"
                     role="tab"
                   >
-                    规则
+                    Rule
                   </div>
                 </div>
                 <div
@@ -399,12 +399,12 @@ exports[`renders ./components/page-header/demo/basic.md correctly 1`] = `
     <span
       class="ant-page-header-title-view-title"
     >
-      页面标题
+      Title
     </span>
     <span
       class="ant-page-header-title-view-sub-title"
     >
-      这是一个附属标题
+      This is a subtitle
     </span>
   </div>
 </div>
@@ -424,7 +424,7 @@ exports[`renders ./components/page-header/demo/breadcrumb.md correctly 1`] = `
         <a
           href="#/index"
         >
-          一级菜单
+          First-level Menu
         </a>
       </span>
       <span
@@ -440,7 +440,7 @@ exports[`renders ./components/page-header/demo/breadcrumb.md correctly 1`] = `
         <a
           href="#/index/first"
         >
-          二级菜单
+          Second-level Menu
         </a>
       </span>
       <span
@@ -454,7 +454,7 @@ exports[`renders ./components/page-header/demo/breadcrumb.md correctly 1`] = `
         class="ant-breadcrumb-link"
       >
         <span>
-          三级菜单
+          Third-level Menu
         </span>
       </span>
       <span
@@ -470,7 +470,7 @@ exports[`renders ./components/page-header/demo/breadcrumb.md correctly 1`] = `
     <span
       class="ant-page-header-title-view-title"
     >
-      页面标题
+      Title
     </span>
   </div>
 </div>
@@ -490,7 +490,7 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
         <a
           href="#/index"
         >
-          一级菜单
+          First-level Menu
         </a>
       </span>
       <span
@@ -506,7 +506,7 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
         <a
           href="#/index/first"
         >
-          二级菜单
+          Second-level Menu
         </a>
       </span>
       <span
@@ -520,7 +520,7 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
         class="ant-breadcrumb-link"
       >
         <span>
-          三级菜单
+          Third-level Menu
         </span>
       </span>
       <span
@@ -536,7 +536,7 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
     <span
       class="ant-page-header-title-view-title"
     >
-      页面标题
+      Title
     </span>
   </div>
   <div
@@ -552,13 +552,10 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
           class="content"
         >
           <p>
-            Ant Design 将色彩体系解读成两个层面：系统级色彩体系和产品级色彩体系。
+            Ant Design interprets the color system into two levels: a system-level color system and a product-level color system.
           </p>
           <p>
-            Ant Design 的设计团队倾向于采用 HSB 色彩模型进行设计，该模型更便于设计师在调整色彩时对于颜色有明确的心理预期，同时也方便团队间的沟通。
-          </p>
-          <p>
-            Ant Design 的基础色板共计 120 个颜色，包含 12 个主色以及衍生色。这些颜色基本可以满足中后台设计中对于颜色的需求
+            Ant Design's design team preferred to design with the HSB color model, which makes it easier for designers to have a clear psychological expectation of color when adjusting colors, as well as facilitate communication in teams.
           </p>
           <p
             class="contentLink"
@@ -568,21 +565,21 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
                 alt="start"
                 src="https://gw.alipayobjects.com/zos/rmsportal/MjEImQtenlyueSmVEfUD.svg"
               />
-              快速开始
+              Quick Start
             </a>
             <a>
               <img
                 alt="info"
                 src="https://gw.alipayobjects.com/zos/rmsportal/NbuDUAuBlIApFuDvWiND.svg"
               />
-              产品简介
+              Product Info
             </a>
             <a>
               <img
                 alt="doc"
                 src="https://gw.alipayobjects.com/zos/rmsportal/ohOEPSYdDTNnyMbGuyLb.svg"
               />
-              产品文档
+              Product Doc
             </a>
           </p>
         </div>

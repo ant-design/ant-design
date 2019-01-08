@@ -7,15 +7,15 @@ describe('PageHeader', () => {
     const routes = [
       {
         path: 'index',
-        breadcrumbName: 'First-level menu',
+        breadcrumbName: 'First-level Menu',
       },
       {
         path: 'first',
-        breadcrumbName: 'Second-level menu',
+        breadcrumbName: 'Second-level Menu',
       },
       {
         path: 'second',
-        breadcrumbName: 'Third-level menu',
+        breadcrumbName: 'Third-level Menu',
       },
     ];
     const wrapper = mount(<PageHeader title="Page Title" breadcrumb={{ routes }} />);

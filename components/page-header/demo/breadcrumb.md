@@ -19,22 +19,22 @@ import { PageHeader } from 'antd';
 const routes = [
   {
     path: 'index',
-    breadcrumbName: '一级菜单',
+    breadcrumbName: 'First-level Menu',
   },
   {
     path: 'first',
-    breadcrumbName: '二级菜单',
+    breadcrumbName: 'Second-level Menu',
   },
   {
     path: 'second',
-    breadcrumbName: '三级菜单',
+    breadcrumbName: 'Third-level Menu',
   },
 ];
 
 ReactDOM.render(
   <PageHeader
     onBack={() => window.history.back()}
-    title="页面标题"
+    title="Title"
     breadcrumb={{ routes }}
   />,
   mountNode

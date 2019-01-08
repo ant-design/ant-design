@@ -19,8 +19,8 @@ import { PageHeader } from 'antd';
 ReactDOM.render(
   <PageHeader
     onBack={() => window.history.back()}
-    title="页面标题"
-    subTitle="这是一个附属标题"
+    title="Title"
+    subTitle="This is a subtitle"
   />,
   mountNode
 );
