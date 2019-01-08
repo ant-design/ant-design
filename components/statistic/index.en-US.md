@@ -8,7 +8,8 @@ Display statistic number.
 
 ## When To Use
 
-Display statistic number when needed.
+* When want to highlight some data.
+* When want to display statistic data with description.
 
 ## API
 
