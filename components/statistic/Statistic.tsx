@@ -68,7 +68,7 @@ class Statistic extends React.Component<StatisticProps & ConfigConsumerProps, St
             {title}
           </div>
         )}
-        <div aria-label={getAriaTitle(title)} className={`${prefixCls}-content`}>
+        <div aria-label={getAriaTitle(title)} className={`${prefixCls}-content`} tabIndex={-1}>
           {prefix && <span className={`${prefixCls}-content-prefix`}>{prefix}</span>}
           {valueNode}
           {suffix && <span className={`${prefixCls}-content-suffix`}>{suffix}</span>}
