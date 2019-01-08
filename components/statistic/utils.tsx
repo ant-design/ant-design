@@ -83,20 +83,18 @@ const timeUnits: [string, number][] = [
 
 function formatTimeStr(duration: number, format: string) {
   let leftDuration: number = duration;
-  let str: string = format;
 
-  timeUnits.forEach(([name, unit]) => {
-    if (str.indexOf(name) !== -1) {
+  return timeUnits.reduce((current, [name, unit]) => {
+    if (current.indexOf(name) !== -1) {
       const value = Math.floor(leftDuration / unit);
       leftDuration -= value * unit;
-      str = str.replace(new RegExp(`${name}+`, 'g'), function(match: string) {
+      return current.replace(new RegExp(`${name}+`, 'g'), (match: string) => {
         const len = match.length;
         return padStart(value.toString(), len, '0');
       });
     }
-  });
-
-  return str;
+    return current;
+  }, format);
 }
 
 export function formatCountdown(value: countdownValueType, config: CountdownFormatConfig) {

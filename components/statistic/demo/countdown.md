@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-倒计时子组件。
+倒计时组件。
 
 ## en-US
 
-Sub Countdown component.
+Countdown component.
 
 ```jsx
 import { Statistic, Row, Col } from 'antd';
