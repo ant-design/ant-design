@@ -18,5 +18,5 @@ subtitle: 结果
 | --- | --- | --- | --- |
 | title | title 文字 | ReactNode | - |
 | subTitle | subTitle 文字 | ReactNode | - |
-| icon | 自定义  icon  | string \| ReactNode | success |
+| icon | 自定义  icon  | string \| ReactNode | info |
 | extra | 操作区 | ReactNode | - |

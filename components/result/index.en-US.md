@@ -18,5 +18,5 @@ Used to feed back the results of a series of operational tasks.
 | -------- | ----------- | ---- | ------- |
 | title | title string | ReactNode | - |
 | subTitle | subTitle string | ReactNode | - |
-| icon | custom back icon  | string \| ReactNode | success |
+| icon | custom back icon  | string \| ReactNode | info |
 | extra | operating area | ReactNode | - |
