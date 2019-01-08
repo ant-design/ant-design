@@ -133,12 +133,12 @@ export default class ScrollNumber extends Component<ScrollNumberProps, ScrollNum
 
   renderNumberElement(prefixCls: string) {
     const { count } = this.state;
-    if (!count || isNaN(count as number)) {
-      return count;
+    if (count && Number(count) % 1 === 0) {
+      return getNumberArray(count)
+        .map((num, i) => this.renderCurrentNumber(prefixCls, num, i))
+        .reverse();
     }
-    return getNumberArray(count)
-      .map((num, i) => this.renderCurrentNumber(prefixCls, num, i))
-      .reverse();
+    return count;
   }
 
   renderScrollNumber = ({ getPrefixCls }: ConfigConsumerProps) => {
