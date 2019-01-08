@@ -28,6 +28,7 @@ import {
   AdditionalCellProps,
   ColumnProps,
   CompareFn,
+  SortOrder,
   TableStateFilters,
   SelectionItemSelectFn,
   SelectionInfo,
@@ -386,7 +387,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     if (!column.sorter) {
       return;
     }
-    const sortDirections = column.sortDirections || this.props.sortDirections;
+    const sortDirections = column.sortDirections || (this.props.sortDirections as SortOrder[]);
     const { sortOrder, sortColumn } = this.state;
     // 只同时允许一列进行排序，否则会导致排序顺序的逻辑问题
     let newSortOrder: 'descend' | 'ascend' | undefined;
@@ -836,7 +837,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         );
       }
       if (column.sorter) {
-        const sortDirections = column.sortDirections || this.props.sortDirections;
+        const sortDirections = column.sortDirections || (this.props.sortDirections as SortOrder[]);
         const isAscend = isSortColumn && sortOrder === 'ascend';
         const isDescend = isSortColumn && sortOrder === 'descend';
 
