@@ -46,11 +46,11 @@ function formatNumber(value: valueType, config: FormatConfig) {
   }
 
   const result = [
-    <span aria-hidden="true" key="int" className={`${prefixCls}-content-value-int`}>
+    <span key="int" className={`${prefixCls}-content-value-int`}>
       {int}
     </span>,
     decimal && (
-      <span aria-hidden="true" key="decimal" className={`${prefixCls}-content-value-decimal`}>
+      <span key="decimal" className={`${prefixCls}-content-value-decimal`}>
         {decimal}
       </span>
     ),

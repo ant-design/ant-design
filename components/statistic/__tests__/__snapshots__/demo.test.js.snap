@@ -13,22 +13,17 @@ exports[`renders ./components/statistic/demo/basic.md correctly 1`] = `
       class="ant-statistic"
     >
       <div
-        aria-hidden="true"
         class="ant-statistic-title"
       >
         Active Users
       </div>
       <div
         class="ant-statistic-content"
-        tabindex="-1"
-        title="Active Users"
       >
         <span
           class="ant-statistic-content-value"
-          title="112893"
         >
           <span
-            aria-hidden="true"
             class="ant-statistic-content-value-int"
           >
             112,893
@@ -45,28 +40,22 @@ exports[`renders ./components/statistic/demo/basic.md correctly 1`] = `
       class="ant-statistic"
     >
       <div
-        aria-hidden="true"
         class="ant-statistic-title"
       >
         Account Balance (CNY)
       </div>
       <div
         class="ant-statistic-content"
-        tabindex="-1"
-        title="Account Balance (CNY)"
       >
         <span
           class="ant-statistic-content-value"
-          title="112893"
         >
           <span
-            aria-hidden="true"
             class="ant-statistic-content-value-int"
           >
             112,893
           </span>
           <span
-            aria-hidden="true"
             class="ant-statistic-content-value-decimal"
           >
             .00
@@ -91,15 +80,12 @@ exports[`renders ./components/statistic/demo/countdown.md correctly 1`] = `
       class="ant-statistic"
     >
       <div
-        aria-hidden="true"
         class="ant-statistic-title"
       >
         Countdown
       </div>
       <div
         class="ant-statistic-content"
-        tabindex="-1"
-        title="Countdown"
       >
         <span
           class="ant-statistic-content-value"
@@ -117,15 +103,12 @@ exports[`renders ./components/statistic/demo/countdown.md correctly 1`] = `
       class="ant-statistic"
     >
       <div
-        aria-hidden="true"
         class="ant-statistic-title"
       >
         Million Seconds
       </div>
       <div
         class="ant-statistic-content"
-        tabindex="-1"
-        title="Million Seconds"
       >
         <span
           class="ant-statistic-content-value"
@@ -143,15 +126,12 @@ exports[`renders ./components/statistic/demo/countdown.md correctly 1`] = `
       class="ant-statistic"
     >
       <div
-        aria-hidden="true"
         class="ant-statistic-title"
       >
         Day Level
       </div>
       <div
         class="ant-statistic-content"
-        tabindex="-1"
-        title="Day Level"
       >
         <span
           class="ant-statistic-content-value"
@@ -177,15 +157,12 @@ exports[`renders ./components/statistic/demo/unit.md correctly 1`] = `
       class="ant-statistic"
     >
       <div
-        aria-hidden="true"
         class="ant-statistic-title"
       >
         Feedback
       </div>
       <div
         class="ant-statistic-content"
-        tabindex="-1"
-        title="Feedback"
       >
         <span
           class="ant-statistic-content-prefix"
@@ -211,10 +188,8 @@ exports[`renders ./components/statistic/demo/unit.md correctly 1`] = `
         <span
           class="ant-statistic-content-value"
           style="color:#3f8600"
-          title="1128"
         >
           <span
-            aria-hidden="true"
             class="ant-statistic-content-value-int"
           >
             1,128
@@ -231,22 +206,17 @@ exports[`renders ./components/statistic/demo/unit.md correctly 1`] = `
       class="ant-statistic"
     >
       <div
-        aria-hidden="true"
         class="ant-statistic-title"
       >
         Unmerged
       </div>
       <div
         class="ant-statistic-content"
-        tabindex="-1"
-        title="Unmerged"
       >
         <span
           class="ant-statistic-content-value"
-          title="93"
         >
           <span
-            aria-hidden="true"
             class="ant-statistic-content-value-int"
           >
             93

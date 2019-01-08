@@ -11049,15 +11049,11 @@ exports[`ConfigProvider components Statistic configProvider 1`] = `
 >
   <div
     class="config-statistic-content"
-    tabindex="-1"
-    title=""
   >
     <span
       class="config-statistic-content-value"
-      title="0"
     >
       <span
-        aria-hidden="true"
         class="config-statistic-content-value-int"
       >
         0
@@ -11073,15 +11069,11 @@ exports[`ConfigProvider components Statistic normal 1`] = `
 >
   <div
     class="ant-statistic-content"
-    tabindex="-1"
-    title=""
   >
     <span
       class="ant-statistic-content-value"
-      title="0"
     >
       <span
-        aria-hidden="true"
         class="ant-statistic-content-value-int"
       >
         0
@@ -11097,15 +11089,11 @@ exports[`ConfigProvider components Statistic prefixCls 1`] = `
 >
   <div
     class="prefix-Statistic-content"
-    tabindex="-1"
-    title=""
   >
     <span
       class="prefix-Statistic-content-value"
-      title="0"
     >
       <span
-        aria-hidden="true"
         class="prefix-Statistic-content-value-int"
       >
         0
