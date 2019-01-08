@@ -11043,6 +11043,81 @@ exports[`ConfigProvider components Spin prefixCls 1`] = `
 </div>
 `;
 
+exports[`ConfigProvider components Statistic configProvider 1`] = `
+<div
+  class="config-statistic"
+>
+  <div
+    aria-hidden="true"
+    class="config-statistic-title"
+  />
+  <div
+    aria-label=""
+    class="config-statistic-content"
+  >
+    <span
+      class="config-statistic-content-value"
+    >
+      <span
+        class="config-statistic-content-value-int"
+      >
+        0
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components Statistic normal 1`] = `
+<div
+  class="ant-statistic"
+>
+  <div
+    aria-hidden="true"
+    class="ant-statistic-title"
+  />
+  <div
+    aria-label=""
+    class="ant-statistic-content"
+  >
+    <span
+      class="ant-statistic-content-value"
+    >
+      <span
+        class="ant-statistic-content-value-int"
+      >
+        0
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components Statistic prefixCls 1`] = `
+<div
+  class="prefix-Statistic"
+>
+  <div
+    aria-hidden="true"
+    class="prefix-Statistic-title"
+  />
+  <div
+    aria-label=""
+    class="prefix-Statistic-content"
+  >
+    <span
+      class="prefix-Statistic-content-value"
+    >
+      <span
+        class="prefix-Statistic-content-value-int"
+      >
+        0
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
 exports[`ConfigProvider components Steps configProvider 1`] = `
 <div
   class="config-steps config-steps-horizontal config-steps-label-horizontal"

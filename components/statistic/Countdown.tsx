@@ -1,10 +1,11 @@
 import * as React from 'react';
 import Statistic, { StatisticProps } from './Statistic';
-import { formatCountdown, valueType, FormatConfig } from './utils';
+import { formatCountdown, countdownValueType, FormatConfig } from './utils';
 
 const REFRESH_INTERVAL = 1000 / 30;
 
 interface CountdownProps extends StatisticProps {
+  value?: countdownValueType;
   format?: string;
 }
 
@@ -24,7 +25,7 @@ export default class Countdown extends React.Component<CountdownProps, {}> {
     clearInterval(this.countdownId);
   }
 
-  formatCountdown = (value: valueType, config: FormatConfig) => {
+  formatCountdown = (value: countdownValueType, config: FormatConfig) => {
     const { format } = this.props;
     return formatCountdown(value, { ...config, format });
   };
