@@ -11048,10 +11048,6 @@ exports[`ConfigProvider components Statistic configProvider 1`] = `
   class="config-statistic"
 >
   <div
-    aria-hidden="true"
-    class="config-statistic-title"
-  />
-  <div
     aria-label=""
     class="config-statistic-content"
   >
@@ -11073,10 +11069,6 @@ exports[`ConfigProvider components Statistic normal 1`] = `
   class="ant-statistic"
 >
   <div
-    aria-hidden="true"
-    class="ant-statistic-title"
-  />
-  <div
     aria-label=""
     class="ant-statistic-content"
   >
@@ -11097,10 +11089,6 @@ exports[`ConfigProvider components Statistic prefixCls 1`] = `
 <div
   class="prefix-Statistic"
 >
-  <div
-    aria-hidden="true"
-    class="prefix-Statistic-title"
-  />
   <div
     aria-label=""
     class="prefix-Statistic-content"
