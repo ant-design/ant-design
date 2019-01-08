@@ -1,17 +1,17 @@
 ---
 order: 2
 title:
-  zh-CN: 单位
-  en-US: Unit
+  zh-CN: 倒计时
+  en-US: Countdown
 ---
 
 ## zh-CN
 
-简单的展示。
+倒计时子组件。
 
 ## en-US
 
-Simplest Usage.
+Sub Countdown component.
 
 ```jsx
 import { Statistic, Row, Col } from 'antd';

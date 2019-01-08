@@ -1,22 +1,16 @@
 ---
 category: Components
 type: Data Display
-title: Number
+title: Statistic
 ---
 
-Empty state placeholder.
+Display statistic number.
 
 ## When To Use
 
-When there is no data provided, display for friendly tips.
+Display statistic number when needed.
 
 ## API
-
-```jsx
-<Empty>
-  <Button>Create</Button>
-</Empty>
-```
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |

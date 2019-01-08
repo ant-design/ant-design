@@ -1,5 +1,5 @@
 import * as React from 'react';
-import debounce from 'lodash/debounce';
+import { debounce } from 'lodash-es';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 // matchMedia polyfill for

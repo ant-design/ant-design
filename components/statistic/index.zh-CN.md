@@ -1,24 +1,19 @@
 ---
 category: Components
-subtitle: 数字
+subtitle: 统计
 type: 数据展示
-title: Number
+title: Statistic
 ---
 
-空状态时的展示占位图。
+展示统计数字。
 
 ## 何时使用
 
-当目前没有数据时，用于显式的用户提示。
+当需要展示统计类数字时使用。
 
 ## API
 
-```jsx
-<Empty>
-  <Button>创建</Button>
-</Empty>
-```
-
+### Table
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | description | 自定义描述内容 | string \| ReactNode | - |

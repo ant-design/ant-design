@@ -1,5 +1,5 @@
 import * as moment from 'moment';
-import { padStart, padEnd } from 'lodash';
+import { padStart, padEnd } from 'lodash-es';
 
 export type valueType = number | string | moment.Moment;
 
@@ -12,7 +12,7 @@ export interface FormatConfig {
 }
 
 export interface CountdownFormatConfig extends FormatConfig {
-  format: string;
+  format?: string;
 }
 
 // We trade number as string to avoid precision issue
@@ -80,13 +80,10 @@ function formatTimeStr(duration: number, format: string) {
 }
 
 export function formatCountdown(value: valueType, config: CountdownFormatConfig) {
-  const { format = 'HH:mm:ss' } = config;
+  const { format = '' } = config;
   const target = moment(value).valueOf();
   const current = moment().valueOf();
   const diff = Math.max(target - current, 0);
-  // const duration = moment.duration(diff, 'milliseconds');
 
   return formatTimeStr(diff, format);
-
-  // return `${padTime(duration.hours())}:${padTime(duration.minutes())}:${padTime(duration.seconds())}`;
 }

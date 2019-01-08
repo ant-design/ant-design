@@ -10,7 +10,7 @@ interface StatisticComponent {
   Countdown: typeof Countdown;
 }
 
-export type StatisticProps = {
+export interface StatisticProps extends FormatConfig {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
@@ -18,15 +18,11 @@ export type StatisticProps = {
   title?: React.ReactNode;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
-} & FormatConfig;
+}
 
 interface StatisticState {}
 
 class Statistic extends React.Component<StatisticProps & ConfigConsumerProps, StatisticState> {
-  // static getDerivedStateFromProps(nextProps: StatisticProps, prevState: StatisticState) {
-
-  // }
-
   getValue() {
     const { value = 0 } = this.props;
     return formatValue(value, this.props);

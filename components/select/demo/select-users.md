@@ -15,7 +15,7 @@ A complete multiple select sample with remote search, debounce fetch, ajax callb
 
 ````jsx
 import { Select, Spin } from 'antd';
-import debounce from 'lodash/debounce';
+import { debounce } from 'lodash-es';
 
 const Option = Select.Option;
 

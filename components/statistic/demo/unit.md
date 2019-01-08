@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-简单的展示。
+通过前缀和后缀添加单位。
 
 ## en-US
 
-Simplest Usage.
+Add unit through `prefix` and `suffix`.
 
 ```jsx
 import { Statistic, Row, Col } from 'antd';

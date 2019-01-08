@@ -9,7 +9,11 @@ interface CountdownProps extends StatisticProps {
 }
 
 export default class Countdown extends React.Component<CountdownProps, {}> {
-  countdownId: number | undefined = undefined;
+  static defaultProps: Partial<CountdownProps> = {
+    format: 'HH:mm:ss',
+  };
+
+  countdownId?: number = undefined;
 
   componentDidMount() {
     this.countdownId = window.setInterval(() => {
@@ -21,7 +25,7 @@ export default class Countdown extends React.Component<CountdownProps, {}> {
   }
 
   formatCountdown = (value: valueType, config: FormatConfig) => {
-    const { format = 'HH:mm:ss' } = this.props;
+    const { format } = this.props;
     return formatCountdown(value, { ...config, format });
   };
 
