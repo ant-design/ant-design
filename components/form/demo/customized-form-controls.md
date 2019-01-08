@@ -135,7 +135,7 @@ class Demo extends React.Component {
   }
 }
 
-const WrappedDemo = Form.create()(Demo);
+const WrappedDemo = Form.create({ name: 'customized_form_controls' })(Demo);
 
 ReactDOM.render(<WrappedDemo />, mountNode);
 ````

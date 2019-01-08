@@ -37,7 +37,7 @@ class App extends React.Component {
     return (
       <Mention
         ref={ele => this.mention = ele}
-        suggestions={['afc163', 'benjycui', 'yiminghe', 'RaoHai', '中文', 'にほんご']}
+        defaultSuggestions={['afc163', 'benjycui', 'yiminghe', 'RaoHai', '中文', 'にほんご']}
         value={this.state.value}
         onChange={this.handleChange}
       />

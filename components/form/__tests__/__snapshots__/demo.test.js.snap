@@ -21,7 +21,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
           >
             <label
               class="ant-form-item-required"
-              for="field-0"
+              for="advanced_search_field-0"
               title="Field 0"
             >
               Field 0
@@ -40,7 +40,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                   class="ant-input"
                   data-__field="[object Object]"
                   data-__meta="[object Object]"
-                  id="field-0"
+                  id="advanced_search_field-0"
                   placeholder="placeholder"
                   type="text"
                   value=""
@@ -62,7 +62,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
           >
             <label
               class="ant-form-item-required"
-              for="field-1"
+              for="advanced_search_field-1"
               title="Field 1"
             >
               Field 1
@@ -81,7 +81,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                   class="ant-input"
                   data-__field="[object Object]"
                   data-__meta="[object Object]"
-                  id="field-1"
+                  id="advanced_search_field-1"
                   placeholder="placeholder"
                   type="text"
                   value=""
@@ -103,7 +103,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
           >
             <label
               class="ant-form-item-required"
-              for="field-2"
+              for="advanced_search_field-2"
               title="Field 2"
             >
               Field 2
@@ -122,7 +122,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                   class="ant-input"
                   data-__field="[object Object]"
                   data-__meta="[object Object]"
-                  id="field-2"
+                  id="advanced_search_field-2"
                   placeholder="placeholder"
                   type="text"
                   value=""
@@ -144,7 +144,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
           >
             <label
               class="ant-form-item-required"
-              for="field-3"
+              for="advanced_search_field-3"
               title="Field 3"
             >
               Field 3
@@ -163,7 +163,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                   class="ant-input"
                   data-__field="[object Object]"
                   data-__meta="[object Object]"
-                  id="field-3"
+                  id="advanced_search_field-3"
                   placeholder="placeholder"
                   type="text"
                   value=""
@@ -185,7 +185,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
           >
             <label
               class="ant-form-item-required"
-              for="field-4"
+              for="advanced_search_field-4"
               title="Field 4"
             >
               Field 4
@@ -204,7 +204,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                   class="ant-input"
                   data-__field="[object Object]"
                   data-__meta="[object Object]"
-                  id="field-4"
+                  id="advanced_search_field-4"
                   placeholder="placeholder"
                   type="text"
                   value=""
@@ -226,7 +226,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
           >
             <label
               class="ant-form-item-required"
-              for="field-5"
+              for="advanced_search_field-5"
               title="Field 5"
             >
               Field 5
@@ -245,7 +245,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                   class="ant-input"
                   data-__field="[object Object]"
                   data-__meta="[object Object]"
-                  id="field-5"
+                  id="advanced_search_field-5"
                   placeholder="placeholder"
                   type="text"
                   value=""
@@ -267,7 +267,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
           >
             <label
               class="ant-form-item-required"
-              for="field-6"
+              for="advanced_search_field-6"
               title="Field 6"
             >
               Field 6
@@ -286,7 +286,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                   class="ant-input"
                   data-__field="[object Object]"
                   data-__meta="[object Object]"
-                  id="field-6"
+                  id="advanced_search_field-6"
                   placeholder="placeholder"
                   type="text"
                   value=""
@@ -308,7 +308,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
           >
             <label
               class="ant-form-item-required"
-              for="field-7"
+              for="advanced_search_field-7"
               title="Field 7"
             >
               Field 7
@@ -327,7 +327,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                   class="ant-input"
                   data-__field="[object Object]"
                   data-__meta="[object Object]"
-                  id="field-7"
+                  id="advanced_search_field-7"
                   placeholder="placeholder"
                   type="text"
                   value=""
@@ -349,7 +349,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
           >
             <label
               class="ant-form-item-required"
-              for="field-8"
+              for="advanced_search_field-8"
               title="Field 8"
             >
               Field 8
@@ -368,7 +368,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                   class="ant-input"
                   data-__field="[object Object]"
                   data-__meta="[object Object]"
-                  id="field-8"
+                  id="advanced_search_field-8"
                   placeholder="placeholder"
                   type="text"
                   value=""
@@ -390,7 +390,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
           >
             <label
               class="ant-form-item-required"
-              for="field-9"
+              for="advanced_search_field-9"
               title="Field 9"
             >
               Field 9
@@ -409,7 +409,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                   class="ant-input"
                   data-__field="[object Object]"
                   data-__meta="[object Object]"
-                  id="field-9"
+                  id="advanced_search_field-9"
                   placeholder="placeholder"
                   type="text"
                   value=""
@@ -489,7 +489,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
-        for="note"
+        for="coordinated_note"
         title="Note"
       >
         Note
@@ -508,7 +508,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
             class="ant-input"
             data-__field="[object Object]"
             data-__meta="[object Object]"
-            id="note"
+            id="coordinated_note"
             type="text"
             value=""
           />
@@ -524,7 +524,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
-        for="gender"
+        for="coordinated_gender"
         title="Gender"
       >
         Gender
@@ -541,11 +541,11 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
         >
           <div
             class="ant-select ant-select-enabled"
-            id="gender"
+            id="coordinated_gender"
           >
             <div
               aria-autocomplete="list"
-              aria-controls="test-uuid"
+              aria-controls=""
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection
@@ -634,7 +634,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
     >
       <label
         class=""
-        for="price"
+        for="customized_form_controls_price"
         title="Price"
       >
         Price
@@ -662,7 +662,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
             >
               <div
                 aria-autocomplete="list"
-                aria-controls="test-uuid"
+                aria-controls=""
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-select-selection
@@ -821,7 +821,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
-        for="username"
+        for="dynamic_rule_username"
         title="Name"
       >
         Name
@@ -840,7 +840,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
             class="ant-input"
             data-__field="[object Object]"
             data-__meta="[object Object]"
-            id="username"
+            id="dynamic_rule_username"
             placeholder="Please input your name"
             type="text"
             value=""
@@ -857,7 +857,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
     >
       <label
         class=""
-        for="nickname"
+        for="dynamic_rule_nickname"
         title="Nickname"
       >
         Nickname
@@ -876,7 +876,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
             class="ant-input"
             data-__field="[object Object]"
             data-__meta="[object Object]"
-            id="nickname"
+            id="dynamic_rule_nickname"
             placeholder="Please input your nickname"
             type="text"
             value=""
@@ -972,7 +972,7 @@ exports[`renders ./components/form/demo/global-state.md correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
-          for="username"
+          for="global_state_username"
           title="Username"
         >
           Username
@@ -991,7 +991,7 @@ exports[`renders ./components/form/demo/global-state.md correctly 1`] = `
               class="ant-input"
               data-__field="[object Object]"
               data-__meta="[object Object]"
-              id="username"
+              id="global_state_username"
               type="text"
               value="benjycui"
             />
@@ -1057,7 +1057,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
               class="ant-input"
               data-__field="[object Object]"
               data-__meta="[object Object]"
-              id="userName"
+              id="horizontal_login_userName"
               placeholder="Username"
               type="text"
               value=""
@@ -1108,7 +1108,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
               class="ant-input"
               data-__field="[object Object]"
               data-__meta="[object Object]"
-              id="password"
+              id="horizontal_login_password"
               placeholder="Password"
               type="password"
               value=""
@@ -1264,6 +1264,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
               class="ant-input"
               placeholder="input placeholder"
               type="text"
+              value=""
             />
           </span>
         </div>
@@ -1295,6 +1296,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
               class="ant-input"
               placeholder="input placeholder"
               type="text"
+              value=""
             />
           </span>
         </div>
@@ -1373,7 +1375,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
               class="ant-input"
               data-__field="[object Object]"
               data-__meta="[object Object]"
-              id="userName"
+              id="normal_login_userName"
               placeholder="Username"
               type="text"
               value=""
@@ -1424,7 +1426,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
               class="ant-input"
               data-__field="[object Object]"
               data-__meta="[object Object]"
-              id="password"
+              id="normal_login_password"
               placeholder="Password"
               type="password"
               value=""
@@ -1457,7 +1459,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
                 class="ant-checkbox-input"
                 data-__field="[object Object]"
                 data-__meta="[object Object]"
-                id="remember"
+                id="normal_login_remember"
                 type="checkbox"
               />
               <span
@@ -1507,7 +1509,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
-        for="email"
+        for="register_email"
         title="E-mail"
       >
         E-mail
@@ -1526,7 +1528,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             class="ant-input"
             data-__field="[object Object]"
             data-__meta="[object Object]"
-            id="email"
+            id="register_email"
             type="text"
             value=""
           />
@@ -1542,7 +1544,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
-        for="password"
+        for="register_password"
         title="Password"
       >
         Password
@@ -1561,7 +1563,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             class="ant-input"
             data-__field="[object Object]"
             data-__meta="[object Object]"
-            id="password"
+            id="register_password"
             type="password"
             value=""
           />
@@ -1577,7 +1579,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
-        for="confirm"
+        for="register_confirm"
         title="Confirm Password"
       >
         Confirm Password
@@ -1596,7 +1598,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             class="ant-input"
             data-__field="[object Object]"
             data-__meta="[object Object]"
-            id="confirm"
+            id="register_confirm"
             type="password"
             value=""
           />
@@ -1612,7 +1614,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
-        for="nickname"
+        for="register_nickname"
         title=""
       >
         <span>
@@ -1653,7 +1655,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             class="ant-input"
             data-__field="[object Object]"
             data-__meta="[object Object]"
-            id="nickname"
+            id="register_nickname"
             type="text"
             value=""
           />
@@ -1669,7 +1671,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
-        for="residence"
+        for="register_residence"
         title="Habitual Residence"
       >
         Habitual Residence
@@ -1698,7 +1700,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               class="ant-input ant-cascader-input "
               data-__field="[object Object]"
               data-__meta="[object Object]"
-              id="residence"
+              id="register_residence"
               readonly=""
               type="text"
               value=""
@@ -1750,7 +1752,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
-        for="phone"
+        for="register_phone"
         title="Phone Number"
       >
         Phone Number
@@ -1777,12 +1779,12 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               >
                 <div
                   class="ant-select ant-select-enabled"
-                  id="prefix"
+                  id="register_prefix"
                   style="width:70px"
                 >
                   <div
                     aria-autocomplete="list"
-                    aria-controls="test-uuid"
+                    aria-controls=""
                     aria-expanded="false"
                     aria-haspopup="true"
                     class="ant-select-selection
@@ -1833,7 +1835,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                 class="ant-input"
                 data-__field="[object Object]"
                 data-__meta="[object Object]"
-                id="phone"
+                id="register_phone"
                 type="text"
                 value=""
               />
@@ -1851,7 +1853,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
-        for="website"
+        for="register_website"
         title="Website"
       >
         Website
@@ -1868,11 +1870,11 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         >
           <div
             class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
-            id="website"
+            id="register_website"
           >
             <div
               aria-autocomplete="list"
-              aria-controls="test-uuid"
+              aria-controls=""
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection
@@ -1949,7 +1951,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
-        for="captcha"
+        for="register_captcha"
         title="Captcha"
       >
         Captcha
@@ -1976,7 +1978,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                 class="ant-input"
                 data-__field="[object Object]"
                 data-__meta="[object Object]"
-                id="captcha"
+                id="register_captcha"
                 type="text"
                 value=""
               />
@@ -2026,7 +2028,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                 class="ant-checkbox-input"
                 data-__field="[object Object]"
                 data-__meta="[object Object]"
-                id="agreement"
+                id="register_agreement"
                 type="checkbox"
               />
               <span
@@ -2085,7 +2087,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
     >
       <label
         class="ant-form-item-required"
-        for="date-picker"
+        for="time_related_controls_date-picker"
         title="DatePicker"
       >
         DatePicker
@@ -2102,7 +2104,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         >
           <span
             class="ant-calendar-picker"
-            id="date-picker"
+            id="time_related_controls_date-picker"
           >
             <div>
               <input
@@ -2142,7 +2144,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
     >
       <label
         class="ant-form-item-required"
-        for="date-time-picker"
+        for="time_related_controls_date-time-picker"
         title="DatePicker[showTime]"
       >
         DatePicker[showTime]
@@ -2159,7 +2161,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         >
           <span
             class="ant-calendar-picker"
-            id="date-time-picker"
+            id="time_related_controls_date-time-picker"
             style="width:195px"
           >
             <div>
@@ -2200,7 +2202,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
     >
       <label
         class="ant-form-item-required"
-        for="month-picker"
+        for="time_related_controls_month-picker"
         title="MonthPicker"
       >
         MonthPicker
@@ -2217,7 +2219,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         >
           <span
             class="ant-calendar-picker"
-            id="month-picker"
+            id="time_related_controls_month-picker"
           >
             <div>
               <input
@@ -2257,7 +2259,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
     >
       <label
         class="ant-form-item-required"
-        for="range-picker"
+        for="time_related_controls_range-picker"
         title="RangePicker"
       >
         RangePicker
@@ -2274,7 +2276,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         >
           <span
             class="ant-calendar-picker"
-            id="range-picker"
+            id="time_related_controls_range-picker"
             tabindex="0"
           >
             <span
@@ -2330,7 +2332,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
     >
       <label
         class="ant-form-item-required"
-        for="range-time-picker"
+        for="time_related_controls_range-time-picker"
         title="RangePicker[showTime]"
       >
         RangePicker[showTime]
@@ -2347,7 +2349,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         >
           <span
             class="ant-calendar-picker"
-            id="range-time-picker"
+            id="time_related_controls_range-time-picker"
             style="width:350px"
             tabindex="0"
           >
@@ -2404,7 +2406,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
     >
       <label
         class="ant-form-item-required"
-        for="time-picker"
+        for="time_related_controls_time-picker"
         title="TimePicker"
       >
         TimePicker
@@ -2424,7 +2426,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
           >
             <input
               class="ant-time-picker-input"
-              id="time-picker"
+              id="time_related_controls_time-picker"
               placeholder="Select time"
               type="text"
               value=""
@@ -2528,7 +2530,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
-        for="select"
+        for="validate_other_select"
         title="Select"
       >
         Select
@@ -2545,11 +2547,11 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         >
           <div
             class="ant-select ant-select-enabled"
-            id="select"
+            id="validate_other_select"
           >
             <div
               aria-autocomplete="list"
-              aria-controls="test-uuid"
+              aria-controls=""
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection
@@ -2607,7 +2609,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
-        for="select-multiple"
+        for="validate_other_select-multiple"
         title="Select[multiple]"
       >
         Select[multiple]
@@ -2624,11 +2626,11 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         >
           <div
             class="ant-select ant-select-enabled"
-            id="select-multiple"
+            id="validate_other_select-multiple"
           >
             <div
               aria-autocomplete="list"
-              aria-controls="test-uuid"
+              aria-controls=""
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection
@@ -2657,7 +2659,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                       <input
                         autocomplete="off"
                         class="ant-select-search__field"
-                        id="select-multiple"
+                        id="validate_other_select-multiple"
                         value=""
                       />
                       <span
@@ -2683,7 +2685,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class=""
-        for="input-number"
+        for="validate_other_input-number"
         title="InputNumber"
       >
         InputNumber
@@ -2767,7 +2769,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 class="ant-input-number-input"
                 data-__field="[object Object]"
                 data-__meta="[object Object]"
-                id="input-number"
+                id="validate_other_input-number"
                 max="10"
                 min="1"
                 step="1"
@@ -2792,7 +2794,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class=""
-        for="switch"
+        for="validate_other_switch"
         title="Switch"
       >
         Switch
@@ -2812,7 +2814,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             class="ant-switch"
             data-__field="[object Object]"
             data-__meta="[object Object]"
-            id="switch"
+            id="validate_other_switch"
             role="switch"
             type="button"
           >
@@ -2832,7 +2834,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class=""
-        for="slider"
+        for="validate_other_slider"
         title="Slider"
       >
         Slider
@@ -2948,7 +2950,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class=""
-        for="radio-group"
+        for="validate_other_radio-group"
         title="Radio.Group"
       >
         Radio.Group
@@ -2965,7 +2967,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         >
           <div
             class="ant-radio-group ant-radio-group-outline"
-            id="radio-group"
+            id="validate_other_radio-group"
           >
             <label
               class="ant-radio-wrapper"
@@ -3037,7 +3039,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class=""
-        for="radio-button"
+        for="validate_other_radio-button"
         title="Radio.Button"
       >
         Radio.Button
@@ -3054,7 +3056,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         >
           <div
             class="ant-radio-group ant-radio-group-outline"
-            id="radio-button"
+            id="validate_other_radio-button"
           >
             <label
               class="ant-radio-button-wrapper"
@@ -3126,7 +3128,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class=""
-        for="checkbox-group"
+        for="validate_other_checkbox-group"
         title="Checkbox.Group"
       >
         Checkbox.Group
@@ -3145,7 +3147,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             class="ant-checkbox-group"
             data-__field="[object Object]"
             data-__meta="[object Object]"
-            id="checkbox-group"
+            id="validate_other_checkbox-group"
             style="width:100%"
           >
             <div
@@ -3283,7 +3285,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class=""
-        for="rate"
+        for="validate_other_rate"
         title="Rate"
       >
         Rate
@@ -3304,258 +3306,273 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             tabindex="0"
           >
             <li
-              aria-checked="true"
-              aria-posinset="1"
-              aria-setsize="5"
               class="ant-rate-star ant-rate-star-full"
-              role="radio"
-              tabindex="0"
             >
               <div
-                class="ant-rate-star-first"
+                aria-checked="true"
+                aria-posinset="1"
+                aria-setsize="5"
+                role="radio"
+                tabindex="0"
               >
-                <i
-                  class="anticon anticon-star"
+                <div
+                  class="ant-rate-star-first"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="star"
-                    fill="currentColor"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <i
+                    class="anticon anticon-star"
                   >
-                    <path
-                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
-                    />
-                  </svg>
-                </i>
-              </div>
-              <div
-                class="ant-rate-star-second"
-              >
-                <i
-                  class="anticon anticon-star"
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="star"
+                      fill="currentColor"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                      />
+                    </svg>
+                  </i>
+                </div>
+                <div
+                  class="ant-rate-star-second"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="star"
-                    fill="currentColor"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <i
+                    class="anticon anticon-star"
                   >
-                    <path
-                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
-                    />
-                  </svg>
-                </i>
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="star"
+                      fill="currentColor"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                      />
+                    </svg>
+                  </i>
+                </div>
               </div>
             </li>
             <li
-              aria-checked="true"
-              aria-posinset="2"
-              aria-setsize="5"
               class="ant-rate-star ant-rate-star-full"
-              role="radio"
-              tabindex="0"
             >
               <div
-                class="ant-rate-star-first"
+                aria-checked="true"
+                aria-posinset="2"
+                aria-setsize="5"
+                role="radio"
+                tabindex="0"
               >
-                <i
-                  class="anticon anticon-star"
+                <div
+                  class="ant-rate-star-first"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="star"
-                    fill="currentColor"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <i
+                    class="anticon anticon-star"
                   >
-                    <path
-                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
-                    />
-                  </svg>
-                </i>
-              </div>
-              <div
-                class="ant-rate-star-second"
-              >
-                <i
-                  class="anticon anticon-star"
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="star"
+                      fill="currentColor"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                      />
+                    </svg>
+                  </i>
+                </div>
+                <div
+                  class="ant-rate-star-second"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="star"
-                    fill="currentColor"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <i
+                    class="anticon anticon-star"
                   >
-                    <path
-                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
-                    />
-                  </svg>
-                </i>
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="star"
+                      fill="currentColor"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                      />
+                    </svg>
+                  </i>
+                </div>
               </div>
             </li>
             <li
-              aria-checked="true"
-              aria-posinset="3"
-              aria-setsize="5"
               class="ant-rate-star ant-rate-star-full"
-              role="radio"
-              tabindex="0"
             >
               <div
-                class="ant-rate-star-first"
+                aria-checked="true"
+                aria-posinset="3"
+                aria-setsize="5"
+                role="radio"
+                tabindex="0"
               >
-                <i
-                  class="anticon anticon-star"
+                <div
+                  class="ant-rate-star-first"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="star"
-                    fill="currentColor"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <i
+                    class="anticon anticon-star"
                   >
-                    <path
-                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
-                    />
-                  </svg>
-                </i>
-              </div>
-              <div
-                class="ant-rate-star-second"
-              >
-                <i
-                  class="anticon anticon-star"
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="star"
+                      fill="currentColor"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                      />
+                    </svg>
+                  </i>
+                </div>
+                <div
+                  class="ant-rate-star-second"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="star"
-                    fill="currentColor"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <i
+                    class="anticon anticon-star"
                   >
-                    <path
-                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
-                    />
-                  </svg>
-                </i>
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="star"
+                      fill="currentColor"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                      />
+                    </svg>
+                  </i>
+                </div>
               </div>
             </li>
             <li
-              aria-checked="true"
-              aria-posinset="4"
-              aria-setsize="5"
               class="ant-rate-star ant-rate-star-zero"
-              role="radio"
-              tabindex="0"
             >
               <div
-                class="ant-rate-star-first"
+                aria-checked="true"
+                aria-posinset="4"
+                aria-setsize="5"
+                role="radio"
+                tabindex="0"
               >
-                <i
-                  class="anticon anticon-star"
+                <div
+                  class="ant-rate-star-first"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="star"
-                    fill="currentColor"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <i
+                    class="anticon anticon-star"
                   >
-                    <path
-                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
-                    />
-                  </svg>
-                </i>
-              </div>
-              <div
-                class="ant-rate-star-second"
-              >
-                <i
-                  class="anticon anticon-star"
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="star"
+                      fill="currentColor"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                      />
+                    </svg>
+                  </i>
+                </div>
+                <div
+                  class="ant-rate-star-second"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="star"
-                    fill="currentColor"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <i
+                    class="anticon anticon-star"
                   >
-                    <path
-                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
-                    />
-                  </svg>
-                </i>
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="star"
+                      fill="currentColor"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                      />
+                    </svg>
+                  </i>
+                </div>
               </div>
             </li>
             <li
-              aria-checked="false"
-              aria-posinset="5"
-              aria-setsize="5"
               class="ant-rate-star ant-rate-star-zero"
-              role="radio"
-              tabindex="0"
             >
               <div
-                class="ant-rate-star-first"
+                aria-checked="false"
+                aria-posinset="5"
+                aria-setsize="5"
+                role="radio"
+                tabindex="0"
               >
-                <i
-                  class="anticon anticon-star"
+                <div
+                  class="ant-rate-star-first"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="star"
-                    fill="currentColor"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <i
+                    class="anticon anticon-star"
                   >
-                    <path
-                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
-                    />
-                  </svg>
-                </i>
-              </div>
-              <div
-                class="ant-rate-star-second"
-              >
-                <i
-                  class="anticon anticon-star"
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="star"
+                      fill="currentColor"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                      />
+                    </svg>
+                  </i>
+                </div>
+                <div
+                  class="ant-rate-star-second"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="star"
-                    fill="currentColor"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <i
+                    class="anticon anticon-star"
                   >
-                    <path
-                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
-                    />
-                  </svg>
-                </i>
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="star"
+                      fill="currentColor"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                      />
+                    </svg>
+                  </i>
+                </div>
               </div>
             </li>
           </ul>
@@ -3571,7 +3588,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class=""
-        for="upload"
+        for="validate_other_upload"
         title="Upload"
       >
         Upload
@@ -3614,7 +3631,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class=""
-        for="dragger"
+        for="validate_other_dragger"
         title="Dragger"
       >
         Dragger
@@ -3705,6 +3722,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             id="error"
             placeholder="unavailable choice"
             type="text"
+            value=""
           />
         </span>
         <div
@@ -3742,6 +3760,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             id="warning"
             placeholder="Warning"
             type="text"
+            value=""
           />
         </span>
       </div>
@@ -3774,6 +3793,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             id="validating"
             placeholder="I'm the content is being validated"
             type="text"
+            value=""
           />
           <span
             class="ant-form-item-children-icon"
@@ -3832,6 +3852,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             id="success"
             placeholder="I'm the content"
             type="text"
+            value=""
           />
           <span
             class="ant-form-item-children-icon"
@@ -3882,9 +3903,10 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         >
           <input
             class="ant-input"
-            id="warning"
+            id="warning2"
             placeholder="Warning"
             type="text"
+            value=""
           />
           <span
             class="ant-form-item-children-icon"
@@ -3935,9 +3957,10 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         >
           <input
             class="ant-input"
-            id="error"
+            id="error2"
             placeholder="unavailable choice"
             type="text"
+            value=""
           />
           <span
             class="ant-form-item-children-icon"
@@ -4156,7 +4179,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           >
             <div
               aria-autocomplete="list"
-              aria-controls="test-uuid"
+              aria-controls=""
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection

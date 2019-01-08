@@ -13,7 +13,6 @@ export default {
     filterTitle: 'Filteren',
     filterConfirm: 'OK',
     filterReset: 'Reset',
-    emptyText: 'Geen gegevens',
     selectAll: 'Selecteer huidige pagina',
     selectInvert: 'Deselecteer huidige pagina',
   },
@@ -27,18 +26,17 @@ export default {
     cancelText: 'Annuleren',
   },
   Transfer: {
-    notFoundContent: 'Niet gevonden',
     searchPlaceholder: 'Zoeken',
     itemUnit: 'item',
     itemsUnit: 'items',
-  },
-  Select: {
-    notFoundContent: 'Niet gevonden',
   },
   Upload: {
     uploading: 'Uploaden...',
     removeFile: 'Verwijder bestand',
     uploadError: 'Fout tijdens uploaden',
     previewFile: 'Bekijk bestand',
+  },
+  Empty: {
+    description: 'Geen gegevens',
   },
 };

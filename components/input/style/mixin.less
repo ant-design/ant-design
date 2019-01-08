@@ -350,6 +350,9 @@
   &:hover .@{inputClass}:not(.@{inputClass}-disabled) {
     .hover();
   }
+  &:hover .@{inputClass}-suffix {
+    opacity: 1;
+  }
 
   .@{inputClass} {
     position: relative;
@@ -360,11 +363,16 @@
     position: absolute;
     top: 50%;
     z-index: 2;
+    opacity: 0;
     transform: translateY(-50%);
     line-height: 0;
     color: @input-color;
+    transition: color 0.3s ease, opacity 0.15s ease;
     :not(.anticon) {
       line-height: @line-height-base;
+    }
+    &:hover {
+      color: @text-color-secondary;
     }
   }
 

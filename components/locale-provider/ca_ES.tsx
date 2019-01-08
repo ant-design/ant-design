@@ -13,7 +13,6 @@ export default {
     filterTitle: 'Filtrar Menu',
     filterConfirm: 'OK',
     filterReset: 'Restablir',
-    emptyText: 'Sense dades',
   },
   Modal: {
     okText: 'OK',
@@ -25,12 +24,11 @@ export default {
     cancelText: 'Cancel·lar',
   },
   Transfer: {
-    notFoundContent: 'No trobat',
     searchPlaceholder: 'Cercar aquí',
     itemUnit: 'item',
     itemsUnit: 'items',
   },
-  Select: {
-    notFoundContent: 'No trobat',
+  Empty: {
+    description: 'Sense dades',
   },
 };

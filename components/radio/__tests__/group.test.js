@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount, render } from 'enzyme';
+import { mount, render } from 'enzyme';
 import Radio from '../radio';
 import RadioGroup from '../group';
 
@@ -28,16 +28,22 @@ describe('Radio', () => {
     const onMouseEnter = jest.fn();
     const onMouseLeave = jest.fn();
 
-    const wrapper = shallow(
+    const wrapper = mount(
       <RadioGroup onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
         <Radio />
       </RadioGroup>,
     );
 
-    wrapper.simulate('mouseenter');
+    wrapper
+      .find('div')
+      .at(0)
+      .simulate('mouseenter');
     expect(onMouseEnter).toHaveBeenCalled();
 
-    wrapper.simulate('mouseleave');
+    wrapper
+      .find('div')
+      .at(0)
+      .simulate('mouseleave');
     expect(onMouseLeave).toHaveBeenCalled();
   });
 

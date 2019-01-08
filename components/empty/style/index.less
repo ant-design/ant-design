@@ -1,0 +1,52 @@
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
+
+@empty-prefix-cls: ~'@{ant-prefix}-empty';
+
+.@{empty-prefix-cls} {
+  text-align: center;
+  font-size: @empty-font-size;
+  line-height: 22px;
+  margin: 0 8px;
+
+  &-image {
+    margin-bottom: 8px;
+    height: 100px;
+
+    img {
+      height: 100%;
+    }
+  }
+
+  &-description {
+    margin: 0;
+  }
+
+  &-footer {
+    margin-top: 16px;
+  }
+
+  // antd internal empty style
+  &-small {
+    margin: 8px 0;
+
+    .@{empty-prefix-cls}-image {
+      height: 35px;
+    }
+  }
+
+  &-normal {
+    margin: 32px 0;
+
+    .@{empty-prefix-cls}-image {
+      height: 40px;
+    }
+  }
+}
+
+// Patch for popup adjust
+.@{ant-prefix}-select-dropdown--multiple .@{ant-prefix}-select-dropdown-menu-item {
+  .@{empty-prefix-cls}-small {
+    margin-left: @control-padding-horizontal + 20;
+  }
+}

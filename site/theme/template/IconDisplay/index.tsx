@@ -89,6 +89,7 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
     'border',
     'crown',
     'experiment',
+    'eye-invisible',
     'fire',
     'money-collect',
     'property-safety',

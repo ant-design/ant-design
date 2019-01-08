@@ -86,7 +86,7 @@
   position: relative;
   outline: none;
   width: 280px;
-  border: @border-width-base @border-style-base #fff;
+  border: @border-width-base @border-style-base @border-color-inverse;
   list-style: none;
   font-size: @font-size-base;
   text-align: left;
@@ -186,6 +186,7 @@
 
     &-panel {
       position: relative;
+      outline: none;
     }
 
     &:hover {
@@ -194,7 +195,7 @@
     }
 
     &:active {
-      color: #fff;
+      color: @text-color-inverse;
       background: @primary-5;
     }
   }
@@ -219,7 +220,7 @@
   &-selected-end-date {
     .@{calendar-prefix-cls}-date {
       background: @primary-color;
-      color: #fff;
+      color: @text-color-inverse;
       border: @border-width-base @border-style-base transparent;
 
       &:hover {
@@ -230,7 +231,7 @@
 
   &-disabled-cell &-date {
     cursor: not-allowed;
-    color: #bcbcbc;
+    color: @disabled-color;
     background: @disabled-bg;
     border-radius: 0;
     width: auto;
@@ -251,7 +252,7 @@
       left: 5px;
       width: 24px;
       height: 24px;
-      border: @border-width-base @border-style-base #bcbcbc;
+      border: @border-width-base @border-style-base @disabled-color;
       border-radius: @border-radius-sm;
     }
   }
@@ -330,12 +331,6 @@
     .button-size(@btn-height-sm; @btn-padding-sm; @font-size-base; @border-radius-base);
     line-height: @btn-height-sm - 2px;
 
-    &-disabled {
-      .button-color(@btn-disable-color; @btn-disable-bg; @btn-disable-border);
-      cursor: not-allowed;
-      &:hover {
-        .button-color(@btn-disable-color; @btn-disable-bg; @btn-disable-border);
-      }
-    }
+    .button-disabled();
   }
 }

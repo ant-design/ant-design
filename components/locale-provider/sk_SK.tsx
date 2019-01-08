@@ -13,7 +13,6 @@ export default {
     filterTitle: 'Filter',
     filterConfirm: 'OK',
     filterReset: 'Obnoviť',
-    emptyText: 'Žiadne dáta',
     selectAll: 'Vybrať všetko',
     selectInvert: 'Vybrať opačné',
   },
@@ -27,18 +26,17 @@ export default {
     cancelText: 'Zrušiť',
   },
   Transfer: {
-    notFoundContent: 'Nenájdené',
     searchPlaceholder: 'Vyhľadávanie',
     itemUnit: 'položka',
     itemsUnit: 'položiek',
-  },
-  Select: {
-    notFoundContent: 'Nenájdené',
   },
   Upload: {
     uploading: 'Nahrávanie...',
     removeFile: 'Odstrániť súbor',
     uploadError: 'Chyba pri nahrávaní',
     previewFile: 'Zobraziť súbor',
+  },
+  Empty: {
+    description: 'Žiadne dáta',
   },
 };
