@@ -39,7 +39,7 @@ export interface CheckboxChangeEvent {
   nativeEvent: MouseEvent;
 }
 
-export default class Checkbox extends React.Component<CheckboxProps, {}, {}> {
+export default class Checkbox extends React.Component<CheckboxProps, {}> {
   static Group: typeof CheckboxGroup;
   static defaultProps = {
     indeterminate: false,
