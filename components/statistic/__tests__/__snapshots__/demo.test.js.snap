@@ -19,8 +19,9 @@ exports[`renders ./components/statistic/demo/basic.md correctly 1`] = `
         Active Users
       </div>
       <div
-        aria-label="Active Users"
         class="ant-statistic-content"
+        tabindex="-1"
+        title="Active Users"
       >
         <span
           class="ant-statistic-content-value"
@@ -50,8 +51,9 @@ exports[`renders ./components/statistic/demo/basic.md correctly 1`] = `
         Account Balance (CNY)
       </div>
       <div
-        aria-label="Account Balance (CNY)"
         class="ant-statistic-content"
+        tabindex="-1"
+        title="Account Balance (CNY)"
       >
         <span
           class="ant-statistic-content-value"
@@ -95,8 +97,9 @@ exports[`renders ./components/statistic/demo/countdown.md correctly 1`] = `
         Countdown
       </div>
       <div
-        aria-label="Countdown"
         class="ant-statistic-content"
+        tabindex="-1"
+        title="Countdown"
       >
         <span
           class="ant-statistic-content-value"
@@ -120,8 +123,9 @@ exports[`renders ./components/statistic/demo/countdown.md correctly 1`] = `
         Million Seconds
       </div>
       <div
-        aria-label="Million Seconds"
         class="ant-statistic-content"
+        tabindex="-1"
+        title="Million Seconds"
       >
         <span
           class="ant-statistic-content-value"
@@ -145,8 +149,9 @@ exports[`renders ./components/statistic/demo/countdown.md correctly 1`] = `
         Day Level
       </div>
       <div
-        aria-label="Day Level"
         class="ant-statistic-content"
+        tabindex="-1"
+        title="Day Level"
       >
         <span
           class="ant-statistic-content-value"
@@ -178,8 +183,9 @@ exports[`renders ./components/statistic/demo/unit.md correctly 1`] = `
         Feedback
       </div>
       <div
-        aria-label="Feedback"
         class="ant-statistic-content"
+        tabindex="-1"
+        title="Feedback"
       >
         <span
           class="ant-statistic-content-prefix"
@@ -231,8 +237,9 @@ exports[`renders ./components/statistic/demo/unit.md correctly 1`] = `
         Unmerged
       </div>
       <div
-        aria-label="Unmerged"
         class="ant-statistic-content"
+        tabindex="-1"
+        title="Unmerged"
       >
         <span
           class="ant-statistic-content-value"
