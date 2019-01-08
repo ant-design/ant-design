@@ -1,9 +1,3 @@
-// FilterDropdown
-// createBodyRow
-// SelectionCheckboxAll
-// SelectionBox
-// FilterDropdown
-
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import RcTable from 'rc-table';
@@ -122,6 +116,11 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       !('columnsPageRange' in props || 'columnsPageSize' in props),
       '`columnsPageRange` and `columnsPageSize` are removed, please use ' +
         'fixed columns instead, see: https://u.ant.design/fixed-columns.',
+    );
+
+    warning(
+      !('expandedRowRender' in props) || !('scroll' in props),
+      '`expandedRowRender` and `scroll` are not compatible. Please use one of them at one time.',
     );
 
     this.columns = props.columns || normalizeColumns(props.children as React.ReactChildren);
