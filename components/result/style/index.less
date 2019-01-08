@@ -1,0 +1,63 @@
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
+
+@result-prefix-cls: ~'@{ant-prefix}-result';
+
+.@{result-prefix-cls} {
+  padding: 48px 32px;
+  background-color: @component-background;
+  &-icon-view {
+    text-align: center;
+    margin-bottom: 24px;
+
+    > i {
+      font-size: 72px;
+    }
+
+    &.success > i {
+      color: @success-color;
+    }
+
+    &.error > i {
+      color: @error-color;
+    }
+
+    &.info > i {
+      color: @info-color;
+    }
+
+    &.warning > i {
+      color: @warning-color;
+    }
+  }
+  &-title-view {
+    margin-bottom: 12px;
+
+    &-title {
+      font-size: 24px;
+      color: rgba(0, 0, 0, 0.85);
+      line-height: 1.8;
+      text-align: center;
+    }
+
+    &-subtitle {
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.45);
+      text-align: center;
+      line-height: 1.6;
+    }
+  }
+
+  &-extra-view {
+    text-align: center;
+    margin-top: 32px;
+    > * {
+      margin-right: 8px;
+    }
+  }
+
+  &-content {
+    background-color: #fafafa;
+    padding: 24px 40px;
+  }
+}
