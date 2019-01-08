@@ -14,6 +14,7 @@ title: Statistic
 ## API
 
 #### Statistic
+
 | 参数 | 说明 | 类型 | 默认值 |
 | -------- | ----------- | ---- | ------- |
 | decimalSeparator | 设置小数点 | string | - |
@@ -26,6 +27,7 @@ title: Statistic
 | valueStyle | 设置数值的样式 | style | - |
 
 #### Statistic.Countdown
+
 | 参数 | 说明 | 类型 | 默认值 |
 | -------- | ----------- | ---- | ------- |
 | format | 格式化倒计时展示，参考 [moment](http://momentjs.com/) | string | 'HH:mm:ss' |

@@ -13,6 +13,7 @@ Display statistic number when needed.
 ## API
 
 #### Statistic
+
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | decimalSeparator | decimal separator | string | - |
@@ -25,6 +26,7 @@ Display statistic number when needed.
 | valueStyle | Set value css style | style | - |
 
 #### Statistic.Countdown
+
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | format | Format as [moment](http://momentjs.com/) | string | 'HH:mm:ss' |
