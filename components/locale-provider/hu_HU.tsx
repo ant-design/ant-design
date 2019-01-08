@@ -13,7 +13,6 @@ export default {
     filterTitle: 'Szűrők',
     filterConfirm: 'Alkalmazás',
     filterReset: 'Visszaállítás',
-    emptyText: 'Nincs adat',
     selectAll: 'Jelenlegi oldal kiválasztása',
     selectInvert: 'Jelenlegi oldal inverze',
     sortTitle: 'Rendezés',
@@ -28,18 +27,17 @@ export default {
     cancelText: 'Visszavonás',
   },
   Transfer: {
-    notFoundContent: 'Nem található',
     searchPlaceholder: 'Keresés',
     itemUnit: 'elem',
     itemsUnit: 'elemek',
-  },
-  Select: {
-    notFoundContent: 'Nem található',
   },
   Upload: {
     uploading: 'Feltöltés...',
     removeFile: 'Fájl eltávolítása',
     uploadError: 'Feltöltési hiba',
     previewFile: 'Fájl előnézet',
+  },
+  Empty: {
+    description: 'Nincs adat',
   },
 };

@@ -2,9 +2,7 @@ import * as React from 'react';
 import RcTreeSelect, { TreeNode, SHOW_ALL, SHOW_PARENT, SHOW_CHILD } from 'rc-tree-select';
 import classNames from 'classnames';
 import { TreeSelectProps } from './interface';
-import { SelectLocale } from '../select';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import { ConfigConsumer, ConfigProviderProps } from '../config-provider';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 import Icon from '../icon';
 import { AntTreeNodeProps } from '../tree';
@@ -19,7 +17,6 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
   static SHOW_CHILD = SHOW_CHILD;
 
   static defaultProps = {
-    prefixCls: 'ant-select',
     transitionName: 'slide-up',
     choiceTransitionName: 'zoom',
     showSearch: false,
@@ -48,8 +45,7 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
     this.rcTreeSelect = node;
   };
 
-  renderSwitcherIcon = ({ isLeaf, loading }: AntTreeNodeProps) => {
-    const { prefixCls } = this.props;
+  renderSwitcherIcon = (prefixCls: string, { isLeaf, loading }: AntTreeNodeProps) => {
     if (loading) {
       return <Icon type="loading" className={`${prefixCls}-switcher-loading-icon`} />;
     }
@@ -59,9 +55,13 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
     return <Icon type="caret-down" className={`${prefixCls}-switcher-icon`} />;
   };
 
-  renderTreeSelect = (locale: SelectLocale) => {
+  renderTreeSelect = ({
+    getPopupContainer: getContextPopupContainer,
+    getPrefixCls,
+    renderEmpty,
+  }: ConfigConsumerProps) => {
     const {
-      prefixCls,
+      prefixCls: customizePrefixCls,
       className,
       size,
       notFoundContent,
@@ -73,6 +73,7 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
     } = this.props;
     const rest = omit(restProps, ['inputIcon', 'removeIcon', 'clearIcon', 'switcherIcon']);
 
+    const prefixCls = getPrefixCls('select', customizePrefixCls);
     const cls = classNames(
       {
         [`${prefixCls}-lg`]: size === 'large',
@@ -98,35 +99,27 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
     );
 
     return (
-      <ConfigConsumer>
-        {({ getPopupContainer: getContextPopupContainer }: ConfigProviderProps) => {
-          return (
-            <RcTreeSelect
-              switcherIcon={this.renderSwitcherIcon}
-              inputIcon={inputIcon}
-              removeIcon={removeIcon}
-              clearIcon={clearIcon}
-              {...rest}
-              getPopupContainer={getPopupContainer || getContextPopupContainer}
-              dropdownClassName={classNames(dropdownClassName, `${prefixCls}-tree-dropdown`)}
-              prefixCls={prefixCls}
-              className={cls}
-              dropdownStyle={{ maxHeight: '100vh', overflow: 'auto', ...dropdownStyle }}
-              treeCheckable={checkable}
-              notFoundContent={notFoundContent || locale.notFoundContent}
-              ref={this.saveTreeSelect}
-            />
-          );
-        }}
-      </ConfigConsumer>
+      <RcTreeSelect
+        switcherIcon={(nodeProps: AntTreeNodeProps) =>
+          this.renderSwitcherIcon(prefixCls, nodeProps)
+        }
+        inputIcon={inputIcon}
+        removeIcon={removeIcon}
+        clearIcon={clearIcon}
+        {...rest}
+        getPopupContainer={getPopupContainer || getContextPopupContainer}
+        dropdownClassName={classNames(dropdownClassName, `${prefixCls}-tree-dropdown`)}
+        prefixCls={prefixCls}
+        className={cls}
+        dropdownStyle={{ maxHeight: '100vh', overflow: 'auto', ...dropdownStyle }}
+        treeCheckable={checkable}
+        notFoundContent={notFoundContent || renderEmpty('Select')}
+        ref={this.saveTreeSelect}
+      />
     );
   };
 
   render() {
-    return (
-      <LocaleReceiver componentName="Select" defaultLocale={{}}>
-        {this.renderTreeSelect}
-      </LocaleReceiver>
-    );
+    return <ConfigConsumer>{this.renderTreeSelect}</ConfigConsumer>;
   }
 }

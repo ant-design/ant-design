@@ -40,6 +40,7 @@ export interface TreeSelectProps extends AbstractSelectProps {
   maxTagCount?: number;
   maxTagPlaceholder?: React.ReactNode | ((omittedValues: any[]) => React.ReactNode);
   multiple?: boolean;
+  notFoundContent?: React.ReactNode;
   onChange?: (value: any, label: any, extra: any) => void;
   onSearch?: (value: any) => void;
   onSelect?: (value: any) => void;

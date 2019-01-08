@@ -25,11 +25,9 @@ class MenuItem extends React.Component<MenuItemProps, any> {
   onKeyDown = (e: React.MouseEvent<HTMLElement>) => {
     this.menuItem.onKeyDown(e);
   };
-
   saveMenuItem = (menuItem: any) => {
     this.menuItem = menuItem;
   };
-
   render() {
     const { inlineCollapsed } = this.context;
     const { level, children, rootPrefixCls } = this.props;

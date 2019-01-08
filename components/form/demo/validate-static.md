@@ -83,7 +83,7 @@ ReactDOM.render(
       hasFeedback
       validateStatus="warning"
     >
-      <Input placeholder="Warning" id="warning" />
+      <Input placeholder="Warning" id="warning2" />
     </Form.Item>
 
     <Form.Item
@@ -93,7 +93,7 @@ ReactDOM.render(
       validateStatus="error"
       help="Should be combination of numbers & alphabets"
     >
-      <Input placeholder="unavailable choice" id="error" />
+      <Input placeholder="unavailable choice" id="error2" />
     </Form.Item>
 
     <Form.Item

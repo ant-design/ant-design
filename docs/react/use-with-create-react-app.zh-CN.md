@@ -216,3 +216,4 @@ React 生态圈中还有很多优秀的脚手架，使用它们并引入 antd �
 - [cra-ts-antd](https://github.com/comerc/cra-ts-antd)
 - [next.js](https://github.com/zeit/next.js/tree/master/examples/with-ant-design)
 - [nwb](https://github.com/insin/nwb-examples/tree/master/react-app-antd)
+- [antd-react-scripts](https://github.com/minesaner/create-react-app/tree/antd/packages/react-scripts)
