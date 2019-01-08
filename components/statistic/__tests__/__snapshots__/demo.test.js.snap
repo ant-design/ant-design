@@ -24,8 +24,10 @@ exports[`renders ./components/statistic/demo/basic.md correctly 1`] = `
       >
         <span
           class="ant-statistic-content-value"
+          title="112893"
         >
           <span
+            aria-hidden="true"
             class="ant-statistic-content-value-int"
           >
             112,893
@@ -53,13 +55,16 @@ exports[`renders ./components/statistic/demo/basic.md correctly 1`] = `
       >
         <span
           class="ant-statistic-content-value"
+          title="112893"
         >
           <span
+            aria-hidden="true"
             class="ant-statistic-content-value-int"
           >
             112,893
           </span>
           <span
+            aria-hidden="true"
             class="ant-statistic-content-value-decimal"
           >
             .00
@@ -95,6 +100,7 @@ exports[`renders ./components/statistic/demo/countdown.md correctly 1`] = `
       >
         <span
           class="ant-statistic-content-value"
+          title="1479916830000"
         >
           48:00:30
         </span>
@@ -120,6 +126,7 @@ exports[`renders ./components/statistic/demo/countdown.md correctly 1`] = `
       >
         <span
           class="ant-statistic-content-value"
+          title="1479916830000"
         >
           48:00:30:000
         </span>
@@ -145,6 +152,7 @@ exports[`renders ./components/statistic/demo/countdown.md correctly 1`] = `
       >
         <span
           class="ant-statistic-content-value"
+          title="1479916830000"
         >
           2 天 0 时 0 分 30 秒
         </span>
@@ -200,8 +208,10 @@ exports[`renders ./components/statistic/demo/unit.md correctly 1`] = `
         <span
           class="ant-statistic-content-value"
           style="color:#52c41a"
+          title="1128"
         >
           <span
+            aria-hidden="true"
             class="ant-statistic-content-value-int"
           >
             1,128
@@ -229,8 +239,10 @@ exports[`renders ./components/statistic/demo/unit.md correctly 1`] = `
       >
         <span
           class="ant-statistic-content-value"
+          title="93"
         >
           <span
+            aria-hidden="true"
             class="ant-statistic-content-value-int"
           >
             93

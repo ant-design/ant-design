@@ -45,16 +45,18 @@ function formatNumber(value: valueType, config: FormatConfig) {
     decimal = `${decimalSeparator}${decimal}`;
   }
 
-  return [
-    <span key="int" className={`${prefixCls}-content-value-int`}>
+  const result = [
+    <span aria-hidden="true" key="int" className={`${prefixCls}-content-value-int`}>
       {int}
     </span>,
     decimal && (
-      <span key="decimal" className={`${prefixCls}-content-value-decimal`}>
+      <span aria-hidden="true" key="decimal" className={`${prefixCls}-content-value-decimal`}>
         {decimal}
       </span>
     ),
   ];
+
+  return result;
 }
 
 export function formatValue(value: valueType, config: FormatConfig) {

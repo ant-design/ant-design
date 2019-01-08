@@ -23,6 +23,14 @@ export interface StatisticProps extends FormatConfig {
 
 interface StatisticState {}
 
+function getAriaTitle(entity: any): string {
+  const type = typeof entity;
+  if (type === 'string' || type === 'number') {
+    return entity;
+  }
+  return '';
+}
+
 class Statistic extends React.Component<StatisticProps & ConfigConsumerProps, StatisticState> {
   getValue() {
     const { value = 0 } = this.props;
@@ -30,7 +38,8 @@ class Statistic extends React.Component<StatisticProps & ConfigConsumerProps, St
   }
 
   render() {
-    const { prefixCls, className, style, valueStyle, title, prefix, suffix } = this.props;
+    const { prefixCls, className, style, valueStyle, title, value, prefix, suffix } = this.props;
+
     return (
       <div className={classNames(prefixCls, className)} style={style}>
         {title && (
@@ -38,9 +47,13 @@ class Statistic extends React.Component<StatisticProps & ConfigConsumerProps, St
             {title}
           </div>
         )}
-        <div aria-label={typeof title === 'string' ? title : ''} className={`${prefixCls}-content`}>
+        <div aria-label={getAriaTitle(title)} className={`${prefixCls}-content`}>
           {prefix && <span className={`${prefixCls}-content-prefix`}>{prefix}</span>}
-          <span style={valueStyle} className={`${prefixCls}-content-value`}>
+          <span
+            title={getAriaTitle(value)}
+            style={valueStyle}
+            className={`${prefixCls}-content-value`}
+          >
             {this.getValue()}
           </span>
           {suffix && <span className={`${prefixCls}-content-suffix`}>{suffix}</span>}
