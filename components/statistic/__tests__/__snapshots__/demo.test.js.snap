@@ -100,7 +100,6 @@ exports[`renders ./components/statistic/demo/countdown.md correctly 1`] = `
       >
         <span
           class="ant-statistic-content-value"
-          title="1479916830000"
         >
           48:00:30
         </span>
@@ -126,7 +125,6 @@ exports[`renders ./components/statistic/demo/countdown.md correctly 1`] = `
       >
         <span
           class="ant-statistic-content-value"
-          title="1479916830000"
         >
           48:00:30:000
         </span>
@@ -152,7 +150,6 @@ exports[`renders ./components/statistic/demo/countdown.md correctly 1`] = `
       >
         <span
           class="ant-statistic-content-value"
-          title="1479916830000"
         >
           2 天 0 时 0 分 30 秒
         </span>

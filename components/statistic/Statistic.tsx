@@ -16,6 +16,7 @@ export interface StatisticProps extends FormatConfig {
   style?: React.CSSProperties;
   value?: valueType;
   valueStyle?: React.CSSProperties;
+  valueRender?: (node: React.ReactNode) => React.ReactNode;
   title?: React.ReactNode;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
@@ -38,7 +39,27 @@ class Statistic extends React.Component<StatisticProps & ConfigConsumerProps, St
   }
 
   render() {
-    const { prefixCls, className, style, valueStyle, title, value, prefix, suffix } = this.props;
+    const {
+      prefixCls,
+      className,
+      style,
+      valueStyle,
+      title,
+      value,
+      valueRender,
+      prefix,
+      suffix,
+    } = this.props;
+
+    let valueNode: React.ReactNode = (
+      <span title={getAriaTitle(value)} style={valueStyle} className={`${prefixCls}-content-value`}>
+        {this.getValue()}
+      </span>
+    );
+
+    if (valueRender) {
+      valueNode = valueRender(valueNode);
+    }
 
     return (
       <div className={classNames(prefixCls, className)} style={style}>
@@ -49,13 +70,7 @@ class Statistic extends React.Component<StatisticProps & ConfigConsumerProps, St
         )}
         <div aria-label={getAriaTitle(title)} className={`${prefixCls}-content`}>
           {prefix && <span className={`${prefixCls}-content-prefix`}>{prefix}</span>}
-          <span
-            title={getAriaTitle(value)}
-            style={valueStyle}
-            className={`${prefixCls}-content-value`}
-          >
-            {this.getValue()}
-          </span>
+          {valueNode}
           {suffix && <span className={`${prefixCls}-content-suffix`}>{suffix}</span>}
         </div>
       </div>
