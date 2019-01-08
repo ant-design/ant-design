@@ -19,7 +19,7 @@ import { Statistic, Row, Col, Icon } from 'antd';
 ReactDOM.render(
   <Row gutter={16}>
     <Col span={12}>
-      <Statistic title="Feedback" value={1128} valueStyle={{ color: '#52c41a' }} prefix={<Icon type="like" />} />
+      <Statistic title="Feedback" value={1128} valueStyle={{ color: '#3f8600' }} prefix={<Icon type="like" />} />
     </Col>
     <Col span={12}>
       <Statistic title="Unmerged" value={93} suffix="/ 100" />

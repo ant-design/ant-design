@@ -207,7 +207,7 @@ exports[`renders ./components/statistic/demo/unit.md correctly 1`] = `
         </span>
         <span
           class="ant-statistic-content-value"
-          style="color:#52c41a"
+          style="color:#3f8600"
           title="1128"
         >
           <span
