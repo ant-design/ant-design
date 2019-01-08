@@ -1,5 +1,6 @@
 import * as moment from 'moment';
-import { padStart, padEnd } from 'lodash-es';
+import padStart from 'lodash/padStart';
+import padEnd from 'lodash/padEnd';
 
 export type valueType = number | string | moment.Moment;
 

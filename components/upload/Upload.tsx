@@ -2,7 +2,7 @@ import * as React from 'react';
 import { polyfill } from 'react-lifecycles-compat';
 import RcUpload from 'rc-upload';
 import classNames from 'classnames';
-import { uniqBy } from 'lodash-es';
+import uniqBy from 'lodash/uniqBy';
 import Dragger from './Dragger';
 import UploadList from './UploadList';
 import {
