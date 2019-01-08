@@ -15,6 +15,7 @@ export interface StatisticProps extends FormatConfig {
   className?: string;
   style?: React.CSSProperties;
   value?: valueType;
+  valueStyle?: React.CSSProperties;
   title?: React.ReactNode;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
@@ -29,16 +30,18 @@ class Statistic extends React.Component<StatisticProps & ConfigConsumerProps, St
   }
 
   render() {
-    const { prefixCls, className, style, title, prefix, suffix } = this.props;
+    const { prefixCls, className, style, valueStyle, title, prefix, suffix } = this.props;
     return (
       <div className={classNames(prefixCls, className)} style={style}>
         <div aria-hidden="true" className={`${prefixCls}-title`}>
           {title}
         </div>
-        <div aria-label={typeof title === 'string' ? title : ''} className={`${prefixCls}-value`}>
-          {prefix && <span className={`${prefixCls}-value-prefix`}>{prefix}</span>}
-          {this.getValue()}
-          {suffix && <span className={`${prefixCls}-value-suffix`}>{suffix}</span>}
+        <div aria-label={typeof title === 'string' ? title : ''} className={`${prefixCls}-content`}>
+          {prefix && <span className={`${prefixCls}-content-prefix`}>{prefix}</span>}
+          <span style={valueStyle} className={`${prefixCls}-content-value`}>
+            {this.getValue()}
+          </span>
+          {suffix && <span className={`${prefixCls}-content-suffix`}>{suffix}</span>}
         </div>
       </div>
     );
@@ -48,7 +51,7 @@ class Statistic extends React.Component<StatisticProps & ConfigConsumerProps, St
 polyfill(Statistic);
 
 const WrapperStatistic = withConfigConsumer<StatisticProps>({
-  prefixCls: 'number',
+  prefixCls: 'statistic',
 })<StatisticComponent>(Statistic);
 
 export default WrapperStatistic;

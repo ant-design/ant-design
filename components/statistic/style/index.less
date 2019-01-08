@@ -1,21 +1,38 @@
 @import '../../style/themes/default';
 @import '../../style/mixins/index';
 
-@number-prefix-cls: ~'@{ant-prefix}-number';
+@statistic-prefix-cls: ~'@{ant-prefix}-statistic';
 
-.@{number-prefix-cls} {
+.@{statistic-prefix-cls} {
+  line-height: 1.5;
+
   &-title {
-    font-size: 14px;
+    font-size: 12px;
+    margin-bottom: 4px;
   }
 
-  &-value {
+  &-content {
     font-size: 24px;
+    font-family: Tahoma, 'Helvetica Neue', @font-family;
+
+    &-value {
+      &-decimal {
+        font-size: 16px;
+      }
+    }
 
     &-prefix,
     &-suffix {
       display: inline-block;
+    }
+
+    &-prefix {
+      margin-right: 4px;
+    }
+
+    &-suffix {
+      margin-left: 4px;
       font-size: 16px;
-      margin-left: 8px;
     }
   }
 }

@@ -22,7 +22,7 @@ ReactDOM.render(
       <Statistic title="Active Users" value={112893} />
     </Col>
     <Col span={12}>
-      <Statistic title="New Users" value={1024} />
+      <Statistic title="Account Balance (CNY)" value={112893} precision={2} />
     </Col>
   </Row>,
   mountNode

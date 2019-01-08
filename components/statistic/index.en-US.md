@@ -12,7 +12,24 @@ Display statistic number when needed.
 
 ## API
 
+#### Statistic
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| description | Customize description | string \| ReactNode | - |
-| image | Customize image. Will tread as image url when string provided | string \| ReactNode | false |
+| decimalSeparator | decimal separator | string | - |
+| formatter | customize value display logic | (value) => ReactNode | - |
+| precision | precision of input value | number | - |
+| prefix | prefix node of value | string \| ReactNode | - |
+| suffix | suffix node of value | string \| ReactNode | - |
+| title | Display title | string \| ReactNode | - |
+| value | Display value | string \| number | - |
+| valueStyle | Set value css style | style | - |
+
+#### Statistic.Countdown
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| format | Format as [moment](http://momentjs.com/) | string | 'HH:mm:ss' |
+| prefix | prefix node of value | string \| ReactNode | - |
+| suffix | suffix node of value | string \| ReactNode | - |
+| title | Display title | string \| ReactNode | - |
+| value | Set target countdown time | number \| moment | - |
+| valueStyle | Set value css style | style | - |

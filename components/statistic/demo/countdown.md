@@ -27,7 +27,7 @@ ReactDOM.render(
     <Col span={12}>
       <Countdown title="Million Seconds" value={deadline} format="HH:mm:ss:SSS" />
     </Col>
-    <Col span={24}>
+    <Col span={24} style={{ marginTop: 32 }}>
       <Countdown title="Day Level" value={deadline} format="D 天 H 时 m 分 s 秒" />
     </Col>
   </Row>,

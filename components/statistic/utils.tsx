@@ -1,15 +1,21 @@
+import * as React from 'react';
 import * as moment from 'moment';
 import padStart from 'lodash/padStart';
 import padEnd from 'lodash/padEnd';
 
 export type valueType = number | string | moment.Moment;
 
-export type Formatter = false | 'number' | 'countdown' | ((value: valueType, config?: FormatConfig) => string);
+export type Formatter =
+  | false
+  | 'number'
+  | 'countdown'
+  | ((value: valueType, config?: FormatConfig) => React.ReactNode);
 
 export interface FormatConfig {
   formatter?: Formatter;
   decimalSeparator?: string;
   precision?: number;
+  prefixCls?: string;
 }
 
 export interface CountdownFormatConfig extends FormatConfig {
@@ -18,7 +24,7 @@ export interface CountdownFormatConfig extends FormatConfig {
 
 // We trade number as string to avoid precision issue
 function formatNumber(value: valueType, config: FormatConfig) {
-  const { decimalSeparator = '.', precision } = config;
+  const { decimalSeparator = '.', precision, prefixCls } = config;
 
   const val: string = String(value);
   const cells = val.match(/^(\d*)(\.(\d+))?$/);
@@ -37,7 +43,16 @@ function formatNumber(value: valueType, config: FormatConfig) {
     decimal = `${decimalSeparator}${decimal}`;
   }
 
-  return `${int}${decimal}`;
+  return [
+    <span key="int" className={`${prefixCls}-content-value-int`}>
+      {int}
+    </span>,
+    decimal && (
+      <span key="decimal" className={`${prefixCls}-content-value-decimal`}>
+        {decimal}
+      </span>
+    ),
+  ];
 }
 
 export function formatValue(value: valueType, config: FormatConfig) {
@@ -47,7 +62,7 @@ export function formatValue(value: valueType, config: FormatConfig) {
   if (typeof formatter === 'function') {
     return formatter(value);
   }
-  
+
   return formatNumber(value, config);
 }
 
