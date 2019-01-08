@@ -23,6 +23,7 @@ export default class Countdown extends React.Component<CountdownProps, {}> {
   }
   componentWillUnmount() {
     clearInterval(this.countdownId);
+    this.countdownId = undefined;
   }
 
   formatCountdown = (value: countdownValueType, config: FormatConfig) => {
