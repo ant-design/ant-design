@@ -49,6 +49,21 @@ const responsiveMap: BreakpointMap = {
   xxl: '(min-width: 1600px)',
 };
 
+const screens: any = {};
+
+Object.keys(responsiveMap).forEach((screen: Breakpoint) => {
+  enquire.register(responsiveMap[screen], {
+    match: () => {
+      screens[screen] = true;
+    },
+    unmatch: () => {
+      screens[screen] = false;
+    },
+    // Keep a empty destory to avoid triggering unmatch when unregister
+    destroy() {},
+  });
+});
+
 export default class Row extends React.Component<RowProps, RowState> {
   static defaultProps = {
     gutter: 0,
@@ -64,12 +79,15 @@ export default class Row extends React.Component<RowProps, RowState> {
     prefixCls: PropTypes.string,
   };
 
-  state: RowState = {
-    screens: {},
-  };
+  constructor(props: RowProps) {
+    super(props);
+    this.state = {
+      screens: typeof props.gutter === 'object' ? screens : {},
+    };
+  }
 
   componentDidMount() {
-    Object.keys(responsiveMap).map((screen: Breakpoint) =>
+    Object.keys(responsiveMap).forEach((screen: Breakpoint) => {
       enquire.register(responsiveMap[screen], {
         match: () => {
           if (typeof this.props.gutter !== 'object') {
@@ -95,8 +113,8 @@ export default class Row extends React.Component<RowProps, RowState> {
         },
         // Keep a empty destory to avoid triggering unmatch when unregister
         destroy() {},
-      }),
-    );
+      });
+    });
   }
   componentWillUnmount() {
     Object.keys(responsiveMap).map((screen: Breakpoint) =>
