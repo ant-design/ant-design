@@ -1,11 +1,11 @@
 ---
 category: Components
-subtitle: 统计
+subtitle: 统计数值
 type: 数据展示
 title: Statistic
 ---
 
-展示统计数字。
+展示统计数值。
 
 ## 何时使用
 

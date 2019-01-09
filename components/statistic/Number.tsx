@@ -4,11 +4,10 @@ import { valueType, FormatConfig } from './utils';
 
 interface NumberProps extends FormatConfig {
   value: valueType;
-  valueStyle?: React.CSSProperties;
 }
 
 const StatisticNumber: React.SFC<NumberProps> = props => {
-  const { value, valueStyle, formatter, precision, decimalSeparator, prefixCls } = props;
+  const { value, formatter, precision, decimalSeparator, prefixCls } = props;
 
   let valueNode: React.ReactNode;
 
@@ -50,11 +49,7 @@ const StatisticNumber: React.SFC<NumberProps> = props => {
     }
   }
 
-  return (
-    <span style={valueStyle} className={`${prefixCls}-content-value`}>
-      {valueNode}
-    </span>
-  );
+  return <span className={`${prefixCls}-content-value`}>{valueNode}</span>;
 };
 
 export default StatisticNumber;

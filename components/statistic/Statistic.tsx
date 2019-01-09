@@ -23,7 +23,17 @@ export interface StatisticProps extends FormatConfig {
 }
 
 const Statistic: React.SFC<StatisticProps & ConfigConsumerProps> = props => {
-  const { prefixCls, className, style, value = 0, title, valueRender, prefix, suffix } = props;
+  const {
+    prefixCls,
+    className,
+    style,
+    valueStyle,
+    value = 0,
+    title,
+    valueRender,
+    prefix,
+    suffix,
+  } = props;
 
   let valueNode: React.ReactNode = <StatisticNumber {...props} value={value} />;
 
@@ -34,7 +44,7 @@ const Statistic: React.SFC<StatisticProps & ConfigConsumerProps> = props => {
   return (
     <div className={classNames(prefixCls, className)} style={style}>
       {title && <div className={`${prefixCls}-title`}>{title}</div>}
-      <div className={`${prefixCls}-content`}>
+      <div style={valueStyle} className={`${prefixCls}-content`}>
         {prefix && <span className={`${prefixCls}-content-prefix`}>{prefix}</span>}
         {valueNode}
         {suffix && <span className={`${prefixCls}-content-suffix`}>{suffix}</span>}

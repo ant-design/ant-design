@@ -14,7 +14,7 @@ title:
 Simplest Usage.
 
 ```jsx
-import { Statistic, Row, Col } from 'antd';
+import { Statistic, Row, Col, Button } from 'antd';
 
 ReactDOM.render(
   <Row gutter={16}>
@@ -23,6 +23,7 @@ ReactDOM.render(
     </Col>
     <Col span={12}>
       <Statistic title="Account Balance (CNY)" value={112893} precision={2} />
+      <Button style={{ marginTop: 16 }} type="primary">Recharge</Button>
     </Col>
   </Row>,
   mountNode

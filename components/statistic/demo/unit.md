@@ -14,23 +14,17 @@ title:
 Add unit through `prefix` and `suffix`.
 
 ```jsx
-import { Statistic, Card, Row, Col, Icon } from 'antd';
+import { Statistic, Row, Col, Icon } from 'antd';
 
 ReactDOM.render(
-  <div style={{ background: '#ECECEC', padding: '30px' }}>
-    <Row gutter={16}>
-      <Col span={12}>
-        <Card>
-          <Statistic title="Feedback" value={1128} valueStyle={{ color: '#3f8600' }} prefix={<Icon type="like" />} />
-        </Card>
-      </Col>
-      <Col span={12}>
-        <Card>
-          <Statistic title="Unmerged" value={93} suffix="/ 100" />
-        </Card>
-      </Col>
-    </Row>
-  </div>,
+  <Row gutter={16}>
+    <Col span={12}>
+      <Statistic title="Feedback" value={1128} prefix={<Icon type="like" />} />
+    </Col>
+    <Col span={12}>
+      <Statistic title="Unmerged" value={93} suffix="/ 100" />
+    </Col>
+  </Row>,
   mountNode
 );
 ```
