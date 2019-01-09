@@ -18,7 +18,7 @@ const renderTitle = (prefixCls: string, props: ResultProps) => {
   const { title, subTitle } = props;
   const titlePrefixCls = `${prefixCls}-title-view`;
   return (
-    <div className={`${prefixCls}-title-view`}>
+    <div className={`${titlePrefixCls}`}>
       <div className={`${titlePrefixCls}-title`}>{title}</div>
       {subTitle && <div className={`${titlePrefixCls}-subtitle`}>{subTitle}</div>}
     </div>
