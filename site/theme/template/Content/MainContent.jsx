@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { Row, Col, Menu, Icon, Affix } from 'antd';
 import classNames from 'classnames';
+import get from 'lodash/get';
 import MobileMenu from 'rc-drawer';
 import Article from './Article';
 import PrevAndNext from './PrevAndNext';
@@ -87,6 +88,11 @@ export default class MainContent extends Component {
     }
     if (!window.location.hash && prevLocation.pathname !== location.pathname) {
       document.documentElement.scrollTop = 0;
+    }
+    // when subMenu not equal
+    if (get(this.props, 'route.path') !== get(prevProps, 'route.path')) {
+      // reset menu OpenKeys
+      this.handleMenuOpenChange();
     }
     setTimeout(() => {
       if (
