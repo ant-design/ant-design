@@ -882,7 +882,6 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
           return colProps;
         };
       }
-      const sortTitleString = typeof column.title === 'string' ? column.title : undefined;
       return {
         ...column,
         className: classNames(column.className, {
@@ -892,11 +891,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
           [`${prefixCls}-column-sort`]: isSortColumn && sortOrder,
         }),
         title: [
-          <div
-            key="title"
-            title={sortTitleString}
-            className={sortButton ? `${prefixCls}-column-sorters` : undefined}
-          >
+          <div key="title" className={sortButton ? `${prefixCls}-column-sorters` : undefined}>
             {this.renderColumnTitle(column.title)}
             {sortButton}
           </div>,
