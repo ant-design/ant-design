@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-密码框。
+密码框，版本 3.12.0 中新增。
 
 ## en-US
 
-Input type of password.
+Input type of password and added in 3.12.0.
 
 ````jsx
 import { Input } from 'antd';
