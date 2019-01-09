@@ -40,6 +40,7 @@ import Select from '../../select';
 import Skeleton from '../../skeleton';
 import Slider from '../../slider';
 import Spin from '../../spin';
+import Statistic from '../../statistic';
 import Steps from '../../steps';
 import Switch from '../../switch';
 import Table from '../../table';
@@ -426,6 +427,9 @@ describe('ConfigProvider', () => {
 
     // Spin
     testPair('Spin', props => <Spin {...props} />);
+
+    // Statistic
+    testPair('Statistic', props => <Statistic {...props} value={0} />);
 
     // Steps
     testPair('Steps', props => {
