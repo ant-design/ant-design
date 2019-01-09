@@ -1,10 +1,10 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { polyfill } from 'react-lifecycles-compat';
 
 import { withConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import StatisticNumber from './Number';
 import Countdown from './Countdown';
-import { valueType, FormatConfig, formatValue } from './utils';
+import { valueType, FormatConfig } from './utils';
 
 interface StatisticComponent {
   Countdown: typeof Countdown;
@@ -22,50 +22,30 @@ export interface StatisticProps extends FormatConfig {
   suffix?: React.ReactNode;
 }
 
-interface StatisticState {}
+const Statistic: React.SFC<StatisticProps & ConfigConsumerProps> = props => {
+  const { prefixCls, className, style, value = 0, title, valueRender, prefix, suffix } = props;
 
-class Statistic extends React.Component<StatisticProps & ConfigConsumerProps, StatisticState> {
-  getValue() {
-    const { value = 0 } = this.props;
-    return formatValue(value, this.props);
+  let valueNode: React.ReactNode = <StatisticNumber {...props} value={value} />;
+
+  if (valueRender) {
+    valueNode = valueRender(valueNode);
   }
 
-  render() {
-    const {
-      prefixCls,
-      className,
-      style,
-      valueStyle,
-      title,
-      valueRender,
-      prefix,
-      suffix,
-    } = this.props;
-
-    let valueNode: React.ReactNode = (
-      <span style={valueStyle} className={`${prefixCls}-content-value`}>
-        {this.getValue()}
-      </span>
-    );
-
-    if (valueRender) {
-      valueNode = valueRender(valueNode);
-    }
-
-    return (
-      <div className={classNames(prefixCls, className)} style={style}>
-        {title && <div className={`${prefixCls}-title`}>{title}</div>}
-        <div className={`${prefixCls}-content`}>
-          {prefix && <span className={`${prefixCls}-content-prefix`}>{prefix}</span>}
-          {valueNode}
-          {suffix && <span className={`${prefixCls}-content-suffix`}>{suffix}</span>}
-        </div>
+  return (
+    <div className={classNames(prefixCls, className)} style={style}>
+      {title && <div className={`${prefixCls}-title`}>{title}</div>}
+      <div className={`${prefixCls}-content`}>
+        {prefix && <span className={`${prefixCls}-content-prefix`}>{prefix}</span>}
+        {valueNode}
+        {suffix && <span className={`${prefixCls}-content-suffix`}>{suffix}</span>}
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
-polyfill(Statistic);
+Statistic.defaultProps = {
+  decimalSeparator: '.',
+};
 
 const WrapperStatistic = withConfigConsumer<StatisticProps>({
   prefixCls: 'statistic',
