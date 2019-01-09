@@ -14,7 +14,7 @@ title:
 Use the action area and customize the child nodes
 
 ```jsx
-import { PageHeader, Tag, Tabs, Button, Row, Col } from 'antd';
+import { PageHeader, Tag, Tabs, Button, Statistic, Row, Col } from 'antd';
 
 const TabPane = Tabs.TabPane;
 
@@ -45,12 +45,10 @@ const content = (
 const extraContent = (
   <Row>
     <Col span={12}>
-      <span className="label">Status</span>
-      <p className="detail">Pending</p>
+      <Statistic title="Status" value="Pending" />
     </Col>
     <Col span={12}>
-      <span className="label">Price</span>
-      <p className="detail">$ 568.08</p>
+      <Statistic title="Price" prefix="$" value={568.08} />
     </Col>
   </Row>
 );
