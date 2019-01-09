@@ -35,10 +35,10 @@ exports[`renders ./components/anchor/demo/basic.md correctly 1`] = `
         >
           <a
             class="ant-anchor-link-title"
-            href="#components-anchor-demo-fixed"
-            title="Fixed demo"
+            href="#components-anchor-demo-static"
+            title="Static demo"
           >
-            Fixed demo
+            Static demo
           </a>
         </div>
         <div
@@ -111,10 +111,10 @@ exports[`renders ./components/anchor/demo/onClick.md correctly 1`] = `
     >
       <a
         class="ant-anchor-link-title"
-        href="#components-anchor-demo-fixed"
-        title="Fixed demo"
+        href="#components-anchor-demo-static"
+        title="Static demo"
       >
-        Fixed demo
+        Static demo
       </a>
     </div>
     <div
@@ -185,10 +185,10 @@ exports[`renders ./components/anchor/demo/static.md correctly 1`] = `
     >
       <a
         class="ant-anchor-link-title"
-        href="#components-anchor-demo-fixed"
-        title="Fixed demo"
+        href="#components-anchor-demo-static"
+        title="Static demo"
       >
-        Fixed demo
+        Static demo
       </a>
     </div>
     <div
