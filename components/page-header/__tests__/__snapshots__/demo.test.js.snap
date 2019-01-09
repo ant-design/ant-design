@@ -194,30 +194,60 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
           <div
             class="ant-col-12"
           >
-            <span
-              class="label"
+            <div
+              class="ant-statistic"
             >
-              Status
-            </span>
-            <p
-              class="detail"
-            >
-              Pending
-            </p>
+              <div
+                class="ant-statistic-title"
+              >
+                Status
+              </div>
+              <div
+                class="ant-statistic-content"
+              >
+                <span
+                  class="ant-statistic-content-value"
+                >
+                  Pending
+                </span>
+              </div>
+            </div>
           </div>
           <div
             class="ant-col-12"
           >
-            <span
-              class="label"
+            <div
+              class="ant-statistic"
             >
-              Price
-            </span>
-            <p
-              class="detail"
-            >
-              $ 568.08
-            </p>
+              <div
+                class="ant-statistic-title"
+              >
+                Price
+              </div>
+              <div
+                class="ant-statistic-content"
+              >
+                <span
+                  class="ant-statistic-content-prefix"
+                >
+                  $
+                </span>
+                <span
+                  class="ant-statistic-content-value"
+                >
+                  <span
+                    class="ant-statistic-content-value-int"
+                  >
+                    568
+                  </span>
+                  <span
+                    class="ant-statistic-content-value-decimal"
+                  >
+                    .08
+                  </span>
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
