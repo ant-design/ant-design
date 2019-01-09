@@ -23,6 +23,16 @@ return (
 );
 ```
 
+### Content Security Policy
+
+Some component use dynamic style to support wave effect. You can config `csp` prop if Content Security Policy (CSP) is enabled:
+
+```jsx
+<ConfigProvider csp={{ nonce: 'YourNonceCode' }}>
+  <Button>My Button</Button>
+</ConfigProvider>
+```
+
 ## API
 
 | Property | Description | Type | Default |

@@ -93,6 +93,10 @@ declare module '*.json' {
 
 declare module 'lodash/debounce';
 
+declare module 'lodash/padStart';
+
+declare module 'lodash/padEnd';
+
 declare module 'lodash/uniqBy';
 
 declare module "raf";
