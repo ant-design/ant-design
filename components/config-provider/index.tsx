@@ -5,11 +5,16 @@ import defaultRenderEmpty, { RenderEmptyHandler } from './renderEmpty';
 
 export { RenderEmptyHandler };
 
+export interface CSPConfig {
+  nonce?: string;
+}
+
 export interface ConfigConsumerProps {
   getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
   rootPrefixCls?: string;
   getPrefixCls: (suffixCls: string, customizePrefixCls?: string) => string;
   renderEmpty: RenderEmptyHandler;
+  csp?: CSPConfig;
 }
 
 interface ConfigProviderProps {
@@ -17,6 +22,7 @@ interface ConfigProviderProps {
   prefixCls?: string;
   children?: React.ReactNode;
   renderEmpty?: RenderEmptyHandler;
+  csp?: CSPConfig;
 }
 
 const ConfigContext: Context<ConfigConsumerProps | null> = createReactContext({
@@ -42,11 +48,12 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
   };
 
   renderProvider = (context: ConfigConsumerProps) => {
-    const { children, getPopupContainer, renderEmpty } = this.props;
+    const { children, getPopupContainer, renderEmpty, csp } = this.props;
 
     const config: ConfigConsumerProps = {
       ...context,
       getPrefixCls: this.getPrefixCls,
+      csp,
     };
 
     if (getPopupContainer) {
