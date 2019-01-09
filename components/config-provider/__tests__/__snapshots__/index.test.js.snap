@@ -11227,11 +11227,11 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                   >
                     <div
                       class="config-table-column-sorters"
-                      title="Name"
                     >
                       Name
                       <div
                         class="config-table-column-sorter"
+                        title="Sort"
                       >
                         <i
                           class="anticon anticon-caret-up config-table-column-sorter-up off"
@@ -11426,11 +11426,11 @@ exports[`ConfigProvider components Table normal 1`] = `
                   >
                     <div
                       class="ant-table-column-sorters"
-                      title="Name"
                     >
                       Name
                       <div
                         class="ant-table-column-sorter"
+                        title="Sort"
                       >
                         <i
                           class="anticon anticon-caret-up ant-table-column-sorter-up off"
@@ -11625,11 +11625,11 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                   >
                     <div
                       class="prefix-Table-column-sorters"
-                      title="Name"
                     >
                       Name
                       <div
                         class="prefix-Table-column-sorter"
+                        title="Sort"
                       >
                         <i
                           class="anticon anticon-caret-up prefix-Table-column-sorter-up off"
