@@ -227,7 +227,7 @@ exports[`renders ./components/result/demo/customIcon.md correctly 1`] = `
     <div
       class="ant-result-title-view-title"
     >
-      Great, we are done!
+      Great, we have done all the operations!
     </div>
   </div>
   <div
