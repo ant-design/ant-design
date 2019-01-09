@@ -43,6 +43,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
   const okCancel = 'okCancel' in props ? props.okCancel! : true;
   const width = props.width || 416;
   const style = props.style || {};
+  const mask = props.mask === undefined ? true : props.mask;
   // 默认为 false，保持旧版默认行为
   const maskClosable = props.maskClosable === undefined ? false : props.maskClosable;
   const runtimeLocale = getConfirmLocale();
@@ -80,6 +81,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
       transitionName="zoom"
       footer=""
       maskTransitionName="fade"
+      mask={mask}
       maskClosable={maskClosable}
       maskStyle={maskStyle}
       style={style}
