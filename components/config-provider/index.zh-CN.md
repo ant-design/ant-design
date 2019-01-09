@@ -24,6 +24,16 @@ return (
 );
 ```
 
+### Content Security Policy
+
+部分组件为了支持波纹效果，使用了动态样式。如果开启了 Content Security Policy (CSP)，你可以通过 `csp` 属性来进行配置：
+
+```jsx
+<ConfigProvider csp={{ nonce: 'YourNonceCode' }}>
+  <Button>My Button</Button>
+</ConfigProvider>
+```
+
 ## API
 
 | 参数 | 说明 | 类型 | 默认值 |
