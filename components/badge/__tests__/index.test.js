@@ -17,6 +17,13 @@ describe('Badge', () => {
     expect(badge.find('.ant-card-multiple-words').length).toBe(0);
   });
 
+  it('badge should support float number', () => {
+    let wrapper = render(<Badge count={3.5} />);
+    expect(wrapper).toMatchSnapshot();
+    wrapper = mount(<Badge count="3.5" />);
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('badge dot not showing count == 0', () => {
     const badge = mount(<Badge count={0} dot />);
     expect(badge.find('.ant-badge-dot').length).toBe(0);

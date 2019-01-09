@@ -1,5 +1,78 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Badge badge should support float number 1`] = `
+<span
+  class="ant-badge ant-badge-not-a-wrapper"
+>
+  <sup
+    class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+    data-show="true"
+    title="3.5"
+  >
+    3.5
+  </sup>
+</span>
+`;
+
+exports[`Badge badge should support float number 2`] = `
+<Badge
+  count="3.5"
+  dot={false}
+  overflowCount={99}
+  showZero={false}
+>
+  <Consumer>
+    <span
+      className="ant-badge ant-badge-not-a-wrapper"
+    >
+      <Animate
+        animation={Object {}}
+        component=""
+        componentProps={Object {}}
+        onAppear={[Function]}
+        onEnd={[Function]}
+        onEnter={[Function]}
+        onLeave={[Function]}
+        showProp="data-show"
+        transitionAppear={true}
+        transitionEnter={true}
+        transitionLeave={true}
+        transitionName=""
+      >
+        <AnimateChild
+          animation={Object {}}
+          key="scrollNumber"
+          transitionAppear={true}
+          transitionEnter={true}
+          transitionLeave={true}
+          transitionName=""
+        >
+          <ScrollNumber
+            className="ant-badge-count ant-badge-multiple-words"
+            count="3.5"
+            data-show={true}
+            key="scrollNumber"
+            onAnimated={[Function]}
+            prefixCls="ant-scroll-number"
+            title="3.5"
+          >
+            <Consumer>
+              <sup
+                className="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+                data-show={true}
+                title="3.5"
+              >
+                3.5
+              </sup>
+            </Consumer>
+          </ScrollNumber>
+        </AnimateChild>
+      </Animate>
+    </span>
+  </Consumer>
+</Badge>
+`;
+
 exports[`Badge should be compatible with borderColor style 1`] = `
 <span
   class="ant-badge ant-badge-not-a-wrapper"
