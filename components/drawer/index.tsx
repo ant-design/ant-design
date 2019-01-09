@@ -156,7 +156,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
 
   renderHeader() {
     const { title, prefixCls, closable } = this.props;
-    if (!closable) {
+    if (!title && !closable) {
       return null;
     }
 
@@ -164,7 +164,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
     return (
       <div className={headerClassName}>
         {title && <div className={`${prefixCls}-title`}>{title}</div>}
-        {this.renderCloseIcon()}
+        {closable && this.renderCloseIcon()}
       </div>
     );
   }
