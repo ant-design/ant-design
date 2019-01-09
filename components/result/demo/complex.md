@@ -42,7 +42,6 @@ ReactDOM.render(
   </Result>,
   mountNode
 );
-
 ```
 
 <style>

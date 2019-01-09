@@ -3,7 +3,7 @@ type: Feedback
 category: Components
 title: Result
 cols: 1
-subtitle: 
+subtitle:
 ---
 
 Used to feed back the results of a series of operational tasks.
