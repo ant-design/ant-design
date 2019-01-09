@@ -51,18 +51,20 @@ const responsiveMap: BreakpointMap = {
 
 const screens: any = {};
 
-Object.keys(responsiveMap).forEach((screen: Breakpoint) => {
-  enquire.register(responsiveMap[screen], {
-    match: () => {
-      screens[screen] = true;
-    },
-    unmatch: () => {
-      screens[screen] = false;
-    },
-    // Keep a empty destory to avoid triggering unmatch when unregister
-    destroy() {},
+if (typeof window !== 'undefined') {
+  Object.keys(responsiveMap).forEach((screen: Breakpoint) => {
+    enquire.register(responsiveMap[screen], {
+      match: () => {
+        screens[screen] = true;
+      },
+      unmatch: () => {
+        screens[screen] = false;
+      },
+      // Keep a empty destory to avoid triggering unmatch when unregister
+      destroy() {},
+    });
   });
-});
+}
 
 export default class Row extends React.Component<RowProps, RowState> {
   static defaultProps = {
