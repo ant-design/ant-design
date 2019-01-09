@@ -65,7 +65,7 @@ Select component to select value from options.
 | onSelect | Called when a option is selected, the params are option's value (or key) and option instance. | function(value, option:Option) | - |
 | defaultOpen | Initial open state of dropdown | boolean | - |
 | open | Controlled open state of dropdown | boolean | - |
-| onDropdownVisibleChange | Call when dropdown open | function(open) | - |
+| onDropdownVisibleChange | Call when dropdown open (Supported after version 3.9.0) | function(open) | - |
 | loading | indicate loading state | Boolean | false |
 
 ### Select Methods
