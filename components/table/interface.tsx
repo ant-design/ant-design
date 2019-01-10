@@ -148,9 +148,9 @@ export interface TableProps<T> {
   ) => void;
   loading?: boolean | SpinProps;
   locale?: {
-    filterConfirm?: string;
-    filterReset?: string;
-    emptyText?: string;
+    filterConfirm?: string | React.ReactNode;
+    filterReset?: string | React.ReactNode;
+    emptyText?: string | React.ReactNode | (() => React.ReactNode);
   };
   indentSize?: number;
   onRowClick?: (record: T, index: number, event: Event) => void;
