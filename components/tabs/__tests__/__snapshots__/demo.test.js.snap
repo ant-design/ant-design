@@ -20,7 +20,7 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
           class="ant-tabs-tab-prev-icon"
         >
           <i
-            aria-label="left"
+            aria-label="icon: left"
             class="anticon anticon-left ant-tabs-tab-prev-icon-target"
           >
             <svg
@@ -47,7 +47,7 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
           class="ant-tabs-tab-next-icon"
         >
           <i
-            aria-label="right"
+            aria-label="icon: right"
             class="anticon anticon-right ant-tabs-tab-next-icon-target"
           >
             <svg
@@ -174,7 +174,7 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
           class="ant-tabs-tab-prev-icon"
         >
           <i
-            aria-label="left"
+            aria-label="icon: left"
             class="anticon anticon-left ant-tabs-tab-prev-icon-target"
           >
             <svg
@@ -201,7 +201,7 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
           class="ant-tabs-tab-next-icon"
         >
           <i
-            aria-label="right"
+            aria-label="icon: right"
             class="anticon anticon-right ant-tabs-tab-next-icon-target"
           >
             <svg
@@ -330,7 +330,7 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
             class="ant-tabs-tab-prev-icon"
           >
             <i
-              aria-label="left"
+              aria-label="icon: left"
               class="anticon anticon-left ant-tabs-tab-prev-icon-target"
             >
               <svg
@@ -357,7 +357,7 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
             class="ant-tabs-tab-next-icon"
           >
             <i
-              aria-label="right"
+              aria-label="icon: right"
               class="anticon anticon-right ant-tabs-tab-next-icon-target"
             >
               <svg
@@ -505,7 +505,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
             class="ant-tabs-tab-prev-icon"
           >
             <i
-              aria-label="left"
+              aria-label="icon: left"
               class="anticon anticon-left ant-tabs-tab-prev-icon-target"
             >
               <svg
@@ -532,7 +532,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
             class="ant-tabs-tab-next-icon"
           >
             <i
-              aria-label="right"
+              aria-label="icon: right"
               class="anticon anticon-right ant-tabs-tab-next-icon-target"
             >
               <svg
@@ -570,7 +570,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
                   <div>
                     Tab 1
                     <i
-                      aria-label="close"
+                      aria-label="icon: close"
                       class="anticon anticon-close ant-tabs-close-x"
                       tabindex="-1"
                     >
@@ -599,7 +599,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
                   <div>
                     Tab 2
                     <i
-                      aria-label="close"
+                      aria-label="icon: close"
                       class="anticon anticon-close ant-tabs-close-x"
                       tabindex="-1"
                     >
@@ -692,7 +692,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
               class="ant-tabs-tab-prev-icon"
             >
               <i
-                aria-label="left"
+                aria-label="icon: left"
                 class="anticon anticon-left ant-tabs-tab-prev-icon-target"
               >
                 <svg
@@ -719,7 +719,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
               class="ant-tabs-tab-next-icon"
             >
               <i
-                aria-label="right"
+                aria-label="icon: right"
                 class="anticon anticon-right ant-tabs-tab-next-icon-target"
               >
                 <svg
@@ -849,7 +849,7 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
           class="ant-tabs-tab-prev-icon"
         >
           <i
-            aria-label="left"
+            aria-label="icon: left"
             class="anticon anticon-left ant-tabs-tab-prev-icon-target"
           >
             <svg
@@ -876,7 +876,7 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
           class="ant-tabs-tab-next-icon"
         >
           <i
-            aria-label="right"
+            aria-label="icon: right"
             class="anticon anticon-right ant-tabs-tab-next-icon-target"
           >
             <svg
@@ -998,7 +998,7 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
     >
       <span>
         <i
-          aria-label="plus"
+          aria-label="icon: plus"
           class="anticon anticon-plus ant-tabs-new-tab"
           tabindex="-1"
         >
@@ -1029,7 +1029,7 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
           class="ant-tabs-tab-prev-icon"
         >
           <i
-            aria-label="left"
+            aria-label="icon: left"
             class="anticon anticon-left ant-tabs-tab-prev-icon-target"
           >
             <svg
@@ -1056,7 +1056,7 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
           class="ant-tabs-tab-next-icon"
         >
           <i
-            aria-label="right"
+            aria-label="icon: right"
             class="anticon anticon-right ant-tabs-tab-next-icon-target"
           >
             <svg
@@ -1094,7 +1094,7 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
                 <div>
                   Tab 1
                   <i
-                    aria-label="close"
+                    aria-label="icon: close"
                     class="anticon anticon-close ant-tabs-close-x"
                     tabindex="-1"
                   >
@@ -1123,7 +1123,7 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
                 <div>
                   Tab 2
                   <i
-                    aria-label="close"
+                    aria-label="icon: close"
                     class="anticon anticon-close ant-tabs-close-x"
                     tabindex="-1"
                   >
@@ -1241,7 +1241,7 @@ exports[`renders ./components/tabs/demo/extra.md correctly 1`] = `
           class="ant-tabs-tab-prev-icon"
         >
           <i
-            aria-label="left"
+            aria-label="icon: left"
             class="anticon anticon-left ant-tabs-tab-prev-icon-target"
           >
             <svg
@@ -1268,7 +1268,7 @@ exports[`renders ./components/tabs/demo/extra.md correctly 1`] = `
           class="ant-tabs-tab-next-icon"
         >
           <i
-            aria-label="right"
+            aria-label="icon: right"
             class="anticon anticon-right ant-tabs-tab-next-icon-target"
           >
             <svg
@@ -1395,7 +1395,7 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
           class="ant-tabs-tab-prev-icon"
         >
           <i
-            aria-label="left"
+            aria-label="icon: left"
             class="anticon anticon-left ant-tabs-tab-prev-icon-target"
           >
             <svg
@@ -1422,7 +1422,7 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
           class="ant-tabs-tab-next-icon"
         >
           <i
-            aria-label="right"
+            aria-label="icon: right"
             class="anticon anticon-right ant-tabs-tab-next-icon-target"
           >
             <svg
@@ -1459,7 +1459,7 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
               >
                 <span>
                   <i
-                    aria-label="apple"
+                    aria-label="icon: apple"
                     class="anticon anticon-apple"
                   >
                     <svg
@@ -1487,7 +1487,7 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
               >
                 <span>
                   <i
-                    aria-label="android"
+                    aria-label="icon: android"
                     class="anticon anticon-android"
                   >
                     <svg
@@ -1581,7 +1581,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
         unselectable="on"
       >
         <i
-          aria-label="down"
+          aria-label="icon: down"
           class="anticon anticon-down ant-select-arrow-icon"
         >
           <svg
@@ -1624,7 +1624,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
         unselectable="on"
       >
         <i
-          aria-label="down"
+          aria-label="icon: down"
           class="anticon anticon-down ant-select-arrow-icon"
         >
           <svg
@@ -1667,7 +1667,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
         unselectable="on"
       >
         <i
-          aria-label="down"
+          aria-label="icon: down"
           class="anticon anticon-down ant-select-arrow-icon"
         >
           <svg
@@ -1710,7 +1710,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
         unselectable="on"
       >
         <i
-          aria-label="down"
+          aria-label="icon: down"
           class="anticon anticon-down ant-select-arrow-icon"
         >
           <svg
@@ -1749,7 +1749,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
             class="ant-tabs-tab-prev-icon"
           >
             <i
-              aria-label="left"
+              aria-label="icon: left"
               class="anticon anticon-left ant-tabs-tab-prev-icon-target"
             >
               <svg
@@ -1776,7 +1776,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
             class="ant-tabs-tab-next-icon"
           >
             <i
-              aria-label="right"
+              aria-label="icon: right"
               class="anticon anticon-right ant-tabs-tab-next-icon-target"
             >
               <svg
@@ -1869,7 +1869,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
                   class="ant-tabs-tab-prev-icon"
                 >
                   <i
-                    aria-label="left"
+                    aria-label="icon: left"
                     class="anticon anticon-left ant-tabs-tab-prev-icon-target"
                   >
                     <svg
@@ -1896,7 +1896,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
                   class="ant-tabs-tab-next-icon"
                 >
                   <i
-                    aria-label="right"
+                    aria-label="icon: right"
                     class="anticon anticon-right ant-tabs-tab-next-icon-target"
                   >
                     <svg
@@ -2279,7 +2279,7 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
           unselectable="on"
         >
           <i
-            aria-label="down"
+            aria-label="icon: down"
             class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
@@ -2319,7 +2319,7 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
             class="ant-tabs-tab-prev-icon"
           >
             <i
-              aria-label="left"
+              aria-label="icon: left"
               class="anticon anticon-left ant-tabs-tab-prev-icon-target"
             >
               <svg
@@ -2346,7 +2346,7 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
             class="ant-tabs-tab-next-icon"
           >
             <i
-              aria-label="right"
+              aria-label="icon: right"
               class="anticon anticon-right ant-tabs-tab-next-icon-target"
             >
               <svg
@@ -2538,7 +2538,7 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
             class="ant-tabs-tab-prev-icon"
           >
             <i
-              aria-label="left"
+              aria-label="icon: left"
               class="anticon anticon-left ant-tabs-tab-prev-icon-target"
             >
               <svg
@@ -2565,7 +2565,7 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
             class="ant-tabs-tab-next-icon"
           >
             <i
-              aria-label="right"
+              aria-label="icon: right"
               class="anticon anticon-right ant-tabs-tab-next-icon-target"
             >
               <svg
@@ -2739,7 +2739,7 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab-prev-icon"
           >
             <i
-              aria-label="left"
+              aria-label="icon: left"
               class="anticon anticon-left ant-tabs-tab-prev-icon-target"
             >
               <svg
@@ -2766,7 +2766,7 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab-next-icon"
           >
             <i
-              aria-label="right"
+              aria-label="icon: right"
               class="anticon anticon-right ant-tabs-tab-next-icon-target"
             >
               <svg

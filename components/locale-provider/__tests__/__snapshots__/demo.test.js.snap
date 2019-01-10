@@ -72,7 +72,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="left"
+              aria-label="icon: left"
               class="anticon anticon-left"
             >
               <svg
@@ -146,7 +146,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="right"
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -198,7 +198,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                 unselectable="on"
               >
                 <i
-                  aria-label="down"
+                  aria-label="icon: down"
                   class="anticon anticon-down ant-select-arrow-icon"
                 >
                   <svg
@@ -267,7 +267,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
             unselectable="on"
           >
             <i
-              aria-label="down"
+              aria-label="icon: down"
               class="anticon anticon-down ant-select-arrow-icon"
             >
               <svg
@@ -298,7 +298,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
             value=""
           />
           <i
-            aria-label="calendar"
+            aria-label="icon: calendar"
             class="anticon anticon-calendar ant-calendar-picker-icon"
           >
             <svg
@@ -331,7 +331,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
           class="ant-time-picker-icon"
         >
           <i
-            aria-label="clock-circle"
+            aria-label="icon: clock-circle"
             class="anticon anticon-clock-circle ant-time-picker-clock-icon"
           >
             <svg
@@ -381,7 +381,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
             value=""
           />
           <i
-            aria-label="calendar"
+            aria-label="icon: calendar"
             class="anticon anticon-calendar ant-calendar-picker-icon"
           >
             <svg
@@ -489,7 +489,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   class="ant-transfer-list-search-action"
                 >
                   <i
-                    aria-label="search"
+                    aria-label="icon: search"
                     class="anticon anticon-search"
                   >
                     <svg
@@ -544,7 +544,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
             type="button"
           >
             <i
-              aria-label="right"
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -568,7 +568,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
             type="button"
           >
             <i
-              aria-label="left"
+              aria-label="icon: left"
               class="anticon anticon-left"
             >
               <svg
@@ -636,7 +636,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   class="ant-transfer-list-search-action"
                 >
                   <i
-                    aria-label="search"
+                    aria-label="icon: search"
                     class="anticon anticon-search"
                   >
                     <svg
@@ -723,7 +723,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                 unselectable="on"
               >
                 <i
-                  aria-label="down"
+                  aria-label="icon: down"
                   class="anticon anticon-down ant-select-arrow-icon"
                 >
                   <svg
@@ -773,7 +773,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                 unselectable="on"
               >
                 <i
-                  aria-label="down"
+                  aria-label="icon: down"
                   class="anticon anticon-down ant-select-arrow-icon"
                 >
                   <svg
@@ -1766,7 +1766,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                             Name
                           </div>
                           <i
-                            aria-label="filter"
+                            aria-label="icon: filter"
                             class="anticon anticon-filter ant-dropdown-trigger"
                             tabindex="-1"
                             title="Filter menu"
@@ -1846,7 +1846,7 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
         class="ant-pagination-item-link"
       >
         <i
-          aria-label="left"
+          aria-label="图标: left"
           class="anticon anticon-left"
         >
           <svg
@@ -1920,7 +1920,7 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
         class="ant-pagination-item-link"
       >
         <i
-          aria-label="right"
+          aria-label="图标: right"
           class="anticon anticon-right"
         >
           <svg
@@ -1972,7 +1972,7 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
             unselectable="on"
           >
             <i
-              aria-label="down"
+              aria-label="图标: down"
               class="anticon anticon-down ant-select-arrow-icon"
             >
               <svg

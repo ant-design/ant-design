@@ -13,7 +13,7 @@ exports[`DropdownButton should support href like Button 1`] = `
     type="button"
   >
     <i
-      aria-label="ellipsis"
+      aria-label="icon: ellipsis"
       class="anticon anticon-ellipsis"
     >
       <svg

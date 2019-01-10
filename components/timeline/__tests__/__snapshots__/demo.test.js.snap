@@ -44,7 +44,7 @@ exports[`renders ./components/timeline/demo/alternate.md correctly 1`] = `
       class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-blue"
     >
       <i
-        aria-label="clock-circle-o"
+        aria-label="icon: clock-circle-o"
         class="anticon anticon-clock-circle-o"
         style="font-size:16px"
       >
@@ -112,7 +112,7 @@ exports[`renders ./components/timeline/demo/alternate.md correctly 1`] = `
       class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-blue"
     >
       <i
-        aria-label="clock-circle-o"
+        aria-label="icon: clock-circle-o"
         class="anticon anticon-clock-circle-o"
         style="font-size:16px"
       >
@@ -337,7 +337,7 @@ exports[`renders ./components/timeline/demo/custom.md correctly 1`] = `
       class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-red"
     >
       <i
-        aria-label="clock-circle-o"
+        aria-label="icon: clock-circle-o"
         class="anticon anticon-clock-circle-o"
         style="font-size:16px"
       >
@@ -443,7 +443,7 @@ exports[`renders ./components/timeline/demo/pending.md correctly 1`] = `
         class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-blue"
       >
         <i
-          aria-label="loading"
+          aria-label="icon: loading"
           class="anticon anticon-loading"
         >
           <svg
@@ -524,7 +524,7 @@ exports[`renders ./components/timeline/demo/right.md correctly 1`] = `
       class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-red"
     >
       <i
-        aria-label="clock-circle-o"
+        aria-label="icon: clock-circle-o"
         class="anticon anticon-clock-circle-o"
         style="font-size:16px"
       >

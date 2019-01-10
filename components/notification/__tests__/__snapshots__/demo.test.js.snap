@@ -77,7 +77,7 @@ exports[`renders ./components/notification/demo/placement.md correctly 1`] = `
         unselectable="on"
       >
         <i
-          aria-label="down"
+          aria-label="icon: down"
           class="anticon anticon-down ant-select-arrow-icon"
         >
           <svg

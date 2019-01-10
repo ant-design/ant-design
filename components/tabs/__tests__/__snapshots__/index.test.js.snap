@@ -62,7 +62,7 @@ exports[`Tabs tabPosition remove card 1`] = `
           class="ant-tabs-tab-prev-icon"
         >
           <i
-            aria-label="up"
+            aria-label="icon: up"
             class="anticon anticon-up ant-tabs-tab-prev-icon-target"
           >
             <svg
@@ -89,7 +89,7 @@ exports[`Tabs tabPosition remove card 1`] = `
           class="ant-tabs-tab-next-icon"
         >
           <i
-            aria-label="down"
+            aria-label="icon: down"
             class="anticon anticon-down ant-tabs-tab-next-icon-target"
           >
             <svg

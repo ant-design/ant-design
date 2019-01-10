@@ -38,7 +38,7 @@ exports[`Drawer render correctly 1`] = `
                 class="ant-drawer-close"
               >
                 <i
-                  aria-label="close"
+                  aria-label="icon: close"
                   class="anticon anticon-close"
                 >
                   <svg

@@ -46,7 +46,7 @@ exports[`List.pagination renders pagination correctly 1`] = `
           class="ant-pagination-item-link"
         >
           <i
-            aria-label="left"
+            aria-label="icon: left"
             class="anticon anticon-left"
           >
             <svg
@@ -93,7 +93,7 @@ exports[`List.pagination renders pagination correctly 1`] = `
           class="ant-pagination-item-link"
         >
           <i
-            aria-label="right"
+            aria-label="icon: right"
             class="anticon anticon-right"
           >
             <svg

@@ -44,7 +44,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
       >
         <span>
           <i
-            aria-label="paper-clip"
+            aria-label="icon: paper-clip"
             class="anticon anticon-paper-clip"
           >
             <svg
@@ -73,7 +73,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
         </span>
       </div>
       <i
-        aria-label="close"
+        aria-label="icon: close"
         class="anticon anticon-close"
         tabindex="-1"
         title="Remove file"
@@ -101,7 +101,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
       >
         <span>
           <i
-            aria-label="paper-clip"
+            aria-label="icon: paper-clip"
             class="anticon anticon-paper-clip"
           >
             <svg
@@ -130,7 +130,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
         </span>
       </div>
       <i
-        aria-label="close"
+        aria-label="icon: close"
         class="anticon anticon-close"
         tabindex="-1"
         title="Remove file"
@@ -158,7 +158,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
       >
         <span>
           <i
-            aria-label="paper-clip"
+            aria-label="icon: paper-clip"
             class="anticon anticon-paper-clip"
           >
             <svg
@@ -187,7 +187,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
         </span>
       </div>
       <i
-        aria-label="close"
+        aria-label="icon: close"
         class="anticon anticon-close"
         tabindex="-1"
         title="Remove file"
@@ -257,7 +257,7 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
       >
         <span>
           <i
-            aria-label="paper-clip"
+            aria-label="icon: paper-clip"
             class="anticon anticon-paper-clip"
           >
             <svg
@@ -286,7 +286,7 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
         </span>
       </div>
       <i
-        aria-label="close"
+        aria-label="icon: close"
         class="anticon anticon-close"
         tabindex="-1"
         title="Remove file"
@@ -359,7 +359,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
             title="Preview file"
           >
             <i
-              aria-label="eye-o"
+              aria-label="icon: eye-o"
               class="anticon anticon-eye-o"
             >
               <svg
@@ -378,7 +378,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
             </i>
           </a>
           <i
-            aria-label="delete"
+            aria-label="icon: delete"
             class="anticon anticon-delete"
             tabindex="-1"
             title="Remove file"
@@ -450,7 +450,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
           </span>
         </div>
         <i
-          aria-label="close"
+          aria-label="icon: close"
           class="anticon anticon-close"
           tabindex="-1"
           title="Remove file"
@@ -500,7 +500,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
           </span>
         </div>
         <i
-          aria-label="close"
+          aria-label="icon: close"
           class="anticon anticon-close"
           tabindex="-1"
           title="Remove file"
@@ -564,7 +564,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
           </span>
         </div>
         <i
-          aria-label="close"
+          aria-label="icon: close"
           class="anticon anticon-close"
           tabindex="-1"
           title="Remove file"
@@ -614,7 +614,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
           </span>
         </div>
         <i
-          aria-label="close"
+          aria-label="icon: close"
           class="anticon anticon-close"
           tabindex="-1"
           title="Remove file"
