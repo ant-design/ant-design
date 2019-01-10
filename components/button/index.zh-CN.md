@@ -25,7 +25,7 @@ subtitle: 按钮
 | htmlType | 设置 `button` 原生的 `type` 值，可选值请参考 [HTML 标准](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-type) | string | `button` |
 | icon | 设置按钮的图标类型 | string | - |
 | loading | 设置按钮载入状态 | boolean \| { delay: number } | `false` |
-| shape | 设置按钮形状，可选值为 `circle` 或者不设 | string | - |
+| shape | 设置按钮形状，可选值为 `circle`、 `round` 或者不设 | string | - |
 | size | 设置按钮大小，可选值为 `small` `large` 或者不设 | string | `default` |
 | target | 相当于 a 链接的 target 属性，href 存在时生效 | string | - |
 | type | 设置按钮类型，可选值为 `primary` `dashed` `danger`(版本 2.7 中增加) 或者不设 | string | - |
