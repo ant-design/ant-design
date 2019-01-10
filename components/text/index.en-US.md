@@ -5,7 +5,7 @@ title: Text
 cols: 1
 ---
 
-Display text content/
+Basic format and regular operation on text.
 
 ## When To Use
 

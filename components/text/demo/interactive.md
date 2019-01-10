@@ -16,10 +16,24 @@ Provide additional interactive capacity.
 ```jsx
 import { Text } from 'antd';
 
-ReactDOM.render(
-  <div>
-    <Text editable>editable text</Text>
-  </div>,
-  mountNode
-);
+class Demo extends React.Component {
+  state = {
+    str: 'editable text',
+  };
+
+  onChange = (str) => {
+    console.log('Content change:', str);
+    this.setState({ str });
+  };
+
+  render() {
+    return (
+      <div>
+        <Text onChange={this.onChange} editable>{this.state.str}</Text>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<Demo />, mountNode);
 ```
