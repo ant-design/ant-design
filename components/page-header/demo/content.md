@@ -1,17 +1,17 @@
 ---
 order: 3
 title:
-  zh-CN: 带面包屑页头
-  en-US: Breadcrumb Page Header
+  zh-CN: 带内容的例子
+  en-US: Example with content
 ---
 
 ## zh-CN
 
-与面包屑一起使用
+带内容的例子
 
 ## en-US
 
-Breadcrumb Page Header
+Example with content
 
 ```jsx
 import { PageHeader } from 'antd';
