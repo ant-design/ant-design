@@ -97,7 +97,6 @@
     "@types/react": "~16.7.13",
     "@types/react-dom": "^16.0.11",
     "@types/react-intl": "^2.3.14",
-    "@types/react-slick": "^0.23.2",
     "@yesmeck/offline-plugin": "^5.0.5",
     "ansi-styles": "^3.2.1",
     "antd-theme-generator": "^1.1.4",
