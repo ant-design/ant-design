@@ -98,7 +98,9 @@ exports[`Table.filter renders filter correctly 1`] = `
                       Name
                     </div>
                     <i
+                      aria-label="filter"
                       class="anticon anticon-filter ant-dropdown-trigger"
+                      tabindex="-1"
                       title="Filter menu"
                     >
                       <svg

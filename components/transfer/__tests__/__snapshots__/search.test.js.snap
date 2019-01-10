@@ -32,6 +32,7 @@ exports[`Search should show cross icon when input value exists 1`] = `
         type="search"
       >
         <i
+          aria-label="search"
           className="anticon anticon-search"
         >
           <IconReact
@@ -96,6 +97,7 @@ exports[`Search should show cross icon when input value exists 2`] = `
         type="close-circle"
       >
         <i
+          aria-label="close-circle"
           className="anticon anticon-close-circle"
         >
           <IconReact

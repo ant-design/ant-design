@@ -30,9 +30,11 @@ exports[`Input allowClear should change type when click 1`] = `
           type="close-circle"
         >
           <i
+            aria-label="close-circle"
             className="anticon anticon-close-circle ant-input-clear-icon"
             onClick={[Function]}
             role="button"
+            tabIndex={-1}
           >
             <IconReact
               className=""
@@ -154,8 +156,10 @@ exports[`Input.Password should change type when click 1`] = `
             type="eye"
           >
             <i
+              aria-label="eye"
               className="anticon anticon-eye ant-input-password-icon"
               onClick={[Function]}
+              tabIndex={-1}
             >
               <IconReact
                 className=""
@@ -231,8 +235,10 @@ exports[`Input.Password should change type when click 2`] = `
             type="eye-invisible"
           >
             <i
+              aria-label="eye-invisible"
               className="anticon anticon-eye-invisible ant-input-password-icon"
               onClick={[Function]}
+              tabIndex={-1}
             >
               <IconReact
                 className=""
@@ -312,8 +318,10 @@ exports[`Input.Password should change type when click 3`] = `
             type="eye"
           >
             <i
+              aria-label="eye"
               className="anticon anticon-eye ant-input-password-icon"
               onClick={[Function]}
+              tabIndex={-1}
             >
               <IconReact
                 className=""
@@ -391,8 +399,10 @@ exports[`Input.Search should support suffix 1`] = `
               type="search"
             >
               <i
+                aria-label="search"
                 className="anticon anticon-search ant-input-search-icon"
                 onClick={[Function]}
+                tabIndex={-1}
               >
                 <IconReact
                   className=""

@@ -15,6 +15,7 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
       tabindex="0"
     >
       <i
+        aria-label="right"
         class="anticon anticon-right arrow"
       >
         <svg
@@ -44,6 +45,7 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
       tabindex="0"
     >
       <i
+        aria-label="right"
         class="anticon anticon-right arrow"
       >
         <svg
@@ -73,6 +75,7 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
       tabindex="0"
     >
       <i
+        aria-label="right"
         class="anticon anticon-right arrow"
       >
         <svg
@@ -109,6 +112,7 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
       tabindex="0"
     >
       <i
+        aria-label="right"
         class="anticon anticon-right arrow"
       >
         <svg
@@ -153,6 +157,7 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
       tabindex="0"
     >
       <i
+        aria-label="right"
         class="anticon anticon-right arrow"
       >
         <svg
@@ -182,6 +187,7 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
       tabindex="-1"
     >
       <i
+        aria-label="right"
         class="anticon anticon-right arrow"
       >
         <svg
@@ -218,6 +224,7 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
       tabindex="0"
     >
       <i
+        aria-label="right"
         class="anticon anticon-right arrow"
       >
         <svg
@@ -260,6 +267,7 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
       tabindex="0"
     >
       <i
+        aria-label="right"
         class="anticon anticon-right arrow"
       >
         <svg
@@ -289,6 +297,7 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
       tabindex="0"
     >
       <i
+        aria-label="right"
         class="anticon anticon-right arrow"
       >
         <svg
@@ -326,6 +335,7 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
       tabindex="0"
     >
       <i
+        aria-label="right"
         class="anticon anticon-right arrow"
       >
         <svg
@@ -371,6 +381,7 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
       tabindex="0"
     >
       <i
+        aria-label="right"
         class="anticon anticon-right arrow"
       >
         <svg
@@ -401,6 +412,7 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
       tabindex="0"
     >
       <i
+        aria-label="right"
         class="anticon anticon-right arrow"
       >
         <svg
@@ -437,6 +449,7 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
       tabindex="0"
     >
       <i
+        aria-label="right"
         class="anticon anticon-right arrow"
       >
         <svg
@@ -466,6 +479,7 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
       tabindex="0"
     >
       <i
+        aria-label="right"
         class="anticon anticon-right arrow"
       >
         <svg
@@ -495,6 +509,7 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
       tabindex="0"
     >
       <i
+        aria-label="right"
         class="anticon anticon-right arrow"
       >
         <svg
@@ -531,6 +546,7 @@ exports[`renders ./components/collapse/demo/noarrow.md correctly 1`] = `
       tabindex="0"
     >
       <i
+        aria-label="right"
         class="anticon anticon-right arrow"
       >
         <svg

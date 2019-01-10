@@ -147,6 +147,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="user"
             class="anticon anticon-user"
           >
             <svg
@@ -173,6 +174,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="video-camera"
             class="anticon anticon-video-camera"
           >
             <svg
@@ -199,6 +201,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="upload"
             class="anticon anticon-upload"
           >
             <svg
@@ -230,7 +233,9 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
       style="background:#fff;padding:0"
     >
       <i
+        aria-label="menu-fold"
         class="anticon anticon-menu-fold trigger"
+        tabindex="-1"
       >
         <svg
           aria-hidden="true"
@@ -449,6 +454,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="user"
             class="anticon anticon-user"
           >
             <svg
@@ -477,6 +483,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="video-camera"
             class="anticon anticon-video-camera"
           >
             <svg
@@ -505,6 +512,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="upload"
             class="anticon anticon-upload"
           >
             <svg
@@ -533,6 +541,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="bar-chart"
             class="anticon anticon-bar-chart"
           >
             <svg
@@ -561,6 +570,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="cloud-o"
             class="anticon anticon-cloud-o"
           >
             <svg
@@ -589,6 +599,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="appstore-o"
             class="anticon anticon-appstore-o"
           >
             <svg
@@ -617,6 +628,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="team"
             class="anticon anticon-team"
           >
             <svg
@@ -645,6 +657,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="shop"
             class="anticon anticon-shop"
           >
             <svg
@@ -816,6 +829,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="user"
             class="anticon anticon-user"
           >
             <svg
@@ -844,6 +858,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="video-camera"
             class="anticon anticon-video-camera"
           >
             <svg
@@ -872,6 +887,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="upload"
             class="anticon anticon-upload"
           >
             <svg
@@ -900,6 +916,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="user"
             class="anticon anticon-user"
           >
             <svg
@@ -977,6 +994,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="pie-chart"
             class="anticon anticon-pie-chart"
           >
             <svg
@@ -1003,6 +1021,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="desktop"
             class="anticon anticon-desktop"
           >
             <svg
@@ -1035,6 +1054,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           >
             <span>
               <i
+                aria-label="user"
                 class="anticon anticon-user"
               >
                 <svg
@@ -1073,6 +1093,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           >
             <span>
               <i
+                aria-label="team"
                 class="anticon anticon-team"
               >
                 <svg
@@ -1105,6 +1126,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="file"
             class="anticon anticon-file"
           >
             <svg
@@ -1132,6 +1154,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
       style="width:200px"
     >
       <i
+        aria-label="left"
         class="anticon anticon-left"
       >
         <svg
@@ -1554,6 +1577,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
               >
                 <span>
                   <i
+                    aria-label="user"
                     class="anticon anticon-user"
                   >
                     <svg
@@ -1623,6 +1647,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
               >
                 <span>
                   <i
+                    aria-label="laptop"
                     class="anticon anticon-laptop"
                   >
                     <svg
@@ -1659,6 +1684,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
               >
                 <span>
                   <i
+                    aria-label="notification"
                     class="anticon anticon-notification"
                   >
                     <svg
@@ -1838,6 +1864,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
             >
               <span>
                 <i
+                  aria-label="user"
                   class="anticon anticon-user"
                 >
                   <svg
@@ -1907,6 +1934,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
             >
               <span>
                 <i
+                  aria-label="laptop"
                   class="anticon anticon-laptop"
                 >
                   <svg
@@ -1943,6 +1971,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
             >
               <span>
                 <i
+                  aria-label="notification"
                   class="anticon anticon-notification"
                 >
                   <svg
