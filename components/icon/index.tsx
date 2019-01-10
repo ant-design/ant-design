@@ -11,6 +11,7 @@ import {
   alias,
 } from './utils';
 import warning from '../_util/warning';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { getTwoToneColor, setTwoToneColor } from './twoTonePrimaryColor';
 
 // Initial setting
@@ -19,6 +20,9 @@ setTwoToneColor('#1890ff');
 let defaultTheme: ThemeType = 'outlined';
 let dangerousTheme: ThemeType | undefined = undefined;
 
+export interface TransferLocale {
+  icon: string;
+}
 export interface CustomIconComponentProps {
   width: string | number;
   height: string | number;
@@ -96,7 +100,7 @@ const Icon: IconComponent<IconProps> = props => {
     [`anticon-spin`]: !!spin || type === 'loading',
   });
 
-  let innerNode;
+  let innerNode: React.ReactNode;
 
   // component > children > type
   if (Component) {
@@ -157,15 +161,19 @@ const Icon: IconComponent<IconProps> = props => {
   }
 
   return (
-    <i
-      aria-label={type}
-      {...restProps}
-      tabIndex={iconTabIndex}
-      onClick={onClick}
-      className={classString}
-    >
-      {innerNode}
-    </i>
+    <LocaleReceiver componentName="Icon">
+      {(locale: TransferLocale) => (
+        <i
+          aria-label={`${locale.icon}: ${type}`}
+          {...restProps}
+          tabIndex={iconTabIndex}
+          onClick={onClick}
+          className={classString}
+        >
+          {innerNode}
+        </i>
+      )}
+    </LocaleReceiver>
   );
 };
 

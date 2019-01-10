@@ -21,7 +21,7 @@ exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
   >
     Tag 2
     <i
-      aria-label="close"
+      aria-label="icon: close"
       class="anticon anticon-close"
       tabindex="-1"
     >
@@ -45,7 +45,7 @@ exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
   >
     Prevent Default
     <i
-      aria-label="close"
+      aria-label="icon: close"
       class="anticon anticon-close"
       tabindex="-1"
     >
@@ -197,7 +197,7 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
   >
     Tag 2
     <i
-      aria-label="close"
+      aria-label="icon: close"
       class="anticon anticon-close"
       tabindex="-1"
     >
@@ -221,7 +221,7 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
   >
     Tag 3
     <i
-      aria-label="close"
+      aria-label="icon: close"
       class="anticon anticon-close"
       tabindex="-1"
     >
@@ -245,7 +245,7 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
     style="background:#fff;border-style:dashed"
   >
     <i
-      aria-label="plus"
+      aria-label="icon: plus"
       class="anticon anticon-plus"
     >
       <svg
@@ -274,7 +274,7 @@ exports[`renders ./components/tag/demo/controlled.md correctly 1`] = `
   >
     Movies
     <i
-      aria-label="close"
+      aria-label="icon: close"
       class="anticon anticon-close"
       tabindex="-1"
     >

@@ -14,7 +14,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
       class="ant-pagination-item-link"
     >
       <i
-        aria-label="left"
+        aria-label="icon: left"
         class="anticon anticon-left"
       >
         <svg
@@ -88,7 +88,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
       class="ant-pagination-item-link"
     >
       <i
-        aria-label="right"
+        aria-label="icon: right"
         class="anticon anticon-right"
       >
         <svg
@@ -125,7 +125,7 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
       class="ant-pagination-item-link"
     >
       <i
-        aria-label="left"
+        aria-label="icon: left"
         class="anticon anticon-left"
       >
         <svg
@@ -201,7 +201,7 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
         class="ant-pagination-item-container"
       >
         <i
-          aria-label="double-right"
+          aria-label="icon: double-right"
           class="anticon anticon-double-right ant-pagination-item-link-icon"
         >
           <svg
@@ -245,7 +245,7 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
       class="ant-pagination-item-link"
     >
       <i
-        aria-label="right"
+        aria-label="icon: right"
         class="anticon anticon-right"
       >
         <svg
@@ -297,7 +297,7 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
           unselectable="on"
         >
           <i
-            aria-label="down"
+            aria-label="icon: down"
             class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
@@ -336,7 +336,7 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
       class="ant-pagination-item-link"
     >
       <i
-        aria-label="left"
+        aria-label="icon: left"
         class="anticon anticon-left"
       >
         <svg
@@ -410,7 +410,7 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
       class="ant-pagination-item-link"
     >
       <i
-        aria-label="right"
+        aria-label="icon: right"
         class="anticon anticon-right"
       >
         <svg
@@ -503,7 +503,7 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
         class="ant-pagination-item-container"
       >
         <i
-          aria-label="double-right"
+          aria-label="icon: double-right"
           class="anticon anticon-double-right ant-pagination-item-link-icon"
         >
           <svg
@@ -565,7 +565,7 @@ exports[`renders ./components/pagination/demo/jump.md correctly 1`] = `
       class="ant-pagination-item-link"
     >
       <i
-        aria-label="left"
+        aria-label="icon: left"
         class="anticon anticon-left"
       >
         <svg
@@ -641,7 +641,7 @@ exports[`renders ./components/pagination/demo/jump.md correctly 1`] = `
         class="ant-pagination-item-container"
       >
         <i
-          aria-label="double-right"
+          aria-label="icon: double-right"
           class="anticon anticon-double-right ant-pagination-item-link-icon"
         >
           <svg
@@ -685,7 +685,7 @@ exports[`renders ./components/pagination/demo/jump.md correctly 1`] = `
       class="ant-pagination-item-link"
     >
       <i
-        aria-label="right"
+        aria-label="icon: right"
         class="anticon anticon-right"
       >
         <svg
@@ -735,7 +735,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
         class="ant-pagination-item-link"
       >
         <i
-          aria-label="left"
+          aria-label="icon: left"
           class="anticon anticon-left"
         >
           <svg
@@ -809,7 +809,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
         class="ant-pagination-item-link"
       >
         <i
-          aria-label="right"
+          aria-label="icon: right"
           class="anticon anticon-right"
         >
           <svg
@@ -842,7 +842,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
         class="ant-pagination-item-link"
       >
         <i
-          aria-label="left"
+          aria-label="icon: left"
           class="anticon anticon-left"
         >
           <svg
@@ -916,7 +916,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
         class="ant-pagination-item-link"
       >
         <i
-          aria-label="right"
+          aria-label="icon: right"
           class="anticon anticon-right"
         >
           <svg
@@ -968,7 +968,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
             unselectable="on"
           >
             <i
-              aria-label="down"
+              aria-label="icon: down"
               class="anticon anticon-down ant-select-arrow-icon"
             >
               <svg
@@ -1017,7 +1017,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
         class="ant-pagination-item-link"
       >
         <i
-          aria-label="left"
+          aria-label="icon: left"
           class="anticon anticon-left"
         >
           <svg
@@ -1091,7 +1091,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
         class="ant-pagination-item-link"
       >
         <i
-          aria-label="right"
+          aria-label="icon: right"
           class="anticon anticon-right"
         >
           <svg
@@ -1129,7 +1129,7 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
       class="ant-pagination-item-link"
     >
       <i
-        aria-label="left"
+        aria-label="icon: left"
         class="anticon anticon-left"
       >
         <svg
@@ -1169,7 +1169,7 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
         class="ant-pagination-item-container"
       >
         <i
-          aria-label="double-left"
+          aria-label="icon: double-left"
           class="anticon anticon-double-left ant-pagination-item-link-icon"
         >
           <svg
@@ -1251,7 +1251,7 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
         class="ant-pagination-item-container"
       >
         <i
-          aria-label="double-right"
+          aria-label="icon: double-right"
           class="anticon anticon-double-right ant-pagination-item-link-icon"
         >
           <svg
@@ -1295,7 +1295,7 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
       class="ant-pagination-item-link"
     >
       <i
-        aria-label="right"
+        aria-label="icon: right"
         class="anticon anticon-right"
       >
         <svg
@@ -1331,7 +1331,7 @@ exports[`renders ./components/pagination/demo/simple.md correctly 1`] = `
       class="ant-pagination-item-link"
     >
       <i
-        aria-label="left"
+        aria-label="icon: left"
         class="anticon anticon-left"
       >
         <svg
@@ -1376,7 +1376,7 @@ exports[`renders ./components/pagination/demo/simple.md correctly 1`] = `
       class="ant-pagination-item-link"
     >
       <i
-        aria-label="right"
+        aria-label="icon: right"
         class="anticon anticon-right"
       >
         <svg
@@ -1418,7 +1418,7 @@ exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
         class="ant-pagination-item-link"
       >
         <i
-          aria-label="left"
+          aria-label="icon: left"
           class="anticon anticon-left"
         >
           <svg
@@ -1492,7 +1492,7 @@ exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
         class="ant-pagination-item-link"
       >
         <i
-          aria-label="right"
+          aria-label="icon: right"
           class="anticon anticon-right"
         >
           <svg
@@ -1531,7 +1531,7 @@ exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
         class="ant-pagination-item-link"
       >
         <i
-          aria-label="left"
+          aria-label="icon: left"
           class="anticon anticon-left"
         >
           <svg
@@ -1605,7 +1605,7 @@ exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
         class="ant-pagination-item-link"
       >
         <i
-          aria-label="right"
+          aria-label="icon: right"
           class="anticon anticon-right"
         >
           <svg

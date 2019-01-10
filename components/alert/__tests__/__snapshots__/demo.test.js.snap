@@ -7,7 +7,7 @@ exports[`renders ./components/alert/demo/banner.md correctly 1`] = `
     data-show="true"
   >
     <i
-      aria-label="exclamation-circle"
+      aria-label="icon: exclamation-circle"
       class="anticon anticon-exclamation-circle ant-alert-icon"
     >
       <svg
@@ -39,7 +39,7 @@ exports[`renders ./components/alert/demo/banner.md correctly 1`] = `
     data-show="true"
   >
     <i
-      aria-label="exclamation-circle"
+      aria-label="icon: exclamation-circle"
       class="anticon anticon-exclamation-circle ant-alert-icon"
     >
       <svg
@@ -68,7 +68,7 @@ exports[`renders ./components/alert/demo/banner.md correctly 1`] = `
       class="ant-alert-close-icon"
     >
       <i
-        aria-label="close"
+        aria-label="icon: close"
         class="anticon anticon-close"
       >
         <svg
@@ -107,7 +107,7 @@ exports[`renders ./components/alert/demo/banner.md correctly 1`] = `
     data-show="true"
   >
     <i
-      aria-label="close-circle"
+      aria-label="icon: close-circle"
       class="anticon anticon-close-circle ant-alert-icon"
     >
       <svg
@@ -170,7 +170,7 @@ exports[`renders ./components/alert/demo/closable.md correctly 1`] = `
       class="ant-alert-close-icon"
     >
       <i
-        aria-label="close"
+        aria-label="icon: close"
         class="anticon anticon-close"
       >
         <svg
@@ -207,7 +207,7 @@ exports[`renders ./components/alert/demo/closable.md correctly 1`] = `
       class="ant-alert-close-icon"
     >
       <i
-        aria-label="close"
+        aria-label="icon: close"
         class="anticon anticon-close"
       >
         <svg
@@ -270,7 +270,7 @@ exports[`renders ./components/alert/demo/custom-icon.md correctly 1`] = `
     data-show="true"
   >
     <i
-      aria-label="smile"
+      aria-label="icon: smile"
       class="anticon anticon-smile ant-alert-icon"
     >
       <svg
@@ -301,7 +301,7 @@ exports[`renders ./components/alert/demo/custom-icon.md correctly 1`] = `
     data-show="true"
   >
     <i
-      aria-label="smile"
+      aria-label="icon: smile"
       class="anticon anticon-smile ant-alert-icon"
     >
       <svg
@@ -332,7 +332,7 @@ exports[`renders ./components/alert/demo/custom-icon.md correctly 1`] = `
     data-show="true"
   >
     <i
-      aria-label="smile"
+      aria-label="icon: smile"
       class="anticon anticon-smile ant-alert-icon"
     >
       <svg
@@ -363,7 +363,7 @@ exports[`renders ./components/alert/demo/custom-icon.md correctly 1`] = `
     data-show="true"
   >
     <i
-      aria-label="smile"
+      aria-label="icon: smile"
       class="anticon anticon-smile ant-alert-icon"
     >
       <svg
@@ -394,7 +394,7 @@ exports[`renders ./components/alert/demo/custom-icon.md correctly 1`] = `
     data-show="true"
   >
     <i
-      aria-label="smile"
+      aria-label="icon: smile"
       class="anticon anticon-smile ant-alert-icon"
     >
       <svg
@@ -427,7 +427,7 @@ exports[`renders ./components/alert/demo/custom-icon.md correctly 1`] = `
     data-show="true"
   >
     <i
-      aria-label="smile"
+      aria-label="icon: smile"
       class="anticon anticon-smile ant-alert-icon"
     >
       <svg
@@ -460,7 +460,7 @@ exports[`renders ./components/alert/demo/custom-icon.md correctly 1`] = `
     data-show="true"
   >
     <i
-      aria-label="smile"
+      aria-label="icon: smile"
       class="anticon anticon-smile ant-alert-icon"
     >
       <svg
@@ -493,7 +493,7 @@ exports[`renders ./components/alert/demo/custom-icon.md correctly 1`] = `
     data-show="true"
   >
     <i
-      aria-label="smile"
+      aria-label="icon: smile"
       class="anticon anticon-smile ant-alert-icon"
     >
       <svg
@@ -596,7 +596,7 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
     data-show="true"
   >
     <i
-      aria-label="check-circle"
+      aria-label="icon: check-circle"
       class="anticon anticon-check-circle ant-alert-icon"
     >
       <svg
@@ -627,7 +627,7 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
     data-show="true"
   >
     <i
-      aria-label="info-circle"
+      aria-label="icon: info-circle"
       class="anticon anticon-info-circle ant-alert-icon"
     >
       <svg
@@ -658,7 +658,7 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
     data-show="true"
   >
     <i
-      aria-label="exclamation-circle"
+      aria-label="icon: exclamation-circle"
       class="anticon anticon-exclamation-circle ant-alert-icon"
     >
       <svg
@@ -689,7 +689,7 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
     data-show="true"
   >
     <i
-      aria-label="close-circle"
+      aria-label="icon: close-circle"
       class="anticon anticon-close-circle ant-alert-icon"
     >
       <svg
@@ -720,7 +720,7 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
     data-show="true"
   >
     <i
-      aria-label="check-circle"
+      aria-label="icon: check-circle"
       class="anticon anticon-check-circle ant-alert-icon"
     >
       <svg
@@ -756,7 +756,7 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
     data-show="true"
   >
     <i
-      aria-label="info-circle"
+      aria-label="icon: info-circle"
       class="anticon anticon-info-circle ant-alert-icon"
     >
       <svg
@@ -792,7 +792,7 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
     data-show="true"
   >
     <i
-      aria-label="exclamation-circle"
+      aria-label="icon: exclamation-circle"
       class="anticon anticon-exclamation-circle ant-alert-icon"
     >
       <svg
@@ -828,7 +828,7 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
     data-show="true"
   >
     <i
-      aria-label="close-circle"
+      aria-label="icon: close-circle"
       class="anticon anticon-close-circle ant-alert-icon"
     >
       <svg
@@ -880,7 +880,7 @@ exports[`renders ./components/alert/demo/smooth-closed.md correctly 1`] = `
       class="ant-alert-close-icon"
     >
       <i
-        aria-label="close"
+        aria-label="icon: close"
         class="anticon anticon-close"
       >
         <svg

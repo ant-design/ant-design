@@ -53,7 +53,7 @@ exports[`renders ./components/comment/demo/basic.md correctly 1`] = `
         <li>
           <span>
             <i
-              aria-label="like"
+              aria-label="icon: like"
               class="anticon anticon-like"
               tabindex="-1"
             >
@@ -81,7 +81,7 @@ exports[`renders ./components/comment/demo/basic.md correctly 1`] = `
         <li>
           <span>
             <i
-              aria-label="dislike"
+              aria-label="icon: dislike"
               class="anticon anticon-dislike"
               tabindex="-1"
             >
