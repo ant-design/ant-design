@@ -6724,7 +6724,7 @@ exports[`ConfigProvider components Drawer configProvider 1`] = `
           style="overflow:auto;height:100%"
         >
           <div
-            class="config-drawer-header"
+            class="config-drawer-header-no-title"
           >
             <button
               aria-label="Close"
@@ -6781,7 +6781,7 @@ exports[`ConfigProvider components Drawer normal 1`] = `
           style="overflow:auto;height:100%"
         >
           <div
-            class="ant-drawer-header"
+            class="ant-drawer-header-no-title"
           >
             <button
               aria-label="Close"
@@ -6838,7 +6838,7 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
           style="overflow:auto;height:100%"
         >
           <div
-            class="prefix-Drawer-header"
+            class="prefix-Drawer-header-no-title"
           >
             <button
               aria-label="Close"
