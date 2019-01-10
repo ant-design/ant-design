@@ -22,6 +22,11 @@ describe('Statistic', () => {
     expect(wrapper.find('.ant-statistic-content-value').text()).toEqual('93');
   });
 
+  it('groupSeparator', () => {
+    const wrapper = mount(<Statistic value={1128} groupSeparator="__TEST__" />);
+    expect(wrapper.find('.ant-statistic-content-value').text()).toEqual('1__TEST__128');
+  });
+
   it('not a number', () => {
     const wrapper = mount(<Statistic value="bamboo" />);
     expect(wrapper.find('.ant-statistic-content-value').text()).toEqual('bamboo');
