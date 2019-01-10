@@ -33,7 +33,6 @@ const routes = [
 
 ReactDOM.render(
   <PageHeader
-    onBack={() => window.history.back()}
     title="Title"
     breadcrumb={{ routes }}
   />,
