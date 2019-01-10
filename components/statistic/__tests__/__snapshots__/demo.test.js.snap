@@ -110,6 +110,7 @@ exports[`renders ./components/statistic/demo/card.md correctly 1`] = `
                 class="ant-statistic-content-prefix"
               >
                 <i
+                  aria-label="icon: arrow-up"
                   class="anticon anticon-arrow-up"
                 >
                   <svg
@@ -177,6 +178,7 @@ exports[`renders ./components/statistic/demo/card.md correctly 1`] = `
                 class="ant-statistic-content-prefix"
               >
                 <i
+                  aria-label="icon: arrow-down"
                   class="anticon anticon-arrow-down"
                 >
                   <svg
@@ -323,6 +325,7 @@ exports[`renders ./components/statistic/demo/unit.md correctly 1`] = `
           class="ant-statistic-content-prefix"
         >
           <i
+            aria-label="icon: like"
             class="anticon anticon-like"
           >
             <svg
