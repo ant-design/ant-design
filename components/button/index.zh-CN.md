@@ -38,6 +38,13 @@ subtitle: 按钮
 
 `<Button href="http://example.com">Hello world!</Button>` 则会渲染为 `<a href="http://example.com"><span>Hello world!</span></a>`。
 
+## FAQ
+
+### 如何移除 2 个汉字时字间的空格
+
+设置 [ConfigProvider](/components/config-provider/#API) 的 `autoInsertSpaceInButton` 为 `false`。
+
+
 <style>
 [id^="components-button-demo-"] .ant-btn {
   margin-right: 8px;

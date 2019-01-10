@@ -35,6 +35,12 @@ It accepts all props which native button support.
 
 `<Button href="http://example.com">Hello world!</Button>` will be rendered into `<a href="http://example.com"><span>Hello world!</span></a>`.
 
+## FAQ
+
+### How to remove space between 2 chinese characters
+
+Use [ConfigProvider](/components/config-provider/#API) to set `autoInsertSpaceInButton` as `false`.
+
 <style>
 [id^=components-button-demo-] .ant-btn {
   margin-right: 8px;
