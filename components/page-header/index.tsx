@@ -33,7 +33,6 @@ const renderBack = (
       onClick={e => {
         if (onBack) {
           onBack(e);
-          return;
         }
       }}
     >
