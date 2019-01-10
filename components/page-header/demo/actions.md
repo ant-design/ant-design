@@ -119,19 +119,4 @@ ReactDOM.render(
   width: 100%;
   line-height: 20px;
 }
-#components-page-header-demo-actions .extraContent .label {
-  font-size: 14px;
-  color: rgba(0, 0, 0, 0.45);
-  line-height: 22px;
-}
-#components-page-header-demo-actions .extraContent .label {
-  font-size: 14px;
-  color: rgba(0, 0, 0, 0.45);
-  line-height: 22px;
-}
-#components-page-header-demo-actions .extraContent .detail {
-  font-size: 20px;
-  color: rgba(0, 0, 0, 0.85);
-  line-height: 28px;
-}
 </style>

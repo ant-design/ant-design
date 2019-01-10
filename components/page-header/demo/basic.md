@@ -18,7 +18,7 @@ import { PageHeader } from 'antd';
 
 ReactDOM.render(
   <PageHeader
-    onBack={() => window.history.back()}
+    onBack={() => null}
     title="Title"
     subTitle="This is a subtitle"
   />,
