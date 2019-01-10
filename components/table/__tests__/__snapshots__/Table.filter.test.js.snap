@@ -31,7 +31,9 @@ exports[`Table.filter renders custom content correctly 1`] = `
   <div
     class="ant-dropdown  ant-dropdown-placement-bottomRight  ant-dropdown-hidden"
   >
-    <div>
+    <div
+      class="ant-table-filter-dropdown"
+    >
       <div
         class="custom-filter-dropdown"
       >
