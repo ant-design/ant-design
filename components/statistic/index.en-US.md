@@ -17,8 +17,9 @@ Display statistic number.
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| decimalSeparator | decimal separator | string | - |
+| decimalSeparator | decimal separator | string | . |
 | formatter | customize value display logic | (value) => ReactNode | - |
+| groupSeparator | group separator | string | , |
 | precision | precision of input value | number | - |
 | prefix | prefix node of value | string \| ReactNode | - |
 | suffix | suffix node of value | string \| ReactNode | - |

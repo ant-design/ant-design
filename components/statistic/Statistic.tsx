@@ -55,6 +55,7 @@ const Statistic: React.SFC<StatisticProps & ConfigConsumerProps> = props => {
 
 Statistic.defaultProps = {
   decimalSeparator: '.',
+  groupSeparator: ',',
 };
 
 const WrapperStatistic = withConfigConsumer<StatisticProps>({
