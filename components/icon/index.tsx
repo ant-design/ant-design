@@ -32,6 +32,7 @@ export interface CustomIconComponentProps {
 export type ThemeType = 'filled' | 'outlined' | 'twoTone';
 
 export interface IconProps {
+  tabIndex?: number;
   type?: string;
   className?: string;
   theme?: ThemeType;
@@ -64,6 +65,9 @@ const Icon: IconComponent<IconProps> = props => {
     component: Component,
     viewBox,
     spin,
+
+    tabIndex,
+    onClick,
 
     // children
     children,
@@ -147,8 +151,19 @@ const Icon: IconComponent<IconProps> = props => {
     );
   }
 
+  let iconTabIndex = tabIndex;
+  if (iconTabIndex === undefined && onClick) {
+    iconTabIndex = -1;
+  }
+
   return (
-    <i {...restProps} className={classString}>
+    <i
+      aria-label={type}
+      {...restProps}
+      tabIndex={iconTabIndex}
+      onClick={onClick}
+      className={classString}
+    >
       {innerNode}
     </i>
   );

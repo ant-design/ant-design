@@ -392,6 +392,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="left"
               class="anticon anticon-left"
             >
               <svg
@@ -428,6 +429,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="right"
               class="anticon anticon-right"
             >
               <svg

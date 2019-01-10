@@ -199,6 +199,7 @@ exports[`ConfigProvider components AutoComplete configProvider 1`] = `
       unselectable="on"
     >
       <i
+        aria-label="down"
         class="anticon anticon-down config-select-arrow-icon"
       >
         <svg
@@ -263,6 +264,7 @@ exports[`ConfigProvider components AutoComplete normal 1`] = `
       unselectable="on"
     >
       <i
+        aria-label="down"
         class="anticon anticon-down ant-select-arrow-icon"
       >
         <svg
@@ -327,6 +329,7 @@ exports[`ConfigProvider components AutoComplete prefixCls 1`] = `
       unselectable="on"
     >
       <i
+        aria-label="down"
         class="anticon anticon-down prefix-AutoComplete-arrow-icon"
       >
         <svg
@@ -1190,6 +1193,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             unselectable="on"
           >
             <i
+              aria-label="down"
               class="anticon anticon-down config-select-arrow-icon"
             >
               <svg
@@ -1239,6 +1243,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             unselectable="on"
           >
             <i
+              aria-label="down"
               class="anticon anticon-down config-select-arrow-icon"
             >
               <svg
@@ -2227,6 +2232,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             unselectable="on"
           >
             <i
+              aria-label="down"
               class="anticon anticon-down config-select-arrow-icon"
             >
               <svg
@@ -2583,6 +2589,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             unselectable="on"
           >
             <i
+              aria-label="down"
               class="anticon anticon-down ant-select-arrow-icon"
             >
               <svg
@@ -2632,6 +2639,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             unselectable="on"
           >
             <i
+              aria-label="down"
               class="anticon anticon-down ant-select-arrow-icon"
             >
               <svg
@@ -3620,6 +3628,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             unselectable="on"
           >
             <i
+              aria-label="down"
               class="anticon anticon-down ant-select-arrow-icon"
             >
               <svg
@@ -3976,6 +3985,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             unselectable="on"
           >
             <i
+              aria-label="down"
               class="anticon anticon-down ant-select-arrow-icon"
             >
               <svg
@@ -4025,6 +4035,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             unselectable="on"
           >
             <i
+              aria-label="down"
               class="anticon anticon-down ant-select-arrow-icon"
             >
               <svg
@@ -5013,6 +5024,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             unselectable="on"
           >
             <i
+              aria-label="down"
               class="anticon anticon-down ant-select-arrow-icon"
             >
               <svg
@@ -5791,6 +5803,7 @@ exports[`ConfigProvider components Cascader configProvider 1`] = `
     value=""
   />
   <i
+    aria-label="down"
     class="anticon anticon-down config-cascader-picker-arrow"
   >
     <svg
@@ -5826,6 +5839,7 @@ exports[`ConfigProvider components Cascader normal 1`] = `
     value=""
   />
   <i
+    aria-label="down"
     class="anticon anticon-down ant-cascader-picker-arrow"
   >
     <svg
@@ -5861,6 +5875,7 @@ exports[`ConfigProvider components Cascader prefixCls 1`] = `
     value=""
   />
   <i
+    aria-label="down"
     class="anticon anticon-down prefix-Cascader-picker-arrow"
   >
     <svg
@@ -5969,6 +5984,7 @@ exports[`ConfigProvider components Collapse configProvider 1`] = `
       tabindex="0"
     >
       <i
+        aria-label="right"
         class="anticon anticon-right arrow"
       >
         <svg
@@ -6005,6 +6021,7 @@ exports[`ConfigProvider components Collapse normal 1`] = `
       tabindex="0"
     >
       <i
+        aria-label="right"
         class="anticon anticon-right arrow"
       >
         <svg
@@ -6041,6 +6058,7 @@ exports[`ConfigProvider components Collapse prefixCls 1`] = `
       tabindex="0"
     >
       <i
+        aria-label="right"
         class="anticon anticon-right arrow"
       >
         <svg
@@ -6235,6 +6253,7 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider 1`] = `
         value=""
       />
       <i
+        aria-label="calendar"
         class="anticon anticon-calendar config-calendar-picker-icon"
       >
         <svg
@@ -6269,6 +6288,7 @@ exports[`ConfigProvider components DatePicker DatePicker normal 1`] = `
         value=""
       />
       <i
+        aria-label="calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -6303,6 +6323,7 @@ exports[`ConfigProvider components DatePicker DatePicker prefixCls 1`] = `
         value=""
       />
       <i
+        aria-label="calendar"
         class="anticon anticon-calendar prefix-DatePicker-picker-icon"
       >
         <svg
@@ -6337,6 +6358,7 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider 1`] = `
         value=""
       />
       <i
+        aria-label="calendar"
         class="anticon anticon-calendar config-calendar-picker-icon"
       >
         <svg
@@ -6371,6 +6393,7 @@ exports[`ConfigProvider components DatePicker MonthPicker normal 1`] = `
         value=""
       />
       <i
+        aria-label="calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -6405,6 +6428,7 @@ exports[`ConfigProvider components DatePicker MonthPicker prefixCls 1`] = `
         value=""
       />
       <i
+        aria-label="calendar"
         class="anticon anticon-calendar prefix-MonthPicker-picker-icon"
       >
         <svg
@@ -6455,6 +6479,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider 1`] = `
         value=""
       />
       <i
+        aria-label="calendar"
         class="anticon anticon-calendar config-calendar-picker-icon"
       >
         <svg
@@ -6505,6 +6530,7 @@ exports[`ConfigProvider components DatePicker RangePicker normal 1`] = `
         value=""
       />
       <i
+        aria-label="calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -6555,6 +6581,7 @@ exports[`ConfigProvider components DatePicker RangePicker prefixCls 1`] = `
         value=""
       />
       <i
+        aria-label="calendar"
         class="anticon anticon-calendar prefix-RangePicker-picker-icon"
       >
         <svg
@@ -6591,6 +6618,7 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider 1`] = `
         value=""
       />
       <i
+        aria-label="calendar"
         class="anticon anticon-calendar config-calendar-picker-icon"
       >
         <svg
@@ -6627,6 +6655,7 @@ exports[`ConfigProvider components DatePicker WeekPicker normal 1`] = `
         value=""
       />
       <i
+        aria-label="calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -6663,6 +6692,7 @@ exports[`ConfigProvider components DatePicker WeekPicker prefixCls 1`] = `
         value=""
       />
       <i
+        aria-label="calendar"
         class="anticon anticon-calendar prefix-WeekPicker-picker-icon"
       >
         <svg
@@ -6731,6 +6761,7 @@ exports[`ConfigProvider components Drawer configProvider 1`] = `
               class="config-drawer-close"
             >
               <i
+                aria-label="close"
                 class="anticon anticon-close"
               >
                 <svg
@@ -6788,6 +6819,7 @@ exports[`ConfigProvider components Drawer normal 1`] = `
               class="ant-drawer-close"
             >
               <i
+                aria-label="close"
                 class="anticon anticon-close"
               >
                 <svg
@@ -6845,6 +6877,7 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
               class="prefix-Drawer-close"
             >
               <i
+                aria-label="close"
                 class="anticon anticon-close"
               >
                 <svg
@@ -6890,6 +6923,7 @@ exports[`ConfigProvider components Dropdown configProvider 1`] = `
     type="button"
   >
     <i
+      aria-label="ellipsis"
       class="anticon anticon-ellipsis"
     >
       <svg
@@ -6927,6 +6961,7 @@ exports[`ConfigProvider components Dropdown normal 1`] = `
     type="button"
   >
     <i
+      aria-label="ellipsis"
       class="anticon anticon-ellipsis"
     >
       <svg
@@ -6964,6 +6999,7 @@ exports[`ConfigProvider components Dropdown prefixCls 1`] = `
     type="button"
   >
     <i
+      aria-label="ellipsis"
       class="anticon anticon-ellipsis"
     >
       <svg
@@ -7135,7 +7171,9 @@ exports[`ConfigProvider components Input configProvider 1`] = `
         class="config-input-suffix"
       >
         <i
+          aria-label="search"
           class="anticon anticon-search config-input-search-icon"
+          tabindex="-1"
         >
           <svg
             aria-hidden="true"
@@ -7182,7 +7220,9 @@ exports[`ConfigProvider components Input normal 1`] = `
         class="ant-input-suffix"
       >
         <i
+          aria-label="search"
           class="anticon anticon-search ant-input-search-icon"
+          tabindex="-1"
         >
           <svg
             aria-hidden="true"
@@ -7229,7 +7269,9 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
         class="ant-input-suffix"
       >
         <i
+          aria-label="search"
           class="anticon anticon-search prefix-Input-icon"
+          tabindex="-1"
         >
           <svg
             aria-hidden="true"
@@ -7269,6 +7311,7 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
       unselectable="unselectable"
     >
       <i
+        aria-label="up"
         class="anticon anticon-up config-input-number-handler-up-inner"
       >
         <svg
@@ -7294,6 +7337,7 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
       unselectable="unselectable"
     >
       <i
+        aria-label="down"
         class="anticon anticon-down config-input-number-handler-down-inner"
       >
         <svg
@@ -7343,6 +7387,7 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
       unselectable="unselectable"
     >
       <i
+        aria-label="up"
         class="anticon anticon-up ant-input-number-handler-up-inner"
       >
         <svg
@@ -7368,6 +7413,7 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
       unselectable="unselectable"
     >
       <i
+        aria-label="down"
         class="anticon anticon-down ant-input-number-handler-down-inner"
       >
         <svg
@@ -7417,6 +7463,7 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
       unselectable="unselectable"
     >
       <i
+        aria-label="up"
         class="anticon anticon-up prefix-InputNumber-handler-up-inner"
       >
         <svg
@@ -7442,6 +7489,7 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
       unselectable="unselectable"
     >
       <i
+        aria-label="down"
         class="anticon anticon-down prefix-InputNumber-handler-down-inner"
       >
         <svg
@@ -8070,6 +8118,7 @@ exports[`ConfigProvider components Modal configProvider 1`] = `
               class="config-modal-close-x"
             >
               <i
+                aria-label="close"
                 class="anticon anticon-close config-modal-close-icon"
               >
                 <svg
@@ -8161,6 +8210,7 @@ exports[`ConfigProvider components Modal normal 1`] = `
               class="ant-modal-close-x"
             >
               <i
+                aria-label="close"
                 class="anticon anticon-close ant-modal-close-icon"
               >
                 <svg
@@ -8252,6 +8302,7 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
               class="prefix-Modal-close-x"
             >
               <i
+                aria-label="close"
                 class="anticon anticon-close prefix-Modal-close-icon"
               >
                 <svg
@@ -8325,6 +8376,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
         class="config-pagination-item-link"
       >
         <i
+          aria-label="left"
           class="anticon anticon-left"
         >
           <svg
@@ -8361,6 +8413,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
         class="config-pagination-item-link"
       >
         <i
+          aria-label="right"
           class="anticon anticon-right"
         >
           <svg
@@ -8412,6 +8465,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
             unselectable="on"
           >
             <i
+              aria-label="down"
               class="anticon anticon-down config-select-arrow-icon"
             >
               <svg
@@ -8455,6 +8509,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
         class="config-pagination-item-link"
       >
         <i
+          aria-label="left"
           class="anticon anticon-left"
         >
           <svg
@@ -8491,6 +8546,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
         class="config-pagination-item-link"
       >
         <i
+          aria-label="right"
           class="anticon anticon-right"
         >
           <svg
@@ -8542,6 +8598,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
             unselectable="on"
           >
             <i
+              aria-label="down"
               class="anticon anticon-down config-select-arrow-icon"
             >
               <svg
@@ -8590,6 +8647,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
         class="ant-pagination-item-link"
       >
         <i
+          aria-label="left"
           class="anticon anticon-left"
         >
           <svg
@@ -8626,6 +8684,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
         class="ant-pagination-item-link"
       >
         <i
+          aria-label="right"
           class="anticon anticon-right"
         >
           <svg
@@ -8677,6 +8736,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
             unselectable="on"
           >
             <i
+              aria-label="down"
               class="anticon anticon-down ant-select-arrow-icon"
             >
               <svg
@@ -8720,6 +8780,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
         class="ant-pagination-item-link"
       >
         <i
+          aria-label="left"
           class="anticon anticon-left"
         >
           <svg
@@ -8756,6 +8817,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
         class="ant-pagination-item-link"
       >
         <i
+          aria-label="right"
           class="anticon anticon-right"
         >
           <svg
@@ -8807,6 +8869,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
             unselectable="on"
           >
             <i
+              aria-label="down"
               class="anticon anticon-down ant-select-arrow-icon"
             >
               <svg
@@ -8855,6 +8918,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
         class="prefix-Pagination-item-link"
       >
         <i
+          aria-label="left"
           class="anticon anticon-left"
         >
           <svg
@@ -8891,6 +8955,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
         class="prefix-Pagination-item-link"
       >
         <i
+          aria-label="right"
           class="anticon anticon-right"
         >
           <svg
@@ -8942,6 +9007,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
             unselectable="on"
           >
             <i
+              aria-label="down"
               class="anticon anticon-down ant-select-arrow-icon"
             >
               <svg
@@ -8985,6 +9051,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
         class="prefix-Pagination-item-link"
       >
         <i
+          aria-label="left"
           class="anticon anticon-left"
         >
           <svg
@@ -9021,6 +9088,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
         class="prefix-Pagination-item-link"
       >
         <i
+          aria-label="right"
           class="anticon anticon-right"
         >
           <svg
@@ -9072,6 +9140,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
             unselectable="on"
           >
             <i
+              aria-label="down"
               class="anticon anticon-down ant-select-arrow-icon"
             >
               <svg
@@ -9134,6 +9203,7 @@ exports[`ConfigProvider components Popconfirm configProvider 1`] = `
                 class="config-popover-message"
               >
                 <i
+                  aria-label="exclamation-circle"
                   class="anticon anticon-exclamation-circle"
                 >
                   <svg
@@ -9212,6 +9282,7 @@ exports[`ConfigProvider components Popconfirm normal 1`] = `
                 class="ant-popover-message"
               >
                 <i
+                  aria-label="exclamation-circle"
                   class="anticon anticon-exclamation-circle"
                 >
                   <svg
@@ -9290,6 +9361,7 @@ exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
                 class="prefix-Popconfirm-message"
               >
                 <i
+                  aria-label="exclamation-circle"
                   class="anticon anticon-exclamation-circle"
                 >
                   <svg
@@ -9692,6 +9764,7 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
         class="config-rate-star-first"
       >
         <i
+          aria-label="star"
           class="anticon anticon-star"
         >
           <svg
@@ -9713,6 +9786,7 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
         class="config-rate-star-second"
       >
         <i
+          aria-label="star"
           class="anticon anticon-star"
         >
           <svg
@@ -9746,6 +9820,7 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
         class="config-rate-star-first"
       >
         <i
+          aria-label="star"
           class="anticon anticon-star"
         >
           <svg
@@ -9767,6 +9842,7 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
         class="config-rate-star-second"
       >
         <i
+          aria-label="star"
           class="anticon anticon-star"
         >
           <svg
@@ -9800,6 +9876,7 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
         class="config-rate-star-first"
       >
         <i
+          aria-label="star"
           class="anticon anticon-star"
         >
           <svg
@@ -9821,6 +9898,7 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
         class="config-rate-star-second"
       >
         <i
+          aria-label="star"
           class="anticon anticon-star"
         >
           <svg
@@ -9854,6 +9932,7 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
         class="config-rate-star-first"
       >
         <i
+          aria-label="star"
           class="anticon anticon-star"
         >
           <svg
@@ -9875,6 +9954,7 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
         class="config-rate-star-second"
       >
         <i
+          aria-label="star"
           class="anticon anticon-star"
         >
           <svg
@@ -9908,6 +9988,7 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
         class="config-rate-star-first"
       >
         <i
+          aria-label="star"
           class="anticon anticon-star"
         >
           <svg
@@ -9929,6 +10010,7 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
         class="config-rate-star-second"
       >
         <i
+          aria-label="star"
           class="anticon anticon-star"
         >
           <svg
@@ -9971,6 +10053,7 @@ exports[`ConfigProvider components Rate normal 1`] = `
         class="ant-rate-star-first"
       >
         <i
+          aria-label="star"
           class="anticon anticon-star"
         >
           <svg
@@ -9992,6 +10075,7 @@ exports[`ConfigProvider components Rate normal 1`] = `
         class="ant-rate-star-second"
       >
         <i
+          aria-label="star"
           class="anticon anticon-star"
         >
           <svg
@@ -10025,6 +10109,7 @@ exports[`ConfigProvider components Rate normal 1`] = `
         class="ant-rate-star-first"
       >
         <i
+          aria-label="star"
           class="anticon anticon-star"
         >
           <svg
@@ -10046,6 +10131,7 @@ exports[`ConfigProvider components Rate normal 1`] = `
         class="ant-rate-star-second"
       >
         <i
+          aria-label="star"
           class="anticon anticon-star"
         >
           <svg
@@ -10079,6 +10165,7 @@ exports[`ConfigProvider components Rate normal 1`] = `
         class="ant-rate-star-first"
       >
         <i
+          aria-label="star"
           class="anticon anticon-star"
         >
           <svg
@@ -10100,6 +10187,7 @@ exports[`ConfigProvider components Rate normal 1`] = `
         class="ant-rate-star-second"
       >
         <i
+          aria-label="star"
           class="anticon anticon-star"
         >
           <svg
@@ -10133,6 +10221,7 @@ exports[`ConfigProvider components Rate normal 1`] = `
         class="ant-rate-star-first"
       >
         <i
+          aria-label="star"
           class="anticon anticon-star"
         >
           <svg
@@ -10154,6 +10243,7 @@ exports[`ConfigProvider components Rate normal 1`] = `
         class="ant-rate-star-second"
       >
         <i
+          aria-label="star"
           class="anticon anticon-star"
         >
           <svg
@@ -10187,6 +10277,7 @@ exports[`ConfigProvider components Rate normal 1`] = `
         class="ant-rate-star-first"
       >
         <i
+          aria-label="star"
           class="anticon anticon-star"
         >
           <svg
@@ -10208,6 +10299,7 @@ exports[`ConfigProvider components Rate normal 1`] = `
         class="ant-rate-star-second"
       >
         <i
+          aria-label="star"
           class="anticon anticon-star"
         >
           <svg
@@ -10250,6 +10342,7 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
         class="prefix-Rate-star-first"
       >
         <i
+          aria-label="star"
           class="anticon anticon-star"
         >
           <svg
@@ -10271,6 +10364,7 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
         class="prefix-Rate-star-second"
       >
         <i
+          aria-label="star"
           class="anticon anticon-star"
         >
           <svg
@@ -10304,6 +10398,7 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
         class="prefix-Rate-star-first"
       >
         <i
+          aria-label="star"
           class="anticon anticon-star"
         >
           <svg
@@ -10325,6 +10420,7 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
         class="prefix-Rate-star-second"
       >
         <i
+          aria-label="star"
           class="anticon anticon-star"
         >
           <svg
@@ -10358,6 +10454,7 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
         class="prefix-Rate-star-first"
       >
         <i
+          aria-label="star"
           class="anticon anticon-star"
         >
           <svg
@@ -10379,6 +10476,7 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
         class="prefix-Rate-star-second"
       >
         <i
+          aria-label="star"
           class="anticon anticon-star"
         >
           <svg
@@ -10412,6 +10510,7 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
         class="prefix-Rate-star-first"
       >
         <i
+          aria-label="star"
           class="anticon anticon-star"
         >
           <svg
@@ -10433,6 +10532,7 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
         class="prefix-Rate-star-second"
       >
         <i
+          aria-label="star"
           class="anticon anticon-star"
         >
           <svg
@@ -10466,6 +10566,7 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
         class="prefix-Rate-star-first"
       >
         <i
+          aria-label="star"
           class="anticon anticon-star"
         >
           <svg
@@ -10487,6 +10588,7 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
         class="prefix-Rate-star-second"
       >
         <i
+          aria-label="star"
           class="anticon anticon-star"
         >
           <svg
@@ -10533,6 +10635,7 @@ Array [
         unselectable="on"
       >
         <i
+          aria-label="down"
           class="anticon anticon-down config-select-arrow-icon"
         >
           <svg
@@ -10619,6 +10722,7 @@ Array [
         unselectable="on"
       >
         <i
+          aria-label="down"
           class="anticon anticon-down ant-select-arrow-icon"
         >
           <svg
@@ -10705,6 +10809,7 @@ Array [
         unselectable="on"
       >
         <i
+          aria-label="down"
           class="anticon anticon-down prefix-Select-arrow-icon"
         >
           <svg
@@ -11294,6 +11399,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                         class="config-table-column-sorter"
                       >
                         <i
+                          aria-label="caret-up"
                           class="anticon anticon-caret-up config-table-column-sorter-up off"
                         >
                           <svg
@@ -11311,6 +11417,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                           </svg>
                         </i>
                         <i
+                          aria-label="caret-down"
                           class="anticon anticon-caret-down config-table-column-sorter-down off"
                         >
                           <svg
@@ -11330,7 +11437,9 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                       </div>
                     </div>
                     <i
+                      aria-label="filter"
                       class="anticon anticon-filter config-table-filter-open config-dropdown-trigger config-dropdown-open"
+                      tabindex="-1"
                       title="Filter menu"
                     >
                       <svg
@@ -11493,6 +11602,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                         class="ant-table-column-sorter"
                       >
                         <i
+                          aria-label="caret-up"
                           class="anticon anticon-caret-up ant-table-column-sorter-up off"
                         >
                           <svg
@@ -11510,6 +11620,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                           </svg>
                         </i>
                         <i
+                          aria-label="caret-down"
                           class="anticon anticon-caret-down ant-table-column-sorter-down off"
                         >
                           <svg
@@ -11529,7 +11640,9 @@ exports[`ConfigProvider components Table normal 1`] = `
                       </div>
                     </div>
                     <i
+                      aria-label="filter"
                       class="anticon anticon-filter ant-table-filter-open ant-dropdown-trigger ant-dropdown-open"
+                      tabindex="-1"
                       title="Filter menu"
                     >
                       <svg
@@ -11692,6 +11805,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                         class="prefix-Table-column-sorter"
                       >
                         <i
+                          aria-label="caret-up"
                           class="anticon anticon-caret-up prefix-Table-column-sorter-up off"
                         >
                           <svg
@@ -11709,6 +11823,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                           </svg>
                         </i>
                         <i
+                          aria-label="caret-down"
                           class="anticon anticon-caret-down prefix-Table-column-sorter-down off"
                         >
                           <svg
@@ -11728,7 +11843,9 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                       </div>
                     </div>
                     <i
+                      aria-label="filter"
                       class="anticon anticon-filter prefix-Table-filter-open ant-dropdown-trigger ant-dropdown-open"
+                      tabindex="-1"
                       title="Filter menu"
                     >
                       <svg
@@ -11870,6 +11987,7 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
           class="config-tabs-tab-prev-icon"
         >
           <i
+            aria-label="left"
             class="anticon anticon-left config-tabs-tab-prev-icon-target"
           >
             <svg
@@ -11896,6 +12014,7 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
           class="config-tabs-tab-next-icon"
         >
           <i
+            aria-label="right"
             class="anticon anticon-right config-tabs-tab-next-icon-target"
           >
             <svg
@@ -11995,6 +12114,7 @@ exports[`ConfigProvider components Tabs normal 1`] = `
           class="ant-tabs-tab-prev-icon"
         >
           <i
+            aria-label="left"
             class="anticon anticon-left ant-tabs-tab-prev-icon-target"
           >
             <svg
@@ -12021,6 +12141,7 @@ exports[`ConfigProvider components Tabs normal 1`] = `
           class="ant-tabs-tab-next-icon"
         >
           <i
+            aria-label="right"
             class="anticon anticon-right ant-tabs-tab-next-icon-target"
           >
             <svg
@@ -12120,6 +12241,7 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
           class="prefix-Tabs-tab-prev-icon"
         >
           <i
+            aria-label="left"
             class="anticon anticon-left prefix-Tabs-tab-prev-icon-target"
           >
             <svg
@@ -12146,6 +12268,7 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
           class="prefix-Tabs-tab-next-icon"
         >
           <i
+            aria-label="right"
             class="anticon anticon-right prefix-Tabs-tab-next-icon-target"
           >
             <svg
@@ -12286,6 +12409,7 @@ Array [
       class="config-time-picker-icon"
     >
       <i
+        aria-label="clock-circle"
         class="anticon anticon-clock-circle config-time-picker-clock-icon"
       >
         <svg
@@ -12329,6 +12453,7 @@ Array [
             title="clear"
           >
             <i
+              aria-label="close-circle"
               class="anticon anticon-close-circle config-time-picker-panel-clear-btn-icon"
             >
               <svg
@@ -13255,6 +13380,7 @@ Array [
       class="ant-time-picker-icon"
     >
       <i
+        aria-label="clock-circle"
         class="anticon anticon-clock-circle ant-time-picker-clock-icon"
       >
         <svg
@@ -13298,6 +13424,7 @@ Array [
             title="clear"
           >
             <i
+              aria-label="close-circle"
               class="anticon anticon-close-circle ant-time-picker-panel-clear-btn-icon"
             >
               <svg
@@ -14224,6 +14351,7 @@ Array [
       class="prefix-TimePicker-icon"
     >
       <i
+        aria-label="clock-circle"
         class="anticon anticon-clock-circle prefix-TimePicker-clock-icon"
       >
         <svg
@@ -14267,6 +14395,7 @@ Array [
             title="clear"
           >
             <i
+              aria-label="close-circle"
               class="anticon anticon-close-circle prefix-TimePicker-panel-clear-btn-icon"
             >
               <svg
@@ -15404,6 +15533,7 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
       type="button"
     >
       <i
+        aria-label="right"
         class="anticon anticon-right"
       >
         <svg
@@ -15427,6 +15557,7 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
       type="button"
     >
       <i
+        aria-label="left"
         class="anticon anticon-left"
       >
         <svg
@@ -15583,6 +15714,7 @@ exports[`ConfigProvider components Transfer normal 1`] = `
       type="button"
     >
       <i
+        aria-label="right"
         class="anticon anticon-right"
       >
         <svg
@@ -15606,6 +15738,7 @@ exports[`ConfigProvider components Transfer normal 1`] = `
       type="button"
     >
       <i
+        aria-label="left"
         class="anticon anticon-left"
       >
         <svg
@@ -15762,6 +15895,7 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
       type="button"
     >
       <i
+        aria-label="right"
         class="anticon anticon-right"
       >
         <svg
@@ -15785,6 +15919,7 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
       type="button"
     >
       <i
+        aria-label="left"
         class="anticon anticon-left"
       >
         <svg
@@ -15913,6 +16048,7 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
           class="config-tree-iconEle config-tree-icon__customize"
         >
           <i
+            aria-label="folder"
             class="anticon anticon-folder"
           >
             <svg
@@ -15987,6 +16123,7 @@ exports[`ConfigProvider components Tree normal 1`] = `
           class="ant-tree-iconEle ant-tree-icon__customize"
         >
           <i
+            aria-label="folder"
             class="anticon anticon-folder"
           >
             <svg
@@ -16061,6 +16198,7 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
           class="prefix-Tree-iconEle prefix-Tree-icon__customize"
         >
           <i
+            aria-label="folder"
             class="anticon anticon-folder"
           >
             <svg
@@ -16115,6 +16253,7 @@ Array [
         style="outline:none"
       >
         <i
+          aria-label="down"
           class="anticon anticon-down config-select-arrow-icon"
         >
           <svg
@@ -16200,6 +16339,7 @@ Array [
         style="outline:none"
       >
         <i
+          aria-label="down"
           class="anticon anticon-down ant-select-arrow-icon"
         >
           <svg
@@ -16285,6 +16425,7 @@ Array [
         style="outline:none"
       >
         <i
+          aria-label="down"
           class="anticon anticon-down prefix-TreeSelect-arrow-icon"
         >
           <svg
@@ -16363,6 +16504,7 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
       >
         <span>
           <i
+            aria-label="paper-clip"
             class="anticon anticon-paper-clip"
           >
             <svg
@@ -16388,7 +16530,9 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
         </span>
       </div>
       <i
+        aria-label="close"
         class="anticon anticon-close"
+        tabindex="-1"
         title="Remove file"
       >
         <svg
@@ -16429,6 +16573,7 @@ exports[`ConfigProvider components Upload normal 1`] = `
       >
         <span>
           <i
+            aria-label="paper-clip"
             class="anticon anticon-paper-clip"
           >
             <svg
@@ -16454,7 +16599,9 @@ exports[`ConfigProvider components Upload normal 1`] = `
         </span>
       </div>
       <i
+        aria-label="close"
         class="anticon anticon-close"
+        tabindex="-1"
         title="Remove file"
       >
         <svg
@@ -16495,6 +16642,7 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
       >
         <span>
           <i
+            aria-label="paper-clip"
             class="anticon anticon-paper-clip"
           >
             <svg
@@ -16520,7 +16668,9 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
         </span>
       </div>
       <i
+        aria-label="close"
         class="anticon anticon-close"
+        tabindex="-1"
         title="Remove file"
       >
         <svg

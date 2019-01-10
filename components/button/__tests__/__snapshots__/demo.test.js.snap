@@ -169,6 +169,7 @@ exports[`renders ./components/button/demo/button-group.md correctly 1`] = `
       type="button"
     >
       <i
+        aria-label="left"
         class="anticon anticon-left"
       >
         <svg
@@ -197,6 +198,7 @@ exports[`renders ./components/button/demo/button-group.md correctly 1`] = `
         Go forward
       </span>
       <i
+        aria-label="right"
         class="anticon anticon-right"
       >
         <svg
@@ -223,6 +225,7 @@ exports[`renders ./components/button/demo/button-group.md correctly 1`] = `
       type="button"
     >
       <i
+        aria-label="cloud"
         class="anticon anticon-cloud"
       >
         <svg
@@ -245,6 +248,7 @@ exports[`renders ./components/button/demo/button-group.md correctly 1`] = `
       type="button"
     >
       <i
+        aria-label="cloud-download"
         class="anticon anticon-cloud-download"
       >
         <svg
@@ -394,6 +398,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     type="button"
   >
     <i
+      aria-label="search"
       class="anticon anticon-search"
     >
       <svg
@@ -416,6 +421,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     type="button"
   >
     <i
+      aria-label="search"
       class="anticon anticon-search"
     >
       <svg
@@ -441,6 +447,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     type="button"
   >
     <i
+      aria-label="search"
       class="anticon anticon-search"
     >
       <svg
@@ -463,6 +470,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     type="button"
   >
     <i
+      aria-label="search"
       class="anticon anticon-search"
     >
       <svg
@@ -489,6 +497,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     type="button"
   >
     <i
+      aria-label="search"
       class="anticon anticon-search"
     >
       <svg
@@ -511,6 +520,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     type="button"
   >
     <i
+      aria-label="search"
       class="anticon anticon-search"
     >
       <svg
@@ -536,6 +546,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     type="button"
   >
     <i
+      aria-label="search"
       class="anticon anticon-search"
     >
       <svg
@@ -558,6 +569,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     type="button"
   >
     <i
+      aria-label="search"
       class="anticon anticon-search"
     >
       <svg
@@ -588,6 +600,7 @@ exports[`renders ./components/button/demo/loading.md correctly 1`] = `
     type="button"
   >
     <i
+      aria-label="loading"
       class="anticon anticon-loading"
     >
       <svg
@@ -613,6 +626,7 @@ exports[`renders ./components/button/demo/loading.md correctly 1`] = `
     type="button"
   >
     <i
+      aria-label="loading"
       class="anticon anticon-loading"
     >
       <svg
@@ -647,6 +661,7 @@ exports[`renders ./components/button/demo/loading.md correctly 1`] = `
     type="button"
   >
     <i
+      aria-label="poweroff"
       class="anticon anticon-poweroff"
     >
       <svg
@@ -673,6 +688,7 @@ exports[`renders ./components/button/demo/loading.md correctly 1`] = `
     type="button"
   >
     <i
+      aria-label="loading"
       class="anticon anticon-loading"
     >
       <svg
@@ -695,6 +711,7 @@ exports[`renders ./components/button/demo/loading.md correctly 1`] = `
     type="button"
   >
     <i
+      aria-label="loading"
       class="anticon anticon-loading"
     >
       <svg
@@ -741,6 +758,7 @@ exports[`renders ./components/button/demo/multiple.md correctly 1`] = `
       Actions 
     </span>
     <i
+      aria-label="down"
       class="anticon anticon-down"
     >
       <svg
@@ -865,6 +883,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
     type="button"
   >
     <i
+      aria-label="download"
       class="anticon anticon-download"
     >
       <svg
@@ -912,6 +931,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
     type="button"
   >
     <i
+      aria-label="download"
       class="anticon anticon-download"
     >
       <svg
@@ -941,6 +961,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
       type="button"
     >
       <i
+        aria-label="left"
         class="anticon anticon-left"
       >
         <svg
@@ -969,6 +990,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
         Forward
       </span>
       <i
+        aria-label="right"
         class="anticon anticon-right"
       >
         <svg
