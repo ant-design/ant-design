@@ -80,9 +80,3 @@ class App extends React.Component {
 
 ReactDOM.render(<App />, mountNode);
 ````
-
-<style>
-.skeleton-demo {
-  border: 1px solid #f4f4f4;
-}
-</style>
