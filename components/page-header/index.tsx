@@ -5,6 +5,7 @@ import classnames from 'classnames';
 import { BreadcrumbProps } from '../breadcrumb';
 import { Divider, Breadcrumb } from '../index';
 import Tag from '../tag';
+import Wave from '../_util/wave';
 
 export interface PageHeaderProps {
   backIcon?: React.ReactNode;
@@ -36,7 +37,7 @@ const renderBack = (
         }
       }}
     >
-      {backIcon}
+      <Wave>{backIcon}</Wave>
       <Divider type="vertical" />
     </div>
   );
