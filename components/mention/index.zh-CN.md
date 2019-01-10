@@ -42,7 +42,7 @@ title: Mention
 | notFoundContent | 未找到时的内容 | string | '无匹配结果，轻敲空格完成输入' |
 | placeholder | 输入框默认文字 | string | null |
 | placement | 建议框位置，可选 `top` `bottom` | string | 'bottom' |
-| prefix | 触发弹出下拉框的字符 | string or Array<string> | '@' |
+| prefix | 触发弹出下拉框的字符 | string or Array&lt;string> | '@' |
 | readOnly | 是否只读. | boolean | false |
 | suggestions | 建议内容 | Array&lt;string\|Mention.Nav> | \[] |
 | suggestionStyle | 弹出下拉框样式 | object | {} |

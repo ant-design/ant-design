@@ -21,7 +21,7 @@ A card can be used to display content related to a single subject. The content c
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| actions | The action list, shows at the bottom of the Card. | Array<ReactNode> | - |
+| actions | The action list, shows at the bottom of the Card. | Array&lt;ReactNode> | - |
 | activeTabKey | Current TabPane's key | string | - |
 | headStyle | Inline style to apply to the card head | object | - |
 | bodyStyle | Inline style to apply to the card content | object | - |
