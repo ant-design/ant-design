@@ -70,9 +70,7 @@ class Editable extends React.Component<EditableProps, EditableState> {
     metaKey,
     shiftKey,
   }) => {
-    // When using enter to type english by Chinese input,
-    // this will not trigger enter down but trigger enter up.
-    // We should check if it's a real enter.
+    // Check if it's a real enter
     if (
       keyCode === KeyCode.ENTER &&
       this.lastKeyCode === keyCode &&

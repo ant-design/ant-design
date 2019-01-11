@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { polyfill } from 'react-lifecycles-compat';
+import * as copy from 'copy-to-clipboard';
 import omit from 'omit.js';
 import { withConfigConsumer, ConfigConsumerProps, configConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
@@ -15,6 +16,7 @@ export interface TextProps {
   style?: React.CSSProperties;
   children?: React.ReactNode;
   editable?: boolean;
+  copyable?: boolean;
   onChange?: (value: string) => null;
 }
 
@@ -44,15 +46,10 @@ class Text extends React.Component<TextProps & ConfigConsumerProps, TextState> {
     this.startEdit();
   };
 
-  // onEditKeyDown = ({ keyCode }: React.KeyboardEvent) => {
-
-  // }
-
-  // onEditKeyUp = ({ keyCode }: React.KeyboardEvent) => {
-  //   if (keyCode === KeyCode.ENTER) {
-  //     this.startEdit();
-  //   }
-  // };
+  onCopyClick = () => {
+    const { children } = this.props;
+    copy(String(children));
+  };
 
   onEditChange = (value: string) => {
     const { onChange } = this.props;
@@ -99,6 +96,19 @@ class Text extends React.Component<TextProps & ConfigConsumerProps, TextState> {
     );
   }
 
+  renderCopy() {
+    const { copyable, prefixCls } = this.props;
+    if (!copyable) return;
+
+    return (
+      <Tooltip title="copy">
+        <TransButton className={`${prefixCls}-copy`} onClick={this.onCopyClick}>
+          <Icon role="button" type="copy" />
+        </TransButton>
+      </Tooltip>
+    );
+  }
+
   renderEditInput() {
     const { children, prefixCls } = this.props;
     return (
@@ -111,14 +121,20 @@ class Text extends React.Component<TextProps & ConfigConsumerProps, TextState> {
   }
 
   renderParagraph() {
-    const { children, className, prefixCls, editable, ...restProps } = this.props;
+    const { children, className, prefixCls, ...restProps } = this.props;
 
-    const textProps = omit(restProps, ['prefixCls', 'editable', ...configConsumerProps]);
+    const textProps = omit(restProps, [
+      'prefixCls',
+      'editable',
+      'copyable',
+      ...configConsumerProps,
+    ]);
 
     return (
       <p className={classNames(prefixCls, className)} {...textProps}>
         {children}
         {this.renderEdit()}
+        {this.renderCopy()}
       </p>
     );
   }
@@ -129,7 +145,6 @@ class Text extends React.Component<TextProps & ConfigConsumerProps, TextState> {
     if (edit) {
       return this.renderEditInput();
     }
-
     return this.renderParagraph();
   }
 }
