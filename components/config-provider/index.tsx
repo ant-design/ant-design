@@ -18,6 +18,15 @@ export interface ConfigConsumerProps {
   autoInsertSpaceInButton?: boolean;
 }
 
+export const configConsumerProps = [
+  'getPopupContainer',
+  'rootPrefixCls',
+  'getPrefixCls',
+  'renderEmpty',
+  'csp',
+  'autoInsertSpaceInButton',
+];
+
 interface ConfigProviderProps {
   getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
   prefixCls?: string;
@@ -90,7 +99,7 @@ interface ConsumerConfig {
 }
 
 export function withConfigConsumer<ExportProps extends BasicExportProps>(config: ConsumerConfig) {
-  return function <ComponentDef>(Component: IReactComponent): React.SFC<ExportProps> & ComponentDef {
+  return function<ComponentDef>(Component: IReactComponent): React.SFC<ExportProps> & ComponentDef {
     // Wrap with ConfigConsumer. Since we need compatible with react 15, be care when using ref methods
     return ((props: ExportProps) => (
       <ConfigConsumer>

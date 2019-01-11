@@ -3,11 +3,34 @@
 
 @text-prefix-cls: ~'@{ant-prefix}-text';
 
+.icon-focus {
+  &:focus {
+    outline: none;
+    color: @primary-color;
+  }
+}
+
 .@{text-prefix-cls} {
   margin-top: 0;
   margin-bottom: 1em;
 
+  // Edit icon
   &-edit {
+    .icon-focus;
+
     margin-left: 8px;
+  }
+
+  // Text input area
+  &-edit-content {
+    position: relative;
+
+    &-confirm {
+      .icon-focus;
+
+      position: absolute;
+      right: 10px;
+      bottom: 5px;
+    }
   }
 }

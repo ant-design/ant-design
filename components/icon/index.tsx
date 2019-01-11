@@ -41,6 +41,7 @@ export interface IconProps {
   className?: string;
   theme?: ThemeType;
   title?: string;
+  onKeyUp?: React.KeyboardEventHandler<HTMLElement>;
   onClick?: React.MouseEventHandler<HTMLElement>;
   component?: React.ComponentType<CustomIconComponentProps>;
   twoToneColor?: string;

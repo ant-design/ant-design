@@ -1,9 +1,12 @@
 import * as React from 'react';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { polyfill } from 'react-lifecycles-compat';
+import TransButton from '../_util/transButton';
+import Icon from '../icon';
 import TextArea from '../input/TextArea';
 
 interface EditableProps {
+  prefixCls?: string;
   value?: string;
   onChange?: (value: string) => void;
 }
@@ -29,6 +32,7 @@ class Editable extends React.Component<EditableProps, EditableState> {
   }
 
   textarea?: TextArea;
+  lastKeyCode?: number;
 
   state = {
     current: '',
@@ -41,17 +45,41 @@ class Editable extends React.Component<EditableProps, EditableState> {
   }
 
   onChange: React.ChangeEventHandler<HTMLTextAreaElement> = ({ target: { value } }) => {
-    this.setState({ current: value });
+    this.setState({ current: value.replace(/[\r\n]/g, '') });
   };
 
   onKeyDown: React.KeyboardEventHandler<HTMLTextAreaElement> = ({ keyCode }) => {
-    if (keyCode === KeyCode.ENTER) {
-      const { current } = this.state;
-      const { onChange } = this.props;
+    this.lastKeyCode = keyCode;
+  };
 
-      if (onChange) {
-        onChange(current.trim());
-      }
+  onKeyUp: React.KeyboardEventHandler<HTMLTextAreaElement> = ({
+    keyCode,
+    ctrlKey,
+    altKey,
+    metaKey,
+    shiftKey,
+  }) => {
+    // When using enter to type english by Chinese input,
+    // this will not trigger enter down but trigger enter up.
+    // We should check if it's a real enter.
+    if (
+      keyCode === KeyCode.ENTER &&
+      this.lastKeyCode === keyCode &&
+      !ctrlKey &&
+      !altKey &&
+      !metaKey &&
+      !shiftKey
+    ) {
+      this.confirmChange();
+    }
+  };
+
+  confirmChange = () => {
+    const { current } = this.state;
+    const { onChange } = this.props;
+
+    if (onChange) {
+      onChange(current.trim());
     }
   };
 
@@ -61,15 +89,22 @@ class Editable extends React.Component<EditableProps, EditableState> {
 
   render() {
     const { current } = this.state;
+    const { prefixCls } = this.props;
 
     return (
-      <TextArea
-        ref={this.setTextarea}
-        value={current}
-        onChange={this.onChange}
-        onKeyDown={this.onKeyDown}
-        autosize
-      />
+      <div className={`${prefixCls}-edit-content`}>
+        <TextArea
+          ref={this.setTextarea}
+          value={current}
+          onChange={this.onChange}
+          onKeyDown={this.onKeyDown}
+          onKeyUp={this.onKeyUp}
+          autosize
+        />
+        <TransButton className={`${prefixCls}-edit-content-confirm`} onClick={this.confirmChange}>
+          <Icon type="enter" />
+        </TransButton>
+      </div>
     );
   }
 }
