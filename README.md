@@ -11,6 +11,17 @@
 An enterprise-class UI design language and React implementation.
 
 [![CircleCI branch](https://img.shields.io/circleci/project/github/ant-design/ant-design/master.svg?style=flat-square)](https://circleci.com/gh/ant-design/ant-design)
+This branch has conflicts that must be resolved
+Only those with write access to this repository can merge pull requests.
+Conflicting files
+components/table/Table.tsx
+components/table/__tests__/__snapshots__/Table.pagination.test.js.snap
+components/table/__tests__/__snapshots__/Table.rowSelection.test.js.snap
+components/table/__tests__/__snapshots__/demo.test.js.snap
+components/table/demo/dynamic-settings.md
+components/tree/__tests__/__snapshots__/demo.test.js.snap
+components/tree/__tests__/__snapshots__/directory.test.js.snap
+@oscarg933
 [![Codecov](https://img.shields.io/codecov/c/github/ant-design/ant-design/master.svg?style=flat-square)](https://codecov.io/gh/ant-design/ant-design/branch/master)
 [![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
 [![NPM downloads](http://img.shields.io/npm/dm/antd.svg?style=flat-square)](http://npmjs.com/antd)
