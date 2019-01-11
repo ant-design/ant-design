@@ -89,6 +89,8 @@ export interface ModalFuncProps {
   keyboard?: boolean;
   getContainer?: (instance: React.ReactInstance) => HTMLElement;
   autoFocusButton?: null | 'ok' | 'cancel';
+  transitionName?: string;
+  maskTransitionName?: string;
 }
 
 export type ModalFunc = (
