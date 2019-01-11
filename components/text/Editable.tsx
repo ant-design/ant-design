@@ -33,6 +33,7 @@ class Editable extends React.Component<EditableProps, EditableState> {
 
   textarea?: TextArea;
   lastKeyCode?: number;
+  inComposition?: boolean = false;
 
   state = {
     current: '',
@@ -48,7 +49,17 @@ class Editable extends React.Component<EditableProps, EditableState> {
     this.setState({ current: value.replace(/[\r\n]/g, '') });
   };
 
+  onCompositionStart = () => {
+    this.inComposition = true;
+  };
+  onCompositionEnd = () => {
+    this.inComposition = false;
+  };
+
   onKeyDown: React.KeyboardEventHandler<HTMLTextAreaElement> = ({ keyCode }) => {
+    // We don't record keyCode when IME is using
+    if (this.inComposition) return;
+
     this.lastKeyCode = keyCode;
   };
 
@@ -65,6 +76,7 @@ class Editable extends React.Component<EditableProps, EditableState> {
     if (
       keyCode === KeyCode.ENTER &&
       this.lastKeyCode === keyCode &&
+      !this.inComposition &&
       !ctrlKey &&
       !altKey &&
       !metaKey &&
@@ -99,6 +111,8 @@ class Editable extends React.Component<EditableProps, EditableState> {
           onChange={this.onChange}
           onKeyDown={this.onKeyDown}
           onKeyUp={this.onKeyUp}
+          onCompositionStart={this.onCompositionStart}
+          onCompositionEnd={this.onCompositionEnd}
           autosize
         />
         <TransButton className={`${prefixCls}-edit-content-confirm`} onClick={this.confirmChange}>
