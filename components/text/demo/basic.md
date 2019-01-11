@@ -17,7 +17,11 @@ Simplest Usage.
 import { Text } from 'antd';
 
 ReactDOM.render(
-  <Text>Ant Design, a design language for background applications, is refined by Ant UED Team.</Text>,
+  <div>
+    <Text>Ant Design, a design language for background applications, is refined by Ant UED Team.</Text>
+    <Text secondary>Ant Design, a design language for background applications, is refined by Ant UED Team.</Text>
+    <Text disabled>Ant Design, a design language for background applications, is refined by Ant UED Team.</Text>
+  </div>,
   mountNode
 );
 ```

@@ -18,7 +18,7 @@ import { Text } from 'antd';
 
 class Demo extends React.Component {
   state = {
-    str: 'editable text',
+    str: 'This is an editable text.',
   };
 
   onChange = (str) => {
@@ -30,7 +30,7 @@ class Demo extends React.Component {
     return (
       <div>
         <Text onChange={this.onChange} editable>{this.state.str}</Text>
-        <Text copyable>copyable text</Text>
+        <Text copyable>This is a copyable text.</Text>
       </div>
     );
   }

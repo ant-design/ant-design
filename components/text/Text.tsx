@@ -19,6 +19,8 @@ export interface TextProps {
   editable?: boolean;
   copyable?: boolean;
   onChange?: (value: string) => null;
+  secondary?: boolean;
+  disabled?: boolean;
 }
 
 interface TextState {
@@ -133,8 +135,8 @@ class Text extends React.Component<TextProps & ConfigConsumerProps, TextState> {
 
     return (
       <LocaleReceiver componentName="Text">
-        {({ copy: copyTxt, copySuccess }: Locale) => {
-          const title = copied ? copySuccess : copyTxt;
+        {({ copy: copyText, copySuccess }: Locale) => {
+          const title = copied ? copySuccess : copyText;
           return (
             <Tooltip title={title}>
               <TransButton
@@ -164,7 +166,7 @@ class Text extends React.Component<TextProps & ConfigConsumerProps, TextState> {
   }
 
   renderParagraph() {
-    const { children, className, prefixCls, ...restProps } = this.props;
+    const { children, className, prefixCls, secondary, disabled, ...restProps } = this.props;
 
     const textProps = omit(restProps, [
       'prefixCls',
@@ -174,7 +176,15 @@ class Text extends React.Component<TextProps & ConfigConsumerProps, TextState> {
     ]);
 
     return (
-      <p className={classNames(prefixCls, className)} {...textProps}>
+      <p
+        className={classNames(
+          prefixCls,
+          className,
+          secondary && `${prefixCls}-secondary`,
+          disabled && `${prefixCls}-disabled`,
+        )}
+        {...textProps}
+      >
         {children}
         {this.renderEdit()}
         {this.renderCopy()}
