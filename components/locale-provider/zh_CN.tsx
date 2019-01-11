@@ -47,4 +47,9 @@ export default {
   Icon: {
     icon: '图标',
   },
+  Text: {
+    edit: '编辑',
+    copy: '复制',
+    copySuccess: '复制成功',
+  },
 };

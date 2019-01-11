@@ -8,7 +8,9 @@ import TextArea from '../input/TextArea';
 interface EditableProps {
   prefixCls?: string;
   value?: string;
-  onChange?: (value: string) => void;
+  ['aria-label']?: string;
+  onChange: (value: string) => void;
+  onCancel: () => void;
 }
 
 interface EditableState {
@@ -70,9 +72,9 @@ class Editable extends React.Component<EditableProps, EditableState> {
     metaKey,
     shiftKey,
   }) => {
-    // Check if it's a real enter
+    const { onCancel } = this.props;
+    // Check if it's a real key
     if (
-      keyCode === KeyCode.ENTER &&
       this.lastKeyCode === keyCode &&
       !this.inComposition &&
       !ctrlKey &&
@@ -80,17 +82,23 @@ class Editable extends React.Component<EditableProps, EditableState> {
       !metaKey &&
       !shiftKey
     ) {
-      this.confirmChange();
+      if (keyCode === KeyCode.ENTER) {
+        this.confirmChange();
+      } else if (keyCode === KeyCode.ESC) {
+        onCancel();
+      }
     }
+  };
+
+  onBlur: React.FocusEventHandler<HTMLTextAreaElement> = () => {
+    this.confirmChange();
   };
 
   confirmChange = () => {
     const { current } = this.state;
     const { onChange } = this.props;
 
-    if (onChange) {
-      onChange(current.trim());
-    }
+    onChange(current.trim());
   };
 
   setTextarea = (textarea: TextArea) => {
@@ -99,7 +107,7 @@ class Editable extends React.Component<EditableProps, EditableState> {
 
   render() {
     const { current } = this.state;
-    const { prefixCls } = this.props;
+    const { prefixCls, ['aria-label']: ariaLabel } = this.props;
 
     return (
       <div className={`${prefixCls}-edit-content`}>
@@ -111,6 +119,8 @@ class Editable extends React.Component<EditableProps, EditableState> {
           onKeyUp={this.onKeyUp}
           onCompositionStart={this.onCompositionStart}
           onCompositionEnd={this.onCompositionEnd}
+          onBlur={this.onBlur}
+          aria-label={ariaLabel}
           autosize
         />
         <TransButton className={`${prefixCls}-edit-content-confirm`} onClick={this.confirmChange}>

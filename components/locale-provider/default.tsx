@@ -47,4 +47,9 @@ export default {
   Icon: {
     icon: 'icon',
   },
+  Text: {
+    edit: 'edit',
+    copy: 'copy',
+    copySuccess: 'copy success',
+  },
 };
