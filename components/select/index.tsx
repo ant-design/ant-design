@@ -4,7 +4,7 @@ import RcSelect, { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import omit from 'omit.js';
-import warning from 'warning';
+import * as warning from 'warning';
 import Icon from '../icon';
 import { tuple } from '../_util/type';
 
