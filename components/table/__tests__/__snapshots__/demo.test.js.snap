@@ -40,11 +40,11 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                   >
                     <div
                       class="ant-table-column-sorters"
-                      title="Name"
                     >
                       Name
                       <div
                         class="ant-table-column-sorter"
+                        title="Sort"
                       >
                         <i
                           class="anticon anticon-caret-up ant-table-column-sorter-up off"
@@ -7990,11 +7990,11 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     >
                       <div
                         class="ant-table-column-sorters"
-                        title="Age"
                       >
                         Age
                         <div
                           class="ant-table-column-sorter"
+                          title="Sort"
                         >
                           <i
                             class="anticon anticon-caret-up ant-table-column-sorter-up off"
@@ -9181,11 +9181,11 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                   >
                     <div
                       class="ant-table-column-sorters"
-                      title="Name"
                     >
                       Name
                       <div
                         class="ant-table-column-sorter"
+                        title="Sort"
                       >
                         <i
                           class="anticon anticon-caret-down ant-table-column-sorter-down off"
@@ -9230,11 +9230,11 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                   >
                     <div
                       class="ant-table-column-sorters"
-                      title="Age"
                     >
                       Age
                       <div
                         class="ant-table-column-sorter"
+                        title="Sort"
                       >
                         <i
                           class="anticon anticon-caret-up ant-table-column-sorter-up off"
@@ -9278,11 +9278,11 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                   >
                     <div
                       class="ant-table-column-sorters"
-                      title="Address"
                     >
                       Address
                       <div
                         class="ant-table-column-sorter"
+                        title="Sort"
                       >
                         <i
                           class="anticon anticon-caret-up ant-table-column-sorter-up off"
@@ -10271,11 +10271,11 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     >
                       <div
                         class="ant-table-column-sorters"
-                        title="Name"
                       >
                         Name
                         <div
                           class="ant-table-column-sorter"
+                          title="Sort"
                         >
                           <i
                             class="anticon anticon-caret-up ant-table-column-sorter-up off"
@@ -10337,11 +10337,11 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     >
                       <div
                         class="ant-table-column-sorters"
-                        title="Age"
                       >
                         Age
                         <div
                           class="ant-table-column-sorter"
+                          title="Sort"
                         >
                           <i
                             class="anticon anticon-caret-up ant-table-column-sorter-up off"
@@ -10385,11 +10385,11 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     >
                       <div
                         class="ant-table-column-sorters"
-                        title="Address"
                       >
                         Address
                         <div
                           class="ant-table-column-sorter"
+                          title="Sort"
                         >
                           <i
                             class="anticon anticon-caret-up ant-table-column-sorter-up off"

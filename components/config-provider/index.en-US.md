@@ -27,6 +27,6 @@ return (
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| customizeRenderEmpty | set empty content of components. Ref [Empty](/components/empty/) | Function(componentName: string): ReactNode | - |
+| renderEmpty | set empty content of components. Ref [Empty](/components/empty/) | Function(componentName: string): ReactNode | - |
 | getPopupContainer | to set the container of the popup element. The default is to create a `div` element in `body`. | Function(triggerNode) | `() => document.body` |
 | prefixCls | set prefix class | string | ant |

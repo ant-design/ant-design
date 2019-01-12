@@ -247,7 +247,9 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
     }
 
     const menus = filterDropdown ? (
-      <FilterDropdownMenuWrapper>{filterDropdown}</FilterDropdownMenuWrapper>
+      <FilterDropdownMenuWrapper className={`${prefixCls}-dropdown`}>
+        {filterDropdown}
+      </FilterDropdownMenuWrapper>
     ) : (
       <FilterDropdownMenuWrapper className={`${prefixCls}-dropdown`}>
         <Menu

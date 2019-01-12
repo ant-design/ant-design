@@ -41,7 +41,7 @@ When need to mention someone or something.
 | notFoundContent | suggestion when suggestions empty | string | '无匹配结果，轻敲空格完成输入' |
 | placeholder | placeholder of input | string | null |
 | placement | The position of the suggestion relative to the target, which can be one of `top` and `bottom` | string | 'bottom'. |
-| prefix | character which will trigger Mention to show mention list | string or Array<string> | '@' |
+| prefix | character which will trigger Mention to show mention list | string or Array&lt;string> | '@' |
 | readOnly | Tell if the input is readonly. | boolean | false |
 | suggestions | suggestion content | Array&lt;string\|Mention.Nav> | \[] |
 | suggestionStyle | style of suggestion container | object | {} |

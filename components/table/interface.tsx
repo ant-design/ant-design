@@ -147,11 +147,7 @@ export interface TableProps<T> {
     sorter: SorterResult<T>,
   ) => void;
   loading?: boolean | SpinProps;
-  locale?: {
-    filterConfirm?: string;
-    filterReset?: string;
-    emptyText?: string;
-  };
+  locale?: TableLocale;
   indentSize?: number;
   onRowClick?: (record: T, index: number, event: Event) => void;
   onRow?: (record: T, index: number) => any;

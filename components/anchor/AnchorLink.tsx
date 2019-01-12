@@ -9,6 +9,7 @@ export interface AnchorLinkProps {
   href: string;
   title: React.ReactNode;
   children?: any;
+  className?: string;
 }
 
 export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
@@ -50,10 +51,10 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
   };
 
   renderAnchorLink = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, href, title, children } = this.props;
+    const { prefixCls: customizePrefixCls, href, title, children, className } = this.props;
     const prefixCls = getPrefixCls('anchor', customizePrefixCls);
     const active = this.context.antAnchor.activeLink === href;
-    const wrapperClassName = classNames(`${prefixCls}-link`, {
+    const wrapperClassName = classNames(className, `${prefixCls}-link`, {
       [`${prefixCls}-link-active`]: active,
     });
     const titleClassName = classNames(`${prefixCls}-link-title`, {

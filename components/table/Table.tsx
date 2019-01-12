@@ -1,9 +1,3 @@
-// FilterDropdown
-// createBodyRow
-// SelectionCheckboxAll
-// SelectionBox
-// FilterDropdown
-
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import RcTable from 'rc-table';
@@ -122,6 +116,11 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       !('columnsPageRange' in props || 'columnsPageSize' in props),
       '`columnsPageRange` and `columnsPageSize` are removed, please use ' +
         'fixed columns instead, see: https://u.ant.design/fixed-columns.',
+    );
+
+    warning(
+      !('expandedRowRender' in props) || !('scroll' in props),
+      '`expandedRowRender` and `scroll` are not compatible. Please use one of them at one time.',
     );
 
     this.columns = props.columns || normalizeColumns(props.children as React.ReactChildren);
@@ -819,7 +818,6 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       let filterDropdown;
       let sortButton;
       let onHeaderCell = column.onHeaderCell;
-      const sortTitle = this.getColumnTitle(column.title, {}) || locale.sortTitle;
       const isSortColumn = this.isSortColumn(column);
       if ((column.filters && column.filters.length > 0) || column.filterDropdown) {
         const colFilters = key in filters ? filters[key] : [];
@@ -858,7 +856,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         );
 
         sortButton = (
-          <div className={`${prefixCls}-column-sorter`} key="sorter">
+          <div title={locale.sortTitle} className={`${prefixCls}-column-sorter`} key="sorter">
             {ascend}
             {descend}
           </div>
@@ -883,7 +881,6 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
           return colProps;
         };
       }
-      const sortTitleString = sortButton && typeof sortTitle === 'string' ? sortTitle : undefined;
       return {
         ...column,
         className: classNames(column.className, {
@@ -893,11 +890,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
           [`${prefixCls}-column-sort`]: isSortColumn && sortOrder,
         }),
         title: [
-          <div
-            key="title"
-            title={sortTitleString}
-            className={sortButton ? `${prefixCls}-column-sorters` : undefined}
-          >
+          <div key="title" className={sortButton ? `${prefixCls}-column-sorters` : undefined}>
             {this.renderColumnTitle(column.title)}
             {sortButton}
           </div>,
@@ -919,21 +912,6 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     }
     return title;
   }
-
-  getColumnTitle: any = (title: any, parentNode: any) => {
-    if (!title) {
-      return;
-    }
-    if (!(title instanceof Function) && typeof title !== 'string' && typeof title !== 'number') {
-      const props = title.props;
-      if (props && props.children) {
-        const { children } = props;
-        return this.getColumnTitle(children, props);
-      }
-    } else {
-      return parentNode.title || title;
-    }
-  };
 
   handleShowSizeChange = (current: number, pageSize: number) => {
     const { pagination } = this.state;
