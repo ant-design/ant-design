@@ -42,6 +42,8 @@ export interface ModalProps {
   cancelText?: string;
   /** 点击蒙层是否允许关闭*/
   maskClosable?: boolean;
+  /** 强制渲染 Modal*/
+  forceRender?: boolean;
   okButtonProps?: NativeButtonProps;
   cancelButtonProps?: NativeButtonProps;
   destroyOnClose?: boolean;
