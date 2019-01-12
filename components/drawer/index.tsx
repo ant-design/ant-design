@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import RcDrawer from 'rc-drawer';
 import createReactContext, { Context } from 'create-react-context';
-import warning from 'warning';
+import * as warning from 'warning';
 import classNames from 'classnames';
 import Icon from '../icon';
 import { withConfigConsumer, ConfigConsumerProps } from '../config-provider';
