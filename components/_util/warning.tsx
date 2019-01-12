@@ -1,4 +1,4 @@
-import * as warning from 'warning';
+import warning from 'warning';
 
 const warned: Record<string, boolean> = {};
 export default (valid: boolean, message: string): void => {
