@@ -11,8 +11,8 @@ export interface EmptyProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
-  image?: string;
-  description?: React.ReactNode;
+  image?: string | React.ReactNode;
+  description?: string | React.ReactNode;
   children?: React.ReactNode;
 }
 
