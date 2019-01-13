@@ -17,10 +17,14 @@ timeline: true
 
 ## 3.12.3
 
+`2019-01-13`
+
 - 🐞 回滚 [#14157](https://github.com/ant-design/ant-design/pull/14157) 修复 Input `prefix` 和 `suffix` 丢失的问题。[#14310](https://github.com/ant-design/ant-design/issues/14310)
 - 🐞 修复 Empty 的 `image` 属性的 TypeScript 定义。[#14308](https://github.com/ant-design/ant-design/issues/14308) [@chunlea](https://github.com/chunlea)
 
 ## 3.12.2
+
+`2019-01-12`
 
 - 🐞 修复 Anchor.Link 组件不支持 `className` 属性的问题。[#14248](https://github.com/ant-design/ant-design/pull/14248)
 - 🐞 修复 Badge 组件浮点数展示错误的问题。[#14195](https://github.com/ant-design/ant-design/pull/14195) [@ztplz](https://github.com/ztplz)
@@ -48,9 +52,13 @@ timeline: true
 
 ## 3.12.1
 
+`2019-01-06`
+
 - 🐞 修复引用 svg 导致的构建错误。
 
 ## 3.12.0
+
+`2019-01-06`
 
 - 🎉 新的组件 [Empty](https://ant.design/components/empty/)，同时优化了各个组件的空数据状态样式！[13651](https://github.com/ant-design/ant-design/pull/13651)
 - 🎉 添加新的国际化资源北印度语（kn_IN）和坎那达语（kn_IN）。[#13776](https://github.com/ant-design/ant-design/pull/13759) [@gurungrahul2](https://github.com/aashutoshrathi) [#13776](https://github.com/ant-design/ant-design/pull/13776) [@gurungrahul2](https://github.com/gurungrahul2)

@@ -17,10 +17,14 @@ timeline: true
 
 ## 3.12.3
 
+`2019-01-13`
+
 - 🐞 Reverted [#14157](https://github.com/ant-design/ant-design/pull/14157) to fix Input `prefix` and `suffix` missing problem. [#14310](https://github.com/ant-design/ant-design/issues/14310)
 - 🐞 Fixed Empty `image` TypeScript type to ReactNode. [#14308](https://github.com/ant-design/ant-design/issues/14308) [@chunlea](https://github.com/chunlea)
 
 ## 3.12.2
+
+`2019-01-12`
 
 - 🐞 Fix the ineffectiveness of `className` prop for Anchor.Link. [#14248](https://github.com/ant-design/ant-design/pull/14248)
 - 🐞 Fix the incompatibility of float number for Badge. [#14195](https://github.com/ant-design/ant-design/pull/14195) [@ztplz](https://github.com/ztplz)
@@ -48,9 +52,13 @@ timeline: true
 
 ## 3.12.1
 
+`2019-01-06`
+
 - 🐞 Fixed build error caused by importing svg.
 
 ## 3.12.0
+
+`2019-01-06`
 
 - 🎉 New component [Empty](https://ant.design/components/empty/), and improved empty data style of all components! [13651](https://github.com/ant-design/ant-design/pull/13651)
 - 🎉 Hindi locale added (hi_IN). [#13776](https://github.com/ant-design/ant-design/pull/13759) [@gurungrahul2](https://github.com/aashutoshrathi)
