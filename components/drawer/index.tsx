@@ -24,6 +24,7 @@ export interface DrawerProps {
   mask?: boolean;
   maskStyle?: React.CSSProperties;
   style?: React.CSSProperties;
+  bodyStyle?: React.CSSProperties;
   title?: React.ReactNode;
   visible?: boolean;
   width?: number | string;
@@ -159,10 +160,12 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
     if (!title && !closable) {
       return null;
     }
+
+    const headerClassName = title ? `${prefixCls}-header` : `${prefixCls}-header-no-title`;
     return (
-      <div className={`${prefixCls}-header`}>
+      <div className={headerClassName}>
         {title && <div className={`${prefixCls}-title`}>{title}</div>}
-        {this.renderCloseIcon()}
+        {closable && this.renderCloseIcon()}
       </div>
     );
   }
@@ -180,7 +183,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
 
   // render drawer body dom
   renderBody = () => {
-    const { placement, prefixCls, visible } = this.props;
+    const { bodyStyle, placement, prefixCls, visible } = this.props;
     if (this.destroyClose && !visible) {
       return null;
     }
@@ -209,7 +212,9 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
         onTransitionEnd={this.onDestroyTransitionEnd}
       >
         {this.renderHeader()}
-        <div className={`${prefixCls}-body`}>{this.props.children}</div>
+        <div className={`${prefixCls}-body`} style={bodyStyle}>
+          {this.props.children}
+        </div>
       </div>
     );
   };

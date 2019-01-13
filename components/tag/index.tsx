@@ -70,10 +70,12 @@ class Tag extends React.Component<TagProps, TagState> {
     this.setVisible(false, e);
   };
 
-  animationEnd = () => {
-    const { afterClose } = this.props;
-    if (afterClose) {
-      afterClose();
+  animationEnd = (_: string, existed: boolean) => {
+    if (!existed) {
+      const { afterClose } = this.props;
+      if (afterClose) {
+        afterClose();
+      }
     }
   };
 

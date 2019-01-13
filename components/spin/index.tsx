@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import omit from 'omit.js';
+import debounce from 'lodash/debounce';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { tuple } from '../_util/type';
 
@@ -78,66 +79,51 @@ class Spin extends React.Component<SpinProps, SpinState> {
     defaultIndicator = indicator;
   }
 
-  debounceTimeout: number;
-  delayTimeout: number;
+  originalUpdateSpinning: () => void;
 
   constructor(props: SpinProps) {
     super(props);
 
     const { spinning, delay } = props;
+    const shouldBeDelayed = shouldDelay(spinning, delay);
     this.state = {
-      spinning: spinning && !shouldDelay(spinning, delay),
+      spinning: spinning && !shouldBeDelayed,
     };
+    this.originalUpdateSpinning = this.updateSpinning;
+    this.debouncifyUpdateSpinning(props);
   }
 
   isNestedPattern() {
     return !!(this.props && this.props.children);
   }
 
-  componentDidMount() {
-    this.componentDidUpdate();
+  componentWillUnmount() {
+    const updateSpinning: any = this.updateSpinning;
+    if (updateSpinning && updateSpinning.cancel) {
+      updateSpinning.cancel();
+    }
   }
 
-  componentWillUnmount() {
-    if (this.debounceTimeout) {
-      clearTimeout(this.debounceTimeout);
-    }
-    if (this.delayTimeout) {
-      clearTimeout(this.delayTimeout);
-    }
+  componentDidMount() {
+    this.updateSpinning();
   }
 
   componentDidUpdate() {
-    const currentSpinning = this.state.spinning;
-    const spinning = this.props.spinning;
-    if (currentSpinning === spinning) {
-      return;
-    }
-    const { delay } = this.props;
-
-    if (this.debounceTimeout) {
-      clearTimeout(this.debounceTimeout);
-    }
-    if (currentSpinning && !spinning) {
-      this.debounceTimeout = window.setTimeout(() => this.setState({ spinning }), 200);
-      if (this.delayTimeout) {
-        clearTimeout(this.delayTimeout);
-      }
-    } else {
-      if (shouldDelay(spinning, delay)) {
-        if (this.delayTimeout) {
-          clearTimeout(this.delayTimeout);
-        }
-        this.delayTimeout = window.setTimeout(this.delayUpdateSpinning, delay);
-      } else {
-        this.setState({ spinning });
-      }
-    }
+    this.debouncifyUpdateSpinning();
+    this.updateSpinning();
   }
 
-  delayUpdateSpinning = () => {
+  debouncifyUpdateSpinning = (props?: SpinProps) => {
+    const { delay } = props || this.props;
+    if (delay) {
+      this.updateSpinning = debounce(this.originalUpdateSpinning, delay);
+    }
+  };
+
+  updateSpinning = () => {
     const { spinning } = this.props;
-    if (this.state.spinning !== spinning) {
+    const { spinning: currentSpinning } = this.state;
+    if (currentSpinning !== spinning) {
       this.setState({ spinning });
     }
   };

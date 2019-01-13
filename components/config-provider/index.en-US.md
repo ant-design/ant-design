@@ -38,6 +38,6 @@ Some component use dynamic style to support wave effect. You can config `csp` pr
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | autoInsertSpaceInButton | Set `false` to remove space between 2 chinese characters on Button | boolean | true |
-| customizeRenderEmpty | set empty content of components. Ref [Empty](/components/empty/) | Function(componentName: string): ReactNode | - |
+| renderEmpty | set empty content of components. Ref [Empty](/components/empty/) | Function(componentName: string): ReactNode | - |
 | getPopupContainer | to set the container of the popup element. The default is to create a `div` element in `body`. | Function(triggerNode) | `() => document.body` |
 | prefixCls | set prefix class | string | ant |

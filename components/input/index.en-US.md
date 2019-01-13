@@ -75,8 +75,8 @@ Supports all props of `Input`.
 </Input.Group>
 ```
 
-#### Input.Password
+#### Input.Password (Added in 3.12.0)
 
-| 参数 | 说明 | 类型 | 默认值 |
+| Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | visibilityToggle | Whether show toggle button | boolean | true |
