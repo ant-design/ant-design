@@ -320,7 +320,7 @@ describe('Upload', () => {
     expect(linkNode.props().rel).toBe('noopener');
   });
 
-  it('should not stop remove when return value of onRemove is false', () => {
+  it('should not stop remove when return value of onRemove is false', done => {
     const mockRemove = jest.fn(() => false);
     const props = {
       onRemove: mockRemove,
@@ -338,34 +338,13 @@ describe('Upload', () => {
 
     wrapper.find('div.ant-upload-list-item i.anticon-close').simulate('click');
 
-    expect(mockRemove).toBeCalled();
-    expect(props.fileList).toHaveLength(1);
-    expect(props.fileList[0].status).toBe('done');
-  });
+    setImmediate(() => {
+      wrapper.update();
 
-  it('remove file in onRemove', done => {
-    const mockRemove = jest.fn();
-    const props = {
-      onRemove: mockRemove,
-      fileList: [
-        {
-          uid: '-1',
-          name: 'foo.png',
-          status: 'done',
-          url: 'http://www.baidu.com/xxx.png',
-        },
-      ],
-      onChange: ({ file }, fileList) => {
-        if (file.status === 'removed') {
-          expect(mockRemove).toBeCalled();
-          expect(fileList).toHaveLength(0);
-          done();
-        }
-      },
-    };
-
-    const wrapper = mount(<Upload {...props} />);
-
-    wrapper.find('div.ant-upload-list-item i.anticon-close').simulate('click');
+      expect(mockRemove).toBeCalled();
+      expect(props.fileList).toHaveLength(1);
+      expect(props.fileList[0].status).toBe('done');
+      done();
+    });
   });
 });
