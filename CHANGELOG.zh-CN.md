@@ -15,6 +15,11 @@ timeline: true
 
 ---
 
+## 3.12.3
+
+- 🐞 回滚 [#14157](https://github.com/ant-design/ant-design/pull/14157) 修复 Input `prefix` 和 `suffix` 丢失的问题。[#14310](https://github.com/ant-design/ant-design/issues/14310)
+- 🐞 修复 Empty 的 `image` 属性的 TypeScript 定义。[#14308](https://github.com/ant-design/ant-design/issues/14308) [@chunlea](https://github.com/chunlea)
+
 ## 3.12.2
 
 - 🐞 修复 Anchor.Link 组件不支持 `className` 属性的问题。[#14248](https://github.com/ant-design/ant-design/pull/14248)
