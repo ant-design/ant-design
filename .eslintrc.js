@@ -1,3 +1,4 @@
+# Oscarg933
 const eslintrc = {
   extends: ['eslint-config-airbnb'],
   env: {
