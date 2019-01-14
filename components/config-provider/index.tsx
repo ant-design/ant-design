@@ -98,10 +98,14 @@ interface ConsumerConfig {
   prefixCls: string;
 }
 
+interface ConstructorProps {
+  displayName?: string;
+}
+
 export function withConfigConsumer<ExportProps extends BasicExportProps>(config: ConsumerConfig) {
   return function<ComponentDef>(Component: IReactComponent): React.SFC<ExportProps> & ComponentDef {
     // Wrap with ConfigConsumer. Since we need compatible with react 15, be care when using ref methods
-    return ((props: ExportProps) => (
+    const SFC = ((props: ExportProps) => (
       <ConfigConsumer>
         {(configProps: ConfigConsumerProps) => {
           const { prefixCls: basicPrefixCls } = config;
@@ -112,6 +116,13 @@ export function withConfigConsumer<ExportProps extends BasicExportProps>(config:
         }}
       </ConfigConsumer>
     )) as React.SFC<ExportProps> & ComponentDef;
+
+    const cons: ConstructorProps = Component.constructor as ConstructorProps;
+    const name = (cons && cons.displayName) || Component.name || 'Component';
+
+    SFC.displayName = `withConfigConsumer(${name})`;
+
+    return SFC;
   };
 }
 

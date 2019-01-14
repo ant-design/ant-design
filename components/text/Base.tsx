@@ -142,10 +142,13 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
   // ============== Ellipsis ==============
   resizeOnNextFrame = () => {
     raf.cancel(this.rafId);
-    this.rafId = raf(this.syncEllipsis);
+    this.rafId = raf(() => {
+      // Do not bind `syncEllipsis`. It need for test usage on prototype
+      this.syncEllipsis();
+    });
   };
 
-  syncEllipsis = () => {
+  syncEllipsis() {
     const { ellipsisText, isEllipsis } = this.state;
     const { lines, children, copyable, editable } = this.props;
     if (!lines || lines < 0 || !this.content) return;
@@ -160,7 +163,7 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
     if (ellipsisText !== text || isEllipsis !== ellipsis) {
       this.setState({ ellipsisText: text, isEllipsis: ellipsis });
     }
-  };
+  }
 
   renderEdit() {
     const { editable, prefixCls } = this.props;
@@ -285,6 +288,9 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
 }
 
 polyfill(Base);
+
+// Only used for test, do not export to public
+export { Base };
 
 export default withConfigConsumer<InternalBaseProps>({
   prefixCls: 'text',
