@@ -77,10 +77,10 @@ title: 设计资源
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">
-        Ant Design Landing 
+        Ant Design Landing
         <span class="resource-card-hot-badge">NEW</span>
       </span>
-      <span class="resource-card-description">Landing 模板集</span>
+      <span class="resource-card-description">首页模板集</span>
     </div>
   </a>
   <a target="_blank" href="http://ux.ant.design" class="resource-card">
