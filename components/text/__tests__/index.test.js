@@ -1,6 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import KeyCode from 'rc-util/lib/KeyCode';
 import Title from '../Title';
+import Paragraph from '../Paragraph';
 import { Base } from '../Base';
 
 describe('Text', () => {
@@ -53,6 +55,49 @@ describe('Text', () => {
       wrapper.setProps({ lines: 2 });
       jest.runAllTimers();
       expect(onSyncEllipsis).toHaveBeenCalledTimes(2);
+    });
+
+    describe('editable', () => {
+      function testStep(name, submitFunc) {
+        it(name, () => {
+          const onChange = jest.fn();
+
+          const wrapper = mount(
+            <Paragraph onChange={onChange} editable>
+              Bamboo
+            </Paragraph>,
+          );
+
+          wrapper
+            .find('.ant-text-edit')
+            .first()
+            .simulate('click');
+
+          wrapper.find('TextArea').simulate('change', {
+            target: { value: 'Bamboo' },
+          });
+
+          submitFunc(wrapper);
+
+          expect(onChange).toBeCalledWith('Bamboo');
+        });
+      }
+
+      testStep('by click', wrapper => {
+        wrapper
+          .find('.ant-text-edit-content-confirm')
+          .first()
+          .simulate('click');
+      });
+
+      testStep('by key up', wrapper => {
+        wrapper.find('TextArea').simulate('keyDown', { keyCode: KeyCode.ENTER });
+        wrapper.find('TextArea').simulate('keyUp', { keyCode: KeyCode.ENTER });
+      });
+
+      testStep('by blur', wrapper => {
+        wrapper.find('TextArea').simulate('blur');
+      });
     });
   });
 });
