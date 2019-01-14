@@ -1,0 +1,5 @@
+<target name="index.html" depends="git.revision" description="build index.html from template">
+  <copy file="index.html.template" tofile="index.html" overwrite="yes">
+    <filterchain>
+      <replacetokens>
+        <token key="repository.version" value="${repository.version}" />...
