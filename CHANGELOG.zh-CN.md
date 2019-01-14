@@ -30,25 +30,25 @@ timeline: true
 - 🐞 修复 Badge 组件浮点数展示错误的问题。[#14195](https://github.com/ant-design/ant-design/pull/14195) [@ztplz](https://github.com/ztplz)
 - 🐞 修复 DatePicker 组件在弹层展开时依然会获取焦点的问题。[#14092](https://github.com/ant-design/ant-design/pull/14092) [@Yangzhedi](https://github.com/Yangzhedi)
 - Drawer
-	- 🐞 修复 Drawer 组件未设置 `title` 时显示空白头的问题。[#14264](https://github.com/ant-design/ant-design/pull/14264) [@ztplz](https://github.com/ztplz)
-	- 🐞 修复 Drawer 组件不支持 `bodyStyle` 属性的问题。[#14294](https://github.com/ant-design/ant-design/pull/14294) [@ztplz](https://github.com/ztplz)
+  - 🐞 修复 Drawer 组件未设置 `title` 时显示空白头的问题。[#14264](https://github.com/ant-design/ant-design/pull/14264) [@ztplz](https://github.com/ztplz)
+  - 🐞 修复 Drawer 组件不支持 `bodyStyle` 属性的问题。[#14294](https://github.com/ant-design/ant-design/pull/14294) [@ztplz](https://github.com/ztplz)
 - 🐞 修复 Form 组件垂直布局时标签文本无法自动换行的问题。[#14135](https://github.com/ant-design/ant-design/pull/14135) [@ranbena](https://github.com/ranbena)
 - 🐞 修复 Modal.confirm 组件在小屏幕下位置错误的问题。[#14279](https://github.com/ant-design/ant-design/issues/14279)
 - Radio
-	- 🐞 修复 Radio 组件在禁选和选中状态下样式不正确的问题。[#14165](https://github.com/ant-design/ant-design/issues/14165)
-	- 💄 优化 Radio 组件在获取焦点时的样式。[#14186](https://github.com/ant-design/ant-design/issues/14186)
+  - 🐞 修复 Radio 组件在禁选和选中状态下样式不正确的问题。[#14165](https://github.com/ant-design/ant-design/issues/14165)
+  - 💄 优化 Radio 组件在获取焦点时的样式。[#14186](https://github.com/ant-design/ant-design/issues/14186)
 - 🐞 修复 Select 组件空数据样式缺失的问题。[#14204](https://github.com/ant-design/ant-design/issues/14204)
 - 💄 简化 Spin 组件实现以优化运行性能。[#14100](https://github.com/ant-design/ant-design/issues/14100)
 - Table
-	- 🐞 修复 Table 组件表头列的排序 `title` 遮挡 Tooltip 的问题。[#14168](https://github.com/ant-design/ant-design/issues/14168)
-	- 🐞 修复 Table 组件点击自定义筛选菜单会触发排序的问题。[#14238](https://github.com/ant-design/ant-design/issues/14238)
+  - 🐞 修复 Table 组件表头列的排序 `title` 遮挡 Tooltip 的问题。[#14168](https://github.com/ant-design/ant-design/issues/14168)
+  - 🐞 修复 Table 组件点击自定义筛选菜单会触发排序的问题。[#14238](https://github.com/ant-design/ant-design/issues/14238)
 - 🐞 修复 Tag 组件从隐藏到可见时会调用 `afterClose` 属性函数的问题。[#14200](https://github.com/ant-design/ant-design/pull/14200) [@tangjinzhou](https://github.com/tangjinzhou)
 - 🌟 新增 `@btn-shadow`、`@btn-primary-shadow` 和 `@btn-text-shadow` 样式变量。[#14172](https://github.com/ant-design/ant-design/issues/14172)
 - TypeScript
-	- 🐞 修复 Modal 组件的 TypeScript 类型定义缺少 `forceRender` 属性的问题。[#14160](https://github.com/ant-design/ant-design/issues/14160)
-	- 🐞 修复 Table 组件的 `TypeScript` 类型定义中 `sortDirections` 属性必选的问题。[#14182](https://github.com/ant-design/ant-design/pull/14182)
-	- 🐞 修复 Table 组件的 `locale` 属性的 TypeScript 类型定义错误的问题。[#14245](https://github.com/ant-design/ant-design/pull/14245) [@LeezQ](https://github.com/LeezQ)
-	- 🐞 修复 List.Item 组件的 TypeScript 类型定义不支持原生 div 元素属性的问题。[#14171](https://github.com/ant-design/ant-design/issues/14171)
+  - 🐞 修复 Modal 组件的 TypeScript 类型定义缺少 `forceRender` 属性的问题。[#14160](https://github.com/ant-design/ant-design/issues/14160)
+  - 🐞 修复 Table 组件的 `TypeScript` 类型定义中 `sortDirections` 属性必选的问题。[#14182](https://github.com/ant-design/ant-design/pull/14182)
+  - 🐞 修复 Table 组件的 `locale` 属性的 TypeScript 类型定义错误的问题。[#14245](https://github.com/ant-design/ant-design/pull/14245) [@LeezQ](https://github.com/LeezQ)
+  - 🐞 修复 List.Item 组件的 TypeScript 类型定义不支持原生 div 元素属性的问题。[#14171](https://github.com/ant-design/ant-design/issues/14171)
 
 ## 3.12.1
 
@@ -555,8 +555,8 @@ timeline: true
 - 🐞 修复 Drawer 组件在多层状态下切换出现的背景闪烁的问题。[#11813](https://github.com/ant-design/ant-design/issues/11813)
 - 🐞 修复带有前缀或后缀的 Input.Group 组件在紧凑模式下右边框宽度过宽的问题。[#11863](https://github.com/ant-design/ant-design/issues/11863)
 - Menu
-	- 🐞 修复子菜单之间存在间隙导致鼠标 hover 时菜单消失的问题。[#11725](https://github.com/ant-design/ant-design/issues/11725)
-	- 🐞 修复当分组菜单包含了第一个菜单项，并且在菜单收起时出现错误的问题。[a52370](https://github.com/ant-design/ant-design/commit/a523706625bd695f44401579d980089292089dda) [@ohhoney1](https://github.com/ohhoney1)
+  - 🐞 修复子菜单之间存在间隙导致鼠标 hover 时菜单消失的问题。[#11725](https://github.com/ant-design/ant-design/issues/11725)
+  - 🐞 修复当分组菜单包含了第一个菜单项，并且在菜单收起时出现错误的问题。[a52370](https://github.com/ant-design/ant-design/commit/a523706625bd695f44401579d980089292089dda) [@ohhoney1](https://github.com/ohhoney1)
 - 🐞 修复 Steps 组件中过长的 `description` 会被截断，无法完整展示的问题。[#11864](https://github.com/ant-design/ant-design/issues/11864)
 - 🐞 修复 Tooltip 组件在 `title` 过长时会将单词拆分到两行的问题。[#11722](https://github.com/ant-design/ant-design/issues/11722)
 - 🐞 修复 Tree 组件中的树节点无法接收自定义属性的问题。[#11423](https://github.com/ant-design/ant-design/issues/11423)
