@@ -289,7 +289,7 @@ timeline: true
 
 `2018-11-09`
 
-- 🎉 发布 [Landing 模板集](https://landing.ant.design)！
+- 🎉 发布 [首页模板集](https://landing.ant.design)！
 - 📖 发布  Ant Design [新版 Sketch 模版文件](https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Components.Beta.3.10.5.sketch)。
 - Button
   - 🐞 修复在小尺寸的 `Button.Group` 中没有垂直对齐的问题。[#12972](https://github.com/ant-design/ant-design/issues/12972)
