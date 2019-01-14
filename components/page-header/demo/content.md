@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-带内容的例子,可以优先展示页面的主要信息
+带内容的例子,可以优先展示页面的主要信息。
 
 ## en-US
 
-An example with content that gives priority to the main information of the page
+An example with content that gives priority to the main information of the page.
 
 ```jsx
 import { PageHeader } from 'antd';
