@@ -79,7 +79,7 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
   }
 
   componentDidUpdate(prevProps: BaseProps) {
-    if (this.props.children !== prevProps.children) {
+    if (this.props.children !== prevProps.children || this.props.lines !== prevProps.lines) {
       this.resizeOnNextFrame();
     }
     this.updateResizeObserverHook();
@@ -259,13 +259,11 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
 
     return (
       <Component
-        className={classNames(
-          prefixCls,
-          className,
-          type && `${prefixCls}-${type}`,
-          disabled && `${prefixCls}-disabled`,
-          lines && `${prefixCls}-ellipsis`,
-        )}
+        className={classNames(prefixCls, className, {
+          [`${prefixCls}-${type}`]: type,
+          [`${prefixCls}-disabled`]: disabled,
+          [`${prefixCls}-ellipsis`]: lines,
+        })}
         ref={this.setContentRef}
         {...textProps}
       >
