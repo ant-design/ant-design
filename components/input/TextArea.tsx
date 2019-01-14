@@ -111,7 +111,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
   renderTextArea = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, className, disabled, autosize } = this.props;
     const { ...props } = this.props;
-    const otherProps = omit(props, ['prefixCls', 'onPressEnter']);
+    const otherProps = omit(props, ['prefixCls', 'onPressEnter', 'autosize']);
     const prefixCls = getPrefixCls('input', customizePrefixCls);
     const cls = classNames(prefixCls, className, {
       [`${prefixCls}-disabled`]: disabled,
