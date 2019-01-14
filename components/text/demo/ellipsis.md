@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-提供额外的交互能力。
+多行文本省略。
 
 ## en-US
 
-Provide additional interactive capacity.
+Multiple line ellipsis support.
 
 ```jsx
 import { Text } from 'antd';
