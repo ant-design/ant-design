@@ -10,6 +10,9 @@ import TransButton from '../_util/transButton';
 import Icon from '../icon';
 import Tooltip from '../tooltip';
 import Editable from './Editable';
+import { measure } from './util';
+
+type TextType = 'secondary' | 'danger' | 'warning';
 
 export interface TextProps {
   prefixCls?: string;
@@ -19,8 +22,9 @@ export interface TextProps {
   editable?: boolean;
   copyable?: boolean;
   onChange?: (value: string) => null;
-  secondary?: boolean;
+  type?: TextType;
   disabled?: boolean;
+  lines?: number;
 }
 
 interface TextState {
@@ -35,6 +39,10 @@ interface Locale {
 }
 
 class Text extends React.Component<TextProps & ConfigConsumerProps, TextState> {
+  static defaultProps = {
+    children: '',
+  };
+
   static getDerivedStateFromProps(nextProps: TextProps) {
     const { children, editable } = nextProps;
 
@@ -47,12 +55,21 @@ class Text extends React.Component<TextProps & ConfigConsumerProps, TextState> {
   }
 
   editIcon?: TransButton;
+  content?: HTMLParagraphElement;
   copyId?: number;
 
   state: TextState = {
     edit: false,
     copied: false,
   };
+
+  componentDidMount() {
+    this.syncEllipsis();
+  }
+
+  componentDidUpdate() {
+    this.syncEllipsis();
+  }
 
   componentWillUnmount() {
     window.clearTimeout(this.copyId);
@@ -88,6 +105,10 @@ class Text extends React.Component<TextProps & ConfigConsumerProps, TextState> {
     });
   };
 
+  setContentRef = (node: HTMLParagraphElement) => {
+    this.content = node;
+  };
+
   setEditRef = (node: TransButton) => {
     this.editIcon = node;
   };
@@ -102,6 +123,19 @@ class Text extends React.Component<TextProps & ConfigConsumerProps, TextState> {
         this.editIcon.focus();
       }
     });
+  };
+
+  // ============== Ellipsis ==============
+  syncEllipsis = () => {
+    const { lines, children } = this.props;
+    if (!lines || lines < 0 || !this.content) return;
+
+    warning(
+      typeof children === 'string',
+      'In ellipsis mode, `children` of Text must be a string.',
+    );
+
+    measure(String(children), lines, this.content);
   };
 
   renderEdit() {
@@ -166,7 +200,7 @@ class Text extends React.Component<TextProps & ConfigConsumerProps, TextState> {
   }
 
   renderParagraph() {
-    const { children, className, prefixCls, secondary, disabled, ...restProps } = this.props;
+    const { children, className, prefixCls, type, disabled, lines, ...restProps } = this.props;
 
     const textProps = omit(restProps, [
       'prefixCls',
@@ -180,9 +214,11 @@ class Text extends React.Component<TextProps & ConfigConsumerProps, TextState> {
         className={classNames(
           prefixCls,
           className,
-          secondary && `${prefixCls}-secondary`,
+          type && `${prefixCls}-${type}`,
           disabled && `${prefixCls}-disabled`,
+          lines && `${prefixCls}-ellipsis`,
         )}
+        ref={this.setContentRef}
         {...textProps}
       >
         {children}

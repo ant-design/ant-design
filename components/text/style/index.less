@@ -16,13 +16,28 @@
   margin-bottom: 1em;
   color: @text-color;
 
+  display: inline-block;
+
   &-secondary {
     color: @text-color-secondary;
+  }
+
+  &-warning {
+    color: @text-color-warning;
+  }
+
+  &-danger {
+    color: @text-color-danger;
   }
 
   &-disabled {
     color: @disabled-color;
     cursor: not-allowed;
+    user-select: none;
+  }
+
+  &-ellipsis {
+    text-overflow: ellipsis;
   }
 
   // Icons
