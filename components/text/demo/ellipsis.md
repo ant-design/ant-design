@@ -1,9 +1,8 @@
 ---
-order: 2
+order: 3
 title:
   zh-CN: 省略号
   en-US: ellipsis
-only: true
 ---
 
 ## zh-CN
@@ -17,13 +16,15 @@ Provide additional interactive capacity.
 ```jsx
 import { Text } from 'antd';
 
+const { Paragraph } = Text;
+
 ReactDOM.render(
-  <Text lines={2}>
+  <Paragraph lines={3}>
     Ant Design, a design language for background applications, is refined by Ant UED Team.
     Ant Design, a design language for background applications, is refined by Ant UED Team.
     Ant Design, a design language for background applications, is refined by Ant UED Team.
     Ant Design, a design language for background applications, is refined by Ant UED Team.
     Ant Design, a design language for background applications, is refined by Ant UED Team.
-  </Text>
+  </Paragraph>
   , mountNode);
 ```

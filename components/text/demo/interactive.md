@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 2
 title:
   zh-CN: 可交互
   en-US: Interactive
@@ -16,6 +16,8 @@ Provide additional interactive capacity.
 ```jsx
 import { Text } from 'antd';
 
+const { Paragraph } = Text;
+
 class Demo extends React.Component {
   state = {
     str: 'This is an editable text.',
@@ -29,8 +31,8 @@ class Demo extends React.Component {
   render() {
     return (
       <div>
-        <Text onChange={this.onChange} editable>{this.state.str}</Text>
-        <Text copyable>This is a copyable text.</Text>
+        <Paragraph onChange={this.onChange} editable>{this.state.str}</Paragraph>
+        <Paragraph copyable>This is a copyable text.</Paragraph>
       </div>
     );
   }

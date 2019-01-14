@@ -18,11 +18,15 @@ import { Text } from 'antd';
 
 ReactDOM.render(
   <div>
-    <Text>Ant Design, a design language for background applications, is refined by Ant UED Team.</Text>
-    <Text type="secondary">Ant Design, a design language for background applications, is refined by Ant UED Team.</Text>
-    <Text type="warning">Ant Design, a design language for background applications, is refined by Ant UED Team.</Text>
-    <Text type="danger">Ant Design, a design language for background applications, is refined by Ant UED Team.</Text>
-    <Text disabled>Ant Design, a design language for background applications, is refined by Ant UED Team.</Text>
+    <Text>Ant Design</Text>
+    <br />
+    <Text type="secondary">Ant Design</Text>
+    <br />
+    <Text type="warning">Ant Design</Text>
+    <br />
+    <Text type="danger">Ant Design</Text>
+    <br />
+    <Text disabled>Ant Design</Text>
   </div>,
   mountNode
 );
