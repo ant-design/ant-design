@@ -16,8 +16,8 @@ subtitle: 页头
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| title | title 文字 | ReactNode | - |
-| subTitle | subTitle 文字 | ReactNode | - |
+| title | 自定义标题文字 | ReactNode | - |
+| subTitle | 自定义的二级标题文字 | ReactNode | - |
 | backIcon | 自定义 back icon ，如果为 false 不渲染 back icon | ReactNode | `<Icon type="arrow-left" />` |
 | tags | title 旁的 tag 列表 | [Tag](https://ant.design/components/tag-cn/)[] \| [Tag](https://ant.design/components/tag-cn/) | - |
 | extra | 操作区，位于 title 行的行尾 | ReactNode | - |
