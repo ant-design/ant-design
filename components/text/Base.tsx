@@ -3,11 +3,11 @@ import classNames from 'classnames';
 import { polyfill } from 'react-lifecycles-compat';
 import * as copy from 'copy-to-clipboard';
 import omit from 'omit.js';
-import ResizeObserver from 'resize-observer-polyfill';
 import { withConfigConsumer, ConfigConsumerProps, configConsumerProps } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import warning from '../_util/warning';
 import TransButton from '../_util/transButton';
+import ResizeObserver from '../_util/resizeObserver';
 import raf from '../_util/raf';
 import Icon from '../icon';
 import Tooltip from '../tooltip';
@@ -62,7 +62,6 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
     return {};
   }
 
-  resizeObserver: ResizeObserver | null;
   editIcon?: TransButton;
   content?: HTMLParagraphElement;
   copyId?: number;
@@ -77,14 +76,12 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
 
   componentDidMount() {
     this.resizeOnNextFrame();
-    this.updateResizeObserverHook();
   }
 
   componentDidUpdate(prevProps: BaseProps) {
     if (this.props.children !== prevProps.children || this.props.lines !== prevProps.lines) {
       this.resizeOnNextFrame();
     }
-    this.updateResizeObserverHook();
   }
 
   componentWillUnmount() {
@@ -143,19 +140,6 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
   };
 
   // ============== Ellipsis ==============
-  updateResizeObserverHook() {
-    const { lines } = this.props;
-    if (!this.resizeObserver && lines && this.content) {
-      // Add resize observer
-      this.resizeObserver = new ResizeObserver(this.resizeOnNextFrame);
-      this.resizeObserver.observe(this.content);
-    } else if (this.resizeObserver && !lines) {
-      // Remove resize observer
-      this.resizeObserver.disconnect();
-      this.resizeObserver = null;
-    }
-  }
-
   resizeOnNextFrame = () => {
     raf.cancel(this.rafId);
     this.rafId = raf(this.syncEllipsis);
@@ -271,20 +255,22 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
     }
 
     return (
-      <Component
-        className={classNames(prefixCls, className, {
-          [`${prefixCls}-${type}`]: type,
-          [`${prefixCls}-disabled`]: disabled,
-          [`${prefixCls}-ellipsis`]: lines,
-        })}
-        aria-label={isEllipsis ? String(children) : undefined}
-        ref={this.setContentRef}
-        {...textProps}
-      >
-        {textNode}
-        {this.renderEdit()}
-        {this.renderCopy()}
-      </Component>
+      <ResizeObserver onResize={this.resizeOnNextFrame} disabled={!lines}>
+        <Component
+          className={classNames(prefixCls, className, {
+            [`${prefixCls}-${type}`]: type,
+            [`${prefixCls}-disabled`]: disabled,
+            [`${prefixCls}-ellipsis`]: lines,
+          })}
+          aria-label={isEllipsis ? String(children) : undefined}
+          ref={this.setContentRef}
+          {...textProps}
+        >
+          {textNode}
+          {this.renderEdit()}
+          {this.renderCopy()}
+        </Component>
+      </ResizeObserver>
     );
   }
 
