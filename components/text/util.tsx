@@ -18,7 +18,7 @@ export function measure(
   lines: number,
   originEle: HTMLParagraphElement,
   offset: number,
-) {
+): { text: string; ellipsis: boolean } {
   if (!ellipsisText) {
     ellipsisText = document.createElement('div');
     ellipsisText.setAttribute('aria-hidden', 'true');
@@ -47,7 +47,7 @@ export function measure(
 
   // Skip ellipsis if already match
   if (ellipsisText.offsetHeight <= maxHeight) {
-    return text;
+    return { text, ellipsis: false };
   }
 
   function findMatchText(startLoc: number = 0, endLoc: number = text.length): string {
@@ -65,5 +65,8 @@ export function measure(
     }
   }
 
-  return findMatchText();
+  return {
+    text: findMatchText(),
+    ellipsis: true,
+  };
 }

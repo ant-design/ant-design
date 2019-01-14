@@ -32,7 +32,7 @@ class Demo extends React.Component {
     return (
       <div>
         <Slider value={lines} min={1} max={10} onChange={this.onChange} />
-        <Paragraph lines={lines}>
+        <Paragraph lines={lines} copyable>
           Ant Design, a design language for background applications, is refined by Ant UED Team.
           Ant Design, a design language for background applications, is refined by Ant UED Team.
           Ant Design, a design language for background applications, is refined by Ant UED Team.

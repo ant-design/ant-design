@@ -3,12 +3,12 @@
 
 @text-prefix-cls: ~'@{ant-prefix}-text';
 
-.icon-focus {
-  &:hover,
-  &:focus {
-    outline: none;
-    color: @primary-color;
-  }
+.operation-icon {
+  // &:hover,
+  // &:focus {
+  outline: none;
+  color: @primary-color;
+  // }
 }
 
 .@{text-prefix-cls} {
@@ -39,7 +39,7 @@
   // Icons
   &-edit,
   &-copy {
-    .icon-focus;
+    .operation-icon;
 
     margin-left: 8px;
   }
@@ -57,7 +57,7 @@
     position: relative;
 
     &-confirm {
-      .icon-focus;
+      .operation-icon;
 
       position: absolute;
       right: 10px;

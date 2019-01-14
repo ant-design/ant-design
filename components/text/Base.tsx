@@ -37,6 +37,7 @@ interface BaseState {
   edit: boolean;
   copied: boolean;
   ellipsisText: string;
+  isEllipsis: boolean;
 }
 
 interface Locale {
@@ -71,6 +72,7 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
     edit: false,
     copied: false,
     ellipsisText: '',
+    isEllipsis: false,
   };
 
   componentDidMount() {
@@ -160,7 +162,7 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
   };
 
   syncEllipsis = () => {
-    const { ellipsisText } = this.state;
+    const { ellipsisText, isEllipsis } = this.state;
     const { lines, children, copyable, editable } = this.props;
     if (!lines || lines < 0 || !this.content) return;
 
@@ -170,9 +172,9 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
     if (copyable) offset += 1;
     if (editable) offset += 1;
 
-    const newEllipsisText = measure(String(children), lines, this.content, offset);
-    if (ellipsisText !== newEllipsisText) {
-      this.setState({ ellipsisText: newEllipsisText });
+    const { text, ellipsis } = measure(String(children), lines, this.content, offset);
+    if (ellipsisText !== text || isEllipsis !== ellipsis) {
+      this.setState({ ellipsisText: text, isEllipsis: ellipsis });
     }
   };
 
@@ -238,7 +240,7 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
   }
 
   renderContent() {
-    const { ellipsisText } = this.state;
+    const { ellipsisText, isEllipsis } = this.state;
     const {
       component: Component,
       children,
@@ -257,6 +259,17 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
       ...configConsumerProps,
     ]);
 
+    let textNode: React.ReactNode = children;
+
+    if (lines && isEllipsis) {
+      // We move full content to outer element to avoid repeat read the content by accessibility
+      textNode = (
+        <span title={String(children)} aria-hidden="true">
+          {ellipsisText}
+        </span>
+      );
+    }
+
     return (
       <Component
         className={classNames(prefixCls, className, {
@@ -264,10 +277,11 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
           [`${prefixCls}-disabled`]: disabled,
           [`${prefixCls}-ellipsis`]: lines,
         })}
+        aria-label={isEllipsis ? String(children) : undefined}
         ref={this.setContentRef}
         {...textProps}
       >
-        {lines ? ellipsisText : children}
+        {textNode}
         {this.renderEdit()}
         {this.renderCopy()}
       </Component>
