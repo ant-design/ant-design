@@ -238,7 +238,7 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
         disabled=""
         placeholder="Select date"
         readonly=""
-        value="6/6/2015"
+        value="2015-06-06"
       />
       <i
         aria-label="icon: calendar"
@@ -306,7 +306,7 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
         placeholder="Start date"
         readonly=""
         tabindex="-1"
-        value="6/6/2015"
+        value="2015-06-06"
       />
       <span
         class="ant-calendar-range-picker-separator"
@@ -319,7 +319,7 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
         placeholder="End date"
         readonly=""
         tabindex="-1"
-        value="6/6/2015"
+        value="2015-06-06"
       />
       <i
         aria-label="icon: calendar"
