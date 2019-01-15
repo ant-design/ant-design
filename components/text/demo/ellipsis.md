@@ -2,7 +2,7 @@
 order: 3
 title:
   zh-CN: 省略号
-  en-US: ellipsis
+  en-US: Ellipsis
 ---
 
 ## zh-CN
