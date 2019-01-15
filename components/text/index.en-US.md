@@ -14,5 +14,33 @@ When need to display title or text content.
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| description | Customize description | string \| ReactNode | - |
-| image | Customize image. Will tread as image url when string provided | string \| ReactNode | false |
+| copyable | Content can be copied | boolean | false |
+| editable | Content can be edited  | boolean | false |
+| lines | Set max lines and make ellipsis if over the lines. Style will change from `display: inline` to `display: inline-block` after set | number | - |
+| onChange | Trigger when user edit the content | Function(string) | - |
+| type | Content type | `secondary`, `warning`, `danger` | - |
+| disabled | Disable content | boolean | false |
+
+### Text.Title
+
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| copyable | Content can be copied | boolean | false |
+| editable | Content can be edited  | boolean | false |
+| important | Set content importance | number: `1`, `2`, `3`, `4` | 1 |
+| lines | Set max lines and make ellipsis if over the lines. Style will change from `display: inline` to `display: inline-block` after set | number | - |
+| onChange | Trigger when user edit the content | Function(string) | - |
+| type | Content type | `secondary`, `warning`, `danger` | - |
+| disabled | Disable content | boolean | false |
+
+### Text.Paragraph
+
+| 参数 | 说明 | 类型 | 默认值 |
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| copyable | Content can be copied | boolean | false |
+| editable | Content can be edited  | boolean | false |
+| lines | Set max lines and make ellipsis if over the lines. Style will change from `display: inline` to `display: inline-block` after set | number | - |
+| onChange | Trigger when user edit the content | Function(string) | - |
+| type | Content type | `secondary`, `warning`, `danger` | - |
+| disabled | Disable content | boolean | false |
