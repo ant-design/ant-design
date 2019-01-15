@@ -44,7 +44,7 @@ exports[`DatePicker prop locale should works 1`] = `
       class="ant-calendar-picker-input ant-input"
       placeholder="Избери дата"
       readonly=""
-      value="2000-01-01"
+      value="1 1 2000"
     />
     <i
       aria-label="icon: close-circle"
@@ -105,7 +105,7 @@ exports[`DatePicker prop locale should works 1`] = `
               <input
                 class="ant-calendar-input "
                 placeholder="Избери дата"
-                value="2000-01-01"
+                value="1 1 2000"
               />
             </div>
             <a

@@ -21,7 +21,6 @@ const DEFAULT_FORMAT: PickerMap = {
 const LOCALE_FORMAT_MAPPING: PickerMap = {
   date: 'dateFormat',
   dateTime: 'dateTimeFormat',
-  month: 'monthFormat',
 };
 
 function getColumns({ showHour, showMinute, showSecond, use12Hours }: any) {
