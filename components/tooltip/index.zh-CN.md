@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 文字提示
-type: Data Display
+type: 数据展示
 title: Tooltip
 ---
 

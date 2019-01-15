@@ -1,7 +1,7 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@list-prefix-cls: ~"@{ant-prefix}-list";
+@list-prefix-cls: ~'@{ant-prefix}-list';
 
 .@{list-prefix-cls} {
   .reset-component;
@@ -53,7 +53,7 @@
         line-height: 22px;
         > a {
           color: @text-color;
-          transition: all .3s;
+          transition: all 0.3s;
           &:hover {
             color: @primary-color;
           }
@@ -164,9 +164,6 @@
     }
     &-meta {
       margin-bottom: @list-item-meta-margin-bottom;
-      &-avatar {
-        display: none;
-      }
       &-title {
         color: @heading-color;
         margin-bottom: @list-item-meta-title-margin-bottom;

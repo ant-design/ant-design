@@ -3,10 +3,12 @@ import { render, mount } from 'enzyme';
 import Table from '..';
 
 describe('Table.pagination', () => {
-  const columns = [{
-    title: 'Name',
-    dataIndex: 'name',
-  }];
+  const columns = [
+    {
+      title: 'Name',
+      dataIndex: 'name',
+    },
+  ];
 
   const data = [
     { key: 0, name: 'Jack' },
@@ -18,14 +20,7 @@ describe('Table.pagination', () => {
   const pagination = { className: 'my-page', pageSize: 2 };
 
   function createTable(props) {
-    return (
-      <Table
-        columns={columns}
-        dataSource={data}
-        pagination={pagination}
-        {...props}
-      />
-    );
+    return <Table columns={columns} dataSource={data} pagination={pagination} {...props} />;
   }
 
   function renderedNames(wrapper) {
@@ -56,10 +51,12 @@ describe('Table.pagination', () => {
     const wrapper = mount(createTable());
 
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy']);
-    wrapper.find('Pager').last().simulate('click');
+    wrapper
+      .find('Pager')
+      .last()
+      .simulate('click');
     expect(renderedNames(wrapper)).toEqual(['Tom', 'Jerry']);
   });
-
 
   it('repaginates when pageSize change', () => {
     const wrapper = mount(createTable());
@@ -72,12 +69,17 @@ describe('Table.pagination', () => {
     const handleChange = jest.fn();
     const handlePaginationChange = jest.fn();
     const noop = () => {};
-    const wrapper = mount(createTable({
-      pagination: { ...pagination, onChange: handlePaginationChange, onShowSizeChange: noop },
-      onChange: handleChange,
-    }));
+    const wrapper = mount(
+      createTable({
+        pagination: { ...pagination, onChange: handlePaginationChange, onShowSizeChange: noop },
+        onChange: handleChange,
+      }),
+    );
 
-    wrapper.find('Pager').last().simulate('click');
+    wrapper
+      .find('Pager')
+      .last()
+      .simulate('click');
 
     expect(handleChange).toBeCalledWith(
       {
@@ -137,19 +139,41 @@ describe('Table.pagination', () => {
     const wrapper = mount(createTable({ pagination: { pageSize: 1 } }));
     wrapper.find('.ant-pagination-item-3').simulate('click');
     wrapper.setProps({ dataSource: [data[0]] });
-    expect(wrapper.find('.ant-pagination-item-1').hasClass('ant-pagination-item-active')).toBe(true);
+    expect(wrapper.find('.ant-pagination-item-1').hasClass('ant-pagination-item-active')).toBe(
+      true,
+    );
   });
 
   it('specify the position of pagination', () => {
     const wrapper = mount(createTable({ pagination: { position: 'top' } }));
     expect(wrapper.find('.ant-spin-container').children()).toHaveLength(2);
-    expect(wrapper.find('.ant-spin-container').childAt(0).find('.ant-pagination')).toHaveLength(1);
+    expect(
+      wrapper
+        .find('.ant-spin-container')
+        .childAt(0)
+        .find('.ant-pagination'),
+    ).toHaveLength(1);
     wrapper.setProps({ pagination: { position: 'bottom' } });
     expect(wrapper.find('.ant-spin-container').children()).toHaveLength(2);
-    expect(wrapper.find('.ant-spin-container').childAt(1).find('.ant-pagination')).toHaveLength(1);
+    expect(
+      wrapper
+        .find('.ant-spin-container')
+        .childAt(1)
+        .find('.ant-pagination'),
+    ).toHaveLength(1);
     wrapper.setProps({ pagination: { position: 'both' } });
     expect(wrapper.find('.ant-spin-container').children()).toHaveLength(3);
-    expect(wrapper.find('.ant-spin-container').childAt(0).find('.ant-pagination')).toHaveLength(1);
-    expect(wrapper.find('.ant-spin-container').childAt(2).find('.ant-pagination')).toHaveLength(1);
+    expect(
+      wrapper
+        .find('.ant-spin-container')
+        .childAt(0)
+        .find('.ant-pagination'),
+    ).toHaveLength(1);
+    expect(
+      wrapper
+        .find('.ant-spin-container')
+        .childAt(2)
+        .find('.ant-pagination'),
+    ).toHaveLength(1);
   });
 });

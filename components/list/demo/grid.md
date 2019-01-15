@@ -41,5 +41,6 @@ ReactDOM.render(
       </List.Item>
     )}
   />,
-  mountNode);
+  mountNode
+);
 ````

@@ -1,7 +1,7 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@rate-prefix-cls: ~"@{ant-prefix}-rate";
+@rate-prefix-cls: ~'@{ant-prefix}-rate';
 
 .@{rate-prefix-cls} {
   .reset-component;
@@ -27,27 +27,29 @@
     display: inline-block;
     margin-right: 8px;
     position: relative;
-    transition: all .3s;
+    transition: all 0.3s;
     color: inherit;
     cursor: pointer;
 
-    &:focus {
-      outline: 0;
+    > div {
+      &:focus {
+        outline: 0;
+      }
+
+      &:hover,
+      &:focus {
+        transform: scale(1.1);
+      }
     }
 
     &-first,
     &-second {
       user-select: none;
-      transition: all .3s;
+      transition: all 0.3s;
       color: @rate-star-bg;
       .@{iconfont-css-prefix} {
         vertical-align: middle;
       }
-    }
-
-    &:hover,
-    &:focus {
-      transform: scale(1.1);
     }
 
     &-first {

@@ -45,5 +45,6 @@ ReactDOM.render(
       onOk={onOk}
     />
   </div>,
-  mountNode);
+  mountNode
+);
 ````

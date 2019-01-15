@@ -14,7 +14,9 @@ title:
 Upload files manually after `beforeUpload` returns `false`.
 
 ````jsx
-import { Upload, Button, Icon, message } from 'antd';
+import {
+  Upload, Button, Icon, message,
+} from 'antd';
 import reqwest from 'reqwest';
 
 class Demo extends React.Component {
@@ -57,13 +59,12 @@ class Demo extends React.Component {
   }
 
   render() {
-    const { uploading } = this.state;
+    const { uploading, fileList } = this.state;
     const props = {
-      action: '//jsonplaceholder.typicode.com/posts/',
       onRemove: (file) => {
-        this.setState(({ fileList }) => {
-          const index = fileList.indexOf(file);
-          const newFileList = fileList.slice();
+        this.setState((state) => {
+          const index = state.fileList.indexOf(file);
+          const newFileList = state.fileList.slice();
           newFileList.splice(index, 1);
           return {
             fileList: newFileList,
@@ -71,12 +72,12 @@ class Demo extends React.Component {
         });
       },
       beforeUpload: (file) => {
-        this.setState(({ fileList }) => ({
-          fileList: [...fileList, file],
+        this.setState(state => ({
+          fileList: [...state.fileList, file],
         }));
         return false;
       },
-      fileList: this.state.fileList,
+      fileList,
     };
 
     return (
@@ -87,11 +88,11 @@ class Demo extends React.Component {
           </Button>
         </Upload>
         <Button
-          className="upload-demo-start"
           type="primary"
           onClick={this.handleUpload}
-          disabled={this.state.fileList.length === 0}
+          disabled={fileList.length === 0}
           loading={uploading}
+          style={{ marginTop: 16 }}
         >
           {uploading ? 'Uploading' : 'Start Upload' }
         </Button>
@@ -101,10 +102,4 @@ class Demo extends React.Component {
 }
 
 ReactDOM.render(<Demo />, mountNode);
-````
-
-````css
-.upload-demo-start {
-  margin-top: 16px;
-}
 ````

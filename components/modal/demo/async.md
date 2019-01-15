@@ -57,7 +57,8 @@ class App extends React.Component {
         <Button type="primary" onClick={this.showModal}>
           Open Modal with async logic
         </Button>
-        <Modal title="Title"
+        <Modal
+          title="Title"
           visible={visible}
           onOk={this.handleOk}
           confirmLoading={confirmLoading}

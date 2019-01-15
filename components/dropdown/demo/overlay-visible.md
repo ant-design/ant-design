@@ -40,7 +40,8 @@ class OverlayVisible extends React.Component {
       </Menu>
     );
     return (
-      <Dropdown overlay={menu}
+      <Dropdown
+        overlay={menu}
         onVisibleChange={this.handleVisibleChange}
         visible={this.state.visible}
       >

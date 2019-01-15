@@ -4,14 +4,17 @@ import * as allIcons from '@ant-design/icons/lib/dist';
 import ReactIcon from '@ant-design/icons-react';
 import createFromIconfontCN from './IconFont';
 import {
-  svgBaseProps, withThemeSuffix,
-  removeTypeTheme, getThemeFromTypeName,
+  svgBaseProps,
+  withThemeSuffix,
+  removeTypeTheme,
+  getThemeFromTypeName,
+  alias,
 } from './utils';
 import warning from '../_util/warning';
 import { getTwoToneColor, setTwoToneColor } from './twoTonePrimaryColor';
 
 // Initial setting
-ReactIcon.add(...Object.keys(allIcons).map((key) => (allIcons as any)[key]));
+ReactIcon.add(...Object.keys(allIcons).map(key => (allIcons as any)[key]));
 setTwoToneColor('#1890ff');
 let defaultTheme: ThemeType = 'outlined';
 let dangerousTheme: ThemeType | undefined = undefined;
@@ -40,17 +43,18 @@ export interface IconProps {
   spin?: boolean;
   style?: React.CSSProperties;
   prefixCls?: string;
+  role?: string;
 }
 
 export interface IconComponent<P> extends React.SFC<P> {
-  createFromIconfontCN?: typeof createFromIconfontCN;
-  getTwoToneColor?: typeof getTwoToneColor;
-  setTwoToneColor?: typeof setTwoToneColor;
+  createFromIconfontCN: typeof createFromIconfontCN;
+  getTwoToneColor: typeof getTwoToneColor;
+  setTwoToneColor: typeof setTwoToneColor;
   unstable_ChangeThemeOfIconsDangerously?: typeof unstable_ChangeThemeOfIconsDangerously;
   unstable_ChangeDefaultThemeOfIcons?: typeof unstable_ChangeDefaultThemeOfIcons;
 }
 
-const Icon: IconComponent<IconProps> = (props) => {
+const Icon: IconComponent<IconProps> = props => {
   const {
     // affect outter <i>...</i>
     className,
@@ -76,10 +80,13 @@ const Icon: IconComponent<IconProps> = (props) => {
     'Icon should have `type` prop or `component` prop or `children`.',
   );
 
-  const classString = classNames({
-    [`anticon`]: true,
-    [`anticon-${type}`]: Boolean(type),
-  }, className);
+  const classString = classNames(
+    {
+      [`anticon`]: true,
+      [`anticon-${type}`]: Boolean(type),
+    },
+    className,
+  );
 
   const svgClassString = classNames({
     [`anticon-spin`]: !!spin || type === 'loading',
@@ -98,22 +105,17 @@ const Icon: IconComponent<IconProps> = (props) => {
       delete innerSvgProps.viewBox;
     }
 
-    innerNode = (
-      <Component {...innerSvgProps} >
-        {children}
-      </Component>
-    );
+    innerNode = <Component {...innerSvgProps}>{children}</Component>;
   }
 
   if (children) {
     warning(
-      Boolean(viewBox) || (
-        React.Children.count(children) === 1 &&
-        React.isValidElement(children) &&
-        React.Children.only(children).type === 'use'
-      ),
+      Boolean(viewBox) ||
+        (React.Children.count(children) === 1 &&
+          React.isValidElement(children) &&
+          React.Children.only(children).type === 'use'),
       'Make sure that you provide correct `viewBox`' +
-      ' prop (default `0 0 1024 1024`) to the icon.',
+        ' prop (default `0 0 1024 1024`) to the icon.',
     );
     const innerSvgProps: CustomIconComponentProps = {
       ...svgBaseProps,
@@ -130,20 +132,18 @@ const Icon: IconComponent<IconProps> = (props) => {
     let computedType = type;
     if (theme) {
       const themeInName = getThemeFromTypeName(type);
-      warning(!themeInName || theme === themeInName,
+      warning(
+        !themeInName || theme === themeInName,
         `The icon name '${type}' already specify a theme '${themeInName}',` +
-        ` the 'theme' prop '${theme}' will be ignored.`);
+          ` the 'theme' prop '${theme}' will be ignored.`,
+      );
     }
     computedType = withThemeSuffix(
-      removeTypeTheme(type),
+      removeTypeTheme(alias(computedType)),
       dangerousTheme || theme || defaultTheme,
     );
     innerNode = (
-      <ReactIcon
-        className={svgClassString}
-        type={computedType}
-        primaryColor={twoToneColor}
-      />
+      <ReactIcon className={svgClassString} type={computedType} primaryColor={twoToneColor} />
     );
   }
 
@@ -158,7 +158,7 @@ function unstable_ChangeThemeOfIconsDangerously(theme?: ThemeType) {
   warning(
     false,
     `You are using the unstable method 'Icon.unstable_ChangeThemeOfAllIconsDangerously', ` +
-    `make sure that all the icons with theme '${theme}' display correctly.`,
+      `make sure that all the icons with theme '${theme}' display correctly.`,
   );
   dangerousTheme = theme;
 }
@@ -167,7 +167,7 @@ function unstable_ChangeDefaultThemeOfIcons(theme: ThemeType) {
   warning(
     false,
     `You are using the unstable method 'Icon.unstable_ChangeDefaultThemeOfIcons', ` +
-    `make sure that all the icons with theme '${theme}' display correctly.`,
+      `make sure that all the icons with theme '${theme}' display correctly.`,
   );
   defaultTheme = theme;
 }

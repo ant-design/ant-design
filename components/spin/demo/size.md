@@ -22,7 +22,8 @@ ReactDOM.render(
     <Spin />
     <Spin size="large" />
   </div>,
-  mountNode);
+  mountNode
+);
 ````
 
 <style>

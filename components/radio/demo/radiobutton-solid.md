@@ -35,5 +35,6 @@ ReactDOM.render(
       </Radio.Group>
     </div>
   </div>,
-  mountNode);
+  mountNode
+);
 ```

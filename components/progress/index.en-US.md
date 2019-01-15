@@ -22,7 +22,7 @@ If it will take a long time to complete an operation, you can use `Progress` to 
 | gapPosition `(type=circle)` | the gap position, options: `top` `bottom` `left` `right` | string | `top` |
 | percent | to set the completion percentage | number | 0 |
 | showInfo | whether to display the progress value and the status icon | boolean | true |
-| status | to set the status of the Progress, options: `success` `exception` `active` | string | - |
+| status | to set the status of the Progress, options: `success` `exception` `active` `normal` | string | - |
 | strokeWidth `(type=line)` | to set the width of the progress bar, unit: `px` | number | 10 |
 | strokeWidth `(type=circle)` | to set the width of the circular progress bar, unit: percentage of the canvas width | number | 6 |
 | strokeLinecap | to set the style of the progress linecap | Enum{ 'round', 'square' } | `round` |

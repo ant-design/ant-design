@@ -16,7 +16,7 @@ Tree With Line
 ````jsx
 import { Tree } from 'antd';
 
-const TreeNode = Tree.TreeNode;
+const { TreeNode } = Tree;
 
 class Demo extends React.Component {
   onSelect = (selectedKeys, info) => {

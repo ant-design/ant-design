@@ -3,7 +3,7 @@ order: 9
 title: FAQ
 ---
 
-有问题请先问 React：https://reactfaq.site 。
+以下整理了一些 Ant Design 社区常见的问题和官方答复，在提问之前建议找找有没有类似的问题。此外我们也维护了一个反馈较多 [FAQ issues 标签](https://github.com/ant-design/ant-design/issues?q=label%3AFAQ+is%3Aclosed) 亦可参考。
 
 ---
 
@@ -49,7 +49,7 @@ https://ant.design/components/select/#Select-props
 
 ```jsx
 import Menu from 'antd/lib/menu';
-import 'antd/lib/button/style/css';
+import 'antd/lib/menu/style/css';
 ```
 
 或者（ES6 支持的 tree shaking 方式）：
@@ -106,8 +106,9 @@ import { Menu, Breadcrumb, Icon } from 'antd';
 
 ### 如何正确的拼写 Ant Design？
 
-- ✅ **Ant Design**：用空格分隔的首字母大写单词，指代设计语言
-- ✅ **antd**：全小写，指代 React UI 组件库
+- ✅ **Ant Design**：用空格分隔的首字母大写单词，指代设计语言。
+- ✅ **antd**：全小写，指代 React UI 组件库。
+- ✅ **ant.design**：特指 ant.design 网站网址。
 
 下面是一些典型的错误例子：
 

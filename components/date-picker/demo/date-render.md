@@ -49,5 +49,6 @@ ReactDOM.render(
       }}
     />
   </div>,
-  mountNode);
+  mountNode
+);
 ````

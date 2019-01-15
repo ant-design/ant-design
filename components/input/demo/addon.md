@@ -45,5 +45,6 @@ ReactDOM.render(
       <Input addonAfter={<Icon type="setting" />} defaultValue="mysite" />
     </div>
   </div>,
-  mountNode);
+  mountNode
+);
 ````

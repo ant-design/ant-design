@@ -34,7 +34,8 @@ ReactDOM.render(
       <Button>Ingore / 不处理</Button>
     </Tooltip>
   </div>,
-  mountNode);
+  mountNode
+);
 ````
 
 <style>

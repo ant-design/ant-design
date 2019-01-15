@@ -49,6 +49,10 @@ class App extends React.Component {
     loading: false,
   };
 
+  componentDidMount() {
+    this.fetch();
+  }
+
   handleTableChange = (pagination, filters, sorter) => {
     const pager = { ...this.state.pagination };
     pager.current = pagination.current;
@@ -86,10 +90,6 @@ class App extends React.Component {
         pagination,
       });
     });
-  }
-
-  componentDidMount() {
-    this.fetch();
   }
 
   render() {

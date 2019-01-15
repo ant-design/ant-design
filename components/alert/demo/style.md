@@ -23,5 +23,6 @@ ReactDOM.render(
     <Alert message="Warning Text" type="warning" />
     <Alert message="Error Text" type="error" />
   </div>,
-  mountNode);
+  mountNode
+);
 ````

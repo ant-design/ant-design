@@ -25,5 +25,6 @@ ReactDOM.render(
     <div style={{ margin: '24px 0' }} />
     <TextArea placeholder="Autosize height with minimum and maximum number of lines" autosize={{ minRows: 2, maxRows: 6 }} />
   </div>,
-  mountNode);
+  mountNode
+);
 ````

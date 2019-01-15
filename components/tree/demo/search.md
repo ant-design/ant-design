@@ -16,7 +16,7 @@ Searchable Tree.
 ````jsx
 import { Tree, Input } from 'antd';
 
-const TreeNode = Tree.TreeNode;
+const { TreeNode } = Tree;
 const Search = Input.Search;
 
 const x = 3;

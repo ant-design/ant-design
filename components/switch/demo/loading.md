@@ -22,5 +22,6 @@ ReactDOM.render(
     <br />
     <Switch size="small" loading />
   </div>,
-  mountNode);
+  mountNode
+);
 ````

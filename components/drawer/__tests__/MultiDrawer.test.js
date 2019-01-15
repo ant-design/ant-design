@@ -48,7 +48,7 @@ class MultiDrawer extends React.Component {
           visible={visible}
         >
           <Button type="primary" id="open_two_drawer" onClick={this.showChildrenDrawer}>
-              Two-level drawer
+            Two-level drawer
           </Button>
           <Drawer
             title="Two-level Drawer"
@@ -59,9 +59,7 @@ class MultiDrawer extends React.Component {
             onClose={this.onChildrenDrawerClose}
             visible={childrenDrawer}
           >
-            <div id="two_drawer_text">
-              This is two-level drawer
-            </div>
+            <div id="two_drawer_text">This is two-level drawer</div>
           </Drawer>
           <div
             style={{

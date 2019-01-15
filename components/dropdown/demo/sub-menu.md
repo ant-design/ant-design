@@ -39,5 +39,6 @@ ReactDOM.render(
       Cascading menu <Icon type="down" />
     </a>
   </Dropdown>,
-  mountNode);
+  mountNode
+);
 ````

@@ -11,7 +11,7 @@ exports[`Transfer should render correctly 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
       >
         <span
           class="ant-checkbox ant-checkbox-checked"
@@ -47,7 +47,7 @@ exports[`Transfer should render correctly 1`] = `
           class="ant-transfer-list-content-item"
         >
           <label
-            class="ant-checkbox-wrapper"
+            class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
           >
             <span
               class="ant-checkbox ant-checkbox-checked"
@@ -68,7 +68,7 @@ exports[`Transfer should render correctly 1`] = `
           class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
         >
           <label
-            class="ant-checkbox-wrapper"
+            class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
           >
             <span
               class="ant-checkbox ant-checkbox-disabled"
@@ -86,11 +86,6 @@ exports[`Transfer should render correctly 1`] = `
           <span />
         </li>
       </ul>
-      <div
-        class="ant-transfer-list-body-not-found"
-      >
-        Not Found
-      </div>
     </div>
   </div>
   <div
@@ -201,11 +196,6 @@ exports[`Transfer should render correctly 1`] = `
           <span />
         </li>
       </ul>
-      <div
-        class="ant-transfer-list-body-not-found"
-      >
-        Not Found
-      </div>
     </div>
   </div>
 </div>
@@ -277,11 +267,6 @@ exports[`Transfer should show sorted targetkey 1`] = `
           </span>
         </li>
       </ul>
-      <div
-        class="ant-transfer-list-body-not-found"
-      >
-        Not Found
-      </div>
     </div>
   </div>
   <div
@@ -419,11 +404,6 @@ exports[`Transfer should show sorted targetkey 1`] = `
           </span>
         </li>
       </ul>
-      <div
-        class="ant-transfer-list-body-not-found"
-      >
-        Not Found
-      </div>
     </div>
   </div>
 </div>

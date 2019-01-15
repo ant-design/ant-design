@@ -46,7 +46,8 @@ ReactDOM.render(
     <h4>step=null</h4>
     <Slider marks={marks} step={null} defaultValue={37} />
   </div>,
-  mountNode);
+  mountNode
+);
 ````
 
 <style>

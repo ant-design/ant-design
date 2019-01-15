@@ -20,12 +20,23 @@ Customized or third-party form controls can be used in Form, too. Controls must 
 > * It must be a class component.
 
 ````jsx
-import { Form, Input, Select, Button } from 'antd';
+import {
+  Form, Input, Select, Button,
+} from 'antd';
 
-const FormItem = Form.Item;
-const Option = Select.Option;
+const { Option } = Select;
 
 class PriceInput extends React.Component {
+  static getDerivedStateFromProps(nextProps) {
+    // Should be a controlled component.
+    if ('value' in nextProps) {
+      return {
+        ...(nextProps.value || {}),
+      };
+    }
+    return null;
+  }
+
   constructor(props) {
     super(props);
 
@@ -36,17 +47,9 @@ class PriceInput extends React.Component {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    // Should be a controlled component.
-    if ('value' in nextProps) {
-      const value = nextProps.value;
-      this.setState(value);
-    }
-  }
-
   handleNumberChange = (e) => {
     const number = parseInt(e.target.value || 0, 10);
-    if (isNaN(number)) {
+    if (Number.isNaN(number)) {
       return;
     }
     if (!('value' in this.props)) {
@@ -118,21 +121,21 @@ class Demo extends React.Component {
     const { getFieldDecorator } = this.props.form;
     return (
       <Form layout="inline" onSubmit={this.handleSubmit}>
-        <FormItem label="Price">
+        <Form.Item label="Price">
           {getFieldDecorator('price', {
             initialValue: { number: 0, currency: 'rmb' },
             rules: [{ validator: this.checkPrice }],
           })(<PriceInput />)}
-        </FormItem>
-        <FormItem>
+        </Form.Item>
+        <Form.Item>
           <Button type="primary" htmlType="submit">Submit</Button>
-        </FormItem>
+        </Form.Item>
       </Form>
     );
   }
 }
 
-const WrappedDemo = Form.create()(Demo);
+const WrappedDemo = Form.create({ name: 'customized_form_controls' })(Demo);
 
 ReactDOM.render(<WrappedDemo />, mountNode);
 ````

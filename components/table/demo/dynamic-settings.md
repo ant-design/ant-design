@@ -14,7 +14,9 @@ title:
 Select different settings to see the result.
 
 ````jsx
-import { Table, Icon, Switch, Radio, Form, Divider } from 'antd';
+import {
+  Table, Icon, Switch, Radio, Form, Divider,
+} from 'antd';
 
 const FormItem = Form.Item;
 
@@ -83,10 +85,8 @@ class Demo extends React.Component {
     hasData: true,
   }
 
-  handleToggle = (prop) => {
-    return (enable) => {
-      this.setState({ [prop]: enable });
-    };
+  handleToggle = prop => (enable) => {
+    this.setState({ [prop]: enable });
   }
 
   handleSizeChange = (e) => {

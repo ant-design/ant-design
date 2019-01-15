@@ -34,7 +34,8 @@ ReactDOM.render(
     <Button onClick={error}>Error</Button>
     <Button onClick={warning}>Warning</Button>
   </div>,
-  mountNode);
+  mountNode
+);
 ````
 
 <style>

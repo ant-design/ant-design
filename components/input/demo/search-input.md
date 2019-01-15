@@ -39,5 +39,6 @@ ReactDOM.render(
       onSearch={value => console.log(value)}
     />
   </div>,
-  mountNode);
+  mountNode
+);
 ````

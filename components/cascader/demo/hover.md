@@ -56,5 +56,6 @@ ReactDOM.render(
     displayRender={displayRender}
     onChange={onChange}
   />,
-  mountNode);
+  mountNode
+);
 ````

@@ -29,5 +29,6 @@ ReactDOM.render(
       Application
     </Breadcrumb.Item>
   </Breadcrumb>,
-  mountNode);
+  mountNode
+);
 ````

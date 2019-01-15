@@ -26,5 +26,6 @@ ReactDOM.render(
     <RangePicker renderExtraFooter={() => 'extra footer'} showTime />
     <MonthPicker renderExtraFooter={() => 'extra footer'} placeholder="Select month" />
   </div>,
-  mountNode);
+  mountNode
+);
 ````

@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 3
 title: Use in create-react-app
 ---
 
@@ -114,8 +114,8 @@ $ yarn add react-app-rewired
 +   "start": "react-app-rewired start",
 -   "build": "react-scripts build",
 +   "build": "react-app-rewired build",
--   "test": "react-scripts test --env=jsdom",
-+   "test": "react-app-rewired test --env=jsdom",
+-   "test": "react-scripts test",
++   "test": "react-app-rewired test",
 }
 ```
 
@@ -216,3 +216,4 @@ There are a lot of great boilerplates like create-react-app in the React communi
 - [kriasoft/react-starter-kit](https://github.com/ant-design/react-starter-kit)
 - [next.js](https://github.com/zeit/next.js/tree/master/examples/with-ant-design)
 - [nwb](https://github.com/insin/nwb-examples/tree/master/react-app-antd)
+- [antd-react-scripts](https://github.com/minesaner/create-react-app/tree/antd/packages/react-scripts)

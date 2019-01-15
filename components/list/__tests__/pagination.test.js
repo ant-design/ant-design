@@ -18,11 +18,7 @@ describe('List.pagination', () => {
         itemLayout="vertical"
         pagination={pagination}
         dataSource={data}
-        renderItem={item => (
-          <List.Item key={item.key}>
-            {item.name}
-          </List.Item>
-        )}
+        renderItem={item => <List.Item key={item.key}>{item.name}</List.Item>}
         {...props}
       />
     );
@@ -38,9 +34,7 @@ describe('List.pagination', () => {
   });
 
   it('should not show pager if pagination.hideOnSinglePage is true and only 1 page', () => {
-    const wrapper = mount(
-      createList({ pagination: { pageSize: 3, hideOnSinglePage: true } })
-    );
+    const wrapper = mount(createList({ pagination: { pageSize: 3, hideOnSinglePage: true } }));
     expect(wrapper.find('.ant-pagination')).toHaveLength(1);
     wrapper.setProps({ pagination: { pageSize: 3, hideOnSinglePage: false } });
     expect(wrapper.find('.ant-pagination')).toHaveLength(1);
@@ -82,7 +76,7 @@ describe('List.pagination', () => {
           onChange: handlePaginationChange,
           onShowSizeChange: noop,
         },
-      })
+      }),
     );
 
     wrapper
@@ -120,21 +114,41 @@ describe('List.pagination', () => {
     const wrapper = mount(createList({ pagination: { pageSize: 1 } }));
     wrapper.find('.ant-pagination-item-3').simulate('click');
     wrapper.setProps({ dataSource: [data[0]] });
-    expect(
-      wrapper
-        .find('.ant-pagination-item-1')
-        .hasClass('ant-pagination-item-active')
-    ).toBe(true);
+    expect(wrapper.find('.ant-pagination-item-1').hasClass('ant-pagination-item-active')).toBe(
+      true,
+    );
   });
 
   it('specify the position of pagination', () => {
     const wrapper = mount(createList({ pagination: { position: 'top' } }));
-    expect(wrapper.find('.ant-list').childAt(0).find('.ant-pagination')).toHaveLength(1);
+    expect(
+      wrapper
+        .find('.ant-list')
+        .childAt(0)
+        .find('.ant-pagination'),
+    ).toHaveLength(1);
     wrapper.setProps({ pagination: { position: 'bottom' } });
-    expect(wrapper.find('.ant-list').children().last().find('.ant-pagination')).toHaveLength(1);
+    expect(
+      wrapper
+        .find('.ant-list')
+        .children()
+        .last()
+        .find('.ant-pagination'),
+    ).toHaveLength(1);
     wrapper.setProps({ pagination: { position: 'both' } });
     expect(wrapper.find('.ant-pagination')).toHaveLength(2);
-    expect(wrapper.find('.ant-list').childAt(0).find('.ant-pagination')).toHaveLength(1);
-    expect(wrapper.find('.ant-list').children().last().find('.ant-pagination')).toHaveLength(1);
+    expect(
+      wrapper
+        .find('.ant-list')
+        .childAt(0)
+        .find('.ant-pagination'),
+    ).toHaveLength(1);
+    expect(
+      wrapper
+        .find('.ant-list')
+        .children()
+        .last()
+        .find('.ant-pagination'),
+    ).toHaveLength(1);
   });
 });
