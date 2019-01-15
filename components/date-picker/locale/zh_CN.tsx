@@ -6,6 +6,9 @@ const locale = {
     placeholder: '请选择日期',
     rangePlaceholder: ['开始日期', '结束日期'],
     ...CalendarLocale,
+
+    monthFormat: 'YYYY年M月',
+    dateTimeFormat: 'YYYY-MM-DD HH:mm:ss',
   },
   timePickerLocale: {
     ...TimePickerLocale,
