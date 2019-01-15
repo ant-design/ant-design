@@ -6,6 +6,25 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { generateShowHourMinuteSecond } from '../time-picker';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
+type PickerType = 'date' | 'week' | 'month';
+
+interface PickerMap {
+  [name: string]: string;
+}
+
+const DEFAULT_FORMAT: PickerMap = {
+  date: 'YYYY-MM-DD',
+  week: 'gggg-wo',
+  month: 'YYYY-MM',
+};
+
+const LOCALE_FORMAT_MAPPING: PickerMap = {
+  date: 'dateFormat',
+  dateTime: 'dateTimeFormat',
+  week: 'weekFormat',
+  month: 'monthFormat',
+};
+
 function getColumns({ showHour, showMinute, showSecond, use12Hours }: any) {
   let column = 0;
   if (showHour) {
@@ -23,10 +42,9 @@ function getColumns({ showHour, showMinute, showSecond, use12Hours }: any) {
   return column;
 }
 
-export default function wrapPicker(Picker: React.ComponentClass<any>, defaultFormat?: string): any {
+export default function wrapPicker(Picker: React.ComponentClass<any>, pickerType: PickerType): any {
   return class PickerWrapper extends React.Component<any, any> {
     static defaultProps = {
-      format: defaultFormat || 'YYYY-MM-DD',
       transitionName: 'slide-up',
       popupStyle: {},
       onChange() {},
@@ -102,6 +120,13 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, defaultFor
     };
 
     renderPicker = (locale: any, localeCode: string) => {
+      const { format, showTime } = this.props;
+      const mergedPickerType = showTime ? `${pickerType}Time` : pickerType;
+      const mergedFormat =
+        format ||
+        locale[LOCALE_FORMAT_MAPPING[mergedPickerType]] ||
+        DEFAULT_FORMAT[mergedPickerType];
+
       return (
         <ConfigConsumer>
           {({ getPrefixCls }: ConfigConsumerProps) => {
@@ -110,7 +135,6 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, defaultFor
               inputPrefixCls: customizeInputPrefixCls,
               size,
               disabled,
-              showTime,
             } = this.props;
             const prefixCls = getPrefixCls('calendar', customizePrefixCls);
             const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
@@ -145,6 +169,7 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, defaultFor
             return (
               <Picker
                 {...this.props}
+                format={mergedFormat}
                 ref={this.savePicker}
                 pickerClass={pickerClass}
                 pickerInputClass={pickerInputClass}
