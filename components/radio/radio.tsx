@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
 import RadioGroup from './group';
 import RadioButton from './radioButton';
-import { RadioProps, RadioGroupContext } from './interface';
+import { RadioProps, RadioChangeEvent, RadioGroupContext } from './interface';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export default class Radio extends React.Component<RadioProps, {}> {
@@ -44,15 +44,25 @@ export default class Radio extends React.Component<RadioProps, {}> {
     this.rcCheckbox = node;
   };
 
+  onChange = (e: RadioChangeEvent) => {
+    if (this.props.onChange) {
+      this.props.onChange(e);
+    }
+
+    if (this.context.onChange) {
+      this.context.onChange(e);
+    }
+  };
+
   renderRadio = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { props, context } = this;
     const { prefixCls: customizePrefixCls, className, children, style, ...restProps } = props;
     const { radioGroup } = context;
     const prefixCls = getPrefixCls('radio', customizePrefixCls);
     const radioProps: RadioProps = { ...restProps };
+    radioProps.onChange = this.onChange;
     if (radioGroup) {
       radioProps.name = radioGroup.name;
-      radioProps.onChange = radioGroup.onChange;
       radioProps.checked = props.value === radioGroup.value;
       radioProps.disabled = props.disabled || radioGroup.disabled;
     }
