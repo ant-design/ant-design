@@ -136,16 +136,16 @@ module.exports = function override(config, env) {
 $ yarn add babel-plugin-import
 ```
 
-```diff
-+ const { injectBabelPlugin } = require('react-app-rewired');
+```
+const { override, fixBabelImports } = require('customize-cra')
 
-  module.exports = function override(config, env) {
-+   config = injectBabelPlugin(
-+     ['import', { libraryName: 'antd', libraryDirectory: 'es', style: 'css' }],
-+     config,
-+   );
-    return config;
-  };
+module.exports = override(
+	fixBabelImports('import', {
+		libraryName: 'antd',
+		libraryDirectory: 'es',
+		style: 'css'
+	})
+)
 ```
 
 Remove the `@import '~antd/dist/antd.css';` statement added before because `babel-plugin-import` will import styles and import components like below:
@@ -180,22 +180,20 @@ According to the [Customize Theme documentation](/docs/react/customize-theme), t
 $ yarn add react-app-rewire-less
 ```
 
-```diff
-  const { injectBabelPlugin } = require('react-app-rewired');
-+ const rewireLess = require('react-app-rewire-less');
+```
+const { override, fixBabelImports } = require('customize-cra')
 
-  module.exports = function override(config, env) {
-    config = injectBabelPlugin(
--     ['import', { libraryName: 'antd', libraryDirectory: 'es', style: 'css' }],
-+     ['import', { libraryName: 'antd', libraryDirectory: 'es', style: true }], // change importing css to less
-      config,
-    );
-+   config = rewireLess.withLoaderOptions({
-+     modifyVars: { "@primary-color": "#1DA57A" },
-+     javascriptEnabled: true,
-+   })(config, env);
-    return config;
-  };
+module.exports = override(
+	fixBabelImports('import', {
+		libraryName: 'antd',
+		libraryDirectory: 'es',
+		style: true
+	}),
+  addLessLoader({
+    javascriptEnabled: true,
+    modifyVars: { "@primary-color": "#1DA57A" }
+  })
+)
 ```
 
 We use `modifyVars` option of [less-loader](https://github.com/webpack/less-loader#less-options) here, you can see a green button rendered on the page after rebooting the start server.

@@ -133,16 +133,16 @@ module.exports = function override(config, env) {
 $ yarn add babel-plugin-import
 ```
 
-```diff
-+ const { injectBabelPlugin } = require('react-app-rewired');
+```
+const { override, fixBabelImports } = require('customize-cra')
 
-  module.exports = function override(config, env) {
-+   config = injectBabelPlugin(
-+     ['import', { libraryName: 'antd', libraryDirectory: 'es', style: 'css' }],
-+     config,
-+   );
-    return config;
-  };
+module.exports = override(
+	fixBabelImports('import', {
+		libraryName: 'antd',
+		libraryDirectory: 'es',
+		style: 'css'
+	})
+)
 ```
 
 然后移除前面在 `src/App.css` 里全量添加的 `@import '~antd/dist/antd.css';` 样式代码，并且按下面的格式引入模块。
@@ -177,22 +177,20 @@ $ yarn add babel-plugin-import
 $ yarn add react-app-rewire-less
 ```
 
-```diff
-  const { injectBabelPlugin } = require('react-app-rewired');
-+ const rewireLess = require('react-app-rewire-less');
+```
+const { override, fixBabelImports } = require('customize-cra')
 
-  module.exports = function override(config, env) {
-    config = injectBabelPlugin(
--     ['import', { libraryName: 'antd', libraryDirectory: 'es', style: 'css' }],
-+     ['import', { libraryName: 'antd', libraryDirectory: 'es', style: true }], // change importing css to less
-      config,
-    );
-+   config = rewireLess.withLoaderOptions({
-+     modifyVars: { "@primary-color": "#1DA57A" },
-+     javascriptEnabled: true,
-+   })(config, env);
-    return config;
-  };
+module.exports = override(
+	fixBabelImports('import', {
+		libraryName: 'antd',
+		libraryDirectory: 'es',
+		style: true
+	}),
+  addLessLoader({
+    javascriptEnabled: true,
+    modifyVars: { "@primary-color": "#1DA57A" }
+  })
+)
 ```
 
 这里利用了 [less-loader](https://github.com/webpack/less-loader#less-options) 的 `modifyVars` 来进行主题配置，
