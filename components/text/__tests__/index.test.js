@@ -22,11 +22,11 @@ describe('Text', () => {
   });
 
   describe('Title', () => {
-    it('warning if `important` not correct', () => {
-      mount(<Title important={false} />);
+    it('warning if `level` not correct', () => {
+      mount(<Title level={false} />);
 
       expect(errorSpy).toBeCalledWith(
-        'Warning: Title only accept `1 | 2 | 3 | 4` as `important` value.',
+        'Warning: Title only accept `1 | 2 | 3 | 4` as `level` value.',
       );
     });
   });

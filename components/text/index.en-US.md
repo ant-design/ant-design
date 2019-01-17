@@ -27,7 +27,7 @@ When need to display title or text content.
 | -------- | ----------- | ---- | ------- |
 | copyable | Content can be copied | boolean | false |
 | editable | Content can be edited  | boolean | false |
-| important | Set content importance | number: `1`, `2`, `3`, `4` | 1 |
+| level | Set content importance | number: `1`, `2`, `3`, `4` | 1 |
 | lines | Set max lines and make ellipsis if over the lines. Style will change from `display: inline` to `display: inline-block` after set | number | - |
 | onChange | Trigger when user edit the content | Function(string) | - |
 | type | Content type | `secondary`, `warning`, `danger` | - |
