@@ -70,9 +70,10 @@ describe('Radio', () => {
 
   it('both of radio and radioGroup will trigger onchange event when they exists', () => {
     const onChange = jest.fn();
+    const onChangeRadioGroup = jest.fn();
 
     const wrapper = mount(
-      <RadioGroup onChange={onChange}>
+      <RadioGroup onChange={onChangeRadioGroup}>
         <Radio value="A" onChange={onChange}>
           A
         </Radio>
@@ -89,12 +90,13 @@ describe('Radio', () => {
     // uncontrolled component
     wrapper.setState({ value: 'B' });
     radios.at(0).simulate('change');
-    expect(onChange.mock.calls.length).toBe(2);
+    expect(onChange.mock.calls.length).toBe(1);
+    expect(onChangeRadioGroup.mock.calls.length).toBe(1);
 
     // controlled component
     wrapper.setProps({ value: 'A' });
     radios.at(1).simulate('change');
-    expect(onChange.mock.calls.length).toBe(4);
+    expect(onChange.mock.calls.length).toBe(2);
   });
 
   it("won't fire change events when value not changes", () => {

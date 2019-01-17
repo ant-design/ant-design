@@ -49,7 +49,7 @@ export default class Radio extends React.Component<RadioProps, {}> {
       this.props.onChange(e);
     }
 
-    if (this.context.radioGroup.onChange) {
+    if (this.context.radioGroup && this.context.radioGroup.onChange) {
       this.context.radioGroup.onChange(e);
     }
   };
