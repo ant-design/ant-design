@@ -219,6 +219,7 @@ exports[`Progress render strokeColor 1`] = `
      a 47,47 0 1 1 0,-94"
         fill-opacity="0"
         stroke="#f3f3f3"
+        stroke-linecap="round"
         stroke-width="6"
         style="stroke-dasharray: 295.3097094374406px 295.3097094374406px; stroke-dashoffset: -0px;"
       />
