@@ -20,19 +20,19 @@ const { Paragraph } = Text;
 
 class Demo extends React.Component {
   state = {
-    lines: 1,
+    rows: 1,
   };
 
-  onChange = (lines) => {
-    this.setState({ lines });
+  onChange = (rows) => {
+    this.setState({ rows });
   };
 
   render() {
-    const { lines } = this.state;
+    const { rows } = this.state;
     return (
       <div>
-        <Slider value={lines} min={1} max={10} onChange={this.onChange} />
-        <Paragraph lines={lines} copyable>
+        <Slider value={rows} min={1} max={10} onChange={this.onChange} />
+        <Paragraph rows={rows} copyable>
           Ant Design, a design language for background applications, is refined by Ant UED Team.
           Ant Design, a design language for background applications, is refined by Ant UED Team.
           Ant Design, a design language for background applications, is refined by Ant UED Team.

@@ -15,7 +15,7 @@ function pxToNumber(value: string | null): number {
 
 export function measure(
   text: string,
-  lines: number,
+  rows: number,
   originEle: HTMLParagraphElement,
   offset: number,
 ): { text: string; ellipsis: boolean } {
@@ -32,7 +32,7 @@ export function measure(
   const originCSS = originStyle.cssText;
   const lineHeight = pxToNumber(originStyle.lineHeight);
   const maxHeight =
-    lineHeight * lines + pxToNumber(originStyle.paddingTop) + pxToNumber(originStyle.paddingBottom);
+    lineHeight * rows + pxToNumber(originStyle.paddingTop) + pxToNumber(originStyle.paddingBottom);
 
   // Set shadow
   ellipsisText.innerHTML = `${text}${offsetPlaceholder}`;

@@ -26,7 +26,7 @@ export interface BaseProps {
   onChange?: (value: string) => null;
   type?: BaseType;
   disabled?: boolean;
-  lines?: number;
+  rows?: number;
 }
 
 interface InternalBaseProps extends BaseProps {
@@ -79,7 +79,7 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
   }
 
   componentDidUpdate(prevProps: BaseProps) {
-    if (this.props.children !== prevProps.children || this.props.lines !== prevProps.lines) {
+    if (this.props.children !== prevProps.children || this.props.rows !== prevProps.rows) {
       this.resizeOnNextFrame();
     }
   }
@@ -150,8 +150,8 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
 
   syncEllipsis() {
     const { ellipsisText, isEllipsis } = this.state;
-    const { lines, children, copyable, editable } = this.props;
-    if (!lines || lines < 0 || !this.content) return;
+    const { rows, children, copyable, editable } = this.props;
+    if (!rows || rows < 0 || !this.content) return;
 
     warning(typeof children === 'string', 'In ellipsis mode, `children` of Text must be a string.');
 
@@ -159,7 +159,7 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
     if (copyable) offset += 1;
     if (editable) offset += 1;
 
-    const { text, ellipsis } = measure(String(children), lines, this.content, offset);
+    const { text, ellipsis } = measure(String(children), rows, this.content, offset);
     if (ellipsisText !== text || isEllipsis !== ellipsis) {
       this.setState({ ellipsisText: text, isEllipsis: ellipsis });
     }
@@ -235,7 +235,7 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
       prefixCls,
       type,
       disabled,
-      lines,
+      rows,
       ...restProps
     } = this.props;
 
@@ -248,7 +248,7 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
 
     let textNode: React.ReactNode = children;
 
-    if (lines && isEllipsis) {
+    if (rows && isEllipsis) {
       // We move full content to outer element to avoid repeat read the content by accessibility
       textNode = (
         <span title={String(children)} aria-hidden="true">
@@ -258,12 +258,12 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
     }
 
     return (
-      <ResizeObserver onResize={this.resizeOnNextFrame} disabled={!lines}>
+      <ResizeObserver onResize={this.resizeOnNextFrame} disabled={!rows}>
         <Component
           className={classNames(prefixCls, className, {
             [`${prefixCls}-${type}`]: type,
             [`${prefixCls}-disabled`]: disabled,
-            [`${prefixCls}-ellipsis`]: lines,
+            [`${prefixCls}-ellipsis`]: rows,
           })}
           aria-label={isEllipsis ? String(children) : undefined}
           ref={this.setContentRef}

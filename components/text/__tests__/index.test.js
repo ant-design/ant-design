@@ -43,7 +43,7 @@ describe('Text', () => {
       }
 
       const wrapper = mount(
-        <TestBase lines={1} component="p" onSyncEllipsis={onSyncEllipsis}>
+        <TestBase rows={1} component="p" onSyncEllipsis={onSyncEllipsis}>
           Bamboo is Little Light Bamboo is Little Light Bamboo is Little Light Bamboo is Little
           Light Bamboo is Little Light
         </TestBase>,
@@ -52,7 +52,7 @@ describe('Text', () => {
       jest.runAllTimers();
       expect(onSyncEllipsis).toHaveBeenCalledTimes(1);
 
-      wrapper.setProps({ lines: 2 });
+      wrapper.setProps({ rows: 2 });
       jest.runAllTimers();
       expect(onSyncEllipsis).toHaveBeenCalledTimes(2);
     });
