@@ -68,6 +68,35 @@ describe('Radio', () => {
     expect(onChange.mock.calls.length).toBe(2);
   });
 
+  it('both of radio and radioGroup will trigger onchange event when they exists', () => {
+    const onChange = jest.fn();
+
+    const wrapper = mount(
+      <RadioGroup onChange={onChange}>
+        <Radio value="A" onChange={onChange}>
+          A
+        </Radio>
+        <Radio value="B" onChange={onChange}>
+          B
+        </Radio>
+        <Radio value="C" onChange={onChange}>
+          C
+        </Radio>
+      </RadioGroup>,
+    );
+    const radios = wrapper.find('input');
+
+    // uncontrolled component
+    wrapper.setState({ value: 'B' });
+    radios.at(0).simulate('change');
+    expect(onChange.mock.calls.length).toBe(2);
+
+    // controlled component
+    wrapper.setProps({ value: 'A' });
+    radios.at(1).simulate('change');
+    expect(onChange.mock.calls.length).toBe(4);
+  });
+
   it("won't fire change events when value not changes", () => {
     const onChange = jest.fn();
 
