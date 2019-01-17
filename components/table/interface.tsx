@@ -115,6 +115,11 @@ export interface ExpandIconProps<T> {
   expandable: boolean;
   onExpand: (record: T, event: MouseEvent) => void;
 }
+
+export interface TableCurrentDataSource<T> {
+  currentDataSource: T[];
+}
+
 export interface TableProps<T> {
   prefixCls?: string;
   dropdownPrefixCls?: string;
@@ -145,6 +150,7 @@ export interface TableProps<T> {
     pagination: PaginationConfig,
     filters: Record<keyof T, string[]>,
     sorter: SorterResult<T>,
+    extra: TableCurrentDataSource<T>,
   ) => void;
   loading?: boolean | SpinProps;
   locale?: TableLocale;
