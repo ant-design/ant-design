@@ -49,8 +49,8 @@ export default class Radio extends React.Component<RadioProps, {}> {
       this.props.onChange(e);
     }
 
-    if (this.context.onChange) {
-      this.context.onChange(e);
+    if (this.context.radioGroup.onChange) {
+      this.context.radioGroup.onChange(e);
     }
   };
 
@@ -60,9 +60,10 @@ export default class Radio extends React.Component<RadioProps, {}> {
     const { radioGroup } = context;
     const prefixCls = getPrefixCls('radio', customizePrefixCls);
     const radioProps: RadioProps = { ...restProps };
-    radioProps.onChange = this.onChange;
     if (radioGroup) {
       radioProps.name = radioGroup.name;
+      // radioProps.onChange = radioGroup.onChange;
+      radioProps.onChange = this.onChange;
       radioProps.checked = props.value === radioGroup.value;
       radioProps.disabled = props.disabled || radioGroup.disabled;
     }
