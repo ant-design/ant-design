@@ -221,15 +221,17 @@ export default class TransferList extends React.Component<TransferListProps, any
         )}
       >
         {search}
-        <Animate
-          component="ul"
-          componentProps={{ onScroll }}
-          className={`${prefixCls}-content`}
-          transitionName={this.state.mounted ? `${prefixCls}-content-item-highlight` : ''}
-          transitionLeave={false}
-        >
-          {showItems}
-        </Animate>
+        {!searchNotFound && (
+          <Animate
+            component="ul"
+            componentProps={{ onScroll }}
+            className={`${prefixCls}-content`}
+            transitionName={this.state.mounted ? `${prefixCls}-content-item-highlight` : ''}
+            transitionLeave={false}
+          >
+            {showItems}
+          </Animate>
+        )}
         {searchNotFound}
       </div>
     );
