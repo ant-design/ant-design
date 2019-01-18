@@ -155,13 +155,24 @@ export default class Progress extends React.Component<ProgressProps, {}> {
       const circleWidth = strokeWidth || 6;
       const gapPos = gapPosition || (type === 'dashboard' && 'bottom') || 'top';
       const gapDeg = gapDegree || (type === 'dashboard' && 75);
+
+      // Merge values
+      let percents: number | number[] = validProgress(percent);
+      let strokeColors: string | string[] = strokeColor || statusColorMap[progressStatus];
+
+      if (successPercent) {
+        const successPercentVal = validProgress(successPercent);
+        percents = [successPercentVal, percents - successPercentVal];
+        strokeColors = [statusColorMap.success, strokeColors];
+      }
+
       progress = (
         <div className={`${prefixCls}-inner`} style={circleStyle}>
           <Circle
-            percent={validProgress(percent)}
+            percent={percents}
             strokeWidth={circleWidth}
             trailWidth={circleWidth}
-            strokeColor={strokeColor || statusColorMap[progressStatus]}
+            strokeColor={strokeColors}
             strokeLinecap={strokeLinecap}
             trailColor={trailColor}
             prefixCls={prefixCls}
