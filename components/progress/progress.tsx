@@ -48,11 +48,13 @@ const validProgress = (progress: number | undefined) => {
 
 export default class Progress extends React.Component<ProgressProps, {}> {
   static defaultProps = {
-    type: 'line' as ProgressProps['type'],
+    type: 'line',
     percent: 0,
     showInfo: true,
     trailColor: '#f3f3f3',
-    size: 'default' as ProgressSize,
+    size: 'default',
+    gapDegree: 0,
+    strokeLinecap: 'round',
   };
 
   static propTypes = {
@@ -69,6 +71,87 @@ export default class Progress extends React.Component<ProgressProps, {}> {
     gapDegree: PropTypes.number,
     default: PropTypes.oneOf(['default', 'small']),
   };
+
+  renderLine(prefixCls: string, progressInfo: React.ReactNode) {
+    const { percent, successPercent, strokeWidth, size, strokeColor, strokeLinecap } = this.props;
+    const percentStyle = {
+      width: `${validProgress(percent)}%`,
+      height: strokeWidth || (size === 'small' ? 6 : 8),
+      background: strokeColor,
+      borderRadius: strokeLinecap === 'square' ? 0 : '100px',
+    };
+    const successPercentStyle = {
+      width: `${validProgress(successPercent)}%`,
+      height: strokeWidth || (size === 'small' ? 6 : 8),
+      borderRadius: strokeLinecap === 'square' ? 0 : '100px',
+    };
+    const successSegment =
+      successPercent !== undefined ? (
+        <div className={`${prefixCls}-success-bg`} style={successPercentStyle} />
+      ) : null;
+    return (
+      <div>
+        <div className={`${prefixCls}-outer`}>
+          <div className={`${prefixCls}-inner`}>
+            <div className={`${prefixCls}-bg`} style={percentStyle} />
+            {successSegment}
+          </div>
+        </div>
+        {progressInfo}
+      </div>
+    );
+  }
+
+  renderCircle(prefixCls: string, progressInfo: React.ReactNode, progressStatus: string) {
+    const {
+      percent,
+      successPercent,
+      width,
+      strokeWidth,
+      strokeColor,
+      trailColor,
+      strokeLinecap,
+      gapPosition,
+      gapDegree,
+      type,
+    } = this.props;
+    const circleSize = width || 120;
+    const circleStyle = {
+      width: circleSize,
+      height: circleSize,
+      fontSize: circleSize * 0.15 + 6,
+    };
+    const circleWidth = strokeWidth || 6;
+    const gapPos = gapPosition || (type === 'dashboard' && 'bottom') || 'top';
+    const gapDeg = gapDegree || (type === 'dashboard' && 75);
+
+    // Merge values
+    let percents: number | number[] = validProgress(percent);
+    let strokeColors: string | string[] = strokeColor || statusColorMap[progressStatus];
+
+    if (successPercent) {
+      const successPercentVal = validProgress(successPercent);
+      percents = [successPercentVal, percents - successPercentVal];
+      strokeColors = [statusColorMap.success, strokeColors];
+    }
+
+    return (
+      <div className={`${prefixCls}-inner`} style={circleStyle}>
+        <Circle
+          percent={percents}
+          strokeWidth={circleWidth}
+          trailWidth={circleWidth}
+          strokeColor={strokeColors}
+          strokeLinecap={strokeLinecap}
+          trailColor={trailColor}
+          prefixCls={prefixCls}
+          gapDegree={gapDeg}
+          gapPosition={gapPos}
+        />
+        {progressInfo}
+      </div>
+    );
+  }
 
   renderProgress = ({ getPrefixCls }: ConfigConsumerProps) => {
     const props = this.props;
@@ -119,69 +202,9 @@ export default class Progress extends React.Component<ProgressProps, {}> {
     }
 
     if (type === 'line') {
-      const percentStyle = {
-        width: `${validProgress(percent)}%`,
-        height: strokeWidth || (size === 'small' ? 6 : 8),
-        background: strokeColor,
-        borderRadius: strokeLinecap === 'square' ? 0 : '100px',
-      };
-      const successPercentStyle = {
-        width: `${validProgress(successPercent)}%`,
-        height: strokeWidth || (size === 'small' ? 6 : 8),
-        borderRadius: strokeLinecap === 'square' ? 0 : '100px',
-      };
-      const successSegment =
-        successPercent !== undefined ? (
-          <div className={`${prefixCls}-success-bg`} style={successPercentStyle} />
-        ) : null;
-      progress = (
-        <div>
-          <div className={`${prefixCls}-outer`}>
-            <div className={`${prefixCls}-inner`}>
-              <div className={`${prefixCls}-bg`} style={percentStyle} />
-              {successSegment}
-            </div>
-          </div>
-          {progressInfo}
-        </div>
-      );
+      progress = this.renderLine(prefixCls, progressInfo);
     } else if (type === 'circle' || type === 'dashboard') {
-      const circleSize = width || 120;
-      const circleStyle = {
-        width: circleSize,
-        height: circleSize,
-        fontSize: circleSize * 0.15 + 6,
-      };
-      const circleWidth = strokeWidth || 6;
-      const gapPos = gapPosition || (type === 'dashboard' && 'bottom') || 'top';
-      const gapDeg = gapDegree || (type === 'dashboard' && 75);
-
-      // Merge values
-      let percents: number | number[] = validProgress(percent);
-      let strokeColors: string | string[] = strokeColor || statusColorMap[progressStatus];
-
-      if (successPercent) {
-        const successPercentVal = validProgress(successPercent);
-        percents = [successPercentVal, percents - successPercentVal];
-        strokeColors = [statusColorMap.success, strokeColors];
-      }
-
-      progress = (
-        <div className={`${prefixCls}-inner`} style={circleStyle}>
-          <Circle
-            percent={percents}
-            strokeWidth={circleWidth}
-            trailWidth={circleWidth}
-            strokeColor={strokeColors}
-            strokeLinecap={strokeLinecap}
-            trailColor={trailColor}
-            prefixCls={prefixCls}
-            gapDegree={gapDeg}
-            gapPosition={gapPos}
-          />
-          {progressInfo}
-        </div>
-      );
+      progress = this.renderCircle(prefixCls, progressInfo, progressStatus);
     }
 
     const classString = classNames(

@@ -17,13 +17,19 @@ A standard progress bar.
 import { Tooltip, Progress } from 'antd';
 
 ReactDOM.render(
-  <Tooltip title="3 done / 3 in progress / 4 to do">
-    <Progress percent={60} successPercent={30} />
+  <div>
+    <Tooltip title="3 done / 3 in progress / 4 to do">
+      <Progress percent={60} successPercent={30} />
+    </Tooltip>
 
-    <Progress percent={60} successPercent={30} type="circle" />
+    <Tooltip title="3 done / 3 in progress / 4 to do">
+      <Progress percent={60} successPercent={30} type="circle" />
+    </Tooltip>
 
-    <Progress percent={60} successPercent={30} type="dashboard" />
-  </Tooltip>,
+    <Tooltip title="3 done / 3 in progress / 4 to do">
+      <Progress percent={60} successPercent={30} type="dashboard" />
+    </Tooltip>
+  </div>,
   mountNode
 );
 ````

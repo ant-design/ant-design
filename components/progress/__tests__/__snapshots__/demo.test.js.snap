@@ -1024,7 +1024,7 @@ exports[`renders ./components/progress/demo/linecap.md correctly 1`] = `
 `;
 
 exports[`renders ./components/progress/demo/segment.md correctly 1`] = `
-<span>
+<div>
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -1155,5 +1155,5 @@ exports[`renders ./components/progress/demo/segment.md correctly 1`] = `
       </span>
     </div>
   </div>
-</span>
+</div>
 `;
