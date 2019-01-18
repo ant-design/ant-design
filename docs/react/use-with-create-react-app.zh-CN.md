@@ -96,12 +96,12 @@ export default App;
 
 我们现在已经把组件成功运行起来了，但是在实际开发过程中还有很多问题，例如上面的例子实际上加载了全部的 antd 组件的样式（对前端性能是个隐患）。
 
-此时我们需要对 create-react-app 的默认配置进行自定义，这里我们使用 [react-app-rewired](https://github.com/timarney/react-app-rewired) （一个对 create-react-app 进行自定义配置的社区解决方案）。
+此时我们需要对 create-react-app 的默认配置进行自定义，这里我们使用 [react-app-rewired](https://github.com/timarney/react-app-rewired) （一个对 create-react-app 进行自定义配置的社区解决方案）。由于新的 `react-app-rewired@2.x` 版本的关系，你必须安装 customize-cra 以及 react-app-rewired 。
 
 引入 react-app-rewired 并修改 package.json 里的启动配置。
 
 ```
-$ yarn add react-app-rewired
+$ yarn add react-app-rewired customize-cra
 ```
 
 ```diff
@@ -171,14 +171,15 @@ module.exports = override(
 
 ### 自定义主题
 
-按照 [配置主题](/docs/react/customize-theme) 的要求，自定义主题需要用到 less 变量覆盖功能。我们可以引入 react-app-rewire 的 less 插件 [react-app-rewire-less](http://npmjs.com/react-app-rewire-less) 来帮助加载 less 样式，同时修改 `config-overrides.js` 文件。
+按照 [配置主题](/docs/react/customize-theme) 的要求，自定义主题需要用到 less 变量覆盖功能。我们可以引入 `customize-cra` 中提供的 less 相关的函数 [addLessLoader](https://github.com/arackaf/customize-cra#addlessloaderloaderoptions) 来帮助加载 less 样式，同时修改 `config-overrides.js` 文件。
 
 ```bash
-$ yarn add react-app-rewire-less
+$ yarn add less
+$ yarn add --dev less-loader
 ```
 
 ```
-const { override, fixBabelImports } = require('customize-cra')
+const { override, fixBabelImports, addLessLoader } = require('customize-cra')
 
 module.exports = override(
 	fixBabelImports('import', {
