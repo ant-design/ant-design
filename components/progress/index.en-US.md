@@ -27,6 +27,6 @@ If it will take a long time to complete an operation, you can use `Progress` to 
 | strokeWidth `(type=circle)` | to set the width of the circular progress bar, unit: percentage of the canvas width | number | 6 |
 | strokeLinecap | to set the style of the progress linecap | Enum{ 'round', 'square' } | `round` |
 | strokeColor | color of progress bar | string | - |
-| successPercent | segmented success percent, works when `type="line"` | number | 0 |
+| successPercent | segmented success percent | number | 0 |
 | type | to set the type, options: `line` `circle` `dashboard` | string | `line` |
 | width `(type=circle)` | to set the canvas width of the circular progress bar, unit: `px` | number | 132 |
