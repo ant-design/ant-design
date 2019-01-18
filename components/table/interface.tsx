@@ -4,6 +4,7 @@ import { Store } from './createStore';
 import { RadioChangeEvent } from '../radio';
 import { CheckboxChangeEvent } from '../checkbox';
 import { PaginationConfig } from '../pagination';
+import Table from './Table';
 export { PaginationConfig } from '../pagination';
 
 export type CompareFn<T> = ((a: T, b: T, sortOrder?: SortOrder) => number);
@@ -123,6 +124,7 @@ export interface TableCurrentDataSource<T> {
 export interface TableProps<T> {
   prefixCls?: string;
   dropdownPrefixCls?: string;
+  getDropdownContainer?: (table: Table<T>) => HTMLElement;
   rowSelection?: TableRowSelection<T>;
   pagination?: PaginationConfig | false;
   size?: TableSize;

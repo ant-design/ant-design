@@ -84,6 +84,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     onChange: PropTypes.func,
     locale: PropTypes.object,
     dropdownPrefixCls: PropTypes.string,
+    getDropdownContainer: PropTypes.func,
     sortDirections: PropTypes.array,
   };
 
@@ -726,6 +727,9 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   };
 
   getPopupContainer = () => {
+    if (this.props.getDropdownContainer) {
+      return this.props.getDropdownContainer(this);
+    }
     return ReactDOM.findDOMNode(this) as HTMLElement;
   };
 
