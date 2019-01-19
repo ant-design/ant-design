@@ -17,6 +17,16 @@ timeline: true
 
 ## 3.12.3
 
+`2019-01-19`
+
+- 💄 Fix `InputNumber` style not correct in `MenuItem`. [#14373](https://github.com/ant-design/ant-design/pull/14373)
+- 💄 Fix `Input.Search` with enterButton style issue. [#14397](https://github.com/ant-design/ant-design/pull/14397)
+- 💄 Fix `Slider` focus style. [9202509](https://github.com/ant-design/ant-design/commit/92025095032a05b2bc347218b523ffd42f75a607)
+- 🐞 Fix the problem that the prefixCls property is passed to the `Empty` . [#14404](https://github.com/ant-design/ant-design/pull/14404)
+- 🐞 Fix the problem that `Radio` onChange will be overide by `RadioGroup` onChange。[#14364](https://github.com/ant-design/ant-design/pull/14364)
+
+## 3.12.3
+
 `2019-01-13`
 
 - 🐞 Reverted [#14157](https://github.com/ant-design/ant-design/pull/14157) to fix Input `prefix` and `suffix` missing problem. [#14310](https://github.com/ant-design/ant-design/issues/14310)

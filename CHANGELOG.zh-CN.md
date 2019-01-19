@@ -17,6 +17,16 @@ timeline: true
 
 ## 3.12.3
 
+`2019-01-19`
+
+- 💄 修复 InputNumber 在 MenuItem 中样式不正确的问题。[#14373](https://github.com/ant-design/ant-design/pull/14373)
+- 💄 修复 Input.Search 使用 enterButton 时的样式问题。[#14397](https://github.com/ant-design/ant-design/pull/14397)
+- 💄 修复 `slider` focus 时的样式错误。[9202509](https://github.com/ant-design/ant-design/commit/92025095032a05b2bc347218b523ffd42f75a607)
+- 🐞 修复 prefixCls 属性被传递到了 `Empty` 元素上的问题。[#14404](https://github.com/ant-design/ant-design/pull/14404)
+- 🐞 修复 `RadioGroup` onChange 将覆盖 `Radio` onChange 的问题。[#14364](https://github.com/ant-design/ant-design/pull/14364)
+
+## 3.12.3
+
 `2019-01-13`
 
 - 🐞 回滚 [#14157](https://github.com/ant-design/ant-design/pull/14157) 修复 Input `prefix` 和 `suffix` 丢失的问题。[#14310](https://github.com/ant-design/ant-design/issues/14310)
