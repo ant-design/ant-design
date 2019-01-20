@@ -15,7 +15,7 @@ timeline: true
 
 ---
 
-## 3.12.3
+## 3.12.4
 
 `2019-01-19`
 - 🌟 更新《在 creact-react-app 中使用》文档以兼容升级后的 creact-react-app 和 react-scripts-rewired。[#14385](https://github.com/ant-design/ant-design/pull/14385)
