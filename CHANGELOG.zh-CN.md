@@ -18,7 +18,7 @@ timeline: true
 ## 3.12.3
 
 `2019-01-19`
-- 🌟 更新《在 creact-react-app 中使用》文档以兼容升级后的creact-react-app 和 react-scripts-rewired 』[#14385](https://github.com/ant-design/ant-design/pull/14385)
+- 🌟 更新《在 creact-react-app 中使用》文档以兼容升级后的 creact-react-app 和 react-scripts-rewired。[#14385](https://github.com/ant-design/ant-design/pull/14385)
 - 💄 修复在 postcss（webpack）中使用 autoprefixer 9.4.5 会抛出错误 `Replace text-decoration-skip: ink to text-decoration-skip-ink: auto, because spec had been changed` 的问题。[#14312](https://github.com/ant-design/ant-design/pull/14312)
 - 💄 修复 InputNumber 在 MenuItem 中样式不正确的问题。[#14373](https://github.com/ant-design/ant-design/pull/14373)
 - 💄 修复 Input.Search 使用 `enterButton` 时的样式问题。[#14397](https://github.com/ant-design/ant-design/pull/14397)
