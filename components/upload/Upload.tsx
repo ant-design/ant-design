@@ -62,6 +62,10 @@ class Upload extends React.Component<UploadProps, UploadState> {
     };
   }
 
+  get uploader() {
+    return this.upload && this.upload.uploader;
+  }
+
   componentWillUnmount() {
     this.clearProgressTimer();
   }
