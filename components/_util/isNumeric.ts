@@ -1,4 +1,4 @@
-const isNumeric = <T extends number>(value: any): value is T => {
+const isNumeric = (value: any): boolean => {
   return !isNaN(parseFloat(value)) && isFinite(value);
 };
 

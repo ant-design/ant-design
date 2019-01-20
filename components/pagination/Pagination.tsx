@@ -2,10 +2,11 @@ import * as React from 'react';
 import RcPagination from 'rc-pagination';
 import enUS from 'rc-pagination/lib/locale/en_US';
 import classNames from 'classnames';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import Select from '../select';
 import MiniSelect from './MiniSelect';
 import Icon from '../icon';
+import Select from '../select';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface PaginationProps {
   total?: number;
@@ -27,7 +28,11 @@ export interface PaginationProps {
   className?: string;
   prefixCls?: string;
   selectPrefixCls?: string;
-  itemRender?: (page: number, type: 'page' | 'prev' | 'next' | 'jump-prev' | 'jump-next', originalElement: HTMLElement) => React.ReactNode;
+  itemRender?: (
+    page: number,
+    type: 'page' | 'prev' | 'next' | 'jump-prev' | 'jump-next',
+    originalElement: HTMLElement,
+  ) => React.ReactNode;
   role?: string;
 }
 
@@ -38,13 +43,7 @@ export interface PaginationConfig extends PaginationProps {
 export type PaginationLocale = any;
 
 export default class Pagination extends React.Component<PaginationProps, {}> {
-  static defaultProps = {
-    prefixCls: 'ant-pagination',
-    selectPrefixCls: 'ant-select',
-  };
-
-  getIconsProps = () => {
-    const { prefixCls } = this.props;
+  getIconsProps = (prefixCls: string) => {
     const prevIcon = (
       <a className={`${prefixCls}-item-link`}>
         <Icon type="left" />
@@ -59,10 +58,7 @@ export default class Pagination extends React.Component<PaginationProps, {}> {
       <a className={`${prefixCls}-item-link`}>
         {/* You can use transition effects in the container :) */}
         <div className={`${prefixCls}-item-container`}>
-          <Icon
-            className={`${prefixCls}-item-link-icon`}
-            type="double-left"
-          />
+          <Icon className={`${prefixCls}-item-link-icon`} type="double-left" />
           <span className={`${prefixCls}-item-ellipsis`}>•••</span>
         </div>
       </a>
@@ -71,10 +67,7 @@ export default class Pagination extends React.Component<PaginationProps, {}> {
       <a className={`${prefixCls}-item-link`}>
         {/* You can use transition effects in the container :) */}
         <div className={`${prefixCls}-item-container`}>
-          <Icon
-            className={`${prefixCls}-item-link-icon`}
-            type="double-right"
-          />
+          <Icon className={`${prefixCls}-item-link-icon`} type="double-right" />
           <span className={`${prefixCls}-item-ellipsis`}>•••</span>
         </div>
       </a>
@@ -85,29 +78,44 @@ export default class Pagination extends React.Component<PaginationProps, {}> {
       jumpPrevIcon,
       jumpNextIcon,
     };
-  }
+  };
 
   renderPagination = (contextLocale: PaginationLocale) => {
-    const { className, size, locale: customLocale, ...restProps } = this.props;
+    const {
+      prefixCls: customizePrefixCls,
+      selectPrefixCls: customizeSelectPrefixCls,
+      className,
+      size,
+      locale: customLocale,
+      ...restProps
+    } = this.props;
     const locale = { ...contextLocale, ...customLocale };
     const isSmall = size === 'small';
     return (
-      <RcPagination
-        {...restProps}
-        {...this.getIconsProps()}
-        className={classNames(className, { mini: isSmall })}
-        selectComponentClass={isSmall ? MiniSelect : Select}
-        locale={locale}
-      />
+      <ConfigConsumer>
+        {({ getPrefixCls }: ConfigConsumerProps) => {
+          const prefixCls = getPrefixCls('pagination', customizePrefixCls);
+          const selectPrefixCls = getPrefixCls('select', customizeSelectPrefixCls);
+
+          return (
+            <RcPagination
+              {...restProps}
+              prefixCls={prefixCls}
+              selectPrefixCls={selectPrefixCls}
+              {...this.getIconsProps(prefixCls)}
+              className={classNames(className, { mini: isSmall })}
+              selectComponentClass={isSmall ? MiniSelect : Select}
+              locale={locale}
+            />
+          );
+        }}
+      </ConfigConsumer>
     );
-  }
+  };
 
   render() {
     return (
-      <LocaleReceiver
-        componentName="Pagination"
-        defaultLocale={enUS}
-      >
+      <LocaleReceiver componentName="Pagination" defaultLocale={enUS}>
         {this.renderPagination}
       </LocaleReceiver>
     );

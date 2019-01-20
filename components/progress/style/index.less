@@ -1,7 +1,7 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@progress-prefix-cls: ~"@{ant-prefix}-progress";
+@progress-prefix-cls: ~'@{ant-prefix}-progress';
 
 .@{progress-prefix-cls} {
   .reset-component;
@@ -24,8 +24,8 @@
     margin-right: 0;
     padding-right: 0;
     .@{progress-prefix-cls}-show-info & {
-      padding-right: ~"calc(2em + 8px)";
-      margin-right: ~"calc(-2em - 8px)";
+      padding-right: ~'calc(2em + 8px)';
+      margin-right: ~'calc(-2em - 8px)';
     }
   }
 
@@ -44,13 +44,13 @@
 
   &-circle-path {
     stroke: @progress-default-color;
-    animation: ~"@{ant-prefix}-progress-appear" .3s;
+    animation: ~'@{ant-prefix}-progress-appear' 0.3s;
   }
 
   &-success-bg,
   &-bg {
     background-color: @progress-default-color;
-    transition: all .4s @ease-out-circ 0s;
+    transition: all 0.4s @ease-out-circ 0s;
     position: relative;
   }
 
@@ -79,7 +79,7 @@
 
   &-status-active {
     .@{progress-prefix-cls}-bg:before {
-      content: "";
+      content: '';
       opacity: 0;
       position: absolute;
       top: 0;
@@ -88,7 +88,7 @@
       bottom: 0;
       background: @component-background;
       border-radius: 10px;
-      animation: ~"@{ant-prefix}-progress-active" 2.4s @ease-out-quint infinite;
+      animation: ~'@{ant-prefix}-progress-active' 2.4s @ease-out-quint infinite;
     }
   }
 
@@ -123,18 +123,17 @@
   }
 
   &-circle &-text {
-    display: block;
     position: absolute;
     width: 100%;
     text-align: center;
     line-height: 1;
     top: 50%;
-    transform: translateY(-50%);
-    left: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
     margin: 0;
+    padding: 0;
     color: @progress-text-color;
     white-space: normal;
-    padding: 0 6px;
 
     .@{iconfont-css-prefix} {
       font-size: 14 / 12em;

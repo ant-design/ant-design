@@ -1,17 +1,19 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@card-prefix-cls: ~"@{ant-prefix}-card";
+@card-prefix-cls: ~'@{ant-prefix}-card';
 @card-head-height: 48px;
-@card-hover-border: rgba(0, 0, 0, 0.09);
-@card-radius: @border-radius-sm;
+@card-hover-border: fade(@black, 9%);
+
+@gradient-min: fade(@card-background, 20%);
+@gradient-max: fade(@card-background, 40%);
 
 .@{card-prefix-cls} {
   .reset-component;
   background: @component-background;
   border-radius: @card-radius;
   position: relative;
-  transition: all .3s;
+  transition: all 0.3s;
 
   &-hoverable {
     cursor: pointer;
@@ -66,11 +68,10 @@
 
   &-extra {
     float: right;
-    padding: @card-head-padding + 1.5px 0;
+    padding: @card-head-padding 0;
     font-size: @font-size-base;
     color: @text-color;
     font-weight: normal;
-    text-align: right;
     // https://stackoverflow.com/a/22429853/3040605
     margin-left: auto;
   }
@@ -88,11 +89,13 @@
   &-grid {
     border-radius: 0;
     border: 0;
-    box-shadow: 1px 0 0 0 @border-color-split, 0 1px 0 0 @border-color-split, 1px 1px 0 0 @border-color-split, 1px 0 0 0 @border-color-split inset, 0 1px 0 0 @border-color-split inset;
+    box-shadow: 1px 0 0 0 @border-color-split, 0 1px 0 0 @border-color-split,
+      1px 1px 0 0 @border-color-split, 1px 0 0 0 @border-color-split inset,
+      0 1px 0 0 @border-color-split inset;
     width: 33.33%;
     float: left;
     padding: @card-padding-base;
-    transition: all .3s;
+    transition: all 0.3s;
     &:hover {
       position: relative;
       z-index: 1;
@@ -143,7 +146,7 @@
 
         &:hover {
           color: @primary-color;
-          transition: color .3s;
+          transition: color 0.3s;
         }
 
         & > .anticon {
@@ -179,7 +182,7 @@
 
   &-padding-transition &-head,
   &-padding-transition &-body {
-    transition: padding .3s;
+    transition: padding 0.3s;
   }
 
   &-type-inner &-head {
@@ -230,6 +233,21 @@
     }
   }
 
+  &-loading {
+    overflow: hidden;
+    position: relative;
+
+    &:after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: @card-padding-base;
+      background: @component-background;
+      content: '';
+    }
+  }
+
   &-loading &-body {
     user-select: none;
   }
@@ -244,7 +262,7 @@
     height: 14px;
     margin: 4px 0;
     border-radius: @card-radius;
-    background: linear-gradient(90deg, rgba(207, 216, 220, .2), rgba(207, 216, 220, .4), rgba(207, 216, 220, .2));
+    background: linear-gradient(90deg, @gradient-min, @gradient-max, @gradient-min);
     animation: card-loading 1.4s ease infinite;
     background-size: 600% 600%;
   }
@@ -253,9 +271,11 @@
 @keyframes card-loading {
   0%,
   100% {
-		background-position: 0 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
+
+@import './size';

@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import Avatar, { SkeletonAvatarProps } from './Avatar';
 import Title, { SkeletonTitleProps } from './Title';
 import Paragraph, { SkeletonParagraphProps } from './Paragraph';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface SkeletonProps {
   active?: boolean;
@@ -15,7 +16,7 @@ export interface SkeletonProps {
   paragraph?: SkeletonParagraphProps | boolean;
 }
 
-function getComponentProps<T>(prop: T | boolean | undefined): T | {}  {
+function getComponentProps<T>(prop: T | boolean | undefined): T | {} {
   if (prop && typeof prop === 'object') {
     return prop;
   }
@@ -62,17 +63,24 @@ function getParagraphBasicProps(hasAvatar: boolean, hasTitle: boolean): Skeleton
 
 class Skeleton extends React.Component<SkeletonProps, any> {
   static defaultProps: Partial<SkeletonProps> = {
-    prefixCls: 'ant-skeleton',
     avatar: false,
     title: true,
     paragraph: true,
   };
 
-  render() {
+  renderSkeleton = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
-      loading, prefixCls, className, children,
-      avatar, title, paragraph, active,
+      prefixCls: customizePrefixCls,
+      loading,
+      className,
+      children,
+      avatar,
+      title,
+      paragraph,
+      active,
     } = this.props;
+
+    const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
 
     if (loading || !('loading' in this.props)) {
       const hasAvatar = !!avatar;
@@ -83,6 +91,7 @@ class Skeleton extends React.Component<SkeletonProps, any> {
       let avatarNode;
       if (hasAvatar) {
         const avatarProps: SkeletonAvatarProps = {
+          prefixCls: `${prefixCls}-avatar`,
           ...getAvatarBasicProps(hasTitle, hasParagraph),
           ...getComponentProps(avatar),
         };
@@ -100,26 +109,24 @@ class Skeleton extends React.Component<SkeletonProps, any> {
         let $title;
         if (hasTitle) {
           const titleProps: SkeletonTitleProps = {
+            prefixCls: `${prefixCls}-title`,
             ...getTitleBasicProps(hasAvatar, hasParagraph),
             ...getComponentProps(title),
           };
 
-          $title = (
-            <Title {...titleProps} />
-          );
+          $title = <Title {...titleProps} />;
         }
 
         // Paragraph
         let paragraphNode;
         if (hasParagraph) {
           const paragraphProps: SkeletonParagraphProps = {
+            prefixCls: `${prefixCls}-paragraph`,
             ...getParagraphBasicProps(hasAvatar, hasTitle),
             ...getComponentProps(paragraph),
           };
 
-          paragraphNode = (
-            <Paragraph {...paragraphProps} />
-          );
+          paragraphNode = <Paragraph {...paragraphProps} />;
         }
 
         contentNode = (
@@ -130,13 +137,10 @@ class Skeleton extends React.Component<SkeletonProps, any> {
         );
       }
 
-      const cls = classNames(
-        prefixCls,
-        className, {
-          [`${prefixCls}-with-avatar`]: hasAvatar,
-          [`${prefixCls}-active`]: active,
-        },
-      );
+      const cls = classNames(prefixCls, className, {
+        [`${prefixCls}-with-avatar`]: hasAvatar,
+        [`${prefixCls}-active`]: active,
+      });
 
       return (
         <div className={cls}>
@@ -147,6 +151,10 @@ class Skeleton extends React.Component<SkeletonProps, any> {
     }
 
     return children;
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderSkeleton}</ConfigConsumer>;
   }
 }
 

@@ -2,8 +2,15 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
+import { polyfill } from 'react-lifecycles-compat';
 import Radio from './radio';
-import { RadioGroupProps, RadioGroupState, RadioChangeEvent, RadioGroupButtonStyle } from './interface';
+import {
+  RadioGroupProps,
+  RadioGroupState,
+  RadioChangeEvent,
+  RadioGroupButtonStyle,
+} from './interface';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 function getCheckedValue(children: React.ReactNode) {
   let value = null;
@@ -17,16 +24,31 @@ function getCheckedValue(children: React.ReactNode) {
   return matched ? { value } : undefined;
 }
 
-export default class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
+class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
   static defaultProps = {
     disabled: false,
-    prefixCls: 'ant-radio',
     buttonStyle: 'outline' as RadioGroupButtonStyle,
   };
 
   static childContextTypes = {
     radioGroup: PropTypes.any,
   };
+
+  static getDerivedStateFromProps(nextProps: RadioGroupProps) {
+    if ('value' in nextProps) {
+      return {
+        value: nextProps.value,
+      };
+    } else {
+      const checkedValue = getCheckedValue(nextProps.children);
+      if (checkedValue) {
+        return {
+          value: checkedValue.value,
+        };
+      }
+    }
+    return null;
+  }
 
   constructor(props: RadioGroupProps) {
     super(props);
@@ -55,24 +77,8 @@ export default class RadioGroup extends React.Component<RadioGroupProps, RadioGr
     };
   }
 
-  componentWillReceiveProps(nextProps: RadioGroupProps) {
-    if ('value' in nextProps) {
-      this.setState({
-        value: nextProps.value,
-      });
-    } else {
-      const checkedValue = getCheckedValue(nextProps.children);
-      if (checkedValue) {
-        this.setState({
-          value: checkedValue.value,
-        });
-      }
-    }
-  }
-
   shouldComponentUpdate(nextProps: RadioGroupProps, nextState: RadioGroupState) {
-    return !shallowEqual(this.props, nextProps) ||
-      !shallowEqual(this.state, nextState);
+    return !shallowEqual(this.props, nextProps) || !shallowEqual(this.state, nextState);
   }
 
   onRadioChange = (ev: RadioChangeEvent) => {
@@ -88,21 +94,30 @@ export default class RadioGroup extends React.Component<RadioGroupProps, RadioGr
     if (onChange && value !== lastValue) {
       onChange(ev);
     }
-  }
-  render() {
-    const props = this.props;
-    const { prefixCls, className = '', options, buttonStyle } = props;
-    const groupPrefixCls = `${prefixCls}-group`;
-    const classString = classNames(groupPrefixCls, `${groupPrefixCls}-${buttonStyle}`, {
-      [`${groupPrefixCls}-${props.size}`]: props.size,
-    }, className);
+  };
 
-    let children: React.ReactChildren[] | React.ReactElement<any>[] | React.ReactNode = props.children;
+  renderGroup = ({ getPrefixCls }: ConfigConsumerProps) => {
+    const props = this.props;
+    const { prefixCls: customizePrefixCls, className = '', options, buttonStyle } = props;
+    const prefixCls = getPrefixCls('radio', customizePrefixCls);
+    const groupPrefixCls = `${prefixCls}-group`;
+    const classString = classNames(
+      groupPrefixCls,
+      `${groupPrefixCls}-${buttonStyle}`,
+      {
+        [`${groupPrefixCls}-${props.size}`]: props.size,
+      },
+      className,
+    );
+
+    let children: React.ReactChildren[] | React.ReactElement<any>[] | React.ReactNode =
+      props.children;
 
     // 如果存在 options, 优先使用
     if (options && options.length > 0) {
       children = options.map((option, index) => {
-        if (typeof option === 'string') { // 此处类型自动推导为 string
+        if (typeof option === 'string') {
+          // 此处类型自动推导为 string
           return (
             <Radio
               key={index}
@@ -115,7 +130,8 @@ export default class RadioGroup extends React.Component<RadioGroupProps, RadioGr
               {option}
             </Radio>
           );
-        } else { // 此处类型自动推导为 { label: string value: string }
+        } else {
+          // 此处类型自动推导为 { label: string value: string }
           return (
             <Radio
               key={index}
@@ -143,5 +159,12 @@ export default class RadioGroup extends React.Component<RadioGroupProps, RadioGr
         {children}
       </div>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderGroup}</ConfigConsumer>;
   }
 }
+
+polyfill(RadioGroup);
+export default RadioGroup;

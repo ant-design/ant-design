@@ -5,26 +5,36 @@ import RcTooltip from 'rc-tooltip';
 import classNames from 'classnames';
 import getPlacements, { AdjustOverflow, PlacementsConfig } from './placements';
 import Button from '../button/index';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export { AdjustOverflow, PlacementsConfig };
 
 export type TooltipPlacement =
-  'top' | 'left' | 'right' | 'bottom' |
-  'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight' |
-  'leftTop' | 'leftBottom' | 'rightTop' | 'rightBottom';
+  | 'top'
+  | 'left'
+  | 'right'
+  | 'bottom'
+  | 'topLeft'
+  | 'topRight'
+  | 'bottomLeft'
+  | 'bottomRight'
+  | 'leftTop'
+  | 'leftBottom'
+  | 'rightTop'
+  | 'rightBottom';
 
 export type TooltipTrigger = 'hover' | 'focus' | 'click' | 'contextMenu';
 
 // https://github.com/react-component/tooltip
 // https://github.com/yiminghe/dom-align
 export interface TooltipAlignConfig {
-  points?: [string, string],
-  offset?: [number | string, number | string],
-  targetOffset?: [number | string, number | string],
-  overflow?: { adjustX: boolean, adjustY: boolean },
-  useCssRight?: boolean,
-  useCssBottom?: boolean,
-  useCssTransform?: boolean
+  points?: [string, string];
+  offset?: [number | string, number | string];
+  targetOffset?: [number | string, number | string];
+  overflow?: { adjustX: boolean; adjustY: boolean };
+  useCssRight?: boolean;
+  useCssBottom?: boolean;
+  useCssTransform?: boolean;
 }
 
 export interface AbstractTooltipProps {
@@ -46,7 +56,7 @@ export interface AbstractTooltipProps {
   autoAdjustOverflow?: boolean | AdjustOverflow;
   // getTooltipContainer had been rename to getPopupContainer
   getTooltipContainer?: (triggerNode: Element) => HTMLElement;
-  getPopupContainer?: (triggerNode: Element) => HTMLElement;
+  getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
   children?: React.ReactNode;
   // align is a more higher api
   align?: TooltipAlignConfig;
@@ -73,7 +83,6 @@ const splitObject = (obj: any, keys: string[]) => {
 
 class Tooltip extends React.Component<TooltipProps, any> {
   static defaultProps = {
-    prefixCls: 'ant-tooltip',
     placement: 'top' as TooltipPlacement,
     transitionName: 'zoom-big-fast',
     mouseEnterDelay: 0.1,
@@ -107,7 +116,7 @@ class Tooltip extends React.Component<TooltipProps, any> {
     if (onVisibleChange && !this.isNoTitle()) {
       onVisibleChange(visible);
     }
-  }
+  };
 
   getPopupDomNode() {
     return this.tooltip.getPopupDomNode();
@@ -115,27 +124,38 @@ class Tooltip extends React.Component<TooltipProps, any> {
 
   getPlacements() {
     const { builtinPlacements, arrowPointAtCenter, autoAdjustOverflow } = this.props;
-    return builtinPlacements || getPlacements({
-      arrowPointAtCenter,
-      verticalArrowShift: 8,
-      autoAdjustOverflow,
-    });
+    return (
+      builtinPlacements ||
+      getPlacements({
+        arrowPointAtCenter,
+        verticalArrowShift: 8,
+        autoAdjustOverflow,
+      })
+    );
   }
 
   // Fix Tooltip won't hide at disabled button
   // mouse events don't trigger at disabled button in Chrome
   // https://github.com/react-component/tooltip/issues/18
   getDisabledCompatibleChildren(element: React.ReactElement<any>) {
-    if (((element.type as typeof Button).__ANT_BUTTON || element.type === 'button') &&
-        element.props.disabled) {
+    if (
+      ((element.type as typeof Button).__ANT_BUTTON || element.type === 'button') &&
+      element.props.disabled
+    ) {
       // Pick some layout related style properties up to span
       // Prevent layout bugs like https://github.com/ant-design/ant-design/issues/5254
-      const { picked, omitted } = splitObject(
-        element.props.style,
-        ['position', 'left', 'right', 'top', 'bottom', 'float', 'display', 'zIndex'],
-      );
+      const { picked, omitted } = splitObject(element.props.style, [
+        'position',
+        'left',
+        'right',
+        'top',
+        'bottom',
+        'float',
+        'display',
+        'zIndex',
+      ]);
       const spanStyle = {
-        display: 'inline-block',  // default inline-block is important
+        display: 'inline-block', // default inline-block is important
         ...picked,
         cursor: 'not-allowed',
         width: element.props.block ? '100%' : null,
@@ -159,7 +179,7 @@ class Tooltip extends React.Component<TooltipProps, any> {
 
   isNoTitle() {
     const { title, overlay } = this.props;
-    return !title && !overlay;  // overlay for old version compatibility
+    return !title && !overlay; // overlay for old version compatibility
   }
 
   // 动态设置动画点
@@ -167,10 +187,9 @@ class Tooltip extends React.Component<TooltipProps, any> {
     const placements: any = this.getPlacements();
     // 当前返回的位置
     const placement = Object.keys(placements).filter(
-      key => (
+      key =>
         placements[key].points[0] === align.points[0] &&
-        placements[key].points[1] === align.points[1]
-      ),
+        placements[key].points[1] === align.points[1],
     )[0];
     if (!placement) {
       return;
@@ -192,16 +211,27 @@ class Tooltip extends React.Component<TooltipProps, any> {
       transformOrigin.left = `${-align.offset[0]}px`;
     }
     domNode.style.transformOrigin = `${transformOrigin.left} ${transformOrigin.top}`;
-  }
+  };
 
   saveTooltip = (node: typeof RcTooltip) => {
     this.tooltip = node;
-  }
+  };
 
-  render() {
+  renderTooltip = ({
+    getPopupContainer: getContextPopupContainer,
+    getPrefixCls,
+  }: ConfigConsumerProps) => {
     const { props, state } = this;
-    const { prefixCls, title, overlay, openClassName, getPopupContainer, getTooltipContainer } = props;
+    const {
+      prefixCls: customizePrefixCls,
+      title,
+      overlay,
+      openClassName,
+      getPopupContainer,
+      getTooltipContainer,
+    } = props;
     const children = props.children as React.ReactElement<any>;
+    const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
     let visible = state.visible;
     // Hide tooltip when there is no title
     if (!('visible' in props) && this.isNoTitle()) {
@@ -220,7 +250,8 @@ class Tooltip extends React.Component<TooltipProps, any> {
     return (
       <RcTooltip
         {...this.props}
-        getTooltipContainer={getPopupContainer || getTooltipContainer}
+        prefixCls={prefixCls}
+        getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}
         ref={this.saveTooltip}
         builtinPlacements={this.getPlacements()}
         overlay={overlay || title || ''}
@@ -231,6 +262,10 @@ class Tooltip extends React.Component<TooltipProps, any> {
         {visible ? cloneElement(child, { className: childCls }) : child}
       </RcTooltip>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderTooltip}</ConfigConsumer>;
   }
 }
 

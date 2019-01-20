@@ -101,10 +101,10 @@ For instance, we actually import all styles of components in the project which m
 
 Now we need to customize the default webpack config. We can achieve that by using [react-app-rewired](https://github.com/timarney/react-app-rewired) which is one of create-react-app's custom config solutions.
 
-Import react-app-rewired and modify the `scripts` field in package.json.
+Import react-app-rewired and modify the `scripts` field in package.json. Due to new `react-app-rewired@2.x` versions, you have to install customize-cra along with react-app-rewired.
 
 ```
-$ yarn add react-app-rewired
+$ yarn add react-app-rewired customize-cra
 ```
 
 ```diff
@@ -136,16 +136,16 @@ module.exports = function override(config, env) {
 $ yarn add babel-plugin-import
 ```
 
-```diff
-+ const { injectBabelPlugin } = require('react-app-rewired');
+```
+const { override, fixBabelImports } = require('customize-cra')
 
-  module.exports = function override(config, env) {
-+   config = injectBabelPlugin(
-+     ['import', { libraryName: 'antd', libraryDirectory: 'es', style: 'css' }],
-+     config,
-+   );
-    return config;
-  };
+module.exports = override(
+	fixBabelImports('import', {
+		libraryName: 'antd',
+		libraryDirectory: 'es',
+		style: 'css'
+	})
+)
 ```
 
 Remove the `@import '~antd/dist/antd.css';` statement added before because `babel-plugin-import` will import styles and import components like below:
@@ -174,28 +174,27 @@ Then reboot with `yarn start` and visit the demo page, you should not find any [
 
 ### Customize Theme
 
-According to the [Customize Theme documentation](/docs/react/customize-theme), to customize the theme, we need to modify `less` variables with tools such as [less-loader](https://github.com/webpack/less-loader). We can also use [react-app-rewire-less](http://npmjs.com/react-app-rewire-less) to achieve this. Import it and modify `config-overrides.js` like below.
+According to the [Customize Theme documentation](/docs/react/customize-theme), to customize the theme, we need to modify `less` variables with tools such as [less-loader](https://github.com/webpack/less-loader). We can also use [addLessLoader](https://github.com/arackaf/customize-cra#addlessloaderloaderoptions) to achieve this. Import it and modify `config-overrides.js` like below.
 
 ```bash
-$ yarn add react-app-rewire-less
+$ yarn add less
+$ yarn add --dev less-loader
 ```
 
-```diff
-  const { injectBabelPlugin } = require('react-app-rewired');
-+ const rewireLess = require('react-app-rewire-less');
+```
+const { override, fixBabelImports, addLessLoader } = require('customize-cra')
 
-  module.exports = function override(config, env) {
-    config = injectBabelPlugin(
--     ['import', { libraryName: 'antd', libraryDirectory: 'es', style: 'css' }],
-+     ['import', { libraryName: 'antd', libraryDirectory: 'es', style: true }], // change importing css to less
-      config,
-    );
-+   config = rewireLess.withLoaderOptions({
-+     modifyVars: { "@primary-color": "#1DA57A" },
-+     javascriptEnabled: true,
-+   })(config, env);
-    return config;
-  };
+module.exports = override(
+	fixBabelImports('import', {
+		libraryName: 'antd',
+		libraryDirectory: 'es',
+		style: true
+	}),
+  addLessLoader({
+    javascriptEnabled: true,
+    modifyVars: { "@primary-color": "#1DA57A" }
+  })
+)
 ```
 
 We use `modifyVars` option of [less-loader](https://github.com/webpack/less-loader#less-options) here, you can see a green button rendered on the page after rebooting the start server.
@@ -216,3 +215,4 @@ There are a lot of great boilerplates like create-react-app in the React communi
 - [kriasoft/react-starter-kit](https://github.com/ant-design/react-starter-kit)
 - [next.js](https://github.com/zeit/next.js/tree/master/examples/with-ant-design)
 - [nwb](https://github.com/insin/nwb-examples/tree/master/react-app-antd)
+- [antd-react-scripts](https://github.com/minesaner/create-react-app/tree/antd/packages/react-scripts)

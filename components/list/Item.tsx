@@ -1,10 +1,11 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Col } from '../grid';
 import { ListGridType, ColumnType } from './index';
+import { Col } from '../grid';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
-export interface ListItemProps {
+export interface ListItemProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
   children?: React.ReactNode;
   prefixCls?: string;
@@ -24,51 +25,44 @@ export interface ListItemMetaProps {
   title?: React.ReactNode;
 }
 
-export const Meta = (props: ListItemMetaProps) => {
-  const {
-    prefixCls = 'ant-list',
-    className,
-    avatar,
-    title,
-    description,
-    ...others
-  } = props;
+export const Meta = (props: ListItemMetaProps) => (
+  <ConfigConsumer>
+    {({ getPrefixCls }: ConfigConsumerProps) => {
+      const {
+        prefixCls: customizePrefixCls,
+        className,
+        avatar,
+        title,
+        description,
+        ...others
+      } = props;
 
-  const classString = classNames(`${prefixCls}-item-meta`, className);
+      const prefixCls = getPrefixCls('list', customizePrefixCls);
+      const classString = classNames(`${prefixCls}-item-meta`, className);
 
-  const content = (
-    <div className={`${prefixCls}-item-meta-content`}>
-      {title && <h4 className={`${prefixCls}-item-meta-title`}>{title}</h4>}
-      {description && <div className={`${prefixCls}-item-meta-description`}>{description}</div>}
-    </div>
-  );
+      const content = (
+        <div className={`${prefixCls}-item-meta-content`}>
+          {title && <h4 className={`${prefixCls}-item-meta-title`}>{title}</h4>}
+          {description && <div className={`${prefixCls}-item-meta-description`}>{description}</div>}
+        </div>
+      );
 
-  return (
-    <div {...others} className={classString}>
-      {avatar && <div className={`${prefixCls}-item-meta-avatar`}>{avatar}</div>}
-      {(title || description) && content}
-    </div>
-  );
-};
+      return (
+        <div {...others} className={classString}>
+          {avatar && <div className={`${prefixCls}-item-meta-avatar`}>{avatar}</div>}
+          {(title || description) && content}
+        </div>
+      );
+    }}
+  </ConfigConsumer>
+);
 
 function getGrid(grid: ListGridType, t: ColumnType) {
   return grid[t] && Math.floor(24 / grid[t]!);
 }
 
-const GridColumns = ['', 1, 2, 3, 4, 6, 8, 12, 24];
-
 export default class Item extends React.Component<ListItemProps, any> {
   static Meta: typeof Meta = Meta;
-
-  static propTypes = {
-    column: PropTypes.oneOf(GridColumns),
-    xs: PropTypes.oneOf(GridColumns),
-    sm: PropTypes.oneOf(GridColumns),
-    md: PropTypes.oneOf(GridColumns),
-    lg: PropTypes.oneOf(GridColumns),
-    xl: PropTypes.oneOf(GridColumns),
-    xxl: PropTypes.oneOf(GridColumns),
-  };
 
   static contextTypes = {
     grid: PropTypes.any,
@@ -76,9 +70,17 @@ export default class Item extends React.Component<ListItemProps, any> {
 
   context: any;
 
-  render() {
+  renderItem = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { grid } = this.context;
-    const { prefixCls = 'ant-list', children, actions, extra, className, ...others } = this.props;
+    const {
+      prefixCls: customizePrefixCls,
+      children,
+      actions,
+      extra,
+      className,
+      ...others
+    } = this.props;
+    const prefixCls = getPrefixCls('list', customizePrefixCls);
     const classString = classNames(`${prefixCls}-item`, className);
 
     const metaContent: React.ReactElement<any>[] = [];
@@ -93,19 +95,17 @@ export default class Item extends React.Component<ListItemProps, any> {
     });
 
     const contentClassString = classNames(`${prefixCls}-item-content`, {
-      [`${prefixCls}-item-content-single`]: (metaContent.length < 1),
+      [`${prefixCls}-item-content-single`]: metaContent.length < 1,
     });
-    const content = otherContent.length > 0 ? (
-      <div className={contentClassString}>
-        {otherContent}
-      </div>) : null;
+    const content =
+      otherContent.length > 0 ? <div className={contentClassString}>{otherContent}</div> : null;
 
     let actionsContent;
     if (actions && actions.length > 0) {
       const actionsContentItem = (action: React.ReactNode, i: number) => (
         <li key={`${prefixCls}-item-action-${i}`}>
           {action}
-          {i !== (actions.length - 1) && <em className={`${prefixCls}-item-action-split`}/>}
+          {i !== actions.length - 1 && <em className={`${prefixCls}-item-action-split`} />}
         </li>
       );
       actionsContent = (
@@ -153,5 +153,9 @@ export default class Item extends React.Component<ListItemProps, any> {
     );
 
     return mainContent;
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderItem}</ConfigConsumer>;
   }
 }

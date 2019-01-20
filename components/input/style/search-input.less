@@ -1,17 +1,17 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
-@import "../../button/style/mixin";
-@import "./mixin";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
+@import '../../button/style/mixin';
+@import './mixin';
 
-@search-prefix: ~"@{ant-prefix}-input-search";
+@search-prefix: ~'@{ant-prefix}-input-search';
 
 .@{search-prefix} {
   &-icon {
     color: @text-color-secondary;
     cursor: pointer;
-    transition: all .3s;
+    transition: all 0.3s;
     &:hover {
-      color: #333;
+      color: fade(@black, 80%);
     }
   }
 
@@ -27,11 +27,24 @@
     }
   }
 
-  &.@{search-prefix}-enter-button > .@{ant-prefix}-input {
-    padding-right: 46px;
-  }
+  &.@{search-prefix}-enter-button {
+    display: table;
 
-  &.@{search-prefix}-enter-button > .@{ant-prefix}-input-suffix {
-    right: 0;
+    > * {
+      display: table-cell;
+    }
+
+    > .@{ant-prefix}-input {
+      .input;
+      width: 100%;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-right: 0;
+    }
+
+    > .@{ant-prefix}-input-suffix {
+      position: static;
+      transform: none;
+    }
   }
 }

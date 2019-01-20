@@ -3,9 +3,10 @@ import * as ReactDOM from 'react-dom';
 import Animate from 'rc-animate';
 import Icon, { ThemeType } from '../icon';
 import classNames from 'classnames';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 
-function noop() { }
+function noop() {}
 
 export interface AlertProps {
   /**
@@ -35,8 +36,8 @@ export interface AlertProps {
 }
 
 export interface AlertState {
-  closing: boolean,
-  closed: boolean
+  closing: boolean;
+  closed: boolean;
 }
 
 export default class Alert extends React.Component<AlertProps, AlertState> {
@@ -57,7 +58,7 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
       closing: false,
     });
     (this.props.onClose || noop)(e);
-  }
+  };
 
   animationEnd = () => {
     this.setState({
@@ -65,14 +66,22 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
       closing: true,
     });
     (this.props.afterClose || noop)();
-  }
+  };
 
-  render() {
+  renderAlert = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
-      description, prefixCls = 'ant-alert', message, closeText, banner,
-      className = '', style, icon,
+      description,
+      prefixCls: customizePrefixCls,
+      message,
+      closeText,
+      banner,
+      className = '',
+      style,
+      icon,
     } = this.props;
     let { closable, type, showIcon, iconType } = this.props;
+
+    const prefixCls = getPrefixCls('alert', customizePrefixCls);
 
     // banner模式默认有 Icon
     showIcon = banner && showIcon === undefined ? true : showIcon;
@@ -106,17 +115,23 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
       }
     }
 
-    const alertCls = classNames(prefixCls, `${prefixCls}-${type}`, {
-      [`${prefixCls}-close`]: !this.state.closing,
-      [`${prefixCls}-with-description`]: !!description,
-      [`${prefixCls}-no-icon`]: !showIcon,
-      [`${prefixCls}-banner`]: !!banner,
-    }, className);
-
     // closeable when closeText is assigned
     if (closeText) {
       closable = true;
     }
+
+    const alertCls = classNames(
+      prefixCls,
+      `${prefixCls}-${type}`,
+      {
+        [`${prefixCls}-close`]: !this.state.closing,
+        [`${prefixCls}-with-description`]: !!description,
+        [`${prefixCls}-no-icon`]: !showIcon,
+        [`${prefixCls}-banner`]: !!banner,
+        [`${prefixCls}-closable`]: closable,
+      },
+      className,
+    );
 
     const closeIcon = closable ? (
       <a onClick={this.handleClose} className={`${prefixCls}-close-icon`}>
@@ -126,19 +141,17 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
 
     const dataOrAriaProps = getDataOrAriaProps(this.props);
 
-    const iconNode = icon && (
-      React.isValidElement<{ className?: string }>(icon)
-        ? React.cloneElement(
-          icon,
-          {
-            className: classNames({
-              [icon.props.className as string]: icon.props.className,
-              [`${prefixCls}-icon`]: true,
-            }),
-          },
-        ) : <span className={`${prefixCls}-icon`}>{icon}</span>) || (
-        <Icon className={`${prefixCls}-icon`} type={iconType} theme={iconTheme} />
-      );
+    const iconNode = (icon &&
+      (React.isValidElement<{ className?: string }>(icon) ? (
+        React.cloneElement(icon, {
+          className: classNames({
+            [icon.props.className as string]: icon.props.className,
+            [`${prefixCls}-icon`]: true,
+          }),
+        })
+      ) : (
+        <span className={`${prefixCls}-icon`}>{icon}</span>
+      ))) || <Icon className={`${prefixCls}-icon`} type={iconType} theme={iconTheme} />;
 
     return this.state.closed ? null : (
       <Animate
@@ -155,5 +168,9 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
         </div>
       </Animate>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderAlert}</ConfigConsumer>;
   }
 }

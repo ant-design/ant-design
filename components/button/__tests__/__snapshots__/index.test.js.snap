@@ -201,6 +201,17 @@ exports[`Button should has click wave effect 1`] = `
 </button>
 `;
 
+exports[`Button should not render as link button when href is undefined 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    button
+  </span>
+</button>
+`;
+
 exports[`Button should support link button 1`] = `
 <a
   class="ant-btn"

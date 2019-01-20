@@ -2,7 +2,7 @@ export function getMenuItems(moduleData, locale, categoryOrder, typeOrder) {
   const menuMeta = moduleData.map(item => item.meta);
   const menuItems = [];
   const sortFn = (a, b) => (a.order || 0) - (b.order || 0);
-  menuMeta.sort(sortFn).forEach((meta) => {
+  menuMeta.sort(sortFn).forEach(meta => {
     if (!meta.category) {
       menuItems.push(meta);
     } else {
@@ -34,12 +34,14 @@ export function getMenuItems(moduleData, locale, categoryOrder, typeOrder) {
       }
     }
   });
-  return menuItems.map((i) => {
-    if (i.children) {
-      i.children = i.children.sort(sortFn);
-    }
-    return i;
-  }).sort(sortFn);
+  return menuItems
+    .map(i => {
+      if (i.children) {
+        i.children = i.children.sort(sortFn);
+      }
+      return i;
+    })
+    .sort(sortFn);
 }
 
 export function isZhCN(pathname) {
@@ -48,7 +50,8 @@ export function isZhCN(pathname) {
 
 export function getLocalizedPathname(path, zhCN) {
   const pathname = path.startsWith('/') ? path : `/${path}`;
-  if (!zhCN) { // to enUS
+  if (!zhCN) {
+    // to enUS
     return /\/?index-cn/.test(pathname) ? '/' : pathname.replace('-cn', '');
   }
   if (pathname === '/') {
@@ -62,10 +65,15 @@ export function getLocalizedPathname(path, zhCN) {
 
 export function ping(callback) {
   // eslint-disable-next-line
-  const url = 'https://private-a' + 'lipay' + 'objects.alip' + 'ay.com/alip' + 'ay-rmsdeploy-image/rmsportal/RKuAiriJqrUhyqW.png';
+  const url =
+    'https://private-a' +
+    'lipay' +
+    'objects.alip' +
+    'ay.com/alip' +
+    'ay-rmsdeploy-image/rmsportal/RKuAiriJqrUhyqW.png';
   const img = new Image();
   let done;
-  const finish = (status) => {
+  const finish = status => {
     if (!done) {
       done = true;
       img.src = '';

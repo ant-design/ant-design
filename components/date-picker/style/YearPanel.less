@@ -4,13 +4,16 @@
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 10;
+  z-index: @zindex-picker-panel;
   border-radius: @border-radius-base;
   background: @component-background;
   outline: none;
 
-  > div { // TODO: this is a useless wrapper, and we need to remove it in rc-calendar
+  > div {
+    // TODO: this is a useless wrapper, and we need to remove it in rc-calendar
     height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -19,11 +22,18 @@
 }
 
 .@{calendar-prefix-cls}-year-panel-header {
-  .calendarPanelHeader(~"@{calendar-prefix-cls}-year-panel");
+  .calendarPanelHeader(~'@{calendar-prefix-cls}-year-panel');
 }
 
 .@{calendar-prefix-cls}-year-panel-body {
-  height: ~"calc(100% - 40px)";
+  flex: 1;
+}
+
+.@{calendar-prefix-cls}-year-panel-footer {
+  border-top: @border-width-base @border-style-base @border-color-split;
+  .@{calendar-prefix-cls}-footer-extra {
+    padding: 0 12px;
+  }
 }
 
 .@{calendar-prefix-cls}-year-panel-table {
@@ -57,11 +67,11 @@
 
 .@{calendar-prefix-cls}-year-panel-selected-cell .@{calendar-prefix-cls}-year-panel-year {
   background: @primary-color;
-  color: #fff;
+  color: @text-color-inverse;
 
   &:hover {
     background: @primary-color;
-    color: #fff;
+    color: @text-color-inverse;
   }
 }
 

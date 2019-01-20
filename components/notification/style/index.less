@@ -1,7 +1,7 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@notification-prefix-cls: ~"@{ant-prefix}-notification";
+@notification-prefix-cls: ~'@{ant-prefix}-notification';
 @notification-width: 384px;
 @notification-padding-vertical: 16px;
 @notification-padding-horizontal: 24px;
@@ -14,7 +14,7 @@
   position: fixed;
   z-index: @zindex-notification;
   width: @notification-width;
-  max-width: ~"calc(100vw - 32px)";
+  max-width: ~'calc(100vw - 32px)';
   margin-right: 24px;
 
   &-topLeft,
@@ -52,13 +52,13 @@
 
       // https://github.com/ant-design/ant-design/issues/5846#issuecomment-296244140
       &-single-line-auto-margin {
-        width: ~"calc(@{notification-width} - @{notification-padding-horizontal} * 2 - 24px - 48px - 100%)";
+        width: ~'calc(@{notification-width} - @{notification-padding-horizontal} * 2 - 24px - 48px - 100%)';
         background-color: transparent;
         pointer-events: none;
         display: block;
         max-width: 4px;
         &:before {
-          content: "";
+          content: '';
           display: block;
         }
       }

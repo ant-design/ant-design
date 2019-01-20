@@ -3,14 +3,16 @@ import Dialog from 'rc-dialog';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
+import { getConfirmLocale } from './locale';
+import Icon from '../icon';
 import Button from '../button';
 import { ButtonType, NativeButtonProps } from '../button/button';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import { getConfirmLocale } from './locale';
-import Icon from '../icon';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
-let mousePosition: { x: number, y: number } | null;
+let mousePosition: { x: number; y: number } | null;
 let mousePositionEventBinded: boolean;
+export const destroyFns: Array<() => void> = [];
 
 export interface ModalProps {
   /** 对话框是否可见*/
@@ -40,6 +42,8 @@ export interface ModalProps {
   cancelText?: string;
   /** 点击蒙层是否允许关闭*/
   maskClosable?: boolean;
+  /** 强制渲染 Modal*/
+  forceRender?: boolean;
   okButtonProps?: NativeButtonProps;
   cancelButtonProps?: NativeButtonProps;
   destroyOnClose?: boolean;
@@ -74,6 +78,8 @@ export interface ModalFuncProps {
   okText?: string;
   okType?: ButtonType;
   cancelText?: string;
+  icon?: React.ReactNode;
+  /* Deperated */
   iconType?: string;
   maskClosable?: boolean;
   zIndex?: number;
@@ -86,9 +92,11 @@ export interface ModalFuncProps {
   autoFocusButton?: null | 'ok' | 'cancel';
 }
 
-export type ModalFunc = (props: ModalFuncProps) => {
-  destroy: () => void,
-  update: (newConfig: ModalFuncProps) => void,
+export type ModalFunc = (
+  props: ModalFuncProps,
+) => {
+  destroy: () => void;
+  update: (newConfig: ModalFuncProps) => void;
 };
 
 export interface ModalLocale {
@@ -104,9 +112,9 @@ export default class Modal extends React.Component<ModalProps, {}> {
   static warn: ModalFunc;
   static warning: ModalFunc;
   static confirm: ModalFunc;
+  static destroyAll: () => void;
 
   static defaultProps = {
-    prefixCls: 'ant-modal',
     width: 520,
     transitionName: 'zoom',
     maskTransitionName: 'fade',
@@ -121,8 +129,8 @@ export default class Modal extends React.Component<ModalProps, {}> {
     prefixCls: PropTypes.string,
     onOk: PropTypes.func,
     onCancel: PropTypes.func,
-    okText: PropTypes.node,
-    cancelText: PropTypes.node,
+    okText: PropTypes.string,
+    cancelText: PropTypes.string,
     centered: PropTypes.bool,
     width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     confirmLoading: PropTypes.bool,
@@ -138,14 +146,14 @@ export default class Modal extends React.Component<ModalProps, {}> {
     if (onCancel) {
       onCancel(e);
     }
-  }
+  };
 
   handleOk = (e: React.MouseEvent<HTMLButtonElement>) => {
     const onOk = this.props.onOk;
     if (onOk) {
       onOk(e);
     }
-  }
+  };
 
   componentDidMount() {
     if (mousePositionEventBinded) {
@@ -160,7 +168,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
       // 100ms 内发生过点击事件，则从点击位置动画展示
       // 否则直接 zoom 展示
       // 这样可以兼容非点击方式展开
-      setTimeout(() => mousePosition = null, 100);
+      setTimeout(() => (mousePosition = null), 100);
     });
     mousePositionEventBinded = true;
   }
@@ -169,10 +177,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
     const { okText, okType, cancelText, confirmLoading } = this.props;
     return (
       <div>
-        <Button
-          onClick={this.handleCancel}
-          {...this.props.cancelButtonProps}
-        >
+        <Button onClick={this.handleCancel} {...this.props.cancelButtonProps}>
           {cancelText || locale.cancelText}
         </Button>
         <Button
@@ -185,23 +190,28 @@ export default class Modal extends React.Component<ModalProps, {}> {
         </Button>
       </div>
     );
-  }
+  };
 
-  render() {
-    const { footer, visible, wrapClassName, centered, prefixCls, ...restProps } = this.props;
+  renderModal = ({ getPrefixCls }: ConfigConsumerProps) => {
+    const {
+      prefixCls: customizePrefixCls,
+      footer,
+      visible,
+      wrapClassName,
+      centered,
+      ...restProps
+    } = this.props;
 
+    const prefixCls = getPrefixCls('modal', customizePrefixCls);
     const defaultFooter = (
-      <LocaleReceiver
-        componentName="Modal"
-        defaultLocale={getConfirmLocale()}
-      >
+      <LocaleReceiver componentName="Modal" defaultLocale={getConfirmLocale()}>
         {this.renderFooter}
       </LocaleReceiver>
     );
 
     const closeIcon = (
       <span className={`${prefixCls}-close-x`}>
-        <Icon className={`${prefixCls}-close-icon`} type={'close'}/>
+        <Icon className={`${prefixCls}-close-icon`} type={'close'} />
       </span>
     );
 
@@ -217,5 +227,9 @@ export default class Modal extends React.Component<ModalProps, {}> {
         closeIcon={closeIcon}
       />
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderModal}</ConfigConsumer>;
   }
 }

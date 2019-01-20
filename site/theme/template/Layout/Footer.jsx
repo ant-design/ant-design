@@ -1,8 +1,6 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import {
-  Modal, message, Row, Col, Badge, Icon,
-} from 'antd';
+import { Modal, message, Row, Col, Badge, Icon } from 'antd';
 import { Link } from 'bisheng/router';
 import { isLocalStorageNameSupported, loadScript, getLocalizedPathname } from '../utils';
 import ColorPicker from '../Color/ColorPicker';
@@ -28,23 +26,27 @@ class Footer extends React.Component {
     //   1. 点击『知道了』之后不再提示
     //   2. 超过截止日期后不再提示
     if (
-      localStorage.getItem('antd@3.0.0-notification-sent') !== 'true'
-      && Date.now() < new Date('2017/12/20').getTime()
+      localStorage.getItem('antd@3.0.0-notification-sent') !== 'true' &&
+      Date.now() < new Date('2017/12/20').getTime()
     ) {
       this.infoNewVersion();
     }
   }
 
-  handleColorChange = (color) => {
+  handleColorChange = color => {
     const changeColor = () => {
-      const { intl: { messages } } = this.props;
-      window.less.modifyVars({
-        '@primary-color': color,
-      }).then(() => {
-        Icon.setTwoToneColor({ primaryColor: color });
-        message.success(messages['app.footer.primary-color-changed']);
-        this.setState({ color });
-      });
+      const {
+        intl: { messages },
+      } = this.props;
+      window.less
+        .modifyVars({
+          '@primary-color': color,
+        })
+        .then(() => {
+          Icon.setTwoToneColor({ primaryColor: color });
+          message.success(messages['app.footer.primary-color-changed']);
+          this.setState({ color });
+        });
     };
 
     const lessUrl = 'https://gw.alipayobjects.com/os/lib/less.js/3.8.1/less.min.js';
@@ -61,21 +63,30 @@ class Footer extends React.Component {
         changeColor();
       });
     }
-  }
+  };
 
   infoNewVersion() {
-    const { intl: { messages } } = this.props;
+    const {
+      intl: { messages },
+    } = this.props;
     Modal.info({
       title: messages['app.publish.title'],
       content: (
         <div>
-          <img src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" alt="Ant Design" />
+          <img
+            src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+            alt="Ant Design"
+          />
           <p>
             {messages['app.publish.greeting']}
-            <a target="_blank" rel="noopener noreferrer" href="/changelog">antd@3.0.0</a>
+            <a target="_blank" rel="noopener noreferrer" href="/changelog">
+              antd@3.0.0
+            </a>
             {messages['app.publish.intro']}
             {messages['app.publish.old-version-guide']}
-            <a target="_blank" rel="noopener noreferrer" href="http://2x.ant.design">2x.ant.design</a>
+            <a target="_blank" rel="noopener noreferrer" href="http://2x.ant.design">
+              2x.ant.design
+            </a>
             {messages['app.publish.old-version-tips']}
           </p>
         </div>
@@ -97,7 +108,9 @@ class Footer extends React.Component {
           <Row>
             <Col md={6} sm={24} xs={24}>
               <div className="footer-center">
-                <h2><FormattedMessage id="app.footer.resources" /></h2>
+                <h2>
+                  <FormattedMessage id="app.footer.resources" />
+                </h2>
                 <div>
                   <a href="http://pro.ant.design">Ant Design Pro</a>
                 </div>
@@ -113,13 +126,17 @@ class Footer extends React.Component {
                   <a href="http://ng.mobile.ant.design">NG-ZORRO-MOBILE</a>
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="http://kitchen.alipay.com">Kitchen</a>
+                  <a target="_blank" rel="noopener noreferrer" href="http://kitchen.alipay.com">
+                    Kitchen
+                  </a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.kitchen" />
                 </div>
                 <div>
                   <Badge dot offset={[3, 0]}>
-                    <a target="_blank" rel="noopener noreferrer" href="http://landing.ant.design">Ant Design Landing</a>
+                    <a target="_blank" rel="noopener noreferrer" href="http://landing.ant.design">
+                      Ant Design Landing
+                    </a>
                     <span> - </span>
                     <FormattedMessage id="app.footer.landing" />
                   </Badge>
@@ -130,13 +147,21 @@ class Footer extends React.Component {
                   <FormattedMessage id="app.footer.scaffolds" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="http://umijs.org/">Umi</a> - <FormattedMessage id="app.footer.umi" />
+                  <a target="_blank" rel="noopener noreferrer" href="http://umijs.org/">
+                    Umi
+                  </a>{' '}
+                  - <FormattedMessage id="app.footer.umi" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="https://github.com/dvajs/dva">dva</a> - <FormattedMessage id="app.footer.dva" />
+                  <a target="_blank" rel="noopener noreferrer" href="https://github.com/dvajs/dva">
+                    dva
+                  </a>{' '}
+                  - <FormattedMessage id="app.footer.dva" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="http://motion.ant.design">Ant Motion</a>
+                  <a target="_blank" rel="noopener noreferrer" href="http://motion.ant.design">
+                    Ant Motion
+                  </a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.motion" />
                 </div>
@@ -154,9 +179,15 @@ class Footer extends React.Component {
             </Col>
             <Col md={6} sm={24} xs={24}>
               <div className="footer-center">
-                <h2><FormattedMessage id="app.footer.community" /></h2>
+                <h2>
+                  <FormattedMessage id="app.footer.community" />
+                </h2>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="https://github.com/websemantics/awesome-ant-design">
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://github.com/websemantics/awesome-ant-design"
+                  >
                     <Icon type="ant-design" /> <FormattedMessage id="app.footer.awesome" />
                   </a>
                 </div>
@@ -166,18 +197,32 @@ class Footer extends React.Component {
                   </a>
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="http://twitter.com/antdesignui">
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="http://twitter.com/antdesignui"
+                  >
                     <Icon type="twitter" style={{ color: '#1DA1F2' }} /> Twitter
                   </a>
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="http://zhuanlan.zhihu.com/antdesign">
-                    <Icon type="zhihu" style={{ color: '#0084ff' }} /> <FormattedMessage id="app.footer.zhihu" />
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="http://zhuanlan.zhihu.com/antdesign"
+                  >
+                    <Icon type="zhihu" style={{ color: '#0084ff' }} />{' '}
+                    <FormattedMessage id="app.footer.zhihu" />
                   </a>
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="http://zhuanlan.zhihu.com/xtech">
-                    <Icon type="zhihu" style={{ color: '#0084ff' }} /> <FormattedMessage id="app.footer.zhihu.xtech" />
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="http://zhuanlan.zhihu.com/xtech"
+                  >
+                    <Icon type="zhihu" style={{ color: '#0084ff' }} />{' '}
+                    <FormattedMessage id="app.footer.zhihu.xtech" />
                   </a>
                 </div>
                 <div>
@@ -196,9 +241,15 @@ class Footer extends React.Component {
             </Col>
             <Col md={6} sm={24} xs={24}>
               <div className="footer-center">
-                <h2><FormattedMessage id="app.footer.help" /></h2>
+                <h2>
+                  <FormattedMessage id="app.footer.help" />
+                </h2>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="https://github.com/ant-design/ant-design">
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://github.com/ant-design/ant-design"
+                  >
                     GitHub
                   </a>
                 </div>
@@ -208,7 +259,11 @@ class Footer extends React.Component {
                   </Link>
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="https://www.yuque.com/ant-design/course">
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.yuque.com/ant-design/course"
+                  >
                     <FormattedMessage id="app.footer.course" />
                   </a>
                 </div>
@@ -218,12 +273,20 @@ class Footer extends React.Component {
                   </Link>
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="https://gitter.im/ant-design/ant-design">
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://gitter.im/ant-design/ant-design"
+                  >
                     <FormattedMessage id="app.footer.discuss-cn" />
                   </a>
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="https://gitter.im/ant-design/ant-design-english">
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://gitter.im/ant-design/ant-design-english"
+                  >
                     <FormattedMessage id="app.footer.discuss-en" />
                   </a>
                 </div>
@@ -233,17 +296,29 @@ class Footer extends React.Component {
                   </a>
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="https://github.com/ant-design/ant-design/issues">
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://github.com/ant-design/ant-design/issues"
+                  >
                     <FormattedMessage id="app.footer.issues" />
                   </a>
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="http://stackoverflow.com/questions/tagged/antd">
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="http://stackoverflow.com/questions/tagged/antd"
+                  >
                     <FormattedMessage id="app.footer.stackoverflow" />
                   </a>
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="https://segmentfault.com/t/antd">
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://segmentfault.com/t/antd"
+                  >
                     <FormattedMessage id="app.footer.segmentfault" />
                   </a>
                 </div>
@@ -252,12 +327,17 @@ class Footer extends React.Component {
             <Col md={6} sm={24} xs={24}>
               <div className="footer-center">
                 <h2>
-                  <img className="title-icon" src="https://gw.alipayobjects.com/zos/rmsportal/nBVXkrFdWHxbZlmMbsaH.svg" alt="AFX Cloud" />
+                  <img
+                    className="title-icon"
+                    src="https://gw.alipayobjects.com/zos/rmsportal/nBVXkrFdWHxbZlmMbsaH.svg"
+                    alt="AFX Cloud"
+                  />
                   <FormattedMessage id="app.footer.more-product" />
                 </h2>
                 <div>
                   <a target="_blank" rel="noopener noreferrer" href="https://yuque.com/">
-                    <Icon type="yuque" theme="filled" style={{ color: '#25b864' }} /> <FormattedMessage id="app.footer.yuque" />
+                    <Icon type="yuque" theme="filled" style={{ color: '#25b864' }} />{' '}
+                    <FormattedMessage id="app.footer.yuque" />
                   </a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.yuque.slogan" />
@@ -270,12 +350,16 @@ class Footer extends React.Component {
                   <FormattedMessage id="app.footer.fengdie.slogan" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="https://antv.alipay.com/">AntV</a>
+                  <a target="_blank" rel="noopener noreferrer" href="https://antv.alipay.com/">
+                    AntV
+                  </a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.data-vis" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="https://eggjs.org/">Egg</a>
+                  <a target="_blank" rel="noopener noreferrer" href="https://eggjs.org/">
+                    Egg
+                  </a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.eggjs" />
                 </div>

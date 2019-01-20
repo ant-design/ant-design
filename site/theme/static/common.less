@@ -15,10 +15,10 @@ body {
 }
 
 a {
-  transition: color .3s ease;
+  transition: color 0.3s ease;
   &:focus {
     text-decoration: underline;
-    text-decoration-skip: ink;
+    text-decoration-skip-ink: auto;
   }
 }
 
@@ -33,17 +33,25 @@ a {
   background: #fff;
   min-height: 500px;
   overflow: hidden;
-  border-left: 1px solid @site-border-color-split;
   position: relative;
-  margin-left: -1px;
 }
 
 .main-menu {
   z-index: 1;
+
+  &-inner {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    max-height: 100vh;
+  }
+
+  &:hover &-inner {
+    overflow-y: auto;
+  }
 }
 
 .aside-container {
-  padding-bottom: 50px;
+  padding-bottom: 48px;
   font-family: Avenir, @font-family;
 
   &.ant-menu-inline .ant-menu-submenu-title h4,
@@ -71,7 +79,7 @@ a {
       position: absolute;
       right: -10px;
       top: 16px;
-      transition: all .3s;
+      transition: all 0.3s;
     }
     &:hover .anticon {
       opacity: 1;
@@ -83,7 +91,7 @@ a {
   font-size: 12px;
   margin-left: 6px;
   font-weight: normal;
-  opacity: .67;
+  opacity: 0.67;
 }
 
 .outside-link {
@@ -111,7 +119,7 @@ a {
 }
 
 #react-content {
-  transition: transform .3s @ease-in-out-circ;
+  transition: transform 0.3s @ease-in-out-circ;
   height: 100%;
 }
 .page-wrapper {

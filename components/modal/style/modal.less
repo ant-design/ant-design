@@ -1,5 +1,5 @@
-@dialog-prefix-cls: ~"@{ant-prefix}-modal";
-@table-prefix-cls: ~"@{ant-prefix}-table";
+@dialog-prefix-cls: ~'@{ant-prefix}-modal';
+@table-prefix-cls: ~'@{ant-prefix}-table';
 
 .@{dialog-prefix-cls} {
   .reset-component;
@@ -45,11 +45,11 @@
     position: absolute;
     right: 0;
     top: 0;
-    z-index: 10;
+    z-index: @zindex-popup-close;
     font-weight: 700;
     line-height: 1;
     text-decoration: none;
-    transition: color .3s;
+    transition: color 0.3s;
     color: @text-color-secondary;
     outline: 0;
     padding: 0;
@@ -69,7 +69,7 @@
 
     &:focus,
     &:hover {
-      color: #444;
+      color: @icon-color-hover;
       text-decoration: none;
     }
   }
@@ -117,7 +117,7 @@
     background-color: @modal-mask-bg;
     height: 100%;
     z-index: @zindex-modal-mask;
-    filter: ~"alpha(opacity=50)";
+    filter: ~'alpha(opacity=50)';
 
     &-hidden {
       display: none;
@@ -132,7 +132,7 @@
 .@{dialog-prefix-cls}-centered {
   text-align: center;
   &:before {
-    content: "";
+    content: '';
     display: inline-block;
     height: 100%;
     vertical-align: middle;
@@ -148,8 +148,8 @@
 
 @media (max-width: @screen-sm-max) {
   .@{dialog-prefix-cls} {
-    width: auto !important;
-    margin: 10px;
+    max-width: calc(100vw - 16px);
+    margin: 8px auto;
   }
   .@{dialog-prefix-cls}-centered {
     .@{dialog-prefix-cls} {

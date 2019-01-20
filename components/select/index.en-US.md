@@ -31,6 +31,7 @@ Select component to select value from options.
 | disabled | Whether disabled select | boolean | false |
 | dropdownClassName | className of dropdown menu | string | - |
 | dropdownMatchSelectWidth | Whether dropdown's width is same with select. | boolean | true |
+| dropdownRender | Customize dropdown content | (menuNode: ReactNode, props) => ReactNode | - |
 | dropdownStyle | style of dropdown menu | object | - |
 | filterOption | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns `true`, the option will be included in the filtered set; Otherwise, it will be excluded. | boolean or function(inputValue, option) | true |
 | firstActiveValue | Value of action option by default | string\|string\[] | - |
@@ -47,6 +48,9 @@ Select component to select value from options.
 | showSearch | Whether show search input in single mode. | boolean | false |
 | size | Size of Select input. `default` `large` `small` | string | default |
 | suffixIcon | The custom suffix icon | ReactNode | - |
+| removeIcon | The custom remove icon | ReactNode | - |
+| clearIcon | The custom clear icon | ReactNode | - |
+| menuItemSelectedIcon | The custom menuItemSelected icon | ReactNode | - |
 | tokenSeparators | Separator used to tokenize on tag/multiple mode | string\[] |  |
 | value | Current selected option. | string\|number\|string\[]\|number\[] | - |
 | onBlur | Called when blur | function | - |
@@ -61,7 +65,8 @@ Select component to select value from options.
 | onSelect | Called when a option is selected, the params are option's value (or key) and option instance. | function(value, option:Option) | - |
 | defaultOpen | Initial open state of dropdown | boolean | - |
 | open | Controlled open state of dropdown | boolean | - |
-| onDropdownVisibleChange | Call when dropdown open | function(open) | - |
+| onDropdownVisibleChange | Call when dropdown open (Supported after version 3.9.0) | function(open) | - |
+| loading | indicate loading state | Boolean | false |
 
 ### Select Methods
 

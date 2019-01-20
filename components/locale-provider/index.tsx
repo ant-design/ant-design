@@ -20,7 +20,7 @@ export interface Locale {
 
 export interface LocaleProviderProps {
   locale: Locale;
-  children?: React.ReactElement<any>;
+  children?: React.ReactNode;
 }
 
 function setMomentLocale(locale: Locale) {

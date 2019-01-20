@@ -4,6 +4,6 @@ export interface RowContextState {
   gutter?: number;
 }
 
-const RowContext: Context<RowContextState> =  createContext({});
+const RowContext: Context<RowContextState> = createContext({});
 
 export default RowContext;

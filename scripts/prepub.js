@@ -11,7 +11,10 @@ if (fs.existsSync(path.join(__dirname, '../lib'))) {
   const versionFileContent = fs.readFileSync(versionFilePath).toString();
   fs.writeFileSync(
     versionFilePath,
-    versionFileContent.replace("require('../../package.json')", `{ version: '${packageInfo.version}' }`)
+    versionFileContent.replace(
+      "require('../../package.json')",
+      `{ version: '${packageInfo.version}' }`,
+    ),
   );
   // eslint-disable-next-line
   console.log('Wrote version into lib/version/index.js');
@@ -21,7 +24,7 @@ if (fs.existsSync(path.join(__dirname, '../lib'))) {
   const versionDefPath = path.join(process.cwd(), 'lib', 'version', 'index.d.ts');
   fs.writeFileSync(
     versionDefPath,
-    `declare var _default: "${packageInfo.version}";\nexport default _default;\n`
+    `declare var _default: "${packageInfo.version}";\nexport default _default;\n`,
   );
   // eslint-disable-next-line
   console.log('Wrote version into lib/version/index.d.ts');
@@ -34,17 +37,20 @@ if (fs.existsSync(path.join(__dirname, '../dist'))) {
 
   // Build components in one file: lib/style/components.less
   fs.readdir(componentsPath, (err, files) => {
-    files.forEach((file) => {
+    files.forEach(file => {
       if (fs.existsSync(path.join(componentsPath, file, 'style', 'index.less'))) {
         componentsLessContent += `@import "../${path.join(file, 'style', 'index.less')}";\n`;
       }
     });
-    fs.writeFileSync(path.join(process.cwd(), 'lib', 'style', 'components.less'), componentsLessContent);
+    fs.writeFileSync(
+      path.join(process.cwd(), 'lib', 'style', 'components.less'),
+      componentsLessContent,
+    );
 
     // Build less entry file: dist/antd.less
     fs.writeFileSync(
       path.join(process.cwd(), 'dist', 'antd.less'),
-      '@import "../lib/style/index.less";\n@import "../lib/style/components.less";'
+      '@import "../lib/style/index.less";\n@import "../lib/style/components.less";',
     );
   });
   // eslint-disable-next-line

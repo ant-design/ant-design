@@ -164,7 +164,7 @@ svg {
     }
     &:hover .page1-image {
       transform: translateY(-4px);
-      box-shadow: 0 6px 10px rgba(5, 26, 180, .35);
+      box-shadow: 0 6px 10px rgba(5, 26, 180, 0.35);
     }
   }
   &-image {
@@ -176,7 +176,7 @@ svg {
     align-items: center;
     justify-content: center;
     margin: 46px auto 40px;
-    transition: transform .45s @ease-out, box-shadow .45s @ease-out;
+    transition: transform 0.45s @ease-out, box-shadow 0.45s @ease-out;
     img {
       display: block;
     }
@@ -241,7 +241,6 @@ svg {
     padding: 48px 56px;
     .product-block {
       margin-bottom: 24px;
-      cursor: pointer;
       color: @home-text-color;
       &:last-child {
         margin-bottom: 0;
@@ -253,7 +252,7 @@ svg {
       .block-text-wrapper {
         padding-bottom: 24px;
         position: relative;
-        border-bottom: 1px solid #ebedf0;
+        border-bottom: 1px solid @site-border-color-split;
         h4 {
           font-size: 20px;
           line-height: 28px;
@@ -272,7 +271,7 @@ svg {
             line-height: 16px;
             border-radius: 4px;
             color: #fff;
-            transform: translate(~"calc(100% + 4px)", -50%); // 手机回行处理
+            transform: translate(~'calc(100% + 4px)', -50%); // 手机回行处理
           }
         }
         p {
@@ -289,7 +288,8 @@ svg {
             vertical-align: middle;
           }
         }
-        .more-mobile-react, .more-mobile-angular {
+        .more-mobile-react,
+        .more-mobile-angular {
           display: block;
           color: @home-bg-color;
           margin-top: 8px;
@@ -308,10 +308,11 @@ svg {
           justify-content: flex-end;
         }
       }
-      &:hover {
-        h4 {
-          color: @home-bg-color;
-        }
+    }
+
+    a.product-block:hover {
+      h4 {
+        color: @home-bg-color;
       }
     }
   }
@@ -398,7 +399,7 @@ svg {
 
 .banner-1024 {
   cursor: pointer;
-  transition: all .4s;
+  transition: all 0.4s;
   display: block;
 
   &:hover {

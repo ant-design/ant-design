@@ -27,6 +27,7 @@ The whole of the step bar.
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
+| className | additional class to Steps | string | - |
 | current | to set the current step, counting from 0. You can overwrite this state by using `status` of `Step` | number | 0 |
 | direction | to specify the direction of the step bar, `horizontal` or `vertical` | string | `horizontal` |
 | labelPlacement | place title and description with `horizontal` or `vertical` direction | string | `horizontal` |
