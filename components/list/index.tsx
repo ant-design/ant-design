@@ -97,8 +97,8 @@ export default class List extends React.Component<ListProps> {
     };
   }
 
-  renderItem = (item: React.ReactElement<any>, index: number) => {
-    const { dataSource, renderItem, rowKey } = this.props;
+  renderItem = (item: any, index: number) => {
+    const { renderItem, rowKey } = this.props;
     let key;
 
     if (typeof rowKey === 'function') {
