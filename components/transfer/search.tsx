@@ -46,7 +46,7 @@ export default class Search extends React.Component<TransferSearchProps, any> {
           placeholder={placeholder}
           className={prefixCls}
           value={value}
-          ref="input"
+          ref={() => "input"}
           onChange={this.handleChange}
         />
         {icon}
