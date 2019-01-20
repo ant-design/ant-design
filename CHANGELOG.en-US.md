@@ -19,7 +19,7 @@ timeline: true
 
 `2019-01-19`
 
-- 🌟 We updated the documentation for using antd in creact-react-app to support the latest creact-react-app. [#14385](https://github.com/ant-design/ant-design/pull/14385)
+- 🌟 Update the "Use in creact-react-app" document to be compatible with upgraded creact-react-app and react-scripts-rewired. [#14385](https://github.com/ant-design/ant-design/pull/14385)
 - 💄 Fix using autoprefixer 9.4.5 in postcss (webpack) will throw an error `Replace text-decoration-skip: ink to text-decoration-skip-ink: auto, because spec had been changed`. [#14312](https://github.com/ant-design/ant-design/pull/14312)
 - 💄 Fix InputNumber style not correct in MenuItem. [#14373](https://github.com/ant-design/ant-design/pull/14373)
 - 💄 Fix Input.Search with enterButton style issue. [#14397](https://github.com/ant-design/ant-design/pull/14397)
