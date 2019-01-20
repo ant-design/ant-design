@@ -102,11 +102,11 @@ export default class List extends React.Component<ListProps> {
     let key;
 
     if (typeof rowKey === 'function') {
-      key = rowKey(dataSource[index]);
+      key = rowKey(item);
     } else if (typeof rowKey === 'string') {
-      key = dataSource[rowKey];
+      key = item[rowKey];
     } else {
-      key = dataSource.key;
+      key = item.key;
     }
 
     if (!key) {
