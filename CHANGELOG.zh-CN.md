@@ -18,7 +18,8 @@ timeline: true
 ## 3.12.3
 
 `2019-01-19`
-
+- 🌟 我们 更新了 在 creact-react-app 中使用 antd 的文档，以支持最新的 creact-react-app。 [#14385](https://github.com/ant-design/ant-design/pull/14385)
+- 💄 修复 在postcss（webpack）中使用autoprefixer 9.4.5会抛出错误的问题。 [#14312](https://github.com/ant-design/ant-design/pull/14312)
 - 💄 修复 InputNumber 在 MenuItem 中样式不正确的问题。[#14373](https://github.com/ant-design/ant-design/pull/14373)
 - 💄 修复 Input.Search 使用 enterButton 时的样式问题。[#14397](https://github.com/ant-design/ant-design/pull/14397)
 - 💄 修复 `Slider` focus 时的样式错误。[9202509](https://github.com/ant-design/ant-design/commit/92025095032a05b2bc347218b523ffd42f75a607)
