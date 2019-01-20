@@ -23,7 +23,7 @@ timeline: true
 - 💄 Fix `Input.Search` with enterButton style issue. [#14397](https://github.com/ant-design/ant-design/pull/14397)
 - 💄 Fix `Slider` focus style. [9202509](https://github.com/ant-design/ant-design/commit/92025095032a05b2bc347218b523ffd42f75a607)
 - 🐞 Fix the problem that the prefixCls property is passed to the `Empty` . [#14404](https://github.com/ant-design/ant-design/pull/14404)
-- 🐞 Fix the problem that `Radio` onChange will be overide by `RadioGroup` onChange。[#14364](https://github.com/ant-design/ant-design/pull/14364)
+- 🐞 Fix the problem that `Radio` onChange will be override by `RadioGroup` onChange。[#14364](https://github.com/ant-design/ant-design/pull/14364)
 
 ## 3.12.3
 
