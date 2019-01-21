@@ -2,6 +2,7 @@
 category: Components
 type: General
 title: Text
+cols: 1
 ---
 
 Basic format and regular operation on text.

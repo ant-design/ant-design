@@ -3,6 +3,7 @@ category: Components
 subtitle: 文本
 type: 通用
 title: Text
+cols: 1
 ---
 
 文本的基本格式及常见操作。
