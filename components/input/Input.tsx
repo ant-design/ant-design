@@ -32,6 +32,10 @@ export interface InputProps
   allowClear?: boolean;
 }
 
+export interface InternalInputProps extends InputProps {
+  _internalGroupClassName?: string;
+}
+
 class Input extends React.Component<InputProps, any> {
   static Group: typeof Group;
   static Search: typeof Search;
@@ -185,38 +189,37 @@ class Input extends React.Component<InputProps, any> {
   }
 
   renderLabeledInput(prefixCls: string, children: React.ReactElement<any>) {
-    const props = this.props;
+    const { addonBefore, addonAfter, style, size, _internalGroupClassName } = this
+      .props as InternalInputProps;
     // Not wrap when there is not addons
-    if (!props.addonBefore && !props.addonAfter) {
+    if (!addonBefore && !addonAfter) {
       return children;
     }
 
     const wrapperClassName = `${prefixCls}-group`;
     const addonClassName = `${wrapperClassName}-addon`;
-    const addonBefore = props.addonBefore ? (
-      <span className={addonClassName}>{props.addonBefore}</span>
+    const addonBeforeNode = addonBefore ? (
+      <span className={addonClassName}>{addonBefore}</span>
     ) : null;
-    const addonAfter = props.addonAfter ? (
-      <span className={addonClassName}>{props.addonAfter}</span>
-    ) : null;
+    const addonAfterNode = addonAfter ? <span className={addonClassName}>{addonAfter}</span> : null;
 
     const className = classNames(`${prefixCls}-wrapper`, {
       [wrapperClassName]: addonBefore || addonAfter,
     });
 
-    const groupClassName = classNames(`${prefixCls}-group-wrapper`, {
-      [`${prefixCls}-group-wrapper-sm`]: props.size === 'small',
-      [`${prefixCls}-group-wrapper-lg`]: props.size === 'large',
+    const mergedGroupClassName = classNames(_internalGroupClassName, `${prefixCls}-group-wrapper`, {
+      [`${prefixCls}-group-wrapper-sm`]: size === 'small',
+      [`${prefixCls}-group-wrapper-lg`]: size === 'large',
     });
 
     // Need another wrapper for changing display:table to display:inline-block
     // and put style prop in wrapper
     return (
-      <span className={groupClassName} style={props.style}>
+      <span className={mergedGroupClassName} style={style}>
         <span className={className}>
-          {addonBefore}
+          {addonBeforeNode}
           {React.cloneElement(children, { style: null })}
-          {addonAfter}
+          {addonAfterNode}
         </span>
       </span>
     );
@@ -265,6 +268,7 @@ class Input extends React.Component<InputProps, any> {
       // Input elements must be either controlled or uncontrolled,
       // specify either the value prop, or the defaultValue prop, but not both.
       'defaultValue',
+      '_internalGroupClassName',
     ]);
 
     return this.renderLabeledIcon(
