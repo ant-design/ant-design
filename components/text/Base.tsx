@@ -26,6 +26,10 @@ export interface BaseProps {
   onChange?: (value: string) => null;
   type?: BaseType;
   disabled?: boolean;
+  mark?: boolean;
+  underline?: boolean;
+  delete?: boolean;
+  bold?: boolean;
   rows?: number;
 }
 
@@ -235,6 +239,10 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
       prefixCls,
       type,
       disabled,
+      mark,
+      underline,
+      ['delete']: del,
+      bold,
       rows,
       ...restProps
     } = this.props;
@@ -263,6 +271,10 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
           className={classNames(prefixCls, className, {
             [`${prefixCls}-${type}`]: type,
             [`${prefixCls}-disabled`]: disabled,
+            [`${prefixCls}-mark`]: mark,
+            [`${prefixCls}-underline`]: underline,
+            [`${prefixCls}-delete`]: del,
+            [`${prefixCls}-bold`]: bold,
             [`${prefixCls}-ellipsis`]: rows,
           })}
           aria-label={isEllipsis ? String(children) : undefined}

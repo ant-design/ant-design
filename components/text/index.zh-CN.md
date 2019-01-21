@@ -16,32 +16,44 @@ cols: 1
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
+| bold | 是否加粗 | boolean | false |
 | copyable | 是否可拷贝 | boolean | false |
+| delete | 添加删除线样式 | boolean | false |
+| disabled | 禁用文本 | boolean | false |
 | editable | 是否可编辑 | boolean | false |
+| mark | 添加标记样式 | boolean | false |
 | rows | 设置超过行数则省略，设置后样式会从 `display: inline` 转成 `display: inline-block` | number | - |
+| underline | 添加下划线样式 | boolean | false |
 | onChange | 当用户提交编辑内容时触发 | Function(string) | - |
 | type | 文本类型 | `secondary`, `warning`, `danger` | - |
-| disabled | 禁用文本 | boolean | false |
 
 ### Text.Title
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
+| bold | 是否加粗 | boolean | false |
 | copyable | 是否可拷贝 | boolean | false |
+| delete | 添加删除线样式 | boolean | false |
+| disabled | 禁用文本 | boolean | false |
 | editable | 是否可编辑 | boolean | false |
 | level | 重要程度 | number: `1`, `2`, `3`, `4` | 1 |
+| mark | 添加标记样式 | boolean | false |
 | rows | 设置超过行数则省略 | number | - |
+| underline | 添加下划线样式 | boolean | false |
 | onChange | 当用户提交编辑内容时触发 | Function(string) | - |
 | type | 文本类型 | `secondary`, `warning`, `danger` | - |
-| disabled | 禁用文本 | boolean | false |
 
 ### Text.Paragraph
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
+| bold | 是否加粗 | boolean | false |
 | copyable | 是否可拷贝 | boolean | false |
+| delete | 添加删除线样式 | boolean | false |
+| disabled | 禁用文本 | boolean | false |
 | editable | 是否可编辑 | boolean | false |
+| mark | 添加标记样式 | boolean | false |
 | rows | 设置超过行数则省略 | number | - |
+| underline | 添加下划线样式 | boolean | false |
 | onChange | 当用户提交编辑内容时触发 | Function(string) | - |
 | type | 文本类型 | `secondary`, `warning`, `danger` | - |
-| disabled | 禁用文本 | boolean | false |

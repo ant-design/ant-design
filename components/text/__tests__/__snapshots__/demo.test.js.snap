@@ -31,10 +31,42 @@ exports[`renders ./components/text/demo/basic.md correctly 1`] = `
   >
     Ant Design
   </span>
+  <br />
+  <span
+    class="ant-text ant-text-mark"
+  >
+    Ant Design
+  </span>
+  <br />
+  <span
+    class="ant-text ant-text-underline"
+  >
+    Ant Design
+  </span>
+  <br />
+  <span
+    class="ant-text ant-text-delete"
+  >
+    Ant Design
+  </span>
+  <br />
+  <span
+    class="ant-text ant-text-bold"
+  >
+    Ant Design
+  </span>
 </div>
 `;
 
 exports[`renders ./components/text/demo/ellipsis.md correctly 1`] = `
+<div
+  class="ant-text ant-text-ellipsis"
+>
+  Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
+</div>
+`;
+
+exports[`renders ./components/text/demo/ellipsis-debug.md correctly 1`] = `
 <div>
   <div
     class="ant-slider"
@@ -63,7 +95,7 @@ exports[`renders ./components/text/demo/ellipsis.md correctly 1`] = `
       class="ant-slider-mark"
     />
   </div>
-  <p
+  <div
     class="ant-text ant-text-ellipsis"
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
@@ -92,13 +124,13 @@ exports[`renders ./components/text/demo/ellipsis.md correctly 1`] = `
         </svg>
       </i>
     </button>
-  </p>
+  </div>
 </div>
 `;
 
 exports[`renders ./components/text/demo/interactive.md correctly 1`] = `
 <div>
-  <p
+  <div
     class="ant-text"
   >
     This is an editable text.
@@ -127,8 +159,8 @@ exports[`renders ./components/text/demo/interactive.md correctly 1`] = `
         </svg>
       </i>
     </button>
-  </p>
-  <p
+  </div>
+  <div
     class="ant-text"
   >
     This is a copyable text.
@@ -157,7 +189,7 @@ exports[`renders ./components/text/demo/interactive.md correctly 1`] = `
         </svg>
       </i>
     </button>
-  </p>
+  </div>
 </div>
 `;
 
@@ -166,12 +198,83 @@ exports[`renders ./components/text/demo/paragraph.md correctly 1`] = `
   <h1
     class="ant-text"
   >
-    Ant Design
+    Introduction
   </h1>
-  <p
+  <div
     class="ant-text"
   >
-    Ant Design, a design language for background applications, is refined by Ant UED Team.
-  </p>
+    In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
+  </div>
+  <div
+    class="ant-text"
+  >
+    After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to uniform the user interface specs for internal background projects, lower the unnecessary cost of design differences and implementation and liberate the resources of design and front-end development.
+  </div>
+  <h2
+    class="ant-text"
+    level="2"
+  >
+    Guidelines and Resources
+  </h2>
+  <div
+    class="ant-text"
+  >
+    We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
+  </div>
+  <div
+    class="ant-text"
+  >
+    <ul>
+      <li>
+        <a
+          href="/docs/spec/proximity"
+        >
+          Principles
+        </a>
+      </li>
+      <li>
+        <a
+          href="/docs/pattern/navigation"
+        >
+          Patterns
+        </a>
+      </li>
+      <li>
+        <a
+          href="/docs/resource/download"
+        >
+          Resource Download
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/text/demo/title.md correctly 1`] = `
+<div>
+  <h1
+    class="ant-text"
+  >
+    h1. Ant Design
+  </h1>
+  <h2
+    class="ant-text"
+    level="2"
+  >
+    h2. Ant Design
+  </h2>
+  <h3
+    class="ant-text"
+    level="3"
+  >
+    h3. Ant Design
+  </h3>
+  <h4
+    class="ant-text"
+    level="4"
+  >
+    h4. Ant Design
+  </h4>
 </div>
 `;

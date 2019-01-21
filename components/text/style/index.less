@@ -4,15 +4,18 @@
 @text-prefix-cls: ~'@{ant-prefix}-text';
 
 .operation-icon {
-  // &:hover,
-  // &:focus {
   outline: none;
   color: @primary-color;
-  // }
+
+  &:focus,
+  &:hover {
+    color: @primary-5;
+  }
 }
 
 .@{text-prefix-cls} {
   color: @text-color;
+  margin: 0 0 1em 0;
 
   &-secondary {
     color: @text-color-secondary;
@@ -30,6 +33,26 @@
     color: @disabled-color;
     cursor: not-allowed;
     user-select: none;
+  }
+
+  &-mark {
+    background: rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 2px;
+    padding: 0 3px;
+  }
+
+  &-underline {
+    text-decoration: underline;
+    text-decoration-skip-ink: auto;
+  }
+
+  &-delete {
+    text-decoration: line-through;
+  }
+
+  &-bold {
+    font-weight: bold;
   }
 
   &-ellipsis {
@@ -64,6 +87,30 @@
       bottom: 5px;
     }
   }
+
+  // list
+  ul,
+  ol {
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin: 0 0 0 20px;
+      padding: 0 0 0 4px;
+    }
+  }
+
+  ul li {
+    list-style-type: circle;
+
+    li {
+      list-style-type: disc;
+    }
+  }
+
+  ol li {
+    list-style-type: decimal;
+  }
 }
 
 // Title
@@ -85,8 +132,7 @@ h4,
 h5,
 h6 {
   &.@{text-prefix-cls} {
-    margin-top: 0;
-    margin-bottom: 0.5em;
+    margin-top: 0 0 0.5em 0;
     color: @heading-color;
     font-weight: 500;
   }
@@ -94,13 +140,9 @@ h6 {
 
 // Text
 span.@{text-prefix-cls} {
+  margin: 0;
+
   &-ellipsis {
     display: inline-block;
   }
-}
-
-// Paragraph
-p.@{text-prefix-cls} {
-  margin-top: 0;
-  margin-bottom: 1em;
 }

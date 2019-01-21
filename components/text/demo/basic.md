@@ -27,6 +27,14 @@ ReactDOM.render(
     <Text type="danger">Ant Design</Text>
     <br />
     <Text disabled>Ant Design</Text>
+    <br />
+    <Text mark>Ant Design</Text>
+    <br />
+    <Text underline>Ant Design</Text>
+    <br />
+    <Text delete>Ant Design</Text>
+    <br />
+    <Text bold>Ant Design</Text>
   </div>,
   mountNode
 );
