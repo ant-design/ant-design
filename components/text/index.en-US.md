@@ -46,7 +46,6 @@ When need to display title or text content.
 
 ### Text.Paragraph
 
-| 参数 | 说明 | 类型 | 默认值 |
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | bold | bold style | boolean | false |
