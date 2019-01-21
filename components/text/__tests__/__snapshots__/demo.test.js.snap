@@ -59,10 +59,23 @@ exports[`renders ./components/text/demo/basic.md correctly 1`] = `
 `;
 
 exports[`renders ./components/text/demo/ellipsis.md correctly 1`] = `
-<div
-  class="ant-text ant-text-ellipsis"
->
-  Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
+<div>
+  <div
+    class="ant-text ant-text-ellipsis"
+  >
+    Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
+  </div>
+  <div
+    class="ant-text ant-text-ellipsis"
+  >
+    Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
+    <a
+      aria-label="extend"
+      class="ant-text-extend"
+    >
+      extend
+    </a>
+  </div>
 </div>
 `;
 
