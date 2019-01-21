@@ -92,6 +92,7 @@
   },
   "devDependencies": {
     "@ant-design/colors": "^2.0.0",
+    "@sentry/browser": "^4.5.2",
     "@types/classnames": "^2.2.6",
     "@types/prop-types": "^15.5.6",
     "@types/react": "~16.7.13",
