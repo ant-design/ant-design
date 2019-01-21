@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 2
 title:
   zh-CN: 标题与段落
   en-US: Title and Paragraph

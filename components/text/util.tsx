@@ -13,6 +13,17 @@ function pxToNumber(value: string | null): number {
   return match ? Number(match[0]) : 0;
 }
 
+function styleToStr(style: CSSStyleDeclaration) {
+  let styleStr: string = '';
+  // There are some different behavior between Firefox & Chrome.
+  // We have to handle this ourself.
+  for (let i = style.length; i >= 0; i -= 1) {
+    const name = style[i];
+    styleStr += `${name}: ${style.getPropertyValue(name)};`;
+  }
+  return styleStr;
+}
+
 export function measure(
   text: string,
   rows: number,
@@ -29,7 +40,7 @@ export function measure(
 
   // Get origin style
   const originStyle = window.getComputedStyle(originEle);
-  const originCSS = originStyle.cssText;
+  const originCSS = styleToStr(originStyle);
   const lineHeight = pxToNumber(originStyle.lineHeight);
   const maxHeight =
     lineHeight * rows + pxToNumber(originStyle.paddingTop) + pxToNumber(originStyle.paddingBottom);
