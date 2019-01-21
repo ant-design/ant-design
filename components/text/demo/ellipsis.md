@@ -19,13 +19,24 @@ import { Text } from 'antd';
 const { Paragraph } = Text;
 
 ReactDOM.render(
-  <Paragraph rows={3}>
-    Ant Design, a design language for background applications, is refined by Ant UED Team.
-    Ant Design, a design language for background applications, is refined by Ant UED Team.
-    Ant Design, a design language for background applications, is refined by Ant UED Team.
-    Ant Design, a design language for background applications, is refined by Ant UED Team.
-    Ant Design, a design language for background applications, is refined by Ant UED Team.
-    Ant Design, a design language for background applications, is refined by Ant UED Team.
-  </Paragraph>
+  <div>
+    <Paragraph rows={3}>
+      Ant Design, a design language for background applications, is refined by Ant UED Team.
+      Ant Design, a design language for background applications, is refined by Ant UED Team.
+      Ant Design, a design language for background applications, is refined by Ant UED Team.
+      Ant Design, a design language for background applications, is refined by Ant UED Team.
+      Ant Design, a design language for background applications, is refined by Ant UED Team.
+      Ant Design, a design language for background applications, is refined by Ant UED Team.
+    </Paragraph>
+
+    <Paragraph rows={3} extendable>
+      Ant Design, a design language for background applications, is refined by Ant UED Team.
+      Ant Design, a design language for background applications, is refined by Ant UED Team.
+      Ant Design, a design language for background applications, is refined by Ant UED Team.
+      Ant Design, a design language for background applications, is refined by Ant UED Team.
+      Ant Design, a design language for background applications, is refined by Ant UED Team.
+      Ant Design, a design language for background applications, is refined by Ant UED Team.
+    </Paragraph>
+  </div>
   , mountNode);
 ```

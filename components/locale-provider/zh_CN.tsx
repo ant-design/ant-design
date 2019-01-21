@@ -51,5 +51,6 @@ export default {
     edit: '编辑',
     copy: '复制',
     copySuccess: '复制成功',
+    extend: '展开',
   },
 };

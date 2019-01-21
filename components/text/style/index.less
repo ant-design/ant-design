@@ -3,7 +3,7 @@
 
 @text-prefix-cls: ~'@{ant-prefix}-text';
 
-.operation-icon {
+.operation-unit {
   outline: none;
   color: @primary-color;
 
@@ -59,10 +59,11 @@
     overflow: hidden;
   }
 
-  // Icons
+  // Operation
+  &-extend,
   &-edit,
   &-copy {
-    .operation-icon;
+    .operation-unit;
 
     margin-left: 8px;
   }
@@ -80,7 +81,7 @@
     position: relative;
 
     &-confirm {
-      .operation-icon;
+      .operation-unit;
 
       position: absolute;
       right: 10px;

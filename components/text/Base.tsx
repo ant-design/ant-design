@@ -22,6 +22,7 @@ export interface BaseProps {
   style?: React.CSSProperties;
   children?: React.ReactNode;
   editable?: boolean;
+  extendable?: boolean; // Only works when ellipsis
   copyable?: boolean;
   onChange?: (value: string) => null;
   type?: BaseType;
@@ -42,12 +43,14 @@ interface BaseState {
   copied: boolean;
   ellipsisText: string;
   isEllipsis: boolean;
+  extended: boolean;
 }
 
 interface Locale {
   edit?: string;
   copy?: string;
   copySuccess?: string;
+  extend?: string;
 }
 
 class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, BaseState> {
@@ -70,12 +73,14 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
   content?: HTMLParagraphElement;
   copyId?: number;
   rafId?: number;
+  extendStr?: string;
 
   state: BaseState = {
     edit: false,
     copied: false,
     ellipsisText: '',
     isEllipsis: false,
+    extended: false,
   };
 
   componentDidMount() {
@@ -92,6 +97,11 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
     window.clearTimeout(this.copyId);
     raf.cancel(this.rafId);
   }
+
+  // =============== Extend ===============
+  onExtendClick = () => {
+    this.setState({ extended: true });
+  };
 
   // ================ Edit ================
   onEditClick = () => {
@@ -153,20 +163,46 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
   };
 
   syncEllipsis() {
-    const { ellipsisText, isEllipsis } = this.state;
-    const { rows, children, copyable, editable } = this.props;
-    if (!rows || rows < 0 || !this.content) return;
+    const { ellipsisText, isEllipsis, extended } = this.state;
+    const { rows, children, copyable, editable, extendable } = this.props;
+    if (!rows || rows < 0 || !this.content || extended) return;
 
     warning(typeof children === 'string', 'In ellipsis mode, `children` of Text must be a string.');
 
-    let offset: number = 0;
-    if (copyable) offset += 1;
-    if (editable) offset += 1;
+    const offset = {
+      iconOffset: 0,
+      additionalStr: '',
+    };
+    if (copyable) offset.iconOffset += 1;
+    if (editable) offset.iconOffset += 1;
+    if (extendable) offset.additionalStr = this.extendStr || '';
 
     const { text, ellipsis } = measure(String(children), rows, this.content, offset);
     if (ellipsisText !== text || isEllipsis !== ellipsis) {
       this.setState({ ellipsisText: text, isEllipsis: ellipsis });
     }
+  }
+
+  renderExtend() {
+    const { extendable, prefixCls } = this.props;
+    const { extended } = this.state;
+    if (!extendable || extended) return;
+
+    return (
+      <LocaleReceiver componentName="Text">
+        {({ extend }: Locale) => {
+          // To compatible with old react version.
+          // Use this to pass extend text for measure usage.
+          this.extendStr = extend;
+
+          return (
+            <a className={`${prefixCls}-extend`} onClick={this.onExtendClick} aria-label={extend}>
+              {extend}
+            </a>
+          );
+        }}
+      </LocaleReceiver>
+    );
   }
 
   renderEdit() {
@@ -231,7 +267,7 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
   }
 
   renderContent() {
-    const { ellipsisText, isEllipsis } = this.state;
+    const { ellipsisText, isEllipsis, extended } = this.state;
     const {
       component: Component,
       children,
@@ -251,12 +287,13 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
       'prefixCls',
       'editable',
       'copyable',
+      'extendable',
       ...configConsumerProps,
     ]);
 
     let textNode: React.ReactNode = children;
 
-    if (rows && isEllipsis) {
+    if (rows && isEllipsis && !extended) {
       // We move full content to outer element to avoid repeat read the content by accessibility
       textNode = (
         <span title={String(children)} aria-hidden="true">
@@ -282,6 +319,7 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
           {...textProps}
         >
           {textNode}
+          {this.renderExtend()}
           {this.renderEdit()}
           {this.renderCopy()}
         </Component>

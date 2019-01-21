@@ -20,6 +20,7 @@ When need to display title or text content.
 | delete | delete line style | boolean | false |
 | disabled | Disable content | boolean | false |
 | editable | Content can be edited  | boolean | false |
+| extendable | Display extend button when in ellipsis | boolean | false |
 | mark | mark style | boolean | false |
 | rows | Set max rows and make ellipsis if over the rows. Style will change from `display: inline` to `display: inline-block` after set | number | - |
 | underline | underline style | boolean | false |
@@ -35,6 +36,7 @@ When need to display title or text content.
 | delete | delete line style | boolean | false |
 | disabled | Disable content | boolean | false |
 | editable | Content can be edited  | boolean | false |
+| extendable | Display extend button when in ellipsis | boolean | false |
 | level | Set content importance | number: `1`, `2`, `3`, `4` | 1 |
 | mark | mark style | boolean | false |
 | rows | Set max rows and make ellipsis if over the rows. Style will change from `display: inline` to `display: inline-block` after set | number | - |
@@ -52,6 +54,7 @@ When need to display title or text content.
 | delete | delete line style | boolean | false |
 | disabled | Disable content | boolean | false |
 | editable | Content can be edited  | boolean | false |
+| extendable | Display extend button when in ellipsis | boolean | false |
 | mark | mark style | boolean | false |
 | rows | Set max rows and make ellipsis if over the rows. Style will change from `display: inline` to `display: inline-block` after set | number | - |
 | underline | underline style | boolean | false |

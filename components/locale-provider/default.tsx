@@ -51,5 +51,6 @@ export default {
     edit: 'edit',
     copy: 'copy',
     copySuccess: 'copy success',
+    extend: 'extend',
   },
 };

@@ -28,7 +28,10 @@ export function measure(
   text: string,
   rows: number,
   originEle: HTMLParagraphElement,
-  offset: number,
+  offset: {
+    iconOffset: number;
+    additionalStr: string;
+  },
 ): { text: string; ellipsis: boolean } {
   if (!ellipsisText) {
     ellipsisText = document.createElement('div');
@@ -36,7 +39,7 @@ export function measure(
     document.body.appendChild(ellipsisText);
   }
 
-  const offsetPlaceholder = repeat(OFFSET_MOCK_STR, offset);
+  const offsetPlaceholder = `${repeat(OFFSET_MOCK_STR, offset.iconOffset)} ${offset.additionalStr}`;
 
   // Get origin style
   const originStyle = window.getComputedStyle(originEle);
