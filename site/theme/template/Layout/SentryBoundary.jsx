@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import * as Sentry from '@sentry/browser';
 
 Sentry.init({
-  dsn: 'https://2a2c2568315846dab9083a32e37f61fc@sentry.io/1375737',
+  dsn: 'https://41977dd48e5b4da2aa3600ccbe7dda6d@sentry.io/1375756',
 });
 
 export default class SentryBoundary extends Component {
