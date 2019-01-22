@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import Input, { InputProps, InternalInputProps } from './Input';
+import Input, { InputProps } from './Input';
 import Icon from '../icon';
 import Button from '../button';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -115,10 +115,9 @@ export default class Search extends React.Component<SearchProps, any> {
     const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
 
     let inputClassName;
-    let groupClassName;
 
     if (enterButton) {
-      groupClassName = classNames(prefixCls, {
+      inputClassName = classNames(prefixCls, className, {
         [`${prefixCls}-enter-button`]: !!enterButton,
         [`${prefixCls}-${size}`]: !!size,
       });
@@ -126,10 +125,8 @@ export default class Search extends React.Component<SearchProps, any> {
       inputClassName = classNames(prefixCls, className);
     }
 
-    const GroupInput = Input as React.ComponentClass<InternalInputProps>;
-
     return (
-      <GroupInput
+      <Input
         onPressEnter={this.onSearch}
         {...restProps}
         size={size}
@@ -138,7 +135,6 @@ export default class Search extends React.Component<SearchProps, any> {
         suffix={this.renderSuffix(prefixCls)}
         ref={this.saveInput}
         className={inputClassName}
-        _internalGroupClassName={groupClassName} // Internal api for passing search class
       />
     );
   };
