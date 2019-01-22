@@ -273,7 +273,7 @@ class Input extends React.Component<InputProps, any> {
         value={fixControlledValue(value)}
         onChange={this.handleChange}
         className={classNames(this.getInputClassName(prefixCls), {
-          [className!]: !addonBefore && !addonAfter,
+          [className!]: className && !addonBefore && !addonAfter,
         })}
         onKeyDown={this.handleKeyDown}
         ref={this.saveInput}

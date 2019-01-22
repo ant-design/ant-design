@@ -3,7 +3,6 @@ order: 4
 title:
   zh-CN: 搜索框
   en-US: Search box
-only: true
 ---
 
 ## zh-CN

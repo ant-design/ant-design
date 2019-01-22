@@ -15,7 +15,7 @@ exports[`Search should show cross icon when input value exists 1`] = `
     >
       <Consumer>
         <input
-          className="ant-input"
+          className="ant-input undefined"
           disabled={false}
           onChange={[Function]}
           onKeyDown={[Function]}
@@ -76,7 +76,7 @@ exports[`Search should show cross icon when input value exists 2`] = `
     >
       <Consumer>
         <input
-          className="ant-input"
+          className="ant-input undefined"
           disabled={false}
           onChange={[Function]}
           onKeyDown={[Function]}

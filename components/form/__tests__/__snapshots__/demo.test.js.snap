@@ -37,7 +37,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                 class="ant-form-item-children"
               >
                 <input
-                  class="ant-input"
+                  class="ant-input undefined"
                   data-__field="[object Object]"
                   data-__meta="[object Object]"
                   id="advanced_search_field-0"
@@ -78,7 +78,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                 class="ant-form-item-children"
               >
                 <input
-                  class="ant-input"
+                  class="ant-input undefined"
                   data-__field="[object Object]"
                   data-__meta="[object Object]"
                   id="advanced_search_field-1"
@@ -119,7 +119,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                 class="ant-form-item-children"
               >
                 <input
-                  class="ant-input"
+                  class="ant-input undefined"
                   data-__field="[object Object]"
                   data-__meta="[object Object]"
                   id="advanced_search_field-2"
@@ -160,7 +160,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                 class="ant-form-item-children"
               >
                 <input
-                  class="ant-input"
+                  class="ant-input undefined"
                   data-__field="[object Object]"
                   data-__meta="[object Object]"
                   id="advanced_search_field-3"
@@ -201,7 +201,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                 class="ant-form-item-children"
               >
                 <input
-                  class="ant-input"
+                  class="ant-input undefined"
                   data-__field="[object Object]"
                   data-__meta="[object Object]"
                   id="advanced_search_field-4"
@@ -242,7 +242,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                 class="ant-form-item-children"
               >
                 <input
-                  class="ant-input"
+                  class="ant-input undefined"
                   data-__field="[object Object]"
                   data-__meta="[object Object]"
                   id="advanced_search_field-5"
@@ -283,7 +283,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                 class="ant-form-item-children"
               >
                 <input
-                  class="ant-input"
+                  class="ant-input undefined"
                   data-__field="[object Object]"
                   data-__meta="[object Object]"
                   id="advanced_search_field-6"
@@ -324,7 +324,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                 class="ant-form-item-children"
               >
                 <input
-                  class="ant-input"
+                  class="ant-input undefined"
                   data-__field="[object Object]"
                   data-__meta="[object Object]"
                   id="advanced_search_field-7"
@@ -365,7 +365,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                 class="ant-form-item-children"
               >
                 <input
-                  class="ant-input"
+                  class="ant-input undefined"
                   data-__field="[object Object]"
                   data-__meta="[object Object]"
                   id="advanced_search_field-8"
@@ -406,7 +406,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                 class="ant-form-item-children"
               >
                 <input
-                  class="ant-input"
+                  class="ant-input undefined"
                   data-__field="[object Object]"
                   data-__meta="[object Object]"
                   id="advanced_search_field-9"
@@ -505,7 +505,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
           class="ant-form-item-children"
         >
           <input
-            class="ant-input"
+            class="ant-input undefined"
             data-__field="[object Object]"
             data-__meta="[object Object]"
             id="coordinated_note"
@@ -651,7 +651,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
         >
           <span>
             <input
-              class="ant-input"
+              class="ant-input undefined"
               style="width:65%;margin-right:3%"
               type="text"
               value="0"
@@ -837,7 +837,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
           class="ant-form-item-children"
         >
           <input
-            class="ant-input"
+            class="ant-input undefined"
             data-__field="[object Object]"
             data-__meta="[object Object]"
             id="dynamic_rule_username"
@@ -873,7 +873,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
           class="ant-form-item-children"
         >
           <input
-            class="ant-input"
+            class="ant-input undefined"
             data-__field="[object Object]"
             data-__meta="[object Object]"
             id="dynamic_rule_nickname"
@@ -988,7 +988,7 @@ exports[`renders ./components/form/demo/global-state.md correctly 1`] = `
             class="ant-form-item-children"
           >
             <input
-              class="ant-input"
+              class="ant-input undefined"
               data-__field="[object Object]"
               data-__meta="[object Object]"
               id="global_state_username"
@@ -1261,7 +1261,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
             class="ant-form-item-children"
           >
             <input
-              class="ant-input"
+              class="ant-input undefined"
               placeholder="input placeholder"
               type="text"
               value=""
@@ -1293,7 +1293,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
             class="ant-form-item-children"
           >
             <input
-              class="ant-input"
+              class="ant-input undefined"
               placeholder="input placeholder"
               type="text"
               value=""
@@ -1525,7 +1525,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           class="ant-form-item-children"
         >
           <input
-            class="ant-input"
+            class="ant-input undefined"
             data-__field="[object Object]"
             data-__meta="[object Object]"
             id="register_email"
@@ -1560,7 +1560,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           class="ant-form-item-children"
         >
           <input
-            class="ant-input"
+            class="ant-input undefined"
             data-__field="[object Object]"
             data-__meta="[object Object]"
             id="register_password"
@@ -1595,7 +1595,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           class="ant-form-item-children"
         >
           <input
-            class="ant-input"
+            class="ant-input undefined"
             data-__field="[object Object]"
             data-__meta="[object Object]"
             id="register_confirm"
@@ -1652,7 +1652,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           class="ant-form-item-children"
         >
           <input
-            class="ant-input"
+            class="ant-input undefined"
             data-__field="[object Object]"
             data-__meta="[object Object]"
             id="register_nickname"
@@ -1975,7 +1975,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               style="padding-left:4px;padding-right:4px"
             >
               <input
-                class="ant-input"
+                class="ant-input undefined"
                 data-__field="[object Object]"
                 data-__meta="[object Object]"
                 id="register_captcha"
@@ -3718,7 +3718,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-form-item-children"
         >
           <input
-            class="ant-input"
+            class="ant-input undefined"
             id="error"
             placeholder="unavailable choice"
             type="text"
@@ -3756,7 +3756,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-form-item-children"
         >
           <input
-            class="ant-input"
+            class="ant-input undefined"
             id="warning"
             placeholder="Warning"
             type="text"
@@ -3789,7 +3789,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-form-item-children"
         >
           <input
-            class="ant-input"
+            class="ant-input undefined"
             id="validating"
             placeholder="I'm the content is being validated"
             type="text"
@@ -3848,7 +3848,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-form-item-children"
         >
           <input
-            class="ant-input"
+            class="ant-input undefined"
             id="success"
             placeholder="I'm the content"
             type="text"
@@ -3902,7 +3902,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-form-item-children"
         >
           <input
-            class="ant-input"
+            class="ant-input undefined"
             id="warning2"
             placeholder="Warning"
             type="text"
@@ -3956,7 +3956,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-form-item-children"
         >
           <input
-            class="ant-input"
+            class="ant-input undefined"
             id="error2"
             placeholder="unavailable choice"
             type="text"
