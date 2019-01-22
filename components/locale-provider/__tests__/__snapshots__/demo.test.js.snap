@@ -509,9 +509,6 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                 </span>
               </div>
             </div>
-            <ul
-              class="ant-transfer-list-content"
-            />
             <div
               class="ant-transfer-list-body-not-found"
             >
@@ -656,9 +653,6 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                 </span>
               </div>
             </div>
-            <ul
-              class="ant-transfer-list-content"
-            />
             <div
               class="ant-transfer-list-body-not-found"
             >

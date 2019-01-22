@@ -49,6 +49,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
   }
 
   recentUploadStatus: boolean | PromiseLike<any>;
+
   progressTimer: any;
 
   private upload: any;
@@ -161,10 +162,14 @@ class Upload extends React.Component<UploadProps, UploadState> {
 
   handleRemove(file: UploadFile) {
     const { onRemove } = this.props;
+    const { status } = file;
+
+    file.status = 'removed'; // eslint-disable-line
 
     Promise.resolve(typeof onRemove === 'function' ? onRemove(file) : onRemove).then(ret => {
       // Prevent removing file
       if (ret === false) {
+        file.status = status;
         return;
       }
 
@@ -180,7 +185,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
 
   handleManualRemove = (file: UploadFile) => {
     this.upload.abort(file);
-    file.status = 'removed'; // eslint-disable-line
+
     this.handleRemove(file);
   };
 
@@ -215,7 +220,8 @@ class Upload extends React.Component<UploadProps, UploadState> {
         ),
       });
       return false;
-    } else if (result && (result as PromiseLike<any>).then) {
+    }
+    if (result && (result as PromiseLike<any>).then) {
       return result;
     }
     return true;

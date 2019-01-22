@@ -209,9 +209,6 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
         <div
           class="ant-transfer-list-body"
         >
-          <ul
-            class="ant-transfer-list-content"
-          />
           <div
             class="ant-transfer-list-body-not-found"
           >
@@ -322,9 +319,6 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
         <div
           class="ant-transfer-list-body"
         >
-          <ul
-            class="ant-transfer-list-content"
-          />
           <div
             class="ant-transfer-list-body-not-found"
           >

@@ -15498,9 +15498,6 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
     <div
       class="config-transfer-list-body"
     >
-      <ul
-        class="config-transfer-list-content"
-      />
       <div
         class="config-transfer-list-body-not-found"
       >
@@ -15611,9 +15608,6 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
     <div
       class="config-transfer-list-body"
     >
-      <ul
-        class="config-transfer-list-content"
-      />
       <div
         class="config-transfer-list-body-not-found"
       >
@@ -15679,9 +15673,6 @@ exports[`ConfigProvider components Transfer normal 1`] = `
     <div
       class="ant-transfer-list-body"
     >
-      <ul
-        class="ant-transfer-list-content"
-      />
       <div
         class="ant-transfer-list-body-not-found"
       >
@@ -15792,9 +15783,6 @@ exports[`ConfigProvider components Transfer normal 1`] = `
     <div
       class="ant-transfer-list-body"
     >
-      <ul
-        class="ant-transfer-list-content"
-      />
       <div
         class="ant-transfer-list-body-not-found"
       >
@@ -15860,9 +15848,6 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
     <div
       class="prefix-Transfer-list-body"
     >
-      <ul
-        class="prefix-Transfer-list-content"
-      />
       <div
         class="prefix-Transfer-list-body-not-found"
       >
@@ -15973,9 +15958,6 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
     <div
       class="prefix-Transfer-list-body"
     >
-      <ul
-        class="prefix-Transfer-list-content"
-      />
       <div
         class="prefix-Transfer-list-body-not-found"
       >
