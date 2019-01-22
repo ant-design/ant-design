@@ -81,15 +81,6 @@ title: 设计资源
       <span class="resource-card-description">一套页面逻辑原型库，帮你梳理页面逻辑</span>
     </div>
   </a>
-  <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/iconfont-3.x.zip" class="resource-card">
-    <div class="resource-card-icon">
-      <img width="54" src="https://gw.alipayobjects.com/zos/rmsportal/bWBRrdYsVnVkXpFRCVFy.png">
-    </div>
-    <div class="resource-card-content">
-      <span class="resource-card-title">Web Font</span>
-      <span class="resource-card-description">网络字体图标的本地文件包</span>
-    </div>
-  </a>
   <a target="_blank" href="https://www.xiaopiu.com/topic/ant-design" class="resource-card">
     <div class="resource-card-icon">
       <img width="72" src="https://img.xiaopiu.com/userImages/img753167822272f8.png">
