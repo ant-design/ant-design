@@ -19,7 +19,12 @@ export interface StepsProps {
 }
 
 export default class Steps extends React.Component<StepsProps, any> {
-  static Step = RcSteps.Step;
+  static Step = {
+    description: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+    icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+    title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+    status: PropTypes.string,
+  };
 
   static defaultProps = {
     current: 0,
