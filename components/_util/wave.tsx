@@ -115,7 +115,7 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
     }
     const { insertExtraNode } = this.props;
     const attributeName = this.getAttributeName();
-    node.setAttribute(attributeName, 'false');
+    node.setAttribute(attributeName, 'false'); // edge has bug on `removeAttribute` #14466
     node.removeAttribute(attributeName);
     this.removeExtraStyleNode();
     if (insertExtraNode && this.extraNode && node.contains(this.extraNode)) {
