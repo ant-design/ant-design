@@ -19,10 +19,10 @@ export interface StepsProps {
 }
 
 export interface StepProps {
-  description?: string | React.ReactNode;
-  icon?: string | React.ReactNode;
+  description?: React.ReactNode;
+  icon?: React.ReactNode;
   status?: string;
-  title?: string | React.ReactNode;
+  title?: React.ReactNode;
 }
 
 export default class Steps extends React.Component<StepsProps, any> {
