@@ -3,13 +3,6 @@
 
 @collapse-prefix-cls: ~'@{ant-prefix}-collapse';
 
-.collapse-close() {
-  transform: rotate(0);
-}
-.collapse-open() {
-  transform: rotate(90deg);
-}
-
 .@{collapse-prefix-cls} {
   .reset-component;
   background-color: @collapse-header-bg;
@@ -46,8 +39,8 @@
         margin-top: 2px;
         transform: translateY(-50%);
         left: @padding-md;
+
         & svg {
-          .collapse-close();
           transition: transform 0.24s;
         }
       }
@@ -86,12 +79,6 @@
   &-item:last-child {
     > .@{collapse-prefix-cls}-content {
       border-radius: 0 0 @border-radius-base @border-radius-base;
-    }
-  }
-
-  & > &-item > &-header[aria-expanded='true'] {
-    .@{collapse-prefix-cls}-arrow svg {
-      .collapse-open();
     }
   }
 

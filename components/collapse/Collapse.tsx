@@ -20,6 +20,16 @@ export interface CollapseProps {
   expandIcon?: (panelProps: any) => React.ReactNode;
 }
 
+interface PanelProps {
+  isActive?: boolean;
+  header?: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
+  showArrow?: boolean;
+  forceRender?: boolean;
+  disabled?: boolean;
+}
+
 export default class Collapse extends React.Component<CollapseProps, any> {
   static Panel = CollapsePanel;
 
@@ -28,16 +38,19 @@ export default class Collapse extends React.Component<CollapseProps, any> {
     openAnimation: { ...animation, appear() {} },
   };
 
-  renderExpandIcon = (panelProps: any, prefixCls: string) => {
+  renderExpandIcon = (panelProps: PanelProps = {}, prefixCls: string) => {
     const { expandIcon } = this.props;
-    if (!expandIcon) {
-      return <Icon type="right" className={`${prefixCls}-arrow`} />;
-    }
-    const icon = expandIcon(panelProps);
-    return React.isValidElement(icon) ? React.cloneElement(icon as any, {
-      className: `${prefixCls}-arrow`,
-    }) : icon;
-  }
+    const icon = expandIcon ? (
+      expandIcon(panelProps)
+    ) : (
+      <Icon type="right" rotate={panelProps.isActive ? 90 : undefined} />
+    );
+    return React.isValidElement(icon)
+      ? React.cloneElement(icon as any, {
+          className: `${prefixCls}-arrow`,
+        })
+      : icon;
+  };
 
   renderCollapse = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, className = '', bordered } = this.props;
@@ -51,7 +64,7 @@ export default class Collapse extends React.Component<CollapseProps, any> {
     return (
       <RcCollapse
         {...this.props}
-        expandIcon={(panelProps: any) => this.renderExpandIcon(panelProps, prefixCls)}
+        expandIcon={(panelProps: PanelProps) => this.renderExpandIcon(panelProps, prefixCls)}
         prefixCls={prefixCls}
         className={collapseClassName}
       />

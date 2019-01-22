@@ -36,7 +36,7 @@ ReactDOM.render(
   <Collapse
     bordered={false}
     defaultActiveKey={['1']}
-    expandIcon={() => <Icon type="caret-right" />}
+    expandIcon={({ isActive }) => <Icon type="caret-right" rotate={isActive ? 90 : 0} />}
   >
     <Panel header="This is panel header 1" key="1" style={customPanelStyle}>
       <p>{text}</p>
