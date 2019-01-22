@@ -24,7 +24,7 @@ import moment from 'moment';
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | addon | called from timepicker panel to render some addon to its bottom | function | - |
-| allowEmpty | allow clearing text | boolean | true |
+| allowClear | allow clearing text | boolean | true |
 | autoFocus | get focus when component mounted | boolean | false |
 | className | className of picker | string | '' |
 | clearText | clear tooltip of icon | string | clear |
