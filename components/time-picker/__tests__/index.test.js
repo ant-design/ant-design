@@ -29,7 +29,7 @@ describe('TimePicker', () => {
   it('allowEmpty deprecated', () => {
     mount(<TimePicker allowEmpty />);
     expect(errorSpy).toBeCalledWith(
-      'Warning: `allowEmpty` is deprecated. Please use `allowClear` instead.',
+      'Warning: `allowEmpty` in TimePicker is deprecated. Please use `allowClear` instead.',
     );
   });
 });
