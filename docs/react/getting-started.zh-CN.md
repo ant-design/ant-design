@@ -18,7 +18,7 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
 ### 1. 创建一个 codesandbox
 
-访问 http://u.ant.design/ 创建一个 codesandbox 的在线示例，别忘了保存以创建一个新的实例。
+访问 http://u.ant.design/codesandbox-repro 创建一个 codesandbox 的在线示例，别忘了保存以创建一个新的实例。
 
 ### 2. 使用组件
 

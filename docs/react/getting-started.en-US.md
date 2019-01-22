@@ -17,7 +17,7 @@ There is the simplest example to show usage of Ant Design React.
 
 ### 1. Create one codesandbox
 
-Visit http://u.ant.design/ to create a codesandbox, don't forget to press save button.
+Visit http://u.ant.design/codesandbox-repro to create a codesandbox, don't forget to press save button.
 
 ### 2. Using antd component
 
