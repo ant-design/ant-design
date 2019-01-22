@@ -215,7 +215,7 @@ class Sider extends React.Component<SiderProps, SiderState> {
       parseFloat(String(collapsedWidth || 0)) === 0 ? (
         <span
           onClick={this.toggle}
-          className={`${prefixCls}-zero-width-trigger-${reverseArrow ? 'right' : 'left'}`}
+          className={`${prefixCls}-zero-width-trigger-${reverseArrow ? 'right' : ''}`}
         >
           <Icon type="bars" />
         </span>
