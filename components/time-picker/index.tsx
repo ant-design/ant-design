@@ -148,11 +148,37 @@ class TimePicker extends React.Component<TimePickerProps, any> {
     return allowEmpty;
   }
 
+  renderInputIcon(prefixCls: string) {
+    const { suffixIcon } = this.props;
+    const clockIcon = (suffixIcon &&
+      (React.isValidElement<{ className?: string }>(suffixIcon) ? (
+        React.cloneElement(suffixIcon, {
+          className: classNames({
+            [suffixIcon.props.className!]: suffixIcon.props.className,
+            [`${prefixCls}-clock-icon`]: true,
+          }),
+        })
+      ) : (
+        <span className={`${prefixCls}-clock-icon`}>{suffixIcon}</span>
+      ))) || <Icon type="clock-circle" className={`${prefixCls}-clock-icon`} theme="outlined" />;
+
+    return <span className={`${prefixCls}-icon`}>{clockIcon}</span>;
+  }
+
+  renderClearIcon(prefixCls: string) {
+    const {} = this.props;
+
+    const clearIcon = <Icon type="close-circle" className={`${prefixCls}-clear`} theme="filled" />;
+
+    return clearIcon;
+  }
+
   renderTimePicker = (locale: TimePickerLocale) => (
     <ConfigConsumer>
       {({ getPopupContainer: getContextPopupContainer, getPrefixCls }: ConfigConsumerProps) => {
         const { getPopupContainer, prefixCls: customizePrefixCls, ...props } = this.props;
         delete props.defaultValue;
+        delete props.suffixIcon;
         delete props.allowEmpty;
         delete props.allowClear;
 
@@ -166,31 +192,6 @@ class TimePicker extends React.Component<TimePickerProps, any> {
           props.addon ? (
             <div className={`${prefixCls}-panel-addon`}>{props.addon(panel)}</div>
           ) : null;
-
-        const { suffixIcon } = props;
-        const clockIcon = (suffixIcon &&
-          (React.isValidElement<{ className?: string }>(suffixIcon) ? (
-            React.cloneElement(suffixIcon, {
-              className: classNames({
-                [suffixIcon.props.className!]: suffixIcon.props.className,
-                [`${prefixCls}-clock-icon`]: true,
-              }),
-            })
-          ) : (
-            <span className={`${prefixCls}-clock-icon`}>{suffixIcon}</span>
-          ))) || (
-          <Icon type="clock-circle" className={`${prefixCls}-clock-icon`} theme="outlined" />
-        );
-
-        const inputIcon = <span className={`${prefixCls}-icon`}>{clockIcon}</span>;
-
-        const clearIcon = (
-          <Icon
-            type="close-circle"
-            className={`${prefixCls}-panel-clear-btn-icon`}
-            theme="filled"
-          />
-        );
 
         return (
           <RcTimePicker
@@ -208,8 +209,8 @@ class TimePicker extends React.Component<TimePickerProps, any> {
             onOpen={this.handleOpenClose}
             onClose={this.handleOpenClose}
             addon={addon}
-            inputIcon={inputIcon}
-            clearIcon={clearIcon}
+            inputIcon={this.renderInputIcon(prefixCls)}
+            clearIcon={this.renderClearIcon(prefixCls)}
           />
         );
       }}
