@@ -56,8 +56,6 @@ More layouts with navigation: [layout](/components/layout).
 | disabled | whether menu item is disabled or not | boolean | false |
 | key | unique id of the menu item | string |  |
 | title | set display title for collapsed item | string |  |
-| onMouseEnter | callback executed when cursor enter | function({ eventKey, event }) | none |
-| onMouseLeave | callback executed when cursor leave | function({ eventKey, event }) | none |
 
 ### Menu.SubMenu
 
