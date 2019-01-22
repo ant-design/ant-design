@@ -229,7 +229,7 @@ exports[`renders ./components/input/demo/autosize-textarea.md correctly 1`] = `
 
 exports[`renders ./components/input/demo/basic.md correctly 1`] = `
 <input
-  class="ant-input undefined"
+  class="ant-input"
   placeholder="Basic usage"
   type="text"
   value=""
@@ -245,7 +245,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       class="ant-col-5"
     >
       <input
-        class="ant-input undefined"
+        class="ant-input"
         type="text"
         value="0571"
       />
@@ -254,7 +254,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       class="ant-col-8"
     >
       <input
-        class="ant-input undefined"
+        class="ant-input"
         type="text"
         value="26888888"
       />
@@ -265,13 +265,13 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     class="ant-input-group ant-input-group-compact"
   >
     <input
-      class="ant-input undefined"
+      class="ant-input"
       style="width:20%"
       type="text"
       value="0571"
     />
     <input
-      class="ant-input undefined"
+      class="ant-input"
       style="width:30%"
       type="text"
       value="26888888"
@@ -331,7 +331,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       </div>
     </div>
     <input
-      class="ant-input undefined"
+      class="ant-input"
       style="width:50%"
       type="text"
       value="Xihu District, Hangzhou"
@@ -391,7 +391,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       </div>
     </div>
     <input
-      class="ant-input undefined"
+      class="ant-input"
       style="width:50%"
       type="text"
       value="input content"
@@ -473,7 +473,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     class="ant-input-group ant-input-group-compact"
   >
     <input
-      class="ant-input undefined"
+      class="ant-input"
       style="width:50%"
       type="text"
       value="input content"
@@ -665,14 +665,14 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       </div>
     </div>
     <input
-      class="ant-input undefined"
+      class="ant-input"
       placeholder="Minimum"
       style="width:100px;text-align:center"
       type="text"
       value=""
     />
     <input
-      class="ant-input ant-input-disabled undefined"
+      class="ant-input ant-input-disabled"
       disabled=""
       placeholder="~"
       style="width:30px;border-left:0;pointer-events:none;background-color:#fff"
@@ -680,7 +680,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       value=""
     />
     <input
-      class="ant-input undefined"
+      class="ant-input"
       placeholder="Maximum"
       style="width:100px;text-align:center;border-left:0"
       type="text"
@@ -1084,19 +1084,19 @@ exports[`renders ./components/input/demo/size.md correctly 1`] = `
   class="example-input"
 >
   <input
-    class="ant-input ant-input-lg undefined"
+    class="ant-input ant-input-lg"
     placeholder="large size"
     type="text"
     value=""
   />
   <input
-    class="ant-input undefined"
+    class="ant-input"
     placeholder="default size"
     type="text"
     value=""
   />
   <input
-    class="ant-input ant-input-sm undefined"
+    class="ant-input ant-input-sm"
     placeholder="small size"
     type="text"
     value=""
@@ -1135,7 +1135,7 @@ exports[`renders ./components/input/demo/textarea-resize.md correctly 1`] = `
 
 exports[`renders ./components/input/demo/tooltip.md correctly 1`] = `
 <input
-  class="ant-input undefined"
+  class="ant-input"
   maxlength="25"
   placeholder="Input a number"
   style="width:120px"

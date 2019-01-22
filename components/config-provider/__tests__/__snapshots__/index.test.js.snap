@@ -7001,7 +7001,7 @@ exports[`ConfigProvider components Form configProvider 1`] = `
           class="config-form-item-children"
         >
           <input
-            class="config-input undefined"
+            class="config-input"
             type="text"
             value=""
           />
@@ -7034,7 +7034,7 @@ exports[`ConfigProvider components Form normal 1`] = `
           class="ant-form-item-children"
         >
           <input
-            class="ant-input undefined"
+            class="ant-input"
             type="text"
             value=""
           />
@@ -7067,7 +7067,7 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
           class="prefix-Form-item-children"
         >
           <input
-            class="prefix-Form undefined"
+            class="prefix-Form"
             type="text"
             value=""
           />
@@ -7119,7 +7119,7 @@ exports[`ConfigProvider components Input configProvider 1`] = `
     class="config-input-group"
   >
     <input
-      class="config-input undefined"
+      class="config-input"
       type="text"
       value=""
     />
@@ -7166,7 +7166,7 @@ exports[`ConfigProvider components Input normal 1`] = `
     class="ant-input-group"
   >
     <input
-      class="ant-input undefined"
+      class="ant-input"
       type="text"
       value=""
     />
@@ -7213,7 +7213,7 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
     class="prefix-Input"
   >
     <input
-      class="prefix-Input undefined"
+      class="prefix-Input"
       type="text"
       value=""
     />

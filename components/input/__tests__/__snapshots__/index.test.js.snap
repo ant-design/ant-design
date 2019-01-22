@@ -97,7 +97,7 @@ exports[`Input should support maxLength 1`] = `
 >
   <Consumer>
     <input
-      className="ant-input undefined"
+      className="ant-input"
       disabled={false}
       maxLength={3}
       onChange={[Function]}
