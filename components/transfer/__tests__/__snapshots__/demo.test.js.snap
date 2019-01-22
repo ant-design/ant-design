@@ -74,9 +74,6 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
           </span>
         </div>
       </div>
-      <ul
-        class="ant-transfer-list-content"
-      />
       <div
         class="ant-transfer-list-body-not-found"
       >
@@ -241,9 +238,6 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
           </span>
         </div>
       </div>
-      <ul
-        class="ant-transfer-list-content"
-      />
       <div
         class="ant-transfer-list-body-not-found"
       >
@@ -563,9 +557,6 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
     <div
       class="ant-transfer-list-body"
     >
-      <ul
-        class="ant-transfer-list-content"
-      />
       <div
         class="ant-transfer-list-body-not-found"
       >
@@ -677,9 +668,6 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
     <div
       class="ant-transfer-list-body"
     >
-      <ul
-        class="ant-transfer-list-content"
-      />
       <div
         class="ant-transfer-list-body-not-found"
       >
@@ -745,9 +733,6 @@ exports[`renders ./components/transfer/demo/large-data.md correctly 1`] = `
     <div
       class="ant-transfer-list-body"
     >
-      <ul
-        class="ant-transfer-list-content"
-      />
       <div
         class="ant-transfer-list-body-not-found"
       >
@@ -858,9 +843,6 @@ exports[`renders ./components/transfer/demo/large-data.md correctly 1`] = `
     <div
       class="ant-transfer-list-body"
     >
-      <ul
-        class="ant-transfer-list-content"
-      />
       <div
         class="ant-transfer-list-body-not-found"
       >
@@ -960,9 +942,6 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
           </span>
         </div>
       </div>
-      <ul
-        class="ant-transfer-list-content"
-      />
       <div
         class="ant-transfer-list-body-not-found"
       >
@@ -1107,9 +1086,6 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
           </span>
         </div>
       </div>
-      <ul
-        class="ant-transfer-list-content"
-      />
       <div
         class="ant-transfer-list-body-not-found"
       >

@@ -221,15 +221,17 @@ export default class TransferList extends React.Component<TransferListProps, any
         )}
       >
         {search}
-        <Animate
-          component="ul"
-          componentProps={{ onScroll }}
-          className={`${prefixCls}-content`}
-          transitionName={this.state.mounted ? `${prefixCls}-content-item-highlight` : ''}
-          transitionLeave={false}
-        >
-          {showItems}
-        </Animate>
+        {!searchNotFound && (
+          <Animate
+            component="ul"
+            componentProps={{ onScroll }}
+            className={`${prefixCls}-content`}
+            transitionName={this.state.mounted ? `${prefixCls}-content-item-highlight` : ''}
+            transitionLeave={false}
+          >
+            {showItems}
+          </Animate>
+        )}
         {searchNotFound}
       </div>
     );
@@ -240,7 +242,6 @@ export default class TransferList extends React.Component<TransferListProps, any
     const checkedAll = checkStatus === 'all';
     const checkAllCheckbox = (
       <Checkbox
-        ref="checkbox"
         disabled={disabled}
         checked={checkedAll}
         indeterminate={checkStatus === 'part'}

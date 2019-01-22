@@ -24,6 +24,7 @@ const SIZING_STYLE = [
   'font-family',
   'font-weight',
   'font-size',
+  'font-variant',
   'text-rendering',
   'text-transform',
   'width',

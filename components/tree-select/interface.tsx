@@ -34,7 +34,7 @@ export interface TreeSelectProps extends AbstractSelectProps {
   defaultValue?: string | number | Array<any>;
   dropdownStyle?: React.CSSProperties;
   filterTreeNode?: (inputValue: string, treeNode: any) => boolean | boolean;
-  getPopupContainer?: (triggerNode: Element) => HTMLElement;
+  getPopupContainer?: (triggerNode?: Element) => HTMLElement;
   labelInValue?: boolean;
   loadData?: (node: any) => void;
   maxTagCount?: number;

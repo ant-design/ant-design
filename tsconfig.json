@@ -2,6 +2,7 @@
   "compilerOptions": {
     "strictNullChecks": true,
     "moduleResolution": "node",
+    "esModuleInterop": true,
     "experimentalDecorators": true,
     "jsx": "preserve",
     "noUnusedParameters": true,
