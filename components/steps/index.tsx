@@ -21,7 +21,7 @@ export interface StepsProps {
 export interface StepProps {
   description?: React.ReactNode;
   icon?: React.ReactNode;
-  status?: string;
+  status?: 'wait' | 'process' | 'finish' | 'error';
   title?: React.ReactNode;
 }
 
