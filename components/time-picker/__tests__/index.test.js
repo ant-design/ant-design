@@ -5,6 +5,16 @@ import TimePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
 
 describe('TimePicker', () => {
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+  afterEach(() => {
+    errorSpy.mockReset();
+  });
+
+  afterAll(() => {
+    errorSpy.mockRestore();
+  });
+
   focusTest(TimePicker);
 
   it('renders addon correctly', () => {
@@ -14,5 +24,12 @@ describe('TimePicker', () => {
     const addonWrapper = render(rcTimePicker.props().addon());
 
     expect(addonWrapper).toMatchSnapshot();
+  });
+
+  it('allowEmpty deprecated', () => {
+    mount(<TimePicker allowEmpty />);
+    expect(errorSpy).toBeCalledWith(
+      'Warning: `allowEmpty` is deprecated. Please use `allowClear` instead.',
+    );
   });
 });

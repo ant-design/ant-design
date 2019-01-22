@@ -3,6 +3,7 @@ import * as moment from 'moment';
 import { polyfill } from 'react-lifecycles-compat';
 import RcTimePicker from 'rc-time-picker/lib/TimePicker';
 import classNames from 'classnames';
+import warning from '../_util/warning';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import defaultLocale from './locale/en_US';
@@ -44,6 +45,7 @@ export interface TimePickerProps {
   minuteStep?: number;
   secondStep?: number;
   allowEmpty?: boolean;
+  allowClear?: boolean;
   inputReadOnly?: boolean;
   clearText?: string;
   defaultOpenValue?: moment.Moment;
@@ -92,6 +94,11 @@ class TimePicker extends React.Component<TimePickerProps, any> {
     this.state = {
       value,
     };
+
+    warning(
+      !('allowEmpty' in props),
+      '`allowEmpty` is deprecated. Please use `allowClear` instead.',
+    );
   }
 
   handleChange = (value: moment.Moment) => {
@@ -133,11 +140,21 @@ class TimePicker extends React.Component<TimePickerProps, any> {
     return 'HH:mm:ss';
   }
 
+  getAllowClear() {
+    const { allowClear, allowEmpty } = this.props;
+    if ('allowClear' in this.props) {
+      return allowClear;
+    }
+    return allowEmpty;
+  }
+
   renderTimePicker = (locale: TimePickerLocale) => (
     <ConfigConsumer>
       {({ getPopupContainer: getContextPopupContainer, getPrefixCls }: ConfigConsumerProps) => {
         const { getPopupContainer, prefixCls: customizePrefixCls, ...props } = this.props;
         delete props.defaultValue;
+        delete props.allowEmpty;
+        delete props.allowClear;
 
         const format = this.getDefaultFormat();
         const prefixCls = getPrefixCls('time-picker', customizePrefixCls);
@@ -179,6 +196,7 @@ class TimePicker extends React.Component<TimePickerProps, any> {
           <RcTimePicker
             {...generateShowHourMinuteSecond(format)}
             {...props}
+            allowEmpty={this.getAllowClear()}
             prefixCls={prefixCls}
             getPopupContainer={getPopupContainer || getContextPopupContainer}
             ref={this.saveTimePicker}
