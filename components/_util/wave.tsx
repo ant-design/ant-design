@@ -41,7 +41,6 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
     const extraNode = this.extraNode;
     extraNode.className = 'ant-click-animating-node';
     const attributeName = this.getAttributeName();
-    node.removeAttribute(attributeName);
     node.setAttribute(attributeName, 'true');
     // Not white or transparnt or grey
     styleForPesudo = styleForPesudo || document.createElement('style');
@@ -116,7 +115,6 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
     const { insertExtraNode } = this.props;
     const attributeName = this.getAttributeName();
     node.setAttribute(attributeName, 'false'); // edge has bug on `removeAttribute` #14466
-    node.removeAttribute(attributeName);
     this.removeExtraStyleNode();
     if (insertExtraNode && this.extraNode && node.contains(this.extraNode)) {
       node.removeChild(this.extraNode);
