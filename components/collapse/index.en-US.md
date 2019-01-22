@@ -23,7 +23,7 @@ A content area which can be collapsed and expanded.
 | bordered | Toggles rendering of the border around the collapse block | boolean | `true` |
 | accordion | If `true`, `Collapse` renders as `Accordion` | boolean | `false` |
 | onChange | Callback function executed when active panel is changed | Function | - |
-| expandIcon | 自定义切换图标 | (panelProps) => ReactNode | - |
+| expandIcon | allow to customize collapse icon | (panelProps) => ReactNode | - |
 | destroyInactivePanel | Destroy Inactive Panel | boolean | `false` |
 
 ### Collapse.Panel
