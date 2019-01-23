@@ -26,6 +26,7 @@ export interface SpinProps {
 export interface SpinState {
   spinning?: boolean;
   notCssAnimationSupported?: boolean;
+  supportPointerEvents?: boolean;
 }
 
 // Render indicator
@@ -89,6 +90,7 @@ class Spin extends React.Component<SpinProps, SpinState> {
     const shouldBeDelayed = shouldDelay(spinning, delay);
     this.state = {
       spinning: spinning && !shouldBeDelayed,
+      supportPointerEvents: true,
     };
     this.originalUpdateSpinning = this.updateSpinning;
     this.debouncifyUpdateSpinning(props);
@@ -106,6 +108,10 @@ class Spin extends React.Component<SpinProps, SpinState> {
   }
 
   componentDidMount() {
+    // We delay check if pointer-events support or not to avoid ssr render not sync
+    if (!isPointerEventsSupported) {
+      this.setState({ supportPointerEvents: isPointerEventsSupported });
+    }
     this.updateSpinning();
   }
 
@@ -139,7 +145,7 @@ class Spin extends React.Component<SpinProps, SpinState> {
       style,
       ...restProps
     } = this.props;
-    const { spinning } = this.state;
+    const { spinning, supportPointerEvents } = this.state;
 
     const prefixCls = getPrefixCls('spin', customizePrefixCls);
     const spinClassName = classNames(
@@ -165,7 +171,7 @@ class Spin extends React.Component<SpinProps, SpinState> {
     if (this.isNestedPattern()) {
       const containerClassName = classNames(`${prefixCls}-container`, {
         [`${prefixCls}-blur`]: spinning,
-        [`${prefixCls}-pointer-events-not-supported`]: !isPointerEventsSupported,
+        [`${prefixCls}-pointer-events-not-supported`]: !supportPointerEvents,
       });
       return (
         <div {...divProps} className={classNames(`${prefixCls}-nested-loading`, wrapperClassName)}>
