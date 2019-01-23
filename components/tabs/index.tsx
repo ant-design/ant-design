@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
-import isFlexSupported from '../_util/isFlexSupported';
+import { isFlexSupported } from '../_util/styleChecker';
 
 export type TabsType = 'line' | 'card' | 'editable-card';
 export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
