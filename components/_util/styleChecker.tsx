@@ -8,8 +8,8 @@ function isStyleSupport(styleName: string | Array<string>): boolean {
   return false;
 }
 
-export function isFlexSupported() {
-  return isStyleSupport(['flex', 'webkitFlex', 'Flex', 'msFlex']);
-}
+export const isFlexSupported = isStyleSupport(['flex', 'webkitFlex', 'Flex', 'msFlex']);
+
+export const isPointerEventsSupported = isStyleSupport('pointer-events');
 
 export default isStyleSupport;

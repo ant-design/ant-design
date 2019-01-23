@@ -5,6 +5,7 @@ import omit from 'omit.js';
 import debounce from 'lodash/debounce';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { tuple } from '../_util/type';
+import { isPointerEventsSupported } from '../_util/styleChecker';
 
 const SpinSizes = tuple('small', 'default', 'large');
 export type SpinSize = (typeof SpinSizes)[number];
@@ -118,7 +119,7 @@ class Spin extends React.Component<SpinProps, SpinState> {
     if (delay) {
       this.updateSpinning = debounce(this.originalUpdateSpinning, delay);
     }
-  }
+  };
 
   updateSpinning = () => {
     const { spinning } = this.props;
@@ -164,6 +165,7 @@ class Spin extends React.Component<SpinProps, SpinState> {
     if (this.isNestedPattern()) {
       const containerClassName = classNames(`${prefixCls}-container`, {
         [`${prefixCls}-blur`]: spinning,
+        [`${prefixCls}-pointer-events-not-supported`]: !isPointerEventsSupported,
       });
       return (
         <div {...divProps} className={classNames(`${prefixCls}-nested-loading`, wrapperClassName)}>
