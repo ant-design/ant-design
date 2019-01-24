@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { polyfill } from 'react-lifecycles-compat';
-import * as copy from 'copy-to-clipboard';
+import copy from 'copy-to-clipboard';
 import omit from 'omit.js';
 import { withConfigConsumer, ConfigConsumerProps, configConsumerProps } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
