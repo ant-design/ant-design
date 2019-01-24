@@ -1,7 +1,7 @@
 ---
 category: Components
 type: General
-title: Text
+title: Typography
 cols: 1
 ---
 
@@ -12,6 +12,8 @@ Basic format and regular operation on text.
 When need to display title or text content.
 
 ## API
+
+### Typography.Text
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
@@ -27,7 +29,7 @@ When need to display title or text content.
 | onChange | Trigger when user edit the content | Function(string) | - |
 | type | Content type | `secondary`, `warning`, `danger` | - |
 
-### Text.Title
+### Typography.Title
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
@@ -44,7 +46,7 @@ When need to display title or text content.
 | onChange | Trigger when user edit the content | Function(string) | - |
 | type | Content type | `secondary`, `warning`, `danger` | - |
 
-### Text.Paragraph
+### Typography.Paragraph
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |

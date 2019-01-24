@@ -14,7 +14,9 @@ title:
 Simplest Usage.
 
 ```jsx
-import { Text } from 'antd';
+import { Typography } from 'antd';
+
+const { Text } = Typography;
 
 ReactDOM.render(
   <div>

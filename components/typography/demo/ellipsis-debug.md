@@ -15,9 +15,9 @@ debug: true
 Multiple line ellipsis support.
 
 ```jsx
-import { Text, Slider } from 'antd';
+import { Typography, Slider } from 'antd';
 
-const { Paragraph } = Text;
+const { Paragraph } = Typography;
 
 class Demo extends React.Component {
   state = {

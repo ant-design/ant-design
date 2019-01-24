@@ -1,8 +1,8 @@
 ---
 category: Components
-subtitle: 文本
+subtitle: 活版印刷
 type: 通用
-title: Text
+title: Typography
 cols: 1
 ---
 
@@ -13,6 +13,8 @@ cols: 1
 当需要展示标题、文本内容时使用。
 
 ## API
+
+### Typography.Text
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -28,7 +30,7 @@ cols: 1
 | onChange | 当用户提交编辑内容时触发 | Function(string) | - |
 | type | 文本类型 | `secondary`, `warning`, `danger` | - |
 
-### Text.Title
+### Typography.Title
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -45,7 +47,7 @@ cols: 1
 | onChange | 当用户提交编辑内容时触发 | Function(string) | - |
 | type | 文本类型 | `secondary`, `warning`, `danger` | - |
 
-### Text.Paragraph
+### Typography.Paragraph
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |

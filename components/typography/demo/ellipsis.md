@@ -14,9 +14,9 @@ title:
 Multiple line ellipsis support.
 
 ```jsx
-import { Text } from 'antd';
+import { Typography } from 'antd';
 
-const { Paragraph } = Text;
+const { Paragraph } = Typography;
 
 ReactDOM.render(
   <div>

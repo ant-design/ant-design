@@ -8,7 +8,7 @@ import Base from '../Base'; // eslint-disable-line import/no-named-as-default
 
 jest.mock('copy-to-clipboard');
 
-describe('Text', () => {
+describe('Typography', () => {
   const LINE_STR_COUNT = 20;
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 

@@ -14,9 +14,9 @@ title:
 Display the title and paragraph.
 
 ```jsx
-import { Text } from 'antd';
+import { Typography } from 'antd';
 
-const { Title, Paragraph } = Text;
+const { Title, Paragraph } = Typography;
 
 ReactDOM.render(
   <div>

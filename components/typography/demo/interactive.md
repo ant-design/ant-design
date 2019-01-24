@@ -14,9 +14,9 @@ title:
 Provide additional interactive capacity.
 
 ```jsx
-import { Text } from 'antd';
+import { Typography } from 'antd';
 
-const { Paragraph } = Text;
+const { Paragraph } = Typography;
 
 class Demo extends React.Component {
   state = {

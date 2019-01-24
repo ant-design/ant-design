@@ -14,9 +14,9 @@ title:
 Display title in different level.
 
 ```jsx
-import { Text } from 'antd';
+import { Typography } from 'antd';
 
-const { Title } = Text;
+const { Title } = Typography;
 
 ReactDOM.render(
   <div>
