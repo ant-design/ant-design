@@ -339,9 +339,6 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
 
 polyfill(Base);
 
-// Only used for test, do not export to public
-export { Base };
-
 export default withConfigConsumer<InternalBaseProps>({
   prefixCls: 'text',
 })(Base);

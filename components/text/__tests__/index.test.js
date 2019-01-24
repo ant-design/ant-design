@@ -1,12 +1,34 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import KeyCode from 'rc-util/lib/KeyCode';
+import copy from 'copy-to-clipboard';
 import Title from '../Title';
 import Paragraph from '../Paragraph';
-import { Base } from '../Base';
+import Base from '../Base'; // eslint-disable-line import/no-named-as-default
+
+jest.mock('copy-to-clipboard');
 
 describe('Text', () => {
+  const LINE_STR_COUNT = 20;
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+  // Mock offsetHeight
+  const originOffsetHeight = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetHeight')
+    .get;
+  Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
+    get() {
+      const lines = Math.ceil(this.innerHTML.length / LINE_STR_COUNT);
+      return lines * 16;
+    },
+  });
+
+  // Mock getComputedStyle
+  const originGetComputedStyle = window.getComputedStyle;
+  window.getComputedStyle = ele => {
+    const style = originGetComputedStyle(ele);
+    style.lineHeight = '16px';
+    return style;
+  };
 
   beforeAll(() => {
     jest.useFakeTimers();
@@ -19,6 +41,10 @@ describe('Text', () => {
   afterAll(() => {
     jest.useRealTimers();
     errorSpy.mockRestore();
+    Object.defineProperty(HTMLElement.prototype, {
+      get: originOffsetHeight,
+    });
+    window.getComputedStyle = originGetComputedStyle;
   });
 
   describe('Title', () => {
@@ -32,29 +58,79 @@ describe('Text', () => {
   });
 
   describe('Base', () => {
-    it('trigger ellipsis update', () => {
-      const onSyncEllipsis = jest.fn();
+    describe('trigger ellipsis update', () => {
+      const fullStr =
+        'Bamboo is Little Light Bamboo is Little Light Bamboo is Little Light Bamboo is Little Light Bamboo is Little Light';
 
-      class TestBase extends Base {
-        syncEllipsis = () => {
-          super.syncEllipsis();
-          onSyncEllipsis();
-        };
+      it('trigger ellipsis update', () => {
+        const wrapper = mount(
+          <Base rows={1} component="p">
+            {fullStr}
+          </Base>,
+        );
+
+        jest.runAllTimers();
+        wrapper.update();
+        expect(wrapper.find('span').text()).toEqual('Bamboo is Little...');
+
+        wrapper.setProps({ rows: 2 });
+        jest.runAllTimers();
+        wrapper.update();
+        expect(wrapper.find('span').text()).toEqual('Bamboo is Little Light Bamboo is Lit...');
+
+        wrapper.setProps({ rows: 99 });
+        jest.runAllTimers();
+        wrapper.update();
+        expect(wrapper.find('p').text()).toEqual(fullStr);
+
+        wrapper.unmount();
+      });
+
+      it('should expand work', () => {
+        const wrapper = mount(
+          <Base rows={1} component="p" copyable editable extendable>
+            {fullStr}
+          </Base>,
+        );
+
+        jest.runAllTimers();
+        wrapper.update();
+
+        wrapper.find('.ant-text-extend').simulate('click');
+        jest.runAllTimers();
+        wrapper.update();
+
+        expect(wrapper.find('p').text()).toEqual(fullStr);
+      });
+    });
+
+    describe('copyable', () => {
+      function copyTest(name, value, target) {
+        it(name, () => {
+          const wrapper = mount(
+            <Base component="p" copyable={value}>
+              test copy
+            </Base>,
+          );
+
+          wrapper
+            .find('.ant-text-copy')
+            .first()
+            .simulate('click');
+          expect(copy.lastStr).toEqual(target);
+
+          expect(wrapper.find('.anticon-check').length).toBeTruthy();
+
+          jest.runAllTimers();
+          wrapper.update();
+
+          // Will set back when 3 seconds pass
+          expect(wrapper.find('.anticon-check').length).toBeFalsy();
+        });
       }
 
-      const wrapper = mount(
-        <TestBase rows={1} component="p" onSyncEllipsis={onSyncEllipsis}>
-          Bamboo is Little Light Bamboo is Little Light Bamboo is Little Light Bamboo is Little
-          Light Bamboo is Little Light
-        </TestBase>,
-      );
-
-      jest.runAllTimers();
-      expect(onSyncEllipsis).toHaveBeenCalledTimes(1);
-
-      wrapper.setProps({ rows: 2 });
-      jest.runAllTimers();
-      expect(onSyncEllipsis).toHaveBeenCalledTimes(2);
+      copyTest('basic copy', true, 'test copy');
+      copyTest('customize copy', 'bamboo', 'bamboo');
     });
 
     describe('editable', () => {
@@ -83,11 +159,19 @@ describe('Text', () => {
             expectFunc(onChange);
           } else {
             expect(onChange).toBeCalledWith('Bamboo');
+            expect(onChange).toHaveBeenCalledTimes(1);
           }
         });
       }
 
       testStep('by key up', wrapper => {
+        // Not trigger when inComposition
+        wrapper.find('TextArea').simulate('compositionStart');
+        wrapper.find('TextArea').simulate('keyDown', { keyCode: KeyCode.ENTER });
+        wrapper.find('TextArea').simulate('compositionEnd');
+        wrapper.find('TextArea').simulate('keyUp', { keyCode: KeyCode.ENTER });
+
+        // Now trigger
         wrapper.find('TextArea').simulate('keyDown', { keyCode: KeyCode.ENTER });
         wrapper.find('TextArea').simulate('keyUp', { keyCode: KeyCode.ENTER });
       });
