@@ -3,9 +3,9 @@ import { cloneElement } from 'react';
 import { polyfill } from 'react-lifecycles-compat';
 import RcTooltip from 'rc-tooltip';
 import classNames from 'classnames';
-import Button from '../button/index';
-import { ConfigConsumer, ConfigProviderProps } from '../config-provider';
 import getPlacements, { AdjustOverflow, PlacementsConfig } from './placements';
+import Button from '../button/index';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export { AdjustOverflow, PlacementsConfig };
 
@@ -37,7 +37,7 @@ export interface TooltipAlignConfig {
   useCssTransform?: boolean;
 }
 
-export interface AbstractTooltipProps extends ConfigProviderProps {
+export interface AbstractTooltipProps {
   prefixCls?: string;
   overlayClassName?: string;
   style?: React.CSSProperties;
@@ -56,6 +56,7 @@ export interface AbstractTooltipProps extends ConfigProviderProps {
   autoAdjustOverflow?: boolean | AdjustOverflow;
   // getTooltipContainer had been rename to getPopupContainer
   getTooltipContainer?: (triggerNode: Element) => HTMLElement;
+  getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
   children?: React.ReactNode;
   // align is a more higher api
   align?: TooltipAlignConfig;
@@ -82,7 +83,6 @@ const splitObject = (obj: any, keys: string[]) => {
 
 class Tooltip extends React.Component<TooltipProps, any> {
   static defaultProps = {
-    prefixCls: 'ant-tooltip',
     placement: 'top' as TooltipPlacement,
     transitionName: 'zoom-big-fast',
     mouseEnterDelay: 0.1,
@@ -217,10 +217,13 @@ class Tooltip extends React.Component<TooltipProps, any> {
     this.tooltip = node;
   };
 
-  renderTooltip = ({ getPopupContainer: getContextPopupContainer }: ConfigProviderProps) => {
+  renderTooltip = ({
+    getPopupContainer: getContextPopupContainer,
+    getPrefixCls,
+  }: ConfigConsumerProps) => {
     const { props, state } = this;
     const {
-      prefixCls,
+      prefixCls: customizePrefixCls,
       title,
       overlay,
       openClassName,
@@ -228,6 +231,7 @@ class Tooltip extends React.Component<TooltipProps, any> {
       getTooltipContainer,
     } = props;
     const children = props.children as React.ReactElement<any>;
+    const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
     let visible = state.visible;
     // Hide tooltip when there is no title
     if (!('visible' in props) && this.isNoTitle()) {
@@ -246,6 +250,7 @@ class Tooltip extends React.Component<TooltipProps, any> {
     return (
       <RcTooltip
         {...this.props}
+        prefixCls={prefixCls}
         getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}
         ref={this.saveTooltip}
         builtinPlacements={this.getPlacements()}

@@ -163,4 +163,39 @@ describe('DatePicker', () => {
 
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  it('extra footer works', () => {
+    const wrapper = mount(
+      <DatePicker renderExtraFooter={mode => <span className="extra-node">{mode}</span>} />,
+    );
+    openPanel(wrapper);
+
+    let extraNode = wrapper.find('.extra-node');
+    expect(extraNode.length).toBe(1);
+    expect(extraNode.text()).toBe('date');
+
+    wrapper
+      .find('.ant-calendar-month-select')
+      .hostNodes()
+      .simulate('click');
+    extraNode = wrapper.find('.ant-calendar-month-panel .extra-node');
+    expect(extraNode.length).toBe(1);
+    expect(extraNode.text()).toBe('month');
+
+    wrapper
+      .find('.ant-calendar-year-select')
+      .hostNodes()
+      .simulate('click');
+    extraNode = wrapper.find('.ant-calendar-year-panel .extra-node');
+    expect(extraNode.length).toBe(1);
+    expect(extraNode.text()).toBe('year');
+
+    wrapper
+      .find('.ant-calendar-year-panel-decade-select')
+      .hostNodes()
+      .simulate('click');
+    extraNode = wrapper.find('.ant-calendar-decade-panel .extra-node');
+    expect(extraNode.length).toBe(1);
+    expect(extraNode.text()).toBe('decade');
+  });
 });

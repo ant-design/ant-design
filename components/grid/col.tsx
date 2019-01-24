@@ -2,29 +2,33 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import RowContext from './RowContext';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 const objectOrNumber = PropTypes.oneOfType([PropTypes.object, PropTypes.number]);
 
+// https://github.com/ant-design/ant-design/issues/14324
+type ColSpanType = number | string;
+
 export interface ColSize {
-  span?: number;
-  order?: number;
-  offset?: number;
-  push?: number;
-  pull?: number;
+  span?: ColSpanType;
+  order?: ColSpanType;
+  offset?: ColSpanType;
+  push?: ColSpanType;
+  pull?: ColSpanType;
 }
 
 export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
-  span?: number;
-  order?: number;
-  offset?: number;
-  push?: number;
-  pull?: number;
-  xs?: number | ColSize;
-  sm?: number | ColSize;
-  md?: number | ColSize;
-  lg?: number | ColSize;
-  xl?: number | ColSize;
-  xxl?: number | ColSize;
+  span?: ColSpanType;
+  order?: ColSpanType;
+  offset?: ColSpanType;
+  push?: ColSpanType;
+  pull?: ColSpanType;
+  xs?: ColSpanType | ColSize;
+  sm?: ColSpanType | ColSize;
+  md?: ColSpanType | ColSize;
+  lg?: ColSpanType | ColSize;
+  xl?: ColSpanType | ColSize;
+  xxl?: ColSpanType | ColSize;
   prefixCls?: string;
 }
 
@@ -45,9 +49,10 @@ export default class Col extends React.Component<ColProps, {}> {
     xxl: objectOrNumber,
   };
 
-  render() {
+  renderCol = ({ getPrefixCls }: ConfigConsumerProps) => {
     const props: any = this.props;
     const {
+      prefixCls: customizePrefixCls,
       span,
       order,
       offset,
@@ -55,9 +60,9 @@ export default class Col extends React.Component<ColProps, {}> {
       pull,
       className,
       children,
-      prefixCls = 'ant-col',
       ...others
     } = props;
+    const prefixCls = getPrefixCls('col', customizePrefixCls);
     let sizeClassObj = {};
     ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].forEach(size => {
       let sizeProps: ColSize = {};
@@ -110,5 +115,9 @@ export default class Col extends React.Component<ColProps, {}> {
         }}
       </RowContext.Consumer>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderCol}</ConfigConsumer>;
   }
 }

@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import TimelineItem, { TimeLineItemProps } from './TimelineItem';
 import Icon from '../icon';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface TimelineProps {
   prefixCls?: string;
@@ -15,16 +16,15 @@ export interface TimelineProps {
 }
 
 export default class Timeline extends React.Component<TimelineProps, any> {
-  static Item = TimelineItem as React.ClassicComponentClass<TimeLineItemProps>;
+  static Item: React.SFC<TimeLineItemProps> = TimelineItem;
   static defaultProps = {
-    prefixCls: 'ant-timeline',
     reverse: false,
     mode: '',
   };
 
-  render() {
+  renderTimeline = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
-      prefixCls,
+      prefixCls: customizePrefixCls,
       pending = null,
       pendingDot,
       children,
@@ -33,6 +33,7 @@ export default class Timeline extends React.Component<TimelineProps, any> {
       mode,
       ...restProps
     } = this.props;
+    const prefixCls = getPrefixCls('timeline', customizePrefixCls);
     const pendingNode = typeof pending === 'boolean' ? null : pending;
     const classString = classNames(
       prefixCls,
@@ -85,5 +86,9 @@ export default class Timeline extends React.Component<TimelineProps, any> {
         {items}
       </ul>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderTimeline}</ConfigConsumer>;
   }
 }

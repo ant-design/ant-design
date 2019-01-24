@@ -24,6 +24,7 @@ Rate component.
 | defaultValue | default value | number | 0 |
 | disabled | read only, unable to interact | boolean | false |
 | style | custom style object of rate | object | - |
+| tooltips | Customize tooltip by each character | string\[] | - |
 | value | current value | number | - |
 | onBlur | callback when component lose focus | Function() | - |
 | onChange | callback when select value | Function(value: number) | - |

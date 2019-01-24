@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import RcInputNumber from 'rc-input-number';
 import Icon from '../icon';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { Omit } from '../_util/type';
 
 // omitting this attrs because they conflicts with the ones defined in InputNumberProps
@@ -32,34 +33,10 @@ export interface InputNumberProps
 
 export default class InputNumber extends React.Component<InputNumberProps, any> {
   static defaultProps = {
-    prefixCls: 'ant-input-number',
     step: 1,
   };
 
   private inputNumberRef: any;
-
-  render() {
-    const { className, size, ...others } = this.props;
-    const inputNumberClass = classNames(
-      {
-        [`${this.props.prefixCls}-lg`]: size === 'large',
-        [`${this.props.prefixCls}-sm`]: size === 'small',
-      },
-      className,
-    );
-    const upIcon = <Icon type="up" className={`${this.props.prefixCls}-handler-up-inner`} />;
-    const downIcon = <Icon type="down" className={`${this.props.prefixCls}-handler-down-inner`} />;
-
-    return (
-      <RcInputNumber
-        ref={(c: any) => (this.inputNumberRef = c)}
-        className={inputNumberClass}
-        upHandler={upIcon}
-        downHandler={downIcon}
-        {...others}
-      />
-    );
-  }
 
   focus() {
     this.inputNumberRef.focus();
@@ -67,5 +44,34 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
 
   blur() {
     this.inputNumberRef.blur();
+  }
+
+  renderInputNumber = ({ getPrefixCls }: ConfigConsumerProps) => {
+    const { className, size, prefixCls: customizePrefixCls, ...others } = this.props;
+    const prefixCls = getPrefixCls('input-number', customizePrefixCls);
+    const inputNumberClass = classNames(
+      {
+        [`${prefixCls}-lg`]: size === 'large',
+        [`${prefixCls}-sm`]: size === 'small',
+      },
+      className,
+    );
+    const upIcon = <Icon type="up" className={`${prefixCls}-handler-up-inner`} />;
+    const downIcon = <Icon type="down" className={`${prefixCls}-handler-down-inner`} />;
+
+    return (
+      <RcInputNumber
+        ref={(c: any) => (this.inputNumberRef = c)}
+        className={inputNumberClass}
+        upHandler={upIcon}
+        downHandler={downIcon}
+        prefixCls={prefixCls}
+        {...others}
+      />
+    );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderInputNumber}</ConfigConsumer>;
   }
 }

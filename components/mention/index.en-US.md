@@ -33,6 +33,7 @@ When need to mention someone or something.
 | -------- | ----------- | ---- | ------- |
 | autoFocus | get focus when component mounted | boolean | false |
 | defaultValue | default value | ContentState, you can use `Mention.toContentState` to convert text to `ContentState` | null |
+| defaultSuggestions | default suggestion content | Array&lt;string\|Mention.Nav> | \[] |
 | disabled | Tell if the input is disabled. | boolean | false |
 | getSuggestionContainer | rendered to the root of the menu. Default rendered to the body dom. If gets any problem of the menu while scrolling. Try to make the root the dom scrolled, and make it position relative. | function | () => document.body |
 | loading | loading mode | boolean | false |
@@ -40,7 +41,7 @@ When need to mention someone or something.
 | notFoundContent | suggestion when suggestions empty | string | '无匹配结果，轻敲空格完成输入' |
 | placeholder | placeholder of input | string | null |
 | placement | The position of the suggestion relative to the target, which can be one of `top` and `bottom` | string | 'bottom'. |
-| prefix | character which will trigger Mention to show mention list | string or Array<string> | '@' |
+| prefix | character which will trigger Mention to show mention list | string or Array&lt;string> | '@' |
 | readOnly | Tell if the input is readonly. | boolean | false |
 | suggestions | suggestion content | Array&lt;string\|Mention.Nav> | \[] |
 | suggestionStyle | style of suggestion container | object | {} |

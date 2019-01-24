@@ -1,3 +1,5 @@
+declare module '*.svg';
+
 declare module 'rc-calendar*';
 
 declare module 'rc-time-picker*';
@@ -11,8 +13,6 @@ declare module 'rc-animate';
 declare module 'rc-util*';
 
 declare module 'shallowequal';
-
-declare module 'warning';
 
 declare module 'css-animation*';
 
@@ -93,9 +93,7 @@ declare module 'lodash/debounce';
 
 declare module 'lodash/uniqBy';
 
-declare module 'raf';
-
-declare module 'intersperse';
+declare module "raf";
 
 declare module 'react-lifecycles-compat';
 

@@ -12,6 +12,8 @@
   > div {
     // TODO: this is a useless wrapper, and we need to remove it in rc-calendar
     height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -24,7 +26,14 @@
 }
 
 .@{calendar-prefix-cls}-month-panel-body {
-  height: ~'calc(100% - 40px)';
+  flex: 1;
+}
+
+.@{calendar-prefix-cls}-month-panel-footer {
+  border-top: @border-width-base @border-style-base @border-color-split;
+  .@{calendar-prefix-cls}-footer-extra {
+    padding: 0 12px;
+  }
 }
 
 .@{calendar-prefix-cls}-month-panel-table {
@@ -36,11 +45,11 @@
 
 .@{calendar-prefix-cls}-month-panel-selected-cell .@{calendar-prefix-cls}-month-panel-month {
   background: @primary-color;
-  color: #fff;
+  color: @text-color-inverse;
 
   &:hover {
     background: @primary-color;
-    color: #fff;
+    color: @text-color-inverse;
   }
 }
 
@@ -51,7 +60,7 @@
     &,
     &:hover {
       cursor: not-allowed;
-      color: #bcbcbc;
+      color: @disabled-color;
       background: @disabled-bg;
     }
   }

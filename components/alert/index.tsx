@@ -3,6 +3,7 @@ import * as ReactDOM from 'react-dom';
 import Animate from 'rc-animate';
 import Icon, { ThemeType } from '../icon';
 import classNames from 'classnames';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 
 function noop() {}
@@ -67,10 +68,10 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
     (this.props.afterClose || noop)();
   };
 
-  render() {
+  renderAlert = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
       description,
-      prefixCls = 'ant-alert',
+      prefixCls: customizePrefixCls,
       message,
       closeText,
       banner,
@@ -79,6 +80,8 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
       icon,
     } = this.props;
     let { closable, type, showIcon, iconType } = this.props;
+
+    const prefixCls = getPrefixCls('alert', customizePrefixCls);
 
     // banner模式默认有 Icon
     showIcon = banner && showIcon === undefined ? true : showIcon;
@@ -165,5 +168,9 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
         </div>
       </Animate>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderAlert}</ConfigConsumer>;
   }
 }

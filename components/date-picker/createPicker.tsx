@@ -6,6 +6,8 @@ import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import Icon from '../icon';
+
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 import interopDefault from '../_util/interopDefault';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
@@ -25,7 +27,6 @@ export interface PickerState {
 export default function createPicker(TheCalendar: React.ComponentClass): any {
   class CalenderWrapper extends React.Component<any, PickerState> {
     static defaultProps = {
-      prefixCls: 'ant-calendar',
       allowClear: true,
       showToday: true,
     };
@@ -51,6 +52,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
     }
 
     private input: any;
+    private prefixCls?: string;
 
     constructor(props: any) {
       super(props);
@@ -68,8 +70,15 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
       };
     }
 
+    componentDidUpdate(_: PickerProps, prevState: PickerState) {
+      if (!('open' in this.props) && prevState.open && !this.state.open) {
+        this.focus();
+      }
+    }
+
     renderFooter = (...args: any[]) => {
-      const { prefixCls, renderExtraFooter } = this.props;
+      const { renderExtraFooter } = this.props;
+      const { prefixCls } = this;
       return renderExtraFooter ? (
         <div className={`${prefixCls}-footer-extra`}>{renderExtraFooter(...args)}</div>
       ) : null;
@@ -105,10 +114,6 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
       if (onOpenChange) {
         onOpenChange(open);
       }
-
-      if (!open) {
-        this.focus();
-      }
     };
 
     focus() {
@@ -123,10 +128,16 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
       this.input = node;
     };
 
-    render() {
+    renderPicker = ({ getPrefixCls }: ConfigConsumerProps) => {
       const { value, showDate, open } = this.state;
       const props = omit(this.props, ['onChange']);
-      const { prefixCls, locale, localeCode, suffixIcon } = props;
+      const { prefixCls: customizePrefixCls, locale, localeCode, suffixIcon } = props;
+
+      const prefixCls = getPrefixCls('calendar', customizePrefixCls);
+      // To support old version react.
+      // Have to add prefixCls on the instance.
+      // https://github.com/facebook/react/issues/12397
+      this.prefixCls = prefixCls;
 
       const placeholder = 'placeholder' in props ? props.placeholder : locale.lang.placeholder;
 
@@ -250,6 +261,10 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
           </RcDatePicker>
         </span>
       );
+    };
+
+    render() {
+      return <ConfigConsumer>{this.renderPicker}</ConfigConsumer>;
     }
   }
   polyfill(CalenderWrapper);

@@ -139,7 +139,7 @@
 
     &:focus,
     &:hover {
-      color: #444;
+      color: @icon-color-hover;
       text-decoration: none;
     }
   }
@@ -151,6 +151,11 @@
     color: @text-color;
     border-bottom: @border-width-base @border-style-base @border-color-split;
     position: relative;
+  }
+
+  &-header-no-title {
+    background: @component-background;
+    color: @text-color;
   }
 
   &-body {

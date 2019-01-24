@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
 import omit from 'omit.js';
 import Checkbox, { CheckboxChangeEvent } from './Checkbox';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export type CheckboxValueType = string | number | boolean;
 
@@ -44,7 +45,6 @@ export interface CheckboxGroupContext {
 class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupState> {
   static defaultProps = {
     options: [],
-    prefixCls: 'ant-checkbox',
   };
 
   static propTypes = {
@@ -119,9 +119,10 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
     }
   };
 
-  render() {
+  renderGroup = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { props, state } = this;
-    const { prefixCls, className, style, options, ...restProps } = props;
+    const { prefixCls: customizePrefixCls, className, style, options, ...restProps } = props;
+    const prefixCls = getPrefixCls('checkbox', customizePrefixCls);
     const groupPrefixCls = `${prefixCls}-group`;
 
     const domProps = omit(restProps, ['children', 'defaultValue', 'value', 'onChange', 'disabled']);
@@ -149,6 +150,10 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
         {children}
       </div>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderGroup}</ConfigConsumer>;
   }
 }
 

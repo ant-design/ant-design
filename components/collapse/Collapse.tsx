@@ -1,9 +1,10 @@
 import * as React from 'react';
 import RcCollapse from 'rc-collapse';
 import classNames from 'classnames';
-import animation from '../_util/openAnimation';
 import CollapsePanel from './CollapsePanel';
 import Icon from '../icon';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import animation from '../_util/openAnimation';
 
 export interface CollapseProps {
   activeKey?: Array<string> | string;
@@ -22,7 +23,6 @@ export default class Collapse extends React.Component<CollapseProps, any> {
   static Panel = CollapsePanel;
 
   static defaultProps = {
-    prefixCls: 'ant-collapse',
     bordered: true,
     openAnimation: { ...animation, appear() {} },
   };
@@ -31,8 +31,9 @@ export default class Collapse extends React.Component<CollapseProps, any> {
     return <Icon type="right" className={`arrow`} />;
   };
 
-  render() {
-    const { prefixCls, className = '', bordered } = this.props;
+  renderCollapse = ({ getPrefixCls }: ConfigConsumerProps) => {
+    const { prefixCls: customizePrefixCls, className = '', bordered } = this.props;
+    const prefixCls = getPrefixCls('collapse', customizePrefixCls);
     const collapseClassName = classNames(
       {
         [`${prefixCls}-borderless`]: !bordered,
@@ -42,9 +43,14 @@ export default class Collapse extends React.Component<CollapseProps, any> {
     return (
       <RcCollapse
         {...this.props}
+        prefixCls={prefixCls}
         className={collapseClassName}
         expandIcon={this.renderExpandIcon}
       />
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderCollapse}</ConfigConsumer>;
   }
 }

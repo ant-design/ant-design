@@ -36,11 +36,12 @@ export interface ColumnProps<T> {
   fixed?: boolean | ('left' | 'right');
   filterIcon?: React.ReactNode | ((filtered: boolean) => React.ReactNode);
   filteredValue?: any[];
-  sortOrder?: SortOrder;
+  sortOrder?: SortOrder | boolean;
   children?: ColumnProps<T>[];
   onCellClick?: (record: T, event: any) => void;
   onCell?: (record: T, rowIndex: number) => any;
   onHeaderCell?: (props: ColumnProps<T>) => any;
+  sortDirections?: SortOrder[];
 }
 
 export interface AdditionalCellProps {
@@ -114,6 +115,11 @@ export interface ExpandIconProps<T> {
   expandable: boolean;
   onExpand: (record: T, event: MouseEvent) => void;
 }
+
+export interface TableCurrentDataSource<T> {
+  currentDataSource: T[];
+}
+
 export interface TableProps<T> {
   prefixCls?: string;
   dropdownPrefixCls?: string;
@@ -144,9 +150,10 @@ export interface TableProps<T> {
     pagination: PaginationConfig,
     filters: Record<keyof T, string[]>,
     sorter: SorterResult<T>,
+    extra: TableCurrentDataSource<T>,
   ) => void;
   loading?: boolean | SpinProps;
-  locale?: Object;
+  locale?: TableLocale;
   indentSize?: number;
   onRowClick?: (record: T, index: number, event: Event) => void;
   onRow?: (record: T, index: number) => any;
@@ -162,6 +169,7 @@ export interface TableProps<T> {
   className?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
+  sortDirections?: SortOrder[];
 }
 
 export interface TableStateFilters {

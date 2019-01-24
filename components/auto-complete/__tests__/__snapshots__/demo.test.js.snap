@@ -7,7 +7,7 @@ exports[`renders ./components/auto-complete/demo/basic.md correctly 1`] = `
 >
   <div
     aria-autocomplete="list"
-    aria-controls="test-uuid"
+    aria-controls=""
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
@@ -83,7 +83,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
   >
     <div
       aria-autocomplete="list"
-      aria-controls="test-uuid"
+      aria-controls=""
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -181,7 +181,7 @@ exports[`renders ./components/auto-complete/demo/custom.md correctly 1`] = `
 >
   <div
     aria-autocomplete="list"
-    aria-controls="test-uuid"
+    aria-controls=""
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
@@ -246,7 +246,7 @@ exports[`renders ./components/auto-complete/demo/non-case-sensitive.md correctly
 >
   <div
     aria-autocomplete="list"
-    aria-controls="test-uuid"
+    aria-controls=""
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
@@ -318,7 +318,7 @@ exports[`renders ./components/auto-complete/demo/options.md correctly 1`] = `
 >
   <div
     aria-autocomplete="list"
-    aria-controls="test-uuid"
+    aria-controls=""
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
@@ -394,7 +394,7 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
   >
     <div
       aria-autocomplete="list"
-      aria-controls="test-uuid"
+      aria-controls=""
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection

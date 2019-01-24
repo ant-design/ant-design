@@ -1,44 +1,86 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/card/demo/basic.md correctly 1`] = `
-<div
-  class="ant-card ant-card-bordered"
-  style="width:300px"
->
+<div>
   <div
-    class="ant-card-head"
+    class="ant-card ant-card-bordered"
+    style="width:300px"
   >
     <div
-      class="ant-card-head-wrapper"
+      class="ant-card-head"
     >
       <div
-        class="ant-card-head-title"
+        class="ant-card-head-wrapper"
       >
-        Card title
-      </div>
-      <div
-        class="ant-card-extra"
-      >
-        <a
-          href="#"
+        <div
+          class="ant-card-head-title"
         >
-          More
-        </a>
+          Default size card
+        </div>
+        <div
+          class="ant-card-extra"
+        >
+          <a
+            href="#"
+          >
+            More
+          </a>
+        </div>
       </div>
+    </div>
+    <div
+      class="ant-card-body"
+    >
+      <p>
+        Card content
+      </p>
+      <p>
+        Card content
+      </p>
+      <p>
+        Card content
+      </p>
     </div>
   </div>
   <div
-    class="ant-card-body"
+    class="ant-card ant-card-bordered ant-card-small"
+    style="width:300px"
   >
-    <p>
-      Card content
-    </p>
-    <p>
-      Card content
-    </p>
-    <p>
-      Card content
-    </p>
+    <div
+      class="ant-card-head"
+    >
+      <div
+        class="ant-card-head-wrapper"
+      >
+        <div
+          class="ant-card-head-title"
+        >
+          Small size card
+        </div>
+        <div
+          class="ant-card-extra"
+        >
+          <a
+            href="#"
+          >
+            More
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-card-body"
+    >
+      <p>
+        Card content
+      </p>
+      <p>
+        Card content
+      </p>
+      <p>
+        Card content
+      </p>
+    </div>
   </div>
 </div>
 `;

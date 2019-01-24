@@ -43,6 +43,7 @@ export interface IconProps {
   spin?: boolean;
   style?: React.CSSProperties;
   prefixCls?: string;
+  role?: string;
 }
 
 export interface IconComponent<P> extends React.SFC<P> {

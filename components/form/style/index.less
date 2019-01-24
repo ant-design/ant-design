@@ -281,7 +281,7 @@ form {
   .@{ant-prefix}-select-selection--single {
     margin-left: -1px;
     height: @input-height-lg;
-    background-color: #eee;
+    background-color: fade(@black, 7%);
     .@{ant-prefix}-select-selection__rendered {
       padding-left: 8px;
       padding-right: 25px;
@@ -303,6 +303,7 @@ form {
   display: block;
   text-align: left;
   line-height: @line-height-base;
+  white-space: initial;
 
   label:after {
     display: none;

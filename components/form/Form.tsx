@@ -4,10 +4,11 @@ import classNames from 'classnames';
 import createDOMForm from 'rc-form/lib/createDOMForm';
 import createFormField from 'rc-form/lib/createFormField';
 import omit from 'omit.js';
-import warning from '../_util/warning';
 import FormItem from './FormItem';
 import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { Omit, tuple } from '../_util/type';
+import warning from '../_util/warning';
 
 type FormCreateOptionMessagesCallback = (...args: any[]) => string;
 
@@ -152,7 +153,6 @@ export interface ComponentDecorator {
 
 export default class Form extends React.Component<FormProps, any> {
   static defaultProps = {
-    prefixCls: 'ant-form',
     layout: 'horizontal' as FormLayout,
     hideRequiredMark: false,
     onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -200,8 +200,9 @@ export default class Form extends React.Component<FormProps, any> {
     };
   }
 
-  render() {
-    const { prefixCls, hideRequiredMark, className = '', layout } = this.props;
+  renderForm = ({ getPrefixCls }: ConfigConsumerProps) => {
+    const { prefixCls: customizePrefixCls, hideRequiredMark, className = '', layout } = this.props;
+    const prefixCls = getPrefixCls('form', customizePrefixCls);
     const formClassName = classNames(
       prefixCls,
       {
@@ -222,5 +223,9 @@ export default class Form extends React.Component<FormProps, any> {
     ]);
 
     return <form {...formProps} className={formClassName} />;
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderForm}</ConfigConsumer>;
   }
 }

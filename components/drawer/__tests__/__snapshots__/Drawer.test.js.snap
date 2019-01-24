@@ -22,7 +22,7 @@ exports[`Drawer className is test_drawer 1`] = `
           style="overflow:auto;height:100%;opacity:0;transition:opacity .3s"
         >
           <div
-            class="ant-drawer-header"
+            class="ant-drawer-header-no-title"
           >
             <button
               aria-label="Close"
@@ -114,7 +114,7 @@ exports[`Drawer destroyOnClose is true 1`] = `
           style="overflow:auto;height:100%;opacity:0;transition:opacity .3s"
         >
           <div
-            class="ant-drawer-header"
+            class="ant-drawer-header-no-title"
           >
             <button
               aria-label="Close"
@@ -237,7 +237,7 @@ exports[`Drawer render correctly 1`] = `
           style="overflow:auto;height:100%"
         >
           <div
-            class="ant-drawer-header"
+            class="ant-drawer-header-no-title"
           >
             <button
               aria-label="Close"
@@ -295,7 +295,7 @@ exports[`Drawer render top drawer 1`] = `
           class="ant-drawer-wrapper-body"
         >
           <div
-            class="ant-drawer-header"
+            class="ant-drawer-header-no-title"
           >
             <button
               aria-label="Close"

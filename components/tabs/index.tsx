@@ -5,6 +5,7 @@ import TabContent from 'rc-tabs/lib/TabContent';
 import TabBar from './TabBar';
 import classNames from 'classnames';
 import Icon from '../icon';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 import isFlexSupported from '../_util/isFlexSupported';
 
@@ -49,7 +50,6 @@ export default class Tabs extends React.Component<TabsProps, any> {
   static TabPane = TabPane as React.ClassicComponentClass<TabPaneProps>;
 
   static defaultProps = {
-    prefixCls: 'ant-tabs',
     hideAdd: false,
     tabPosition: 'top' as TabsPosition,
   };
@@ -88,9 +88,9 @@ export default class Tabs extends React.Component<TabsProps, any> {
     }
   }
 
-  render() {
+  renderTabs = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
-      prefixCls,
+      prefixCls: customizePrefixCls,
       className = '',
       size,
       type = 'line',
@@ -112,6 +112,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
       !(type.indexOf('card') >= 0 && (size === 'small' || size === 'large')),
       "Tabs[type=card|editable-card] doesn't have small or large size, it's by design.",
     );
+    const prefixCls = getPrefixCls('tabs', customizePrefixCls);
     const cls = classNames(className, {
       [`${prefixCls}-vertical`]: tabPosition === 'left' || tabPosition === 'right',
       [`${prefixCls}-${size}`]: !!size,
@@ -172,6 +173,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
     return (
       <RcTabs
         {...this.props}
+        prefixCls={prefixCls}
         className={cls}
         tabBarPosition={tabPosition}
         renderTabBar={() => <TabBar {...tabBarProps} tabBarExtraContent={tabBarExtraContent} />}
@@ -183,5 +185,9 @@ export default class Tabs extends React.Component<TabsProps, any> {
         {childrenWithClose.length > 0 ? childrenWithClose : children}
       </RcTabs>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderTabs}</ConfigConsumer>;
   }
 }

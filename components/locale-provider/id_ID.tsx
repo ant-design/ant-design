@@ -13,7 +13,6 @@ export default {
     filterTitle: 'Menu filter',
     filterConfirm: 'baik',
     filterReset: 'Setel ulang',
-    emptyText: 'Tidak ada data',
     selectAll: 'Pilih halaman saat ini',
     selectInvert: 'Balikkan halaman saat ini',
     sortTitle: 'Menyortir',
@@ -29,18 +28,17 @@ export default {
   },
   Transfer: {
     titles: ['', ''],
-    notFoundContent: 'Tidak ditemukan',
     searchPlaceholder: 'Cari di sini',
     itemUnit: 'barang',
     itemsUnit: 'item',
-  },
-  Select: {
-    notFoundContent: 'Tidak ditemukan',
   },
   Upload: {
     uploading: 'Mengunggah...',
     removeFile: 'Hapus file',
     uploadError: 'Kesalahan pengunggahan',
     previewFile: 'File pratinjau',
+  },
+  Empty: {
+    description: 'Tidak ada data',
   },
 };

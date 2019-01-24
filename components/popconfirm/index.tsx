@@ -6,6 +6,7 @@ import Button from '../button';
 import { ButtonType, NativeButtonProps } from '../button/button';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale-provider/default';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode;
@@ -31,7 +32,6 @@ export interface PopconfirmLocale {
 
 class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
   static defaultProps = {
-    prefixCls: 'ant-popover',
     transitionName: 'zoom-big',
     placement: 'top' as PopconfirmProps['placement'],
     trigger: 'click' as PopconfirmProps['trigger'],
@@ -100,9 +100,8 @@ class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
     this.tooltip = node;
   };
 
-  renderOverlay = (popconfirmLocale: PopconfirmLocale) => {
+  renderOverlay = (prefixCls: string, popconfirmLocale: PopconfirmLocale) => {
     const {
-      prefixCls,
       okButtonProps,
       cancelButtonProps,
       title,
@@ -131,12 +130,13 @@ class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
     );
   };
 
-  render() {
-    const { prefixCls, placement, ...restProps } = this.props;
+  renderConfirm = ({ getPrefixCls }: ConfigConsumerProps) => {
+    const { prefixCls: customizePrefixCls, placement, ...restProps } = this.props;
+    const prefixCls = getPrefixCls('popover', customizePrefixCls);
 
     const overlay = (
       <LocaleReceiver componentName="Popconfirm" defaultLocale={defaultLocale.Popconfirm}>
-        {this.renderOverlay}
+        {(popconfirmLocale: PopconfirmLocale) => this.renderOverlay(prefixCls, popconfirmLocale)}
       </LocaleReceiver>
     );
 
@@ -151,6 +151,10 @@ class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
         ref={this.saveTooltip}
       />
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderConfirm}</ConfigConsumer>;
   }
 }
 

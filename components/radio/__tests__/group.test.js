@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount, render } from 'enzyme';
+import { mount, render } from 'enzyme';
 import Radio from '../radio';
 import RadioGroup from '../group';
 
@@ -28,16 +28,22 @@ describe('Radio', () => {
     const onMouseEnter = jest.fn();
     const onMouseLeave = jest.fn();
 
-    const wrapper = shallow(
+    const wrapper = mount(
       <RadioGroup onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
         <Radio />
       </RadioGroup>,
     );
 
-    wrapper.simulate('mouseenter');
+    wrapper
+      .find('div')
+      .at(0)
+      .simulate('mouseenter');
     expect(onMouseEnter).toHaveBeenCalled();
 
-    wrapper.simulate('mouseleave');
+    wrapper
+      .find('div')
+      .at(0)
+      .simulate('mouseleave');
     expect(onMouseLeave).toHaveBeenCalled();
   });
 
@@ -55,6 +61,37 @@ describe('Radio', () => {
     wrapper.setState({ value: 'B' });
     radios.at(0).simulate('change');
     expect(onChange.mock.calls.length).toBe(1);
+
+    // controlled component
+    wrapper.setProps({ value: 'A' });
+    radios.at(1).simulate('change');
+    expect(onChange.mock.calls.length).toBe(2);
+  });
+
+  it('both of radio and radioGroup will trigger onchange event when they exists', () => {
+    const onChange = jest.fn();
+    const onChangeRadioGroup = jest.fn();
+
+    const wrapper = mount(
+      <RadioGroup onChange={onChangeRadioGroup}>
+        <Radio value="A" onChange={onChange}>
+          A
+        </Radio>
+        <Radio value="B" onChange={onChange}>
+          B
+        </Radio>
+        <Radio value="C" onChange={onChange}>
+          C
+        </Radio>
+      </RadioGroup>,
+    );
+    const radios = wrapper.find('input');
+
+    // uncontrolled component
+    wrapper.setState({ value: 'B' });
+    radios.at(0).simulate('change');
+    expect(onChange.mock.calls.length).toBe(1);
+    expect(onChangeRadioGroup.mock.calls.length).toBe(1);
 
     // controlled component
     wrapper.setProps({ value: 'A' });

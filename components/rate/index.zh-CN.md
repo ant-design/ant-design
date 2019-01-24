@@ -25,6 +25,7 @@ title: Rate
 | defaultValue | 默认值 | number | 0 |
 | disabled | 只读，无法进行交互 | boolean | false |
 | style | 自定义样式对象 | object | - |
+| tooltips | 自定义每项的提示信息 | string\[] | - |
 | value | 当前数，受控值 | number | - |
 | onBlur | 失去焦点时的回调 | Function() | - |
 | onChange | 选择时的回调 | Function(value: number) | - |

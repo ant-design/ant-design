@@ -3,6 +3,7 @@ import * as React from 'react';
 import Icon from '../icon';
 import { Circle } from 'rc-progress';
 import classNames from 'classnames';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { tuple } from '../_util/type';
 
 const statusColorMap: Record<string, string> = {
@@ -51,7 +52,6 @@ export default class Progress extends React.Component<ProgressProps, {}> {
     percent: 0,
     showInfo: true,
     trailColor: '#f3f3f3',
-    prefixCls: 'ant-progress',
     size: 'default' as ProgressSize,
   };
 
@@ -70,10 +70,10 @@ export default class Progress extends React.Component<ProgressProps, {}> {
     default: PropTypes.oneOf(['default', 'small']),
   };
 
-  render() {
+  renderProgress = ({ getPrefixCls }: ConfigConsumerProps) => {
     const props = this.props;
     const {
-      prefixCls,
+      prefixCls: customizePrefixCls,
       className,
       percent = 0,
       status,
@@ -91,6 +91,7 @@ export default class Progress extends React.Component<ProgressProps, {}> {
       strokeLinecap = 'round',
       ...restProps
     } = props;
+    const prefixCls = getPrefixCls('progress', customizePrefixCls);
     const progressStatus =
       parseInt(successPercent ? successPercent.toString() : percent.toString(), 10) >= 100 &&
       !('status' in props)
@@ -188,5 +189,9 @@ export default class Progress extends React.Component<ProgressProps, {}> {
         {progress}
       </div>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderProgress}</ConfigConsumer>;
   }
 }

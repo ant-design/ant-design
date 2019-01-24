@@ -1,5 +1,6 @@
 import * as React from 'react';
 import debounce from 'lodash/debounce';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
@@ -68,7 +69,6 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
   static defaultProps = {
     dots: true,
     arrows: false,
-    prefixCls: 'ant-carousel',
     draggable: false,
   };
 
@@ -124,7 +124,7 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
     this.slick.slickGoTo(slide, dontAnimate);
   }
 
-  render() {
+  renderCarousel = ({ getPrefixCls }: ConfigConsumerProps) => {
     const props = {
       ...this.props,
     };
@@ -133,7 +133,7 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
       props.fade = true;
     }
 
-    let className = props.prefixCls;
+    let className = getPrefixCls('carousel', props.prefixCls);
     if (props.vertical) {
       className = `${className} ${className}-vertical`;
     }
@@ -143,5 +143,9 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
         <SlickCarousel ref={this.saveSlick} {...props} />
       </div>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderCarousel}</ConfigConsumer>;
   }
 }

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface BreadcrumbItemProps {
   prefixCls?: string;
@@ -11,7 +12,6 @@ export default class BreadcrumbItem extends React.Component<BreadcrumbItemProps,
   static __ANT_BREADCRUMB_ITEM = true;
 
   static defaultProps = {
-    prefixCls: 'ant-breadcrumb',
     separator: '/',
   };
 
@@ -21,8 +21,9 @@ export default class BreadcrumbItem extends React.Component<BreadcrumbItemProps,
     href: PropTypes.string,
   };
 
-  render() {
-    const { prefixCls, separator, children, ...restProps } = this.props;
+  renderBreadcrumbItem = ({ getPrefixCls }: ConfigConsumerProps) => {
+    const { prefixCls: customizePrefixCls, separator, children, ...restProps } = this.props;
+    const prefixCls = getPrefixCls('breadcrumb', customizePrefixCls);
     let link;
     if ('href' in this.props) {
       link = (
@@ -46,5 +47,9 @@ export default class BreadcrumbItem extends React.Component<BreadcrumbItemProps,
       );
     }
     return null;
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderBreadcrumbItem}</ConfigConsumer>;
   }
 }

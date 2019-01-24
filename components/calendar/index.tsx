@@ -2,11 +2,11 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import * as moment from 'moment';
 import FullCalendar from 'rc-calendar/lib/FullCalendar';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import { PREFIX_CLS } from './Constants';
 import Header from './Header';
-import interopDefault from '../_util/interopDefault';
 import enUS from './locale/en_US';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import interopDefault from '../_util/interopDefault';
 
 export { HeaderProps } from './Header';
 
@@ -52,7 +52,6 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
   static defaultProps = {
     locale: {},
     fullscreen: true,
-    prefixCls: PREFIX_CLS,
     mode: 'month' as CalendarMode,
     onSelect: noop,
     onPanelChange: noop,
@@ -74,6 +73,8 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     onSelect: PropTypes.func,
     onChange: PropTypes.func,
   };
+
+  prefixCls?: string;
 
   constructor(props: CalendarProps) {
     super(props);
@@ -105,7 +106,8 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
   }
 
   monthCellRender = (value: moment.Moment) => {
-    const { prefixCls, monthCellRender = noop as Function } = this.props;
+    const { monthCellRender = noop as Function } = this.props;
+    const { prefixCls } = this;
     return (
       <div className={`${prefixCls}-month`}>
         <div className={`${prefixCls}-value`}>{value.localeData().monthsShort(value)}</div>
@@ -115,7 +117,8 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
   };
 
   dateCellRender = (value: moment.Moment) => {
-    const { prefixCls, dateCellRender = noop as Function } = this.props;
+    const { dateCellRender = noop as Function } = this.props;
+    const { prefixCls } = this;
     return (
       <div className={`${prefixCls}-date`}>
         <div className={`${prefixCls}-value`}>{zerofixed(value.date())}</div>
@@ -182,6 +185,18 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     return inRange;
   };
 
+  getDefaultLocale = () => {
+    const result = {
+      ...enUS,
+      ...this.props.locale,
+    };
+    result.lang = {
+      ...result.lang,
+      ...(this.props.locale || {}).lang,
+    };
+    return result;
+  };
+
   renderCalendar = (locale: any, localeCode: string) => {
     const { state, props } = this;
     const { value, mode } = state;
@@ -189,7 +204,7 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
       value.locale(localeCode);
     }
     const {
-      prefixCls,
+      prefixCls: customizePrefixCls,
       style,
       className,
       fullscreen,
@@ -197,11 +212,6 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
       monthFullCellRender,
     } = props;
     const type = mode === 'year' ? 'month' : 'date';
-
-    let cls = className || '';
-    if (fullscreen) {
-      cls += ` ${prefixCls}-fullscreen`;
-    }
 
     const monthCellRender = monthFullCellRender || this.monthCellRender;
     const dateCellRender = dateFullCellRender || this.dateCellRender;
@@ -213,44 +223,50 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     }
 
     return (
-      <div className={cls} style={style}>
-        <Header
-          fullscreen={fullscreen}
-          type={type}
-          value={value}
-          locale={locale.lang}
-          prefixCls={prefixCls}
-          onTypeChange={this.onHeaderTypeChange}
-          onValueChange={this.onHeaderValueChange}
-          validRange={props.validRange}
-        />
-        <FullCalendar
-          {...props}
-          disabledDate={disabledDate}
-          Select={noop}
-          locale={locale.lang}
-          type={type}
-          prefixCls={prefixCls}
-          showHeader={false}
-          value={value}
-          monthCellRender={monthCellRender}
-          dateCellRender={dateCellRender}
-          onSelect={this.onSelect}
-        />
-      </div>
-    );
-  };
+      <ConfigConsumer>
+        {({ getPrefixCls }: ConfigConsumerProps) => {
+          const prefixCls = getPrefixCls('fullcalendar', customizePrefixCls);
 
-  getDefaultLocale = () => {
-    const result = {
-      ...enUS,
-      ...this.props.locale,
-    };
-    result.lang = {
-      ...result.lang,
-      ...(this.props.locale || {}).lang,
-    };
-    return result;
+          // To support old version react.
+          // Have to add prefixCls on the instance.
+          // https://github.com/facebook/react/issues/12397
+          this.prefixCls = prefixCls;
+
+          let cls = className || '';
+          if (fullscreen) {
+            cls += ` ${prefixCls}-fullscreen`;
+          }
+
+          return (
+            <div className={cls} style={style}>
+              <Header
+                fullscreen={fullscreen}
+                type={type}
+                value={value}
+                locale={locale.lang}
+                prefixCls={prefixCls}
+                onTypeChange={this.onHeaderTypeChange}
+                onValueChange={this.onHeaderValueChange}
+                validRange={props.validRange}
+              />
+              <FullCalendar
+                {...props}
+                disabledDate={disabledDate}
+                Select={noop}
+                locale={locale.lang}
+                type={type}
+                prefixCls={prefixCls}
+                showHeader={false}
+                value={value}
+                monthCellRender={monthCellRender}
+                dateCellRender={dateCellRender}
+                onSelect={this.onSelect}
+              />
+            </div>
+          );
+        }}
+      </ConfigConsumer>
+    );
   };
 
   render() {

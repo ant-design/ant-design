@@ -12,6 +12,8 @@ interface MenuItemProps {
   children?: React.ReactNode;
   className?: string;
   onClick?: (param: ClickParam) => void;
+  onMouseEnter?: (event: string, e: MouseEvent) => void;
+  onMouseLeave?: (event: string, e: MouseEvent) => void;
 }
 
 class MenuItem extends React.Component<MenuItemProps, any> {
@@ -25,11 +27,9 @@ class MenuItem extends React.Component<MenuItemProps, any> {
   onKeyDown = (e: React.MouseEvent<HTMLElement>) => {
     this.menuItem.onKeyDown(e);
   };
-
   saveMenuItem = (menuItem: any) => {
     this.menuItem = menuItem;
   };
-
   render() {
     const { inlineCollapsed } = this.context;
     const { level, children, rootPrefixCls } = this.props;

@@ -138,7 +138,7 @@
 
   &-disabled &-selection--multiple &-selection__choice {
     background: @background-color-base;
-    color: #aaa;
+    color: fade(@black, 33%);
     padding-right: 10px;
     &__remove {
       display: none;
@@ -361,7 +361,7 @@
       position: absolute;
       right: 4px;
       &:hover {
-        color: #404040;
+        color: @icon-color-hover;
       }
     }
 
@@ -561,7 +561,7 @@
       }
 
       &:hover .@{select-prefix-cls}-selected-icon {
-        color: #ddd;
+        color: fade(@black, 87%);
       }
 
       &-disabled .@{select-prefix-cls}-selected-icon {

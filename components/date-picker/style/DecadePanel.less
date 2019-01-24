@@ -1,5 +1,7 @@
 .@{calendar-prefix-cls}-decade-panel {
   position: absolute;
+  display: flex;
+  flex-direction: column;
   top: 0;
   right: 0;
   bottom: 0;
@@ -19,7 +21,14 @@
 }
 
 .@{calendar-prefix-cls}-decade-panel-body {
-  height: ~'calc(100% - 40px)';
+  flex: 1;
+}
+
+.@{calendar-prefix-cls}-decade-panel-footer {
+  border-top: @border-width-base @border-style-base @border-color-split;
+  .@{calendar-prefix-cls}-footer-extra {
+    padding: 0 12px;
+  }
 }
 
 .@{calendar-prefix-cls}-decade-panel-table {
@@ -54,11 +63,11 @@
 
 .@{calendar-prefix-cls}-decade-panel-selected-cell .@{calendar-prefix-cls}-decade-panel-decade {
   background: @primary-color;
-  color: #fff;
+  color: @text-color-inverse;
 
   &:hover {
     background: @primary-color;
-    color: #fff;
+    color: @text-color-inverse;
   }
 }
 

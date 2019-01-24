@@ -40,11 +40,11 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                   >
                     <div
                       class="ant-table-column-sorters"
-                      title="Name"
                     >
                       Name
                       <div
                         class="ant-table-column-sorter"
+                        title="Sort"
                       >
                         <i
                           class="anticon anticon-caret-up ant-table-column-sorter-up off"
@@ -125,7 +125,23 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
           <div
             class="ant-table-placeholder"
           >
-            No data
+            <div
+              class="ant-empty ant-empty-normal"
+            >
+              <div
+                class="ant-empty-image"
+              >
+                <img
+                  alt="No Data"
+                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNDEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAxKSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDxlbGxpcHNlIGZpbGw9IiNGNUY1RjUiIGN4PSIzMiIgY3k9IjMzIiByeD0iMzIiIHJ5PSI3Ii8+CiAgICA8ZyBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0iI0Q5RDlEOSI+CiAgICAgIDxwYXRoIGQ9Ik01NSAxMi43Nkw0NC44NTQgMS4yNThDNDQuMzY3LjQ3NCA0My42NTYgMCA0Mi45MDcgMEgyMS4wOTNjLS43NDkgMC0xLjQ2LjQ3NC0xLjk0NyAxLjI1N0w5IDEyLjc2MVYyMmg0NnYtOS4yNHoiLz4KICAgICAgPHBhdGggZD0iTTQxLjYxMyAxNS45MzFjMC0xLjYwNS45OTQtMi45MyAyLjIyNy0yLjkzMUg1NXYxOC4xMzdDNTUgMzMuMjYgNTMuNjggMzUgNTIuMDUgMzVoLTQwLjFDMTAuMzIgMzUgOSAzMy4yNTkgOSAzMS4xMzdWMTNoMTEuMTZjMS4yMzMgMCAyLjIyNyAxLjMyMyAyLjIyNyAyLjkyOHYuMDIyYzAgMS42MDUgMS4wMDUgMi45MDEgMi4yMzcgMi45MDFoMTQuNzUyYzEuMjMyIDAgMi4yMzctMS4zMDggMi4yMzctMi45MTN2LS4wMDd6IiBmaWxsPSIjRkFGQUZBIi8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4K"
+                />
+              </div>
+              <p
+                class="ant-empty-description"
+              >
+                No Data
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -2064,7 +2080,9 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                   <col
                     class="ant-table-expand-icon-col"
                   />
-                  <col />
+                  <col
+                    style="width:62px;min-width:62px"
+                  />
                   <col
                     style="width:150px;min-width:150px"
                   />
@@ -4272,7 +4290,9 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
               class=""
             >
               <colgroup>
-                <col />
+                <col
+                  style="width:62px;min-width:62px"
+                />
                 <col />
                 <col
                   style="width:12%;min-width:12%"
@@ -7970,11 +7990,11 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     >
                       <div
                         class="ant-table-column-sorters"
-                        title="Age"
                       >
                         Age
                         <div
                           class="ant-table-column-sorter"
+                          title="Sort"
                         >
                           <i
                             class="anticon anticon-caret-up ant-table-column-sorter-up off"
@@ -9161,29 +9181,12 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                   >
                     <div
                       class="ant-table-column-sorters"
-                      title="Name"
                     >
                       Name
                       <div
                         class="ant-table-column-sorter"
+                        title="Sort"
                       >
-                        <i
-                          class="anticon anticon-caret-up ant-table-column-sorter-up off"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class=""
-                            data-icon="caret-up"
-                            fill="currentColor"
-                            height="1em"
-                            viewBox="0 0 1024 1024"
-                            width="1em"
-                          >
-                            <path
-                              d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                            />
-                          </svg>
-                        </i>
                         <i
                           class="anticon anticon-caret-down ant-table-column-sorter-down off"
                         >
@@ -9227,11 +9230,11 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                   >
                     <div
                       class="ant-table-column-sorters"
-                      title="Age"
                     >
                       Age
                       <div
                         class="ant-table-column-sorter"
+                        title="Sort"
                       >
                         <i
                           class="anticon anticon-caret-up ant-table-column-sorter-up off"
@@ -9275,11 +9278,11 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                   >
                     <div
                       class="ant-table-column-sorters"
-                      title="Address"
                     >
                       Address
                       <div
                         class="ant-table-column-sorter"
+                        title="Sort"
                       >
                         <i
                           class="anticon anticon-caret-up ant-table-column-sorter-up off"
@@ -10268,11 +10271,11 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     >
                       <div
                         class="ant-table-column-sorters"
-                        title="Name"
                       >
                         Name
                         <div
                           class="ant-table-column-sorter"
+                          title="Sort"
                         >
                           <i
                             class="anticon anticon-caret-up ant-table-column-sorter-up off"
@@ -10334,11 +10337,11 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     >
                       <div
                         class="ant-table-column-sorters"
-                        title="Age"
                       >
                         Age
                         <div
                           class="ant-table-column-sorter"
+                          title="Sort"
                         >
                           <i
                             class="anticon anticon-caret-up ant-table-column-sorter-up off"
@@ -10382,11 +10385,11 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     >
                       <div
                         class="ant-table-column-sorters"
-                        title="Address"
                       >
                         Address
                         <div
                           class="ant-table-column-sorter"
+                          title="Sort"
                         >
                           <i
                             class="anticon anticon-caret-up ant-table-column-sorter-up off"
@@ -10935,7 +10938,9 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
               class=""
             >
               <colgroup>
-                <col />
+                <col
+                  style="width:62px;min-width:62px"
+                />
                 <col />
                 <col />
                 <col />
@@ -11314,7 +11319,9 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                 class=""
               >
                 <colgroup>
-                  <col />
+                  <col
+                    style="width:62px;min-width:62px"
+                  />
                   <col />
                   <col />
                   <col />
@@ -11963,7 +11970,9 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
               class=""
             >
               <colgroup>
-                <col />
+                <col
+                  style="width:62px;min-width:62px"
+                />
                 <col />
                 <col />
                 <col />

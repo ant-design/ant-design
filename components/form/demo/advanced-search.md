@@ -91,7 +91,7 @@ class AdvancedSearchForm extends React.Component {
   }
 }
 
-const WrappedAdvancedSearchForm = Form.create()(AdvancedSearchForm);
+const WrappedAdvancedSearchForm = Form.create({ name: 'advanced_search' })(AdvancedSearchForm);
 ReactDOM.render(
   <div>
     <WrappedAdvancedSearchForm />

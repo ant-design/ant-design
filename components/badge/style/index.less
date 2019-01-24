@@ -16,18 +16,18 @@
     border-radius: @badge-height / 2;
     min-width: @badge-height;
     background: @highlight-color;
-    color: #fff;
+    color: @badge-text-color;
     line-height: @badge-height;
     text-align: center;
     padding: 0 6px;
     font-size: @badge-font-size;
     font-weight: @badge-font-weight;
     white-space: nowrap;
-    box-shadow: 0 0 0 1px #fff;
+    box-shadow: 0 0 0 1px @shadow-color-inverse;
     z-index: @zindex-badge;
     a,
     a:hover {
-      color: #fff;
+      color: @badge-text-color;
     }
   }
 
@@ -41,7 +41,7 @@
     border-radius: 100%;
     background: @highlight-color;
     z-index: @zindex-badge;
-    box-shadow: 0 0 0 1px #fff;
+    box-shadow: 0 0 0 1px @shadow-color-inverse;
   }
 
   &-count,

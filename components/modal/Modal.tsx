@@ -3,14 +3,16 @@ import Dialog from 'rc-dialog';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
+import { getConfirmLocale } from './locale';
+import Icon from '../icon';
 import Button from '../button';
 import { ButtonType, NativeButtonProps } from '../button/button';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import { getConfirmLocale } from './locale';
-import Icon from '../icon';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 let mousePosition: { x: number; y: number } | null;
 let mousePositionEventBinded: boolean;
+export const destroyFns: Array<() => void> = [];
 
 export interface ModalProps {
   /** 对话框是否可见*/
@@ -40,6 +42,8 @@ export interface ModalProps {
   cancelText?: string;
   /** 点击蒙层是否允许关闭*/
   maskClosable?: boolean;
+  /** 强制渲染 Modal*/
+  forceRender?: boolean;
   okButtonProps?: NativeButtonProps;
   cancelButtonProps?: NativeButtonProps;
   destroyOnClose?: boolean;
@@ -74,6 +78,8 @@ export interface ModalFuncProps {
   okText?: string;
   okType?: ButtonType;
   cancelText?: string;
+  icon?: React.ReactNode;
+  /* Deperated */
   iconType?: string;
   maskClosable?: boolean;
   zIndex?: number;
@@ -106,9 +112,9 @@ export default class Modal extends React.Component<ModalProps, {}> {
   static warn: ModalFunc;
   static warning: ModalFunc;
   static confirm: ModalFunc;
+  static destroyAll: () => void;
 
   static defaultProps = {
-    prefixCls: 'ant-modal',
     width: 520,
     transitionName: 'zoom',
     maskTransitionName: 'fade',
@@ -186,9 +192,17 @@ export default class Modal extends React.Component<ModalProps, {}> {
     );
   };
 
-  render() {
-    const { footer, visible, wrapClassName, centered, prefixCls, ...restProps } = this.props;
+  renderModal = ({ getPrefixCls }: ConfigConsumerProps) => {
+    const {
+      prefixCls: customizePrefixCls,
+      footer,
+      visible,
+      wrapClassName,
+      centered,
+      ...restProps
+    } = this.props;
 
+    const prefixCls = getPrefixCls('modal', customizePrefixCls);
     const defaultFooter = (
       <LocaleReceiver componentName="Modal" defaultLocale={getConfirmLocale()}>
         {this.renderFooter}
@@ -213,5 +227,9 @@ export default class Modal extends React.Component<ModalProps, {}> {
         closeIcon={closeIcon}
       />
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderModal}</ConfigConsumer>;
   }
 }

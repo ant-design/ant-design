@@ -1,0 +1,25 @@
+@card-head-height-sm: 36px;
+@card-padding-base-sm: @card-padding-base / 2;
+@card-head-padding-sm: @card-head-padding / 2;
+@card-head-font-size-sm: @font-size-base;
+
+.@{card-prefix-cls}-small {
+  > .@{card-prefix-cls}-head {
+    min-height: @card-head-height-sm;
+    padding: 0 @card-padding-base-sm;
+    font-size: @card-head-font-size-sm;
+
+    > .@{card-prefix-cls}-head-wrapper {
+      > .@{card-prefix-cls}-head-title {
+        padding: @card-head-padding-sm 0;
+      }
+      > .@{card-prefix-cls}-extra {
+        padding: @card-head-padding-sm 0;
+        font-size: @card-head-font-size-sm;
+      }
+    }
+  }
+  > .@{card-prefix-cls}-body {
+    padding: @card-padding-base-sm;
+  }
+}

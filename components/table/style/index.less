@@ -294,8 +294,6 @@
   &-thead > tr > th.@{table-prefix-cls}-selection-column,
   &-tbody > tr > td.@{table-prefix-cls}-selection-column {
     text-align: center;
-    min-width: 62px;
-    width: 62px;
     .@{ant-prefix}-radio-wrapper {
       margin-right: 0;
     }
@@ -390,6 +388,7 @@
     position: relative;
     padding: @table-padding-vertical @table-padding-horizontal;
     background: @component-background;
+    border-radius: @border-radius-base;
     border-bottom: @border-width-base @border-style-base @border-color-split;
     text-align: center;
     font-size: @font-size-base;
@@ -505,7 +504,7 @@
       display: inline-block;
       line-height: 1;
       &:hover .@{iconfont-css-prefix}-down {
-        color: #666;
+        color: fade(@black, 60%);
       }
     }
   }

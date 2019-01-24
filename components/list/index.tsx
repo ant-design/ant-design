@@ -2,8 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { SpinProps } from '../spin';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import defaultLocale from '../locale-provider/default';
+import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 
 import Spin from '../spin';
 import Pagination, { PaginationConfig } from '../pagination';
@@ -49,7 +48,7 @@ export interface ListProps {
   split?: boolean;
   header?: React.ReactNode;
   footer?: React.ReactNode;
-  locale?: Object;
+  locale?: ListLocale;
 }
 
 export interface ListLocale {
@@ -65,7 +64,6 @@ export default class List extends React.Component<ListProps> {
 
   static defaultProps = {
     dataSource: [],
-    prefixCls: 'ant-list',
     bordered: false,
     split: true,
     loading: false,
@@ -125,14 +123,20 @@ export default class List extends React.Component<ListProps> {
     return !!(loadMore || pagination || footer);
   }
 
-  renderEmpty = (contextLocale: ListLocale) => {
-    const locale = { ...contextLocale, ...this.props.locale };
-    return <div className={`${this.props.prefixCls}-empty-text`}>{locale.emptyText}</div>;
+  renderEmpty = (prefixCls: string, renderEmpty: RenderEmptyHandler) => {
+    const { locale } = this.props;
+
+    return (
+      <div className={`${prefixCls}-empty-text`}>
+        {(locale && locale.emptyText) || renderEmpty('List')}
+      </div>
+    );
   };
 
-  render() {
+  renderList = ({ getPrefixCls, renderEmpty }: ConfigConsumerProps) => {
     const { paginationCurrent } = this.state;
     const {
+      prefixCls: customizePrefixCls,
       bordered,
       split,
       className,
@@ -140,7 +144,6 @@ export default class List extends React.Component<ListProps> {
       itemLayout,
       loadMore,
       pagination,
-      prefixCls,
       grid,
       dataSource,
       size,
@@ -153,6 +156,7 @@ export default class List extends React.Component<ListProps> {
       ...rest
     } = this.props;
 
+    const prefixCls = getPrefixCls('list', customizePrefixCls);
     let loadingProp = loading;
     if (typeof loadingProp === 'boolean') {
       loadingProp = {
@@ -227,11 +231,7 @@ export default class List extends React.Component<ListProps> {
 
       childrenContent = grid ? <Row gutter={grid.gutter}>{childrenList}</Row> : childrenList;
     } else if (!children && !isLoading) {
-      childrenContent = (
-        <LocaleReceiver componentName="Table" defaultLocale={defaultLocale.Table}>
-          {this.renderEmpty}
-        </LocaleReceiver>
-      );
+      childrenContent = this.renderEmpty(prefixCls, renderEmpty);
     }
 
     const paginationPosition = paginationProps.position || 'bottom';
@@ -249,5 +249,9 @@ export default class List extends React.Component<ListProps> {
           ((paginationPosition === 'bottom' || paginationPosition === 'both') && paginationContent)}
       </div>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderList}</ConfigConsumer>;
   }
 }

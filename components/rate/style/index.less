@@ -31,8 +31,15 @@
     color: inherit;
     cursor: pointer;
 
-    &:focus {
-      outline: 0;
+    > div {
+      &:focus {
+        outline: 0;
+      }
+
+      &:hover,
+      &:focus {
+        transform: scale(1.1);
+      }
     }
 
     &-first,
@@ -43,11 +50,6 @@
       .@{iconfont-css-prefix} {
         vertical-align: middle;
       }
-    }
-
-    &:hover,
-    &:focus {
-      transform: scale(1.1);
     }
 
     &-first {

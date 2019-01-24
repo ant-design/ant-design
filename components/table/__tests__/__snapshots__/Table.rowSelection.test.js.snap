@@ -26,7 +26,9 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                 class=""
               >
                 <colgroup>
-                  <col />
+                  <col
+                    style="width:62px;min-width:62px"
+                  />
                   <col />
                 </colgroup>
                 <thead
@@ -228,7 +230,9 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                   class="ant-table-fixed"
                 >
                   <colgroup>
-                    <col />
+                    <col
+                      style="width:62px;min-width:62px"
+                    />
                   </colgroup>
                   <thead
                     class="ant-table-thead"

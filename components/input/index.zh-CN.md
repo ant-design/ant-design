@@ -30,6 +30,7 @@ title: Input
 | value | 输入框内容 | string |  |
 | onChange | 输入框内容变化时的回调 | function(e) | |
 | onPressEnter | 按下回车的回调 | function(e) |  |
+| allowClear | 可以点击清除图标删除内容 | boolean | |
 
 > 如果 `Input` 在 `Form.Item` 内，并且 `Form.Item` 设置了 `id` 和 `options` 属性，则 `value` `defaultValue` 和 `id` 属性会被自动设置。
 
@@ -70,3 +71,9 @@ Input 的其他属性和 React 自带的 [input](https://facebook.github.io/reac
   <Input />
 </Input.Group>
 ```
+
+#### Input.Password (3.12.0 中新增)
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| visibilityToggle | 是否显示切换按钮 | boolean | true |
