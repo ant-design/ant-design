@@ -255,7 +255,6 @@ exports[`renders ./components/text/demo/paragraph.md correctly 1`] = `
   </div>
   <h2
     class="ant-text"
-    level="2"
   >
     Guidelines and Resources
   </h2>
@@ -303,19 +302,16 @@ exports[`renders ./components/text/demo/title.md correctly 1`] = `
   </h1>
   <h2
     class="ant-text"
-    level="2"
   >
     h2. Ant Design
   </h2>
   <h3
     class="ant-text"
-    level="3"
   >
     h3. Ant Design
   </h3>
   <h4
     class="ant-text"
-    level="4"
   >
     h4. Ant Design
   </h4>

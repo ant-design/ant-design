@@ -58,7 +58,7 @@ describe('Text', () => {
     });
 
     describe('editable', () => {
-      function testStep(name, submitFunc) {
+      function testStep(name, submitFunc, expectFunc) {
         it(name, () => {
           const onChange = jest.fn();
 
@@ -79,21 +79,29 @@ describe('Text', () => {
 
           submitFunc(wrapper);
 
-          expect(onChange).toBeCalledWith('Bamboo');
+          if (expectFunc) {
+            expectFunc(onChange);
+          } else {
+            expect(onChange).toBeCalledWith('Bamboo');
+          }
         });
       }
-
-      testStep('by click', wrapper => {
-        wrapper
-          .find('.ant-text-edit-content-confirm')
-          .first()
-          .simulate('click');
-      });
 
       testStep('by key up', wrapper => {
         wrapper.find('TextArea').simulate('keyDown', { keyCode: KeyCode.ENTER });
         wrapper.find('TextArea').simulate('keyUp', { keyCode: KeyCode.ENTER });
       });
+
+      testStep(
+        'by esc key',
+        wrapper => {
+          wrapper.find('TextArea').simulate('keyDown', { keyCode: KeyCode.ESC });
+          wrapper.find('TextArea').simulate('keyUp', { keyCode: KeyCode.ESC });
+        },
+        onChange => {
+          expect(onChange).not.toBeCalled();
+        },
+      );
 
       testStep('by blur', wrapper => {
         wrapper.find('TextArea').simulate('blur');

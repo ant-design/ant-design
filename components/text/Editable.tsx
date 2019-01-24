@@ -1,7 +1,6 @@
 import * as React from 'react';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { polyfill } from 'react-lifecycles-compat';
-import TransButton from '../_util/transButton';
 import Icon from '../icon';
 import TextArea from '../input/TextArea';
 
@@ -123,9 +122,7 @@ class Editable extends React.Component<EditableProps, EditableState> {
           aria-label={ariaLabel}
           autosize
         />
-        <TransButton className={`${prefixCls}-edit-content-confirm`} onClick={this.confirmChange}>
-          <Icon type="enter" />
-        </TransButton>
+        <Icon type="enter" className={`${prefixCls}-edit-content-confirm`} />
       </div>
     );
   }

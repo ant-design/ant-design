@@ -81,11 +81,10 @@
     position: relative;
 
     &-confirm {
-      .operation-unit;
-
+      color: @text-color-secondary;
       position: absolute;
       right: 10px;
-      bottom: 5px;
+      bottom: 8px;
     }
   }
 
@@ -114,17 +113,19 @@
   }
 }
 
-// Title
-.title-size(@name; @size) {
+// =============== Title ===============
+.title-size(@name; @size; @height) {
   @{name}.@{text-prefix-cls} {
     font-size: ~'@{size}px';
+    line-height: ~'@{height}%';
   }
 }
 
-.title-size(~'h1', 28);
-.title-size(~'h2', 24);
-.title-size(~'h3', 20);
-.title-size(~'h4', 16);
+// Follow the rule
+.title-size(~'h1', 38, 123);
+.title-size(~'h2', 30, 135);
+.title-size(~'h3', 24, 135);
+.title-size(~'h4', 20, 140);
 
 h1,
 h2,
@@ -133,13 +134,17 @@ h4,
 h5,
 h6 {
   &.@{text-prefix-cls} {
-    margin-top: 0 0 0.5em 0;
+    margin: 0 0 0.5em 0;
     color: @heading-color;
     font-weight: 500;
+
+    .@{text-prefix-cls} + & {
+      margin-top: 1em;
+    }
   }
 }
 
-// Text
+// =============== Text ================
 span.@{text-prefix-cls} {
   margin: 0;
 

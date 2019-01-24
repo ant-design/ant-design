@@ -9,7 +9,7 @@ interface TitleProps extends BaseProps {
 }
 
 const Title: React.SFC<TitleProps> = props => {
-  const { level = 1 } = props;
+  const { level = 1, ...restProps } = props;
   let component: string;
 
   if (TITLE_ELE_LIST.indexOf(level) !== -1) {
@@ -19,7 +19,7 @@ const Title: React.SFC<TitleProps> = props => {
     component = 'h1';
   }
 
-  return <Base {...props} component={component} />;
+  return <Base {...restProps} component={component} />;
 };
 
 export default Title;
