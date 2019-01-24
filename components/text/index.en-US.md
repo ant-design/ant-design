@@ -16,7 +16,7 @@ When need to display title or text content.
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | bold | bold style | boolean | false |
-| copyable | Content can be copied | boolean | false |
+| copyable | Content can be copied. You can set the copy text when use string | boolean \| string | false |
 | delete | delete line style | boolean | false |
 | disabled | Disable content | boolean | false |
 | editable | Content can be edited  | boolean | false |
@@ -32,7 +32,7 @@ When need to display title or text content.
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | bold | bold style | boolean | false |
-| copyable | Content can be copied | boolean | false |
+| copyable | Content can be copied. You can set the copy text when use string | boolean \| string | false |
 | delete | delete line style | boolean | false |
 | disabled | Disable content | boolean | false |
 | editable | Content can be edited  | boolean | false |
@@ -49,7 +49,7 @@ When need to display title or text content.
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | bold | bold style | boolean | false |
-| copyable | Content can be copied | boolean | false |
+| copyable | Content can be copied. You can set the copy text when use string | boolean \| string | false |
 | delete | delete line style | boolean | false |
 | disabled | Disable content | boolean | false |
 | editable | Content can be edited  | boolean | false |

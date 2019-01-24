@@ -17,7 +17,7 @@ cols: 1
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | bold | 是否加粗 | boolean | false |
-| copyable | 是否可拷贝 | boolean | false |
+| copyable | 是否可拷贝，为 string 时为设置复制的文本 | boolean \| string | false |
 | delete | 添加删除线样式 | boolean | false |
 | disabled | 禁用文本 | boolean | false |
 | editable | 是否可编辑 | boolean | false |
@@ -33,7 +33,7 @@ cols: 1
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | bold | 是否加粗 | boolean | false |
-| copyable | 是否可拷贝 | boolean | false |
+| copyable | 是否可拷贝，为 string 时为设置复制的文本 | boolean \| string | false |
 | delete | 添加删除线样式 | boolean | false |
 | disabled | 禁用文本 | boolean | false |
 | editable | 是否可编辑 | boolean | false |
@@ -50,7 +50,7 @@ cols: 1
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | bold | 是否加粗 | boolean | false |
-| copyable | 是否可拷贝 | boolean | false |
+| copyable | 是否可拷贝，为 string 时为设置复制的文本 | boolean \| string | false |
 | delete | 添加删除线样式 | boolean | false |
 | disabled | 禁用文本 | boolean | false |
 | editable | 是否可编辑 | boolean | false |

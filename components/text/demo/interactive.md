@@ -33,6 +33,7 @@ class Demo extends React.Component {
       <div>
         <Paragraph onChange={this.onChange} editable>{this.state.str}</Paragraph>
         <Paragraph copyable>This is a copyable text.</Paragraph>
+        <Paragraph copyable="Hello, Ant Design!">Replace copy text.</Paragraph>
       </div>
     );
   }

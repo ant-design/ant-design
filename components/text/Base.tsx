@@ -23,7 +23,7 @@ export interface BaseProps {
   children?: React.ReactNode;
   editable?: boolean;
   extendable?: boolean; // Only works when ellipsis
-  copyable?: boolean;
+  copyable?: boolean | string;
   onChange?: (value: string) => null;
   type?: BaseType;
   disabled?: boolean;
@@ -123,8 +123,8 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
 
   // ================ Copy ================
   onCopyClick = () => {
-    const { children } = this.props;
-    copy(String(children));
+    const { children, copyable } = this.props;
+    copy(typeof copyable === 'string' ? copyable : String(children));
 
     this.setState({ copied: true }, () => {
       this.copyId = window.setTimeout(() => {
