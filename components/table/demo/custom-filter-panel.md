@@ -50,7 +50,7 @@ class App extends React.Component {
     filterDropdown: ({
       setSelectedKeys, selectedKeys, confirm, clearFilters,
     }) => (
-      <div className="custom-filter-dropdown">
+      <div style={{ padding: 8 }}>
         <Input
           ref={node => { this.searchInput = node; }}
           placeholder={`Search ${dataIndex}`}
@@ -128,13 +128,4 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, mountNode);
-````
-
-````css
-.custom-filter-dropdown {
-  padding: 8px;
-  border-radius: 4px;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, .15);
-}
 ````

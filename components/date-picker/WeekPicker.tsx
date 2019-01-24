@@ -55,6 +55,12 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
     };
   }
 
+  componentDidUpdate(_: any, prevState: WeekPickerState) {
+    if (!('open' in this.props) && prevState.open && !this.state.open) {
+      this.focus();
+    }
+  }
+
   weekDateRender = (current: any) => {
     const selectedValue = this.state.value;
     const { prefixCls } = this;
@@ -89,10 +95,6 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
 
     if (onOpenChange) {
       onOpenChange(open);
-    }
-
-    if (!open) {
-      this.focus();
     }
   };
 

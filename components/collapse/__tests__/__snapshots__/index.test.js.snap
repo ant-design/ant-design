@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Collapse should support remove expandIcon 1`] = `
+<div
+  class="ant-collapse"
+>
+  <div
+    class="ant-collapse-item"
+  >
+    <div
+      aria-expanded="false"
+      class="ant-collapse-header"
+      role="button"
+      tabindex="0"
+    >
+      header
+    </div>
+  </div>
+</div>
+`;

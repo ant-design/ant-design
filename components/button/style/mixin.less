@@ -25,8 +25,8 @@
 
 .button-variant-primary(@color; @background) {
   .button-color(@color; @background; @background);
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+  text-shadow: @btn-text-shadow;
+  box-shadow: @btn-primary-shadow;
 
   &:hover,
   &:focus {
@@ -162,7 +162,7 @@
   user-select: none;
   transition: all 0.3s @ease-in-out;
   position: relative;
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+  box-shadow: @btn-shadow;
   > .@{iconfont-css-prefix} {
     line-height: 1;
   }

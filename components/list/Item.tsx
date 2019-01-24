@@ -5,7 +5,7 @@ import { ListGridType, ColumnType } from './index';
 import { Col } from '../grid';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
-export interface ListItemProps {
+export interface ListItemProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
   children?: React.ReactNode;
   prefixCls?: string;

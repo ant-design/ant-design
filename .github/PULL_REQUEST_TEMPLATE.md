@@ -11,6 +11,7 @@ Please makes sure that these form are filled before submitting your pull request
 - [ ] New feature
 - [ ] Bug fix
 - [ ] Site / document update
+- [ ] Component style update
 - [ ] TypeScript definition update
 - [ ] Refactoring
 - [ ] Code style optimization

@@ -72,7 +72,7 @@ Input 的其他属性和 React 自带的 [input](https://facebook.github.io/reac
 </Input.Group>
 ```
 
-#### Input.Password
+#### Input.Password (3.12.0 中新增)
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |

@@ -134,6 +134,9 @@
 @btn-font-weight : 400;
 @btn-border-radius-base : @border-radius-base;
 @btn-border-radius-sm : @border-radius-base;
+@btn-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+@btn-primary-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+@btn-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
 
 @btn-primary-color : #fff;
 @btn-primary-bg : @primary-color;
@@ -290,6 +293,10 @@
 @input-hover-border-color : @primary-color;
 @input-disabled-bg : @disabled-bg;
 @input-outline-offset : 0 0;
+
+// Select
+// ---
+@select-border-color: @border-color-base;
 
 // Tooltip
 // ---
@@ -504,7 +511,7 @@
 @slider-handle-color: @primary-3;
 @slider-handle-color-hover: @primary-4;
 @slider-handle-color-focus: tint(@primary-color, 20%);
-@slider-handle-color-focus-shadow: tint(@primary-color, 50%);
+@slider-handle-color-focus-shadow: fade(@primary-color, 20%);
 @slider-handle-color-tooltip-open: @primary-color;
 @slider-dot-border-color: @border-color-split;
 @slider-dot-border-color-active: tint(@primary-color, 50%);

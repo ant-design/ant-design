@@ -4,7 +4,7 @@ import RcSelect, { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import omit from 'omit.js';
-import warning from 'warning';
+import warning from '../_util/warning';
 import Icon from '../icon';
 import { tuple } from '../_util/type';
 
@@ -31,7 +31,7 @@ export interface AbstractSelectProps {
   dropdownMenuStyle?: React.CSSProperties;
   dropdownMatchSelectWidth?: boolean;
   onSearch?: (value: string) => any;
-  getPopupContainer?: (triggerNode: Element) => HTMLElement;
+  getPopupContainer?: (triggerNode?: Element) => HTMLElement;
   filterOption?: boolean | ((inputValue: string, option: React.ReactElement<OptionProps>) => any);
   id?: string;
   defaultOpen?: boolean;
