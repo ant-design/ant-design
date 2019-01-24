@@ -169,7 +169,10 @@ export default class ScrollNumber extends Component<ScrollNumberProps, ScrollNum
     // mock border-color by box-shadow for compatible with old usage:
     // <Badge count={4} style={{ backgroundColor: '#fff', color: '#999', borderColor: '#d9d9d9' }} />
     if (style && style.borderColor) {
-      newProps.style.boxShadow = `0 0 0 1px ${style.borderColor} inset`;
+      newProps.style = {
+        ...style,
+        boxShadow: `0 0 0 1px ${style.borderColor} inset`,
+      };
     }
     if (displayComponent) {
       return React.cloneElement(displayComponent, {
