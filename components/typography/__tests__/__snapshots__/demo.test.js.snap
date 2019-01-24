@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/text/demo/basic.md correctly 1`] = `
+exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
 <div>
   <span
     class="ant-text"
@@ -58,7 +58,7 @@ exports[`renders ./components/text/demo/basic.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/text/demo/ellipsis.md correctly 1`] = `
+exports[`renders ./components/typography/demo/ellipsis.md correctly 1`] = `
 <div>
   <div
     class="ant-text ant-text-ellipsis"
@@ -79,7 +79,7 @@ exports[`renders ./components/text/demo/ellipsis.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/text/demo/ellipsis-debug.md correctly 1`] = `
+exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = `
 <div>
   <div
     class="ant-slider"
@@ -141,7 +141,7 @@ exports[`renders ./components/text/demo/ellipsis-debug.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/text/demo/interactive.md correctly 1`] = `
+exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
 <div>
   <div
     class="ant-text"
@@ -236,7 +236,7 @@ exports[`renders ./components/text/demo/interactive.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/text/demo/paragraph.md correctly 1`] = `
+exports[`renders ./components/typography/demo/paragraph.md correctly 1`] = `
 <div>
   <h1
     class="ant-text"
@@ -293,7 +293,7 @@ exports[`renders ./components/text/demo/paragraph.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/text/demo/title.md correctly 1`] = `
+exports[`renders ./components/typography/demo/title.md correctly 1`] = `
 <div>
   <h1
     class="ant-text"
