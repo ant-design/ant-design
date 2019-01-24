@@ -41,7 +41,7 @@ describe('Text', () => {
   afterAll(() => {
     jest.useRealTimers();
     errorSpy.mockRestore();
-    Object.defineProperty(HTMLElement.prototype, {
+    Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
       get: originOffsetHeight,
     });
     window.getComputedStyle = originGetComputedStyle;
