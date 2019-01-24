@@ -45,7 +45,7 @@ export default class Radio extends React.Component<RadioProps, {}> {
   };
 
   onChange = (e: RadioChangeEvent) => {
-    if (this.props.onChange && this.props.prefixCls !== 'ant-radio-button') {
+    if (this.props.onChange) {
       this.props.onChange(e);
     }
 
