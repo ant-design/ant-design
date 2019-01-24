@@ -2,7 +2,13 @@ import Text from './Text';
 import Title from './Title';
 import Paragraph from './Paragraph';
 
-const Typography = {
+interface TypographyProps {
+  Text: typeof Text;
+  Title: typeof Title;
+  Paragraph: typeof Paragraph;
+}
+
+const Typography: TypographyProps = {
   Text,
   Title,
   Paragraph,
