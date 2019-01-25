@@ -21,7 +21,7 @@ describe('Alert', () => {
         closable
         onClose={onClose}
         afterClose={afterClose}
-      />
+      />,
     );
     wrapper.find('.ant-alert-close-icon').simulate('click');
     expect(onClose).toBeCalled();
@@ -31,26 +31,20 @@ describe('Alert', () => {
 
   describe('data and aria props', () => {
     it('sets data attributes on input', () => {
-      const wrapper = mount(
-        <Alert data-test="test-id" data-id="12345" />
-      );
+      const wrapper = mount(<Alert data-test="test-id" data-id="12345" />);
       const input = wrapper.find('.ant-alert').getDOMNode();
       expect(input.getAttribute('data-test')).toBe('test-id');
       expect(input.getAttribute('data-id')).toBe('12345');
     });
 
     it('sets aria attributes on input', () => {
-      const wrapper = mount(
-        <Alert aria-describedby="some-label" />
-      );
+      const wrapper = mount(<Alert aria-describedby="some-label" />);
       const input = wrapper.find('.ant-alert').getDOMNode();
       expect(input.getAttribute('aria-describedby')).toBe('some-label');
     });
 
     it('sets role attribute on input', () => {
-      const wrapper = mount(
-        <Alert role="status" />
-      );
+      const wrapper = mount(<Alert role="status" />);
       const input = wrapper.find('.ant-alert').getDOMNode();
       expect(input.getAttribute('role')).toBe('status');
     });

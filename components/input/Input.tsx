@@ -2,10 +2,14 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import omit from 'omit.js';
+import { polyfill } from 'react-lifecycles-compat';
 import Group from './Group';
 import Search from './Search';
 import TextArea from './TextArea';
-import { Omit } from '../_util/type';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import Password from './Password';
+import Icon from '../icon';
+import { Omit, tuple } from '../_util/type';
 
 function fixControlledValue<T>(value: T) {
   if (typeof value === 'undefined' || value === null) {
@@ -14,38 +18,36 @@ function fixControlledValue<T>(value: T) {
   return value;
 }
 
-export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix'> {
+const InputSizes = tuple('small', 'default', 'large');
+
+export interface InputProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix'> {
   prefixCls?: string;
-  size?: 'large' | 'default' | 'small';
+  size?: (typeof InputSizes)[number];
   onPressEnter?: React.KeyboardEventHandler<HTMLInputElement>;
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
+  allowClear?: boolean;
 }
 
-export default class Input extends React.Component<InputProps, any> {
+class Input extends React.Component<InputProps, any> {
   static Group: typeof Group;
   static Search: typeof Search;
   static TextArea: typeof TextArea;
+  static Password: typeof Password;
 
   static defaultProps = {
-    prefixCls: 'ant-input',
     type: 'text',
     disabled: false,
   };
 
   static propTypes = {
     type: PropTypes.string,
-    id: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-    ]),
-    size: PropTypes.oneOf(['small', 'default', 'large']),
-    maxLength: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-    ]),
+    id: PropTypes.string,
+    size: PropTypes.oneOf(InputSizes),
+    maxLength: PropTypes.number,
     disabled: PropTypes.bool,
     value: PropTypes.any,
     defaultValue: PropTypes.any,
@@ -60,9 +62,27 @@ export default class Input extends React.Component<InputProps, any> {
     onBlur: PropTypes.func,
     prefix: PropTypes.node,
     suffix: PropTypes.node,
+    allowClear: PropTypes.bool,
   };
 
+  static getDerivedStateFromProps(nextProps: InputProps) {
+    if ('value' in nextProps) {
+      return {
+        value: nextProps.value,
+      };
+    }
+    return null;
+  }
+
   input: HTMLInputElement;
+
+  constructor(props: InputProps) {
+    super(props);
+    const value = typeof props.value === 'undefined' ? props.defaultValue : props.value;
+    this.state = {
+      value,
+    };
+  }
 
   handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const { onPressEnter, onKeyDown } = this.props;
@@ -72,7 +92,7 @@ export default class Input extends React.Component<InputProps, any> {
     if (onKeyDown) {
       onKeyDown(e);
     }
-  }
+  };
 
   focus() {
     this.input.focus();
@@ -86,8 +106,8 @@ export default class Input extends React.Component<InputProps, any> {
     this.input.select();
   }
 
-  getInputClassName() {
-    const { prefixCls, size, disabled } = this.props;
+  getInputClassName(prefixCls: string) {
+    const { size, disabled } = this.props;
     return classNames(prefixCls, {
       [`${prefixCls}-sm`]: size === 'small',
       [`${prefixCls}-lg`]: size === 'large',
@@ -97,90 +117,140 @@ export default class Input extends React.Component<InputProps, any> {
 
   saveInput = (node: HTMLInputElement) => {
     this.input = node;
+  };
+
+  setValue(
+    value: string,
+    e: React.ChangeEvent<HTMLInputElement> | React.MouseEvent<HTMLElement, MouseEvent>,
+  ) {
+    if (!('value' in this.props)) {
+      this.setState({ value });
+    }
+    const { onChange } = this.props;
+    if (onChange) {
+      let event = e;
+      if (e.type === 'click') {
+        // click clear icon
+        event = Object.create(e);
+        event.target = this.input;
+        event.currentTarget = this.input;
+        const originalInputValue = this.input.value;
+        // change input value cause e.target.value should be '' when clear input
+        this.input.value = '';
+        onChange(event as React.ChangeEvent<HTMLInputElement>);
+        // reset input value
+        this.input.value = originalInputValue;
+        return;
+      }
+      onChange(event as React.ChangeEvent<HTMLInputElement>);
+    }
   }
 
-  renderLabeledInput(children: React.ReactElement<any>) {
-    const props = this.props;
+  handleReset = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    this.setValue('', e);
+  };
+
+  handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    this.setValue(e.target.value, e);
+  };
+
+  renderClearIcon(prefixCls: string) {
+    const { allowClear } = this.props;
+    const { value } = this.state;
+    if (!allowClear || value === undefined || value === '') {
+      return null;
+    }
+    return (
+      <Icon
+        type="close-circle"
+        theme="filled"
+        onClick={this.handleReset}
+        className={`${prefixCls}-clear-icon`}
+        role="button"
+      />
+    );
+  }
+
+  renderSuffix(prefixCls: string) {
+    const { suffix, allowClear } = this.props;
+    if (suffix || allowClear) {
+      return (
+        <span className={`${prefixCls}-suffix`}>
+          {this.renderClearIcon(prefixCls)}
+          {suffix}
+        </span>
+      );
+    }
+    return null;
+  }
+
+  renderLabeledInput(prefixCls: string, children: React.ReactElement<any>) {
+    const { addonBefore, addonAfter, style, size, className } = this.props;
     // Not wrap when there is not addons
-    if ((!props.addonBefore && !props.addonAfter)) {
+    if (!addonBefore && !addonAfter) {
       return children;
     }
 
-    const wrapperClassName = `${props.prefixCls}-group`;
+    const wrapperClassName = `${prefixCls}-group`;
     const addonClassName = `${wrapperClassName}-addon`;
-    const addonBefore = props.addonBefore ? (
-      <span className={addonClassName}>
-        {props.addonBefore}
-      </span>
+    const addonBeforeNode = addonBefore ? (
+      <span className={addonClassName}>{addonBefore}</span>
     ) : null;
+    const addonAfterNode = addonAfter ? <span className={addonClassName}>{addonAfter}</span> : null;
 
-    const addonAfter = props.addonAfter ? (
-      <span className={addonClassName}>
-        {props.addonAfter}
-      </span>
-    ) : null;
-
-    const className = classNames(`${props.prefixCls}-wrapper`, {
-      [wrapperClassName]: (addonBefore || addonAfter),
+    const mergedWrapperClassName = classNames(`${prefixCls}-wrapper`, {
+      [wrapperClassName]: addonBefore || addonAfter,
     });
 
-    const groupClassName = classNames(`${props.prefixCls}-group-wrapper`, {
-      [`${props.prefixCls}-group-wrapper-sm`]: props.size === 'small',
-      [`${props.prefixCls}-group-wrapper-lg`]: props.size === 'large',
+    const mergedGroupClassName = classNames(className, `${prefixCls}-group-wrapper`, {
+      [`${prefixCls}-group-wrapper-sm`]: size === 'small',
+      [`${prefixCls}-group-wrapper-lg`]: size === 'large',
     });
 
     // Need another wrapper for changing display:table to display:inline-block
     // and put style prop in wrapper
     return (
-      <span
-        className={groupClassName}
-        style={props.style}
-      >
-        <span className={className}>
-          {addonBefore}
+      <span className={mergedGroupClassName} style={style}>
+        <span className={mergedWrapperClassName}>
+          {addonBeforeNode}
           {React.cloneElement(children, { style: null })}
-          {addonAfter}
+          {addonAfterNode}
         </span>
       </span>
     );
   }
 
-  renderLabeledIcon(children: React.ReactElement<any>) {
+  renderLabeledIcon(prefixCls: string, children: React.ReactElement<any>) {
     const { props } = this;
-    if (!('prefix' in props || 'suffix' in props)) {
+    const suffix = this.renderSuffix(prefixCls);
+
+    if (!('prefix' in props) && !suffix) {
       return children;
     }
 
     const prefix = props.prefix ? (
-      <span className={`${props.prefixCls}-prefix`}>
-        {props.prefix}
-      </span>
+      <span className={`${prefixCls}-prefix`}>{props.prefix}</span>
     ) : null;
 
-    const suffix = props.suffix ? (
-      <span className={`${props.prefixCls}-suffix`}>
-        {props.suffix}
-      </span>
-    ) : null;
-
-    const affixWrapperCls = classNames(props.className, `${props.prefixCls}-affix-wrapper`, {
-      [`${props.prefixCls}-affix-wrapper-sm`]: props.size === 'small',
-      [`${props.prefixCls}-affix-wrapper-lg`]: props.size === 'large',
+    const affixWrapperCls = classNames(props.className, `${prefixCls}-affix-wrapper`, {
+      [`${prefixCls}-affix-wrapper-sm`]: props.size === 'small',
+      [`${prefixCls}-affix-wrapper-lg`]: props.size === 'large',
     });
     return (
-      <span
-        className={affixWrapperCls}
-        style={props.style}
-      >
+      <span className={affixWrapperCls} style={props.style}>
         {prefix}
-        {React.cloneElement(children, { style: null, className: this.getInputClassName() })}
+        {React.cloneElement(children, {
+          style: null,
+          className: this.getInputClassName(prefixCls),
+        })}
         {suffix}
       </span>
     );
   }
 
-  renderInput() {
-    const { value, className } = this.props;
+  renderInput(prefixCls: string) {
+    const { className, addonBefore, addonAfter } = this.props;
+    const { value } = this.state;
     // Fix https://fb.me/react-unknown-prop
     const otherProps = omit(this.props, [
       'prefixCls',
@@ -189,25 +259,38 @@ export default class Input extends React.Component<InputProps, any> {
       'addonAfter',
       'prefix',
       'suffix',
-    ]);
-
-    if ('value' in this.props) {
-      otherProps.value = fixControlledValue(value);
+      'allowClear',
       // Input elements must be either controlled or uncontrolled,
       // specify either the value prop, or the defaultValue prop, but not both.
-      delete otherProps.defaultValue;
-    }
+      'defaultValue',
+    ]);
+
     return this.renderLabeledIcon(
+      prefixCls,
       <input
         {...otherProps}
-        className={classNames(this.getInputClassName(), className)}
+        value={fixControlledValue(value)}
+        onChange={this.handleChange}
+        className={classNames(this.getInputClassName(prefixCls), {
+          [className!]: className && !addonBefore && !addonAfter,
+        })}
         onKeyDown={this.handleKeyDown}
         ref={this.saveInput}
       />,
     );
   }
 
+  renderComponent = ({ getPrefixCls }: ConfigConsumerProps) => {
+    const { prefixCls: customizePrefixCls } = this.props;
+    const prefixCls = getPrefixCls('input', customizePrefixCls);
+    return this.renderLabeledInput(prefixCls, this.renderInput(prefixCls));
+  };
+
   render() {
-    return this.renderLabeledInput(this.renderInput());
+    return <ConfigConsumer>{this.renderComponent}</ConfigConsumer>;
   }
 }
+
+polyfill(Input);
+
+export default Input;

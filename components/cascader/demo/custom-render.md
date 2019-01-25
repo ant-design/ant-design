@@ -66,5 +66,6 @@ ReactDOM.render(
     displayRender={displayRender}
     style={{ width: '100%' }}
   />,
-  mountNode);
+  mountNode
+);
 ````

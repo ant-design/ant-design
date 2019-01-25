@@ -26,7 +26,8 @@ ReactDOM.render(
     <Pagination size="small" total={50} showSizeChanger showQuickJumper />
     <Pagination size="small" total={50} showTotal={showTotal} />
   </div>,
-  mountNode);
+  mountNode
+);
 ````
 
 <style>

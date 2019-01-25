@@ -20,6 +20,7 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
      a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#f3f3f3"
+          stroke-linecap="round"
           stroke-width="6"
           style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s"
         />
@@ -36,6 +37,7 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
       </svg>
       <span
         class="ant-progress-text"
+        title="75%"
       >
         75%
       </span>
@@ -59,6 +61,7 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
      a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#f3f3f3"
+          stroke-linecap="round"
           stroke-width="6"
           style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s"
         />
@@ -114,6 +117,7 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
      a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#f3f3f3"
+          stroke-linecap="round"
           stroke-width="6"
           style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s"
         />
@@ -174,6 +178,7 @@ exports[`renders ./components/progress/demo/circle-dynamic.md correctly 1`] = `
      a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#f3f3f3"
+          stroke-linecap="round"
           stroke-width="6"
           style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s"
         />
@@ -190,6 +195,7 @@ exports[`renders ./components/progress/demo/circle-dynamic.md correctly 1`] = `
       </svg>
       <span
         class="ant-progress-text"
+        title="0%"
       >
         0%
       </span>
@@ -266,6 +272,7 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
      a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#f3f3f3"
+          stroke-linecap="round"
           stroke-width="6"
           style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s"
         />
@@ -282,6 +289,7 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
       </svg>
       <span
         class="ant-progress-text"
+        title="30%"
       >
         30%
       </span>
@@ -305,6 +313,7 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
      a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#f3f3f3"
+          stroke-linecap="round"
           stroke-width="6"
           style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s"
         />
@@ -360,6 +369,7 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
      a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#f3f3f3"
+          stroke-linecap="round"
           stroke-width="6"
           style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s"
         />
@@ -419,6 +429,7 @@ exports[`renders ./components/progress/demo/dashboard.md correctly 1`] = `
      a 47,47 0 1 1 0,94"
         fill-opacity="0"
         stroke="#f3f3f3"
+        stroke-linecap="round"
         stroke-width="6"
         style="stroke-dasharray:220.30970943744057px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s"
       />
@@ -435,6 +446,7 @@ exports[`renders ./components/progress/demo/dashboard.md correctly 1`] = `
     </svg>
     <span
       class="ant-progress-text"
+      title="75%"
     >
       75%
     </span>
@@ -462,6 +474,7 @@ exports[`renders ./components/progress/demo/dynamic.md correctly 1`] = `
       </div>
       <span
         class="ant-progress-text"
+        title="0%"
       >
         0%
       </span>
@@ -538,6 +551,7 @@ exports[`renders ./components/progress/demo/format.md correctly 1`] = `
      a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#f3f3f3"
+          stroke-linecap="round"
           stroke-width="6"
           style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s"
         />
@@ -554,6 +568,7 @@ exports[`renders ./components/progress/demo/format.md correctly 1`] = `
       </svg>
       <span
         class="ant-progress-text"
+        title="75 Days"
       >
         75 Days
       </span>
@@ -577,6 +592,7 @@ exports[`renders ./components/progress/demo/format.md correctly 1`] = `
      a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#f3f3f3"
+          stroke-linecap="round"
           stroke-width="6"
           style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s"
         />
@@ -593,6 +609,7 @@ exports[`renders ./components/progress/demo/format.md correctly 1`] = `
       </svg>
       <span
         class="ant-progress-text"
+        title="Done"
       >
         Done
       </span>
@@ -621,6 +638,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
       </div>
       <span
         class="ant-progress-text"
+        title="30%"
       >
         30%
       </span>
@@ -644,6 +662,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
       </div>
       <span
         class="ant-progress-text"
+        title="50%"
       >
         50%
       </span>
@@ -770,6 +789,7 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
       </div>
       <span
         class="ant-progress-text"
+        title="30%"
       >
         30%
       </span>
@@ -793,6 +813,7 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
       </div>
       <span
         class="ant-progress-text"
+        title="50%"
       >
         50%
       </span>
@@ -899,6 +920,7 @@ exports[`renders ./components/progress/demo/linecap.md correctly 1`] = `
       </div>
       <span
         class="ant-progress-text"
+        title="75%"
       >
         75%
       </span>
@@ -922,6 +944,7 @@ exports[`renders ./components/progress/demo/linecap.md correctly 1`] = `
      a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#f3f3f3"
+          stroke-linecap="square"
           stroke-width="6"
           style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s"
         />
@@ -938,6 +961,7 @@ exports[`renders ./components/progress/demo/linecap.md correctly 1`] = `
       </svg>
       <span
         class="ant-progress-text"
+        title="75%"
       >
         75%
       </span>
@@ -961,6 +985,7 @@ exports[`renders ./components/progress/demo/linecap.md correctly 1`] = `
      a 47,47 0 1 1 0,94"
           fill-opacity="0"
           stroke="#f3f3f3"
+          stroke-linecap="square"
           stroke-width="6"
           style="stroke-dasharray:220.30970943744057px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s"
         />
@@ -977,6 +1002,7 @@ exports[`renders ./components/progress/demo/linecap.md correctly 1`] = `
       </svg>
       <span
         class="ant-progress-text"
+        title="75%"
       >
         75%
       </span>
@@ -1008,6 +1034,7 @@ exports[`renders ./components/progress/demo/segment.md correctly 1`] = `
     </div>
     <span
       class="ant-progress-text"
+      title="60%"
     >
       60%
     </span>

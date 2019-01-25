@@ -1,5 +1,8 @@
+import raf from 'raf';
+import delayRaf from '../raf';
 import throttleByAnimationFrame from '../throttleByAnimationFrame';
 import getDataOrAriaProps from '../getDataOrAriaProps';
+import triggerEvent from '../triggerEvent';
 
 describe('Test utils function', () => {
   beforeAll(() => {
@@ -83,5 +86,46 @@ describe('Test utils function', () => {
       const results = getDataOrAriaProps(props);
       expect(results).toEqual({ role: 'search' });
     });
+  });
+
+  it('delayRaf', done => {
+    jest.useRealTimers();
+
+    let bamboo = false;
+    delayRaf(() => {
+      bamboo = true;
+    }, 3);
+
+    // Variable bamboo should be false in frame 2 but true in frame 4
+    raf(() => {
+      expect(bamboo).toBe(false);
+
+      // Frame 2
+      raf(() => {
+        expect(bamboo).toBe(false);
+
+        // Frame 3
+        raf(() => {
+          // Frame 4
+          raf(() => {
+            expect(bamboo).toBe(true);
+            done();
+          });
+        });
+      });
+    });
+  });
+
+  it('triggerEvent', () => {
+    const button = document.createElement('button');
+    button.addEventListener(
+      'click',
+      () => {
+        button.style.width = '100px';
+      },
+      true,
+    );
+    triggerEvent(button, 'click');
+    expect(button.style.width).toBe('100px');
   });
 });

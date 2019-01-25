@@ -22,7 +22,7 @@ describe('Avatar Render', () => {
     expect(children.length).toBe(1);
     expect(children.text()).toBe('Fallback');
     expect(wrapper.instance().setScale).toBeCalled();
-    expect(div.querySelector('.ant-avatar-string').style.transform).toBe('scale(0.5)');
+    expect(div.querySelector('.ant-avatar-string').style.transform).toContain('scale(0.5)');
 
     wrapper.detach();
     global.document.body.removeChild(div);
@@ -38,14 +38,14 @@ describe('Avatar Render', () => {
     class Foo extends React.Component {
       state = {
         src: LOAD_FAILURE_SRC,
-      }
+      };
 
       handleImgError = () => {
         this.setState({
           src: LOAD_SUCCESS_SRC,
         });
         return false;
-      }
+      };
 
       render() {
         const { src } = this.state;

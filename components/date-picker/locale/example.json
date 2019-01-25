@@ -1,10 +1,7 @@
 {
   "lang": {
     "placeholder": "Select date",
-    "rangePlaceholder": [
-      "Start date",
-      "End date"
-    ],
+    "rangePlaceholder": ["Start date", "End date"],
     "today": "Today",
     "now": "Now",
     "backToToday": "Back to today",

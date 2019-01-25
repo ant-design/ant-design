@@ -22,7 +22,8 @@ ReactDOM.render(
       <a href="#" className="head-example" />
     </Badge>
   </div>,
-  mountNode);
+  mountNode
+);
 ````
 
 <style>

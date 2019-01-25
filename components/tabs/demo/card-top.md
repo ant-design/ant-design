@@ -38,7 +38,8 @@ ReactDOM.render(
       </TabPane>
     </Tabs>
   </div>,
-  mountNode);
+  mountNode
+);
 ````
 
 ````css

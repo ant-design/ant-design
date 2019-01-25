@@ -16,7 +16,7 @@ The most basic usage, tell you how to use checkable, selectable, disabled, defau
 ````jsx
 import { Tree } from 'antd';
 
-const TreeNode = Tree.TreeNode;
+const { TreeNode } = Tree;
 
 class Demo extends React.Component {
   onSelect = (selectedKeys, info) => {

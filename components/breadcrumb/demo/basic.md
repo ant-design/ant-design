@@ -23,5 +23,6 @@ ReactDOM.render(
     <Breadcrumb.Item><a href="">Application List</a></Breadcrumb.Item>
     <Breadcrumb.Item>An Application</Breadcrumb.Item>
   </Breadcrumb>,
-  mountNode);
+  mountNode
+);
 ````

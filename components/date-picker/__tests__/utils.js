@@ -8,7 +8,9 @@ export function selectDate(wrapper, date, index) {
 }
 
 export function hasSelected(wrapper, date) {
-  return wrapper.find({ title: date.format('LL'), role: 'gridcell' }).hasClass('ant-calendar-selected-day');
+  return wrapper
+    .find({ title: date.format('LL'), role: 'gridcell' })
+    .hasClass('ant-calendar-selected-day');
 }
 
 export function openPanel(wrapper) {
@@ -16,7 +18,10 @@ export function openPanel(wrapper) {
 }
 
 export function clearInput(wrapper) {
-  wrapper.find('.ant-calendar-picker-clear').hostNodes().simulate('click');
+  wrapper
+    .find('.ant-calendar-picker-clear')
+    .hostNodes()
+    .simulate('click');
 }
 
 export function nextYear(wrapper) {

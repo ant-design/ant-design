@@ -35,5 +35,6 @@ ReactDOM.render(
       <TabPane tab="Tab 3" key="3">Content of Tab Pane 3</TabPane>
     </Tabs>
   </StickyContainer>,
-  mountNode);
+  mountNode
+);
 ````

@@ -35,5 +35,6 @@ ReactDOM.render(
       <Button>Click me</Button>
     </Popover>
   </div>,
-  mountNode);
+  mountNode
+);
 ````

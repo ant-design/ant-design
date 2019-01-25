@@ -10,9 +10,12 @@ describe('List', () => {
     const renderItem = item => <ListItem>{item}</ListItem>;
     const dataSource = [];
 
-    const wrapper = mount(
-      <List renderItem={renderItem} dataSource={dataSource} locale={locale} />
-    );
-    expect(wrapper.find('div').first().props().locale).toBe(undefined);
+    const wrapper = mount(<List renderItem={renderItem} dataSource={dataSource} locale={locale} />);
+    expect(
+      wrapper
+        .find('div')
+        .first()
+        .props().locale,
+    ).toBe(undefined);
   });
 });

@@ -30,7 +30,8 @@ ReactDOM.render(
     <Button onClick={() => openNotificationWithIcon('warning')}>Warning</Button>
     <Button onClick={() => openNotificationWithIcon('error')}>Error</Button>
   </div>,
-  mountNode);
+  mountNode
+);
 ````
 
 <style>

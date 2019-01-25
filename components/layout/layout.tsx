@@ -2,22 +2,33 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { SiderProps } from './Sider';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
+export interface GeneratorProps {
+  suffixCls: string;
+}
 export interface BasicProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   hasSider?: boolean;
 }
 
-function generator(props: BasicProps) {
+function generator({ suffixCls }: GeneratorProps) {
   return (BasicComponent: React.ComponentClass<BasicProps>): any => {
     return class Adapter extends React.Component<BasicProps, any> {
       static Header: any;
       static Footer: any;
       static Content: any;
       static Sider: any;
-      render() {
-        const { prefixCls } = props;
+
+      renderComponent = ({ getPrefixCls }: ConfigConsumerProps) => {
+        const { prefixCls: customizePrefixCls } = this.props;
+        const prefixCls = getPrefixCls(suffixCls, customizePrefixCls);
+
         return <BasicComponent prefixCls={prefixCls} {...this.props} />;
+      };
+
+      render() {
+        return <ConfigConsumer>{this.renderComponent}</ConfigConsumer>;
       }
     };
   };
@@ -28,12 +39,18 @@ class Basic extends React.Component<BasicProps, any> {
     const { prefixCls, className, children, ...others } = this.props;
     const divCls = classNames(className, prefixCls);
     return (
-      <div className={divCls} {...others}>{children}</div>
+      <div className={divCls} {...others}>
+        {children}
+      </div>
     );
   }
 }
 
-class BasicLayout extends React.Component<BasicProps, any> {
+interface BasicLayoutState {
+  siders: string[];
+}
+
+class BasicLayout extends React.Component<BasicProps, BasicLayoutState> {
   static childContextTypes = {
     siderHook: PropTypes.object,
   };
@@ -43,14 +60,14 @@ class BasicLayout extends React.Component<BasicProps, any> {
     return {
       siderHook: {
         addSider: (id: string) => {
-          this.setState({
-            siders: [...this.state.siders, id],
-          });
+          this.setState(state => ({
+            siders: [...state.siders, id],
+          }));
         },
         removeSider: (id: string) => {
-          this.setState({
-            siders: this.state.siders.filter(currentId => currentId !== id),
-          });
+          this.setState(state => ({
+            siders: state.siders.filter(currentId => currentId !== id),
+          }));
         },
       },
     };
@@ -62,7 +79,9 @@ class BasicLayout extends React.Component<BasicProps, any> {
       [`${prefixCls}-has-sider`]: hasSider || this.state.siders.length > 0,
     });
     return (
-      <div className={divCls} {...others}>{children}</div>
+      <div className={divCls} {...others}>
+        {children}
+      </div>
     );
   }
 }
@@ -73,19 +92,19 @@ const Layout: React.ComponentClass<BasicProps> & {
   Content: React.ComponentClass<BasicProps>;
   Sider: React.ComponentClass<SiderProps>;
 } = generator({
-  prefixCls: 'ant-layout',
+  suffixCls: 'layout',
 })(BasicLayout);
 
 const Header = generator({
-  prefixCls: 'ant-layout-header',
+  suffixCls: 'layout-header',
 })(Basic);
 
 const Footer = generator({
-  prefixCls: 'ant-layout-footer',
+  suffixCls: 'layout-footer',
 })(Basic);
 
 const Content = generator({
-  prefixCls: 'ant-layout-content',
+  suffixCls: 'layout-content',
 })(Basic);
 
 Layout.Header = Header;

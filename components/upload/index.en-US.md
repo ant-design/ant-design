@@ -16,12 +16,10 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 
 ## API
 
-> You can consult [jQuery-File-Upload](https://github.com/blueimp/jQuery-File-Upload/wiki) about how to implement server side upload interface.
-
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| accept | File types that can be accepted. See [input accept Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-accept) | string | - |
-| action | Required. Uploading URL | string\|(file) => `Promise` | - |
+| accept | File types that can be accepted. See [input accept Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept) | string | - |
+| action | Uploading URL | string\|(file) => `Promise` | - |
 | directory | support upload whole directory ([caniuse](https://caniuse.com/#feat=input-file-directory)) | boolean | false |
 | beforeUpload | Hook function which will be executed before uploading. Uploading will be stopped with `false` or a rejected Promise returned. **Warning：this function is not supported in IE9**。 | (file, fileList) => `boolean | Promise` | - |
 | customRequest | override for the default xhr behavior allowing for additional customization and ability to implement your own XMLHttpRequest | Function | - |
@@ -36,13 +34,14 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | showUploadList | Whether to show default upload list, could be an object to specify `showPreviewIcon` and `showRemoveIcon` individually | Boolean or { showPreviewIcon?: boolean, showRemoveIcon?: boolean } | true |
 | supportServerRender | Need to be turned on while the server side is rendering. | boolean | false |
 | withCredentials | ajax upload with cookie sent | boolean | false |
+| openFileDialogOnClick | click open file dialog | boolean | true |
 | onChange | A callback function, can be executed when uploading state is changing. See [onChange](#onChange) | Function | - |
 | onPreview | A callback function, will be executed when file link or preview icon is clicked. | Function(file) | - |
 | onRemove | A callback function, will be executed when removing file button is clicked, remove event will be prevented when return value is `false` or a Promise which resolve(false) or reject. | Function(file): `boolean | Promise` | - |
 
 ### onChange
 
-> The function will be called when uploading is in progress, completed or failed
+> The function will be called when uploading is in progress, completed or failed.
 
 When uploading state change, it returns:
 
@@ -69,14 +68,21 @@ When uploading state change, it returns:
 2. `fileList` current list of files
 3. `event` response from server, including uploading progress, supported by advanced browsers.
 
-## show download links
+## FAQ
 
-Please set property `url` of property `fileList` to control content of link
+### How to implement upload server side?
 
-## customRequest
+- You can consult [jQuery-File-Upload](https://github.com/blueimp/jQuery-File-Upload/wiki#server-side) about how to implement server side upload interface.
+- There is a mock example of [express](https://github.com/react-component/upload/blob/master/server.js) in rc-upload.
 
-- <https://github.com/react-component/upload#customrequest>
+### I want to display download links.
 
-## IE note
+Please set property `url` of each item in `fileList` to control content of link.
 
-- <https://github.com/react-component/upload#ie89-note>
+### How to use `customRequest`?
+
+See <https://github.com/react-component/upload#customrequest>.
+
+### IE8/9 Note
+
+See <https://github.com/react-component/upload#ie89-note>.

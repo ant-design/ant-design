@@ -14,7 +14,9 @@ title:
 Use skeleton in list component.
 
 ````jsx
-import { Skeleton, Switch, List, Avatar, Icon } from 'antd';
+import {
+  Skeleton, Switch, List, Avatar, Icon,
+} from 'antd';
 
 const listData = [];
 for (let i = 0; i < 3; i++) {

@@ -46,5 +46,6 @@ function onChange(value) {
 
 ReactDOM.render(
   <Cascader fieldNames={{ label: 'name', value: 'code', children: 'items' }} options={options} onChange={onChange} placeholder="Please select" />,
-  mountNode);
+  mountNode
+);
 ````

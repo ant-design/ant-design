@@ -50,5 +50,6 @@ ReactDOM.render(
       <Menu.Item key="12">Option 12</Menu.Item>
     </SubMenu>
   </Menu>,
-  mountNode);
+  mountNode
+);
 ````

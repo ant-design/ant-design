@@ -22,5 +22,6 @@ ReactDOM.render(
     <br />
     <Rate allowClear={false} defaultValue={3} /> allowClear: false
   </div>,
-  mountNode);
+  mountNode
+);
 ````

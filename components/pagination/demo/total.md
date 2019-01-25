@@ -32,5 +32,6 @@ ReactDOM.render(
       defaultCurrent={1}
     />
   </div>,
-  mountNode);
+  mountNode
+);
 ````

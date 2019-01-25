@@ -69,7 +69,8 @@ ReactDOM.render(
       </Popconfirm>
     </div>
   </div>,
-  mountNode);
+  mountNode
+);
 ````
 
 <style>

@@ -22,13 +22,16 @@ function countDown() {
     title: 'This is a notification message',
     content: `This modal will be destroyed after ${secondsToGo} second.`,
   });
-  setInterval(() => {
+  const timer = setInterval(() => {
     secondsToGo -= 1;
     modal.update({
       content: `This modal will be destroyed after ${secondsToGo} second.`,
     });
   }, 1000);
-  setTimeout(() => modal.destroy(), secondsToGo * 1000);
+  setTimeout(() => {
+    clearInterval(timer);
+    modal.destroy();
+  }, secondsToGo * 1000);
 }
 
 ReactDOM.render(

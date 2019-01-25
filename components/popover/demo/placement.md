@@ -73,7 +73,8 @@ ReactDOM.render(
       </Popover>
     </div>
   </div>,
-  mountNode);
+  mountNode
+);
 ````
 
 <style>

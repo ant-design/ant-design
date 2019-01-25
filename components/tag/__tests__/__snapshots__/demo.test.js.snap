@@ -4,13 +4,11 @@ exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
 <div>
   <div
     class="ant-tag"
-    data-show="true"
   >
     Tag 1
   </div>
   <div
     class="ant-tag"
-    data-show="true"
   >
     <a
       href="https://github.com/ant-design/ant-design/issues/1862"
@@ -20,7 +18,6 @@ exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="ant-tag"
-    data-show="true"
   >
     Tag 2
     <i
@@ -43,7 +40,6 @@ exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="ant-tag"
-    data-show="true"
   >
     Prevent Default
     <i
@@ -97,67 +93,56 @@ exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
   <div>
     <div
       class="ant-tag ant-tag-magenta"
-      data-show="true"
     >
       magenta
     </div>
     <div
       class="ant-tag ant-tag-red"
-      data-show="true"
     >
       red
     </div>
     <div
       class="ant-tag ant-tag-volcano"
-      data-show="true"
     >
       volcano
     </div>
     <div
       class="ant-tag ant-tag-orange"
-      data-show="true"
     >
       orange
     </div>
     <div
       class="ant-tag ant-tag-gold"
-      data-show="true"
     >
       gold
     </div>
     <div
       class="ant-tag ant-tag-lime"
-      data-show="true"
     >
       lime
     </div>
     <div
       class="ant-tag ant-tag-green"
-      data-show="true"
     >
       green
     </div>
     <div
       class="ant-tag ant-tag-cyan"
-      data-show="true"
     >
       cyan
     </div>
     <div
       class="ant-tag ant-tag-blue"
-      data-show="true"
     >
       blue
     </div>
     <div
       class="ant-tag ant-tag-geekblue"
-      data-show="true"
     >
       geekblue
     </div>
     <div
       class="ant-tag ant-tag-purple"
-      data-show="true"
     >
       purple
     </div>
@@ -170,28 +155,24 @@ exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
   <div>
     <div
       class="ant-tag ant-tag-has-color"
-      data-show="true"
       style="background-color:#f50"
     >
       #f50
     </div>
     <div
       class="ant-tag ant-tag-has-color"
-      data-show="true"
       style="background-color:#2db7f5"
     >
       #2db7f5
     </div>
     <div
       class="ant-tag ant-tag-has-color"
-      data-show="true"
       style="background-color:#87d068"
     >
       #87d068
     </div>
     <div
       class="ant-tag ant-tag-has-color"
-      data-show="true"
       style="background-color:#108ee9"
     >
       #108ee9
@@ -204,13 +185,11 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
 <div>
   <div
     class="ant-tag"
-    data-show="true"
   >
     Unremovable
   </div>
   <div
     class="ant-tag"
-    data-show="true"
   >
     Tag 2
     <i
@@ -233,7 +212,6 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
   </div>
   <div
     class="ant-tag"
-    data-show="true"
   >
     Tag 3
     <i
@@ -256,7 +234,6 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
   </div>
   <div
     class="ant-tag"
-    data-show="true"
     style="background:#fff;border-style:dashed"
   >
     <i
@@ -285,7 +262,6 @@ exports[`renders ./components/tag/demo/controlled.md correctly 1`] = `
 <div>
   <div
     class="ant-tag"
-    data-show="true"
   >
     Movies
     <i

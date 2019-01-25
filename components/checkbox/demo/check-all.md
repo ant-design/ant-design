@@ -28,6 +28,22 @@ class App extends React.Component {
     checkAll: false,
   };
 
+  onChange = (checkedList) => {
+    this.setState({
+      checkedList,
+      indeterminate: !!checkedList.length && (checkedList.length < plainOptions.length),
+      checkAll: checkedList.length === plainOptions.length,
+    });
+  }
+
+  onCheckAllChange = (e) => {
+    this.setState({
+      checkedList: e.target.checked ? plainOptions : [],
+      indeterminate: false,
+      checkAll: e.target.checked,
+    });
+  }
+
   render() {
     return (
       <div>
@@ -44,22 +60,6 @@ class App extends React.Component {
         <CheckboxGroup options={plainOptions} value={this.state.checkedList} onChange={this.onChange} />
       </div>
     );
-  }
-
-  onChange = (checkedList) => {
-    this.setState({
-      checkedList,
-      indeterminate: !!checkedList.length && (checkedList.length < plainOptions.length),
-      checkAll: checkedList.length === plainOptions.length,
-    });
-  }
-
-  onCheckAllChange = (e) => {
-    this.setState({
-      checkedList: e.target.checked ? plainOptions : [],
-      indeterminate: false,
-      checkAll: e.target.checked,
-    });
   }
 }
 

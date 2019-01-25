@@ -20,7 +20,8 @@ ReactDOM.render(
   <div className="example">
     <Spin />
   </div>,
-  mountNode);
+  mountNode
+);
 ````
 
 ````css

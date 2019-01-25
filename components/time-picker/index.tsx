@@ -4,6 +4,7 @@ import { polyfill } from 'react-lifecycles-compat';
 import RcTimePicker from 'rc-time-picker/lib/TimePicker';
 import classNames from 'classnames';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import defaultLocale from './locale/en_US';
 import interopDefault from '../_util/interopDefault';
 import Icon from '../icon';
@@ -11,11 +12,7 @@ import Icon from '../icon';
 export function generateShowHourMinuteSecond(format: string) {
   // Ref: http://momentjs.com/docs/#/parsing/string-format/
   return {
-    showHour: (
-      format.indexOf('H') > -1 ||
-      format.indexOf('h') > -1 ||
-      format.indexOf('k') > -1
-    ),
+    showHour: format.indexOf('H') > -1 || format.indexOf('h') > -1 || format.indexOf('k') > -1,
     showMinute: format.indexOf('m') > -1,
     showSecond: format.indexOf('s') > -1,
   };
@@ -30,6 +27,7 @@ export interface TimePickerProps {
   format?: string;
   onChange?: (time: moment.Moment, timeString: string) => void;
   onOpenChange?: (open: boolean) => void;
+  onAmPmChange?: (ampm: 'AM' | 'PM') => void;
   disabled?: boolean;
   placeholder?: string;
   prefixCls?: string;
@@ -50,6 +48,8 @@ export interface TimePickerProps {
   clearText?: string;
   defaultOpenValue?: moment.Moment;
   popupClassName?: string;
+  popupStyle?: React.CSSProperties;
+  suffixIcon?: React.ReactNode;
 }
 
 export interface TimePickerLocale {
@@ -58,7 +58,6 @@ export interface TimePickerLocale {
 
 class TimePicker extends React.Component<TimePickerProps, any> {
   static defaultProps = {
-    prefixCls: 'ant-time-picker',
     align: {
       offset: [0, -2],
     },
@@ -87,7 +86,7 @@ class TimePicker extends React.Component<TimePickerProps, any> {
     if (value && !interopDefault(moment).isMoment(value)) {
       throw new Error(
         'The value/defaultValue of TimePicker must be a moment object after `antd@2.0`, ' +
-        'see: https://u.ant.design/time-picker-value',
+          'see: https://u.ant.design/time-picker-value',
       );
     }
     this.state = {
@@ -103,18 +102,18 @@ class TimePicker extends React.Component<TimePickerProps, any> {
     if (onChange) {
       onChange(value, (value && value.format(format)) || '');
     }
-  }
+  };
 
   handleOpenClose = ({ open }: { open: boolean }) => {
     const { onOpenChange } = this.props;
     if (onOpenChange) {
       onOpenChange(open);
     }
-  }
+  };
 
   saveTimePicker = (timePickerRef: typeof RcTimePicker) => {
     this.timePickerRef = timePickerRef;
-  }
+  };
 
   focus() {
     this.timePickerRef.focus();
@@ -134,68 +133,74 @@ class TimePicker extends React.Component<TimePickerProps, any> {
     return 'HH:mm:ss';
   }
 
-  renderTimePicker = (locale: TimePickerLocale) => {
-    const props = {
-      ...this.props,
-    };
-    delete props.defaultValue;
+  renderTimePicker = (locale: TimePickerLocale) => (
+    <ConfigConsumer>
+      {({ getPopupContainer: getContextPopupContainer, getPrefixCls }: ConfigConsumerProps) => {
+        const { getPopupContainer, prefixCls: customizePrefixCls, ...props } = this.props;
+        delete props.defaultValue;
 
-    const format = this.getDefaultFormat();
-    const className = classNames(props.className, {
-      [`${props.prefixCls}-${props.size}`]: !!props.size,
-    });
+        const format = this.getDefaultFormat();
+        const prefixCls = getPrefixCls('time-picker', customizePrefixCls);
+        const className = classNames(props.className, {
+          [`${prefixCls}-${props.size}`]: !!props.size,
+        });
 
-    const addon = (panel: React.ReactElement<any>) => (
-      props.addon ? (
-        <div className={`${props.prefixCls}-panel-addon`}>
-          {props.addon(panel)}
-        </div>
-      ) : null
-    );
+        const addon = (panel: React.ReactElement<any>) =>
+          props.addon ? (
+            <div className={`${prefixCls}-panel-addon`}>{props.addon(panel)}</div>
+          ) : null;
 
-    const inputIcon = (
-      <span className={`${props.prefixCls}-icon`}>
-        <Icon
-          type="clock-circle"
-          className={`${props.prefixCls}-clock-icon`}
-          theme="outlined"
-        />
-      </span>
-    );
+        const { suffixIcon } = props;
+        const clockIcon = (suffixIcon &&
+          (React.isValidElement<{ className?: string }>(suffixIcon) ? (
+            React.cloneElement(suffixIcon, {
+              className: classNames({
+                [suffixIcon.props.className!]: suffixIcon.props.className,
+                [`${prefixCls}-clock-icon`]: true,
+              }),
+            })
+          ) : (
+            <span className={`${prefixCls}-clock-icon`}>{suffixIcon}</span>
+          ))) || (
+          <Icon type="clock-circle" className={`${prefixCls}-clock-icon`} theme="outlined" />
+        );
 
-    const clearIcon = (
-      <Icon
-        type="close-circle"
-        className={`${props.prefixCls}-panel-clear-btn-icon`}
-        theme="filled"
-      />
-    );
+        const inputIcon = <span className={`${prefixCls}-icon`}>{clockIcon}</span>;
 
-    return (
-      <RcTimePicker
-        {...generateShowHourMinuteSecond(format)}
-        {...props}
-        ref={this.saveTimePicker}
-        format={format}
-        className={className}
-        value={this.state.value}
-        placeholder={props.placeholder === undefined ? locale.placeholder : props.placeholder}
-        onChange={this.handleChange}
-        onOpen={this.handleOpenClose}
-        onClose={this.handleOpenClose}
-        addon={addon}
-        inputIcon={inputIcon}
-        clearIcon={clearIcon}
-      />
-    );
-  }
+        const clearIcon = (
+          <Icon
+            type="close-circle"
+            className={`${prefixCls}-panel-clear-btn-icon`}
+            theme="filled"
+          />
+        );
+
+        return (
+          <RcTimePicker
+            {...generateShowHourMinuteSecond(format)}
+            {...props}
+            prefixCls={prefixCls}
+            getPopupContainer={getPopupContainer || getContextPopupContainer}
+            ref={this.saveTimePicker}
+            format={format}
+            className={className}
+            value={this.state.value}
+            placeholder={props.placeholder === undefined ? locale.placeholder : props.placeholder}
+            onChange={this.handleChange}
+            onOpen={this.handleOpenClose}
+            onClose={this.handleOpenClose}
+            addon={addon}
+            inputIcon={inputIcon}
+            clearIcon={clearIcon}
+          />
+        );
+      }}
+    </ConfigConsumer>
+  );
 
   render() {
     return (
-      <LocaleReceiver
-        componentName="TimePicker"
-        defaultLocale={defaultLocale}
-      >
+      <LocaleReceiver componentName="TimePicker" defaultLocale={defaultLocale}>
         {this.renderTimePicker}
       </LocaleReceiver>
     );

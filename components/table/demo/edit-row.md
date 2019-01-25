@@ -14,7 +14,9 @@ title:
 Table with editable rows.
 
 ```jsx
-import { Table, Input, InputNumber, Popconfirm, Form } from 'antd';
+import {
+  Table, Input, InputNumber, Popconfirm, Form,
+} from 'antd';
 
 const data = [];
 for (let i = 0; i < 100; i++) {
@@ -139,13 +141,11 @@ class EditableTable extends React.Component {
     ];
   }
 
-  isEditing = (record) => {
-    return record.key === this.state.editingKey;
-  };
+  isEditing = record => record.key === this.state.editingKey;
 
-  edit(key) {
-    this.setState({ editingKey: key });
-  }
+  cancel = () => {
+    this.setState({ editingKey: '' });
+  };
 
   save(form, key) {
     form.validateFields((error, row) => {
@@ -168,9 +168,9 @@ class EditableTable extends React.Component {
     });
   }
 
-  cancel = () => {
-    this.setState({ editingKey: '' });
-  };
+  edit(key) {
+    this.setState({ editingKey: key });
+  }
 
   render() {
     const components = {

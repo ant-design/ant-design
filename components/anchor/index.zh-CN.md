@@ -2,7 +2,7 @@
 category: Components
 subtitle: 锚点
 cols: 2
-type: Other
+type: 其他
 title: Anchor
 ---
 

@@ -40,5 +40,6 @@ ReactDOM.render(
     <MyTag>Tag2</MyTag>
     <MyTag>Tag3</MyTag>
   </div>,
-  mountNode);
+  mountNode
+);
 ````

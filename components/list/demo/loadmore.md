@@ -14,7 +14,9 @@ title:
 Load more list with `loadMore` property.
 
 ````jsx
-import { List, Avatar, Button, Skeleton } from 'antd';
+import {
+  List, Avatar, Button, Skeleton,
+} from 'antd';
 
 import reqwest from 'reqwest';
 
@@ -74,7 +76,10 @@ class LoadMoreList extends React.Component {
   render() {
     const { initLoading, loading, list } = this.state;
     const loadMore = !initLoading && !loading ? (
-      <div style={{ textAlign: 'center', marginTop: 12, height: 32, lineHeight: '32px' }}>
+      <div style={{
+        textAlign: 'center', marginTop: 12, height: 32, lineHeight: '32px',
+      }}
+      >
         <Button onClick={this.onLoadMore}>loading more</Button>
       </div>
     ) : null;
