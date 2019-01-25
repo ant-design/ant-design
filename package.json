@@ -73,7 +73,7 @@
     "rc-select": "^8.6.7",
     "rc-slider": "~8.6.3",
     "rc-steps": "~3.3.0",
-    "rc-switch": "~1.8.0",
+    "rc-switch": "~1.9.0",
     "rc-table": "~6.4.0",
     "rc-tabs": "~9.6.0",
     "rc-time-picker": "~3.6.1",
