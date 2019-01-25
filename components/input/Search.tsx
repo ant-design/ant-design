@@ -5,6 +5,8 @@ import Icon from '../icon';
 import Button from '../button';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
+function noop() {}
+
 export interface SearchProps extends InputProps {
   inputPrefixCls?: string;
   onSearch?: (
@@ -12,6 +14,7 @@ export interface SearchProps extends InputProps {
     event?: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLInputElement>,
   ) => any;
   enterButton?: boolean | React.ReactNode;
+  loading?: boolean;
 }
 
 export default class Search extends React.Component<SearchProps, any> {
@@ -42,17 +45,25 @@ export default class Search extends React.Component<SearchProps, any> {
   };
 
   getButtonOrIcon(prefixCls: string) {
-    const { enterButton, size, disabled } = this.props;
+    const { enterButton, size, disabled, loading } = this.props;
     const enterButtonAsElement = enterButton as React.ReactElement<any>;
+    const iconClassName = classNames(`${prefixCls}-icon`, {
+      [`${prefixCls}-loading`]: !!loading,
+    });
+    const buttonClassName = classNames(`${prefixCls}-button`, {
+      [`${prefixCls}-loading`]: !!loading,
+    });
     let node;
     if (!enterButton) {
-      node = <Icon className={`${prefixCls}-icon`} type="search" key="searchIcon" />;
+      node = (
+        <Icon className={iconClassName} type={loading ? 'loading' : 'search'} key="searchIcon" />
+      );
     } else if (enterButtonAsElement.type === Button || enterButtonAsElement.type === 'button') {
       node = React.cloneElement(
         enterButtonAsElement,
         enterButtonAsElement.type === Button
           ? {
-              className: `${prefixCls}-button`,
+              className: buttonClassName,
               size,
             }
           : {},
@@ -60,18 +71,31 @@ export default class Search extends React.Component<SearchProps, any> {
     } else {
       node = (
         <Button
-          className={`${prefixCls}-button`}
+          className={buttonClassName}
           type="primary"
           size={size}
           disabled={disabled}
           key="enterButton"
         >
-          {enterButton === true ? <Icon type="search" /> : enterButton}
+          {enterButton === true ? (
+            <Icon type={loading ? 'loading' : 'search'} />
+          ) : (
+            <span>
+              <span
+                className={classNames({
+                  [`${prefixCls}-button-text-loading`]: !!loading,
+                })}
+              >
+                {enterButton}
+              </span>
+              {loading && <Icon type="loading" />}
+            </span>
+          )}
         </Button>
       );
     }
     return React.cloneElement(node, {
-      onClick: this.onSearch,
+      onClick: loading ? noop : this.onSearch,
     });
   }
 
@@ -83,6 +107,7 @@ export default class Search extends React.Component<SearchProps, any> {
       size,
       suffix,
       enterButton,
+      loading,
       ...others
     } = this.props;
     delete (others as any).onSearch;
@@ -104,7 +129,7 @@ export default class Search extends React.Component<SearchProps, any> {
     });
     return (
       <Input
-        onPressEnter={this.onSearch}
+        onPressEnter={loading ? noop : this.onSearch}
         {...others}
         size={size}
         className={inputClassName}

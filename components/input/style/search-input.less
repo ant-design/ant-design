@@ -15,6 +15,10 @@
     }
   }
 
+  &-loading {
+    cursor: default !important;
+  }
+
   &:not(&-small) > .@{ant-prefix}-input-suffix {
     right: @control-padding-horizontal;
   }
@@ -25,6 +29,10 @@
     > .@{iconfont-css-prefix}-search {
       font-size: @font-size-lg;
     }
+  }
+
+  &-button-text-loading {
+    margin-right: 12px;
   }
 
   &.@{search-prefix}-enter-button {

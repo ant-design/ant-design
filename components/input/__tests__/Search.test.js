@@ -126,4 +126,17 @@ describe('Input.Search', () => {
       }),
     );
   });
+
+  it('should be loading when loading is true', async () => {
+    let loading = false;
+    const wrapper = mount(<Search loading={loading} />);
+    expect(wrapper.find('.anticon-loading')).toHaveLength(0);
+
+    loading = true;
+    wrapper.setProps({ loading });
+
+    await new Promise(resolve => setTimeout(resolve, 500));
+    wrapper.update();
+    expect(wrapper.find('.anticon-loading')).toHaveLength(1);
+  });
 });
