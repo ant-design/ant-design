@@ -10,6 +10,4 @@ function isStyleSupport(styleName: string | Array<string>): boolean {
 
 export const isFlexSupported = isStyleSupport(['flex', 'webkitFlex', 'Flex', 'msFlex']);
 
-export const isPointerEventsSupported = isStyleSupport('pointer-events');
-
 export default isStyleSupport;

@@ -90,18 +90,7 @@
       height: 100%;
       width: 100%;
       z-index: 10;
-    }
-
-    &.@{spin-prefix-cls}-pointer-events-not-supported {
-      &:after {
-        display: none;
-      }
-
-      .@{spin-prefix-cls}-blur& {
-        &:after {
-          display: block;
-        }
-      }
+      display: ~'none \9\0';
     }
   }
 
