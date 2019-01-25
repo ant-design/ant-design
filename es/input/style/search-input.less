@@ -1,0 +1,50 @@
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
+@import '../../button/style/mixin';
+@import './mixin';
+
+@search-prefix: ~'@{ant-prefix}-input-search';
+
+.@{search-prefix} {
+  &-icon {
+    color: @text-color-secondary;
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover {
+      color: fade(@black, 80%);
+    }
+  }
+
+  &:not(&-small) > .@{ant-prefix}-input-suffix {
+    right: @control-padding-horizontal;
+  }
+
+  > .@{ant-prefix}-input-suffix > .@{search-prefix}-button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    > .@{iconfont-css-prefix}-search {
+      font-size: @font-size-lg;
+    }
+  }
+
+  &.@{search-prefix}-enter-button {
+    display: table;
+
+    > * {
+      display: table-cell;
+    }
+
+    > .@{ant-prefix}-input {
+      .input;
+      width: 100%;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-right: 0;
+    }
+
+    > .@{ant-prefix}-input-suffix {
+      position: static;
+      transform: none;
+    }
+  }
+}

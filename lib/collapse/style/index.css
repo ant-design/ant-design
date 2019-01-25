@@ -1,0 +1,129 @@
+/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
+/* stylelint-disable no-duplicate-selectors */
+/* stylelint-disable */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
+.ant-collapse {
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.65);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: #fafafa;
+  border-radius: 4px;
+  border: 1px solid #d9d9d9;
+  border-bottom: 0;
+}
+.ant-collapse > .ant-collapse-item {
+  border-bottom: 1px solid #d9d9d9;
+}
+.ant-collapse > .ant-collapse-item:last-child,
+.ant-collapse > .ant-collapse-item:last-child > .ant-collapse-header {
+  border-radius: 0 0 4px 4px;
+}
+.ant-collapse > .ant-collapse-item > .ant-collapse-header {
+  line-height: 22px;
+  padding: 12px 0 12px 40px;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.ant-collapse > .ant-collapse-item > .ant-collapse-header .arrow {
+  font-style: normal;
+  vertical-align: -0.125em;
+  text-align: center;
+  text-transform: none;
+  line-height: 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 12px;
+  position: absolute;
+  display: inline-block;
+  line-height: 46px;
+  vertical-align: top;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: 16px;
+}
+.ant-collapse > .ant-collapse-item > .ant-collapse-header .arrow > * {
+  line-height: 1;
+}
+.ant-collapse > .ant-collapse-item > .ant-collapse-header .arrow svg {
+  display: inline-block;
+}
+.ant-collapse > .ant-collapse-item > .ant-collapse-header .arrow:before {
+  display: none;
+}
+.ant-collapse > .ant-collapse-item > .ant-collapse-header .arrow .ant-collapse > .ant-collapse-item > .ant-collapse-header .arrow-icon {
+  display: block;
+}
+.ant-collapse > .ant-collapse-item > .ant-collapse-header .arrow svg {
+  -webkit-transform: rotate(0);
+      -ms-transform: rotate(0);
+          transform: rotate(0);
+  -webkit-transition: -webkit-transform 0.24s;
+  transition: -webkit-transform 0.24s;
+  transition: transform 0.24s;
+  transition: transform 0.24s, -webkit-transform 0.24s;
+}
+.ant-collapse > .ant-collapse-item > .ant-collapse-header:focus {
+  outline: none;
+}
+.ant-collapse > .ant-collapse-item.ant-collapse-no-arrow > .ant-collapse-header {
+  padding-left: 12px;
+}
+.ant-collapse-anim-active {
+  -webkit-transition: height 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: height 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.ant-collapse-content {
+  overflow: hidden;
+  color: rgba(0, 0, 0, 0.65);
+  background-color: #fff;
+  border-top: 1px solid #d9d9d9;
+}
+.ant-collapse-content > .ant-collapse-content-box {
+  padding: 16px;
+}
+.ant-collapse-content-inactive {
+  display: none;
+}
+.ant-collapse-item:last-child > .ant-collapse-content {
+  border-radius: 0 0 4px 4px;
+}
+.ant-collapse > .ant-collapse-item > .ant-collapse-header[aria-expanded='true'] .anticon-right svg {
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+.ant-collapse-borderless {
+  background-color: #fff;
+  border: 0;
+}
+.ant-collapse-borderless > .ant-collapse-item {
+  border-bottom: 1px solid #d9d9d9;
+}
+.ant-collapse-borderless > .ant-collapse-item:last-child,
+.ant-collapse-borderless > .ant-collapse-item:last-child .ant-collapse-header {
+  border-radius: 0;
+}
+.ant-collapse-borderless > .ant-collapse-item > .ant-collapse-content {
+  background-color: transparent;
+  border-top: 0;
+}
+.ant-collapse-borderless > .ant-collapse-item > .ant-collapse-content > .ant-collapse-content-box {
+  padding-top: 4px;
+}
+.ant-collapse .ant-collapse-item-disabled > .ant-collapse-header,
+.ant-collapse .ant-collapse-item-disabled > .ant-collapse-header > .arrow {
+  cursor: not-allowed;
+  color: rgba(0, 0, 0, 0.25);
+}

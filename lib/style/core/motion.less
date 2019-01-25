@@ -1,0 +1,15 @@
+@import '../mixins/motion';
+@import 'motion/fade';
+@import 'motion/move';
+@import 'motion/other';
+@import 'motion/slide';
+@import 'motion/swing';
+@import 'motion/zoom';
+
+// For common/openAnimation
+.ant-motion-collapse {
+  overflow: hidden;
+  &-active {
+    transition: height 0.15s @ease-in-out, opacity 0.15s @ease-in-out !important;
+  }
+}

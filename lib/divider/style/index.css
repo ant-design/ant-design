@@ -1,0 +1,104 @@
+/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
+/* stylelint-disable no-duplicate-selectors */
+/* stylelint-disable */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
+.ant-divider {
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.65);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: #e8e8e8;
+}
+.ant-divider,
+.ant-divider-vertical {
+  margin: 0 8px;
+  display: inline-block;
+  height: 0.9em;
+  width: 1px;
+  vertical-align: middle;
+  position: relative;
+  top: -0.06em;
+}
+.ant-divider-horizontal {
+  display: block;
+  height: 1px;
+  width: 100%;
+  min-width: 100%;
+  margin: 24px 0;
+  clear: both;
+}
+.ant-divider-horizontal.ant-divider-with-text,
+.ant-divider-horizontal.ant-divider-with-text-left,
+.ant-divider-horizontal.ant-divider-with-text-right {
+  display: table;
+  white-space: nowrap;
+  text-align: center;
+  background: transparent;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 16px;
+  margin: 16px 0;
+}
+.ant-divider-horizontal.ant-divider-with-text:before,
+.ant-divider-horizontal.ant-divider-with-text-left:before,
+.ant-divider-horizontal.ant-divider-with-text-right:before,
+.ant-divider-horizontal.ant-divider-with-text:after,
+.ant-divider-horizontal.ant-divider-with-text-left:after,
+.ant-divider-horizontal.ant-divider-with-text-right:after {
+  content: '';
+  display: table-cell;
+  position: relative;
+  top: 50%;
+  width: 50%;
+  border-top: 1px solid #e8e8e8;
+  -webkit-transform: translateY(50%);
+      -ms-transform: translateY(50%);
+          transform: translateY(50%);
+}
+.ant-divider-horizontal.ant-divider-with-text-left .ant-divider-inner-text,
+.ant-divider-horizontal.ant-divider-with-text-right .ant-divider-inner-text {
+  display: inline-block;
+  padding: 0 10px;
+}
+.ant-divider-horizontal.ant-divider-with-text-left:before {
+  top: 50%;
+  width: 5%;
+}
+.ant-divider-horizontal.ant-divider-with-text-left:after {
+  top: 50%;
+  width: 95%;
+}
+.ant-divider-horizontal.ant-divider-with-text-right:before {
+  top: 50%;
+  width: 95%;
+}
+.ant-divider-horizontal.ant-divider-with-text-right:after {
+  top: 50%;
+  width: 5%;
+}
+.ant-divider-inner-text {
+  display: inline-block;
+  padding: 0 24px;
+}
+.ant-divider-dashed {
+  background: none;
+  border-top: 1px dashed #e8e8e8;
+}
+.ant-divider-horizontal.ant-divider-with-text.ant-divider-dashed,
+.ant-divider-horizontal.ant-divider-with-text-left.ant-divider-dashed,
+.ant-divider-horizontal.ant-divider-with-text-right.ant-divider-dashed {
+  border-top: 0;
+}
+.ant-divider-horizontal.ant-divider-with-text.ant-divider-dashed:before,
+.ant-divider-horizontal.ant-divider-with-text-left.ant-divider-dashed:before,
+.ant-divider-horizontal.ant-divider-with-text-right.ant-divider-dashed:before,
+.ant-divider-horizontal.ant-divider-with-text.ant-divider-dashed:after,
+.ant-divider-horizontal.ant-divider-with-text-left.ant-divider-dashed:after,
+.ant-divider-horizontal.ant-divider-with-text-right.ant-divider-dashed:after {
+  border-style: dashed none none;
+}

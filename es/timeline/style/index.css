@@ -1,0 +1,136 @@
+/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
+/* stylelint-disable no-duplicate-selectors */
+/* stylelint-disable */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
+.ant-timeline {
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.65);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ant-timeline-item {
+  position: relative;
+  padding: 0 0 20px;
+  list-style: none;
+  margin: 0;
+  font-size: 14px;
+}
+.ant-timeline-item-tail {
+  position: absolute;
+  left: 4px;
+  top: 0.75em;
+  height: 100%;
+  border-left: 2px solid #e8e8e8;
+}
+.ant-timeline-item-pending .ant-timeline-item-head {
+  font-size: 12px;
+}
+.ant-timeline-item-pending .ant-timeline-item-tail {
+  display: none;
+}
+.ant-timeline-item-head {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 100px;
+  border: 2px solid transparent;
+}
+.ant-timeline-item-head-blue {
+  border-color: #ff1818;
+  color: #ff1818;
+}
+.ant-timeline-item-head-red {
+  border-color: #f5222d;
+  color: #f5222d;
+}
+.ant-timeline-item-head-green {
+  border-color: #52c41a;
+  color: #52c41a;
+}
+.ant-timeline-item-head-custom {
+  position: absolute;
+  text-align: center;
+  line-height: 1;
+  margin-top: 0;
+  border: 0;
+  height: auto;
+  border-radius: 0;
+  padding: 3px 1px;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  top: 5.5px;
+  left: 5px;
+  width: auto;
+}
+.ant-timeline-item-content {
+  margin: 0 0 0 18px;
+  position: relative;
+  top: -6px;
+}
+.ant-timeline-item-last > .ant-timeline-item-tail {
+  display: none;
+}
+.ant-timeline-item-last > .ant-timeline-item-content {
+  min-height: 48px;
+}
+.ant-timeline.ant-timeline-alternate .ant-timeline-item-tail,
+.ant-timeline.ant-timeline-right .ant-timeline-item-tail,
+.ant-timeline.ant-timeline-alternate .ant-timeline-item-head,
+.ant-timeline.ant-timeline-right .ant-timeline-item-head,
+.ant-timeline.ant-timeline-alternate .ant-timeline-item-head-custom,
+.ant-timeline.ant-timeline-right .ant-timeline-item-head-custom {
+  left: 50%;
+}
+.ant-timeline.ant-timeline-alternate .ant-timeline-item-head,
+.ant-timeline.ant-timeline-right .ant-timeline-item-head {
+  margin-left: -4px;
+}
+.ant-timeline.ant-timeline-alternate .ant-timeline-item-head-custom,
+.ant-timeline.ant-timeline-right .ant-timeline-item-head-custom {
+  margin-left: 1px;
+}
+.ant-timeline.ant-timeline-alternate .ant-timeline-item-left .ant-timeline-item-content,
+.ant-timeline.ant-timeline-right .ant-timeline-item-left .ant-timeline-item-content {
+  text-align: left;
+  left: 50%;
+  width: 50%;
+}
+.ant-timeline.ant-timeline-alternate .ant-timeline-item-right .ant-timeline-item-content,
+.ant-timeline.ant-timeline-right .ant-timeline-item-right .ant-timeline-item-content {
+  text-align: right;
+  right: 50%;
+  margin-right: 18px;
+  width: 50%;
+  left: -30px;
+}
+.ant-timeline.ant-timeline-right .ant-timeline-item-right .ant-timeline-item-tail,
+.ant-timeline.ant-timeline-right .ant-timeline-item-right .ant-timeline-item-head,
+.ant-timeline.ant-timeline-right .ant-timeline-item-right .ant-timeline-item-head-custom {
+  left: 100%;
+}
+.ant-timeline.ant-timeline-right .ant-timeline-item-right .ant-timeline-item-content {
+  right: 0;
+  width: 100%;
+  left: -30px;
+}
+.ant-timeline.ant-timeline-pending .ant-timeline-item-last .ant-timeline-item-tail {
+  border-left: 2px dotted #e8e8e8;
+  display: block;
+}
+.ant-timeline.ant-timeline-reverse .ant-timeline-item-last .ant-timeline-item-tail {
+  display: none;
+}
+.ant-timeline.ant-timeline-reverse .ant-timeline-item-pending .ant-timeline-item-tail {
+  border-left: 2px dotted #e8e8e8;
+  display: block;
+}
+.ant-timeline.ant-timeline-reverse .ant-timeline-item-pending .ant-timeline-item-content {
+  min-height: 48px;
+}

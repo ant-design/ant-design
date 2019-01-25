@@ -1,0 +1,281 @@
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
+
+@card-prefix-cls: ~'@{ant-prefix}-card';
+@card-head-height: 48px;
+@card-hover-border: fade(@black, 9%);
+
+@gradient-min: fade(@card-background, 20%);
+@gradient-max: fade(@card-background, 40%);
+
+.@{card-prefix-cls} {
+  .reset-component;
+  background: @component-background;
+  border-radius: @card-radius;
+  position: relative;
+  transition: all 0.3s;
+
+  &-hoverable {
+    cursor: pointer;
+    &:hover {
+      box-shadow: @card-shadow;
+      border-color: @card-hover-border;
+    }
+  }
+
+  &-bordered {
+    border: @border-width-base @border-style-base @border-color-split;
+  }
+
+  &-head {
+    background: @card-head-background;
+    border-bottom: @border-width-base @border-style-base @border-color-split;
+    padding: 0 @card-padding-base;
+    border-radius: @card-radius @card-radius 0 0;
+    .clearfix;
+    margin-bottom: -1px; // Fix card grid overflow bug: https://gw.alipayobjects.com/zos/rmsportal/XonYxBikwpgbqIQBeuhk.png
+    min-height: @card-head-height;
+    font-size: @font-size-lg;
+    color: @card-head-color;
+    font-weight: 500;
+
+    &-wrapper {
+      display: flex;
+      align-items: center;
+    }
+
+    &-title {
+      padding: @card-head-padding 0;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      flex: 1;
+      display: inline-block;
+    }
+
+    .@{ant-prefix}-tabs {
+      margin-bottom: -17px;
+      clear: both;
+      font-size: @font-size-base;
+      color: @text-color;
+      font-weight: normal;
+
+      &-bar {
+        border-bottom: @border-width-base @border-style-base @border-color-split;
+      }
+    }
+  }
+
+  &-extra {
+    float: right;
+    padding: @card-head-padding 0;
+    font-size: @font-size-base;
+    color: @text-color;
+    font-weight: normal;
+    // https://stackoverflow.com/a/22429853/3040605
+    margin-left: auto;
+  }
+
+  &-body {
+    padding: @card-padding-base;
+    .clearfix;
+  }
+
+  &-contain-grid:not(&-loading) &-body {
+    margin: -1px 0 0 -1px;
+    padding: 0;
+  }
+
+  &-grid {
+    border-radius: 0;
+    border: 0;
+    box-shadow: 1px 0 0 0 @border-color-split, 0 1px 0 0 @border-color-split,
+      1px 1px 0 0 @border-color-split, 1px 0 0 0 @border-color-split inset,
+      0 1px 0 0 @border-color-split inset;
+    width: 33.33%;
+    float: left;
+    padding: @card-padding-base;
+    transition: all 0.3s;
+    &:hover {
+      position: relative;
+      z-index: 1;
+      box-shadow: @box-shadow-base;
+    }
+  }
+
+  &-contain-tabs > &-head &-head-title {
+    padding-bottom: 0;
+    min-height: @card-head-height - @card-head-padding;
+  }
+
+  &-contain-tabs &-extra {
+    padding-bottom: 0;
+  }
+
+  &-cover {
+    > * {
+      width: 100%;
+      display: block;
+    }
+    img {
+      border-radius: @card-radius @card-radius 0 0;
+    }
+  }
+
+  &-actions {
+    border-top: @border-width-base @border-style-base @border-color-split;
+    background: @card-actions-background;
+    .clearfix;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    & > li {
+      float: left;
+      text-align: center;
+      margin: 12px 0;
+      color: @text-color-secondary;
+
+      & > span {
+        display: inline-block;
+        font-size: 14px;
+        cursor: pointer;
+        line-height: 22px;
+        min-width: 32px;
+        position: relative;
+
+        &:hover {
+          color: @primary-color;
+          transition: color 0.3s;
+        }
+
+        & > .anticon {
+          font-size: 16px;
+          line-height: 22px;
+        }
+
+        a {
+          color: @text-color-secondary;
+          line-height: 22px;
+          display: inline-block;
+          width: 100%;
+
+          &:hover {
+            color: @primary-color;
+          }
+        }
+      }
+
+      &:not(:last-child) {
+        border-right: @border-width-base @border-style-base @border-color-split;
+      }
+    }
+  }
+
+  &-wider-padding &-head {
+    padding: 0 @card-padding-wider;
+  }
+
+  &-wider-padding &-body {
+    padding: @card-padding-base @card-padding-wider;
+  }
+
+  &-padding-transition &-head,
+  &-padding-transition &-body {
+    transition: padding 0.3s;
+  }
+
+  &-type-inner &-head {
+    padding: 0 @card-padding-base;
+    background: @background-color-light;
+
+    &-title {
+      padding: @card-inner-head-padding 0;
+      font-size: @font-size-base;
+    }
+  }
+
+  &-type-inner &-body {
+    padding: 16px @card-padding-base;
+  }
+
+  &-type-inner &-extra {
+    padding: @card-inner-head-padding + 1.5px 0;
+  }
+
+  &-meta {
+    margin: -4px 0;
+    .clearfix;
+
+    &-avatar {
+      padding-right: 16px;
+      float: left;
+    }
+
+    &-detail {
+      overflow: hidden;
+      > div:not(:last-child) {
+        margin-bottom: 8px;
+      }
+    }
+
+    &-title {
+      font-size: @font-size-lg;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      color: @card-head-color;
+      font-weight: 500;
+    }
+
+    &-description {
+      color: @text-color-secondary;
+    }
+  }
+
+  &-loading {
+    overflow: hidden;
+    position: relative;
+
+    &:after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: @card-padding-base;
+      background: @component-background;
+      content: '';
+    }
+  }
+
+  &-loading &-body {
+    user-select: none;
+  }
+
+  &-loading-content {
+    p {
+      margin: 0;
+    }
+  }
+
+  &-loading-block {
+    height: 14px;
+    margin: 4px 0;
+    border-radius: @card-radius;
+    background: linear-gradient(90deg, @gradient-min, @gradient-max, @gradient-min);
+    animation: card-loading 1.4s ease infinite;
+    background-size: 600% 600%;
+  }
+}
+
+@keyframes card-loading {
+  0%,
+  100% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@import './size';

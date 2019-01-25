@@ -1,0 +1,148 @@
+.@{calendar-timepicker-prefix-cls} {
+  position: absolute;
+  width: 100%;
+  top: 40px;
+  background-color: @component-background;
+
+  &-panel {
+    z-index: @zindex-picker;
+    position: absolute;
+    width: 100%;
+  }
+
+  &-inner {
+    display: inline-block;
+    position: relative;
+    outline: none;
+    list-style: none;
+    font-size: @font-size-base;
+    text-align: left;
+    background-color: @component-background;
+    background-clip: padding-box;
+    line-height: 1.5;
+    overflow: hidden;
+    width: 100%;
+  }
+  &-combobox {
+    width: 100%;
+  }
+
+  &-column-1,
+  &-column-1 &-select {
+    width: 100%;
+  }
+  &-column-2 &-select {
+    width: 50%;
+  }
+  &-column-3 &-select {
+    width: 33.33%;
+  }
+  &-column-4 &-select {
+    width: 25%;
+  }
+
+  &-input-wrap {
+    display: none;
+  }
+
+  &-select {
+    float: left;
+    font-size: @font-size-base;
+    border-right: @border-width-base @border-style-base @border-color-split;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative; // Fix chrome weird render bug
+    height: 226px;
+
+    &:hover {
+      overflow-y: auto;
+    }
+
+    &:first-child {
+      border-left: 0;
+      margin-left: 0;
+    }
+
+    &:last-child {
+      border-right: 0;
+    }
+
+    ul {
+      list-style: none;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      max-height: 206px;
+    }
+
+    li {
+      padding-left: 32px;
+      list-style: none;
+      box-sizing: content-box;
+      margin: 0;
+      width: 100%;
+      height: 24px;
+      line-height: 24px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.3s ease;
+    }
+
+    li:last-child:after {
+      content: '';
+      height: 202px;
+      display: block;
+    }
+
+    li:hover {
+      background: @item-hover-bg;
+    }
+
+    li&-option-selected {
+      background: @time-picker-selected-bg;
+      font-weight: bold;
+    }
+
+    li&-option-disabled {
+      color: @btn-disable-color;
+      &:hover {
+        background: transparent;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+.@{calendar-prefix-cls}-time {
+  .@{calendar-prefix-cls}-day-select {
+    padding: 0 2px;
+    font-weight: 500;
+    display: inline-block;
+    color: @heading-color;
+    line-height: 34px;
+  }
+
+  .@{calendar-prefix-cls}-footer {
+    position: relative;
+    height: auto;
+
+    &-btn {
+      text-align: right;
+    }
+
+    .@{calendar-prefix-cls}-today-btn {
+      float: left;
+      margin: 0;
+    }
+
+    .@{calendar-prefix-cls}-time-picker-btn {
+      display: inline-block;
+      margin-right: 8px;
+
+      &-disabled {
+        color: @disabled-color;
+      }
+    }
+  }
+}

@@ -1,0 +1,189 @@
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
+
+@steps-prefix-cls: ~'@{ant-prefix}-steps';
+@process-icon-color: @primary-color;
+@process-title-color: @heading-color;
+@process-description-color: @text-color;
+@process-tail-color: @border-color-split;
+@process-icon-text-color: @text-color-inverse;
+@wait-icon-color: @disabled-color;
+@wait-title-color: @text-color-secondary;
+@wait-description-color: @wait-title-color;
+@wait-tail-color: @process-tail-color;
+@finish-icon-color: @process-icon-color;
+@finish-title-color: @text-color;
+@finish-description-color: @text-color-secondary;
+@finish-tail-color: @primary-color;
+@error-icon-color: @error-color;
+@error-title-color: @error-color;
+@error-description-color: @error-color;
+@error-tail-color: @wait-tail-color;
+@steps-background: @component-background;
+
+@steps-icon-size: 32px;
+@steps-small-icon-size: 24px;
+@steps-dot-size: 8px;
+@steps-current-dot-size: 10px;
+@steps-desciption-max-width: 140px;
+
+.@{steps-prefix-cls} {
+  .reset-component;
+  font-size: 0;
+  width: 100%;
+  display: flex;
+}
+
+.@{steps-prefix-cls}-item {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  flex: 1;
+  overflow: hidden;
+
+  &:last-child {
+    flex: none;
+  }
+
+  &:last-child &-tail,
+  &:last-child &-title:after {
+    display: none;
+  }
+
+  &-icon,
+  &-content {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  &-icon {
+    border: @border-width-base @border-style-base @wait-icon-color;
+    width: @steps-icon-size;
+    height: @steps-icon-size;
+    line-height: @steps-icon-size;
+    text-align: center;
+    border-radius: @steps-icon-size;
+    font-size: @font-size-lg;
+    margin-right: 8px;
+    transition: background-color 0.3s, border-color 0.3s;
+    font-family: @font-family;
+
+    > .@{steps-prefix-cls}-icon {
+      line-height: 1;
+      top: -1px;
+      color: @primary-color;
+      position: relative;
+    }
+  }
+  &-tail {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 12px;
+    padding: 0 10px;
+    &:after {
+      content: '';
+      display: inline-block;
+      background: @border-color-split;
+      height: 1px;
+      border-radius: 1px;
+      width: 100%;
+      transition: background 0.3s;
+    }
+  }
+  &-title {
+    font-size: @font-size-lg;
+    color: @text-color;
+    display: inline-block;
+    padding-right: 16px;
+    position: relative;
+    line-height: @steps-icon-size;
+    &:after {
+      content: '';
+      height: 1px;
+      width: 9999px;
+      background: @wait-tail-color;
+      display: block;
+      position: absolute;
+      top: @steps-icon-size / 2;
+      left: 100%;
+    }
+  }
+  &-description {
+    font-size: @font-size-base;
+    color: @text-color-secondary;
+  }
+  .step-item-status(wait);
+  .step-item-status(process);
+  &-process &-icon {
+    background: @process-icon-color;
+    > .@{steps-prefix-cls}-icon {
+      color: @process-icon-text-color;
+    }
+  }
+  &-process &-title {
+    font-weight: 500;
+  }
+  .step-item-status(finish);
+  .step-item-status(error);
+
+  &.@{steps-prefix-cls}-next-error .@{steps-prefix-cls}-item-title:after {
+    background: @error-icon-color;
+  }
+}
+
+.@{steps-prefix-cls}-horizontal:not(.@{steps-prefix-cls}-label-vertical) {
+  .@{steps-prefix-cls}-item {
+    margin-right: 16px;
+    white-space: nowrap;
+    &:last-child {
+      margin-right: 0;
+    }
+    &:last-child .@{steps-prefix-cls}-item-title {
+      padding-right: 0;
+    }
+    &-tail {
+      display: none;
+    }
+    &-description {
+      max-width: @steps-desciption-max-width;
+      white-space: normal;
+    }
+  }
+}
+
+.step-item-status(@status) {
+  @icon-color: '@{status}-icon-color';
+  @title-color: '@{status}-title-color';
+  @description-color: '@{status}-description-color';
+  @tail-color: '@{status}-tail-color';
+  &-@{status} &-icon {
+    border-color: @@icon-color;
+    background-color: @steps-background;
+    > .@{steps-prefix-cls}-icon {
+      color: @@icon-color;
+      .@{steps-prefix-cls}-icon-dot {
+        background: @@icon-color;
+      }
+    }
+  }
+  &-@{status} > &-content > &-title {
+    color: @@title-color;
+    &:after {
+      background-color: @@tail-color;
+    }
+  }
+  &-@{status} > &-content > &-description {
+    color: @@description-color;
+  }
+  &-@{status} > &-tail:after {
+    background-color: @@tail-color;
+  }
+}
+
+@import 'custom-icon';
+@import 'small';
+@import 'vertical';
+@import 'label-placement';
+@import 'progress-dot';
+@import 'compatibility';

@@ -1,0 +1,41 @@
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
+@import './mixin';
+
+// Input styles
+.@{ant-prefix}-input {
+  .reset-component;
+  .input;
+}
+
+//== Style for input-group: input with label, with button or dropdown...
+.@{ant-prefix}-input-group {
+  .reset-component;
+  .input-group(~'@{ant-prefix}-input');
+  &-wrapper {
+    display: inline-block;
+    vertical-align: top; // https://github.com/ant-design/ant-design/issues/6403
+    width: 100%;
+  }
+}
+
+// Input with affix: prefix or suffix
+.@{ant-prefix}-input-affix-wrapper {
+  .reset-component;
+  .input-affix-wrapper(~'@{ant-prefix}-input');
+
+  // https://github.com/ant-design/ant-design/issues/6144
+  .@{ant-prefix}-input {
+    min-height: 100%; // use min-height, assume that no smaller height to override
+  }
+}
+
+.@{ant-prefix}-input-password-icon {
+  cursor: pointer;
+  transition: all 0.3s;
+  &:hover {
+    color: #333;
+  }
+}
+
+@import './search-input';

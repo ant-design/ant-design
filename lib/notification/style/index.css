@@ -1,0 +1,232 @@
+/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
+/* stylelint-disable no-duplicate-selectors */
+/* stylelint-disable */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
+.ant-notification {
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.65);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: fixed;
+  z-index: 1010;
+  width: 384px;
+  max-width: calc(100vw - 32px);
+  margin-right: 24px;
+}
+.ant-notification-topLeft,
+.ant-notification-bottomLeft {
+  margin-left: 24px;
+  margin-right: 0;
+}
+.ant-notification-topLeft .ant-notification-fade-enter.ant-notification-fade-enter-active,
+.ant-notification-bottomLeft .ant-notification-fade-enter.ant-notification-fade-enter-active,
+.ant-notification-topLeft .ant-notification-fade-appear.ant-notification-fade-appear-active,
+.ant-notification-bottomLeft .ant-notification-fade-appear.ant-notification-fade-appear-active {
+  -webkit-animation-name: NotificationLeftFadeIn;
+          animation-name: NotificationLeftFadeIn;
+}
+.ant-notification-close-icon {
+  font-size: 14px;
+  cursor: pointer;
+}
+.ant-notification-notice {
+  padding: 16px 24px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: #fff;
+  line-height: 1.5;
+  position: relative;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+.ant-notification-notice-message {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.85);
+  margin-bottom: 8px;
+  line-height: 24px;
+  display: inline-block;
+}
+.ant-notification-notice-message-single-line-auto-margin {
+  width: calc(384px - 24px * 2 - 24px - 48px - 100%);
+  background-color: transparent;
+  pointer-events: none;
+  display: block;
+  max-width: 4px;
+}
+.ant-notification-notice-message-single-line-auto-margin:before {
+  content: '';
+  display: block;
+}
+.ant-notification-notice-description {
+  font-size: 14px;
+}
+.ant-notification-notice-closable .ant-notification-notice-message {
+  padding-right: 24px;
+}
+.ant-notification-notice-with-icon .ant-notification-notice-message {
+  font-size: 16px;
+  margin-left: 48px;
+  margin-bottom: 4px;
+}
+.ant-notification-notice-with-icon .ant-notification-notice-description {
+  margin-left: 48px;
+  font-size: 14px;
+}
+.ant-notification-notice-icon {
+  position: absolute;
+  font-size: 24px;
+  line-height: 24px;
+  margin-left: 4px;
+}
+.ant-notification-notice-icon-success {
+  color: #52c41a;
+}
+.ant-notification-notice-icon-info {
+  color: #ff1818;
+}
+.ant-notification-notice-icon-warning {
+  color: #faad14;
+}
+.ant-notification-notice-icon-error {
+  color: #f5222d;
+}
+.ant-notification-notice-close {
+  position: absolute;
+  right: 22px;
+  top: 16px;
+  color: rgba(0, 0, 0, 0.45);
+  outline: none;
+}
+a.ant-notification-notice-close:focus {
+  text-decoration: none;
+}
+.ant-notification-notice-close:hover {
+  color: rgba(0, 0, 0, 0.67);
+}
+.ant-notification-notice-btn {
+  float: right;
+  margin-top: 16px;
+}
+.ant-notification .notification-fade-effect {
+  -webkit-animation-duration: 0.24s;
+          animation-duration: 0.24s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.ant-notification-fade-enter,
+.ant-notification-fade-appear {
+  opacity: 0;
+  -webkit-animation-duration: 0.24s;
+          animation-duration: 0.24s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+.ant-notification-fade-leave {
+  -webkit-animation-duration: 0.24s;
+          animation-duration: 0.24s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+.ant-notification-fade-enter.ant-notification-fade-enter-active,
+.ant-notification-fade-appear.ant-notification-fade-appear-active {
+  -webkit-animation-name: NotificationFadeIn;
+          animation-name: NotificationFadeIn;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+.ant-notification-fade-leave.ant-notification-fade-leave-active {
+  -webkit-animation-name: NotificationFadeOut;
+          animation-name: NotificationFadeOut;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+@-webkit-keyframes NotificationFadeIn {
+  0% {
+    opacity: 0;
+    left: 384px;
+  }
+  100% {
+    left: 0;
+    opacity: 1;
+  }
+}
+@keyframes NotificationFadeIn {
+  0% {
+    opacity: 0;
+    left: 384px;
+  }
+  100% {
+    left: 0;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes NotificationLeftFadeIn {
+  0% {
+    opacity: 0;
+    right: 384px;
+  }
+  100% {
+    right: 0;
+    opacity: 1;
+  }
+}
+@keyframes NotificationLeftFadeIn {
+  0% {
+    opacity: 0;
+    right: 384px;
+  }
+  100% {
+    right: 0;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes NotificationFadeOut {
+  0% {
+    opacity: 1;
+    margin-bottom: 16px;
+    padding-top: 16px 24px;
+    padding-bottom: 16px 24px;
+    max-height: 150px;
+  }
+  100% {
+    opacity: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    max-height: 0;
+  }
+}
+@keyframes NotificationFadeOut {
+  0% {
+    opacity: 1;
+    margin-bottom: 16px;
+    padding-top: 16px 24px;
+    padding-bottom: 16px 24px;
+    max-height: 150px;
+  }
+  100% {
+    opacity: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    max-height: 0;
+  }
+}

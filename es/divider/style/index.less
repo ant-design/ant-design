@@ -1,0 +1,100 @@
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
+
+@divider-prefix-cls: ~'@{ant-prefix}-divider';
+
+.@{divider-prefix-cls} {
+  .reset-component;
+  background: @border-color-split;
+
+  &,  // for compatiable
+  &-vertical {
+    margin: 0 8px;
+    display: inline-block;
+    height: 0.9em;
+    width: 1px;
+    vertical-align: middle;
+    position: relative;
+    top: -0.06em;
+  }
+  &-horizontal {
+    display: block;
+    height: 1px;
+    width: 100%;
+    min-width: 100%; // Fix https://github.com/ant-design/ant-design/issues/10914
+    margin: 24px 0;
+    clear: both;
+  }
+
+  &-horizontal&-with-text,
+  &-horizontal&-with-text-left,
+  &-horizontal&-with-text-right {
+    display: table;
+    white-space: nowrap;
+    text-align: center;
+    background: transparent;
+    font-weight: 500;
+    color: @heading-color;
+    font-size: @font-size-lg;
+    margin: 16px 0;
+    &:before,
+    &:after {
+      content: '';
+      display: table-cell;
+      position: relative;
+      top: 50%;
+      width: 50%;
+      border-top: 1px solid @border-color-split;
+      transform: translateY(50%);
+    }
+  }
+
+  &-horizontal&-with-text-left,
+  &-horizontal&-with-text-right {
+    .@{divider-prefix-cls}-inner-text {
+      display: inline-block;
+      padding: 0 10px;
+    }
+  }
+
+  &-horizontal&-with-text-left {
+    &:before {
+      top: 50%;
+      width: 5%;
+    }
+    &:after {
+      top: 50%;
+      width: 95%;
+    }
+  }
+
+  &-horizontal&-with-text-right {
+    &:before {
+      top: 50%;
+      width: 95%;
+    }
+    &:after {
+      top: 50%;
+      width: 5%;
+    }
+  }
+
+  &-inner-text {
+    display: inline-block;
+    padding: 0 24px;
+  }
+
+  &-dashed {
+    background: none;
+    border-top: 1px dashed @border-color-split;
+  }
+  &-horizontal&-with-text&-dashed,
+  &-horizontal&-with-text-left&-dashed,
+  &-horizontal&-with-text-right&-dashed {
+    border-top: 0;
+    &:before,
+    &:after {
+      border-style: dashed none none;
+    }
+  }
+}

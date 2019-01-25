@@ -1,0 +1,84 @@
+.@{calendar-prefix-cls}-year-panel {
+  position: absolute;
+  top: 1px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: @zindex-picker-panel;
+  border-radius: @border-radius-base;
+  background: @component-background;
+  outline: none;
+
+  > div {
+    // TODO: this is a useless wrapper, and we need to remove it in rc-calendar
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.@{calendar-prefix-cls}-year-panel-hidden {
+  display: none;
+}
+
+.@{calendar-prefix-cls}-year-panel-header {
+  .calendarPanelHeader(~'@{calendar-prefix-cls}-year-panel');
+}
+
+.@{calendar-prefix-cls}-year-panel-body {
+  flex: 1;
+}
+
+.@{calendar-prefix-cls}-year-panel-footer {
+  border-top: @border-width-base @border-style-base @border-color-split;
+  .@{calendar-prefix-cls}-footer-extra {
+    padding: 0 12px;
+  }
+}
+
+.@{calendar-prefix-cls}-year-panel-table {
+  table-layout: fixed;
+  width: 100%;
+  height: 100%;
+  border-collapse: separate;
+}
+
+.@{calendar-prefix-cls}-year-panel-cell {
+  text-align: center;
+}
+
+.@{calendar-prefix-cls}-year-panel-year {
+  display: inline-block;
+  margin: 0 auto;
+  color: @text-color;
+  background: transparent;
+  text-align: center;
+  height: 24px;
+  line-height: 24px;
+  padding: 0 8px;
+  border-radius: @border-radius-sm;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: @item-hover-bg;
+    cursor: pointer;
+  }
+}
+
+.@{calendar-prefix-cls}-year-panel-selected-cell .@{calendar-prefix-cls}-year-panel-year {
+  background: @primary-color;
+  color: @text-color-inverse;
+
+  &:hover {
+    background: @primary-color;
+    color: @text-color-inverse;
+  }
+}
+
+.@{calendar-prefix-cls}-year-panel-last-decade-cell,
+.@{calendar-prefix-cls}-year-panel-next-decade-cell {
+  .@{calendar-prefix-cls}-year-panel-year {
+    user-select: none;
+    color: @disabled-color;
+  }
+}

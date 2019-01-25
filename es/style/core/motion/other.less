@@ -1,0 +1,43 @@
+@keyframes loadingCircle {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+[ant-click-animating='true'],
+[ant-click-animating-without-extra-node='true'] {
+  position: relative;
+}
+
+[ant-click-animating-without-extra-node='true']:after,
+.ant-click-animating-node {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  bottom: -1px;
+  right: -1px;
+  border-radius: inherit;
+  border: 0 solid @primary-color;
+  opacity: 0.2;
+  animation: fadeEffect 2s @ease-out-circ, waveEffect 0.4s @ease-out-circ;
+  animation-fill-mode: forwards;
+  display: block;
+  pointer-events: none;
+}
+
+@keyframes waveEffect {
+  100% {
+    top: -@wave-animation-width;
+    left: -@wave-animation-width;
+    bottom: -@wave-animation-width;
+    right: -@wave-animation-width;
+    border-width: @wave-animation-width;
+  }
+}
+
+@keyframes fadeEffect {
+  100% {
+    opacity: 0;
+  }
+}

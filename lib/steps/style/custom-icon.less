@@ -1,0 +1,21 @@
+.@{steps-prefix-cls}-item-custom {
+  .@{steps-prefix-cls}-item-icon {
+    background: none;
+    border: 0;
+    width: auto;
+    height: auto;
+    > .@{steps-prefix-cls}-icon {
+      font-size: 24px;
+      line-height: @steps-icon-size;
+      top: 0;
+      left: 0.5px;
+      width: @steps-icon-size;
+      height: @steps-icon-size;
+    }
+  }
+  &.@{steps-prefix-cls}-item-process {
+    .@{steps-prefix-cls}-item-icon > .@{steps-prefix-cls}-icon {
+      color: @process-icon-color;
+    }
+  }
+}

@@ -1,0 +1,176 @@
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
+@import '../../checkbox/style/mixin';
+
+@transfer-prefix-cls: ~'@{ant-prefix}-transfer';
+
+.@{transfer-prefix-cls} {
+  .reset-component;
+  position: relative;
+
+  &-disabled {
+    .@{transfer-prefix-cls}-list {
+      background: @transfer-disabled-bg;
+    }
+  }
+
+  &-list {
+    border: @border-width-base @border-style-base @border-color-base;
+    display: inline-block;
+    border-radius: @border-radius-base;
+    vertical-align: middle;
+    position: relative;
+    width: 180px;
+    height: 200px;
+    padding-top: 34px;
+
+    &-with-footer {
+      padding-bottom: 34px;
+    }
+
+    &-search {
+      padding: 0 @control-padding-horizontal-sm;
+      &-action {
+        color: @disabled-color;
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        bottom: 4px;
+        width: 28px;
+        line-height: @input-height-base;
+        text-align: center;
+        .@{iconfont-css-prefix} {
+          transition: all 0.3s;
+          color: @disabled-color;
+          &:hover {
+            color: @text-color-secondary;
+          }
+        }
+        span& {
+          pointer-events: none;
+        }
+      }
+    }
+
+    &-header {
+      padding: 6px @control-padding-horizontal;
+      border-radius: @border-radius-base @border-radius-base 0 0;
+      background: @component-background;
+      color: @text-color;
+      border-bottom: @border-width-base @border-style-base @border-color-split;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+
+      &-title {
+        position: absolute;
+        right: 12px;
+      }
+    }
+
+    &-body {
+      font-size: @font-size-base;
+      position: relative;
+      height: 100%;
+
+      &-search-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 4px;
+        width: 100%;
+      }
+    }
+
+    &-body-with-search {
+      padding-top: @input-height-base + 8px;
+    }
+
+    &-content {
+      height: 100%;
+      overflow: auto;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      > .LazyLoad {
+        animation: transferHighlightIn 1s;
+      }
+
+      &-item {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        padding: 6px @control-padding-horizontal;
+        min-height: 32px;
+        transition: all 0.3s;
+        > span {
+          padding-right: 0;
+        }
+      }
+
+      &-item:not(&-item-disabled):hover {
+        cursor: pointer;
+        background-color: @item-hover-bg;
+      }
+
+      &-item-disabled {
+        cursor: not-allowed;
+        color: @btn-disable-color;
+      }
+    }
+
+    &-body-not-found {
+      padding-top: 0;
+      color: @disabled-color;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      transform: translateY(-50%);
+
+      // with filter should offset the search box height
+      .@{transfer-prefix-cls}-list-body-with-search & {
+        margin-top: @input-height-base / 2;
+      }
+    }
+
+    &-footer {
+      border-top: @border-width-base @border-style-base @border-color-split;
+      border-radius: 0 0 @border-radius-base @border-radius-base;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+  }
+
+  &-operation {
+    display: inline-block;
+    overflow: hidden;
+    margin: 0 8px;
+    vertical-align: middle;
+
+    .@{ant-prefix}-btn {
+      display: block;
+
+      &:first-child {
+        margin-bottom: 4px;
+      }
+
+      .@{iconfont-css-prefix} {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+@keyframes transferHighlightIn {
+  0% {
+    background: @primary-2;
+  }
+  100% {
+    background: transparent;
+  }
+}

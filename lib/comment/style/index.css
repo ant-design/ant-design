@@ -1,0 +1,102 @@
+/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
+/* stylelint-disable no-duplicate-selectors */
+/* stylelint-disable */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
+.ant-comment {
+  position: relative;
+}
+.ant-comment-inner {
+  padding: 16px 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.ant-comment-avatar {
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
+  position: relative;
+  margin-right: 12px;
+  cursor: pointer;
+}
+.ant-comment-avatar img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+.ant-comment-content {
+  position: relative;
+  font-size: 14px;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  min-width: 1px;
+  word-wrap: break-word;
+}
+.ant-comment-content-author {
+  margin-bottom: 4px;
+  font-size: 14px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.ant-comment-content-author > a,
+.ant-comment-content-author > span {
+  height: 18px;
+  font-size: 12px;
+  line-height: 18px;
+  padding-right: 8px;
+}
+.ant-comment-content-author-name {
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.45);
+}
+.ant-comment-content-author-name > * {
+  color: rgba(0, 0, 0, 0.45);
+}
+.ant-comment-content-author-name > *:hover {
+  color: rgba(0, 0, 0, 0.45);
+}
+.ant-comment-content-author-time {
+  cursor: auto;
+  color: #ccc;
+  white-space: nowrap;
+}
+.ant-comment-content-detail p {
+  white-space: pre-wrap;
+}
+.ant-comment-actions {
+  margin-top: 12px;
+  padding-left: 0;
+}
+.ant-comment-actions > li {
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.45);
+}
+.ant-comment-actions > li > span {
+  padding-right: 10px;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.ant-comment-actions > li > span:hover {
+  color: #595959;
+}
+.ant-comment-nested {
+  margin-left: 44px;
+}

@@ -1,0 +1,103 @@
+@import '../../button/style/mixin';
+
+.@{calendar-prefix-cls}-picker-container {
+  .reset-component;
+  font-family: @font-family;
+  position: absolute;
+  z-index: @zindex-picker;
+
+  &.slide-up-enter.slide-up-enter-active&-placement-topLeft,
+  &.slide-up-enter.slide-up-enter-active&-placement-topRight,
+  &.slide-up-appear.slide-up-appear-active&-placement-topLeft,
+  &.slide-up-appear.slide-up-appear-active&-placement-topRight {
+    animation-name: antSlideDownIn;
+  }
+
+  &.slide-up-enter.slide-up-enter-active&-placement-bottomLeft,
+  &.slide-up-enter.slide-up-enter-active&-placement-bottomRight,
+  &.slide-up-appear.slide-up-appear-active&-placement-bottomLeft,
+  &.slide-up-appear.slide-up-appear-active&-placement-bottomRight {
+    animation-name: antSlideUpIn;
+  }
+
+  &.slide-up-leave.slide-up-leave-active&-placement-topLeft,
+  &.slide-up-leave.slide-up-leave-active&-placement-topRight {
+    animation-name: antSlideDownOut;
+  }
+
+  &.slide-up-leave.slide-up-leave-active&-placement-bottomLeft,
+  &.slide-up-leave.slide-up-leave-active&-placement-bottomRight {
+    animation-name: antSlideUpOut;
+  }
+}
+
+.@{calendar-prefix-cls}-picker {
+  .reset-component;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  transition: opacity 0.3s;
+
+  &-input {
+    outline: none;
+  }
+
+  &-input.@{ant-prefix}-input-sm {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  &:hover &-input:not(.@{ant-prefix}-input-disabled) {
+    border-color: @primary-color;
+  }
+
+  &:focus &-input:not(.@{ant-prefix}-input-disabled) {
+    .active();
+  }
+
+  &-clear,
+  &-icon {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    right: @control-padding-horizontal;
+    top: 50%;
+    margin-top: -7px;
+    line-height: 14px;
+    font-size: @font-size-sm;
+    transition: all 0.3s;
+    user-select: none;
+    z-index: 1;
+  }
+
+  &-clear {
+    opacity: 0;
+    z-index: 2;
+    font-size: @font-size-base;
+    color: @disabled-color;
+    background: @input-bg;
+    pointer-events: none;
+    cursor: pointer;
+    &:hover {
+      color: @text-color-secondary;
+    }
+  }
+
+  &:hover &-clear {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &-icon {
+    font-family: 'anticon';
+    font-size: @font-size-base;
+    color: @disabled-color;
+    display: inline-block;
+    line-height: 1;
+  }
+
+  &-small &-clear,
+  &-small &-icon {
+    right: @control-padding-horizontal-sm;
+  }
+}

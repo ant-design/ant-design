@@ -1,0 +1,172 @@
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
+
+@badge-prefix-cls: ~'@{ant-prefix}-badge';
+@number-prefix-cls: ~'@{ant-prefix}-scroll-number';
+
+.@{badge-prefix-cls} {
+  .reset-component;
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+  color: unset;
+
+  &-count {
+    height: @badge-height;
+    border-radius: @badge-height / 2;
+    min-width: @badge-height;
+    background: @highlight-color;
+    color: @badge-text-color;
+    line-height: @badge-height;
+    text-align: center;
+    padding: 0 6px;
+    font-size: @badge-font-size;
+    font-weight: @badge-font-weight;
+    white-space: nowrap;
+    box-shadow: 0 0 0 1px @shadow-color-inverse;
+    z-index: @zindex-badge;
+    a,
+    a:hover {
+      color: @badge-text-color;
+    }
+  }
+
+  &-multiple-words {
+    padding: 0 8px;
+  }
+
+  &-dot {
+    height: @badge-dot-size;
+    width: @badge-dot-size;
+    border-radius: 100%;
+    background: @highlight-color;
+    z-index: @zindex-badge;
+    box-shadow: 0 0 0 1px @shadow-color-inverse;
+  }
+
+  &-count,
+  &-dot,
+  .@{number-prefix-cls}-custom-component {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(50%, -50%);
+    transform-origin: 100% 0%;
+  }
+
+  &-status {
+    line-height: inherit;
+    vertical-align: baseline;
+
+    &-dot {
+      width: @badge-status-size;
+      height: @badge-status-size;
+      display: inline-block;
+      border-radius: 50%;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+    }
+    &-success {
+      background-color: @success-color;
+    }
+    &-processing {
+      background-color: @processing-color;
+      position: relative;
+      &:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 1px solid @processing-color;
+        content: '';
+        animation: antStatusProcessing 1.2s infinite ease-in-out;
+      }
+    }
+    &-default {
+      background-color: @normal-color;
+    }
+    &-error {
+      background-color: @error-color;
+    }
+    &-warning {
+      background-color: @warning-color;
+    }
+    &-text {
+      color: @text-color;
+      font-size: @font-size-base;
+      margin-left: 8px;
+    }
+  }
+
+  &-zoom-appear,
+  &-zoom-enter {
+    animation: antZoomBadgeIn 0.3s @ease-out-back;
+    animation-fill-mode: both;
+  }
+
+  &-zoom-leave {
+    animation: antZoomBadgeOut 0.3s @ease-in-back;
+    animation-fill-mode: both;
+  }
+
+  &-not-a-wrapper {
+    vertical-align: middle;
+
+    .@{ant-prefix}-scroll-number {
+      top: auto;
+      display: block;
+      position: relative;
+    }
+
+    .@{badge-prefix-cls}-count {
+      transform: none;
+    }
+  }
+}
+
+@keyframes antStatusProcessing {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.@{number-prefix-cls} {
+  overflow: hidden;
+  &-only {
+    display: inline-block;
+    transition: all 0.3s @ease-in-out;
+    height: @badge-height;
+    > p {
+      height: @badge-height;
+      margin: 0;
+    }
+  }
+}
+
+@keyframes antZoomBadgeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0) translate(50%, -50%);
+  }
+  100% {
+    transform: scale(1) translate(50%, -50%);
+  }
+}
+
+@keyframes antZoomBadgeOut {
+  0% {
+    transform: scale(1) translate(50%, -50%);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0) translate(50%, -50%);
+  }
+}

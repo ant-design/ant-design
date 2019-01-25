@@ -1,0 +1,69 @@
+.steps-vertical() {
+  display: block;
+  .@{steps-prefix-cls}-item {
+    display: block;
+    overflow: visible;
+    &-icon {
+      float: left;
+      margin-right: 16px;
+    }
+    &-content {
+      min-height: 48px;
+      overflow: hidden;
+      display: block;
+    }
+    &-title {
+      line-height: @steps-icon-size;
+    }
+    &-description {
+      padding-bottom: 12px;
+    }
+  }
+
+  > .@{steps-prefix-cls}-item > .@{steps-prefix-cls}-item-tail {
+    position: absolute;
+    left: 16px;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    padding: @steps-icon-size + 6px 0 6px;
+    &:after {
+      height: 100%;
+      width: 1px;
+    }
+  }
+
+  > .@{steps-prefix-cls}-item:not(:last-child) > .@{steps-prefix-cls}-item-tail {
+    display: block;
+  }
+
+  > .@{steps-prefix-cls}-item
+    > .@{steps-prefix-cls}-item-content
+    > .@{steps-prefix-cls}-item-title {
+    &:after {
+      display: none;
+    }
+  }
+
+  &.@{steps-prefix-cls}-small {
+    .@{steps-prefix-cls}-item-tail {
+      position: absolute;
+      left: 12px;
+      top: 0;
+      padding: @steps-small-icon-size + 6px 0 6px;
+    }
+    .@{steps-prefix-cls}-item-title {
+      line-height: @steps-small-icon-size;
+    }
+  }
+}
+
+.@{steps-prefix-cls}-vertical {
+  .steps-vertical;
+}
+
+@media (max-width: @screen-xs) {
+  .@{steps-prefix-cls}-horizontal.@{steps-prefix-cls}-label-horizontal {
+    .steps-vertical;
+  }
+}

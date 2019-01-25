@@ -1,0 +1,133 @@
+/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
+/* stylelint-disable no-duplicate-selectors */
+/* stylelint-disable */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
+.ant-layout {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+  -webkit-flex: auto;
+      -ms-flex: auto;
+          flex: auto;
+  background: #f0f2f5;
+  /* fix firefox can't set height smaller than content on flex item */
+  min-height: 0;
+}
+.ant-layout,
+.ant-layout * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.ant-layout.ant-layout-has-sider {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.ant-layout.ant-layout-has-sider > .ant-layout,
+.ant-layout.ant-layout-has-sider > .ant-layout-content {
+  overflow-x: hidden;
+}
+.ant-layout-header,
+.ant-layout-footer {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+.ant-layout-header {
+  background: #001529;
+  padding: 0 50px;
+  height: 64px;
+  line-height: 64px;
+}
+.ant-layout-footer {
+  background: #f0f2f5;
+  padding: 24px 50px;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 14px;
+}
+.ant-layout-content {
+  -webkit-box-flex: 1;
+  -webkit-flex: auto;
+      -ms-flex: auto;
+          flex: auto;
+  /* fix firefox can't set height smaller than content on flex item */
+  min-height: 0;
+}
+.ant-layout-sider {
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  position: relative;
+  background: #001529;
+  /* fix firefox can't set width smaller than content on flex item */
+  min-width: 0;
+}
+.ant-layout-sider-children {
+  height: 100%;
+  padding-top: 0.1px;
+  margin-top: -0.1px;
+}
+.ant-layout-sider-has-trigger {
+  padding-bottom: 48px;
+}
+.ant-layout-sider-right {
+  -webkit-box-ordinal-group: 2;
+  -webkit-order: 1;
+      -ms-flex-order: 1;
+          order: 1;
+}
+.ant-layout-sider-trigger {
+  position: fixed;
+  text-align: center;
+  bottom: 0;
+  cursor: pointer;
+  height: 48px;
+  line-height: 48px;
+  color: #fff;
+  background: #002140;
+  z-index: 1;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.ant-layout-sider-zero-width > * {
+  overflow: hidden;
+}
+.ant-layout-sider-zero-width-trigger {
+  position: absolute;
+  top: 64px;
+  right: -36px;
+  text-align: center;
+  width: 36px;
+  height: 42px;
+  line-height: 42px;
+  background: #001529;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  -webkit-transition: background 0.3s ease;
+  transition: background 0.3s ease;
+}
+.ant-layout-sider-zero-width-trigger:hover {
+  background: #192c3e;
+}
+.ant-layout-sider-light {
+  background: #fff;
+}
+.ant-layout-sider-light .ant-layout-sider-trigger {
+  color: rgba(0, 0, 0, 0.65);
+  background: #fff;
+}
+.ant-layout-sider-light .ant-layout-sider-zero-width-trigger {
+  color: rgba(0, 0, 0, 0.65);
+  background: #fff;
+}

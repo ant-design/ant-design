@@ -1,0 +1,77 @@
+/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
+/* stylelint-disable no-duplicate-selectors */
+/* stylelint-disable */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
+.ant-select-auto-complete {
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.65);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ant-select-auto-complete.ant-select .ant-select-selection {
+  border: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.ant-select-auto-complete.ant-select .ant-select-selection__rendered {
+  margin-left: 0;
+  margin-right: 0;
+  height: 100%;
+  line-height: 32px;
+}
+.ant-select-auto-complete.ant-select .ant-select-selection__placeholder {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+.ant-select-auto-complete.ant-select .ant-select-selection--single {
+  height: auto;
+}
+.ant-select-auto-complete.ant-select .ant-select-search--inline {
+  position: static;
+  float: left;
+}
+.ant-select-auto-complete.ant-select-allow-clear .ant-select-selection:hover .ant-select-selection__rendered {
+  margin-right: 0 !important;
+}
+.ant-select-auto-complete.ant-select .ant-input {
+  background: transparent;
+  border-width: 1px;
+  line-height: 1.5;
+  height: 32px;
+}
+.ant-select-auto-complete.ant-select .ant-input:focus,
+.ant-select-auto-complete.ant-select .ant-input:hover {
+  border-color: #ff4640;
+  border-right-width: 1px !important;
+}
+.ant-select-auto-complete.ant-select .ant-input[disabled] {
+  background-color: #f5f5f5;
+  opacity: 1;
+  cursor: not-allowed;
+  color: rgba(0, 0, 0, 0.25);
+}
+.ant-select-auto-complete.ant-select .ant-input[disabled]:hover {
+  border-color: #e6d8d8;
+  border-right-width: 1px !important;
+}
+.ant-select-auto-complete.ant-select-lg .ant-select-selection__rendered {
+  line-height: 40px;
+}
+.ant-select-auto-complete.ant-select-lg .ant-input {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  height: 40px;
+}
+.ant-select-auto-complete.ant-select-sm .ant-select-selection__rendered {
+  line-height: 24px;
+}
+.ant-select-auto-complete.ant-select-sm .ant-input {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  height: 24px;
+}

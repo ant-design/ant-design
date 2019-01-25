@@ -1,0 +1,81 @@
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
+
+@rate-prefix-cls: ~'@{ant-prefix}-rate';
+
+.@{rate-prefix-cls} {
+  .reset-component;
+  line-height: unset;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 20px;
+  display: inline-block;
+  color: @rate-star-color;
+  outline: none;
+
+  &-disabled &-star {
+    cursor: default;
+    &:hover {
+      transform: scale(1);
+    }
+  }
+
+  &-star {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin-right: 8px;
+    position: relative;
+    transition: all 0.3s;
+    color: inherit;
+    cursor: pointer;
+
+    > div {
+      &:focus {
+        outline: 0;
+      }
+
+      &:hover,
+      &:focus {
+        transform: scale(1.1);
+      }
+    }
+
+    &-first,
+    &-second {
+      user-select: none;
+      transition: all 0.3s;
+      color: @rate-star-bg;
+      .@{iconfont-css-prefix} {
+        vertical-align: middle;
+      }
+    }
+
+    &-first {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      overflow: hidden;
+      opacity: 0;
+    }
+
+    &-half &-first,
+    &-half &-second {
+      opacity: 1;
+    }
+
+    &-half &-first,
+    &-full &-second {
+      color: inherit;
+    }
+  }
+
+  &-text {
+    margin-left: 8px;
+    display: inline-block;
+    font-size: @font-size-base;
+  }
+}

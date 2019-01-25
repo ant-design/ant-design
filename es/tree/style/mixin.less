@@ -1,0 +1,28 @@
+@import '../../style/mixins/index';
+
+@tree-prefix-cls: ~'@{ant-prefix}-tree';
+@tree-select-prefix-cls: ~'@{ant-prefix}-select';
+
+.antTreeSwitcherIcon(@type: 'tree-default-open-icon') {
+  .@{tree-prefix-cls}-switcher-icon,
+  .@{tree-select-prefix-cls}-switcher-icon {
+    .iconfont-size-under-12px(10px);
+    display: inline-block;
+    font-weight: bold;
+    svg {
+      transition: transform 0.3s;
+    }
+  }
+}
+
+.antTreeShowLineIcon(@type) {
+  .@{tree-prefix-cls}-switcher-icon,
+  .@{tree-select-prefix-cls}-switcher-icon {
+    font-size: 12px;
+    display: inline-block;
+    font-weight: normal;
+    svg {
+      transition: transform 0.3s;
+    }
+  }
+}
