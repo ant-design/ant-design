@@ -1,6 +1,6 @@
 ---
 category: Components
-subtitle: 活版印刷
+subtitle: 排版
 type: 通用
 title: Typography
 cols: 1

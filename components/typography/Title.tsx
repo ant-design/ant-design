@@ -1,11 +1,12 @@
 import * as React from 'react';
 import warning from 'warning';
 import Base, { BaseProps } from './Base';
+import { tupleNum } from '../_util/type';
 
-const TITLE_ELE_LIST: Array<number | undefined> = [1, 2, 3, 4];
+const TITLE_ELE_LIST = tupleNum(1, 2, 3, 4);
 
 interface TitleProps extends BaseProps {
-  level?: 1 | 2 | 3 | 4;
+  level?: (typeof TITLE_ELE_LIST)[number];
 }
 
 const Title: React.SFC<TitleProps> = props => {

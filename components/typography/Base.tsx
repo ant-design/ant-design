@@ -17,6 +17,7 @@ import { measure } from './util';
 export type BaseType = 'secondary' | 'danger' | 'warning';
 
 export interface BaseProps {
+  id?: string;
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
