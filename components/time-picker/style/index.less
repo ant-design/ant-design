@@ -48,36 +48,6 @@
     }
   }
 
-  &-clear-btn {
-    position: absolute;
-    right: 8px;
-    cursor: pointer;
-    overflow: hidden;
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    line-height: 20px;
-    top: 7px;
-    margin: 0;
-
-    &-icon svg {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      margin: auto;
-      font-size: @font-size-base;
-      color: @disabled-color;
-      display: inline-block;
-      transition: color 0.3s ease;
-
-      &:hover {
-        color: @text-color-secondary;
-      }
-    }
-  }
-
   &-narrow &-input-wrap {
     max-width: @time-picker-panel-column-width * 2;
   }
@@ -205,7 +175,8 @@
     opacity: 0;
   }
 
-  &-icon {
+  &-icon,
+  &-clear {
     position: absolute;
     z-index: 1;
     user-select: none;
@@ -222,6 +193,20 @@
       display: block;
       line-height: 1;
     }
+  }
+
+  &-clear {
+    opacity: 0;
+    z-index: 2;
+    background: @input-bg;
+    pointer-events: none;
+    &:hover {
+      color: @text-color-secondary;
+    }
+  }
+  &:hover &-clear {
+    opacity: 1;
+    pointer-events: auto;
   }
 
   &-large &-input {
