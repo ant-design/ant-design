@@ -15,7 +15,7 @@
 
 .@{text-prefix-cls} {
   color: @text-color;
-  margin: 0 0 1em 0;
+  margin: 0 0 12px 0;
 
   &-secondary {
     color: @text-color-secondary;
@@ -114,18 +114,22 @@
 }
 
 // =============== Title ===============
-.title-size(@name; @size; @height) {
+.title-size(@name; @fontSize; @lineHeight; @marginTop) {
   @{name}.@{text-prefix-cls} {
-    font-size: ~'@{size}px';
-    line-height: ~'@{height}%';
+    font-size: ~'@{fontSize}px';
+    line-height: ~'@{lineHeight}%';
+
+    .@{text-prefix-cls} + & {
+      margin: ~'@{marginTop}em 0 12px 0';
+    }
   }
 }
 
 // Follow the rule
-.title-size(~'h1', 38, 123);
-.title-size(~'h2', 30, 135);
-.title-size(~'h3', 24, 135);
-.title-size(~'h4', 20, 140);
+.title-size(~'h1', 38, 123, 1.9);
+.title-size(~'h2', 30, 135, 1.87);
+.title-size(~'h3', 24, 135, 1.67);
+.title-size(~'h4', 20, 140, 1.2);
 
 h1,
 h2,
@@ -134,13 +138,8 @@ h4,
 h5,
 h6 {
   &.@{text-prefix-cls} {
-    margin: 0 0 0.5em 0;
     color: @heading-color;
     font-weight: 500;
-
-    .@{text-prefix-cls} + & {
-      margin-top: 1em;
-    }
   }
 }
 
