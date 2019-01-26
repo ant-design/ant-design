@@ -15,6 +15,47 @@ timeline: true
 
 ---
 
+## 3.13.0
+
+`2019-01-26`
+- Badge
+  - 🐞 Fix changing the count with `border-color` will raises an property readonly error. [#14525](https://github.com/ant-design/ant-design/pull/14525)
+- Collapse
+  - 🌟 Add `expandIcon` to allow customization of Collapse icon. [#14060](https://github.com/ant-design/ant-design/pull/14060)
+- ConfigProvider
+  - 🌟 support Content Security Policy (CSP) config. [#14222](https://github.com/ant-design/ant-design/pull/14222)
+  - 🌟 support `autoInsertSpaceInButton` to remove space between 2 chinese characters on Button. [#14230](https://github.com/ant-design/ant-design/pull/14230)
+- Modal
+  - 🌟 Add `mask` property support for Modal method. [#14197](https://github.com/ant-design/ant-design/pull/14197)
+  - 🌟 Add `transitionName` and `maskTransitionName` property support for Modal method. [#14273](https://github.com/ant-design/ant-design/pull/14273)
+- Icon
+  - 🌟 Icon component add `aria-label` prop to enhance accessibility. [#14258](https://github.com/ant-design/ant-design/pull/14258)
+  - 🌟 Add `rotate` to allow icon rotate as specified degrees. [#14060](https://github.com/ant-design/ant-design/pull/14060)
+- Input
+  - 🐞 Fix Input.Search style issue. Move `className` from inner input to top wrapper when with `addon`. [#14461](https://github.com/ant-design/ant-design/pull/14461)
+- Button
+  - 🌟 Button support `round` shape. [#14236](https://github.com/ant-design/ant-design/pull/14236)
+- DatePicker
+  - 🌟 Will read format as default format in locale if provided. [#14340](https://github.com/ant-design/ant-design/pull/14340)
+- TimePicker
+  - 🌟 deprecated `allowEmpty` prop and use `allowClear` instead. Sync style with DatePicker. [#14490](https://github.com/ant-design/ant-design/pull/14490)
+- Radio
+  - 🐞 Fix RadioButton trigger onChange twice in RadioGroup. [#14523](https://github.com/ant-design/ant-design/pull/14523)
+- Spin
+  - 🐞 Fix Table cannot click with loading when ie <= 10. [#14511](https://github.com/ant-design/ant-design/pull/14511)
+- Switch
+  - 🌟 Switch support `event` as `onChange`, `onClick` argument. [#14560](https://github.com/ant-design/ant-design/pull/14560)
+- Tabs
+  - 🌟 support customize bar node. [#14368](https://github.com/ant-design/ant-design/pull/14368)
+- Table
+  - 🐞 Fix style issue when use fixed column in Safari. [#14550](https://github.com/ant-design/ant-design/pull/14550)
+- Progress
+  - 🌟 all types support `successPercent` prop. [#14412](https://github.com/ant-design/ant-design/pull/14412)
+- Pagination
+  - 🐞 Fix ellipsis misalignment. [#14473](https://github.com/ant-design/ant-design/pull/14473) [@ranbena](https://github.com/ranbena)
+- 🐞 Fix edge wave style issue. [#14469](https://github.com/ant-design/ant-design/pull/14469)
+- 🎉 New component Statistic / Countdown. [#14154](https://github.com/ant-design/ant-design/pull/14154)
+
 ## 3.12.4
 
 `2019-01-19`
