@@ -23,7 +23,8 @@ Switching Selector.
 | loading | loading state of switch | boolean | false |
 | size | the size of the `Switch`, options: `default` `small` | string | default |
 | unCheckedChildren | content to be shown when the state is unchecked | string\|ReactNode |  |
-| onChange | a callback function, can be executed when the checked state is changing | Function(checked:Boolean) |  |
+| onChange | trigger when the checked state is changing | Function(checked: boolean, event: Event) |  |
+| onClick | trigger when clicked | Function(checked: boolean, event: Event) |  |
 | className | additional class to Switch | string | - |
 
 ## Methods

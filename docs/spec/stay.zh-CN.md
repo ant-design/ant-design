@@ -14,13 +14,13 @@ title: 足不出户
 
 ## 覆盖层
 
-<img class="preview-img" align="right" alt="推荐示例" description="用户点击『删除』后，直接操作；出现 Message 告知用户操作成功，并提供用户『撤消』的按钮；用户进行下一个操作或者 1 分钟内不进行任何操作， Message 消失，用户无法再『撤消』。" src="https://gw.alipayobjects.com/zos/rmsportal/YfhMlEIayfwnxiILcebI.png" good>
+<img class="preview-img" align="right" alt="推荐示例" description="用户点击『删除』后，直接操作；出现 Message 告知用户操作成功，并提供用户『撤销』的按钮；用户进行下一个操作或者 1 分钟内不进行任何操作， Message 消失，用户无法再『撤销』。" src="https://gw.alipayobjects.com/zos/rmsportal/YfhMlEIayfwnxiILcebI.png" good>
 
-<img class="preview-img" align="right" alt="推荐示例" description="特例：在执行某些无法『撤消』的操作时，可以点击『删除』后，出现 Popconfirm 进行二次确认，在当前页面完成任务。" src="https://gw.alipayobjects.com/zos/rmsportal/AKtiXJTTQEjKFOCQGZMa.png" good>
+<img class="preview-img" align="right" alt="推荐示例" description="特例：在执行某些无法『撤销』的操作时，可以点击『删除』后，出现 Popconfirm 进行二次确认，在当前页面完成任务。" src="https://gw.alipayobjects.com/zos/rmsportal/AKtiXJTTQEjKFOCQGZMa.png" good>
 
 <img class="preview-img" align="right" alt="不推荐示例" description="滥用 Modal 进行二次确认，就像『狼来了』一样，既打断用户心流（无法将上下文带到弹出框中），也无法避免失误的发生。" src="https://gw.alipayobjects.com/zos/rmsportal/cGqkngXLMBlmMyoHtgFs.png" bad>
 
-二次确认覆盖层：避免滥用 Modal 进行二次确认，应该勇敢的让用户去尝试，给用户机会『撤消』即可。
+二次确认覆盖层：避免滥用 Modal 进行二次确认，应该勇敢的让用户去尝试，给用户机会『撤销』即可。
 
 <br>
 
