@@ -136,16 +136,20 @@ module.exports = function override(config, env) {
 $ yarn add babel-plugin-import
 ```
 
-```
-const { override, fixBabelImports } = require('customize-cra')
+```diff
++ const { override, fixBabelImports } = require('customize-cra');
 
-module.exports = override(
-	fixBabelImports('import', {
-		libraryName: 'antd',
-		libraryDirectory: 'es',
-		style: 'css'
-	})
-)
+- module.exports = function override(config, env) {
+-   // do stuff with the webpack config...
+-   return config;
+- };
++ module.exports = override(
++   fixBabelImports('import', {
++     libraryName: 'antd',
++     libraryDirectory: 'es',
++     style: 'css',
++   }),
++ );
 ```
 
 Remove the `@import '~antd/dist/antd.css';` statement added before because `babel-plugin-import` will import styles and import components like below:
@@ -181,20 +185,21 @@ $ yarn add less
 $ yarn add --dev less-loader
 ```
 
-```
-const { override, fixBabelImports, addLessLoader } = require('customize-cra')
+```diff
+- const { override, fixBabelImports } = require('customize-cra');
++ const { override, fixBabelImports, addLessLoader } = require('customize-cra');
 
 module.exports = override(
-	fixBabelImports('import', {
-		libraryName: 'antd',
-		libraryDirectory: 'es',
-		style: true
-	}),
-  addLessLoader({
-    javascriptEnabled: true,
-    modifyVars: { "@primary-color": "#1DA57A" }
-  })
-)
+  fixBabelImports('import', {
+    libraryName: 'antd',
+    libraryDirectory: 'es',
+    style: true,
+  }),
++ addLessLoader({
++   javascriptEnabled: true,
++   modifyVars: { '@primary-color': '#1DA57A' },
++ }),
+);
 ```
 
 We use `modifyVars` option of [less-loader](https://github.com/webpack/less-loader#less-options) here, you can see a green button rendered on the page after rebooting the start server.

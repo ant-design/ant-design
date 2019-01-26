@@ -9,25 +9,14 @@ title: 设计资源
 - 新版本 Sketch Symbols 组件反馈地址：[🦜 反馈地址](https://www.yuque.com/kitchen/topics/51)
 
 <div class="resource-cards">
-  <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Components.Beta.3.10.5.sketch" class="resource-card">
+  <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Components.3.12.0.sketch" class="resource-card">
     <div class="resource-card-icon">
       <img width="65" src="https://gw.alipayobjects.com/zos/rmsportal/pKfDZnzocrbAOSzDQOQq.png">
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">
-        新 Sketch Symbols 组件
-        <span class="resource-card-hot-badge">BETA</span>
-      </span>
-      <span class="resource-card-description">桌面组件 Sketch 模板包</span>
-    </div>
-  </a>
-  <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.3.0.Components.sketch" class="resource-card">
-    <div class="resource-card-icon">
-      <img width="65" src="https://gw.alipayobjects.com/zos/rmsportal/pKfDZnzocrbAOSzDQOQq.png">
-    </div>
-    <div class="resource-card-content">
-      <span class="resource-card-title">
-        Sketch Symbols 组件
+        全新 Sketch 组件包
+        <span class="resource-card-hot-badge">NEW</span>
       </span>
       <span class="resource-card-description">桌面组件 Sketch 模板包</span>
     </div>
@@ -90,15 +79,6 @@ title: 设计资源
     <div class="resource-card-content">
       <span class="resource-card-title">Ant UX</span>
       <span class="resource-card-description">一套页面逻辑原型库，帮你梳理页面逻辑</span>
-    </div>
-  </a>
-  <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/iconfont-3.x.zip" class="resource-card">
-    <div class="resource-card-icon">
-      <img width="54" src="https://gw.alipayobjects.com/zos/rmsportal/bWBRrdYsVnVkXpFRCVFy.png">
-    </div>
-    <div class="resource-card-content">
-      <span class="resource-card-title">Web Font</span>
-      <span class="resource-card-description">网络字体图标的本地文件包</span>
     </div>
   </a>
   <a target="_blank" href="https://www.xiaopiu.com/topic/ant-design" class="resource-card">
