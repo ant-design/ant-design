@@ -18,35 +18,37 @@ timeline: true
 ## 3.13.0
 
 `2019-01-26`
-- Badge
-  - 🐞 修复带 `border-color` 时改变数值报错的问题。[#14525](https://github.com/ant-design/ant-design/pull/14525)
+
+- 🎉 新增统计/倒计时组件。[#14154](https://github.com/ant-design/ant-design/pull/14154)
+- Button
+  - 🌟 Button 添加圆边形状。[#14236](https://github.com/ant-design/ant-design/pull/14236)
 - Collapse
   - 🌟 新增 `expandIcon` 属性，允许用户自定义 Collapse 折叠图标。[#14060](https://github.com/ant-design/ant-design/pull/14060)
 - ConfigProvider
   - 🌟 支持 Content Security Policy (CSP) 配置。[#14222](https://github.com/ant-design/ant-design/pull/14222)
   - 🌟 提供 `autoInsertSpaceInButton` 属性以移除按钮中 2 个汉字时字间的空格。[#14230](https://github.com/ant-design/ant-design/pull/14230)
-- Modal
-  - 🌟 Modal 函数组件新增 `mask` 属性支持。[#14197](https://github.com/ant-design/ant-design/pull/14197)
-  - 🌟 Modal 函数组件新增 `transitionName` 和 `maskTransitionName` 属性支持。[#14273](https://github.com/ant-design/ant-design/pull/14273) [@thomasJang](https://github.com/thomasJang)
+- DatePicker
+  - 🌟 将会读取本地化格式配置作为默认日期格式。[#14340](https://github.com/ant-design/ant-design/pull/14340)
+- Tabs
+  - 🌟 支持自定义标签节点。[#14368](https://github.com/ant-design/ant-design/pull/14368)
 - Icon
   - 🌟 Icon 组件添加 `aria-label` 属性以提升无障碍体验。[#14258](https://github.com/ant-design/ant-design/pull/14258)
   - 🌟 新增 `rotate` 属性，允许用户修改图标旋转角度。[#14060](https://github.com/ant-design/ant-design/pull/14060)
+- Badge
+  - 🐞 修复带 `border-color` 时改变数值报错的问题。[#14525](https://github.com/ant-design/ant-design/pull/14525)
+- Modal
+  - 🌟 Modal 函数组件新增 `mask` 属性支持。[#14197](https://github.com/ant-design/ant-design/pull/14197)
+  - 🌟 Modal 函数组件新增 `transitionName` 和 `maskTransitionName` 属性支持。[#14273](https://github.com/ant-design/ant-design/pull/14273) [@thomasJang](https://github.com/thomasJang)
 - Input
   - 🐞 修复 Input.Search 样式问题。在 `addon` 下，将 `className` 从 input 改到最顶层元素上。[#14461](https://github.com/ant-design/ant-design/pull/14461)
-- Button
-  - 🌟 Button 添加圆边形状。[#14236](https://github.com/ant-design/ant-design/pull/14236)
-- DatePicker
-  - 🌟 将会读取本地化格式配置作为默认日期格式。[#14340](https://github.com/ant-design/ant-design/pull/14340)
 - TimePicker
   - 🌟 废弃 `allowEmpty` 属性，改用 `allowClear` 替代。并与 DatePicker 统一样式。[#14490](https://github.com/ant-design/ant-design/pull/14490)
 - Radio
   - 🐞 修复 RadioButton 在 RadioGroup 下会触发 2 次 onChange 的问题。[#14523](https://github.com/ant-design/ant-design/pull/14523)
 - Spin
-  - 🐞 修复 Table 在低版本 ie 中 spinning 会遮挡操作的问题。[#14511](https://github.com/ant-design/ant-design/pull/14511)
+  - 🐞 修复 Table 在低版本 IE 中 spinning 会遮挡操作的问题。[#14511](https://github.com/ant-design/ant-design/pull/14511)
 - Switch
   - 🌟 Switch 为 `onChange`, `onClick` 添加 `event` 参数。[#14560](https://github.com/ant-design/ant-design/pull/14560)
-- Tabs
-  - 🌟 支持自定义标签节点。[#14368](https://github.com/ant-design/ant-design/pull/14368)
 - Table
   - 🐞 修复 Safari 中固定列样式问题。[#14550](https://github.com/ant-design/ant-design/pull/14550)
 - Progress
@@ -54,7 +56,6 @@ timeline: true
 - Pagination
   - 🐞 修复省略号不居中的样式问题。[#14473](https://github.com/ant-design/ant-design/pull/14473) [@ranbena](https://github.com/ranbena)
 - 🐞 修复水波纹在 Edge 下的样式问题。[#14469](https://github.com/ant-design/ant-design/pull/14469)
-- 🎉 新增统计/倒计时组件。[#14154](https://github.com/ant-design/ant-design/pull/14154)
 
 ## 3.12.4
 
