@@ -42,7 +42,7 @@ function insertSpace(child: React.ReactChild, needInserted: boolean) {
 
 const ButtonTypes = tuple('default', 'primary', 'ghost', 'dashed', 'danger');
 export type ButtonType = (typeof ButtonTypes)[number];
-const ButtonShapes = tuple('circle', 'circle-outline');
+const ButtonShapes = tuple('circle', 'circle-outline', 'round');
 export type ButtonShape = (typeof ButtonShapes)[number];
 const ButtonSizes = tuple('large', 'default', 'small');
 export type ButtonSize = (typeof ButtonSizes)[number];
@@ -191,7 +191,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     return React.Children.count(children) === 1 && !icon;
   }
 
-  renderButton = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderButton = ({ getPrefixCls, autoInsertSpaceInButton }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       type,
@@ -208,6 +208,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     const { loading, hasTwoCNChar } = this.state;
 
     const prefixCls = getPrefixCls('btn', customizePrefixCls);
+    const autoInsertSpace = autoInsertSpaceInButton !== false;
 
     // large => lg
     // small => sm
@@ -229,7 +230,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
       [`${prefixCls}-icon-only`]: !children && children !== 0 && icon,
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-background-ghost`]: ghost,
-      [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar,
+      [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && autoInsertSpace,
       [`${prefixCls}-block`]: block,
     });
 
@@ -237,7 +238,9 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     const iconNode = iconType ? <Icon type={iconType} /> : null;
     const kids =
       children || children === 0
-        ? React.Children.map(children, child => insertSpace(child, this.isNeedInserted()))
+        ? React.Children.map(children, child =>
+            insertSpace(child, this.isNeedInserted() && autoInsertSpace),
+          )
         : null;
 
     const linkButtonRestProps = omit(rest as AnchorButtonProps, ['htmlType']);

@@ -11,6 +11,7 @@ import {
   alias,
 } from './utils';
 import warning from '../_util/warning';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { getTwoToneColor, setTwoToneColor } from './twoTonePrimaryColor';
 
 // Initial setting
@@ -19,6 +20,10 @@ setTwoToneColor('#1890ff');
 let defaultTheme: ThemeType = 'outlined';
 let dangerousTheme: ThemeType | undefined = undefined;
 
+export interface TransferLocale {
+  icon: string;
+}
+
 export interface CustomIconComponentProps {
   width: string | number;
   height: string | number;
@@ -26,12 +31,15 @@ export interface CustomIconComponentProps {
   viewBox?: string;
   className?: string;
   style?: React.CSSProperties;
+  spin?: boolean;
+  rotate?: number;
   ['aria-hidden']?: string;
 }
 
 export type ThemeType = 'filled' | 'outlined' | 'twoTone';
 
 export interface IconProps {
+  tabIndex?: number;
   type?: string;
   className?: string;
   theme?: ThemeType;
@@ -41,6 +49,7 @@ export interface IconProps {
   twoToneColor?: string;
   viewBox?: string;
   spin?: boolean;
+  rotate?: number;
   style?: React.CSSProperties;
   prefixCls?: string;
   role?: string;
@@ -64,6 +73,10 @@ const Icon: IconComponent<IconProps> = props => {
     component: Component,
     viewBox,
     spin,
+    rotate,
+
+    tabIndex,
+    onClick,
 
     // children
     children,
@@ -92,19 +105,24 @@ const Icon: IconComponent<IconProps> = props => {
     [`anticon-spin`]: !!spin || type === 'loading',
   });
 
-  let innerNode;
+  let innerNode: React.ReactNode;
+
+  const svgStyle = rotate
+    ? {
+        msTransform: `rotate(${rotate}deg)`,
+        transform: `rotate(${rotate}deg)`,
+      }
+    : undefined;
+
+  const innerSvgProps: CustomIconComponentProps = {
+    ...svgBaseProps,
+    className: svgClassString,
+    style: svgStyle,
+    viewBox,
+  };
 
   // component > children > type
   if (Component) {
-    const innerSvgProps: CustomIconComponentProps = {
-      ...svgBaseProps,
-      className: svgClassString,
-      viewBox,
-    };
-    if (!viewBox) {
-      delete innerSvgProps.viewBox;
-    }
-
     innerNode = <Component {...innerSvgProps}>{children}</Component>;
   }
 
@@ -117,10 +135,6 @@ const Icon: IconComponent<IconProps> = props => {
       'Make sure that you provide correct `viewBox`' +
         ' prop (default `0 0 1024 1024`) to the icon.',
     );
-    const innerSvgProps: CustomIconComponentProps = {
-      ...svgBaseProps,
-      className: svgClassString,
-    };
     innerNode = (
       <svg {...innerSvgProps} viewBox={viewBox}>
         {children}
@@ -143,14 +157,34 @@ const Icon: IconComponent<IconProps> = props => {
       dangerousTheme || theme || defaultTheme,
     );
     innerNode = (
-      <ReactIcon className={svgClassString} type={computedType} primaryColor={twoToneColor} />
+      <ReactIcon
+        className={svgClassString}
+        type={computedType}
+        primaryColor={twoToneColor}
+        style={svgStyle}
+      />
     );
   }
 
+  let iconTabIndex = tabIndex;
+  if (iconTabIndex === undefined && onClick) {
+    iconTabIndex = -1;
+  }
+
   return (
-    <i {...restProps} className={classString}>
-      {innerNode}
-    </i>
+    <LocaleReceiver componentName="Icon">
+      {(locale: TransferLocale) => (
+        <i
+          aria-label={`${locale.icon}: ${type}`}
+          {...restProps}
+          tabIndex={iconTabIndex}
+          onClick={onClick}
+          className={classString}
+        >
+          {innerNode}
+        </i>
+      )}
+    </LocaleReceiver>
   );
 };
 

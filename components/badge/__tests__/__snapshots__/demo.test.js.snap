@@ -194,6 +194,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
       href="#"
     />
     <i
+      aria-label="icon: clock-circle"
       class="anticon anticon-clock-circle ant-scroll-number-custom-component"
       style="color:#f5222d"
     >
@@ -398,6 +399,7 @@ exports[`renders ./components/badge/demo/change.md correctly 1`] = `
         type="button"
       >
         <i
+          aria-label="icon: minus"
           class="anticon anticon-minus"
         >
           <svg
@@ -420,6 +422,7 @@ exports[`renders ./components/badge/demo/change.md correctly 1`] = `
         type="button"
       >
         <i
+          aria-label="icon: plus"
           class="anticon anticon-plus"
         >
           <svg
@@ -475,6 +478,7 @@ exports[`renders ./components/badge/demo/dot.md correctly 1`] = `
     class="ant-badge"
   >
     <i
+      aria-label="icon: notification"
       class="anticon anticon-notification"
     >
       <svg
@@ -500,6 +504,7 @@ exports[`renders ./components/badge/demo/dot.md correctly 1`] = `
     class="ant-badge"
   >
     <i
+      aria-label="icon: notification"
       class="anticon anticon-notification"
     >
       <svg

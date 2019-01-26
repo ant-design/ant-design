@@ -20,6 +20,7 @@ exports[`renders ./components/spin/demo/custom-indicator.md correctly 1`] = `
   class="ant-spin ant-spin-spinning"
 >
   <i
+    aria-label="icon: loading"
     class="anticon anticon-loading ant-spin-dot"
     style="font-size:24px"
   >

@@ -18,6 +18,7 @@ exports[`Cascader can be selected 1`] = `
             class="ant-cascader-menu-item-expand-icon"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -45,6 +46,7 @@ exports[`Cascader can be selected 1`] = `
             class="ant-cascader-menu-item-expand-icon"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -76,6 +78,7 @@ exports[`Cascader can be selected 1`] = `
             class="ant-cascader-menu-item-expand-icon"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -118,6 +121,7 @@ exports[`Cascader can be selected 2`] = `
             class="ant-cascader-menu-item-expand-icon"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -145,6 +149,7 @@ exports[`Cascader can be selected 2`] = `
             class="ant-cascader-menu-item-expand-icon"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -176,6 +181,7 @@ exports[`Cascader can be selected 2`] = `
             class="ant-cascader-menu-item-expand-icon"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -228,6 +234,7 @@ exports[`Cascader can be selected 3`] = `
             class="ant-cascader-menu-item-expand-icon"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -255,6 +262,7 @@ exports[`Cascader can be selected 3`] = `
             class="ant-cascader-menu-item-expand-icon"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -286,6 +294,7 @@ exports[`Cascader can be selected 3`] = `
             class="ant-cascader-menu-item-expand-icon"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -348,6 +357,7 @@ exports[`Cascader popup correctly when panel is open 1`] = `
             class="ant-cascader-menu-item-expand-icon"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -375,6 +385,7 @@ exports[`Cascader popup correctly when panel is open 1`] = `
             class="ant-cascader-menu-item-expand-icon"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -417,6 +428,7 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
             class="ant-cascader-menu-item-expand-icon"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -444,6 +456,7 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
             class="ant-cascader-menu-item-expand-icon"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -475,6 +488,7 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
             class="ant-cascader-menu-item-expand-icon"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -1227,7 +1241,9 @@ exports[`Cascader support controlled mode 1`] = `
     value=""
   />
   <i
+    aria-label="icon: close-circle"
     class="anticon anticon-close-circle ant-cascader-picker-clear"
+    tabindex="-1"
   >
     <svg
       aria-hidden="true"
@@ -1244,6 +1260,7 @@ exports[`Cascader support controlled mode 1`] = `
     </svg>
   </i>
   <i
+    aria-label="icon: down"
     class="anticon anticon-down ant-cascader-picker-arrow"
   >
     <svg

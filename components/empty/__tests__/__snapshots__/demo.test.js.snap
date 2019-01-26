@@ -66,6 +66,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
           unselectable="on"
         >
           <i
+            aria-label="icon: down"
             class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
@@ -110,6 +111,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
           style="outline:none"
         >
           <i
+            aria-label="icon: down"
             class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
@@ -148,6 +150,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
         value=""
       />
       <i
+        aria-label="icon: down"
         class="anticon anticon-down ant-cascader-picker-arrow"
       >
         <svg
@@ -238,6 +241,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
           type="button"
         >
           <i
+            aria-label="icon: right"
             class="anticon anticon-right"
           >
             <svg
@@ -261,6 +265,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
           type="button"
         >
           <i
+            aria-label="icon: left"
             class="anticon anticon-left"
           >
             <svg

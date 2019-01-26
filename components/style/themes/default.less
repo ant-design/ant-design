@@ -132,7 +132,7 @@
 @btn-font-weight : 400;
 @btn-border-radius-base : @border-radius-base;
 @btn-border-radius-sm : @border-radius-base;
-@btn-shadow: 0 2px 0 rgba(0, 0, 0, .015);
+@btn-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
 @btn-primary-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
 @btn-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
 
@@ -291,6 +291,10 @@
 @input-hover-border-color : @primary-color;
 @input-disabled-bg : @disabled-bg;
 @input-outline-offset : 0 0;
+
+// Select
+// ---
+@select-border-color: @border-color-base;
 
 // Tooltip
 // ---
@@ -559,9 +563,18 @@
 
 // List
 // ---
+@list-header-background: transparent;
+@list-footer-background: transparent;
 @list-empty-text-padding: @padding-md;
 @list-item-padding: @padding-sm 0;
 @list-item-content-margin: 0 0 @padding-md 0;
 @list-item-meta-margin-bottom: @padding-md;
 @list-item-meta-avatar-margin-right: @padding-md;
 @list-item-meta-title-margin-bottom: @padding-sm;
+
+// Statistic
+// ---
+@statistic-title-font-size: @font-size-base;
+@statistic-content-font-size: 24px;
+@statistic-unit-font-size: 16px;
+@statistic-font-family: Tahoma, 'Helvetica Neue', @font-family;

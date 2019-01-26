@@ -2,6 +2,7 @@
 
 exports[`Icon \`component\` prop can access to svg defs if has children 1`] = `
 <i
+  aria-label="icon: undefined"
   class="anticon my-home-icon"
 >
   <svg
@@ -24,12 +25,14 @@ exports[`Icon \`component\` prop can access to svg defs if has children 1`] = `
 
 exports[`Icon should give warning and render <i>{null}</i> 1`] = `
 <i
+  aria-label="icon: undefined"
   class="anticon"
 />
 `;
 
 exports[`Icon should render to a <i class="xxx"><svg>...</svg></i> 1`] = `
 <i
+  aria-label="icon: message"
   class="anticon anticon-message my-icon-classname"
 >
   <svg
@@ -51,6 +54,7 @@ exports[`Icon should render to a <i class="xxx"><svg>...</svg></i> 1`] = `
 exports[`Icon should support basic usage 1`] = `
 <div>
   <i
+    aria-label="icon: home"
     class="anticon anticon-home"
   >
     <svg
@@ -68,6 +72,7 @@ exports[`Icon should support basic usage 1`] = `
     </svg>
   </i>
   <i
+    aria-label="icon: setting"
     class="anticon anticon-setting"
   >
     <svg
@@ -85,6 +90,7 @@ exports[`Icon should support basic usage 1`] = `
     </svg>
   </i>
   <i
+    aria-label="icon: smile"
     class="anticon anticon-smile"
   >
     <svg
@@ -102,6 +108,7 @@ exports[`Icon should support basic usage 1`] = `
     </svg>
   </i>
   <i
+    aria-label="icon: sync"
     class="anticon anticon-sync"
   >
     <svg
@@ -119,6 +126,7 @@ exports[`Icon should support basic usage 1`] = `
     </svg>
   </i>
   <i
+    aria-label="icon: loading"
     class="anticon anticon-loading"
   >
     <svg
@@ -140,6 +148,7 @@ exports[`Icon should support basic usage 1`] = `
 
 exports[`Icon should support config global two-tone primary color 1`] = `
 <i
+  aria-label="icon: check-circle"
   class="anticon anticon-check-circle"
 >
   <svg
@@ -170,6 +179,7 @@ exports[`Icon should support config global two-tone primary color 1`] = `
 exports[`Icon should support older usage 1`] = `
 <div>
   <i
+    aria-label="icon: home-o"
     class="anticon anticon-home-o"
   >
     <svg
@@ -187,6 +197,7 @@ exports[`Icon should support older usage 1`] = `
     </svg>
   </i>
   <i
+    aria-label="icon: setting-fill"
     class="anticon anticon-setting-fill"
   >
     <svg
@@ -204,6 +215,7 @@ exports[`Icon should support older usage 1`] = `
     </svg>
   </i>
   <i
+    aria-label="icon: smile-o"
     class="anticon anticon-smile-o"
   >
     <svg
@@ -221,6 +233,7 @@ exports[`Icon should support older usage 1`] = `
     </svg>
   </i>
   <i
+    aria-label="icon: check-circle-twotone"
     class="anticon anticon-check-circle-twotone"
   >
     <svg
@@ -245,6 +258,7 @@ exports[`Icon should support older usage 1`] = `
 
 exports[`Icon should support pass svg paths as children 1`] = `
 <i
+  aria-label="icon: undefined"
   class="anticon"
 >
   <svg
@@ -268,6 +282,7 @@ exports[`Icon should support pass svg paths as children 1`] = `
 
 exports[`Icon should support svg react component 1`] = `
 <i
+  aria-label="icon: undefined"
   class="anticon my-home-icon"
 >
   <svg
@@ -290,6 +305,7 @@ exports[`Icon should support svg react component 1`] = `
 
 exports[`Icon should support two-tone icon 1`] = `
 <i
+  aria-label="icon: check-circle"
   class="anticon anticon-check-circle"
 >
   <svg
@@ -322,6 +338,7 @@ exports[`Icon.createFromIconfontCN() should support iconfont.cn 1`] = `
   class="icons-list"
 >
   <i
+    aria-label="icon: undefined"
     class="anticon"
   >
     <svg
@@ -338,6 +355,7 @@ exports[`Icon.createFromIconfontCN() should support iconfont.cn 1`] = `
     </svg>
   </i>
   <i
+    aria-label="icon: undefined"
     class="anticon"
   >
     <svg
@@ -354,6 +372,7 @@ exports[`Icon.createFromIconfontCN() should support iconfont.cn 1`] = `
     </svg>
   </i>
   <i
+    aria-label="icon: undefined"
     class="anticon"
   >
     <svg

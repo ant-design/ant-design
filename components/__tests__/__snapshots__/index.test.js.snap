@@ -35,6 +35,7 @@ Array [
   "message",
   "Menu",
   "Modal",
+  "Statistic",
   "notification",
   "Pagination",
   "Popconfirm",

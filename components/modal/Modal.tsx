@@ -81,6 +81,7 @@ export interface ModalFuncProps {
   icon?: React.ReactNode;
   /* Deperated */
   iconType?: string;
+  mask?: boolean;
   maskClosable?: boolean;
   zIndex?: number;
   okCancel?: boolean;
@@ -90,6 +91,8 @@ export interface ModalFuncProps {
   keyboard?: boolean;
   getContainer?: (instance: React.ReactInstance) => HTMLElement;
   autoFocusButton?: null | 'ok' | 'cancel';
+  transitionName?: string;
+  maskTransitionName?: string;
 }
 
 export type ModalFunc = (
