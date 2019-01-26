@@ -19,10 +19,11 @@ timeline: true
 
 `2019-01-19`
 - 🌟 更新《在 creact-react-app 中使用》文档以兼容升级后的 creact-react-app 和 react-scripts-rewired。[#14385](https://github.com/ant-design/ant-design/pull/14385)
-- 💄 修复在 postcss（webpack）中使用 autoprefixer 9.4.5 会抛出错误 `Replace text-decoration-skip: ink to text-decoration-skip-ink: auto, because spec had been changed` 的问题。[#14312](https://github.com/ant-design/ant-design/pull/14312)
-- 💄 修复 InputNumber 在 MenuItem 中样式不正确的问题。[#14373](https://github.com/ant-design/ant-design/pull/14373)
-- 💄 修复 Input.Search 使用 `enterButton` 时的样式问题。[#14397](https://github.com/ant-design/ant-design/pull/14397)
-- 💄 修复 Slider focus 时的样式错误。[9202509](https://github.com/ant-design/ant-design/commit/92025095032a05b2bc347218b523ffd42f75a607)
+- 🐞 修复在 postcss（webpack）中使用 autoprefixer 9.4.5 会抛出错误 `Replace text-decoration-skip: ink to text-decoration-skip-ink: auto, because spec had been changed` 的问题。[#14312](https://github.com/ant-design/ant-design/pull/14312)
+- 🐞 修复 InputNumber 在 MenuItem 中样式不正确的问题。[#14373](https://github.com/ant-design/ant-design/pull/14373)
+- 🐞 修复 Input.Search 使用 `enterButton` 时的样式问题。[#14397](https://github.com/ant-design/ant-design/pull/14397)
+- 🐞 修复 Input.TextArea 中输入数字时 `autosize` 高度无法自适应的问题。[#14375](https://github.com/ant-design/ant-design/pull/14375)
+- 🐞 修复 Slider focus 时的样式错误。[9202509](https://github.com/ant-design/ant-design/commit/92025095032a05b2bc347218b523ffd42f75a607)
 - 🐞 修复 `prefixCls` 属性被传递到了 Empty 元素上的问题。[#14404](https://github.com/ant-design/ant-design/pull/14404)
 - 🐞 修复 RadioGroup `onChange` 将覆盖 Radio `onChange` 的问题。[#14364](https://github.com/ant-design/ant-design/pull/14364)
 

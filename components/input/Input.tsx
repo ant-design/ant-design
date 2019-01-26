@@ -185,38 +185,36 @@ class Input extends React.Component<InputProps, any> {
   }
 
   renderLabeledInput(prefixCls: string, children: React.ReactElement<any>) {
-    const props = this.props;
+    const { addonBefore, addonAfter, style, size, className } = this.props;
     // Not wrap when there is not addons
-    if (!props.addonBefore && !props.addonAfter) {
+    if (!addonBefore && !addonAfter) {
       return children;
     }
 
     const wrapperClassName = `${prefixCls}-group`;
     const addonClassName = `${wrapperClassName}-addon`;
-    const addonBefore = props.addonBefore ? (
-      <span className={addonClassName}>{props.addonBefore}</span>
+    const addonBeforeNode = addonBefore ? (
+      <span className={addonClassName}>{addonBefore}</span>
     ) : null;
-    const addonAfter = props.addonAfter ? (
-      <span className={addonClassName}>{props.addonAfter}</span>
-    ) : null;
+    const addonAfterNode = addonAfter ? <span className={addonClassName}>{addonAfter}</span> : null;
 
-    const className = classNames(`${prefixCls}-wrapper`, {
+    const mergedWrapperClassName = classNames(`${prefixCls}-wrapper`, {
       [wrapperClassName]: addonBefore || addonAfter,
     });
 
-    const groupClassName = classNames(`${prefixCls}-group-wrapper`, {
-      [`${prefixCls}-group-wrapper-sm`]: props.size === 'small',
-      [`${prefixCls}-group-wrapper-lg`]: props.size === 'large',
+    const mergedGroupClassName = classNames(className, `${prefixCls}-group-wrapper`, {
+      [`${prefixCls}-group-wrapper-sm`]: size === 'small',
+      [`${prefixCls}-group-wrapper-lg`]: size === 'large',
     });
 
     // Need another wrapper for changing display:table to display:inline-block
     // and put style prop in wrapper
     return (
-      <span className={groupClassName} style={props.style}>
-        <span className={className}>
-          {addonBefore}
+      <span className={mergedGroupClassName} style={style}>
+        <span className={mergedWrapperClassName}>
+          {addonBeforeNode}
           {React.cloneElement(children, { style: null })}
-          {addonAfter}
+          {addonAfterNode}
         </span>
       </span>
     );
@@ -251,7 +249,7 @@ class Input extends React.Component<InputProps, any> {
   }
 
   renderInput(prefixCls: string) {
-    const { className } = this.props;
+    const { className, addonBefore, addonAfter } = this.props;
     const { value } = this.state;
     // Fix https://fb.me/react-unknown-prop
     const otherProps = omit(this.props, [
@@ -273,7 +271,9 @@ class Input extends React.Component<InputProps, any> {
         {...otherProps}
         value={fixControlledValue(value)}
         onChange={this.handleChange}
-        className={classNames(this.getInputClassName(prefixCls), className)}
+        className={classNames(this.getInputClassName(prefixCls), {
+          [className!]: className && !addonBefore && !addonAfter,
+        })}
         onKeyDown={this.handleKeyDown}
         ref={this.saveInput}
       />,

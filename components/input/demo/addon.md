@@ -1,8 +1,8 @@
 ---
 order: 2
 title:
-    zh-CN: 前置/后置标签
-    en-US: Pre / Post tab
+  zh-CN: 前置/后置标签
+  en-US: Pre / Post tab
 ---
 
 ## zh-CN

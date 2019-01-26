@@ -79,15 +79,6 @@ Please find below some of the design resources and tools about Ant Design that w
       <span class="resource-card-description">A series prototypes that help creating application structure and user flow</span>
     </div>
   </a>
-  <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/iconfont-3.x.zip" class="resource-card">
-    <div class="resource-card-icon">
-      <img width="54" src="https://gw.alipayobjects.com/zos/rmsportal/bWBRrdYsVnVkXpFRCVFy.png">
-    </div>
-    <div class="resource-card-content">
-      <span class="resource-card-title">Web Font</span>
-      <span class="resource-card-description">Icon font package for your local reference</span>
-    </div>
-  </a>
   <a target="_blank" href="https://www.xiaopiu.com/topic/ant-design" class="resource-card">
     <div class="resource-card-icon">
       <img width="72" src="https://img.xiaopiu.com/userImages/img753167822272f8.png">
