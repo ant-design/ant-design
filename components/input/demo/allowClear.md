@@ -16,11 +16,7 @@ Input type of password.
 ````jsx
 import { Input } from 'antd';
 
-const onChange = (e) => {
-  console.log(e);
-};
-
 ReactDOM.render(
-  <Input placeholder="input with clear icon" allowClear onChange={onChange} />
+  <Input placeholder="input with clear icon" allowClear />
 , mountNode);
 ````
