@@ -7,7 +7,6 @@ import 'moment/locale/zh-cn';
 import { LocaleProvider } from 'antd';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
 import Header from './Header';
-import SentryBoundary from './SentryBoundary';
 import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
 import * as utils from '../utils';
@@ -95,17 +94,16 @@ export default class Layout extends React.Component {
     const { children, ...restProps } = this.props;
     const { appLocale } = this.state;
 
+    // Temp remove SentryBoundary
     return (
-      <SentryBoundary>
-        <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
-          <LocaleProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null}>
-            <div className="page-wrapper">
-              <Header {...restProps} />
-              {children}
-            </div>
-          </LocaleProvider>
-        </IntlProvider>
-      </SentryBoundary>
+      <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
+        <LocaleProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null}>
+          <div className="page-wrapper">
+            <Header {...restProps} />
+            {children}
+          </div>
+        </LocaleProvider>
+      </IntlProvider>
     );
   }
 }
