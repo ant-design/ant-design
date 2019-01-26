@@ -58,7 +58,7 @@ timeline: true
 - 🐞 Fix the unexpected call of `afterClose` for Tage when visible changes from false to true. [#14200](https://github.com/ant-design/ant-design/pull/14200) [@tangjinzhou](https://github.com/tangjinzhou)
 - TypeScript
   - 🐞 Fix the TypeScript definition lack of `forceRender` for Modal. [#14160](https://github.com/ant-design/ant-design/issues/14160)
-  - 🐞 Fix the TypeScript definition of `sortDirections` for `TableProps` 的 `TypeScript` 类型定义中  属性必选的问题。[#14182](https://github.com/ant-design/ant-design/pull/14182)
+  - 🐞 Fix the problem that typeScript definition of `sortDirections` for `TableProps` should be optional。[#14182](https://github.com/ant-design/ant-design/pull/14182)
   - 🐞 Fix the wrong TypeScript definition of `locale` for Table. [#14245](https://github.com/ant-design/ant-design/pull/14245) [@LeezQ](https://github.com/LeezQ)
   - 🐞 Fix the TypeScript definition not extending from native `div` element for List.Item. [#14171](https://github.com/ant-design/ant-design/issues/14171)
 - 🌟 Add new `Less` variables, including `@btn-shadow`, `@btn-primary-shadow` and `@btn-text-shadow`. [#14172](https://github.com/ant-design/ant-design/issues/14172)
