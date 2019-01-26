@@ -11,6 +11,7 @@ interface MenuItemProps {
   title?: React.ReactNode;
   children?: React.ReactNode;
   className?: string;
+  style?: React.CSSProperties;
   onClick?: (param: ClickParam) => void;
   onMouseEnter?: (event: string, e: MouseEvent) => void;
   onMouseLeave?: (event: string, e: MouseEvent) => void;

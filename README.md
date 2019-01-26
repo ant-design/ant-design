@@ -52,6 +52,10 @@ English | [简体中文](./README-zh_CN.md)
 npm install antd --save
 ```
 
+```bash
+yarn add antd
+```
+
 ## 🔨 Usage
 
 ```jsx
