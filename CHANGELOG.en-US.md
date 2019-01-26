@@ -27,7 +27,7 @@ timeline: true
   - 🌟 support `autoInsertSpaceInButton` to remove space between 2 chinese characters on Button. [#14230](https://github.com/ant-design/ant-design/pull/14230)
 - Modal
   - 🌟 Add `mask` property support for Modal method. [#14197](https://github.com/ant-design/ant-design/pull/14197)
-  - 🌟 Add `transitionName` and `maskTransitionName` property support for Modal method. [#14273](https://github.com/ant-design/ant-design/pull/14273)
+  - 🌟 Add `transitionName` and `maskTransitionName` property support for Modal method. [#14273](https://github.com/ant-design/ant-design/pull/14273) [@thomasJang](https://github.com/thomasJang)
 - Icon
   - 🌟 Icon component add `aria-label` prop to enhance accessibility. [#14258](https://github.com/ant-design/ant-design/pull/14258)
   - 🌟 Add `rotate` to allow icon rotate as specified degrees. [#14060](https://github.com/ant-design/ant-design/pull/14060)

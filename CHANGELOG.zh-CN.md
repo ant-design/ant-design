@@ -27,7 +27,7 @@ timeline: true
   - 🌟 提供 `autoInsertSpaceInButton` 属性以移除按钮中 2 个汉字时字间的空格。[#14230](https://github.com/ant-design/ant-design/pull/14230)
 - Modal
   - 🌟 Modal 函数组件新增 `mask` 属性支持。[#14197](https://github.com/ant-design/ant-design/pull/14197)
-  - 🌟 Modal 函数组件新增 `transitionName` 和 `maskTransitionName` 属性支持。[#14273](https://github.com/ant-design/ant-design/pull/14273)
+  - 🌟 Modal 函数组件新增 `transitionName` 和 `maskTransitionName` 属性支持。[#14273](https://github.com/ant-design/ant-design/pull/14273) [@thomasJang](https://github.com/thomasJang)
 - Icon
   - 🌟 Icon 组件添加 `aria-label` 属性以提升无障碍体验。[#14258](https://github.com/ant-design/ant-design/pull/14258)
   - 🌟 新增 `rotate` 属性，允许用户修改图标旋转角度。[#14060](https://github.com/ant-design/ant-design/pull/14060)
