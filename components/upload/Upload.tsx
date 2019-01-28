@@ -3,6 +3,7 @@ import { polyfill } from 'react-lifecycles-compat';
 import RcUpload from 'rc-upload';
 import classNames from 'classnames';
 import uniqBy from 'lodash/uniqBy';
+import findIndex from 'lodash/findIndex';
 import Dragger from './Dragger';
 import UploadList from './UploadList';
 import {
@@ -73,7 +74,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
 
     const nextFileList = this.state.fileList.concat();
 
-    const fileIndex = nextFileList.findIndex(({ uid }) => uid === targetItem.uid);
+    const fileIndex = findIndex(nextFileList, ({ uid }: UploadFile) => uid === targetItem.uid);
     if (fileIndex === -1) {
       nextFileList.push(targetItem);
     } else {
