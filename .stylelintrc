@@ -17,7 +17,7 @@
     "selector-pseudo-element-colon-notation": null,
     "unit-no-unknown": null,
     "value-list-max-empty-lines": null,
-    "font-family-no-missing-generic-family-keyword": null,
+    "no-invalid-double-slash-comments": null,
     "no-descending-specificity": null
   }
 }

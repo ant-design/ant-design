@@ -2,19 +2,19 @@
 @import '../color/colors';
 
 // The prefix to use on all css classes from ant.
-@ant-prefix : ant;
+@ant-prefix: ant;
 
 // -------- Colors -----------
-@primary-color : @blue-6;
-@info-color : @blue-6;
-@success-color : @green-6;
-@processing-color : @blue-6;
-@error-color : @red-6;
-@highlight-color : @red-6;
-@warning-color : @gold-6;
-@normal-color : #d9d9d9;
-@white : #fff;
-@black : #000;
+@primary-color: @blue-6;
+@info-color: @blue-6;
+@success-color: @green-6;
+@processing-color: @blue-6;
+@error-color: @red-6;
+@highlight-color: @red-6;
+@warning-color: @gold-6;
+@normal-color: #d9d9d9;
+@white: #fff;
+@black: #000;
 
 // Color used by default to control hover and active backgrounds and for
 // alert info backgrounds.
@@ -35,33 +35,34 @@
 // ---
 
 // Background color for `<body>`
-@body-background : #fff;
+@body-background: #fff;
 // Base background color for most components
-@component-background : #fff;
-@font-family : "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif,
-"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-@code-family : "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-@heading-color : fade(#000, 85%);
-@text-color : fade(@black, 65%);
-@text-color-secondary : fade(@black, 45%);
-@text-color-inverse : @white;
-@icon-color-hover : fade(@black, 75%);
-@heading-color-dark : fade(@white, 100%);
-@text-color-dark : fade(@white, 85%);
+@component-background: #fff;
+@font-family: 'Chinese Quote', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+  'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif,
+  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+@code-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+@heading-color: fade(#000, 85%);
+@text-color: fade(@black, 65%);
+@text-color-secondary: fade(@black, 45%);
+@text-color-inverse: @white;
+@icon-color-hover: fade(@black, 75%);
+@heading-color-dark: fade(@white, 100%);
+@text-color-dark: fade(@white, 85%);
 @text-color-secondary-dark: fade(@white, 65%);
-@font-variant-base : tabular-nums;
-@font-size-base : 14px;
-@font-size-lg : @font-size-base + 2px;
-@font-size-sm : 12px;
-@line-height-base : 1.5;
-@border-radius-base : 4px;
-@border-radius-sm : 2px;
+@font-variant-base: tabular-nums;
+@font-size-base: 14px;
+@font-size-lg: @font-size-base + 2px;
+@font-size-sm: 12px;
+@line-height-base: 1.5;
+@border-radius-base: 4px;
+@border-radius-sm: 2px;
 
 // vertical paddings
-@padding-lg : 24px; // containers
-@padding-md : 16px; // small containers and buttons
-@padding-sm : 12px; // Form controls and items
-@padding-xs : 8px; // small items
+@padding-lg: 24px; // containers
+@padding-md: 16px; // small containers and buttons
+@padding-sm: 12px; // Form controls and items
+@padding-xs: 8px; // small items
 
 // vertical padding for all form controls
 @control-padding-horizontal: @padding-sm;
@@ -69,192 +70,192 @@
 
 // The background colors for active and hover states for things like
 // list items or table cells.
-@item-active-bg : @primary-1;
-@item-hover-bg : @primary-1;
+@item-active-bg: @primary-1;
+@item-hover-bg: @primary-1;
 
 // ICONFONT
-@iconfont-css-prefix : anticon;
+@iconfont-css-prefix: anticon;
 
 // LINK
-@link-color : @primary-color;
-@link-hover-color : color(~`colorPalette("@{link-color}", 5)`);
-@link-active-color : color(~`colorPalette("@{link-color}", 7)`);
-@link-decoration : none;
-@link-hover-decoration : none;
+@link-color: @primary-color;
+@link-hover-color: color(~`colorPalette('@{link-color}', 5) `);
+@link-active-color: color(~`colorPalette('@{link-color}', 7) `);
+@link-decoration: none;
+@link-hover-decoration: none;
 
 // Animation
-@ease-base-out : cubic-bezier(0.7, 0.3, 0.1, 1);
-@ease-base-in : cubic-bezier(0.9, 0, 0.3, 0.7);
-@ease-out : cubic-bezier(0.215, 0.61, 0.355, 1);
-@ease-in : cubic-bezier(0.55, 0.055, 0.675, 0.19);
-@ease-in-out : cubic-bezier(0.645, 0.045, 0.355, 1);
-@ease-out-back : cubic-bezier(0.12, 0.4, 0.29, 1.46);
-@ease-in-back : cubic-bezier(0.71, -0.46, 0.88, 0.6);
-@ease-in-out-back : cubic-bezier(0.71, -0.46, 0.29, 1.46);
-@ease-out-circ : cubic-bezier(0.08, 0.82, 0.17, 1);
-@ease-in-circ : cubic-bezier(0.6, 0.04, 0.98, 0.34);
-@ease-in-out-circ : cubic-bezier(0.78, 0.14, 0.15, 0.86);
-@ease-out-quint : cubic-bezier(0.23, 1, 0.32, 1);
-@ease-in-quint : cubic-bezier(0.755, 0.05, 0.855, 0.06);
-@ease-in-out-quint : cubic-bezier(0.86, 0, 0.07, 1);
+@ease-base-out: cubic-bezier(0.7, 0.3, 0.1, 1);
+@ease-base-in: cubic-bezier(0.9, 0, 0.3, 0.7);
+@ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+@ease-in: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+@ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+@ease-out-back: cubic-bezier(0.12, 0.4, 0.29, 1.46);
+@ease-in-back: cubic-bezier(0.71, -0.46, 0.88, 0.6);
+@ease-in-out-back: cubic-bezier(0.71, -0.46, 0.29, 1.46);
+@ease-out-circ: cubic-bezier(0.08, 0.82, 0.17, 1);
+@ease-in-circ: cubic-bezier(0.6, 0.04, 0.98, 0.34);
+@ease-in-out-circ: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+@ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
+@ease-in-quint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+@ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
 
 // Border color
-@border-color-base : hsv(0, 0, 85%); // base border outline a component
-@border-color-split : hsv(0, 0, 91%); // split border inside a component
+@border-color-base: hsv(0, 0, 85%); // base border outline a component
+@border-color-split: hsv(0, 0, 91%); // split border inside a component
 @border-color-inverse: @white;
-@border-width-base : 1px; // width of the border for a component
-@border-style-base : solid; // style of a components border
+@border-width-base: 1px; // width of the border for a component
+@border-style-base: solid; // style of a components border
 
 // Outline
-@outline-blur-size : 0;
-@outline-width : 2px;
-@outline-color : @primary-color;
+@outline-blur-size: 0;
+@outline-width: 2px;
+@outline-color: @primary-color;
 
-@background-color-light : hsv(0, 0, 98%); // background of header and selected item
-@background-color-base : hsv(0, 0, 96%); // Default grey background color
+@background-color-light: hsv(0, 0, 98%); // background of header and selected item
+@background-color-base: hsv(0, 0, 96%); // Default grey background color
 
 // Disabled states
-@disabled-color : fade(#000, 25%);
-@disabled-bg : @background-color-base;
-@disabled-color-dark : fade(#fff, 35%);
+@disabled-color: fade(#000, 25%);
+@disabled-bg: @background-color-base;
+@disabled-color-dark: fade(#fff, 35%);
 
 // Shadow
-@shadow-color : rgba(0, 0, 0, .15);
+@shadow-color: rgba(0, 0, 0, 0.15);
 @shadow-color-inverse: @component-background;
 @box-shadow-base: @shadow-1-down;
 @shadow-1-up: 0 -2px 8px @shadow-color;
-@shadow-1-down : 0 2px 8px @shadow-color;
-@shadow-1-left : -2px 0 8px @shadow-color;
-@shadow-1-right : 2px 0 8px @shadow-color;
-@shadow-2 : 0 4px 12px @shadow-color;
+@shadow-1-down: 0 2px 8px @shadow-color;
+@shadow-1-left: -2px 0 8px @shadow-color;
+@shadow-1-right: 2px 0 8px @shadow-color;
+@shadow-2: 0 4px 12px @shadow-color;
 
 // Buttons
-@btn-font-weight : 400;
-@btn-border-radius-base : @border-radius-base;
-@btn-border-radius-sm : @border-radius-base;
+@btn-font-weight: 400;
+@btn-border-radius-base: @border-radius-base;
+@btn-border-radius-sm: @border-radius-base;
 @btn-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
 @btn-primary-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
 @btn-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
 
-@btn-primary-color : #fff;
-@btn-primary-bg : @primary-color;
+@btn-primary-color: #fff;
+@btn-primary-bg: @primary-color;
 
-@btn-default-color : @text-color;
-@btn-default-bg : #fff;
-@btn-default-border : @border-color-base;
+@btn-default-color: @text-color;
+@btn-default-bg: #fff;
+@btn-default-border: @border-color-base;
 
-@btn-danger-color : @error-color;
-@btn-danger-bg : @background-color-base;
-@btn-danger-border : @border-color-base;
+@btn-danger-color: @error-color;
+@btn-danger-bg: @background-color-base;
+@btn-danger-border: @border-color-base;
 
-@btn-disable-color : @disabled-color;
-@btn-disable-bg : @disabled-bg;
-@btn-disable-border : @border-color-base;
+@btn-disable-color: @disabled-color;
+@btn-disable-bg: @disabled-bg;
+@btn-disable-border: @border-color-base;
 
-@btn-padding-base : 0 @padding-md - 1px;
-@btn-font-size-lg : @font-size-lg;
-@btn-font-size-sm : @font-size-base;
-@btn-padding-lg : @btn-padding-base;
-@btn-padding-sm : 0 @padding-xs - 1px;
+@btn-padding-base: 0 @padding-md - 1px;
+@btn-font-size-lg: @font-size-lg;
+@btn-font-size-sm: @font-size-base;
+@btn-padding-lg: @btn-padding-base;
+@btn-padding-sm: 0 @padding-xs - 1px;
 
-@btn-height-base : 32px;
-@btn-height-lg : 40px;
-@btn-height-sm : 24px;
+@btn-height-base: 32px;
+@btn-height-lg: 40px;
+@btn-height-sm: 24px;
 
-@btn-circle-size : @btn-height-base;
-@btn-circle-size-lg : @btn-height-lg;
-@btn-circle-size-sm : @btn-height-sm;
+@btn-circle-size: @btn-height-base;
+@btn-circle-size-lg: @btn-height-lg;
+@btn-circle-size-sm: @btn-height-sm;
 
-@btn-group-border : @primary-5;
+@btn-group-border: @primary-5;
 
 // Checkbox
-@checkbox-size : 16px;
-@checkbox-color : @primary-color;
-@checkbox-check-color : #fff;
-@checkbox-border-width : @border-width-base;
+@checkbox-size: 16px;
+@checkbox-color: @primary-color;
+@checkbox-check-color: #fff;
+@checkbox-border-width: @border-width-base;
 
 // Empty
 @empty-font-size: @font-size-base;
 
 // Radio
-@radio-size : 16px;
-@radio-dot-color : @primary-color;
+@radio-size: 16px;
+@radio-dot-color: @primary-color;
 
 // Radio buttons
-@radio-button-bg : @btn-default-bg;
-@radio-button-color : @btn-default-color;
-@radio-button-hover-color : @primary-5;
-@radio-button-active-color : @primary-7;
+@radio-button-bg: @btn-default-bg;
+@radio-button-color: @btn-default-color;
+@radio-button-hover-color: @primary-5;
+@radio-button-active-color: @primary-7;
 
 // Media queries breakpoints
 // Extra small screen / phone
-@screen-xs : 480px;
-@screen-xs-min : @screen-xs;
+@screen-xs: 480px;
+@screen-xs-min: @screen-xs;
 
 // Small screen / tablet
-@screen-sm : 576px;
-@screen-sm-min : @screen-sm;
+@screen-sm: 576px;
+@screen-sm-min: @screen-sm;
 
 // Medium screen / desktop
-@screen-md : 768px;
-@screen-md-min : @screen-md;
+@screen-md: 768px;
+@screen-md-min: @screen-md;
 
 // Large screen / wide desktop
-@screen-lg : 992px;
-@screen-lg-min : @screen-lg;
+@screen-lg: 992px;
+@screen-lg-min: @screen-lg;
 
 // Extra large screen / full hd
-@screen-xl : 1200px;
-@screen-xl-min : @screen-xl;
+@screen-xl: 1200px;
+@screen-xl-min: @screen-xl;
 
 // Extra extra large screen / large descktop
-@screen-xxl : 1600px;
-@screen-xxl-min : @screen-xxl;
+@screen-xxl: 1600px;
+@screen-xxl-min: @screen-xxl;
 
 // provide a maximum
-@screen-xs-max : (@screen-sm-min - 1px);
-@screen-sm-max : (@screen-md-min - 1px);
-@screen-md-max : (@screen-lg-min - 1px);
-@screen-lg-max : (@screen-xl-min - 1px);
-@screen-xl-max : (@screen-xxl-min - 1px);
+@screen-xs-max: (@screen-sm-min - 1px);
+@screen-sm-max: (@screen-md-min - 1px);
+@screen-md-max: (@screen-lg-min - 1px);
+@screen-lg-max: (@screen-xl-min - 1px);
+@screen-xl-max: (@screen-xxl-min - 1px);
 
 // Grid system
-@grid-columns : 24;
-@grid-gutter-width : 0;
+@grid-columns: 24;
+@grid-gutter-width: 0;
 
 // Layout
-@layout-body-background : #f0f2f5;
-@layout-header-background : #001529;
-@layout-footer-background : @layout-body-background;
-@layout-header-height : 64px;
-@layout-header-padding : 0 50px;
-@layout-footer-padding : 24px 50px;
-@layout-sider-background : @layout-header-background;
-@layout-trigger-height : 48px;
-@layout-trigger-background : #002140;
-@layout-trigger-color : #fff;
-@layout-zero-trigger-width : 36px;
-@layout-zero-trigger-height : 42px;
+@layout-body-background: #f0f2f5;
+@layout-header-background: #001529;
+@layout-footer-background: @layout-body-background;
+@layout-header-height: 64px;
+@layout-header-padding: 0 50px;
+@layout-footer-padding: 24px 50px;
+@layout-sider-background: @layout-header-background;
+@layout-trigger-height: 48px;
+@layout-trigger-background: #002140;
+@layout-trigger-color: #fff;
+@layout-zero-trigger-width: 36px;
+@layout-zero-trigger-height: 42px;
 // Layout light theme
-@layout-sider-background-light : #fff;
+@layout-sider-background-light: #fff;
 @layout-trigger-background-light: #fff;
-@layout-trigger-color-light : @text-color;
+@layout-trigger-color-light: @text-color;
 
 // z-index list, order by `z-index`
-@zindex-affix : 10;
-@zindex-back-top : 10;
-@zindex-badge : 10;
-@zindex-picker-panel : 10;
-@zindex-popup-close : 10;
-@zindex-table-fixed : 20;
-@zindex-modal : 1000;
-@zindex-modal-mask : 1000;
-@zindex-message : 1010;
-@zindex-notification : 1010;
-@zindex-popover : 1030;
-@zindex-dropdown : 1050;
-@zindex-picker : 1050;
-@zindex-tooltip : 1060;
+@zindex-affix: 10;
+@zindex-back-top: 10;
+@zindex-badge: 10;
+@zindex-picker-panel: 10;
+@zindex-popup-close: 10;
+@zindex-table-fixed: 20;
+@zindex-modal: 1000;
+@zindex-modal-mask: 1000;
+@zindex-message: 1010;
+@zindex-notification: 1010;
+@zindex-popover: 1030;
+@zindex-dropdown: 1050;
+@zindex-picker: 1050;
+@zindex-tooltip: 1060;
 
 // Animation
 @animation-duration-slow: 0.3s; // Modal
@@ -263,34 +264,34 @@
 
 // Form
 // ---
-@label-required-color : @highlight-color;
-@label-color : @heading-color;
-@form-item-margin-bottom : 24px;
-@form-item-trailing-colon : true;
-@form-vertical-label-padding : 0 0 8px;
-@form-vertical-label-margin : 0;
+@label-required-color: @highlight-color;
+@label-color: @heading-color;
+@form-item-margin-bottom: 24px;
+@form-item-trailing-colon: true;
+@form-vertical-label-padding: 0 0 8px;
+@form-vertical-label-margin: 0;
 
 // Input
 // ---
-@input-height-base : 32px;
-@input-height-lg : 40px;
-@input-height-sm : 24px;
-@input-padding-horizontal : @control-padding-horizontal - 1px;
+@input-height-base: 32px;
+@input-height-lg: 40px;
+@input-height-sm: 24px;
+@input-padding-horizontal: @control-padding-horizontal - 1px;
 @input-padding-horizontal-base: @input-padding-horizontal;
-@input-padding-horizontal-sm : @control-padding-horizontal-sm - 1px;
-@input-padding-horizontal-lg : @input-padding-horizontal;
-@input-padding-vertical-base : 4px;
-@input-padding-vertical-sm : 1px;
-@input-padding-vertical-lg : 6px;
-@input-placeholder-color : hsv(0, 0, 75%);
-@input-color : @text-color;
-@input-border-color : @border-color-base;
-@input-bg : #fff;
+@input-padding-horizontal-sm: @control-padding-horizontal-sm - 1px;
+@input-padding-horizontal-lg: @input-padding-horizontal;
+@input-padding-vertical-base: 4px;
+@input-padding-vertical-sm: 1px;
+@input-padding-vertical-lg: 6px;
+@input-placeholder-color: hsv(0, 0, 75%);
+@input-color: @text-color;
+@input-border-color: @border-color-base;
+@input-bg: #fff;
 @input-number-handler-active-bg: #f4f4f4;
 @input-addon-bg: @background-color-light;
-@input-hover-border-color : @primary-color;
-@input-disabled-bg : @disabled-bg;
-@input-outline-offset : 0 0;
+@input-hover-border-color: @primary-color;
+@input-disabled-bg: @disabled-bg;
+@input-outline-offset: 0 0;
 
 // Select
 // ---
@@ -298,35 +299,35 @@
 
 // Tooltip
 // ---
-//* Tooltip max width
+// Tooltip max width
 @tooltip-max-width: 250px;
-//** Tooltip text color
+// Tooltip text color
 @tooltip-color: #fff;
-//** Tooltip background color
+// Tooltip background color
 @tooltip-bg: rgba(0, 0, 0, 0.75);
-//** Tooltip arrow width
+// Tooltip arrow width
 @tooltip-arrow-width: 5px;
-//** Tooltip distance with trigger
+// Tooltip distance with trigger
 @tooltip-distance: @tooltip-arrow-width - 1px + 4px;
-//** Tooltip arrow color
+// Tooltip arrow color
 @tooltip-arrow-color: @tooltip-bg;
 
 // Popover
 // ---
-//** Popover body background color
+// Popover body background color
 @popover-bg: #fff;
-//** Popover text color
+// Popover text color
 @popover-color: @text-color;
-//** Popover maximum width
+// Popover maximum width
 @popover-min-width: 177px;
-//** Popover arrow width
+// Popover arrow width
 @popover-arrow-width: 6px;
-//** Popover arrow color
+// Popover arrow color
 @popover-arrow-color: @popover-bg;
-//** Popover outer arrow width
-//** Popover outer arrow color
+// Popover outer arrow width
+// Popover outer arrow color
 @popover-arrow-outer-color: @popover-bg;
-//** Popover distance with trigger
+// Popover distance with trigger
 @popover-distance: @popover-arrow-width + 4px;
 
 // Modal
@@ -377,7 +378,7 @@
 @table-expanded-row-bg: #fbfbfb;
 @table-padding-vertical: 16px;
 @table-padding-horizontal: 16px;
-@table-border-radius-base : @border-radius-base;
+@table-border-radius-base: @border-radius-base;
 
 // Tag
 // --
