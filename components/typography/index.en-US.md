@@ -17,7 +17,6 @@ When need to display title or text content.
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| bold | bold style | boolean | false |
 | copyable | Content can be copied. Default use `children`, will use `copyable` content when `copyable` is string | boolean \| string | false |
 | delete | delete line style | boolean | false |
 | disabled | Disable content | boolean | false |
@@ -27,6 +26,7 @@ When need to display title or text content.
 | rows | Set max rows and make ellipsis if over the rows. Style will change from `display: inline` to `display: inline-block` after set | number | - |
 | underline | underline style | boolean | false |
 | onChange | Trigger when user edit the content | Function(string) | - |
+| strong | bold style | boolean | false |
 | type | Content type | `secondary`, `warning`, `danger` | - |
 
 ### Typography.Title
@@ -44,6 +44,7 @@ When need to display title or text content.
 | rows | Set max rows and make ellipsis if over the rows. Style will change from `display: inline` to `display: inline-block` after set | number | - |
 | underline | underline style | boolean | false |
 | onChange | Trigger when user edit the content | Function(string) | - |
+| strong | bold style | boolean | false |
 | type | Content type | `secondary`, `warning`, `danger` | - |
 
 ### Typography.Paragraph
@@ -60,4 +61,5 @@ When need to display title or text content.
 | rows | Set max rows and make ellipsis if over the rows. Style will change from `display: inline` to `display: inline-block` after set | number | - |
 | underline | underline style | boolean | false |
 | onChange | Trigger when user edit the content | Function(string) | - |
+| strong | bold style | boolean | false |
 | type | Content type | `secondary`, `warning`, `danger` | - |

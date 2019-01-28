@@ -33,27 +33,35 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
   </span>
   <br />
   <span
-    class="ant-typography ant-typography-mark"
+    class="ant-typography"
   >
-    Ant Design
+    <mark>
+      Ant Design
+    </mark>
   </span>
   <br />
   <span
-    class="ant-typography ant-typography-underline"
+    class="ant-typography"
   >
-    Ant Design
+    <u>
+      Ant Design
+    </u>
   </span>
   <br />
   <span
-    class="ant-typography ant-typography-delete"
+    class="ant-typography"
   >
-    Ant Design
+    <del>
+      Ant Design
+    </del>
   </span>
   <br />
   <span
-    class="ant-typography ant-typography-bold"
+    class="ant-typography"
   >
-    Ant Design
+    <strong>
+      Ant Design
+    </strong>
   </span>
 </div>
 `;

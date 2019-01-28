@@ -18,7 +18,6 @@ cols: 1
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| bold | 是否加粗 | boolean | false |
 | copyable | 是否可拷贝，默认用 children，`copyable` 为 string 时优先用 `copyable` 的内容。 | boolean \| string | false |
 | delete | 添加删除线样式 | boolean | false |
 | disabled | 禁用文本 | boolean | false |
@@ -28,13 +27,13 @@ cols: 1
 | rows | 设置超过行数则省略，设置后样式会从 `display: inline` 转成 `display: inline-block` | number | - |
 | underline | 添加下划线样式 | boolean | false |
 | onChange | 当用户提交编辑内容时触发 | Function(string) | - |
+| strong | 是否加粗 | boolean | false |
 | type | 文本类型 | `secondary`, `warning`, `danger` | - |
 
 ### Typography.Title
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| bold | 是否加粗 | boolean | false |
 | copyable | 是否可拷贝，默认用 children，`copyable` 为 string 时优先用 `copyable` 的内容。 | boolean \| string | false |
 | delete | 添加删除线样式 | boolean | false |
 | disabled | 禁用文本 | boolean | false |
@@ -45,13 +44,13 @@ cols: 1
 | rows | 设置超过行数则省略 | number | - |
 | underline | 添加下划线样式 | boolean | false |
 | onChange | 当用户提交编辑内容时触发 | Function(string) | - |
+| strong | 是否加粗 | boolean | false |
 | type | 文本类型 | `secondary`, `warning`, `danger` | - |
 
 ### Typography.Paragraph
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| bold | 是否加粗 | boolean | false |
 | copyable | 是否可拷贝，默认用 children，`copyable` 为 string 时优先用 `copyable` 的内容。 | boolean \| string | false |
 | delete | 添加删除线样式 | boolean | false |
 | disabled | 禁用文本 | boolean | false |
@@ -61,4 +60,5 @@ cols: 1
 | rows | 设置超过行数则省略 | number | - |
 | underline | 添加下划线样式 | boolean | false |
 | onChange | 当用户提交编辑内容时触发 | Function(string) | - |
+| strong | 是否加粗 | boolean | false |
 | type | 文本类型 | `secondary`, `warning`, `danger` | - |

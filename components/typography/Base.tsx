@@ -34,7 +34,29 @@ export interface BaseProps {
   mark?: boolean;
   underline?: boolean;
   delete?: boolean;
-  bold?: boolean;
+  strong?: boolean;
+}
+
+function wrapperDecorations(
+  { mark, underline, delete: del, strong }: BaseProps,
+  content: React.ReactNode,
+) {
+  let currentContent = content;
+
+  function wrap(needed: boolean | undefined, tag: string) {
+    if (!needed) return;
+
+    currentContent = React.createElement(tag, {
+      children: currentContent,
+    });
+  }
+
+  wrap(strong, 'strong');
+  wrap(underline, 'u');
+  wrap(del, 'del');
+  wrap(mark, 'mark');
+
+  return currentContent;
 }
 
 interface InternalBaseProps extends BaseProps {
@@ -278,10 +300,6 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
       prefixCls,
       type,
       disabled,
-      mark,
-      underline,
-      ['delete']: del,
-      bold,
       rows,
       ...restProps
     } = this.props;
@@ -291,6 +309,12 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
       'editable',
       'copyable',
       'extendable',
+      'mark',
+      'underline',
+      'mark',
+      'del',
+      'underline',
+      'strong',
       ...configConsumerProps,
     ]);
 
@@ -305,16 +329,14 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
       );
     }
 
+    textNode = wrapperDecorations(this.props, textNode);
+
     return (
       <ResizeObserver onResize={this.resizeOnNextFrame} disabled={!rows}>
         <Component
           className={classNames(prefixCls, className, {
             [`${prefixCls}-${type}`]: type,
             [`${prefixCls}-disabled`]: disabled,
-            [`${prefixCls}-mark`]: mark,
-            [`${prefixCls}-underline`]: underline,
-            [`${prefixCls}-delete`]: del,
-            [`${prefixCls}-bold`]: bold,
             [`${prefixCls}-ellipsis`]: rows,
           })}
           aria-label={isEllipsis ? String(children) : undefined}

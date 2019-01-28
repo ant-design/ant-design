@@ -36,7 +36,7 @@ ReactDOM.render(
     <br />
     <Text delete>Ant Design</Text>
     <br />
-    <Text bold>Ant Design</Text>
+    <Text strong>Ant Design</Text>
   </div>,
   mountNode
 );
