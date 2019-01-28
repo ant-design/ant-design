@@ -15,7 +15,6 @@
 
 .@{text-prefix-cls} {
   color: @text-color;
-  margin: 0 0 12px 0;
 
   &-secondary {
     color: @text-color-secondary;
@@ -120,9 +119,10 @@
   @{name}.@{text-prefix-cls} {
     font-size: ~'@{fontSize}px';
     line-height: @lineHeight * 100%;
+    margin-bottom: 0.5em;
 
     .@{text-prefix-cls} + & {
-      margin: 24px 0 12px 0;
+      margin-top: 1.2em;
     }
   }
 }
@@ -145,10 +145,13 @@ h6 {
   }
 }
 
+// ============ Typography =============
+div.@{text-prefix-cls} {
+  margin-bottom: 1em;
+}
+
 // =============== Text ================
 span.@{text-prefix-cls} {
-  margin: 0;
-
   &-ellipsis {
     display: inline-block;
   }
