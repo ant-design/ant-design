@@ -19,7 +19,7 @@ timeline: true
 
 `2019-01-26`
 
-- 🎉 New component Statistic / Countdown. [#14154](https://github.com/ant-design/ant-design/pull/14154)
+- 🎉 **New component [Statistic](https://ant.design/components/statistic)**. [#14154](https://github.com/ant-design/ant-design/pull/14154)
 - Button
   - 🌟 Button support `round` shape. [#14236](https://github.com/ant-design/ant-design/pull/14236)
 - Collapse
@@ -55,7 +55,7 @@ timeline: true
   - 🌟 All types support `successPercent` prop. [#14412](https://github.com/ant-design/ant-design/pull/14412)
 - Pagination
   - 🐞 Fix ellipsis misalignment. [#14473](https://github.com/ant-design/ant-design/pull/14473) [@ranbena](https://github.com/ranbena)
-- 🐞 Fix edge wave style issue. [#14469](https://github.com/ant-design/ant-design/pull/14469)
+- 🐞 Fix wave style issue in Edge. [#14469](https://github.com/ant-design/ant-design/pull/14469)
 
 ## 3.12.4
 
@@ -232,7 +232,7 @@ timeline: true
   - ⚡️ Enhanced Table `TableRowSelection.onChange` arguments with generic types.[#13761](https://github.com/ant-design/ant-design/issues/13761) [@hahabazinga](https://github.com/hahabazinga)
   - 🐞 Fixed type of LocaleProvider's `children`. [#12974](https://github.com/ant-design/ant-design/issues/12974)
   - 🐞 Fixed type of RangePicker `onOk`'s arguments. [#13650](https://github.com/ant-design/ant-design/pull/13650) [@iugo](https://github.com/iugo)
-  - 🐞 Fixed Comment `author` type from string to ReactNode。[#13670](https://github.com/ant-design/ant-design/pull/13670) [@reichjustin](https://github.com/reichjustin)
+  - 🐞 Fixed Comment `author` type from string to ReactNode. [#13670](https://github.com/ant-design/ant-design/pull/13670) [@reichjustin](https://github.com/reichjustin)
   - 🐞 Fixed type of Select `dropdownProps`'s arguments. [#13617](https://github.com/ant-design/ant-design/pull/13617) [@SylvanasGone](https://github.com/SylvanasGone)
 
 ## 3.11.2
@@ -294,7 +294,7 @@ Component Fixes / Enhancements:
   - 💄 Support `data-*`、`aria-*` attributes. [#227](https://github.com/react-component/table/pull/227) [@kagd](https://github.com/kagd)
   - 🌟 onCell added `index` prop. [#222](https://github.com/react-component/table/pull/222) [@yoyo837](https://github.com/yoyo837)
 - Select upgrade `rc-select` to `8.6.0`
-  - 🌟 Added `removeIcon`、`clearIcon`、`menuItemSelectedIcon` prop，allow setting `remove`、`clear`、`menuItemSelected` custom icons. [#12958](https://github.com/ant-design/ant-design/pull/12958) [@kimochg](https://github.com/kimochg)
+  - 🌟 Added `removeIcon`、`clearIcon`、`menuItemSelectedIcon` prop, allow setting `remove`、`clear`、`menuItemSelected` custom icons. [#12958](https://github.com/ant-design/ant-design/pull/12958) [@kimochg](https://github.com/kimochg)
   - 🌟 Added `dropdownRender` prop that custom dropdown content. [#10831](https://github.com/ant-design/ant-design/issues/10831)
   - 🌟 Added `loading` prop that indicate loading state. [#11225](https://github.com/ant-design/ant-design/issues/11225)
 - 💄 Added `title` prop that Menu.Item support tooltip title when collapsed. [#12952](https://github.com/ant-design/ant-design/pull/12952)
@@ -669,7 +669,7 @@ Thanks to 24 contributors who send pull request to 3.8.0!
   - 🐞 Fixed a vertical align style issue of draggable tree. [#11458](https://github.com/ant-design/ant-design/issues/11458)
 - Table
   - 🌟 Added `rowSelection.columnTitle` to customize selection column title. [#11042](https://github.com/ant-design/ant-design/issues/11042) [@littleLane](https://github.com/littleLane)
-  - 💄 Added demo of [resizable columns](/components/table/#components-table-demo-resizable-column)。
+  - 💄 Added demo of [resizable columns](/components/table/#components-table-demo-resizable-column).
   - 💄 Support to select multiple rows when pressing `shift`. [#11404](https://github.com/ant-design/ant-design/issues/11404) [@RaphaelChauveau](https://github.com/RaphaelChauveau)
 - Avatar
   - 🌟 Added `onError` prop that is callback when image loading fail. [#11285](https://github.com/ant-design/ant-design/pull/11285/) [@paranoidjk](https://github.com/paranoidjk)
@@ -915,7 +915,7 @@ Component Fixes / Enhancements:
   - 🐞 Fixed that table column overlay each other. [#9822](https://github.com/ant-design/ant-design/issues/9822)
 - TypeScript
   - 🐞 Fixed Breadcrumb.Item type. [#10372](https://github.com/ant-design/ant-design/pull/10372) [@karol-majewski](https://github.com/karol-majewski)
-  - 🐞 Fixed Table `rowSelection` type。[#10374](https://github.com/ant-design/ant-design/issues/10374)
+  - 🐞 Fixed Table `rowSelection` type. [#10374](https://github.com/ant-design/ant-design/issues/10374)
 
 ## 3.5.0
 
@@ -1396,7 +1396,7 @@ We provide a [migration tool](https://github.com/ant-design/antd-migration-helpe
 
 ### Features and Improvements
 
-- 🌟 Tabs added new size `size="large"`。
+- 🌟 Tabs added new size `size="large"`.
 - 🌟 Row's `gutter` now support responsive setting, you can write `gutter={{ sm: 16, lg: 32 }}`.
 - 🌟 Spin added new `indicator` prop to allow setting custom indicator. [#7977](https://github.com/ant-design/ant-design/pull/7977) [@kossel](https://github.com/ant-design/ant-design/pull/7977)
 - 🌟 Input.Search added new `enterButton` prop to allow setting custom search button.[#7596](https://github.com/ant-design/ant-design/issues/7596)
@@ -1418,10 +1418,10 @@ We provide a [migration tool](https://github.com/ant-design/antd-migration-helpe
   - 🌟 Added new `offset` prop to allow setting the offset of status point.
   - 🌟 `status` can use with `children` now. [#8164](https://github.com/ant-design/ant-design/issues/8164)
 - Card
-  - 🌟 Added new `inner` type. [Demo](https://ant.design/components/card/#components-card-demo-inner)。
-  - 🌟 Added `cover`, `actions` and a new `Meta` component. [Demo](https://ant.design/components/card/#components-card-demo-meta)。
+  - 🌟 Added new `inner` type. [Demo](https://ant.design/components/card/#components-card-demo-inner).
+  - 🌟 Added `cover`, `actions` and a new `Meta` component. [Demo](https://ant.design/components/card/#components-card-demo-meta).
 - DatePicker
-  - 🌟 Added `mode` and `onPanelChange`, to allow controlling the panel mode. [Demo](https://ant.design/components/date-picker/#components-date-picker-demo-mode)。
+  - 🌟 Added `mode` and `onPanelChange`, to allow controlling the panel mode. [Demo](https://ant.design/components/date-picker/#components-date-picker-demo-mode).
   - 🌟 Added `WeekPicker` component. [Demo](https://ant.design/components/date-picker/#components-date-picker-demo-basic)
   - 🌟 Added new `dateRender` prop to allow customizing date cell.
 - TimePicker
@@ -1453,7 +1453,7 @@ We provide a [migration tool](https://github.com/ant-design/antd-migration-helpe
   - 🌟 Added `column[onHeaderCell]` to allow passing custom props to table header cell.
   - 🌟 Added `column[align]` to allow setting how text aligns.
   - 🌟 Added `column[defaultSortOrder]` to allow setting default sort order. [#8111](https://github.com/ant-design/ant-design/pull/8111) [@megawac](https://github.com/megawac)
-  - 🌟 Added `rowSelection[fixed]` to allow fixing the selection column.。
+  - 🌟 Added `rowSelection[fixed]` to allow fixing the selection column.
   - 🙅 Deprecated `getBodyWrapper`, please use `components` instead.
   - 🙅 Deprecated `onRowClick`, `onRowDoubleClick`, `onRowContextMenu`, `onRowMouseEnter`, `onRowMouseLeave`, please use `onRow` instead.
     ```javascript

@@ -19,7 +19,7 @@ timeline: true
 
 `2019-01-26`
 
-- 🎉 新增统计/倒计时组件。[#14154](https://github.com/ant-design/ant-design/pull/14154)
+- 🎉 **新增 [Statistic](https://ant.design/components/statistic-cn/) 统计/倒计时组件**。[#14154](https://github.com/ant-design/ant-design/pull/14154)
 - Button
   - 🌟 Button 添加圆边形状。[#14236](https://github.com/ant-design/ant-design/pull/14236)
 - Collapse
@@ -48,7 +48,7 @@ timeline: true
 - Spin
   - 🐞 修复 Table 在低版本 IE 中 spinning 会遮挡操作的问题。[#14511](https://github.com/ant-design/ant-design/pull/14511)
 - Switch
-  - 🌟 Switch 为 `onChange`, `onClick` 添加 `event` 参数。[#14560](https://github.com/ant-design/ant-design/pull/14560)
+  - 🌟 Switch 为 `onChange`，`onClick` 添加 `event` 参数。[#14560](https://github.com/ant-design/ant-design/pull/14560)
 - Table
   - 🐞 修复 Safari 中固定列样式问题。[#14550](https://github.com/ant-design/ant-design/pull/14550)
 - Progress
@@ -643,12 +643,12 @@ timeline: true
 - 🐞 修复 Anchor 组件当 `affix=true` 时无法在滚动的窗口中固定的问题。[#11688](https://github.com/ant-design/ant-design/pull/11688) [@vitaliymaz](https://github.com/vitaliymaz)
 - 🐞 修复 List.Grid 组件中的卡片宽度问题。[!11712](https://github.com/ant-design/ant-design/issues/11712)
 - 🐞 修复 Radio 在 safari 下对齐的问题。[754a22c](https://github.com/ant-design/ant-design/commit/754a22ca24dee685666554778f53a5fe700959ff)
-- 💄 添加点击动画效果到组件 Switch, Radio.Button 和 Tag。[9cf6ae6](https://github.com/ant-design/ant-design/commit/9cf6ae601010acbf665d575d34c0cc0918e604e7)
+- 💄 添加点击动画效果到组件 Switch，Radio.Button 和 Tag。[9cf6ae6](https://github.com/ant-design/ant-design/commit/9cf6ae601010acbf665d575d34c0cc0918e604e7)
 - TypeScript
   - 🐞 修复 Collapse 组件缺少的 `destroyInactivePanel` 定义。[#11646](https://github.com/ant-design/ant-design/pull/11646) [@zheeeng](https://github.com/zheeeng)
   - 💄 修复 AutoComplete 没有 `getPopupContainer` 属性定义的问题。[#11690](https://github.com/ant-design/ant-design/pull/11690) [@Huanghuiying0624](https://github.com/Huanghuiying0624)
   - 🐞 修复 Upload 组件的 `lastModifiedDate` 定义。[#11709](https://github.com/ant-design/ant-design/pull/11709) [@andycall](https://github.com/andycall)
--  💄 使用新的 React 生命周期函数，包括组件 Upload, CheckboxGroup, Layout.Sider, Tooltip, Popconfirm。[#11666](https://github.com/ant-design/ant-design/pull/11666) [@dancerphil](https://github.com/dancerphil) [#11682](https://github.com/ant-design/ant-design/pull/11682) [@dancerphil](https://github.com/dancerphil)
+-  💄 使用新的 React 生命周期函数，包括组件 Upload，CheckboxGroup，Layout.Sider，Tooltip，Popconfirm。[#11666](https://github.com/ant-design/ant-design/pull/11666) [@dancerphil](https://github.com/dancerphil) [#11682](https://github.com/ant-design/ant-design/pull/11682) [@dancerphil](https://github.com/dancerphil)
 
 ## 3.8.0
 
