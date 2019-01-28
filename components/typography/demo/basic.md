@@ -32,6 +32,8 @@ ReactDOM.render(
     <br />
     <Text mark>Ant Design</Text>
     <br />
+    <Text code>Ant Design</Text>
+    <br />
     <Text underline>Ant Design</Text>
     <br />
     <Text delete>Ant Design</Text>

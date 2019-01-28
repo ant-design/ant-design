@@ -43,6 +43,14 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
   <span
     class="ant-typography"
   >
+    <code>
+      Ant Design
+    </code>
+  </span>
+  <br />
+  <span
+    class="ant-typography"
+  >
     <u>
       Ant Design
     </u>
@@ -119,7 +127,19 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
   <div
     class="ant-typography ant-typography-ellipsis"
   >
-    Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
+    Ant Design, a design language for background applications, is refined by Ant UED Team. This is a nest sample 
+    <span
+      class="ant-typography"
+    >
+      <code>
+        <del>
+          <strong>
+            Test
+          </strong>
+        </del>
+      </code>
+    </span>
+     case. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
     <button
       aria-label="copy"
       class="ant-typography-copy"

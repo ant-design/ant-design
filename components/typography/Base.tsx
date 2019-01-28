@@ -31,6 +31,7 @@ export interface BaseProps {
   disabled?: boolean;
 
   // decorations
+  code?: boolean;
   mark?: boolean;
   underline?: boolean;
   delete?: boolean;
@@ -38,7 +39,7 @@ export interface BaseProps {
 }
 
 function wrapperDecorations(
-  { mark, underline, delete: del, strong }: BaseProps,
+  { mark, code, underline, delete: del, strong }: BaseProps,
   content: React.ReactNode,
 ) {
   let currentContent = content;
@@ -54,6 +55,7 @@ function wrapperDecorations(
   wrap(strong, 'strong');
   wrap(underline, 'u');
   wrap(del, 'del');
+  wrap(code, 'code');
   wrap(mark, 'mark');
 
   return currentContent;
@@ -312,7 +314,8 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
       'mark',
       'underline',
       'mark',
-      'del',
+      'code',
+      'delete',
       'underline',
       'strong',
       ...configConsumerProps,

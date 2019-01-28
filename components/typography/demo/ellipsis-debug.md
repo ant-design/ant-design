@@ -4,6 +4,7 @@ title:
   zh-CN: 省略号 Debug
   en-US: Ellipsis Debug
 debug: true
+only: true
 ---
 
 ## zh-CN
@@ -17,7 +18,7 @@ Multiple line ellipsis support.
 ```jsx
 import { Typography, Slider } from 'antd';
 
-const { Paragraph } = Typography;
+const { Text, Paragraph } = Typography;
 
 class Demo extends React.Component {
   state = {
@@ -35,6 +36,7 @@ class Demo extends React.Component {
         <Slider value={rows} min={1} max={10} onChange={this.onChange} />
         <Paragraph rows={rows} copyable>
           Ant Design, a design language for background applications, is refined by Ant UED Team.
+          This is a nest sample <Text code strong delete>Test</Text> case.
           Ant Design, a design language for background applications, is refined by Ant UED Team.
           Ant Design, a design language for background applications, is refined by Ant UED Team.
           Ant Design, a design language for background applications, is refined by Ant UED Team.
