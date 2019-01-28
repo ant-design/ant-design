@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { polyfill } from 'react-lifecycles-compat';
+import toArray from 'rc-util/lib/Children/toArray';
 import copy from 'copy-to-clipboard';
 import omit from 'omit.js';
 import { withConfigConsumer, ConfigConsumerProps, configConsumerProps } from '../config-provider';
@@ -69,6 +70,7 @@ interface BaseState {
   edit: boolean;
   copied: boolean;
   ellipsisText: string;
+  ellipsisContent: React.ReactNode;
   isEllipsis: boolean;
   extended: boolean;
 }
@@ -79,6 +81,8 @@ interface Locale {
   copySuccess?: string;
   extend?: string;
 }
+
+const ELLIPSIS_STR = '...';
 
 class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, BaseState> {
   static defaultProps = {
@@ -106,6 +110,7 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
     edit: false,
     copied: false,
     ellipsisText: '',
+    ellipsisContent: null,
     isEllipsis: false,
     extended: false,
   };
@@ -191,10 +196,13 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
 
   syncEllipsis() {
     const { ellipsisText, isEllipsis, extended } = this.state;
-    const { rows, children, copyable, editable, extendable } = this.props;
+    const { rows, copyable, editable, extendable, children } = this.props;
     if (!rows || rows < 0 || !this.content || extended) return;
 
-    warning(typeof children === 'string', 'In ellipsis mode, `children` of Text must be a string.');
+    warning(
+      toArray(children).every((child: React.ReactNode) => typeof child === 'string'),
+      '`ellipsis` for Typography should use string as children only.'
+    );
 
     const offset = {
       iconOffset: 0,
@@ -204,9 +212,9 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
     if (editable) offset.iconOffset += 1;
     if (extendable) offset.additionalStr = this.extendStr || '';
 
-    const { text, ellipsis } = measure(String(children), rows, this.content, offset);
+    const { content, text, ellipsis } = measure(this.content, rows, children, this.renderOperations(), ELLIPSIS_STR);
     if (ellipsisText !== text || isEllipsis !== ellipsis) {
-      this.setState({ ellipsisText: text, isEllipsis: ellipsis });
+      this.setState({ ellipsisText: text, ellipsisContent: content, isEllipsis: ellipsis });
     }
   }
 
@@ -216,7 +224,7 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
     if (!extendable || extended) return;
 
     return (
-      <LocaleReceiver componentName="Text">
+      <LocaleReceiver key="extend" componentName="Text">
         {({ extend }: Locale) => {
           // To compatible with old react version.
           // Use this to pass extend text for measure usage.
@@ -237,7 +245,7 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
     if (!editable) return;
 
     return (
-      <LocaleReceiver componentName="Text">
+      <LocaleReceiver key="edit" componentName="Text">
         {({ edit }: Locale) => {
           return (
             <Tooltip title={edit}>
@@ -262,7 +270,7 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
     if (!copyable) return;
 
     return (
-      <LocaleReceiver componentName="Text">
+      <LocaleReceiver key="copy" componentName="Text">
         {({ copy: copyText, copySuccess }: Locale) => {
           const title = copied ? copySuccess : copyText;
           return (
@@ -293,8 +301,16 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
     );
   }
 
+  renderOperations() {
+    return [
+      this.renderExtend(),
+      this.renderEdit(),
+      this.renderCopy(),
+    ].filter(node => node);
+  }
+
   renderContent() {
-    const { ellipsisText, isEllipsis, extended } = this.state;
+    const { ellipsisContent, isEllipsis, extended } = this.state;
     const {
       component: Component,
       children,
@@ -327,7 +343,7 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
       // We move full content to outer element to avoid repeat read the content by accessibility
       textNode = (
         <span title={String(children)} aria-hidden="true">
-          {ellipsisText}
+          {ellipsisContent}{ELLIPSIS_STR}
         </span>
       );
     }
@@ -347,9 +363,7 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
           {...textProps}
         >
           {textNode}
-          {this.renderExtend()}
-          {this.renderEdit()}
-          {this.renderCopy()}
+          {this.renderOperations()}
         </Component>
       </ResizeObserver>
     );
