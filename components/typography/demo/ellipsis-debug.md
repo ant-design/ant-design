@@ -4,6 +4,7 @@ title:
   zh-CN: 省略号 Debug
   en-US: Ellipsis Debug
 debug: true
+only: true
 ---
 
 ## zh-CN
