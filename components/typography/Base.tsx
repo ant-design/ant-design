@@ -27,12 +27,14 @@ export interface BaseProps {
   copyable?: boolean | string;
   onChange?: (value: string) => null;
   type?: BaseType;
+  rows?: number;
   disabled?: boolean;
+
+  // decorations
   mark?: boolean;
   underline?: boolean;
   delete?: boolean;
   bold?: boolean;
-  rows?: number;
 }
 
 interface InternalBaseProps extends BaseProps {
