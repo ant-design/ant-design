@@ -239,7 +239,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     const kids =
       children || children === 0
         ? React.Children.map(children, child =>
-            insertSpace(child, this.isNeedInserted() && autoInsertSpace),
+            insertSpace(child as React.ReactChild, this.isNeedInserted() && autoInsertSpace),
           )
         : null;
 

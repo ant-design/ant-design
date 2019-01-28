@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
-import isFlexSupported from '../_util/isFlexSupported';
+import { isFlexSupported } from '../_util/styleChecker';
 
 export type TabsType = 'line' | 'card' | 'editable-card';
 export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
@@ -83,7 +83,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
   componentDidMount() {
     const NO_FLEX = ' no-flex';
     const tabNode = ReactDOM.findDOMNode(this) as Element;
-    if (tabNode && !isFlexSupported() && tabNode.className.indexOf(NO_FLEX) === -1) {
+    if (tabNode && !isFlexSupported && tabNode.className.indexOf(NO_FLEX) === -1) {
       tabNode.className += NO_FLEX;
     }
   }

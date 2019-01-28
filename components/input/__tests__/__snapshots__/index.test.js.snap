@@ -375,6 +375,7 @@ exports[`Input.Search should support suffix 1`] = `
 >
   <Consumer>
     <Input
+      addonAfter={null}
       className="ant-input-search"
       disabled={false}
       onPressEnter={[Function]}
