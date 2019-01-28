@@ -83,10 +83,8 @@ export function measure(
   ellipsisContainer.style.height = 'auto';
   ellipsisContainer.style.minHeight = 'auto';
   ellipsisContainer.style.maxHeight = 'auto';
-  // ellipsisContainer.style.top = '-999999px';
-  // ellipsisContainer.style.zIndex = '-1000';
-  ellipsisContainer.style.top = '0px';
-  ellipsisContainer.style.zIndex = '1000';
+  ellipsisContainer.style.top = '-999999px';
+  ellipsisContainer.style.zIndex = '-1000';
 
   // Render in the fake container
   const contentList: React.ReactNode[] = mergeChildren(toArray(content));

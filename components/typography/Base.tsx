@@ -104,7 +104,11 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
   content?: HTMLParagraphElement;
   copyId?: number;
   rafId?: number;
+  // Locale
   extendStr?: string;
+  copyStr?: string;
+  copySuccessStr?: string;
+  editStr?: string;
 
   state: BaseState = {
     edit: false,
@@ -196,23 +200,21 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
 
   syncEllipsis() {
     const { ellipsisText, isEllipsis, extended } = this.state;
-    const { rows, copyable, editable, extendable, children } = this.props;
+    const { rows, children } = this.props;
     if (!rows || rows < 0 || !this.content || extended) return;
 
     warning(
       toArray(children).every((child: React.ReactNode) => typeof child === 'string'),
-      '`ellipsis` for Typography should use string as children only.'
+      '`ellipsis` for Typography should use string as children only.',
     );
 
-    const offset = {
-      iconOffset: 0,
-      additionalStr: '',
-    };
-    if (copyable) offset.iconOffset += 1;
-    if (editable) offset.iconOffset += 1;
-    if (extendable) offset.additionalStr = this.extendStr || '';
-
-    const { content, text, ellipsis } = measure(this.content, rows, children, this.renderOperations(), ELLIPSIS_STR);
+    const { content, text, ellipsis } = measure(
+      this.content,
+      rows,
+      children,
+      this.renderOperations(),
+      ELLIPSIS_STR,
+    );
     if (ellipsisText !== text || isEllipsis !== ellipsis) {
       this.setState({ ellipsisText: text, ellipsisContent: content, isEllipsis: ellipsis });
     }
@@ -220,23 +222,13 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
 
   renderExtend() {
     const { extendable, prefixCls } = this.props;
-    const { extended } = this.state;
-    if (!extendable || extended) return;
+    const { extended, isEllipsis } = this.state;
+    if (!extendable || extended || !isEllipsis) return;
 
     return (
-      <LocaleReceiver key="extend" componentName="Text">
-        {({ extend }: Locale) => {
-          // To compatible with old react version.
-          // Use this to pass extend text for measure usage.
-          this.extendStr = extend;
-
-          return (
-            <a className={`${prefixCls}-extend`} onClick={this.onExtendClick} aria-label={extend}>
-              {extend}
-            </a>
-          );
-        }}
-      </LocaleReceiver>
+      <a className={`${prefixCls}-extend`} onClick={this.onExtendClick} aria-label={this.extendStr}>
+        {this.extendStr}
+      </a>
     );
   }
 
@@ -245,22 +237,16 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
     if (!editable) return;
 
     return (
-      <LocaleReceiver key="edit" componentName="Text">
-        {({ edit }: Locale) => {
-          return (
-            <Tooltip title={edit}>
-              <TransButton
-                ref={this.setEditRef}
-                className={`${prefixCls}-edit`}
-                onClick={this.onEditClick}
-                aria-label={edit}
-              >
-                <Icon role="button" type="edit" />
-              </TransButton>
-            </Tooltip>
-          );
-        }}
-      </LocaleReceiver>
+      <Tooltip title={this.editStr}>
+        <TransButton
+          ref={this.setEditRef}
+          className={`${prefixCls}-edit`}
+          onClick={this.onEditClick}
+          aria-label={this.editStr}
+        >
+          <Icon role="button" type="edit" />
+        </TransButton>
+      </Tooltip>
     );
   }
 
@@ -269,23 +255,17 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
     const { copyable, prefixCls } = this.props;
     if (!copyable) return;
 
+    const title = copied ? this.copySuccessStr : this.copyStr;
     return (
-      <LocaleReceiver key="copy" componentName="Text">
-        {({ copy: copyText, copySuccess }: Locale) => {
-          const title = copied ? copySuccess : copyText;
-          return (
-            <Tooltip title={title}>
-              <TransButton
-                className={classNames(`${prefixCls}-copy`, copied && `${prefixCls}-copy-success`)}
-                onClick={this.onCopyClick}
-                aria-label={title}
-              >
-                <Icon role="button" type={copied ? 'check' : 'copy'} />
-              </TransButton>
-            </Tooltip>
-          );
-        }}
-      </LocaleReceiver>
+      <Tooltip title={title}>
+        <TransButton
+          className={classNames(`${prefixCls}-copy`, copied && `${prefixCls}-copy-success`)}
+          onClick={this.onCopyClick}
+          aria-label={title}
+        >
+          <Icon role="button" type={copied ? 'check' : 'copy'} />
+        </TransButton>
+      </Tooltip>
     );
   }
 
@@ -302,11 +282,7 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
   }
 
   renderOperations() {
-    return [
-      this.renderExtend(),
-      this.renderEdit(),
-      this.renderCopy(),
-    ].filter(node => node);
+    return [this.renderExtend(), this.renderEdit(), this.renderCopy()].filter(node => node);
   }
 
   renderContent() {
@@ -343,7 +319,8 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
       // We move full content to outer element to avoid repeat read the content by accessibility
       textNode = (
         <span title={String(children)} aria-hidden="true">
-          {ellipsisContent}{ELLIPSIS_STR}
+          {ellipsisContent}
+          {ELLIPSIS_STR}
         </span>
       );
     }
@@ -351,21 +328,32 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
     textNode = wrapperDecorations(this.props, textNode);
 
     return (
-      <ResizeObserver onResize={this.resizeOnNextFrame} disabled={!rows}>
-        <Component
-          className={classNames(prefixCls, className, {
-            [`${prefixCls}-${type}`]: type,
-            [`${prefixCls}-disabled`]: disabled,
-            [`${prefixCls}-ellipsis`]: rows,
-          })}
-          aria-label={isEllipsis ? String(children) : undefined}
-          ref={this.setContentRef}
-          {...textProps}
-        >
-          {textNode}
-          {this.renderOperations()}
-        </Component>
-      </ResizeObserver>
+      <LocaleReceiver componentName="Text">
+        {({ edit, copy: copyStr, copySuccess, extend }: Locale) => {
+          this.editStr = edit;
+          this.copyStr = copyStr;
+          this.copySuccessStr = copySuccess;
+          this.extendStr = extend;
+
+          return (
+            <ResizeObserver onResize={this.resizeOnNextFrame} disabled={!rows}>
+              <Component
+                className={classNames(prefixCls, className, {
+                  [`${prefixCls}-${type}`]: type,
+                  [`${prefixCls}-disabled`]: disabled,
+                  [`${prefixCls}-ellipsis`]: rows,
+                })}
+                aria-label={isEllipsis ? String(children) : undefined}
+                ref={this.setContentRef}
+                {...textProps}
+              >
+                {textNode}
+                {this.renderOperations()}
+              </Component>
+            </ResizeObserver>
+          );
+        }}
+      </LocaleReceiver>
     );
   }
 
