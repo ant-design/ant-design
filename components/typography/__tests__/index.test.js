@@ -96,7 +96,7 @@ describe('Typography', () => {
         jest.runAllTimers();
         wrapper.update();
 
-        wrapper.find('.ant-text-extend').simulate('click');
+        wrapper.find('.ant-typography-extend').simulate('click');
         jest.runAllTimers();
         wrapper.update();
 
@@ -114,7 +114,7 @@ describe('Typography', () => {
           );
 
           wrapper
-            .find('.ant-text-copy')
+            .find('.ant-typography-copy')
             .first()
             .simulate('click');
           expect(copy.lastStr).toEqual(target);
@@ -145,7 +145,7 @@ describe('Typography', () => {
           );
 
           wrapper
-            .find('.ant-text-edit')
+            .find('.ant-typography-edit')
             .first()
             .simulate('click');
 

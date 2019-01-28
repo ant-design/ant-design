@@ -3,55 +3,55 @@
 exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
 <div>
   <span
-    class="ant-text"
+    class="ant-typography"
   >
     Ant Design
   </span>
   <br />
   <span
-    class="ant-text ant-text-secondary"
+    class="ant-typography ant-typography-secondary"
   >
     Ant Design
   </span>
   <br />
   <span
-    class="ant-text ant-text-warning"
+    class="ant-typography ant-typography-warning"
   >
     Ant Design
   </span>
   <br />
   <span
-    class="ant-text ant-text-danger"
+    class="ant-typography ant-typography-danger"
   >
     Ant Design
   </span>
   <br />
   <span
-    class="ant-text ant-text-disabled"
+    class="ant-typography ant-typography-disabled"
   >
     Ant Design
   </span>
   <br />
   <span
-    class="ant-text ant-text-mark"
+    class="ant-typography ant-typography-mark"
   >
     Ant Design
   </span>
   <br />
   <span
-    class="ant-text ant-text-underline"
+    class="ant-typography ant-typography-underline"
   >
     Ant Design
   </span>
   <br />
   <span
-    class="ant-text ant-text-delete"
+    class="ant-typography ant-typography-delete"
   >
     Ant Design
   </span>
   <br />
   <span
-    class="ant-text ant-text-bold"
+    class="ant-typography ant-typography-bold"
   >
     Ant Design
   </span>
@@ -61,17 +61,17 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
 exports[`renders ./components/typography/demo/ellipsis.md correctly 1`] = `
 <div>
   <div
-    class="ant-text ant-text-ellipsis"
+    class="ant-typography ant-typography-ellipsis"
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
   </div>
   <div
-    class="ant-text ant-text-ellipsis"
+    class="ant-typography ant-typography-ellipsis"
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
     <a
       aria-label="extend"
-      class="ant-text-extend"
+      class="ant-typography-extend"
     >
       extend
     </a>
@@ -109,12 +109,12 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
     />
   </div>
   <div
-    class="ant-text ant-text-ellipsis"
+    class="ant-typography ant-typography-ellipsis"
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
     <button
       aria-label="copy"
-      class="ant-text-copy"
+      class="ant-typography-copy"
       style="border:0;background:transparent;padding:0;line-height:inherit"
     >
       <i
@@ -144,12 +144,12 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
 exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
 <div>
   <div
-    class="ant-text"
+    class="ant-typography"
   >
     This is an editable text.
     <button
       aria-label="edit"
-      class="ant-text-edit"
+      class="ant-typography-edit"
       style="border:0;background:transparent;padding:0;line-height:inherit"
     >
       <i
@@ -174,12 +174,12 @@ exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
     </button>
   </div>
   <div
-    class="ant-text"
+    class="ant-typography"
   >
     This is a copyable text.
     <button
       aria-label="copy"
-      class="ant-text-copy"
+      class="ant-typography-copy"
       style="border:0;background:transparent;padding:0;line-height:inherit"
     >
       <i
@@ -204,12 +204,12 @@ exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
     </button>
   </div>
   <div
-    class="ant-text"
+    class="ant-typography"
   >
     Replace copy text.
     <button
       aria-label="copy"
-      class="ant-text-copy"
+      class="ant-typography-copy"
       style="border:0;background:transparent;padding:0;line-height:inherit"
     >
       <i
@@ -239,32 +239,32 @@ exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
 exports[`renders ./components/typography/demo/paragraph.md correctly 1`] = `
 <div>
   <h1
-    class="ant-text"
+    class="ant-typography"
   >
     Introduction
   </h1>
   <div
-    class="ant-text"
+    class="ant-typography"
   >
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
   </div>
   <div
-    class="ant-text"
+    class="ant-typography"
   >
     After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to uniform the user interface specs for internal background projects, lower the unnecessary cost of design differences and implementation and liberate the resources of design and front-end development.
   </div>
   <h2
-    class="ant-text"
+    class="ant-typography"
   >
     Guidelines and Resources
   </h2>
   <div
-    class="ant-text"
+    class="ant-typography"
   >
     We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
   </div>
   <div
-    class="ant-text"
+    class="ant-typography"
   >
     <ul>
       <li>
@@ -291,33 +291,33 @@ exports[`renders ./components/typography/demo/paragraph.md correctly 1`] = `
     </ul>
   </div>
   <h1
-    class="ant-text"
+    class="ant-typography"
     id="intro"
   >
     介绍
   </h1>
   <div
-    class="ant-text"
+    class="ant-typography"
   >
     蚂蚁的企业级产品是一个庞大且复杂的体系。这类产品不仅量级巨大且功能复杂，而且变动和并发频繁，常常需要设计与开发能够快速的做出响应。同时这类产品中有存在很多类似的页面以及组件，可以通过抽象得到一些稳定且高复用性的内容。
   </div>
   <div
-    class="ant-text"
+    class="ant-typography"
   >
     随着商业化的趋势，越来越多的企业级产品对更好的用户体验有了进一步的要求。带着这样的一个终极目标，我们（蚂蚁金服体验技术部）经过大量的项目实践和总结，逐步打磨出一个服务于企业级产品的设计体系 Ant Design。基于『确定』和『自然』的设计价值观，通过模块化的解决方案，降低冗余的生产成本，让设计者专注于更好的用户体验。
   </div>
   <h2
-    class="ant-text"
+    class="ant-typography"
   >
     设计资源
   </h2>
   <div
-    class="ant-text"
+    class="ant-typography"
   >
     我们提供完善的设计原则、最佳实践和设计资源文件（Sketch 和 Axure），来帮助业务快速设计出高质量的产品原型。
   </div>
   <div
-    class="ant-text"
+    class="ant-typography"
   >
     <ul>
       <li>
@@ -349,22 +349,22 @@ exports[`renders ./components/typography/demo/paragraph.md correctly 1`] = `
 exports[`renders ./components/typography/demo/title.md correctly 1`] = `
 <div>
   <h1
-    class="ant-text"
+    class="ant-typography"
   >
     h1. Ant Design
   </h1>
   <h2
-    class="ant-text"
+    class="ant-typography"
   >
     h2. Ant Design
   </h2>
   <h3
-    class="ant-text"
+    class="ant-typography"
   >
     h3. Ant Design
   </h3>
   <h4
-    class="ant-text"
+    class="ant-typography"
   >
     h4. Ant Design
   </h4>

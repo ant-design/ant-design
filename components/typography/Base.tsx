@@ -341,5 +341,5 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
 polyfill(Base);
 
 export default withConfigConsumer<InternalBaseProps>({
-  prefixCls: 'text',
+  prefixCls: 'typography',
 })(Base);
