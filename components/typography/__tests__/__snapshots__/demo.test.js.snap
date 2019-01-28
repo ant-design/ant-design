@@ -85,12 +85,6 @@ exports[`renders ./components/typography/demo/ellipsis.md correctly 1`] = `
     class="ant-typography ant-typography-ellipsis"
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
-    <a
-      aria-label="extend"
-      class="ant-typography-extend"
-    >
-      extend
-    </a>
   </div>
 </div>
 `;
