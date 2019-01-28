@@ -114,22 +114,22 @@
 }
 
 // =============== Title ===============
-.title-size(@name; @fontSize; @lineHeight; @marginTop) {
+.title-size(@name; @fontSize; @lineHeight) {
   @{name}.@{text-prefix-cls} {
     font-size: ~'@{fontSize}px';
-    line-height: ~'@{lineHeight}%';
+    line-height: @lineHeight * 100%;
 
     .@{text-prefix-cls} + & {
-      margin: ~'@{marginTop}em 0 12px 0';
+      margin: 24px 0 12px 0;
     }
   }
 }
 
 // Follow the rule
-.title-size(~'h1', 38, 123, 1.9);
-.title-size(~'h2', 30, 135, 1.87);
-.title-size(~'h3', 24, 135, 1.67);
-.title-size(~'h4', 20, 140, 1.2);
+.title-size(~'h1', 38, 1.23);
+.title-size(~'h2', 30, 1.35);
+.title-size(~'h3', 24, 1.35);
+.title-size(~'h4', 20, 1.4);
 
 h1,
 h2,
