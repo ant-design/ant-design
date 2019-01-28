@@ -22,6 +22,7 @@ export interface FormCreateOption<T> {
   mapPropsToFields?: (props: T) => void;
   validateMessages?: FormCreateOptionMessages;
   withRef?: boolean;
+  name?: string;
 }
 
 const FormLayouts = tuple('horizontal', 'inline', 'vertical');
