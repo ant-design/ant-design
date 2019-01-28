@@ -4,7 +4,6 @@ title:
   zh-CN: 省略号 Debug
   en-US: Ellipsis Debug
 debug: true
-only: true
 ---
 
 ## zh-CN
@@ -16,13 +15,16 @@ only: true
 Multiple line ellipsis support.
 
 ```jsx
-import { Typography, Slider } from 'antd';
+import { Typography, Slider, Switch } from 'antd';
 
 const { Text, Paragraph } = Typography;
 
 class Demo extends React.Component {
   state = {
     rows: 1,
+    copyable: false,
+    editable: false,
+    extendable: false,
   };
 
   onChange = (rows) => {
@@ -30,14 +32,17 @@ class Demo extends React.Component {
   };
 
   render() {
-    const { rows } = this.state;
+    const { rows, copyable, editable, extendable } = this.state;
     return (
       <div>
+        <Switch onChange={val => this.setState({ copyable: val })} />
+        <Switch onChange={val => this.setState({ editable: val })} />
+        <Switch onChange={val => this.setState({ extendable: val })} />
         <Slider value={rows} min={1} max={10} onChange={this.onChange} />
-        <Paragraph rows={rows} copyable>
+        <Paragraph rows={rows} copyable={copyable} editable={editable} extendable={extendable}>
           Ant Design, a design language for background applications, is refined by Ant UED Team.
           This is a nest sample <Text code strong delete>Test</Text> case.
-          Bnt Design, a design language for background applications, is refined by Ant UED Team.
+          {'Bnt Design, a design language for background applications, is refined by Ant UED Team.'}
           Cnt Design, a design language for background applications, is refined by Ant UED Team.
           Dnt Design, a design language for background applications, is refined by Ant UED Team.
           Ent Design, a design language for background applications, is refined by Ant UED Team.

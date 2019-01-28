@@ -39,6 +39,21 @@ function styleToStr(style: CSSStyleDeclaration) {
   return styleStr;
 }
 
+function mergeChildren(children: React.ReactNode[]): React.ReactNode[] {
+  const childList: React.ReactNode[] = [];
+
+  children.forEach((child: React.ReactNode) => {
+    const prevChild = childList[childList.length - 1];
+    if (typeof child === 'string' && typeof prevChild === 'string') {
+      childList[childList.length - 1] += child;
+    } else {
+      childList.push(child);
+    }
+  });
+
+  return childList;
+}
+
 export function measure(
   originEle: HTMLParagraphElement,
   rows: number,
@@ -57,7 +72,9 @@ export function measure(
   const originCSS = styleToStr(originStyle);
   const lineHeight = pxToNumber(originStyle.lineHeight);
   const maxHeight =
-    lineHeight * (rows + 1) + pxToNumber(originStyle.paddingTop) + pxToNumber(originStyle.paddingBottom);
+    lineHeight * (rows + 1) +
+    pxToNumber(originStyle.paddingTop) +
+    pxToNumber(originStyle.paddingBottom);
 
   // Set shadow
   ellipsisContainer.setAttribute('style', originCSS);
@@ -66,13 +83,11 @@ export function measure(
   ellipsisContainer.style.height = 'auto';
   ellipsisContainer.style.minHeight = 'auto';
   ellipsisContainer.style.maxHeight = 'auto';
-  ellipsisContainer.style.top = '0px';
-  ellipsisContainer.style.zIndex = '99999999';
-  // ellipsisText.style.top = '-999999px';
-  // ellipsisText.style.zIndex = '-1000';
+  ellipsisContainer.style.top = '-999999px';
+  ellipsisContainer.style.zIndex = '-1000';
 
   // Render in the fake container
-  const contentList: React.ReactNode[] = toArray(content);
+  const contentList: React.ReactNode[] = mergeChildren(toArray(content));
   render(
     <div style={wrapperStyle}>
       <span style={wrapperStyle}>{contentList}</span>
@@ -83,7 +98,6 @@ export function measure(
 
   // Check if ellipsis in measure div is height enough for content
   function inRange() {
-    console.log('in range:', ellipsisContainer.offsetHeight, maxHeight, ellipsisContainer.offsetHeight < maxHeight);
     return ellipsisContainer.offsetHeight < maxHeight;
   }
 
@@ -94,8 +108,12 @@ export function measure(
   }
 
   // We should clone the childNode since they're controlled by React and we can't reuse it without warning
-  const childNodes: ChildNode[] = Array.prototype.slice.apply(ellipsisContainer.childNodes[0].childNodes[0].cloneNode(true).childNodes);
-  const fixedNodes: ChildNode[] = Array.prototype.slice.apply(ellipsisContainer.childNodes[0].childNodes[1].cloneNode(true).childNodes);
+  const childNodes: ChildNode[] = Array.prototype.slice.apply(
+    ellipsisContainer.childNodes[0].childNodes[0].cloneNode(true).childNodes,
+  );
+  const fixedNodes: ChildNode[] = Array.prototype.slice.apply(
+    ellipsisContainer.childNodes[0].childNodes[1].cloneNode(true).childNodes,
+  );
   unmountComponentAtNode(ellipsisContainer);
 
   // ========================= Find match ellipsis content =========================
@@ -108,61 +126,42 @@ export function measure(
   fixedNodes.forEach(childNode => {
     ellipsisContainer.appendChild(childNode);
   });
-  
+
   // Append before fixed nodes
   function appendChildNode(node: ChildNode) {
     ellipsisContainer.insertBefore(node, ellipsisTextNode);
   }
 
   // Get maximum text
-  function measureText(textNode: Text, fullText: string, startLoc = 0, endLoc = fullText.length): MeasureResult {
-    const currentText = fullText.slice(0, endLoc);
+  function measureText(
+    textNode: Text,
+    fullText: string,
+    startLoc = 0,
+    endLoc = fullText.length,
+  ): MeasureResult {
+    const midLoc = Math.floor((startLoc + endLoc) / 2);
+    const currentText = fullText.slice(0, midLoc);
     textNode.textContent = currentText;
 
-    console.warn('>>>', startLoc, endLoc, currentText);
-
-    if (startLoc >= endLoc - 1) {
-      return {
-        finished: true,
-        reactNode: fullText.slice(0, startLoc),
-      };
-    }
-
-    // Match line height
     if (inRange()) {
-      if (endLoc === fullText.length) {
-        // All matched
-        return {
-          finished: false,
-          reactNode: fullText,
-        };
+      if (startLoc >= endLoc - 1) {
+        return endLoc === fullText.length
+          ? {
+              finished: false,
+              reactNode: fullText,
+            }
+          : {
+              finished: true,
+              reactNode: fullText.slice(0, startLoc - 1),
+            };
       }
-      return measureText(textNode, fullText, Math.floor((startLoc + endLoc) / 2), endLoc);
+      return measureText(textNode, fullText, midLoc, endLoc);
+    } else {
+      return measureText(textNode, fullText, startLoc, midLoc);
     }
-
-    // Not match
-    return measureText(textNode, fullText, startLoc, Math.ceil((startLoc + endLoc) / 2));
-    // const midLoc = Math.ceil((startLoc + endLoc) / 2);
-    // const currentText = fullText.slice(0, midLoc);
-    // textNode.textContent = currentText;
-
-    // // Find the match location
-    // if (endLoc === midLoc) {
-    //   console.log('text:', startLoc, midLoc, endLoc, currentText);
-    //   return {
-    //     finished: midLoc !== fullText.length, // stop measure if text not fully used
-    //     reactNode: currentText,
-    //   }
-    // }
-
-    // if (inRange()) {
-    //   return measureText(textNode, fullText, midLoc, endLoc);
-    // } else {
-    //   return measureText(textNode, fullText, startLoc, midLoc);
-    // }
   }
 
-  function measure(childNode: ChildNode, index: number): MeasureResult {
+  function measureNode(childNode: ChildNode, index: number): MeasureResult {
     const type = childNode.nodeType;
 
     if (type === ELEMENT_NODE) {
@@ -195,11 +194,8 @@ export function measure(
     };
   }
 
-  console.clear();
-  console.log('----------- Start --------------');
   childNodes.some((childNode, index) => {
-    const { finished, reactNode } = measure(childNode, index);
-    console.log('Measure:', childNode, index, finished, reactNode);
+    const { finished, reactNode } = measureNode(childNode, index);
     if (reactNode) {
       ellipsisChildren.push(reactNode);
     }
