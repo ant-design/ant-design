@@ -17,7 +17,9 @@ describe('Typography', () => {
     .get;
   Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
     get() {
-      const lines = Math.ceil(this.innerHTML.length / LINE_STR_COUNT);
+      let html = this.innerHTML;
+      html = html.replace(/\.\.\..*$/, '...');
+      const lines = Math.ceil(html.length / LINE_STR_COUNT);
       return lines * 16;
     },
   });
@@ -86,7 +88,7 @@ describe('Typography', () => {
         wrapper.unmount();
       });
 
-      it('should expand work', () => {
+      it('should extendable work', () => {
         const wrapper = mount(
           <Base rows={1} component="p" copyable editable extendable>
             {fullStr}
