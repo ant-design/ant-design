@@ -187,7 +187,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
       });
       instances.push(instance)
     });
-    const length = instances.length
+    const { length } = instances
     instances.forEach((instance, index) => {
       expect(destroyFns.length).toBe(length - index);
       instance.destroy();
