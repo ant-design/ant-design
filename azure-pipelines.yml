@@ -13,7 +13,7 @@ resources:
       fetchDepth: 1
 
 jobs:
-  - job: test@
+  - job: test_
     pool:
       vmImage: 'Ubuntu-16.04'
     strategy:
