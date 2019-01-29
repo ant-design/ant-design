@@ -185,8 +185,9 @@ class Upload extends React.Component<UploadProps, UploadState> {
   }
 
   handleManualRemove = (file: UploadFile) => {
-    this.upload.abort(file);
-
+    if (this.upload) {
+      this.upload.abort(file);
+    }
     this.handleRemove(file);
   };
 
@@ -315,11 +316,11 @@ class Upload extends React.Component<UploadProps, UploadState> {
       [`${prefixCls}-disabled`]: disabled,
     });
 
-    const uploadButton = (
-      <div className={uploadButtonCls} style={{ display: children ? '' : 'none' }}>
+    const uploadButton = children ? (
+      <div className={uploadButtonCls}>
         <RcUpload {...rcUploadProps} ref={this.saveUpload} />
       </div>
-    );
+    ) : null;
 
     if (listType === 'picture-card') {
       return (
