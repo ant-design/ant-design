@@ -13,41 +13,41 @@ resources:
       fetchDepth: 1
 
 jobs:
-  - job: test
+  - job: test@
     pool:
       vmImage: 'Ubuntu-16.04'
     strategy:
       matrix:
         TEST_TYPE:
           TEST_TYPE: lint
-        REACT16-test:dist:
+        dist-react@16:
           REACT: 16
           TEST_TYPE: test:dist
-        REACT16-test:lib:
+        lib-react@16:
           REACT: 16
           TEST_TYPE: test:lib
-        REACT16-test:es:
+        es-react@16:
           REACT: 16
           TEST_TYPE: test:es
-        REACT16-test:dom:
+        dom-react@16:
           REACT: 16
           TEST_TYPE: test:dom
-        REACT16-test:node:
+        node-react@16:
           REACT: 16
           TEST_TYPE: test:node
-        REACT15-test:dist:
+        dist-react@15:
           REACT: 15
           TEST_TYPE: test:dist
-        REACT15-test:lib:
+        lib-react@15:
           REACT: 15
           TEST_TYPE: test:lib
-        REACT15-test:es:
+        es-react@15:
           REACT: 15
           TEST_TYPE: test:es
-        REACT15-test:dom:
+        dom-react@15:
           REACT: 15
           TEST_TYPE: test:dom
-        REACT15-test:node:
+        node-react@15:
           REACT: 15
           TEST_TYPE: test:node
     steps:
