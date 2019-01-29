@@ -57,10 +57,10 @@
       &:after {
         @check-width: (@checkbox-size / 14) * 5px;
         @check-height: (@checkbox-size / 14) * 8px;
-        transform: rotate(45deg) scale(0);
+        transform: rotate(45deg) scale(0) translate(-50%, -50%);
         position: absolute;
-        left: (@checkbox-size - @check-width) / 2 - 0.5px * (@checkbox-size / 14);
-        top: (@checkbox-size - @check-height) / 2 - 2px * (@checkbox-size / 14);
+        top: 50%;
+        left: 25%;
         display: table;
         width: @check-width;
         height: @check-height;
@@ -89,7 +89,7 @@
 
   // 选中状态
   .@{checkbox-prefix-cls}-checked .@{checkbox-inner-prefix-cls}:after {
-    transform: rotate(45deg) scale(1);
+    transform: rotate(45deg) scale(1) translate(-50%, -50%);
     position: absolute;
     display: table;
     border: 2px solid @checkbox-check-color;
