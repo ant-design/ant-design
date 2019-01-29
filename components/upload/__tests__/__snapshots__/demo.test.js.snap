@@ -6,7 +6,6 @@ exports[`renders ./components/upload/demo/avatar.md correctly 1`] = `
 >
   <div
     class="ant-upload ant-upload-select ant-upload-select-picture-card"
-    style="display:"
   />
 </span>
 `;
@@ -17,7 +16,6 @@ exports[`renders ./components/upload/demo/basic.md correctly 1`] = `
 >
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
-    style="display:"
   />
   <div
     class="ant-upload-list ant-upload-list-text"
@@ -31,7 +29,6 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
 >
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
-    style="display:"
   />
   <div
     class="ant-upload-list ant-upload-list-text"
@@ -217,7 +214,6 @@ exports[`renders ./components/upload/demo/directory.md correctly 1`] = `
 >
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
-    style="display:"
   />
   <div
     class="ant-upload-list ant-upload-list-text"
@@ -244,7 +240,6 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
 >
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
-    style="display:"
   />
   <div
     class="ant-upload-list ant-upload-list-text"
@@ -402,7 +397,6 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
     </div>
     <div
       class="ant-upload ant-upload-select ant-upload-select-picture-card"
-      style="display:"
     />
   </span>
 </div>
@@ -415,7 +409,6 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
   >
     <div
       class="ant-upload ant-upload-select ant-upload-select-picture"
-      style="display:"
     />
     <div
       class="ant-upload-list ant-upload-list-picture"
@@ -529,7 +522,6 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
   >
     <div
       class="ant-upload ant-upload-select ant-upload-select-picture"
-      style="display:"
     />
     <div
       class="ant-upload-list ant-upload-list-picture"
@@ -646,7 +638,6 @@ exports[`renders ./components/upload/demo/upload-manually.md correctly 1`] = `
   >
     <div
       class="ant-upload ant-upload-select ant-upload-select-text"
-      style="display:"
     />
     <div
       class="ant-upload-list ant-upload-list-text"

@@ -16398,7 +16398,6 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
 >
   <div
     class="config-upload config-upload-select config-upload-select-text"
-    style="display:"
   />
   <div
     class="config-upload-list config-upload-list-text"
@@ -16467,7 +16466,6 @@ exports[`ConfigProvider components Upload normal 1`] = `
 >
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
-    style="display:"
   />
   <div
     class="ant-upload-list ant-upload-list-text"
@@ -16536,7 +16534,6 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
 >
   <div
     class="prefix-Upload prefix-Upload-select prefix-Upload-select-text"
-    style="display:"
   />
   <div
     class="ant-upload-list ant-upload-list-text"
