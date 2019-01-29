@@ -31,13 +31,14 @@ exports[`Drawer render correctly 1`] = `
             style="overflow: auto; height: 100%;"
           >
             <div
-              class="ant-drawer-header"
+              class="ant-drawer-header-no-title"
             >
               <button
                 aria-label="Close"
                 class="ant-drawer-close"
               >
                 <i
+                  aria-label="icon: close"
                   class="anticon anticon-close"
                 >
                   <svg

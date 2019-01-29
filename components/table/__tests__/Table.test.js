@@ -5,6 +5,12 @@ import Table from '..';
 const { Column, ColumnGroup } = Table;
 
 describe('Table', () => {
+  const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+  afterAll(() => {
+    warnSpy.mockRestore();
+  });
+
   it('renders JSX correctly', () => {
     const data = [
       {
@@ -79,5 +85,12 @@ describe('Table', () => {
     const wrapper = mount(<Table components={{ body: { wrapper: BodyWrapper1 } }} />);
     wrapper.setProps({ components: { body: { wrapper: BodyWrapper2 } } });
     expect(wrapper.find('tbody').props().id).toBe('wrapper2');
+  });
+
+  it('warning if both `expandedRowRender` & `scroll` are used', () => {
+    mount(<Table expandedRowRender={() => null} scroll={{}} />);
+    expect(warnSpy).toBeCalledWith(
+      'Warning: `expandedRowRender` and `scroll` are not compatible. Please use one of them at one time.',
+    );
   });
 });

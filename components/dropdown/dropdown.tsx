@@ -69,7 +69,7 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
     } else {
       overlayNode = overlay;
     }
-    overlayNode = React.Children.only(overlayNode);
+    overlayNode = React.Children.only(overlayNode) as React.ReactElement<any>;
 
     const overlayProps = overlayNode.props;
 
@@ -115,7 +115,7 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
     } = this.props;
 
     const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
-    const child = React.Children.only(children);
+    const child = React.Children.only(children) as React.ReactElement<any>;
 
     const dropdownTrigger = React.cloneElement(child, {
       className: classNames(child.props.className, `${prefixCls}-trigger`),

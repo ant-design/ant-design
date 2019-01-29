@@ -22,6 +22,7 @@ export interface FormCreateOption<T> {
   mapPropsToFields?: (props: T) => void;
   validateMessages?: FormCreateOptionMessages;
   withRef?: boolean;
+  name?: string;
 }
 
 const FormLayouts = tuple('horizontal', 'inline', 'vertical');
@@ -92,7 +93,7 @@ export type GetFieldDecoratorOptions = {
 // function create
 export type WrappedFormUtils = {
   /** 获取一组输入控件的值，如不传入参数，则获取全部组件的值 */
-  getFieldsValue(fieldNames?: Array<string>): Object;
+  getFieldsValue(fieldNames?: Array<string>): { [field: string]: any };
   /** 获取一个输入控件的值*/
   getFieldValue(fieldName: string): any;
   /** 设置一组输入控件的值*/

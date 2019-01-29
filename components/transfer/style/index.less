@@ -128,8 +128,12 @@
       position: absolute;
       top: 50%;
       width: 100%;
-      margin-top: -10px;
       transform: translateY(-50%);
+
+      // with filter should offset the search box height
+      .@{transfer-prefix-cls}-list-body-with-search & {
+        margin-top: @input-height-base / 2;
+      }
     }
 
     &-footer {

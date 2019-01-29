@@ -2,6 +2,7 @@ import React from 'react';
 import { mount, render } from 'enzyme';
 import Radio from '../radio';
 import RadioGroup from '../group';
+import RadioButton from '../radioButton';
 
 describe('Radio', () => {
   function createRadioGroup(props) {
@@ -54,6 +55,60 @@ describe('Radio', () => {
       createRadioGroup({
         onChange,
       }),
+    );
+    const radios = wrapper.find('input');
+
+    // uncontrolled component
+    wrapper.setState({ value: 'B' });
+    radios.at(0).simulate('change');
+    expect(onChange.mock.calls.length).toBe(1);
+
+    // controlled component
+    wrapper.setProps({ value: 'A' });
+    radios.at(1).simulate('change');
+    expect(onChange.mock.calls.length).toBe(2);
+  });
+
+  it('both of radio and radioGroup will trigger onchange event when they exists', () => {
+    const onChange = jest.fn();
+    const onChangeRadioGroup = jest.fn();
+
+    const wrapper = mount(
+      <RadioGroup onChange={onChangeRadioGroup}>
+        <Radio value="A" onChange={onChange}>
+          A
+        </Radio>
+        <Radio value="B" onChange={onChange}>
+          B
+        </Radio>
+        <Radio value="C" onChange={onChange}>
+          C
+        </Radio>
+      </RadioGroup>,
+    );
+    const radios = wrapper.find('input');
+
+    // uncontrolled component
+    wrapper.setState({ value: 'B' });
+    radios.at(0).simulate('change');
+    expect(onChange.mock.calls.length).toBe(1);
+    expect(onChangeRadioGroup.mock.calls.length).toBe(1);
+
+    // controlled component
+    wrapper.setProps({ value: 'A' });
+    radios.at(1).simulate('change');
+    expect(onChange.mock.calls.length).toBe(2);
+  });
+
+  it('Trigger onChange when both of radioButton and radioGroup exists', () => {
+    const onChange = jest.fn();
+
+    const wrapper = mount(
+      <RadioGroup onChange={onChange}>
+        <RadioButton value="A">A</RadioButton>
+        <RadioButton value="B">B</RadioButton>
+        <RadioButton value="C">C</RadioButton>
+      </RadioGroup>,
     );
     const radios = wrapper.find('input');
 

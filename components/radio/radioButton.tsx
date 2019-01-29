@@ -18,7 +18,6 @@ export default class RadioButton extends React.Component<RadioButtonProps, any> 
     const { prefixCls: customizePrefixCls, ...radioProps }: RadioButtonProps = this.props;
     const prefixCls = getPrefixCls('radio-button', customizePrefixCls);
     if (this.context.radioGroup) {
-      radioProps.onChange = this.context.radioGroup.onChange;
       radioProps.checked = this.props.value === this.context.radioGroup.value;
       radioProps.disabled = this.props.disabled || this.context.radioGroup.disabled;
     }

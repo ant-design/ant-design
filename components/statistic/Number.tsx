@@ -7,7 +7,7 @@ interface NumberProps extends FormatConfig {
 }
 
 const StatisticNumber: React.SFC<NumberProps> = props => {
-  const { value, formatter, precision, decimalSeparator, prefixCls } = props;
+  const { value, formatter, precision, decimalSeparator, groupSeparator = '', prefixCls } = props;
 
   let valueNode: React.ReactNode;
 
@@ -26,7 +26,7 @@ const StatisticNumber: React.SFC<NumberProps> = props => {
       let int = cells[1] || '0';
       let decimal = cells[3] || '';
 
-      int = int.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      int = int.replace(/\B(?=(\d{3})+(?!\d))/g, groupSeparator);
 
       if (typeof precision === 'number') {
         decimal = padEnd(decimal, precision, '0').slice(0, precision);

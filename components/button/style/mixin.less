@@ -25,8 +25,8 @@
 
 .button-variant-primary(@color; @background) {
   .button-color(@color; @background; @background);
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+  text-shadow: @btn-text-shadow;
+  box-shadow: @btn-primary-shadow;
 
   &:hover,
   &:focus {
@@ -162,7 +162,7 @@
   user-select: none;
   transition: all 0.3s @ease-in-out;
   position: relative;
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+  box-shadow: @btn-shadow;
   > .@{iconfont-css-prefix} {
     line-height: 1;
   }
@@ -219,6 +219,20 @@
 // danger button style
 .btn-danger() {
   .button-variant-danger(@btn-danger-color, @btn-danger-bg, @btn-danger-border);
+}
+// round button
+.btn-round(@btnClassName: btn) {
+  .button-size(@btn-circle-size; 0 @btn-circle-size / 2; @font-size-base + 2px; @btn-circle-size);
+  &.@{btnClassName}-lg {
+    .button-size(
+      @btn-circle-size-lg; 0 @btn-circle-size-lg / 2; @btn-font-size-lg + 2px; @btn-circle-size-lg
+    );
+  }
+  &.@{btnClassName}-sm {
+    .button-size(
+      @btn-circle-size-sm; 0 @btn-circle-size-sm / 2; @font-size-base; @btn-circle-size-sm
+    );
+  }
 }
 // circle button: the content only contains icon
 .btn-circle(@btnClassName: btn) {

@@ -168,4 +168,9 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect($$('.custom-modal-confirm')).toHaveLength(1);
     expect($$('.custom-modal-confirm-body-wrapper')).toHaveLength(1);
   });
+
+  it('should be Modal.confirm without mask', () => {
+    open({ mask: false });
+    expect($$('.ant-modal-mask')).toHaveLength(0);
+  });
 });

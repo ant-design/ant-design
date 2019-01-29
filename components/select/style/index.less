@@ -77,7 +77,7 @@
 
     background-color: @component-background;
     border-radius: @border-radius-base;
-    border: @border-width-base @border-style-base @border-color-base;
+    border: @border-width-base @border-style-base @select-border-color;
     // strange align fix for chrome but works
     // https://gw.alipayobjects.com/zos/rmsportal/VFTfKXJuogBAXcvfAUWJ.gif
     border-top-width: @border-width-base + 0.02px;
@@ -125,7 +125,7 @@
     &:hover,
     &:focus,
     &:active {
-      border-color: @border-color-base;
+      border-color: @select-border-color;
       box-shadow: none;
     }
 

@@ -71,6 +71,7 @@ The properties of the object are follows:
 | icon | custom icon (`Added in 3.12.0`) | string\|ReactNode | `<Icon type="question-circle">` |
 | iconType | Icon `type` of the Icon component (deperated after `3.12.0`) | string | `question-circle` |
 | keyboard | Whether support press esc to close | Boolean | true |
+| mask | Whether show mask or not. | Boolean | true |
 | maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | Boolean | `false` |
 | okText | Text of the OK button | string | `OK` |
 | okType | Button `type` of the OK button | string | `primary` |

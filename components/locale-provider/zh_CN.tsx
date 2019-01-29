@@ -44,4 +44,7 @@ export default {
   Empty: {
     description: '暂无数据',
   },
+  Icon: {
+    icon: '图标',
+  },
 };

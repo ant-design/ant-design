@@ -15,6 +15,7 @@ export type Formatter =
 export interface FormatConfig {
   formatter?: Formatter;
   decimalSeparator?: string;
+  groupSeparator?: string;
   precision?: number;
   prefixCls?: string;
 }

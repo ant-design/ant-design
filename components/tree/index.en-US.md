@@ -78,3 +78,9 @@ to avoid double computing. But, this brings some restrictions.
   ? <Tree>{this.state.treeData.map(data => <TreeNode />)}</Tree>
   : 'loading tree'}
 ```
+
+## FAQ
+
+### How to hide file icon when use showLine?
+
+File icon realize by using switcherIcon. You can overwrite the style to hide it: https://codesandbox.io/s/883vo47xp8

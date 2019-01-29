@@ -124,6 +124,12 @@ class RangePicker extends React.Component<any, RangePickerState> {
     };
   }
 
+  componentDidUpdate(_: any, prevState: RangePickerState) {
+    if (!('open' in this.props) && prevState.open && !this.state.open) {
+      this.focus();
+    }
+  }
+
   clearSelection = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     e.stopPropagation();
@@ -157,10 +163,6 @@ class RangePicker extends React.Component<any, RangePickerState> {
     const { onOpenChange } = this.props;
     if (onOpenChange) {
       onOpenChange(open);
-    }
-
-    if (!open) {
-      this.focus();
     }
   };
 

@@ -18,8 +18,9 @@ title: Statistic
 
 | 参数 | 说明 | 类型 | 默认值 |
 | -------- | ----------- | ---- | ------- |
-| decimalSeparator | 设置小数点 | string | - |
+| decimalSeparator | 设置小数点 | string | . |
 | formatter | 自定义数值展示 | (value) => ReactNode | - |
+| groupSeparator | 设置千分位标识符 | string | , |
 | precision | 数值精度 | number | - |
 | prefix | 设置数值的前缀 | string \| ReactNode | - |
 | suffix | 设置数值的后缀 | string \| ReactNode | - |
