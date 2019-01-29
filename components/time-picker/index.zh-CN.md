@@ -25,7 +25,7 @@ import moment from 'moment';
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | addon | 选择框底部显示自定义的内容 | function | 无 |
-| allowEmpty | 是否展示清除按钮 | boolean | true |
+| allowClear | 是否展示清除按钮 | boolean | true |
 | autoFocus | 自动获取焦点 | boolean | false |
 | className | 选择器类名 | string | '' |
 | clearText | 清除按钮的提示文案 | string | clear |
@@ -44,6 +44,7 @@ import moment from 'moment';
 | open | 面板是否打开 | boolean | false |
 | placeholder | 没有值的时候显示的内容 | string | "请选择时间" |
 | popupClassName | 弹出层类名 | string | '' |
+| popupStyle | 弹出层样式对象 | object | - |
 | secondStep | 秒选项间隔 | number | 1 |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |
 | use12Hours | 使用 12 小时制，为 true 时 `format` 默认为 `h:mm:ss a` | boolean | false |

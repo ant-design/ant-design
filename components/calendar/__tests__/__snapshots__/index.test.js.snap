@@ -12,6 +12,7 @@ exports[`Calendar Calendar should support locale 1`] = `
     >
       <div
         aria-autocomplete="list"
+        aria-controls="test-uuid"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -35,6 +36,7 @@ exports[`Calendar Calendar should support locale 1`] = `
           unselectable="on"
         >
           <i
+            aria-label="icon: down"
             class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
@@ -59,6 +61,7 @@ exports[`Calendar Calendar should support locale 1`] = `
     >
       <div
         aria-autocomplete="list"
+        aria-controls="test-uuid"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -82,6 +85,7 @@ exports[`Calendar Calendar should support locale 1`] = `
           unselectable="on"
         >
           <i
+            aria-label="icon: down"
             class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg

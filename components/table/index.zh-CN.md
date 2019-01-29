@@ -66,6 +66,7 @@ const columns = [{
 | defaultExpandedRowKeys | 默认展开的行 | string\[] | - |
 | expandedRowKeys | 展开的行，控制属性 | string\[] | - |
 | expandedRowRender | 额外的展开行 | Function(record, index, indent, expanded):ReactNode | - |
+| expandIcon | 自定义展开图标，参考[示例](http://react-component.github.io/table/examples/expandIcon.html) | Function(props):ReactNode | - |
 | expandRowByClick | 通过点击行来展开子行 | boolean | `false` |
 | footer | 表格尾部 | Function(currentPageData) |  |
 | indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number | 15 |
@@ -77,7 +78,7 @@ const columns = [{
 | rowSelection | 表格行是否可选择，[配置项](#rowSelection) | object | null |
 | scroll | 设置横向或纵向滚动，也可用于指定滚动区域的宽和高，建议为 `x` 设置一个数字，如果要设置为 `true`，需要配合样式 `.ant-table td { white-space: nowrap; }` | { x: number \| true, y: number } | - |
 | showHeader | 是否显示表头 | boolean | true |
-| size | 正常或迷你类型，`default` or `small` | string | default |
+| size | 表格大小 | default \| middle \| small | default |
 | title | 表格标题 | Function(currentPageData) |  |
 | onChange | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter, extra: { currentDataSource: [] }) |  |
 | onExpand | 点击展开图标时触发 | Function(expanded, record) |  |
@@ -93,9 +94,11 @@ const columns = [{
 <Table
   onRow={(record) => {
     return {
-      onClick: () => {},       // 点击行
-      onMouseEnter: () => {},  // 鼠标移入行
-      onXxxx...
+      onClick: (event) => {},       // 点击行
+      onDoubleClick: (event) => {},
+      onContextMenu: (event) => {},
+      onMouseEnter: (event) => {},  // 鼠标移入行
+      onMouseLeave: (event) => {}
     };
   }}
   onHeaderRow={(column) => {
@@ -131,7 +134,7 @@ const columns = [{
 | sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `'ascend'` `'descend'` `false` | boolean\|string | - |
 | title | 列头显示文字 | ReactNode\|({ sortOrder, filters }) => ReactNode | - |
 | width | 列宽度 | string\|number | - |
-| onCell | 设置单元格属性 | Function(record) | - |
+| onCell | 设置单元格属性 | Function(record, rowIndex) | - |
 | onFilter | 本地模式下，确定筛选的运行函数 | Function | - |
 | onFilterDropdownVisibleChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - |
 | onHeaderCell | 设置头部单元格属性 | Function(column) | - |

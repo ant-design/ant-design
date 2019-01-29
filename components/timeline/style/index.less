@@ -1,7 +1,7 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@timeline-prefix-cls: ~"@{ant-prefix}-timeline";
+@timeline-prefix-cls: ~'@{ant-prefix}-timeline';
 @timeline-color: @border-color-split;
 
 .@{timeline-prefix-cls} {
@@ -77,10 +77,10 @@
     }
 
     &-last {
-      .@{timeline-prefix-cls}-item-tail {
+      > .@{timeline-prefix-cls}-item-tail {
         display: none;
       }
-      .@{timeline-prefix-cls}-item-content {
+      > .@{timeline-prefix-cls}-item-content {
         min-height: 48px;
       }
     }
@@ -89,7 +89,6 @@
   &.@{timeline-prefix-cls}-alternate,
   &.@{timeline-prefix-cls}-right {
     .@{timeline-prefix-cls}-item {
-
       &-tail,
       &-head,
       &-head-custom {

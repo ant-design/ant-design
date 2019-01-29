@@ -13,7 +13,6 @@ export default {
     filterTitle: 'Filter-Menü',
     filterConfirm: 'OK',
     filterReset: 'Zurücksetzen',
-    emptyText: 'Keine Daten',
     selectAll: 'Selektiere Alle',
     selectInvert: 'Selektion Invertieren',
   },
@@ -27,18 +26,17 @@ export default {
     cancelText: 'Abbrechen',
   },
   Transfer: {
-    notFoundContent: 'Nicht gefunden',
     searchPlaceholder: 'Suchen',
     itemUnit: 'Eintrag',
     itemsUnit: 'Einträge',
-  },
-  Select: {
-    notFoundContent: 'Nicht gefunden',
   },
   Upload: {
     uploading: 'Hochladen...',
     removeFile: 'Datei entfernen',
     uploadError: 'Fehler beim Hochladen',
     previewFile: 'Dateivorschau',
+  },
+  Empty: {
+    description: 'Keine Daten',
   },
 };

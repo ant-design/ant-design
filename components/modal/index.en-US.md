@@ -26,6 +26,7 @@ and so on.
 | confirmLoading | Whether to apply loading visual effect for OK button or not | boolean | false |
 | destroyOnClose | Whether to unmount child components on onClose | boolean | false |
 | footer | Footer content, set as `footer={null}` when you don't need default buttons | string\|ReactNode | OK and Cancel buttons |
+| forceRender | Force render Modal | boolean | false |
 | getContainer | Return the mount node for Modal | (instance): HTMLElement | () => document.body |
 | mask | Whether show mask or not. | Boolean | true |
 | maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean | true |
@@ -67,8 +68,10 @@ The properties of the object are follows:
 | centered | Centered Modal | Boolean | `false` |
 | className | className of container | string | - |
 | content | Content | string\|ReactNode | - |
-| iconType | Icon `type` of the Icon component | string | `question-circle` |
+| icon | custom icon (`Added in 3.12.0`) | string\|ReactNode | `<Icon type="question-circle">` |
+| iconType | Icon `type` of the Icon component (deperated after `3.12.0`) | string | `question-circle` |
 | keyboard | Whether support press esc to close | Boolean | true |
+| mask | Whether show mask or not. | Boolean | true |
 | maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | Boolean | `false` |
 | okText | Text of the OK button | string | `OK` |
 | okType | Button `type` of the OK button | string | `primary` |
@@ -98,3 +101,16 @@ modal.destroy();
   margin-right: 8px;
 }
 </style>
+
+- `Modal.destroyAll`
+
+`Modal.destroyAll()` could destroy all confirmation modal dialogs(Modal.info/Modal.success/Modal.error/Modal.warning/Modal.confirm). Usually, you can use it in router change event to destroy confirm modal dialog automatically without use modal reference to close( it's too complex to use for all modal dialogs)
+
+```jsx
+import { browserHistory } from 'react-router';
+
+// router change
+browserHistory.listen(() => {
+  Modal.destroyAll();
+});
+```

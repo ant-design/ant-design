@@ -1,12 +1,12 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
-@import "../../tree/style/mixin";
-@import "../../checkbox/style/mixin";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
+@import '../../tree/style/mixin';
+@import '../../checkbox/style/mixin';
 
-@select-prefix-cls: ~"@{ant-prefix}-select";
-@select-tree-prefix-cls: ~"@{ant-prefix}-select-tree";
+@select-prefix-cls: ~'@{ant-prefix}-select';
+@select-tree-prefix-cls: ~'@{ant-prefix}-select-tree';
 
-.antCheckboxFn(@checkbox-prefix-cls: ~"@{ant-prefix}-select-tree-checkbox");
+.antCheckboxFn(@checkbox-prefix-cls: ~'@{ant-prefix}-select-tree-checkbox');
 
 .@{select-tree-prefix-cls} {
   .reset-component;
@@ -36,8 +36,8 @@
       cursor: pointer;
       text-decoration: none;
       color: @text-color;
-      transition: all .3s;
-      width: ~"calc(100% - 24px)";
+      transition: all 0.3s;
+      width: ~'calc(100% - 24px)';
       &:hover {
         background-color: @item-hover-bg;
       }
@@ -49,7 +49,7 @@
       &.@{select-tree-prefix-cls}-checkbox {
         margin: 0 4px 0 0;
         + .@{select-tree-prefix-cls}-node-content-wrapper {
-          width: ~"calc(100% - 46px)";
+          width: ~'calc(100% - 46px)';
         }
       }
       &.@{select-tree-prefix-cls}-switcher,
@@ -101,26 +101,26 @@
         }
 
         &.@{select-tree-prefix-cls}-switcher_open,
-          &.@{select-tree-prefix-cls}-switcher_close {
-            .@{select-prefix-cls}-switcher-loading-icon {
-              display: inline-block;
+        &.@{select-tree-prefix-cls}-switcher_close {
+          .@{select-prefix-cls}-switcher-loading-icon {
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            width: 24px;
+            height: 24px;
+            color: @primary-color;
+            transform: none;
+            font-size: 14px;
+            svg {
               position: absolute;
+              top: 0;
+              right: 0;
+              bottom: 0;
               left: 0;
-              width: 24px;
-              height: 24px;
-              color: @primary-color;
-              transform: none;
-              font-size: 14px;
-              svg {
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                margin: auto;
-              }
+              margin: auto;
             }
           }
+        }
       }
     }
   }

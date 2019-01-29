@@ -17,7 +17,9 @@ describe('Card', () => {
   function fakeResizeWindowTo(wrapper, width) {
     Object.defineProperties(wrapper.instance().container, {
       offsetWidth: {
-        get() { return width; },
+        get() {
+          return width;
+        },
         configurable: true,
       },
     });
@@ -37,7 +39,11 @@ describe('Card', () => {
   });
 
   it('should still have padding when card which set padding to 0 is loading', () => {
-    const wrapper = mount(<Card loading bodyStyle={{ padding: 0 }}>xxx</Card>);
+    const wrapper = mount(
+      <Card loading bodyStyle={{ padding: 0 }}>
+        xxx
+      </Card>,
+    );
     expect(wrapper.render()).toMatchSnapshot();
   });
 
@@ -45,7 +51,7 @@ describe('Card', () => {
     const wrapper = mount(
       <Card title="Card title" extra={<Button>Button</Button>} style={{ width: 300 }}>
         <p>Card content</p>
-      </Card>
+      </Card>,
     );
     expect(wrapper.render()).toMatchSnapshot();
   });

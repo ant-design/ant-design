@@ -7,9 +7,7 @@ const options = {
   antdStylesDir: path.join(__dirname, '../components'),
   varFile: path.join(__dirname, '../components/style/themes/default.less'),
   mainLessFile: path.join(__dirname, '../site/theme/static/index.less'),
-  themeVariables: [
-    '@primary-color',
-  ],
+  themeVariables: ['@primary-color'],
   outputFilePath: path.join(__dirname, '../_site/color.less'),
 };
 

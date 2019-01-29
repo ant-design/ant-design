@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, render } from 'enzyme';
+import { mount, render } from 'enzyme';
 import Radio from '../radio';
 import focusTest from '../../../tests/shared/focusTest';
 
@@ -15,17 +15,12 @@ describe('Radio', () => {
     const onMouseEnter = jest.fn();
     const onMouseLeave = jest.fn();
 
-    const wrapper = shallow(
-      <Radio
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-      />
-    );
+    const wrapper = mount(<Radio onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />);
 
-    wrapper.simulate('mouseenter');
+    wrapper.find('label').simulate('mouseenter');
     expect(onMouseEnter).toHaveBeenCalled();
 
-    wrapper.simulate('mouseleave');
+    wrapper.find('label').simulate('mouseleave');
     expect(onMouseLeave).toHaveBeenCalled();
   });
 });

@@ -1,7 +1,7 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@menu-prefix-cls: ~"@{ant-prefix}-menu";
+@menu-prefix-cls: ~'@{ant-prefix}-menu';
 
 // default theme
 .@{menu-prefix-cls} {
@@ -14,7 +14,7 @@
   color: @menu-item-color;
   background: @menu-bg;
   line-height: 0; // Fix display inline-block gap
-  transition: background .3s, width .2s;
+  transition: background 0.3s, width 0.2s;
   .clearfix;
 
   ul,
@@ -33,12 +33,13 @@
     font-size: @font-size-base;
     line-height: @line-height-base;
     padding: 8px 16px;
-    transition: all .3s;
+    transition: all 0.3s;
   }
 
   &-submenu,
   &-submenu-inline {
-    transition: border-color .3s @ease-in-out, background .3s @ease-in-out, padding .15s @ease-in-out;
+    transition: border-color 0.3s @ease-in-out, background 0.3s @ease-in-out,
+      padding 0.15s @ease-in-out;
   }
 
   &-item:active,
@@ -48,7 +49,7 @@
 
   &-submenu &-sub {
     cursor: initial;
-    transition: background .3s @ease-in-out, padding .3s @ease-in-out;
+    transition: background 0.3s @ease-in-out, padding 0.3s @ease-in-out;
   }
 
   &-item > a {
@@ -67,7 +68,7 @@
       left: 0;
       bottom: 0;
       right: 0;
-      content: "";
+      content: '';
     }
   }
 
@@ -153,14 +154,15 @@
     position: relative;
     display: block;
     white-space: nowrap;
-    transition: color .3s @ease-in-out, border-color .3s @ease-in-out, background .3s @ease-in-out, padding .15s @ease-in-out;
+    transition: color 0.3s @ease-in-out, border-color 0.3s @ease-in-out,
+      background 0.3s @ease-in-out, padding 0.15s @ease-in-out;
     .@{iconfont-css-prefix} {
       min-width: 14px;
       margin-right: 10px;
       font-size: @font-size-base;
-      transition: font-size .15s @ease-out, margin .3s @ease-in-out;
+      transition: font-size 0.15s @ease-out, margin 0.3s @ease-in-out;
       + span {
-        transition: opacity .3s @ease-in-out, width .3s @ease-in-out;
+        transition: opacity 0.3s @ease-in-out, width 0.3s @ease-in-out;
         opacity: 1;
       }
     }
@@ -193,7 +195,7 @@
         right: 0;
         bottom: 0;
         content: ' ';
-        opacity: .0001;
+        opacity: 0.0001;
       }
     }
 
@@ -201,7 +203,7 @@
       background-color: @menu-bg;
       border-radius: @border-radius-base;
       &-submenu-title:after {
-        transition: transform .3s @ease-in-out;
+        transition: transform 0.3s @ease-in-out;
       }
     }
 
@@ -210,22 +212,23 @@
     &-vertical-right,
     &-inline {
       > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
-        transition: transform .3s @ease-in-out;
+        transition: transform 0.3s @ease-in-out;
         position: absolute;
         top: 50%;
         right: 16px;
         width: 10px;
         &:before,
         &:after {
-          content: "";
+          content: '';
           position: absolute;
           vertical-align: baseline;
-          background: #fff;
+          background: @menu-bg;
           background-image: linear-gradient(to right, @menu-item-color, @menu-item-color);
           width: 6px;
           height: 1.5px;
           border-radius: 2px;
-          transition: background .3s @ease-in-out, transform .3s @ease-in-out, top .3s @ease-in-out;
+          transition: background 0.3s @ease-in-out, transform 0.3s @ease-in-out,
+            top 0.3s @ease-in-out;
         }
         &:before {
           transform: rotate(45deg) translateY(-2px);
@@ -252,7 +255,9 @@
     }
 
     &-open {
-      &.@{menu-prefix-cls}-submenu-inline > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
+      &.@{menu-prefix-cls}-submenu-inline
+        > .@{menu-prefix-cls}-submenu-title
+        .@{menu-prefix-cls}-submenu-arrow {
         transform: translateY(-2px);
         &:after {
           transform: rotate(-45deg) translateX(-2px);
@@ -314,7 +319,7 @@
     }
 
     &:after {
-      content: "\20";
+      content: '\20';
       display: block;
       height: 0;
       clear: both;
@@ -328,15 +333,15 @@
     .@{menu-prefix-cls}-item {
       position: relative;
       &:after {
-        content: "";
+        content: '';
         position: absolute;
         right: 0;
         top: 0;
         bottom: 0;
         border-right: @menu-item-active-border-width solid @menu-highlight-color;
-        transform: scaleY(.0001);
+        transform: scaleY(0.0001);
         opacity: 0;
-        transition: transform .15s @ease-out, opacity .15s @ease-out;
+        transition: transform 0.15s @ease-out, opacity 0.15s @ease-out;
       }
     }
 
@@ -373,7 +378,7 @@
     .@{menu-prefix-cls}-selected,
     .@{menu-prefix-cls}-item-selected {
       &:after {
-        transition: transform .15s @ease-in-out, opacity .15s @ease-in-out;
+        transition: transform 0.15s @ease-in-out, opacity 0.15s @ease-in-out;
         opacity: 1;
         transform: scaleY(1);
       }
@@ -381,7 +386,7 @@
 
     .@{menu-prefix-cls}-item,
     .@{menu-prefix-cls}-submenu-title {
-      width: ~"calc(100% + 1px)";
+      width: ~'calc(100% + 1px)';
     }
 
     .@{menu-prefix-cls}-submenu-title {
@@ -392,8 +397,13 @@
   &-inline-collapsed {
     width: @menu-collapsed-width;
     > .@{menu-prefix-cls}-item,
-    > .@{menu-prefix-cls}-item-group > .@{menu-prefix-cls}-item-group-list > .@{menu-prefix-cls}-item,
-    > .@{menu-prefix-cls}-item-group > .@{menu-prefix-cls}-item-group-list > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title,
+    > .@{menu-prefix-cls}-item-group
+      > .@{menu-prefix-cls}-item-group-list
+      > .@{menu-prefix-cls}-item,
+    > .@{menu-prefix-cls}-item-group
+      > .@{menu-prefix-cls}-item-group-list
+      > .@{menu-prefix-cls}-submenu
+      > .@{menu-prefix-cls}-submenu-title,
     > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
       left: 0;
       text-overflow: clip;

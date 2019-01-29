@@ -1,9 +1,10 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@upload-prefix-cls: ~"@{ant-prefix}-upload";
-@upload-item: ~"@{ant-prefix}-upload-list-item";
-@upload-pictrue-card-size: 104px;
+@upload-prefix-cls: ~'@{ant-prefix}-upload';
+@upload-item: ~'@{ant-prefix}-upload-list-item';
+@upload-picture-card-size: 104px;
+@upload-picture-card-border-style: @border-style-base;
 
 .@{upload-prefix-cls} {
   .reset-component;
@@ -19,7 +20,7 @@
     outline: none;
   }
 
-  input[type="file"] {
+  input[type='file'] {
     cursor: pointer;
   }
 
@@ -29,8 +30,8 @@
 
   &&-select-picture-card {
     border: @border-width-base dashed @border-color-base;
-    width: @upload-pictrue-card-size;
-    height: @upload-pictrue-card-size;
+    width: @upload-picture-card-size;
+    height: @upload-picture-card-size;
     border-radius: @border-radius-base;
     background-color: @background-color-light;
     text-align: center;
@@ -57,7 +58,7 @@
 
   &&-drag {
     border: @border-width-base dashed @border-color-base;
-    transition: border-color .3s;
+    transition: border-color 0.3s;
     cursor: pointer;
     border-radius: @border-radius-base;
     text-align: center;
@@ -110,7 +111,7 @@
     }
     .@{iconfont-css-prefix}-plus {
       font-size: 30px;
-      transition: all .3s;
+      transition: all 0.3s;
       color: @disabled-color;
       &:hover {
         color: @text-color-secondary;
@@ -142,7 +143,7 @@
     &-info {
       height: 100%;
       padding: 0 12px 0 4px;
-      transition: background-color .3s;
+      transition: background-color 0.3s;
 
       > span {
         display: block;
@@ -159,7 +160,7 @@
 
     .@{iconfont-css-prefix}-close {
       .iconfont-size-under-12px(10px);
-      transition: all .3s;
+      transition: all 0.3s;
       opacity: 0;
       cursor: pointer;
       position: absolute;
@@ -206,7 +207,7 @@
     .@{upload-item} {
       padding: 8px;
       border-radius: @border-radius-base;
-      border: @border-width-base @border-style-base @border-color-base;
+      border: @border-width-base @upload-picture-card-border-style @border-color-base;
       height: 66px;
       position: relative;
       &:hover {
@@ -238,7 +239,7 @@
       text-align: center;
       line-height: 54px;
       font-size: 26px;
-      opacity: .8;
+      opacity: 0.8;
     }
 
     .@{upload-item}-icon {
@@ -262,7 +263,7 @@
       white-space: nowrap;
       margin: 0 0 0 8px;
       line-height: 44px;
-      transition: all .3s;
+      transition: all 0.3s;
       padding-left: 48px;
       padding-right: 8px;
       max-width: 100%;
@@ -278,7 +279,7 @@
       padding-left: 56px;
       margin-top: 0;
       bottom: 14px;
-      width: ~"calc(100% - 24px)";
+      width: ~'calc(100% - 24px)';
     }
 
     .@{iconfont-css-prefix}-close {
@@ -299,8 +300,8 @@
     }
     .@{upload-item} {
       float: left;
-      width: @upload-pictrue-card-size;
-      height: @upload-pictrue-card-size;
+      width: @upload-picture-card-size;
+      height: @upload-picture-card-size;
       margin: 0 8px 8px 0;
     }
 
@@ -313,8 +314,8 @@
         content: ' ';
         position: absolute;
         z-index: 1;
-        background-color: rgba(0, 0, 0, 0.5);
-        transition: all .3s;
+        background-color: fade(@black, 50%);
+        transition: all 0.3s;
         width: 100%;
         height: 100%;
         opacity: 0;
@@ -333,19 +334,19 @@
       z-index: 10;
       white-space: nowrap;
       opacity: 0;
-      transition: all .3s;
+      transition: all 0.3s;
 
       .@{iconfont-css-prefix}-eye-o,
       .@{iconfont-css-prefix}-delete {
         z-index: 10;
-        transition: all .3s;
+        transition: all 0.3s;
         cursor: pointer;
         font-size: 16px;
         width: 16px;
         color: @text-color-dark;
         margin: 0 4px;
         &:hover {
-          color: #fff;
+          color: @text-color-inverse;
         }
       }
     }
@@ -410,7 +411,7 @@
   .@{upload-prefix-cls}-animate-leave,
   .@{upload-prefix-cls}-animate-inline-enter,
   .@{upload-prefix-cls}-animate-inline-leave {
-    animation-duration: .3s;
+    animation-duration: 0.3s;
     animation-fill-mode: @ease-in-out-circ;
   }
 

@@ -1,7 +1,7 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@layout-prefix-cls: ~"@{ant-prefix}-layout";
+@layout-prefix-cls: ~'@{ant-prefix}-layout';
 
 .@{layout-prefix-cls} {
   display: flex;
@@ -50,7 +50,7 @@
   }
 
   &-sider {
-    transition: all .2s;
+    transition: all 0.2s;
     position: relative;
     background: @layout-sider-background;
 
@@ -84,7 +84,7 @@
       color: @layout-trigger-color;
       background: @layout-trigger-background;
       z-index: 1;
-      transition: all .2s;
+      transition: all 0.2s;
     }
 
     &-zero-width {
@@ -105,7 +105,7 @@
         font-size: @layout-zero-trigger-width / 2;
         border-radius: 0 @border-radius-base @border-radius-base 0;
         cursor: pointer;
-        transition: background .3s ease;
+        transition: background 0.3s ease;
 
         &:hover {
           background: tint(@layout-sider-background, 10%);

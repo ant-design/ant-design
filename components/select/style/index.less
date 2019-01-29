@@ -1,8 +1,8 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
-@import "../../input/style/mixin";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
+@import '../../input/style/mixin';
 
-@select-prefix-cls: ~"@{ant-prefix}-select";
+@select-prefix-cls: ~'@{ant-prefix}-select';
 
 .selection__clear() {
   display: inline-block;
@@ -64,7 +64,7 @@
     font-size: @font-size-sm;
 
     & &-icon svg {
-      transition: transform .3s;
+      transition: transform 0.3s;
     }
   }
 
@@ -77,11 +77,11 @@
 
     background-color: @component-background;
     border-radius: @border-radius-base;
-    border: @border-width-base @border-style-base @border-color-base;
+    border: @border-width-base @border-style-base @select-border-color;
     // strange align fix for chrome but works
     // https://gw.alipayobjects.com/zos/rmsportal/VFTfKXJuogBAXcvfAUWJ.gif
     border-top-width: @border-width-base + 0.02px;
-    transition: all .3s @ease-in-out;
+    transition: all 0.3s @ease-in-out;
 
     &:hover {
       .hover;
@@ -125,7 +125,7 @@
     &:hover,
     &:focus,
     &:active {
-      border-color: @border-color-base;
+      border-color: @select-border-color;
       box-shadow: none;
     }
 
@@ -138,7 +138,7 @@
 
   &-disabled &-selection--multiple &-selection__choice {
     background: @background-color-base;
-    color: #aaa;
+    color: fade(@black, 33%);
     padding-right: 10px;
     &__remove {
       display: none;
@@ -229,7 +229,8 @@
   }
 
   &-selection__placeholder,
-  &-search__field__placeholder { // for TreeSelect compatibility
+  &-search__field__placeholder {
+    // for TreeSelect compatibility
     position: absolute;
     top: 50%;
     left: 0;
@@ -313,7 +314,8 @@
     }
 
     > ul > li,
-    .@{select-prefix-cls}-selection__rendered > ul > li {  // for tree-select
+    .@{select-prefix-cls}-selection__rendered > ul > li {
+      // for tree-select
       margin-top: 3px;
       height: @input-height-base - 8px;
       line-height: @input-height-base - 8px - 2px;
@@ -330,7 +332,7 @@
       max-width: 99%;
       position: relative;
       overflow: hidden;
-      transition: padding .3s @ease-in-out;
+      transition: padding 0.3s @ease-in-out;
       padding: 0 20px 0 10px;
       &__disabled {
         padding: 0 10px;
@@ -343,7 +345,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       max-width: 100%;
-      transition: margin .3s @ease-in-out;
+      transition: margin 0.3s @ease-in-out;
     }
 
     .@{select-prefix-cls}-selection__choice__remove {
@@ -353,13 +355,13 @@
       cursor: pointer;
       display: inline-block;
       font-weight: bold;
-      transition: all .3s;
+      transition: all 0.3s;
       font-size: @font-size-sm;
       .iconfont-size-under-12px(10px);
       position: absolute;
       right: 4px;
       &:hover {
-        color: #404040;
+        color: @icon-color-hover;
       }
     }
 
@@ -405,7 +407,7 @@
       height: 100%;
       position: relative;
       z-index: 1;
-      transition: all .3s @ease-in-out, height 0s;
+      transition: all 0.3s @ease-in-out, height 0s;
       box-shadow: none;
     }
   }
@@ -559,7 +561,7 @@
       }
 
       &:hover .@{select-prefix-cls}-selected-icon {
-        color: #ddd;
+        color: fade(@black, 87%);
       }
 
       &-disabled .@{select-prefix-cls}-selected-icon {

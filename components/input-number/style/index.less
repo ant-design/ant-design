@@ -1,8 +1,8 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
-@import "../../input/style/mixin";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
+@import '../../input/style/mixin';
 
-@input-number-prefix-cls: ~"@{ant-prefix}-input-number";
+@input-number-prefix-cls: ~'@{ant-prefix}-input-number';
 
 .@{input-number-prefix-cls} {
   .reset-component;
@@ -26,7 +26,7 @@
     width: 100%;
     font-weight: bold;
     &:active {
-      background: #f4f4f4;
+      background: @input-number-handler-active-bg;
     }
     &:hover &-up-inner,
     &:hover &-down-inner {
@@ -43,7 +43,6 @@
     width: 12px;
     height: 12px;
     transition: all 0.1s linear;
-    .iconfont-size-under-12px(7px);
     right: 4px;
     color: @text-color-secondary;
   }
@@ -109,6 +108,18 @@
     opacity: 0;
     border-radius: 0 @border-radius-base @border-radius-base 0;
     transition: opacity 0.24s linear 0.1s;
+
+    // Fix input number inside Menu makes icon too large
+    // We arise the selector priority by nest selector here
+    // https://github.com/ant-design/ant-design/issues/14367
+    .@{input-number-prefix-cls}-handler {
+      .@{input-number-prefix-cls}-handler-up-inner,
+      .@{input-number-prefix-cls}-handler-down-inner {
+        .iconfont-size-under-12px(7px);
+        min-width: auto;
+        margin-right: 0;
+      }
+    }
   }
 
   &-handler-wrap:hover &-handler {

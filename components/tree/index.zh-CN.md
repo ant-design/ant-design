@@ -33,6 +33,7 @@ subtitle: 树形控件
 | multiple | 支持点选多个节点（节点本身） | boolean | false |
 | selectedKeys | （受控）设置选中的树节点 | string\[] | - |
 | showIcon | 是否展示 TreeNode title 前的图标，没有默认样式，如设置为 true，需要自行定义图标相关样式 | boolean | false |
+| switcherIcon | 自定义树节点的展开/折叠图标 | React.ReactElement | - |
 | showLine | 是否展示连接线 | boolean | false |
 | onCheck | 点击复选框触发 | function(checkedKeys, e:{checked: bool, checkedNodes, node, event}) | - |
 | onDragEnd | dragend 触发时调用 | function({event, node}) | - |
@@ -75,3 +76,9 @@ subtitle: 树形控件
   ? <Tree>{this.state.treeData.map(data => <TreeNode />)}</Tree>
   : 'loading tree'}
 ```
+
+## FAQ
+
+### 在 showLine 时，如何隐藏子节点图标？
+
+文件图标通过 switcherIcon 来实现，如果不需要你可以覆盖对应的样式：https://codesandbox.io/s/883vo47xp8

@@ -56,7 +56,8 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | 参数 | 说明 | 类型 |
 | --- | --- | --- |
 | mapPropsToFields | 把父组件的属性映射到表单项上（如：把 Redux store 中的值读出），需要对返回值中的表单域数据用 [`Form.createFormField`](#Form.createFormField) 标记 | (props) => ({ \[fieldName\]: FormField { value } }) |
-| validateMessages | 默认校验信息，可用于把默认错误信息改为中文等，格式与 [newMessages](https://github.com/yiminghe/async-validator/blob/master/src/messages.js) 返回值一致 | Object { [nested.path]&#x3A; String } |
+| name | 设置表单域内字段 id 的前缀 | - |
+| validateMessages | 默认校验信息，可用于把默认错误信息改为中文等，格式与 [newMessages](https://github.com/yiminghe/async-validator/blob/master/src/messages.js) 返回值一致 | Object { \[nested.path]: String } |
 | onFieldsChange | 当 `Form.Item` 子节点的值发生改变时触发，可以把对应的值转存到 Redux store | Function(props, fields) |
 | onValuesChange | 任一表单域的值发生改变时的回调 | (props, changedValues, allValues) => void |
 
@@ -173,6 +174,7 @@ validateFields(['field1', 'field2'], options, (errors, values) => {
 | options.getValueFromEvent | 可以把 onChange 的参数（如 event）转化为控件的值 | function(..args) | [reference](https://github.com/react-component/form#option-object) |
 | options.initialValue | 子节点的初始值，类型、可选值均由子节点决定(注意：由于内部校验时使用 `===` 判断是否变化，建议使用变量缓存所需设置的值而非直接使用字面量)) |  |  |
 | options.normalize | 转换默认的 value 给控件，[一个选择全部的例子](https://codepen.io/afc163/pen/JJVXzG?editors=001) | function(value, prevValue, allValues): any | - |
+| options.preserve | 即便字段不再使用，也保留该字段的值 | boolean | - |
 | options.rules | 校验规则，参考下方文档 | object\[] |  |
 | options.trigger | 收集子节点的值的时机 | string | 'onChange' |
 | options.validateFirst | 当某一规则校验不通过时，是否停止剩下的规则的校验 | boolean | false |

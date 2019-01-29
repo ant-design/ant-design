@@ -9,6 +9,9 @@ Double column transfer choice box.
 
 ## When To Use
 
+- It is a select control essentially which can be use for selecting multiple items.
+- Transfer can display more information for items and take up more space.
+
 Transfer the elements between two columns in an intuitive and efficient way.
 
 One or more elements can be selected from either column, one click on the proper `direction` button, and the transfer is done. The left column is considered the `source` and the right column is considered the `target`. As you can see in the API description, these names are reflected in.
@@ -17,7 +20,7 @@ One or more elements can be selected from either column, one click on the proper
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| className | A custom CSS class. | string | ['', ''] |
+| className | A custom CSS class. | string | \['', ''] |
 | dataSource | Used for setting the source data. The elements that are part of this array will be present the left column. Except the elements whose keys are included in `targetKeys` prop. | [TransferItem](https://git.io/vMM64)\[] | \[] |
 | disabled | Whether disabled transfer | boolean | false |
 | filterOption | A function to determine whether an item should show in search result list | (inputValue, option): boolean |  |
@@ -25,7 +28,7 @@ One or more elements can be selected from either column, one click on the proper
 | lazy | property of [react-lazy-load](https://github.com/loktar00/react-lazy-load) for lazy rendering items. Turn off it by set to `false`. | object\|boolean | `{ height: 32, offset: 32 }` |
 | listStyle | A custom CSS style used for rendering the transfer columns. | object |  |
 | locale | i18n text including filter, empty text, item unit, etc | object | `{ itemUnit: 'item', itemsUnit: 'items', notFoundContent: 'The list is empty', searchPlaceholder: 'Search here' }` |
-| operations | A set of operations that are sorted from bottom to top. | string\[] | ['>', '<'] |
+| operations | A set of operations that are sorted from top to bottom. | string\[] | \['>', '<'] |
 | operationStyle | A custom CSS style used for rendering the operations column. | object |  |
 | render | The function to generate the item shown on a column. Based on an record (element of the dataSource array), this function should return a React element which is generated from that record. Also, it can return a plain object with `value` and `label`, `label` is a React element and `value` is for title | Function(record) |  |
 | selectedKeys | A set of keys of selected items. | string\[] | \[] |
@@ -35,7 +38,7 @@ One or more elements can be selected from either column, one click on the proper
 | titles | A set of titles that are sorted from left to right. | string\[] | - |
 | onChange | A callback function that is executed when the transfer between columns is complete. | (targetKeys, direction, moveKeys): void |  |
 | onScroll | A callback function which is executed when scroll options list | (direction, event): void |  |
-| onSearchChange | A callback function which is executed when search field are changed | (direction: 'left'\|'right', event: Event): void | - |
+| onSearch | A callback function which is executed when search field are changed | (direction: 'left'\|'right', value: string): void | - |
 | onSelectChange | A callback function which is executed when selected items are changed. | (sourceSelectedKeys, targetSelectedKeys): void |  |
 
 ## Warning

@@ -9,11 +9,11 @@ exports[`Tabs renderTabBar custom-tab-bar 1`] = `
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
   <div
-    class="ant-tabs-content ant-tabs-content-animated"
+    class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
     style="margin-left:0%"
   >
     <div
@@ -23,20 +23,20 @@ exports[`Tabs renderTabBar custom-tab-bar 1`] = `
     >
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
       foo
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
     </div>
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
 </div>
@@ -47,7 +47,7 @@ exports[`Tabs tabPosition remove card 1`] = `
   class="ant-tabs ant-tabs-left ant-tabs-vertical ant-tabs-line"
 >
   <div
-    class="ant-tabs-bar"
+    class="ant-tabs-bar ant-tabs-left-bar"
     role="tablist"
     tabindex="0"
   >
@@ -62,6 +62,7 @@ exports[`Tabs tabPosition remove card 1`] = `
           class="ant-tabs-tab-prev-icon"
         >
           <i
+            aria-label="icon: up"
             class="anticon anticon-up ant-tabs-tab-prev-icon-target"
           >
             <svg
@@ -88,6 +89,7 @@ exports[`Tabs tabPosition remove card 1`] = `
           class="ant-tabs-tab-next-icon"
         >
           <i
+            aria-label="icon: down"
             class="anticon anticon-down ant-tabs-tab-next-icon-target"
           >
             <svg
@@ -140,11 +142,11 @@ exports[`Tabs tabPosition remove card 1`] = `
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
   <div
-    class="ant-tabs-content ant-tabs-content-animated"
+    class="ant-tabs-content ant-tabs-content-animated ant-tabs-left-content"
     style="margin-top:0%"
   >
     <div
@@ -154,20 +156,20 @@ exports[`Tabs tabPosition remove card 1`] = `
     >
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
       foo
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
     </div>
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
 </div>

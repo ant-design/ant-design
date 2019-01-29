@@ -5,7 +5,7 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
   class="ant-tabs ant-tabs-top ant-tabs-line"
 >
   <div
-    class="ant-tabs-bar"
+    class="ant-tabs-bar ant-tabs-top-bar"
     role="tablist"
     tabindex="0"
   >
@@ -20,6 +20,7 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
           class="ant-tabs-tab-prev-icon"
         >
           <i
+            aria-label="icon: left"
             class="anticon anticon-left ant-tabs-tab-prev-icon-target"
           >
             <svg
@@ -46,6 +47,7 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
           class="ant-tabs-tab-next-icon"
         >
           <i
+            aria-label="icon: right"
             class="anticon anticon-right ant-tabs-tab-next-icon-target"
           >
             <svg
@@ -109,11 +111,11 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
   <div
-    class="ant-tabs-content ant-tabs-content-animated"
+    class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
     style="margin-left:0%"
   >
     <div
@@ -123,13 +125,13 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
     >
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
       Content of Tab Pane 1
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
     </div>
@@ -146,7 +148,7 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
 </div>
@@ -157,7 +159,7 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
   class="ant-tabs ant-tabs-top ant-tabs-card ant-tabs-no-animation"
 >
   <div
-    class="ant-tabs-bar"
+    class="ant-tabs-bar ant-tabs-top-bar ant-tabs-card-bar"
     role="tablist"
     tabindex="0"
   >
@@ -172,6 +174,7 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
           class="ant-tabs-tab-prev-icon"
         >
           <i
+            aria-label="icon: left"
             class="anticon anticon-left ant-tabs-tab-prev-icon-target"
           >
             <svg
@@ -198,6 +201,7 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
           class="ant-tabs-tab-next-icon"
         >
           <i
+            aria-label="icon: right"
             class="anticon anticon-right ant-tabs-tab-next-icon-target"
           >
             <svg
@@ -261,11 +265,11 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
   <div
-    class="ant-tabs-content ant-tabs-content-no-animated"
+    class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content ant-tabs-card-content"
   >
     <div
       aria-hidden="false"
@@ -274,13 +278,13 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
     >
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
       Content of Tab Pane 1
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
     </div>
@@ -297,7 +301,7 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
 </div>
@@ -311,7 +315,7 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
     class="ant-tabs ant-tabs-top ant-tabs-card ant-tabs-no-animation"
   >
     <div
-      class="ant-tabs-bar"
+      class="ant-tabs-bar ant-tabs-top-bar ant-tabs-card-bar"
       role="tablist"
       tabindex="0"
     >
@@ -326,6 +330,7 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
             class="ant-tabs-tab-prev-icon"
           >
             <i
+              aria-label="icon: left"
               class="anticon anticon-left ant-tabs-tab-prev-icon-target"
             >
               <svg
@@ -352,6 +357,7 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
             class="ant-tabs-tab-next-icon"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right ant-tabs-tab-next-icon-target"
             >
               <svg
@@ -415,11 +421,11 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
     </div>
     <div
       role="presentation"
-      style="width:0;height:0;overflow:hidden"
+      style="width:0;height:0;overflow:hidden;position:absolute"
       tabindex="0"
     />
     <div
-      class="ant-tabs-content ant-tabs-content-no-animated"
+      class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content ant-tabs-card-content"
     >
       <div
         aria-hidden="false"
@@ -428,7 +434,7 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
       >
         <div
           role="presentation"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;position:absolute"
           tabindex="0"
         />
         <p>
@@ -442,7 +448,7 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
         </p>
         <div
           role="presentation"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;position:absolute"
           tabindex="0"
         />
       </div>
@@ -459,7 +465,7 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
     </div>
     <div
       role="presentation"
-      style="width:0;height:0;overflow:hidden"
+      style="width:0;height:0;overflow:hidden;position:absolute"
       tabindex="0"
     />
   </div>
@@ -484,7 +490,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
     class="ant-tabs ant-tabs-top ant-tabs-card ant-tabs-editable-card ant-tabs-no-animation"
   >
     <div
-      class="ant-tabs-bar"
+      class="ant-tabs-bar ant-tabs-top-bar ant-tabs-card-bar"
       role="tablist"
       tabindex="0"
     >
@@ -499,6 +505,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
             class="ant-tabs-tab-prev-icon"
           >
             <i
+              aria-label="icon: left"
               class="anticon anticon-left ant-tabs-tab-prev-icon-target"
             >
               <svg
@@ -525,6 +532,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
             class="ant-tabs-tab-next-icon"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right ant-tabs-tab-next-icon-target"
             >
               <svg
@@ -562,7 +570,9 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
                   <div>
                     Tab 1
                     <i
+                      aria-label="icon: close"
                       class="anticon anticon-close ant-tabs-close-x"
+                      tabindex="-1"
                     >
                       <svg
                         aria-hidden="true"
@@ -589,7 +599,9 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
                   <div>
                     Tab 2
                     <i
+                      aria-label="icon: close"
                       class="anticon anticon-close ant-tabs-close-x"
+                      tabindex="-1"
                     >
                       <svg
                         aria-hidden="true"
@@ -618,11 +630,11 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
     </div>
     <div
       role="presentation"
-      style="width:0;height:0;overflow:hidden"
+      style="width:0;height:0;overflow:hidden;position:absolute"
       tabindex="0"
     />
     <div
-      class="ant-tabs-content ant-tabs-content-no-animated"
+      class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content ant-tabs-card-content"
     >
       <div
         aria-hidden="false"
@@ -631,13 +643,13 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
       >
         <div
           role="presentation"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;position:absolute"
           tabindex="0"
         />
         Content of Tab Pane 1
         <div
           role="presentation"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;position:absolute"
           tabindex="0"
         />
       </div>
@@ -649,7 +661,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
     </div>
     <div
       role="presentation"
-      style="width:0;height:0;overflow:hidden"
+      style="width:0;height:0;overflow:hidden;position:absolute"
       tabindex="0"
     />
   </div>
@@ -664,7 +676,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
     <div>
       <div />
       <div
-        class="ant-tabs-bar"
+        class="ant-tabs-bar ant-tabs-top-bar"
         role="tablist"
         style="z-index:1;background:#fff"
         tabindex="0"
@@ -680,6 +692,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
               class="ant-tabs-tab-prev-icon"
             >
               <i
+                aria-label="icon: left"
                 class="anticon anticon-left ant-tabs-tab-prev-icon-target"
               >
                 <svg
@@ -706,6 +719,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
               class="ant-tabs-tab-next-icon"
             >
               <i
+                aria-label="icon: right"
                 class="anticon anticon-right ant-tabs-tab-next-icon-target"
               >
                 <svg
@@ -770,11 +784,11 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
     </div>
     <div
       role="presentation"
-      style="width:0;height:0;overflow:hidden"
+      style="width:0;height:0;overflow:hidden;position:absolute"
       tabindex="0"
     />
     <div
-      class="ant-tabs-content ant-tabs-content-animated"
+      class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
       style="margin-left:0%"
     >
       <div
@@ -785,13 +799,13 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
       >
         <div
           role="presentation"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;position:absolute"
           tabindex="0"
         />
         Content of Tab Pane 1
         <div
           role="presentation"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;position:absolute"
           tabindex="0"
         />
       </div>
@@ -808,19 +822,19 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
     </div>
     <div
       role="presentation"
-      style="width:0;height:0;overflow:hidden"
+      style="width:0;height:0;overflow:hidden;position:absolute"
       tabindex="0"
     />
   </div>
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
+exports[`renders ./components/tabs/demo/custom-tab-bar-node.md correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top ant-tabs-line"
 >
   <div
-    class="ant-tabs-bar"
+    class="ant-tabs-bar ant-tabs-top-bar"
     role="tablist"
     tabindex="0"
   >
@@ -835,6 +849,7 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
           class="ant-tabs-tab-prev-icon"
         >
           <i
+            aria-label="icon: left"
             class="anticon anticon-left ant-tabs-tab-prev-icon-target"
           >
             <svg
@@ -861,6 +876,136 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
           class="ant-tabs-tab-next-icon"
         >
           <i
+            aria-label="icon: right"
+            class="anticon anticon-right ant-tabs-tab-next-icon-target"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="right"
+              fill="currentColor"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+              />
+            </svg>
+          </i>
+        </span>
+      </span>
+      <div
+        class="ant-tabs-nav-wrap"
+      >
+        <div
+          class="ant-tabs-nav-scroll"
+        >
+          <div
+            class="ant-tabs-nav ant-tabs-nav-animated"
+          >
+            <div />
+            <div
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    role="presentation"
+    style="width:0;height:0;overflow:hidden;position:absolute"
+    tabindex="0"
+  />
+  <div
+    class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
+    style="margin-left:0%"
+  >
+    <div
+      aria-hidden="false"
+      class="ant-tabs-tabpane ant-tabs-tabpane-active"
+      role="tabpanel"
+    >
+      <div
+        role="presentation"
+        style="width:0;height:0;overflow:hidden;position:absolute"
+        tabindex="0"
+      />
+      Content of Tab Pane 1
+      <div
+        role="presentation"
+        style="width:0;height:0;overflow:hidden;position:absolute"
+        tabindex="0"
+      />
+    </div>
+    <div
+      aria-hidden="true"
+      class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+      role="tabpanel"
+    />
+    <div
+      aria-hidden="true"
+      class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+      role="tabpanel"
+    />
+  </div>
+  <div
+    role="presentation"
+    style="width:0;height:0;overflow:hidden;position:absolute"
+    tabindex="0"
+  />
+</div>
+`;
+
+exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
+<div
+  class="ant-tabs ant-tabs-top ant-tabs-line"
+>
+  <div
+    class="ant-tabs-bar ant-tabs-top-bar"
+    role="tablist"
+    tabindex="0"
+  >
+    <div
+      class="ant-tabs-nav-container"
+    >
+      <span
+        class="ant-tabs-tab-prev ant-tabs-tab-btn-disabled"
+        unselectable="unselectable"
+      >
+        <span
+          class="ant-tabs-tab-prev-icon"
+        >
+          <i
+            aria-label="icon: left"
+            class="anticon anticon-left ant-tabs-tab-prev-icon-target"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="left"
+              fill="currentColor"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+              />
+            </svg>
+          </i>
+        </span>
+      </span>
+      <span
+        class="ant-tabs-tab-next ant-tabs-tab-btn-disabled"
+        unselectable="unselectable"
+      >
+        <span
+          class="ant-tabs-tab-next-icon"
+        >
+          <i
+            aria-label="icon: right"
             class="anticon anticon-right ant-tabs-tab-next-icon-target"
           >
             <svg
@@ -924,11 +1069,11 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
   <div
-    class="ant-tabs-content ant-tabs-content-animated"
+    class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
     style="margin-left:0%"
   >
     <div
@@ -938,13 +1083,13 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
     >
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
       Tab 1
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
     </div>
@@ -961,7 +1106,7 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
 </div>
@@ -972,7 +1117,7 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
   class="ant-tabs ant-tabs-top ant-tabs-card ant-tabs-editable-card ant-tabs-no-animation"
 >
   <div
-    class="ant-tabs-bar"
+    class="ant-tabs-bar ant-tabs-top-bar ant-tabs-card-bar"
     role="tablist"
     tabindex="0"
   >
@@ -982,7 +1127,9 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
     >
       <span>
         <i
+          aria-label="icon: plus"
           class="anticon anticon-plus ant-tabs-new-tab"
+          tabindex="-1"
         >
           <svg
             aria-hidden="true"
@@ -1011,6 +1158,7 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
           class="ant-tabs-tab-prev-icon"
         >
           <i
+            aria-label="icon: left"
             class="anticon anticon-left ant-tabs-tab-prev-icon-target"
           >
             <svg
@@ -1037,6 +1185,7 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
           class="ant-tabs-tab-next-icon"
         >
           <i
+            aria-label="icon: right"
             class="anticon anticon-right ant-tabs-tab-next-icon-target"
           >
             <svg
@@ -1074,7 +1223,9 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
                 <div>
                   Tab 1
                   <i
+                    aria-label="icon: close"
                     class="anticon anticon-close ant-tabs-close-x"
+                    tabindex="-1"
                   >
                     <svg
                       aria-hidden="true"
@@ -1101,7 +1252,9 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
                 <div>
                   Tab 2
                   <i
+                    aria-label="icon: close"
                     class="anticon anticon-close ant-tabs-close-x"
+                    tabindex="-1"
                   >
                     <svg
                       aria-hidden="true"
@@ -1142,11 +1295,11 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
   <div
-    class="ant-tabs-content ant-tabs-content-no-animated"
+    class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content ant-tabs-card-content"
   >
     <div
       aria-hidden="false"
@@ -1155,13 +1308,13 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
     >
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
       Content of Tab 1
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
     </div>
@@ -1178,7 +1331,7 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
 </div>
@@ -1189,7 +1342,7 @@ exports[`renders ./components/tabs/demo/extra.md correctly 1`] = `
   class="ant-tabs ant-tabs-top ant-tabs-line"
 >
   <div
-    class="ant-tabs-bar"
+    class="ant-tabs-bar ant-tabs-top-bar"
     role="tablist"
     tabindex="0"
   >
@@ -1217,6 +1370,7 @@ exports[`renders ./components/tabs/demo/extra.md correctly 1`] = `
           class="ant-tabs-tab-prev-icon"
         >
           <i
+            aria-label="icon: left"
             class="anticon anticon-left ant-tabs-tab-prev-icon-target"
           >
             <svg
@@ -1243,6 +1397,7 @@ exports[`renders ./components/tabs/demo/extra.md correctly 1`] = `
           class="ant-tabs-tab-next-icon"
         >
           <i
+            aria-label="icon: right"
             class="anticon anticon-right ant-tabs-tab-next-icon-target"
           >
             <svg
@@ -1306,11 +1461,11 @@ exports[`renders ./components/tabs/demo/extra.md correctly 1`] = `
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
   <div
-    class="ant-tabs-content ant-tabs-content-animated"
+    class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
     style="margin-left:0%"
   >
     <div
@@ -1320,13 +1475,13 @@ exports[`renders ./components/tabs/demo/extra.md correctly 1`] = `
     >
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
       Content of tab 1
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
     </div>
@@ -1343,7 +1498,7 @@ exports[`renders ./components/tabs/demo/extra.md correctly 1`] = `
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
 </div>
@@ -1354,7 +1509,7 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
   class="ant-tabs ant-tabs-top ant-tabs-line"
 >
   <div
-    class="ant-tabs-bar"
+    class="ant-tabs-bar ant-tabs-top-bar"
     role="tablist"
     tabindex="0"
   >
@@ -1369,6 +1524,7 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
           class="ant-tabs-tab-prev-icon"
         >
           <i
+            aria-label="icon: left"
             class="anticon anticon-left ant-tabs-tab-prev-icon-target"
           >
             <svg
@@ -1395,6 +1551,7 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
           class="ant-tabs-tab-next-icon"
         >
           <i
+            aria-label="icon: right"
             class="anticon anticon-right ant-tabs-tab-next-icon-target"
           >
             <svg
@@ -1431,6 +1588,7 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
               >
                 <span>
                   <i
+                    aria-label="icon: apple"
                     class="anticon anticon-apple"
                   >
                     <svg
@@ -1458,6 +1616,7 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
               >
                 <span>
                   <i
+                    aria-label="icon: android"
                     class="anticon anticon-android"
                   >
                     <svg
@@ -1488,11 +1647,11 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
   <div
-    class="ant-tabs-content ant-tabs-content-animated"
+    class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
     style="margin-left:-100%"
   >
     <div
@@ -1507,85 +1666,204 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
     >
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
       Tab 2
       <div
         role="presentation"
-        style="width:0;height:0;overflow:hidden"
+        style="width:0;height:0;overflow:hidden;position:absolute"
         tabindex="0"
       />
     </div>
   </div>
   <div
     role="presentation"
-    style="width:0;height:0;overflow:hidden"
+    style="width:0;height:0;overflow:hidden;position:absolute"
     tabindex="0"
   />
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
+exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
 <div>
   <div
-    style="margin-bottom:16px"
+    class="ant-select ant-select-enabled"
+    style="width:200px"
   >
-    Tab position：
     <div
-      class="ant-select ant-select-enabled"
+      aria-autocomplete="list"
+      aria-controls=""
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="ant-select-selection
+            ant-select-selection--single"
+      role="combobox"
+      tabindex="0"
     >
       <div
-        aria-autocomplete="list"
-        aria-expanded="false"
-        aria-haspopup="true"
-        class="ant-select-selection
-            ant-select-selection--single"
-        role="combobox"
-        tabindex="0"
+        class="ant-select-selection__rendered"
+      />
+      <span
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
       >
-        <div
-          class="ant-select-selection__rendered"
+        <i
+          aria-label="icon: down"
+          class="anticon anticon-down ant-select-arrow-icon"
         >
-          <div
-            class="ant-select-selection-selected-value"
-            style="display:block;opacity:1"
-            title="top"
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
           >
-            top
-          </div>
-        </div>
-        <span
-          class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none"
-          unselectable="on"
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </i>
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-select ant-select-enabled"
+    style="width:200px"
+  >
+    <div
+      aria-autocomplete="list"
+      aria-controls=""
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="ant-select-selection
+            ant-select-selection--single"
+      role="combobox"
+      tabindex="0"
+    >
+      <div
+        class="ant-select-selection__rendered"
+      />
+      <span
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <i
+          aria-label="icon: down"
+          class="anticon anticon-down ant-select-arrow-icon"
         >
-          <i
-            class="anticon anticon-down ant-select-arrow-icon"
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
           >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="down"
-              fill="currentColor"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-              />
-            </svg>
-          </i>
-        </span>
-      </div>
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </i>
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-select ant-select-enabled"
+    style="width:200px"
+  >
+    <div
+      aria-autocomplete="list"
+      aria-controls=""
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="ant-select-selection
+            ant-select-selection--single"
+      role="combobox"
+      tabindex="0"
+    >
+      <div
+        class="ant-select-selection__rendered"
+      />
+      <span
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <i
+          aria-label="icon: down"
+          class="anticon anticon-down ant-select-arrow-icon"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </i>
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-select ant-select-enabled"
+    style="width:200px"
+  >
+    <div
+      aria-autocomplete="list"
+      aria-controls=""
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="ant-select-selection
+            ant-select-selection--single"
+      role="combobox"
+      tabindex="0"
+    >
+      <div
+        class="ant-select-selection__rendered"
+      />
+      <span
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <i
+          aria-label="icon: down"
+          class="anticon anticon-down ant-select-arrow-icon"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </i>
+      </span>
     </div>
   </div>
   <div
     class="ant-tabs ant-tabs-top ant-tabs-line"
   >
     <div
-      class="ant-tabs-bar"
+      class="ant-tabs-bar ant-tabs-top-bar"
       role="tablist"
       tabindex="0"
     >
@@ -1600,6 +1878,7 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
             class="ant-tabs-tab-prev-icon"
           >
             <i
+              aria-label="icon: left"
               class="anticon anticon-left ant-tabs-tab-prev-icon-target"
             >
               <svg
@@ -1626,6 +1905,577 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
             class="ant-tabs-tab-next-icon"
           >
             <i
+              aria-label="icon: right"
+              class="anticon anticon-right ant-tabs-tab-next-icon-target"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                />
+              </svg>
+            </i>
+          </span>
+        </span>
+        <div
+          class="ant-tabs-nav-wrap"
+        >
+          <div
+            class="ant-tabs-nav-scroll"
+          >
+            <div
+              class="ant-tabs-nav ant-tabs-nav-animated"
+            >
+              <div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="true"
+                  class="ant-tabs-tab-active ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab 1
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab 2
+                </div>
+              </div>
+              <div
+                class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      role="presentation"
+      style="width:0;height:0;overflow:hidden;position:absolute"
+      tabindex="0"
+    />
+    <div
+      class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
+      style="margin-left:0%"
+    >
+      <div
+        aria-hidden="false"
+        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        role="tabpanel"
+      >
+        <div
+          role="presentation"
+          style="width:0;height:0;overflow:hidden;position:absolute"
+          tabindex="0"
+        />
+        <div
+          class="ant-tabs ant-tabs-top ant-tabs-line"
+          style="height:300px"
+        >
+          <div
+            class="ant-tabs-bar ant-tabs-top-bar"
+            role="tablist"
+            tabindex="0"
+          >
+            <div
+              class="ant-tabs-nav-container"
+            >
+              <span
+                class="ant-tabs-tab-prev ant-tabs-tab-btn-disabled"
+                unselectable="unselectable"
+              >
+                <span
+                  class="ant-tabs-tab-prev-icon"
+                >
+                  <i
+                    aria-label="icon: left"
+                    class="anticon anticon-left ant-tabs-tab-prev-icon-target"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="left"
+                      fill="currentColor"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                      />
+                    </svg>
+                  </i>
+                </span>
+              </span>
+              <span
+                class="ant-tabs-tab-next ant-tabs-tab-btn-disabled"
+                unselectable="unselectable"
+              >
+                <span
+                  class="ant-tabs-tab-next-icon"
+                >
+                  <i
+                    aria-label="icon: right"
+                    class="anticon anticon-right ant-tabs-tab-next-icon-target"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="right"
+                      fill="currentColor"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                      />
+                    </svg>
+                  </i>
+                </span>
+              </span>
+              <div
+                class="ant-tabs-nav-wrap"
+              >
+                <div
+                  class="ant-tabs-nav-scroll"
+                >
+                  <div
+                    class="ant-tabs-nav ant-tabs-nav-animated"
+                  >
+                    <div>
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class=" ant-tabs-tab"
+                        role="tab"
+                      >
+                        Tab 0
+                      </div>
+                      <div
+                        aria-disabled="false"
+                        aria-selected="true"
+                        class="ant-tabs-tab-active ant-tabs-tab"
+                        role="tab"
+                      >
+                        Tab 1
+                      </div>
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class=" ant-tabs-tab"
+                        role="tab"
+                      >
+                        Tab 2
+                      </div>
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class=" ant-tabs-tab"
+                        role="tab"
+                      >
+                        Tab 3
+                      </div>
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class=" ant-tabs-tab"
+                        role="tab"
+                      >
+                        Tab 4
+                      </div>
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class=" ant-tabs-tab"
+                        role="tab"
+                      >
+                        Tab 5
+                      </div>
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class=" ant-tabs-tab"
+                        role="tab"
+                      >
+                        Tab 6
+                      </div>
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class=" ant-tabs-tab"
+                        role="tab"
+                      >
+                        Tab 7
+                      </div>
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class=" ant-tabs-tab"
+                        role="tab"
+                      >
+                        Tab 8
+                      </div>
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class=" ant-tabs-tab"
+                        role="tab"
+                      >
+                        Tab 9
+                      </div>
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class=" ant-tabs-tab"
+                        role="tab"
+                      >
+                        Tab 10
+                      </div>
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class=" ant-tabs-tab"
+                        role="tab"
+                      >
+                        Tab 11
+                      </div>
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class=" ant-tabs-tab"
+                        role="tab"
+                      >
+                        Tab 12
+                      </div>
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class=" ant-tabs-tab"
+                        role="tab"
+                      >
+                        Tab 13
+                      </div>
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class=" ant-tabs-tab"
+                        role="tab"
+                      >
+                        Tab 14
+                      </div>
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class=" ant-tabs-tab"
+                        role="tab"
+                      >
+                        Tab 15
+                      </div>
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class=" ant-tabs-tab"
+                        role="tab"
+                      >
+                        Tab 16
+                      </div>
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class=" ant-tabs-tab"
+                        role="tab"
+                      >
+                        Tab 17
+                      </div>
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class=" ant-tabs-tab"
+                        role="tab"
+                      >
+                        Tab 18
+                      </div>
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class=" ant-tabs-tab"
+                        role="tab"
+                      >
+                        Tab 19
+                      </div>
+                    </div>
+                    <div
+                      class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            role="presentation"
+            style="width:0;height:0;overflow:hidden;position:absolute"
+            tabindex="0"
+          />
+          <div
+            class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
+            style="margin-left:-100%"
+          >
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+              role="tabpanel"
+            />
+            <div
+              aria-hidden="false"
+              class="ant-tabs-tabpane ant-tabs-tabpane-active"
+              role="tabpanel"
+            >
+              <div
+                role="presentation"
+                style="width:0;height:0;overflow:hidden;position:absolute"
+                tabindex="0"
+              />
+              TTTT 1
+              <div
+                role="presentation"
+                style="width:0;height:0;overflow:hidden;position:absolute"
+                tabindex="0"
+              />
+            </div>
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+              role="tabpanel"
+            />
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+              role="tabpanel"
+            />
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+              role="tabpanel"
+            />
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+              role="tabpanel"
+            />
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+              role="tabpanel"
+            />
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+              role="tabpanel"
+            />
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+              role="tabpanel"
+            />
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+              role="tabpanel"
+            />
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+              role="tabpanel"
+            />
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+              role="tabpanel"
+            />
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+              role="tabpanel"
+            />
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+              role="tabpanel"
+            />
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+              role="tabpanel"
+            />
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+              role="tabpanel"
+            />
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+              role="tabpanel"
+            />
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+              role="tabpanel"
+            />
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+              role="tabpanel"
+            />
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+              role="tabpanel"
+            />
+          </div>
+          <div
+            role="presentation"
+            style="width:0;height:0;overflow:hidden;position:absolute"
+            tabindex="0"
+          />
+        </div>
+        <div
+          role="presentation"
+          style="width:0;height:0;overflow:hidden;position:absolute"
+          tabindex="0"
+        />
+      </div>
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+    </div>
+    <div
+      role="presentation"
+      style="width:0;height:0;overflow:hidden;position:absolute"
+      tabindex="0"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
+<div>
+  <div
+    style="margin-bottom:16px"
+  >
+    Tab position：
+    <div
+      class="ant-select ant-select-enabled"
+    >
+      <div
+        aria-autocomplete="list"
+        aria-controls=""
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-select-selection
+            ant-select-selection--single"
+        role="combobox"
+        tabindex="0"
+      >
+        <div
+          class="ant-select-selection__rendered"
+        >
+          <div
+            class="ant-select-selection-selected-value"
+            style="display:block;opacity:1"
+            title="top"
+          >
+            top
+          </div>
+        </div>
+        <span
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none"
+          unselectable="on"
+        >
+          <i
+            aria-label="icon: down"
+            class="anticon anticon-down ant-select-arrow-icon"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="down"
+              fill="currentColor"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </i>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-tabs ant-tabs-top ant-tabs-line"
+  >
+    <div
+      class="ant-tabs-bar ant-tabs-top-bar"
+      role="tablist"
+      tabindex="0"
+    >
+      <div
+        class="ant-tabs-nav-container"
+      >
+        <span
+          class="ant-tabs-tab-prev ant-tabs-tab-btn-disabled"
+          unselectable="unselectable"
+        >
+          <span
+            class="ant-tabs-tab-prev-icon"
+          >
+            <i
+              aria-label="icon: left"
+              class="anticon anticon-left ant-tabs-tab-prev-icon-target"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </i>
+          </span>
+        </span>
+        <span
+          class="ant-tabs-tab-next ant-tabs-tab-btn-disabled"
+          unselectable="unselectable"
+        >
+          <span
+            class="ant-tabs-tab-next-icon"
+          >
+            <i
+              aria-label="icon: right"
               class="anticon anticon-right ant-tabs-tab-next-icon-target"
             >
               <svg
@@ -1689,11 +2539,11 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
     </div>
     <div
       role="presentation"
-      style="width:0;height:0;overflow:hidden"
+      style="width:0;height:0;overflow:hidden;position:absolute"
       tabindex="0"
     />
     <div
-      class="ant-tabs-content ant-tabs-content-animated"
+      class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
       style="margin-left:0%"
     >
       <div
@@ -1703,13 +2553,13 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
       >
         <div
           role="presentation"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;position:absolute"
           tabindex="0"
         />
         Content of Tab 1
         <div
           role="presentation"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;position:absolute"
           tabindex="0"
         />
       </div>
@@ -1726,7 +2576,7 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
     </div>
     <div
       role="presentation"
-      style="width:0;height:0;overflow:hidden"
+      style="width:0;height:0;overflow:hidden;position:absolute"
       tabindex="0"
     />
   </div>
@@ -1802,7 +2652,7 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
     class="ant-tabs ant-tabs-top ant-tabs-small ant-tabs-line"
   >
     <div
-      class="ant-tabs-bar"
+      class="ant-tabs-bar ant-tabs-top-bar ant-tabs-small-bar"
       role="tablist"
       tabindex="0"
     >
@@ -1817,6 +2667,7 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
             class="ant-tabs-tab-prev-icon"
           >
             <i
+              aria-label="icon: left"
               class="anticon anticon-left ant-tabs-tab-prev-icon-target"
             >
               <svg
@@ -1843,6 +2694,7 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
             class="ant-tabs-tab-next-icon"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right ant-tabs-tab-next-icon-target"
             >
               <svg
@@ -1906,11 +2758,11 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
     </div>
     <div
       role="presentation"
-      style="width:0;height:0;overflow:hidden"
+      style="width:0;height:0;overflow:hidden;position:absolute"
       tabindex="0"
     />
     <div
-      class="ant-tabs-content ant-tabs-content-animated"
+      class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
       style="margin-left:0%"
     >
       <div
@@ -1920,13 +2772,13 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
       >
         <div
           role="presentation"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;position:absolute"
           tabindex="0"
         />
         Content of tab 1
         <div
           role="presentation"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;position:absolute"
           tabindex="0"
         />
       </div>
@@ -1943,7 +2795,7 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
     </div>
     <div
       role="presentation"
-      style="width:0;height:0;overflow:hidden"
+      style="width:0;height:0;overflow:hidden;position:absolute"
       tabindex="0"
     />
   </div>
@@ -2001,7 +2853,7 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
     style="height:220px"
   >
     <div
-      class="ant-tabs-bar"
+      class="ant-tabs-bar ant-tabs-top-bar"
       role="tablist"
       tabindex="0"
     >
@@ -2016,6 +2868,7 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab-prev-icon"
           >
             <i
+              aria-label="icon: left"
               class="anticon anticon-left ant-tabs-tab-prev-icon-target"
             >
               <svg
@@ -2042,6 +2895,7 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab-next-icon"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right ant-tabs-tab-next-icon-target"
             >
               <svg
@@ -2169,11 +3023,11 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
     </div>
     <div
       role="presentation"
-      style="width:0;height:0;overflow:hidden"
+      style="width:0;height:0;overflow:hidden;position:absolute"
       tabindex="0"
     />
     <div
-      class="ant-tabs-content ant-tabs-content-animated"
+      class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
       style="margin-left:0%"
     >
       <div
@@ -2183,13 +3037,13 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
       >
         <div
           role="presentation"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;position:absolute"
           tabindex="0"
         />
         Content of tab 1
         <div
           role="presentation"
-          style="width:0;height:0;overflow:hidden"
+          style="width:0;height:0;overflow:hidden;position:absolute"
           tabindex="0"
         />
       </div>
@@ -2246,7 +3100,7 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
     </div>
     <div
       role="presentation"
-      style="width:0;height:0;overflow:hidden"
+      style="width:0;height:0;overflow:hidden;position:absolute"
       tabindex="0"
     />
   </div>

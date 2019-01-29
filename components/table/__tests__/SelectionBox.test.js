@@ -3,10 +3,11 @@ import { mount } from 'enzyme';
 import createStore from '../createStore';
 import SelectionBox from '../SelectionBox';
 
-const getDefaultStore = selectedRowKeys => createStore({
-  selectedRowKeys: selectedRowKeys || [],
-  selectionDirty: false,
-});
+const getDefaultStore = selectedRowKeys =>
+  createStore({
+    selectedRowKeys: selectedRowKeys || [],
+    selectionDirty: false,
+  });
 
 describe('SelectionBox', () => {
   it('unchecked by selectedRowKeys ', () => {
@@ -17,7 +18,7 @@ describe('SelectionBox', () => {
         disabled={false}
         onChange={() => {}}
         defaultSelection={[]}
-      />
+      />,
     );
 
     expect(wrapper.state()).toEqual({ checked: false });
@@ -31,7 +32,7 @@ describe('SelectionBox', () => {
         disabled={false}
         onChange={() => {}}
         defaultSelection={[]}
-      />
+      />,
     );
 
     expect(wrapper.state()).toEqual({ checked: true });
@@ -45,7 +46,7 @@ describe('SelectionBox', () => {
         disabled={false}
         onChange={() => {}}
         defaultSelection={['1']}
-      />
+      />,
     );
 
     expect(wrapper.state()).toEqual({ checked: true });
@@ -60,7 +61,7 @@ describe('SelectionBox', () => {
         disabled={false}
         onChange={() => {}}
         defaultSelection={[]}
-      />
+      />,
     );
 
     store.setState({
@@ -81,13 +82,12 @@ describe('SelectionBox', () => {
         store={getDefaultStore()}
         rowIndex="1"
         disabled={false}
-        onChange={() => {
-        }}
+        onChange={() => {}}
         defaultSelection={['1']}
         {...checkboxProps}
-      />
+      />,
     );
-    wrapper.find('Checkbox').forEach((box) => {
+    wrapper.find('Checkbox').forEach(box => {
       expect(box.props().name).toEqual(checkboxProps.name);
       expect(box.props().id).toEqual(checkboxProps.id);
     });
@@ -103,14 +103,13 @@ describe('SelectionBox', () => {
         store={getDefaultStore()}
         rowIndex="1"
         disabled={false}
-        onChange={() => {
-        }}
+        onChange={() => {}}
         defaultSelection={['1']}
         type="radio"
         {...radioProps}
-      />
+      />,
     );
-    wrapper.find('Radio').forEach((radio) => {
+    wrapper.find('Radio').forEach(radio => {
       expect(radio.props().name).toEqual(radioProps.name);
       expect(radio.props().id).toEqual(radioProps.id);
     });

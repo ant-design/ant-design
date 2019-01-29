@@ -1,7 +1,7 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@spin-prefix-cls: ~"@{ant-prefix}-spin";
+@spin-prefix-cls: ~'@{ant-prefix}-spin';
 @spin-dot-default: @text-color-secondary;
 
 .@{spin-prefix-cls} {
@@ -26,7 +26,7 @@
       display: block;
       position: absolute;
       height: 100%;
-      max-height: 360px;
+      max-height: 400px;
       width: 100%;
       z-index: 4;
       .@{spin-prefix-cls}-dot {
@@ -40,7 +40,7 @@
         top: 50%;
         width: 100%;
         padding-top: (@spin-dot-size - @font-size-base) / 2 + 2px;
-        text-shadow: 0 1px 2px #fff;
+        text-shadow: 0 1px 2px @shadow-color-inverse;
       }
       &.@{spin-prefix-cls}-show-text .@{spin-prefix-cls}-dot {
         margin-top: -@spin-dot-size / 2 - 10px;
@@ -74,8 +74,24 @@
 
   &-container {
     position: relative;
-    transition: opacity .3s;
-    .clearfix;
+    transition: opacity 0.3s;
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background: @component-background;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s;
+      height: 100%;
+      width: 100%;
+      z-index: 10;
+      display: ~'none \9\0';
+    }
   }
 
   &-blur {
@@ -83,23 +99,10 @@
     user-select: none;
     overflow: hidden;
     opacity: 0.5;
-    -webkit-filter: blur(0.5px);
-    filter: blur(0.5px);
-
-    /* autoprefixer: off */
-    filter: ~"progid\:DXImageTransform\.Microsoft\.Blur(PixelRadius\=1, MakeShadow\=false)";
 
     &:after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      background: #fff;
-      opacity: 0.3;
-      transition: all .3s;
-      z-index: 10;
+      opacity: 0.4;
+      pointer-events: auto;
     }
   }
 

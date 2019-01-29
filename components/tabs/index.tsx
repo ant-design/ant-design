@@ -5,8 +5,9 @@ import TabContent from 'rc-tabs/lib/TabContent';
 import TabBar from './TabBar';
 import classNames from 'classnames';
 import Icon from '../icon';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
-import isFlexSupported from '../_util/isFlexSupported';
+import { isFlexSupported } from '../_util/styleChecker';
 
 export type TabsType = 'line' | 'card' | 'editable-card';
 export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
@@ -28,7 +29,7 @@ export interface TabsProps {
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
-  animated?: boolean | { inkBar: boolean; tabPane: boolean; };
+  animated?: boolean | { inkBar: boolean; tabPane: boolean };
   tabBarGutter?: number;
   renderTabBar?: (props: TabsProps, DefaultTabBar: React.ReactNode) => React.ReactElement<any>;
 }
@@ -49,8 +50,8 @@ export default class Tabs extends React.Component<TabsProps, any> {
   static TabPane = TabPane as React.ClassicComponentClass<TabPaneProps>;
 
   static defaultProps = {
-    prefixCls: 'ant-tabs',
     hideAdd: false,
+    tabPosition: 'top' as TabsPosition,
   };
 
   removeTab = (targetKey: string, e: React.MouseEvent<HTMLElement>) => {
@@ -63,33 +64,33 @@ export default class Tabs extends React.Component<TabsProps, any> {
     if (onEdit) {
       onEdit(targetKey, 'remove');
     }
-  }
+  };
 
   handleChange = (activeKey: string) => {
     const onChange = this.props.onChange;
     if (onChange) {
       onChange(activeKey);
     }
-  }
+  };
 
   createNewTab = (targetKey: React.MouseEvent<HTMLElement>) => {
     const { onEdit } = this.props;
     if (onEdit) {
       onEdit(targetKey, 'add');
     }
-  }
+  };
 
   componentDidMount() {
     const NO_FLEX = ' no-flex';
     const tabNode = ReactDOM.findDOMNode(this) as Element;
-    if (tabNode && !isFlexSupported() && tabNode.className.indexOf(NO_FLEX) === -1) {
+    if (tabNode && !isFlexSupported && tabNode.className.indexOf(NO_FLEX) === -1) {
       tabNode.className += NO_FLEX;
     }
   }
 
-  render() {
+  renderTabs = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
-      prefixCls,
+      prefixCls: customizePrefixCls,
       className = '',
       size,
       type = 'line',
@@ -109,8 +110,9 @@ export default class Tabs extends React.Component<TabsProps, any> {
 
     warning(
       !(type.indexOf('card') >= 0 && (size === 'small' || size === 'large')),
-      'Tabs[type=card|editable-card] doesn\'t have small or large size, it\'s by design.',
+      "Tabs[type=card|editable-card] doesn't have small or large size, it's by design.",
     );
+    const prefixCls = getPrefixCls('tabs', customizePrefixCls);
     const cls = classNames(className, {
       [`${prefixCls}-vertical`]: tabPosition === 'left' || tabPosition === 'right',
       [`${prefixCls}-${size}`]: !!size,
@@ -122,26 +124,31 @@ export default class Tabs extends React.Component<TabsProps, any> {
     let childrenWithClose: React.ReactElement<any>[] = [];
     if (type === 'editable-card') {
       childrenWithClose = [];
-      React.Children.forEach(children as React.ReactNode, (child: React.ReactElement<any>, index) => {
-        let closable = child.props.closable;
-        closable = typeof closable === 'undefined' ? true : closable;
-        const closeIcon = closable ? (
-          <Icon
-            type="close"
-            className={`${prefixCls}-close-x`}
-            onClick={e => this.removeTab(child.key as string, e)}
-          />
-        ) : null;
-        childrenWithClose.push(React.cloneElement(child, {
-          tab: (
-            <div className={closable ? undefined : `${prefixCls}-tab-unclosable`}>
-              {child.props.tab}
-              {closeIcon}
-            </div>
-          ),
-          key: child.key || index,
-        }));
-      });
+      React.Children.forEach(
+        children as React.ReactNode,
+        (child: React.ReactElement<any>, index) => {
+          let closable = child.props.closable;
+          closable = typeof closable === 'undefined' ? true : closable;
+          const closeIcon = closable ? (
+            <Icon
+              type="close"
+              className={`${prefixCls}-close-x`}
+              onClick={e => this.removeTab(child.key as string, e)}
+            />
+          ) : null;
+          childrenWithClose.push(
+            React.cloneElement(child, {
+              tab: (
+                <div className={closable ? undefined : `${prefixCls}-tab-unclosable`}>
+                  {child.props.tab}
+                  {closeIcon}
+                </div>
+              ),
+              key: child.key || index,
+            }),
+          );
+        },
+      );
       // Add new tab handler
       if (!hideAdd) {
         tabBarExtraContent = (
@@ -154,24 +161,33 @@ export default class Tabs extends React.Component<TabsProps, any> {
     }
 
     tabBarExtraContent = tabBarExtraContent ? (
-      <div className={`${prefixCls}-extra-content`}>
-        {tabBarExtraContent}
-      </div>
+      <div className={`${prefixCls}-extra-content`}>{tabBarExtraContent}</div>
     ) : null;
 
     const { className: dropped, ...tabBarProps } = this.props;
+    const contentCls: string = classNames(
+      `${prefixCls}-${tabPosition}-content`,
+      type.indexOf('card') >= 0 && `${prefixCls}-card-content`,
+    );
 
     return (
       <RcTabs
         {...this.props}
+        prefixCls={prefixCls}
         className={cls}
         tabBarPosition={tabPosition}
-        renderTabBar={() => <TabBar {...tabBarProps} tabBarExtraContent={tabBarExtraContent}/>}
-        renderTabContent={() => <TabContent animated={tabPaneAnimated} animatedWithMargin />}
+        renderTabBar={() => <TabBar {...tabBarProps} tabBarExtraContent={tabBarExtraContent} />}
+        renderTabContent={() => (
+          <TabContent className={contentCls} animated={tabPaneAnimated} animatedWithMargin />
+        )}
         onChange={this.handleChange}
       >
         {childrenWithClose.length > 0 ? childrenWithClose : children}
       </RcTabs>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderTabs}</ConfigConsumer>;
   }
 }

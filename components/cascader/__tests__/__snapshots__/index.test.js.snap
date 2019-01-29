@@ -18,6 +18,7 @@ exports[`Cascader can be selected 1`] = `
             class="ant-cascader-menu-item-expand-icon"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -45,6 +46,7 @@ exports[`Cascader can be selected 1`] = `
             class="ant-cascader-menu-item-expand-icon"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -76,6 +78,7 @@ exports[`Cascader can be selected 1`] = `
             class="ant-cascader-menu-item-expand-icon"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -118,6 +121,7 @@ exports[`Cascader can be selected 2`] = `
             class="ant-cascader-menu-item-expand-icon"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -145,6 +149,7 @@ exports[`Cascader can be selected 2`] = `
             class="ant-cascader-menu-item-expand-icon"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -176,6 +181,7 @@ exports[`Cascader can be selected 2`] = `
             class="ant-cascader-menu-item-expand-icon"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -228,6 +234,7 @@ exports[`Cascader can be selected 3`] = `
             class="ant-cascader-menu-item-expand-icon"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -255,6 +262,7 @@ exports[`Cascader can be selected 3`] = `
             class="ant-cascader-menu-item-expand-icon"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -286,6 +294,7 @@ exports[`Cascader can be selected 3`] = `
             class="ant-cascader-menu-item-expand-icon"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -348,6 +357,7 @@ exports[`Cascader popup correctly when panel is open 1`] = `
             class="ant-cascader-menu-item-expand-icon"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -375,6 +385,7 @@ exports[`Cascader popup correctly when panel is open 1`] = `
             class="ant-cascader-menu-item-expand-icon"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -417,6 +428,7 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
             class="ant-cascader-menu-item-expand-icon"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -444,6 +456,7 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
             class="ant-cascader-menu-item-expand-icon"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -475,6 +488,7 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
             class="ant-cascader-menu-item-expand-icon"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -707,7 +721,6 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
                       "value": "value",
                     }
                   }
-                  inputPrefixCls="ant-input"
                   loadingIcon={
                     <span
                       className="ant-cascader-menu-item-loading-icon"
@@ -718,8 +731,8 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
                       />
                     </span>
                   }
-                  notFoundContent="Not Found"
                   onChange={[Function]}
+                  onItemDoubleClick={[Function]}
                   onPopupVisibleChange={[Function]}
                   onSelect={[Function]}
                   options={
@@ -868,6 +881,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
                         className="ant-cascader-menu-item"
                         key="jiangsu,nanjing,zhonghuamen"
                         onClick={[Function]}
+                        onDoubleClick={[Function]}
                         title=""
                       >
                         Jiangsu
@@ -880,6 +894,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
                         className="ant-cascader-menu-item"
                         key="zhejiang,hangzhou,xihu"
                         onClick={[Function]}
+                        onDoubleClick={[Function]}
                         title=""
                       >
                         Zhejiang
@@ -1107,7 +1122,6 @@ exports[`Cascader should render not found content 1`] = `
                       "value": "value",
                     }
                   }
-                  inputPrefixCls="ant-input"
                   loadingIcon={
                     <span
                       className="ant-cascader-menu-item-loading-icon"
@@ -1118,15 +1132,17 @@ exports[`Cascader should render not found content 1`] = `
                       />
                     </span>
                   }
-                  notFoundContent="Not Found"
                   onChange={[Function]}
+                  onItemDoubleClick={[Function]}
                   onPopupVisibleChange={[Function]}
                   onSelect={[Function]}
                   options={
                     Array [
                       Object {
                         "disabled": true,
-                        "label": "Not Found",
+                        "label": <Consumer>
+                          [Function]
+                        </Consumer>,
                         "value": "ANT_CASCADER_NOT_FOUND",
                       },
                     ]
@@ -1160,9 +1176,39 @@ exports[`Cascader should render not found content 1`] = `
                         className="ant-cascader-menu-item ant-cascader-menu-item-disabled"
                         key="ANT_CASCADER_NOT_FOUND"
                         onClick={[Function]}
-                        title="Not Found"
+                        onDoubleClick={[Function]}
+                        title=""
                       >
-                        Not Found
+                        <Consumer>
+                          <Empty
+                            className="ant-empty-small"
+                            image="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNDEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAxKSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDxlbGxpcHNlIGZpbGw9IiNGNUY1RjUiIGN4PSIzMiIgY3k9IjMzIiByeD0iMzIiIHJ5PSI3Ii8+CiAgICA8ZyBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0iI0Q5RDlEOSI+CiAgICAgIDxwYXRoIGQ9Ik01NSAxMi43Nkw0NC44NTQgMS4yNThDNDQuMzY3LjQ3NCA0My42NTYgMCA0Mi45MDcgMEgyMS4wOTNjLS43NDkgMC0xLjQ2LjQ3NC0xLjk0NyAxLjI1N0w5IDEyLjc2MVYyMmg0NnYtOS4yNHoiLz4KICAgICAgPHBhdGggZD0iTTQxLjYxMyAxNS45MzFjMC0xLjYwNS45OTQtMi45MyAyLjIyNy0yLjkzMUg1NXYxOC4xMzdDNTUgMzMuMjYgNTMuNjggMzUgNTIuMDUgMzVoLTQwLjFDMTAuMzIgMzUgOSAzMy4yNTkgOSAzMS4xMzdWMTNoMTEuMTZjMS4yMzMgMCAyLjIyNyAxLjMyMyAyLjIyNyAyLjkyOHYuMDIyYzAgMS42MDUgMS4wMDUgMi45MDEgMi4yMzcgMi45MDFoMTQuNzUyYzEuMjMyIDAgMi4yMzctMS4zMDggMi4yMzctMi45MTN2LS4wMDd6IiBmaWxsPSIjRkFGQUZBIi8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4K"
+                          >
+                            <Consumer>
+                              <LocaleReceiver
+                                componentName="Empty"
+                              >
+                                <div
+                                  className="ant-empty ant-empty-small"
+                                >
+                                  <div
+                                    className="ant-empty-image"
+                                  >
+                                    <img
+                                      alt="No Data"
+                                      src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNDEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAxKSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDxlbGxpcHNlIGZpbGw9IiNGNUY1RjUiIGN4PSIzMiIgY3k9IjMzIiByeD0iMzIiIHJ5PSI3Ii8+CiAgICA8ZyBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0iI0Q5RDlEOSI+CiAgICAgIDxwYXRoIGQ9Ik01NSAxMi43Nkw0NC44NTQgMS4yNThDNDQuMzY3LjQ3NCA0My42NTYgMCA0Mi45MDcgMEgyMS4wOTNjLS43NDkgMC0xLjQ2LjQ3NC0xLjk0NyAxLjI1N0w5IDEyLjc2MVYyMmg0NnYtOS4yNHoiLz4KICAgICAgPHBhdGggZD0iTTQxLjYxMyAxNS45MzFjMC0xLjYwNS45OTQtMi45MyAyLjIyNy0yLjkzMUg1NXYxOC4xMzdDNTUgMzMuMjYgNTMuNjggMzUgNTIuMDUgMzVoLTQwLjFDMTAuMzIgMzUgOSAzMy4yNTkgOSAzMS4xMzdWMTNoMTEuMTZjMS4yMzMgMCAyLjIyNyAxLjMyMyAyLjIyNyAyLjkyOHYuMDIyYzAgMS42MDUgMS4wMDUgMi45MDEgMi4yMzcgMi45MDFoMTQuNzUyYzEuMjMyIDAgMi4yMzctMS4zMDggMi4yMzctMi45MTN2LS4wMDd6IiBmaWxsPSIjRkFGQUZBIi8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4K"
+                                    />
+                                  </div>
+                                  <p
+                                    className="ant-empty-description"
+                                  >
+                                    No Data
+                                  </p>
+                                </div>
+                              </LocaleReceiver>
+                            </Consumer>
+                          </Empty>
+                        </Consumer>
                       </li>
                     </ul>
                   </div>
@@ -1195,7 +1241,9 @@ exports[`Cascader support controlled mode 1`] = `
     value=""
   />
   <i
+    aria-label="icon: close-circle"
     class="anticon anticon-close-circle ant-cascader-picker-clear"
+    tabindex="-1"
   >
     <svg
       aria-hidden="true"
@@ -1212,6 +1260,7 @@ exports[`Cascader support controlled mode 1`] = `
     </svg>
   </i>
   <i
+    aria-label="icon: down"
     class="anticon anticon-down ant-cascader-picker-arrow"
   >
     <svg

@@ -7,6 +7,7 @@ import Meta from './Meta';
 import Tabs from '../tabs';
 import Row from '../row';
 import Col from '../col';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
 import warning from '../_util/warning';
 import { Omit } from '../_util/type';
@@ -15,6 +16,7 @@ export { CardGridProps } from './Grid';
 export { CardMetaProps } from './Meta';
 
 export type CardType = 'inner';
+export type CardSize = 'default' | 'small';
 
 export interface CardTabListType {
   key: string;
@@ -36,6 +38,7 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   children?: React.ReactNode;
   id?: string;
   className?: string;
+  size?: CardSize;
   type?: CardType;
   cover?: React.ReactNode;
   actions?: React.ReactNode[];
@@ -70,7 +73,10 @@ export default class Card extends React.Component<CardProps, CardState> {
         !this.props.noHovering,
         '`noHovering` of Card is deprecated, you can remove it safely or use `hoverable` instead.',
       );
-      warning(!!this.props.noHovering, '`noHovering={false}` of Card is deprecated, use `hoverable` instead.');
+      warning(
+        !!this.props.noHovering,
+        '`noHovering={false}` of Card is deprecated, use `hoverable` instead.',
+      );
     }
   }
 
@@ -104,11 +110,11 @@ export default class Card extends React.Component<CardProps, CardState> {
     if (this.props.onTabChange) {
       this.props.onTabChange(key);
     }
-  }
+  };
 
   saveRef = (node: HTMLDivElement) => {
     this.container = node;
-  }
+  };
 
   isContainGrid() {
     let containGrid;
@@ -125,11 +131,10 @@ export default class Card extends React.Component<CardProps, CardState> {
       return null;
     }
     const actionList = actions.map((action, index) => (
-        <li style={{ width: `${100 / actions.length}%` }} key={`action-${index}`}>
-          <span>{action}</span>
-        </li>
-      ),
-    );
+      <li style={{ width: `${100 / actions.length}%` }} key={`action-${index}`}>
+        <span>{action}</span>
+      </li>
+    ));
     return actionList;
   }
 
@@ -142,12 +147,30 @@ export default class Card extends React.Component<CardProps, CardState> {
     return !!hoverable;
   }
 
-  render() {
+  renderCard = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
-      prefixCls = 'ant-card', className, extra, headStyle = {}, bodyStyle = {}, noHovering, hoverable, title, loading,
-      bordered = true, type, cover, actions, tabList, children, activeTabKey, defaultActiveTabKey, ...others
+      prefixCls: customizePrefixCls,
+      className,
+      extra,
+      headStyle = {},
+      bodyStyle = {},
+      noHovering,
+      hoverable,
+      title,
+      loading,
+      bordered = true,
+      size = 'default',
+      type,
+      cover,
+      actions,
+      tabList,
+      children,
+      activeTabKey,
+      defaultActiveTabKey,
+      ...others
     } = this.props;
 
+    const prefixCls = getPrefixCls('card', customizePrefixCls);
     const classString = classNames(prefixCls, className, {
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-bordered`]: bordered,
@@ -156,17 +179,15 @@ export default class Card extends React.Component<CardProps, CardState> {
       [`${prefixCls}-padding-transition`]: this.updateWiderPaddingCalled,
       [`${prefixCls}-contain-grid`]: this.isContainGrid(),
       [`${prefixCls}-contain-tabs`]: tabList && tabList.length,
+      [`${prefixCls}-${size}`]: size !== 'default',
       [`${prefixCls}-type-${type}`]: !!type,
     });
 
-    const loadingBlockStyle = (bodyStyle.padding === 0 || bodyStyle.padding === '0px')
-      ? { padding: 24 } : undefined;
+    const loadingBlockStyle =
+      bodyStyle.padding === 0 || bodyStyle.padding === '0px' ? { padding: 24 } : undefined;
 
     const loadingBlock = (
-      <div
-        className={`${prefixCls}-loading-content`}
-        style={loadingBlockStyle}
-      >
+      <div className={`${prefixCls}-loading-content`} style={loadingBlockStyle}>
         <Row gutter={8}>
           <Col span={22}>
             <div className={`${prefixCls}-loading-block`} />
@@ -229,16 +250,19 @@ export default class Card extends React.Component<CardProps, CardState> {
     };
 
     let head;
-    const tabs = tabList && tabList.length ? (
-      <Tabs
-        {...extraProps}
-        className={`${prefixCls}-head-tabs`}
-        size="large"
-        onChange={this.onTabChange}
-      >
-        {tabList.map(item => <Tabs.TabPane tab={item.tab} disabled={item.disabled} key={item.key} />)}
-      </Tabs>
-    ) : null;
+    const tabs =
+      tabList && tabList.length ? (
+        <Tabs
+          {...extraProps}
+          className={`${prefixCls}-head-tabs`}
+          size="large"
+          onChange={this.onTabChange}
+        >
+          {tabList.map(item => (
+            <Tabs.TabPane tab={item.tab} disabled={item.disabled} key={item.key} />
+          ))}
+        </Tabs>
+      ) : null;
     if (title || extra || tabs) {
       head = (
         <div className={`${prefixCls}-head`} style={headStyle}>
@@ -256,11 +280,11 @@ export default class Card extends React.Component<CardProps, CardState> {
         {loading ? loadingBlock : children}
       </div>
     );
-    const actionDom = actions && actions.length ?
-      <ul className={`${prefixCls}-actions`}>{this.getAction(actions)}</ul> : null;
-    const divProps = omit(others, [
-      'onTabChange',
-    ]);
+    const actionDom =
+      actions && actions.length ? (
+        <ul className={`${prefixCls}-actions`}>{this.getAction(actions)}</ul>
+      ) : null;
+    const divProps = omit(others, ['onTabChange']);
     return (
       <div {...divProps} className={classString} ref={this.saveRef}>
         {head}
@@ -269,5 +293,9 @@ export default class Card extends React.Component<CardProps, CardState> {
         {actionDom}
       </div>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderCard}</ConfigConsumer>;
   }
 }

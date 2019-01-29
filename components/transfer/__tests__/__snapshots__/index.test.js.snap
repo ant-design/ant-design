@@ -86,11 +86,6 @@ exports[`Transfer should render correctly 1`] = `
           <span />
         </li>
       </ul>
-      <div
-        class="ant-transfer-list-body-not-found"
-      >
-        Not Found
-      </div>
     </div>
   </div>
   <div
@@ -101,6 +96,7 @@ exports[`Transfer should render correctly 1`] = `
       type="button"
     >
       <i
+        aria-label="icon: right"
         class="anticon anticon-right"
       >
         <svg
@@ -124,6 +120,7 @@ exports[`Transfer should render correctly 1`] = `
       type="button"
     >
       <i
+        aria-label="icon: left"
         class="anticon anticon-left"
       >
         <svg
@@ -201,11 +198,6 @@ exports[`Transfer should render correctly 1`] = `
           <span />
         </li>
       </ul>
-      <div
-        class="ant-transfer-list-body-not-found"
-      >
-        Not Found
-      </div>
     </div>
   </div>
 </div>
@@ -277,11 +269,6 @@ exports[`Transfer should show sorted targetkey 1`] = `
           </span>
         </li>
       </ul>
-      <div
-        class="ant-transfer-list-body-not-found"
-      >
-        Not Found
-      </div>
     </div>
   </div>
   <div
@@ -293,6 +280,7 @@ exports[`Transfer should show sorted targetkey 1`] = `
       type="button"
     >
       <i
+        aria-label="icon: right"
         class="anticon anticon-right"
       >
         <svg
@@ -316,6 +304,7 @@ exports[`Transfer should show sorted targetkey 1`] = `
       type="button"
     >
       <i
+        aria-label="icon: left"
         class="anticon anticon-left"
       >
         <svg
@@ -419,11 +408,6 @@ exports[`Transfer should show sorted targetkey 1`] = `
           </span>
         </li>
       </ul>
-      <div
-        class="ant-transfer-list-body-not-found"
-      >
-        Not Found
-      </div>
     </div>
   </div>
 </div>

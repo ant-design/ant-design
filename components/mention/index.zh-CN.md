@@ -34,6 +34,7 @@ title: Mention
 | --- | --- | --- | --- |
 | autoFocus | 自动获取焦点 | boolean | false |
 | defaultValue | 默认值 | ContentState, 可以用 `Mention.toContentState(text)` 把文字转换成 ContentState | null |
+| defaultSuggestions | 默认建议内容 | Array&lt;string\|Mention.Nav> | \[] |
 | disabled | 是否禁用状态. | boolean | false |
 | getSuggestionContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位 | function() | () => document.body |
 | loading | 加载中 | boolean | false |
@@ -41,7 +42,7 @@ title: Mention
 | notFoundContent | 未找到时的内容 | string | '无匹配结果，轻敲空格完成输入' |
 | placeholder | 输入框默认文字 | string | null |
 | placement | 建议框位置，可选 `top` `bottom` | string | 'bottom' |
-| prefix | 触发弹出下拉框的字符 | string or Array<string> | '@' |
+| prefix | 触发弹出下拉框的字符 | string or Array&lt;string> | '@' |
 | readOnly | 是否只读. | boolean | false |
 | suggestions | 建议内容 | Array&lt;string\|Mention.Nav> | \[] |
 | suggestionStyle | 弹出下拉框样式 | object | {} |

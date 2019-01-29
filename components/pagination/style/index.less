@@ -1,8 +1,8 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
-@import "../../input/style/mixin";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
+@import '../../input/style/mixin';
 
-@pagination-prefix-cls: ~"@{ant-prefix}-pagination";
+@pagination-prefix-cls: ~'@{ant-prefix}-pagination';
 
 .@{pagination-prefix-cls} {
   .reset-component;
@@ -15,7 +15,7 @@
   }
 
   &:after {
-    content: " ";
+    content: ' ';
     display: block;
     height: 0;
     clear: both;
@@ -57,7 +57,7 @@
 
     &:focus,
     &:hover {
-      transition: all .3s;
+      transition: all 0.3s;
       border-color: @primary-color;
       a {
         color: @primary-color;
@@ -95,7 +95,7 @@
         color: @primary-color;
         letter-spacing: -1px;
         opacity: 0;
-        transition: all .2s;
+        transition: all 0.2s;
         &-svg {
           top: 0;
           right: 0;
@@ -109,10 +109,11 @@
         position: absolute;
         display: block;
         letter-spacing: 2px;
+        text-indent: 0.13em;
         color: @disabled-color;
         text-align: center;
         opacity: 1;
-        transition: all .2s;
+        transition: all 0.2s;
         top: 0;
         right: 0;
         bottom: 0;
@@ -150,7 +151,7 @@
     height: @pagination-item-size;
     line-height: @pagination-item-size;
     text-align: center;
-    transition: all .3s;
+    transition: all 0.3s;
     display: inline-block;
     vertical-align: middle;
   }
@@ -174,7 +175,7 @@
       border-radius: @border-radius-base;
       outline: none;
       display: block;
-      transition: all .3s;
+      transition: all 0.3s;
       font-size: 12px;
       height: 100%;
       text-align: center;
@@ -260,7 +261,7 @@
       padding: 0 6px;
       height: 100%;
       text-align: center;
-      transition: border-color .3s;
+      transition: border-color 0.3s;
 
       &:hover {
         border-color: @primary-color;

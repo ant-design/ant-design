@@ -49,7 +49,7 @@ Try [babel-plugin-import](https://github.com/ant-design/babel-plugin-import), or
 
 ```jsx
 import Menu from 'antd/lib/menu';
-import 'antd/lib/button/style/css';
+import 'antd/lib/menu/style/css';
 ```
 
 or (ES6 way with tree shaking):
@@ -105,6 +105,10 @@ After 3.9.x [we are using svg icon](/components/icon#svg-icons), so you don't ne
 ### How to extend antd's components?
 
 If you need some features which should not be included in antd, try to extend antd's component with [HOC](https://gist.github.com/sebmarkbage/ef0bf1f338a7182b6775). [more](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.eeu8q01s1)
+
+### How to fix dynamic style when open Content Security Policy (CSP)?
+
+You can config `nonce` by [ConfigProvider](/components/config-provider/#Content-Security-Policy).
 
 ### How to spell Ant Design correctly?
 

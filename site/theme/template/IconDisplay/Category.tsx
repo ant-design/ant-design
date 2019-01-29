@@ -22,21 +22,27 @@ class Category extends React.Component<CategoryProps, CategoryState> {
   };
 
   onCopied = (type: string, text: string) => {
-    message.success(<span><code className="copied-code">{text}</code> copied 🎉</span>);
+    message.success(
+      <span>
+        <code className="copied-code">{text}</code> copied 🎉
+      </span>,
+    );
     this.setState({ justCopied: type }, () => {
       setTimeout(() => {
         this.setState({ justCopied: null });
       }, 2000);
     });
-  }
+  };
 
   render() {
     const {
-      icons, title,
-      theme, newIcons,
+      icons,
+      title,
+      theme,
+      newIcons,
       intl: { messages },
     } = this.props;
-    const items = icons.map((name) => {
+    const items = icons.map(name => {
       return (
         <CopyableIcon
           key={name}
@@ -51,9 +57,7 @@ class Category extends React.Component<CategoryProps, CategoryState> {
     return (
       <div>
         <h3>{messages[`app.docs.components.icon.category.${title}`]}</h3>
-        <ul className={'anticons-list'}>
-          {items}
-        </ul>
+        <ul className={'anticons-list'}>{items}</ul>
       </div>
     );
   }

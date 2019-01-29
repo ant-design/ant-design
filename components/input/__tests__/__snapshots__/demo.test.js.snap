@@ -47,6 +47,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
           >
             <div
               aria-autocomplete="list"
+              aria-controls=""
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection
@@ -71,6 +72,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
                 unselectable="on"
               >
                 <i
+                  aria-label="icon: down"
                   class="anticon anticon-down ant-select-arrow-icon"
                 >
                   <svg
@@ -105,6 +107,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
           >
             <div
               aria-autocomplete="list"
+              aria-controls=""
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection
@@ -129,6 +132,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
                 unselectable="on"
               >
                 <i
+                  aria-label="icon: down"
                   class="anticon anticon-down ant-select-arrow-icon"
                 >
                   <svg
@@ -170,6 +174,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
           class="ant-input-group-addon"
         >
           <i
+            aria-label="icon: setting"
             class="anticon anticon-setting"
           >
             <svg
@@ -193,6 +198,22 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/input/demo/allowClear.md correctly 1`] = `
+<span
+  class="ant-input-affix-wrapper"
+>
+  <input
+    class="ant-input"
+    placeholder="input with clear icon"
+    type="text"
+    value=""
+  />
+  <span
+    class="ant-input-suffix"
+  />
+</span>
+`;
+
 exports[`renders ./components/input/demo/autosize-textarea.md correctly 1`] = `
 <div>
   <textarea
@@ -214,6 +235,7 @@ exports[`renders ./components/input/demo/basic.md correctly 1`] = `
   class="ant-input"
   placeholder="Basic usage"
   type="text"
+  value=""
 />
 `;
 
@@ -267,6 +289,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
+        aria-controls=""
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -291,6 +314,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           unselectable="on"
         >
           <i
+            aria-label="icon: down"
             class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
@@ -326,6 +350,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
+        aria-controls=""
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -350,6 +375,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           unselectable="on"
         >
           <i
+            aria-label="icon: down"
             class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
@@ -389,6 +415,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           unselectable="unselectable"
         >
           <i
+            aria-label="icon: up"
             class="anticon anticon-up ant-input-number-handler-up-inner"
           >
             <svg
@@ -414,6 +441,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           unselectable="unselectable"
         >
           <i
+            aria-label="icon: down"
             class="anticon anticon-down ant-input-number-handler-down-inner"
           >
             <svg
@@ -468,6 +496,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           value=""
         />
         <i
+          aria-label="icon: calendar"
           class="anticon anticon-calendar ant-calendar-picker-icon"
         >
           <svg
@@ -496,6 +525,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
+        aria-controls=""
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -520,6 +550,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           unselectable="on"
         >
           <i
+            aria-label="icon: down"
             class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
@@ -544,6 +575,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
+        aria-controls=""
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -568,6 +600,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           unselectable="on"
         >
           <i
+            aria-label="icon: down"
             class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
@@ -597,6 +630,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
+        aria-controls=""
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -621,6 +655,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           unselectable="on"
         >
           <i
+            aria-label="icon: down"
             class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
@@ -645,6 +680,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       placeholder="Minimum"
       style="width:100px;text-align:center"
       type="text"
+      value=""
     />
     <input
       class="ant-input ant-input-disabled"
@@ -652,12 +688,14 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       placeholder="~"
       style="width:30px;border-left:0;pointer-events:none;background-color:#fff"
       type="text"
+      value=""
     />
     <input
       class="ant-input"
       placeholder="Maximum"
       style="width:100px;text-align:center;border-left:0"
       type="text"
+      value=""
     />
   </span>
   <br />
@@ -669,6 +707,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
+        aria-controls=""
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -693,6 +732,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           unselectable="on"
         >
           <i
+            aria-label="icon: down"
             class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
@@ -718,6 +758,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
+        aria-controls=""
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -761,6 +802,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           unselectable="on"
         >
           <i
+            aria-label="icon: down"
             class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
@@ -791,6 +833,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
+        aria-controls=""
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -815,6 +858,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           unselectable="on"
         >
           <i
+            aria-label="icon: down"
             class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
@@ -851,6 +895,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         value=""
       />
       <i
+        aria-label="icon: down"
         class="anticon anticon-down ant-cascader-picker-arrow"
       >
         <svg
@@ -872,6 +917,43 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/input/demo/password-input.md correctly 1`] = `
+<span
+  class="ant-input-password ant-input-affix-wrapper"
+>
+  <input
+    action="click"
+    class="ant-input"
+    placeholder="input password"
+    type="password"
+    value=""
+  />
+  <span
+    class="ant-input-suffix"
+  >
+    <i
+      aria-label="icon: eye"
+      class="anticon anticon-eye ant-input-password-icon"
+      tabindex="-1"
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="eye"
+        fill="currentColor"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 0 0 0 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+        />
+      </svg>
+    </i>
+  </span>
+</span>
+`;
+
 exports[`renders ./components/input/demo/presuffix.md correctly 1`] = `
 <span
   class="ant-input-affix-wrapper"
@@ -880,6 +962,7 @@ exports[`renders ./components/input/demo/presuffix.md correctly 1`] = `
     class="ant-input-prefix"
   >
     <i
+      aria-label="icon: user"
       class="anticon anticon-user"
       style="color:rgba(0,0,0,.25)"
     >
@@ -917,12 +1000,15 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
       class="ant-input"
       placeholder="input search text"
       type="text"
+      value=""
     />
     <span
       class="ant-input-suffix"
     >
       <i
+        aria-label="icon: search"
         class="anticon anticon-search ant-input-search-icon"
+        tabindex="-1"
       >
         <svg
           aria-hidden="true"
@@ -943,61 +1029,72 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
   <br />
   <br />
   <span
-    class="ant-input-search ant-input-search-enter-button ant-input-affix-wrapper"
+    class="ant-input-search ant-input-search-enter-button ant-input-group-wrapper"
   >
-    <input
-      class="ant-input"
-      placeholder="input search text"
-      type="text"
-    />
     <span
-      class="ant-input-suffix"
+      class="ant-input-wrapper ant-input-group"
     >
-      <button
-        class="ant-btn ant-input-search-button ant-btn-primary"
-        type="button"
+      <input
+        class="ant-input"
+        placeholder="input search text"
+        type="text"
+        value=""
+      />
+      <span
+        class="ant-input-group-addon"
       >
-        <i
-          class="anticon anticon-search"
+        <button
+          class="ant-btn ant-input-search-button ant-btn-primary"
+          type="button"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="search"
-            fill="currentColor"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <i
+            aria-label="icon: search"
+            class="anticon anticon-search"
           >
-            <path
-              d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-            />
-          </svg>
-        </i>
-      </button>
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="search"
+              fill="currentColor"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+              />
+            </svg>
+          </i>
+        </button>
+      </span>
     </span>
   </span>
   <br />
   <br />
   <span
-    class="ant-input-search ant-input-search-enter-button ant-input-search-large ant-input-affix-wrapper ant-input-affix-wrapper-lg"
+    class="ant-input-search ant-input-search-enter-button ant-input-search-large ant-input-group-wrapper ant-input-group-wrapper-lg"
   >
-    <input
-      class="ant-input ant-input-lg"
-      placeholder="input search text"
-      type="text"
-    />
     <span
-      class="ant-input-suffix"
+      class="ant-input-wrapper ant-input-group"
     >
-      <button
-        class="ant-btn ant-input-search-button ant-btn-primary ant-btn-lg"
-        type="button"
+      <input
+        class="ant-input ant-input-lg"
+        placeholder="input search text"
+        type="text"
+        value=""
+      />
+      <span
+        class="ant-input-group-addon"
       >
-        <span>
-          Search
-        </span>
-      </button>
+        <button
+          class="ant-btn ant-input-search-button ant-btn-primary ant-btn-lg"
+          type="button"
+        >
+          <span>
+            Search
+          </span>
+        </button>
+      </span>
     </span>
   </span>
 </div>
@@ -1011,16 +1108,19 @@ exports[`renders ./components/input/demo/size.md correctly 1`] = `
     class="ant-input ant-input-lg"
     placeholder="large size"
     type="text"
+    value=""
   />
   <input
     class="ant-input"
     placeholder="default size"
     type="text"
+    value=""
   />
   <input
     class="ant-input ant-input-sm"
     placeholder="small size"
     type="text"
+    value=""
   />
 </div>
 `;

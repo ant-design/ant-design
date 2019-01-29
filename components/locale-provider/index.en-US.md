@@ -14,8 +14,10 @@ title: LocaleProvider
 ```jsx
 import { LocaleProvider } from 'antd';
 import fr_FR from 'antd/lib/locale-provider/fr_FR';
+import moment from 'moment';
 import 'moment/locale/fr';
 
+moment.locale('fr');
 ...
 
 return <LocaleProvider locale={fr_FR}><App /></LocaleProvider>;

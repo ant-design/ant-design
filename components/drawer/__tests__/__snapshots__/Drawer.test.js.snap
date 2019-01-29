@@ -21,14 +21,15 @@ exports[`Drawer className is test_drawer 1`] = `
           class="ant-drawer-wrapper-body"
           style="overflow:auto;height:100%;opacity:0;transition:opacity .3s"
         >
-          <button
-            aria-label="Close"
-            class="ant-drawer-close"
+          <div
+            class="ant-drawer-header-no-title"
           >
-            <span
-              class="ant-drawer-close-x"
+            <button
+              aria-label="Close"
+              class="ant-drawer-close"
             >
               <i
+                aria-label="icon: close"
                 class="anticon anticon-close"
               >
                 <svg
@@ -45,8 +46,8 @@ exports[`Drawer className is test_drawer 1`] = `
                   />
                 </svg>
               </i>
-            </span>
-          </button>
+            </button>
+          </div>
           <div
             class="ant-drawer-body"
           >
@@ -113,14 +114,15 @@ exports[`Drawer destroyOnClose is true 1`] = `
           class="ant-drawer-wrapper-body"
           style="overflow:auto;height:100%;opacity:0;transition:opacity .3s"
         >
-          <button
-            aria-label="Close"
-            class="ant-drawer-close"
+          <div
+            class="ant-drawer-header-no-title"
           >
-            <span
-              class="ant-drawer-close-x"
+            <button
+              aria-label="Close"
+              class="ant-drawer-close"
             >
               <i
+                aria-label="icon: close"
                 class="anticon anticon-close"
               >
                 <svg
@@ -137,8 +139,8 @@ exports[`Drawer destroyOnClose is true 1`] = `
                   />
                 </svg>
               </i>
-            </span>
-          </button>
+            </button>
+          </div>
           <div
             class="ant-drawer-body"
           >
@@ -180,15 +182,12 @@ exports[`Drawer have a title 1`] = `
             >
               Test Title
             </div>
-          </div>
-          <button
-            aria-label="Close"
-            class="ant-drawer-close"
-          >
-            <span
-              class="ant-drawer-close-x"
+            <button
+              aria-label="Close"
+              class="ant-drawer-close"
             >
               <i
+                aria-label="icon: close"
                 class="anticon anticon-close"
               >
                 <svg
@@ -205,8 +204,8 @@ exports[`Drawer have a title 1`] = `
                   />
                 </svg>
               </i>
-            </span>
-          </button>
+            </button>
+          </div>
           <div
             class="ant-drawer-body"
           >
@@ -240,14 +239,15 @@ exports[`Drawer render correctly 1`] = `
           class="ant-drawer-wrapper-body"
           style="overflow:auto;height:100%"
         >
-          <button
-            aria-label="Close"
-            class="ant-drawer-close"
+          <div
+            class="ant-drawer-header-no-title"
           >
-            <span
-              class="ant-drawer-close-x"
+            <button
+              aria-label="Close"
+              class="ant-drawer-close"
             >
               <i
+                aria-label="icon: close"
                 class="anticon anticon-close"
               >
                 <svg
@@ -264,8 +264,8 @@ exports[`Drawer render correctly 1`] = `
                   />
                 </svg>
               </i>
-            </span>
-          </button>
+            </button>
+          </div>
           <div
             class="ant-drawer-body"
           >
@@ -298,14 +298,15 @@ exports[`Drawer render top drawer 1`] = `
         <div
           class="ant-drawer-wrapper-body"
         >
-          <button
-            aria-label="Close"
-            class="ant-drawer-close"
+          <div
+            class="ant-drawer-header-no-title"
           >
-            <span
-              class="ant-drawer-close-x"
+            <button
+              aria-label="Close"
+              class="ant-drawer-close"
             >
               <i
+                aria-label="icon: close"
                 class="anticon anticon-close"
               >
                 <svg
@@ -322,8 +323,8 @@ exports[`Drawer render top drawer 1`] = `
                   />
                 </svg>
               </i>
-            </span>
-          </button>
+            </button>
+          </div>
           <div
             class="ant-drawer-body"
           >

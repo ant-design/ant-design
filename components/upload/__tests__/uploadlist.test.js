@@ -7,19 +7,22 @@ import { setup, teardown } from './mock';
 
 const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
 
-const fileList = [{
-  uid: '-1',
-  name: 'xxx.png',
-  status: 'done',
-  url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-  thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
-}, {
-  uid: '-2',
-  name: 'yyy.png',
-  status: 'done',
-  url: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
-  thumbUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-}];
+const fileList = [
+  {
+    uid: '-1',
+    name: 'xxx.png',
+    status: 'done',
+    url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+    thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
+  },
+  {
+    uid: '-2',
+    name: 'yyy.png',
+    status: 'done',
+    url: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
+    thumbUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+  },
+];
 
 describe('Upload List', () => {
   beforeEach(() => setup());
@@ -30,7 +33,7 @@ describe('Upload List', () => {
     const wrapper = mount(
       <Upload defaultFileList={fileList} listType="picture">
         <button type="button">upload</button>
-      </Upload>
+      </Upload>,
     );
     fileList.forEach((file, i) => {
       const linkNode = wrapper.find('.ant-upload-list-item-thumbnail').at(i);
@@ -42,32 +45,39 @@ describe('Upload List', () => {
 
   // https://github.com/ant-design/ant-design/issues/7269
   it('should remove correct item when uid is 0', async () => {
-    const list = [{
-      uid: '0',
-      name: 'xxx.png',
-      status: 'done',
-      url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-      thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
-    }, {
-      uid: '1',
-      name: 'xxx.png',
-      status: 'done',
-      url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-      thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
-    }];
+    const list = [
+      {
+        uid: '0',
+        name: 'xxx.png',
+        status: 'done',
+        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+        thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
+      },
+      {
+        uid: '1',
+        name: 'xxx.png',
+        status: 'done',
+        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+        thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
+      },
+    ];
     const wrapper = mount(
       <Upload defaultFileList={list}>
         <button type="button">upload</button>
-      </Upload>
+      </Upload>,
     );
     expect(wrapper.find('.ant-upload-list-item').length).toBe(2);
-    wrapper.find('.ant-upload-list-item').at(0).find('.anticon-close').simulate('click');
+    wrapper
+      .find('.ant-upload-list-item')
+      .at(0)
+      .find('.anticon-close')
+      .simulate('click');
     await delay(400);
     wrapper.update();
     expect(wrapper.find('.ant-upload-list-item').hostNodes().length).toBe(1);
   });
 
-  it('should be uploading when upload a file', (done) => {
+  it('should be uploading when upload a file', done => {
     let wrapper;
     const onChange = ({ file }) => {
       if (file.status === 'uploading') {
@@ -85,18 +95,16 @@ describe('Upload List', () => {
         customRequest={successRequest}
       >
         <button type="button">upload</button>
-      </Upload>
+      </Upload>,
     );
     wrapper.find('input').simulate('change', {
       target: {
-        files: [
-          { name: 'foo.png' },
-        ],
+        files: [{ name: 'foo.png' }],
       },
     });
   });
 
-  it('handle error', (done) => {
+  it('handle error', done => {
     let wrapper;
     const onChange = ({ file }) => {
       if (file.status !== 'uploading') {
@@ -111,13 +119,11 @@ describe('Upload List', () => {
         customRequest={errorRequest}
       >
         <button type="button">upload</button>
-      </Upload>
+      </Upload>,
     );
     wrapper.find('input').simulate('change', {
       target: {
-        files: [
-          { name: 'foo.png' },
-        ],
+        files: [{ name: 'foo.png' }],
       },
     });
   });
@@ -132,14 +138,12 @@ describe('Upload List', () => {
         beforeUpload={() => false}
       >
         <button type="button">upload</button>
-      </Upload>
+      </Upload>,
     );
 
     wrapper.find('input').simulate('change', {
       target: {
-        files: [
-          { name: 'foo.png' },
-        ],
+        files: [{ name: 'foo.png' }],
       },
     });
 
@@ -150,17 +154,19 @@ describe('Upload List', () => {
   it('should support onPreview', () => {
     const handlePreview = jest.fn();
     const wrapper = mount(
-      <Upload
-        listType="picture-card"
-        defaultFileList={fileList}
-        onPreview={handlePreview}
-      >
+      <Upload listType="picture-card" defaultFileList={fileList} onPreview={handlePreview}>
         <button type="button">upload</button>
-      </Upload>
+      </Upload>,
     );
-    wrapper.find('.anticon-eye-o').at(0).simulate('click');
+    wrapper
+      .find('.anticon-eye-o')
+      .at(0)
+      .simulate('click');
     expect(handlePreview).toBeCalledWith(fileList[0]);
-    wrapper.find('.anticon-eye-o').at(1).simulate('click');
+    wrapper
+      .find('.anticon-eye-o')
+      .at(1)
+      .simulate('click');
     expect(handlePreview).toBeCalledWith(fileList[1]);
   });
 
@@ -175,11 +181,17 @@ describe('Upload List', () => {
         onChange={handleChange}
       >
         <button type="button">upload</button>
-      </Upload>
+      </Upload>,
     );
-    wrapper.find('.anticon-delete').at(0).simulate('click');
+    wrapper
+      .find('.anticon-delete')
+      .at(0)
+      .simulate('click');
     expect(handleRemove).toBeCalledWith(fileList[0]);
-    wrapper.find('.anticon-delete').at(1).simulate('click');
+    wrapper
+      .find('.anticon-delete')
+      .at(1)
+      .simulate('click');
     expect(handleRemove).toBeCalledWith(fileList[1]);
     await delay(0);
     expect(handleChange.mock.calls.length).toBe(2);
@@ -192,13 +204,9 @@ describe('Upload List', () => {
     delete newFile.thumbUrl;
     newFileList.push(newFile);
     const wrapper = mount(
-      <Upload
-        listType="picture-card"
-        defaultFileList={newFileList}
-        onPreview={handlePreview}
-      >
+      <Upload listType="picture-card" defaultFileList={newFileList} onPreview={handlePreview}>
         <button type="button">upload</button>
-      </Upload>
+      </Upload>,
     );
     wrapper.setState({});
     await delay(0);
@@ -268,18 +276,16 @@ describe('Upload List', () => {
         name: 'image',
         status: 'done',
         uid: '-12',
-        url: 'https://publish-pic-cpu.baidu.com/1296beb3-50d9-4276-885f-52645cbb378e.jpeg@w_228%2ch_152',
+        url:
+          'https://publish-pic-cpu.baidu.com/1296beb3-50d9-4276-885f-52645cbb378e.jpeg@w_228%2ch_152',
         type: 'image',
       },
     ];
 
     const wrapper = mount(
-      <Upload
-        listType="picture"
-        defaultFileList={list}
-      >
+      <Upload listType="picture" defaultFileList={list}>
         <button type="button">upload</button>
-      </Upload>
+      </Upload>,
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
@@ -289,14 +295,18 @@ describe('Upload List', () => {
     let errors;
     class TestForm extends React.Component {
       handleSubmit = () => {
-        const { form: { validateFields } } = this.props;
-        validateFields((err) => {
+        const {
+          form: { validateFields },
+        } = this.props;
+        validateFields(err => {
           errors = err;
         });
-      }
+      };
 
       render() {
-        const { form: { getFieldDecorator } } = this.props;
+        const {
+          form: { getFieldDecorator },
+        } = this.props;
         return (
           <Form onSubmit={this.handleSubmit}>
             <Form.Item>
@@ -316,11 +326,9 @@ describe('Upload List', () => {
                   },
                 ],
               })(
-                <Upload
-                  beforeUpload={() => false}
-                >
+                <Upload beforeUpload={() => false}>
                   <button type="button">upload</button>
-                </Upload>
+                </Upload>,
               )}
             </Form.Item>
           </Form>
@@ -335,9 +343,7 @@ describe('Upload List', () => {
 
     wrapper.find('input').simulate('change', {
       target: {
-        files: [
-          { name: 'foo.png' },
-        ],
+        files: [{ name: 'foo.png' }],
       },
     });
     wrapper.find(Form).simulate('submit');

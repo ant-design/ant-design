@@ -16,11 +16,9 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 
 ## API
 
-> You can consult [jQuery-File-Upload](https://github.com/blueimp/jQuery-File-Upload/wiki) about how to implement server side upload interface.
-
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| accept | File types that can be accepted. See [input accept Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-accept) | string | - |
+| accept | File types that can be accepted. See [input accept Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept) | string | - |
 | action | Uploading URL | string\|(file) => `Promise` | - |
 | directory | support upload whole directory ([caniuse](https://caniuse.com/#feat=input-file-directory)) | boolean | false |
 | beforeUpload | Hook function which will be executed before uploading. Uploading will be stopped with `false` or a rejected Promise returned. **Warning：this function is not supported in IE9**。 | (file, fileList) => `boolean | Promise` | - |
@@ -43,7 +41,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 
 ### onChange
 
-> The function will be called when uploading is in progress, completed or failed
+> The function will be called when uploading is in progress, completed or failed.
 
 When uploading state change, it returns:
 
@@ -70,14 +68,21 @@ When uploading state change, it returns:
 2. `fileList` current list of files
 3. `event` response from server, including uploading progress, supported by advanced browsers.
 
-## show download links
+## FAQ
 
-Please set property `url` of property `fileList` to control content of link
+### How to implement upload server side?
 
-## customRequest
+- You can consult [jQuery-File-Upload](https://github.com/blueimp/jQuery-File-Upload/wiki#server-side) about how to implement server side upload interface.
+- There is a mock example of [express](https://github.com/react-component/upload/blob/master/server.js) in rc-upload.
 
-- <https://github.com/react-component/upload#customrequest>
+### I want to display download links.
 
-## IE note
+Please set property `url` of each item in `fileList` to control content of link.
 
-- <https://github.com/react-component/upload#ie89-note>
+### How to use `customRequest`?
+
+See <https://github.com/react-component/upload#customrequest>.
+
+### IE8/9 Note
+
+See <https://github.com/react-component/upload#ie89-note>.

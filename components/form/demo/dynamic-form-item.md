@@ -18,8 +18,6 @@ import {
   Form, Input, Icon, Button,
 } from 'antd';
 
-const FormItem = Form.Item;
-
 let id = 0;
 
 class DynamicFieldSet extends React.Component {
@@ -80,7 +78,7 @@ class DynamicFieldSet extends React.Component {
     getFieldDecorator('keys', { initialValue: [] });
     const keys = getFieldValue('keys');
     const formItems = keys.map((k, index) => (
-      <FormItem
+      <Form.Item
         {...(index === 0 ? formItemLayout : formItemLayoutWithOutLabel)}
         label={index === 0 ? 'Passengers' : ''}
         required={false}
@@ -104,25 +102,25 @@ class DynamicFieldSet extends React.Component {
             onClick={() => this.remove(k)}
           />
         ) : null}
-      </FormItem>
+      </Form.Item>
     ));
     return (
       <Form onSubmit={this.handleSubmit}>
         {formItems}
-        <FormItem {...formItemLayoutWithOutLabel}>
+        <Form.Item {...formItemLayoutWithOutLabel}>
           <Button type="dashed" onClick={this.add} style={{ width: '60%' }}>
             <Icon type="plus" /> Add field
           </Button>
-        </FormItem>
-        <FormItem {...formItemLayoutWithOutLabel}>
+        </Form.Item>
+        <Form.Item {...formItemLayoutWithOutLabel}>
           <Button type="primary" htmlType="submit">Submit</Button>
-        </FormItem>
+        </Form.Item>
       </Form>
     );
   }
 }
 
-const WrappedDynamicFieldSet = Form.create()(DynamicFieldSet);
+const WrappedDynamicFieldSet = Form.create({ name: 'dynamic_form_item' })(DynamicFieldSet);
 ReactDOM.render(<WrappedDynamicFieldSet />, mountNode);
 ````
 

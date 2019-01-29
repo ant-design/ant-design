@@ -4,14 +4,14 @@
   }
 }
 
-[ant-click-animating],
-[ant-click-animating-without-extra-node] {
+[ant-click-animating='true'],
+[ant-click-animating-without-extra-node='true'] {
   position: relative;
 }
 
-[ant-click-animating-without-extra-node]:after,
+[ant-click-animating-without-extra-node='true']:after,
 .ant-click-animating-node {
-  content: "";
+  content: '';
   position: absolute;
   top: -1px;
   left: -1px;
@@ -20,7 +20,7 @@
   border-radius: inherit;
   border: 0 solid @primary-color;
   opacity: 0.2;
-  animation: fadeEffect 2s @ease-out-circ, waveEffect .4s @ease-out-circ;
+  animation: fadeEffect 2s @ease-out-circ, waveEffect 0.4s @ease-out-circ;
   animation-fill-mode: forwards;
   display: block;
   pointer-events: none;

@@ -47,21 +47,19 @@ function asciiSort(prev, next) {
 // follow the alphabet order
 function alphabetSort(nodes) {
   // use toLowerCase to keep `case insensitive`
-  return nodes.sort((...comparison) => (
-    asciiSort(...comparison.map(val => getCellValue(val).toLowerCase()))
-  ));
+  return nodes.sort((...comparison) =>
+    asciiSort(...comparison.map(val => getCellValue(val).toLowerCase())),
+  );
 }
 
 function sizeSort(nodes) {
-  return nodes.sort((...comparison) => asciiSort(
-    ...comparison.map(val => (
-      sizeBreakPoints.indexOf(getCellValue(val).toLowerCase())
-    ))
-  ));
+  return nodes.sort((...comparison) =>
+    asciiSort(...comparison.map(val => sizeBreakPoints.indexOf(getCellValue(val).toLowerCase()))),
+  );
 }
 
 function sort(ast) {
-  ast.children.forEach((child) => {
+  ast.children.forEach(child => {
     const staticProps = [];
     // prefix with `on`
     const dynamicProps = [];
@@ -72,7 +70,7 @@ function sort(ast) {
     if (child.type === 'table') {
       // slice will create new array, so sort can affect the original array.
       // slice(1) cut down the thead
-      child.children.slice(1).forEach((node) => {
+      child.children.slice(1).forEach(node => {
         const value = getCellValue(node);
         if (groups.isDynamic(value)) {
           dynamicProps.push(node);
@@ -106,12 +104,12 @@ program
     '-f, --file [file]',
     'Specify which file to be transformed',
     // default value
-    'components/**/index.+(zh-CN|en-US).md'
+    'components/**/index.+(zh-CN|en-US).md',
   )
   .parse(process.argv);
 
 function sortMiddleware(ctx) {
-  Object.keys(ctx.files).forEach((filename) => {
+  Object.keys(ctx.files).forEach(filename => {
     const content = ctx.fileContents(filename);
     ctx.writeContents(filename, sortAPI(content));
   });
@@ -124,9 +122,7 @@ stream
   .dest('.')
   .then(() => {
     /* eslint-disable no-console */
-    console.log(
-      `${style.green.open}sort ant-design api successfully!${style.green.close}`
-    );
+    console.log(`${style.green.open}sort ant-design api successfully!${style.green.close}`);
     /* eslint-enable no-console */
   });
 

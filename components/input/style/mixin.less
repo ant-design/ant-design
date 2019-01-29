@@ -1,5 +1,5 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
 @input-affix-width: 19px;
 
@@ -18,16 +18,16 @@
 // input status
 // == when focus or actived
 .active(@color: @outline-color) {
-  border-color: ~`colorPalette("@{color}", 5)`;
+  border-color: ~`colorPalette('@{color}', 5) `;
   outline: 0;
   box-shadow: @input-outline-offset @outline-blur-size @outline-width fade(@color, 20%);
-  border-right-width: 1px !important;
+  border-right-width: @border-width-base !important;
 }
 
 // == when hoverd
 .hover(@color: @input-hover-border-color) {
-  border-color: ~`colorPalette("@{color}", 5)`;
-  border-right-width: 1px !important;
+  border-color: ~`colorPalette('@{color}', 5) `;
+  border-right-width: @border-width-base !important;
 }
 
 .disabled() {
@@ -55,7 +55,7 @@
   border: @border-width-base @border-style-base @input-border-color;
   border-radius: @border-radius-base;
   .placeholder(); // Reset placeholder
-  transition: all .3s;
+  transition: all 0.3s;
 
   &:hover {
     .hover();
@@ -74,7 +74,7 @@
     max-width: 100%; // prevent textearea resize from coming out of its container
     height: auto;
     vertical-align: bottom;
-    transition: all .3s, height 0s;
+    transition: all 0.3s, height 0s;
     min-height: @input-height-base;
   }
 
@@ -97,13 +97,13 @@
   width: 100%;
 
   // Undo padding and float of grid classes
-  &[class*="col-"] {
+  &[class*='col-'] {
     float: none;
     padding-left: 0;
     padding-right: 0;
   }
 
-  > [class*="col-"] {
+  > [class*='col-'] {
     padding-right: 8px;
     &:last-child {
       padding-right: 0;
@@ -156,7 +156,7 @@
     border: @border-width-base @border-style-base @input-border-color;
     border-radius: @border-radius-base;
     position: relative;
-    transition: all .3s;
+    transition: all 0.3s;
 
     // Reset Select's style in addon
     .@{ant-prefix}-select {
@@ -181,7 +181,7 @@
     // https://github.com/ant-design/ant-design/issues/3714
     > i:only-child:after {
       position: absolute;
-      content: "";
+      content: '';
       top: 0;
       left: 0;
       right: 0;
@@ -267,28 +267,26 @@
     &-wrap,
     > .@{inputClass} {
       &:not(:first-child):not(:last-child) {
-        border-right-width: 1px;
-        border-right-color: transparent;
+        border-right-width: @border-width-base;
         &:hover {
-          .hover();
+          z-index: 1;
         }
         &:focus {
-          .active();
+          z-index: 1;
         }
       }
     }
 
     & > * {
       border-radius: 0;
-      border-right-width: 0;
       vertical-align: top; // https://github.com/ant-design/ant-design-pro/issues/139
       float: none;
       display: inline-block;
     }
 
-    // https://github.com/ant-design/ant-design/issues/11863
-    & > span:not(:last-child) > .@{inputClass} {
-      border-right-width: 0;
+    & > *:not(:last-child) {
+      border-right-width: @border-width-base;
+      margin-right: -@border-width-base;
     }
 
     // Undo float for .ant-input-group .ant-input
@@ -304,13 +302,12 @@
     & > .@{ant-prefix}-mention-wrapper .@{ant-prefix}-mention-editor,
     & > .@{ant-prefix}-time-picker .@{ant-prefix}-time-picker-input {
       border-radius: 0;
-      border-right-width: 1px;
-      border-right-color: transparent;
+      border-right-width: @border-width-base;
       &:hover {
-        .hover();
+        z-index: 1;
       }
       &:focus {
-        .active();
+        z-index: 1;
       }
     }
 
@@ -335,17 +332,7 @@
     & > .@{ant-prefix}-time-picker:last-child .@{ant-prefix}-time-picker-input {
       border-top-right-radius: @border-radius-base;
       border-bottom-right-radius: @border-radius-base;
-      border-right-width: 1px;
-      border-right-color: @input-border-color;
-      &:hover {
-        .hover();
-      }
-      &:focus {
-        .active();
-        .@{ant-prefix}-cascader-input {
-          .active();
-        }
-      }
+      border-right-width: @border-width-base;
     }
 
     // https://github.com/ant-design/ant-design/issues/12493
@@ -365,13 +352,14 @@
   }
 
   .@{inputClass} {
-    position: static;
+    position: relative;
   }
 
   .@{inputClass}-prefix,
   .@{inputClass}-suffix {
     position: absolute;
     top: 50%;
+    z-index: 2;
     transform: translateY(-50%);
     line-height: 0;
     color: @input-color;

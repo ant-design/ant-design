@@ -20,11 +20,12 @@ title: Drawer
 | --- | --- | --- | --- |
 | closable | 是否显示右上角的关闭按钮 | boolean | true |
 | destroyOnClose | 关闭时销毁 Drawer 里的子元素 | boolean | false |
-| getContainer | 指定 Drawer 挂载的 HTML 节点 | HTMLElement \| `() => HTMLElement` \| selectors  | 'body' |
+| getContainer | 指定 Drawer 挂载的 HTML 节点 | HTMLElement \| `() => HTMLElement` \| Selectors | 'body' |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | true |
 | mask | 是否展示遮罩 | Boolean | true |
 | maskStyle | 遮罩样式 | object | {} |
-| style | 可用于设置 Drawer 的样式，调整浮层位置等 | object | - |
+| style | 可用于设置 Drawer 最外层容器的样式 | object | - |
+| bodyStyle | 可用于设置 Drawer 的样式，调整浮层位置等 | object | - |
 | title | 标题 | string \| ReactNode | - |
 | visible | Drawer 是否可见 | boolean | - |
 | width | 宽度 | string \| number | 256 |

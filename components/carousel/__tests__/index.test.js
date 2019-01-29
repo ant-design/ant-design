@@ -12,7 +12,11 @@ describe('Carousel', () => {
   });
 
   it('should has innerSlider', () => {
-    const wrapper = mount(<Carousel><div /></Carousel>);
+    const wrapper = mount(
+      <Carousel>
+        <div />
+      </Carousel>,
+    );
     const { innerSlider } = wrapper.instance();
     const innerSliderFromRefs = wrapper.instance().slick.innerSlider;
     expect(innerSlider).toBe(innerSliderFromRefs);
@@ -20,7 +24,13 @@ describe('Carousel', () => {
   });
 
   it('should has prev, next and go function', () => {
-    const wrapper = mount(<Carousel><div>1</div><div>2</div><div>3</div></Carousel>);
+    const wrapper = mount(
+      <Carousel>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+      </Carousel>,
+    );
     const { prev, next, goTo } = wrapper.instance();
     expect(typeof prev).toBe('function');
     expect(typeof next).toBe('function');
@@ -39,7 +49,13 @@ describe('Carousel', () => {
 
   it('should trigger autoPlay after window resize', async () => {
     jest.useRealTimers();
-    const wrapper = mount(<Carousel autoplay><div>1</div><div>2</div><div>3</div></Carousel>);
+    const wrapper = mount(
+      <Carousel autoplay>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+      </Carousel>,
+    );
     const spy = jest.spyOn(wrapper.instance().slick.innerSlider, 'autoPlay');
     window.resizeTo(1000);
     expect(spy).not.toBeCalled();
@@ -48,7 +64,13 @@ describe('Carousel', () => {
   });
 
   it('cancel resize listener when unmount', async () => {
-    const wrapper = mount(<Carousel autoplay><div>1</div><div>2</div><div>3</div></Carousel>);
+    const wrapper = mount(
+      <Carousel autoplay>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+      </Carousel>,
+    );
     const { onWindowResized } = wrapper.instance();
     const spy = jest.spyOn(wrapper.instance().onWindowResized, 'cancel');
     const spy2 = jest.spyOn(window, 'removeEventListener');

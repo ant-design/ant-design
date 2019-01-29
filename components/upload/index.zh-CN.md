@@ -17,14 +17,12 @@ title: Upload
 
 ## API
 
-> 服务端上传接口实现可以参考 [jQuery-File-Upload](https://github.com/blueimp/jQuery-File-Upload/wiki)。
-
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| accept | 接受上传的文件类型, 详见 [input accept Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-accept) | string | 无 |
+| accept | 接受上传的文件类型, 详见 [input accept Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept) | string | 无 |
 | action | 上传的地址 | string\|(file) => `Promise` | 无 |
 | directory | 支持上传文件夹（[caniuse](https://caniuse.com/#feat=input-file-directory)）| boolean | false |
-| beforeUpload | 上传文件之前的钩子，参数为上传的文件，若返回 `false` 则停止上传。支持返回一个 Promise 对象，Promise 对象 reject 时则停止上传，resolve 时开始上传。**注意：IE9 不支持该方法**。 | (file, fileList) => `boolean | Promise` | 无 |
+| beforeUpload | 上传文件之前的钩子，参数为上传的文件，若返回 `false` 则停止上传。支持返回一个 Promise 对象，Promise 对象 reject 时则停止上传，resolve 时开始上传（ resolve 传入 `File` 或 `Blob` 对象则上传 resolve 传入对象）。**注意：IE9 不支持该方法**。 | (file, fileList) => `boolean | Promise` | 无 |
 | customRequest | 通过覆盖默认的上传行为，可以自定义自己的上传实现 | Function | 无 |
 | data | 上传所需参数或返回上传参数的方法 | object\|(file) => object | 无 |
 | defaultFileList | 默认已经上传的文件列表 | object\[] | 无 |
@@ -71,14 +69,21 @@ title: Upload
 2. `fileList` 当前的文件列表。
 3. `event` 上传中的服务端响应内容，包含了上传进度等信息，高级浏览器支持。
 
-## 显示下载链接
+## FAQ
+
+### 服务端如何实现？
+
+- 服务端上传接口实现可以参考 [jQuery-File-Upload](https://github.com/blueimp/jQuery-File-Upload/wiki#server-side)。
+- 如果要做本地 mock 可以参考这个 [express 的例子](https://github.com/react-component/upload/blob/master/server.js)。
+
+### 如何显示下载链接？
 
 请使用 fileList 属性设置数组项的 url 属性进行展示控制。
 
-## customRequest
+### `customRequest` 怎么使用？
 
-- <https://github.com/react-component/upload#customrequest>
+请参考 <https://github.com/react-component/upload#customrequest>。
 
-## IE note
+### IE8/9 问题
 
-- <https://github.com/react-component/upload#ie89-note>
+请参考 <https://github.com/react-component/upload#ie89-note>。

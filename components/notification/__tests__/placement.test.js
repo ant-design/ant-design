@@ -47,7 +47,6 @@ describe('Notification.placement', () => {
     });
     expect($$('.ant-notification-topLeft').length).toBe(1);
 
-
     // topRight
     open({
       placement: 'topRight',
@@ -62,7 +61,6 @@ describe('Notification.placement', () => {
     });
     expect($$('.ant-notification-topRight').length).toBe(1);
 
-
     // bottomRight
     open({
       placement: 'bottomRight',
@@ -76,7 +74,6 @@ describe('Notification.placement', () => {
       placement: 'bottomRight',
     });
     expect($$('.ant-notification-bottomRight').length).toBe(1);
-
 
     // bottomLeft
     open({

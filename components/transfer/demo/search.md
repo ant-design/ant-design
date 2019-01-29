@@ -50,6 +50,10 @@ class App extends React.Component {
     this.setState({ targetKeys });
   }
 
+  handleSearch = (dir, value) => {
+    console.log('search:', dir, value);
+  };
+
   render() {
     return (
       <Transfer
@@ -58,6 +62,7 @@ class App extends React.Component {
         filterOption={this.filterOption}
         targetKeys={this.state.targetKeys}
         onChange={this.handleChange}
+        onSearch={this.handleSearch}
         render={item => item.title}
       />
     );

@@ -38,14 +38,14 @@ describe('Avatar Render', () => {
     class Foo extends React.Component {
       state = {
         src: LOAD_FAILURE_SRC,
-      }
+      };
 
       handleImgError = () => {
         this.setState({
           src: LOAD_SUCCESS_SRC,
         });
         return false;
-      }
+      };
 
       render() {
         const { src } = this.state;

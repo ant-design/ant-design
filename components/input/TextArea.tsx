@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { polyfill } from 'react-lifecycles-compat';
 import ResizeObserver from 'resize-observer-polyfill';
 import calculateNodeHeight from './calculateNodeHeight';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 function onNextFrame(cb: () => void) {
   if (window.requestAnimationFrame) {
@@ -38,10 +39,6 @@ export interface TextAreaState {
 }
 
 class TextArea extends React.Component<TextAreaProps, TextAreaState> {
-  static defaultProps = {
-    prefixCls: 'ant-input',
-  };
-
   nextFrameActionId: number;
   resizeObserver: ResizeObserver | null;
 
@@ -75,7 +72,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
       clearNextFrameAction(this.nextFrameActionId);
     }
     this.nextFrameActionId = onNextFrame(this.resizeTextarea);
-  }
+  };
 
   // We will update hooks if `autosize` prop change
   updateResizeObserverHook() {
@@ -107,14 +104,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     const maxRows = autosize ? (autosize as AutoSizeType).maxRows : null;
     const textareaStyles = calculateNodeHeight(this.textAreaRef, false, minRows, maxRows);
     this.setState({ textareaStyles });
-  }
-
-  getTextAreaClassName() {
-    const { prefixCls, className, disabled } = this.props;
-    return classNames(prefixCls, className, {
-      [`${prefixCls}-disabled`]: disabled,
-    });
-  }
+  };
 
   handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     if (!('value' in this.props)) {
@@ -124,7 +114,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     if (onChange) {
       onChange(e);
     }
-  }
+  };
 
   handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     const { onPressEnter, onKeyDown } = this.props;
@@ -134,19 +124,21 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     if (onKeyDown) {
       onKeyDown(e);
     }
-  }
+  };
 
   saveTextAreaRef = (textArea: HTMLTextAreaElement) => {
     this.textAreaRef = textArea;
-  }
+  };
 
-  render() {
-    const props = this.props;
-    const otherProps = omit(props, [
-      'prefixCls',
-      'onPressEnter',
-      'autosize',
-    ]);
+  renderTextArea = ({ getPrefixCls }: ConfigConsumerProps) => {
+    const { prefixCls: customizePrefixCls, className, disabled } = this.props;
+    const { ...props } = this.props;
+    const otherProps = omit(props, ['prefixCls', 'onPressEnter', 'autosize']);
+    const prefixCls = getPrefixCls('input', customizePrefixCls);
+    const cls = classNames(prefixCls, className, {
+      [`${prefixCls}-disabled`]: disabled,
+    });
+
     const style = {
       ...props.style,
       ...this.state.textareaStyles,
@@ -159,13 +151,17 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     return (
       <textarea
         {...otherProps}
-        className={this.getTextAreaClassName()}
+        className={cls}
         style={style}
         onKeyDown={this.handleKeyDown}
         onChange={this.handleTextareaChange}
         ref={this.saveTextAreaRef}
       />
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderTextArea}</ConfigConsumer>;
   }
 }
 

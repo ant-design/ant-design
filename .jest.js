@@ -7,29 +7,15 @@ const transformIgnorePatterns = [
 
 module.exports = {
   verbose: true,
-  setupFiles: [
-    './tests/setup.js',
-  ],
-  moduleFileExtensions: [
-    'ts',
-    'tsx',
-    'js',
-    'jsx',
-    'json',
-    'md',
-  ],
-  modulePathIgnorePatterns: [
-    '/_site/',
-  ],
-  testPathIgnorePatterns: [
-    '/node_modules/',
-    'dekko',
-    'node',
-  ],
+  setupFiles: ['./tests/setup.js'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'md'],
+  modulePathIgnorePatterns: ['/_site/'],
+  testPathIgnorePatterns: ['/node_modules/', 'dekko', 'node'],
   transform: {
     '\\.tsx?$': './node_modules/antd-tools/lib/jest/codePreprocessor',
     '\\.js$': './node_modules/antd-tools/lib/jest/codePreprocessor',
     '\\.md$': './node_modules/antd-tools/lib/jest/demoPreprocessor',
+    '\\.(jpg|png|gif|svg)$': './node_modules/antd-tools/lib/jest/imagePreprocessor',
   },
   testRegex: `${libDir === 'dist' ? 'demo' : '.*'}\\.test\\.js$`,
   collectCoverageFrom: [
@@ -41,12 +27,10 @@ module.exports = {
     '!components/**/*/interface.{ts,tsx}',
   ],
   transformIgnorePatterns,
-  snapshotSerializers: [
-    'enzyme-to-json/serializer',
-  ],
+  snapshotSerializers: ['enzyme-to-json/serializer'],
   globals: {
     'ts-jest': {
-      tsConfigFile: './tsconfig.test.json',
+      tsConfig: './tsconfig.test.json',
     },
   },
   testURL: 'http://localhost',

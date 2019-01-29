@@ -89,6 +89,33 @@ exports[`Progress render negetive successPercent 1`] = `
 </div>
 `;
 
+exports[`Progress render normal progress 1`] = `
+<div
+  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+>
+  <div>
+    <div
+      class="ant-progress-outer"
+    >
+      <div
+        class="ant-progress-inner"
+      >
+        <div
+          class="ant-progress-bg"
+          style="width: 0%; height: 8px; border-radius: 100px;"
+        />
+      </div>
+    </div>
+    <span
+      class="ant-progress-text"
+      title="0%"
+    >
+      0%
+    </span>
+  </div>
+</div>
+`;
+
 exports[`Progress render out-of-range progress 1`] = `
 <div
   class="ant-progress ant-progress-line ant-progress-status-success ant-progress-show-info ant-progress-default"
@@ -110,6 +137,7 @@ exports[`Progress render out-of-range progress 1`] = `
       class="ant-progress-text"
     >
       <i
+        aria-label="icon: check-circle"
         class="anticon anticon-check-circle"
       >
         <svg
@@ -152,6 +180,7 @@ exports[`Progress render out-of-range progress with info 1`] = `
       class="ant-progress-text"
     >
       <i
+        aria-label="icon: check-circle"
         class="anticon anticon-check-circle"
       >
         <svg
@@ -192,8 +221,9 @@ exports[`Progress render strokeColor 1`] = `
      a 47,47 0 1 1 0,-94"
         fill-opacity="0"
         stroke="#f3f3f3"
+        stroke-linecap="round"
         stroke-width="6"
-        style="stroke-dasharray: 295.3097094374406px 295.3097094374406px; stroke-dashoffset: -0px;"
+        style="stroke: #f3f3f3; stroke-dasharray: 295.3097094374406px 295.3097094374406px; stroke-dashoffset: -0px;"
       />
       <path
         class="ant-progress-circle-path"

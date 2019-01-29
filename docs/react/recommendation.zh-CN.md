@@ -24,7 +24,7 @@ title: 社区精选组件
 应用国际化 | [react-intl](https://github.com/yahoo/react-intl)
 代码高亮 | [react-syntax-highlighter](https://github.com/conorhastings/react-syntax-highlighter)
 Markdown 渲染 | [react-markdown](http://rexxars.github.io/react-markdown/)
-无限滚动 | [react-virtualized](https://github.com/bvaughn/react-virtualized)
+无限滚动 | [react-virtualized](https://github.com/bvaughn/react-virtualized) [antd-table-infinity](https://github.com/Leonard-Li777/antd-table-infinity)
 地图 | [react-google-maps](https://github.com/tomchentw/react-google-maps) [google-map-react](https://github.com/istarkov/google-map-react) [react-amap 高德](https://github.com/ElemeFE/react-amap)
 右键菜单 | [react-contextmenu](https://github.com/vkbansal/react-contextmenu/) [react-contexify](https://github.com/fkhadra/react-contexify)
 Emoji | [emoji-mart](https://github.com/missive/emoji-mart)
@@ -32,6 +32,7 @@ Emoji | [emoji-mart](https://github.com/missive/emoji-mart)
 图片裁切 | [react-image-crop](https://github.com/DominicTobias/react-image-crop)
 趋势线 | [react-sparklines](https://github.com/borisyankov/react-sparklines)
 格式化输入 | [text-mask](https://github.com/text-mask/text-mask)
+关键字高亮 | [react-highlight-words](https://github.com/bvaughn/react-highlight-words)
 动画 | [react-move](https://github.com/react-tools/react-move) [Ant Motion](https://motion.ant.design/components/tween-one)
 
 <style>

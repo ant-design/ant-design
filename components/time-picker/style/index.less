@@ -1,8 +1,8 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
-@import "../../input/style/mixin";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
+@import '../../input/style/mixin';
 
-@timepicker-prefix-cls: ~"@{ant-prefix}-time-picker";
+@timepicker-prefix-cls: ~'@{ant-prefix}-time-picker';
 @timepicker-item-height: 32px;
 
 .@{timepicker-prefix-cls}-panel {
@@ -45,36 +45,6 @@
 
     &-invalid {
       border-color: @error-color;
-    }
-  }
-
-  &-clear-btn {
-    position: absolute;
-    right: 8px;
-    cursor: pointer;
-    overflow: hidden;
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    line-height: 20px;
-    top: 7px;
-    margin: 0;
-
-    &-icon svg {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      margin: auto;
-      font-size: @font-size-base;
-      color: @disabled-color;
-      display: inline-block;
-      transition: color 0.3s ease;
-
-      &:hover {
-        color: @text-color-secondary;
-      }
     }
   }
 
@@ -191,7 +161,7 @@
   position: relative;
   display: inline-block;
   outline: none;
-  transition: opacity .3s;
+  transition: opacity 0.3s;
   width: 128px;
 
   &-input {
@@ -205,10 +175,12 @@
     opacity: 0;
   }
 
-  &-icon {
+  &-icon,
+  &-clear {
     position: absolute;
+    z-index: 1;
     user-select: none;
-    transition: all .3s @ease-in-out;
+    transition: all 0.3s @ease-in-out;
     width: 14px;
     height: 14px;
     line-height: 14px;
@@ -221,6 +193,20 @@
       display: block;
       line-height: 1;
     }
+  }
+
+  &-clear {
+    opacity: 0;
+    z-index: 2;
+    background: @input-bg;
+    pointer-events: none;
+    &:hover {
+      color: @text-color-secondary;
+    }
+  }
+  &:hover &-clear {
+    opacity: 1;
+    pointer-events: auto;
   }
 
   &-large &-input {

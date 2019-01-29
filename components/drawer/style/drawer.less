@@ -1,6 +1,6 @@
-@import "../../style/themes/default";
+@import '../../style/themes/default';
 
-@dawer-prefix-cls: ~"@{ant-prefix}-drawer";
+@dawer-prefix-cls: ~'@{ant-prefix}-drawer';
 
 .@{dawer-prefix-cls} {
   position: fixed;
@@ -120,30 +120,26 @@
     position: absolute;
     right: 0;
     top: 0;
-    z-index: 10;
+    z-index: @zindex-popup-close;
     font-weight: 700;
-    line-height: 1;
     text-decoration: none;
     transition: color @animation-duration-slow;
     color: @text-color-secondary;
     outline: 0;
     padding: 0;
-
-    &-x {
-      display: block;
-      font-style: normal;
-      text-align: center;
-      text-transform: none;
-      text-rendering: auto;
-      width: 56px;
-      height: 56px;
-      line-height: 56px;
-      font-size: @font-size-lg;
-    }
+    display: block;
+    font-style: normal;
+    text-align: center;
+    text-transform: none;
+    text-rendering: auto;
+    width: 56px;
+    height: 56px;
+    line-height: 56px;
+    font-size: @font-size-lg;
 
     &:focus,
     &:hover {
-      color: #444;
+      color: @icon-color-hover;
       text-decoration: none;
     }
   }
@@ -154,6 +150,12 @@
     background: @component-background;
     color: @text-color;
     border-bottom: @border-width-base @border-style-base @border-color-split;
+    position: relative;
+  }
+
+  &-header-no-title {
+    background: @component-background;
+    color: @text-color;
   }
 
   &-body {
@@ -169,7 +171,7 @@
     height: 0;
     opacity: 0;
     background-color: @modal-mask-bg;
-    filter: ~"alpha(opacity=50)";
+    filter: ~'alpha(opacity=50)';
     transition: opacity @animation-duration-slow linear, height 0s ease @animation-duration-slow;
   }
   &-open {

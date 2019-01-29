@@ -44,6 +44,7 @@ exports[`Button renders Chinese characters correctly 2`] = `
   type="button"
 >
   <i
+    aria-label="icon: search"
     class="anticon anticon-search"
   >
     <svg
@@ -72,6 +73,7 @@ exports[`Button renders Chinese characters correctly 3`] = `
   type="button"
 >
   <i
+    aria-label="icon: search"
     class="anticon anticon-search"
   >
     <svg
@@ -100,6 +102,7 @@ exports[`Button renders Chinese characters correctly 4`] = `
   type="button"
 >
   <i
+    aria-label="icon: search"
     class="anticon anticon-search"
   >
     <svg
@@ -128,6 +131,7 @@ exports[`Button renders Chinese characters correctly 5`] = `
   type="button"
 >
   <i
+    aria-label="icon: loading"
     class="anticon anticon-loading"
   >
     <svg
@@ -156,6 +160,7 @@ exports[`Button renders Chinese characters correctly 6`] = `
   type="button"
 >
   <i
+    aria-label="icon: loading"
     class="anticon anticon-loading"
   >
     <svg
@@ -192,6 +197,17 @@ exports[`Button renders correctly 1`] = `
 exports[`Button should has click wave effect 1`] = `
 <button
   ant-click-animating-without-extra-node="true"
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    button
+  </span>
+</button>
+`;
+
+exports[`Button should not render as link button when href is undefined 1`] = `
+<button
   class="ant-btn ant-btn-primary"
   type="button"
 >

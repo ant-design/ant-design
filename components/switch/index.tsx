@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import Wave from '../_util/wave';
 import Icon from '../icon';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface SwitchProps {
   prefixCls?: string;
@@ -22,15 +23,13 @@ export interface SwitchProps {
 }
 
 export default class Switch extends React.Component<SwitchProps, {}> {
-  static defaultProps = {
-    prefixCls: 'ant-switch',
-  };
-
   static propTypes = {
     prefixCls: PropTypes.string,
     // HACK: https://github.com/ant-design/ant-design/issues/5368
     // size=default and size=large are the same
-    size: PropTypes.oneOf(['small', 'default', 'large']),
+    size: PropTypes.oneOf(['small', 'default', 'large']) as PropTypes.Requireable<
+      SwitchProps['size']
+    >,
     className: PropTypes.string,
   };
 
@@ -46,24 +45,23 @@ export default class Switch extends React.Component<SwitchProps, {}> {
 
   saveSwitch = (node: typeof RcSwitch) => {
     this.rcSwitch = node;
-  }
+  };
 
-  render() {
-    const { prefixCls, size, loading, className = '', disabled } = this.props;
+  renderSwitch = ({ getPrefixCls }: ConfigConsumerProps) => {
+    const { prefixCls: customizePrefixCls, size, loading, className = '', disabled } = this.props;
+    const prefixCls = getPrefixCls('switch', customizePrefixCls);
     const classes = classNames(className, {
       [`${prefixCls}-small`]: size === 'small',
       [`${prefixCls}-loading`]: loading,
     });
     const loadingIcon = loading ? (
-      <Icon
-        type="loading"
-        className={`${prefixCls}-loading-icon`}
-      />
+      <Icon type="loading" className={`${prefixCls}-loading-icon`} />
     ) : null;
     return (
       <Wave insertExtraNode>
         <RcSwitch
           {...omit(this.props, ['loading'])}
+          prefixCls={prefixCls}
           className={classes}
           disabled={disabled || loading}
           ref={this.saveSwitch}
@@ -71,5 +69,9 @@ export default class Switch extends React.Component<SwitchProps, {}> {
         />
       </Wave>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderSwitch}</ConfigConsumer>;
   }
 }

@@ -24,7 +24,7 @@ import moment from 'moment';
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | addon | called from timepicker panel to render some addon to its bottom | function | - |
-| allowEmpty | allow clearing text | boolean | true |
+| allowClear | allow clearing text | boolean | true |
 | autoFocus | get focus when component mounted | boolean | false |
 | className | className of picker | string | '' |
 | clearText | clear tooltip of icon | string | clear |
@@ -43,6 +43,7 @@ import moment from 'moment';
 | open | whether to popup panel | boolean | false |
 | placeholder | display when there's no value | string | "Select a time" |
 | popupClassName | className of panel | string | '' |
+| popupStyle | style of panel | object | - |
 | secondStep | interval between seconds in picker | number | 1 |
 | suffixIcon | The custom suffix icon | ReactNode | - |
 | use12Hours | display as 12 hours format, with default format `h:mm:ss a` | boolean | false |
