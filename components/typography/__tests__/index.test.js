@@ -88,9 +88,9 @@ describe('Typography', () => {
         wrapper.unmount();
       });
 
-      it('should extendable work', () => {
+      it('should expandable work', () => {
         const wrapper = mount(
-          <Base rows={1} component="p" copyable editable extendable>
+          <Base rows={1} component="p" copyable editable expandable>
             {fullStr}
           </Base>,
         );

@@ -24,7 +24,7 @@ class Demo extends React.Component {
     rows: 1,
     copyable: false,
     editable: false,
-    extendable: false,
+    expandable: false,
   };
 
   onChange = (rows) => {
@@ -32,14 +32,14 @@ class Demo extends React.Component {
   };
 
   render() {
-    const { rows, copyable, editable, extendable } = this.state;
+    const { rows, copyable, editable, expandable } = this.state;
     return (
       <div>
         <Switch onChange={val => this.setState({ copyable: val })} />
         <Switch onChange={val => this.setState({ editable: val })} />
-        <Switch onChange={val => this.setState({ extendable: val })} />
+        <Switch onChange={val => this.setState({ expandable: val })} />
         <Slider value={rows} min={1} max={10} onChange={this.onChange} />
-        <Paragraph rows={rows} copyable={copyable} editable={editable} extendable={extendable}>
+        <Paragraph rows={rows} copyable={copyable} editable={editable} expandable={expandable}>
           Ant Design, a design language for background applications, is refined by Ant UED Team.
           This is a nest sample <Text code strong delete>Test</Text> case.
           {'Bnt Design, a design language for background applications, is refined by Ant UED Team.'}

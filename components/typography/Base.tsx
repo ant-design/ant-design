@@ -24,7 +24,7 @@ export interface BaseProps {
   style?: React.CSSProperties;
   children?: React.ReactNode;
   editable?: boolean;
-  extendable?: boolean; // Only works when ellipsis
+  expandable?: boolean; // Only works when ellipsis
   copyable?: boolean | string;
   onChange?: (value: string) => null;
   type?: BaseType;
@@ -221,9 +221,9 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
   }
 
   renderExtend() {
-    const { extendable, prefixCls } = this.props;
+    const { expandable, prefixCls } = this.props;
     const { extended, isEllipsis } = this.state;
-    if (!extendable || extended || !isEllipsis) return;
+    if (!expandable || extended || !isEllipsis) return;
 
     return (
       <a className={`${prefixCls}-extend`} onClick={this.onExtendClick} aria-label={this.extendStr}>
@@ -302,7 +302,7 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
       'prefixCls',
       'editable',
       'copyable',
-      'extendable',
+      'expandable',
       'mark',
       'underline',
       'mark',

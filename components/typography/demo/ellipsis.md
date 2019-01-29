@@ -29,7 +29,7 @@ ReactDOM.render(
       Ant Design, a design language for background applications, is refined by Ant UED Team.
     </Paragraph>
 
-    <Paragraph rows={3} extendable>
+    <Paragraph rows={3} expandable>
       Ant Design, a design language for background applications, is refined by Ant UED Team.
       Ant Design, a design language for background applications, is refined by Ant UED Team.
       Ant Design, a design language for background applications, is refined by Ant UED Team.
