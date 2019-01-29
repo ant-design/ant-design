@@ -7,7 +7,7 @@ describe('Progress', () => {
   it('successPercent should decide the progress status when it exists', () => {
     const wrapper = mount(
       <Result
-        icon="success"
+        status="success"
         title="Successfully Purchased Cloud Server ECS!"
         subTitle="Order number: 2017182818828182881 Cloud server configuration takes 1-5 minutes, please wait."
         extra={[

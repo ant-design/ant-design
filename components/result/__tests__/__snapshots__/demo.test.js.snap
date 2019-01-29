@@ -8,6 +8,7 @@ exports[`renders ./components/result/demo/basic.md correctly 1`] = `
     class="ant-result-icon-view success"
   >
     <i
+      aria-label="icon: check-circle"
       class="anticon anticon-check-circle"
     >
       <svg
@@ -70,6 +71,7 @@ exports[`renders ./components/result/demo/complex.md correctly 1`] = `
     class="ant-result-icon-view error"
   >
     <i
+      aria-label="icon: close-circle"
       class="anticon anticon-close-circle"
     >
       <svg
@@ -112,6 +114,7 @@ exports[`renders ./components/result/demo/complex.md correctly 1`] = `
     >
       <span>
         <i
+          aria-label="icon: close-circle"
           class="anticon anticon-close-circle"
         >
           <svg
@@ -138,6 +141,7 @@ exports[`renders ./components/result/demo/complex.md correctly 1`] = `
       </span>
       <span>
         <i
+          aria-label="icon: close-circle"
           class="anticon anticon-close-circle"
         >
           <svg
@@ -192,9 +196,10 @@ exports[`renders ./components/result/demo/customIcon.md correctly 1`] = `
   class="ant-result"
 >
   <div
-    class="ant-result-icon-view"
+    class="ant-result-icon-view info"
   >
     <i
+      aria-label="icon: smile"
       class="anticon anticon-smile"
     >
       <svg
