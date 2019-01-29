@@ -226,7 +226,12 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
     if (!expandable || extended || !isEllipsis) return;
 
     return (
-      <a className={`${prefixCls}-extend`} onClick={this.onExtendClick} aria-label={this.extendStr}>
+      <a
+        key="extend"
+        className={`${prefixCls}-extend`}
+        onClick={this.onExtendClick}
+        aria-label={this.extendStr}
+      >
         {this.extendStr}
       </a>
     );
@@ -237,7 +242,7 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
     if (!editable) return;
 
     return (
-      <Tooltip title={this.editStr}>
+      <Tooltip key="edit" title={this.editStr}>
         <TransButton
           ref={this.setEditRef}
           className={`${prefixCls}-edit`}
@@ -257,7 +262,7 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
 
     const title = copied ? this.copySuccessStr : this.copyStr;
     return (
-      <Tooltip title={title}>
+      <Tooltip key="copy" title={title}>
         <TransButton
           className={classNames(`${prefixCls}-copy`, copied && `${prefixCls}-copy-success`)}
           onClick={this.onCopyClick}
