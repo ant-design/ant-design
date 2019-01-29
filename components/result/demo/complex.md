@@ -18,7 +18,7 @@ import { Result, Button, Icon } from 'antd';
 
 ReactDOM.render(
   <Result
-    icon="error"
+    status="error"
     title="Submission Failed"
     subTitle="Please check and modify the following information before resubmitting."
     extra={[

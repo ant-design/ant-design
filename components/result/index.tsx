@@ -3,10 +3,11 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import classnames from 'classnames';
 import { Icon } from '../';
 
-type ResultIcon = 'success' | 'error' | 'info' | 'warning';
+type ResultStatus = 'success' | 'error' | 'info' | 'warning';
 
 export interface ResultProps {
-  icon: ResultIcon | React.ReactNode;
+  icon: React.ReactNode;
+  status: ResultStatus;
   title: React.ReactNode;
   subTitle?: React.ReactNode;
   extra?: React.ReactNode;
@@ -32,16 +33,18 @@ const IconMap = {
   warning: 'warning',
 };
 
-const renderIcon = (prefixCls: string, icon: ResultIcon | React.ReactNode) => {
+const renderIcon = (prefixCls: string, status: ResultStatus, icon: React.ReactNode) => {
   let iconNode = icon;
   let className = `${prefixCls}-icon-view`;
-  const iconString: string = IconMap[icon as ResultIcon];
-  if (typeof icon === 'string' && iconString) {
+  const iconString: string = IconMap[status];
+
+  className = classnames(className, {
+    [status]: true,
+  });
+  if (!icon) {
     iconNode = <Icon type={iconString} theme="filled" />;
-    className = classnames(className, {
-      [icon]: icon,
-    });
   }
+
   return <div className={className}>{iconNode}</div>;
 };
 
@@ -52,11 +55,11 @@ const renderExtra = (prefixCls: string, extra: React.ReactNode) => {
 const Result: React.SFC<ResultProps> = props => (
   <ConfigConsumer>
     {({ getPrefixCls }: ConfigConsumerProps) => {
-      const { prefixCls: customizePrefixCls, icon, extra, style, children } = props;
+      const { prefixCls: customizePrefixCls, icon, status, extra, style, children } = props;
       const prefixCls = getPrefixCls('result', customizePrefixCls);
       return (
         <div className={prefixCls} style={style}>
-          {renderIcon(prefixCls, icon)}
+          {renderIcon(prefixCls, status, icon)}
           {renderTitle(prefixCls, props)}
           {children && <div className={`${prefixCls}-content`}>{children}</div>}
           {renderExtra(prefixCls, extra)}
@@ -67,7 +70,7 @@ const Result: React.SFC<ResultProps> = props => (
 );
 
 Result.defaultProps = {
-  icon: 'info',
+  status: 'info',
 };
 
 export default Result;

@@ -18,5 +18,6 @@ Use when important operations need to inform the user to process the results and
 | -------- | ----------- | ---- | ------- |
 | title | title string | ReactNode | - |
 | subTitle | subTitle string | ReactNode | - |
+| status | result status,decide icons and colors | `'success' | 'error' | 'info' | 'warning'` | 'info' |
 | icon | custom back icon  | string \| ReactNode | info |
 | extra | operating area | ReactNode | - |
