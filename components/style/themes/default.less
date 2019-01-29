@@ -41,13 +41,13 @@
 @font-family : "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif,
 "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 @code-family : "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-@heading-color : fade(#000, 85%);
 @text-color : fade(@black, 65%);
 @text-color-secondary : fade(@black, 45%);
 @text-color-warning : @gold-7;
 @text-color-danger : @red-7;
 @text-color-inverse : @white;
 @icon-color-hover : fade(@black, 75%);
+@heading-color : fade(#000, 85%);
 @heading-color-dark : fade(@white, 100%);
 @text-color-dark : fade(@white, 85%);
 @text-color-secondary-dark: fade(@white, 65%);
@@ -55,6 +55,10 @@
 @font-size-base : 14px;
 @font-size-lg : @font-size-base + 2px;
 @font-size-sm : 12px;
+@heading-1-size: ceil(@font-size-base * 2.71);
+@heading-2-size: ceil(@font-size-base * 2.14);
+@heading-3-size: ceil(@font-size-base * 1.71);
+@heading-4-size: ceil(@font-size-base * 1.42);
 @line-height-base : 1.5;
 @border-radius-base : 4px;
 @border-radius-sm : 2px;
@@ -580,10 +584,3 @@
 @statistic-content-font-size: 24px;
 @statistic-unit-font-size: 16px;
 @statistic-font-family: Tahoma, 'Helvetica Neue', @font-family;
-
-// Typography
-// ---
-@typography-h1-font-size: ceil(@font-size-base * 2.71);
-@typography-h2-font-size: ceil(@font-size-base * 2.14);
-@typography-h3-font-size: ceil(@font-size-base * 1.71);
-@typography-h4-font-size: ceil(@font-size-base * 1.42);
