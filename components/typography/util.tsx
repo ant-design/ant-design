@@ -190,7 +190,7 @@ export function measure(
         reactNode: null,
       };
     } else if (type === TEXT_NODE) {
-      const fullText = contentList[index] as string;
+      const fullText = childNode.textContent || '';
       const textNode = document.createTextNode(fullText);
       appendChildNode(textNode);
       return measureText(textNode, fullText);
