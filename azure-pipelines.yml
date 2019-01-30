@@ -11,6 +11,7 @@ resources:
   repositories:
     - repository: self
       fetchDepth: 1
+      clean: false
 
 jobs:
   - job: test_
