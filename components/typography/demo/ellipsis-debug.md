@@ -39,7 +39,7 @@ class Demo extends React.Component {
         <Switch onChange={val => this.setState({ editable: val })} />
         <Switch onChange={val => this.setState({ expandable: val })} />
         <Slider value={rows} min={1} max={10} onChange={this.onChange} />
-        <Paragraph rows={rows} copyable={copyable} editable={editable} expandable={expandable}>
+        <Paragraph ellipsis={{ rows, expandable }} copyable={copyable} editable={editable}>
           Ant Design, a design language for background applications, is refined by Ant UED Team.
           This is a nest sample <Text code strong delete>Test</Text> case.
           {'Bnt Design, a design language for background applications, is refined by Ant UED Team.'}

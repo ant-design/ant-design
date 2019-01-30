@@ -20,7 +20,7 @@ const { Paragraph } = Typography;
 
 ReactDOM.render(
   <div>
-    <Paragraph rows={3}>
+    <Paragraph ellipsis>
       Ant Design, a design language for background applications, is refined by Ant UED Team.
       Ant Design, a design language for background applications, is refined by Ant UED Team.
       Ant Design, a design language for background applications, is refined by Ant UED Team.
@@ -29,7 +29,7 @@ ReactDOM.render(
       Ant Design, a design language for background applications, is refined by Ant UED Team.
     </Paragraph>
 
-    <Paragraph rows={3} expandable>
+    <Paragraph ellipsis={{ rows: 3, expandable: true }}>
       Ant Design, a design language for background applications, is refined by Ant UED Team.
       Ant Design, a design language for background applications, is refined by Ant UED Team.
       Ant Design, a design language for background applications, is refined by Ant UED Team.

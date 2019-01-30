@@ -66,7 +66,7 @@ describe('Typography', () => {
 
       it('should trigger update', () => {
         const wrapper = mount(
-          <Base rows={1} component="p">
+          <Base ellipsis component="p">
             {fullStr}
           </Base>,
         );
@@ -75,12 +75,12 @@ describe('Typography', () => {
         wrapper.update();
         expect(wrapper.find('span').text()).toEqual('Bamboo is L...');
 
-        wrapper.setProps({ rows: 2 });
+        wrapper.setProps({ ellipsis: { rows: 2 } });
         jest.runAllTimers();
         wrapper.update();
         expect(wrapper.find('span').text()).toEqual('Bamboo is Little Light Bamboo i...');
 
-        wrapper.setProps({ rows: 99 });
+        wrapper.setProps({ ellipsis: { rows: 99 } });
         jest.runAllTimers();
         wrapper.update();
         expect(wrapper.find('p').text()).toEqual(fullStr);
@@ -90,7 +90,7 @@ describe('Typography', () => {
 
       it('should expandable work', () => {
         const wrapper = mount(
-          <Base rows={1} component="p" copyable editable expandable>
+          <Base ellipsis={{ expandable: true }} component="p" copyable editable>
             {fullStr}
           </Base>,
         );

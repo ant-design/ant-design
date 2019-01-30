@@ -18,14 +18,18 @@ import { measure } from './util';
 
 export type BaseType = 'secondary' | 'danger' | 'warning';
 
+interface Ellipsis {
+  rows?: number;
+  expandable?: boolean;
+}
+
 export interface BlockProps extends TypographyProps {
   editable?: boolean;
-  expandable?: boolean; // Only works when ellipsis
   copyable?: boolean | string;
   onChange?: (value: string) => null;
   type?: BaseType;
-  rows?: number;
   disabled?: boolean;
+  ellipsis?: boolean | Ellipsis;
 
   // decorations
   code?: boolean;
@@ -120,7 +124,9 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
   }
 
   componentDidUpdate(prevProps: BlockProps) {
-    if (this.props.children !== prevProps.children || this.props.rows !== prevProps.rows) {
+    const ellipsis = this.getEllipsis();
+    const prevEllipsis = this.getEllipsis(prevProps);
+    if (this.props.children !== prevProps.children || ellipsis.rows !== prevEllipsis.rows) {
       this.resizeOnNextFrame();
     }
   }
@@ -165,6 +171,17 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
     });
   };
 
+  getEllipsis(props?: BlockProps): Ellipsis {
+    const { ellipsis } = props || this.props;
+    if (!ellipsis) return {};
+
+    return {
+      rows: 1,
+      expandable: false,
+      ...(typeof ellipsis === 'object' ? ellipsis : null),
+    };
+  }
+
   setContentRef = (node: HTMLElement) => {
     this.content = node;
   };
@@ -196,7 +213,8 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
 
   syncEllipsis() {
     const { ellipsisText, isEllipsis, extended } = this.state;
-    const { rows, children } = this.props;
+    const { rows } = this.getEllipsis();
+    const { children } = this.props;
     if (!rows || rows < 0 || !this.content || extended) return;
 
     warning(
@@ -217,7 +235,8 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
   }
 
   renderExtend(forceRender?: boolean) {
-    const { expandable, prefixCls } = this.props;
+    const { expandable } = this.getEllipsis();
+    const { prefixCls } = this.props;
     const { extended, isEllipsis } = this.state;
 
     if (!expandable) return null;
@@ -294,22 +313,14 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
 
   renderContent() {
     const { ellipsisContent, isEllipsis, extended } = this.state;
-    const {
-      component,
-      children,
-      className,
-      prefixCls,
-      type,
-      disabled,
-      rows,
-      ...restProps
-    } = this.props;
+    const { component, children, className, prefixCls, type, disabled, ...restProps } = this.props;
+    const { rows } = this.getEllipsis();
 
     const textProps = omit(restProps, [
       'prefixCls',
       'editable',
       'copyable',
-      'expandable',
+      'ellipsis',
       'mark',
       'underline',
       'mark',
