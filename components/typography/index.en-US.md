@@ -9,7 +9,7 @@ Basic format and regular operation on text.
 
 ## When To Use
 
-When need to display title or text content.
+When need to display title or text content. Like blog, help document, site about, etc.
 
 ## API
 
