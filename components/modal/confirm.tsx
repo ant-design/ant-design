@@ -154,7 +154,7 @@ export default function confirm(config: ModalFuncProps) {
     }
     for (let i = 0; i < destroyFns.length; i++) {
       const fn = destroyFns[i];
-      if (fn === destroy) {
+      if (fn === close) {
         destroyFns.splice(i, 1);
         break;
       }
