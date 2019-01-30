@@ -14,14 +14,13 @@ Ensure your system has installed latest version of [yarn](https://yarnpkg.com) o
 Create a new project named `antd-demo-ts` using yarn.
 
 ```bash
-$ yarn create react-app antd-demo-ts --scripts-version=react-scripts-ts
+$ yarn create react-app antd-demo-ts --typescript
 ```
 
 If you are using npm (we will use yarn in the following instructions, it's ok to replace yarn with npm)
 
 ```bash
-$ npm install -g create-react-app
-$ create-react-app antd-demo-ts --scripts-version=react-scripts-ts
+$ npx create-react-app antd-demo-ts --typescript
 ```
 
 Then we go inside `antd-demo-ts` and start it.
@@ -42,12 +41,12 @@ $ yarn add antd
 Modify `src/App.tsx`, import Button component from `antd`.
 
 ```jsx
-import { Button } from 'antd';
-import * as React from 'react';
+import React, { Component } from 'react';
+import Button from 'antd/lib/button';
 import './App.css';
 
-class App extends React.Component {
-  public render() {
+class App extends Component {
+  render() {
     return (
       <div className="App">
         <Button type="primary">Button</Button>
@@ -83,19 +82,18 @@ Now we need to customize the default webpack config. We can achieve that by usin
 Import react-app-rewired and modify the `scripts` field in package.json.
 
 ```
-$ yarn add react-app-rewired --dev
+$ yarn add react-app-rewired
 ```
-
 
 ```diff
 /* package.json */
 "scripts": {
--   "start": "react-scripts-ts start",
-+   "start": "react-app-rewired start --scripts-version react-scripts-ts",
--   "build": "react-scripts-ts build",
-+   "build": "react-app-rewired build --scripts-version react-scripts-ts",
--   "test": "react-scripts-ts test --env=jsdom",
-+   "test": "react-app-rewired test --env=jsdom --scripts-version react-scripts-ts",
+-   "start": "react-scripts start",
++   "start": "react-app-rewired start",
+-   "build": "react-scripts build",
++   "build": "react-app-rewired build",
+-   "test": "react-scripts test",
++   "test": "react-app-rewired test",
 }
 ```
 
@@ -113,12 +111,12 @@ module.exports = function override(config, env) {
 [ts-import-plugin](https://github.com/Brooooooklyn/ts-import-plugin) is a TypeScript plugin for importing components on demand ([How does it work?](/docs/react/getting-started#Import-on-Demand)). We are now trying to install it and modify `config-overrides.js`.
 
 ```bash
-$ yarn add ts-import-plugin --dev
+$ yarn add ts-import-plugin
 ```
 
 ```js
 /* config-overrides.js */
-const tsImportPluginFactory = require('ts-import-plugin')
+const tsImportPluginFactory = require('ts-import-plugin');
 const { getLoader } = require("react-app-rewired");
 
 module.exports = function override(config, env) {

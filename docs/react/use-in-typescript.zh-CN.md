@@ -14,14 +14,13 @@ title: 在 TypeScript 中使用
 使用 yarn 创建项目。
 
 ```bash
-$ yarn create react-app antd-demo-ts --scripts-version=react-scripts-ts
+$ yarn create react-app antd-demo-ts --typescript
 ```
 
 如果你使用的是 npm（接下来我们都会用 yarn 作为例子，如果你习惯用 npm 也没问题）。
 
 ```bash
-$ npm install -g create-react-app
-$ create-react-app antd-demo-ts --scripts-version=react-scripts-ts
+$ npx create-react-app antd-demo-ts --typescript
 ```
 
 然后我们进入项目并启动。
@@ -42,11 +41,11 @@ $ yarn add antd
 修改 `src/App.tsx`，引入 antd 的按钮组件。
 
 ```jsx
-import * as React from 'react';
+import React, { Component } from 'react';
 import Button from 'antd/lib/button';
 import './App.css';
 
-class App extends React.Component {
+class App extends Component {
   render() {
     return (
       <div className="App">
@@ -82,19 +81,18 @@ export default App;
 引入 react-app-rewired 并修改 package.json 里的启动配置。
 
 ```
-$ yarn add react-app-rewired --dev
+$ yarn add react-app-rewired
 ```
-
 
 ```diff
 /* package.json */
 "scripts": {
--   "start": "react-scripts-ts start",
-+   "start": "react-app-rewired start --scripts-version react-scripts-ts",
--   "build": "react-scripts-ts build",
-+   "build": "react-app-rewired build --scripts-version react-scripts-ts",
--   "test": "react-scripts-ts test --env=jsdom",
-+   "test": "react-app-rewired test --env=jsdom --scripts-version react-scripts-ts",
+-   "start": "react-scripts start",
++   "start": "react-app-rewired start",
+-   "build": "react-scripts build",
++   "build": "react-app-rewired build",
+-   "test": "react-scripts test",
++   "test": "react-app-rewired test",
 }
 ```
 
@@ -112,12 +110,12 @@ module.exports = function override(config, env) {
 [ts-import-plugin](https://github.com/Brooooooklyn/ts-import-plugin) 是一个用于按需加载组件代码和样式的 TypeScript 插件（[原理](/docs/react/getting-started#按需加载)），现在我们尝试安装它并修改 `config-overrides.js` 文件。
 
 ```bash
-$ yarn add ts-import-plugin --dev
+$ yarn add ts-import-plugin
 ```
 
 ```js
 /* config-overrides.js */
-const tsImportPluginFactory = require('ts-import-plugin')
+const tsImportPluginFactory = require('ts-import-plugin');
 const { getLoader } = require("react-app-rewired");
 
 module.exports = function override(config, env) {
