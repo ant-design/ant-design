@@ -92,5 +92,6 @@ class SearchInput extends React.Component {
 
 ReactDOM.render(
   <SearchInput placeholder="input search text" style={{ width: 200 }} />,
-  mountNode);
+  mountNode
+);
 ````

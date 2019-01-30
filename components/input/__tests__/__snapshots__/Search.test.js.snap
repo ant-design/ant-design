@@ -2,43 +2,53 @@
 
 exports[`Input.Search should support custom Button 1`] = `
 <span
-  class="ant-input-search ant-input-search-enter-button ant-input-affix-wrapper"
+  class="ant-input-search ant-input-search-enter-button ant-input-group-wrapper"
 >
-  <input
-    class="ant-input"
-    type="text"
-  />
   <span
-    class="ant-input-suffix"
+    class="ant-input-wrapper ant-input-group"
   >
-    <button
-      class="ant-btn ant-input-search-button"
-      type="button"
+    <input
+      class="ant-input"
+      type="text"
+      value=""
+    />
+    <span
+      class="ant-input-group-addon"
     >
-      <span>
-        ok
-      </span>
-    </button>
+      <button
+        class="ant-btn ant-input-search-button"
+        type="button"
+      >
+        <span>
+          ok
+        </span>
+      </button>
+    </span>
   </span>
 </span>
 `;
 
 exports[`Input.Search should support custom button 1`] = `
 <span
-  class="ant-input-search ant-input-search-enter-button ant-input-affix-wrapper"
+  class="ant-input-search ant-input-search-enter-button ant-input-group-wrapper"
 >
-  <input
-    class="ant-input"
-    type="text"
-  />
   <span
-    class="ant-input-suffix"
+    class="ant-input-wrapper ant-input-group"
   >
-    <button
-      type="button"
+    <input
+      class="ant-input"
+      type="text"
+      value=""
+    />
+    <span
+      class="ant-input-group-addon"
     >
-      ok
-    </button>
+      <button
+        type="button"
+      >
+        ok
+      </button>
+    </span>
   </span>
 </span>
 `;

@@ -67,7 +67,8 @@ ReactDOM.render(
       </Tooltip>
     </div>
   </div>,
-  mountNode);
+  mountNode
+);
 ````
 
 <style>

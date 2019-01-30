@@ -58,7 +58,8 @@ ReactDOM.render(
       </Button>
     </Upload>
   </div>,
-  mountNode);
+  mountNode
+);
 ````
 
 ````css

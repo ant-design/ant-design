@@ -154,6 +154,7 @@ exports[`renders ./components/slider/demo/icon-slider.md correctly 1`] = `
   class="icon-wrapper"
 >
   <i
+    aria-label="icon: frown-o"
     class="anticon anticon-frown-o"
     style="color:rgba(0, 0, 0, .45)"
   >
@@ -199,6 +200,7 @@ exports[`renders ./components/slider/demo/icon-slider.md correctly 1`] = `
     />
   </div>
   <i
+    aria-label="icon: smile-o"
     class="anticon anticon-smile-o"
     style="color:"
   >
@@ -273,6 +275,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             unselectable="unselectable"
           >
             <i
+              aria-label="icon: up"
               class="anticon anticon-up ant-input-number-handler-up-inner"
             >
               <svg
@@ -298,6 +301,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             unselectable="unselectable"
           >
             <i
+              aria-label="icon: down"
               class="anticon anticon-down ant-input-number-handler-down-inner"
             >
               <svg
@@ -387,6 +391,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             unselectable="unselectable"
           >
             <i
+              aria-label="icon: up"
               class="anticon anticon-up ant-input-number-handler-up-inner"
             >
               <svg
@@ -412,6 +417,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             unselectable="unselectable"
           >
             <i
+              aria-label="icon: down"
               class="anticon anticon-down ant-input-number-handler-down-inner"
             >
               <svg
@@ -827,6 +833,55 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
       </span>
     </div>
   </div>
+</div>
+`;
+
+exports[`renders ./components/slider/demo/show-tooltip.md correctly 1`] = `
+<div
+  class="ant-slider"
+>
+  <div
+    class="ant-slider-rail"
+  />
+  <div
+    class="ant-slider-track"
+    style="left:0%;width:30%"
+  />
+  <div
+    class="ant-slider-step"
+  />
+  <div
+    aria-disabled="false"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="30"
+    class="ant-slider-handle ant-tooltip-open"
+    role="slider"
+    style="left:30%"
+    tabindex="0"
+  />
+  <div>
+    <div
+      class="ant-tooltip  ant-tooltip-placement-top "
+    >
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-arrow"
+        />
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          30
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-slider-mark"
+  />
 </div>
 `;
 

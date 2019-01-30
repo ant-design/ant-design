@@ -24,5 +24,6 @@ ReactDOM.render(
     <Divider type="vertical" />
     <a href="#">Link</a>
   </div>,
-  mountNode);
+  mountNode
+);
 ````

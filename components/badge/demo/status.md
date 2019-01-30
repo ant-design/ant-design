@@ -34,5 +34,6 @@ ReactDOM.render(
     <br />
     <Badge status="warning" text="Warning" />
   </div>,
-  mountNode);
+  mountNode
+);
 ````

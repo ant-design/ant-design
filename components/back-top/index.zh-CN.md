@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Other
+type: 其他
 subtitle: 回到顶部
 title: BackTop
 ---

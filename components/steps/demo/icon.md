@@ -25,5 +25,6 @@ ReactDOM.render(
     <Step status="process" title="Pay" icon={<Icon type="loading" />} />
     <Step status="wait" title="Done" icon={<Icon type="smile-o" />} />
   </Steps>,
-  mountNode);
+  mountNode
+);
 ````

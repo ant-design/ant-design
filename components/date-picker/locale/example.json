@@ -1,10 +1,7 @@
 {
   "lang": {
     "placeholder": "Select date",
-    "rangePlaceholder": [
-      "Start date",
-      "End date"
-    ],
+    "rangePlaceholder": ["Start date", "End date"],
     "today": "Today",
     "now": "Now",
     "backToToday": "Back to today",
@@ -34,5 +31,9 @@
   },
   "timePickerLocale": {
     "placeholder": "Select time"
-  }
+  },
+  "dateFormat": "YYYY-MM-DD",
+  "dateTimeFormat": "YYYY-MM-DD HH:mm:ss",
+  "weekFormat": "YYYY-wo",
+  "monthFormat": "YYYY-MM"
 }

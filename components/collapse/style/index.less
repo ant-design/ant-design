@@ -1,14 +1,7 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@collapse-prefix-cls: ~"@{ant-prefix}-collapse";
-
-.collapse-close() {
-  transform: rotate(0);
-}
-.collapse-open() {
-  transform: rotate(90deg);
-}
+@collapse-prefix-cls: ~'@{ant-prefix}-collapse';
 
 .@{collapse-prefix-cls} {
   .reset-component;
@@ -33,9 +26,9 @@
       color: @heading-color;
       cursor: pointer;
       position: relative;
-      transition: all .3s;
+      transition: all 0.3s;
 
-      .arrow {
+      .@{collapse-prefix-cls}-arrow {
         .iconfont-mixin();
         font-size: @font-size-sm;
         position: absolute;
@@ -43,10 +36,11 @@
         line-height: 46px;
         vertical-align: top;
         top: 50%;
+        margin-top: 2px;
         transform: translateY(-50%);
         left: @padding-md;
+
         & svg {
-          .collapse-close();
           transition: transform 0.24s;
         }
       }
@@ -64,7 +58,7 @@
   }
 
   &-anim-active {
-    transition: height .2s @ease-out;
+    transition: height 0.2s @ease-out;
   }
 
   &-content {
@@ -85,12 +79,6 @@
   &-item:last-child {
     > .@{collapse-prefix-cls}-content {
       border-radius: 0 0 @border-radius-base @border-radius-base;
-    }
-  }
-
-  & > &-item > &-header[aria-expanded="true"] {
-    .anticon-right svg {
-      .collapse-open();
     }
   }
 

@@ -54,7 +54,8 @@ ReactDOM.render(
     title={() => 'Header'}
     footer={() => 'Footer'}
   />,
-  mountNode);
+  mountNode
+);
 ````
 
 ````css

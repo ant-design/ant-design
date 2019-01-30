@@ -52,6 +52,7 @@ exports[`renders ./components/notification/demo/placement.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
+      aria-controls=""
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -76,6 +77,7 @@ exports[`renders ./components/notification/demo/placement.md correctly 1`] = `
         unselectable="on"
       >
         <i
+          aria-label="icon: down"
           class="anticon anticon-down ant-select-arrow-icon"
         >
           <svg

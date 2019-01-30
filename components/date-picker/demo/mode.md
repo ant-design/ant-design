@@ -79,5 +79,6 @@ ReactDOM.render(
     <br />
     <ControlledRangePicker />
   </div>,
-  mountNode);
+  mountNode
+);
 ````

@@ -13,6 +13,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
         value=""
       />
       <i
+        aria-label="icon: calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -43,6 +44,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
         value=""
       />
       <i
+        aria-label="icon: calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -89,6 +91,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
         value=""
       />
       <i
+        aria-label="icon: calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -111,7 +114,9 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
   <span
     class="ant-calendar-picker"
   >
-    <span>
+    <span
+      style="display:inline-block;width:100%"
+    >
       <input
         class="ant-calendar-picker-input ant-input"
         placeholder="Select week"
@@ -119,6 +124,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
         value=""
       />
       <i
+        aria-label="icon: calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -153,6 +159,7 @@ exports[`renders ./components/date-picker/demo/date-render.md correctly 1`] = `
         value=""
       />
       <i
+        aria-label="icon: calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -198,6 +205,7 @@ exports[`renders ./components/date-picker/demo/date-render.md correctly 1`] = `
         value=""
       />
       <i
+        aria-label="icon: calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -233,6 +241,7 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
         value="2015-06-06"
       />
       <i
+        aria-label="icon: calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -264,6 +273,7 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
         value="2015-06"
       />
       <i
+        aria-label="icon: calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -312,6 +322,7 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
         value="2015-06-06"
       />
       <i
+        aria-label="icon: calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -347,6 +358,7 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
         value=""
       />
       <i
+        aria-label="icon: calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -377,6 +389,7 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
         value=""
       />
       <i
+        aria-label="icon: calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -424,6 +437,7 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
         value=""
       />
       <i
+        aria-label="icon: calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -458,6 +472,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
         value=""
       />
       <i
+        aria-label="icon: calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -488,6 +503,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
         value=""
       />
       <i
+        aria-label="icon: calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -533,6 +549,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
         value=""
       />
       <i
+        aria-label="icon: calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -579,6 +596,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
         value=""
       />
       <i
+        aria-label="icon: calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -608,6 +626,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
         value=""
       />
       <i
+        aria-label="icon: calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -642,7 +661,9 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
         value="2015/01/01"
       />
       <i
+        aria-label="icon: close-circle"
         class="anticon anticon-close-circle ant-calendar-picker-clear"
+        tabindex="-1"
       >
         <svg
           aria-hidden="true"
@@ -659,6 +680,7 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
         </svg>
       </i>
       <i
+        aria-label="icon: calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -689,7 +711,9 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
         value="2015/01"
       />
       <i
+        aria-label="icon: close-circle"
         class="anticon anticon-close-circle ant-calendar-picker-clear"
+        tabindex="-1"
       >
         <svg
           aria-hidden="true"
@@ -706,6 +730,7 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
         </svg>
       </i>
       <i
+        aria-label="icon: calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -752,7 +777,9 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
         value="2015/01/01"
       />
       <i
+        aria-label="icon: close-circle"
         class="anticon anticon-close-circle ant-calendar-picker-clear"
+        tabindex="-1"
       >
         <svg
           aria-hidden="true"
@@ -769,6 +796,7 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
         </svg>
       </i>
       <i
+        aria-label="icon: calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -804,6 +832,7 @@ exports[`renders ./components/date-picker/demo/mode.md correctly 1`] = `
         value=""
       />
       <i
+        aria-label="icon: calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -850,6 +879,7 @@ exports[`renders ./components/date-picker/demo/mode.md correctly 1`] = `
         value=""
       />
       <i
+        aria-label="icon: calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -900,6 +930,7 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`]
         value=""
       />
       <i
+        aria-label="icon: calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -947,6 +978,7 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`]
         value=""
       />
       <i
+        aria-label="icon: calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -1045,6 +1077,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
         value=""
       />
       <i
+        aria-label="icon: calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -1075,6 +1108,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
         value=""
       />
       <i
+        aria-label="icon: calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -1121,6 +1155,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
         value=""
       />
       <i
+        aria-label="icon: calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -1143,7 +1178,9 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
   <span
     class="ant-calendar-picker ant-calendar-picker-default"
   >
-    <span>
+    <span
+      style="display:inline-block;width:100%"
+    >
       <input
         class="ant-calendar-picker-input ant-input"
         placeholder="Select Week"
@@ -1151,6 +1188,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
         value=""
       />
       <i
+        aria-label="icon: calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -1186,6 +1224,7 @@ exports[`renders ./components/date-picker/demo/start-end.md correctly 1`] = `
         value=""
       />
       <i
+        aria-label="icon: calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -1216,6 +1255,7 @@ exports[`renders ./components/date-picker/demo/start-end.md correctly 1`] = `
         value=""
       />
       <i
+        aria-label="icon: calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -1250,6 +1290,7 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
         value=""
       />
       <i
+        aria-label="icon: smile"
         class="anticon anticon-smile ant-calendar-picker-icon"
       >
         <svg
@@ -1280,6 +1321,7 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
         value=""
       />
       <i
+        aria-label="icon: smile"
         class="anticon anticon-smile ant-calendar-picker-icon"
       >
         <svg
@@ -1326,6 +1368,7 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
         value=""
       />
       <i
+        aria-label="icon: smile"
         class="anticon anticon-smile ant-calendar-picker-icon"
       >
         <svg
@@ -1348,7 +1391,9 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
   <span
     class="ant-calendar-picker"
   >
-    <span>
+    <span
+      style="display:inline-block;width:100%"
+    >
       <input
         class="ant-calendar-picker-input ant-input"
         placeholder="Select week"
@@ -1356,6 +1401,7 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
         value=""
       />
       <i
+        aria-label="icon: smile"
         class="anticon anticon-smile ant-calendar-picker-icon"
       >
         <svg
@@ -1448,7 +1494,9 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
   <span
     class="ant-calendar-picker"
   >
-    <span>
+    <span
+      style="display:inline-block;width:100%"
+    >
       <input
         class="ant-calendar-picker-input ant-input"
         placeholder="Select week"
@@ -1479,6 +1527,7 @@ exports[`renders ./components/date-picker/demo/time.md correctly 1`] = `
         value=""
       />
       <i
+        aria-label="icon: calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg
@@ -1526,6 +1575,7 @@ exports[`renders ./components/date-picker/demo/time.md correctly 1`] = `
         value=""
       />
       <i
+        aria-label="icon: calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
       >
         <svg

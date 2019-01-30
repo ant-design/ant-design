@@ -31,5 +31,6 @@ ReactDOM.render(
       <p>Technical testing 3 2015-09-01</p>
     </Timeline.Item>
   </Timeline>,
-  mountNode);
+  mountNode
+);
 ````

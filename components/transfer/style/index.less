@@ -1,8 +1,8 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
-@import "../../checkbox/style/mixin";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
+@import '../../checkbox/style/mixin';
 
-@transfer-prefix-cls: ~"@{ant-prefix}-transfer";
+@transfer-prefix-cls: ~'@{ant-prefix}-transfer';
 
 .@{transfer-prefix-cls} {
   .reset-component;
@@ -40,7 +40,7 @@
         line-height: @input-height-base;
         text-align: center;
         .@{iconfont-css-prefix} {
-          transition: all .3s;
+          transition: all 0.3s;
           color: @disabled-color;
           &:hover {
             color: @text-color-secondary;
@@ -104,7 +104,7 @@
         text-overflow: ellipsis;
         padding: 6px @control-padding-horizontal;
         min-height: 32px;
-        transition: all .3s;
+        transition: all 0.3s;
         > span {
           padding-right: 0;
         }
@@ -125,15 +125,15 @@
       padding-top: 0;
       color: @disabled-color;
       text-align: center;
-      display: none;
       position: absolute;
       top: 50%;
       width: 100%;
-      margin-top: -10px;
-    }
+      transform: translateY(-50%);
 
-    &-content:empty + &-body-not-found {
-      display: block;
+      // with filter should offset the search box height
+      .@{transfer-prefix-cls}-list-body-with-search & {
+        margin-top: @input-height-base / 2;
+      }
     }
 
     &-footer {

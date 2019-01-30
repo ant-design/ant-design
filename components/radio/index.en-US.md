@@ -8,8 +8,8 @@ Radio.
 
 ## When To Use
 
-- Used to select a single state in multiple options.
-- The difference between Select is that Radio is visible to user and can facilitate the comparison of choice, which makes there shouldn't be too many of them.
+- Used to select a single state from multiple options.
+- The difference from Select is that Radio is visible to the user and can facilitate the comparison of choice, which means there shouldn't be too many of them.
 
 ## API
 
