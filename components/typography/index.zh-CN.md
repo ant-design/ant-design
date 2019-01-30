@@ -22,9 +22,8 @@ cols: 1
 | delete | 添加删除线样式 | boolean | false |
 | disabled | 禁用文本 | boolean | false |
 | editable | 是否可编辑 | boolean | false |
-| expandable | 在行数省略下，是否支持展开全部 | boolean | false |
+| ellipsis | 设置多行省略 | boolean | false |
 | mark | 添加标记样式 | boolean | false |
-| rows | 设置超过行数则省略，设置后样式会从 `display: inline` 转成 `display: inline-block` | number | - |
 | underline | 添加下划线样式 | boolean | false |
 | onChange | 当用户提交编辑内容时触发 | Function(string) | - |
 | strong | 是否加粗 | boolean | false |
@@ -38,10 +37,9 @@ cols: 1
 | delete | 添加删除线样式 | boolean | false |
 | disabled | 禁用文本 | boolean | false |
 | editable | 是否可编辑 | boolean | false |
-| expandable | 在行数省略下，是否支持展开全部 | boolean | false |
+| ellipsis | 多行省略，为对象时可设置省略行数与是否可展开 | boolean \| { rows: number, expandable: boolean } | false |
 | level | 重要程度 | number: `1`, `2`, `3`, `4` | 1 |
 | mark | 添加标记样式 | boolean | false |
-| rows | 设置超过行数则省略 | number | - |
 | underline | 添加下划线样式 | boolean | false |
 | onChange | 当用户提交编辑内容时触发 | Function(string) | - |
 | strong | 是否加粗 | boolean | false |
@@ -55,9 +53,8 @@ cols: 1
 | delete | 添加删除线样式 | boolean | false |
 | disabled | 禁用文本 | boolean | false |
 | editable | 是否可编辑 | boolean | false |
-| expandable | 在行数省略下，是否支持展开全部 | boolean | false |
+| ellipsis | 多行省略，为对象时可设置省略行数与是否可展开 | boolean \| { rows: number, expandable: boolean } | false |
 | mark | 添加标记样式 | boolean | false |
-| rows | 设置超过行数则省略 | number | - |
 | underline | 添加下划线样式 | boolean | false |
 | onChange | 当用户提交编辑内容时触发 | Function(string) | - |
 | strong | 是否加粗 | boolean | false |

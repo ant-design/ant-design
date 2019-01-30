@@ -21,9 +21,8 @@ When need to display title or text content.
 | delete | delete line style | boolean | false |
 | disabled | Disable content | boolean | false |
 | editable | Content can be edited  | boolean | false |
-| expandable | Display extend button when in ellipsis | boolean | false |
+| ellipsis | Display ellipsis when overflow | boolean | false |
 | mark | mark style | boolean | false |
-| rows | Set max rows and make ellipsis if over the rows. Style will change from `display: inline` to `display: inline-block` after set | number | - |
 | underline | underline style | boolean | false |
 | onChange | Trigger when user edit the content | Function(string) | - |
 | strong | bold style | boolean | false |
@@ -38,10 +37,9 @@ When need to display title or text content.
 | delete | delete line style | boolean | false |
 | disabled | Disable content | boolean | false |
 | editable | Content can be edited  | boolean | false |
-| expandable | Display extend button when in ellipsis | boolean | false |
+| ellipsis | Display ellipsis when overflow. Can config rows and expandable by using object | boolean \| { rows: number, expandable: boolean } | false |
 | level | Set content importance | number: `1`, `2`, `3`, `4` | 1 |
 | mark | mark style | boolean | false |
-| rows | Set max rows and make ellipsis if over the rows. Style will change from `display: inline` to `display: inline-block` after set | number | - |
 | underline | underline style | boolean | false |
 | onChange | Trigger when user edit the content | Function(string) | - |
 | strong | bold style | boolean | false |
@@ -56,9 +54,8 @@ When need to display title or text content.
 | delete | delete line style | boolean | false |
 | disabled | Disable content | boolean | false |
 | editable | Content can be edited  | boolean | false |
-| expandable | Display extend button when in ellipsis | boolean | false |
+| ellipsis | Display ellipsis when overflow. Can config rows and expandable by using object | boolean \| { rows: number, expandable: boolean } | false |
 | mark | mark style | boolean | false |
-| rows | Set max rows and make ellipsis if over the rows. Style will change from `display: inline` to `display: inline-block` after set | number | - |
 | underline | underline style | boolean | false |
 | onChange | Trigger when user edit the content | Function(string) | - |
 | strong | bold style | boolean | false |
