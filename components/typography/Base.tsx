@@ -212,7 +212,7 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
       this.content,
       rows,
       children,
-      this.renderOperations(),
+      this.renderOperations(true),
       ELLIPSIS_STR,
     );
     if (ellipsisText !== text || isEllipsis !== ellipsis) {
@@ -220,10 +220,14 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
     }
   }
 
-  renderExtend() {
+  renderExtend(forceRender?: boolean) {
     const { expandable, prefixCls } = this.props;
     const { extended, isEllipsis } = this.state;
-    if (!expandable || extended || !isEllipsis) return;
+
+    if (!expandable) return null;
+
+    // force render expand icon for measure usage or it will cause dead loop
+    if (!forceRender && (extended || !isEllipsis)) return null;
 
     return (
       <a
@@ -286,8 +290,10 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
     );
   }
 
-  renderOperations() {
-    return [this.renderExtend(), this.renderEdit(), this.renderCopy()].filter(node => node);
+  renderOperations(forceRenderExpanded?: boolean) {
+    return [this.renderExtend(forceRenderExpanded), this.renderEdit(), this.renderCopy()].filter(
+      node => node,
+    );
   }
 
   renderContent() {

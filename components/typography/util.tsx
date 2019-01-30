@@ -28,15 +28,11 @@ function pxToNumber(value: string | null): number {
   return match ? Number(match[0]) : 0;
 }
 
-function styleToStr(style: CSSStyleDeclaration) {
-  let styleStr: string = '';
+function styleToString(style: CSSStyleDeclaration) {
   // There are some different behavior between Firefox & Chrome.
   // We have to handle this ourself.
-  for (let i = style.length; i >= 0; i -= 1) {
-    const name = style[i];
-    styleStr += `${name}: ${style.getPropertyValue(name)};`;
-  }
-  return styleStr;
+  const styleNames: string[] = Array.prototype.slice.apply(style);
+  return styleNames.map(name => `${name}: ${style.getPropertyValue(name)};`).join('');
 }
 
 function mergeChildren(children: React.ReactNode[]): React.ReactNode[] {
@@ -69,7 +65,7 @@ export function measure(
 
   // Get origin style
   const originStyle = window.getComputedStyle(originEle);
-  const originCSS = styleToStr(originStyle);
+  const originCSS = styleToString(originStyle);
   const lineHeight = pxToNumber(originStyle.lineHeight);
   const maxHeight =
     lineHeight * (rows + 1) +
@@ -83,8 +79,10 @@ export function measure(
   ellipsisContainer.style.height = 'auto';
   ellipsisContainer.style.minHeight = 'auto';
   ellipsisContainer.style.maxHeight = 'auto';
-  ellipsisContainer.style.top = '-999999px';
-  ellipsisContainer.style.zIndex = '-1000';
+  // ellipsisContainer.style.top = '-999999px';
+  // ellipsisContainer.style.zIndex = '-1000';
+  ellipsisContainer.style.top = '0px';
+  ellipsisContainer.style.zIndex = '1000';
 
   // Render in the fake container
   const contentList: React.ReactNode[] = mergeChildren(toArray(content));
@@ -120,8 +118,11 @@ export function measure(
   const ellipsisChildren: React.ReactNode[] = [];
   ellipsisContainer.innerHTML = '';
 
+  // Create origin content holder
+  const ellipsisContentHolder = document.createElement('span');
+  ellipsisContainer.appendChild(ellipsisContentHolder);
   const ellipsisTextNode = document.createTextNode(ellipsisStr);
-  ellipsisContainer.appendChild(ellipsisTextNode);
+  ellipsisContentHolder.appendChild(ellipsisTextNode);
 
   fixedNodes.forEach(childNode => {
     ellipsisContainer.appendChild(childNode);
@@ -129,7 +130,7 @@ export function measure(
 
   // Append before fixed nodes
   function appendChildNode(node: ChildNode) {
-    ellipsisContainer.insertBefore(node, ellipsisTextNode);
+    ellipsisContentHolder.insertBefore(node, ellipsisTextNode);
   }
 
   // Get maximum text
@@ -138,26 +139,36 @@ export function measure(
     fullText: string,
     startLoc = 0,
     endLoc = fullText.length,
+    lastSuccessLoc = 0,
   ): MeasureResult {
     const midLoc = Math.floor((startLoc + endLoc) / 2);
     const currentText = fullText.slice(0, midLoc);
     textNode.textContent = currentText;
 
-    if (inRange()) {
-      if (startLoc >= endLoc - 1) {
-        return endLoc === fullText.length
-          ? {
-              finished: false,
-              reactNode: fullText,
-            }
-          : {
-              finished: true,
-              reactNode: fullText.slice(0, startLoc - 1),
-            };
+    if (startLoc <= endLoc - 1) {
+      // Loop when step is small
+      for (let step = endLoc; step >= startLoc; step -= 1) {
+        const currentStepText = fullText.slice(0, step);
+        textNode.textContent = currentStepText;
+
+        if (inRange()) {
+          return step === fullText.length
+            ? {
+                finished: false,
+                reactNode: fullText,
+              }
+            : {
+                finished: true,
+                reactNode: currentStepText,
+              };
+        }
       }
-      return measureText(textNode, fullText, midLoc, endLoc);
+    }
+
+    if (inRange()) {
+      return measureText(textNode, fullText, midLoc, endLoc, midLoc);
     } else {
-      return measureText(textNode, fullText, startLoc, midLoc);
+      return measureText(textNode, fullText, startLoc, midLoc, lastSuccessLoc);
     }
   }
 
@@ -175,13 +186,13 @@ export function measure(
       }
 
       // Clean up if can not pull in
-      ellipsisContainer.removeChild(childNode);
+      ellipsisContentHolder.removeChild(childNode);
       return {
         finished: true,
         reactNode: null,
       };
     } else if (type === TEXT_NODE) {
-      const fullText = childNode.textContent || '';
+      const fullText = contentList[index] as string;
       const textNode = document.createTextNode(fullText);
       appendChildNode(textNode);
       return measureText(textNode, fullText);
