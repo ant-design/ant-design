@@ -1,11 +1,11 @@
 import * as React from 'react';
 import warning from 'warning';
-import Base, { BaseProps } from './Base';
+import Base, { BlockProps } from './Base';
 import { tupleNum } from '../_util/type';
 
 const TITLE_ELE_LIST = tupleNum(1, 2, 3, 4);
 
-interface TitleProps extends BaseProps {
+interface TitleProps extends BlockProps {
   level?: (typeof TITLE_ELE_LIST)[number];
 }
 

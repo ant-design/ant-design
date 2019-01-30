@@ -12,17 +12,13 @@ import ResizeObserver from '../_util/resizeObserver';
 import raf from '../_util/raf';
 import Icon from '../icon';
 import Tooltip from '../tooltip';
+import Typography, { TypographyProps } from './Typography';
 import Editable from './Editable';
 import { measure } from './util';
 
 export type BaseType = 'secondary' | 'danger' | 'warning';
 
-export interface BaseProps {
-  id?: string;
-  prefixCls?: string;
-  className?: string;
-  style?: React.CSSProperties;
-  children?: React.ReactNode;
+export interface BlockProps extends TypographyProps {
   editable?: boolean;
   expandable?: boolean; // Only works when ellipsis
   copyable?: boolean | string;
@@ -40,7 +36,7 @@ export interface BaseProps {
 }
 
 function wrapperDecorations(
-  { mark, code, underline, delete: del, strong }: BaseProps,
+  { mark, code, underline, delete: del, strong }: BlockProps,
   content: React.ReactNode,
 ) {
   let currentContent = content;
@@ -62,7 +58,7 @@ function wrapperDecorations(
   return currentContent;
 }
 
-interface InternalBaseProps extends BaseProps {
+interface InternalBlockProps extends BlockProps {
   component: string;
 }
 
@@ -84,12 +80,12 @@ interface Locale {
 
 const ELLIPSIS_STR = '...';
 
-class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, BaseState> {
+class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, BaseState> {
   static defaultProps = {
     children: '',
   };
 
-  static getDerivedStateFromProps(nextProps: BaseProps) {
+  static getDerivedStateFromProps(nextProps: BlockProps) {
     const { children, editable } = nextProps;
 
     warning(
@@ -101,7 +97,7 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
   }
 
   editIcon?: TransButton;
-  content?: HTMLParagraphElement;
+  content?: HTMLElement;
   copyId?: number;
   rafId?: number;
   // Locale
@@ -123,7 +119,7 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
     this.resizeOnNextFrame();
   }
 
-  componentDidUpdate(prevProps: BaseProps) {
+  componentDidUpdate(prevProps: BlockProps) {
     if (this.props.children !== prevProps.children || this.props.rows !== prevProps.rows) {
       this.resizeOnNextFrame();
     }
@@ -169,7 +165,7 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
     });
   };
 
-  setContentRef = (node: HTMLParagraphElement) => {
+  setContentRef = (node: HTMLElement) => {
     this.content = node;
   };
 
@@ -299,7 +295,7 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
   renderContent() {
     const { ellipsisContent, isEllipsis, extended } = this.state;
     const {
-      component: Component,
+      component,
       children,
       className,
       prefixCls,
@@ -348,19 +344,20 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
 
           return (
             <ResizeObserver onResize={this.resizeOnNextFrame} disabled={!rows}>
-              <Component
-                className={classNames(prefixCls, className, {
+              <Typography
+                className={classNames(className, {
                   [`${prefixCls}-${type}`]: type,
                   [`${prefixCls}-disabled`]: disabled,
                   [`${prefixCls}-ellipsis`]: rows,
                 })}
+                component={component}
+                setContentRef={this.setContentRef}
                 aria-label={isEllipsis ? String(children) : undefined}
-                ref={this.setContentRef}
                 {...textProps}
               >
                 {textNode}
                 {this.renderOperations()}
-              </Component>
+              </Typography>
             </ResizeObserver>
           );
         }}
@@ -380,6 +377,6 @@ class Base extends React.Component<InternalBaseProps & ConfigConsumerProps, Base
 
 polyfill(Base);
 
-export default withConfigConsumer<InternalBaseProps>({
+export default withConfigConsumer<InternalBlockProps>({
   prefixCls: 'typography',
 })(Base);

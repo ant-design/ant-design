@@ -51,7 +51,7 @@ function mergeChildren(children: React.ReactNode[]): React.ReactNode[] {
 }
 
 export function measure(
-  originEle: HTMLParagraphElement,
+  originEle: HTMLElement,
   rows: number,
   content: React.ReactNode,
   fixedContent: React.ReactNode[],

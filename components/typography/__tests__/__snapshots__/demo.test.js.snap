@@ -537,6 +537,12 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
       </a>
     </li>
   </ul>
+  <div
+    class="ant-typography good"
+    style="background:red"
+  >
+    I am Paragraph component...
+  </div>
 </div>
 `;
 

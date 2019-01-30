@@ -1,7 +1,7 @@
 import * as React from 'react';
-import Base, { BaseProps } from './Base';
+import Base, { BlockProps } from './Base';
 
-interface ParagraphProps extends BaseProps {}
+interface ParagraphProps extends BlockProps {}
 
 const Paragraph: React.SFC<ParagraphProps> = props => <Base {...props} component="div" />;
 

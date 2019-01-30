@@ -20,7 +20,7 @@ import { Typography } from 'antd';
 const { Paragraph } = Typography;
 
 ReactDOM.render(
-  <Paragraph>
+  <Typography>
     <h1>Introduction</h1>
     <p>
       In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
@@ -56,7 +56,9 @@ ReactDOM.render(
       <li><a href="/docs/pattern/navigation">设计模式</a></li>
       <li><a href="/docs/resource/download">设计资源</a></li>
     </ul>
-  </Paragraph>,
+
+    <Paragraph className="good" style={{ background: 'red' }}>I am Paragraph component...</Paragraph>
+  </Typography>,
   mountNode
 );
 ```

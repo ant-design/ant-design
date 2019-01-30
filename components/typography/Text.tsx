@@ -1,7 +1,7 @@
 import * as React from 'react';
-import Base, { BaseProps } from './Base';
+import Base, { BlockProps } from './Base';
 
-interface TextProps extends BaseProps {}
+interface TextProps extends BlockProps {}
 
 const Text: React.SFC<TextProps> = props => <Base {...props} component="span" />;
 
