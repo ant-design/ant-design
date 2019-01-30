@@ -54,11 +54,15 @@ jobs:
       - task: NodeTool@0
         inputs:
           versionSpec: '11.x'
-      - script: echo $(REACT) $(TEST_TYPE)
-        displayName: echo env
       - script: npm install
         displayName: install
       - script: scripts/install-react.sh
         displayName: install-react
       - script: scripts/travis-script.sh
         displayName: test
+      - task: PublishBuildArtifacts@1
+        # 主分支，并且运行成功
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+        inputs:
+           pathtoPublish: './package-lock.json'
+           artifactName: lock
