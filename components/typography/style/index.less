@@ -1,7 +1,34 @@
 @import '../../style/themes/default';
 @import '../../style/mixins/index';
 
-@text-prefix-cls: ~'@{ant-prefix}-typography';
+@typography-prefix-cls: ~'@{ant-prefix}-typography';
+@typography-title-margin-top: 1.2em;
+
+// =============== Common ===============
+.typography-paragraph() {
+  margin-bottom: 1em;
+}
+
+.typography-title(@fontSize; @lineHeight) {
+  color: @heading-color;
+  font-weight: 500;
+  font-size: @fontSize;
+  line-height: @lineHeight;
+  margin-bottom: 0.5em;
+}
+
+.typography-title-1() {
+  .typography-title(@heading-1-size, 1.23);
+}
+.typography-title-2() {
+  .typography-title(@heading-2-size, 1.35);
+}
+.typography-title-3() {
+  .typography-title(@heading-3-size, 1.35);
+}
+.typography-title-4() {
+  .typography-title(@heading-4-size, 1.4);
+}
 
 .operation-unit {
   outline: none;
@@ -13,7 +40,8 @@
   }
 }
 
-.@{text-prefix-cls} {
+// =============== Basic ===============
+.@{typography-prefix-cls} {
   color: @text-color;
 
   &-secondary {
@@ -32,6 +60,58 @@
     color: @disabled-color;
     cursor: not-allowed;
     user-select: none;
+  }
+
+  // Tag
+  div&,
+  p {
+    .typography-paragraph();
+  }
+
+  h1&,
+  h1 {
+    .typography-title-1();
+  }
+  h2&,
+  h2 {
+    .typography-title-2();
+  }
+  h3&,
+  h3 {
+    .typography-title-3();
+  }
+  h4&,
+  h4 {
+    .typography-title-4();
+  }
+
+  h1&,
+  h2&,
+  h3&,
+  h4& {
+    .@{typography-prefix-cls} + & {
+      margin-top: @typography-title-margin-top;
+    }
+  }
+
+  div,
+  ul,
+  li,
+  p,
+  h1,
+  h2,
+  h3,
+  h4 {
+    + h1,
+    + h2,
+    + h3,
+    + h4 {
+      margin-top: @typography-title-margin-top;
+    }
+  }
+
+  span&-ellipsis {
+    display: inline-block;
   }
 
   code {
@@ -95,7 +175,7 @@
   // list
   ul,
   ol {
-    margin: 0;
+    margin: 0 0 1em 0;
     padding: 0;
 
     li {
@@ -114,48 +194,5 @@
 
   ol li {
     list-style-type: decimal;
-  }
-}
-
-// =============== Title ===============
-.title-size(@name; @fontSize; @lineHeight) {
-  @{name}.@{text-prefix-cls} {
-    font-size: @fontSize;
-    line-height: @lineHeight;
-    margin-bottom: 0.5em;
-
-    .@{text-prefix-cls} + & {
-      margin-top: 1.2em;
-    }
-  }
-}
-
-// Follow the rule
-.title-size(~'h1', @heading-1-size, 1.23);
-.title-size(~'h2', @heading-2-size, 1.35);
-.title-size(~'h3', @heading-3-size, 1.35);
-.title-size(~'h4', @heading-4-size, 1.4);
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  &.@{text-prefix-cls} {
-    color: @heading-color;
-    font-weight: 500;
-  }
-}
-
-// ============ Paragraph ==============
-div.@{text-prefix-cls} {
-  margin-bottom: 1em;
-}
-
-// =============== Text ================
-span.@{text-prefix-cls} {
-  &-ellipsis {
-    display: inline-block;
   }
 }

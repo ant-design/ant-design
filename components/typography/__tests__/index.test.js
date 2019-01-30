@@ -64,7 +64,7 @@ describe('Typography', () => {
       const fullStr =
         'Bamboo is Little Light Bamboo is Little Light Bamboo is Little Light Bamboo is Little Light Bamboo is Little Light';
 
-      it('trigger ellipsis update', () => {
+      it('should trigger update', () => {
         const wrapper = mount(
           <Base rows={1} component="p">
             {fullStr}
@@ -73,12 +73,12 @@ describe('Typography', () => {
 
         jest.runAllTimers();
         wrapper.update();
-        expect(wrapper.find('span').text()).toEqual('Bamboo is Little...');
+        expect(wrapper.find('span').text()).toEqual('Bamboo is L...');
 
         wrapper.setProps({ rows: 2 });
         jest.runAllTimers();
         wrapper.update();
-        expect(wrapper.find('span').text()).toEqual('Bamboo is Little Light Bamboo is Lit...');
+        expect(wrapper.find('span').text()).toEqual('Bamboo is Little Light Bamboo i...');
 
         wrapper.setProps({ rows: 99 });
         jest.runAllTimers();
