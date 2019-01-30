@@ -1,0 +1,31 @@
+---
+category: Components
+subtitle: 描述列表
+type: 数据展示
+title: DescriptionList
+cols: 1
+---
+
+成组展示多个只读字段
+
+## 何时使用
+
+常见于详情页的信息展示。
+
+## API
+
+### DescriptionList
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| title | 描述列表的标题，显示在最顶部 | ReactNode | - |
+| border | 是否展示边框 | boolean  | false |
+| column | 一行的 `DescriptionItems` 数量| number  | 3 |
+| size | 设置列表的大小。可以设置为 `middle` 和 `small`, 或不填 | `default | middle | small` | false |
+
+### DescriptionItem
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| label | 内容的描述 | boolean  | false |
+| span  | 包含列的数量 | number  | 1 |
