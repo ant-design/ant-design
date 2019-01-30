@@ -1,8 +1,8 @@
 ---
 order: 1
 title:
-  zh-CN: 标题
-  en-US: Title
+  zh-CN: 标题组件
+  en-US: Title Component
 ---
 
 ## zh-CN
