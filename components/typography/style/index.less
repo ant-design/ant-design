@@ -30,14 +30,25 @@
   .typography-title(@heading-4-size, 1.4);
 }
 
-.operation-unit {
+.operation-unit() {
   cursor: pointer;
   outline: none;
-  color: @primary-color;
+  color: @link-color;
+  transition: color 0.3s ease;
+  text-decoration: none;
 
   &:focus,
   &:hover {
-    color: @primary-5;
+    color: @link-hover-color;
+  }
+
+  &:focus {
+    text-decoration: underline;
+    text-decoration-skip-ink: auto;
+  }
+
+  &:active {
+    color: @link-active-color;
   }
 }
 
@@ -115,6 +126,21 @@
     display: inline-block;
   }
 
+  a {
+    .operation-unit();
+
+    &:active,
+    &:hover {
+      text-decoration: @link-hover-decoration;
+    }
+
+    &[disabled] {
+      color: @disabled-color;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+
   code {
     background: rgba(0, 0, 0, 0.06);
     border: 1px solid rgba(0, 0, 0, 0.06);
@@ -148,7 +174,7 @@
   &-extend,
   &-edit,
   &-copy {
-    .operation-unit;
+    .operation-unit();
 
     margin-left: 8px;
   }
