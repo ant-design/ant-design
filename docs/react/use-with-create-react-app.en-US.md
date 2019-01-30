@@ -9,16 +9,10 @@ title: Use in create-react-app
 
 ## Install and Initialization
 
-We need to install `create-react-app` first, you may need install [yarn](https://github.com/yarnpkg/yarn/) too.
+Before all start, you may need install [yarn](https://github.com/yarnpkg/yarn/).
 
 ```bash
-$ npm install -g create-react-app yarn
-```
-
-Create a new project named `antd-demo`.
-
-```bash
-$ create-react-app antd-demo
+$ yarn create react-app antd-demo
 ```
 
 The tool will create and initialize environment and dependencies automatically,
