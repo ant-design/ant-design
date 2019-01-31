@@ -35,11 +35,11 @@ export interface ModalProps {
   /** 底部内容*/
   footer?: React.ReactNode;
   /** 确认按钮文字*/
-  okText?: React.ReactNode | string;
+  okText?: React.ReactNode;
   /** 确认按钮类型*/
   okType?: ButtonType;
   /** 取消按钮文字*/
-  cancelText?: React.ReactNode | string;
+  cancelText?: React.ReactNode;
   /** 点击蒙层是否允许关闭*/
   maskClosable?: boolean;
   /** 强制渲染 Modal*/
