@@ -79,7 +79,7 @@ export interface ModalFuncProps {
   okType?: ButtonType;
   cancelText?: React.ReactNode;
   icon?: React.ReactNode;
-  /* Deperated */
+  /* Deprecated */
   iconType?: string;
   mask?: boolean;
   maskClosable?: boolean;
