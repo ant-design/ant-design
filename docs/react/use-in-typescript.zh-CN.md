@@ -190,3 +190,9 @@ $ yarn create react-app my-project --scripts-version=react-scripts-ts-antd
 ```
 
 对于自定义 webpack 配置，你也可以使用 [craco](https://github.com/sharegate/craco) 和 [craco-antd](https://github.com/FormAPI/craco-antd) 来实现和 customize-cra 一样的修改 create-react-app 配置的功能。
+
+## 社区教程
+
+- [create-react-app Adding TypeScript](https://facebook.github.io/create-react-app/docs/adding-typescript)
+- [Migrating from create-react-app-typescript to Create React App](https://vincenttunru.com/migrate-create-react-app-typescript-to-create-react-app/)
+- [react-scripts-ts-antd](https://github.com/SZzzzz/react-scripts-ts-antd)
