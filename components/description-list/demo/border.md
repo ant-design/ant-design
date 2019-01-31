@@ -1,8 +1,8 @@
 ---
 order: 0
 title:
-  zh-CN: 基本
-  en-US: Basic
+  zh-CN: 带边框的
+  en-US: border
 ---
 
 ## zh-CN
@@ -14,7 +14,7 @@ title:
 More easy to read with a border and background color list
 
 ```jsx
-import { DescriptionList } from 'antd';
+import { DescriptionList, Badge } from 'antd';
 
 const DescriptionListItem = DescriptionList.Item;
 
@@ -30,7 +30,7 @@ ReactDOM.render(
       2018-04-24 18:00:00 To 2019-04-24 18:00:00
     </DescriptionListItem>
     <DescriptionListItem label="Status" span={3}>
-      Running
+      <Badge status="processing" text="Running" />
     </DescriptionListItem>
     <DescriptionListItem label="Negotiated Amount">$80.00</DescriptionListItem>
     <DescriptionListItem label="Discount">$20.00</DescriptionListItem>

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import warning from '../_util/warning';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface DescriptionListItemProps {
@@ -56,6 +57,7 @@ const genChildrenArray = (
         childrenArray.push(columnArray);
         columnArray = [];
         width = 0;
+        warning(width > column, `column max is ${column}, here has width`);
       }
     },
   );
