@@ -173,7 +173,7 @@ $ yarn add babel-plugin-import
 
 ```bash
 $ yarn add less
-$ yarn add --dev less-loader
+$ yarn add less-loader
 ```
 
 ```diff
@@ -197,6 +197,8 @@ module.exports = override(
 变量和其他配置方式可以参考 [配置主题](/docs/react/customize-theme) 文档。
 
 修改后重启 `yarn start`，如果看到一个绿色的按钮就说明配置成功了。
+
+> 你也可以使用 [craco](https://github.com/sharegate/craco) 和 [craco-antd](https://github.com/FormAPI/craco-antd) 来实现和 customize-cra 一亿的修改 create-react-app 配置的功能。
 
 ## eject
 
