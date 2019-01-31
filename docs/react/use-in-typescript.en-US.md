@@ -106,119 +106,95 @@ module.exports = function override(config, env) {
 };
 ```
 
-### Use ts-import-plugin
+### Use babel-plugin-import
 
-[ts-import-plugin](https://github.com/Brooooooklyn/ts-import-plugin) is a TypeScript plugin for importing components on demand ([How does it work?](/docs/react/getting-started#Import-on-Demand)). We are now trying to install it and modify `config-overrides.js`.
+[babel-plugin-import](https://github.com/ant-design/babel-plugin-import) is a babel plugin for importing components on demand ([How does it work?](/docs/react/getting-started#Import-on-Demand)). We are now trying to install it and modify `config-overrides.js`.
 
 ```bash
-$ yarn add ts-import-plugin
+$ yarn add babel-plugin-import
 ```
 
-```js
-/* config-overrides.js */
-const tsImportPluginFactory = require('ts-import-plugin');
-const { getLoader } = require("react-app-rewired");
+```diff
++ const { override, fixBabelImports } = require('customize-cra');
 
-module.exports = function override(config, env) {
-  const tsLoader = getLoader(
-    config.module.rules,
-    rule =>
-      rule.loader &&
-      typeof rule.loader === 'string' &&
-      rule.loader.includes('ts-loader')
-  );
-
-  tsLoader.options = {
-    getCustomTransformers: () => ({
-      before: [ tsImportPluginFactory({
-        libraryDirectory: 'es',
-        libraryName: 'antd',
-        style: 'css',
-      }) ]
-    })
-  };
-
-  return config;
-}
+- module.exports = function override(config, env) {
+-   // do stuff with the webpack config...
+-   return config;
+- };
++ module.exports = override(
++   fixBabelImports('import', {
++     libraryName: 'antd',
++     libraryDirectory: 'es',
++     style: 'css',
++   }),
++ );
 ```
 
 Remove the `@import '~antd/dist/antd.css';` statement added before because `babel-plugin-import` will import styles and import components like below:
 
 ```diff
-import * as React from 'react';
-import { Button } from 'antd';
-import './App.css';
+  // src/App.js
+  import React, { Component } from 'react';
+- import Button from 'antd/lib/button';
++ import { Button } from 'antd';
+  import './App.css';
 
-class App extends React.Component {
-  render() {
-    return (
-      <div className="App">
-        <Button type="primary">Button</Button>
-      </div>
-    );
+  class App extends Component {
+    render() {
+      return (
+        <div className="App">
+          <Button type="primary">Button</Button>
+        </div>
+      );
+    }
   }
-}
 
-export default App;
+  export default App;
 ```
 
 Then reboot with `yarn start` and visit the demo page, you should not find any [warning messages](https://zos.alipayobjects.com/rmsportal/vgcHJRVZFmPjAawwVoXK.png) in the console, which prove that the `import on demand` config is working now. You will find more info about it in [this guide](/docs/react/getting-started#Import-on-Demand).
 
 ### Customize Theme
 
-According to the [Customize Theme documentation](/docs/react/customize-theme), to customize the theme, we need to modify `less` variables with tools such as [less-loader](https://github.com/webpack/less-loader). We can also use [react-app-rewire-less](http://npmjs.com/react-app-rewire-less) to achieve this. Import it and modify `config-overrides.js` like below.
+According to the [Customize Theme documentation](/docs/react/customize-theme), to customize the theme, we need to modify `less` variables with tools such as [less-loader](https://github.com/webpack/less-loader). We can also use [addLessLoader](https://github.com/arackaf/customize-cra#addlessloaderloaderoptions) to achieve this. Import it and modify `config-overrides.js` like below.
 
 ```bash
-$ yarn add react-app-rewire-less --dev
+$ yarn add less less-loader
 ```
 
 ```diff
-  const tsImportPluginFactory = require('ts-import-plugin')
-  const { getLoader } = require("react-app-rewired");
-+ const rewireLess = require('react-app-rewire-less');
+- const { override, fixBabelImports } = require('customize-cra');
++ const { override, fixBabelImports, addLessLoader } = require('customize-cra');
 
-  module.exports = function override(config) {
-    const tsLoader = getLoader(
-      config.module.rules,
-      rule =>
-        rule.loader &&
-        typeof rule.loader === 'string' &&
-        rule.loader.includes('ts-loader')
-    );
-
-    tsLoader.options = {
-      getCustomTransformers: () => ({
-        before: [ tsImportPluginFactory({
-          libraryName: 'antd',
-          libraryDirectory: 'es',
--         style: 'css',
-+         style: true,
-        }) ]
-      })
-    };
-
-+   config = rewireLess.withLoaderOptions({
-+     javascriptEnabled: true,
-+     modifyVars: { "@primary-color": "#1DA57A" },
-+   })(config, env);
-
-    return config;
-  }
+module.exports = override(
+  fixBabelImports('import', {
+    libraryName: 'antd',
+    libraryDirectory: 'es',
+    style: true,
+  }),
++ addLessLoader({
++   javascriptEnabled: true,
++   modifyVars: { '@primary-color': '#1DA57A' },
++ }),
+);
 ```
 
 We use `modifyVars` option of [less-loader](https://github.com/webpack/less-loader#less-options) here, you can see a green button rendered on the page after rebooting the start server.
 
-## Alternative way
+## Alternative ways
 
 You can also follow instructions in [Use in create-react-app](/docs/react/use-with-create-react-app.en-US.md), then use [react-app-rewire-typescript][https://github.com/lwd-technology/react-app-rewire-typescript] to setup the TypeScript development environment by yourself.
 
 And you can use [react-scripts-ts-antd](https://www.npmjs.com/package/react-scripts-ts-antd) which includes ts-import-plugin, react-app-rewired, scss, less and etc.You can create a new project that without any configurations by running just one command.
+
+You could also try [craco](https://github.com/sharegate/craco) and [craco-antd](https://github.com/FormAPI/craco-antd) to customize create-react-app webpack config same as customize-cra does.
+
 ```bash
-$ create-react-app my-project --scripts-version=react-scripts-ts-antd
+$ yarn create react-app my-project --scripts-version=react-scripts-ts-antd
 ```
 
-## FAQ
+## Other tutorials
 
-### error TS2605: JSX element type Xxx is not a constructor function for JSX elements.
-
-Before antd 3, You need setting `allowSyntheticDefaultImports` to `true` in tsconfig.json.
+- [create-react-app Adding TypeScript](https://facebook.github.io/create-react-app/docs/adding-typescript)
+- [Migrating from create-react-app-typescript to Create React App](https://vincenttunru.com/migrate-create-react-app-typescript-to-create-react-app/)
+- [react-scripts-ts-antd](https://github.com/SZzzzz/react-scripts-ts-antd)
