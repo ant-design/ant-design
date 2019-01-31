@@ -181,20 +181,18 @@ module.exports = override(
 
 We use `modifyVars` option of [less-loader](https://github.com/webpack/less-loader#less-options) here, you can see a green button rendered on the page after rebooting the start server.
 
+> You could also try [craco](https://github.com/sharegate/craco) and [craco-antd](https://github.com/FormAPI/craco-antd) to customize create-react-app webpack config same as customize-cra does.
+
 ## Alternative ways
 
-You can also follow instructions in [Use in create-react-app](/docs/react/use-with-create-react-app.en-US.md), then use [react-app-rewire-typescript][https://github.com/lwd-technology/react-app-rewire-typescript] to setup the TypeScript development environment by yourself.
+You can also follow instructions in [Use in create-react-app](/docs/react/use-with-create-react-app.en-US.md), then use  to setup the TypeScript development environment by yourself.
 
-And you can use [react-scripts-ts-antd](https://www.npmjs.com/package/react-scripts-ts-antd) which includes ts-import-plugin, react-app-rewired, scss, less and etc.You can create a new project that without any configurations by running just one command.
+And you can use [react-scripts-ts-antd](https://www.npmjs.com/package/react-scripts-ts-antd) which includes ts-import-plugin, react-app-rewired, scss, less and etc. You can create a new project that without any configurations by running just one command.
 
-You could also try [craco](https://github.com/sharegate/craco) and [craco-antd](https://github.com/FormAPI/craco-antd) to customize create-react-app webpack config same as customize-cra does.
+## Alternative ways
 
-```bash
-$ yarn create react-app my-project --scripts-version=react-scripts-ts-antd
-```
-
-## Other tutorials
-
+- [Create React apps (with Typescript and antd) with no build configuration](https://github.com/SZzzzz/react-scripts-ts-antd)
+- [react-app-rewire-typescript][https://github.com/lwd-technology/react-app-rewire-typescript]
+- [ts-import-plugin](https://github.com/Brooooooklyn/ts-import-plugin)
 - [create-react-app Adding TypeScript](https://facebook.github.io/create-react-app/docs/adding-typescript)
 - [Migrating from create-react-app-typescript to Create React App](https://vincenttunru.com/migrate-create-react-app-typescript-to-create-react-app/)
-- [react-scripts-ts-antd](https://github.com/SZzzzz/react-scripts-ts-antd)
