@@ -30,6 +30,7 @@ interface Copy {
 interface Ellipsis {
   rows?: number;
   expandable?: boolean;
+  onExpand?: () => void;
 }
 
 export interface BlockProps extends TypographyProps {
@@ -151,7 +152,12 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
 
   // =============== Expend ===============
   onExpandClick = () => {
+    const { onExpand } = this.getEllipsis();
     this.setState({ expanded: true });
+
+    if (onExpand) {
+      onExpand();
+    }
   };
 
   // ================ Edit ================

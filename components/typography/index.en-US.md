@@ -40,7 +40,7 @@ When need to display title or text content. Like:
 | delete | delete line style | boolean | false |
 | disabled | Disable content | boolean | false |
 | editable | Content can be edited  | boolean | false |
-| ellipsis | Display ellipsis when overflow. Can config rows and expandable by using object | boolean \| { rows: number, expandable: boolean } | false |
+| ellipsis | Display ellipsis when overflow. Can config rows and expandable by using object | boolean \| { rows: number, expandable: boolean, onExpand: Function } | false |
 | level | Set content importance. Match with `h1`, `h2`, `h3`, `h4` | number: `1`, `2`, `3`, `4` | 1 |
 | mark | mark style | boolean | false |
 | underline | underline style | boolean | false |
@@ -55,7 +55,7 @@ When need to display title or text content. Like:
 | delete | delete line style | boolean | false |
 | disabled | Disable content | boolean | false |
 | editable | Content can be edited  | boolean | false |
-| ellipsis | Display ellipsis when overflow. Can config rows and expandable by using object | boolean \| { rows: number, expandable: boolean } | false |
+| ellipsis | Display ellipsis when overflow. Can config rows and expandable by using object | boolean \| { rows: number, expandable: boolean, onExpand: Function } | false |
 | mark | mark style | boolean | false |
 | underline | underline style | boolean | false |
 | onChange | Trigger when user edit the content | Function(string) | - |
