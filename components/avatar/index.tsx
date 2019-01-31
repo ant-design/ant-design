@@ -60,7 +60,7 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
     }
 
     if (prevProps.src !== this.props.src) {
-      this.setState({ isImgExist: true });
+      this.setState({ isImgExist: true, scale: 1 });
     }
   }
 
