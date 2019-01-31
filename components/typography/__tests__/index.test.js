@@ -18,7 +18,7 @@ describe('Typography', () => {
   Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
     get() {
       let html = this.innerHTML;
-      html = html.replace(/\.\.\..*$/, '...');
+      html = html.replace(/<[^>]*>/g, '');
       const lines = Math.ceil(html.length / LINE_STR_COUNT);
       return lines * 16;
     },
@@ -66,19 +66,19 @@ describe('Typography', () => {
 
       it('should trigger update', () => {
         const wrapper = mount(
-          <Base ellipsis component="p">
+          <Base ellipsis component="p" editable>
             {fullStr}
           </Base>,
         );
 
         jest.runAllTimers();
         wrapper.update();
-        expect(wrapper.find('span').text()).toEqual('Bamboo is L...');
+        expect(wrapper.find('span').text()).toEqual('Bamboo is Little ...');
 
         wrapper.setProps({ ellipsis: { rows: 2 } });
         jest.runAllTimers();
         wrapper.update();
-        expect(wrapper.find('span').text()).toEqual('Bamboo is Little Light Bamboo i...');
+        expect(wrapper.find('span').text()).toEqual('Bamboo is Little Light Bamboo is Litt...');
 
         wrapper.setProps({ ellipsis: { rows: 99 } });
         jest.runAllTimers();
@@ -86,6 +86,22 @@ describe('Typography', () => {
         expect(wrapper.find('p').text()).toEqual(fullStr);
 
         wrapper.unmount();
+      });
+
+      it('connect children', () => {
+        const wrapper = mount(
+          <Base ellipsis component="p" editable>
+            {'Bamboo'}
+            {' is '}
+            <code>Little</code>
+            <code>Light</code>
+          </Base>,
+        );
+
+        jest.runAllTimers();
+        wrapper.update();
+
+        expect(wrapper.find('span').text()).toEqual('Bamboo is Little...');
       });
 
       it('should expandable work', () => {
@@ -98,7 +114,7 @@ describe('Typography', () => {
         jest.runAllTimers();
         wrapper.update();
 
-        wrapper.find('.ant-typography-extend').simulate('click');
+        wrapper.find('.ant-typography-expand').simulate('click');
         jest.runAllTimers();
         wrapper.update();
 

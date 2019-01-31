@@ -148,7 +148,7 @@ export function measure(
     const currentText = fullText.slice(0, midLoc);
     textNode.textContent = currentText;
 
-    if (startLoc <= endLoc - 1) {
+    if (startLoc >= endLoc - 1) {
       // Loop when step is small
       for (let step = endLoc; step >= startLoc; step -= 1) {
         const currentStepText = fullText.slice(0, step);

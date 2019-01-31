@@ -77,6 +77,7 @@ interface BaseState {
   ellipsisContent: React.ReactNode;
   isEllipsis: boolean;
   expanded: boolean;
+  clientRendered: boolean;
 }
 
 interface Locale {
@@ -108,6 +109,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
   content?: HTMLElement;
   copyId?: number;
   rafId?: number;
+
   // Locale
   expandStr?: string;
   copyStr?: string;
@@ -121,9 +123,11 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
     ellipsisContent: null,
     isEllipsis: false,
     expanded: false,
+    clientRendered: false,
   };
 
   componentDidMount() {
+    this.setState({ clientRendered: true });
     this.resizeOnNextFrame();
   }
 
@@ -216,11 +220,12 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
   };
 
   canUseCSSEllipsis(): boolean {
+    const { clientRendered } = this.state;
     const { editable, copyable } = this.props;
     const { rows, expandable } = this.getEllipsis();
 
     // Can't use css ellipsis since we need to provide the place for button
-    if (editable || copyable || expandable) {
+    if (editable || copyable || expandable || !clientRendered) {
       return false;
     }
 
