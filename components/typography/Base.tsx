@@ -10,6 +10,7 @@ import warning from '../_util/warning';
 import TransButton from '../_util/transButton';
 import ResizeObserver from '../_util/resizeObserver';
 import raf from '../_util/raf';
+import isStyleSupport from '../_util/styleChecker';
 import Icon from '../icon';
 import Tooltip from '../tooltip';
 import Typography, { TypographyProps } from './Typography';
@@ -17,6 +18,9 @@ import Editable from './Editable';
 import { measure } from './util';
 
 export type BaseType = 'secondary' | 'danger' | 'warning';
+
+const isLineClampSupport = isStyleSupport('webkitLineClamp');
+const isTextOverflowSupport = isStyleSupport('textOverflow');
 
 interface Ellipsis {
   rows?: number;
@@ -211,11 +215,30 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
     });
   };
 
+  canUseCSSEllipsis(): boolean {
+    const { editable, copyable } = this.props;
+    const { rows, expandable } = this.getEllipsis();
+
+    // Can't use css ellipsis since we need to provide the place for button
+    if (editable || copyable || expandable) {
+      return false;
+    }
+
+    if (rows === 1) {
+      return isTextOverflowSupport;
+    }
+
+    return isLineClampSupport;
+  }
+
   syncEllipsis() {
     const { ellipsisText, isEllipsis, expanded } = this.state;
     const { rows } = this.getEllipsis();
     const { children } = this.props;
     if (!rows || rows < 0 || !this.content || expanded) return;
+
+    // Do not measure if css already support ellipsis
+    if (this.canUseCSSEllipsis()) return;
 
     warning(
       toArray(children).every((child: React.ReactNode) => typeof child === 'string'),
@@ -313,7 +336,16 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
 
   renderContent() {
     const { ellipsisContent, isEllipsis, expanded } = this.state;
-    const { component, children, className, prefixCls, type, disabled, ...restProps } = this.props;
+    const {
+      component,
+      children,
+      className,
+      prefixCls,
+      type,
+      disabled,
+      style,
+      ...restProps
+    } = this.props;
     const { rows } = this.getEllipsis();
 
     const textProps = omit(restProps, [
@@ -330,10 +362,16 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
       'strong',
       ...configConsumerProps,
     ]);
+    const cssEllipsis = this.canUseCSSEllipsis();
+    const cssTextOverflow = rows === 1 && cssEllipsis;
+    const cssLineClamp = rows && rows > 1 && cssEllipsis;
 
     let textNode: React.ReactNode = children;
+    let ariaLabel: string | null = null;
 
-    if (rows && isEllipsis && !expanded) {
+    // Only use js ellipsis when css ellipsis not support
+    if (rows && isEllipsis && !expanded && !cssEllipsis) {
+      ariaLabel = String(children);
       // We move full content to outer element to avoid repeat read the content by accessibility
       textNode = (
         <span title={String(children)} aria-hidden="true">
@@ -360,10 +398,16 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
                   [`${prefixCls}-${type}`]: type,
                   [`${prefixCls}-disabled`]: disabled,
                   [`${prefixCls}-ellipsis`]: rows,
+                  [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
+                  [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
                 })}
+                style={{
+                  ...style,
+                  WebkitLineClamp: cssLineClamp ? rows : null,
+                }}
                 component={component}
                 setContentRef={this.setContentRef}
-                aria-label={isEllipsis ? String(children) : undefined}
+                aria-label={ariaLabel}
                 {...textProps}
               >
                 {textNode}

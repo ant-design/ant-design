@@ -223,4 +223,18 @@
   ol li {
     list-style-type: decimal;
   }
+
+  // ============ Ellipsis ============
+  &-ellipsis-single-line {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &-ellipsis-multiple-line {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 }

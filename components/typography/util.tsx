@@ -82,6 +82,11 @@ export function measure(
   ellipsisContainer.style.top = '-999999px';
   ellipsisContainer.style.zIndex = '-1000';
 
+  // clean up css overflow
+  ellipsisContainer.style.textOverflow = 'clip';
+  ellipsisContainer.style.whiteSpace = 'normal';
+  (ellipsisContainer.style as any).webkitLineClamp = 'none';
+
   // Render in the fake container
   const contentList: React.ReactNode[] = mergeChildren(toArray(content));
   render(
