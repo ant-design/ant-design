@@ -14,7 +14,7 @@ title:
 Display the document sample.
 
 ```jsx
-import { Typography } from 'antd';
+import { Typography, Divider } from 'antd';
 
 ReactDOM.render(
   <Typography>
@@ -35,6 +35,8 @@ ReactDOM.render(
       <li><a href="/docs/pattern/navigation">Patterns</a></li>
       <li><a href="/docs/resource/download">Resource Download</a></li>
     </ul>
+
+    <Divider />
 
     <h1>介绍</h1>
     <p>

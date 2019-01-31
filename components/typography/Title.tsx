@@ -1,13 +1,11 @@
 import * as React from 'react';
 import warning from 'warning';
 import Base, { BlockProps } from './Base';
-import { tupleNum } from '../_util/type';
+import { tupleNum, Omit } from '../_util/type';
 
 const TITLE_ELE_LIST = tupleNum(1, 2, 3, 4);
 
-interface TitleProps extends BlockProps {
-  level?: (typeof TITLE_ELE_LIST)[number];
-}
+type TitleProps = Omit<BlockProps & { level?: (typeof TITLE_ELE_LIST)[number] }, 'strong'>;
 
 const Title: React.SFC<TitleProps> = props => {
   const { level = 1, ...restProps } = props;

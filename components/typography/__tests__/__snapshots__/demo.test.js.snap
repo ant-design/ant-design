@@ -54,6 +54,9 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
       </a>
     </li>
   </ul>
+  <div
+    class="ant-divider ant-divider-horizontal"
+  />
   <h1>
     介绍
   </h1>
