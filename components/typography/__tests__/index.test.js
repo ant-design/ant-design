@@ -123,10 +123,11 @@ describe('Typography', () => {
     });
 
     describe('copyable', () => {
-      function copyTest(name, value, target) {
+      function copyTest(name, text, target) {
         it(name, () => {
+          const onCopy = jest.fn();
           const wrapper = mount(
-            <Base component="p" copyable={value}>
+            <Base component="p" copyable={{ text, onCopy }}>
               test copy
             </Base>,
           );
@@ -136,6 +137,9 @@ describe('Typography', () => {
             .first()
             .simulate('click');
           expect(copy.lastStr).toEqual(target);
+
+          wrapper.update();
+          expect(onCopy).toBeCalled();
 
           expect(wrapper.find('.anticon-check').length).toBeTruthy();
 
@@ -147,25 +151,24 @@ describe('Typography', () => {
         });
       }
 
-      copyTest('basic copy', true, 'test copy');
+      copyTest('basic copy', undefined, 'test copy');
       copyTest('customize copy', 'bamboo', 'bamboo');
     });
 
     describe('editable', () => {
       function testStep(name, submitFunc, expectFunc) {
         it(name, () => {
+          const onStart = jest.fn();
           const onChange = jest.fn();
 
-          const wrapper = mount(
-            <Paragraph onChange={onChange} editable>
-              Bamboo
-            </Paragraph>,
-          );
+          const wrapper = mount(<Paragraph editable={{ onChange, onStart }}>Bamboo</Paragraph>);
 
           wrapper
             .find('.ant-typography-edit')
             .first()
             .simulate('click');
+
+          expect(onStart).toBeCalled();
 
           wrapper.find('TextArea').simulate('change', {
             target: { value: 'Bamboo' },

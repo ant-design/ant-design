@@ -24,7 +24,7 @@ When need to display title or text content. Like:
 | copyable | Config copy. Can set copy text and callback when is an object | boolean \| { text: string, onCopy: Function } | false |boolean \| string | false |
 | delete | delete line style | boolean | false |
 | disabled | Disable content | boolean | false |
-| editable | Content can be edited  | boolean | false |
+| editable | Editable. Can control edit state when is object | boolean \| { editing: boolean, onStart: Function, onChange: Function(string) } | false |
 | ellipsis | Display ellipsis when overflow | boolean | false |
 | mark | mark style | boolean | false |
 | underline | underline style | boolean | false |
@@ -39,7 +39,7 @@ When need to display title or text content. Like:
 | copyable | Config copy. Can set copy text and callback when is an object | boolean \| { text: string, onCopy: Function } | false |boolean \| string | false |
 | delete | delete line style | boolean | false |
 | disabled | Disable content | boolean | false |
-| editable | Content can be edited  | boolean | false |
+| editable | Editable. Can control edit state when is object | boolean \| { editing: boolean, onStart: Function, onChange: Function(string) } | false |
 | ellipsis | Display ellipsis when overflow. Can config rows and expandable by using object | boolean \| { rows: number, expandable: boolean, onExpand: Function } | false |
 | level | Set content importance. Match with `h1`, `h2`, `h3`, `h4` | number: `1`, `2`, `3`, `4` | 1 |
 | mark | mark style | boolean | false |
@@ -54,7 +54,7 @@ When need to display title or text content. Like:
 | copyable | Config copy. Can set copy text and callback when is an object | boolean \| { text: string, onCopy: Function } | false |boolean \| string | false |
 | delete | delete line style | boolean | false |
 | disabled | Disable content | boolean | false |
-| editable | Content can be edited  | boolean | false |
+| editable | Editable. Can control edit state when is object | boolean \| { editing: boolean, onStart: Function, onChange: Function(string) } | false |
 | ellipsis | Display ellipsis when overflow. Can config rows and expandable by using object | boolean \| { rows: number, expandable: boolean, onExpand: Function } | false |
 | mark | mark style | boolean | false |
 | underline | underline style | boolean | false |

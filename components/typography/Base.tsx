@@ -22,24 +22,29 @@ export type BaseType = 'secondary' | 'danger' | 'warning';
 const isLineClampSupport = isStyleSupport('webkitLineClamp');
 const isTextOverflowSupport = isStyleSupport('textOverflow');
 
-interface Copy {
+interface CopyConfig {
   text?: string;
   onCopy?: () => void;
 }
 
-interface Ellipsis {
+interface EditConfig {
+  editing?: boolean;
+  onStart?: () => void;
+  onChange?: (value: string) => void;
+}
+
+interface EllipsisConfig {
   rows?: number;
   expandable?: boolean;
   onExpand?: () => void;
 }
 
 export interface BlockProps extends TypographyProps {
-  editable?: boolean;
-  copyable?: boolean | Copy;
-  onChange?: (value: string) => null;
+  editable?: boolean | EditConfig;
+  copyable?: boolean | CopyConfig;
   type?: BaseType;
   disabled?: boolean;
-  ellipsis?: boolean | Ellipsis;
+  ellipsis?: boolean | EllipsisConfig;
 
   // decorations
   code?: boolean;
@@ -162,11 +167,11 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
 
   // ================ Edit ================
   onEditClick = () => {
-    this.startEdit();
+    this.triggerEdit(true);
   };
 
   onEditChange = (value: string) => {
-    const { onChange } = this.props;
+    const { onChange } = this.getEditable();
     if (onChange) {
       onChange(value);
     }
@@ -181,10 +186,13 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
   // ================ Copy ================
   onCopyClick = () => {
     const { children, copyable } = this.props;
-    const copyConfig: Copy = {
-      text: String(children),
+    const copyConfig: CopyConfig = {
       ...(typeof copyable === 'object' ? copyable : null),
     };
+
+    if (copyConfig.text === undefined) {
+      copyConfig.text = String(children);
+    }
     copy(copyConfig.text || '');
 
     this.setState({ copied: true }, () => {
@@ -198,7 +206,18 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
     });
   };
 
-  getEllipsis(props?: BlockProps): Ellipsis {
+  getEditable(props?: BlockProps): EditConfig {
+    const { edit } = this.state;
+    const { editable } = props || this.props;
+    if (!editable) return { editing: edit };
+
+    return {
+      editing: edit,
+      ...(typeof editable === 'object' ? editable : null),
+    };
+  }
+
+  getEllipsis(props?: BlockProps): EllipsisConfig {
     const { ellipsis } = props || this.props;
     if (!ellipsis) return {};
 
@@ -217,11 +236,12 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
     this.editIcon = node;
   };
 
-  startEdit() {
-    this.triggerEdit(true);
-  }
-
   triggerEdit = (edit: boolean) => {
+    const { onStart } = this.getEditable();
+    if (edit && onStart) {
+      onStart();
+    }
+
     this.setState({ edit }, () => {
       if (!edit && this.editIcon) {
         this.editIcon.focus();
@@ -445,9 +465,9 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
   }
 
   render() {
-    const { edit } = this.state;
+    const { editing } = this.getEditable();
 
-    if (edit) {
+    if (editing) {
       return this.renderEditInput();
     }
     return this.renderContent();
