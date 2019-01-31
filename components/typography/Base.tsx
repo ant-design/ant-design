@@ -22,6 +22,11 @@ export type BaseType = 'secondary' | 'danger' | 'warning';
 const isLineClampSupport = isStyleSupport('webkitLineClamp');
 const isTextOverflowSupport = isStyleSupport('textOverflow');
 
+interface Copy {
+  text?: string;
+  onCopy?: () => void;
+}
+
 interface Ellipsis {
   rows?: number;
   expandable?: boolean;
@@ -29,7 +34,7 @@ interface Ellipsis {
 
 export interface BlockProps extends TypographyProps {
   editable?: boolean;
-  copyable?: boolean | string;
+  copyable?: boolean | Copy;
   onChange?: (value: string) => null;
   type?: BaseType;
   disabled?: boolean;
@@ -170,9 +175,17 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
   // ================ Copy ================
   onCopyClick = () => {
     const { children, copyable } = this.props;
-    copy(typeof copyable === 'string' ? copyable : String(children));
+    const copyConfig: Copy = {
+      text: String(children),
+      ...(typeof copyable === 'object' ? copyable : null),
+    };
+    copy(copyConfig.text || '');
 
     this.setState({ copied: true }, () => {
+      if (copyConfig.onCopy) {
+        copyConfig.onCopy();
+      }
+
       this.copyId = window.setTimeout(() => {
         this.setState({ copied: false });
       }, 3000);

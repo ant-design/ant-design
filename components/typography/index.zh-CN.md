@@ -10,7 +10,11 @@ cols: 1
 
 ## 何时使用
 
-当需要展示标题、文本内容时使用。例如博客、使用帮助、网站介绍等场景。
+当需要展示标题、文本内容时使用。例如：
+* 拷贝
+* 省略/展开
+* 可编辑
+* Markdown 排版样式
 
 ## API
 
@@ -18,7 +22,7 @@ cols: 1
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| copyable | 是否可拷贝，默认用 children，`copyable` 为 string 时优先用 `copyable` 的内容。 | boolean \| string | false |
+| copyable | 是否可拷贝，为对象时可设置复制文本以回调函数 | boolean \| { text: string, onCopy: Function } | false |
 | delete | 添加删除线样式 | boolean | false |
 | disabled | 禁用文本 | boolean | false |
 | editable | 是否可编辑 | boolean | false |
@@ -33,7 +37,7 @@ cols: 1
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| copyable | 是否可拷贝，默认用 children，`copyable` 为 string 时优先用 `copyable` 的内容。 | boolean \| string | false |
+| copyable | 是否可拷贝，为对象时可设置复制文本以回调函数 | boolean \| { text: string, onCopy: Function } | false |
 | delete | 添加删除线样式 | boolean | false |
 | disabled | 禁用文本 | boolean | false |
 | editable | 是否可编辑 | boolean | false |
@@ -48,7 +52,7 @@ cols: 1
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| copyable | 是否可拷贝，默认用 children，`copyable` 为 string 时优先用 `copyable` 的内容。 | boolean \| string | false |
+
 | delete | 添加删除线样式 | boolean | false |
 | disabled | 禁用文本 | boolean | false |
 | editable | 是否可编辑 | boolean | false |

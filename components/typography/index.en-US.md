@@ -9,7 +9,11 @@ Basic format and regular operation on text.
 
 ## When To Use
 
-When need to display title or text content. Like blog, help document, site about, etc.
+When need to display title or text content. Like:
+* Copy
+* Ellipsis / expand
+* Edit
+* Markdown Typography
 
 ## API
 
@@ -17,7 +21,7 @@ When need to display title or text content. Like blog, help document, site about
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| copyable | Content can be copied. Default use `children`, will use `copyable` content when `copyable` is string | boolean \| string | false |
+| copyable | Config copy. Can set copy text and callback when is an object | boolean \| { text: string, onCopy: Function } | false |boolean \| string | false |
 | delete | delete line style | boolean | false |
 | disabled | Disable content | boolean | false |
 | editable | Content can be edited  | boolean | false |
@@ -32,7 +36,7 @@ When need to display title or text content. Like blog, help document, site about
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| copyable | Content can be copied. Default use `children`, will use `copyable` content when `copyable` is string | 
+| copyable | Config copy. Can set copy text and callback when is an object | boolean \| { text: string, onCopy: Function } | false |boolean \| string | false |
 | delete | delete line style | boolean | false |
 | disabled | Disable content | boolean | false |
 | editable | Content can be edited  | boolean | false |
@@ -47,7 +51,7 @@ When need to display title or text content. Like blog, help document, site about
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| copyable | Content can be copied. Default use `children`, will use `copyable` content when `copyable` is string | 
+| copyable | Config copy. Can set copy text and callback when is an object | boolean \| { text: string, onCopy: Function } | false |boolean \| string | false |
 | delete | delete line style | boolean | false |
 | disabled | Disable content | boolean | false |
 | editable | Content can be edited  | boolean | false |
