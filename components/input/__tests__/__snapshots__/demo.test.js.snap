@@ -47,7 +47,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
           >
             <div
               aria-autocomplete="list"
-              aria-controls=""
+              aria-controls="test-uuid"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection
@@ -107,7 +107,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
           >
             <div
               aria-autocomplete="list"
-              aria-controls=""
+              aria-controls="test-uuid"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection
@@ -289,7 +289,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
-        aria-controls=""
+        aria-controls="test-uuid"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -350,7 +350,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
-        aria-controls=""
+        aria-controls="test-uuid"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -525,7 +525,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
-        aria-controls=""
+        aria-controls="test-uuid"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -575,7 +575,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
-        aria-controls=""
+        aria-controls="test-uuid"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -630,7 +630,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
-        aria-controls=""
+        aria-controls="test-uuid"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -707,7 +707,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
-        aria-controls=""
+        aria-controls="test-uuid"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -758,7 +758,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
-        aria-controls=""
+        aria-controls="test-uuid"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -833,7 +833,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
-        aria-controls=""
+        aria-controls="test-uuid"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection

@@ -546,7 +546,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
           >
             <div
               aria-autocomplete="list"
-              aria-controls=""
+              aria-controls="test-uuid"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection
@@ -664,7 +664,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
             >
               <div
                 aria-autocomplete="list"
-                aria-controls=""
+                aria-controls="test-uuid"
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-select-selection
@@ -1796,7 +1796,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                 >
                   <div
                     aria-autocomplete="list"
-                    aria-controls=""
+                    aria-controls="test-uuid"
                     aria-expanded="false"
                     aria-haspopup="true"
                     class="ant-select-selection
@@ -1887,7 +1887,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           >
             <div
               aria-autocomplete="list"
-              aria-controls=""
+              aria-controls="test-uuid"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection
@@ -2571,7 +2571,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           >
             <div
               aria-autocomplete="list"
-              aria-controls=""
+              aria-controls="test-uuid"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection
@@ -2651,7 +2651,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           >
             <div
               aria-autocomplete="list"
-              aria-controls=""
+              aria-controls="test-uuid"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection
@@ -4219,7 +4219,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           >
             <div
               aria-autocomplete="list"
-              aria-controls=""
+              aria-controls="test-uuid"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection
