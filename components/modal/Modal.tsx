@@ -75,9 +75,9 @@ export interface ModalFuncProps {
   centered?: boolean;
   width?: string | number;
   iconClassName?: string;
-  okText?: React.ReactNode | string;
+  okText?: React.ReactNode;
   okType?: ButtonType;
-  cancelText?: React.ReactNode | string;
+  cancelText?: React.ReactNode;
   icon?: React.ReactNode;
   /* Deperated */
   iconType?: string;
