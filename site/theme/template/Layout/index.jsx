@@ -94,6 +94,7 @@ export default class Layout extends React.Component {
     const { children, ...restProps } = this.props;
     const { appLocale } = this.state;
 
+    // Temp remove SentryBoundary
     return (
       <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
         <LocaleProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null}>

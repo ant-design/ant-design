@@ -15,23 +15,14 @@
     }
   }
 
-  &:not(&-small) > .@{ant-prefix}-input-suffix {
-    right: @control-padding-horizontal;
-  }
+  .@{ant-prefix}-input-group-addon {
+    border: 0;
+    padding: 0;
 
-  > .@{ant-prefix}-input-suffix > .@{search-prefix}-button {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    > .@{iconfont-css-prefix}-search {
-      font-size: @font-size-lg;
+    .@{search-prefix}-button {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      width: 100%;
     }
-  }
-
-  &.@{search-prefix}-enter-button > .@{ant-prefix}-input {
-    padding-right: 46px;
-  }
-
-  &.@{search-prefix}-enter-button > .@{ant-prefix}-input-suffix {
-    right: 0;
   }
 }

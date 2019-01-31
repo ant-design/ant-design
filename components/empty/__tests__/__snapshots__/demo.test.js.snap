@@ -66,6 +66,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
           unselectable="on"
         >
           <i
+            aria-label="icon: down"
             class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
@@ -110,6 +111,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
           style="outline:none"
         >
           <i
+            aria-label="icon: down"
             class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
@@ -148,6 +150,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
         value=""
       />
       <i
+        aria-label="icon: down"
         class="anticon anticon-down ant-cascader-picker-arrow"
       >
         <svg
@@ -206,9 +209,6 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
         <div
           class="ant-transfer-list-body"
         >
-          <ul
-            class="ant-transfer-list-content"
-          />
           <div
             class="ant-transfer-list-body-not-found"
           >
@@ -241,6 +241,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
           type="button"
         >
           <i
+            aria-label="icon: right"
             class="anticon anticon-right"
           >
             <svg
@@ -264,6 +265,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
           type="button"
         >
           <i
+            aria-label="icon: left"
             class="anticon anticon-left"
           >
             <svg
@@ -317,9 +319,6 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
         <div
           class="ant-transfer-list-body"
         >
-          <ul
-            class="ant-transfer-list-content"
-          />
           <div
             class="ant-transfer-list-body-not-found"
           >
@@ -496,7 +495,7 @@ exports[`renders ./components/empty/demo/customize.md correctly 1`] = `
       type="button"
     >
       <span>
-        立即创建
+        Create Now
       </span>
     </button>
   </div>

@@ -14,8 +14,6 @@ declare module 'rc-util*';
 
 declare module 'shallowequal';
 
-declare module 'warning';
-
 declare module 'css-animation*';
 
 declare module 'rc-select';
@@ -93,9 +91,15 @@ declare module '*.json' {
 
 declare module 'lodash/debounce';
 
+declare module 'lodash/padStart';
+
+declare module 'lodash/padEnd';
+
 declare module 'lodash/uniqBy';
 
-declare module "raf";
+declare module 'lodash/findIndex';
+
+declare module 'raf';
 
 declare module 'react-lifecycles-compat';
 

@@ -42,6 +42,8 @@ export interface ModalProps {
   cancelText?: string;
   /** 点击蒙层是否允许关闭*/
   maskClosable?: boolean;
+  /** 强制渲染 Modal*/
+  forceRender?: boolean;
   okButtonProps?: NativeButtonProps;
   cancelButtonProps?: NativeButtonProps;
   destroyOnClose?: boolean;
@@ -79,6 +81,7 @@ export interface ModalFuncProps {
   icon?: React.ReactNode;
   /* Deperated */
   iconType?: string;
+  mask?: boolean;
   maskClosable?: boolean;
   zIndex?: number;
   okCancel?: boolean;
@@ -88,6 +91,8 @@ export interface ModalFuncProps {
   keyboard?: boolean;
   getContainer?: (instance: React.ReactInstance) => HTMLElement;
   autoFocusButton?: null | 'ok' | 'cancel';
+  transitionName?: string;
+  maskTransitionName?: string;
 }
 
 export type ModalFunc = (

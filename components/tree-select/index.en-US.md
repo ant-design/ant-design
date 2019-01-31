@@ -34,6 +34,7 @@ Any data whose entries are defined in a hierarchical manner is fit to use this c
 | placeholder | Placeholder of the select input | string | - |
 | searchPlaceholder | Placeholder of the search input | string | - |
 | searchValue | work with `onSearch` to make search value controlled. | string | - |
+| treeIcon | Shows the icon before a TreeNode's title. There is no default style; you must set a custom style for it if set to `true` | boolean | false |
 | showCheckedStrategy | The way show selected item in box. **Default:** just show child nodes. **`TreeSelect.SHOW_ALL`:** show all checked treeNodes (include parent treeNode). **`TreeSelect.SHOW_PARENT`:** show checked treeNodes (just show parent treeNode). | enum { TreeSelect.SHOW_ALL, TreeSelect.SHOW_PARENT, TreeSelect.SHOW_CHILD } | TreeSelect.SHOW_CHILD |
 | showSearch | Whether to display a search input in the dropdown menu(valid only in the single mode) | boolean | false |
 | size | To set the size of the select input, options: `large` `small` | string | 'default' |

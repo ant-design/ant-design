@@ -319,4 +319,32 @@ describe('Upload', () => {
     expect(linkNode.props().download).toBe('image');
     expect(linkNode.props().rel).toBe('noopener');
   });
+
+  it('should not stop remove when return value of onRemove is false', done => {
+    const mockRemove = jest.fn(() => false);
+    const props = {
+      onRemove: mockRemove,
+      fileList: [
+        {
+          uid: '-1',
+          name: 'foo.png',
+          status: 'done',
+          url: 'http://www.baidu.com/xxx.png',
+        },
+      ],
+    };
+
+    const wrapper = mount(<Upload {...props} />);
+
+    wrapper.find('div.ant-upload-list-item i.anticon-close').simulate('click');
+
+    setImmediate(() => {
+      wrapper.update();
+
+      expect(mockRemove).toBeCalled();
+      expect(props.fileList).toHaveLength(1);
+      expect(props.fileList[0].status).toBe('done');
+      done();
+    });
+  });
 });

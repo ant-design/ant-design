@@ -44,7 +44,7 @@
         margin-right: @list-item-meta-avatar-margin-right;
       }
       &-content {
-        flex: 1 0;
+        flex: 1 0 auto;
       }
       &-title {
         color: @text-color;
@@ -106,6 +106,14 @@
       display: flex;
       flex: 1;
     }
+  }
+
+  &-header {
+    background: @list-header-background;
+  }
+
+  &-footer {
+    background: @list-footer-background;
   }
 
   &-header,

@@ -22,6 +22,7 @@ exports[`Select Select Custom Icons should support customized icons 1`] = `
       unselectable="on"
     >
       <i
+        aria-label="icon: down"
         class="anticon anticon-down ant-select-arrow-icon"
       >
         <svg
