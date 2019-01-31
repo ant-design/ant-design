@@ -50,7 +50,7 @@ export default {
   Text: {
     edit: 'edit',
     copy: 'copy',
-    copySuccess: 'copy success',
-    extend: 'extend',
+    copied: 'copy success',
+    expand: 'expand',
   },
 };

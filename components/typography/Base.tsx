@@ -72,14 +72,14 @@ interface BaseState {
   ellipsisText: string;
   ellipsisContent: React.ReactNode;
   isEllipsis: boolean;
-  extended: boolean;
+  expanded: boolean;
 }
 
 interface Locale {
   edit?: string;
   copy?: string;
-  copySuccess?: string;
-  extend?: string;
+  copied?: string;
+  expand?: string;
 }
 
 const ELLIPSIS_STR = '...';
@@ -105,9 +105,9 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
   copyId?: number;
   rafId?: number;
   // Locale
-  extendStr?: string;
+  expandStr?: string;
   copyStr?: string;
-  copySuccessStr?: string;
+  copiedStr?: string;
   editStr?: string;
 
   state: BaseState = {
@@ -116,7 +116,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
     ellipsisText: '',
     ellipsisContent: null,
     isEllipsis: false,
-    extended: false,
+    expanded: false,
   };
 
   componentDidMount() {
@@ -136,9 +136,9 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
     raf.cancel(this.rafId);
   }
 
-  // =============== Extend ===============
-  onExtendClick = () => {
-    this.setState({ extended: true });
+  // =============== Expend ===============
+  onExpandClick = () => {
+    this.setState({ expanded: true });
   };
 
   // ================ Edit ================
@@ -212,10 +212,10 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
   };
 
   syncEllipsis() {
-    const { ellipsisText, isEllipsis, extended } = this.state;
+    const { ellipsisText, isEllipsis, expanded } = this.state;
     const { rows } = this.getEllipsis();
     const { children } = this.props;
-    if (!rows || rows < 0 || !this.content || extended) return;
+    if (!rows || rows < 0 || !this.content || expanded) return;
 
     warning(
       toArray(children).every((child: React.ReactNode) => typeof child === 'string'),
@@ -234,24 +234,24 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
     }
   }
 
-  renderExtend(forceRender?: boolean) {
+  renderExpand(forceRender?: boolean) {
     const { expandable } = this.getEllipsis();
     const { prefixCls } = this.props;
-    const { extended, isEllipsis } = this.state;
+    const { expanded, isEllipsis } = this.state;
 
     if (!expandable) return null;
 
     // force render expand icon for measure usage or it will cause dead loop
-    if (!forceRender && (extended || !isEllipsis)) return null;
+    if (!forceRender && (expanded || !isEllipsis)) return null;
 
     return (
       <a
-        key="extend"
-        className={`${prefixCls}-extend`}
-        onClick={this.onExtendClick}
-        aria-label={this.extendStr}
+        key="expand"
+        className={`${prefixCls}-expand`}
+        onClick={this.onExpandClick}
+        aria-label={this.expandStr}
       >
-        {this.extendStr}
+        {this.expandStr}
       </a>
     );
   }
@@ -279,7 +279,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
     const { copyable, prefixCls } = this.props;
     if (!copyable) return;
 
-    const title = copied ? this.copySuccessStr : this.copyStr;
+    const title = copied ? this.copiedStr : this.copyStr;
     return (
       <Tooltip key="copy" title={title}>
         <TransButton
@@ -306,13 +306,13 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
   }
 
   renderOperations(forceRenderExpanded?: boolean) {
-    return [this.renderExtend(forceRenderExpanded), this.renderEdit(), this.renderCopy()].filter(
+    return [this.renderExpand(forceRenderExpanded), this.renderEdit(), this.renderCopy()].filter(
       node => node,
     );
   }
 
   renderContent() {
-    const { ellipsisContent, isEllipsis, extended } = this.state;
+    const { ellipsisContent, isEllipsis, expanded } = this.state;
     const { component, children, className, prefixCls, type, disabled, ...restProps } = this.props;
     const { rows } = this.getEllipsis();
 
@@ -333,7 +333,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
 
     let textNode: React.ReactNode = children;
 
-    if (rows && isEllipsis && !extended) {
+    if (rows && isEllipsis && !expanded) {
       // We move full content to outer element to avoid repeat read the content by accessibility
       textNode = (
         <span title={String(children)} aria-hidden="true">
@@ -347,11 +347,11 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
 
     return (
       <LocaleReceiver componentName="Text">
-        {({ edit, copy: copyStr, copySuccess, extend }: Locale) => {
+        {({ edit, copy: copyStr, copied, expand }: Locale) => {
           this.editStr = edit;
           this.copyStr = copyStr;
-          this.copySuccessStr = copySuccess;
-          this.extendStr = extend;
+          this.copiedStr = copied;
+          this.expandStr = expand;
 
           return (
             <ResizeObserver onResize={this.resizeOnNextFrame} disabled={!rows}>
