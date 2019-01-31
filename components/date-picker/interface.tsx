@@ -46,6 +46,7 @@ export interface DatePickerProps extends PickerProps, SinglePickerProps {
   onOpenChange?: (status: boolean) => void;
   onOk?: (selectedTime: moment.Moment) => void;
   placeholder?: string;
+  mode?: 'time' | 'date' | 'month' | 'year';
 }
 
 export interface MonthPickerProps extends PickerProps, SinglePickerProps {
