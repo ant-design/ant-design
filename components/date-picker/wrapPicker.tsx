@@ -125,7 +125,7 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, pickerType
       const mergedPickerType = showTime ? `${pickerType}Time` : pickerType;
       const mergedFormat =
         format ||
-        locale[LOCALE_FORMAT_MAPPING[mergedPickerType]] ||
+        locale.lang[LOCALE_FORMAT_MAPPING[mergedPickerType]] ||
         DEFAULT_FORMAT[mergedPickerType];
 
       return (

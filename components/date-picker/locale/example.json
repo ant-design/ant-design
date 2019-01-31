@@ -18,6 +18,7 @@
     "dateFormat": "M/D/YYYY",
     "dayFormat": "D",
     "dateTimeFormat": "M/D/YYYY HH:mm:ss",
+    "weekFormat": "YYYY-wo",
     "monthFormat": "MMMM",
     "monthBeforeYear": true,
     "previousMonth": "Previous month (PageUp)",
@@ -31,9 +32,5 @@
   },
   "timePickerLocale": {
     "placeholder": "Select time"
-  },
-  "dateFormat": "YYYY-MM-DD",
-  "dateTimeFormat": "YYYY-MM-DD HH:mm:ss",
-  "weekFormat": "YYYY-wo",
-  "monthFormat": "YYYY-MM"
+  }
 }

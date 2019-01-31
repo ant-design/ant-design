@@ -248,7 +248,7 @@ describe('RangePicker', () => {
   // https://github.com/ant-design/ant-design/issues/6999
   it('input date manually', () => {
     const wrapper = mount(<RangePicker open />);
-    const dateString = '2008-12-31';
+    const dateString = '12/31/2008';
     const input = wrapper.find('.ant-calendar-input').first();
     input.simulate('change', { target: { value: dateString } });
     expect(input.getDOMNode().value).toBe(dateString);
@@ -274,7 +274,7 @@ describe('RangePicker', () => {
       wrapper
         .find('.ant-calendar-input')
         .at(1)
-        .simulate('change', { target: { value: '2016-01-01' } }),
+        .simulate('change', { target: { value: '01/01/2016' } }),
     ).not.toThrow();
   });
 

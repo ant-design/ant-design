@@ -983,7 +983,7 @@ exports[`Picker format by locale date 1`] = `
       class="ant-calendar-picker-input ant-input"
       placeholder="请选择日期"
       readonly=""
-      value="2000 年 1 月 1 日"
+      value="2000年1月1日"
     />
     <i
       aria-label="图标: close-circle"
@@ -1036,7 +1036,7 @@ exports[`Picker format by locale dateTime 1`] = `
       class="ant-calendar-picker-input ant-input"
       placeholder="请选择日期"
       readonly=""
-      value="2000 年 1 月 1 日 0 时 0 分 0 秒"
+      value="2000年1月1日 00时00分00秒"
     />
     <i
       aria-label="图标: close-circle"
@@ -1088,7 +1088,7 @@ exports[`Picker format by locale month 1`] = `
       class="ant-calendar-picker-input ant-input"
       placeholder="请选择日期"
       readonly=""
-      value="2000 年 1 月"
+      value="2000-01"
     />
     <i
       aria-label="图标: close-circle"
@@ -1142,7 +1142,7 @@ exports[`Picker format by locale week 1`] = `
       class="ant-calendar-picker-input ant-input"
       placeholder="请选择日期"
       readonly=""
-      value="2000 年 52 周"
+      value="1999-52周"
     />
     <i
       aria-label="图标: close-circle"
