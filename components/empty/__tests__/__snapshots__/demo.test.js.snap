@@ -49,7 +49,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
-        aria-controls="test-uuid"
+        aria-controls=""
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection

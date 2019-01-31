@@ -162,7 +162,7 @@ exports[`ConfigProvider components AutoComplete configProvider 1`] = `
 >
   <div
     aria-autocomplete="list"
-    aria-controls="test-uuid"
+    aria-controls=""
     aria-expanded="false"
     aria-haspopup="true"
     class="config-select-selection
@@ -227,7 +227,7 @@ exports[`ConfigProvider components AutoComplete normal 1`] = `
 >
   <div
     aria-autocomplete="list"
-    aria-controls="test-uuid"
+    aria-controls=""
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
@@ -292,7 +292,7 @@ exports[`ConfigProvider components AutoComplete prefixCls 1`] = `
 >
   <div
     aria-autocomplete="list"
-    aria-controls="test-uuid"
+    aria-controls=""
     aria-expanded="false"
     aria-haspopup="true"
     class="prefix-AutoComplete-selection
@@ -1168,7 +1168,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
       >
         <div
           aria-autocomplete="list"
-          aria-controls="test-uuid"
+          aria-controls=""
           aria-expanded="false"
           aria-haspopup="true"
           class="config-select-selection
@@ -1218,7 +1218,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
       >
         <div
           aria-autocomplete="list"
-          aria-controls="test-uuid"
+          aria-controls=""
           aria-expanded="false"
           aria-haspopup="true"
           class="config-select-selection
@@ -2207,7 +2207,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
       >
         <div
           aria-autocomplete="list"
-          aria-controls="test-uuid"
+          aria-controls=""
           aria-expanded="false"
           aria-haspopup="true"
           class="config-select-selection
@@ -2564,7 +2564,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
       >
         <div
           aria-autocomplete="list"
-          aria-controls="test-uuid"
+          aria-controls=""
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-select-selection
@@ -2614,7 +2614,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
       >
         <div
           aria-autocomplete="list"
-          aria-controls="test-uuid"
+          aria-controls=""
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-select-selection
@@ -3603,7 +3603,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
       >
         <div
           aria-autocomplete="list"
-          aria-controls="test-uuid"
+          aria-controls=""
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-select-selection
@@ -3960,7 +3960,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
       >
         <div
           aria-autocomplete="list"
-          aria-controls="test-uuid"
+          aria-controls=""
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-select-selection
@@ -4010,7 +4010,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
       >
         <div
           aria-autocomplete="list"
-          aria-controls="test-uuid"
+          aria-controls=""
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-select-selection
@@ -4999,7 +4999,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
       >
         <div
           aria-autocomplete="list"
-          aria-controls="test-uuid"
+          aria-controls=""
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-select-selection
@@ -8440,7 +8440,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       >
         <div
           aria-autocomplete="list"
-          aria-controls="test-uuid"
+          aria-controls=""
           aria-expanded="false"
           aria-haspopup="true"
           class="config-select-selection
@@ -8573,7 +8573,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       >
         <div
           aria-autocomplete="list"
-          aria-controls="test-uuid"
+          aria-controls=""
           aria-expanded="false"
           aria-haspopup="true"
           class="config-select-selection
@@ -8711,7 +8711,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       >
         <div
           aria-autocomplete="list"
-          aria-controls="test-uuid"
+          aria-controls=""
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-select-selection
@@ -8844,7 +8844,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       >
         <div
           aria-autocomplete="list"
-          aria-controls="test-uuid"
+          aria-controls=""
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-select-selection
@@ -8982,7 +8982,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       >
         <div
           aria-autocomplete="list"
-          aria-controls="test-uuid"
+          aria-controls=""
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-select-selection
@@ -9115,7 +9115,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       >
         <div
           aria-autocomplete="list"
-          aria-controls="test-uuid"
+          aria-controls=""
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-select-selection
@@ -10618,7 +10618,7 @@ Array [
   >
     <div
       aria-autocomplete="list"
-      aria-controls="test-uuid"
+      aria-controls=""
       aria-expanded="true"
       aria-haspopup="true"
       class="config-select-selection
@@ -10660,7 +10660,7 @@ Array [
       class="config-select-dropdown config-select-dropdown--single config-select-dropdown-placement-bottomLeft "
     >
       <div
-        id="test-uuid"
+        id=""
         style="overflow:auto;transform:translateZ(0)"
       >
         <ul
@@ -10705,7 +10705,7 @@ Array [
   >
     <div
       aria-autocomplete="list"
-      aria-controls="test-uuid"
+      aria-controls=""
       aria-expanded="true"
       aria-haspopup="true"
       class="ant-select-selection
@@ -10747,7 +10747,7 @@ Array [
       class="ant-select-dropdown ant-select-dropdown--single ant-select-dropdown-placement-bottomLeft "
     >
       <div
-        id="test-uuid"
+        id=""
         style="overflow:auto;transform:translateZ(0)"
       >
         <ul
@@ -10792,7 +10792,7 @@ Array [
   >
     <div
       aria-autocomplete="list"
-      aria-controls="test-uuid"
+      aria-controls=""
       aria-expanded="true"
       aria-haspopup="true"
       class="prefix-Select-selection
@@ -10834,7 +10834,7 @@ Array [
       class="prefix-Select-dropdown prefix-Select-dropdown--single prefix-Select-dropdown-placement-bottomLeft "
     >
       <div
-        id="test-uuid"
+        id=""
         style="overflow:auto;transform:translateZ(0)"
       >
         <ul
