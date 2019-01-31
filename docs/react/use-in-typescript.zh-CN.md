@@ -179,20 +179,12 @@ module.exports = override(
 
 修改后重启 `yarn start`，如果看到一个绿色的按钮就说明配置成功了。
 
+> 对于自定义 webpack 配置，你也可以使用 [craco](https://github.com/sharegate/craco) 和 [craco-antd](https://github.com/FormAPI/craco-antd) 来实现和 customize-cra 一样的修改 create-react-app 配置的功能。
+
 ## 其他方案
 
-你也可以根据 [在 create-react-app 中使用](/docs/react/use-with-create-react-app.zh-CN.md) 的介绍使用 [react-app-rewire-typescript][https://github.com/lwd-technology/react-app-rewire-typescript] 自己来配置 TypeScript 的开发环境。
-
-此外，还可以选择 [react-scripts-ts-antd](https://www.npmjs.com/package/react-scripts-ts-antd)，其中已经配置好了 ts-import-plugin、react-app-rewired、scss、less 等常用功能。只需一条命令即可生成一个免配置的 TypeScript 项目.
-
-```bash
-$ yarn create react-app my-project --scripts-version=react-scripts-ts-antd
-```
-
-对于自定义 webpack 配置，你也可以使用 [craco](https://github.com/sharegate/craco) 和 [craco-antd](https://github.com/FormAPI/craco-antd) 来实现和 customize-cra 一样的修改 create-react-app 配置的功能。
-
-## 社区教程
-
+- [Create React apps (with Typescript and antd) with no build configuration](https://github.com/SZzzzz/react-scripts-ts-antd)
+- [react-app-rewire-typescript][https://github.com/lwd-technology/react-app-rewire-typescript]
+- [ts-import-plugin](https://github.com/Brooooooklyn/ts-import-plugin)
 - [create-react-app Adding TypeScript](https://facebook.github.io/create-react-app/docs/adding-typescript)
 - [Migrating from create-react-app-typescript to Create React App](https://vincenttunru.com/migrate-create-react-app-typescript-to-create-react-app/)
-- [react-scripts-ts-antd](https://github.com/SZzzzz/react-scripts-ts-antd)
