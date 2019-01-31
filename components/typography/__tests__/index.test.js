@@ -105,8 +105,9 @@ describe('Typography', () => {
       });
 
       it('should expandable work', () => {
+        const onExpand = jest.fn();
         const wrapper = mount(
-          <Base ellipsis={{ expandable: true }} component="p" copyable editable>
+          <Base ellipsis={{ expandable: true, onExpand }} component="p" copyable editable>
             {fullStr}
           </Base>,
         );
@@ -115,10 +116,16 @@ describe('Typography', () => {
         wrapper.update();
 
         wrapper.find('.ant-typography-expand').simulate('click');
+        expect(onExpand).toBeCalled();
         jest.runAllTimers();
         wrapper.update();
 
         expect(wrapper.find('p').text()).toEqual(fullStr);
+      });
+
+      it('can use css ellipsis', () => {
+        const wrapper = mount(<Base ellipsis component="p" />);
+        expect(wrapper.find('.ant-typography-ellipsis-single-line').length).toBeTruthy();
       });
     });
 
