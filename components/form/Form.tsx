@@ -90,6 +90,37 @@ export type GetFieldDecoratorOptions = {
   preserve?: boolean;
 };
 
+/** dom-scroll-into-view 组件配置参数 */
+export type DomScrollIntoViewConfig = {
+  /** 是否和左边界对齐 */
+  alignWithLeft: boolean;
+  /** 是否和上边界对齐  */
+  alignWithTop: boolean;
+  /** 顶部偏移量 */
+  offsetTop: number;
+  /** 左侧偏移量 */
+  offsetLeft: number;
+  /** 底部偏移量 */
+  offsetBottom: number;
+  /** 右侧偏移量 */
+  offsetRight: number;
+  /** 是否允许容器水平滚动 */
+  allowHorizontalScroll: boolean;
+  /** 当内容可见时是否允许滚动容器 */
+  onlyScrollIfNeeded: boolean;
+};
+
+export type ValidateFieldsOptions = {
+  /** 所有表单域是否在第一个校验规则失败后停止继续校验 */
+  first: boolean,
+  /** 指定哪些表单域在第一个校验规则失败后停止继续校验 */
+  firstFields: string[],
+  /** 已经校验过的表单域，在 validateTrigger 再次被触发时是否再次校验 */
+  force: boolean,
+  /**定义 validateFieldsAndScroll 的滚动行为 */
+  scroll: DomScrollIntoViewConfig,
+};
+
 // function create
 export type WrappedFormUtils = {
   /** 获取一组输入控件的值，如不传入参数，则获取全部组件的值 */
@@ -101,26 +132,26 @@ export type WrappedFormUtils = {
   /** 设置一组输入控件的值*/
   setFields(obj: Object): void;
   /** 校验并获取一组输入域的值与 Error */
-  validateFields(fieldNames: Array<string>, options: Object, callback: ValidateCallback): void;
-  validateFields(options: Object, callback: ValidateCallback): void;
+  validateFields(fieldNames: Array<string>, options: ValidateFieldsOptions, callback: ValidateCallback): void;
+  validateFields(options: ValidateFieldsOptions, callback: ValidateCallback): void;
   validateFields(fieldNames: Array<string>, callback: ValidateCallback): void;
-  validateFields(fieldNames: Array<string>, options: Object): void;
+  validateFields(fieldNames: Array<string>, options: ValidateFieldsOptions): void;
   validateFields(fieldNames: Array<string>): void;
   validateFields(callback: ValidateCallback): void;
-  validateFields(options: Object): void;
+  validateFields(options: ValidateFieldsOptions): void;
   validateFields(): void;
   /** 与 `validateFields` 相似，但校验完后，如果校验不通过的菜单域不在可见范围内，则自动滚动进可见范围 */
   validateFieldsAndScroll(
     fieldNames: Array<string>,
-    options: Object,
+    options: ValidateFieldsOptions,
     callback: ValidateCallback,
   ): void;
-  validateFieldsAndScroll(options: Object, callback: ValidateCallback): void;
+  validateFieldsAndScroll(options: ValidateFieldsOptions, callback: ValidateCallback): void;
   validateFieldsAndScroll(fieldNames: Array<string>, callback: ValidateCallback): void;
-  validateFieldsAndScroll(fieldNames: Array<string>, options: Object): void;
+  validateFieldsAndScroll(fieldNames: Array<string>, options: ValidateFieldsOptions): void;
   validateFieldsAndScroll(fieldNames: Array<string>): void;
   validateFieldsAndScroll(callback: ValidateCallback): void;
-  validateFieldsAndScroll(options: Object): void;
+  validateFieldsAndScroll(options: ValidateFieldsOptions): void;
   validateFieldsAndScroll(): void;
   /** 获取某个输入控件的 Error */
   getFieldError(name: string): Object[];
