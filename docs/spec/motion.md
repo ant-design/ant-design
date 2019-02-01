@@ -25,7 +25,8 @@ To measure whether a dynamic effect makes sense, we can assess it by the followi
 
 ## Principle
 
-In the product design of enterprise applications, the use of dynamic effects and front-end products are very different. It is especially important to help the effectiveness of interactive behavior and information cognition. Based on the design values of Ant Design, we derive the dynamics. Three principles of efficiency design：
+In the product design of enterprise applications, the use of dynamic effects and front-end products are very different. It is especially important to help the effectiveness of interactive behavior and information cognition. Based on the design values of Ant Design, we derive the dynamics. 
+Three principles of efficiency design：
 
 
 ```__react
