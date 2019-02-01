@@ -10,6 +10,7 @@
 
 一套企业级的 UI 设计语言和 React 实现。
 
+[![Build Status](https://dev.azure.com/ant-design/ant-design/_apis/build/status/ant-design.ant-design?branchName=master)](https://dev.azure.com/ant-design/ant-design/_build/latest?definitionId=2?branchName=master)
 [![CircleCI branch](https://img.shields.io/circleci/project/github/ant-design/ant-design/master.svg?style=flat-square)](https://circleci.com/gh/ant-design/ant-design)
 [![Codecov](https://img.shields.io/codecov/c/github/ant-design/ant-design/master.svg?style=flat-square)](https://codecov.io/gh/ant-design/ant-design/branch/master)
 [![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
