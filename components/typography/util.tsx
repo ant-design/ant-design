@@ -10,6 +10,7 @@ interface MeasureResult {
 // We only handle element & text node.
 const ELEMENT_NODE = 1;
 const TEXT_NODE = 3;
+const COMMENT_NODE = 8;
 
 let ellipsisContainer: HTMLParagraphElement;
 
@@ -109,9 +110,9 @@ export function measure(
   }
 
   // We should clone the childNode since they're controlled by React and we can't reuse it without warning
-  const childNodes: ChildNode[] = Array.prototype.slice.apply(
-    ellipsisContainer.childNodes[0].childNodes[0].cloneNode(true).childNodes,
-  );
+  const childNodes: ChildNode[] = Array.prototype.slice
+    .apply(ellipsisContainer.childNodes[0].childNodes[0].cloneNode(true).childNodes)
+    .filter(({ nodeType }: ChildNode) => nodeType !== COMMENT_NODE);
   const fixedNodes: ChildNode[] = Array.prototype.slice.apply(
     ellipsisContainer.childNodes[0].childNodes[1].cloneNode(true).childNodes,
   );
@@ -202,6 +203,7 @@ export function measure(
     }
 
     // Not handle other type of content
+    // PS: This code should not be attached after react 16
     return {
       finished: false,
       reactNode: null,
