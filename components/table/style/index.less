@@ -368,10 +368,6 @@
       .@{table-prefix-cls}-body-inner > table {
         border-top: 0;
       }
-
-      .@{table-prefix-cls}-placeholder {
-        border: 0;
-      }
     }
 
     .@{table-prefix-cls}-thead > tr:not(:last-child) > th {
@@ -388,7 +384,7 @@
     position: relative;
     padding: @table-padding-vertical @table-padding-horizontal;
     background: @component-background;
-    border-radius: @border-radius-base;
+    border-radius: 0 0 @border-radius-base @border-radius-base;
     border-bottom: @border-width-base @border-style-base @border-color-split;
     text-align: center;
     font-size: @font-size-base;
