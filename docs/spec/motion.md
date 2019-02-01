@@ -5,27 +5,27 @@ title:
   en-US: Motion
 ---
 
-> [Ant Motion](https://motion.ant.design/) 是 Ant Design 中提炼出来的动效语言。他不仅仅是动效语言，同时也是一套 React 框架动效解决方案，可以帮助开发者，更容易在项目中使用动效。我们提供了单项，组合动画，以及整套解决方案。
+> [Ant Motion](https://motion.ant.design/) Yes Ant Design The dynamic language extracted from the middle. He is not only a dynamic language, but also a React framework motion solution that helps developers make it easier to use dynamics in their projects. We offer single items, combined animations, and a complete solution.
 
-界面动效能加强用户认知且增加活力。
+Interface dynamics enhance user awareness and increase vitality.
 
-## 动效价值
+## Motivating value
 
-- **增加体验舒适度：** 让用户认知过程更为自然。
-- **增加界面活力：** 第一时间吸引注意力，突出重点。
-- **描述层级关系：** 体现元素之间的层级与空间关系。
-- **提供反馈、明确意向：** 助力交互体验。
+- **Increase experience comfort：** Make the user's cognitive process more natural.
+- **Increase interface vigor：** The first time to attract attention and highlight the key points.
+- **Describe hierarchical relationships：** Reflect the hierarchical and spatial relationship between elements.
+- **Provide feedback and clear intention：** Assist interactive experience.
 
-## 衡量动效意义
+## Measuring the significance of dynamism
 
-衡量一个动效是否有意义，我们可以通过以下几个标准来考核：
+To measure whether a dynamic effect makes sense, we can assess it by the following criteria:
 
-- **一个动效的存在是否合理：**是否带有明确的目的性，助力交互体验，没有多余的动效。
-- **动效与性能：**不能出现大幅度波动丢帧或者卡顿现象, 动效的体验须是流畅的，并且不影响产品的性能。
+- **Is the existence of a dynamic effect reasonable?：**Whether it has a clear purpose, to help the interactive experience, there is no superfluous effect.
+- **Mobility and performance：** There can be no large fluctuations in frame dropping or stuttering, and the experience of dynamic effects must be smooth and does not affect the performance of the product.
 
-## 原则
+## Principle
 
-在企业级应用的产品设计中，使用动效和前台类产品有很大的不同，助力交互行为和信息认知的有效性会显得尤为重要，在 Ant Design 设计价值观的基础之上，我们衍生出动效设计的三原则：
+In the product design of enterprise applications, the use of dynamic effects and front-end products are very different. It is especially important to help the effectiveness of interactive behavior and information cognition. Based on the design values ​​of Ant Design, we derive the dynamics. Three principles of efficiency design：
 
 
 ```__react
@@ -33,9 +33,9 @@ title:
 import { Col, Row } from 'antd';
 
 const text = [
-  { title: '自然', img: 'https://gw.alipayobjects.com/zos/rmsportal/LyTPSGknLUlxiVdwMWyu.gif', content: '自然运动规律，保证视觉连惯，让用户感知到动作是成立的' },
-  { title: '高效', img: 'https://gw.alipayobjects.com/zos/rmsportal/SQOZVQVIossbXpzDmihu.gif', content: '尽量节省过渡的时间，快速完成过渡的动画效果' },
-  { title: '克制', img: 'https://gw.alipayobjects.com/zos/rmsportal/OkIXkscKxywYLSrilPIf.gif', content: '做有意义的动效，不去做太多的修饰和干扰用户' },
+  { title: 'Natural', img: 'https://gw.alipayobjects.com/zos/rmsportal/LyTPSGknLUlxiVdwMWyu.gif', content: 'The law of natural movement guarantees the visual habit of letting the user perceive that the action is established.' },
+  { title: 'Efficient', img: 'https://gw.alipayobjects.com/zos/rmsportal/SQOZVQVIossbXpzDmihu.gif', content: 'Try to save time in transition and quickly complete the transition animation' },
+  { title: 'Restraint', img: 'https://gw.alipayobjects.com/zos/rmsportal/OkIXkscKxywYLSrilPIf.gif', content: 'Do meaningful motivation, don't do too much modification and interfere with users' },
 ];
 
 function Principle() {
@@ -60,30 +60,30 @@ function Principle() {
 ReactDOM.render(<Principle />, mountNode);
 ```
 
-### 自然
+### Natural
 
-自然的动效背后体现的是自然运动规律。这就要求动效在转换时保证视觉上的连惯性，让用户感知到这个动作是成立的，是能够引起共鸣的。
+Behind the natural dynamics is the law of natural movement. This requires the dynamic effect to ensure the visual inertia during the transition, so that the user perceives that the action is established and can resonate.
 
 <video class="motion-video-min" src="https://gw.alipayobjects.com/os/rmsportal/NTMlQdLIkPjOACXsdRrq.mp4" loop="true" />
 
-以 button 的动效设计为例，设计师将其想像成一片树叶飘浮在水面之上，当你去触碰它时，叶子会下浮再反弹，然后出现涟漪效果。
+Take button For example, the designer design imagines that the leaves float on the surface of the water. When you touch it, the leaves will float and bounce, and then the ripple effect will appear.
 
-### 高效
+### Efficient
 
-企业级应用追求的是高效的用户体验，与之对应的动效设计也应如此，尽量节省过渡的时间，快速完成过渡的动画效果。
+The enterprise-level application pursues an efficient user experience, and the corresponding dynamic design should also be such that the transition time is saved as much as possible, and the transition animation effect is quickly completed.
 
 <video class="motion-video-min" src="https://gw.alipayobjects.com/os/rmsportal/wMKeLGnpDxhwfCsBqKNN.mp4" loop="true" />
 
-举个例子，在出场与进场的动效里，出场不用大张旗鼓的去吸引用户的注意力，而是做到简单清晰即可。所以我们的出场时间采用了更快的速度,同时也不设置队列依次出场的形式，只需要整块直接消失即可。
+For example, in the dynamics of appearance and entry, the appearance does not need to be fanfare to attract the attention of the user, but to be simple and clear. Therefore, our playing time uses a faster speed, and does not set the queue to appear in the form of a sequence, only need to disappear directly.
 
-### 克制
+### Restraint
 
-尽量避免夸张的动效，做有意义的事，不去做太多的修饰而干扰用户。
+Try to avoid exaggerated effects, do meaningful things, and not do too much modification to interfere with users.
 
 <video src="https://gw.alipayobjects.com/os/rmsportal/FeUCANmoDRwCSmIcnPNF.mp4" loop="true" class="motion-video-min" />
 
-如我们的 Menu，在展开时，更注重的是菜单的内容，而右侧的图标切换并不是主要的元素，不需要过度强调去分散用户的注意。只需在不经意间切换，明确指示变化即可。
+Like ours Menu，When unfolding, more attention is paid to the content of the menu, and the icon switching on the right side is not the main element, and there is no need to over-emphasize to distract the user's attention. Simply switch between inadvertently and clearly indicate the change.
 
 <br />
 
-> 更多详细内容请前往 [Ant Motion 动效原则](https://motion.ant.design/language/basic) 查看。
+> For more details please go to [Ant Motion Motivation principle](https://motion.ant.design/language/basic).
