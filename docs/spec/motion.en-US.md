@@ -43,7 +43,7 @@ function Principle() {
   const childrenToRender = text.map(item => (
     <Col key={item.title} sm={24} md={8} >
       <div className="principle">
-        <div><img src={item.img} width="80%" /></div>
+        <div><img src={item.img} width="80%" alt="Image" /></div>
         <h4>{item.title}</h4>
         <p>{item.content}</p>
       </div>
