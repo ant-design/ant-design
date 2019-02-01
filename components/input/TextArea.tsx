@@ -100,8 +100,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     if (!autosize || !this.textAreaRef) {
       return;
     }
-    const minRows = autosize ? (autosize as AutoSizeType).minRows : null;
-    const maxRows = autosize ? (autosize as AutoSizeType).maxRows : null;
+    const { minRows, maxRows } = autosize as AutoSizeType;
     const textareaStyles = calculateNodeHeight(this.textAreaRef, false, minRows, maxRows);
     this.setState({ textareaStyles });
   };
