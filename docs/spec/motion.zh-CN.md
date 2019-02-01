@@ -86,4 +86,4 @@ ReactDOM.render(<Principle />, mountNode);
 
 <br />
 
-> 更多详细内容请前往 [Ant Motion 动效原则](https://motion.ant.design/language/basic) 查看。
+> 更多详细内容请前往 [Ant Motion 动效原则](https://motion.ant.design/language/basic)。
