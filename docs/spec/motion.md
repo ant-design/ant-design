@@ -11,7 +11,7 @@ Interface dynamics enhance user awareness and increase vitality.
 
 ## Motivating value
 
-- **Increase experience comfort：** Make the user's cognitive process more natural.
+- **Increase experience comfort:** Make the user's cognitive process more natural.
 - **Increase interface vigor：** The first time to attract attention and highlight the key points.
 - **Describe hierarchical relationships：** Reflect the hierarchical and spatial relationship between elements.
 - **Provide feedback and clear intention：** Assist interactive experience.
