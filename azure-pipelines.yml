@@ -51,7 +51,7 @@ jobs:
     steps:
       - checkout: self
         fetchDepth: 1
-        clean: false 
+        clean: false
       - task: NodeTool@0
         inputs:
           versionSpec: '11.x'
