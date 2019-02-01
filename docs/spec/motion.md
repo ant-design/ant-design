@@ -20,8 +20,8 @@ Interface dynamics enhance user awareness and increase vitality.
 
 To measure whether a dynamic effect makes sense, we can assess it by the following criteria:
 
-- **Is the existence of a dynamic effect reasonable?：**Whether it has a clear purpose, to help the interactive experience, there is no superfluous effect.
-- **Mobility and performance：** There can be no large fluctuations in frame dropping or stuttering, and the experience of dynamic effects must be smooth and does not affect the performance of the product.
+- **Is the existence of a dynamic effect reasonable ? ** Whether it has a clear purpose, to help the interactive experience, there is no superfluous effect.
+- **Mobility and performance:** There can be no large fluctuations in frame dropping or stuttering, and the experience of dynamic effects must be smooth and does not affect the performance of the product.
 
 ## Principle
 
