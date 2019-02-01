@@ -36,7 +36,7 @@ import { Col, Row } from 'antd';
 const text = [
   { title: 'Natural', img: 'https://gw.alipayobjects.com/zos/rmsportal/LyTPSGknLUlxiVdwMWyu.gif', content: 'The law of natural movement guarantees the visual habit of letting the user perceive that the action is established.' },
   { title: 'Efficient', img: 'https://gw.alipayobjects.com/zos/rmsportal/SQOZVQVIossbXpzDmihu.gif', content: 'Try to save time in transition and quickly complete the transition animation' },
-  { title: 'Restraint', img: 'https://gw.alipayobjects.com/zos/rmsportal/OkIXkscKxywYLSrilPIf.gif', content: 'Do meaningful motivation, don't do too much modification and interfere with users' },
+  { title: 'Restraint', img: 'https://gw.alipayobjects.com/zos/rmsportal/OkIXkscKxywYLSrilPIf.gif', content: 'Do meaningful motivation, don't do too much modification and interfere with users' }
 ];
 
 function Principle() {
