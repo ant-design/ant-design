@@ -5,7 +5,7 @@ title:
   en-US: Motion
 ---
 
-> [Ant Motion](https://motion.ant.design/) Yes Ant Design The dynamic language extracted from the middle. He is not only a dynamic language, but also a React framework motion solution that helps developers make it easier to use dynamics in their projects. We offer single items, combined animations, and a complete solution.
+> [Ant Motion](https://motion.ant.design/) Yes Ant Design The dynamic language extracted from the middle. This is not only a dynamic language, but also a React framework motion solution that helps developers make it easier to use dynamics in their projects. We offer single items, combined animations, and a complete solution.
 
 Interface dynamics enhance user awareness and increase vitality.
 
