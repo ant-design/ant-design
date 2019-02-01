@@ -5,12 +5,10 @@
 name: ant design
 
 trigger:
-  - master
-
-resources:
-  repositories:
-    - repository: self
-      fetchDepth: 1
+  batch: true
+  branches:
+    exclude:
+      - gh-pages
 
 jobs:
   - job: test_
@@ -18,7 +16,7 @@ jobs:
       vmImage: 'Ubuntu-16.04'
     strategy:
       matrix:
-        TEST_TYPE:
+        Lint:
           TEST_TYPE: lint
         dist-react@16:
           REACT: 16
@@ -51,6 +49,9 @@ jobs:
           REACT: 15
           TEST_TYPE: test:node
     steps:
+      - checkout: self
+        fetchDepth: 1
+        clean: false
       - task: NodeTool@0
         inputs:
           versionSpec: '11.x'
@@ -64,5 +65,5 @@ jobs:
         # 主分支，并且运行成功
         condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
         inputs:
-           pathtoPublish: './package-lock.json'
-           artifactName: lock
+          pathtoPublish: './package-lock.json'
+          artifactName: lock
