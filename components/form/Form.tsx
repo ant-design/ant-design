@@ -93,46 +93,50 @@ export type GetFieldDecoratorOptions = {
 /** dom-scroll-into-view 组件配置参数 */
 export type DomScrollIntoViewConfig = {
   /** 是否和左边界对齐 */
-  alignWithLeft: boolean;
+  alignWithLeft?: boolean;
   /** 是否和上边界对齐  */
-  alignWithTop: boolean;
+  alignWithTop?: boolean;
   /** 顶部偏移量 */
-  offsetTop: number;
+  offsetTop?: number;
   /** 左侧偏移量 */
-  offsetLeft: number;
+  offsetLeft?: number;
   /** 底部偏移量 */
-  offsetBottom: number;
+  offsetBottom?: number;
   /** 右侧偏移量 */
-  offsetRight: number;
+  offsetRight?: number;
   /** 是否允许容器水平滚动 */
-  allowHorizontalScroll: boolean;
+  allowHorizontalScroll?: boolean;
   /** 当内容可见时是否允许滚动容器 */
-  onlyScrollIfNeeded: boolean;
+  onlyScrollIfNeeded?: boolean;
 };
 
 export type ValidateFieldsOptions = {
   /** 所有表单域是否在第一个校验规则失败后停止继续校验 */
-  first: boolean,
+  first?: boolean;
   /** 指定哪些表单域在第一个校验规则失败后停止继续校验 */
-  firstFields: string[],
+  firstFields?: string[];
   /** 已经校验过的表单域，在 validateTrigger 再次被触发时是否再次校验 */
-  force: boolean,
-  /**定义 validateFieldsAndScroll 的滚动行为 */
-  scroll: DomScrollIntoViewConfig,
+  force?: boolean;
+  /** 定义 validateFieldsAndScroll 的滚动行为 */
+  scroll?: DomScrollIntoViewConfig;
 };
 
 // function create
 export type WrappedFormUtils = {
   /** 获取一组输入控件的值，如不传入参数，则获取全部组件的值 */
   getFieldsValue(fieldNames?: Array<string>): { [field: string]: any };
-  /** 获取一个输入控件的值*/
+  /** 获取一个输入控件的值 */
   getFieldValue(fieldName: string): any;
-  /** 设置一组输入控件的值*/
+  /** 设置一组输入控件的值 */
   setFieldsValue(obj: Object): void;
-  /** 设置一组输入控件的值*/
+  /** 设置一组输入控件的值 */
   setFields(obj: Object): void;
   /** 校验并获取一组输入域的值与 Error */
-  validateFields(fieldNames: Array<string>, options: ValidateFieldsOptions, callback: ValidateCallback): void;
+  validateFields(
+    fieldNames: Array<string>,
+    options: ValidateFieldsOptions,
+    callback: ValidateCallback,
+  ): void;
   validateFields(options: ValidateFieldsOptions, callback: ValidateCallback): void;
   validateFields(fieldNames: Array<string>, callback: ValidateCallback): void;
   validateFields(fieldNames: Array<string>, options: ValidateFieldsOptions): void;
@@ -156,7 +160,7 @@ export type WrappedFormUtils = {
   /** 获取某个输入控件的 Error */
   getFieldError(name: string): Object[];
   getFieldsError(names?: Array<string>): Object;
-  /** 判断一个输入控件是否在校验状态*/
+  /** 判断一个输入控件是否在校验状态 */
   isFieldValidating(name: string): boolean;
   isFieldTouched(name: string): boolean;
   isFieldsTouched(names?: Array<string>): boolean;
