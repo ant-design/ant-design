@@ -178,7 +178,7 @@
     "stylelint": "~9.10.1",
     "stylelint-config-prettier": "^4.0.0",
     "stylelint-config-standard": "^18.2.0",
-    "typescript": "~3.2.2",
+    "typescript": "~3.3.1",
     "unified": "^7.0.0",
     "xhr-mock": "^2.4.1",
     "xhr2": "^0.1.4"
