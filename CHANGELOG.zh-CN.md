@@ -29,7 +29,7 @@ timeline: true
 - List
   - 🐞 修复在 IE 11 下的样式问题。[#14602](https://github.com/ant-design/ant-design/pull/14602) [@Shub1427](https://github.com/Shub1427)
 - Table
-  - 🐞 修复数据总数小于等于每页数时的翻页问题。[#14608](https://github.com/ant-design/ant-design/pull/14608) [@sdli](https://github.com/sdli)
+  - 🐞 修复数据总数小于等于每页数（pageSize）时的翻页问题。[#14608](https://github.com/ant-design/ant-design/pull/14608) [@sdli](https://github.com/sdli)
   - 🐞 修复列数较多时的换行样式问题。[579a8](https://github.com/ant-design/ant-design/commit/579a868f152acf0f203a826020d56e073573738a)
   - 🐞 修复表格为空时的 `placeholder` 边距样式问题。[#14533](https://github.com/ant-design/ant-design/pull/14533) [@yoyo837](https://github.com/yoyo837)
 - Upload
