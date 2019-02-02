@@ -15,6 +15,64 @@ timeline: true
 
 ---
 
+## 3.13.1
+
+`2019-02-02`
+
+- 📝 更新[在 TypeScript 中使用](https://ant.design/docs/react/use-in-typescript-cn)文档。[#14637](https://github.com/ant-design/ant-design/pull/14637)
+- 📝 更新[项目实战](https://ant.design/docs/react/practical-projects-cn)文档为最新的 umi 技术栈。[#14574](https://github.com/ant-design/ant-design/pull/14574) [@cc189](https://github.com/cc189)
+- 📝 更新 Progress、Skeleton 组件 API 文档。[a2980](https://github.com/ant-design/ant-design/commit/a29806f895acd2adf1d41f9c59f14eed1fc30551)
+- 📝 更新[加入我们](https://ant.design/docs/spec/work-with-us-cn)文档。[3bc31](https://github.com/ant-design/ant-design/commit/3bc313113c691ec7b99715b4a146c375283f8228)
+- TreeSelect
+  - 📝 补充 `treeIcon` 属性，用于自定义下拉图标。[#13380](https://github.com/ant-design/ant-design/pull/13380)
+- ConfigProvider
+  - 📝 补充 `csp` 属性，用于 Content Security Policy (CSP) 配置。[#14616](https://github.com/ant-design/ant-design/pull/14616)
+- Spin
+  - 🐞 修复在 IE 10 下的样式问题。[#14588](https://github.com/ant-design/ant-design/pull/14588)
+- DatePicker
+  - 🌟 增加 dateTime 默认格式。[#14593](https://github.com/ant-design/ant-design/pull/14593)
+- List
+  - 🐞 修复在 IE 11 下的样式问题。[#14602](https://github.com/ant-design/ant-design/pull/14602) [@Shub1427](https://github.com/Shub1427)
+- Table
+  - 🐞 修复页数少于一页时的翻页问题。[#14608](https://github.com/ant-design/ant-design/pull/14608) [@sdli](https://github.com/sdli)
+  - 🐞 修复列数较多时的换行样式问题。[579a8](https://github.com/ant-design/ant-design/commit/579a868f152acf0f203a826020d56e073573738a)
+  - 🐞 修复表格为空时的 `placeholder` 边距样式问题。[#14533](https://github.com/ant-design/ant-design/pull/14533) [@yoyo837](https://github.com/yoyo837)
+- Upload
+  - 🐞 修复在 IE 11 下的 `fileIndex` 兼容性。[#14603](https://github.com/ant-design/ant-design/pull/14603) [@Shub1427](https://github.com/Shub1427)
+  - 🐞 修复 label 触发上传的问题。[#14298](https://github.com/ant-design/ant-design/issues/14298)
+- Dropdown
+  - 🐞 修复层级样式问题。[#14604](https://github.com/ant-design/ant-design/pull/14604) [@shawtung](https://github.com/shawtung)
+- Checkbox
+  - 🐞 修复选中状态下样式对齐问题。[#14271](https://github.com/ant-design/ant-design/issues/14271)
+- Avatar
+  - 🐞 修复图像加载失败后无法更新的问题。[#14606](https://github.com/ant-design/ant-design/pull/14606) [@AhmedAlSammany](https://github.com/AhmedAlSammany)
+- Modal
+  - 🐞 修复 `destroy` 时 `destroyFns` 未减少的问题。[#14600](https://github.com/ant-design/ant-design/pull/14600) [@xu-snow](https://github.com/xu-snow)
+- Tooltip
+  - 🐞 修复标题内容过少时的箭头样式错位问题。[#14667](https://github.com/ant-design/ant-design/pull/14667) [@Yangzhedi](https://github.com/Yangzhedi)
+- Calendar
+  - 🐞 修复 IE 9 下卡片模式年选择出现省略号的问题。[#14464](https://github.com/ant-design/ant-design/issues/14464) [#14669](https://github.com/ant-design/ant-design/pull/14669)
+  - 🐞 修复年月选择框之间的边距样式。[#14636](https://github.com/ant-design/ant-design/issues/14636) [#14669](https://github.com/ant-design/ant-design/pull/14669)
+- AutoComplete
+  - 🐞 修复禁用时 `placeholder` 无法显示的样式问题。[#14652](https://github.com/ant-design/ant-design/pull/14652) [@tangjinzhou](https://github.com/tangjinzhou)
+- Icon
+  - 🐞 修复自定义 svg Icon 丢失 viewBox 的问题。[#14686](https://github.com/ant-design/ant-design/pull/14686)
+- Statistic
+  - 🐞 修复不支持负数的问题。[#14695](https://github.com/ant-design/ant-design/pull/14695) [#14692](https://github.com/ant-design/ant-design/issues/14692)
+- Less
+  - 🌟 设置 OpenType 数字字体等宽，减轻字体动画震颤。[56ac0](https://github.com/ant-design/ant-design/commit/56ac01610f600b3c2d62c33fa87e99156f114ccf)
+  - 🐞 修复 Less 变量 `@drawer-prefix-cls` 拼写问题。[#14631](https://github.com/ant-design/ant-design/pull/14631)
+- TypeScript
+  - 🐞 修复 Form.create 缺失 `name` 属性定义。[#14584](https://github.com/ant-design/ant-design/pull/14584) [@boraikizoglu](https://github.com/boraikizoglu)
+  - 🐞 修复 SubMenu 的 `onTitleClick` 参数类型错误。[#14591](https://github.com/ant-design/ant-design/pull/14591)
+  - 🐞 修复 SubMenu 的 `style` 属性定义。[#14640](https://github.com/ant-design/ant-design/pull/14640) [@SylvanasGone](https://github.com/SylvanasGone)
+  - 🐞 修复 DatePicker 的 `onOk` 参数类型问题。[#14654](https://github.com/ant-design/ant-design/pull/14654) [@kuitos](https://github.com/kuitos)
+  - 🐞 修复 DatePicker 的 `mode`，完善 Steps 的 `labelPlacement` 类型定义。[#12667](https://github.com/ant-design/ant-design/pull/12667) [@yueyes](https://github.com/yueyes)
+  - 🐞 修复 Affix 的 `className` 类型缺失。[#14653](https://github.com/ant-design/ant-design/pull/14653)
+  - 🐞 修复 Modal 的 `okText`、`cancelText` 类型问题，支持 `ReactNode` 传入。[#14676](https://github.com/ant-design/ant-design/pull/14676) [@kristof0425](https://github.com/kristof0425)
+  - 🌟 完善 Form 的 `ValidateFieldsOptions` 类型定义。[#14684](https://github.com/ant-design/ant-design/pull/14684)、[@RunningCoderLee](https://github.com/RunningCoderLee)
+
+
 ## 3.13.0
 
 `2019-01-26`
