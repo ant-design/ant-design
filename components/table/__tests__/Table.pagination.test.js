@@ -47,6 +47,11 @@ describe('Table.pagination', () => {
     expect(wrapper.find('.ant-pagination')).toHaveLength(1);
   });
 
+  it('should use pageSize when defaultPageSize and pageSize are both specified', () => {
+    const wrapper = mount(createTable({ pagination: { pageSize: 3, defaultPageSize: 4 } }));
+    expect(wrapper.find('.ant-pagination-item')).toHaveLength(2);
+  });
+
   it('paginate data', () => {
     const wrapper = mount(createTable());
 
