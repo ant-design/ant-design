@@ -19,9 +19,9 @@ timeline: true
 
 `2019-02-02`
 
-- 📖 重新编写[在 TypeScript 中使用](https://ant.design/docs/react/use-in-typescript-cn)文档。[#14637](https://github.com/ant-design/ant-design/pull/14637)
-- 📝 更新[项目实战](https://ant.design/docs/react/practical-projects-cn)文档为最新的 umi 技术栈。[#14574](https://github.com/ant-design/ant-design/pull/14574) [@cc189](https://github.com/cc189)
-- 📝 更新[加入我们](https://ant.design/docs/spec/work-with-us-cn)文档。[3bc31](https://github.com/ant-design/ant-design/commit/3bc313113c691ec7b99715b4a146c375283f8228)
+- 📖 重新编写 [在 TypeScript 中使用](https://ant.design/docs/react/use-in-typescript-cn) 文档。[#14637](https://github.com/ant-design/ant-design/pull/14637)
+- 📝 更新 [项目实战](https://ant.design/docs/react/practical-projects-cn) 文档为最新的 umi 技术栈。[#14574](https://github.com/ant-design/ant-design/pull/14574) [@cc189](https://github.com/cc189)
+- 📝 更新 [加入我们](https://ant.design/docs/spec/work-with-us-cn) 文档。[3bc31](https://github.com/ant-design/ant-design/commit/3bc313113c691ec7b99715b4a146c375283f8228)
 - Spin
   - 🐞 修复在 IE 10 样式问题。[#14588](https://github.com/ant-design/ant-design/pull/14588) [#14365](https://github.com/ant-design/ant-design/issues/14365)
 - DatePicker
@@ -30,16 +30,16 @@ timeline: true
   - 🐞 修复在 IE 11 下的样式问题。[#14602](https://github.com/ant-design/ant-design/pull/14602) [@Shub1427](https://github.com/Shub1427)
 - Table
   - 🐞 修复数据总数小于等于每页数（pageSize）时的翻页问题。[#14608](https://github.com/ant-design/ant-design/pull/14608) [@sdli](https://github.com/sdli)
-  - 🐞 修复列数较多时的换行样式问题。[579a8](https://github.com/ant-design/ant-design/commit/579a868f152acf0f203a826020d56e073573738a)
+  - 🐞 修复表格行被包裹时的样式问题。[579a8](https://github.com/ant-design/ant-design/commit/579a868f152acf0f203a826020d56e073573738a) [#14316](https://github.com/ant-design/ant-design/issues/14316)
   - 🐞 修复表格为空时的 `placeholder` 边距样式问题。[#14533](https://github.com/ant-design/ant-design/pull/14533) [@yoyo837](https://github.com/yoyo837)
-  - 🐞 修复同时指定 pagination 的 `pageSize` 和 `defaultPageSize` 时应优先使用 `pageSize`。[#14696](https://github.com/ant-design/ant-design/pull/14696) [#14320](https://github.com/ant-design/ant-design/issues/14320)
+  - 🐞 修复同时指定 `pageSize` 和 `defaultPageSize` 时的优先级问题。[#14696](https://github.com/ant-design/ant-design/pull/14696) [#14320](https://github.com/ant-design/ant-design/issues/14320)
 - Upload
   - 🐞 修复在 IE 11 下的 `fileIndex` 兼容性。[#14603](https://github.com/ant-design/ant-design/pull/14603) [@Shub1427](https://github.com/Shub1427)
   - 🐞 修复 label 触发上传的问题。[#14298](https://github.com/ant-design/ant-design/issues/14298)
 - Dropdown
-  - 🐞 修复层级样式问题。[#14604](https://github.com/ant-design/ant-design/pull/14604) [@shawtung](https://github.com/shawtung)
+  - 🐞 修复因伪类层级样式导致不能点击的问题。[#14604](https://github.com/ant-design/ant-design/pull/14604) [@shawtung](https://github.com/shawtung)
 - Checkbox
-  - 🐞 修复选中状态下样式对齐问题。[#14271](https://github.com/ant-design/ant-design/issues/14271)
+  - 💄 优化了选中状态下的对齐样式。[#14271](https://github.com/ant-design/ant-design/issues/14271)
 - Avatar
   - 🐞 修复图像加载失败后无法更新的问题。[#14606](https://github.com/ant-design/ant-design/pull/14606) [@AhmedAlSammany](https://github.com/AhmedAlSammany)
 - Modal

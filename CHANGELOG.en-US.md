@@ -15,6 +15,59 @@ timeline: true
 
 ---
 
+## 3.13.1
+
+`2019-02-02`
+
+- 📖 Rewrite the documentation of [Use in TypeScript](https://ant.design/docs/react/use-in-typescript)文档。[#14637](https://github.com/ant-design/ant-design/pull/14637)
+- 📝 Upgrade document `Real project with dva` to [Real project with umi](https://ant.design/docs/react/practical-projects). [#14574](https://github.com/ant-design/ant-design/pull/14574) [@cc189](https://github.com/cc189)
+- 📝 Upgrade document [Work with Us](https://ant.design/docs/spec/work-with-us). [3bc31](https://github.com/ant-design/ant-design/commit/3bc313113c691ec7b99715b4a146c375283f8228)
+- Spin
+  - 🐞 Fix style issue in IE 10. [#14588](https://github.com/ant-design/ant-design/pull/14588) [#14365](https://github.com/ant-design/ant-design/issues/14365)
+- DatePicker
+  - 🌟 Add missing dateTime default format. [#14593](https://github.com/ant-design/ant-design/pull/14593)
+- List
+  - 🐞 Fix style issue in IE 11. [#14602](https://github.com/ant-design/ant-design/pull/14602) [@Shub1427](https://github.com/Shub1427)
+- Table
+  - 🐞 Fix pagination when pagination data length is less than or equal to pageSize. [#14608](https://github.com/ant-design/ant-design/pull/14608) [@sdli](https://github.com/sdli)
+  - 🐞 Fix selection being wrap unexpectly. [579a8](https://github.com/ant-design/ant-design/commit/579a868f152acf0f203a826020d56e073573738a) [#14316](https://github.com/ant-design/ant-design/issues/14316)
+  - 🐞 Fix `placeholder` border style issue when Table is empty. [#14533](https://github.com/ant-design/ant-design/pull/14533) [@yoyo837](https://github.com/yoyo837)
+  - 🐞 Fix Table should pick `pageSize` over `defaultPageSize` in priority. [#14696](https://github.com/ant-design/ant-design/pull/14696) [#14320](https://github.com/ant-design/ant-design/issues/14320)
+- Upload
+  - 🐞 Fix `fileIndex` is not present in IE 11. [#14603](https://github.com/ant-design/ant-design/pull/14603) [@Shub1427](https://github.com/Shub1427)
+  - 🐞 Fix when being triggered by label even upload button don't display. [#14298](https://github.com/ant-design/ant-design/issues/14298)
+- Dropdown
+  - 🐞 Fix pseudo class style which causes the overlay non-clickable. [#14604](https://github.com/ant-design/ant-design/pull/14604) [@shawtung](https://github.com/shawtung)
+- Checkbox
+  - 💄 Improve the style for check don't align center in some cases. [#14271](https://github.com/ant-design/ant-design/issues/14271)
+- Avatar
+  - 🐞 Fix not effective after image load error. [#14606](https://github.com/ant-design/ant-design/pull/14606) [@AhmedAlSammany](https://github.com/AhmedAlSammany)
+- Modal
+  - 🐞 Fix `destroyFns` not reduce when `destroy` is called by modal. [#14600](https://github.com/ant-design/ant-design/pull/14600) [@xu-snow](https://github.com/xu-snow)
+- Tooltip
+  - 🐞 Fix arrow not align when the content of `title` is less. [#14667](https://github.com/ant-design/ant-design/pull/14667) [@Yangzhedi](https://github.com/Yangzhedi)
+- Calendar
+  - 🐞 Fix Tweak calendar select width for IE9. [#14464](https://github.com/ant-design/ant-design/issues/14464) [#14669](https://github.com/ant-design/ant-design/pull/14669)
+  - 🐞 Fix margin in calendar select. [#14636](https://github.com/ant-design/ant-design/issues/14636) [#14669](https://github.com/ant-design/ant-design/pull/14669)
+- AutoComplete
+  - 🐞 placeholder not display when disabled. [#14652](https://github.com/ant-design/ant-design/pull/14652) [@tangjinzhou](https://github.com/tangjinzhou)
+- Icon
+  - 🐞 Fix customize svg Icon miss viewBox. [#14686](https://github.com/ant-design/ant-design/pull/14686)
+- Statistic
+  - 🐞 Fix not support negetive number. [#14695](https://github.com/ant-design/ant-design/pull/14695) [#14692](https://github.com/ant-design/ant-design/issues/14692)
+- Less
+  - 🌟 Enable monospaced for OpenType font, reduce the font animation shake. [56ac0](https://github.com/ant-design/ant-design/commit/56ac01610f600b3c2d62c33fa87e99156f114ccf)
+  - 🐞 Corrected typo `@dawer-prfix-cls` to `@drawer-prfix-cls`. [#14631](https://github.com/ant-design/ant-design/pull/14631)
+- TypeScript
+  - 🐞 Fix definition lack of `name` for `Form.create`. [#14584](https://github.com/ant-design/ant-design/pull/14584) [@boraikizoglu](https://github.com/boraikizoglu)
+  - 🐞 Fix definition error fo `onTitleClick` for `SubMenu`. [#14591](https://github.com/ant-design/ant-design/pull/14591)
+  - 🐞 Fix definition lack of `style` for `SubMenu`. [#14640](https://github.com/ant-design/ant-design/pull/14640) [@SylvanasGone](https://github.com/SylvanasGone)
+  - 🐞 Fix definition problem of `onOk` for `DatePicker`. [#14654](https://github.com/ant-design/ant-design/pull/14654) [@kuitos](https://github.com/kuitos)
+  - 🐞 Fix definition lack of `mode` for `DatePicker`, perfect the definition of `labelPlacement` for `Steps`. [#12667](https://github.com/ant-design/ant-design/pull/12667) [@yueyes](https://github.com/yueyes)
+  - 🐞 Fix definition lack of `className` for `Affix`. [#14653](https://github.com/ant-design/ant-design/pull/14653)
+  - 🐞 Fix definition problem of `okText`、`cancelText` for `Modal`, support `ReactNode` type. [#14676](https://github.com/ant-design/ant-design/pull/14676) [@kristof0425](https://github.com/kristof0425)
+  - 🌟 Perfect the definition of `ValidateFieldsOptions` for `Form`. [#14684](https://github.com/ant-design/ant-design/pull/14684)、[@RunningCoderLee](https://github.com/RunningCoderLee)
+
 ## 3.13.0
 
 `2019-01-26`
