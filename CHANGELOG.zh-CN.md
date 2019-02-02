@@ -32,6 +32,7 @@ timeline: true
   - 🐞 修复数据总数小于等于每页数（pageSize）时的翻页问题。[#14608](https://github.com/ant-design/ant-design/pull/14608) [@sdli](https://github.com/sdli)
   - 🐞 修复列数较多时的换行样式问题。[579a8](https://github.com/ant-design/ant-design/commit/579a868f152acf0f203a826020d56e073573738a)
   - 🐞 修复表格为空时的 `placeholder` 边距样式问题。[#14533](https://github.com/ant-design/ant-design/pull/14533) [@yoyo837](https://github.com/yoyo837)
+  - 🐞 修复同时指定 pagination 的 `pageSize` 和 `defaultPageSize` 时应优先使用 `pageSize`。[#14696](https://github.com/ant-design/ant-design/pull/14696) [#14320](https://github.com/ant-design/ant-design/issues/14320)
 - Upload
   - 🐞 修复在 IE 11 下的 `fileIndex` 兼容性。[#14603](https://github.com/ant-design/ant-design/pull/14603) [@Shub1427](https://github.com/Shub1427)
   - 🐞 修复 label 触发上传的问题。[#14298](https://github.com/ant-design/ant-design/issues/14298)
