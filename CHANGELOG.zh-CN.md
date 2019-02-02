@@ -72,7 +72,6 @@ timeline: true
   - 🐞 修复 Modal 的 `okText`、`cancelText` 类型问题，支持 `ReactNode` 传入。[#14676](https://github.com/ant-design/ant-design/pull/14676) [@kristof0425](https://github.com/kristof0425)
   - 🌟 完善 Form 的 `ValidateFieldsOptions` 类型定义。[#14684](https://github.com/ant-design/ant-design/pull/14684)、[@RunningCoderLee](https://github.com/RunningCoderLee)
 
-
 ## 3.13.0
 
 `2019-01-26`
