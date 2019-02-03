@@ -29,20 +29,20 @@ timeline: true
   - 🐞 修复在 IE 11 下的样式问题。[#14602](https://github.com/ant-design/ant-design/pull/14602) [@Shub1427](https://github.com/Shub1427)
 - Table
   - 🐞 修复数据总数小于等于每页数（pageSize）时的翻页问题。[#14608](https://github.com/ant-design/ant-design/pull/14608) [@sdli](https://github.com/sdli)
-  - 🐞 修复表格行被包裹时的样式问题。[579a8](https://github.com/ant-design/ant-design/commit/579a868f152acf0f203a826020d56e073573738a) [#14316](https://github.com/ant-design/ant-design/issues/14316)
+  - 🐞 修复表格行被包裹时的样式问题。[#14619](https://github.com/ant-design/ant-design/pull/14619) [#14316](https://github.com/ant-design/ant-design/issues/14316)
   - 🐞 修复表格为空时的 `placeholder` 边距样式问题。[#14533](https://github.com/ant-design/ant-design/pull/14533) [@yoyo837](https://github.com/yoyo837)
   - 🐞 修复同时指定 `pageSize` 和 `defaultPageSize` 时的优先级问题。[#14696](https://github.com/ant-design/ant-design/pull/14696) [#14320](https://github.com/ant-design/ant-design/issues/14320)
 - Upload
   - 🐞 修复在 IE 11 下的 `fileIndex` 兼容性。[#14603](https://github.com/ant-design/ant-design/pull/14603) [@Shub1427](https://github.com/Shub1427)
-  - 🐞 修复 label 触发上传的问题。[#14298](https://github.com/ant-design/ant-design/issues/14298)
+  - 🐞 修复 label 触发上传的问题。[#14619](https://github.com/ant-design/ant-design/pull/14619) [#14298](https://github.com/ant-design/ant-design/issues/14298)
 - Dropdown
   - 🐞 修复因伪类层级样式导致不能点击的问题。[#14604](https://github.com/ant-design/ant-design/pull/14604) [@shawtung](https://github.com/shawtung)
 - Checkbox
-  - 💄 优化了选中状态下的对齐样式。[#14271](https://github.com/ant-design/ant-design/issues/14271)
+  - 💄 优化了选中状态下的对齐样式。[#14619](https://github.com/ant-design/ant-design/pull/14619) [#14271](https://github.com/ant-design/ant-design/issues/14271)
 - Avatar
-  - 🐞 修复图像加载失败后无法更新的问题。[#14606](https://github.com/ant-design/ant-design/pull/14606) [@AhmedAlSammany](https://github.com/AhmedAlSammany)
+  - 🐞 修复图像切换失败后不触发加载的问题。[#14606](https://github.com/ant-design/ant-design/pull/14606) [@AhmedAlSammany](https://github.com/AhmedAlSammany)
 - Modal
-  - 🐞 修复 `destroy` 时 `destroyFns` 未减少的问题。[#14600](https://github.com/ant-design/ant-design/pull/14600) [@xu-snow](https://github.com/xu-snow)
+  - 🐞 修复 `destroy` 逻辑不正确的问题。[#14600](https://github.com/ant-design/ant-design/pull/14600) [@xu-snow](https://github.com/xu-snow)
 - Tooltip
   - 🐞 修复标题内容过少时的箭头样式错位问题。[#14667](https://github.com/ant-design/ant-design/pull/14667) [@Yangzhedi](https://github.com/Yangzhedi)
 - Calendar

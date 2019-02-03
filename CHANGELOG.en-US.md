@@ -29,27 +29,27 @@ timeline: true
   - 🐞 Fix style issue in IE 11. [#14602](https://github.com/ant-design/ant-design/pull/14602) [@Shub1427](https://github.com/Shub1427)
 - Table
   - 🐞 Fix pagination when its data length is less than or equal to pageSize. [#14608](https://github.com/ant-design/ant-design/pull/14608) [@sdli](https://github.com/sdli)
-  - 🐞 Fix selection being wrap unexpectedly. [579a8](https://github.com/ant-design/ant-design/commit/579a868f152acf0f203a826020d56e073573738a) [#14316](https://github.com/ant-design/ant-design/issues/14316)
+  - 🐞 Fix selection being wrap unexpectedly. [#14619](https://github.com/ant-design/ant-design/pull/14619) [#14316](https://github.com/ant-design/ant-design/issues/14316)
   - 🐞 Fix `placeholder` border style issue when Table is empty. [#14533](https://github.com/ant-design/ant-design/pull/14533) [@yoyo837](https://github.com/yoyo837)
   - 🐞 Fix Table should pick `pageSize` over `defaultPageSize` in priority. [#14696](https://github.com/ant-design/ant-design/pull/14696) [#14320](https://github.com/ant-design/ant-design/issues/14320)
 - Upload
   - 🐞 Fix `fileIndex` is not present in IE 11. [#14603](https://github.com/ant-design/ant-design/pull/14603) [@Shub1427](https://github.com/Shub1427)
-  - 🐞 Fix when being triggered by label even upload button don't display. [#14298](https://github.com/ant-design/ant-design/issues/14298)
+  - 🐞 Fix when being triggered by label even upload button don't display. [#14619](https://github.com/ant-design/ant-design/pull/14619) [#14298](https://github.com/ant-design/ant-design/issues/14298)
 - Dropdown
   - 🐞 Fix pseudo class style which causes the overlay non-clickable. [#14604](https://github.com/ant-design/ant-design/pull/14604) [@shawtung](https://github.com/shawtung)
 - Checkbox
-  - 💄 Improve the style for check don't align center in some cases. [#14271](https://github.com/ant-design/ant-design/issues/14271)
+  - 💄 Improve the style for check don't align center in some cases. [#14619](https://github.com/ant-design/ant-design/pull/14619) [#14271](https://github.com/ant-design/ant-design/issues/14271)
 - Avatar
   - 🐞 Fix change src not trigger reload if prev image load failed. [#14606](https://github.com/ant-design/ant-design/pull/14606) [@AhmedAlSammany](https://github.com/AhmedAlSammany)
 - Modal
-  - 🐞 Fix `destroyFns` not reduce when `destroy` is called by modal. [#14600](https://github.com/ant-design/ant-design/pull/14600) [@xu-snow](https://github.com/xu-snow)
+  - 🐞 Fix `destroy` logic not process correctly. [#14600](https://github.com/ant-design/ant-design/pull/14600) [@xu-snow](https://github.com/xu-snow)
 - Tooltip
   - 🐞 Fix arrow not align when the content of `title` is less. [#14667](https://github.com/ant-design/ant-design/pull/14667) [@Yangzhedi](https://github.com/Yangzhedi)
 - Calendar
   - 🐞 Fix Tweak calendar select width for IE9. [#14464](https://github.com/ant-design/ant-design/issues/14464) [#14669](https://github.com/ant-design/ant-design/pull/14669)
   - 🐞 Fix margin in calendar select. [#14636](https://github.com/ant-design/ant-design/issues/14636) [#14669](https://github.com/ant-design/ant-design/pull/14669)
 - AutoComplete
-  - 🐞 placeholder not display when disabled. [#14652](https://github.com/ant-design/ant-design/pull/14652) [@tangjinzhou](https://github.com/tangjinzhou)
+  - 🐞 Fix `placeholder` not display when disabled. [#14652](https://github.com/ant-design/ant-design/pull/14652) [@tangjinzhou](https://github.com/tangjinzhou)
 - Icon
   - 🐞 Fix customize svg Icon miss viewBox. [#14686](https://github.com/ant-design/ant-design/pull/14686)
 - Statistic
