@@ -40,7 +40,7 @@ timeline: true
 - Checkbox
   - 💄 Improve the style for check don't align center in some cases. [#14271](https://github.com/ant-design/ant-design/issues/14271)
 - Avatar
-  - 🐞 Fix not effective after image load error. [#14606](https://github.com/ant-design/ant-design/pull/14606) [@AhmedAlSammany](https://github.com/AhmedAlSammany)
+  - 🐞 Fix change src not trigger reload if prev image load failed. [#14606](https://github.com/ant-design/ant-design/pull/14606) [@AhmedAlSammany](https://github.com/AhmedAlSammany)
 - Modal
   - 🐞 Fix `destroyFns` not reduce when `destroy` is called by modal. [#14600](https://github.com/ant-design/ant-design/pull/14600) [@xu-snow](https://github.com/xu-snow)
 - Tooltip
