@@ -65,8 +65,8 @@ timeline: true
   - 🐞 Fix definition problem of `onOk` for `DatePicker`. [#14654](https://github.com/ant-design/ant-design/pull/14654) [@kuitos](https://github.com/kuitos)
   - 🐞 Fix definition lack of `mode` for `DatePicker`, perfect the definition of `labelPlacement` for `Steps`. [#12667](https://github.com/ant-design/ant-design/pull/12667) [@yueyes](https://github.com/yueyes)
   - 🐞 Fix definition lack of `className` for `Affix`. [#14653](https://github.com/ant-design/ant-design/pull/14653)
-  - 🐞 Fix definition problem of `okText`、`cancelText` for `Modal`, support `ReactNode` type. [#14676](https://github.com/ant-design/ant-design/pull/14676) [@kristof0425](https://github.com/kristof0425)
-  - 🌟 Perfect the definition of `ValidateFieldsOptions` for `Form`. [#14684](https://github.com/ant-design/ant-design/pull/14684)、[@RunningCoderLee](https://github.com/RunningCoderLee)
+  - 🐞 Fix definition problem of `okText`, `cancelText` for `Modal`, support `ReactNode` type. [#14676](https://github.com/ant-design/ant-design/pull/14676) [@kristof0425](https://github.com/kristof0425)
+  - 🌟 Perfect the definition of `ValidateFieldsOptions` for `Form`. [#14684](https://github.com/ant-design/ant-design/pull/14684) [@RunningCoderLee](https://github.com/RunningCoderLee)
 
 ## 3.13.0
 
