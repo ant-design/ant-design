@@ -28,7 +28,7 @@ timeline: true
 - List
   - 🐞 Fix style issue in IE 11. [#14602](https://github.com/ant-design/ant-design/pull/14602) [@Shub1427](https://github.com/Shub1427)
 - Table
-  - 🐞 Fix pagination when pagination data length is less than or equal to pageSize. [#14608](https://github.com/ant-design/ant-design/pull/14608) [@sdli](https://github.com/sdli)
+  - 🐞 Fix pagination when its data length is less than or equal to pageSize. [#14608](https://github.com/ant-design/ant-design/pull/14608) [@sdli](https://github.com/sdli)
   - 🐞 Fix selection being wrap unexpectedly. [579a8](https://github.com/ant-design/ant-design/commit/579a868f152acf0f203a826020d56e073573738a) [#14316](https://github.com/ant-design/ant-design/issues/14316)
   - 🐞 Fix `placeholder` border style issue when Table is empty. [#14533](https://github.com/ant-design/ant-design/pull/14533) [@yoyo837](https://github.com/yoyo837)
   - 🐞 Fix Table should pick `pageSize` over `defaultPageSize` in priority. [#14696](https://github.com/ant-design/ant-design/pull/14696) [#14320](https://github.com/ant-design/ant-design/issues/14320)
