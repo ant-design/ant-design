@@ -19,7 +19,7 @@ timeline: true
 
 `2019-02-02`
 
-- 📖 Rewrite the documentation of [Use in TypeScript](https://ant.design/docs/react/use-in-typescript). [#14637](https://github.com/ant-design/ant-design/pull/14637)
+- 📝 Rewrite the documentation of [Use in TypeScript](https://ant.design/docs/react/use-in-typescript). [#14637](https://github.com/ant-design/ant-design/pull/14637)
 - 📝 Upgrade document `Real project with dva` to [Real project with umi](https://ant.design/docs/react/practical-projects). [#14574](https://github.com/ant-design/ant-design/pull/14574) [@cc189](https://github.com/cc189)
 - 📝 Upgrade document [Work with Us](https://ant.design/docs/spec/work-with-us). [3bc31](https://github.com/ant-design/ant-design/commit/3bc313113c691ec7b99715b4a146c375283f8228)
 - Spin
