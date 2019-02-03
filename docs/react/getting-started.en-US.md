@@ -37,7 +37,7 @@ class App extends React.Component {
   };
 
   handleChange = date => {
-    message.info(`Selected Date: ${date.format("YYYY-MM-DD")}`);
+    message.info(`Selected Date: ${date ? date.format("YYYY-MM-DD") : "None"}`);
     this.setState({ date });
   };
 
