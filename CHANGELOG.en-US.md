@@ -58,15 +58,7 @@ timeline: true
   - 🌟 Enable monospaced for OpenType font, reduce the font animation shake. [56ac0](https://github.com/ant-design/ant-design/commit/56ac01610f600b3c2d62c33fa87e99156f114ccf)
   - 🐞 Corrected typo `@dawer-prfix-cls` to `@drawer-prfix-cls`. [#14631](https://github.com/ant-design/ant-design/pull/14631)
   - 🐞 Fix animation in Dropdown SubMenu. [#14703](https://github.com/ant-design/ant-design/pull/14703) [#14638](https://github.com/ant-design/ant-design/issues/14638)
-- TypeScript
-  - 🐞 Fix definition lack of `name` for `Form.create`. [#14584](https://github.com/ant-design/ant-design/pull/14584) [@boraikizoglu](https://github.com/boraikizoglu)
-  - 🐞 Fix definition error fo `onTitleClick` for `SubMenu`. [#14591](https://github.com/ant-design/ant-design/pull/14591)
-  - 🐞 Fix definition lack of `style` for `SubMenu`. [#14640](https://github.com/ant-design/ant-design/pull/14640) [@SylvanasGone](https://github.com/SylvanasGone)
-  - 🐞 Fix definition problem of `onOk` for `DatePicker`. [#14654](https://github.com/ant-design/ant-design/pull/14654) [@kuitos](https://github.com/kuitos)
-  - 🐞 Fix definition lack of `mode` for `DatePicker`, perfect the definition of `labelPlacement` for `Steps`. [#12667](https://github.com/ant-design/ant-design/pull/12667) [@yueyes](https://github.com/yueyes)
-  - 🐞 Fix definition lack of `className` for `Affix`. [#14653](https://github.com/ant-design/ant-design/pull/14653)
-  - 🐞 Fix definition problem of `okText`, `cancelText` for `Modal`, support `ReactNode` type. [#14676](https://github.com/ant-design/ant-design/pull/14676) [@kristof0425](https://github.com/kristof0425)
-  - 🌟 Perfect the definition of `ValidateFieldsOptions` for `Form`. [#14684](https://github.com/ant-design/ant-design/pull/14684) [@RunningCoderLee](https://github.com/RunningCoderLee)
+- 🐞 Fix some TypeScript definitions. [#14584](https://github.com/ant-design/ant-design/pull/14584) [@boraikizoglu](https://github.com/boraikizoglu) [#14591](https://github.com/ant-design/ant-design/pull/14591) [#14640](https://github.com/ant-design/ant-design/pull/14640) [@SylvanasGone](https://github.com/SylvanasGone) [#14654](https://github.com/ant-design/ant-design/pull/14654) [@kuitos](https://github.com/kuitos) [#12667](https://github.com/ant-design/ant-design/pull/12667) [@yueyes](https://github.com/yueyes) [#14653](https://github.com/ant-design/ant-design/pull/14653) [#14676](https://github.com/ant-design/ant-design/pull/14676) [@kristof0425](https://github.com/kristof0425) [#14684](https://github.com/ant-design/ant-design/pull/14684) [@RunningCoderLee](https://github.com/RunningCoderLee)。
 
 ## 3.13.0
 

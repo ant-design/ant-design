@@ -42,7 +42,7 @@ timeline: true
 - Avatar
   - 🐞 修复图像切换失败后不触发加载的问题。[#14606](https://github.com/ant-design/ant-design/pull/14606) [@AhmedAlSammany](https://github.com/AhmedAlSammany)
 - Modal
-  - 🐞 修复 `destroy` 逻辑不正确的问题。[#14600](https://github.com/ant-design/ant-design/pull/14600) [@xu-snow](https://github.com/xu-snow)
+  - 🐞 修复 `destroy` 代码逻辑不正确的问题。[#14600](https://github.com/ant-design/ant-design/pull/14600) [@xu-snow](https://github.com/xu-snow)
 - Tooltip
   - 🐞 修复标题内容过少时的箭头样式错位问题。[#14667](https://github.com/ant-design/ant-design/pull/14667) [@Yangzhedi](https://github.com/Yangzhedi)
 - Calendar
@@ -58,15 +58,7 @@ timeline: true
   - 🌟 设置 OpenType 数字字体等宽，减轻字体动画震颤。[56ac0](https://github.com/ant-design/ant-design/commit/56ac01610f600b3c2d62c33fa87e99156f114ccf)
   - 🐞 修复 Less 变量 `@drawer-prefix-cls` 拼写问题。[#14631](https://github.com/ant-design/ant-design/pull/14631)
   - 🐞 修复 Dropdown 的 SubMenu 动画问题。[#14703](https://github.com/ant-design/ant-design/pull/14703) [#14638](https://github.com/ant-design/ant-design/issues/14638)
-- TypeScript
-  - 🐞 修复 Form.create 缺失 `name` 属性定义。[#14584](https://github.com/ant-design/ant-design/pull/14584) [@boraikizoglu](https://github.com/boraikizoglu)
-  - 🐞 修复 SubMenu 的 `onTitleClick` 参数类型错误。[#14591](https://github.com/ant-design/ant-design/pull/14591)
-  - 🐞 修复 SubMenu 的 `style` 属性定义。[#14640](https://github.com/ant-design/ant-design/pull/14640) [@SylvanasGone](https://github.com/SylvanasGone)
-  - 🐞 修复 DatePicker 的 `onOk` 参数类型问题。[#14654](https://github.com/ant-design/ant-design/pull/14654) [@kuitos](https://github.com/kuitos)
-  - 🐞 修复 DatePicker 的 `mode`，完善 Steps 的 `labelPlacement` 类型定义。[#12667](https://github.com/ant-design/ant-design/pull/12667) [@yueyes](https://github.com/yueyes)
-  - 🐞 修复 Affix 的 `className` 类型缺失。[#14653](https://github.com/ant-design/ant-design/pull/14653)
-  - 🐞 修复 Modal 的 `okText`、`cancelText` 类型问题，支持 `ReactNode` 传入。[#14676](https://github.com/ant-design/ant-design/pull/14676) [@kristof0425](https://github.com/kristof0425)
-  - 🌟 完善 Form 的 `ValidateFieldsOptions` 类型定义。[#14684](https://github.com/ant-design/ant-design/pull/14684) [@RunningCoderLee](https://github.com/RunningCoderLee)
+- 🐞 修复 TypeScript 类型定义 [#14584](https://github.com/ant-design/ant-design/pull/14584) [@boraikizoglu](https://github.com/boraikizoglu) [#14591](https://github.com/ant-design/ant-design/pull/14591) [#14640](https://github.com/ant-design/ant-design/pull/14640) [@SylvanasGone](https://github.com/SylvanasGone) [#14654](https://github.com/ant-design/ant-design/pull/14654) [@kuitos](https://github.com/kuitos) [#12667](https://github.com/ant-design/ant-design/pull/12667) [@yueyes](https://github.com/yueyes) [#14653](https://github.com/ant-design/ant-design/pull/14653) [#14676](https://github.com/ant-design/ant-design/pull/14676) [@kristof0425](https://github.com/kristof0425) [#14684](https://github.com/ant-design/ant-design/pull/14684) [@RunningCoderLee](https://github.com/RunningCoderLee)。
 
 ## 3.13.0
 
