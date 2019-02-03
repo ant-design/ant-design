@@ -25,7 +25,7 @@ timeline: true
 - Spin
   - 🐞 Fix style issue in IE 10. [#14588](https://github.com/ant-design/ant-design/pull/14588) [#14365](https://github.com/ant-design/ant-design/issues/14365)
 - DatePicker
-  - 🌟 Add missing dateTime default format. [#14593](https://github.com/ant-design/ant-design/pull/14593)
+  - 🐞 Fix missing dateTime default format in `showTime`. [#14593](https://github.com/ant-design/ant-design/pull/14593)
 - List
   - 🐞 Fix style issue in IE 11. [#14602](https://github.com/ant-design/ant-design/pull/14602) [@Shub1427](https://github.com/Shub1427)
 - Table

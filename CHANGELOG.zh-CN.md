@@ -25,7 +25,7 @@ timeline: true
 - Spin
   - 🐞 修复在 IE 10 样式问题。[#14588](https://github.com/ant-design/ant-design/pull/14588) [#14365](https://github.com/ant-design/ant-design/issues/14365)
 - DatePicker
-  - 🌟 增加 dateTime 默认格式。[#14593](https://github.com/ant-design/ant-design/pull/14593)
+  - 🐞 修复在 `showTime` 时缺少默认格式的问题。[#14593](https://github.com/ant-design/ant-design/pull/14593)
 - List
   - 🐞 修复在 IE 11 下的样式问题。[#14602](https://github.com/ant-design/ant-design/pull/14602) [@Shub1427](https://github.com/Shub1427)
 - Table
