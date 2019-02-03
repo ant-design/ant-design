@@ -21,7 +21,6 @@ timeline: true
 
 - 📝 Rewrite the documentation of [Use in TypeScript](https://ant.design/docs/react/use-in-typescript). [#14637](https://github.com/ant-design/ant-design/pull/14637)
 - 📝 Upgrade document `Real project with dva` to [Real project with umi](https://ant.design/docs/react/practical-projects). [#14574](https://github.com/ant-design/ant-design/pull/14574) [@cc189](https://github.com/cc189)
-- 📝 Upgrade document [Work with Us](https://ant.design/docs/spec/work-with-us). [3bc31](https://github.com/ant-design/ant-design/commit/3bc313113c691ec7b99715b4a146c375283f8228)
 - Spin
   - 🐞 Fix style issue in IE 10. [#14588](https://github.com/ant-design/ant-design/pull/14588) [#14365](https://github.com/ant-design/ant-design/issues/14365)
 - DatePicker
@@ -58,7 +57,7 @@ timeline: true
 - Less
   - 🌟 Enable monospaced for OpenType font, reduce the font animation shake. [56ac0](https://github.com/ant-design/ant-design/commit/56ac01610f600b3c2d62c33fa87e99156f114ccf)
   - 🐞 Corrected typo `@dawer-prfix-cls` to `@drawer-prfix-cls`. [#14631](https://github.com/ant-design/ant-design/pull/14631)
-  - 🐞 Fix animation in Dropdown SubMenu.[#14703](https://github.com/ant-design/ant-design/pull/14703) [#14638](https://github.com/ant-design/ant-design/issues/14638)
+  - 🐞 Fix animation in Dropdown SubMenu. [#14703](https://github.com/ant-design/ant-design/pull/14703) [#14638](https://github.com/ant-design/ant-design/issues/14638)
 - TypeScript
   - 🐞 Fix definition lack of `name` for `Form.create`. [#14584](https://github.com/ant-design/ant-design/pull/14584) [@boraikizoglu](https://github.com/boraikizoglu)
   - 🐞 Fix definition error fo `onTitleClick` for `SubMenu`. [#14591](https://github.com/ant-design/ant-design/pull/14591)
