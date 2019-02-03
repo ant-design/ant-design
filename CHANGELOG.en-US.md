@@ -58,6 +58,7 @@ timeline: true
 - Less
   - 🌟 Enable monospaced for OpenType font, reduce the font animation shake. [56ac0](https://github.com/ant-design/ant-design/commit/56ac01610f600b3c2d62c33fa87e99156f114ccf)
   - 🐞 Corrected typo `@dawer-prfix-cls` to `@drawer-prfix-cls`. [#14631](https://github.com/ant-design/ant-design/pull/14631)
+  - 🐞 Fix animation in Dropdown SubMenu.[#14703](https://github.com/ant-design/ant-design/pull/14703) [#14638](https://github.com/ant-design/ant-design/issues/14638)
 - TypeScript
   - 🐞 Fix definition lack of `name` for `Form.create`. [#14584](https://github.com/ant-design/ant-design/pull/14584) [@boraikizoglu](https://github.com/boraikizoglu)
   - 🐞 Fix definition error fo `onTitleClick` for `SubMenu`. [#14591](https://github.com/ant-design/ant-design/pull/14591)
