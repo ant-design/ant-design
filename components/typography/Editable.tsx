@@ -8,7 +8,7 @@ interface EditableProps {
   prefixCls?: string;
   value?: string;
   ['aria-label']?: string;
-  onChange: (value: string) => void;
+  onSave: (value: string) => void;
   onCancel: () => void;
 }
 
@@ -95,9 +95,9 @@ class Editable extends React.Component<EditableProps, EditableState> {
 
   confirmChange = () => {
     const { current } = this.state;
-    const { onChange } = this.props;
+    const { onSave } = this.props;
 
-    onChange(current.trim());
+    onSave(current.trim());
   };
 
   setTextarea = (textarea: TextArea) => {

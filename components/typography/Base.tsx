@@ -365,7 +365,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
     return (
       <Editable
         value={typeof children === 'string' ? children : ''}
-        onChange={this.onEditChange}
+        onSave={this.onEditChange}
         onCancel={this.onEditCancel}
         prefixCls={prefixCls}
       />
