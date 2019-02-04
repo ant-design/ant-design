@@ -17,7 +17,7 @@ timeline: true
 
 ## 3.13.1
 
-`2019-02-02`
+`2019-02-04`
 
 - 📝 Rewrite the documentation of [Use in TypeScript](https://ant.design/docs/react/use-in-typescript). [#14637](https://github.com/ant-design/ant-design/pull/14637)
 - 📝 Upgrade the document of [Real project with umi and dva](https://ant.design/docs/react/practical-projects). [#14574](https://github.com/ant-design/ant-design/pull/14574) [@cc189](https://github.com/cc189)

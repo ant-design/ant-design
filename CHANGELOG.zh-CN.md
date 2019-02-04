@@ -17,7 +17,7 @@ timeline: true
 
 ## 3.13.1
 
-`2019-02-02`
+`2019-02-04`
 
 - 📝 重新编写 [在 TypeScript 中使用](https://ant.design/docs/react/use-in-typescript-cn) 文档。[#14637](https://github.com/ant-design/ant-design/pull/14637)
 - 📝 更新 [项目实战](https://ant.design/docs/react/practical-projects-cn) 文档为最新的 umi 技术栈。[#14574](https://github.com/ant-design/ant-design/pull/14574) [@cc189](https://github.com/cc189)
