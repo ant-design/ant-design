@@ -35,11 +35,11 @@ export interface ModalProps {
   /** 底部内容*/
   footer?: React.ReactNode;
   /** 确认按钮文字*/
-  okText?: string;
+  okText?: React.ReactNode;
   /** 确认按钮类型*/
   okType?: ButtonType;
   /** 取消按钮文字*/
-  cancelText?: string;
+  cancelText?: React.ReactNode;
   /** 点击蒙层是否允许关闭*/
   maskClosable?: boolean;
   /** 强制渲染 Modal*/
@@ -75,11 +75,11 @@ export interface ModalFuncProps {
   centered?: boolean;
   width?: string | number;
   iconClassName?: string;
-  okText?: string;
+  okText?: React.ReactNode;
   okType?: ButtonType;
-  cancelText?: string;
+  cancelText?: React.ReactNode;
   icon?: React.ReactNode;
-  /* Deperated */
+  /* Deprecated */
   iconType?: string;
   mask?: boolean;
   maskClosable?: boolean;
@@ -132,8 +132,8 @@ export default class Modal extends React.Component<ModalProps, {}> {
     prefixCls: PropTypes.string,
     onOk: PropTypes.func,
     onCancel: PropTypes.func,
-    okText: PropTypes.string,
-    cancelText: PropTypes.string,
+    okText: PropTypes.node,
+    cancelText: PropTypes.node,
     centered: PropTypes.bool,
     width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     confirmLoading: PropTypes.bool,

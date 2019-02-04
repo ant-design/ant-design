@@ -1,4 +1,5 @@
 import Modal from '..';
+import { destroyFns } from '../Modal'
 
 const { confirm } = Modal;
 
@@ -172,5 +173,27 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   it('should be Modal.confirm without mask', () => {
     open({ mask: false });
     expect($$('.ant-modal-mask')).toHaveLength(0);
+  });
+
+  it('destroyFns should reduce when instance.destroy', () => {
+    jest.useFakeTimers();
+    Modal.destroyAll(); // clear destroyFns
+    jest.runAllTimers();
+    const instances = [];
+    ['info', 'success', 'warning', 'error'].forEach(type => {
+      const instance = Modal[type]({
+        title: 'title',
+        content: 'content',
+      });
+      instances.push(instance)
+    });
+    const { length } = instances
+    instances.forEach((instance, index) => {
+      expect(destroyFns.length).toBe(length - index);
+      instance.destroy();
+      jest.runAllTimers();
+      expect(destroyFns.length).toBe(length - index - 1);
+    })
+    jest.useRealTimers();
   });
 });
