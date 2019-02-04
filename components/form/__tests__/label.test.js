@@ -3,6 +3,27 @@ import { mount } from 'enzyme';
 import Form from '..';
 
 describe('Form', () => {
+  // Mock of `querySelector`
+  const originQuerySelector = HTMLElement.prototype.querySelector;
+  HTMLElement.prototype.querySelector = function(str) {
+    const match = str.match(/^\[id=('|")(.*)('|")]$/);
+    const id = match && match[2];
+
+    // Use origin logic
+    if (id) {
+      const input = this.getElementsByTagName('input')[0];
+      if (input.id === id) {
+        return input;
+      }
+    }
+
+    return originQuerySelector.call(this, str);
+  };
+
+  afterAll(() => {
+    HTMLElement.prototype.querySelector = originQuerySelector;
+  });
+
   it('should remove duplicated user input colon', () => {
     const wrapper = mount(
       <Form>
