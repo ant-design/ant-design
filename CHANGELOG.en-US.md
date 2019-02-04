@@ -325,10 +325,10 @@ Component Fixes / Enhancements:
 - 🌟 Support custom font-variant style through less variable `@font-variant-base`. [#12691](https://github.com/ant-design/ant-design/pull/12691) [@neemski](https://github.com/neemski)
 - Table upgrade `rc-table` to `6.4.0`
   - 🌟 Added `expandIcon` prop that custom the default expand icon. [#236](https://github.com/react-component/table/pull/236) [@kagd](https://github.com/kagd)
-  - 💄 Support `data-*`、`aria-*` attributes. [#227](https://github.com/react-component/table/pull/227) [@kagd](https://github.com/kagd)
+  - 💄 Support `data-*`, `aria-*` attributes. [#227](https://github.com/react-component/table/pull/227) [@kagd](https://github.com/kagd)
   - 🌟 onCell added `index` prop. [#222](https://github.com/react-component/table/pull/222) [@yoyo837](https://github.com/yoyo837)
 - Select upgrade `rc-select` to `8.6.0`
-  - 🌟 Added `removeIcon`、`clearIcon`、`menuItemSelectedIcon` prop, allow setting `remove`、`clear`、`menuItemSelected` custom icons. [#12958](https://github.com/ant-design/ant-design/pull/12958) [@kimochg](https://github.com/kimochg)
+  - 🌟 Added `removeIcon`, `clearIcon`, `menuItemSelectedIcon` prop, allow setting `remove`, `clear`, `menuItemSelected` custom icons. [#12958](https://github.com/ant-design/ant-design/pull/12958) [@kimochg](https://github.com/kimochg)
   - 🌟 Added `dropdownRender` prop that custom dropdown content. [#10831](https://github.com/ant-design/ant-design/issues/10831)
   - 🌟 Added `loading` prop that indicate loading state. [#11225](https://github.com/ant-design/ant-design/issues/11225)
 - 💄 Added `title` prop that Menu.Item support tooltip title when collapsed. [#12952](https://github.com/ant-design/ant-design/pull/12952)
@@ -542,7 +542,7 @@ Component Fixes / Enhancements:
   - 🐞 Fix `openKeys` have higher priority in `Menu`. [#12361](https://github.com/ant-design/ant-design/pull/12361) [@tangjinzhou](https://github.com/tangjinzhou)
 - Upload
   - 🐞 Fix `linkProps` in `Upload` fileList to support json string format and can override rel, target, title and etc. [efb23c](https://github.com/ant-design/ant-design/commit/efb23c1525858114460bfe3bd5fcb18c9f236bdc)
-  - 🐞 Fix deduplication of the same key when uploading multiple files in `Upload`. [273fd](https://github.com/ant-design/ant-design/commit/273fd2ea1bca395d61509cc98c3ebbf1c620bf43)、[#10953](https://github.com/ant-design/ant-design/issues/10953)
+  - 🐞 Fix deduplication of the same key when uploading multiple files in `Upload`. [273fd](https://github.com/ant-design/ant-design/commit/273fd2ea1bca395d61509cc98c3ebbf1c620bf43) [#10953](https://github.com/ant-design/ant-design/issues/10953)
 - Icon related
   - 🐞 Fix `Upload` close icon style error. [#12330](https://github.com/ant-design/ant-design/pull/12330) [#12304](https://github.com/ant-design/ant-design/issues/12304)
   - 🐞 Fix `Select` add select clear icon. [#12196](https://github.com/ant-design/ant-design/pull/12196) [#12181](https://github.com/ant-design/ant-design/issues/12181)
