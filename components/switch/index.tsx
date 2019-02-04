@@ -13,7 +13,8 @@ export interface SwitchProps {
   className?: string;
   checked?: boolean;
   defaultChecked?: boolean;
-  onChange?: (checked: boolean) => any;
+  onChange?: (checked: boolean, event: MouseEvent) => any;
+  onClick?: (checked: boolean, event: MouseEvent) => any;
   checkedChildren?: React.ReactNode;
   unCheckedChildren?: React.ReactNode;
   disabled?: boolean;
