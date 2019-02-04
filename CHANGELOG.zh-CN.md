@@ -15,6 +15,41 @@ timeline: true
 
 ---
 
+## 3.13.1
+
+`2019-02-02`
+
+- 📝 重新编写 [在 TypeScript 中使用](https://ant.design/docs/react/use-in-typescript-cn) 文档。[#14637](https://github.com/ant-design/ant-design/pull/14637)
+- 📝 更新 [项目实战](https://ant.design/docs/react/practical-projects-cn) 文档为最新的 umi 技术栈。[#14574](https://github.com/ant-design/ant-design/pull/14574) [@cc189](https://github.com/cc189)
+- 🐞 修复 Spin 组件在 IE 10 样式问题。[#14588](https://github.com/ant-design/ant-design/pull/14588) [#14365](https://github.com/ant-design/ant-design/issues/14365)
+- 🐞 修复 DatePicker 组件在 `showTime` 时缺少默认格式的问题。[#14593](https://github.com/ant-design/ant-design/pull/14593)
+- 🐞 修复 List 组件在 IE 11 下的样式问题。[#14602](https://github.com/ant-design/ant-design/pull/14602) [@Shub1427](https://github.com/Shub1427)
+- Table
+  - 🐞 修复数据总数小于等于每页数（pageSize）时的翻页问题。[#14608](https://github.com/ant-design/ant-design/pull/14608) [@sdli](https://github.com/sdli)
+  - 🐞 修复表格行被包裹时的样式问题。[#14619](https://github.com/ant-design/ant-design/pull/14619) [#14316](https://github.com/ant-design/ant-design/issues/14316)
+  - 🐞 修复表格为空时的 `placeholder` 边距样式问题。[#14533](https://github.com/ant-design/ant-design/pull/14533) [@yoyo837](https://github.com/yoyo837)
+  - 🐞 修复同时指定 `pageSize` 和 `defaultPageSize` 时的优先级问题。[#14696](https://github.com/ant-design/ant-design/pull/14696) [#14320](https://github.com/ant-design/ant-design/issues/14320)
+- Upload
+  - 🐞 修复在 IE 11 下的 `fileIndex` 兼容性。[#14603](https://github.com/ant-design/ant-design/pull/14603) [@Shub1427](https://github.com/Shub1427)
+  - 🐞 修复 label 触发上传的问题。[#14619](https://github.com/ant-design/ant-design/pull/14619) [#14298](https://github.com/ant-design/ant-design/issues/14298)
+- 🐞 修复 Dropdown 组件因伪类层级样式导致不能点击的问题。[#14604](https://github.com/ant-design/ant-design/pull/14604) [@shawtung](https://github.com/shawtung)
+- 💄 优化了 Checkbox 组件在选中状态下的对齐样式。[#14619](https://github.com/ant-design/ant-design/pull/14619) [#14271](https://github.com/ant-design/ant-design/issues/14271)
+- 🐞 修复 Avatar 组件在切换 `src` 失败后，不触发加载的问题。[#14606](https://github.com/ant-design/ant-design/pull/14606) [@AhmedAlSammany](https://github.com/AhmedAlSammany)
+- 🐞 修复 Modal 组件 `destroy` 代码逻辑不正确的问题。[#14600](https://github.com/ant-design/ant-design/pull/14600) [@xu-snow](https://github.com/xu-snow)
+- 🐞 修复 Tooltip 组件标题内容过少时，箭头样式错位的问题。[#14667](https://github.com/ant-design/ant-design/pull/14667) [@Yangzhedi](https://github.com/Yangzhedi)
+- Calendar
+  - 🐞 修复 IE 9 下卡片模式年选择出现省略号的问题。[#14464](https://github.com/ant-design/ant-design/issues/14464) [#14669](https://github.com/ant-design/ant-design/pull/14669)
+  - 🐞 修复年月选择框之间的边距样式。[#14636](https://github.com/ant-design/ant-design/issues/14636) [#14669](https://github.com/ant-design/ant-design/pull/14669)
+- AutoComplete
+  - 🐞 修复禁用时 `placeholder` 无法显示的样式问题。[#14652](https://github.com/ant-design/ant-design/pull/14652) [@tangjinzhou](https://github.com/tangjinzhou)
+- 🐞 修复 Icon 组件自定义 svg Icon 丢失 viewBox 的问题。[#14686](https://github.com/ant-design/ant-design/pull/14686)
+- 🐞 修复 Statistic 组件不支持负数的问题。[#14695](https://github.com/ant-design/ant-design/pull/14695) [#14692](https://github.com/ant-design/ant-design/issues/14692)
+- Less
+  - 🌟 设置 OpenType 数字字体等宽，减轻字体动画震颤。[56ac0](https://github.com/ant-design/ant-design/commit/56ac01610f600b3c2d62c33fa87e99156f114ccf)
+  - 🐞 修复 Less 变量 `@drawer-prefix-cls` 拼写问题。[#14631](https://github.com/ant-design/ant-design/pull/14631)
+  - 🐞 修复 Dropdown 的 SubMenu 动画问题。[#14703](https://github.com/ant-design/ant-design/pull/14703) [#14638](https://github.com/ant-design/ant-design/issues/14638)
+- 🐞 修复 TypeScript 类型定义。[#14584](https://github.com/ant-design/ant-design/pull/14584) [@boraikizoglu](https://github.com/boraikizoglu)、[#14591](https://github.com/ant-design/ant-design/pull/14591)、[#14640](https://github.com/ant-design/ant-design/pull/14640) [@SylvanasGone](https://github.com/SylvanasGone)、[#14654](https://github.com/ant-design/ant-design/pull/14654) [@kuitos](https://github.com/kuitos)、[#12667](https://github.com/ant-design/ant-design/pull/12667) [@yueyes](https://github.com/yueyes)、[#14653](https://github.com/ant-design/ant-design/pull/14653)、[#14676](https://github.com/ant-design/ant-design/pull/14676) [@kristof0425](https://github.com/kristof0425)、[#14684](https://github.com/ant-design/ant-design/pull/14684) [@RunningCoderLee](https://github.com/RunningCoderLee)
+
 ## 3.13.0
 
 `2019-01-26`
