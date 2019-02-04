@@ -20,7 +20,7 @@ timeline: true
 `2019-02-02`
 
 - 📝 Rewrite the documentation of [Use in TypeScript](https://ant.design/docs/react/use-in-typescript). [#14637](https://github.com/ant-design/ant-design/pull/14637)
-- 📝 Upgrade document `Real project with dva` to [Real project with umi](https://ant.design/docs/react/practical-projects). [#14574](https://github.com/ant-design/ant-design/pull/14574) [@cc189](https://github.com/cc189)
+- 📝 Upgrade the document of [Real project with umi and dva](https://ant.design/docs/react/practical-projects). [#14574](https://github.com/ant-design/ant-design/pull/14574) [@cc189](https://github.com/cc189)
 - 🐞 Fix Spin style issue in IE 10. [#14588](https://github.com/ant-design/ant-design/pull/14588) [#14365](https://github.com/ant-design/ant-design/issues/14365)
 - 🐞 Fix DatePicker missing dateTime default format in `showTime`. [#14593](https://github.com/ant-design/ant-design/pull/14593)
 - 🐞 Fix List style issue in IE 11. [#14602](https://github.com/ant-design/ant-design/pull/14602) [@Shub1427](https://github.com/Shub1427)
