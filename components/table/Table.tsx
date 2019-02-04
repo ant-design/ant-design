@@ -477,11 +477,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     }
 
     // Controlled current prop will not respond user interaction
-<<<<<<< HEAD
     if (typeof props.pagination === 'object' && 'current' in props.pagination) {
-=======
-    if (typeof props.pagination === 'object' && 'current' in (props.pagination as Object)) {
->>>>>>> upstream/master
       newState.pagination = {
         ...pagination,
         current: this.state.pagination.current,
@@ -674,15 +670,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       pagination,
     };
     // Controlled current prop will not respond user interaction
-<<<<<<< HEAD
     if (props.pagination && typeof props.pagination === 'object' && 'current' in props.pagination) {
-=======
-    if (
-      props.pagination &&
-      typeof props.pagination === 'object' &&
-      'current' in (props.pagination as Object)
-    ) {
->>>>>>> upstream/master
       newState.pagination = {
         ...pagination,
         current: this.state.pagination.current,
@@ -735,11 +723,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   getRecordKey = (record: T, index: number) => {
     const { rowKey } = this.props;
     const recordKey =
-<<<<<<< HEAD
       typeof rowKey === 'function' ? rowKey(record, index) : (record as any)[rowKey!];
-=======
-      typeof rowKey === 'function' ? rowKey(record, index) : (record as any)[rowKey as string];
->>>>>>> upstream/master
     warning(
       recordKey !== undefined,
       'Each record in dataSource of table should have a unique `key` prop, ' +
@@ -968,11 +952,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     const { pagination } = this.state;
     if (pagination.size) {
       size = pagination.size;
-<<<<<<< HEAD
     } else if (this.props.size === 'middle' || this.props.size === 'small') {
-=======
-    } else if ((this.props.size as string) === 'middle' || this.props.size === 'small') {
->>>>>>> upstream/master
       size = 'small';
     }
     const position = pagination.position || 'bottom';
@@ -1028,10 +1008,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     let current: number;
     let pageSize: number;
     const state = this.state;
-<<<<<<< HEAD
     const pagination = this.props.pagination || {};
-=======
->>>>>>> upstream/master
     // 如果没有分页的话，默认全部展示
     if (!this.hasPagination()) {
       pageSize = Number.MAX_VALUE;
@@ -1048,11 +1025,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     if (
       data.length > pageSize ||
       pageSize === Number.MAX_VALUE ||
-<<<<<<< HEAD
       (typeof pagination.current === 'undefined' && current * pageSize > data.length)
-=======
-      current * pageSize > data.length
->>>>>>> upstream/master
     ) {
       data = data.filter((_, i) => {
         return i >= (current - 1) * pageSize && i < current * pageSize;
