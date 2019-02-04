@@ -301,8 +301,7 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
           {highlightedStyle ? (
             <div key="style" className="highlight">
               <pre>
-                <code className="css" dangerouslySetInnerHTML={{ __html: highlightedStyle }} />{' '}
-                {/* eslint-disable-line */}
+                <code className="css" dangerouslySetInnerHTML={{ __html: highlightedStyle }} />
               </pre>
             </div>
           ) : null}

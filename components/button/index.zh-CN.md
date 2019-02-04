@@ -40,7 +40,7 @@ subtitle: 按钮
 
 ## FAQ
 
-### 如何移除 2 个汉字时字间的空格
+### 如何移除 2 个汉字之间的空格
 
 设置 [ConfigProvider](/components/config-provider/#API) 的 `autoInsertSpaceInButton` 为 `false`。
 

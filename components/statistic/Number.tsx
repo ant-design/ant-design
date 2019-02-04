@@ -17,14 +17,15 @@ const StatisticNumber: React.SFC<NumberProps> = props => {
   } else {
     // Internal formatter
     const val: string = String(value);
-    const cells = val.match(/^(\d*)(\.(\d+))?$/);
+    const cells = val.match(/^(-?)(\d*)(\.(\d+))?$/);
 
     // Process if illegal number
     if (!cells) {
       valueNode = val;
     } else {
-      let int = cells[1] || '0';
-      let decimal = cells[3] || '';
+      const negative = cells[1];
+      let int = cells[2] || '0';
+      let decimal = cells[4] || '';
 
       int = int.replace(/\B(?=(\d{3})+(?!\d))/g, groupSeparator);
 
@@ -38,6 +39,7 @@ const StatisticNumber: React.SFC<NumberProps> = props => {
 
       valueNode = [
         <span key="int" className={`${prefixCls}-content-value-int`}>
+          {negative}
           {int}
         </span>,
         decimal && (

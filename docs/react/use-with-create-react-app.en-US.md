@@ -9,16 +9,10 @@ title: Use in create-react-app
 
 ## Install and Initialization
 
-We need to install `create-react-app` first, you may need install [yarn](https://github.com/yarnpkg/yarn/) too.
+Before all start, you may need install [yarn](https://github.com/yarnpkg/yarn/).
 
 ```bash
-$ npm install -g create-react-app yarn
-```
-
-Create a new project named `antd-demo`.
-
-```bash
-$ create-react-app antd-demo
+$ yarn create react-app antd-demo
 ```
 
 The tool will create and initialize environment and dependencies automatically,
@@ -181,8 +175,7 @@ Then reboot with `yarn start` and visit the demo page, you should not find any [
 According to the [Customize Theme documentation](/docs/react/customize-theme), to customize the theme, we need to modify `less` variables with tools such as [less-loader](https://github.com/webpack/less-loader). We can also use [addLessLoader](https://github.com/arackaf/customize-cra#addlessloaderloaderoptions) to achieve this. Import it and modify `config-overrides.js` like below.
 
 ```bash
-$ yarn add less
-$ yarn add --dev less-loader
+$ yarn add less less-loader
 ```
 
 ```diff
@@ -193,7 +186,8 @@ module.exports = override(
   fixBabelImports('import', {
     libraryName: 'antd',
     libraryDirectory: 'es',
-    style: true,
+-   style: 'css',
++   style: true,
   }),
 + addLessLoader({
 +   javascriptEnabled: true,
@@ -203,6 +197,8 @@ module.exports = override(
 ```
 
 We use `modifyVars` option of [less-loader](https://github.com/webpack/less-loader#less-options) here, you can see a green button rendered on the page after rebooting the start server.
+
+> You could also try [craco](https://github.com/sharegate/craco) and [craco-antd](https://github.com/FormAPI/craco-antd) to customize create-react-app webpack config same as customize-cra does.
 
 ## eject
 

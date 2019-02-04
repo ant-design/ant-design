@@ -64,4 +64,30 @@ describe('Avatar Render', () => {
     wrapper.detach();
     global.document.body.removeChild(div);
   });
+
+  it('should show image on success after a failure state', () => {
+    const LOAD_FAILURE_SRC = 'http://error.url';
+    const LOAD_SUCCESS_SRC = 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png';
+
+    const div = global.document.createElement('div');
+    global.document.body.appendChild(div);
+
+    // simulate error src url
+    const wrapper = mount(<Avatar src={LOAD_FAILURE_SRC}>Fallback</Avatar>, { attachTo: div });
+    wrapper.find('img').simulate('error');
+
+    expect(wrapper.find(Avatar).instance().state.isImgExist).toBe(false);
+    expect(wrapper.find('.ant-avatar-string').length).toBe(1);
+
+    // simulate successful src url
+    wrapper.setProps({ src: LOAD_SUCCESS_SRC });
+    wrapper.update();
+
+    expect(wrapper.find(Avatar).instance().state.isImgExist).toBe(true);
+    expect(wrapper.find('.ant-avatar-image').length).toBe(1);
+
+    // cleanup
+    wrapper.detach();
+    global.document.body.removeChild(div);
+  });
 });

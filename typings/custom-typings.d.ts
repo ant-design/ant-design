@@ -99,7 +99,9 @@ declare module 'lodash/repeat';
 
 declare module 'lodash/uniqBy';
 
-declare module "raf";
+declare module 'lodash/findIndex';
+
+declare module 'raf';
 
 declare module 'react-lifecycles-compat';
 
