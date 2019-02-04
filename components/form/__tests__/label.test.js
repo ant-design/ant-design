@@ -11,8 +11,8 @@ describe('Form', () => {
 
     // Use origin logic
     if (id) {
-      const input = this.getElementsByTagName('input')[0];
-      if (input.id === id) {
+      const [input] = this.getElementsByTagName('input');
+      if (input && input.id === id) {
         return input;
       }
     }
