@@ -1008,6 +1008,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     let current: number;
     let pageSize: number;
     const state = this.state;
+    const pagination = this.props.pagination || {};
     // 如果没有分页的话，默认全部展示
     if (!this.hasPagination()) {
       pageSize = Number.MAX_VALUE;
@@ -1024,7 +1025,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     if (
       data.length > pageSize ||
       pageSize === Number.MAX_VALUE ||
-      (typeof state.pagination.current === 'undefined' && current * pageSize > data.length)
+      (typeof pagination.current === 'undefined' && current * pageSize > data.length)
     ) {
       data = data.filter((_, i) => {
         return i >= (current - 1) * pageSize && i < current * pageSize;
