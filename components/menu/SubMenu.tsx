@@ -13,6 +13,7 @@ export interface SubMenuProps {
   className?: string;
   disabled?: boolean;
   title?: React.ReactNode;
+  style?: React.CSSProperties;
   onTitleClick?: (clickEntity: TitleClickEntity) => void;
 }
 

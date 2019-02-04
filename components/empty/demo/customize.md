@@ -25,7 +25,7 @@ ReactDOM.render(
       </span>
     }
   >
-    <Button type="primary">立即创建</Button>
+    <Button type="primary">Create Now</Button>
   </Empty>,
   mountNode
 );

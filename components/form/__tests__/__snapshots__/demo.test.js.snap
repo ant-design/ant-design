@@ -3641,7 +3641,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           >
             <div
               class="ant-upload ant-upload-select ant-upload-select-picture"
-              style="display:"
             />
             <div
               class="ant-upload-list ant-upload-list-picture"

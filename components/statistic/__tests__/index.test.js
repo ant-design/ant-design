@@ -32,6 +32,13 @@ describe('Statistic', () => {
     expect(wrapper.find('.ant-statistic-content-value').text()).toEqual('bamboo');
   });
 
+  it('support negetive number', () => {
+    const wrapper = mount(
+      <Statistic title="Account Balance (CNY)" value={-112893.12345} precision={2} />,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
   describe('Countdown', () => {
     it('render correctly', () => {
       const now = moment()

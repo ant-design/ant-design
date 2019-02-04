@@ -13,13 +13,9 @@ export default class ComponentDoc extends React.Component {
     intl: PropTypes.object,
   };
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      expandAll: false,
-    };
-  }
+  state = {
+    expandAll: false,
+  };
 
   handleExpandToggle = () => {
     const { expandAll } = this.state;
