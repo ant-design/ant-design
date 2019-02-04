@@ -103,7 +103,7 @@ Ant Design React supports all modern browsers and IE9+.
 | --------- | --------- | --------- | --------- | --------- | --------- |
 | IE9, IE10, IE11, Edge| last 2 versions| last 2 versions| last 2 versions| last 2 versions| last 2 versions
 
-We offer very limited support for IE9/10 which means some styles and animations will be mininal under them. Also, we use Flex layout in a few components.
+We offer very limited support for IE9/10 which means some styles and animations will be mininal for them. Also, we use Flex layout in a few components.
 
 > Note: Different than Ant Design, Ant Design Pro supports IE11+.
 
