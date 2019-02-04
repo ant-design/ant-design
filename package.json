@@ -38,6 +38,9 @@
     "react": ">=16.0.0",
     "react-dom": ">=16.0.0"
   },
+  "resolutions": {
+    "terser": "3.14.*"
+  },
   "dependencies": {
     "@ant-design/icons": "~1.1.16",
     "@ant-design/icons-react": "~1.1.2",
