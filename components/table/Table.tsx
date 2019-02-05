@@ -1025,7 +1025,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     if (
       data.length > pageSize ||
       pageSize === Number.MAX_VALUE ||
-      (typeof pagination.current === 'undefined' && current * pageSize > data.length)
+      (pagination.current === undefined && current * pageSize > data.length)
     ) {
       data = data.filter((_, i) => {
         return i >= (current - 1) * pageSize && i < current * pageSize;
