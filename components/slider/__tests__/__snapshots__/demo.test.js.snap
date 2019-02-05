@@ -508,25 +508,25 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
     >
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="width:30.000000000000004%;margin-left:-15.000000000000002%;left:0%"
+        style="left:0%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
       >
         0°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="width:30.000000000000004%;margin-left:-15.000000000000002%;left:26%"
+        style="left:26%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
       >
         26°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="width:30.000000000000004%;margin-left:-15.000000000000002%;left:37%"
+        style="left:37%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
       >
         37°C
       </span>
       <span
         class="ant-slider-mark-text"
-        style="width:30.000000000000004%;margin-left:-15.000000000000002%;left:100%;color:#f50"
+        style="left:100%;transform:translateX(-50%);-ms-transform:translateX(-50%);color:#f50"
       >
         <strong>
           100°C
@@ -589,25 +589,25 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
     >
       <span
         class="ant-slider-mark-text"
-        style="width:30.000000000000004%;margin-left:-15.000000000000002%;left:0%"
+        style="left:0%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
       >
         0°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="width:30.000000000000004%;margin-left:-15.000000000000002%;left:26%"
+        style="left:26%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
       >
         26°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="width:30.000000000000004%;margin-left:-15.000000000000002%;left:37%"
+        style="left:37%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
       >
         37°C
       </span>
       <span
         class="ant-slider-mark-text"
-        style="width:30.000000000000004%;margin-left:-15.000000000000002%;left:100%;color:#f50"
+        style="left:100%;transform:translateX(-50%);-ms-transform:translateX(-50%);color:#f50"
       >
         <strong>
           100°C
@@ -659,25 +659,25 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
     >
       <span
         class="ant-slider-mark-text"
-        style="width:30.000000000000004%;margin-left:-15.000000000000002%;left:0%"
+        style="left:0%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
       >
         0°C
       </span>
       <span
         class="ant-slider-mark-text"
-        style="width:30.000000000000004%;margin-left:-15.000000000000002%;left:26%"
+        style="left:26%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
       >
         26°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="width:30.000000000000004%;margin-left:-15.000000000000002%;left:37%"
+        style="left:37%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
       >
         37°C
       </span>
       <span
         class="ant-slider-mark-text"
-        style="width:30.000000000000004%;margin-left:-15.000000000000002%;left:100%;color:#f50"
+        style="left:100%;transform:translateX(-50%);-ms-transform:translateX(-50%);color:#f50"
       >
         <strong>
           100°C
@@ -733,25 +733,25 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
     >
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="width:30.000000000000004%;margin-left:-15.000000000000002%;left:0%"
+        style="left:0%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
       >
         0°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="width:30.000000000000004%;margin-left:-15.000000000000002%;left:26%"
+        style="left:26%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
       >
         26°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="width:30.000000000000004%;margin-left:-15.000000000000002%;left:37%"
+        style="left:37%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
       >
         37°C
       </span>
       <span
         class="ant-slider-mark-text"
-        style="width:30.000000000000004%;margin-left:-15.000000000000002%;left:100%;color:#f50"
+        style="left:100%;transform:translateX(-50%);-ms-transform:translateX(-50%);color:#f50"
       >
         <strong>
           100°C
@@ -807,25 +807,25 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
     >
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="width:30.000000000000004%;margin-left:-15.000000000000002%;left:0%"
+        style="left:0%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
       >
         0°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="width:30.000000000000004%;margin-left:-15.000000000000002%;left:26%"
+        style="left:26%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
       >
         26°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="width:30.000000000000004%;margin-left:-15.000000000000002%;left:37%"
+        style="left:37%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
       >
         37°C
       </span>
       <span
         class="ant-slider-mark-text"
-        style="width:30.000000000000004%;margin-left:-15.000000000000002%;left:100%;color:#f50"
+        style="left:100%;transform:translateX(-50%);-ms-transform:translateX(-50%);color:#f50"
       >
         <strong>
           100°C
