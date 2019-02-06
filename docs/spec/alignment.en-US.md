@@ -32,4 +32,4 @@ Colon alignment(right-align) can encircle the content into a certain range. User
 <img class="preview-img good" align="right" alt="good example" src="https://gw.alipayobjects.com/zos/rmsportal/bIJAZcUmaRxJeFxZJwUp.png">
 <img class="preview-img bad" align="right" alt="bad example" src="https://gw.alipayobjects.com/zos/rmsportal/zUmANVIhBanDnlyOhvaH.png">
 
-To compare the numbers faster, we suggest that all numbers should keep the same digit numbers after decimal point; meanwhile all numbers should be right-aligned. 。
+To compare the numbers faster, we suggest that all numbers should keep the same digit numbers after decimal point; meanwhile all numbers should be right-aligned.
