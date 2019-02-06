@@ -100,6 +100,12 @@ See [i18n](http://ant.design/docs/react/i18n).
 
 ## ⌨️ Development
 
+Use Gitpod, a free online dev environment for GitHub.
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/ant-design/ant-design)
+
+Or clone locally:
+
 ```bash
 $ git clone git@github.com:ant-design/ant-design.git
 $ cd ant-design
