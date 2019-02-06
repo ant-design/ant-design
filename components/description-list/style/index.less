@@ -62,13 +62,30 @@
 
     .@{description-list-prefix-cls}-item-label {
       background-color: #fafafa;
-      padding: 16px 18px;
+      padding: 16px 24px;
       &::after {
         display: none;
       }
     }
     .@{description-list-prefix-cls}-item-content {
       padding: 16px 24px;
+    }
+  }
+
+  &.middle {
+    .@{description-list-prefix-cls}-item-label {
+      padding: 12px 24px;
+    }
+    .@{description-list-prefix-cls}-item-content {
+      padding: 12px 24px;
+    }
+  }
+  &.small {
+    .@{description-list-prefix-cls}-item-label {
+      padding: 8px 16px;
+    }
+    .@{description-list-prefix-cls}-item-content {
+      padding: 8px 16px;
     }
   }
 }
