@@ -4,7 +4,7 @@ order: 4
 title: Repetition
 ---
 
-The same elements keep repeating in the whole interface, which not only could lower the user’s learning cost effectively, but also help user recognize the relevance between these elements.
+The same elements keep repeating in the whole interface, which not only could lower the user's learning cost effectively, but also help user recognize the relevance between these elements.
 
 ---
 
