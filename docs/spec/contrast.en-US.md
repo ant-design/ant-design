@@ -15,7 +15,7 @@ Contrast is one of the effective ways to add visual interest to your page, and t
 <img class="preview-img good" align="right" alt="good example" src="https://gw.alipayobjects.com/zos/rmsportal/DXDSNzVmrVwVRJCTyaTH.png">
 <img class="preview-img bad" align="right" alt="bad example" src="https://gw.alipayobjects.com/zos/rmsportal/tMlELOuJrJrrYtTAbnlu.png">
 
-In order to help user make a quick operation (something like the form，modal), a more important operation or a operation with higher frequency would be emphasized.
+In order to help user make a quick operation (something like the form, modal), a more important operation or a operation with higher frequency would be emphasized.
 
 > Notes: ways of emphasizing are not just to intensify the key item. It could also weaken the other items.
 

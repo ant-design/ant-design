@@ -81,7 +81,7 @@ For example, icons inline with 12pt font should be 12px in size with 8px of spac
 
 ### Color
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/LxGLhtnwvCqZWYqGDAAr.png" description="Colors demonstrated - @Black = #000000、@White = #FFFFFF、@Blue-6 = #1890FF">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/LxGLhtnwvCqZWYqGDAAr.png" description="Colors demonstrated - @Black = #000000, @White = #FFFFFF, @Blue-6 = #1890FF">
 
 The color of the icon should be consistent the color of the surrounding copy, unless the icon is being used to express state (in which case it should be colored accordingly).
 
