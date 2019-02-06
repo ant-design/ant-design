@@ -21,7 +21,7 @@ cols: 1
 | title | 描述列表的标题，显示在最顶部 | ReactNode | - |
 | border | 是否展示边框 | boolean  | false |
 | column | 一行的 `DescriptionItems` 数量| number  | 3 |
-| size | 设置列表的大小。可以设置为 `middle` 和 `small`, 或不填 | `default | middle | small` | false |
+| size | 设置列表的大小。可以设置为 `middle` 、`small`, 或不填 | `default | middle | small` | false |
 
 ### DescriptionItem
 
