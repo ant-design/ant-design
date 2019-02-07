@@ -15,6 +15,14 @@ timeline: true
 
 ---
 
+## 3.13.2
+
+`2019-02-07`
+
+- 🐞 Adjust font style to fix display issue in IE. [#14708](https://github.com/ant-design/ant-design/pull/14708) [@ashearer](https://github.com/ashearer)
+- 🐞 Fix Table ajax render not correct issue. [#14724](https://github.com/ant-design/ant-design/pull/14724) [@imhele](https://github.com/imhele)
+- 🐞 Fix Input not hide clear button when value is `null`. [#14733](https://github.com/ant-design/ant-design/pull/14733) [@thilo-behnke](https://github.com/thilo-behnke)
+
 ## 3.13.1
 
 `2019-02-04`
