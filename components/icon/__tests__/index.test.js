@@ -94,6 +94,15 @@ describe('Icon', () => {
     }).not.toThrow();
   });
 
+  it('support render svg as component', () => {
+    const renderSvg = () => (
+      <svg viewBox="0 0 1024 1024" width="1em" height="1em" fill="currentColor" />
+    );
+    const SvgIcon = props => <Icon component={renderSvg} {...props} />;
+
+    expect(mount(<SvgIcon />).render()).toMatchSnapshot();
+  });
+
   describe('warning on conflicting theme', () => {
     let errorSpy;
     beforeEach(() => {

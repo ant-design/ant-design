@@ -16,18 +16,31 @@ title: Progress
 
 ## API
 
+各类型共用的属性。
+
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
+| type | 类型，可选 `line` `circle` `dashboard` | string | `line` |
 | format | 内容的模板函数 | function(percent, successPercent) | `percent => percent + '%'` |
-| gapDegree `(type=circle)` | 圆形进度条缺口角度，可取值 0 ~ 360 | number | 0 |
-| gapPosition `(type=circle)` | 圆形进度条缺口位置 | Enum{ 'top', 'bottom', 'left', 'right' } | `top` |
 | percent | 百分比 | number | 0 |
 | showInfo | 是否显示进度数值或状态图标 | boolean | true |
 | status | 状态，可选：`success` `exception` `active` `normal` | string | - |
-| strokeWidth `(type=line)` | 进度条线的宽度，单位 px | number | 10 |
-| strokeWidth `(type=circle)` | 圆形进度条线的宽度，单位是进度条画布宽度的百分比 | number | 6 |
 | strokeLinecap | | Enum{ 'round', 'square' } | `round` |
 | strokeColor | 进度条的色彩 | string | - |
 | successPercent | 已完成的分段百分比 | number | 0 |
-| type | 类型，可选 `line` `circle` `dashboard` | string | line |
-| width `(type=circle)` | 圆形进度条画布宽度，单位 px | number | 132 |
+
+### `type="line"`
+
+| strokeWidth | 进度条线的宽度，单位 px | number | 10 |
+
+### `type="circle"`
+
+| width | 圆形进度条画布宽度，单位 px | number | 132 |
+| strokeWidth | 圆形进度条线的宽度，单位是进度条画布宽度的百分比 | number | 6 |
+
+### `type="dashboard"`
+
+| width | 仪表盘进度条画布宽度，单位 px | number | 132 |
+| strokeWidth | 仪表盘进度条线的宽度，单位是进度条画布宽度的百分比 | number | 6 |
+| gapDegree | 仪表盘进度条缺口角度，可取值 0 ~ 360 | number | 0 |
+| gapPosition | 仪表盘进度条缺口位置 | Enum{ 'top', 'bottom', 'left', 'right' } | `top` |

@@ -495,7 +495,7 @@ exports[`renders ./components/empty/demo/customize.md correctly 1`] = `
       type="button"
     >
       <span>
-        立即创建
+        Create Now
       </span>
     </button>
   </div>

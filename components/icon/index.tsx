@@ -121,6 +121,10 @@ const Icon: IconComponent<IconProps> = props => {
     viewBox,
   };
 
+  if (!viewBox) {
+    delete innerSvgProps.viewBox;
+  }
+
   // component > children > type
   if (Component) {
     innerNode = <Component {...innerSvgProps}>{children}</Component>;

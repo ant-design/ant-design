@@ -259,14 +259,14 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                   >
                     <span>
                       <div
-                        class="ant-tag ant-tag-blue"
+                        class="ant-tag ant-tag-green"
                       >
-                        nice
+                        NICE
                       </div>
                       <div
-                        class="ant-tag ant-tag-blue"
+                        class="ant-tag ant-tag-geekblue"
                       >
-                        developer
+                        DEVELOPER
                       </div>
                     </span>
                   </td>
@@ -322,9 +322,9 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                   >
                     <span>
                       <div
-                        class="ant-tag ant-tag-blue"
+                        class="ant-tag ant-tag-volcano"
                       >
-                        loser
+                        LOSER
                       </div>
                     </span>
                   </td>
@@ -380,14 +380,14 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                   >
                     <span>
                       <div
-                        class="ant-tag ant-tag-blue"
+                        class="ant-tag ant-tag-green"
                       >
-                        cool
+                        COOL
                       </div>
                       <div
-                        class="ant-tag ant-tag-blue"
+                        class="ant-tag ant-tag-geekblue"
                       >
-                        teacher
+                        TEACHER
                       </div>
                     </span>
                   </td>
