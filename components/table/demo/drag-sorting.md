@@ -19,22 +19,7 @@ import { DragDropContext, DragSource, DropTarget } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import update from 'immutability-helper';
 
-function dragDirection(
-  dragIndex,
-  hoverIndex,
-  initialClientOffset,
-  clientOffset,
-  sourceClientOffset,
-) {
-  const hoverMiddleY = (initialClientOffset.y - sourceClientOffset.y) / 2;
-  const hoverClientY = clientOffset.y - sourceClientOffset.y;
-  if (dragIndex < hoverIndex && hoverClientY > hoverMiddleY) {
-    return 'downward';
-  }
-  if (dragIndex > hoverIndex && hoverClientY < hoverMiddleY) {
-    return 'upward';
-  }
-}
+var dragingIndex = -1;
 
 class BodyRow extends React.Component {
   render() {
@@ -43,27 +28,16 @@ class BodyRow extends React.Component {
       connectDragSource,
       connectDropTarget,
       moveRow,
-      dragRow,
-      clientOffset,
-      sourceClientOffset,
-      initialClientOffset,
       ...restProps
     } = this.props;
     const style = { ...restProps.style, cursor: 'move' };
 
     let className = restProps.className;
-    if (isOver && initialClientOffset) {
-      const direction = dragDirection(
-        dragRow.index,
-        restProps.index,
-        initialClientOffset,
-        clientOffset,
-        sourceClientOffset
-      );
-      if (direction === 'downward') {
+    if (isOver) {
+      if (restProps.index > dragingIndex) {
         className += ' drop-over-downward';
       }
-      if (direction === 'upward') {
+      if (restProps.index < dragingIndex) {
         className += ' drop-over-upward';
       }
     }
@@ -82,6 +56,7 @@ class BodyRow extends React.Component {
 
 const rowSource = {
   beginDrag(props) {
+    dragingIndex = props.index;
     return {
       index: props.index,
     };
@@ -109,17 +84,21 @@ const rowTarget = {
   },
 };
 
-const DragableBodyRow = DropTarget('row', rowTarget, (connect, monitor) => ({
-  connectDropTarget: connect.dropTarget(),
-  isOver: monitor.isOver(),
-  sourceClientOffset: monitor.getSourceClientOffset(),
-}))(
-  DragSource('row', rowSource, (connect, monitor) => ({
-    connectDragSource: connect.dragSource(),
-    dragRow: monitor.getItem(),
-    clientOffset: monitor.getClientOffset(),
-    initialClientOffset: monitor.getInitialClientOffset(),
-  }))(BodyRow)
+const DragableBodyRow = DropTarget(
+  'row',
+  rowTarget,
+  (connect, monitor) => ({
+    connectDropTarget: connect.dropTarget(),
+    isOver: monitor.isOver(),
+  }),
+)(
+  DragSource(
+    'row',
+    rowSource,
+    (connect, monitor) => ({
+      connectDragSource: connect.dragSource(),
+    }),
+  )(BodyRow),
 );
 
 const columns = [{
@@ -137,23 +116,21 @@ const columns = [{
 }];
 
 class DragSortingTable extends React.Component {
+  pendingUpdateFn;
+  requestedFrame = undefined;
+
   state = {
-    data: [{
-      key: '1',
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
-    }, {
-      key: '2',
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
-    }, {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park',
-    }],
+    data: [{ key: '1', name: 'John Brown', age: 1, address: 'New York No. 1 Lake Park', },
+    { key: '2', name: 'Jim Green', age: 2, address: 'London No. 1 Lake Park', },
+    { key: '3', name: 'Joe Black', age: 3, address: 'Sidney No. 1 Lake Park', },
+    { key: '4', name: 'Joe Black', age: 4, address: 'Sidney No. 1 Lake Park', },
+    { key: '5', name: 'Joe Black', age: 5, address: 'Sidney No. 1 Lake Park', },
+    { key: '6', name: 'Joe Black', age: 6, address: 'Sidney No. 1 Lake Park', },
+    { key: '7', name: 'Joe Black', age: 7, address: 'Sidney No. 1 Lake Park', },
+    { key: '8', name: 'Joe Black', age: 32, address: 'Sidney No. 1 Lake Park', },
+    { key: '9', name: 'Joe Black', age: 32, address: 'Sidney No. 1 Lake Park', },
+    { key: '10', name: 'Joe Black', age: 32, address: 'Sidney No. 1 Lake Park', },
+    ],
   }
 
   components = {
@@ -162,17 +139,38 @@ class DragSortingTable extends React.Component {
     },
   }
 
+  scheduleUpdate(updateFn) {
+    this.pendingUpdateFn = updateFn;
+
+    if (!this.requestedFrame) {
+      this.requestedFrame = requestAnimationFrame(this.drawFrame);
+    }
+  }
+
+  drawFrame = () => {
+    const nextState = update(this.state, this.pendingUpdateFn);
+    this.setState(nextState);
+
+    this.pendingUpdateFn = undefined;
+    this.requestedFrame = undefined;
+  }
+
+  componentWillUnmount() {
+    if (this.requestedFrame !== undefined) {
+      cancelAnimationFrame(this.requestedFrame);
+    }
+  }
+
+
   moveRow = (dragIndex, hoverIndex) => {
     const { data } = this.state;
     const dragRow = data[dragIndex];
 
-    this.setState(
-      update(this.state, {
-        data: {
-          $splice: [[dragIndex, 1], [hoverIndex, 0, dragRow]],
-        },
-      }),
-    );
+    this.scheduleUpdate({
+      data: {
+        $splice: [[dragIndex, 1], [hoverIndex, 0, dragRow]],
+      },
+    });
   }
 
   render() {
@@ -181,10 +179,12 @@ class DragSortingTable extends React.Component {
         columns={columns}
         dataSource={this.state.data}
         components={this.components}
+        pagination={false}
         onRow={(record, index) => ({
           index,
           moveRow: this.moveRow,
         })}
+        size={"small"}
       />
     );
   }
