@@ -101,6 +101,12 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
 ## ⌨️ 本地开发
 
+你可以使用 Gitpod 进行在线开发：
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/ant-design/ant-design)
+
+或者克隆到本地开发:
+
 ```bash
 $ git clone git@github.com:ant-design/ant-design.git
 $ cd ant-design
