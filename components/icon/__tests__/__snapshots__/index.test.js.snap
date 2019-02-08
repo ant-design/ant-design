@@ -333,6 +333,20 @@ exports[`Icon should support two-tone icon 1`] = `
 </i>
 `;
 
+exports[`Icon support render svg as component 1`] = `
+<i
+  aria-label="icon: undefined"
+  class="anticon"
+>
+  <svg
+    fill="currentColor"
+    height="1em"
+    viewBox="0 0 1024 1024"
+    width="1em"
+  />
+</i>
+`;
+
 exports[`Icon.createFromIconfontCN() should support iconfont.cn 1`] = `
 <div
   class="icons-list"

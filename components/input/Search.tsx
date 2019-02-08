@@ -44,98 +44,119 @@ export default class Search extends React.Component<SearchProps, any> {
     this.input = node;
   };
 
-  getButtonOrIcon(prefixCls: string) {
-    const { enterButton, size, disabled, loading } = this.props;
-    const enterButtonAsElement = enterButton as React.ReactElement<any>;
+  renderSuffix = (prefixCls: string) => {
+    const { suffix, enterButton, loading } = this.props;
+    if (enterButton) return suffix;
+
     const iconClassName = classNames(`${prefixCls}-icon`, {
       [`${prefixCls}-loading`]: !!loading,
     });
-    const buttonClassName = classNames(`${prefixCls}-button`, {
+    const node = (
+      <Icon
+        className={iconClassName}
+        type={loading ? 'loading' : 'search'}
+        key="searchIcon"
+        onClick={loading ? noop : this.onSearch}
+      />
+    );
+
+    if (suffix) {
+      let cloneSuffix = suffix;
+      if (React.isValidElement(cloneSuffix) && !cloneSuffix.key) {
+        cloneSuffix = React.cloneElement(cloneSuffix, {
+          key: 'originSuffix',
+        });
+      }
+      return [cloneSuffix, node];
+    }
+
+    return node;
+  };
+
+  renderAddonAfter = (prefixCls: string) => {
+    const { enterButton, size, disabled, loading } = this.props;
+    if (!enterButton) return null;
+    const btnClassName = classNames(`${prefixCls}-button`, {
       [`${prefixCls}-loading`]: !!loading,
     });
-    let node;
-    if (!enterButton) {
-      node = (
-        <Icon className={iconClassName} type={loading ? 'loading' : 'search'} key="searchIcon" />
-      );
-    } else if (enterButtonAsElement.type === Button || enterButtonAsElement.type === 'button') {
-      node = React.cloneElement(
-        enterButtonAsElement,
-        enterButtonAsElement.type === Button
+
+    const enterButtonAsElement = enterButton as React.ReactElement<any>;
+    if (enterButtonAsElement.type === Button || enterButtonAsElement.type === 'button') {
+      return React.cloneElement(enterButtonAsElement, {
+        onClick: loading ? noop : this.onSearch,
+        ...(enterButtonAsElement.type === Button
           ? {
-              className: buttonClassName,
+              className: btnClassName,
               size,
             }
-          : {},
-      );
-    } else {
-      node = (
-        <Button
-          className={buttonClassName}
-          type="primary"
-          size={size}
-          disabled={disabled}
-          key="enterButton"
-        >
-          {enterButton === true ? (
-            <Icon type={loading ? 'loading' : 'search'} />
-          ) : (
-            <span>
-              <span
-                className={classNames({
-                  [`${prefixCls}-button-text-loading`]: !!loading,
-                })}
-              >
-                {enterButton}
-              </span>
-              {loading && <Icon type="loading" />}
-            </span>
-          )}
-        </Button>
-      );
+          : {}),
+      });
     }
-    return React.cloneElement(node, {
-      onClick: loading ? noop : this.onSearch,
-    });
-  }
+
+    return (
+      <Button
+        className={btnClassName}
+        type="primary"
+        size={size}
+        disabled={disabled}
+        key="enterButton"
+        onClick={loading ? noop : this.onSearch}
+      >
+        {enterButton === true ? (
+          <Icon type={loading ? 'loading' : 'search'} />
+        ) : (
+          <span>
+            <span
+              className={classNames({
+                [`${prefixCls}-button-text-loading`]: !!loading,
+              })}
+            >
+              {enterButton}
+            </span>
+            {loading && <Icon type="loading" />}
+          </span>
+        )}
+      </Button>
+    );
+  };
 
   renderSearch = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       inputPrefixCls: customizeInputPrefixCls,
-      className,
       size,
-      suffix,
       enterButton,
       loading,
-      ...others
+      className,
+      ...restProps
     } = this.props;
-    delete (others as any).onSearch;
+
+    delete (restProps as any).onSearch;
+
     const prefixCls = getPrefixCls('input-search', customizePrefixCls);
     const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
-    const buttonOrIcon = this.getButtonOrIcon(prefixCls);
-    let searchSuffix = suffix ? [suffix, buttonOrIcon] : buttonOrIcon;
-    if (Array.isArray(searchSuffix)) {
-      searchSuffix = (searchSuffix as React.ReactElement<any>[]).map((item, index) => {
-        if (!React.isValidElement(item) || item.key) {
-          return item;
-        }
-        return React.cloneElement(item, { key: index });
+
+    let inputClassName;
+
+    if (enterButton) {
+      inputClassName = classNames(prefixCls, className, {
+        [`${prefixCls}-enter-button`]: !!enterButton,
+        [`${prefixCls}-${size}`]: !!size,
       });
+    } else {
+      inputClassName = classNames(prefixCls, className);
     }
-    const inputClassName = classNames(prefixCls, className, {
-      [`${prefixCls}-enter-button`]: !!enterButton,
-      [`${prefixCls}-${size}`]: !!size,
-    });
+
     return (
       <Input
         onPressEnter={loading ? noop : this.onSearch}
-        {...others}
+        {...restProps}
         size={size}
-        className={inputClassName}
         prefixCls={inputPrefixCls}
-        suffix={searchSuffix}
+        addonAfter={this.renderAddonAfter(prefixCls)}
+        suffix={this.renderSuffix(prefixCls)}
         ref={this.saveInput}
+        className={inputClassName}
       />
     );
   };

@@ -58,7 +58,7 @@ The rest of the props of `Input.TextArea` are the same as the original [textarea
 | -------- | ----------- | ---- | ------- |
 | enterButton | to show an enter button after input | boolean\|ReactNode | false |
 | onSearch | The callback function that is triggered when you click on the search-icon or press Enter key. It works when `loading` is false | function(value, event) |  |
-| loading | Searching status added in 3.15.0 | boolean | false |
+| loading | Searching status added in 3.14.0 | boolean | false |
 
 Supports all props of `Input`.
 

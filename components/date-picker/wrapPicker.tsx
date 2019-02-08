@@ -14,6 +14,7 @@ interface PickerMap {
 
 const DEFAULT_FORMAT: PickerMap = {
   date: 'YYYY-MM-DD',
+  dateTime: 'YYYY-MM-DD HH:mm:ss',
   week: 'gggg-wo',
   month: 'YYYY-MM',
 };

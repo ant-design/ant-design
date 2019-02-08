@@ -9,16 +9,10 @@ title: 在 create-react-app 中使用
 
 ## 安装和初始化
 
-我们需要在命令行中安装 create-react-app 工具，你可能还需要安装 [yarn](https://github.com/yarnpkg/yarn/)。
+在开始之前，你可能需要安装 [yarn](https://github.com/yarnpkg/yarn/)。
 
 ```bash
-$ npm install -g create-react-app yarn
-```
-
-然后新建一个项目。
-
-```bash
-$ create-react-app antd-demo
+$ yarn create react-app antd-demo
 ```
 
 工具会自动初始化一个脚手架并安装 React 项目的各种必要依赖，如果在过程中出现网络问题，请尝试配置代理或使用其他 npm registry。
@@ -175,11 +169,10 @@ $ yarn add babel-plugin-import
 
 ### 自定义主题
 
-按照 [配置主题](/docs/react/customize-theme) 的要求，自定义主题需要用到 less 变量覆盖功能。我们可以引入 `customize-cra` 中提供的 less 相关的函数 [addLessLoader](https://github.com/arackaf/customize-cra#addlessloaderloaderoptions) 来帮助加载 less 样式，同时修改 `config-overrides.js` 文件。
+按照 [配置主题](/docs/react/customize-theme) 的要求，自定义主题需要用到 less 变量覆盖功能。我们可以引入 `customize-cra` 中提供的 less 相关的函数 [addLessLoader](https://github.com/arackaf/customize-cra#addlessloaderloaderoptions) 来帮助加载 less 样式，同时修改 `config-overrides.js` 文件如下。
 
 ```bash
-$ yarn add less
-$ yarn add --dev less-loader
+$ yarn add less less-loader
 ```
 
 ```diff
@@ -190,7 +183,8 @@ module.exports = override(
   fixBabelImports('import', {
     libraryName: 'antd',
     libraryDirectory: 'es',
-    style: true,
+-   style: 'css',
++   style: true,
   }),
 + addLessLoader({
 +   javascriptEnabled: true,
@@ -203,6 +197,8 @@ module.exports = override(
 变量和其他配置方式可以参考 [配置主题](/docs/react/customize-theme) 文档。
 
 修改后重启 `yarn start`，如果看到一个绿色的按钮就说明配置成功了。
+
+> 你也可以使用 [craco](https://github.com/sharegate/craco) 和 [craco-antd](https://github.com/FormAPI/craco-antd) 来实现和 customize-cra 一样的修改 create-react-app 配置的功能。
 
 ## eject
 

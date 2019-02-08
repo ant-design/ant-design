@@ -168,12 +168,24 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
 
   getDefaultPagination(props: TableProps<T>) {
     const pagination: PaginationConfig = props.pagination || {};
+    let current;
+    if ('current' in pagination) {
+      current = pagination.current;
+    } else if ('defaultCurrent' in pagination) {
+      current = pagination.defaultCurrent;
+    }
+    let pageSize;
+    if ('pageSize' in pagination) {
+      pageSize = pagination.pageSize;
+    } else if ('defaultPageSize' in pagination) {
+      pageSize = pagination.defaultPageSize;
+    }
     return this.hasPagination(props)
       ? {
           ...defaultPagination,
           ...pagination,
-          current: pagination.defaultCurrent || pagination.current || 1,
-          pageSize: pagination.defaultPageSize || pagination.pageSize || 10,
+          current: current || 1,
+          pageSize: pageSize || 10,
         }
       : {};
   }
@@ -1013,7 +1025,11 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     // ---
     // 当数据量少于等于每页数量时，直接设置数据
     // 否则进行读取分页数据
-    if (data.length > pageSize || pageSize === Number.MAX_VALUE) {
+    if (
+      data.length > pageSize ||
+      pageSize === Number.MAX_VALUE ||
+      current * pageSize > data.length
+    ) {
       data = data.filter((_, i) => {
         return i >= (current - 1) * pageSize && i < current * pageSize;
       });

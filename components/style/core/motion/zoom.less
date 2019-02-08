@@ -3,6 +3,7 @@
   .@{className}-enter,
   .@{className}-appear {
     transform: scale(0); // need this by yiminghe
+    opacity: 0;
     animation-timing-function: @ease-out-circ;
   }
   .@{className}-leave {
@@ -49,6 +50,7 @@
     transform: scale(0.8);
   }
   100% {
+    opacity: 1;
     transform: scale(1);
   }
 }
