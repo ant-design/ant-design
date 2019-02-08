@@ -19,7 +19,7 @@ import { DragDropContext, DragSource, DropTarget } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import update from 'immutability-helper';
 
-var dragingIndex = -1;
+let dragingIndex = -1;
 
 class BodyRow extends React.Component {
   render() {
@@ -95,7 +95,7 @@ const DragableBodyRow = DropTarget(
   DragSource(
     'row',
     rowSource,
-    (connect, monitor) => ({
+    (connect) => ({
       connectDragSource: connect.dragSource(),
     }),
   )(BodyRow),
@@ -116,21 +116,23 @@ const columns = [{
 }];
 
 class DragSortingTable extends React.Component {
-  pendingUpdateFn;
-  requestedFrame = undefined;
-
   state = {
-    data: [{ key: '1', name: 'John Brown', age: 1, address: 'New York No. 1 Lake Park', },
-    { key: '2', name: 'Jim Green', age: 2, address: 'London No. 1 Lake Park', },
-    { key: '3', name: 'Joe Black', age: 3, address: 'Sidney No. 1 Lake Park', },
-    { key: '4', name: 'Joe Black', age: 4, address: 'Sidney No. 1 Lake Park', },
-    { key: '5', name: 'Joe Black', age: 5, address: 'Sidney No. 1 Lake Park', },
-    { key: '6', name: 'Joe Black', age: 6, address: 'Sidney No. 1 Lake Park', },
-    { key: '7', name: 'Joe Black', age: 7, address: 'Sidney No. 1 Lake Park', },
-    { key: '8', name: 'Joe Black', age: 32, address: 'Sidney No. 1 Lake Park', },
-    { key: '9', name: 'Joe Black', age: 32, address: 'Sidney No. 1 Lake Park', },
-    { key: '10', name: 'Joe Black', age: 32, address: 'Sidney No. 1 Lake Park', },
-    ],
+    data: [{
+      key: '1',
+      name: 'John Brown',
+      age: 32,
+      address: 'New York No. 1 Lake Park',
+    }, {
+      key: '2',
+      name: 'Jim Green',
+      age: 42,
+      address: 'London No. 1 Lake Park',
+    }, {
+      key: '3',
+      name: 'Joe Black',
+      age: 32,
+      address: 'Sidney No. 1 Lake Park',
+    }],
   }
 
   components = {
@@ -139,38 +141,17 @@ class DragSortingTable extends React.Component {
     },
   }
 
-  scheduleUpdate(updateFn) {
-    this.pendingUpdateFn = updateFn;
-
-    if (!this.requestedFrame) {
-      this.requestedFrame = requestAnimationFrame(this.drawFrame);
-    }
-  }
-
-  drawFrame = () => {
-    const nextState = update(this.state, this.pendingUpdateFn);
-    this.setState(nextState);
-
-    this.pendingUpdateFn = undefined;
-    this.requestedFrame = undefined;
-  }
-
-  componentWillUnmount() {
-    if (this.requestedFrame !== undefined) {
-      cancelAnimationFrame(this.requestedFrame);
-    }
-  }
-
-
   moveRow = (dragIndex, hoverIndex) => {
     const { data } = this.state;
     const dragRow = data[dragIndex];
 
-    this.scheduleUpdate({
-      data: {
-        $splice: [[dragIndex, 1], [hoverIndex, 0, dragRow]],
-      },
-    });
+    this.setState(
+      update(this.state, {
+        data: {
+          $splice: [[dragIndex, 1], [hoverIndex, 0, dragRow]],
+        },
+      }),
+    );
   }
 
   render() {
@@ -179,12 +160,10 @@ class DragSortingTable extends React.Component {
         columns={columns}
         dataSource={this.state.data}
         components={this.components}
-        pagination={false}
         onRow={(record, index) => ({
           index,
           moveRow: this.moveRow,
         })}
-        size={"small"}
       />
     );
   }
