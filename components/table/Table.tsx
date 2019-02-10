@@ -208,6 +208,10 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       this.store.setState({
         selectedRowKeys: nextProps.rowSelection.selectedRowKeys || [],
       });
+    } else if (this.props.rowSelection && !nextProps.rowSelection) {
+      this.store.setState({
+        selectedRowKeys: [],
+      });
     }
     if ('dataSource' in nextProps && nextProps.dataSource !== this.props.dataSource) {
       this.store.setState({
