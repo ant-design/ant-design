@@ -106,6 +106,13 @@ module.exports = function override(config, env) {
 };
 ```
 
+### Use customize-cra
+[customize-cra](https://github.com/arackaf/customize-cra) is used to override webpack configurations for create-react-app 2.0 with react-app-rewired.
+
+```bash
+$ yarn add customize-cra --dev
+```
+
 ### Use babel-plugin-import
 
 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) is a babel plugin for importing components on demand ([How does it work?](/docs/react/getting-started#Import-on-Demand)). We are now trying to install it and modify `config-overrides.js`.
