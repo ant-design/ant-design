@@ -43,7 +43,7 @@ class Countdown extends React.Component<CountdownProps, {}> {
   };
 
   startTimer = () => {
-    if (this.countdownId !== undefined) return;
+    if (!this.countdownId) return;
 
     this.countdownId = window.setInterval(() => {
       this.forceUpdate();
