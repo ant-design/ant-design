@@ -316,11 +316,17 @@ class Upload extends React.Component<UploadProps, UploadState> {
       [`${prefixCls}-disabled`]: disabled,
     });
 
-    const uploadButton = children ? (
-      <div className={uploadButtonCls}>
+    // Remove id to avoid open by label when trigger is hidden
+    // https://github.com/ant-design/ant-design/issues/14298
+    if (!children) {
+      delete rcUploadProps.id;
+    }
+
+    const uploadButton = (
+      <div className={uploadButtonCls} style={children ? undefined : { display: 'none' }}>
         <RcUpload {...rcUploadProps} ref={this.saveUpload} />
       </div>
-    ) : null;
+    );
 
     if (listType === 'picture-card') {
       return (
