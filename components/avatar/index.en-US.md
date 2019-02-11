@@ -16,4 +16,4 @@ Avatars can be used to represent people or objects. It supports images, `Icon`s,
 | src | the address of the image for an image avatar | string | - |
 | srcSet | a list of sources to use for different screen resolutions | string | - |
 | alt | This attribute defines the alternative text describing the image | string | - |
-| onError | handler when img load error，return false to prevent default fallback behavior | () => boolean | - |
+| onError | handler when img load error, return false to prevent default fallback behavior | () => boolean | - |
