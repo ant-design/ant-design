@@ -336,6 +336,16 @@ exports[`renders ./components/mention/demo/controlled.md correctly 1`] = `
             </div>
           </div>
         </span>
+        <div
+          class="ant-form-explain-holder"
+        >
+          <span
+            aria-hidden="true"
+            class="ant-form-explain-misc"
+          >
+             
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -369,6 +379,16 @@ exports[`renders ./components/mention/demo/controlled.md correctly 1`] = `
             </span>
           </button>
         </span>
+        <div
+          class="ant-form-explain-holder"
+        >
+          <span
+            aria-hidden="true"
+            class="ant-form-explain-misc"
+          >
+             
+          </span>
+        </div>
       </div>
     </div>
   </div>
