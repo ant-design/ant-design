@@ -17,7 +17,7 @@ class Countdown extends React.Component<CountdownProps, {}> {
     format: 'HH:mm:ss',
   };
 
-  countdownId?: number = undefined;
+  countdownId?: number;
 
   componentDidMount() {
     this.syncTimer();
