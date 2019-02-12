@@ -13,7 +13,7 @@ An icon is a graphical representation of meaning. Icons can be used to express a
 
 ## System Icons
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/XzOPonWCsPjvgkrklCzo.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/XzOPonWCsPjvgkrklCzo.png" alt="System Icons">
 
 System icons are often used to represent commonly used operations, such as: save, edit, delete. Ant Design also includes icons to represent file types and state.
 
@@ -21,7 +21,7 @@ System icons are often used to represent commonly used operations, such as: save
 
 ### Key Contour Lines
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/beTZeZjJBVuhMyTOhebs.png" alt="Ant Design's grid and key contour lines">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/beTZeZjJBVuhMyTOhebs.png" alt="Ant Design's grid and key contour lines" alt="Key Contour Lines">
 
 Contour lines play an important role in making various icons with the same visual effect.
 
@@ -67,13 +67,13 @@ Always keep a simple, flat style. Icons should not have a sense of depth nor a l
 
 ### Naming Conventions
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/NFOvbdbVWeeEqOkdUfVB.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/NFOvbdbVWeeEqOkdUfVB.png" alt="Naming Conventions">
 
 Uniform naming conventions make finding icons faster and easier. For example, icons with a surrounding outline have a uniform "-o" suffix.
 
 ### Icon Sizing
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/jAuedlyhNIDyOIZTqbqN.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/jAuedlyhNIDyOIZTqbqN.png" alt="Icon Sizing">
 
 Icons should be scaled according to the text size, according to the Ant Design specification.
 
@@ -81,7 +81,7 @@ For example, icons inline with 12pt font should be 12px in size with 8px of spac
 
 ### Color
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/LxGLhtnwvCqZWYqGDAAr.png" description="Colors demonstrated - @Black = #000000、@White = #FFFFFF、@Blue-6 = #1890FF">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/LxGLhtnwvCqZWYqGDAAr.png" description="Colors demonstrated - @Black = #000000, @White = #FFFFFF, @Blue-6 = #1890FF" alt="Color">
 
 The color of the icon should be consistent the color of the surrounding copy, unless the icon is being used to express state (in which case it should be colored accordingly).
 
@@ -89,7 +89,7 @@ The color of the icon should be consistent the color of the surrounding copy, un
 
 ## Business Icons
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/EADAnRecKSTxvpxPzKoq.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/EADAnRecKSTxvpxPzKoq.png" alt="Business Icons">
 
 Business icons, unlike system icons, do not themselves have functional operations, but rather an abstraction that assists with copywriting. Compared to the system icon, the business icon is more rich in the details of the design, the size of the use of relatively large.
 
@@ -97,12 +97,12 @@ Business icons, unlike system icons, do not themselves have functional operation
 
 ### Icon Sizing
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/uwAgfciGszhdiVlMSBXK.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/uwAgfciGszhdiVlMSBXK.png" alt="Icon Sizing">
 
 In normal use, there are 32px (minimum size), 48px and 64px (maximum size) three options.
 
 ### Color
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/wUxhTxZlHoTxDvneWBWO.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/wUxhTxZlHoTxDvneWBWO.png" alt="Color">
 
 There are two kinds of business icon, single-color (neutral color) and double-color (neutral color + primary color), the area of primary color does not exceed 40% of the entire icon.

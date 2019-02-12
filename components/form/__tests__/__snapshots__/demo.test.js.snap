@@ -2925,37 +2925,37 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             >
               <span
                 class="ant-slider-mark-text ant-slider-mark-text-active"
-                style="width:18%;margin-left:-9%;left:0%"
+                style="left:0%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
               >
                 A
               </span>
               <span
                 class="ant-slider-mark-text"
-                style="width:18%;margin-left:-9%;left:20%"
+                style="left:20%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
               >
                 B
               </span>
               <span
                 class="ant-slider-mark-text"
-                style="width:18%;margin-left:-9%;left:40%"
+                style="left:40%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
               >
                 C
               </span>
               <span
                 class="ant-slider-mark-text"
-                style="width:18%;margin-left:-9%;left:60%"
+                style="left:60%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
               >
                 D
               </span>
               <span
                 class="ant-slider-mark-text"
-                style="width:18%;margin-left:-9%;left:80%"
+                style="left:80%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
               >
                 E
               </span>
               <span
                 class="ant-slider-mark-text"
-                style="width:18%;margin-left:-9%;left:100%"
+                style="left:100%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
               >
                 F
               </span>

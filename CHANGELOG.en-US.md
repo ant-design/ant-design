@@ -15,6 +15,14 @@ timeline: true
 
 ---
 
+## 3.13.2
+
+`2019-02-07`
+
+- 🐞 Fix Table ajax render only display data on first page. [#14724](https://github.com/ant-design/ant-design/pull/14724) [@imhele](https://github.com/imhele)
+- 🐞 Adjust font style to fix display issue in IE. [#14708](https://github.com/ant-design/ant-design/pull/14708) [@ashearer](https://github.com/ashearer)
+- 🐞 Fix Input not hide clear button when value is `null`. [#14733](https://github.com/ant-design/ant-design/pull/14733) [@thilo-behnke](https://github.com/thilo-behnke)
+
 ## 3.13.1
 
 `2019-02-04`
@@ -34,7 +42,7 @@ timeline: true
   - 🐞 Fix when being triggered by label even upload button don't display. [#14619](https://github.com/ant-design/ant-design/pull/14619) [#14298](https://github.com/ant-design/ant-design/issues/14298)
 - 🐞 Fix Dropdown pseudo class style which causes the overlay non-clickable. [#14604](https://github.com/ant-design/ant-design/pull/14604) [@shawtung](https://github.com/shawtung)
 - 💄 Improve Checkbox the style for check don't align center in some cases. [#14619](https://github.com/ant-design/ant-design/pull/14619) [#14271](https://github.com/ant-design/ant-design/issues/14271)
-- 🐞 Fix Avatar change `src` not trigger reload if prev image load failed. [#14606](https://github.com/ant-design/ant-design/pull/14606) [@AhmedAlSammany](https://github.com/AhmedAlSammany)
+- 🐞 Fix Avatar change `src` not trigger reload if previous image load failed. [#14606](https://github.com/ant-design/ant-design/pull/14606) [@AhmedAlSammany](https://github.com/AhmedAlSammany)
 - 🐞 Fix Modal `destroy` logic not process correctly. [#14600](https://github.com/ant-design/ant-design/pull/14600) [@xu-snow](https://github.com/xu-snow)
 - 🐞 Fix Tooltip arrow not align when the content of `title` is less. [#14667](https://github.com/ant-design/ant-design/pull/14667) [@Yangzhedi](https://github.com/Yangzhedi)
 - Calendar
@@ -60,7 +68,7 @@ timeline: true
   - 🌟 Add `expandIcon` to allow customization of Collapse icon. [#14060](https://github.com/ant-design/ant-design/pull/14060)
 - ConfigProvider
   - 🌟 Support Content Security Policy (CSP) config. [#14222](https://github.com/ant-design/ant-design/pull/14222)
-  - 🌟 Support `autoInsertSpaceInButton` to remove space between 2 chinese characters on Button. [#14230](https://github.com/ant-design/ant-design/pull/14230)
+  - 🌟 Support `autoInsertSpaceInButton` to remove space between 2 Chinese characters on Button. [#14230](https://github.com/ant-design/ant-design/pull/14230)
 - DatePicker
   - 🌟 Will read format as default format in locale if provided. [#14340](https://github.com/ant-design/ant-design/pull/14340)
 - Tabs
