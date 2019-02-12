@@ -12,5 +12,6 @@
     "no-invalid-double-slash-comments": null,
     "no-descending-specificity": null,
     "plugin/declaration-block-no-ignored-properties": true
-  }
+  },
+  "ignoreFiles": ["components/style/color/{bezierEasing,colorPalette,tinyColor}.less"]
 }
