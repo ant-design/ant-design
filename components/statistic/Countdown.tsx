@@ -48,7 +48,7 @@ class Countdown extends React.Component<CountdownProps, {}> {
   };
 
   startTimer = () => {
-    if (this.countdownId !== undefined) return;
+    if (this.countdownId) return;
 
     this.countdownId = window.setInterval(() => {
       this.forceUpdate();
@@ -57,7 +57,7 @@ class Countdown extends React.Component<CountdownProps, {}> {
 
   stopTimer = () => {
     const { onFinish, value } = this.props;
-    if (this.countdownId !== undefined) {
+    if (this.countdownId) {
       clearInterval(this.countdownId);
       this.countdownId = undefined;
 
