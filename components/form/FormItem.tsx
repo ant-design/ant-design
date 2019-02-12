@@ -167,9 +167,6 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
     return (
       <div className={`${prefixCls}-explain-holder`}>
-        <span aria-hidden="true" className={`${prefixCls}-explain-misc`}>
-          {'\u00A0'}
-        </span>
         <Animate
           transitionName="show-help"
           component=""

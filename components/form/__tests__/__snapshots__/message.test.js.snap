@@ -38,12 +38,6 @@ exports[`Form should display custom message 1`] = `
           class="ant-form-explain-holder"
         >
           <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-          <span
             class="ant-form-explain show-help-enter"
           >
             <span>
@@ -102,12 +96,6 @@ exports[`Form should display two message 1`] = `
           class="ant-form-explain-holder"
         >
           <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-          <span
             class="ant-form-explain show-help-enter"
           >
             Error message 1 Error message 2
@@ -156,12 +144,6 @@ exports[`Form support error message with reactNode 1`] = `
         <div
           class="ant-form-explain-holder"
         >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
           <span
             class="ant-form-explain show-help-enter"
           >

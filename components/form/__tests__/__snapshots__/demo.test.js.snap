@@ -48,14 +48,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
               </span>
               <div
                 class="ant-form-explain-holder"
-              >
-                <span
-                  aria-hidden="true"
-                  class="ant-form-explain-misc"
-                >
-                   
-                </span>
-              </div>
+              />
             </div>
           </div>
         </div>
@@ -99,14 +92,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
               </span>
               <div
                 class="ant-form-explain-holder"
-              >
-                <span
-                  aria-hidden="true"
-                  class="ant-form-explain-misc"
-                >
-                   
-                </span>
-              </div>
+              />
             </div>
           </div>
         </div>
@@ -150,14 +136,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
               </span>
               <div
                 class="ant-form-explain-holder"
-              >
-                <span
-                  aria-hidden="true"
-                  class="ant-form-explain-misc"
-                >
-                   
-                </span>
-              </div>
+              />
             </div>
           </div>
         </div>
@@ -201,14 +180,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
               </span>
               <div
                 class="ant-form-explain-holder"
-              >
-                <span
-                  aria-hidden="true"
-                  class="ant-form-explain-misc"
-                >
-                   
-                </span>
-              </div>
+              />
             </div>
           </div>
         </div>
@@ -252,14 +224,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
               </span>
               <div
                 class="ant-form-explain-holder"
-              >
-                <span
-                  aria-hidden="true"
-                  class="ant-form-explain-misc"
-                >
-                   
-                </span>
-              </div>
+              />
             </div>
           </div>
         </div>
@@ -303,14 +268,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
               </span>
               <div
                 class="ant-form-explain-holder"
-              >
-                <span
-                  aria-hidden="true"
-                  class="ant-form-explain-misc"
-                >
-                   
-                </span>
-              </div>
+              />
             </div>
           </div>
         </div>
@@ -354,14 +312,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
               </span>
               <div
                 class="ant-form-explain-holder"
-              >
-                <span
-                  aria-hidden="true"
-                  class="ant-form-explain-misc"
-                >
-                   
-                </span>
-              </div>
+              />
             </div>
           </div>
         </div>
@@ -405,14 +356,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
               </span>
               <div
                 class="ant-form-explain-holder"
-              >
-                <span
-                  aria-hidden="true"
-                  class="ant-form-explain-misc"
-                >
-                   
-                </span>
-              </div>
+              />
             </div>
           </div>
         </div>
@@ -456,14 +400,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
               </span>
               <div
                 class="ant-form-explain-holder"
-              >
-                <span
-                  aria-hidden="true"
-                  class="ant-form-explain-misc"
-                >
-                   
-                </span>
-              </div>
+              />
             </div>
           </div>
         </div>
@@ -507,14 +444,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
               </span>
               <div
                 class="ant-form-explain-holder"
-              >
-                <span
-                  aria-hidden="true"
-                  class="ant-form-explain-misc"
-                >
-                   
-                </span>
-              </div>
+              />
             </div>
           </div>
         </div>
@@ -616,14 +546,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -706,14 +629,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -740,14 +656,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -843,14 +752,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -877,14 +779,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -937,14 +832,7 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -971,14 +859,7 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -1022,14 +903,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -1068,14 +942,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -1112,14 +979,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -1146,14 +1006,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -1212,14 +1065,7 @@ exports[`renders ./components/form/demo/global-state.md correctly 1`] = `
           </span>
           <div
             class="ant-form-explain-holder"
-          >
-            <span
-              aria-hidden="true"
-              class="ant-form-explain-misc"
-            >
-               
-            </span>
-          </div>
+          />
         </div>
       </div>
     </div>
@@ -1291,14 +1137,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -1353,14 +1192,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -1387,14 +1219,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -1493,14 +1318,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
           </span>
           <div
             class="ant-form-explain-holder"
-          >
-            <span
-              aria-hidden="true"
-              class="ant-form-explain-misc"
-            >
-               
-            </span>
-          </div>
+          />
         </div>
       </div>
     </div>
@@ -1535,14 +1353,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
           </span>
           <div
             class="ant-form-explain-holder"
-          >
-            <span
-              aria-hidden="true"
-              class="ant-form-explain-misc"
-            >
-               
-            </span>
-          </div>
+          />
         </div>
       </div>
     </div>
@@ -1577,14 +1388,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
           </span>
           <div
             class="ant-form-explain-holder"
-          >
-            <span
-              aria-hidden="true"
-              class="ant-form-explain-misc"
-            >
-               
-            </span>
-          </div>
+          />
         </div>
       </div>
     </div>
@@ -1611,14 +1415,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
           </span>
           <div
             class="ant-form-explain-holder"
-          >
-            <span
-              aria-hidden="true"
-              class="ant-form-explain-misc"
-            >
-               
-            </span>
-          </div>
+          />
         </div>
       </div>
     </div>
@@ -1681,14 +1478,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -1743,14 +1533,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -1811,14 +1594,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -1863,14 +1639,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -1908,14 +1677,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -1953,14 +1715,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -2021,14 +1776,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -2115,14 +1863,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -2227,14 +1968,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -2336,14 +2070,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -2404,14 +2131,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
         <div
           class="ant-form-extra"
         >
@@ -2461,14 +2181,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -2495,14 +2208,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -2570,14 +2276,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -2639,14 +2338,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -2707,14 +2399,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -2791,14 +2476,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -2876,14 +2554,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -2949,14 +2620,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -2983,14 +2647,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -3031,14 +2688,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -3121,14 +2771,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -3207,14 +2850,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -3328,14 +2964,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -3378,14 +3007,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -3504,14 +3126,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -3603,14 +3218,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -3702,14 +3310,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -3869,14 +3470,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -4192,14 +3786,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -4239,14 +3826,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
         <div
           class="ant-form-extra"
         >
@@ -4295,14 +3875,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -4329,14 +3902,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -4381,12 +3947,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-form-explain-holder"
         >
           <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-          <span
             class="ant-form-explain"
           >
             Should be combination of numbers & alphabets
@@ -4427,14 +3987,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -4493,12 +4046,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         <div
           class="ant-form-explain-holder"
         >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
           <span
             class="ant-form-explain"
           >
@@ -4562,14 +4109,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -4627,14 +4167,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -4693,12 +4226,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         <div
           class="ant-form-explain-holder"
         >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
           <span
             class="ant-form-explain"
           >
@@ -4786,14 +4313,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -4881,14 +4401,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -4989,14 +4502,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -5101,12 +4607,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-form-explain-holder"
         >
           <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-          <span
             class="ant-form-explain"
           >
             The information is being validated...
@@ -5186,12 +4686,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                   class="ant-form-explain-holder"
                 >
                   <span
-                    aria-hidden="true"
-                    class="ant-form-explain-misc"
-                  >
-                     
-                  </span>
-                  <span
                     class="ant-form-explain"
                   >
                     Please select the correct date
@@ -5251,28 +4745,14 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 </span>
                 <div
                   class="ant-form-explain-holder"
-                >
-                  <span
-                    aria-hidden="true"
-                    class="ant-form-explain-misc"
-                  >
-                     
-                  </span>
-                </div>
+                />
               </div>
             </div>
           </div>
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -5397,14 +4877,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         </span>
         <div
           class="ant-form-explain-holder"
-        >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -5517,12 +4990,6 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
         <div
           class="ant-form-explain-holder"
         >
-          <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
           <span
             class="ant-form-explain"
           >

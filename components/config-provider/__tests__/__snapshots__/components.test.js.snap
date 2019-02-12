@@ -7046,12 +7046,6 @@ exports[`ConfigProvider components Form configProvider 1`] = `
           class="config-form-explain-holder"
         >
           <span
-            aria-hidden="true"
-            class="config-form-explain-misc"
-          >
-             
-          </span>
-          <span
             class="config-form-explain"
           >
             Bamboo is Light
@@ -7089,12 +7083,6 @@ exports[`ConfigProvider components Form normal 1`] = `
           class="ant-form-explain-holder"
         >
           <span
-            aria-hidden="true"
-            class="ant-form-explain-misc"
-          >
-             
-          </span>
-          <span
             class="ant-form-explain"
           >
             Bamboo is Light
@@ -7131,12 +7119,6 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
         <div
           class="prefix-Form-explain-holder"
         >
-          <span
-            aria-hidden="true"
-            class="prefix-Form-explain-misc"
-          >
-             
-          </span>
           <span
             class="prefix-Form-explain"
           >

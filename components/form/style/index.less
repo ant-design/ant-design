@@ -122,7 +122,8 @@ input[type='checkbox'] {
 .@{form-prefix-cls}-explain-holder {
   line-height: @line-height-base;
 
-  .@{form-prefix-cls}-explain-misc {
+  &::before {
+    content: '\00A0'; // Use non-space character to keep the same height
     display: inline-block;
     width: 0;
     overflow: hidden;
@@ -391,7 +392,7 @@ form {
       margin-bottom: 24px;
     }
 
-    .@{form-prefix-cls}-explain-misc {
+    &::before {
       display: none;
     }
 
