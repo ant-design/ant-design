@@ -18,3 +18,14 @@
     }
   }
 }
+
+// Only adjust horizontal customize icon width
+.@{steps-prefix-cls} {
+  &:not(.@{steps-prefix-cls}-vertical) {
+    .@{steps-prefix-cls}-item-custom {
+      .@{steps-prefix-cls}-item-icon {
+        width: auto;
+      }
+    }
+  }
+}
