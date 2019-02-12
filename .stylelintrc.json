@@ -1,6 +1,10 @@
 {
-  "extends": ["stylelint-config-standard", "stylelint-config-prettier"],
-  "plugins": ["stylelint-declaration-block-no-ignored-properties"],
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-rational-order",
+    "stylelint-config-prettier"
+  ],
+  "plugins": ["stylelint-order", "stylelint-declaration-block-no-ignored-properties"],
   "rules": {
     "comment-empty-line-before": null,
     "declaration-empty-line-before": null,
