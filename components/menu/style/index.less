@@ -6,22 +6,22 @@
 // default theme
 .@{menu-prefix-cls} {
   .reset-component;
-  outline: none;
   margin-bottom: 0;
   padding-left: 0; // Override default ul/ol
-  list-style: none;
-  box-shadow: @box-shadow-base;
   color: @menu-item-color;
-  background: @menu-bg;
   line-height: 0; // Fix display inline-block gap
+  list-style: none;
+  background: @menu-bg;
+  outline: none;
+  box-shadow: @box-shadow-base;
   transition: background 0.3s, width 0.2s;
   .clearfix;
 
   ul,
   ol {
-    list-style: none;
     margin: 0;
     padding: 0;
+    list-style: none;
   }
 
   &-hidden {
@@ -29,10 +29,10 @@
   }
 
   &-item-group-title {
+    padding: 8px 16px;
     color: @menu-item-group-title-color;
     font-size: @font-size-base;
     line-height: @line-height-base;
-    padding: 8px 16px;
     transition: all 0.3s;
   }
 
@@ -63,11 +63,11 @@
     }
     &::before {
       position: absolute;
-      background-color: transparent;
       top: 0;
-      left: 0;
-      bottom: 0;
       right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: transparent;
       content: '';
     }
   }
@@ -75,8 +75,8 @@
   &-item-divider {
     height: 1px;
     overflow: hidden;
-    background-color: @border-color-split;
     line-height: 0;
+    background-color: @border-color-split;
   }
 
   &-item:hover,
@@ -122,13 +122,13 @@
   &-vertical&-sub,
   &-vertical-left&-sub,
   &-vertical-right&-sub {
-    border-right: 0;
     padding: 0;
+    border-right: 0;
     transform-origin: 0 0;
     .@{menu-prefix-cls}-item {
-      border-right: 0;
-      margin-left: 0;
       left: 0;
+      margin-left: 0;
+      border-right: 0;
       &::after {
         border-right: 0;
       }
@@ -148,12 +148,12 @@
 
   &-item,
   &-submenu-title {
-    cursor: pointer;
-    margin: 0;
-    padding: 0 20px;
     position: relative;
     display: block;
+    margin: 0;
+    padding: 0 20px;
     white-space: nowrap;
+    cursor: pointer;
     transition: color 0.3s @ease-in-out, border-color 0.3s @ease-in-out,
       background 0.3s @ease-in-out, padding 0.15s @ease-in-out;
     .@{iconfont-css-prefix} {
@@ -162,8 +162,8 @@
       font-size: @font-size-base;
       transition: font-size 0.15s @ease-out, margin 0.3s @ease-in-out;
       + span {
-        transition: opacity 0.3s @ease-in-out, width 0.3s @ease-in-out;
         opacity: 1;
+        transition: opacity 0.3s @ease-in-out, width 0.3s @ease-in-out;
       }
     }
   }
@@ -171,8 +171,8 @@
   & > &-item-divider {
     height: 1px;
     margin: 1px 0;
-    overflow: hidden;
     padding: 0;
+    overflow: hidden;
     line-height: 0;
     background-color: @border-color-split;
   }
@@ -180,9 +180,9 @@
   &-submenu {
     &-popup {
       position: absolute;
-      border-radius: @border-radius-base;
       z-index: @zindex-dropdown;
       background: @menu-popup-bg;
+      border-radius: @border-radius-base;
 
       .submenu-title-wrapper {
         padding-right: 20px;
@@ -191,11 +191,11 @@
       &::before {
         position: absolute;
         top: -7px;
-        left: 0;
         right: 0;
         bottom: 0;
-        content: ' ';
+        left: 0;
         opacity: 0.0001;
+        content: ' ';
       }
     }
 
@@ -212,22 +212,22 @@
     &-vertical-right,
     &-inline {
       > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
-        transition: transform 0.3s @ease-in-out;
         position: absolute;
         top: 50%;
         right: 16px;
         width: 10px;
+        transition: transform 0.3s @ease-in-out;
         &::before,
         &::after {
-          content: '';
           position: absolute;
-          background: @menu-bg;
-          background-image: linear-gradient(to right, @menu-item-color, @menu-item-color);
           width: 6px;
           height: 1.5px;
+          background: @menu-bg;
+          background-image: linear-gradient(to right, @menu-item-color, @menu-item-color);
           border-radius: 2px;
           transition: background 0.3s @ease-in-out, transform 0.3s @ease-in-out,
             top 0.3s @ease-in-out;
+          content: '';
         }
         &::before {
           transform: rotate(45deg) translateY(-2px);
@@ -278,11 +278,11 @@
   }
 
   &-horizontal {
+    line-height: 46px;
+    white-space: nowrap;
     border: 0;
     border-bottom: @border-width-base @border-style-base @border-color-split;
     box-shadow: none;
-    line-height: 46px;
-    white-space: nowrap;
 
     > .@{menu-prefix-cls}-item,
     > .@{menu-prefix-cls}-submenu {
@@ -296,8 +296,8 @@
       &-active,
       &-open,
       &-selected {
-        border-bottom: 2px solid @menu-highlight-color;
         color: @menu-highlight-color;
+        border-bottom: 2px solid @menu-highlight-color;
       }
     }
 
@@ -318,10 +318,10 @@
     }
 
     &::after {
-      content: '\20';
       display: block;
-      height: 0;
       clear: both;
+      height: 0;
+      content: '\20';
     }
   }
 
@@ -332,27 +332,27 @@
     .@{menu-prefix-cls}-item {
       position: relative;
       &::after {
-        content: '';
         position: absolute;
-        right: 0;
         top: 0;
+        right: 0;
         bottom: 0;
         border-right: @menu-item-active-border-width solid @menu-highlight-color;
         transform: scaleY(0.0001);
         opacity: 0;
         transition: transform 0.15s @ease-out, opacity 0.15s @ease-out;
+        content: '';
       }
     }
 
     .@{menu-prefix-cls}-item,
     .@{menu-prefix-cls}-submenu-title {
-      padding: 0 16px;
-      font-size: @font-size-base;
-      line-height: @menu-item-height;
       height: @menu-item-height;
       margin-top: 4px;
       margin-bottom: 4px;
+      padding: 0 16px;
       overflow: hidden;
+      font-size: @font-size-base;
+      line-height: @menu-item-height;
       text-overflow: ellipsis;
     }
 
@@ -367,8 +367,8 @@
 
     > .@{menu-prefix-cls}-item,
     > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
-      line-height: @menu-inline-toplevel-item-height;
       height: @menu-inline-toplevel-item-height;
+      line-height: @menu-inline-toplevel-item-height;
     }
   }
 
@@ -377,9 +377,9 @@
     .@{menu-prefix-cls}-selected,
     .@{menu-prefix-cls}-item-selected {
       &::after {
-        transition: transform 0.15s @ease-in-out, opacity 0.15s @ease-in-out;
-        opacity: 1;
         transform: scaleY(1);
+        opacity: 1;
+        transition: transform 0.15s @ease-in-out, opacity 0.15s @ease-in-out;
       }
     }
 
@@ -405,18 +405,18 @@
       > .@{menu-prefix-cls}-submenu-title,
     > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
       left: 0;
-      text-overflow: clip;
       padding: 0 (@menu-collapsed-width - 16px) / 2 !important;
+      text-overflow: clip;
       .@{menu-prefix-cls}-submenu-arrow {
         display: none;
       }
       .@{iconfont-css-prefix} {
+        margin: 0;
         font-size: 16px;
         line-height: @menu-item-height;
-        margin: 0;
         + span {
-          max-width: 0;
           display: inline-block;
+          max-width: 0;
           opacity: 0;
         }
       }
@@ -432,11 +432,11 @@
     }
 
     .@{menu-prefix-cls}-item-group-title {
+      padding-right: 4px;
+      padding-left: 4px;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
-      padding-left: 4px;
-      padding-right: 4px;
     }
   }
 
@@ -459,14 +459,14 @@
   &-sub&-inline {
     padding: 0;
     border: 0;
-    box-shadow: none;
     border-radius: 0;
+    box-shadow: none;
     & > .@{menu-prefix-cls}-item,
     & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
-      line-height: @menu-item-height;
       height: @menu-item-height;
-      list-style-type: disc;
+      line-height: @menu-item-height;
       list-style-position: inside;
+      list-style-type: disc;
     }
 
     & .@{menu-prefix-cls}-item-group-title {
@@ -478,9 +478,9 @@
   &-item-disabled,
   &-submenu-disabled {
     color: @disabled-color !important;
-    cursor: not-allowed;
     background: none;
     border-color: transparent !important;
+    cursor: not-allowed;
     > a {
       color: @disabled-color !important;
       pointer-events: none;

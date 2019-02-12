@@ -25,8 +25,8 @@
         }
 
         &.@{tree-prefix-cls}-node-content-wrapper {
-          user-select: none;
           border-radius: 0;
+          user-select: none;
 
           &:hover {
             background: transparent;
@@ -42,12 +42,12 @@
           }
 
           &::before {
-            content: '';
             position: absolute;
-            left: 0;
             right: 0;
+            left: 0;
             height: @tree-title-height;
             transition: all 0.3s;
+            content: '';
           }
 
           > span {

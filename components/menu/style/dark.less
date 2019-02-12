@@ -29,10 +29,10 @@
 
   &-dark&-horizontal > &-item,
   &-dark&-horizontal > &-submenu {
-    border-color: @menu-dark-bg;
-    border-bottom: 0;
     top: 0;
     margin-top: 0;
+    border-color: @menu-dark-bg;
+    border-bottom: 0;
   }
 
   &-dark&-horizontal > &-item > a::before {
@@ -56,9 +56,9 @@
   &-dark&-vertical &-item,
   &-dark&-vertical-left &-item,
   &-dark&-vertical-right &-item {
-    border-right: 0;
-    margin-left: 0;
     left: 0;
+    margin-left: 0;
+    border-right: 0;
     &::after {
       border-right: 0;
     }
@@ -75,8 +75,8 @@
   &-dark &-submenu-open,
   &-dark &-submenu-selected,
   &-dark &-submenu-title:hover {
-    background-color: transparent;
     color: @menu-dark-highlight-color;
+    background-color: transparent;
     > a {
       color: @menu-dark-highlight-color;
     }
@@ -93,8 +93,8 @@
   }
 
   &-dark &-item-selected {
-    border-right: 0;
     color: @menu-dark-highlight-color;
+    border-right: 0;
     &::after {
       border-right: 0;
     }
@@ -114,8 +114,8 @@
   &-dark &-submenu-disabled {
     &,
     > a {
-      opacity: 0.8;
       color: @disabled-color-dark !important;
+      opacity: 0.8;
     }
     > .@{menu-prefix-cls}-submenu-title {
       color: @disabled-color-dark !important;
