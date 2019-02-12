@@ -1,7 +1,9 @@
 import React from 'react';
+
 import { mount } from 'enzyme';
-import Input from '..';
+
 import Form from '../../form';
+import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
 
 const { TextArea } = Input;
@@ -132,6 +134,26 @@ describe('Input allowClear', () => {
       .simulate('click');
     expect(wrapper).toMatchSnapshot();
     expect(wrapper.find('input').getDOMNode().value).toEqual('');
+  });
+
+  it('should not show icon if value is undefined, null or empty string', () => {
+    const wrappers = [null, undefined, ''].map(val => mount(<Input allowClear value={val} />));
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find('input').getDOMNode().value).toEqual('');
+      expect(wrapper.find('.ant-input-clear-icon').exists()).toEqual(false);
+      expect(wrapper).toMatchSnapshot();
+    });
+  });
+
+  it('should not show icon if defaultValue is undefined, null or empty string', () => {
+    const wrappers = [null, undefined, ''].map(val =>
+      mount(<Input allowClear defaultValue={val} />),
+    );
+    wrappers.forEach(wrapper => {
+      expect(wrapper.find('input').getDOMNode().value).toEqual('');
+      expect(wrapper.find('.ant-input-clear-icon').exists()).toEqual(false);
+      expect(wrapper).toMatchSnapshot();
+    });
   });
 
   it('should trigger event correctly', () => {

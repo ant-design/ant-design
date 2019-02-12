@@ -188,6 +188,19 @@ describe('Upload', () => {
     });
   });
 
+  // https://github.com/ant-design/ant-design/issues/14779
+  it('should contain input file control if upload button is hidden', () => {
+    const wrapper = mount(
+      <Upload action="http://upload.com">
+        <button type="button">upload</button>
+      </Upload>,
+    );
+
+    expect(wrapper.find('input[type="file"]').length).toBe(1);
+    wrapper.setProps({ children: null });
+    expect(wrapper.find('input[type="file"]').length).toBe(1);
+  });
+
   it('should be controlled by fileList', () => {
     const fileList = [
       {
