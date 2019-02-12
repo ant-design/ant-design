@@ -3,6 +3,7 @@ import MockDate from 'mockdate';
 import moment from 'moment';
 import { mount } from 'enzyme';
 import Statistic from '..';
+import { REFRESH_INTERVAL } from '../Countdown.tsx';
 
 const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
 
@@ -61,17 +62,46 @@ describe('Statistic', () => {
 
     it('time going', async () => {
       const now = Date.now() + 1000;
-      const wrapper = mount(<Statistic.Countdown value={now} />);
+      const onFinish = jest.fn();
+      const wrapper = mount(<Statistic.Countdown value={now} onFinish={onFinish} />);
       wrapper.update();
 
       // setInterval should work
       const instance = wrapper.instance();
       expect(instance.countdownId).not.toBe(undefined);
 
-      await delay(50);
+      await delay(10);
 
       wrapper.unmount();
       expect(instance.countdownId).toBe(undefined);
+      expect(onFinish).not.toBeCalled();
+    });
+
+    describe('time finished', () => {
+      it('not call if time already passed', () => {
+        const now = Date.now() - 1000;
+
+        const onFinish = jest.fn();
+        const wrapper = mount(<Statistic.Countdown value={now} onFinish={onFinish} />);
+        wrapper.update();
+
+        const instance = wrapper.instance();
+        expect(instance.countdownId).toBe(undefined);
+        expect(onFinish).not.toBeCalled();
+      });
+
+      it('called if finished', async () => {
+        const now = Date.now() + 10;
+        const onFinish = jest.fn();
+        const wrapper = mount(<Statistic.Countdown value={now} onFinish={onFinish} />);
+        wrapper.update();
+
+        MockDate.set(moment('2019-11-28 00:00:00'));
+
+        await delay(REFRESH_INTERVAL + 10);
+
+        expect(onFinish).toBeCalled();
+      });
     });
   });
 });
