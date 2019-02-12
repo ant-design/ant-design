@@ -73,13 +73,17 @@ class Banner extends React.PureComponent {
                   <FormattedMessage id="app.home.getting-started" />
                 </Button>
               </Link>
-              <Link to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN)}>
+              <Link
+                to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN)}
+                style={{ marginLeft: 16 }}
+              >
                 <Button className="banner-btn language">
                   <FormattedMessage id="app.home.design-language" />
                 </Button>
               </Link>
               {!isMobile && (
                 <GitHubButton
+                  style={{ marginLeft: 16 }}
                   key="github-button"
                   size="large"
                   type="stargazers"

@@ -64,4 +64,4 @@ When need to mention someone or something.
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | children | suggestion content | object | {} |
-| value | value of suggestion，the value will insert into input filed while selected | string | "" |
+| value | value of suggestion, the value will insert into input filed while selected | string | "" |
