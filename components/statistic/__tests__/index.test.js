@@ -3,7 +3,6 @@ import MockDate from 'mockdate';
 import moment from 'moment';
 import { mount } from 'enzyme';
 import Statistic from '..';
-import { REFRESH_INTERVAL } from '../Countdown.tsx';
 
 const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
 
@@ -91,16 +90,17 @@ describe('Statistic', () => {
       });
 
       it('called if finished', async () => {
+        jest.useFakeTimers();
         const now = Date.now() + 10;
         const onFinish = jest.fn();
         const wrapper = mount(<Statistic.Countdown value={now} onFinish={onFinish} />);
         wrapper.update();
 
         MockDate.set(moment('2019-11-28 00:00:00'));
-
-        await delay(REFRESH_INTERVAL + 10);
+        jest.runAllTimers();
 
         expect(onFinish).toBeCalled();
+        jest.useFakeTimers();
       });
     });
   });

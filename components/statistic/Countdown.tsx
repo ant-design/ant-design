@@ -5,7 +5,7 @@ import interopDefault from '../_util/interopDefault';
 import Statistic, { StatisticProps } from './Statistic';
 import { formatCountdown, countdownValueType, FormatConfig } from './utils';
 
-export const REFRESH_INTERVAL = 1000 / 30;
+const REFRESH_INTERVAL = 1000 / 30;
 
 interface CountdownProps extends StatisticProps {
   value?: countdownValueType;
