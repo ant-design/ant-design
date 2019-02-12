@@ -78,7 +78,7 @@
     .btn-circle(@btn-prefix-cls);
   }
 
-  &:before {
+  &::before {
     position: absolute;
     top: -1px;
     left: -1px;
@@ -107,7 +107,7 @@
     }
   }
 
-  &&-loading:before {
+  &&-loading::before {
     display: block;
   }
 
@@ -162,7 +162,7 @@
     .button-variant-ghost(@btn-danger-color);
   }
 
-  &-two-chinese-chars:first-letter {
+  &-two-chinese-chars::first-letter {
     letter-spacing: 0.34em;
   }
 

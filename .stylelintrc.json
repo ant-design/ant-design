@@ -4,7 +4,6 @@
     "comment-empty-line-before": null,
     "declaration-empty-line-before": null,
     "function-name-case": null,
-    "selector-pseudo-element-colon-notation": null,
     "no-invalid-double-slash-comments": null,
     "no-descending-specificity": null
   }

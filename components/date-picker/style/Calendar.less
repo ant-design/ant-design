@@ -50,7 +50,7 @@
   .@{calendar-prefix-cls}-prev-year-btn {
     left: 7px;
 
-    &:after {
+    &::after {
       content: '«';
     }
   }
@@ -60,7 +60,7 @@
   .@{calendar-prefix-cls}-next-year-btn {
     right: 7px;
 
-    &:after {
+    &::after {
       content: '»';
     }
   }
@@ -68,7 +68,7 @@
   .@{calendar-prefix-cls}-prev-month-btn {
     left: 29px;
 
-    &:after {
+    &::after {
       content: '‹';
     }
   }
@@ -76,7 +76,7 @@
   .@{calendar-prefix-cls}-next-month-btn {
     right: 29px;
 
-    &:after {
+    &::after {
       content: '›';
     }
   }
@@ -245,7 +245,7 @@
     position: relative;
     padding-right: 5px;
     padding-left: 5px;
-    &:before {
+    &::before {
       content: ' ';
       position: absolute;
       top: -1px;
@@ -311,7 +311,7 @@
     margin: 0;
   }
 
-  .@{calendar-prefix-cls}-clear-btn:after {
+  .@{calendar-prefix-cls}-clear-btn::after {
     font-size: @font-size-base;
     color: @disabled-color;
     display: inline-block;
@@ -321,7 +321,7 @@
     transition: color 0.3s ease;
   }
 
-  .@{calendar-prefix-cls}-clear-btn:hover:after {
+  .@{calendar-prefix-cls}-clear-btn:hover::after {
     color: @text-color-secondary;
   }
 

@@ -61,7 +61,7 @@
     &:focus {
       text-decoration: none;
     }
-    &:before {
+    &::before {
       position: absolute;
       background-color: transparent;
       top: 0;
@@ -129,7 +129,7 @@
       border-right: 0;
       margin-left: 0;
       left: 0;
-      &:after {
+      &::after {
         border-right: 0;
       }
     }
@@ -188,7 +188,7 @@
         padding-right: 20px;
       }
 
-      &:before {
+      &::before {
         position: absolute;
         top: -7px;
         left: 0;
@@ -202,7 +202,7 @@
     > .@{menu-prefix-cls} {
       background-color: @menu-bg;
       border-radius: @border-radius-base;
-      &-submenu-title:after {
+      &-submenu-title::after {
         transition: transform 0.3s @ease-in-out;
       }
     }
@@ -217,8 +217,8 @@
         top: 50%;
         right: 16px;
         width: 10px;
-        &:before,
-        &:after {
+        &::before,
+        &::after {
           content: '';
           position: absolute;
           vertical-align: baseline;
@@ -230,26 +230,26 @@
           transition: background 0.3s @ease-in-out, transform 0.3s @ease-in-out,
             top 0.3s @ease-in-out;
         }
-        &:before {
+        &::before {
           transform: rotate(45deg) translateY(-2px);
         }
-        &:after {
+        &::after {
           transform: rotate(-45deg) translateY(2px);
         }
       }
       > .@{menu-prefix-cls}-submenu-title:hover .@{menu-prefix-cls}-submenu-arrow {
-        &:after,
-        &:before {
+        &::after,
+        &::before {
           background: linear-gradient(to right, @menu-highlight-color, @menu-highlight-color);
         }
       }
     }
 
     &-inline > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
-      &:before {
+      &::before {
         transform: rotate(-45deg) translateX(2px);
       }
-      &:after {
+      &::after {
         transform: rotate(45deg) translateX(-2px);
       }
     }
@@ -259,10 +259,10 @@
         > .@{menu-prefix-cls}-submenu-title
         .@{menu-prefix-cls}-submenu-arrow {
         transform: translateY(-2px);
-        &:after {
+        &::after {
           transform: rotate(-45deg) translateX(-2px);
         }
-        &:before {
+        &::before {
           transform: rotate(45deg) translateX(2px);
         }
       }
@@ -309,7 +309,7 @@
         &:hover {
           color: @menu-highlight-color;
         }
-        &:before {
+        &::before {
           bottom: -2px;
         }
       }
@@ -318,7 +318,7 @@
       }
     }
 
-    &:after {
+    &::after {
       content: '\20';
       display: block;
       height: 0;
@@ -332,7 +332,7 @@
   &-inline {
     .@{menu-prefix-cls}-item {
       position: relative;
-      &:after {
+      &::after {
         content: '';
         position: absolute;
         right: 0;
@@ -377,7 +377,7 @@
     width: 100%;
     .@{menu-prefix-cls}-selected,
     .@{menu-prefix-cls}-item-selected {
-      &:after {
+      &::after {
         transition: transform 0.15s @ease-in-out, opacity 0.15s @ease-in-out;
         opacity: 1;
         transform: scaleY(1);
@@ -490,8 +490,8 @@
       color: @disabled-color !important;
       cursor: not-allowed;
       > .@{menu-prefix-cls}-submenu-arrow {
-        &:before,
-        &:after {
+        &::before,
+        &::after {
           background: @disabled-color !important;
         }
       }

@@ -148,13 +148,13 @@
     list-style: none;
     display: inline-block;
 
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       display: table;
       content: ' ';
     }
 
-    &:after {
+    &::after {
       clear: both;
     }
 

@@ -14,7 +14,7 @@
     list-style: none;
   }
 
-  &:after {
+  &::after {
     content: ' ';
     display: block;
     height: 0;
@@ -239,7 +239,7 @@
     .@{pagination-prefix-cls}-item-link {
       border: 0;
       height: @pagination-item-size-sm;
-      &:after {
+      &::after {
         height: @pagination-item-size-sm;
         line-height: @pagination-item-size-sm;
       }
@@ -299,7 +299,7 @@
   &.mini &-next &-item-link {
     border-color: transparent;
     background: transparent;
-    &:after {
+    &::after {
       height: @pagination-item-size-sm;
       line-height: @pagination-item-size-sm;
     }

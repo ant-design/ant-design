@@ -16,7 +16,7 @@
   .reset-form;
 }
 
-.@{form-prefix-cls}-item-required:before {
+.@{form-prefix-cls}-item-required::before {
   display: inline-block;
   margin-right: 4px;
   content: '*';
@@ -100,7 +100,7 @@ input[type='checkbox'] {
     label {
       color: @label-color;
 
-      &:after {
+      &::after {
         & when (@form-item-trailing-colon=true) {
           content: ':';
         }
@@ -118,7 +118,7 @@ input[type='checkbox'] {
     margin: 2px 0 4px;
   }
 
-  &-no-colon &-label label:after {
+  &-no-colon &-label label::after {
     content: ' ';
   }
 }
@@ -305,7 +305,7 @@ form {
   line-height: @line-height-base;
   white-space: initial;
 
-  label:after {
+  label::after {
     display: none;
   }
 }
@@ -461,9 +461,9 @@ form {
   }
 
   // arrow and icon
-  .@{ant-prefix}-calendar-picker-icon:after,
-  .@{ant-prefix}-time-picker-icon:after,
-  .@{ant-prefix}-picker-icon:after,
+  .@{ant-prefix}-calendar-picker-icon::after,
+  .@{ant-prefix}-time-picker-icon::after,
+  .@{ant-prefix}-picker-icon::after,
   .@{ant-prefix}-select-arrow,
   .@{ant-prefix}-cascader-picker-arrow {
     color: @warning-color;
@@ -523,9 +523,9 @@ form {
   }
 
   // arrow and icon
-  .@{ant-prefix}-calendar-picker-icon:after,
-  .@{ant-prefix}-time-picker-icon:after,
-  .@{ant-prefix}-picker-icon:after,
+  .@{ant-prefix}-calendar-picker-icon::after,
+  .@{ant-prefix}-time-picker-icon::after,
+  .@{ant-prefix}-picker-icon::after,
   .@{ant-prefix}-select-arrow,
   .@{ant-prefix}-cascader-picker-arrow {
     color: @error-color;

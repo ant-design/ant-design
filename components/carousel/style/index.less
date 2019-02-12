@@ -47,13 +47,13 @@
     top: 0;
     display: block;
 
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       content: '';
       display: table;
     }
 
-    &:after {
+    &::after {
       clear: both;
     }
 
@@ -121,25 +121,25 @@
       outline: none;
       background: transparent;
       color: transparent;
-      &:before {
+      &::before {
         opacity: 1;
       }
     }
-    &.slick-disabled:before {
+    &.slick-disabled::before {
       opacity: 0.25;
     }
   }
 
   .slick-prev {
     left: -25px;
-    &:before {
+    &::before {
       content: '←';
     }
   }
 
   .slick-next {
     right: -25px;
-    &:before {
+    &::before {
       content: '→';
     }
   }

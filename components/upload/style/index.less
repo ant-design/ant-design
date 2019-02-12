@@ -295,7 +295,7 @@
     // https://github.com/ant-design/ant-design/issues/11183
     float: left;
 
-    &.@{upload-prefix-cls}-list:after {
+    &.@{upload-prefix-cls}-list::after {
       display: none;
     }
     .@{upload-item} {
@@ -310,7 +310,7 @@
       position: relative;
       overflow: hidden;
 
-      &:before {
+      &::before {
         content: ' ';
         position: absolute;
         z-index: 1;
@@ -322,7 +322,7 @@
       }
     }
 
-    .@{upload-item}:hover .@{upload-item}-info:before {
+    .@{upload-item}:hover .@{upload-item}-info::before {
       opacity: 1;
     }
 
@@ -383,7 +383,7 @@
 
       .@{upload-item}-info {
         height: auto;
-        &:before,
+        &::before,
         .@{iconfont-css-prefix}-eye-o,
         .@{iconfont-css-prefix}-delete {
           display: none;

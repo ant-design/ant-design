@@ -37,8 +37,8 @@
     color: @heading-color;
     font-size: @font-size-lg;
     margin: 16px 0;
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       content: '';
       display: table-cell;
       position: relative;
@@ -58,22 +58,22 @@
   }
 
   &-horizontal&-with-text-left {
-    &:before {
+    &::before {
       top: 50%;
       width: 5%;
     }
-    &:after {
+    &::after {
       top: 50%;
       width: 95%;
     }
   }
 
   &-horizontal&-with-text-right {
-    &:before {
+    &::before {
       top: 50%;
       width: 95%;
     }
-    &:after {
+    &::after {
       top: 50%;
       width: 5%;
     }
@@ -92,8 +92,8 @@
   &-horizontal&-with-text-left&-dashed,
   &-horizontal&-with-text-right&-dashed {
     border-top: 0;
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       border-style: dashed none none;
     }
   }

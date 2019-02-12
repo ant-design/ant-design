@@ -87,7 +87,7 @@
               }
             }
 
-            :root &:after {
+            :root &::after {
               opacity: 0;
             }
           }
@@ -158,7 +158,7 @@
     &:last-child > span {
       &.@{tree-prefix-cls}-switcher,
       &.@{tree-prefix-cls}-iconEle {
-        &:before {
+        &::before {
           display: none;
         }
       }
@@ -218,7 +218,7 @@
         }
       }
     }
-    li:not(:last-child):before {
+    li:not(:last-child)::before {
       content: ' ';
       width: 1px;
       border-left: 1px solid @border-color-base;

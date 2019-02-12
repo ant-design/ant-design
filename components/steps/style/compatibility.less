@@ -17,14 +17,14 @@
       &:last-child {
         overflow: hidden;
 
-        .@{steps-prefix-cls}-icon-dot:after {
+        .@{steps-prefix-cls}-icon-dot::after {
           width: 200px;
           right: -200px;
         }
       }
 
-      .@{steps-prefix-cls}-icon-dot:before,
-      .@{steps-prefix-cls}-icon-dot:after {
+      .@{steps-prefix-cls}-icon-dot::before,
+      .@{steps-prefix-cls}-icon-dot::after {
         content: '';
         position: absolute;
         background: @steps-background;
@@ -34,7 +34,7 @@
         left: -10px;
       }
 
-      .@{steps-prefix-cls}-icon-dot:after {
+      .@{steps-prefix-cls}-icon-dot::after {
         left: auto;
         right: -10px;
       }

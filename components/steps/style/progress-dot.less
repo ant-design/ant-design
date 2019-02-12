@@ -8,7 +8,7 @@
       top: 2px;
       margin: 0 0 0 @steps-desciption-max-width / 2;
       padding: 0;
-      &:after {
+      &::after {
         height: 3px;
         width: ~'calc(100% - 20px)';
         margin-left: 12px;
@@ -33,7 +33,7 @@
         position: relative;
         transition: all 0.3s;
         /* expand hover area */
-        &:after {
+        &::after {
           content: '';
           background: fade(@black, 0.1%);
           width: 60px;

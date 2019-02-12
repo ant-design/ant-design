@@ -20,7 +20,7 @@
       border-color: @checkbox-color;
     }
 
-    &-checked:after {
+    &-checked::after {
       position: absolute;
       top: 0;
       left: 0;
@@ -34,8 +34,8 @@
       visibility: hidden;
     }
 
-    &:hover:after,
-    .@{checkbox-prefix-cls}-wrapper:hover &:after {
+    &:hover::after,
+    .@{checkbox-prefix-cls}-wrapper:hover &::after {
       visibility: visible;
     }
 
@@ -54,7 +54,7 @@
       // https://github.com/ant-design/ant-design/issues/12597
       border-collapse: separate;
 
-      &:after {
+      &::after {
         @check-width: (@checkbox-size / 14) * 5px;
         @check-height: (@checkbox-size / 14) * 8px;
         transform: rotate(45deg) scale(0) translate(-50%, -50%);
@@ -88,7 +88,7 @@
   }
 
   // 选中状态
-  .@{checkbox-prefix-cls}-checked .@{checkbox-inner-prefix-cls}:after {
+  .@{checkbox-prefix-cls}-checked .@{checkbox-inner-prefix-cls}::after {
     transform: rotate(45deg) scale(1) translate(-50%, -50%);
     position: absolute;
     display: table;
@@ -111,7 +111,7 @@
     cursor: not-allowed;
 
     &.@{checkbox-prefix-cls}-checked {
-      .@{checkbox-inner-prefix-cls}:after {
+      .@{checkbox-inner-prefix-cls}::after {
         animation-name: none;
         border-color: @disabled-color;
       }
@@ -124,7 +124,7 @@
     .@{checkbox-inner-prefix-cls} {
       border-color: @border-color-base !important;
       background-color: @input-disabled-bg;
-      &:after {
+      &::after {
         animation-name: none;
         border-color: @input-disabled-bg;
         border-collapse: separate;
@@ -174,7 +174,7 @@
       background-color: #fff;
       border-color: @border-color-base;
     }
-    .@{checkbox-inner-prefix-cls}:after {
+    .@{checkbox-inner-prefix-cls}::after {
       @indeterminate-width: @checkbox-size - 8px;
       @indeterminate-height: @checkbox-size - 8px;
       content: ' ';
@@ -188,7 +188,7 @@
       opacity: 1;
     }
 
-    &.@{checkbox-prefix-cls}-disabled .@{checkbox-inner-prefix-cls}:after {
+    &.@{checkbox-prefix-cls}-disabled .@{checkbox-inner-prefix-cls}::after {
       border-color: @disabled-color;
       background-color: @disabled-color;
     }

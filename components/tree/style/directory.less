@@ -31,7 +31,7 @@
           &:hover {
             background: transparent;
 
-            &:before {
+            &::before {
               background: @item-hover-bg;
             }
           }
@@ -41,7 +41,7 @@
             background: transparent;
           }
 
-          &:before {
+          &::before {
             content: '';
             position: absolute;
             left: 0;
@@ -69,14 +69,14 @@
             }
 
             &.@{tree-prefix-cls}-checkbox-checked {
-              &:after {
+              &::after {
                 border-color: @checkbox-check-color;
               }
 
               .@{tree-prefix-cls}-checkbox-inner {
                 background: @checkbox-check-color;
 
-                &:after {
+                &::after {
                   border-color: @primary-color;
                 }
               }
@@ -84,7 +84,7 @@
           }
 
           &.@{tree-prefix-cls}-node-content-wrapper {
-            &:before {
+            &::before {
               background: @tree-directory-selected-bg;
             }
           }

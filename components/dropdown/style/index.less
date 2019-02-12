@@ -11,7 +11,7 @@
   z-index: @zindex-dropdown;
   display: block;
 
-  &:before {
+  &::before {
     position: absolute;
     top: -7px;
     left: -7px;
@@ -29,13 +29,13 @@
       .iconfont-size-under-12px(10px);
     }
 
-    .@{iconfont-css-prefix}-down:before {
+    .@{iconfont-css-prefix}-down::before {
       transition: transform 0.2s;
     }
   }
 
   &-wrap-open {
-    .@{iconfont-css-prefix}-down:before {
+    .@{iconfont-css-prefix}-down::before {
       transform: rotate(180deg);
     }
   }
@@ -226,7 +226,7 @@
   .@{dropdown-prefix-cls}-menu-submenu-title,
   .@{dropdown-prefix-cls}-menu-item > a {
     color: @text-color-secondary-dark;
-    .@{dropdown-prefix-cls}-menu-submenu-arrow:after {
+    .@{dropdown-prefix-cls}-menu-submenu-arrow::after {
       color: @text-color-secondary-dark;
     }
     &:hover {

@@ -43,7 +43,7 @@
     box-shadow: 0 0 0 3px fade(@radio-dot-color, 8%);
   }
 
-  &-checked:after {
+  &-checked::after {
     position: absolute;
     top: 0;
     left: 0;
@@ -57,13 +57,13 @@
     visibility: hidden;
   }
 
-  &:hover:after,
-  .@{radio-prefix-cls}-wrapper:hover &:after {
+  &:hover::after,
+  .@{radio-prefix-cls}-wrapper:hover &::after {
     visibility: visible;
   }
 
   &-inner {
-    &:after {
+    &::after {
       @radio-dot-size: @radio-size - 8px;
       position: absolute;
       width: @radio-dot-size;
@@ -111,7 +111,7 @@
 .@{radio-prefix-cls}-checked {
   .@{radio-inner-prefix-cls} {
     border-color: @radio-dot-color;
-    &:after {
+    &::after {
       transform: scale(0.875);
       opacity: 1;
       transition: all @radio-duration @ease-in-out-circ;
@@ -124,7 +124,7 @@
     border-color: @border-color-base !important;
     background-color: @input-disabled-bg;
     cursor: not-allowed;
-    &:after {
+    &::after {
       background-color: fade(@black, 20%);
     }
   }
