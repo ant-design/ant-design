@@ -15,7 +15,7 @@ Contrast is one of the effective ways to add visual interest to your page, and t
 <img class="preview-img good" align="right" alt="good example" src="https://gw.alipayobjects.com/zos/rmsportal/DXDSNzVmrVwVRJCTyaTH.png">
 <img class="preview-img bad" align="right" alt="bad example" src="https://gw.alipayobjects.com/zos/rmsportal/tMlELOuJrJrrYtTAbnlu.png">
 
-In order to help user make a quick operation (something like the form，modal), a more important operation or a operation with higher frequency would be emphasized.
+In order to help user make a quick operation (something like the form, modal), a more important operation or a operation with higher frequency would be emphasized.
 
 > Notes: ways of emphasizing are not just to intensify the key item. It could also weaken the other items.
 
@@ -23,7 +23,7 @@ In order to help user make a quick operation (something like the form，modal), 
 
 <img class="preview-img" align="right" alt="Example of ignoring the primary and secondary sequence" description="Accept and Reject should use default button, for UI should not affect user's decision." src="https://gw.alipayobjects.com/zos/rmsportal/gniiMTPEHagxaelGBjAe.png">
 
-When there’s something needs users to make decision prudently, the system should remain neutral. It shouldn’t make the decision for users or lead them to make judgement.
+When there's something needs users to make decision prudently, the system should remain neutral. It shouldn't make the decision for users or lead them to make judgement.
 
 ---
 
@@ -41,7 +41,7 @@ Taking advantage of changing the typesetting, the typeface and the size, we high
 
 <img class="preview-img" align="right" alt="Example of static contrast" description="Points with various colors would be used to show different states. " src="https://gw.alipayobjects.com/zos/rmsportal/PMVYKxaLBApJFyXAxkHy.png">
 
-<img class="preview-img" align="right" alt="Example of dynamic contrast" description="When the mouse doesn’t be moved, this item and other items would show different visual effects obviously, which would influence the user’s operation." src="https://gw.alipayobjects.com/zos/rmsportal/WXNjOhgQDMnNoieFrFMP.png">
+<img class="preview-img" align="right" alt="Example of dynamic contrast" description="When the mouse doesn't be moved, this item and other items would show different visual effects obviously, which would influence the user's operation." src="https://gw.alipayobjects.com/zos/rmsportal/WXNjOhgQDMnNoieFrFMP.png">
 
 Taking advantage of changing colors and adding assistant shapes, we realize the comparison of state relation, which could help users differentiate various information better
 

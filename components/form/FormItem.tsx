@@ -157,23 +157,26 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   renderHelp(prefixCls: string) {
     const help = this.getHelpMessage();
     const children = help ? (
-      <div className={`${prefixCls}-explain`} key="help">
+      <span className={`${prefixCls}-explain`} key="help">
         {help}
-      </div>
+      </span>
     ) : null;
     if (children) {
       this.helpShow = !!children;
     }
+
     return (
-      <Animate
-        transitionName="show-help"
-        component=""
-        transitionAppear
-        key="help"
-        onEnd={this.onHelpAnimEnd}
-      >
-        {children}
-      </Animate>
+      <div className={`${prefixCls}-explain-holder`}>
+        <Animate
+          transitionName="show-help"
+          component=""
+          transitionAppear
+          key="help"
+          onEnd={this.onHelpAnimEnd}
+        >
+          {children}
+        </Animate>
+      </div>
     );
   }
 
@@ -302,16 +305,18 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     if (!id) {
       return;
     }
-    const controls = document.querySelectorAll(`[id="${id}"]`);
-    if (controls.length !== 1) {
+
+    const formItemNode = ReactDOM.findDOMNode(this) as Element;
+    const control = formItemNode.querySelector(`[id="${id}"]`) as HTMLElement;
+
+    if (control) {
       // Only prevent in default situation
       // Avoid preventing event in `label={<a href="xx">link</a>}``
       if (typeof label === 'string') {
         e.preventDefault();
       }
-      const formItemNode = ReactDOM.findDOMNode(this) as Element;
-      const control = formItemNode.querySelector(`[id="${id}"]`) as HTMLElement;
-      if (control && control.focus) {
+
+      if (control.focus) {
         control.focus();
       }
     }

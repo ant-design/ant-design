@@ -54,7 +54,7 @@ Ant Design's designers keep the following 4 things in mind in the communication 
 
 1. Clear definition of dynamic layout area
 2. Try to always use even numbers
-3. Delivery of critical numbers (Gutter、Column)
+3. Delivery of critical numbers (Gutter, Column)
 4. Always use beginning column and ending column to define blocks.
 
 ## Common Scales

@@ -190,5 +190,9 @@ describe('Table.pagination', () => {
     expect(renderedNames(wrapper)[0]).toEqual('Jack');
     wrapper.find('.ant-pagination-item-2').simulate('click');
     expect(renderedNames(wrapper)).toEqual([]);
+    wrapper.setProps({ pagination: { current: 1, pageSize: 10, total: 100 } });
+    expect(renderedNames(wrapper)[0]).toEqual('Jack');
+    wrapper.setProps({ pagination: { current: 2, pageSize: 10, total: 100 } });
+    expect(renderedNames(wrapper)).toHaveLength(4);
   });
 });
