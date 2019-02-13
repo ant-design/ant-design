@@ -16,6 +16,7 @@ export interface BadgeProps {
   /** whether to show red dot without number */
   dot?: boolean;
   style?: React.CSSProperties;
+  diameter?: number;
   prefixCls?: string;
   scrollNumberPrefixCls?: string;
   className?: string;
@@ -93,14 +94,24 @@ export default class Badge extends React.Component<BadgeProps, any> {
   }
 
   getStyleWithOffset() {
-    const { offset, style } = this.props;
-    return offset
+    const { offset, style, diameter } = this.props;
+    const offsetStyle = offset
       ? {
           right: -parseInt(offset[0] as string, 10),
           marginTop: offset[1],
-          ...style,
         }
-      : style;
+      : {};
+    const diameterStyle = diameter
+      ? {
+          minWidth: diameter,
+          height: diameter,
+          lineHeight: `${diameter}px`,
+          borderRadius: `${diameter / 2}px`,
+          padding: `0 ${(6 * diameter) / 20}px`,
+          fontSize: `${(12 * diameter) / 20}px`,
+        }
+      : {};
+    return Object.assign({}, offsetStyle, diameterStyle, style);
   }
 
   renderStatusText(prefixCls: string) {
