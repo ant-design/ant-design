@@ -45,7 +45,7 @@ Hints is usually added in Input to help remind users, which can increase efficie
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/xLIltABSbmNgukJTZShA.png">
 
-Search can help users reduce the range for target and retrieve the necessary information quickly from a hugh information pool.
+Search can help users reduce the range for target and retrieve the necessary information quickly from a huge information pool.
 
 ---
 
@@ -104,7 +104,7 @@ Slider allows to select a suitable value by moving the anchor in a continuous or
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/jRUNDmdChSEsFAXVBzAx.png">
 
-> Note: Operations can be more flexible and convinient using "Slider" when precise value is not required. "NumberInput" can be worked together with Slider for precise values.
+> Note: Operations can be more flexible and convenient using "Slider" when precise value is not required. "NumberInput" can be worked together with Slider for precise values.
 
 ### Transfer
 
