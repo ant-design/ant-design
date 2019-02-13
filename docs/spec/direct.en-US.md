@@ -29,7 +29,7 @@ If the priority is given to 『readability』 and the 『editability』 of opera
 
 Multi-Field Inline Edit
 
->Note：In『Multi-Field Inline Edit』，there are huge different between the content and required field，So it is more needed to use the [『Explain What Just Happened』](../docs/spec/transition#解释刚刚发生了什么) in 『Use Transition』to eliminate this visual effects.
+>Note：In『Multi-Field Inline Edit』, there are huge different between the content and required field, So it is more needed to use the [『Explain What Just Happened』](../docs/spec/transition#解释刚刚发生了什么) in 『Use Transition』to eliminate this visual effects.
 
 
 <br>
@@ -38,7 +38,7 @@ Multi-Field Inline Edit
 
 ## Drag and Drop
 
-<img class="preview-img" align="right" alt="Example of Drag and Drop List" description="Status 1: On mouse hover,a removable 『icon』 appears.；<br>Status 2： When hovering over the 『icon』，the pointer changes into a 『hand』， click-and-drag operation can be used；<br>Status 3：Drag  target to the placeable block. When  blue stroke appears, inform  user that object can be placed in the block." src="https://gw.alipayobjects.com/zos/rmsportal/xZWSNecZhGXaAVluxOAK.png">
+<img class="preview-img" align="right" alt="Example of Drag and Drop List" description="Status 1: On mouse hover,a removable 『icon』 appears.；<br>Status 2： When hovering over the 『icon』, the pointer changes into a 『hand』, click-and-drag operation can be used；<br>Status 3：Drag  target to the placeable block. When  blue stroke appears, inform  user that object can be placed in the block." src="https://gw.alipayobjects.com/zos/rmsportal/xZWSNecZhGXaAVluxOAK.png">
 
 Drag and Drop List
 

@@ -76,6 +76,7 @@ export interface UploadProps {
   withCredentials?: boolean;
   openFileDialogOnClick?: boolean;
   locale?: UploadLocale;
+  id?: string;
 }
 
 export interface UploadState {
