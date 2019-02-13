@@ -23,7 +23,7 @@ Please makes sure that these form are filled before submitting your pull request
 > 1. Describe the source of requirement.
 > 2. Resolve what problem.
 > 3. Related issue link.
-  
+
 ### API Realization (Optional if not new feature)
 
 > 1. Basic thought of solution and other optional proposal.

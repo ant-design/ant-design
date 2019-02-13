@@ -19,7 +19,7 @@ title: Modal
 | --- | --- | --- | --- |
 | afterClose | Modal 完全关闭后的回调 | function | 无 |
 | bodyStyle | Modal body 样式 | object | {} |
-| cancelText | 取消按钮文字 | string | 取消 |
+| cancelText | 取消按钮文字 | string\|ReactNode | 取消 |
 | centered | 垂直居中展示 Modal | Boolean | `false` |
 | closable | 是否显示右上角的关闭按钮 | boolean | true |
 | confirmLoading | 确定按钮 loading | boolean | 无 |
@@ -31,7 +31,7 @@ title: Modal
 | mask | 是否展示遮罩 | Boolean | true |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | true |
 | maskStyle | 遮罩样式 | object | {} |
-| okText | 确认按钮文字 | string | 确定 |
+| okText | 确认按钮文字 | string\|ReactNode | 确定 |
 | okType | 确认按钮类型 | string | primary |
 | okButtonProps | ok 按钮 props | [ButtonProps](/components/button) | - |
 | cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button) | - |
@@ -69,6 +69,7 @@ title: Modal
 | content | 内容 | string\|ReactNode | 无 |
 | icon | 自定义图标（3.12.0 新增） | string\|ReactNode | `<Icon type="question-circle">` |
 | iconType | 图标类型（3.12.0 后废弃，请使用 `icon`） | string | `question-circle` |
+| mask | 是否展示遮罩 | Boolean | true |
 | maskClosable | 点击蒙层是否允许关闭 | Boolean | `false` |
 | okText | 确认按钮文字 | string | 确定 |
 | okType | 确认按钮类型 | string | primary |

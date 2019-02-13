@@ -68,14 +68,16 @@ export default class Search extends React.Component<SearchProps, any> {
   };
 
   renderAddonAfter = (prefixCls: string) => {
-    const { enterButton, size, disabled } = this.props;
-    if (!enterButton) return null;
+    const { enterButton, size, disabled, addonAfter } = this.props;
+    if (!enterButton) return addonAfter;
     const btnClassName = `${prefixCls}-button`;
 
+    let button: React.ReactNode;
     const enterButtonAsElement = enterButton as React.ReactElement<any>;
     if (enterButtonAsElement.type === Button || enterButtonAsElement.type === 'button') {
-      return React.cloneElement(enterButtonAsElement, {
+      button = React.cloneElement(enterButtonAsElement, {
         onClick: this.onSearch,
+        key: 'enterButton',
         ...(enterButtonAsElement.type === Button
           ? {
               className: btnClassName,
@@ -83,20 +85,26 @@ export default class Search extends React.Component<SearchProps, any> {
             }
           : {}),
       });
+    } else {
+      button = (
+        <Button
+          className={btnClassName}
+          type="primary"
+          size={size}
+          disabled={disabled}
+          key="enterButton"
+          onClick={this.onSearch}
+        >
+          {enterButton === true ? <Icon type="search" /> : enterButton}
+        </Button>
+      );
     }
 
-    return (
-      <Button
-        className={btnClassName}
-        type="primary"
-        size={size}
-        disabled={disabled}
-        key="enterButton"
-        onClick={this.onSearch}
-      >
-        {enterButton === true ? <Icon type="search" /> : enterButton}
-      </Button>
-    );
+    if (addonAfter) {
+      return [button, addonAfter];
+    }
+
+    return button;
   };
 
   renderSearch = ({ getPrefixCls }: ConfigConsumerProps) => {

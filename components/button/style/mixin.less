@@ -220,6 +220,20 @@
 .btn-danger() {
   .button-variant-danger(@btn-danger-color, @btn-danger-bg, @btn-danger-border);
 }
+// round button
+.btn-round(@btnClassName: btn) {
+  .button-size(@btn-circle-size; 0 @btn-circle-size / 2; @font-size-base + 2px; @btn-circle-size);
+  &.@{btnClassName}-lg {
+    .button-size(
+      @btn-circle-size-lg; 0 @btn-circle-size-lg / 2; @btn-font-size-lg + 2px; @btn-circle-size-lg
+    );
+  }
+  &.@{btnClassName}-sm {
+    .button-size(
+      @btn-circle-size-sm; 0 @btn-circle-size-sm / 2; @font-size-base; @btn-circle-size-sm
+    );
+  }
+}
 // circle button: the content only contains icon
 .btn-circle(@btnClassName: btn) {
   .square(@btn-circle-size);

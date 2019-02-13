@@ -2,6 +2,7 @@ import * as React from 'react';
 import { findDOMNode } from 'react-dom';
 import TransitionEvents from 'css-animation/lib/Event';
 import raf from '../_util/raf';
+import { ConfigConsumer, ConfigConsumerProps, CSPConfig } from '../config-provider';
 
 let styleForPesudo: HTMLStyleElement | null;
 
@@ -23,6 +24,7 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
   private animationStartId: number;
   private animationStart: boolean = false;
   private destroy: boolean = false;
+  private csp?: CSPConfig;
 
   isNotGrey(color: string) {
     const match = (color || '').match(/rgba?\((\d*), (\d*), (\d*)(, [\.\d]*)?\)/);
@@ -52,6 +54,11 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
       !/rgba\(\d*, \d*, \d*, 0\)/.test(waveColor) && // any transparent rgba color
       waveColor !== 'transparent'
     ) {
+      // Add nonce if CSP exist
+      if (this.csp && this.csp.nonce) {
+        styleForPesudo.nonce = this.csp.nonce;
+      }
+
       extraNode.style.borderColor = waveColor;
       styleForPesudo.innerHTML = `[ant-click-animating-without-extra-node="true"]:after { border-color: ${waveColor}; }`;
       if (!document.body.contains(styleForPesudo)) {
@@ -168,7 +175,14 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
     this.destroy = true;
   }
 
+  renderWave = ({ csp }: ConfigConsumerProps) => {
+    const { children } = this.props;
+    this.csp = csp;
+
+    return children;
+  };
+
   render() {
-    return this.props.children;
+    return <ConfigConsumer>{this.renderWave}</ConfigConsumer>;
   }
 }

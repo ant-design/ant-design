@@ -14,6 +14,7 @@ export interface AbstractCheckboxProps<T> {
   style?: React.CSSProperties;
   disabled?: boolean;
   onChange?: (e: T) => void;
+  onClick?: React.MouseEventHandler<any>;
   onMouseEnter?: React.MouseEventHandler<any>;
   onMouseLeave?: React.MouseEventHandler<any>;
   onKeyPress?: React.KeyboardEventHandler<any>;

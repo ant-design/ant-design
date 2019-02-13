@@ -18,11 +18,12 @@ A content area which can be collapsed and expanded.
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| accordion | If `true`, `Collapse` renders as `Accordion` | boolean | `false` |
 | activeKey | Key of the active panel | string\[]\|string | No default value. In `accordion` mode, it's the key of the first panel. |
-| bordered | Toggles rendering of the border around the collapse block | boolean | `true` |
 | defaultActiveKey | Key of the initial active panel | string | - |
+| bordered | Toggles rendering of the border around the collapse block | boolean | `true` |
+| accordion | If `true`, `Collapse` renders as `Accordion` | boolean | `false` |
 | onChange | Callback function executed when active panel is changed | Function | - |
+| expandIcon | allow to customize collapse icon | (panelProps) => ReactNode | - |
 | destroyInactivePanel | Destroy Inactive Panel | boolean | `false` |
 
 ### Collapse.Panel
