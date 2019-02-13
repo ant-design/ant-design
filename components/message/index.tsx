@@ -93,7 +93,7 @@ function notice(args: ArgsProps): MessageType {
             <span>{args.content}</span>
           </div>
         ),
-        closeIcon,
+        closeIcon: args.closeIcon,
         onClose: callback,
       });
     });
