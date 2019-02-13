@@ -71,7 +71,8 @@ input[type='checkbox'] {
   }
 
   .reset-component;
-  margin-bottom: @form-item-margin-bottom;
+  margin-bottom: @form-item-margin-bottom - @font-size-base * @line-height-base -
+    @form-help-margin-top;
   vertical-align: top;
 
   &-control {
@@ -82,11 +83,6 @@ input[type='checkbox'] {
 
   &-children {
     position: relative;
-  }
-
-  &-with-help {
-    margin-bottom: @form-item-margin-bottom - @font-size-base * @line-height-base -
-      @form-help-margin-top;
   }
 
   &-label {
@@ -123,12 +119,24 @@ input[type='checkbox'] {
   }
 }
 
+.@{form-prefix-cls}-explain-holder {
+  line-height: @line-height-base;
+
+  &::before {
+    content: '\00A0'; // Use non-space character to keep the same height
+    display: inline-block;
+    width: 0;
+    overflow: hidden;
+  }
+
+  .@{form-prefix-cls}-explain {
+    display: inline-block;
+  }
+}
+
 .@{form-prefix-cls}-explain,
 .@{form-prefix-cls}-extra {
   color: @text-color-secondary;
-  // Magic tweak pixel number to float line-height diff in windows
-  // Fix https://github.com/ant-design/ant-design/issues/12803
-  line-height: @line-height-base + 0.024;
   transition: color 0.3s @ease-out; // sync input color transition
   margin-top: @form-help-margin-top;
   clear: both;
@@ -384,6 +392,10 @@ form {
       margin-bottom: 24px;
     }
 
+    &::before {
+      display: none;
+    }
+
     > .@{form-prefix-cls}-item-control-wrapper,
     > .@{form-prefix-cls}-item-label {
       display: inline-block;
@@ -584,17 +596,6 @@ form {
   &.has-feedback .@{form-prefix-cls}-item-children-icon {
     display: inline-block;
     color: @primary-color;
-  }
-}
-
-.@{ant-prefix}-advanced-search-form {
-  .@{form-prefix-cls}-item {
-    margin-bottom: @form-item-margin-bottom;
-
-    &-with-help {
-      margin-bottom: @form-item-margin-bottom - @font-size-base * @line-height-base -
-        @form-help-margin-top;
-    }
   }
 }
 

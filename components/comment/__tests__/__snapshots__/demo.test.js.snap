@@ -164,6 +164,9 @@ exports[`renders ./components/comment/demo/editor.md correctly 1`] = `
                       rows="4"
                     />
                   </span>
+                  <div
+                    class="ant-form-explain-holder"
+                  />
                 </div>
               </div>
             </div>
@@ -188,6 +191,9 @@ exports[`renders ./components/comment/demo/editor.md correctly 1`] = `
                       </span>
                     </button>
                   </span>
+                  <div
+                    class="ant-form-explain-holder"
+                  />
                 </div>
               </div>
             </div>
