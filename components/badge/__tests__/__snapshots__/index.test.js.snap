@@ -54,12 +54,14 @@ exports[`Badge badge should support float number 2`] = `
             key="scrollNumber"
             onAnimated={[Function]}
             prefixCls="ant-scroll-number"
+            style={Object {}}
             title="3.5"
           >
             <Consumer>
               <sup
                 className="ant-scroll-number ant-badge-count ant-badge-multiple-words"
                 data-show={true}
+                style={Object {}}
                 title="3.5"
               >
                 3.5
@@ -282,12 +284,14 @@ exports[`Badge should render when count is changed 1`] = `
             key="scrollNumber"
             onAnimated={[Function]}
             prefixCls="ant-scroll-number"
+            style={Object {}}
             title={10}
           >
             <Consumer>
               <sup
                 className="ant-scroll-number ant-badge-count ant-badge-multiple-words"
                 data-show={true}
+                style={Object {}}
                 title={10}
               >
                 <span
@@ -533,12 +537,14 @@ exports[`Badge should render when count is changed 2`] = `
             key="scrollNumber"
             onAnimated={[Function]}
             prefixCls="ant-scroll-number"
+            style={Object {}}
             title={11}
           >
             <Consumer>
               <sup
                 className="ant-scroll-number ant-badge-count ant-badge-multiple-words"
                 data-show={true}
+                style={Object {}}
                 title={11}
               >
                 <span
@@ -977,12 +983,14 @@ exports[`Badge should render when count is changed 3`] = `
             key="scrollNumber"
             onAnimated={[Function]}
             prefixCls="ant-scroll-number"
+            style={Object {}}
             title={11}
           >
             <Consumer>
               <sup
                 className="ant-scroll-number ant-badge-count ant-badge-multiple-words"
                 data-show={true}
+                style={Object {}}
                 title={11}
               >
                 <span
@@ -1421,12 +1429,14 @@ exports[`Badge should render when count is changed 4`] = `
             key="scrollNumber"
             onAnimated={[Function]}
             prefixCls="ant-scroll-number"
+            style={Object {}}
             title={10}
           >
             <Consumer>
               <sup
                 className="ant-scroll-number ant-badge-count ant-badge-multiple-words"
                 data-show={true}
+                style={Object {}}
                 title={10}
               >
                 <span
@@ -1865,12 +1875,14 @@ exports[`Badge should render when count is changed 5`] = `
             key="scrollNumber"
             onAnimated={[Function]}
             prefixCls="ant-scroll-number"
+            style={Object {}}
             title={9}
           >
             <Consumer>
               <sup
                 className="ant-scroll-number ant-badge-count"
                 data-show={true}
+                style={Object {}}
                 title={9}
               >
                 <span
