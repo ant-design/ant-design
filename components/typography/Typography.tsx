@@ -18,7 +18,7 @@ interface InternalTypographyProps extends TypographyProps {
 
 const Typography: React.SFC<InternalTypographyProps> = ({
   prefixCls: customizePrefixCls,
-  component = 'div',
+  component = 'article',
   className,
   ['aria-label']: ariaLabel,
   setContentRef,
