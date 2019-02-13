@@ -17,6 +17,7 @@ exports[`Table.sorter renders sorter icon correctly 1`] = `
           title="Sort"
         >
           <i
+            aria-label="icon: caret-up"
             class="anticon anticon-caret-up ant-table-column-sorter-up off"
           >
             <svg
@@ -34,6 +35,7 @@ exports[`Table.sorter renders sorter icon correctly 1`] = `
             </svg>
           </i>
           <i
+            aria-label="icon: caret-down"
             class="anticon anticon-caret-down ant-table-column-sorter-down off"
           >
             <svg

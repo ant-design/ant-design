@@ -25,7 +25,7 @@ import moment from 'moment';
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | addon | 选择框底部显示自定义的内容 | function | 无 |
-| allowEmpty | 是否展示清除按钮 | boolean | true |
+| allowClear | 是否展示清除按钮 | boolean | true |
 | autoFocus | 自动获取焦点 | boolean | false |
 | className | 选择器类名 | string | '' |
 | clearText | 清除按钮的提示文案 | string | clear |

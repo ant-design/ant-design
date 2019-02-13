@@ -2,7 +2,6 @@
   .@{steps-prefix-cls}-item-icon {
     background: none;
     border: 0;
-    width: auto;
     height: auto;
     > .@{steps-prefix-cls}-icon {
       font-size: 24px;
@@ -16,6 +15,17 @@
   &.@{steps-prefix-cls}-item-process {
     .@{steps-prefix-cls}-item-icon > .@{steps-prefix-cls}-icon {
       color: @process-icon-color;
+    }
+  }
+}
+
+// Only adjust horizontal customize icon width
+.@{steps-prefix-cls} {
+  &:not(.@{steps-prefix-cls}-vertical) {
+    .@{steps-prefix-cls}-item-custom {
+      .@{steps-prefix-cls}-item-icon {
+        width: auto;
+      }
     }
   }
 }

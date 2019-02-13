@@ -75,6 +75,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
         unselectable="on"
       >
         <i
+          aria-label="icon: down"
           class="anticon anticon-down ant-select-arrow-icon"
         >
           <svg
@@ -125,6 +126,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
         unselectable="on"
       >
         <i
+          aria-label="icon: down"
           class="anticon anticon-down ant-select-arrow-icon"
         >
           <svg
@@ -175,6 +177,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
         unselectable="on"
       >
         <i
+          aria-label="icon: loading"
           class="anticon anticon-loading"
         >
           <svg
@@ -230,6 +233,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
         unselectable="on"
       >
         <i
+          aria-label="icon: down"
           class="anticon anticon-down ant-select-arrow-icon"
         >
           <svg
@@ -280,6 +284,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
         unselectable="on"
       >
         <i
+          aria-label="icon: down"
           class="anticon anticon-down ant-select-arrow-icon"
         >
           <svg
@@ -334,6 +339,7 @@ exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] 
       unselectable="on"
     >
       <i
+        aria-label="icon: down"
         class="anticon anticon-down ant-select-arrow-icon"
       >
         <svg
@@ -436,6 +442,7 @@ exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
       unselectable="on"
     >
       <i
+        aria-label="icon: down"
         class="anticon anticon-down ant-select-arrow-icon"
       >
         <svg
@@ -498,6 +505,7 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
             class="ant-select-selection__choice__remove"
           >
             <i
+              aria-label="icon: close"
               class="anticon anticon-close ant-select-remove-icon"
             >
               <svg
@@ -532,6 +540,7 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
             class="ant-select-selection__choice__remove"
           >
             <i
+              aria-label="icon: close"
               class="anticon anticon-close ant-select-remove-icon"
             >
               <svg
@@ -606,6 +615,7 @@ exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
       unselectable="on"
     >
       <i
+        aria-label="icon: down"
         class="anticon anticon-down ant-select-arrow-icon"
       >
         <svg
@@ -678,6 +688,7 @@ exports[`renders ./components/select/demo/search.md correctly 1`] = `
       unselectable="on"
     >
       <i
+        aria-label="icon: down"
         class="anticon anticon-down ant-select-arrow-icon"
       >
         <svg
@@ -894,6 +905,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
         unselectable="on"
       >
         <i
+          aria-label="icon: down"
           class="anticon anticon-down ant-select-arrow-icon"
         >
           <svg
@@ -954,6 +966,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
               class="ant-select-selection__choice__remove"
             >
               <i
+                aria-label="icon: close"
                 class="anticon anticon-close ant-select-remove-icon"
               >
                 <svg
@@ -988,6 +1001,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
               class="ant-select-selection__choice__remove"
             >
               <i
+                aria-label="icon: close"
                 class="anticon anticon-close ant-select-remove-icon"
               >
                 <svg
@@ -1069,6 +1083,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
               class="ant-select-selection__choice__remove"
             >
               <i
+                aria-label="icon: close"
                 class="anticon anticon-close ant-select-remove-icon"
               >
                 <svg
@@ -1103,6 +1118,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
               class="ant-select-selection__choice__remove"
             >
               <i
+                aria-label="icon: close"
                 class="anticon anticon-close ant-select-remove-icon"
               >
                 <svg
@@ -1179,6 +1195,7 @@ exports[`renders ./components/select/demo/suffix.md correctly 1`] = `
         unselectable="on"
       >
         <i
+          aria-label="icon: smile"
           class="anticon anticon-smile ant-select-arrow-icon"
         >
           <svg
@@ -1229,6 +1246,7 @@ exports[`renders ./components/select/demo/suffix.md correctly 1`] = `
         unselectable="on"
       >
         <i
+          aria-label="icon: meh"
           class="anticon anticon-meh ant-select-arrow-icon"
         >
           <svg

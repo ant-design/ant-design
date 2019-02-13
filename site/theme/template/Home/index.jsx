@@ -29,9 +29,6 @@ function getStyle() {
     #header #logo {
       padding: 0;
     }
-    #header .nav-phone-icon {
-      display: none;
-    }
     #header #nav .ant-menu-item {
       border-color: transparent;
     }

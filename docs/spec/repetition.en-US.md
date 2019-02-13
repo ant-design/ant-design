@@ -4,7 +4,7 @@ order: 4
 title: Repetition
 ---
 
-The same elements keep repeating in the whole interface, which not only could lower the user’s learning cost effectively, but also help user recognize the relevance between these elements.
+The same elements keep repeating in the whole interface, which not only could lower the user's learning cost effectively, but also help user recognize the relevance between these elements.
 
 ---
 
@@ -16,4 +16,4 @@ The same elements keep repeating in the whole interface, which not only could lo
 
 <img class="preview-img" align="right" alt="Example of repetitive of formats" src="https://gw.alipayobjects.com/zos/rmsportal/DYDGrgkbdFEbcVRuJcjH.png">
 
-The repetitive element may be a thick rule(line), a wireframe， color, design elements, particular format, spatial relationships, etc.
+The repetitive element may be a thick rule(line), a wireframe, color, design elements, particular format, spatial relationships, etc.

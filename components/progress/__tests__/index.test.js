@@ -9,6 +9,9 @@ describe('Progress', () => {
 
     wrapper.setProps({ percent: 50, successPercent: 100 });
     expect(wrapper.find('.ant-progress-status-success')).toHaveLength(1);
+
+    wrapper.setProps({ percent: 100, successPercent: 0 });
+    expect(wrapper.find('.ant-progress-status-success')).toHaveLength(0);
   });
 
   it('render out-of-range progress', () => {

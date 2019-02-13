@@ -4,9 +4,9 @@ order: 6
 title: Stay on the Page
 ---
 
-Solve most of problems on the same page and avoid a new one, because the page refresh and forwarding can lead to change blindness, in addition to disrupting the user’s mental flow.
+Solve most of problems on the same page and avoid a new one, because the page refresh and forwarding can lead to change blindness, in addition to disrupting the user's mental flow.
 
-> ** Change Blindness** is a surprising perceptual phenomenon that occurs when a change in a visual stimulus is introduced and the observer does not notice it. People's poor ability to detect changes has been argued to reflect fundamental limitations of human attention，from the term of Change blindness, Wikipedia.
+> ** Change Blindness** is a surprising perceptual phenomenon that occurs when a change in a visual stimulus is introduced and the observer does not notice it. People's poor ability to detect changes has been argued to reflect fundamental limitations of human attention, from the term of Change blindness, Wikipedia.
 
 > ** Flow**, also known as the zone, is the mental state of operation in which a person performing an activity is fully immersed in a feeling of energized focus, full involvement, and enjoyment in the process of the activity, from the term of Flow, Wikipedia
 
@@ -19,7 +19,7 @@ Solve most of problems on the same page and avoid a new one, because the page re
 <img class="preview-img" align="right" alt="good example (special case)" description="If the undo operation is invalid, the Popconfirm is displayed after clicking the delete button. The user can stay on the page to double confirm." src="https://gw.alipayobjects.com/zos/rmsportal/AKtiXJTTQEjKFOCQGZMa.png" good>
 
 <img class="preview-img" align="right" alt="bad example" description="
-Abusing the Modal can neither bring the context into the popup, which is prone to interrupt the user’s flow, nor allow the user to undo the change." src="https://gw.alipayobjects.com/zos/rmsportal/cGqkngXLMBlmMyoHtgFs.png" bad>
+Abusing the Modal can neither bring the context into the popup, which is prone to interrupt the user's flow, nor allow the user to undo the change." src="https://gw.alipayobjects.com/zos/rmsportal/cGqkngXLMBlmMyoHtgFs.png" bad>
 
 Double-confirm overlay: Using the Modal to double confirm should be avoided, while affording an opportunity to undo is preferred.
 
@@ -86,5 +86,5 @@ Configurator Process: Provides a configurator that allows users to help them acc
 
 <img class="preview-img" align="right" alt="example of Dialog Overlay Process" src="https://gw.alipayobjects.com/zos/rmsportal/YutBaHmScUzpbKdFWDcg.png">
 
-Dialog Overlay Process: Any page switch is an interruption to the user’s mental flow. In addition, any context switch is a chance for a user to leave the site. But sometimes the step-by-step flow is necessary.
+Dialog Overlay Process: Any page switch is an interruption to the user's mental flow. In addition, any context switch is a chance for a user to leave the site. But sometimes the step-by-step flow is necessary.
 
