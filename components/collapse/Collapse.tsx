@@ -28,6 +28,7 @@ interface PanelProps {
   showArrow?: boolean;
   forceRender?: boolean;
   disabled?: boolean;
+  extra?: React.ReactNode;
 }
 
 export default class Collapse extends React.Component<CollapseProps, any> {
