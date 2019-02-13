@@ -54,6 +54,7 @@ export interface ArgsProps {
   type: NoticeType;
   onClose?: () => void;
   icon?: React.ReactNode;
+  closeIcon?: React.ReactNode;
 }
 
 function notice(args: ArgsProps): MessageType {
@@ -92,6 +93,7 @@ function notice(args: ArgsProps): MessageType {
             <span>{args.content}</span>
           </div>
         ),
+        closeIcon,
         onClose: callback,
       });
     });
