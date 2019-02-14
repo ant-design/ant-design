@@ -651,4 +651,17 @@ describe('Table.rowSelection', () => {
     checkboxes.at(2).simulate('change', { target: { checked: true } });
     expect(checkboxAll.instance().state).toEqual({ indeterminate: false, checked: true });
   });
+
+  it('clear selection className when remove `rowSelection`', () => {
+    const dataSource = [{ id: 1, name: 'Hello', age: 10 }, { id: 2, name: 'World', age: 30 }];
+
+    const wrapper = mount(<Table columns={columns} dataSource={dataSource} rowSelection={{}} />);
+    const checkboxes = wrapper.find('input');
+    checkboxes.at(1).simulate('change', { target: { checked: true } });
+
+    expect(wrapper.find('.ant-table-row-selected').length).toBe(1);
+
+    wrapper.setProps({ rowSelection: null });
+    expect(wrapper.find('.ant-table-row-selected').length).toBe(0);
+  });
 });
