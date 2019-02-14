@@ -1,7 +1,11 @@
 /* global Promise */
 import * as React from 'react';
 import Notification from 'rc-notification';
-import Icon from '../icon';
+import InfoCircleFilled from '../icon/icons/InfoCircleFilled';
+import CheckCircleFilled from '../icon/icons/CheckCircleFilled';
+import CloseCircleFilled from '../icon/icons/CloseCircleFilled';
+import ExclamationCircleFilled from '../icon/icons/ExclamationCircleFilled';
+import LoadingOutlined from '../icon/icons/LoadingOutlined';
 
 let defaultDuration = 3;
 let defaultTop: number;
@@ -58,12 +62,12 @@ export interface ArgsProps {
 
 function notice(args: ArgsProps): MessageType {
   const duration = args.duration !== undefined ? args.duration : defaultDuration;
-  const iconType = {
-    info: 'info-circle',
-    success: 'check-circle',
-    error: 'close-circle',
-    warning: 'exclamation-circle',
-    loading: 'loading',
+  const Icon = {
+    info: InfoCircleFilled,
+    success: CheckCircleFilled,
+    error: CloseCircleFilled,
+    warning: ExclamationCircleFilled,
+    loading: LoadingOutlined,
   }[args.type];
 
   const target = key++;
@@ -75,9 +79,7 @@ function notice(args: ArgsProps): MessageType {
       return resolve(true);
     };
     getMessageInstance(instance => {
-      const iconNode = (
-        <Icon type={iconType} theme={iconType === 'loading' ? 'outlined' : 'filled'} />
-      );
+      const iconNode = <Icon />;
       instance.notice({
         key: target,
         duration,
@@ -88,7 +90,7 @@ function notice(args: ArgsProps): MessageType {
               args.type ? ` ${prefixCls}-${args.type}` : ''
             }`}
           >
-            {args.icon ? args.icon : iconType ? iconNode : ''}
+            {args.icon ? args.icon : Icon ? iconNode : ''}
             <span>{args.content}</span>
           </div>
         ),
