@@ -36,6 +36,7 @@ cols: 1
 | header | 面板头内容 | string\|ReactNode | 无 |
 | key | 对应 activeKey | string | 无 |
 | showArrow | 是否展示当前面板上的箭头 | boolean | `true` |
+| extra | 自定义渲染每个面板右上角的内容 | ReactNode | - |
 
 ## FAQ
 
