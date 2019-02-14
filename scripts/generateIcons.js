@@ -15,6 +15,7 @@ Object.keys(manifest).forEach(theme => {
     const componentName = baseName + capitalize(themeMap[theme]);
     const iconName = baseName + capitalize(theme);
     icons.push(componentName);
+    console.log(`Generate: ${componentName}`);
     fs.writeFileSync(
       `./components/icon/icons/${componentName}.tsx`,
       `
