@@ -1,9 +1,9 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Input, { InputProps } from './Input';
-import Icon from '../icon';
 import Button from '../button';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import SearchOutlined from '../icon/icons/SearchOutlined';
 
 export interface SearchProps extends InputProps {
   inputPrefixCls?: string;
@@ -46,12 +46,7 @@ export default class Search extends React.Component<SearchProps, any> {
     if (enterButton) return suffix;
 
     const node = (
-      <Icon
-        className={`${prefixCls}-icon`}
-        type="search"
-        key="searchIcon"
-        onClick={this.onSearch}
-      />
+      <SearchOutlined className={`${prefixCls}-icon`} key="searchIcon" onClick={this.onSearch} />
     );
 
     if (suffix) {
@@ -94,7 +89,7 @@ export default class Search extends React.Component<SearchProps, any> {
         key="enterButton"
         onClick={this.onSearch}
       >
-        {enterButton === true ? <Icon type="search" /> : enterButton}
+        {enterButton === true ? <SearchOutlined /> : enterButton}
       </Button>
     );
   };
