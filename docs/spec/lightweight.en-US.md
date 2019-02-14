@@ -4,7 +4,7 @@ order: 7
 title: Keep it Lightweight
 ---
 
-Fitts’s Law is an ergonomic principle that ties the size of a target and its contextual proximity to ease of use.In other words, if a tool is close at hand and large enough to target, then we can improve the user’s interaction. Putting tools in context makes for lightweight interaction.
+Fitts's Law is an ergonomic principle that ties the size of a target and its contextual proximity to ease of use.In other words, if a tool is close at hand and large enough to target, then we can improve the user's interaction. Putting tools in context makes for lightweight interaction.
 
 
 > <img src="https://os.alipayobjects.com/rmsportal/wAcbQmeqTWDqsnu.png" width="150" />
