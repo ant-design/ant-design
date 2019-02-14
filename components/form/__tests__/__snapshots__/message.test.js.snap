@@ -35,17 +35,21 @@ exports[`Form should display custom message 1`] = `
           />
         </span>
         <div
-          class="ant-form-explain show-help-enter"
+          class="ant-form-explain-holder"
         >
-          <span>
-            Account does not exist, 
-            <a
-              href="https://www.alipay.com/"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Forgot account?
-            </a>
+          <span
+            class="ant-form-explain show-help-enter"
+          >
+            <span>
+              Account does not exist, 
+              <a
+                href="https://www.alipay.com/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Forgot account?
+              </a>
+            </span>
           </span>
         </div>
       </div>
@@ -89,9 +93,13 @@ exports[`Form should display two message 1`] = `
           />
         </span>
         <div
-          class="ant-form-explain show-help-enter"
+          class="ant-form-explain-holder"
         >
-          Error message 1 Error message 2
+          <span
+            class="ant-form-explain show-help-enter"
+          >
+            Error message 1 Error message 2
+          </span>
         </div>
       </div>
     </div>
@@ -134,15 +142,19 @@ exports[`Form support error message with reactNode 1`] = `
           />
         </span>
         <div
-          class="ant-form-explain show-help-enter"
+          class="ant-form-explain-holder"
         >
-          <div>
-            Error 1
-          </div>
-           
-          <div>
-            Error 2
-          </div>
+          <span
+            class="ant-form-explain show-help-enter"
+          >
+            <div>
+              Error 1
+            </div>
+             
+            <div>
+              Error 2
+            </div>
+          </span>
         </div>
       </div>
     </div>

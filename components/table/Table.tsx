@@ -167,7 +167,8 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   }
 
   getDefaultPagination(props: TableProps<T>) {
-    const pagination: PaginationConfig = props.pagination || {};
+    const pagination: PaginationConfig =
+      typeof props.pagination === 'object' ? props.pagination : {};
     let current;
     if ('current' in pagination) {
       current = pagination.current;
