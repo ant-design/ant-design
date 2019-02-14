@@ -1,6 +1,10 @@
 import * as React from 'react';
 import Notification from 'rc-notification';
-import Icon from '../icon';
+import CheckCircleOutlined from '../icon/icons/CheckCircleOutlined';
+import InfoCircleOutlined from '../icon/icons/InfoCircleOutlined';
+import CloseCircleOutlined from '../icon/icons/CloseCircleOutlined';
+import ExclamationCircleOutlined from '../icon/icons/ExclamationCircleOutlined';
+import CloseOutlined from '../icon/icons/CloseOutlined';
 
 export type NotificationPlacement = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
 
@@ -91,7 +95,7 @@ function getNotificationInstance(
       className: `${prefixCls}-${placement}`,
       style: getPlacementStyle(placement),
       getContainer: defaultGetContainer,
-      closeIcon: <Icon className={`${prefixCls}-close-icon`} type={'close'} />,
+      closeIcon: <CloseOutlined className={`${prefixCls}-close-icon`} />,
     },
     (notification: any) => {
       notificationInstance[cacheKey] = notification;
@@ -99,12 +103,11 @@ function getNotificationInstance(
     },
   );
 }
-
-const typeToIcon = {
-  success: 'check-circle-o',
-  info: 'info-circle-o',
-  error: 'close-circle-o',
-  warning: 'exclamation-circle-o',
+const iconMap = {
+  success: CheckCircleOutlined,
+  info: InfoCircleOutlined,
+  error: CloseCircleOutlined,
+  warning: ExclamationCircleOutlined,
 };
 
 export interface ArgsProps {
@@ -132,10 +135,8 @@ function notice(args: ArgsProps) {
   if (args.icon) {
     iconNode = <span className={`${prefixCls}-icon`}>{args.icon}</span>;
   } else if (args.type) {
-    const iconType = typeToIcon[args.type];
-    iconNode = (
-      <Icon className={`${prefixCls}-icon ${prefixCls}-icon-${args.type}`} type={iconType} />
-    );
+    const Icon = iconMap[args.type];
+    iconNode = <Icon className={`${prefixCls}-icon ${prefixCls}-icon-${args.type}`} />;
   }
 
   const autoMarginTag =
