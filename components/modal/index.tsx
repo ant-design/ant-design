@@ -1,7 +1,10 @@
 import * as React from 'react';
 import Modal, { ModalFuncProps, destroyFns } from './Modal';
 import confirm from './confirm';
-import Icon from '../icon';
+import InfoCircleOutlined from '../icon/icons/InfoCircleOutlined';
+import CheckCircleOutlined from '../icon/icons/CheckCircleOutlined';
+import CloseCircleOutlined from '../icon/icons/CloseCircleOutlined';
+import ExclamationCircleOutlined from '../icon/icons/ExclamationCircleOutlined';
 
 export { ActionButtonProps } from './ActionButton';
 export { ModalProps, ModalFuncProps } from './Modal';
@@ -9,7 +12,7 @@ export { ModalProps, ModalFuncProps } from './Modal';
 Modal.info = function(props: ModalFuncProps) {
   const config = {
     type: 'info',
-    icon: <Icon type="info-circle" />,
+    icon: <InfoCircleOutlined />,
     okCancel: false,
     ...props,
   };
@@ -19,7 +22,7 @@ Modal.info = function(props: ModalFuncProps) {
 Modal.success = function(props: ModalFuncProps) {
   const config = {
     type: 'success',
-    icon: <Icon type="check-circle" />,
+    icon: <CheckCircleOutlined />,
     okCancel: false,
     ...props,
   };
@@ -29,7 +32,7 @@ Modal.success = function(props: ModalFuncProps) {
 Modal.error = function(props: ModalFuncProps) {
   const config = {
     type: 'error',
-    icon: <Icon type="close-circle" />,
+    icon: <CloseCircleOutlined />,
     okCancel: false,
     ...props,
   };
@@ -39,7 +42,7 @@ Modal.error = function(props: ModalFuncProps) {
 Modal.warning = Modal.warn = function(props: ModalFuncProps) {
   const config = {
     type: 'warning',
-    icon: <Icon type="exclamation-circle" />,
+    icon: <ExclamationCircleOutlined />,
     okCancel: false,
     ...props,
   };
