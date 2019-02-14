@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(RedditSquareFill);
 
-export default (props: IconProps ) => <Icon {...props} type="reddit-square" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="reddit-square" theme="filled" />;

@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(LinkedinFill);
 
-export default (props: IconProps ) => <Icon {...props} type="linkedin" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="linkedin" theme="filled" />;

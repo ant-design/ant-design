@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(AliwangwangFill);
 
-export default (props: IconProps ) => <Icon {...props} type="aliwangwang" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="aliwangwang" theme="filled" />;

@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(FileExclamationTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="file-exclamation" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="file-exclamation" theme="twoTone" />;

@@ -5,7 +5,7 @@ import InfoCircleFilled from '../icon/icons/InfoCircleFilled';
 import CheckCircleFilled from '../icon/icons/CheckCircleFilled';
 import CloseCircleFilled from '../icon/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '../icon/icons/ExclamationCircleFilled';
-import LoadingOutlined from '../icon/icons/LoadingOutlined';
+import Loading from '../icon/icons/Loading';
 
 let defaultDuration = 3;
 let defaultTop: number;
@@ -67,7 +67,7 @@ function notice(args: ArgsProps): MessageType {
     success: CheckCircleFilled,
     error: CloseCircleFilled,
     warning: ExclamationCircleFilled,
-    loading: LoadingOutlined,
+    loading: Loading,
   }[args.type];
 
   const target = key++;

@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(CanlendarTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="canlendar" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="canlendar" theme="twoTone" />;

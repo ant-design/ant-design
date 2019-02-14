@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(TaobaoCircleFill);
 
-export default (props: IconProps ) => <Icon {...props} type="taobao-circle" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="taobao-circle" theme="filled" />;

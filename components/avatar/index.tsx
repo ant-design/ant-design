@@ -136,7 +136,7 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
     } else if (icon) {
       warning(
         typeof icon !== 'string',
-        'Passing an icon name as string to Avatar[icon] is deprecated, please pass a icon element instead, example: `<Avatar icon={<StarOutlined />} />`',
+        'Passing an icon name as string to Avatar[icon] is deprecated, please pass a icon element instead, example: `<Avatar icon={<Star />} />`',
       );
       children = typeof icon === 'string' ? <Icon type={icon} /> : icon;
     } else {

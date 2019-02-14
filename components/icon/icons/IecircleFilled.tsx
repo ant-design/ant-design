@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(IeCircleFill);
 
-export default (props: IconProps ) => <Icon {...props} type="ie-circle" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="ie-circle" theme="filled" />;

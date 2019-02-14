@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(PrinterTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="printer" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="printer" theme="twoTone" />;

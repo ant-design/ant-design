@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(ScheduleTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="schedule" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="schedule" theme="twoTone" />;

@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(FolderOpenTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="folder-open" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="folder-open" theme="twoTone" />;

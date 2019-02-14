@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(MedicineBoxTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="medicine-box" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="medicine-box" theme="twoTone" />;

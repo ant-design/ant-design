@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(IdcardTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="idcard" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="idcard" theme="twoTone" />;

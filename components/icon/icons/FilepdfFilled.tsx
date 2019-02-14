@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(FilePdfFill);
 
-export default (props: IconProps ) => <Icon {...props} type="file-pdf" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="file-pdf" theme="filled" />;

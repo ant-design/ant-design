@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(ScheduleFill);
 
-export default (props: IconProps ) => <Icon {...props} type="schedule" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="schedule" theme="filled" />;

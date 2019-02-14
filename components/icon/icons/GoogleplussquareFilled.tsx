@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(GooglePlusSquareFill);
 
-export default (props: IconProps ) => <Icon {...props} type="google-plus-square" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="google-plus-square" theme="filled" />;

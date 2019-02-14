@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(FrownFill);
 
-export default (props: IconProps ) => <Icon {...props} type="frown" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="frown" theme="filled" />;

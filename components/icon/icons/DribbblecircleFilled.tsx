@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(DribbbleCircleFill);
 
-export default (props: IconProps ) => <Icon {...props} type="dribbble-circle" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="dribbble-circle" theme="filled" />;

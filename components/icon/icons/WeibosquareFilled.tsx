@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(WeiboSquareFill);
 
-export default (props: IconProps ) => <Icon {...props} type="weibo-square" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="weibo-square" theme="filled" />;

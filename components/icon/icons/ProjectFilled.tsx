@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(ProjectFill);
 
-export default (props: IconProps ) => <Icon {...props} type="project" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="project" theme="filled" />;

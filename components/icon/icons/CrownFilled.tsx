@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(CrownFill);
 
-export default (props: IconProps ) => <Icon {...props} type="crown" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="crown" theme="filled" />;

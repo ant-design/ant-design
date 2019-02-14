@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(AmazonCircleFill);
 
-export default (props: IconProps ) => <Icon {...props} type="amazon-circle" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="amazon-circle" theme="filled" />;

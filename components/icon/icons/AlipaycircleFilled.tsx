@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(AlipayCircleFill);
 
-export default (props: IconProps ) => <Icon {...props} type="alipay-circle" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="alipay-circle" theme="filled" />;

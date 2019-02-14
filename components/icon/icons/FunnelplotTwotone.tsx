@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(FunnelPlotTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="funnel-plot" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="funnel-plot" theme="twoTone" />;

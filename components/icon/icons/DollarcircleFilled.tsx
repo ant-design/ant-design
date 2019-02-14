@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(DollarCircleFill);
 
-export default (props: IconProps ) => <Icon {...props} type="dollar-circle" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="dollar-circle" theme="filled" />;

@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(DislikeTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="dislike" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="dislike" theme="twoTone" />;

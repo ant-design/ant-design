@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(SlidersFill);
 
-export default (props: IconProps ) => <Icon {...props} type="sliders" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="sliders" theme="filled" />;

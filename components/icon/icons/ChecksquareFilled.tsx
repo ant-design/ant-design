@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(CheckSquareFill);
 
-export default (props: IconProps ) => <Icon {...props} type="check-square" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="check-square" theme="filled" />;

@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(FileWordFill);
 
-export default (props: IconProps ) => <Icon {...props} type="file-word" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="file-word" theme="filled" />;

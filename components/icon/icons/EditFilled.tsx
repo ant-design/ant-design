@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(EditFill);
 
-export default (props: IconProps ) => <Icon {...props} type="edit" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="edit" theme="filled" />;

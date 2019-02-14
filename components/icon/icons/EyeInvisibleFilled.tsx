@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(EyeInvisibleFill);
 
-export default (props: IconProps ) => <Icon {...props} type="eye-invisible" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="eye-invisible" theme="filled" />;

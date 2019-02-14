@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(UnlockTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="unlock" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="unlock" theme="twoTone" />;

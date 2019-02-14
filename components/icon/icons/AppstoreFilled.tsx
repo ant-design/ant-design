@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(AppstoreFill);
 
-export default (props: IconProps ) => <Icon {...props} type="appstore" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="appstore" theme="filled" />;

@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(CustomerServiceTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="customer-service" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="customer-service" theme="twoTone" />;

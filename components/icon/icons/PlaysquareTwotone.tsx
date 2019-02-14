@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(PlaySquareTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="play-square" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="play-square" theme="twoTone" />;

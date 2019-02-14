@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(StepForwardFill);
 
-export default (props: IconProps ) => <Icon {...props} type="step-forward" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="step-forward" theme="filled" />;

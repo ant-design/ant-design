@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(DashboardTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="dashboard" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="dashboard" theme="twoTone" />;

@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(AlertFill);
 
-export default (props: IconProps ) => <Icon {...props} type="alert" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="alert" theme="filled" />;

@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(StarFill);
 
-export default (props: IconProps ) => <Icon {...props} type="star" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="star" theme="filled" />;

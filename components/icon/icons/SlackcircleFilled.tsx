@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(SlackCircleFill);
 
-export default (props: IconProps ) => <Icon {...props} type="slack-circle" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="slack-circle" theme="filled" />;

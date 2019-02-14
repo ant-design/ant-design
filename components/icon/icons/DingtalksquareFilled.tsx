@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(DingtalkSquareFill);
 
-export default (props: IconProps ) => <Icon {...props} type="dingtalk-square" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="dingtalk-square" theme="filled" />;

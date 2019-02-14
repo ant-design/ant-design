@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(CarryOutTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="carry-out" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="carry-out" theme="twoTone" />;

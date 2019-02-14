@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(HourglassFill);
 
-export default (props: IconProps ) => <Icon {...props} type="hourglass" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="hourglass" theme="filled" />;

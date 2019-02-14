@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(FileMarkdownTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="file-markdown" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="file-markdown" theme="twoTone" />;

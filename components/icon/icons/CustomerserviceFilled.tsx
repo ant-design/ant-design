@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(CustomerServiceFill);
 
-export default (props: IconProps ) => <Icon {...props} type="customer-service" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="customer-service" theme="filled" />;

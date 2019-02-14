@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(YuqueFill);
 
-export default (props: IconProps ) => <Icon {...props} type="yuque" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="yuque" theme="filled" />;

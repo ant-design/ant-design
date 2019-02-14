@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(MailFill);
 
-export default (props: IconProps ) => <Icon {...props} type="mail" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="mail" theme="filled" />;

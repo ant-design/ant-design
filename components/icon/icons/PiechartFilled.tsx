@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(PieChartFill);
 
-export default (props: IconProps ) => <Icon {...props} type="pie-chart" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="pie-chart" theme="filled" />;

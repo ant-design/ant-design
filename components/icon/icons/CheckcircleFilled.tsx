@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(CheckCircleFill);
 
-export default (props: IconProps ) => <Icon {...props} type="check-circle" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="check-circle" theme="filled" />;

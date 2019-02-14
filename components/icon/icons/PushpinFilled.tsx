@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(PushpinFill);
 
-export default (props: IconProps ) => <Icon {...props} type="pushpin" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="pushpin" theme="filled" />;

@@ -4,7 +4,7 @@ import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import { getConfirmLocale } from './locale';
-import CloseOutlined from '../icon/icons/CloseOutlined';
+import Close from '../icon/icons/Close';
 import Button from '../button';
 import { ButtonType, NativeButtonProps } from '../button/button';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
@@ -214,7 +214,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
 
     const closeIcon = (
       <span className={`${prefixCls}-close-x`}>
-        <CloseOutlined className={`${prefixCls}-close-icon`} />
+        <Close className={`${prefixCls}-close-icon`} />
       </span>
     );
 

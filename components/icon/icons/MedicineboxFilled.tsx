@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(MedicineBoxFill);
 
-export default (props: IconProps ) => <Icon {...props} type="medicine-box" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="medicine-box" theme="filled" />;

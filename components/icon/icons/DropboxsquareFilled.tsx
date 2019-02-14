@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(DropboxSquareFill);
 
-export default (props: IconProps ) => <Icon {...props} type="dropbox-square" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="dropbox-square" theme="filled" />;

@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(DingtalkCircleFill);
 
-export default (props: IconProps ) => <Icon {...props} type="dingtalk-circle" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="dingtalk-circle" theme="filled" />;

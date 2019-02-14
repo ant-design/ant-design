@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(FastBackwardFill);
 
-export default (props: IconProps ) => <Icon {...props} type="fast-backward" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="fast-backward" theme="filled" />;

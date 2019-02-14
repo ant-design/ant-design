@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(FileExcelTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="file-excel" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="file-excel" theme="twoTone" />;

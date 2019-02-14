@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(CloudFill);
 
-export default (props: IconProps ) => <Icon {...props} type="cloud" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="cloud" theme="filled" />;

@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(GithubFill);
 
-export default (props: IconProps ) => <Icon {...props} type="github" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="github" theme="filled" />;

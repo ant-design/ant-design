@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(AudioFill);
 
-export default (props: IconProps ) => <Icon {...props} type="audio" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="audio" theme="filled" />;

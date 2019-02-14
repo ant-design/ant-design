@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(GoogleCircleFill);
 
-export default (props: IconProps ) => <Icon {...props} type="google-circle" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="google-circle" theme="filled" />;

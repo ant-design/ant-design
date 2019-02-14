@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(ControlFill);
 
-export default (props: IconProps ) => <Icon {...props} type="control" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="control" theme="filled" />;

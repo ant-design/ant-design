@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import RcInputNumber from 'rc-input-number';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { Omit } from '../_util/type';
-import UpOutlined from '../icon/icons/UpOutlined';
-import DownOutlined from '../icon/icons/DownOutlined';
+import Up from '../icon/icons/Up';
+import Down from '../icon/icons/Down';
 
 // omitting this attrs because they conflicts with the ones defined in InputNumberProps
 export type OmitAttrs = 'defaultValue' | 'onChange' | 'size';
@@ -57,8 +57,8 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
       },
       className,
     );
-    const upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />;
-    const downIcon = <DownOutlined className={`${prefixCls}-handler-down-inner`} />;
+    const upIcon = <Up className={`${prefixCls}-handler-up-inner`} />;
+    const downIcon = <Down className={`${prefixCls}-handler-down-inner`} />;
 
     return (
       <RcInputNumber

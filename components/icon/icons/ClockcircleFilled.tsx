@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(ClockCircleFill);
 
-export default (props: IconProps ) => <Icon {...props} type="clock-circle" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="clock-circle" theme="filled" />;

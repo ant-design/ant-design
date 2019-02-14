@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(CarryOutFill);
 
-export default (props: IconProps ) => <Icon {...props} type="carry-out" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="carry-out" theme="filled" />;

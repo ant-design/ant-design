@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(FileExcelFill);
 
-export default (props: IconProps ) => <Icon {...props} type="file-excel" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="file-excel" theme="filled" />;

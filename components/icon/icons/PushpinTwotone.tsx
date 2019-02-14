@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(PushpinTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="pushpin" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="pushpin" theme="twoTone" />;

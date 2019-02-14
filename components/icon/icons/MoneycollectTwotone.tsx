@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(MoneyCollectTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="money-collect" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="money-collect" theme="twoTone" />;

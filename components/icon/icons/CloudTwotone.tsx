@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(CloudTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="cloud" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="cloud" theme="twoTone" />;

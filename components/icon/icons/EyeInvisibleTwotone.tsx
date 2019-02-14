@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(EyeInvisibleTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="eye-invisible" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="eye-invisible" theme="twoTone" />;

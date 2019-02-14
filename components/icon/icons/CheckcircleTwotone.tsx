@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(CheckCircleTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="check-circle" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="check-circle" theme="twoTone" />;

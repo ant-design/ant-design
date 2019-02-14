@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(WindowsFill);
 
-export default (props: IconProps ) => <Icon {...props} type="windows" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="windows" theme="filled" />;

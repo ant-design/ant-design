@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(BulbFill);
 
-export default (props: IconProps ) => <Icon {...props} type="bulb" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="bulb" theme="filled" />;

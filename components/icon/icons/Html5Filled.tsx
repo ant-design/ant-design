@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(Html5Fill);
 
-export default (props: IconProps ) => <Icon {...props} type="html5" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="html5" theme="filled" />;

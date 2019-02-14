@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(DiffFill);
 
-export default (props: IconProps ) => <Icon {...props} type="diff" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="diff" theme="filled" />;

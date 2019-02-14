@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(CreditCardFill);
 
-export default (props: IconProps ) => <Icon {...props} type="credit-card" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="credit-card" theme="filled" />;

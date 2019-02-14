@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(SafetyCertificateFill);
 
-export default (props: IconProps ) => <Icon {...props} type="safety-certificate" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="safety-certificate" theme="filled" />;

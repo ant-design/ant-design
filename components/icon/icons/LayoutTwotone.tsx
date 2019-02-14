@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(LayoutTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="layout" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="layout" theme="twoTone" />;

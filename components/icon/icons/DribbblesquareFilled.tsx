@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(DribbbleSquareFill);
 
-export default (props: IconProps ) => <Icon {...props} type="dribbble-square" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="dribbble-square" theme="filled" />;

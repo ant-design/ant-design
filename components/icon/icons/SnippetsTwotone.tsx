@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(SnippetsTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="snippets" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="snippets" theme="twoTone" />;

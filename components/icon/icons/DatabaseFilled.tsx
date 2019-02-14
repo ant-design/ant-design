@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(DatabaseFill);
 
-export default (props: IconProps ) => <Icon {...props} type="database" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="database" theme="filled" />;

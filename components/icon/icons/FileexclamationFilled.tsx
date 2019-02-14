@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(FileExclamationFill);
 
-export default (props: IconProps ) => <Icon {...props} type="file-exclamation" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="file-exclamation" theme="filled" />;

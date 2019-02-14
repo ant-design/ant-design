@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(WechatFill);
 
-export default (props: IconProps ) => <Icon {...props} type="wechat" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="wechat" theme="filled" />;

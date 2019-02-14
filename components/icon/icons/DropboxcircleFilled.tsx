@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(DropboxCircleFill);
 
-export default (props: IconProps ) => <Icon {...props} type="dropbox-circle" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="dropbox-circle" theme="filled" />;

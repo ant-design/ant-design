@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(ExclamationCircleTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="exclamation-circle" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="exclamation-circle" theme="twoTone" />;

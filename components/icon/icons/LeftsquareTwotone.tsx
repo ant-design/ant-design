@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(LeftSquareTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="left-square" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="left-square" theme="twoTone" />;

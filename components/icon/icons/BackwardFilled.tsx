@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(BackwardFill);
 
-export default (props: IconProps ) => <Icon {...props} type="backward" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="backward" theme="filled" />;

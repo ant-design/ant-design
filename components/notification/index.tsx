@@ -1,10 +1,10 @@
 import * as React from 'react';
 import Notification from 'rc-notification';
-import CheckCircleOutlined from '../icon/icons/CheckCircleOutlined';
-import InfoCircleOutlined from '../icon/icons/InfoCircleOutlined';
-import CloseCircleOutlined from '../icon/icons/CloseCircleOutlined';
-import ExclamationCircleOutlined from '../icon/icons/ExclamationCircleOutlined';
-import CloseOutlined from '../icon/icons/CloseOutlined';
+import CheckCircle from '../icon/icons/CheckCircle';
+import InfoCircle from '../icon/icons/InfoCircle';
+import CloseCircle from '../icon/icons/CloseCircle';
+import ExclamationCircle from '../icon/icons/ExclamationCircle';
+import Close from '../icon/icons/Close';
 
 export type NotificationPlacement = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
 
@@ -95,7 +95,7 @@ function getNotificationInstance(
       className: `${prefixCls}-${placement}`,
       style: getPlacementStyle(placement),
       getContainer: defaultGetContainer,
-      closeIcon: <CloseOutlined className={`${prefixCls}-close-icon`} />,
+      closeIcon: <Close className={`${prefixCls}-close-icon`} />,
     },
     (notification: any) => {
       notificationInstance[cacheKey] = notification;
@@ -104,10 +104,10 @@ function getNotificationInstance(
   );
 }
 const iconMap = {
-  success: CheckCircleOutlined,
-  info: InfoCircleOutlined,
-  error: CloseCircleOutlined,
-  warning: ExclamationCircleOutlined,
+  success: CheckCircle,
+  info: InfoCircle,
+  error: CloseCircle,
+  warning: ExclamationCircle,
 };
 
 export interface ArgsProps {

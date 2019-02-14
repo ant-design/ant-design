@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(WeiboCircleFill);
 
-export default (props: IconProps ) => <Icon {...props} type="weibo-circle" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="weibo-circle" theme="filled" />;

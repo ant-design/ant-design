@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(CarTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="car" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="car" theme="twoTone" />;

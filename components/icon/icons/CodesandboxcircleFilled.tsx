@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(CodeSandboxCircleFill);
 
-export default (props: IconProps ) => <Icon {...props} type="code-sandbox-circle" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="code-sandbox-circle" theme="filled" />;

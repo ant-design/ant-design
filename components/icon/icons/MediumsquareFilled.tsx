@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(MediumSquareFill);
 
-export default (props: IconProps ) => <Icon {...props} type="medium-square" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="medium-square" theme="filled" />;

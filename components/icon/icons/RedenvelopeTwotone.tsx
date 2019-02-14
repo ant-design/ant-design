@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(RedEnvelopeTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="red-envelope" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="red-envelope" theme="twoTone" />;

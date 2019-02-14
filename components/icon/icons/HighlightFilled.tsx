@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(HighlightFill);
 
-export default (props: IconProps ) => <Icon {...props} type="highlight" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="highlight" theme="filled" />;

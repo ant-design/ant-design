@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(TwitterSquareFill);
 
-export default (props: IconProps ) => <Icon {...props} type="twitter-square" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="twitter-square" theme="filled" />;

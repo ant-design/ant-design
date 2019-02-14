@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(LeftCircleFill);
 
-export default (props: IconProps ) => <Icon {...props} type="left-circle" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="left-circle" theme="filled" />;

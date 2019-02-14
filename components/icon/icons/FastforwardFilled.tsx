@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(FastForwardFill);
 
-export default (props: IconProps ) => <Icon {...props} type="fast-forward" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="fast-forward" theme="filled" />;

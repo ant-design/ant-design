@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(CompassTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="compass" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="compass" theme="twoTone" />;

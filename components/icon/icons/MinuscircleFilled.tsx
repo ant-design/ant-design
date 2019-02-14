@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(MinusCircleFill);
 
-export default (props: IconProps ) => <Icon {...props} type="minus-circle" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="minus-circle" theme="filled" />;

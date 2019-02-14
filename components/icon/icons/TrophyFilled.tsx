@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(TrophyFill);
 
-export default (props: IconProps ) => <Icon {...props} type="trophy" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="trophy" theme="filled" />;

@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(CopyrightCircleFill);
 
-export default (props: IconProps ) => <Icon {...props} type="copyright-circle" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="copyright-circle" theme="filled" />;

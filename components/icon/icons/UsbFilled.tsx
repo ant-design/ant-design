@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(UsbFill);
 
-export default (props: IconProps ) => <Icon {...props} type="usb" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="usb" theme="filled" />;

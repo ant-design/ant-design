@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(CloseSquareFill);
 
-export default (props: IconProps ) => <Icon {...props} type="close-square" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="close-square" theme="filled" />;

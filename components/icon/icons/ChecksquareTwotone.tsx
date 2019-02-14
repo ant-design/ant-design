@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(CheckSquareTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="check-square" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="check-square" theme="twoTone" />;

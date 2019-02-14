@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(ContactsFill);
 
-export default (props: IconProps ) => <Icon {...props} type="contacts" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="contacts" theme="filled" />;

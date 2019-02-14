@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(CalendarFill);
 
-export default (props: IconProps ) => <Icon {...props} type="calendar" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="calendar" theme="filled" />;

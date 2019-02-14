@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(InstagramFill);
 
-export default (props: IconProps ) => <Icon {...props} type="instagram" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="instagram" theme="filled" />;

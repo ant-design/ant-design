@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(DiffTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="diff" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="diff" theme="twoTone" />;

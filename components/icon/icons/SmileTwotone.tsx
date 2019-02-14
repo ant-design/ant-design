@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(SmileTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="smile" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="smile" theme="twoTone" />;

@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(SlidersTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="sliders" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="sliders" theme="twoTone" />;

@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(UnlockFill);
 
-export default (props: IconProps ) => <Icon {...props} type="unlock" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="unlock" theme="filled" />;

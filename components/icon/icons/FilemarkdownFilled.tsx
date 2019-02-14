@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(FileMarkdownFill);
 
-export default (props: IconProps ) => <Icon {...props} type="file-markdown" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="file-markdown" theme="filled" />;

@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(DashboardFill);
 
-export default (props: IconProps ) => <Icon {...props} type="dashboard" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="dashboard" theme="filled" />;

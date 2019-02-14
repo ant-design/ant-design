@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(FunnelPlotFill);
 
-export default (props: IconProps ) => <Icon {...props} type="funnel-plot" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="funnel-plot" theme="filled" />;

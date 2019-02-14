@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(CalculatorFill);
 
-export default (props: IconProps ) => <Icon {...props} type="calculator" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="calculator" theme="filled" />;

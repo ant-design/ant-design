@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(AlertTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="alert" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="alert" theme="twoTone" />;

@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(CodepenCircleFill);
 
-export default (props: IconProps ) => <Icon {...props} type="codepen-circle" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="codepen-circle" theme="filled" />;

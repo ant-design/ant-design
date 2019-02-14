@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(UsbTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="usb" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="usb" theme="twoTone" />;

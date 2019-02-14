@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(GoldenFill);
 
-export default (props: IconProps ) => <Icon {...props} type="golden" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="golden" theme="filled" />;

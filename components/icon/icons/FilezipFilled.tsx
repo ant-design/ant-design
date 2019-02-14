@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(FileZipFill);
 
-export default (props: IconProps ) => <Icon {...props} type="file-zip" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="file-zip" theme="filled" />;

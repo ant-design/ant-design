@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(LayoutFill);
 
-export default (props: IconProps ) => <Icon {...props} type="layout" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="layout" theme="filled" />;

@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(StopFill);
 
-export default (props: IconProps ) => <Icon {...props} type="stop" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="stop" theme="filled" />;

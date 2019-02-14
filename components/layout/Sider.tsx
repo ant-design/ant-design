@@ -20,9 +20,9 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import * as PropTypes from 'prop-types';
 import isNumeric from '../_util/isNumeric';
-import BarsOutlined from '../icon/icons/BarsOutlined';
-import LeftOutlined from '../icon/icons/LeftOutlined';
-import RightOutlined from '../icon/icons/RightOutlined';
+import Bars from '../icon/icons/Bars';
+import Left from '../icon/icons/Left';
+import Right from '../icon/icons/Right';
 
 const dimensionMap = {
   xs: '480px',
@@ -216,12 +216,12 @@ class Sider extends React.Component<SiderProps, SiderState> {
     const zeroWidthTrigger =
       parseFloat(String(collapsedWidth || 0)) === 0 ? (
         <span onClick={this.toggle} className={`${prefixCls}-zero-width-trigger`}>
-          <BarsOutlined />
+          <Bars />
         </span>
       ) : null;
     const iconObj = {
-      expanded: reverseArrow ? <RightOutlined /> : <LeftOutlined />,
-      collapsed: reverseArrow ? <LeftOutlined /> : <RightOutlined />,
+      expanded: reverseArrow ? <Right /> : <Left />,
+      collapsed: reverseArrow ? <Left /> : <Right />,
     };
     const status = this.state.collapsed ? 'collapsed' : 'expanded';
     const defaultTrigger = iconObj[status];

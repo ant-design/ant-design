@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(Html5Twotone);
 
-export default (props: IconProps ) => <Icon {...props} type="html5" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="html5" theme="twoTone" />;

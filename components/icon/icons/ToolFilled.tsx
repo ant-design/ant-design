@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(ToolFill);
 
-export default (props: IconProps ) => <Icon {...props} type="tool" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="tool" theme="filled" />;

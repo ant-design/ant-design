@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(CaretUpFill);
 
-export default (props: IconProps ) => <Icon {...props} type="caret-up" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="caret-up" theme="filled" />;

@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(UpSquareFill);
 
-export default (props: IconProps ) => <Icon {...props} type="up-square" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="up-square" theme="filled" />;

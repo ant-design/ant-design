@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(BoxPlotTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="box-plot" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="box-plot" theme="twoTone" />;

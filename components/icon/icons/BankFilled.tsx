@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(BankFill);
 
-export default (props: IconProps ) => <Icon {...props} type="bank" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="bank" theme="filled" />;

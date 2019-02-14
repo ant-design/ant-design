@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(StopTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="stop" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="stop" theme="twoTone" />;

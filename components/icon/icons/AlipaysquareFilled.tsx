@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(AlipaySquareFill);
 
-export default (props: IconProps ) => <Icon {...props} type="alipay-square" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="alipay-square" theme="filled" />;

@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(ApiTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="api" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="api" theme="twoTone" />;

@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(DislikeFill);
 
-export default (props: IconProps ) => <Icon {...props} type="dislike" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="dislike" theme="filled" />;

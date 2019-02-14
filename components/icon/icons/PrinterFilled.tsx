@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(PrinterFill);
 
-export default (props: IconProps ) => <Icon {...props} type="printer" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="printer" theme="filled" />;

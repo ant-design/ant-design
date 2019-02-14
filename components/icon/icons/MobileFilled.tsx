@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(MobileFill);
 
-export default (props: IconProps ) => <Icon {...props} type="mobile" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="mobile" theme="filled" />;

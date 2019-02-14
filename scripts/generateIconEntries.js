@@ -5,7 +5,7 @@ const manifest = require('@ant-design/icons/lib/manifest').default;
 
 const themeMap = {
   fill: 'filled',
-  outline: 'outlined',
+  outline: '',
   twotone: 'twoTone',
 };
 

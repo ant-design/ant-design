@@ -2,7 +2,7 @@ import * as React from 'react';
 import RcMention, { Nav, toString, toEditorState, getMentions } from 'rc-editor-mention';
 import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
-import LoadingOutlined from '../icon/icons/LoadingOutlined';
+import Loading from '../icon/icons/Loading';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export type MentionPlacement = 'top' | 'bottom';
@@ -125,7 +125,7 @@ class Mention extends React.Component<MentionProps, MentionState> {
       [`${prefixCls}-active`]: focus,
       [`${prefixCls}-placement-top`]: placement === 'top',
     });
-    const notFoundContent = loading ? <LoadingOutlined /> : this.props.notFoundContent;
+    const notFoundContent = loading ? <Loading /> : this.props.notFoundContent;
 
     return (
       <RcMention

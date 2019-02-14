@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(CameraFill);
 
-export default (props: IconProps ) => <Icon {...props} type="camera" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="camera" theme="filled" />;

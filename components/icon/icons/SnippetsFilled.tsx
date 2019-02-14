@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(SnippetsFill);
 
-export default (props: IconProps ) => <Icon {...props} type="snippets" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="snippets" theme="filled" />;

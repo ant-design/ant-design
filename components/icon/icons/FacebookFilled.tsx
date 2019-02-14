@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(FacebookFill);
 
-export default (props: IconProps ) => <Icon {...props} type="facebook" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="facebook" theme="filled" />;

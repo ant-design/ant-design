@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(BoxPlotFill);
 
-export default (props: IconProps ) => <Icon {...props} type="box-plot" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="box-plot" theme="filled" />;

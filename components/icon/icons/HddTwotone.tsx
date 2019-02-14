@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(HddTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="hdd" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="hdd" theme="twoTone" />;

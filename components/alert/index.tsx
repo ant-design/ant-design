@@ -6,15 +6,15 @@ import classNames from 'classnames';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 import warning from '../_util/warning';
-import CheckCircleOutlined from '../icon/icons/CheckCircleOutlined';
-import InfoCircleOutlined from '../icon/icons/InfoCircleOutlined';
-import CloseCircleOutlined from '../icon/icons/CloseCircleOutlined';
-import ExclamationCircleOutlined from '../icon/icons/ExclamationCircleOutlined';
+import CheckCircle from '../icon/icons/CheckCircle';
+import InfoCircle from '../icon/icons/InfoCircle';
+import CloseCircle from '../icon/icons/CloseCircle';
+import ExclamationCircle from '../icon/icons/ExclamationCircle';
 import CheckCircleFilled from '../icon/icons/CheckCircleFilled';
 import InfoCircleFilled from '../icon/icons/InfoCircleFilled';
 import CloseCircleFilled from '../icon/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '../icon/icons/ExclamationCircleFilled';
-import CloseOutlined from '../icon/icons/CloseOutlined';
+import Close from '../icon/icons/Close';
 
 function noop() {}
 
@@ -22,13 +22,13 @@ const filledIconMap = {
   success: CheckCircleFilled,
   info: InfoCircleFilled,
   error: CloseCircleFilled,
-  warning: ExclamationCircleOutlined,
+  warning: ExclamationCircle,
 };
 
 const outlinedIconMap = {
-  success: CheckCircleOutlined,
-  info: InfoCircleOutlined,
-  error: CloseCircleOutlined,
+  success: CheckCircle,
+  info: InfoCircle,
+  error: CloseCircle,
   warning: ExclamationCircleFilled,
 };
 
@@ -174,7 +174,7 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
 
     const closeIcon = closable ? (
       <a onClick={this.handleClose} className={`${prefixCls}-close-icon`}>
-        {closeText || <CloseOutlined />}
+        {closeText || <Close />}
       </a>
     ) : null;
 

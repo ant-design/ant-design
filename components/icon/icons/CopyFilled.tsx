@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(CopyFill);
 
-export default (props: IconProps ) => <Icon {...props} type="copy" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="copy" theme="filled" />;

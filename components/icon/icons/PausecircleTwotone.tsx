@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(PauseCircleTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="pause-circle" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="pause-circle" theme="twoTone" />;

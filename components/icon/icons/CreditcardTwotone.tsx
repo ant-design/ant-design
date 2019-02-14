@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(CreditCardTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="credit-card" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="credit-card" theme="twoTone" />;

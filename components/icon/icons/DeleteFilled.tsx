@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(DeleteFill);
 
-export default (props: IconProps ) => <Icon {...props} type="delete" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="delete" theme="filled" />;

@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(ReconciliationTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="reconciliation" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="reconciliation" theme="twoTone" />;

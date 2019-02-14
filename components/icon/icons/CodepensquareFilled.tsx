@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(CodepenSquareFill);
 
-export default (props: IconProps ) => <Icon {...props} type="codepen-square" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="codepen-square" theme="filled" />;

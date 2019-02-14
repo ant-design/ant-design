@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(DownCircleFill);
 
-export default (props: IconProps ) => <Icon {...props} type="down-circle" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="down-circle" theme="filled" />;

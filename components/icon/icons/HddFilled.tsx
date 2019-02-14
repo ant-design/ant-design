@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(HddFill);
 
-export default (props: IconProps ) => <Icon {...props} type="hdd" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="hdd" theme="filled" />;

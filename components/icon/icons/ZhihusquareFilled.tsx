@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(ZhihuSquareFill);
 
-export default (props: IconProps ) => <Icon {...props} type="zhihu-square" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="zhihu-square" theme="filled" />;

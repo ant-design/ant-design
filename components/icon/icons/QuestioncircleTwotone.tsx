@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(QuestionCircleTwotone);
 
-export default (props: IconProps ) => <Icon {...props} type="question-circle" theme="twoTone" />;
+export default (props: IconProps) => <Icon {...props} type="question-circle" theme="twoTone" />;

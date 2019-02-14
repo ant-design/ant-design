@@ -8,4 +8,4 @@ import Icon, { IconProps } from '..';
 
 ReactIcon.add(YoutubeFill);
 
-export default (props: IconProps ) => <Icon {...props} type="youtube" theme="filled" />;
+export default (props: IconProps) => <Icon {...props} type="youtube" theme="filled" />;
