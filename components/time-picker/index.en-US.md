@@ -46,6 +46,7 @@ import moment from 'moment';
 | popupStyle | style of panel | object | - |
 | secondStep | interval between seconds in picker | number | 1 |
 | suffixIcon | The custom suffix icon | ReactNode | - |
+| clearIcon | The custom clear icon | ReactNode | - |
 | use12Hours | display as 12 hours format, with default format `h:mm:ss a` | boolean | false |
 | value | to set time | [moment](http://momentjs.com/) | - |
 | onChange | a callback function, can be executed when the selected time is changing | function(time: moment, timeString: string): void | - |

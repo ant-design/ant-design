@@ -11,4 +11,14 @@ describe('Collapse', () => {
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  it('should render extra node of panel', () => {
+    const wrapper = mount(
+      <Collapse>
+        <Collapse.Panel header="header" extra={<button type="button">action</button>} />
+        <Collapse.Panel header="header" extra={<button type="button">action</button>} />
+      </Collapse>
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });
