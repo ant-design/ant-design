@@ -19,8 +19,10 @@ import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import * as PropTypes from 'prop-types';
-import Icon from '../icon';
 import isNumeric from '../_util/isNumeric';
+import BarsOutlined from '../icon/icons/BarsOutlined';
+import LeftOutlined from '../icon/icons/LeftOutlined';
+import RightOutlined from '../icon/icons/RightOutlined';
 
 const dimensionMap = {
   xs: '480px',
@@ -214,12 +216,12 @@ class Sider extends React.Component<SiderProps, SiderState> {
     const zeroWidthTrigger =
       parseFloat(String(collapsedWidth || 0)) === 0 ? (
         <span onClick={this.toggle} className={`${prefixCls}-zero-width-trigger`}>
-          <Icon type="bars" />
+          <BarsOutlined />
         </span>
       ) : null;
     const iconObj = {
-      expanded: reverseArrow ? <Icon type="right" /> : <Icon type="left" />,
-      collapsed: reverseArrow ? <Icon type="left" /> : <Icon type="right" />,
+      expanded: reverseArrow ? <RightOutlined /> : <LeftOutlined />,
+      collapsed: reverseArrow ? <LeftOutlined /> : <RightOutlined />,
     };
     const status = this.state.collapsed ? 'collapsed' : 'expanded';
     const defaultTrigger = iconObj[status];
