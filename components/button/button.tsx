@@ -8,6 +8,8 @@ import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Wave from '../_util/wave';
 import { tuple } from '../_util/type';
+import warning from '../_util/warning';
+import Loading from '../icon/icons/Loading';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
@@ -51,7 +53,7 @@ export type ButtonHTMLType = (typeof ButtonHTMLTypes)[number];
 
 export interface BaseButtonProps {
   type?: ButtonType;
-  icon?: string;
+  icon?: string | React.ReactNode;
   shape?: ButtonShape;
   size?: ButtonSize;
   loading?: boolean | { delay?: number };
@@ -100,7 +102,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     onClick: PropTypes.func,
     loading: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
     className: PropTypes.string,
-    icon: PropTypes.string,
+    icon: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     block: PropTypes.bool,
   };
 
@@ -205,6 +207,12 @@ class Button extends React.Component<ButtonProps, ButtonState> {
       block,
       ...rest
     } = this.props;
+
+    warning(
+      typeof icon !== 'string',
+      `Passing string to 'icon' is deprecated and will be removed in next major release. Please pass a ReactNode to 'icon' instead.`,
+    );
+
     const { loading, hasTwoCNChar } = this.state;
 
     const prefixCls = getPrefixCls('btn', customizePrefixCls);
@@ -234,8 +242,9 @@ class Button extends React.Component<ButtonProps, ButtonState> {
       [`${prefixCls}-block`]: block,
     });
 
-    const iconType = loading ? 'loading' : icon;
-    const iconNode = iconType ? <Icon type={iconType} /> : null;
+    const iconType = loading ? <Loading /> : icon;
+    const iconNode =
+      iconType && (typeof iconType === 'string' ? <Icon type={iconType} /> : iconType);
     const kids =
       children || children === 0
         ? React.Children.map(children, child =>
