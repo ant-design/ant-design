@@ -6,11 +6,13 @@ import Dialog, { ModalFuncProps, destroyFns } from './Modal';
 import ActionButton from './ActionButton';
 import { getConfirmLocale } from './locale';
 import warning from '../_util/warning';
+import QuestionCircleOutlined from '../icon/icons/QuestionCircleOutlined';
 
 interface ConfirmDialogProps extends ModalFuncProps {
   afterClose?: () => void;
   close: (...args: any[]) => void;
   autoFocusButton?: null | 'ok' | 'cancel';
+  icon?: React.ReactNode;
 }
 
 const IS_REACT_16 = !!ReactDOM.createPortal;
@@ -29,13 +31,15 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     maskStyle,
     okButtonProps,
     cancelButtonProps,
-    iconType = 'question-circle',
+    iconType,
+    icon,
   } = props;
+
   warning(
-    !('iconType' in props),
-    `The property 'iconType' is deprecated. Use the property 'icon' instead.`,
+    !iconType,
+    `The prop 'Modal.confirm({ iconType )}' is deprecated and will be removed in next major release. Please use 'icon' instead.`,
   );
-  const icon = props.icon ? props.icon : iconType;
+
   const okType = props.okType || 'primary';
   const prefixCls = props.prefixCls || 'ant-modal';
   const contentPrefixCls = `${prefixCls}-confirm`;
@@ -70,8 +74,6 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     </ActionButton>
   );
 
-  const iconNode = typeof icon === 'string' ? <Icon type={icon} /> : icon;
-
   return (
     <Dialog
       prefixCls={prefixCls}
@@ -96,7 +98,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     >
       <div className={`${contentPrefixCls}-body-wrapper`}>
         <div className={`${contentPrefixCls}-body`}>
-          {iconNode}
+          {iconType ? <Icon type={iconType!} /> : icon}
           <span className={`${contentPrefixCls}-title`}>{props.title}</span>
           <div className={`${contentPrefixCls}-content`}>{props.content}</div>
         </div>
@@ -115,6 +117,10 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
       </div>
     </Dialog>
   );
+};
+
+ConfirmDialog.defaultProps = {
+  icon: <QuestionCircleOutlined />,
 };
 
 export default function confirm(config: ModalFuncProps) {

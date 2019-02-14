@@ -67,8 +67,7 @@ title: Modal
 | centered | 垂直居中展示 Modal | Boolean | `false` |
 | className | 容器类名 | string | - |
 | content | 内容 | string\|ReactNode | 无 |
-| icon | 自定义图标（3.12.0 新增） | string\|ReactNode | `<Icon type="question-circle">` |
-| iconType | 图标类型（3.12.0 后废弃，请使用 `icon`） | string | `question-circle` |
+| icon | 自定义图标（3.12.0 新增）| ReactNode | `<Icon type="question-circle">` |
 | mask | 是否展示遮罩 | Boolean | true |
 | maskClosable | 点击蒙层是否允许关闭 | Boolean | `false` |
 | okText | 确认按钮文字 | string | 确定 |
