@@ -1,13 +1,36 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import Animate from 'rc-animate';
-import Icon, { ThemeType } from '../icon';
+import Icon from '../icon';
 import classNames from 'classnames';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 import warning from '../_util/warning';
+import CheckCircleOutlined from '../icon/icons/CheckCircleOutlined';
+import InfoCircleOutlined from '../icon/icons/InfoCircleOutlined';
+import CloseCircleOutlined from '../icon/icons/CloseCircleOutlined';
+import ExclamationCircleOutlined from '../icon/icons/ExclamationCircleOutlined';
+import CheckCircleFilled from '../icon/icons/CheckCircleFilled';
+import InfoCircleFilled from '../icon/icons/InfoCircleFilled';
+import CloseCircleFilled from '../icon/icons/CloseCircleFilled';
+import ExclamationCircleFilled from '../icon/icons/ExclamationCircleFilled';
+import CloseOutlined from '../icon/icons/CloseOutlined';
 
 function noop() {}
+
+const filledIconMap = {
+  success: CheckCircleFilled,
+  info: InfoCircleFilled,
+  error: CloseCircleFilled,
+  warning: ExclamationCircleOutlined,
+};
+
+const outlinedIconMap = {
+  success: CheckCircleOutlined,
+  info: InfoCircleOutlined,
+  error: CloseCircleOutlined,
+  warning: ExclamationCircleFilled,
+};
 
 export interface AlertProps {
   /**
@@ -42,6 +65,10 @@ export interface AlertState {
 }
 
 export default class Alert extends React.Component<AlertProps, AlertState> {
+  static defaultProps = {
+    prefixCls: 'ant-alert',
+  };
+
   state: AlertState = {
     closing: true,
     closed: false,
@@ -69,6 +96,40 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
     (this.props.afterClose || noop)();
   };
 
+  computedType() {
+    const { type, banner } = this.props;
+    // banner模式默认为警告
+    return banner && type === undefined ? 'warning' : type || 'info';
+  }
+
+  renderIcon() {
+    const { iconType, description, prefixCls, icon } = this.props;
+    const type = this.computedType();
+
+    const builtInIcon = iconType ? (
+      <Icon className={`${prefixCls}-icon`} type={iconType} />
+    ) : (
+      React.createElement(!!description ? outlinedIconMap[type] : filledIconMap[type], {
+        className: `${prefixCls}-icon`,
+      })
+    );
+
+    return icon ? (
+      React.isValidElement<{ className?: string }>(icon) ? (
+        React.cloneElement(icon, {
+          className: classNames({
+            [icon.props.className!]: icon.props.className,
+            [`${prefixCls}-icon`]: true,
+          }),
+        })
+      ) : (
+        <span className={`${prefixCls}-icon`}>{icon}</span>
+      )
+    ) : (
+      builtInIcon
+    );
+  }
+
   renderAlert = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
       description,
@@ -78,47 +139,25 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
       banner,
       className = '',
       style,
-      icon,
     } = this.props;
-    let { closable, type, showIcon, iconType } = this.props;
+    let { closable, showIcon, iconType } = this.props;
+
+    warning(
+      !iconType,
+      `The prop 'iconType' is deprecated and will be removed in next major release. Please use 'icon' instead.`,
+    );
 
     const prefixCls = getPrefixCls('alert', customizePrefixCls);
 
     // banner模式默认有 Icon
     showIcon = banner && showIcon === undefined ? true : showIcon;
-    // banner模式默认为警告
-    type = banner && type === undefined ? 'warning' : type || 'info';
-
-    let iconTheme: ThemeType = 'filled';
-    warning(!iconType, `The prop 'iconType' is deprecated and will be removed in next major release. Please use 'icon' instead.`);
-    if (!iconType) {
-      switch (type) {
-        case 'success':
-          iconType = 'check-circle';
-          break;
-        case 'info':
-          iconType = 'info-circle';
-          break;
-        case 'error':
-          iconType = 'close-circle';
-          break;
-        case 'warning':
-          iconType = 'exclamation-circle';
-          break;
-        default:
-          iconType = 'default';
-      }
-
-      // use outline icon in alert with description
-      if (!!description) {
-        iconTheme = 'outlined';
-      }
-    }
 
     // closeable when closeText is assigned
     if (closeText) {
       closable = true;
     }
+
+    const type = this.computedType();
 
     const alertCls = classNames(
       prefixCls,
@@ -135,23 +174,11 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
 
     const closeIcon = closable ? (
       <a onClick={this.handleClose} className={`${prefixCls}-close-icon`}>
-        {closeText || <Icon type="close" />}
+        {closeText || <CloseOutlined />}
       </a>
     ) : null;
 
     const dataOrAriaProps = getDataOrAriaProps(this.props);
-
-    const iconNode = (icon &&
-      (React.isValidElement<{ className?: string }>(icon) ? (
-        React.cloneElement(icon, {
-          className: classNames({
-            [icon.props.className as string]: icon.props.className,
-            [`${prefixCls}-icon`]: true,
-          }),
-        })
-      ) : (
-        <span className={`${prefixCls}-icon`}>{icon}</span>
-      ))) || <Icon className={`${prefixCls}-icon`} type={iconType} theme={iconTheme} />;
 
     return this.state.closed ? null : (
       <Animate
@@ -161,7 +188,7 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
         onEnd={this.animationEnd}
       >
         <div data-show={this.state.closing} className={alertCls} style={style} {...dataOrAriaProps}>
-          {showIcon ? iconNode : null}
+          {showIcon && this.renderIcon()}
           <span className={`${prefixCls}-message`}>{message}</span>
           <span className={`${prefixCls}-description`}>{description}</span>
           {closeIcon}
