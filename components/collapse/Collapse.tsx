@@ -2,7 +2,7 @@ import * as React from 'react';
 import RcCollapse from 'rc-collapse';
 import classNames from 'classnames';
 import CollapsePanel from './CollapsePanel';
-import Icon from '../icon';
+import Right from '../icon/icons/Right';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import animation from '../_util/openAnimation';
 
@@ -44,7 +44,7 @@ export default class Collapse extends React.Component<CollapseProps, any> {
     const icon = expandIcon ? (
       expandIcon(panelProps)
     ) : (
-      <Icon type="right" rotate={panelProps.isActive ? 90 : undefined} />
+      <Right rotate={panelProps.isActive ? 90 : undefined} />
     );
     return React.isValidElement(icon)
       ? React.cloneElement(icon as any, {
