@@ -6,18 +6,17 @@ import { CheckboxChangeEvent } from '../checkbox';
 import { PaginationConfig } from '../pagination';
 export { PaginationConfig } from '../pagination';
 
-export type CompareFn<T> = ((a: T, b: T, sortOrder?: SortOrder) => number);
-export type ColumnFilterItem = { text: string; value: string; children?: ColumnFilterItem[] };
+export type CompareFn<T> = (a: T, b: T, sortOrder?: SortOrder) => number;
+export type ColumnFilterItem = {
+  text: React.ReactNode;
+  value: string;
+  children?: ColumnFilterItem[];
+};
 
 export interface ColumnProps<T> {
   title?:
     | React.ReactNode
-    | ((
-        options: {
-          filters: TableStateFilters;
-          sortOrder?: SortOrder;
-        },
-      ) => React.ReactNode);
+    | ((options: { filters: TableStateFilters; sortOrder?: SortOrder }) => React.ReactNode);
   key?: React.Key;
   dataIndex?: string; // Note: We can not use generic type here, since we need to support nested key, see #9393
   render?: (text: any, record: T, index: number) => React.ReactNode;
