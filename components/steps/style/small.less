@@ -9,22 +9,22 @@
   .@{steps-prefix-cls}-item-icon {
     width: @steps-small-icon-size;
     height: @steps-small-icon-size;
+    font-size: @font-size-sm;
     line-height: @steps-small-icon-size;
     text-align: center;
     border-radius: @steps-small-icon-size;
-    font-size: @font-size-sm;
   }
   .@{steps-prefix-cls}-item-title {
+    padding-right: 12px;
     font-size: @font-size-base;
     line-height: @steps-small-icon-size;
-    padding-right: 12px;
-    &:after {
+    &::after {
       top: @steps-small-icon-size / 2;
     }
   }
   .@{steps-prefix-cls}-item-description {
-    font-size: @font-size-base;
     color: @text-color-secondary;
+    font-size: @font-size-base;
   }
   .@{steps-prefix-cls}-item-tail {
     top: 8px;
@@ -34,9 +34,9 @@
     width: inherit;
     height: inherit;
     line-height: inherit;
-    border-radius: 0;
-    border: 0;
     background: none;
+    border: 0;
+    border-radius: 0;
     > .@{steps-prefix-cls}-icon {
       font-size: @steps-small-icon-size;
       line-height: @steps-small-icon-size;

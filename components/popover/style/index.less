@@ -9,16 +9,16 @@
   top: 0;
   left: 0;
   z-index: @zindex-popover;
+  font-weight: normal;
+  white-space: normal;
+  text-align: left;
   cursor: auto;
   user-select: text;
-  white-space: normal;
-  font-weight: normal;
-  text-align: left;
 
-  &:after {
-    content: '';
+  &::after {
     position: absolute;
     background: fade(@white, 1%);
+    content: '';
   }
 
   &-hidden {
@@ -67,12 +67,12 @@
 
   &-title {
     min-width: @popover-min-width;
+    min-height: 32px;
     margin: 0; // reset heading margin
     padding: 5px @padding-md 4px;
-    min-height: 32px;
-    border-bottom: 1px solid @border-color-split;
     color: @heading-color;
     font-weight: 500;
+    border-bottom: 1px solid @border-color-split;
   }
 
   &-inner-content {
@@ -81,10 +81,10 @@
   }
 
   &-message {
-    padding: 4px 0 12px;
-    font-size: @font-size-base;
-    color: @popover-color;
     position: relative;
+    padding: 4px 0 12px;
+    color: @popover-color;
+    font-size: @font-size-base;
     > .@{iconfont-css-prefix} {
       position: absolute;
       top: 8px; // 4px for padding-top, 4px for vertical middle;
@@ -97,8 +97,8 @@
   }
 
   &-buttons {
-    text-align: right;
     margin-bottom: 4px;
+    text-align: right;
     button {
       margin-left: 8px;
     }
@@ -108,25 +108,25 @@
   // .popover-arrow is outer, .popover-arrow:after is inner
 
   &-arrow {
-    background: transparent;
-    width: sqrt(@popover-arrow-width * @popover-arrow-width * 2);
-    height: sqrt(@popover-arrow-width * @popover-arrow-width * 2);
-    transform: rotate(45deg);
     position: absolute;
     display: block;
+    width: sqrt(@popover-arrow-width * @popover-arrow-width * 2);
+    height: sqrt(@popover-arrow-width * @popover-arrow-width * 2);
+    background: transparent;
     border-width: sqrt(@popover-arrow-width * @popover-arrow-width * 2) / 2;
     border-style: solid;
+    transform: rotate(45deg);
   }
 
   &-placement-top > &-content > &-arrow,
   &-placement-topLeft > &-content > &-arrow,
   &-placement-topRight > &-content > &-arrow {
     bottom: @popover-distance - @popover-arrow-width + 2.2px;
-    box-shadow: 3px 3px 7px fade(@black, 7%);
     border-top-color: transparent;
     border-right-color: @popover-bg;
     border-bottom-color: @popover-bg;
     border-left-color: transparent;
+    box-shadow: 3px 3px 7px fade(@black, 7%);
   }
   &-placement-top > &-content > &-arrow {
     left: 50%;
@@ -143,11 +143,11 @@
   &-placement-rightTop > &-content > &-arrow,
   &-placement-rightBottom > &-content > &-arrow {
     left: @popover-distance - @popover-arrow-width + 2px;
-    box-shadow: -3px 3px 7px fade(@black, 7%);
     border-top-color: transparent;
     border-right-color: transparent;
     border-bottom-color: @popover-bg;
     border-left-color: @popover-bg;
+    box-shadow: -3px 3px 7px fade(@black, 7%);
   }
   &-placement-right > &-content > &-arrow {
     top: 50%;
@@ -164,11 +164,11 @@
   &-placement-bottomLeft > &-content > &-arrow,
   &-placement-bottomRight > &-content > &-arrow {
     top: @popover-distance - @popover-arrow-width + 2px;
-    box-shadow: -2px -2px 5px fade(@black, 6%);
     border-top-color: @popover-bg;
     border-right-color: transparent;
     border-bottom-color: transparent;
     border-left-color: @popover-bg;
+    box-shadow: -2px -2px 5px fade(@black, 6%);
   }
   &-placement-bottom > &-content > &-arrow {
     left: 50%;
@@ -185,11 +185,11 @@
   &-placement-leftTop > &-content > &-arrow,
   &-placement-leftBottom > &-content > &-arrow {
     right: @popover-distance - @popover-arrow-width + 2px;
-    box-shadow: 3px -3px 7px fade(@black, 7%);
     border-top-color: @popover-bg;
     border-right-color: @popover-bg;
     border-bottom-color: transparent;
     border-left-color: transparent;
+    box-shadow: 3px -3px 7px fade(@black, 7%);
   }
   &-placement-left > &-content > &-arrow {
     top: 50%;

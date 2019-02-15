@@ -8,9 +8,9 @@
   display: inline-block;
 
   &-line {
+    position: relative;
     width: 100%;
     font-size: @font-size-base;
-    position: relative;
   }
 
   &-small&-line,
@@ -24,18 +24,18 @@
     margin-right: 0;
     padding-right: 0;
     .@{progress-prefix-cls}-show-info & {
-      padding-right: ~'calc(2em + 8px)';
       margin-right: ~'calc(-2em - 8px)';
+      padding-right: ~'calc(2em + 8px)';
     }
   }
 
   &-inner {
+    position: relative;
     display: inline-block;
     width: 100%;
+    vertical-align: middle;
     background-color: @progress-remaining-color;
     border-radius: 100px;
-    vertical-align: middle;
-    position: relative;
   }
 
   &-circle-trail {
@@ -43,52 +43,52 @@
   }
 
   &-circle-path {
-    stroke: @progress-default-color;
     animation: ~'@{ant-prefix}-progress-appear' 0.3s;
+    stroke: @progress-default-color;
   }
 
   &-success-bg,
   &-bg {
+    position: relative;
     background-color: @progress-default-color;
     transition: all 0.4s @ease-out-circ 0s;
-    position: relative;
   }
 
   &-success-bg {
-    background-color: @success-color;
     position: absolute;
     top: 0;
     left: 0;
+    background-color: @success-color;
   }
 
   &-text {
-    word-break: normal;
-    width: 2em;
-    text-align: left;
-    font-size: 1em;
-    margin-left: 8px;
-    vertical-align: middle;
     display: inline-block;
-    white-space: nowrap;
+    width: 2em;
+    margin-left: 8px;
     color: @text-color-secondary;
+    font-size: 1em;
     line-height: 1;
+    white-space: nowrap;
+    text-align: left;
+    vertical-align: middle;
+    word-break: normal;
     .@{iconfont-css-prefix} {
       font-size: @font-size-base;
     }
   }
 
   &-status-active {
-    .@{progress-prefix-cls}-bg:before {
-      content: '';
-      opacity: 0;
+    .@{progress-prefix-cls}-bg::before {
       position: absolute;
       top: 0;
-      left: 0;
       right: 0;
       bottom: 0;
+      left: 0;
       background: @component-background;
       border-radius: 10px;
+      opacity: 0;
       animation: ~'@{ant-prefix}-progress-active' 2.4s @ease-out-quint infinite;
+      content: '';
     }
   }
 
@@ -124,16 +124,16 @@
 
   &-circle &-text {
     position: absolute;
-    width: 100%;
-    text-align: center;
-    line-height: 1;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    width: 100%;
     margin: 0;
     padding: 0;
     color: @progress-text-color;
+    line-height: 1;
     white-space: normal;
+    text-align: center;
+    transform: translate(-50%, -50%);
 
     .@{iconfont-css-prefix} {
       font-size: 14 / 12em;
@@ -154,15 +154,15 @@
 
 @keyframes ~"@{ant-prefix}-progress-active" {
   0% {
-    opacity: 0.1;
     width: 0;
+    opacity: 0.1;
   }
   20% {
-    opacity: 0.5;
     width: 0;
+    opacity: 0.5;
   }
   100% {
-    opacity: 0;
     width: 100%;
+    opacity: 0;
   }
 }
