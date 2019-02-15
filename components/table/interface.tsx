@@ -8,7 +8,7 @@ export { PaginationConfig } from '../pagination';
 
 export type CompareFn<T> = (a: T, b: T, sortOrder?: SortOrder) => number;
 export type ColumnFilterItem = {
-  text: string | React.ReactNode;
+  text: React.ReactNode;
   value: string;
   children?: ColumnFilterItem[];
 };
