@@ -121,9 +121,7 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
 
     const inputIcon = (suffixIcon &&
       (React.isValidElement<{ className?: string }>(suffixIcon)
-        ? React.cloneElement(suffixIcon, {
-            className: classNames(suffixIcon.props.className, `${prefixCls}-arrow-icon`),
-          })
+        ? React.cloneElement(suffixIcon)
         : suffixIcon)) || <Icon type="down" className={`${prefixCls}-arrow-icon`} />;
 
     const finalRemoveIcon = (removeIcon &&
