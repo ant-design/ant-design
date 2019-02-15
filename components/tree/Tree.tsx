@@ -142,7 +142,9 @@ export interface TreeProps {
   style?: React.CSSProperties;
   showIcon?: boolean;
   icon?: (nodeProps: AntdTreeNodeAttribute) => React.ReactNode | React.ReactNode;
-  switcherIcon?: React.ReactElement<any>;
+  switcherIcon?: React.ReactNode;
+  loadingIcon?: React.ReactNode;
+  caretDownIcon?: React.ReactNode;
   prefixCls?: string;
   filterTreeNode?: (node: AntTreeNode) => boolean;
   children?: React.ReactNode | React.ReactNode[];
@@ -163,14 +165,18 @@ export default class Tree extends React.Component<TreeProps, any> {
 
   tree: any;
 
-  renderSwitcherIcon = (
-    prefixCls: string,
-    switcherIcon: React.ReactElement<any> | undefined,
-    { isLeaf, expanded, loading }: AntTreeNodeProps,
-  ) => {
-    const { showLine } = this.props;
+  renderSwitcherIcon = (prefixCls: string, { isLeaf, expanded, loading }: AntTreeNodeProps) => {
+    const { showLine, switcherIcon, loadingIcon, caretDownIcon } = this.props;
     if (loading) {
-      return <Icon type="loading" className={`${prefixCls}-switcher-loading-icon`} />;
+      const loadingCls = `${prefixCls}-switcher-loading-icon`;
+      if (loadingIcon) {
+        return React.isValidElement<{ className?: string }>(loadingIcon)
+          ? React.cloneElement(loadingIcon, {
+              className: classNames(loadingIcon.props.className, loadingCls),
+            })
+          : loadingIcon;
+      }
+      return <Icon type="loading" className={loadingCls} />;
     }
     if (showLine) {
       if (isLeaf) {
@@ -188,11 +194,19 @@ export default class Tree extends React.Component<TreeProps, any> {
       if (isLeaf) {
         return null;
       } else if (switcherIcon) {
-        const switcherOriginCls = switcherIcon.props.className || '';
-        return React.cloneElement(switcherIcon, {
-          className: [switcherOriginCls, switcherCls],
-        });
+        return React.isValidElement<{ className?: string }>(switcherIcon)
+          ? React.cloneElement(switcherIcon, {
+              className: classNames(switcherIcon.props.className, switcherCls),
+            })
+          : switcherIcon;
       } else {
+        if (caretDownIcon) {
+          return React.isValidElement<{ className?: string }>(caretDownIcon)
+            ? React.cloneElement(caretDownIcon, {
+                className: classNames(caretDownIcon.props.className, switcherCls),
+              })
+            : caretDownIcon;
+        }
         return <Icon type="caret-down" className={switcherCls} theme="filled" />;
       }
     }
@@ -204,7 +218,7 @@ export default class Tree extends React.Component<TreeProps, any> {
 
   renderTree = ({ getPrefixCls }: ConfigConsumerProps) => {
     const props = this.props;
-    const { prefixCls: customizePrefixCls, className, showIcon, switcherIcon } = props;
+    const { prefixCls: customizePrefixCls, className, showIcon } = props;
     const checkable = props.checkable;
     const prefixCls = getPrefixCls('tree', customizePrefixCls);
     return (
@@ -215,7 +229,7 @@ export default class Tree extends React.Component<TreeProps, any> {
         className={classNames(!showIcon && `${prefixCls}-icon-hide`, className)}
         checkable={checkable ? <span className={`${prefixCls}-checkbox-inner`} /> : checkable}
         switcherIcon={(nodeProps: AntTreeNodeProps) =>
-          this.renderSwitcherIcon(prefixCls, switcherIcon, nodeProps)
+          this.renderSwitcherIcon(prefixCls, nodeProps)
         }
       >
         {this.props.children}
