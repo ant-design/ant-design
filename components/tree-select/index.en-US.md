@@ -39,6 +39,10 @@ Any data whose entries are defined in a hierarchical manner is fit to use this c
 | showSearch | Whether to display a search input in the dropdown menu(valid only in the single mode) | boolean | false |
 | size | To set the size of the select input, options: `large` `small` | string | 'default' |
 | suffixIcon | The custom suffix icon | ReactNode | - |
+| clearIcon | The custom clear icon | ReactNode | - |
+| removeIcon | The custom remove icon | ReactNode | - |
+| loadingIcon | The custom loading icon | ReactNode | - |
+| caretDownIcon | The custom caret down icon | ReactNode | - |
 | treeCheckable | Whether to show checkbox on the treeNodes | boolean | false |
 | treeCheckStrictly | Whether to check nodes precisely (in the `checkable` mode), means parent and child nodes are not associated, and it will make `labelInValue` be true | boolean | false |
 | treeData | Data of the treeNodes, manual construction work is no longer needed if this property has been set(ensure the Uniqueness of each value) | array\<{ value, title, children, \[disabled, disableCheckbox, selectable] }> | \[] |

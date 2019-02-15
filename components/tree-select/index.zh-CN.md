@@ -39,6 +39,10 @@ title: TreeSelect
 | showSearch | 在下拉中显示搜索框(仅在单选模式下生效) | boolean | false |
 | size | 选择框大小，可选 `large` `small` | string | 'default' |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |
+| clearIcon | 自定义的选择框清除图标 | ReactNode | - |
+| removeIcon | 自定义的选择框移除图标 | ReactNode | - |
+| loadingIcon | 自定义的加载中图标 | ReactNode | - |
+| caretDownIcon | 自定义的下箭头图标 | ReactNode | - |
 | treeCheckable | 显示 checkbox | boolean | false |
 | treeCheckStrictly | checkable 状态下节点选择完全受控（父子节点选中状态不再关联），会使得 `labelInValue` 强制为 true | boolean | false |
 | treeData | treeNodes 数据，如果设置则不需要手动构造 TreeNode 节点（value 在整个树范围内唯一） | array\<{value, title, children, \[disabled, disableCheckbox, selectable]}> | \[] |

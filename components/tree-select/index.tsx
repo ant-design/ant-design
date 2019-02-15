@@ -45,14 +45,44 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
     this.rcTreeSelect = node;
   };
 
+  renderLoadingIcon = (prefixCls: string) => {
+    const { loadingIcon } = this.props;
+    const loadingIconCls = `${prefixCls}-switcher-loading-icon`;
+
+    if (loadingIcon) {
+      return React.isValidElement<{ className?: string }>(loadingIcon)
+        ? React.cloneElement(loadingIcon, {
+            className: classNames(loadingIcon.props.className, loadingIconCls),
+          })
+        : loadingIcon;
+    }
+
+    return <Icon type="loading" className={loadingIconCls} />;
+  };
+
+  renderCaretDownIcon = (prefixCls: string) => {
+    const { caretDownIcon } = this.props;
+    const caretDownCls = `${prefixCls}-switcher-icon`;
+
+    if (caretDownIcon) {
+      return React.isValidElement<{ className?: string }>(caretDownIcon)
+        ? React.cloneElement(caretDownIcon, {
+            className: classNames(caretDownIcon.props.className, caretDownCls),
+          })
+        : caretDownIcon;
+    }
+
+    return <Icon type="caret-down" className={caretDownCls} />;
+  };
+
   renderSwitcherIcon = (prefixCls: string, { isLeaf, loading }: AntTreeNodeProps) => {
     if (loading) {
-      return <Icon type="loading" className={`${prefixCls}-switcher-loading-icon`} />;
+      return this.renderLoadingIcon(prefixCls);
     }
     if (isLeaf) {
       return null;
     }
-    return <Icon type="caret-down" className={`${prefixCls}-switcher-icon`} />;
+    return this.renderCaretDownIcon(prefixCls);
   };
 
   renderTreeSelect = ({
@@ -68,6 +98,8 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
       dropdownStyle,
       dropdownClassName,
       suffixIcon,
+      removeIcon,
+      clearIcon,
       getPopupContainer,
       ...restProps
     } = this.props;
@@ -89,12 +121,24 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
 
     const inputIcon = (suffixIcon &&
       (React.isValidElement<{ className?: string }>(suffixIcon)
-        ? React.cloneElement(suffixIcon)
+        ? React.cloneElement(suffixIcon, {
+            className: classNames(suffixIcon.props.className, `${prefixCls}-arrow-icon`),
+          })
         : suffixIcon)) || <Icon type="down" className={`${prefixCls}-arrow-icon`} />;
 
-    const removeIcon = <Icon type="close" className={`${prefixCls}-remove-icon`} />;
+    const finalRemoveIcon = (removeIcon &&
+      (React.isValidElement<{ className?: string }>(removeIcon)
+        ? React.cloneElement(removeIcon, {
+            className: classNames(removeIcon.props.className, `${prefixCls}-remove-icon`),
+          })
+        : removeIcon)) || <Icon type="close" className={`${prefixCls}-remove-icon`} />;
 
-    const clearIcon = (
+    const finalClearIcon = (clearIcon &&
+      (React.isValidElement<{ className?: string }>(clearIcon)
+        ? React.cloneElement(clearIcon, {
+            className: classNames(clearIcon.props.className, `${prefixCls}-clear-icon`),
+          })
+        : clearIcon)) || (
       <Icon type="close-circle" className={`${prefixCls}-clear-icon`} theme="filled" />
     );
 
@@ -104,8 +148,8 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
           this.renderSwitcherIcon(prefixCls, nodeProps)
         }
         inputIcon={inputIcon}
-        removeIcon={removeIcon}
-        clearIcon={clearIcon}
+        removeIcon={finalRemoveIcon}
+        clearIcon={finalClearIcon}
         {...rest}
         getPopupContainer={getPopupContainer || getContextPopupContainer}
         dropdownClassName={classNames(dropdownClassName, `${prefixCls}-tree-dropdown`)}
