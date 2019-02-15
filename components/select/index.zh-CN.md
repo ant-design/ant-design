@@ -51,6 +51,8 @@ title: Select
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |
 | removeIcon | 自定义的多选框清除图标 | ReactNode | - |
 | clearIcon | 自定义的多选框清空图标 | ReactNode | - |
+| loadingIcon | 自定义的加载中图标 | ReactNode | 当传入 `suffixIcon` 时无效 |
+| caretDownIcon | 自定义的下箭头图标 | ReactNode | 当传入 `suffixIcon` 时无效 |
 | menuItemSelectedIcon | 自定义当前选中的条目图标 | ReactNode | - |
 | tokenSeparators | 在 tags 和 multiple 模式下自动分词的分隔符 | string\[] |  |
 | value | 指定当前选中的条目 | string\|string\[]\|number\|number\[] | - |
@@ -93,3 +95,4 @@ title: Select
 | --- | --- | --- | --- |
 | key |  | string | - |
 | label | 组名 | string\|React.Element | 无 |
+| loadingIcon | 自定义的加载中图标 | ReactNode | - |

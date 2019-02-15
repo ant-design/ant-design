@@ -50,6 +50,8 @@ Select component to select value from options.
 | suffixIcon | The custom suffix icon | ReactNode | - |
 | removeIcon | The custom remove icon | ReactNode | - |
 | clearIcon | The custom clear icon | ReactNode | - |
+| loadingIcon | The custom loading icon | ReactNode | No Effect when `suffixIcon` provided |
+| caretDownIcon | The custom caret down icon | ReactNode | No Effect when `suffixIcon` provided |
 | menuItemSelectedIcon | The custom menuItemSelected icon | ReactNode | - |
 | tokenSeparators | Separator used to tokenize on tag/multiple mode | string\[] |  |
 | value | Current selected option. | string\|number\|string\[]\|number\[] | - |

@@ -74,6 +74,8 @@ export interface SelectProps<T = SelectValue> extends AbstractSelectProps {
   suffixIcon?: React.ReactNode;
   removeIcon?: React.ReactNode;
   clearIcon?: React.ReactNode;
+  loadingIcon?: React.ReactNode;
+  caretDownIcon?: React.ReactNode;
   menuItemSelectedIcon?: React.ReactNode;
 }
 
@@ -176,7 +178,7 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
   }
 
   renderSuffixIcon(prefixCls: string) {
-    const { loading, suffixIcon } = this.props;
+    const { loading, suffixIcon, loadingIcon, caretDownIcon } = this.props;
     if (suffixIcon) {
       return React.isValidElement<{ className?: string }>(suffixIcon)
         ? React.cloneElement(suffixIcon, {
@@ -185,7 +187,20 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
         : suffixIcon;
     }
     if (loading) {
+      if (loadingIcon) {
+        return React.isValidElement<{ className?: string }>(loadingIcon)
+          ? React.cloneElement(loadingIcon)
+          : loadingIcon;
+      }
       return <Icon type="loading" />;
+    }
+
+    if (caretDownIcon) {
+      return React.isValidElement<{ className?: string }>(caretDownIcon)
+        ? React.cloneElement(caretDownIcon, {
+            className: classNames(caretDownIcon.props.className, `${prefixCls}-arrow-icon`),
+          })
+        : caretDownIcon;
     }
     return <Icon type="down" className={`${prefixCls}-arrow-icon`} />;
   }
