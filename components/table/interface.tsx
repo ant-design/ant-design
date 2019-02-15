@@ -6,18 +6,13 @@ import { CheckboxChangeEvent } from '../checkbox';
 import { PaginationConfig } from '../pagination';
 export { PaginationConfig } from '../pagination';
 
-export type CompareFn<T> = ((a: T, b: T, sortOrder?: SortOrder) => number);
+export type CompareFn<T> = (a: T, b: T, sortOrder?: SortOrder) => number;
 export type ColumnFilterItem = { text: string; value: string; children?: ColumnFilterItem[] };
 
 export interface ColumnProps<T> {
   title?:
     | React.ReactNode
-    | ((
-        options: {
-          filters: TableStateFilters;
-          sortOrder?: SortOrder;
-        },
-      ) => React.ReactNode);
+    | ((options: { filters: TableStateFilters; sortOrder?: SortOrder }) => React.ReactNode);
   key?: React.Key;
   dataIndex?: string; // Note: We can not use generic type here, since we need to support nested key, see #9393
   render?: (text: any, record: T, index: number) => React.ReactNode;
@@ -185,6 +180,7 @@ export interface TableState<T> {
 }
 
 export type SelectionItemSelectFn = (key: string[]) => any;
+type GetPopupContainer = (triggerNode?: Element) => HTMLElement;
 
 export interface SelectionItem {
   key: string;
@@ -203,7 +199,7 @@ export interface SelectionCheckboxAllProps<T> {
   onSelect: (key: string, index: number, selectFunc: any) => void;
   hideDefaultSelections?: boolean;
   selections?: SelectionItem[] | boolean;
-  getPopupContainer: (triggerNode?: Element) => HTMLElement;
+  getPopupContainer?: GetPopupContainer;
 }
 
 export interface SelectionCheckboxAllState {
@@ -240,7 +236,7 @@ export interface FilterMenuProps<T> {
   confirmFilter: (column: ColumnProps<T>, selectedKeys: string[]) => any;
   prefixCls: string;
   dropdownPrefixCls: string;
-  getPopupContainer: (triggerNode?: Element) => HTMLElement;
+  getPopupContainer?: GetPopupContainer;
 }
 
 export interface FilterMenuState {
