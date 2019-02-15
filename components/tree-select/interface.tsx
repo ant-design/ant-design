@@ -50,6 +50,10 @@ export interface TreeSelectProps extends AbstractSelectProps {
   searchValue?: string;
   showCheckedStrategy?: 'SHOW_ALL' | 'SHOW_PARENT' | 'SHOW_CHILD';
   suffixIcon?: React.ReactNode;
+  removeIcon?: React.ReactNode;
+  clearIcon?: React.ReactNode;
+  loadingIcon?: React.ReactNode;
+  caretDownIcon?: React.ReactNode;
   treeCheckable?: boolean | React.ReactNode;
   treeCheckStrictly?: boolean;
   treeData?: Array<TreeNode>;
