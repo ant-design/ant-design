@@ -9,7 +9,7 @@ import Input from '../input';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import warning from '../_util/warning';
-import CloseCircleFilled from '../icon/icons/ClosecircleFilled';
+import CloseCircleFilled from '../icon/icons/CloseCircleFilled';
 import Down from '../icon/icons/Down';
 import Right from '../icon/icons/Right';
 import Redo from '../icon/icons/Redo';
