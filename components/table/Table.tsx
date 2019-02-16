@@ -744,11 +744,9 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
 
   generatePopupContainerFunc = () => {
     const { scroll } = this.props;
-    if (scroll) {
-      return this.getPopupContainer;
-    }
+
     // Use undefined to let rc component use default logic.
-    return undefined;
+    return scroll ? this.getPopupContainer : undefined;
   };
 
   renderRowSelection(prefixCls: string, locale: TableLocale) {
