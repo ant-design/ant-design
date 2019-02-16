@@ -742,6 +742,13 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     return ReactDOM.findDOMNode(this) as HTMLElement;
   };
 
+  generatePopupContainerFunc = () => {
+    const { scroll } = this.props;
+
+    // Use undefined to let rc component use default logic.
+    return scroll ? this.getPopupContainer : undefined;
+  };
+
   renderRowSelection(prefixCls: string, locale: TableLocale) {
     const { rowSelection, childrenColumnName } = this.props;
     const columns = this.columns.concat();
@@ -779,7 +786,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
             onSelect={this.handleSelectRow}
             selections={rowSelection.selections}
             hideDefaultSelections={rowSelection.hideDefaultSelections}
-            getPopupContainer={this.getPopupContainer}
+            getPopupContainer={this.generatePopupContainerFunc()}
           />
         );
       }
@@ -842,7 +849,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
             confirmFilter={this.handleFilter}
             prefixCls={`${prefixCls}-filter`}
             dropdownPrefixCls={dropdownPrefixCls || 'ant-dropdown'}
-            getPopupContainer={this.getPopupContainer}
+            getPopupContainer={this.generatePopupContainerFunc()}
             key="filter-dropdown"
           />
         );
