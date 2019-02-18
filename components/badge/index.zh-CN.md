@@ -33,3 +33,4 @@ title: Badge
 | status | 设置 Badge 为状态点 | Enum{ 'success', 'processing, 'default', 'error', 'warning' } | '' |
 | text | 在设置了 `status` 的前提下有效，设置状态点的文本 | string | '' |
 | title | 设置鼠标放在状态点上时显示的文字 | string | `count` |
+| diameter | 展示数字时图标的直径大小 | number | 20 |
