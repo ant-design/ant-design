@@ -15,6 +15,14 @@ timeline: true
 
 ---
 
+## 3.13.2
+
+`2019-02-07`
+
+- 🐞 修复 Table 异步时只有第一页能展示数据的问题。[#14724](https://github.com/ant-design/ant-design/pull/14724) [@imhele](https://github.com/imhele)
+- 🐞 调整字体样式以适配旧版 IE 下的展示问题。[#14708](https://github.com/ant-design/ant-design/pull/14708) [@ashearer](https://github.com/ashearer)
+- 🐞 修复 Input 值为 `null` 时，清除按钮不消失的问题。[#14733](https://github.com/ant-design/ant-design/pull/14733) [@thilo-behnke](https://github.com/thilo-behnke)
+
 ## 3.13.1
 
 `2019-02-04`

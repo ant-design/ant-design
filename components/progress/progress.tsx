@@ -103,8 +103,8 @@ export default class Progress extends React.Component<ProgressProps, {}> {
     } = props;
     const prefixCls = getPrefixCls('progress', customizePrefixCls);
     const progressStatus =
-      parseInt(successPercent ? successPercent.toString() : percent.toString(), 10) >= 100 &&
-      !('status' in props)
+      parseInt(successPercent !== undefined ? successPercent.toString() : percent.toString(), 10) >=
+        100 && !('status' in props)
         ? 'success'
         : status || 'normal';
     let progress;
