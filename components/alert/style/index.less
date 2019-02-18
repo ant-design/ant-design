@@ -23,56 +23,56 @@
   }
 
   &-icon {
+    position: absolute;
     top: 8px + @font-size-base * @line-height-base / 2 - @font-size-base / 2;
     left: 16px;
-    position: absolute;
   }
 
   &-description {
+    display: none;
     font-size: @font-size-base;
     line-height: 22px;
-    display: none;
   }
 
   &-success {
-    border: @border-width-base @border-style-base @alert-success-border-color;
     background-color: @alert-success-bg-color;
+    border: @border-width-base @border-style-base @alert-success-border-color;
     .@{alert-prefix-cls}-icon {
       color: @alert-success-icon-color;
     }
   }
 
   &-info {
-    border: @border-width-base @border-style-base @alert-info-border-color;
     background-color: @alert-info-bg-color;
+    border: @border-width-base @border-style-base @alert-info-border-color;
     .@{alert-prefix-cls}-icon {
       color: @alert-info-icon-color;
     }
   }
 
   &-warning {
-    border: @border-width-base @border-style-base @alert-warning-border-color;
     background-color: @alert-warning-bg-color;
+    border: @border-width-base @border-style-base @alert-warning-border-color;
     .@{alert-prefix-cls}-icon {
       color: @alert-warning-icon-color;
     }
   }
 
   &-error {
-    border: @border-width-base @border-style-base @alert-error-border-color;
     background-color: @alert-error-bg-color;
+    border: @border-width-base @border-style-base @alert-error-border-color;
     .@{alert-prefix-cls}-icon {
       color: @alert-error-icon-color;
     }
   }
 
   &-close-icon {
-    font-size: @font-size-sm;
     position: absolute;
-    right: 16px;
     top: 8px;
-    line-height: 22px;
+    right: 16px;
     overflow: hidden;
+    font-size: @font-size-sm;
+    line-height: 22px;
     cursor: pointer;
 
     .@{iconfont-css-prefix}-close {
@@ -90,11 +90,11 @@
   }
 
   &-with-description {
-    padding: 15px 15px 15px 64px;
     position: relative;
-    border-radius: @border-radius-base;
+    padding: 15px 15px 15px 64px;
     color: @alert-text-color;
     line-height: @line-height-base;
+    border-radius: @border-radius-base;
   }
 
   &-with-description&-no-icon {
@@ -112,15 +112,15 @@
     position: absolute;
     top: 16px;
     right: 16px;
-    cursor: pointer;
     font-size: @font-size-base;
+    cursor: pointer;
   }
 
   &-with-description &-message {
-    font-size: @font-size-lg;
-    color: @alert-message-color;
     display: block;
     margin-bottom: 4px;
+    color: @alert-message-color;
+    font-size: @font-size-lg;
   }
 
   &-with-description &-description {
@@ -132,8 +132,8 @@
     margin: 0;
     padding-top: 0;
     padding-bottom: 0;
-    transition: all 0.3s @ease-in-out-circ;
     transform-origin: 50% 0;
+    transition: all 0.3s @ease-in-out-circ;
   }
 
   &-slide-up-leave {
@@ -142,34 +142,34 @@
   }
 
   &-banner {
-    border-radius: 0;
-    border: 0;
     margin-bottom: 0;
+    border: 0;
+    border-radius: 0;
   }
 }
 
 @keyframes antAlertSlideUpIn {
   0% {
-    opacity: 0;
-    transform-origin: 0% 0%;
     transform: scaleY(0);
+    transform-origin: 0% 0%;
+    opacity: 0;
   }
   100% {
-    opacity: 1;
-    transform-origin: 0% 0%;
     transform: scaleY(1);
+    transform-origin: 0% 0%;
+    opacity: 1;
   }
 }
 
 @keyframes antAlertSlideUpOut {
   0% {
-    opacity: 1;
-    transform-origin: 0% 0%;
     transform: scaleY(1);
+    transform-origin: 0% 0%;
+    opacity: 1;
   }
   100% {
-    opacity: 0;
-    transform-origin: 0% 0%;
     transform: scaleY(0);
+    transform-origin: 0% 0%;
+    opacity: 0;
   }
 }

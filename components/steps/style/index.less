@@ -29,24 +29,24 @@
 
 .@{steps-prefix-cls} {
   .reset-component;
-  font-size: 0;
-  width: 100%;
   display: flex;
+  width: 100%;
+  font-size: 0;
 }
 
 .@{steps-prefix-cls}-item {
   position: relative;
   display: inline-block;
-  vertical-align: top;
   flex: 1;
   overflow: hidden;
+  vertical-align: top;
 
   &:last-child {
     flex: none;
   }
 
   &:last-child &-tail,
-  &:last-child &-title:after {
+  &:last-child &-title::after {
     display: none;
   }
 
@@ -57,61 +57,61 @@
   }
 
   &-icon {
-    border: @border-width-base @border-style-base @wait-icon-color;
     width: @steps-icon-size;
     height: @steps-icon-size;
+    margin-right: 8px;
+    font-size: @font-size-lg;
+    font-family: @font-family;
     line-height: @steps-icon-size;
     text-align: center;
+    border: @border-width-base @border-style-base @wait-icon-color;
     border-radius: @steps-icon-size;
-    font-size: @font-size-lg;
-    margin-right: 8px;
     transition: background-color 0.3s, border-color 0.3s;
-    font-family: @font-family;
 
     > .@{steps-prefix-cls}-icon {
-      line-height: 1;
+      position: relative;
       top: -1px;
       color: @primary-color;
-      position: relative;
+      line-height: 1;
     }
   }
   &-tail {
     position: absolute;
+    top: 12px;
     left: 0;
     width: 100%;
-    top: 12px;
     padding: 0 10px;
-    &:after {
-      content: '';
+    &::after {
       display: inline-block;
-      background: @border-color-split;
-      height: 1px;
-      border-radius: 1px;
       width: 100%;
+      height: 1px;
+      background: @border-color-split;
+      border-radius: 1px;
       transition: background 0.3s;
+      content: '';
     }
   }
   &-title {
-    font-size: @font-size-lg;
-    color: @text-color;
+    position: relative;
     display: inline-block;
     padding-right: 16px;
-    position: relative;
+    color: @text-color;
+    font-size: @font-size-lg;
     line-height: @steps-icon-size;
-    &:after {
-      content: '';
-      height: 1px;
-      width: 9999px;
-      background: @wait-tail-color;
-      display: block;
+    &::after {
       position: absolute;
       top: @steps-icon-size / 2;
       left: 100%;
+      display: block;
+      width: 9999px;
+      height: 1px;
+      background: @wait-tail-color;
+      content: '';
     }
   }
   &-description {
-    font-size: @font-size-base;
     color: @text-color-secondary;
+    font-size: @font-size-base;
   }
   .step-item-status(wait);
   .step-item-status(process);
@@ -127,7 +127,7 @@
   .step-item-status(finish);
   .step-item-status(error);
 
-  &.@{steps-prefix-cls}-next-error .@{steps-prefix-cls}-item-title:after {
+  &.@{steps-prefix-cls}-next-error .@{steps-prefix-cls}-item-title::after {
     background: @error-icon-color;
   }
 }
@@ -158,8 +158,8 @@
   @description-color: '@{status}-description-color';
   @tail-color: '@{status}-tail-color';
   &-@{status} &-icon {
-    border-color: @@icon-color;
     background-color: @steps-background;
+    border-color: @@icon-color;
     > .@{steps-prefix-cls}-icon {
       color: @@icon-color;
       .@{steps-prefix-cls}-icon-dot {
@@ -169,14 +169,14 @@
   }
   &-@{status} > &-content > &-title {
     color: @@title-color;
-    &:after {
+    &::after {
       background-color: @@tail-color;
     }
   }
   &-@{status} > &-content > &-description {
     color: @@description-color;
   }
-  &-@{status} > &-tail:after {
+  &-@{status} > &-tail::after {
     background-color: @@tail-color;
   }
 }

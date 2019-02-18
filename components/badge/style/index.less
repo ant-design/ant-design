@@ -8,23 +8,23 @@
   .reset-component;
   position: relative;
   display: inline-block;
-  line-height: 1;
   color: unset;
+  line-height: 1;
 
   &-count {
-    height: @badge-height;
-    border-radius: @badge-height / 2;
-    min-width: @badge-height;
-    background: @highlight-color;
-    color: @badge-text-color;
-    line-height: @badge-height;
-    text-align: center;
-    padding: 0 6px;
-    font-size: @badge-font-size;
-    font-weight: @badge-font-weight;
-    white-space: nowrap;
-    box-shadow: 0 0 0 1px @shadow-color-inverse;
     z-index: @zindex-badge;
+    min-width: @badge-height;
+    height: @badge-height;
+    padding: 0 6px;
+    color: @badge-text-color;
+    font-weight: @badge-font-weight;
+    font-size: @badge-font-size;
+    line-height: @badge-height;
+    white-space: nowrap;
+    text-align: center;
+    background: @highlight-color;
+    border-radius: @badge-height / 2;
+    box-shadow: 0 0 0 1px @shadow-color-inverse;
     a,
     a:hover {
       color: @badge-text-color;
@@ -36,11 +36,11 @@
   }
 
   &-dot {
-    height: @badge-dot-size;
-    width: @badge-dot-size;
-    border-radius: 100%;
-    background: @highlight-color;
     z-index: @zindex-badge;
+    width: @badge-dot-size;
+    height: @badge-dot-size;
+    background: @highlight-color;
+    border-radius: 100%;
     box-shadow: 0 0 0 1px @shadow-color-inverse;
   }
 
@@ -48,8 +48,8 @@
   &-dot,
   .@{number-prefix-cls}-custom-component {
     position: absolute;
-    right: 0;
     top: 0;
+    right: 0;
     transform: translate(50%, -50%);
     transform-origin: 100% 0%;
   }
@@ -59,30 +59,30 @@
     vertical-align: baseline;
 
     &-dot {
-      width: @badge-status-size;
-      height: @badge-status-size;
-      display: inline-block;
-      border-radius: 50%;
-      vertical-align: middle;
       position: relative;
       top: -1px;
+      display: inline-block;
+      width: @badge-status-size;
+      height: @badge-status-size;
+      vertical-align: middle;
+      border-radius: 50%;
     }
     &-success {
       background-color: @success-color;
     }
     &-processing {
-      background-color: @processing-color;
       position: relative;
-      &:after {
+      background-color: @processing-color;
+      &::after {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        border-radius: 50%;
         border: 1px solid @processing-color;
-        content: '';
+        border-radius: 50%;
         animation: antStatusProcessing 1.2s infinite ease-in-out;
+        content: '';
       }
     }
     &-default {
@@ -95,9 +95,9 @@
       background-color: @warning-color;
     }
     &-text {
+      margin-left: 8px;
       color: @text-color;
       font-size: @font-size-base;
-      margin-left: 8px;
     }
   }
 
@@ -116,9 +116,9 @@
     vertical-align: middle;
 
     .@{ant-prefix}-scroll-number {
+      position: relative;
       top: auto;
       display: block;
-      position: relative;
     }
 
     .@{badge-prefix-cls}-count {
@@ -142,8 +142,8 @@
   overflow: hidden;
   &-only {
     display: inline-block;
-    transition: all 0.3s @ease-in-out;
     height: @badge-height;
+    transition: all 0.3s @ease-in-out;
     > p {
       height: @badge-height;
       margin: 0;
@@ -153,8 +153,8 @@
 
 @keyframes antZoomBadgeIn {
   0% {
-    opacity: 0;
     transform: scale(0) translate(50%, -50%);
+    opacity: 0;
   }
   100% {
     transform: scale(1) translate(50%, -50%);
@@ -166,7 +166,7 @@
     transform: scale(1) translate(50%, -50%);
   }
   100% {
-    opacity: 0;
     transform: scale(0) translate(50%, -50%);
+    opacity: 0;
   }
 }

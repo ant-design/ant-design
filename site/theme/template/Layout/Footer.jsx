@@ -126,6 +126,9 @@ class Footer extends React.Component {
                   <a href="http://ng.mobile.ant.design">NG-ZORRO-MOBILE</a>
                 </div>
                 <div>
+                  <a href="http://vue.ant.design">Ant Design Vue</a>
+                </div>
+                <div>
                   <a target="_blank" rel="noopener noreferrer" href="http://kitchen.alipay.com">
                     Kitchen
                   </a>

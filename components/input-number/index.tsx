@@ -38,6 +38,10 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
 
   private inputNumberRef: any;
 
+  saveInputNumber = (inputNumberRef: any) => {
+    this.inputNumberRef = inputNumberRef;
+  };
+
   focus() {
     this.inputNumberRef.focus();
   }
@@ -61,7 +65,7 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
 
     return (
       <RcInputNumber
-        ref={(c: any) => (this.inputNumberRef = c)}
+        ref={this.saveInputNumber}
         className={inputNumberClass}
         upHandler={upIcon}
         downHandler={downIcon}

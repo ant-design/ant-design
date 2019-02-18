@@ -3,7 +3,7 @@ import * as PropTypes from 'prop-types';
 import { SubMenu as RcSubMenu } from 'rc-menu';
 import classNames from 'classnames';
 
-interface TitleClickEntity {
+interface TitleEventEntity {
   key: string;
   domEvent: Event;
 }
@@ -14,7 +14,9 @@ export interface SubMenuProps {
   disabled?: boolean;
   title?: React.ReactNode;
   style?: React.CSSProperties;
-  onTitleClick?: (clickEntity: TitleClickEntity) => void;
+  onTitleClick?: (e: TitleEventEntity) => void;
+  onTitleMouseEnter?: (e: TitleEventEntity) => void;
+  onTitleMouseLeave?: (e: TitleEventEntity) => void;
 }
 
 class SubMenu extends React.Component<SubMenuProps, any> {
