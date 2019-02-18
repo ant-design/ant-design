@@ -165,8 +165,11 @@ exports[`renders ./components/comment/demo/editor.md correctly 1`] = `
                     />
                   </span>
                   <div
+                    aria-hidden="true"
                     class="ant-form-explain-holder"
-                  />
+                  >
+                     
+                  </div>
                 </div>
               </div>
             </div>
@@ -192,8 +195,11 @@ exports[`renders ./components/comment/demo/editor.md correctly 1`] = `
                     </button>
                   </span>
                   <div
+                    aria-hidden="true"
                     class="ant-form-explain-holder"
-                  />
+                  >
+                     
+                  </div>
                 </div>
               </div>
             </div>
