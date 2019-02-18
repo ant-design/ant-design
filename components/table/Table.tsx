@@ -167,7 +167,8 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   }
 
   getDefaultPagination(props: TableProps<T>) {
-    const pagination: PaginationConfig = props.pagination || {};
+    const pagination: PaginationConfig =
+      typeof props.pagination === 'object' ? props.pagination : {};
     let current;
     if ('current' in pagination) {
       current = pagination.current;
@@ -741,6 +742,13 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     return ReactDOM.findDOMNode(this) as HTMLElement;
   };
 
+  generatePopupContainerFunc = () => {
+    const { scroll } = this.props;
+
+    // Use undefined to let rc component use default logic.
+    return scroll ? this.getPopupContainer : undefined;
+  };
+
   renderRowSelection(prefixCls: string, locale: TableLocale) {
     const { rowSelection, childrenColumnName } = this.props;
     const columns = this.columns.concat();
@@ -778,7 +786,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
             onSelect={this.handleSelectRow}
             selections={rowSelection.selections}
             hideDefaultSelections={rowSelection.hideDefaultSelections}
-            getPopupContainer={this.getPopupContainer}
+            getPopupContainer={this.generatePopupContainerFunc()}
           />
         );
       }
@@ -841,7 +849,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
             confirmFilter={this.handleFilter}
             prefixCls={`${prefixCls}-filter`}
             dropdownPrefixCls={dropdownPrefixCls || 'ant-dropdown'}
-            getPopupContainer={this.getPopupContainer}
+            getPopupContainer={this.generatePopupContainerFunc()}
             key="filter-dropdown"
           />
         );

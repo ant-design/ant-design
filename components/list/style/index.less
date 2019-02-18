@@ -17,28 +17,28 @@
     margin-top: 12px;
     text-align: center;
     button {
-      padding-left: 32px;
       padding-right: 32px;
+      padding-left: 32px;
     }
   }
   &-spin {
-    text-align: center;
     min-height: 40px;
+    text-align: center;
   }
   &-empty-text {
+    padding: @list-empty-text-padding;
     color: @text-color-secondary;
     font-size: @font-size-base;
-    padding: @list-empty-text-padding;
     text-align: center;
   }
   &-item {
-    align-items: center;
     display: flex;
+    align-items: center;
     padding: @list-item-padding;
     &-meta {
-      align-items: flex-start;
       display: flex;
       flex: 1;
+      align-items: flex-start;
       font-size: 0;
       &-avatar {
         margin-right: @list-item-meta-avatar-margin-right;
@@ -47,8 +47,8 @@
         flex: 1 0;
       }
       &-title {
-        color: @text-color;
         margin-bottom: 4px;
+        color: @text-color;
         font-size: @font-size-base;
         line-height: 22px;
         > a {
@@ -74,32 +74,32 @@
       justify-content: flex-start;
     }
     &-action {
-      font-size: 0;
       flex: 0 0 auto;
       margin-left: 48px;
       padding: 0;
+      font-size: 0;
       list-style: none;
       & > li {
-        display: inline-block;
-        color: @text-color-secondary;
-        cursor: pointer;
-        padding: 0 8px;
         position: relative;
+        display: inline-block;
+        padding: 0 8px;
+        color: @text-color-secondary;
         font-size: @font-size-base;
         line-height: 22px;
         text-align: center;
+        cursor: pointer;
       }
       & > li:first-child {
         padding-left: 0;
       }
       &-split {
-        background-color: @border-color-split;
-        margin-top: -7px;
         position: absolute;
         top: 50%;
         right: 0;
         width: 1px;
         height: 14px;
+        margin-top: -7px;
+        background-color: @border-color-split;
       }
     }
     &-main {
@@ -123,8 +123,8 @@
   }
 
   &-empty {
-    color: @text-color-secondary;
     padding: 16px 0;
+    color: @text-color-secondary;
     font-size: 12px;
     text-align: center;
   }
@@ -173,17 +173,17 @@
     &-meta {
       margin-bottom: @list-item-meta-margin-bottom;
       &-title {
-        color: @heading-color;
         margin-bottom: @list-item-meta-title-margin-bottom;
+        color: @heading-color;
         font-size: @font-size-lg;
         line-height: 24px;
       }
     }
     &-content {
       display: block;
+      margin: @list-item-content-margin;
       color: @text-color;
       font-size: @font-size-base;
-      margin: @list-item-content-margin;
     }
     &-action {
       margin-left: auto;
@@ -197,10 +197,10 @@
   }
 
   &-grid &-item {
-    border-bottom: none;
+    margin-bottom: 16px;
     padding-top: 0;
     padding-bottom: 0;
-    margin-bottom: 16px;
+    border-bottom: none;
     &-content {
       display: block;
       max-width: 100%;

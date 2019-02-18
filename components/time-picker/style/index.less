@@ -7,38 +7,38 @@
 
 .@{timepicker-prefix-cls}-panel {
   .reset-component;
-  font-family: @font-family;
-  z-index: @zindex-picker;
   position: absolute;
+  z-index: @zindex-picker;
+  font-family: @font-family;
 
   &-inner {
     position: relative;
-    outline: none;
-    list-style: none;
+    left: -2px;
     font-size: @font-size-base;
     text-align: left;
+    list-style: none;
     background-color: @component-background;
-    border-radius: @border-radius-base;
-    box-shadow: @box-shadow-base;
     background-clip: padding-box;
-    left: -2px;
+    border-radius: @border-radius-base;
+    outline: none;
+    box-shadow: @box-shadow-base;
   }
 
   &-input {
     width: 100%;
+    max-width: @time-picker-panel-column-width * 3 - @control-padding-horizontal - 2px;
     margin: 0;
     padding: 0;
-    border: 0;
-    max-width: @time-picker-panel-column-width * 3 - @control-padding-horizontal - 2px;
-    cursor: auto;
-    outline: 0;
     line-height: normal;
+    border: 0;
+    outline: 0;
+    cursor: auto;
 
     .placeholder;
 
     &-wrap {
-      box-sizing: border-box;
       position: relative;
+      box-sizing: border-box;
       padding: 7px 2px 7px @control-padding-horizontal;
       border-bottom: @border-width-base @border-style-base @border-color-split;
     }
@@ -53,22 +53,22 @@
   }
 
   &-select {
+    position: relative; // Fix chrome weird render bug
     float: left;
-    font-size: @font-size-base;
-    border-left: @border-width-base @border-style-base @border-color-split;
     box-sizing: border-box;
     width: @time-picker-panel-column-width;
-    overflow: hidden;
-    position: relative; // Fix chrome weird render bug
     max-height: @timepicker-item-height * 6;
+    overflow: hidden;
+    font-size: @font-size-base;
+    border-left: @border-width-base @border-style-base @border-color-split;
 
     &:hover {
       overflow-y: auto;
     }
 
     &:first-child {
-      border-left: 0;
       margin-left: 0;
+      border-left: 0;
     }
 
     &:last-child {
@@ -80,25 +80,25 @@
     }
 
     ul {
-      list-style: none;
       box-sizing: border-box;
+      width: 100%;
       margin: 0;
       padding: 0 0 @timepicker-item-height * 5;
-      width: 100%;
+      list-style: none;
     }
 
     li {
-      list-style: none;
       box-sizing: content-box;
-      margin: 0;
-      padding: 0 0 0 @control-padding-horizontal;
       width: 100%;
       height: @timepicker-item-height;
+      margin: 0;
+      padding: 0 0 0 @control-padding-horizontal;
       line-height: @timepicker-item-height;
       text-align: left;
+      list-style: none;
       cursor: pointer;
-      user-select: none;
       transition: background 0.3s;
+      user-select: none;
     }
 
     li:hover {
@@ -106,8 +106,8 @@
     }
 
     li&-option-selected {
-      background: @time-picker-selected-bg;
       font-weight: bold;
+      background: @time-picker-selected-bg;
       &:hover {
         background: @time-picker-selected-bg;
       }
@@ -160,9 +160,9 @@
   .reset-component;
   position: relative;
   display: inline-block;
+  width: 128px;
   outline: none;
   transition: opacity 0.3s;
-  width: 128px;
 
   &-input {
     .input;
@@ -178,27 +178,27 @@
   &-icon,
   &-clear {
     position: absolute;
+    top: 50%;
+    right: @control-padding-horizontal - 1px;
     z-index: 1;
-    user-select: none;
-    transition: all 0.3s @ease-in-out;
     width: 14px;
     height: 14px;
-    line-height: 14px;
-    right: @control-padding-horizontal - 1px;
-    color: @disabled-color;
-    top: 50%;
     margin-top: -7px;
+    color: @disabled-color;
+    line-height: 14px;
+    transition: all 0.3s @ease-in-out;
+    user-select: none;
     .@{timepicker-prefix-cls}-clock-icon {
-      color: @disabled-color;
       display: block;
+      color: @disabled-color;
       line-height: 1;
     }
   }
 
   &-clear {
-    opacity: 0;
     z-index: 2;
     background: @input-bg;
+    opacity: 0;
     pointer-events: none;
     &:hover {
       color: @text-color-secondary;
@@ -217,7 +217,8 @@
     .input-sm;
   }
 
-  &-small &-icon {
+  &-small &-icon,
+  &-small &-clear {
     right: @control-padding-horizontal-sm - 1px;
   }
 }

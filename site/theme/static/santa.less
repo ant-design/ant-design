@@ -1,138 +1,138 @@
 .santa {
   display: inline-block;
-  vertical-align: middle;
-  margin-left: 8px;
   margin-right: 8px;
+  margin-left: 8px;
+  vertical-align: middle;
 }
 
 .santa-body {
-  font-size: 24px;
-  color: #f91047;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 1em;
   height: 1em;
+  color: #f91047;
+  font-size: 24px;
   background-color: currentColor;
-  box-shadow: inset 0 -0.25em rgba(0, 0, 0, 0.1);
   border-radius: 50%;
+  box-shadow: inset 0 -0.25em rgba(0, 0, 0, 0.1);
   transform-origin: center bottom;
   animation: balance alternate infinite 2s ease-in-out;
 }
 
 .santa-head {
-  font-size: 0.4em;
+  position: relative;
   width: 1em;
   height: 1.9em;
+  font-size: 0.4em;
   background-color: white;
   border-radius: 0.5em;
   transform: translateY(-1em);
-  position: relative;
 }
 
 .santa-head::before {
-  content: '';
+  position: absolute;
+  top: 0.65em;
+  left: 0;
+  display: block;
   width: 1em;
   height: 0.375em;
-  display: block;
   background-color: #ff9876;
-  position: absolute;
-  left: 0;
-  top: 0.65em;
+  content: '';
 }
 
 .santa-ear {
-  background-color: #fc8363;
-  width: 0.1em;
-  height: 0.3em;
   position: absolute;
   top: 0.75em;
+  width: 0.1em;
+  height: 0.3em;
+  background-color: #fc8363;
 }
 
 .santa-ear:nth-of-type(1) {
-  border-radius: 0.05em 0 0 0.05em;
   left: -0.1em;
+  border-radius: 0.05em 0 0 0.05em;
 }
 
 .santa-ear:nth-of-type(2) {
-  border-radius: 0 0.05em 0.05em 0;
   right: -0.1em;
+  border-radius: 0 0.05em 0.05em 0;
 }
 
 .santa-hat {
-  content: '';
-  width: 1em;
-  height: 0.15em;
   position: absolute;
-  transform: scale(1.1);
   top: 0.5em;
   left: 0;
+  width: 1em;
+  height: 0.15em;
   background-color: white;
+  transform: scale(1.1);
+  content: '';
 }
 
 .santa-hat::before {
-  content: '';
+  position: absolute;
+  top: -0.5em;
+  z-index: 2;
   display: block;
   width: 1em;
   height: 0.5em;
   background: #f91047;
   border-radius: 0.5em 0.5em 0 0;
-  z-index: 2;
-  position: absolute;
-  top: -0.5em;
+  content: '';
 }
 
 .santa-hat::after {
-  /* pompom */
-  content: '';
-  width: 0.25em;
-  height: 0.25em;
-  display: block;
-  background-color: white;
-  border-radius: 50%;
   position: absolute;
-  z-index: 0;
   top: -0.72em;
   right: 0;
+  z-index: 0;
+  display: block;
+  width: 0.25em;
+  height: 0.25em;
+  background-color: white;
+  border-radius: 50%;
   box-shadow: -0.2em 0.2em 0 0.12em rgba(0, 0, 0, 0.2), -0.2em 0.2em 0 0.12em #f91047;
+  /* pompom */
+  content: '';
 }
 
 .santa-eye {
+  position: absolute;
+  top: 0.76em;
+  left: 0.2em;
   width: 0.12em;
   height: 0.12em;
   background-color: black;
   border-radius: 50%;
-  position: absolute;
-  top: 0.76em;
-  left: 0.2em;
 }
 
 .santa-eye + .santa-eye {
-  left: auto;
   right: 0.2em;
+  left: auto;
 }
 
 .santa-nose {
+  position: absolute;
+  top: 0.84em;
+  left: 50%;
   width: 0.12em;
   height: 0.22em;
   background-color: #f24c4c;
   border-radius: 0 0 0.12em 0.12em;
-  position: absolute;
-  top: 0.84em;
-  left: 50%;
   transform: translateX(-50%);
 }
 
 .santa-mouth {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 0.18em;
   height: 0.1em;
-  border-bottom-right-radius: 5vw;
-  border-bottom-left-radius: 5vw;
   margin-top: 0.3em;
   background-color: black;
-  position: absolute;
-  left: 50%;
-  top: 50%;
+  border-bottom-right-radius: 5vw;
+  border-bottom-left-radius: 5vw;
   transform: translate(-50%, -50%);
   animation: hohoho 4s linear forwards infinite;
 }

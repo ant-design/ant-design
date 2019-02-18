@@ -13,7 +13,7 @@ subtitle: 按钮
 
 ## API
 
-通过设置 Button 的属性来产生不同的按钮样式，推荐顺序为：`type` -> `shape` -> `size` -> `loading` -> `disabled`
+通过设置 Button 的属性来产生不同的按钮样式，推荐顺序为：`type` -> `shape` -> `size` -> `loading` -> `disabled`。
 
 按钮的属性说明如下：
 

@@ -539,35 +539,6 @@ exports[`renders ./components/card/demo/loading.md correctly 1`] = `
             />
           </div>
         </div>
-        <div
-          class="ant-row"
-          style="margin-left:-4px;margin-right:-4px"
-        >
-          <div
-            class="ant-col-8"
-            style="padding-left:4px;padding-right:4px"
-          >
-            <div
-              class="ant-card-loading-block"
-            />
-          </div>
-          <div
-            class="ant-col-6"
-            style="padding-left:4px;padding-right:4px"
-          >
-            <div
-              class="ant-card-loading-block"
-            />
-          </div>
-          <div
-            class="ant-col-8"
-            style="padding-left:4px;padding-right:4px"
-          >
-            <div
-              class="ant-card-loading-block"
-            />
-          </div>
-        </div>
       </div>
     </div>
   </div>

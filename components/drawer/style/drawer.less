@@ -9,9 +9,9 @@
 .@{drawer-prefix-cls} {
   position: fixed;
   top: 0;
+  z-index: @zindex-modal;
   width: 0%;
   height: 100%;
-  z-index: @zindex-modal;
   > * {
     transition: transform @animation-duration-slow @ease-base-in;
   }
@@ -93,53 +93,53 @@
   &.@{drawer-prefix-cls}-open {
     .@{drawer-prefix-cls} {
       &-mask {
-        opacity: 0.3;
         height: 100%;
-        animation: antdDrawerFadeIn @animation-duration-slow @ease-base-out;
+        opacity: 0.3;
         transition: none;
+        animation: antdDrawerFadeIn @animation-duration-slow @ease-base-out;
       }
     }
   }
 
   &-title {
     margin: 0;
+    color: @heading-color;
+    font-weight: 500;
     font-size: @font-size-lg;
     line-height: 22px;
-    font-weight: 500;
-    color: @heading-color;
   }
 
   &-content {
     position: relative;
-    background-color: @component-background;
-    border: 0;
-    background-clip: padding-box;
     z-index: 1;
+    background-color: @component-background;
+    background-clip: padding-box;
+    border: 0;
   }
 
   &-close {
-    cursor: pointer;
-    border: 0;
-    background: transparent;
     position: absolute;
-    right: 0;
     top: 0;
+    right: 0;
     z-index: @zindex-popup-close;
-    font-weight: 700;
-    text-decoration: none;
-    transition: color @animation-duration-slow;
-    color: @text-color-secondary;
-    outline: 0;
-    padding: 0;
     display: block;
-    font-style: normal;
-    text-align: center;
-    text-transform: none;
-    text-rendering: auto;
     width: 56px;
     height: 56px;
-    line-height: 56px;
+    padding: 0;
+    color: @text-color-secondary;
+    font-weight: 700;
     font-size: @font-size-lg;
+    font-style: normal;
+    line-height: 56px;
+    text-align: center;
+    text-transform: none;
+    text-decoration: none;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    transition: color @animation-duration-slow;
+    text-rendering: auto;
 
     &:focus,
     &:hover {
@@ -149,17 +149,17 @@
   }
 
   &-header {
-    padding: 16px 24px;
-    border-radius: @border-radius-base @border-radius-base 0 0;
-    background: @component-background;
-    color: @text-color;
-    border-bottom: @border-width-base @border-style-base @border-color-split;
     position: relative;
+    padding: 16px 24px;
+    color: @text-color;
+    background: @component-background;
+    border-bottom: @border-width-base @border-style-base @border-color-split;
+    border-radius: @border-radius-base @border-radius-base 0 0;
   }
 
   &-header-no-title {
-    background: @component-background;
     color: @text-color;
+    background: @component-background;
   }
 
   &-body {
@@ -173,8 +173,8 @@
     position: fixed;
     width: 100%;
     height: 0;
-    opacity: 0;
     background-color: @modal-mask-bg;
+    opacity: 0;
     filter: ~'alpha(opacity=50)';
     transition: opacity @animation-duration-slow linear, height 0s ease @animation-duration-slow;
   }

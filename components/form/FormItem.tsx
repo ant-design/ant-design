@@ -157,23 +157,26 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   renderHelp(prefixCls: string) {
     const help = this.getHelpMessage();
     const children = help ? (
-      <div className={`${prefixCls}-explain`} key="help">
+      <span className={`${prefixCls}-explain`} key="help">
         {help}
-      </div>
+      </span>
     ) : null;
     if (children) {
       this.helpShow = !!children;
     }
+
     return (
-      <Animate
-        transitionName="show-help"
-        component=""
-        transitionAppear
-        key="help"
-        onEnd={this.onHelpAnimEnd}
-      >
-        {children}
-      </Animate>
+      <div className={`${prefixCls}-explain-holder`}>
+        <Animate
+          transitionName="show-help"
+          component=""
+          transitionAppear
+          key="help"
+          onEnd={this.onHelpAnimEnd}
+        >
+          {children}
+        </Animate>
+      </div>
     );
   }
 

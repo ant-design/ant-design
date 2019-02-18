@@ -41,7 +41,7 @@ describe('Tag', () => {
     wrapper.setProps({ visible: false });
     jest.runAllTimers();
     expect(handleAfterClose).toHaveBeenCalled();
-    handleAfterClose.mockRestore();
+    handleAfterClose.mockReset();
     wrapper.setProps({ visible: true });
     jest.runAllTimers();
     expect(handleAfterClose).not.toHaveBeenCalled();

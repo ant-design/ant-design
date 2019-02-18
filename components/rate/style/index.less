@@ -5,13 +5,13 @@
 
 .@{rate-prefix-cls} {
   .reset-component;
-  line-height: unset;
+  display: inline-block;
   margin: 0;
   padding: 0;
-  list-style: none;
-  font-size: 20px;
-  display: inline-block;
   color: @rate-star-color;
+  font-size: 20px;
+  line-height: unset;
+  list-style: none;
   outline: none;
 
   &-disabled &-star {
@@ -22,14 +22,14 @@
   }
 
   &-star {
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    margin-right: 8px;
     position: relative;
-    transition: all 0.3s;
+    display: inline-block;
+    margin: 0;
+    margin-right: 8px;
+    padding: 0;
     color: inherit;
     cursor: pointer;
+    transition: all 0.3s;
 
     > div {
       &:focus {
@@ -44,9 +44,9 @@
 
     &-first,
     &-second {
-      user-select: none;
-      transition: all 0.3s;
       color: @rate-star-bg;
+      transition: all 0.3s;
+      user-select: none;
       .@{iconfont-css-prefix} {
         vertical-align: middle;
       }
@@ -54,8 +54,8 @@
 
     &-first {
       position: absolute;
-      left: 0;
       top: 0;
+      left: 0;
       width: 50%;
       height: 100%;
       overflow: hidden;
@@ -74,8 +74,8 @@
   }
 
   &-text {
-    margin-left: 8px;
     display: inline-block;
+    margin-left: 8px;
     font-size: @font-size-base;
   }
 }

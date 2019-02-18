@@ -228,17 +228,6 @@ export default class Card extends React.Component<CardProps, CardState> {
             <div className={`${prefixCls}-loading-block`} />
           </Col>
         </Row>
-        <Row gutter={8}>
-          <Col span={8}>
-            <div className={`${prefixCls}-loading-block`} />
-          </Col>
-          <Col span={6}>
-            <div className={`${prefixCls}-loading-block`} />
-          </Col>
-          <Col span={8}>
-            <div className={`${prefixCls}-loading-block`} />
-          </Col>
-        </Row>
       </div>
     );
 

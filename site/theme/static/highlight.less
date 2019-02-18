@@ -6,29 +6,28 @@
 
 pre code {
   display: block;
-  background: white;
-  color: @site-text-color;
-  line-height: 2;
-  border: 1px solid #e9e9e9;
   padding: 16px 32px;
-  border-radius: @border-radius-sm;
+  color: @site-text-color;
   font-size: @font-size-base;
-  white-space: pre;
   font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  line-height: 2;
+  white-space: pre;
+  background: white;
+  border: 1px solid #e9e9e9;
+  border-radius: @border-radius-sm;
 }
 
 code[class*='language-'],
 pre[class*='language-'] {
   color: black;
-  background: none;
   font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  direction: ltr;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
   line-height: 1.5;
+  direction: ltr;
+  white-space: pre;
+  text-align: left;
+  word-wrap: normal;
+  word-break: normal;
+  word-spacing: normal;
 
   -moz-tab-size: 4;
   -o-tab-size: 4;
@@ -38,6 +37,7 @@ pre[class*='language-'] {
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
+  background: none;
 }
 
 pre[class*='language-']::-moz-selection,
@@ -65,8 +65,8 @@ code[class*='language-'] ::selection {
 
 /* Code blocks */
 pre[class*='language-'] {
-  padding: 12px 20px;
   margin: 16px 0;
+  padding: 12px 20px;
   overflow: auto;
 }
 
@@ -78,8 +78,8 @@ pre[class*='language-'] {
 /* Inline code */
 :not(pre) > code[class*='language-'] {
   padding: 0.1em;
-  border-radius: 0.3em;
   white-space: normal;
+  border-radius: 0.3em;
 }
 
 .token.comment,
