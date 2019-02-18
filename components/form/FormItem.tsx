@@ -371,12 +371,13 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   }
 
   renderFormItem = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, style, colon, className } = this.props;
+    const { prefixCls: customizePrefixCls, style, colon, className, extra } = this.props;
     const prefixCls = getPrefixCls('form', customizePrefixCls);
     const children = this.renderChildren(prefixCls);
     const itemClassName = {
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-with-help`]: this.helpShow,
+      [`${prefixCls}-item-with-extra`]: extra,
       [`${prefixCls}-item-no-colon`]: !colon,
       [`${prefixCls}-item-no-holder`]: style && ('margin' in style || 'marginBottom' in style),
       [`${className}`]: !!className,
