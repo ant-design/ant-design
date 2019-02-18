@@ -2075,7 +2075,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-row ant-form-item"
+    class="ant-row ant-form-item ant-form-item-with-extra"
   >
     <div
       class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -3791,7 +3791,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-row ant-form-item"
+    class="ant-row ant-form-item ant-form-item-with-extra"
   >
     <div
       class="ant-col-6 ant-form-item-label"
