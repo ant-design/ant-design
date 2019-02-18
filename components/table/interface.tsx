@@ -184,6 +184,7 @@ export interface TableState<T> {
 }
 
 export type SelectionItemSelectFn = (key: string[]) => any;
+type GetPopupContainer = (triggerNode?: Element) => HTMLElement;
 
 export interface SelectionItem {
   key: string;
@@ -202,7 +203,7 @@ export interface SelectionCheckboxAllProps<T> {
   onSelect: (key: string, index: number, selectFunc: any) => void;
   hideDefaultSelections?: boolean;
   selections?: SelectionItem[] | boolean;
-  getPopupContainer: (triggerNode?: Element) => HTMLElement;
+  getPopupContainer?: GetPopupContainer;
 }
 
 export interface SelectionCheckboxAllState {
@@ -239,7 +240,7 @@ export interface FilterMenuProps<T> {
   confirmFilter: (column: ColumnProps<T>, selectedKeys: string[]) => any;
   prefixCls: string;
   dropdownPrefixCls: string;
-  getPopupContainer: (triggerNode?: Element) => HTMLElement;
+  getPopupContainer?: GetPopupContainer;
 }
 
 export interface FilterMenuState {

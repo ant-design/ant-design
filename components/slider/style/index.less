@@ -6,9 +6,9 @@
 .@{slider-prefix-cls} {
   .reset-component;
   position: relative;
+  height: 12px;
   margin: @slider-margin;
   padding: 4px 0;
-  height: 12px;
   cursor: pointer;
   touch-action: none;
 
@@ -22,37 +22,37 @@
     position: absolute;
     width: 100%;
     height: 4px;
-    border-radius: 2px;
     background-color: @slider-rail-background-color;
+    border-radius: 2px;
     transition: background-color 0.3s;
   }
 
   &-track {
     position: absolute;
     height: 4px;
-    border-radius: @border-radius-base;
     background-color: @slider-track-background-color;
+    border-radius: @border-radius-base;
     transition: background-color 0.3s ease;
   }
 
   &-handle {
     position: absolute;
-    margin-left: -7px;
-    margin-top: -5px;
     width: 14px;
     height: 14px;
-    cursor: pointer;
-    border-radius: 50%;
-    border: solid 2px @slider-handle-color;
+    margin-top: -5px;
+    margin-left: -7px;
     background-color: @component-background;
+    border: solid 2px @slider-handle-color;
+    border-radius: 50%;
     box-shadow: 0;
+    cursor: pointer;
     transition: border-color 0.3s, box-shadow 0.6s,
       transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
 
     &:focus {
       border-color: @slider-handle-color-focus;
-      box-shadow: 0 0 0 5px @slider-handle-color-focus-shadow;
       outline: none;
+      box-shadow: 0 0 0 5px @slider-handle-color-focus-shadow;
     }
 
     &.@{ant-prefix}-tooltip-open {
@@ -83,10 +83,9 @@
   &-mark-text {
     position: absolute;
     display: inline-block;
-    vertical-align: middle;
+    color: @text-color-secondary;
     text-align: center;
     cursor: pointer;
-    color: @text-color-secondary;
 
     &-active {
       color: @text-color;
@@ -103,14 +102,13 @@
   &-dot {
     position: absolute;
     top: -2px;
-    margin-left: -4px;
     width: 8px;
     height: 8px;
-    border: 2px solid @slider-dot-border-color;
+    margin-left: -4px;
     background-color: @component-background;
-    cursor: pointer;
+    border: 2px solid @slider-dot-border-color;
     border-radius: 50%;
-    vertical-align: middle;
+    cursor: pointer;
     &:first-child {
       margin-left: -4px;
     }
@@ -131,10 +129,10 @@
 
     .@{slider-prefix-cls}-handle,
     .@{slider-prefix-cls}-dot {
-      border-color: @slider-disabled-color !important;
       background-color: @component-background;
-      cursor: not-allowed;
+      border-color: @slider-disabled-color !important;
       box-shadow: none;
+      cursor: not-allowed;
     }
 
     .@{slider-prefix-cls}-mark-text,
@@ -152,8 +150,8 @@
     padding: 0 4px;
 
     .@{slider-prefix-cls}-rail {
-      height: 100%;
       width: 4px;
+      height: 100%;
     }
 
     .@{slider-prefix-cls}-track {
@@ -161,8 +159,8 @@
     }
 
     .@{slider-prefix-cls}-handle {
-      margin-left: -5px;
       margin-bottom: -7px;
+      margin-left: -5px;
     }
 
     .@{slider-prefix-cls}-mark {
