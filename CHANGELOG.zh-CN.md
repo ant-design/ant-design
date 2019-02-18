@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 3.13.4
+
+`2019-02-18`
+
+- 🐞 修复 Table 异步加载没有数据的问题。[#14898](https://github.com/ant-design/ant-design/pull/14898)
+- 🐞 修复 FormItem margin 不正确的问题。[#14886](https://github.com/ant-design/ant-design/pull/14886)
+
 ## 3.13.3
 
 `2019-02-16`
