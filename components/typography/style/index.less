@@ -10,11 +10,11 @@
 }
 
 .typography-title(@fontSize; @lineHeight) {
+  margin-bottom: 0.5em;
   color: @heading-color;
   font-weight: 600;
   font-size: @fontSize;
   line-height: @lineHeight;
-  margin-bottom: 0.5em;
 }
 
 .typography-title-1() {
@@ -31,11 +31,11 @@
 }
 
 .operation-unit() {
-  cursor: pointer;
-  outline: none;
   color: @link-color;
-  transition: color 0.3s;
   text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  transition: color 0.3s;
 
   &:focus,
   &:hover {
@@ -142,17 +142,17 @@
   }
 
   code {
+    margin: 0 0.2em;
+    padding: 0.2em 0.4em 0.1em;
+    font-size: 85%;
     background: rgba(0, 0, 0, 0.06);
     border: 1px solid rgba(0, 0, 0, 0.06);
     border-radius: 3px;
-    font-size: 85%;
-    padding: 0.2em 0.4em 0.1em;
-    margin: 0 0.2em;
   }
 
   mark {
-    background-color: @gold-3;
     padding: 0;
+    background-color: @gold-3;
   }
 
   u,
@@ -192,10 +192,10 @@
     position: relative;
 
     &-confirm {
-      color: @text-color-secondary;
       position: absolute;
       right: 10px;
       bottom: 8px;
+      color: @text-color-secondary;
       pointer-events: none;
     }
   }
