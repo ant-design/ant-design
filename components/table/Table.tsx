@@ -1020,7 +1020,6 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     let current: number;
     let pageSize: number;
     const state = this.state;
-    const pagination = this.props.pagination || {};
     // 如果没有分页的话，默认全部展示
     if (!this.hasPagination()) {
       pageSize = Number.MAX_VALUE;
@@ -1034,11 +1033,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     // ---
     // 当数据量少于等于每页数量时，直接设置数据
     // 否则进行读取分页数据
-    if (
-      data.length > pageSize ||
-      pageSize === Number.MAX_VALUE ||
-      (pagination.current === undefined && current * pageSize > data.length)
-    ) {
+    if (data.length > pageSize || pageSize === Number.MAX_VALUE) {
       data = data.filter((_, i) => {
         return i >= (current - 1) * pageSize && i < current * pageSize;
       });
