@@ -4616,7 +4616,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-row ant-form-item"
+    class="ant-row ant-form-item ant-form-item-no-holder"
     style="margin-bottom:0"
   >
     <div
