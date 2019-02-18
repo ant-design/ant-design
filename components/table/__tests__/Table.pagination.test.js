@@ -191,4 +191,24 @@ describe('Table.pagination', () => {
     const wrapper = render(createTable({ pagination: true }));
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('ajax render should keep display by the dataSource', () => {
+    const onChange = jest.fn();
+
+    const wrapper = mount(
+      createTable({
+        onChange,
+        pagination: {
+          total: 200,
+        },
+      }),
+    );
+
+    expect(wrapper.find('.ant-table-tbody tr.ant-table-row')).toHaveLength(data.length);
+
+    wrapper.find('.ant-pagination .ant-pagination-item-2').simulate('click');
+    expect(onChange.mock.calls[0][0].current).toBe(2);
+
+    expect(wrapper.find('.ant-table-tbody tr.ant-table-row')).toHaveLength(data.length);
+  });
 });
