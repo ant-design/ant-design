@@ -120,13 +120,20 @@ input[type='checkbox'] {
 }
 
 .@{form-prefix-cls}-explain-holder {
-  line-height: @line-height-base;
+  margin-top: -2px;
+  line-height: 1;
 
   &::before {
     content: '\00A0'; // Use non-space character to keep the same height
     display: inline-block;
     width: 0;
     overflow: hidden;
+    line-height: @line-height-base;
+    vertical-align: top;
+
+    .@{form-prefix-cls}-item-no-holder & {
+      display: none;
+    }
   }
 
   .@{form-prefix-cls}-explain {
@@ -139,6 +146,7 @@ input[type='checkbox'] {
   clear: both;
   margin-top: @form-help-margin-top;
   color: @text-color-secondary;
+  line-height: @line-height-base;
   transition: color 0.3s @ease-out; // sync input color transition
 }
 

@@ -378,6 +378,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-with-help`]: this.helpShow,
       [`${prefixCls}-item-no-colon`]: !colon,
+      [`${prefixCls}-item-no-holder`]: style && ('margin' in style || 'marginBottom' in style),
       [`${className}`]: !!className,
     };
     return (
