@@ -1,0 +1,442 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
+<div
+  class="ant-descriptions"
+>
+  <div
+    class="ant-descriptions-title"
+  >
+    User Info
+  </div>
+  <div
+    class="ant-descriptions-view"
+  >
+    <table>
+      <tbody>
+        <tr
+          class="ant-descriptions-item"
+        >
+          <td
+            class="ant-descriptions-item-label"
+          >
+            UserName
+          </td>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            Zhou Maomao
+          </td>
+          <td
+            class="ant-descriptions-item-label"
+          >
+            Telephone
+          </td>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            1810000000
+          </td>
+          <td
+            class="ant-descriptions-item-label"
+          >
+            Live
+          </td>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            Hangzhou, Zhejiang
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-item"
+        >
+          <td
+            class="ant-descriptions-item-label"
+          >
+            Remark
+          </td>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            empty
+          </td>
+          <td
+            class="ant-descriptions-item-label"
+          >
+            Address
+          </td>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="3"
+          >
+            No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
+<div
+  class="ant-descriptions border"
+>
+  <div
+    class="ant-descriptions-title"
+  >
+    User Info
+  </div>
+  <div
+    class="ant-descriptions-view"
+  >
+    <table>
+      <tbody>
+        <tr
+          class="ant-descriptions-item"
+        >
+          <td
+            class="ant-descriptions-item-label"
+          >
+            Product
+          </td>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            Cloud Database
+          </td>
+          <td
+            class="ant-descriptions-item-label"
+          >
+            Billing Mode
+          </td>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            Prepaid
+          </td>
+          <td
+            class="ant-descriptions-item-label"
+          >
+            Automatic Renewal
+          </td>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            YES
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-item"
+        >
+          <td
+            class="ant-descriptions-item-label"
+          >
+            Order time
+          </td>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            2018-04-24 18:00:00
+          </td>
+          <td
+            class="ant-descriptions-item-label"
+          >
+            Usage Time
+          </td>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="5"
+          >
+            2018-04-24 18:00:00 To 2019-04-24 18:00:00
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-item"
+        >
+          <td
+            class="ant-descriptions-item-label"
+          >
+            Status
+          </td>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="5"
+          >
+            <span
+              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+            >
+              <span
+                class="ant-badge-status-dot ant-badge-status-processing"
+              />
+              <span
+                class="ant-badge-status-text"
+              >
+                Running
+              </span>
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-item"
+        >
+          <td
+            class="ant-descriptions-item-label"
+          >
+            Negotiated Amount
+          </td>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            $80.00
+          </td>
+          <td
+            class="ant-descriptions-item-label"
+          >
+            Discount
+          </td>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            $20.00
+          </td>
+          <td
+            class="ant-descriptions-item-label"
+          >
+            Official Receipts
+          </td>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            $60.00
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-item"
+        >
+          <td
+            class="ant-descriptions-item-label"
+          >
+            Config Info
+          </td>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="5"
+          >
+            Data disk type: MongoDB
+            <br />
+            Database version: 3.4
+            <br />
+            Package: dds.mongo.mid
+            <br />
+            Storage space: 10 GB
+            <br />
+            Replication_factor:3
+            <br />
+            Region: East China 1
+            <br />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
+<div>
+  <div
+    class="ant-radio-group ant-radio-group-outline"
+  >
+    <label
+      class="ant-radio-wrapper ant-radio-wrapper-checked"
+    >
+      <span
+        class="ant-radio ant-radio-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-input"
+          type="radio"
+          value="default"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        default
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="middle"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        middle
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="small"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        small
+      </span>
+    </label>
+  </div>
+  <br />
+  <br />
+  <div
+    class="ant-descriptions border"
+  >
+    <div
+      class="ant-descriptions-title"
+    >
+      Custom Size
+    </div>
+    <div
+      class="ant-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="ant-descriptions-item"
+          >
+            <td
+              class="ant-descriptions-item-label"
+            >
+              Product
+            </td>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+            >
+              Cloud Database
+            </td>
+            <td
+              class="ant-descriptions-item-label"
+            >
+              Billing
+            </td>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+            >
+              Prepaid
+            </td>
+            <td
+              class="ant-descriptions-item-label"
+            >
+              time
+            </td>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+            >
+              18:00:00
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-item"
+          >
+            <td
+              class="ant-descriptions-item-label"
+            >
+              Amount
+            </td>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+            >
+              $80.00
+            </td>
+            <td
+              class="ant-descriptions-item-label"
+            >
+              Discount
+            </td>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+            >
+              $20.00
+            </td>
+            <td
+              class="ant-descriptions-item-label"
+            >
+              Official
+            </td>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+            >
+              $60.00
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-item"
+          >
+            <td
+              class="ant-descriptions-item-label"
+            >
+              Info
+            </td>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="5"
+            >
+              Data disk type: MongoDB
+              <br />
+              Database version: 3.4
+              <br />
+              Package: dds.mongo.mid
+              <br />
+              Storage space: 10 GB
+              <br />
+              Replication_factor:3
+              <br />
+              Region: East China 1
+              <br />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+`;

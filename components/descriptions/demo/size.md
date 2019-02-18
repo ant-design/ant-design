@@ -14,11 +14,11 @@ title:
 Custom sizes to fit in a variety of containers
 
 ```jsx
-import { DescriptionList, Radio } from 'antd';
+import { Descriptions, Radio } from 'antd';
 
 const RadioGroup = Radio.Group;
 
-const DescriptionListItem = DescriptionList.Item;
+const DescriptionsItem = Descriptions.Item;
 
 class Demo extends React.Component {
   state = {
@@ -42,16 +42,16 @@ class Demo extends React.Component {
         </RadioGroup>
         <br />
         <br />
-        <DescriptionList title="Custom Size" border size={this.state.size}>
-          <DescriptionListItem label="Product">
+        <Descriptions title="Custom Size" border size={this.state.size}>
+          <DescriptionsItem label="Product">
             Cloud Database
-          </DescriptionListItem>
-          <DescriptionListItem label="Billing">Prepaid</DescriptionListItem>
-          <DescriptionListItem label="time">18:00:00</DescriptionListItem>
-          <DescriptionListItem label="Amount">$80.00</DescriptionListItem>
-          <DescriptionListItem label="Discount">$20.00</DescriptionListItem>
-          <DescriptionListItem label="Official">$60.00</DescriptionListItem>
-          <DescriptionListItem label="Info">
+          </DescriptionsItem>
+          <DescriptionsItem label="Billing">Prepaid</DescriptionsItem>
+          <DescriptionsItem label="time">18:00:00</DescriptionsItem>
+          <DescriptionsItem label="Amount">$80.00</DescriptionsItem>
+          <DescriptionsItem label="Discount">$20.00</DescriptionsItem>
+          <DescriptionsItem label="Official">$60.00</DescriptionsItem>
+          <DescriptionsItem label="Info">
             Data disk type: MongoDB
             <br />
             Database version: 3.4
@@ -63,8 +63,8 @@ class Demo extends React.Component {
             Replication_factor:3
             <br />
             Region: East China 1<br />
-          </DescriptionListItem>
-        </DescriptionList>
+          </DescriptionsItem>
+        </Descriptions>
       </div>
     );
   }

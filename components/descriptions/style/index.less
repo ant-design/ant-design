@@ -1,9 +1,9 @@
 @import '../../style/themes/default';
 @import '../../style/mixins/index';
 
-@description-list-prefix-cls: ~'@{ant-prefix}-description-list';
+@descriptions-prefix-cls: ~'@{ant-prefix}-descriptions';
 
-.@{description-list-prefix-cls} {
+.@{descriptions-prefix-cls} {
   &-title {
     color: @heading-color;
     font-size: @font-size-lg;
@@ -48,43 +48,43 @@
   }
 
   &.border {
-    .@{description-list-prefix-cls}-view {
+    .@{descriptions-prefix-cls}-view {
       border: 1px solid #d8d8d8;
     }
 
-    .@{description-list-prefix-cls}-item {
+    .@{descriptions-prefix-cls}-item {
       border-bottom: 1px solid #d8d8d8;
     }
 
-    .@{description-list-prefix-cls}-item:last-child {
+    .@{descriptions-prefix-cls}-item:last-child {
       border-bottom: none;
     }
 
-    .@{description-list-prefix-cls}-item-label {
+    .@{descriptions-prefix-cls}-item-label {
       background-color: #fafafa;
       padding: 16px 24px;
       &::after {
         display: none;
       }
     }
-    .@{description-list-prefix-cls}-item-content {
+    .@{descriptions-prefix-cls}-item-content {
       padding: 16px 24px;
     }
   }
 
   &.middle {
-    .@{description-list-prefix-cls}-item-label {
+    .@{descriptions-prefix-cls}-item-label {
       padding: 12px 24px;
     }
-    .@{description-list-prefix-cls}-item-content {
+    .@{descriptions-prefix-cls}-item-content {
       padding: 12px 24px;
     }
   }
   &.small {
-    .@{description-list-prefix-cls}-item-label {
+    .@{descriptions-prefix-cls}-item-label {
       padding: 8px 16px;
     }
-    .@{description-list-prefix-cls}-item-content {
+    .@{descriptions-prefix-cls}-item-content {
       padding: 8px 16px;
     }
   }

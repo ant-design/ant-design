@@ -2,7 +2,7 @@
 category: Components
 subtitle: 描述列表
 type: 数据展示
-title: DescriptionList
+title: Descriptions
 cols: 1
 ---
 
@@ -14,7 +14,7 @@ cols: 1
 
 ## API
 
-### DescriptionList
+### Descriptions
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |

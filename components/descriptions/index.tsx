@@ -3,14 +3,14 @@ import classNames from 'classnames';
 import warning from '../_util/warning';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
-export interface DescriptionListItemProps {
+export interface DescriptionsItemProps {
   prefixCls?: string;
   label: React.ReactNode;
   children: React.ReactNode;
   span?: number;
 }
 
-const DescriptionListItem = (props: DescriptionListItemProps) => {
+const DescriptionsItem = (props: DescriptionsItemProps) => {
   const { prefixCls, label, children, span = 1 } = props;
   return [
     <td className={`${prefixCls}-item-label`} key="label">
@@ -22,7 +22,7 @@ const DescriptionListItem = (props: DescriptionListItemProps) => {
   ];
 };
 
-export interface DescriptionListProps {
+export interface DescriptionsProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
@@ -33,8 +33,8 @@ export interface DescriptionListProps {
   column?: number;
 }
 
-interface DescriptionListClass extends React.SFC<DescriptionListProps> {
-  Item: typeof DescriptionListItem;
+interface DescriptionsClass extends React.SFC<DescriptionsProps> {
+  Item: typeof DescriptionsItem;
 }
 
 const genChildrenArray = (
@@ -44,23 +44,20 @@ const genChildrenArray = (
   const childrenArray: Array<React.ReactNode[]> = [];
   let columnArray: React.ReactNode[] = [];
   let width = 0;
-  React.Children.forEach(
-    cloneChildren,
-    (children: React.ReactElement<DescriptionListItemProps>) => {
-      columnArray.push(children);
-      if (children.props.span) {
-        width += children.props.span;
-      } else {
-        width += 1;
-      }
-      if (width >= column) {
-        childrenArray.push(columnArray);
-        columnArray = [];
-        width = 0;
-        warning(width > column, `column max is ${column}, here has width`);
-      }
-    },
-  );
+  React.Children.forEach(cloneChildren, (children: React.ReactElement<DescriptionsItemProps>) => {
+    columnArray.push(children);
+    if (children.props.span) {
+      width += children.props.span;
+    } else {
+      width += 1;
+    }
+    if (width >= column) {
+      childrenArray.push(columnArray);
+      columnArray = [];
+      width = 0;
+      warning(width > column, `column max is ${column}, here has width`);
+    }
+  });
   if (columnArray.length > 0) {
     childrenArray.push(columnArray);
     columnArray = [];
@@ -87,7 +84,7 @@ const renderRow = (
   );
 };
 
-const DescriptionList: DescriptionListClass = (props: DescriptionListProps) => (
+const Descriptions: DescriptionsClass = (props: DescriptionsProps) => (
   <ConfigConsumer>
     {({ getPrefixCls }: ConfigConsumerProps) => {
       const {
@@ -99,7 +96,7 @@ const DescriptionList: DescriptionListClass = (props: DescriptionListProps) => (
         children,
         border,
       } = props;
-      const prefixCls = getPrefixCls('description-list', customizePrefixCls);
+      const prefixCls = getPrefixCls('descriptions', customizePrefixCls);
 
       const cloneChildren = React.Children.map(children, (child: React.ReactElement<any>) => {
         return React.cloneElement(child, {
@@ -132,10 +129,10 @@ const DescriptionList: DescriptionListClass = (props: DescriptionListProps) => (
   </ConfigConsumer>
 );
 
-DescriptionList.defaultProps = {
+Descriptions.defaultProps = {
   size: 'default',
 };
 
-DescriptionList.Item = DescriptionListItem;
+Descriptions.Item = DescriptionsItem;
 
-export default DescriptionList;
+export default Descriptions;

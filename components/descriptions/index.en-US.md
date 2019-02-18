@@ -13,7 +13,7 @@ When there is no data provided, display for friendly tips.
 
 ## API
 
-### DescriptionList
+### Descriptions
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
