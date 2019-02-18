@@ -5,15 +5,15 @@
   bottom: 0;
   left: 0;
   z-index: @zindex-picker-panel;
-  border-radius: @border-radius-base;
   background: @component-background;
+  border-radius: @border-radius-base;
   outline: none;
 
   > div {
-    // TODO: this is a useless wrapper, and we need to remove it in rc-calendar
-    height: 100%;
     display: flex;
     flex-direction: column;
+    // TODO: this is a useless wrapper, and we need to remove it in rc-calendar
+    height: 100%;
   }
 }
 
@@ -37,19 +37,19 @@
 }
 
 .@{calendar-prefix-cls}-month-panel-table {
-  table-layout: fixed;
   width: 100%;
   height: 100%;
+  table-layout: fixed;
   border-collapse: separate;
 }
 
 .@{calendar-prefix-cls}-month-panel-selected-cell .@{calendar-prefix-cls}-month-panel-month {
-  background: @primary-color;
   color: @text-color-inverse;
+  background: @primary-color;
 
   &:hover {
-    background: @primary-color;
     color: @text-color-inverse;
+    background: @primary-color;
   }
 }
 
@@ -59,22 +59,22 @@
   &-disabled .@{calendar-prefix-cls}-month-panel-month {
     &,
     &:hover {
-      cursor: not-allowed;
       color: @disabled-color;
       background: @disabled-bg;
+      cursor: not-allowed;
     }
   }
 }
 
 .@{calendar-prefix-cls}-month-panel-month {
   display: inline-block;
-  margin: 0 auto;
-  color: @text-color;
-  background: transparent;
-  text-align: center;
   height: 24px;
-  line-height: 24px;
+  margin: 0 auto;
   padding: 0 8px;
+  color: @text-color;
+  line-height: 24px;
+  text-align: center;
+  background: transparent;
   border-radius: @border-radius-sm;
   transition: background 0.3s ease;
 

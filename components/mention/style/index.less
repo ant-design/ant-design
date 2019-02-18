@@ -13,14 +13,14 @@
 
   .@{mention-prefix-cls}-editor {
     .input;
-    min-height: @input-height-base;
-    height: auto; // To override height in .input mixin
-    line-height: @line-height-base;
-    padding: 0;
     display: block;
+    height: auto; // To override height in .input mixin
+    min-height: @input-height-base;
+    padding: 0;
+    line-height: @line-height-base;
     &-wrapper {
-      overflow-y: auto;
       height: auto;
+      overflow-y: auto;
     }
   }
   &.@{mention-prefix-cls}-active:not(.disabled) .@{mention-prefix-cls}-editor {
@@ -33,13 +33,13 @@
     position: absolute;
     pointer-events: none;
     .public-DraftEditorPlaceholder-inner {
-      color: @input-placeholder-color;
-      opacity: 1;
-      outline: none;
-      white-space: pre-wrap;
-      word-wrap: break-word;
       height: auto;
       padding: 5px @control-padding-horizontal - 1px;
+      color: @input-placeholder-color;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      outline: none;
+      opacity: 1;
     }
   }
   .DraftEditor-editorContainer .public-DraftEditor-content {
@@ -50,19 +50,19 @@
 
 .@{mention-prefix-cls}-dropdown {
   .reset-component;
-  margin-top: 1.5em;
-  max-height: 250px;
-  min-width: 120px;
-  background-color: @component-background;
-  box-shadow: @box-shadow-base;
-  border-radius: @border-radius-base;
-  z-index: @zindex-dropdown;
-  left: -9999px;
-  top: -9999px;
   position: absolute;
-  outline: none;
+  top: -9999px;
+  left: -9999px;
+  z-index: @zindex-dropdown;
+  min-width: 120px;
+  max-height: 250px;
+  margin-top: 1.5em;
   overflow-x: hidden;
   overflow-y: auto;
+  background-color: @component-background;
+  border-radius: @border-radius-base;
+  outline: none;
+  box-shadow: @box-shadow-base;
 
   &-placement-top {
     margin-top: -0.1em;
@@ -72,22 +72,22 @@
     color: @disabled-color;
 
     .@{iconfont-css-prefix}-loading {
+      display: block;
       color: @primary-color;
       text-align: center;
-      display: block;
     }
   }
   &-item {
     position: relative;
     display: block;
     padding: 5px @control-padding-horizontal;
-    line-height: 22px;
-    font-weight: normal;
-    color: @text-color;
-    white-space: nowrap;
-    cursor: pointer;
-    text-overflow: ellipsis;
     overflow: hidden;
+    color: @text-color;
+    font-weight: normal;
+    line-height: 22px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: pointer;
     transition: background 0.3s;
 
     &:hover {
@@ -113,9 +113,9 @@
     &-selected {
       &,
       &:hover {
-        background-color: @background-color-base;
-        font-weight: bold;
         color: @text-color;
+        font-weight: bold;
+        background-color: @background-color-base;
       }
     }
 
@@ -123,8 +123,8 @@
       height: 1px;
       margin: 1px 0;
       overflow: hidden;
-      background-color: @border-color-split;
       line-height: 0;
+      background-color: @border-color-split;
     }
   }
 }

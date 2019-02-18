@@ -15,6 +15,32 @@ timeline: true
 
 ---
 
+## 3.13.3
+
+`2019-02-16`
+
+- 📖 New English translation
+  - [Motion](https://ant.design/docs/spec/motion) [@balloonio](https://github.com/balloonio)
+  - [Data Entry](https://ant.design/docs/spec/data-entry) [@balloonio](https://github.com/balloonio)
+- 🐞 Fix mouse cursor style when Switch is disabled. [#14764](https://github.com/ant-design/ant-design/issues/14764)
+- 🐞 Fix Progress shows a wrong successful status. [#14769](https://github.com/ant-design/ant-design/pull/14769) [@imhele](https://github.com/imhele)
+- 🐞 Fix the issue that the upload status has always been `uploading` after hiding the upload button in the Upload. [#14779](https://github.com/ant-design/ant-design/issues/14779)
+- 🐞 Fix the issue where the custom icons for vertical Steps were not centered. [#14677](https://github.com/ant-design/ant-design/issues/14677)
+- 🐞 Fix the issue with Input.Search does not support `addonAfter`. [#14785](https://github.com/ant-design/ant-design/issues/14785)
+- 🐞 Fix layout issues with FormItem when there is an error. [#14772](https://github.com/ant-design/ant-design/issues/14772)
+- 🐞 Fix the issue that the operation button will be blocked when the Card is `loading`. [#14832](https://github.com/ant-design/ant-design/issues/14832)
+- 🐞 Fix the issue that describes overflow in List. [#14765](https://github.com/ant-design/ant-design/pull/14765) [@Shub1427](https://github.com/ant-design/ant-design/pull/14765)
+- 🐞 Fix the style issue of TimePicker's clear button, when using the `small` size. [#14861](https://github.com/ant-design/ant-design/pull/14861) [@Yangzhedi](https://github.com/Yangzhedi)
+- Table
+  - 🐞 Fix the issue that the floating element misalignment. [#14822](https://github.com/ant-design/ant-design/pull/14822) [@chiaweilee](https://github.com/ant-design/ant-design/pull/14822)
+  - 🐞 Fix the issue where the className was not synchronized when the `rowSelection` property was removed. [#14759](https://github.com/ant-design/ant-design/issues/14759)
+  - 🐞 Fix border display issue when there is no data. [#14834](https://github.com/ant-design/ant-design/issues/14834)
+  - 🐞 Fix the issue where `pagination` was set to `true`.
+  - 🐞 Fix the issue where the filter drop-down box would be occluded.
+- TypeScript
+  - 🐞 Checkbox adds `onClick`. [#14762](https://github.com/ant-design/ant-design/pull/14762) [@Frezc](https://github.com/Frezc)
+  - 🐞 Menu adds `onTitleMouseEnter` and `onTitleMouseLeave`. [#14737](https://github.com/ant-design/ant-design/pull/14737) [#GabeMedrash](https://github.com/ant-design/ant-design/pull/14737)
+
 ## 3.13.2
 
 `2019-02-07`

@@ -6,9 +6,9 @@
 .@{collapse-prefix-cls} {
   .reset-component;
   background-color: @collapse-header-bg;
-  border-radius: @border-radius-base;
   border: @border-width-base @border-style-base @border-color-base;
   border-bottom: 0;
+  border-radius: @border-radius-base;
 
   & > &-item {
     border-bottom: @border-width-base @border-style-base @border-color-base;
@@ -21,24 +21,23 @@
     }
 
     > .@{collapse-prefix-cls}-header {
-      line-height: 22px;
+      position: relative;
       padding: @collapse-header-padding;
       color: @heading-color;
+      line-height: 22px;
       cursor: pointer;
-      position: relative;
       transition: all 0.3s;
 
       .@{collapse-prefix-cls}-arrow {
         .iconfont-mixin();
-        font-size: @font-size-sm;
         position: absolute;
-        display: inline-block;
-        line-height: 46px;
-        vertical-align: top;
         top: 50%;
-        margin-top: 2px;
-        transform: translateY(-50%);
         left: @padding-md;
+        display: inline-block;
+        margin-top: 2px;
+        font-size: @font-size-sm;
+        line-height: 46px;
+        transform: translateY(-50%);
 
         & svg {
           transition: transform 0.24s;
@@ -108,8 +107,8 @@
   & &-item-disabled > &-header {
     &,
     & > .arrow {
-      cursor: not-allowed;
       color: @disabled-color;
+      cursor: not-allowed;
     }
   }
 }

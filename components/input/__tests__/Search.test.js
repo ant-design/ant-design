@@ -126,4 +126,13 @@ describe('Input.Search', () => {
       }),
     );
   });
+
+  // https://github.com/ant-design/ant-design/issues/14785
+  it('should support addonAfter', () => {
+    const addonAfter = <span>Addon After</span>;
+    const wrapper = mount(<Search addonAfter={addonAfter} />);
+    const wrapperWithEnterButton = mount(<Search enterButton addonAfter={addonAfter} />);
+    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapperWithEnterButton.render()).toMatchSnapshot();
+  });
 });

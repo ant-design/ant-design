@@ -1,12 +1,12 @@
 .@{calendar-prefix-cls}-decade-panel {
   position: absolute;
-  display: flex;
-  flex-direction: column;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   z-index: @zindex-picker-panel;
+  display: flex;
+  flex-direction: column;
   background: @component-background;
   border-radius: @border-radius-base;
   outline: none;
@@ -32,26 +32,26 @@
 }
 
 .@{calendar-prefix-cls}-decade-panel-table {
-  table-layout: fixed;
   width: 100%;
   height: 100%;
+  table-layout: fixed;
   border-collapse: separate;
 }
 
 .@{calendar-prefix-cls}-decade-panel-cell {
-  text-align: center;
   white-space: nowrap;
+  text-align: center;
 }
 
 .@{calendar-prefix-cls}-decade-panel-decade {
   display: inline-block;
-  margin: 0 auto;
-  color: @text-color;
-  background: transparent;
-  text-align: center;
   height: 24px;
-  line-height: 24px;
+  margin: 0 auto;
   padding: 0 6px;
+  color: @text-color;
+  line-height: 24px;
+  text-align: center;
+  background: transparent;
   border-radius: @border-radius-sm;
   transition: background 0.3s ease;
 
@@ -62,19 +62,19 @@
 }
 
 .@{calendar-prefix-cls}-decade-panel-selected-cell .@{calendar-prefix-cls}-decade-panel-decade {
-  background: @primary-color;
   color: @text-color-inverse;
+  background: @primary-color;
 
   &:hover {
-    background: @primary-color;
     color: @text-color-inverse;
+    background: @primary-color;
   }
 }
 
 .@{calendar-prefix-cls}-decade-panel-last-century-cell,
 .@{calendar-prefix-cls}-decade-panel-next-century-cell {
   .@{calendar-prefix-cls}-decade-panel-decade {
-    user-select: none;
     color: @disabled-color;
+    user-select: none;
   }
 }

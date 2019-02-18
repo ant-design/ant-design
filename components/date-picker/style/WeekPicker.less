@@ -3,19 +3,19 @@
     opacity: 0.5;
   }
   .@{calendar-prefix-cls}-body tr {
-    transition: all 0.3s;
     cursor: pointer;
+    transition: all 0.3s;
     &:hover {
       background: @primary-1;
     }
     &.@{calendar-prefix-cls}-active-week {
-      background: @primary-2;
       font-weight: bold;
+      background: @primary-2;
     }
     .@{calendar-prefix-cls}-selected-day .@{calendar-prefix-cls}-date,
     .@{calendar-prefix-cls}-selected-day:hover .@{calendar-prefix-cls}-date {
-      background: transparent;
       color: @text-color;
+      background: transparent;
     }
   }
 }

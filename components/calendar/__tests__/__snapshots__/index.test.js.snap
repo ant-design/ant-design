@@ -33,6 +33,7 @@ exports[`Calendar Calendar should support locale 1`] = `
         </div>
         <span
           class="ant-select-arrow"
+          style="user-select: none;"
           unselectable="on"
         >
           <i
@@ -82,6 +83,7 @@ exports[`Calendar Calendar should support locale 1`] = `
         </div>
         <span
           class="ant-select-arrow"
+          style="user-select: none;"
           unselectable="on"
         >
           <i
