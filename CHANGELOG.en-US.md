@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 3.13.4
+
+`2019-02-18`
+
+- 🐞 Fix Table ajax load display no data. [#14898](https://github.com/ant-design/ant-design/pull/14898)
+- 🐞 Fix FormItem margin style not correct. [#14886](https://github.com/ant-design/ant-design/pull/14886)
+
 ## 3.13.3
 
 `2019-02-16`
