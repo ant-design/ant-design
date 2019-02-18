@@ -120,7 +120,6 @@ input[type='checkbox'] {
 }
 
 .@{form-prefix-cls}-explain-holder {
-  margin-top: -2px;
   line-height: 1;
 
   &::before {
@@ -130,7 +129,9 @@ input[type='checkbox'] {
     overflow: hidden;
     line-height: @line-height-base;
     vertical-align: top;
+    margin-top: @form-help-margin-top;
 
+    .@{form-prefix-cls}-inline &,
     .@{form-prefix-cls}-item-with-extra &,
     .@{form-prefix-cls}-item-no-holder & {
       display: none;
@@ -144,6 +145,7 @@ input[type='checkbox'] {
 
 .@{form-prefix-cls}-explain,
 .@{form-prefix-cls}-extra {
+  margin-top: @form-help-margin-top;
   clear: both;
   color: @text-color-secondary;
   line-height: @line-height-base;
@@ -151,7 +153,6 @@ input[type='checkbox'] {
 }
 
 .@{form-prefix-cls}-extra {
-  margin-top: @form-help-margin-top;
   padding-top: 4px;
 }
 
@@ -399,10 +400,6 @@ form {
 
     &-with-help {
       margin-bottom: 24px;
-    }
-
-    &::before {
-      display: none;
     }
 
     > .@{form-prefix-cls}-item-control-wrapper,
