@@ -47,8 +47,11 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                 />
               </span>
               <div
+                aria-hidden="true"
                 class="ant-form-explain-holder"
-              />
+              >
+                 
+              </div>
             </div>
           </div>
         </div>
@@ -91,8 +94,11 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                 />
               </span>
               <div
+                aria-hidden="true"
                 class="ant-form-explain-holder"
-              />
+              >
+                 
+              </div>
             </div>
           </div>
         </div>
@@ -135,8 +141,11 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                 />
               </span>
               <div
+                aria-hidden="true"
                 class="ant-form-explain-holder"
-              />
+              >
+                 
+              </div>
             </div>
           </div>
         </div>
@@ -179,8 +188,11 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                 />
               </span>
               <div
+                aria-hidden="true"
                 class="ant-form-explain-holder"
-              />
+              >
+                 
+              </div>
             </div>
           </div>
         </div>
@@ -223,8 +235,11 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                 />
               </span>
               <div
+                aria-hidden="true"
                 class="ant-form-explain-holder"
-              />
+              >
+                 
+              </div>
             </div>
           </div>
         </div>
@@ -267,8 +282,11 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                 />
               </span>
               <div
+                aria-hidden="true"
                 class="ant-form-explain-holder"
-              />
+              >
+                 
+              </div>
             </div>
           </div>
         </div>
@@ -311,8 +329,11 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                 />
               </span>
               <div
+                aria-hidden="true"
                 class="ant-form-explain-holder"
-              />
+              >
+                 
+              </div>
             </div>
           </div>
         </div>
@@ -355,8 +376,11 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                 />
               </span>
               <div
+                aria-hidden="true"
                 class="ant-form-explain-holder"
-              />
+              >
+                 
+              </div>
             </div>
           </div>
         </div>
@@ -399,8 +423,11 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                 />
               </span>
               <div
+                aria-hidden="true"
                 class="ant-form-explain-holder"
-              />
+              >
+                 
+              </div>
             </div>
           </div>
         </div>
@@ -443,8 +470,11 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                 />
               </span>
               <div
+                aria-hidden="true"
                 class="ant-form-explain-holder"
-              />
+              >
+                 
+              </div>
             </div>
           </div>
         </div>
@@ -545,8 +575,11 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
           />
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -628,8 +661,11 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
           </div>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -655,8 +691,11 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
           </button>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -751,8 +790,11 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
           </span>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -778,8 +820,11 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
           </button>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -831,8 +876,11 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
           </button>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -858,8 +906,11 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
           </button>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -902,8 +953,11 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
           />
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -941,8 +995,11 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
           />
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -978,8 +1035,11 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
           </label>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -1005,8 +1065,11 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
           </button>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -1064,8 +1127,11 @@ exports[`renders ./components/form/demo/global-state.md correctly 1`] = `
             />
           </span>
           <div
+            aria-hidden="true"
             class="ant-form-explain-holder"
-          />
+          >
+             
+          </div>
         </div>
       </div>
     </div>
@@ -1136,8 +1202,11 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
           </span>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -1191,8 +1260,11 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
           </span>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -1218,8 +1290,11 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
           </button>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -1317,8 +1392,11 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
             </div>
           </span>
           <div
+            aria-hidden="true"
             class="ant-form-explain-holder"
-          />
+          >
+             
+          </div>
         </div>
       </div>
     </div>
@@ -1352,8 +1430,11 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
             />
           </span>
           <div
+            aria-hidden="true"
             class="ant-form-explain-holder"
-          />
+          >
+             
+          </div>
         </div>
       </div>
     </div>
@@ -1387,8 +1468,11 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
             />
           </span>
           <div
+            aria-hidden="true"
             class="ant-form-explain-holder"
-          />
+          >
+             
+          </div>
         </div>
       </div>
     </div>
@@ -1414,8 +1498,11 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
             </button>
           </span>
           <div
+            aria-hidden="true"
             class="ant-form-explain-holder"
-          />
+          >
+             
+          </div>
         </div>
       </div>
     </div>
@@ -1477,8 +1564,11 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
           </span>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -1532,8 +1622,11 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
           </span>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -1593,8 +1686,11 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
           </a>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -1638,8 +1734,11 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           />
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -1676,8 +1775,11 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           />
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -1714,8 +1816,11 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           />
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -1775,8 +1880,11 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           />
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -1862,8 +1970,11 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           </span>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -1967,8 +2078,11 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           </span>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -2069,8 +2183,11 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           </div>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -2130,12 +2247,15 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           </div>
         </span>
         <div
-          class="ant-form-explain-holder"
-        />
-        <div
           class="ant-form-extra"
         >
           We must make sure that your are a human.
+        </div>
+        <div
+          aria-hidden="true"
+          class="ant-form-explain-holder"
+        >
+           
         </div>
       </div>
     </div>
@@ -2180,8 +2300,11 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           </label>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -2207,8 +2330,11 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           </button>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -2275,8 +2401,11 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
           </span>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -2337,8 +2466,11 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
           </span>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -2398,8 +2530,11 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
           </span>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -2475,8 +2610,11 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
           </span>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -2553,8 +2691,11 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
           </span>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -2619,8 +2760,11 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
           </span>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -2646,8 +2790,11 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
           </button>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -2687,8 +2834,11 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           </span>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -2770,8 +2920,11 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           </div>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -2849,8 +3002,11 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           </div>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -2963,8 +3119,11 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           </span>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -3006,8 +3165,11 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           </button>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -3125,8 +3287,11 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           </div>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -3217,8 +3382,11 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           </div>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -3309,8 +3477,11 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           </div>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -3469,8 +3640,11 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           </div>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -3785,8 +3959,11 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           </ul>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -3825,12 +4002,15 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           </span>
         </span>
         <div
-          class="ant-form-explain-holder"
-        />
-        <div
           class="ant-form-extra"
         >
           longgggggggggggggggggggggggggggggggggg
+        </div>
+        <div
+          aria-hidden="true"
+          class="ant-form-explain-holder"
+        >
+           
         </div>
       </div>
     </div>
@@ -3874,8 +4054,11 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           </div>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -3901,8 +4084,11 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           </button>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -3944,13 +4130,9 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           />
         </span>
         <div
-          class="ant-form-explain-holder"
+          class="ant-form-explain"
         >
-          <span
-            class="ant-form-explain"
-          >
-            Should be combination of numbers & alphabets
-          </span>
+          Should be combination of numbers & alphabets
         </div>
       </div>
     </div>
@@ -3986,8 +4168,11 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           />
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -4044,13 +4229,9 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           </span>
         </span>
         <div
-          class="ant-form-explain-holder"
+          class="ant-form-explain"
         >
-          <span
-            class="ant-form-explain"
-          >
-            The information is being validated...
-          </span>
+          The information is being validated...
         </div>
       </div>
     </div>
@@ -4108,8 +4289,11 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           </span>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -4166,8 +4350,11 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           </span>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -4224,13 +4411,9 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           </span>
         </span>
         <div
-          class="ant-form-explain-holder"
+          class="ant-form-explain"
         >
-          <span
-            class="ant-form-explain"
-          >
-            Should be combination of numbers & alphabets
-          </span>
+          Should be combination of numbers & alphabets
         </div>
       </div>
     </div>
@@ -4312,8 +4495,11 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           </span>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -4400,8 +4586,11 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           </span>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -4501,8 +4690,11 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           </span>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -4604,13 +4796,9 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           </span>
         </span>
         <div
-          class="ant-form-explain-holder"
+          class="ant-form-explain"
         >
-          <span
-            class="ant-form-explain"
-          >
-            The information is being validated...
-          </span>
+          The information is being validated...
         </div>
       </div>
     </div>
@@ -4683,13 +4871,9 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                   </span>
                 </span>
                 <div
-                  class="ant-form-explain-holder"
+                  class="ant-form-explain"
                 >
-                  <span
-                    class="ant-form-explain"
-                  >
-                    Please select the correct date
-                  </span>
+                  Please select the correct date
                 </div>
               </div>
             </div>
@@ -4744,15 +4928,15 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                   </span>
                 </span>
                 <div
+                  aria-hidden="true"
                   class="ant-form-explain-holder"
-                />
+                >
+                   
+                </div>
               </div>
             </div>
           </div>
         </span>
-        <div
-          class="ant-form-explain-holder"
-        />
       </div>
     </div>
   </div>
@@ -4876,8 +5060,11 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           </span>
         </span>
         <div
+          aria-hidden="true"
           class="ant-form-explain-holder"
-        />
+        >
+           
+        </div>
       </div>
     </div>
   </div>
@@ -4988,13 +5175,9 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
           </div>
         </span>
         <div
-          class="ant-form-explain-holder"
+          class="ant-form-explain"
         >
-          <span
-            class="ant-form-explain"
-          >
-            A prime is a natural number greater than 1 that has no positive divisors other than 1 and itself.
-          </span>
+          A prime is a natural number greater than 1 that has no positive divisors other than 1 and itself.
         </div>
       </div>
     </div>

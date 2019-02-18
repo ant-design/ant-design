@@ -45,7 +45,7 @@ const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
             <Form.Item label="Description">
               {getFieldDecorator('description')(<Input type="textarea" />)}
             </Form.Item>
-            <Form.Item className="collection-create-form_last-form-item">
+            <Form.Item style={{ marginBottom: 0 }}>
               {getFieldDecorator('modifier', {
                 initialValue: 'public',
               })(
@@ -110,8 +110,3 @@ class CollectionsPage extends React.Component {
 ReactDOM.render(<CollectionsPage />, mountNode);
 ````
 
-````css
-.collection-create-form_last-form-item {
-  margin-bottom: 0;
-}
-````
