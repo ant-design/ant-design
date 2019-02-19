@@ -8,6 +8,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
     class="ant-page-header-back-icon"
   >
     <i
+      aria-label="icon: arrow-left"
       class="anticon anticon-arrow-left"
     >
       <svg
@@ -275,6 +276,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
               class="ant-tabs-tab-prev-icon"
             >
               <i
+                aria-label="icon: left"
                 class="anticon anticon-left ant-tabs-tab-prev-icon-target"
               >
                 <svg
@@ -301,6 +303,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
               class="ant-tabs-tab-next-icon"
             >
               <i
+                aria-label="icon: right"
                 class="anticon anticon-right ant-tabs-tab-next-icon-target"
               >
                 <svg
@@ -403,6 +406,7 @@ exports[`renders ./components/page-header/demo/basic.md correctly 1`] = `
     class="ant-page-header-back-icon"
   >
     <i
+      aria-label="icon: arrow-left"
       class="anticon anticon-arrow-left"
     >
       <svg
@@ -581,12 +585,16 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
         <div
           class="content"
         >
-          <p>
+          <div
+            class="ant-typography"
+          >
             Ant Design interprets the color system into two levels: a system-level color system and a product-level color system.
-          </p>
-          <p>
+          </div>
+          <div
+            class="ant-typography"
+          >
             Ant Design's design team preferred to design with the HSB color model, which makes it easier for designers to have a clear psychological expectation of color when adjusting colors, as well as facilitate communication in teams.
-          </p>
+          </div>
           <p
             class="contentLink"
           >
