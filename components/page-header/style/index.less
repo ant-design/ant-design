@@ -5,8 +5,8 @@
 
 .@{pageheader-prefix-cls} {
   .reset-component;
-  padding: 16px 32px;
   position: relative;
+  padding: 16px 32px;
   background: @component-background;
 
   &.@{pageheader-prefix-cls}-has-footer {
@@ -15,19 +15,19 @@
   }
 
   &-back-icon {
-    cursor: pointer;
+    display: inline-block;
+    padding: 4px 0;
     font-size: 16px;
     line-height: 100%;
-    padding: 4px 0;
-    display: inline-block;
+    cursor: pointer;
     i:hover {
       color: @primary-color;
     }
   }
 
   .@{ant-prefix}-divider {
-    margin: 0 12px;
     height: 14px;
+    margin: 0 12px;
     margin-top: 3px;
     vertical-align: top;
   }
@@ -39,31 +39,31 @@
   &-title-view {
     display: inline-block;
     &-title {
-      line-height: 1.4;
       display: inline-block;
-      font-size: 16px;
+      padding-right: 12px;
       color: @heading-color;
       font-weight: bold;
-      padding-right: 12px;
+      font-size: 16px;
+      line-height: 1.4;
     }
 
     &-sub-title {
-      font-size: 14px;
       display: inline-block;
-      color: @text-color-secondary;
-      line-height: 1.8;
       padding-right: 12px;
+      color: @text-color-secondary;
+      font-size: 14px;
+      line-height: 1.8;
     }
 
     &-tags {
-      vertical-align: top;
       display: inline-block;
+      vertical-align: top;
     }
 
     &-extra {
       position: absolute;
-      right: 32px;
       top: 16px;
+      right: 32px;
       > * {
         margin-right: 8px;
       }
