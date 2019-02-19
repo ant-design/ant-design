@@ -15,6 +15,16 @@ timeline: true
 
 ---
 
+## 3.13.5
+
+`2019-02-19`
+
+- 🐞 Revert FormItem with additional place holder. [#14937](https://github.com/ant-design/ant-design/pull/14937)
+- 🐞 Adjust Input style to support `text-align: inherit`. [#14912](https://github.com/ant-design/ant-design/pull/14912)
+- 🐞 Fix incorrect collapse icon position when sider in the right. [#14446](https://github.com/ant-design/ant-design/pull/14446)
+- 🐞 Fix Table miss top border in some case. [#14922](https://github.com/ant-design/ant-design/pull/14922)
+- 🐞 Fix TypeScript Definition. [#14903](https://github.com/ant-design/ant-design/pull/14903) [#14857](https://github.com/ant-design/ant-design/pull/14857)
+
 ## 3.13.4
 
 `2019-02-18`

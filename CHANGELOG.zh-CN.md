@@ -15,6 +15,16 @@ timeline: true
 
 ---
 
+## 3.13.5
+
+`2019-02-19`
+
+- 🐞 回滚 FormItem 占位符以修复额外高度的问题。[#14937](https://github.com/ant-design/ant-design/pull/14937)
+- 🐞 调整 Input 样式以支持 `text-align: inherit`。
+- 🐞 修复 Sider 在右侧收缩时，图标位置不正确的问题。[#14446](https://github.com/ant-design/ant-design/pull/14446)
+- 🐞 修复 Table 在某些情况下丢失顶部边框的问题。[#14922](https://github.com/ant-design/ant-design/pull/14922)
+- 🐞 修复 TypeScript 类型定义。[#14903](https://github.com/ant-design/ant-design/pull/14903)
+
 ## 3.13.4
 
 `2019-02-18`
