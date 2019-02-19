@@ -51,7 +51,7 @@ You can subscribe to this feed for new version notifications: https://github.com
 **We recommend using npm or yarn to install**, it not only makes development easier, but also allow you to take advantage of the rich ecosystem of Javascript packages and tooling.
 
 ```bash
-$ npm install antd --save
+$ npm install antd
 ```
 
 ```bash
