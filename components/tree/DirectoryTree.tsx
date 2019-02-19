@@ -40,6 +40,16 @@ export default class DirectoryTree extends React.Component<DirectoryTreeProps, D
     expandAction: 'click',
   };
 
+  static getDerivedStateFromProps(nextProps: DirectoryTreeProps) {
+    if ('expandedKeys' in nextProps) {
+      return { expandedKeys: nextProps.expandedKeys };
+    }
+    if ('selectedKeys' in nextProps) {
+      return { selectedKeys: nextProps.selectedKeys };
+    }
+    return null;
+  }
+
   state: DirectoryTreeState;
   tree: Tree;
   onDebounceExpand: (event: React.MouseEvent<HTMLElement>, node: AntTreeNode) => void;
@@ -80,15 +90,6 @@ export default class DirectoryTree extends React.Component<DirectoryTreeProps, D
     this.onDebounceExpand = debounce(this.expandFolderNode, 200, {
       leading: true,
     });
-  }
-
-  componentWillReceiveProps(nextProps: DirectoryTreeProps) {
-    if ('expandedKeys' in nextProps) {
-      this.setState({ expandedKeys: nextProps.expandedKeys });
-    }
-    if ('selectedKeys' in nextProps) {
-      this.setState({ selectedKeys: nextProps.selectedKeys });
-    }
   }
 
   onExpand = (expandedKeys: string[], info: AntTreeNodeExpandedEvent) => {
