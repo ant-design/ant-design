@@ -18,6 +18,10 @@ function fixControlledValue<T>(value: T) {
   return value;
 }
 
+function hasPrefixSuffix(props: InputProps) {
+  return 'prefix' in props || props.suffix || props.allowClear;
+}
+
 const InputSizes = tuple('small', 'default', 'large');
 
 export interface InputProps
@@ -82,6 +86,12 @@ class Input extends React.Component<InputProps, any> {
     this.state = {
       value,
     };
+  }
+
+  componentDidUpdate(prevProps: InputProps) {
+    if (!hasPrefixSuffix(prevProps) && hasPrefixSuffix(this.props)) {
+      console.warn('2333', this.input, document.activeElement);
+    }
   }
 
   handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -224,7 +234,7 @@ class Input extends React.Component<InputProps, any> {
     const { props } = this;
     const suffix = this.renderSuffix(prefixCls);
 
-    if (!('prefix' in props) && !suffix) {
+    if (!hasPrefixSuffix(props)) {
       return children;
     }
 
