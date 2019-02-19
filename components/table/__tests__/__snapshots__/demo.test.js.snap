@@ -1582,12 +1582,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                 />
               </button>
             </span>
-            <div
-              aria-hidden="true"
-              class="ant-form-explain-holder"
-            >
-               
-            </div>
           </div>
         </div>
       </div>
@@ -1624,12 +1618,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                 />
               </button>
             </span>
-            <div
-              aria-hidden="true"
-              class="ant-form-explain-holder"
-            >
-               
-            </div>
           </div>
         </div>
       </div>
@@ -1666,12 +1654,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                 />
               </button>
             </span>
-            <div
-              aria-hidden="true"
-              class="ant-form-explain-holder"
-            >
-               
-            </div>
           </div>
         </div>
       </div>
@@ -1709,12 +1691,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                 />
               </button>
             </span>
-            <div
-              aria-hidden="true"
-              class="ant-form-explain-holder"
-            >
-               
-            </div>
           </div>
         </div>
       </div>
@@ -1752,12 +1728,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                 />
               </button>
             </span>
-            <div
-              aria-hidden="true"
-              class="ant-form-explain-holder"
-            >
-               
-            </div>
           </div>
         </div>
       </div>
@@ -1795,12 +1765,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                 />
               </button>
             </span>
-            <div
-              aria-hidden="true"
-              class="ant-form-explain-holder"
-            >
-               
-            </div>
           </div>
         </div>
       </div>
@@ -1838,12 +1802,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                 />
               </button>
             </span>
-            <div
-              aria-hidden="true"
-              class="ant-form-explain-holder"
-            >
-               
-            </div>
           </div>
         </div>
       </div>
@@ -1880,12 +1838,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                 />
               </button>
             </span>
-            <div
-              aria-hidden="true"
-              class="ant-form-explain-holder"
-            >
-               
-            </div>
           </div>
         </div>
       </div>
@@ -1923,12 +1875,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                 />
               </button>
             </span>
-            <div
-              aria-hidden="true"
-              class="ant-form-explain-holder"
-            >
-               
-            </div>
           </div>
         </div>
       </div>
@@ -2017,12 +1963,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                 </label>
               </div>
             </span>
-            <div
-              aria-hidden="true"
-              class="ant-form-explain-holder"
-            >
-               
-            </div>
           </div>
         </div>
       </div>
@@ -2130,12 +2070,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                 </label>
               </div>
             </span>
-            <div
-              aria-hidden="true"
-              class="ant-form-explain-holder"
-            >
-               
-            </div>
           </div>
         </div>
       </div>

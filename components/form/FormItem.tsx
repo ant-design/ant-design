@@ -164,7 +164,6 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     if (children) {
       this.helpShow = !!children;
     }
-
     return (
       <Animate
         transitionName="show-help"
@@ -175,19 +174,6 @@ export default class FormItem extends React.Component<FormItemProps, any> {
       >
         {children}
       </Animate>
-    );
-  }
-
-  renderHelpHolder(prefixCls: string) {
-    const { style } = this.props;
-    if (this.helpShow || (style && ('margin' in style || 'marginBottom' in style))) {
-      return null;
-    }
-
-    return (
-      <div className={`${prefixCls}-explain-holder`} aria-hidden="true">
-        {'\u00A0'}
-      </div>
     );
   }
 
@@ -220,7 +206,6 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     c1: React.ReactNode,
     c2: React.ReactNode,
     c3: React.ReactNode,
-    helperHolder: React.ReactNode,
   ) {
     const props = this.props;
     const onlyControl = this.getOnlyControl;
@@ -274,7 +259,6 @@ export default class FormItem extends React.Component<FormItemProps, any> {
         </span>
         {c2}
         {c3}
-        {helperHolder}
       </div>
     );
   }
@@ -378,7 +362,6 @@ export default class FormItem extends React.Component<FormItemProps, any> {
           children,
           this.renderHelp(prefixCls),
           this.renderExtra(prefixCls),
-          this.renderHelpHolder(prefixCls),
         ),
       ),
     ];
