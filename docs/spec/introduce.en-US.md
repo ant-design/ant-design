@@ -50,6 +50,9 @@ const LinksList = () => (
       </a>
     </li>
     <li>
+      <a href="http://vue.ant.design" target="_blank">Ant Design of Vue<LinkIcon /></a>
+    </li>
+    <li>
       <a href="https://github.com/FE-Driver/vue-beauty" target="_blank">
         vue-beauty (vue)<LinkIcon />
       </a>
@@ -67,11 +70,6 @@ const LinksList = () => (
     <li>
       <a href="https://github.com/zzuu666/antue" target="_blank">
         antue (vue)<LinkIcon />
-      </a>
-    </li>
-    <li>
-      <a href="https://github.com/vueComponent/ant-design" target="_blank">
-        vue-antd-ui - Ant Design of Vue.js 2.5.0+<LinkIcon />
       </a>
     </li>
   </ul>

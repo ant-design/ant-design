@@ -25,13 +25,13 @@
         }
 
         &.@{tree-prefix-cls}-node-content-wrapper {
-          user-select: none;
           border-radius: 0;
+          user-select: none;
 
           &:hover {
             background: transparent;
 
-            &:before {
+            &::before {
               background: @item-hover-bg;
             }
           }
@@ -41,13 +41,13 @@
             background: transparent;
           }
 
-          &:before {
-            content: '';
+          &::before {
             position: absolute;
-            left: 0;
             right: 0;
+            left: 0;
             height: @tree-title-height;
             transition: all 0.3s;
+            content: '';
           }
 
           > span {
@@ -69,14 +69,14 @@
             }
 
             &.@{tree-prefix-cls}-checkbox-checked {
-              &:after {
+              &::after {
                 border-color: @checkbox-check-color;
               }
 
               .@{tree-prefix-cls}-checkbox-inner {
                 background: @checkbox-check-color;
 
-                &:after {
+                &::after {
                   border-color: @primary-color;
                 }
               }
@@ -84,7 +84,7 @@
           }
 
           &.@{tree-prefix-cls}-node-content-wrapper {
-            &:before {
+            &::before {
               background: @tree-directory-selected-bg;
             }
           }

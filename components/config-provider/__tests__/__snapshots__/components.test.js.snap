@@ -7043,9 +7043,13 @@ exports[`ConfigProvider components Form configProvider 1`] = `
           />
         </span>
         <div
-          class="config-form-explain"
+          class="config-form-explain-holder"
         >
-          Bamboo is Light
+          <span
+            class="config-form-explain"
+          >
+            Bamboo is Light
+          </span>
         </div>
       </div>
     </div>
@@ -7076,9 +7080,13 @@ exports[`ConfigProvider components Form normal 1`] = `
           />
         </span>
         <div
-          class="ant-form-explain"
+          class="ant-form-explain-holder"
         >
-          Bamboo is Light
+          <span
+            class="ant-form-explain"
+          >
+            Bamboo is Light
+          </span>
         </div>
       </div>
     </div>
@@ -7109,9 +7117,13 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
           />
         </span>
         <div
-          class="prefix-Form-explain"
+          class="prefix-Form-explain-holder"
         >
-          Bamboo is Light
+          <span
+            class="prefix-Form-explain"
+          >
+            Bamboo is Light
+          </span>
         </div>
       </div>
     </div>
@@ -7525,87 +7537,87 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
 `;
 
 exports[`ConfigProvider components Layout configProvider 1`] = `
-<div
+<section
   class="config-layout"
 >
-  <div
+  <aside
     class="config-layout-sider config-layout-sider-dark"
     style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
   >
     <div
       class="config-layout-sider-children"
     />
-  </div>
-  <div
+  </aside>
+  <section
     class="config-layout"
   >
-    <div
+    <header
       class="config-layout-header"
     />
-    <div
+    <main
       class="config-layout-content"
     />
-    <div
+    <footer
       class="config-layout-footer"
     />
-  </div>
-</div>
+  </section>
+</section>
 `;
 
 exports[`ConfigProvider components Layout normal 1`] = `
-<div
+<section
   class="ant-layout"
 >
-  <div
+  <aside
     class="ant-layout-sider ant-layout-sider-dark"
     style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
   >
     <div
       class="ant-layout-sider-children"
     />
-  </div>
-  <div
+  </aside>
+  <section
     class="ant-layout"
   >
-    <div
+    <header
       class="ant-layout-header"
     />
-    <div
+    <main
       class="ant-layout-content"
     />
-    <div
+    <footer
       class="ant-layout-footer"
     />
-  </div>
-</div>
+  </section>
+</section>
 `;
 
 exports[`ConfigProvider components Layout prefixCls 1`] = `
-<div
+<section
   class="prefix-Layout"
 >
-  <div
+  <aside
     class="prefix-sider prefix-sider-dark"
     style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
   >
     <div
       class="prefix-sider-children"
     />
-  </div>
-  <div
+  </aside>
+  <section
     class="prefix-Layout"
   >
-    <div
+    <header
       class="prefix-header"
     />
-    <div
+    <main
       class="prefix-content"
     />
-    <div
+    <footer
       class="prefix-footer"
     />
-  </div>
-</div>
+  </section>
+</section>
 `;
 
 exports[`ConfigProvider components List configProvider 1`] = `
@@ -16398,7 +16410,6 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
 >
   <div
     class="config-upload config-upload-select config-upload-select-text"
-    style="display:"
   />
   <div
     class="config-upload-list config-upload-list-text"
@@ -16467,7 +16478,6 @@ exports[`ConfigProvider components Upload normal 1`] = `
 >
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
-    style="display:"
   />
   <div
     class="ant-upload-list ant-upload-list-text"
@@ -16536,7 +16546,6 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
 >
   <div
     class="prefix-Upload prefix-Upload-select prefix-Upload-select-text"
-    style="display:"
   />
   <div
     class="ant-upload-list ant-upload-list-text"

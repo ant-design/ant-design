@@ -1,8 +1,6 @@
 ---
 order: 5
-title:
-  zh-CN: 动效
-  en-US: Motion
+title: 动效
 ---
 
 > [Ant Motion](https://motion.ant.design/) 是 Ant Design 中提炼出来的动效语言。他不仅仅是动效语言，同时也是一套 React 框架动效解决方案，可以帮助开发者，更容易在项目中使用动效。我们提供了单项，组合动画，以及整套解决方案。

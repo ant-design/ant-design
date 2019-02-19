@@ -13,7 +13,7 @@ subtitle: 按钮
 
 ## API
 
-通过设置 Button 的属性来产生不同的按钮样式，推荐顺序为：`type` -> `shape` -> `size` -> `loading` -> `disabled`
+通过设置 Button 的属性来产生不同的按钮样式，推荐顺序为：`type` -> `shape` -> `size` -> `loading` -> `disabled`。
 
 按钮的属性说明如下：
 
@@ -40,7 +40,7 @@ subtitle: 按钮
 
 ## FAQ
 
-### 如何移除 2 个汉字时字间的空格
+### 如何移除 2 个汉字之间的空格
 
 设置 [ConfigProvider](/components/config-provider/#API) 的 `autoInsertSpaceInButton` 为 `false`。
 

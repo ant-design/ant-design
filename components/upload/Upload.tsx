@@ -3,6 +3,7 @@ import { polyfill } from 'react-lifecycles-compat';
 import RcUpload from 'rc-upload';
 import classNames from 'classnames';
 import uniqBy from 'lodash/uniqBy';
+import findIndex from 'lodash/findIndex';
 import Dragger from './Dragger';
 import UploadList from './UploadList';
 import {
@@ -73,7 +74,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
 
     const nextFileList = this.state.fileList.concat();
 
-    const fileIndex = nextFileList.findIndex(({ uid }) => uid === targetItem.uid);
+    const fileIndex = findIndex(nextFileList, ({ uid }: UploadFile) => uid === targetItem.uid);
     if (fileIndex === -1) {
       nextFileList.push(targetItem);
     } else {
@@ -184,8 +185,9 @@ class Upload extends React.Component<UploadProps, UploadState> {
   }
 
   handleManualRemove = (file: UploadFile) => {
-    this.upload.abort(file);
-
+    if (this.upload) {
+      this.upload.abort(file);
+    }
     this.handleRemove(file);
   };
 
@@ -314,8 +316,14 @@ class Upload extends React.Component<UploadProps, UploadState> {
       [`${prefixCls}-disabled`]: disabled,
     });
 
+    // Remove id to avoid open by label when trigger is hidden
+    // https://github.com/ant-design/ant-design/issues/14298
+    if (!children) {
+      delete rcUploadProps.id;
+    }
+
     const uploadButton = (
-      <div className={uploadButtonCls} style={{ display: children ? '' : 'none' }}>
+      <div className={uploadButtonCls} style={children ? undefined : { display: 'none' }}>
         <RcUpload {...rcUploadProps} ref={this.saveUpload} />
       </div>
     );

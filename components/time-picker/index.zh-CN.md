@@ -47,6 +47,7 @@ import moment from 'moment';
 | popupStyle | 弹出层样式对象 | object | - |
 | secondStep | 秒选项间隔 | number | 1 |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |
+| clearIcon | 自定义的清除图标 | ReactNode | - |
 | use12Hours | 使用 12 小时制，为 true 时 `format` 默认为 `h:mm:ss a` | boolean | false |
 | value | 当前时间 | [moment](http://momentjs.com/) | 无 |
 | onChange | 时间发生变化的回调 | function(time: moment, timeString: string): void | 无 |

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
+import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
 import { AntAnchor } from './Anchor';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -12,7 +13,7 @@ export interface AnchorLinkProps {
   className?: string;
 }
 
-export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
+class AnchorLink extends React.Component<AnchorLinkProps, any> {
   static defaultProps = {
     href: '#',
   };
@@ -29,10 +30,10 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
     this.context.antAnchor.registerLink(this.props.href);
   }
 
-  componentWillReceiveProps(nextProps: AnchorLinkProps) {
-    const { href } = nextProps;
-    if (this.props.href !== href) {
-      this.context.antAnchor.unregisterLink(this.props.href);
+  componentDidUpdate({ href: prevHref }: AnchorLinkProps) {
+    const { href } = this.props;
+    if (prevHref !== href) {
+      this.context.antAnchor.unregisterLink(prevHref);
       this.context.antAnchor.registerLink(href);
     }
   }
@@ -79,3 +80,7 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
     return <ConfigConsumer>{this.renderAnchorLink}</ConfigConsumer>;
   }
 }
+
+polyfill(AnchorLink);
+
+export default AnchorLink;

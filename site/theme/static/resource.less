@@ -5,25 +5,24 @@
 }
 
 .resource-card {
+  position: relative;
   display: flex;
-  max-width: 500px;
   width: ~'calc(50% - 24px)';
   min-width: 400px;
+  max-width: 500px;
   height: 130px;
+  margin: 24px 24px 0 0;
+  overflow: hidden;
+  color: #777;
+  font-size: 12px;
   border: 1px solid @border-color-base;
   border-radius: @border-radius-base;
-  font-size: 12px;
-  color: #777;
-  margin: 24px 24px 0 0;
-  vertical-align: middle;
   transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
 }
 
 .resource-card:hover {
-  box-shadow: 0 3px 8px #d3ddeb;
   border-color: transparent;
+  box-shadow: 0 3px 8px #d3ddeb;
 }
 
 .resource-card:hover .resource-card-title {
@@ -38,9 +37,9 @@
 .resource-card-cover,
 .resource-card-icon {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
   width: 130px;
 }
 
@@ -56,28 +55,28 @@
 
 .resource-card-title {
   display: block;
-  font-size: 16px;
-  color: @site-text-color;
+  margin-bottom: 6px;
   overflow: hidden;
+  color: @site-text-color;
+  font-size: 16px;
+  line-height: 1.2;
   white-space: nowrap;
   text-overflow: ellipsis;
-  line-height: 1.2;
-  margin-bottom: 6px;
 }
 
 .resource-card-hot-badge {
-  background: #f50;
-  border-radius: 2px;
+  margin-left: 2px;
   padding: 0 3px;
   color: #fff;
   font-size: 12px;
   line-height: 20px;
-  margin-left: 2px;
   vertical-align: top;
+  background: #f50;
+  border-radius: 2px;
 }
 
 .resource-card-description {
   display: block;
-  color: #697b8c;
   padding-right: 16px;
+  color: #697b8c;
 }

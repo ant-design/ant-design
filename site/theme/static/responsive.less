@@ -1,11 +1,11 @@
 @import '../../../components/style/themes/default.less';
 
 .nav-phone-icon {
-  display: none;
   position: absolute;
-  right: 30px;
   top: 25px;
+  right: 30px;
   z-index: 1;
+  display: none;
   width: 16px;
   height: 22px;
   cursor: pointer;
@@ -34,8 +34,8 @@
       position: static !important;
     }
     .main-menu-inner {
-      overflow: hidden;
       max-height: none;
+      overflow: hidden;
     }
   }
 }
@@ -45,6 +45,10 @@
     text-align: center;
     #logo {
       float: initial;
+
+      img:last-child {
+        margin-right: 0;
+      }
     }
   }
   #search-box {
@@ -56,13 +60,13 @@
     width: 100%;
   }
   .preview-image-boxes {
-    margin: 0 !important;
     float: none;
     width: 100%;
+    margin: 0 !important;
   }
   .preview-image-box {
-    margin: 10px 0;
     width: 100%;
+    margin: 10px 0;
     padding: 0;
   }
 
@@ -85,8 +89,8 @@
       &-content {
         padding: 0;
         .ant-select {
-          width: 60%;
           display: block;
+          width: 60%;
         }
         .ant-btn {
           margin: 16px 8% 0 8px;
@@ -105,9 +109,9 @@
   }
 
   ul#nav li {
-    line-height: 40px;
     height: 40px;
     padding: 0 !important;
+    line-height: 40px;
     border: 0;
     a {
       color: #333;
@@ -134,9 +138,9 @@
   }
 
   .main-container {
-    padding-left: 16px;
-    padding-right: 16px;
     margin-right: 0;
+    padding-right: 16px;
+    padding-left: 16px;
     > .markdown > * {
       width: 100% !important;
     }
@@ -144,8 +148,8 @@
 
   .main-wrapper {
     width: 100%;
-    border-radius: 0;
     margin: 0;
+    border-radius: 0;
   }
 
   #footer {
@@ -174,15 +178,15 @@
   }
 
   .prev-next-nav {
-    margin-left: 16px;
     width: ~'calc(100% - 32px)';
+    margin-left: 16px;
   }
 
   .drawer {
-    .ant-menu-inline .ant-menu-item:after,
-    .ant-menu-vertical .ant-menu-item:after {
-      left: 0;
+    .ant-menu-inline .ant-menu-item::after,
+    .ant-menu-vertical .ant-menu-item::after {
       right: auto;
+      left: 0;
     }
   }
 
@@ -208,12 +212,12 @@
     }
     .img-wrapper,
     .text-wrapper {
-      width: 100%;
       display: inline-block;
-      text-align: center;
-      margin: auto;
-      max-width: unset;
+      width: 100%;
       min-width: unset;
+      max-width: unset;
+      margin: auto;
+      text-align: center;
     }
     .img-wrapper {
       position: initial;
@@ -221,28 +225,28 @@
       text-align: center;
       svg {
         width: 100%;
+        max-width: 360px;
         height: auto;
         margin: 0 auto;
-        max-width: 360px;
       }
     }
     .text-wrapper {
-      margin-top: 48px;
       min-height: 200px;
+      margin-top: 48px;
       padding: 0 16px;
       h1 {
         display: none;
       }
       p {
+        color: @home-text-color;
         font-size: 14px;
         line-height: 28px;
-        color: @home-text-color;
       }
       .banner-btns {
         display: block;
-        text-align: center;
         min-width: 100%;
         white-space: nowrap;
+        text-align: center;
       }
     }
   }
@@ -268,8 +272,8 @@
       min-height: auto;
       padding: 0 16px;
       .product-block {
-        padding-bottom: 35px;
         margin-bottom: 34px;
+        padding-bottom: 35px;
         border-bottom: 1px solid @site-border-color-split;
         &:last-child {
           margin-bottom: 32px;
@@ -285,32 +289,32 @@
           }
         }
         .block-text-wrapper {
-          border-bottom: none;
           padding-bottom: 0;
+          border-bottom: none;
           h4 {
+            margin-bottom: 4px;
             font-size: 18px;
             line-height: 24px;
-            margin-bottom: 4px;
           }
           p {
-            font-size: 12px;
             margin-bottom: 8px;
+            font-size: 12px;
             line-height: 20px;
           }
           a {
             line-height: 20px;
           }
           .components-button-wrapper {
-            font-size: 12px;
             margin-top: 16px;
+            font-size: 12px;
             a {
               display: block;
             }
           }
           a.more-mobile-react,
           a.more-mobile-angular {
-            color: @link-color;
             margin-top: 0;
+            color: @link-color;
           }
           a.more-mobile-react:hover,
           a.more-mobile-angular:hover {
@@ -328,16 +332,16 @@
       margin: 0 8px;
     }
     .page3-block {
+      margin-bottom: 32px;
       padding: 24px;
       background: #fff;
       border-radius: 4px;
       box-shadow: 0 8px 16px rgba(174, 185, 193, 0.3);
-      margin-bottom: 32px;
       &:nth-child(2) {
         .page3-img-wrapper img {
+          display: block;
           width: 70%;
           margin: auto;
-          display: block;
         }
       }
       p {
@@ -351,8 +355,8 @@
       }
       .page3-text-wrapper {
         width: 80%;
-        margin: 0;
         max-width: initial;
+        margin: 0;
         padding-left: 16px;
       }
     }

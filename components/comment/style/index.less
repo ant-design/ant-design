@@ -7,13 +7,13 @@
   position: relative;
 
   &-inner {
-    padding: @comment-padding-base;
     display: flex;
+    padding: @comment-padding-base;
   }
 
   &-avatar {
-    flex-shrink: 0;
     position: relative;
+    flex-shrink: 0;
     margin-right: 12px;
     cursor: pointer;
     img {
@@ -25,28 +25,28 @@
 
   &-content {
     position: relative;
-    font-size: 14px;
     flex: 1 1 auto;
     min-width: 1px;
+    font-size: 14px;
     word-wrap: break-word;
 
     &-author {
-      margin-bottom: 4px;
-      font-size: 14px;
       display: flex;
       justify-content: flex-start;
+      margin-bottom: 4px;
+      font-size: 14px;
       & > a,
       & > span {
         height: 18px;
+        padding-right: 8px;
         font-size: 12px;
         line-height: 18px;
-        padding-right: 8px;
       }
 
       &-name {
-        transition: color 0.3s;
-        font-size: 14px;
         color: @comment-author-name-color;
+        font-size: 14px;
+        transition: color 0.3s;
         > * {
           color: @comment-author-name-color;
           &:hover {
@@ -56,9 +56,9 @@
       }
 
       &-time {
-        cursor: auto;
         color: @comment-author-time-color;
         white-space: nowrap;
+        cursor: auto;
       }
     }
 
@@ -75,10 +75,10 @@
       color: @comment-action-color;
       > span {
         padding-right: 10px;
-        transition: color 0.3s;
-        font-size: 12px;
         color: @comment-action-color;
+        font-size: 12px;
         cursor: pointer;
+        transition: color 0.3s;
         user-select: none;
         &:hover {
           color: @comment-action-hover-color;

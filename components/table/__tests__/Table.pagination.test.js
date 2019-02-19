@@ -47,6 +47,11 @@ describe('Table.pagination', () => {
     expect(wrapper.find('.ant-pagination')).toHaveLength(1);
   });
 
+  it('should use pageSize when defaultPageSize and pageSize are both specified', () => {
+    const wrapper = mount(createTable({ pagination: { pageSize: 3, defaultPageSize: 4 } }));
+    expect(wrapper.find('.ant-pagination-item')).toHaveLength(2);
+  });
+
   it('paginate data', () => {
     const wrapper = mount(createTable());
 
@@ -175,5 +180,29 @@ describe('Table.pagination', () => {
         .childAt(2)
         .find('.ant-pagination'),
     ).toHaveLength(1);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/14557
+  it('Show correct page data when pagination data length is less than pageSize.', () => {
+    const wrapper = mount(
+      createTable({ pagination: { pageSize: 10, total: 100 }, dataSource: data }),
+    );
+    expect(renderedNames(wrapper)[0]).toEqual('Jack');
+    wrapper.find('.ant-pagination-item-2').simulate('click');
+    expect(renderedNames(wrapper)).toEqual([]);
+    wrapper.setProps({ pagination: { current: 1, pageSize: 10, total: 100 } });
+    expect(renderedNames(wrapper)[0]).toEqual('Jack');
+    wrapper.setProps({ pagination: { current: 2, pageSize: 10, total: 100 } });
+    expect(renderedNames(wrapper)).toHaveLength(4);
+  });
+
+  /**
+   * `pagination` is not designed to accept `true` value,
+   * but in practice, many people assign `true` to `pagination`,
+   * since they misunderstand that `pagination` can accept a boolean value.
+   */
+  it('Accepts pagination as true', () => {
+    const wrapper = render(createTable({ pagination: true }));
+    expect(wrapper).toMatchSnapshot();
   });
 });

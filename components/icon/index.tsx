@@ -44,6 +44,7 @@ export interface IconProps {
   className?: string;
   theme?: ThemeType;
   title?: string;
+  onKeyUp?: React.KeyboardEventHandler<HTMLElement>;
   onClick?: React.MouseEventHandler<HTMLElement>;
   component?: React.ComponentType<CustomIconComponentProps>;
   twoToneColor?: string;
@@ -120,6 +121,10 @@ const Icon: IconComponent<IconProps> = props => {
     style: svgStyle,
     viewBox,
   };
+
+  if (!viewBox) {
+    delete innerSvgProps.viewBox;
+  }
 
   // component > children > type
   if (Component) {

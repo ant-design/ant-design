@@ -9,61 +9,61 @@
   position: relative;
   display: inline-block;
   box-sizing: border-box;
-  height: @switch-height;
   min-width: 44px;
+  height: @switch-height;
   line-height: @switch-height - 2px;
   vertical-align: middle;
-  border-radius: 100px;
-  border: 1px solid transparent;
   background-color: @disabled-color;
+  border: 1px solid transparent;
+  border-radius: 100px;
   cursor: pointer;
   transition: all @switch-duration;
   user-select: none;
 
   &-inner {
+    display: block;
+    margin-right: 6px;
+    margin-left: 24px;
     color: @text-color-inverse;
     font-size: @font-size-sm;
-    margin-left: 24px;
-    margin-right: 6px;
-    display: block;
   }
 
   &-loading-icon,
-  &:after {
+  &::after {
     position: absolute;
+    top: 1px;
+    left: 1px;
     width: @switch-height - 4px;
     height: @switch-height - 4px;
-    left: 1px;
-    top: 1px;
-    border-radius: 18px;
     background-color: @component-background;
-    content: ' ';
+    border-radius: 18px;
     cursor: pointer;
     transition: all @switch-duration @ease-in-out-circ;
+    content: ' ';
   }
 
-  &:after {
+  &::after {
     box-shadow: 0 2px 4px 0 @switch-shadow-color;
   }
 
-  &:active:before,
-  &:active:after {
+  &:active::before,
+  &:active::after {
     width: 24px;
   }
 
   &-loading-icon {
-    // loading default use animation
-    // animation: loadingCircle 1s infinite linear;
-    background: transparent;
     z-index: 1;
     display: none;
     font-size: 12px;
+    // loading default use animation
+    // animation: loadingCircle 1s infinite linear;
+    background: transparent;
     svg {
       position: absolute;
-      left: 0;
       top: 0;
       right: 0;
       bottom: 0;
+      left: 0;
       margin: auto;
     }
   }
@@ -78,8 +78,8 @@
   }
 
   &:focus {
-    box-shadow: 0 0 0 2px fade(@switch-color, 20%);
     outline: 0;
+    box-shadow: 0 0 0 2px fade(@switch-color, 20%);
   }
 
   &:focus:hover {
@@ -87,23 +87,23 @@
   }
 
   &-small {
-    height: @switch-sm-height;
     min-width: 28px;
+    height: @switch-sm-height;
     line-height: @switch-sm-height - 2px;
 
     .@{switch-prefix-cls}-inner {
-      margin-left: 18px;
       margin-right: 3px;
+      margin-left: 18px;
       font-size: @font-size-sm;
     }
 
-    &:after {
+    &::after {
       width: @switch-sm-height - 4px;
       height: @switch-sm-height - 4px;
     }
 
-    &:active:before,
-    &:active:after {
+    &:active::before,
+    &:active::after {
       width: 16px;
     }
   }
@@ -115,8 +115,8 @@
 
   &-small&-checked {
     .@{switch-prefix-cls}-inner {
-      margin-left: 3px;
       margin-right: 18px;
+      margin-left: 3px;
     }
   }
 
@@ -126,23 +126,23 @@
   }
 
   &-small&-loading &-loading-icon {
+    font-weight: bold;
     // animation: AntSwitchSmallLoadingCircle 1s infinite linear;
     transform: scale(0.66667);
-    font-weight: bold;
   }
 
   &-checked {
     background-color: @switch-color;
 
     .@{switch-prefix-cls}-inner {
-      margin-left: 6px;
       margin-right: 24px;
+      margin-left: 6px;
     }
 
-    &:after {
+    &::after {
       left: 100%;
-      transform: translateX(-100%);
       margin-left: -1px;
+      transform: translateX(-100%);
     }
   }
 
@@ -158,16 +158,20 @@
     * {
       cursor: not-allowed;
     }
+    &::before,
+    &::after {
+      cursor: not-allowed;
+    }
   }
 }
 
 @keyframes AntSwitchSmallLoadingCircle {
   0% {
-    transform-origin: 50% 50%;
     transform: rotate(0deg) scale(0.66667);
+    transform-origin: 50% 50%;
   }
   100% {
-    transform-origin: 50% 50%;
     transform: rotate(360deg) scale(0.66667);
+    transform-origin: 50% 50%;
   }
 }

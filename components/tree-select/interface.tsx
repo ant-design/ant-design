@@ -57,6 +57,7 @@ export interface TreeSelectProps extends AbstractSelectProps {
   treeDefaultExpandAll?: boolean;
   treeDefaultExpandedKeys?: Array<string>;
   treeExpandedKeys?: Array<string>;
+  treeIcon?: boolean;
   treeNodeFilterProp?: string;
   treeNodeLabelProp?: string;
   value?: string | number | Array<any>;

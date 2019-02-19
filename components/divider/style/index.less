@@ -7,45 +7,45 @@
   .reset-component;
   background: @border-color-split;
 
-  &,  // for compatiable
+  &,  /* for compatiable */
   &-vertical {
-    margin: 0 8px;
-    display: inline-block;
-    height: 0.9em;
-    width: 1px;
-    vertical-align: middle;
     position: relative;
     top: -0.06em;
+    display: inline-block;
+    width: 1px;
+    height: 0.9em;
+    margin: 0 8px;
+    vertical-align: middle;
   }
   &-horizontal {
     display: block;
-    height: 1px;
+    clear: both;
     width: 100%;
     min-width: 100%; // Fix https://github.com/ant-design/ant-design/issues/10914
+    height: 1px;
     margin: 24px 0;
-    clear: both;
   }
 
   &-horizontal&-with-text,
   &-horizontal&-with-text-left,
   &-horizontal&-with-text-right {
     display: table;
+    margin: 16px 0;
+    color: @heading-color;
+    font-weight: 500;
+    font-size: @font-size-lg;
     white-space: nowrap;
     text-align: center;
     background: transparent;
-    font-weight: 500;
-    color: @heading-color;
-    font-size: @font-size-lg;
-    margin: 16px 0;
-    &:before,
-    &:after {
-      content: '';
-      display: table-cell;
+    &::before,
+    &::after {
       position: relative;
       top: 50%;
+      display: table-cell;
       width: 50%;
       border-top: 1px solid @border-color-split;
       transform: translateY(50%);
+      content: '';
     }
   }
 
@@ -58,22 +58,22 @@
   }
 
   &-horizontal&-with-text-left {
-    &:before {
+    &::before {
       top: 50%;
       width: 5%;
     }
-    &:after {
+    &::after {
       top: 50%;
       width: 95%;
     }
   }
 
   &-horizontal&-with-text-right {
-    &:before {
+    &::before {
       top: 50%;
       width: 95%;
     }
-    &:after {
+    &::after {
       top: 50%;
       width: 5%;
     }
@@ -92,8 +92,8 @@
   &-horizontal&-with-text-left&-dashed,
   &-horizontal&-with-text-right&-dashed {
     border-top: 0;
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       border-style: dashed none none;
     }
   }

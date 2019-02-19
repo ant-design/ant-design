@@ -95,6 +95,172 @@ exports[`Input allowClear should change type when click 2`] = `
 </Input>
 `;
 
+exports[`Input allowClear should not show icon if defaultValue is undefined, null or empty string 1`] = `
+<Input
+  allowClear={true}
+  defaultValue={null}
+  disabled={false}
+  type="text"
+>
+  <Consumer>
+    <span
+      className="ant-input-affix-wrapper"
+    >
+      <input
+        className="ant-input"
+        disabled={false}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        style={null}
+        type="text"
+        value=""
+      />
+      <span
+        className="ant-input-suffix"
+      />
+    </span>
+  </Consumer>
+</Input>
+`;
+
+exports[`Input allowClear should not show icon if defaultValue is undefined, null or empty string 2`] = `
+<Input
+  allowClear={true}
+  disabled={false}
+  type="text"
+>
+  <Consumer>
+    <span
+      className="ant-input-affix-wrapper"
+    >
+      <input
+        className="ant-input"
+        disabled={false}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        style={null}
+        type="text"
+        value=""
+      />
+      <span
+        className="ant-input-suffix"
+      />
+    </span>
+  </Consumer>
+</Input>
+`;
+
+exports[`Input allowClear should not show icon if defaultValue is undefined, null or empty string 3`] = `
+<Input
+  allowClear={true}
+  defaultValue=""
+  disabled={false}
+  type="text"
+>
+  <Consumer>
+    <span
+      className="ant-input-affix-wrapper"
+    >
+      <input
+        className="ant-input"
+        disabled={false}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        style={null}
+        type="text"
+        value=""
+      />
+      <span
+        className="ant-input-suffix"
+      />
+    </span>
+  </Consumer>
+</Input>
+`;
+
+exports[`Input allowClear should not show icon if value is undefined, null or empty string 1`] = `
+<Input
+  allowClear={true}
+  disabled={false}
+  type="text"
+  value={null}
+>
+  <Consumer>
+    <span
+      className="ant-input-affix-wrapper"
+    >
+      <input
+        className="ant-input"
+        disabled={false}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        style={null}
+        type="text"
+        value=""
+      />
+      <span
+        className="ant-input-suffix"
+      />
+    </span>
+  </Consumer>
+</Input>
+`;
+
+exports[`Input allowClear should not show icon if value is undefined, null or empty string 2`] = `
+<Input
+  allowClear={true}
+  disabled={false}
+  type="text"
+>
+  <Consumer>
+    <span
+      className="ant-input-affix-wrapper"
+    >
+      <input
+        className="ant-input"
+        disabled={false}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        style={null}
+        type="text"
+        value=""
+      />
+      <span
+        className="ant-input-suffix"
+      />
+    </span>
+  </Consumer>
+</Input>
+`;
+
+exports[`Input allowClear should not show icon if value is undefined, null or empty string 3`] = `
+<Input
+  allowClear={true}
+  disabled={false}
+  type="text"
+  value=""
+>
+  <Consumer>
+    <span
+      className="ant-input-affix-wrapper"
+    >
+      <input
+        className="ant-input"
+        disabled={false}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        style={null}
+        type="text"
+        value=""
+      />
+      <span
+        className="ant-input-suffix"
+      />
+    </span>
+  </Consumer>
+</Input>
+`;
+
 exports[`Input should support maxLength 1`] = `
 <Input
   disabled={false}
@@ -375,7 +541,6 @@ exports[`Input.Search should support suffix 1`] = `
 >
   <Consumer>
     <Input
-      addonAfter={null}
       className="ant-input-search"
       disabled={false}
       onPressEnter={[Function]}
@@ -460,13 +625,18 @@ exports[`TextArea should support disabled 1`] = `
   disabled={true}
 >
   <Consumer>
-    <textarea
-      className="ant-input ant-input-disabled"
+    <ReactResizeObserver
       disabled={true}
-      onChange={[Function]}
-      onKeyDown={[Function]}
-      style={Object {}}
-    />
+      onResize={[Function]}
+    >
+      <textarea
+        className="ant-input ant-input-disabled"
+        disabled={true}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        style={Object {}}
+      />
+    </ReactResizeObserver>
   </Consumer>
 </TextArea>
 `;
@@ -476,13 +646,18 @@ exports[`TextArea should support maxLength 1`] = `
   maxLength={10}
 >
   <Consumer>
-    <textarea
-      className="ant-input"
-      maxLength={10}
-      onChange={[Function]}
-      onKeyDown={[Function]}
-      style={Object {}}
-    />
+    <ReactResizeObserver
+      disabled={true}
+      onResize={[Function]}
+    >
+      <textarea
+        className="ant-input"
+        maxLength={10}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        style={Object {}}
+      />
+    </ReactResizeObserver>
   </Consumer>
 </TextArea>
 `;

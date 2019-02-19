@@ -19,8 +19,8 @@
 
   &-topLeft,
   &-bottomLeft {
-    margin-left: 24px;
     margin-right: 0;
+    margin-left: 24px;
 
     .@{notification-prefix-cls}-fade-enter.@{notification-prefix-cls}-fade-enter-active,
     .@{notification-prefix-cls}-fade-appear.@{notification-prefix-cls}-fade-appear-active {
@@ -34,32 +34,32 @@
   }
 
   &-notice {
-    padding: @notification-padding;
-    border-radius: @border-radius-base;
-    box-shadow: @shadow-2;
-    background: @component-background;
-    line-height: 1.5;
     position: relative;
     margin-bottom: @notification-margin-bottom;
+    padding: @notification-padding;
     overflow: hidden;
+    line-height: 1.5;
+    background: @component-background;
+    border-radius: @border-radius-base;
+    box-shadow: @shadow-2;
 
     &-message {
-      font-size: @font-size-lg;
-      color: @heading-color;
-      margin-bottom: 8px;
-      line-height: 24px;
       display: inline-block;
+      margin-bottom: 8px;
+      color: @heading-color;
+      font-size: @font-size-lg;
+      line-height: 24px;
 
       // https://github.com/ant-design/ant-design/issues/5846#issuecomment-296244140
       &-single-line-auto-margin {
+        display: block;
         width: ~'calc(@{notification-width} - @{notification-padding-horizontal} * 2 - 24px - 48px - 100%)';
+        max-width: 4px;
         background-color: transparent;
         pointer-events: none;
-        display: block;
-        max-width: 4px;
-        &:before {
-          content: '';
+        &::before {
           display: block;
+          content: '';
         }
       }
     }
@@ -73,9 +73,9 @@
     }
 
     &-with-icon &-message {
-      font-size: @font-size-lg;
-      margin-left: 48px;
       margin-bottom: 4px;
+      margin-left: 48px;
+      font-size: @font-size-lg;
     }
 
     &-with-icon &-description {
@@ -85,9 +85,9 @@
 
     &-icon {
       position: absolute;
+      margin-left: 4px;
       font-size: 24px;
       line-height: 24px;
-      margin-left: 4px;
 
       &-success {
         color: @success-color;
@@ -105,8 +105,8 @@
 
     &-close {
       position: absolute;
-      right: 22px;
       top: 16px;
+      right: 22px;
       color: @text-color-secondary;
       outline: none;
 
@@ -127,8 +127,8 @@
 
   .notification-fade-effect {
     animation-duration: 0.24s;
-    animation-fill-mode: both;
     animation-timing-function: @ease-in-out;
+    animation-fill-mode: both;
   }
 
   &-fade-enter,
@@ -158,8 +158,8 @@
 
 @keyframes NotificationFadeIn {
   0% {
-    opacity: 0;
     left: @notification-width;
+    opacity: 0;
   }
   100% {
     left: 0;
@@ -169,8 +169,8 @@
 
 @keyframes NotificationLeftFadeIn {
   0% {
-    opacity: 0;
     right: @notification-width;
+    opacity: 0;
   }
   100% {
     right: 0;
@@ -180,17 +180,17 @@
 
 @keyframes NotificationFadeOut {
   0% {
-    opacity: 1;
+    max-height: 150px;
     margin-bottom: @notification-margin-bottom;
     padding-top: @notification-padding;
     padding-bottom: @notification-padding;
-    max-height: 150px;
+    opacity: 1;
   }
   100% {
-    opacity: 0;
+    max-height: 0;
     margin-bottom: 0;
     padding-top: 0;
     padding-bottom: 0;
-    max-height: 0;
+    opacity: 0;
   }
 }
