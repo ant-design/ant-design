@@ -4,6 +4,7 @@ import omit from 'omit.js';
 import debounce from 'lodash/debounce';
 import { conductExpandParent, convertTreeToEntities } from 'rc-tree/lib/util';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import polyfill from 'react-lifecycles-compat';
 
 import Tree, {
   TreeProps,
@@ -34,7 +35,7 @@ function getIcon(props: AntdTreeNodeAttribute): React.ReactNode {
   return <Icon type={expanded ? 'folder-open' : 'folder'} />;
 }
 
-export default class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeState> {
+class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeState> {
   static defaultProps = {
     showIcon: true,
     expandAction: 'click',
@@ -227,3 +228,5 @@ export default class DirectoryTree extends React.Component<DirectoryTreeProps, D
     return <ConfigConsumer>{this.renderDirectoryTree}</ConfigConsumer>;
   }
 }
+
+export default polyfill(DirectoryTree);
