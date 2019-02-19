@@ -72,7 +72,7 @@ class CompactDemo extends React.Component {
             <Col span={5}>
               <Input defaultValue="0571" />
             </Col>
-            <Col span={8} style={{paddingRight: 0}}>
+            <Col span={8}>
               <Input defaultValue="26888888" />
             </Col>
           </Row>
