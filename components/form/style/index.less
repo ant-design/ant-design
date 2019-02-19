@@ -120,13 +120,17 @@ input[type='checkbox'] {
 }
 
 .@{form-prefix-cls}-explain-holder {
-  width: 0;
-  margin-top: @form-help-margin-top;
   line-height: @line-height-base;
-  pointer-events: none;
 
-  .@{form-prefix-cls}-inline & {
-    display: none;
+  &::before {
+    content: '\00A0'; // Use non-space character to keep the same height
+    display: inline-block;
+    width: 0;
+    overflow: hidden;
+  }
+
+  .@{form-prefix-cls}-explain {
+    display: inline-block;
   }
 }
 
@@ -135,7 +139,6 @@ input[type='checkbox'] {
   clear: both;
   margin-top: @form-help-margin-top;
   color: @text-color-secondary;
-  line-height: @line-height-base;
   transition: color 0.3s @ease-out; // sync input color transition
 }
 
@@ -387,6 +390,10 @@ form {
 
     &-with-help {
       margin-bottom: 24px;
+    }
+
+    &::before {
+      display: none;
     }
 
     > .@{form-prefix-cls}-item-control-wrapper,

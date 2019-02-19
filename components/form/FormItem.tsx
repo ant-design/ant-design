@@ -157,36 +157,25 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   renderHelp(prefixCls: string) {
     const help = this.getHelpMessage();
     const children = help ? (
-      <div className={`${prefixCls}-explain`} key="help">
+      <span className={`${prefixCls}-explain`} key="help">
         {help}
-      </div>
+      </span>
     ) : null;
     if (children) {
       this.helpShow = !!children;
     }
 
     return (
-      <Animate
-        transitionName="show-help"
-        component=""
-        transitionAppear
-        key="help"
-        onEnd={this.onHelpAnimEnd}
-      >
-        {children}
-      </Animate>
-    );
-  }
-
-  renderHelpHolder(prefixCls: string) {
-    const { style } = this.props;
-    if (this.helpShow || (style && ('margin' in style || 'marginBottom' in style))) {
-      return null;
-    }
-
-    return (
-      <div className={`${prefixCls}-explain-holder`} aria-hidden="true">
-        {'\u00A0'}
+      <div className={`${prefixCls}-explain-holder`}>
+        <Animate
+          transitionName="show-help"
+          component=""
+          transitionAppear
+          key="help"
+          onEnd={this.onHelpAnimEnd}
+        >
+          {children}
+        </Animate>
       </div>
     );
   }
@@ -220,7 +209,6 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     c1: React.ReactNode,
     c2: React.ReactNode,
     c3: React.ReactNode,
-    helperHolder: React.ReactNode,
   ) {
     const props = this.props;
     const onlyControl = this.getOnlyControl;
@@ -274,7 +262,6 @@ export default class FormItem extends React.Component<FormItemProps, any> {
         </span>
         {c2}
         {c3}
-        {helperHolder}
       </div>
     );
   }
@@ -378,7 +365,6 @@ export default class FormItem extends React.Component<FormItemProps, any> {
           children,
           this.renderHelp(prefixCls),
           this.renderExtra(prefixCls),
-          this.renderHelpHolder(prefixCls),
         ),
       ),
     ];
