@@ -7,10 +7,6 @@ title: FAQ
 
 ---
 
-### 你们会提供 Vue 版本的 Ant Design 吗？
-
-不，但是 [ant-design 基于 MIT 协议开源](https://github.com/ant-design/ant-design/blob/master/LICENSE)，所以你可以尝试用 ant-design 的[样式](https://github.com/ant-design/ant-design/tree/master/style)去实现一套，例如：[ant-design-vue](https://github.com/vueComponent/ant-design-vue) [vue-beauty](https://github.com/FE-Driver/vue-beauty) 或者 [antue](https://github.com/zzuu666/antue)。
-
 ### 你们会提供 Sass/Stylus 等格式的样式文件吗？
 
 不。事实上你可以使用工具（请自行 Google）将 Less 转换成 Sass/Stylus 等。
