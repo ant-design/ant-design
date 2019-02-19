@@ -625,13 +625,18 @@ exports[`TextArea should support disabled 1`] = `
   disabled={true}
 >
   <Consumer>
-    <textarea
-      className="ant-input ant-input-disabled"
+    <ReactResizeObserver
       disabled={true}
-      onChange={[Function]}
-      onKeyDown={[Function]}
-      style={Object {}}
-    />
+      onResize={[Function]}
+    >
+      <textarea
+        className="ant-input ant-input-disabled"
+        disabled={true}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        style={Object {}}
+      />
+    </ReactResizeObserver>
   </Consumer>
 </TextArea>
 `;
@@ -641,13 +646,18 @@ exports[`TextArea should support maxLength 1`] = `
   maxLength={10}
 >
   <Consumer>
-    <textarea
-      className="ant-input"
-      maxLength={10}
-      onChange={[Function]}
-      onKeyDown={[Function]}
-      style={Object {}}
-    />
+    <ReactResizeObserver
+      disabled={true}
+      onResize={[Function]}
+    >
+      <textarea
+        className="ant-input"
+        maxLength={10}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        style={Object {}}
+      />
+    </ReactResizeObserver>
   </Consumer>
 </TextArea>
 `;

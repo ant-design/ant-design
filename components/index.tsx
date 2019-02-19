@@ -129,6 +129,8 @@ export { default as Timeline } from './timeline';
 
 export { default as Tooltip } from './tooltip';
 
+export { default as Typography } from './typography';
+
 export { default as Mention } from './mention';
 
 export { default as Upload } from './upload';
