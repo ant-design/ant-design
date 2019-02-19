@@ -32,6 +32,7 @@ title: Transfer
 | locale | 各种语言 | object | `{ itemUnit: '项', itemsUnit: '项', notFoundContent: '列表为空', searchPlaceholder: '请输入搜索内容' }` |
 | operations | 操作文案集合，顺序从上至下 | string\[] | \['>', '<'] |
 | render | 每行数据渲染函数，该函数的入参为 `dataSource` 中的项，返回值为 ReactElement。或者返回一个普通对象，其中 `label` 字段为 ReactElement，`value` 字段为 title | Function(record) |  |
+| renderList | 自定义渲染列表 | Function([TransferItem](https://git.io/vMM64)\[], direct: 'left' | 'right') |  |
 | selectedKeys | 设置哪些项应该被选中 | string\[] | \[] |
 | showSearch | 是否显示搜索框 | boolean | false |
 | targetKeys | 显示在右侧框数据的key集合 | string\[] | \[] |
