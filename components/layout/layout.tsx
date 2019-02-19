@@ -6,13 +6,15 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface GeneratorProps {
   suffixCls: string;
+  tagName: 'header' | 'footer' | 'main' | 'section';
 }
 export interface BasicProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   hasSider?: boolean;
+  tagName: 'header' | 'footer' | 'main' | 'section';
 }
 
-function generator({ suffixCls }: GeneratorProps) {
+function generator({ suffixCls, tagName }: GeneratorProps) {
   return (BasicComponent: React.ComponentClass<BasicProps>): any => {
     return class Adapter extends React.Component<BasicProps, any> {
       static Header: any;
@@ -24,7 +26,7 @@ function generator({ suffixCls }: GeneratorProps) {
         const { prefixCls: customizePrefixCls } = this.props;
         const prefixCls = getPrefixCls(suffixCls, customizePrefixCls);
 
-        return <BasicComponent prefixCls={prefixCls} {...this.props} />;
+        return <BasicComponent prefixCls={prefixCls} tagName={tagName} {...this.props} />;
       };
 
       render() {
@@ -36,12 +38,12 @@ function generator({ suffixCls }: GeneratorProps) {
 
 class Basic extends React.Component<BasicProps, any> {
   render() {
-    const { prefixCls, className, children, ...others } = this.props;
-    const divCls = classNames(className, prefixCls);
+    const { prefixCls, className, children, tagName: CustomElement, ...others } = this.props;
+    const classString = classNames(className, prefixCls);
     return (
-      <div className={divCls} {...others}>
+      <CustomElement className={classString} {...others}>
         {children}
-      </div>
+      </CustomElement>
     );
   }
 }
@@ -74,14 +76,21 @@ class BasicLayout extends React.Component<BasicProps, BasicLayoutState> {
   }
 
   render() {
-    const { prefixCls, className, children, hasSider, ...others } = this.props;
-    const divCls = classNames(className, prefixCls, {
+    const {
+      prefixCls,
+      className,
+      children,
+      hasSider,
+      tagName: CustomElement,
+      ...others
+    } = this.props;
+    const classString = classNames(className, prefixCls, {
       [`${prefixCls}-has-sider`]: hasSider || this.state.siders.length > 0,
     });
     return (
-      <div className={divCls} {...others}>
+      <CustomElement className={classString} {...others}>
         {children}
-      </div>
+      </CustomElement>
     );
   }
 }
@@ -93,18 +102,22 @@ const Layout: React.ComponentClass<BasicProps> & {
   Sider: React.ComponentClass<SiderProps>;
 } = generator({
   suffixCls: 'layout',
+  tagName: 'section',
 })(BasicLayout);
 
 const Header = generator({
   suffixCls: 'layout-header',
+  tagName: 'header',
 })(Basic);
 
 const Footer = generator({
   suffixCls: 'layout-footer',
+  tagName: 'footer',
 })(Basic);
 
 const Content = generator({
   suffixCls: 'layout-content',
+  tagName: 'main',
 })(Basic);
 
 Layout.Header = Header;

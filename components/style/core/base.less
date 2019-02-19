@@ -71,13 +71,13 @@ section {
 
 body {
   margin: 0; // 1
-  font-family: @font-family;
-  font-size: @font-size-base;
-  font-variant: @font-variant-base;
-  font-feature-settings: 'tnum';
-  line-height: @line-height-base;
   color: @text-color;
+  font-size: @font-size-base;
+  font-family: @font-family;
+  font-variant: @font-variant-base;
+  line-height: @line-height-base;
   background-color: @body-background; // 2
+  font-feature-settings: 'tnum';
 }
 
 // Suppress the focus outline on elements that cannot be accessed via keyboard.
@@ -141,8 +141,8 @@ abbr[data-original-title] {
   // 4
   text-decoration: underline; // 2
   text-decoration: underline dotted; // 2
-  cursor: help; // 3
   border-bottom: 0; // 1
+  cursor: help; // 3
 }
 
 address {
@@ -224,8 +224,8 @@ sup {
 
 a {
   color: @link-color;
-  background-color: transparent; // remove the gray background on active links in IE 10.
   text-decoration: @link-decoration;
+  background-color: transparent; // remove the gray background on active links in IE 10.
   outline: none;
   cursor: pointer;
   transition: color 0.3s;
@@ -246,8 +246,8 @@ a {
 
   &:active,
   &:hover {
-    outline: 0;
     text-decoration: @link-hover-decoration;
+    outline: 0;
   }
 
   &[disabled] {
@@ -265,8 +265,8 @@ pre,
 code,
 kbd,
 samp {
-  font-family: @code-family;
   font-size: 1em; // Correct the odd `em` font sizing in all browsers.
+  font-family: @code-family;
 }
 
 pre {
@@ -353,10 +353,10 @@ select,
 optgroup,
 textarea {
   margin: 0; // remove the margin in Firefox and Safari
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
   color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
 }
 
 button,
@@ -373,7 +373,7 @@ select {
 //    controls in Android 4.
 // 2. Correct the inability to style clickable types in iOS and Safari.
 button,
-html [type="button"], // 1
+html [type="button"], /* 1 */
 [type="reset"],
 [type="submit"] {
   -webkit-appearance: button; // 2
@@ -419,9 +419,9 @@ fieldset {
   // See https://github.com/twbs/bootstrap/issues/12359
   // and https://html.spec.whatwg.org/multipage/#the-fieldset-and-legend-elements
   min-width: 0;
+  margin: 0;
   // Reset the default outline behavior of fieldsets so they don't affect page layout.
   padding: 0;
-  margin: 0;
   border: 0;
 }
 
@@ -431,11 +431,11 @@ legend {
   display: block;
   width: 100%;
   max-width: 100%; // 1
-  padding: 0;
   margin-bottom: 0.5em;
+  padding: 0;
+  color: inherit; // 2
   font-size: 1.5em;
   line-height: inherit;
-  color: inherit; // 2
   white-space: normal; // 1
 }
 
@@ -505,8 +505,8 @@ mark {
 }
 
 ::selection {
-  background: @primary-color;
   color: @text-color-inverse;
+  background: @primary-color;
 }
 
 // Utility classes

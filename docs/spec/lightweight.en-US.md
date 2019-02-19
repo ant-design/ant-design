@@ -43,22 +43,6 @@ Toggle a tool mode for an area or page when the actions are not the main flow. T
 
 ---
 
-## Interaction in Context
-
-<img class="preview-img" align="right" alt="good example" description="On mouse hover, the Tooltips are revealed to prompt the user to copy the text." src="https://gw.alipayobjects.com/zos/rmsportal/qdBJSanANPKpqeMyRUPX.png" good>
-
-<img class="preview-img" align="right" alt="good example" description="When highlighted or double-clicked, the text is automatically copied to the clipboard. The system helps automate the user flow and brings a surprise." src="https://gw.alipayobjects.com/zos/rmsportal/FDuQKkLcQdzdTUTgAeQM.png" good>
-
-<img class="preview-img" align="right" alt="bad example" description="The copy icon appears near the copyable text." src="https://gw.alipayobjects.com/zos/rmsportal/XHWinYiDxwwgwYnOxRkS.png" bad>
-
-If the actions are secondary or alternative, hide Contextual Tools in the user flow, in order to keep visual clutter to a minimum, reduce the load of cognition burden and bring a surprise.
-
-Some relative knowledge of [Providing an Invitation](/docs/spec/invitation) can also be applied.
-
-<br>
-
----
-
 ## Visible Area ≠ Clickable Area
 
 <img class="preview-img" align="right" alt="example of hypertext hot spot" description="When hovering on the cell in which the hypertext is positioned, the mouse turns from a cursor to a hand symbol. Click it and jump to another page." src="https://gw.alipayobjects.com/zos/rmsportal/lhOpWlaOzwsuHGxqHgPg.png">

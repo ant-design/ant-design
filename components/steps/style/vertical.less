@@ -8,9 +8,9 @@
       margin-right: 16px;
     }
     &-content {
+      display: block;
       min-height: 48px;
       overflow: hidden;
-      display: block;
     }
     &-title {
       line-height: @steps-icon-size;
@@ -22,14 +22,14 @@
 
   > .@{steps-prefix-cls}-item > .@{steps-prefix-cls}-item-tail {
     position: absolute;
-    left: 16px;
     top: 0;
-    height: 100%;
+    left: 16px;
     width: 1px;
+    height: 100%;
     padding: @steps-icon-size + 6px 0 6px;
-    &:after {
-      height: 100%;
+    &::after {
       width: 1px;
+      height: 100%;
     }
   }
 
@@ -40,7 +40,7 @@
   > .@{steps-prefix-cls}-item
     > .@{steps-prefix-cls}-item-content
     > .@{steps-prefix-cls}-item-title {
-    &:after {
+    &::after {
       display: none;
     }
   }
@@ -48,8 +48,8 @@
   &.@{steps-prefix-cls}-small {
     .@{steps-prefix-cls}-item-tail {
       position: absolute;
-      left: 12px;
       top: 0;
+      left: 12px;
       padding: @steps-small-icon-size + 6px 0 6px;
     }
     .@{steps-prefix-cls}-item-title {

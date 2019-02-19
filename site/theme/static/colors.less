@@ -22,29 +22,29 @@
   margin: 0 1%;
 }
 .color-palette {
-  margin: 45px 1%;
-  width: 31%;
   display: inline-block;
+  width: 31%;
+  margin: 45px 1%;
   &-pick {
-    text-align: center;
-    font-size: 20px;
     margin: 0 0 20px;
+    font-size: 20px;
+    text-align: center;
   }
   &-picker {
     margin: 24px 0;
     &-value {
+      position: relative;
+      top: -3px;
+      margin-left: 16px;
       font-size: 14px;
       font-family: Consolas, sans-serif;
-      margin-left: 16px;
-      position: relative;
-      top: -3px;
     }
     &-validation {
-      font-size: 13px;
-      color: @error-color;
-      margin-left: 16px;
       position: relative;
       top: -3px;
+      margin-left: 16px;
+      color: @error-color;
+      font-size: 13px;
     }
   }
 }
@@ -66,15 +66,15 @@
   text-align: left;
 
   &-item {
-    cursor: pointer;
-    height: 44px;
-    line-height: 44px;
-    padding: 0 12px;
-    margin-right: 4px;
-    transition: all 0.2s;
     position: relative;
-    font-family: Consolas, sans-serif;
+    height: 44px;
+    margin-right: 4px;
+    padding: 0 12px;
     font-size: 14px;
+    font-family: Consolas, sans-serif;
+    line-height: 44px;
+    cursor: pointer;
+    transition: all 0.2s;
     &:first-child {
       border-radius: 4px 4px 0 0;
     }
@@ -87,40 +87,40 @@
     }
   }
   &-item &-text {
-    transition: all 0.3s;
     float: left;
+    transition: all 0.3s;
   }
   &-item &-value {
+    position: relative;
+    left: 3px;
     float: right;
     transform: scale(0.85);
     transform-origin: 100% 50%;
     opacity: 0;
-    position: relative;
-    left: 3px;
     transition: all 0.3s;
   }
 }
 
 .color-title {
   margin: 0 0 24px;
-  font-weight: 500;
   color: #5c6b77;
+  font-weight: 500;
   font-size: 22px;
-  text-transform: capitalize;
   text-align: center;
+  text-transform: capitalize;
 }
 
 .color-description {
-  font-size: 14px;
-  font-weight: lighter;
-  color: #777;
   display: block;
+  color: #777;
+  font-weight: lighter;
+  font-size: 14px;
 }
 
 .main-color:hover {
   .main-color-value {
-    opacity: 0.7;
     left: 0;
+    opacity: 0.7;
   }
 }
 
@@ -131,33 +131,32 @@
     display: flex;
 
     &-item {
-      flex: 1;
       position: relative;
-      margin-right: 0;
-      border-radius: 0;
+      flex: 1;
       height: 86px;
-      text-align: center;
+      margin-right: 0;
       padding: 37px 0 0;
       line-height: normal;
+      text-align: center;
+      border-radius: 0;
 
       .main-color-text {
         float: none;
       }
 
       &:hover {
-        margin-top: -10px;
         height: 96px;
+        margin-top: -10px;
         border-radius: 4px 4px 0 0;
       }
     }
 
     &-value {
       position: absolute;
-      text-align: center;
-      width: 100%;
-      left: 0;
       bottom: 0;
-      float: none;
+      left: 0;
+      width: 100%;
+      text-align: center;
       transform-origin: unset;
     }
 
@@ -167,8 +166,8 @@
       }
 
       .main-color-value {
-        opacity: 0.7;
         bottom: 8px;
+        opacity: 0.7;
       }
     }
   }

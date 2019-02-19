@@ -195,4 +195,14 @@ describe('Table.pagination', () => {
     wrapper.setProps({ pagination: { current: 2, pageSize: 10, total: 100 } });
     expect(renderedNames(wrapper)).toHaveLength(4);
   });
+
+  /**
+   * `pagination` is not designed to accept `true` value,
+   * but in practice, many people assign `true` to `pagination`,
+   * since they misunderstand that `pagination` can accept a boolean value.
+   */
+  it('Accepts pagination as true', () => {
+    const wrapper = render(createTable({ pagination: true }));
+    expect(wrapper).toMatchSnapshot();
+  });
 });
