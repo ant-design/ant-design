@@ -14,7 +14,9 @@ title:
 An example with content that gives priority to the main information of the page.
 
 ```jsx
-import { PageHeader } from 'antd';
+import { PageHeader,Typography } from 'antd';
+
+const { Paragraph } = Typography;
 
 const routes = [
   {
@@ -33,16 +35,17 @@ const routes = [
 
 const content = (
   <div className="content">
-    <p>
+    <Paragraph>
+
       Ant Design interprets the color system into two levels: a system-level
       color system and a product-level color system.
-    </p>
-    <p>
+    </Paragraph>
+    <Paragraph>
       Ant Design&#x27;s design team preferred to design with the HSB color model,
       which makes it easier for designers to have a clear psychological
       expectation of color when adjusting colors, as well as facilitate
       communication in teams.
-    </p>
+    </Paragraph>
     <p className="contentLink">
       <a>
         <img
@@ -94,9 +97,6 @@ ReactDOM.render(
 #components-page-header-demo-content .content {
   flex: 1;
 }
-#components-page-header-demo-content .content p {
-  margin-bottom: 8px;
-}
 #components-page-header-demo-content .extraContent {
   min-width: 240px;
   text-align: right;
@@ -111,45 +111,5 @@ ReactDOM.render(
 }
 #components-page-header-demo-content .contentLink a img {
   margin-right: 8px;
-}
-#components-page-header-demo-content .content.padding {
-  padding-left: 40px;
-}
-#components-page-header-demo-content .content .description {
-  display: table;
-}
-#components-page-header-demo-content .description .term {
-  display: table-cell;
-  margin-right: 8px;
-  padding-bottom: 8px;
-  white-space: nowrap;
-  line-height: 20px;
-}
-#components-page-header-demo-content .description .term:after {
-  position: relative;
-  top: -0.5px;
-  margin: 0 8px 0 2px;
-  content: ":";
-}
-#components-page-header-demo-content .description .detail {
-  display: table-cell;
-  padding-bottom: 8px;
-  width: 100%;
-  line-height: 20px;
-}
-#components-page-header-demo-content .extraContent .label {
-  font-size: 14px;
-  color: rgba(0, 0, 0, 0.45);
-  line-height: 22px;
-}
-#components-page-header-demo-content .extraContent .label {
-  font-size: 14px;
-  color: rgba(0, 0, 0, 0.45);
-  line-height: 22px;
-}
-#components-page-header-demo-content .extraContent .detail {
-  font-size: 20px;
-  color: rgba(0, 0, 0, 0.85);
-  line-height: 28px;
 }
 </style>
