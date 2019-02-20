@@ -93,7 +93,7 @@ class Input extends React.Component<InputProps, any> {
     if (hasPrefixSuffix(prevProps) !== hasPrefixSuffix(this.props)) {
       warning(
         this.input !== document.activeElement,
-        `When Input is focused, dynamic add or remove prefix / suffix will make it lose focus caused by dom structure change.`,
+        `When Input is focused, dynamic add or remove prefix / suffix will make it lose focus caused by dom structure change. Read more: https://ant.design/components/input/#FAQ`,
       );
     }
     return null;
