@@ -85,7 +85,7 @@ Supports all props of `Input`.
 
 ### Why Input lose focus when change `prefix/suffix`
 
-When Input dynamic add or remove prefix/suffix will make React recreate the dom structure and new input will be not focused.
+When Input dynamic add or remove `prefix/suffix` will make React recreate the dom structure and new input will be not focused.
 You can set an empty `<span />` element to keep the dom structure:
 
 ```jsx
