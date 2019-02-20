@@ -10,6 +10,7 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Password from './Password';
 import Icon from '../icon';
 import { Omit, tuple } from '../_util/type';
+import warning from '../_util/warning';
 
 function fixControlledValue<T>(value: T) {
   if (typeof value === 'undefined' || value === null) {
@@ -88,11 +89,19 @@ class Input extends React.Component<InputProps, any> {
     };
   }
 
-  componentDidUpdate(prevProps: InputProps) {
-    if (!hasPrefixSuffix(prevProps) && hasPrefixSuffix(this.props)) {
-      console.warn('2333', this.input, document.activeElement);
+  getSnapshotBeforeUpdate(prevProps: InputProps) {
+    if (hasPrefixSuffix(prevProps) !== hasPrefixSuffix(this.props)) {
+      warning(
+        this.input !== document.activeElement,
+        `When Input is focused, dynamic add or remove prefix / suffix will make it lose focus caused by dom structure change.`,
+      );
     }
+    return null;
   }
+
+  // Since polyfill `getSnapshotBeforeUpdate` need work with `componentDidUpdate`.
+  // We keep an empty function here.
+  componentDidUpdate() {}
 
   handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const { onPressEnter, onKeyDown } = this.props;
