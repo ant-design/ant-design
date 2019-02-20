@@ -112,17 +112,6 @@
         background-color: @item-hover-bg;
       }
 
-      &-disabled {
-        color: @disabled-color;
-        cursor: not-allowed;
-
-        &:hover {
-          color: @disabled-color;
-          background-color: @component-background;
-          cursor: not-allowed;
-        }
-      }
-
       &-divider {
         height: 1px;
         margin: 4px 0;
@@ -137,6 +126,21 @@
           color: @text-color-secondary;
           font-style: normal;
           .iconfont-size-under-12px(10px);
+        }
+      }
+    }
+
+    &-item,
+    &-submenu {
+      &-disabled,
+      &-disabled .@{dropdown-prefix-cls}-menu-submenu-title {
+        color: @disabled-color;
+        cursor: not-allowed;
+
+        &:hover {
+          color: @disabled-color;
+          background-color: @component-background;
+          cursor: not-allowed;
         }
       }
     }
