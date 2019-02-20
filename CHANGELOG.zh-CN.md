@@ -23,7 +23,7 @@ timeline: true
 - 🐞 调整 Input 样式以支持 `text-align: inherit`。[#14912](https://github.com/ant-design/ant-design/pull/14912)
 - 🐞 修复 Sider 在右侧收缩时，图标位置不正确的问题。[#14446](https://github.com/ant-design/ant-design/pull/14446)
 - 🐞 修复 Table 在某些情况下丢失顶部边框的问题。[#14922](https://github.com/ant-design/ant-design/pull/14922)
-- 🐞 修复 TypeScript 类型定义。[#14903](https://github.com/ant-design/ant-design/pull/14903)
+- 🐞 修复 TypeScript 类型定义。[#14857](https://github.com/ant-design/ant-design/pull/14857) [#14903](https://github.com/ant-design/ant-design/pull/14903)
 
 ## 3.13.4
 

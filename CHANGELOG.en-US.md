@@ -23,7 +23,7 @@ timeline: true
 - 🐞 Adjust Input style to support `text-align: inherit`. [#14912](https://github.com/ant-design/ant-design/pull/14912)
 - 🐞 Fix incorrect collapse icon position when sider in the right. [#14446](https://github.com/ant-design/ant-design/pull/14446)
 - 🐞 Fix Table miss top border in some case. [#14922](https://github.com/ant-design/ant-design/pull/14922)
-- 🐞 Fix TypeScript Definition. [#14903](https://github.com/ant-design/ant-design/pull/14903) [#14857](https://github.com/ant-design/ant-design/pull/14857)
+- 🐞 Fix some TypeScript definitions. [#14857](https://github.com/ant-design/ant-design/pull/14857) [#14903](https://github.com/ant-design/ant-design/pull/14903)
 
 ## 3.13.4
 
