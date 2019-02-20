@@ -5,22 +5,24 @@ import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface StepsProps {
-  prefixCls?: string;
-  iconPrefix?: string;
   className?: string;
   current?: number;
+  direction?: 'horizontal' | 'vertical';
+  iconPrefix?: string;
   initial?: number;
   labelPlacement?: 'horizontal' | 'vertical';
-  status?: 'wait' | 'process' | 'finish' | 'error';
-  size?: 'default' | 'small';
-  direction?: 'horizontal' | 'vertical';
+  prefixCls?: string;
   progressDot?: boolean | Function;
+  size?: 'default' | 'small';
+  status?: 'wait' | 'process' | 'finish' | 'error';
   style?: React.CSSProperties;
 }
 
 export interface StepProps {
+  className?: string;
   description?: React.ReactNode;
   icon?: React.ReactNode;
+  onClick?: React.MouseEventHandler<any>;
   status?: 'wait' | 'process' | 'finish' | 'error';
   title?: React.ReactNode;
 }

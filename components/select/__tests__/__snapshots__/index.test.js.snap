@@ -19,6 +19,7 @@ exports[`Select Select Custom Icons should support customized icons 1`] = `
     />
     <span
       class="ant-select-arrow"
+      style="user-select: none;"
       unselectable="on"
     >
       <i

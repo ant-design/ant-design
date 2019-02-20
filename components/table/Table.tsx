@@ -167,7 +167,8 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   }
 
   getDefaultPagination(props: TableProps<T>) {
-    const pagination: PaginationConfig = props.pagination || {};
+    const pagination: PaginationConfig =
+      typeof props.pagination === 'object' ? props.pagination : {};
     let current;
     if ('current' in pagination) {
       current = pagination.current;
@@ -741,6 +742,13 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     return ReactDOM.findDOMNode(this) as HTMLElement;
   };
 
+  generatePopupContainerFunc = () => {
+    const { scroll } = this.props;
+
+    // Use undefined to let rc component use default logic.
+    return scroll ? this.getPopupContainer : undefined;
+  };
+
   renderRowSelection(prefixCls: string, locale: TableLocale) {
     const { rowSelection, childrenColumnName } = this.props;
     const columns = this.columns.concat();
@@ -778,7 +786,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
             onSelect={this.handleSelectRow}
             selections={rowSelection.selections}
             hideDefaultSelections={rowSelection.hideDefaultSelections}
-            getPopupContainer={this.getPopupContainer}
+            getPopupContainer={this.generatePopupContainerFunc()}
           />
         );
       }
@@ -841,7 +849,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
             confirmFilter={this.handleFilter}
             prefixCls={`${prefixCls}-filter`}
             dropdownPrefixCls={dropdownPrefixCls || 'ant-dropdown'}
-            getPopupContainer={this.getPopupContainer}
+            getPopupContainer={this.generatePopupContainerFunc()}
             key="filter-dropdown"
           />
         );
@@ -1012,7 +1020,6 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     let current: number;
     let pageSize: number;
     const state = this.state;
-    const pagination = this.props.pagination || {};
     // 如果没有分页的话，默认全部展示
     if (!this.hasPagination()) {
       pageSize = Number.MAX_VALUE;
@@ -1026,11 +1033,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     // ---
     // 当数据量少于等于每页数量时，直接设置数据
     // 否则进行读取分页数据
-    if (
-      data.length > pageSize ||
-      pageSize === Number.MAX_VALUE ||
-      (pagination.current === undefined && current * pageSize > data.length)
-    ) {
+    if (data.length > pageSize || pageSize === Number.MAX_VALUE) {
       data = data.filter((_, i) => {
         return i >= (current - 1) * pageSize && i < current * pageSize;
       });

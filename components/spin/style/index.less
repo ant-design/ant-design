@@ -6,29 +6,29 @@
 
 .@{spin-prefix-cls} {
   .reset-component;
-  color: @primary-color;
-  vertical-align: middle;
-  text-align: center;
-  opacity: 0;
   position: absolute;
-  transition: transform 0.3s @ease-in-out-circ;
   display: none;
+  color: @primary-color;
+  text-align: center;
+  vertical-align: middle;
+  opacity: 0;
+  transition: transform 0.3s @ease-in-out-circ;
 
   &-spinning {
-    opacity: 1;
     position: static;
     display: inline-block;
+    opacity: 1;
   }
 
   &-nested-loading {
     position: relative;
     > div > .@{spin-prefix-cls} {
-      display: block;
       position: absolute;
+      z-index: 4;
+      display: block;
+      width: 100%;
       height: 100%;
       max-height: 400px;
-      width: 100%;
-      z-index: 4;
       .@{spin-prefix-cls}-dot {
         position: absolute;
         top: 50%;
@@ -76,31 +76,32 @@
     position: relative;
     transition: opacity 0.3s;
 
-    &:after {
-      content: '';
+    &::after {
       position: absolute;
-      left: 0;
-      right: 0;
       top: 0;
+      right: 0;
       bottom: 0;
-      background: @component-background;
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.3s;
-      height: 100%;
-      width: 100%;
+      left: 0;
       z-index: 10;
       display: ~'none \9';
+      width: 100%;
+      height: 100%;
+      background: @component-background;
+      opacity: 0;
+      transition: all 0.3s;
+      pointer-events: none;
+      content: '';
     }
   }
 
   &-blur {
-    pointer-events: none;
-    user-select: none;
+    clear: both;
     overflow: hidden;
     opacity: 0.5;
+    user-select: none;
+    pointer-events: none;
 
-    &:after {
+    &::after {
       opacity: 0.4;
       pointer-events: auto;
     }
@@ -123,23 +124,23 @@
     .square(@spin-dot-size);
 
     i {
+      position: absolute;
+      display: block;
       width: 9px;
       height: 9px;
-      border-radius: 100%;
       background-color: @primary-color;
+      border-radius: 100%;
       transform: scale(0.75);
-      display: block;
-      position: absolute;
+      transform-origin: 50% 50%;
       opacity: 0.3;
       animation: antSpinMove 1s infinite linear alternate;
-      transform-origin: 50% 50%;
       &:nth-child(1) {
-        left: 0;
         top: 0;
+        left: 0;
       }
       &:nth-child(2) {
-        right: 0;
         top: 0;
+        right: 0;
         animation-delay: 0.4s;
       }
       &:nth-child(3) {
@@ -148,8 +149,8 @@
         animation-delay: 0.8s;
       }
       &:nth-child(4) {
-        left: 0;
         bottom: 0;
+        left: 0;
         animation-delay: 1.2s;
       }
     }
