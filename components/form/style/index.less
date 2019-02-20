@@ -10,6 +10,11 @@
 @form-component-max-height: @input-height-lg;
 @form-feedback-icon-size: @font-size-base;
 @form-help-margin-top: (@form-component-height - @form-component-max-height) / 2 + 2px;
+// Extends additional 1px to fix precision issue.
+// https://github.com/ant-design/ant-design/issues/12803
+// https://github.com/ant-design/ant-design/issues/8220
+@form-explain-precision: 1px;
+@form-explain-height: floor(@font-size-base * @line-height-base);
 
 .@{form-prefix-cls} {
   .reset-component;
@@ -76,7 +81,7 @@ input[type='checkbox'] {
 
   &-control {
     position: relative;
-    line-height: @form-component-max-height - 0.0001px; // https://github.com/ant-design/ant-design/issues/8220
+    line-height: @form-component-max-height;
     .clearfix;
   }
 
@@ -85,8 +90,7 @@ input[type='checkbox'] {
   }
 
   &-with-help {
-    margin-bottom: @form-item-margin-bottom - @font-size-base * @line-height-base -
-      @form-help-margin-top;
+    margin-bottom: @form-item-margin-bottom - @form-explain-height - @form-help-margin-top;
   }
 
   &-label {
@@ -126,12 +130,15 @@ input[type='checkbox'] {
 .@{form-prefix-cls}-explain,
 .@{form-prefix-cls}-extra {
   clear: both;
+  min-height: @form-explain-height + @form-explain-precision;
   margin-top: @form-help-margin-top;
   color: @text-color-secondary;
-  // Magic tweak pixel number to float line-height diff in windows
-  // Fix https://github.com/ant-design/ant-design/issues/12803
-  line-height: @line-height-base + 0.024;
+  line-height: @line-height-base;
   transition: color 0.3s @ease-out; // sync input color transition
+}
+
+.@{form-prefix-cls}-explain {
+  margin-bottom: -@form-explain-precision;
 }
 
 .@{form-prefix-cls}-extra {
@@ -335,7 +342,10 @@ form {
   .@{form-prefix-cls}-item-control {
     line-height: @line-height-base;
   }
-  .@{form-prefix-cls}-explain,
+  .@{form-prefix-cls}-explain {
+    margin-top: 2px;
+    margin-bottom: -4px - @form-explain-precision;
+  }
   .@{form-prefix-cls}-extra {
     margin-top: 2px;
     margin-bottom: -4px;
@@ -381,7 +391,7 @@ form {
     margin-bottom: 0;
 
     &-with-help {
-      margin-bottom: 24px;
+      margin-bottom: @form-item-margin-bottom;
     }
 
     > .@{form-prefix-cls}-item-control-wrapper,
@@ -592,8 +602,7 @@ form {
     margin-bottom: @form-item-margin-bottom;
 
     &-with-help {
-      margin-bottom: @form-item-margin-bottom - @font-size-base * @line-height-base -
-        @form-help-margin-top;
+      margin-bottom: @form-item-margin-bottom - @form-explain-height - @form-help-margin-top;
     }
   }
 }
