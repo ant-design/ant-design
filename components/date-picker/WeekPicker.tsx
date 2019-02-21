@@ -49,16 +49,29 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
           'a moment object after `antd@2.0`, see: https://u.ant.design/date-picker-value',
       );
     }
+    this.toggleOpen = this.toggleOpen.bind(this);
+    this.onMouseEnter = this.onMouseEnter.bind(this);
+    this.onMouseLeave = this.onMouseLeave.bind(this);
     this.state = {
       value,
       open: props.open,
     };
   }
 
-  componentDidUpdate(_: any, prevState: WeekPickerState) {
-    if (!('open' in this.props) && prevState.open && !this.state.open) {
-      this.focus();
+  toggleOpen() {
+    this.setState(prevState => ({
+      open: !prevState.open
+    }));
+  }
+
+  onMouseEnter() {
+    if (!this.props.disabled) {
+        this.setState({open: true});
     }
+  }
+
+  onMouseLeave() {
+    this.setState({open: false});
   }
 
   weekDateRender = (current: any) => {
@@ -200,6 +213,8 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
           readOnly
           value={(value && value.format(format)) || ''}
           placeholder={placeholder}
+          onMouseOver={this.onMouseEnter}
+          onMouseLeave={this.onMouseLeave}
           className={pickerInputClass}
           onFocus={onFocus}
           onBlur={onBlur}
@@ -209,16 +224,16 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
       </span>
     );
     return (
-      <span className={classNames(className, pickerClass)} style={style} id={id}>
+      <span className={classNames(className, pickerClass)} style={style} id={id} onMouseOver={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
         <RcDatePicker
           {...this.props}
           calendar={calendar}
           prefixCls={`${prefixCls}-picker-container`}
           value={pickerValue}
           onChange={this.handleChange}
+          style={popupStyle}
           open={open}
           onOpenChange={this.handleOpenChange}
-          style={popupStyle}
         >
           {input}
         </RcDatePicker>

@@ -63,6 +63,9 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
             'a moment object after `antd@2.0`, see: https://u.ant.design/date-picker-value',
         );
       }
+      this.toggleOpen = this.toggleOpen.bind(this);
+      this.onMouseEnter = this.onMouseEnter.bind(this);
+      this.onMouseLeave = this.onMouseLeave.bind(this);
       this.state = {
         value,
         showDate: value,
@@ -70,10 +73,20 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
       };
     }
 
-    componentDidUpdate(_: PickerProps, prevState: PickerState) {
-      if (!('open' in this.props) && prevState.open && !this.state.open) {
-        this.focus();
+    toggleOpen() {
+      this.setState(prevState => ({
+        open: !prevState.open
+      }));
+    }
+
+    onMouseEnter() {
+      if (!this.props.disabled) {
+        this.setState({open: true});
       }
+    }
+
+    onMouseLeave() {
+      this.setState({open: false});
     }
 
     renderFooter = (...args: any[]) => {
@@ -227,6 +240,8 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
             disabled={props.disabled}
             readOnly
             value={(inputValue && inputValue.format(props.format)) || ''}
+            onMouseOver={this.onMouseEnter}
+            onMouseLeave={this.onMouseLeave}
             placeholder={placeholder}
             className={props.pickerInputClass}
             tabIndex={props.tabIndex}
@@ -244,8 +259,8 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
           style={{ ...pickerStyle, ...props.style }}
           onFocus={props.onFocus}
           onBlur={props.onBlur}
-          onMouseEnter={props.onMouseEnter}
-          onMouseLeave={props.onMouseLeave}
+          onMouseOver={this.onMouseEnter}
+          onMouseLeave={this.onMouseLeave}
         >
           <RcDatePicker
             {...props}

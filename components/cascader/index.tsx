@@ -294,6 +294,9 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
   handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.keyCode === KeyCode.BACKSPACE) {
       e.stopPropagation();
+    } else if (e.keyCode === 32) {
+      e.preventDefault();
+      (document.activeElement).click();
     }
   };
 

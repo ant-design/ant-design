@@ -106,6 +106,9 @@ class RangePicker extends React.Component<any, RangePickerState> {
     super(props);
     const value = props.value || props.defaultValue || [];
     const [start, end] = value;
+    this.toggleOpen = this.toggleOpen.bind(this);
+    this.onMouseEntering = this.onMouseEntering.bind(this);
+    this.onMouseLeaving = this.onMouseLeaving.bind(this);
     if (
       (start && !interopDefault(moment).isMoment(start)) ||
       (end && !interopDefault(moment).isMoment(end))
@@ -124,11 +127,21 @@ class RangePicker extends React.Component<any, RangePickerState> {
     };
   }
 
-  componentDidUpdate(_: any, prevState: RangePickerState) {
-    if (!('open' in this.props) && prevState.open && !this.state.open) {
-      this.focus();
+  toggleOpen() {
+      this.setState(prevState => ({
+        open: !prevState.open
+      }));
     }
-  }
+
+    onMouseEntering() {
+      if (!this.props.disabled) {
+        this.setState({open: true});
+      }
+    }
+
+    onMouseLeaving() {
+      this.setState({open: false});
+    }
 
   clearSelection = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
@@ -391,6 +404,8 @@ class RangePicker extends React.Component<any, RangePickerState> {
             value={(end && end.format(props.format)) || ''}
             placeholder={endPlaceholder}
             className={`${prefixCls}-range-picker-input`}
+            onMouseOver={this.onMouseEntering}
+            onMouseLeave={this.onMouseLeaving}
             tabIndex={-1}
           />
           {clearIcon}
@@ -408,8 +423,9 @@ class RangePicker extends React.Component<any, RangePickerState> {
         tabIndex={props.disabled ? -1 : 0}
         onFocus={props.onFocus}
         onBlur={props.onBlur}
-        onMouseEnter={props.onMouseEnter}
-        onMouseLeave={props.onMouseLeave}
+        onMouseOver={this.onMouseEntering}
+        onMouseLeave={this.onMouseLeaving}
+            
       >
         <RcDatePicker
           {...props}
