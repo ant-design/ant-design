@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import Animate from 'rc-animate';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import Checkbox from '../checkbox';
-import { TransferItem } from './index';
+import { TransferItem, TransferDirection } from './index';
 import Search from './search';
 import Item from './item';
 import triggerEvent from '../_util/triggerEvent';
@@ -20,6 +20,7 @@ function isRenderResultPlainObject(result: any) {
 }
 
 export interface TransferListProps {
+  direction: TransferDirection;
   prefixCls: string;
   titleText: string;
   dataSource: TransferItem[];

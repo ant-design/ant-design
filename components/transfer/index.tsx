@@ -417,6 +417,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
               lazy={lazy}
               onScroll={this.handleLeftScroll}
               disabled={disabled}
+              direction={'left'}
               {...locale}
             />
             <Operation
@@ -449,6 +450,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
               lazy={lazy}
               onScroll={this.handleRightScroll}
               disabled={disabled}
+              direction={'right'}
               {...locale}
             />
           </div>
