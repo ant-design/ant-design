@@ -146,7 +146,7 @@ const Icon: IconComponent<IconProps> = props => {
     );
   }
 
-  if (typeof type === 'string') {
+  if (typeof type === 'string' && !Component) {
     let computedType = type;
     if (theme) {
       const themeInName = getThemeFromTypeName(type);
