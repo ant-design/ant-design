@@ -42,13 +42,14 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
   };
 
   static getDerivedStateFromProps(nextProps: DirectoryTreeProps) {
+    const newState: DirectoryTreeState = {};
     if ('expandedKeys' in nextProps) {
-      return { expandedKeys: nextProps.expandedKeys };
+      newState.expandedKeys = nextProps.expandedKeys;
     }
     if ('selectedKeys' in nextProps) {
-      return { selectedKeys: nextProps.selectedKeys };
+      newState.selectedKeys = nextProps.selectedKeys;
     }
-    return null;
+    return newState;
   }
 
   state: DirectoryTreeState;
