@@ -179,7 +179,7 @@ const Icon: IconComponent<IconProps> = props => {
     <LocaleReceiver componentName="Icon">
       {(locale: TransferLocale) => (
         <i
-          aria-label={`${locale.icon}: ${type}`}
+          aria-label={type && `${locale.icon}: ${type}`}
           {...restProps}
           tabIndex={iconTabIndex}
           onClick={onClick}
