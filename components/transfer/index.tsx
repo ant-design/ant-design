@@ -8,6 +8,7 @@ import warning from '../_util/warning';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale-provider/default';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
+import TableTransfer from './TableTransfer';
 
 export { TransferListProps } from './list';
 export { TransferOperationProps } from './operation';
@@ -67,6 +68,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
   static List = List;
   static Operation = Operation;
   static Search = Search;
+  static Table = TableTransfer;
 
   static defaultProps = {
     dataSource: [],
