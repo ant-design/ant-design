@@ -97,16 +97,18 @@ export default class List extends React.Component<ListProps> {
     };
   }
 
-  renderItem = (item: React.ReactElement<any>, index: number) => {
-    const { dataSource, renderItem, rowKey } = this.props;
+  renderItem = (record: any, index: number) => {
+    const { renderItem, rowKey } = this.props;
     let key;
 
-    if (typeof rowKey === 'function') {
-      key = rowKey(dataSource[index]);
-    } else if (typeof rowKey === 'string') {
-      key = dataSource[rowKey];
-    } else {
-      key = dataSource.key;
+    if (typeof record === 'object') {
+      if (typeof rowKey === 'function') {
+        key = rowKey(record, index);
+      } else if (typeof rowKey === 'string') {
+        key = record[rowKey];
+      } else {
+        key = record.key;
+      }
     }
 
     if (!key) {
@@ -115,7 +117,7 @@ export default class List extends React.Component<ListProps> {
 
     this.keys[index] = key;
 
-    return renderItem(item, index);
+    return renderItem(record, index);
   };
 
   isSomethingAfterLastItem() {
