@@ -23,7 +23,7 @@
 
   li {
     margin: 0;
-    padding: 4px 0 0;
+    padding: 4px 0;
     white-space: nowrap;
     list-style: none;
     outline: 0;
@@ -176,6 +176,11 @@
     display: none;
     &-open {
       display: block;
+    }
+    > li {
+      &:last-child {
+        padding-bottom: 0;
+      }
     }
   }
   li&-treenode-disabled {
