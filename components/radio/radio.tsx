@@ -45,10 +45,6 @@ export default class Radio extends React.Component<RadioProps, {}> {
   };
 
   onChange = (e: RadioChangeEvent) => {
-    if (this.props.onChange) {
-      this.props.onChange(e);
-    }
-
     if (this.context.radioGroup && this.context.radioGroup.onChange) {
       this.context.radioGroup.onChange(e);
     }
@@ -56,7 +52,14 @@ export default class Radio extends React.Component<RadioProps, {}> {
 
   renderRadio = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { props, context } = this;
-    const { prefixCls: customizePrefixCls, className, children, style, ...restProps } = props;
+    const {
+      prefixCls: customizePrefixCls,
+      className,
+      children,
+      onChange,
+      style,
+      ...restProps
+    } = props;
     const { radioGroup } = context;
     const prefixCls = getPrefixCls('radio', customizePrefixCls);
     const radioProps: RadioProps = { ...restProps };
