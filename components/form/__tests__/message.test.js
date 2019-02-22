@@ -87,4 +87,43 @@ describe('Form', () => {
 
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  it('should print warning for not generating help and validateStatus automatically', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const Form1 = Form.create()(({ form }) => {
+      return (
+        <Form>
+          <Form.Item label="Account">
+            {form.getFieldDecorator('account')(<input />)}
+            {form.getFieldDecorator('account')(<input />)}
+          </Form.Item>
+        </Form>
+      );
+    });
+
+    mount(<Form1 />);
+    expect(errorSpy).toBeCalledWith(
+      'Warning: `Form.Item` cannot generate `validateStatus` and `help` automatically, while there are more than one `getFieldDecorator` in it.',
+    );
+    errorSpy.mockRestore();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/14911
+  it('should not print warning for not generating help and validateStatus automatically when help or validateStatus is specified', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const Form1 = Form.create()(({ form }) => {
+      return (
+        <Form>
+          <Form.Item label="Account" help="custom help information">
+            {form.getFieldDecorator('account')(<input />)}
+            {form.getFieldDecorator('account')(<input />)}
+          </Form.Item>
+        </Form>
+      );
+    });
+
+    mount(<Form1 />);
+    expect(errorSpy).not.toHaveBeenCalled();
+    errorSpy.mockRestore();
+  });
 });
