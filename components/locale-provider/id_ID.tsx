@@ -13,8 +13,8 @@ export default {
     filterTitle: 'Saring',
     filterConfirm: 'OK',
     filterReset: 'Hapus',
-    selectAll: 'Pilih semua',
-    selectInvert: 'Balikkan pilihan',
+    selectAll: 'Pilih semua di halaman ini',
+    selectInvert: 'Balikkan pilihan di halaman ini',
     sortTitle: 'Urutkan',
   },
   Modal: {
@@ -29,8 +29,8 @@ export default {
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Cari',
-    itemUnit: 'Item',
-    itemsUnit: 'Item',
+    itemUnit: 'item',
+    itemsUnit: 'item',
   },
   Upload: {
     uploading: 'Mengunggah...',
