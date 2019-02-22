@@ -24,7 +24,7 @@
 
   li {
     margin: 0;
-    padding: @tree-node-padding 0;
+    padding: 2 * @tree-node-padding 0 0;
     white-space: nowrap;
     list-style: none;
     outline: 0;
@@ -164,7 +164,11 @@
       }
     }
   }
-
+  ul > li {
+    &:first-child {
+      padding-top: @tree-node-padding;
+    }
+  }
   > li {
     &:first-child {
       padding-top: 7px;
