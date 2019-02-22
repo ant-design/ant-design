@@ -17,63 +17,52 @@ Use build-in Table Transfer
 ````jsx
 import { Transfer } from 'antd';
 
+const leftTable = {
+  columns: [{
+    title: 'Name',
+    dataIndex: 'name',
+    key: 'name',
+  }, {
+    title: 'Description',
+    dataIndex: 'description',
+    key: 'description',
+  }],
+};
+const rightTable = {
+  columns: [{
+    title: 'Name',
+    dataIndex: 'name',
+    key: 'name',
+  }],
+};
+
+const mockData = [];
+for (let i = 0; i < 20; i++) {
+  mockData.push({
+    key: i.toString(),
+    name: `name ${i + 1}`,
+    description: `Description of ${i + 1}`,
+  });
+}
+
 class App extends React.Component {
   state = {
-    mockData: [],
     targetKeys: [],
-  }
+  };
 
-  componentDidMount() {
-    this.getMock();
-  }
-
-  getMock = () => {
-    const targetKeys = [];
-    const mockData = [];
-    for (let i = 0; i < 20; i++) {
-      const data = {
-        key: i.toString(),
-        title: `content${i + 1}`,
-        description: `description of content${i + 1}`,
-        chosen: Math.random() * 2 > 1,
-      };
-      if (data.chosen) {
-        targetKeys.push(data.key);
-      }
-      mockData.push(data);
-    }
-    this.setState({ mockData, targetKeys });
-  }
-
-  handleChange = (targetKeys, direction, moveKeys) => {
-    console.log(targetKeys, direction, moveKeys);
+  onChange = (targetKeys) => {
     this.setState({ targetKeys });
-  }
-
-  renderItem = (item) => {
-    const customLabel = (
-      <span className="custom-item">
-        {item.title} - {item.description}
-      </span>
-    );
-
-    return {
-      label: customLabel, // for displayed item
-      value: item.title, // for title and filter matching
-    };
-  }
+  };
 
   render() {
+    const { targetKeys } = this.state;
     return (
       <Transfer.Table
-        dataSource={this.state.mockData}
-        listStyle={{
-          width: 300,
-          height: 300,
-        }}
-        targetKeys={this.state.targetKeys}
-        onChange={this.handleChange}
-        render={this.renderItem}
+        dataSource={mockData}
+        targetKeys={targetKeys}
+        leftTable={leftTable}
+        rightTable={rightTable}
+        onChange={this.onChange}
       />
     );
   }
@@ -81,3 +70,4 @@ class App extends React.Component {
 
 ReactDOM.render(<App />, mountNode);
 ````
+

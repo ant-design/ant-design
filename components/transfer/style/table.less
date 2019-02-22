@@ -1,0 +1,81 @@
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
+@import '../../table/style/index.less';
+@import '../../table/style/size.less';
+@import './index.less';
+
+@transfer-table-prefix-cls: ~'@{transfer-prefix-cls}-table';
+
+.@{transfer-table-prefix-cls} {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+
+  .@{transfer-prefix-cls}-list,
+  .@{transfer-prefix-cls}-operation {
+    display: table-cell;
+  }
+
+  .@{transfer-prefix-cls}-operation {
+    width: 46px;
+    // Fix width to avoid view shake
+    margin: 0;
+    padding: 0 8px;
+  }
+
+  .@{transfer-prefix-cls}-list {
+    width: auto;
+    height: auto;
+    vertical-align: top;
+
+    &:first-child {
+      width: 60%;
+    }
+
+    &:last-child {
+      width: 40%;
+    }
+
+    &-header {
+      .@{ant-prefix}-checkbox-wrapper {
+        display: none;
+      }
+    }
+
+    &-body {
+      padding: 12px;
+      overflow-x: auto;
+
+      // Table style
+      .@{table-prefix-cls} {
+        // Remove border
+        &-thead {
+          > tr:first-child {
+            > th:first-child,
+            > th:last-child {
+              border-radius: 0;
+            }
+          }
+        }
+
+        // Small padding
+        &-thead tr th,
+        &-tbody tr td {
+          padding: @table-padding-vertical-sm @table-padding-horizontal-sm;
+        }
+      }
+
+      // Pagination
+      .@{ant-prefix}-pagination {
+        margin: 16px 0 4px; // By design, should place 16px when pagination provided
+      }
+
+      // Empty
+      .@{ant-prefix}-empty {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}

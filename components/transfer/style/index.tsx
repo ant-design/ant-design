@@ -1,5 +1,6 @@
 import '../../style/index.less';
 import './index.less';
+import './table.less';
 
 // style dependencies
 import '../../empty/style';

@@ -1,17 +1,87 @@
 import * as React from 'react';
-import Table from '../table';
+import classNames from 'classnames';
+import Table, { TableProps, TableRowSelection, PaginationConfig } from '../table';
+import Empty from '../empty';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Transfer, { TransferProps } from './index';
 import { TransferListProps } from './list';
 
-class TableTransfer extends React.Component<TransferProps> {
-  renderBody = (props: TransferListProps) => {
+export interface TableTransferProps<T> extends TransferProps {
+  leftTable: TableProps<T>;
+  rightTable: TableProps<T>;
+}
+
+function generatePrimaryTable<T>(props: TableTransferProps<T>) {
+  return props.leftTable;
+}
+
+function generateSecondaryTable<T>(props: TableTransferProps<T>) {
+  return props.rightTable;
+}
+
+class TableTransfer<T> extends React.Component<TableTransferProps<T>> {
+  renderBody = (listProps: TransferListProps) => {
+    const {
+      direction,
+      dataSource,
+      checkedKeys,
+      prefixCls,
+      handleSelect,
+      handleSelectAll,
+    } = listProps;
+    const isPrimary = direction === 'left';
+    const { pagination, rowSelection = {}, ...tableProps } = isPrimary
+      ? generatePrimaryTable(this.props)
+      : generateSecondaryTable(this.props);
+
+    // Set pagination to small size
+    const mergedPagination: PaginationConfig = {
+      size: 'small',
+      hideOnSinglePage: true,
+      ...pagination,
+    };
+
+    // Make selection as default
+    const mergedRowSelection: TableRowSelection<T> = {
+      ...rowSelection,
+      onSelect(record, selected) {
+        handleSelect(record, selected);
+      },
+      onSelectAll(selected, _, changedRows) {
+        handleSelectAll(changedRows, !selected);
+      },
+      selectedRowKeys: checkedKeys,
+    };
+
+    const content = dataSource.length ? (
+      <Table
+        dataSource={dataSource as any}
+        pagination={mergedPagination}
+        rowSelection={mergedRowSelection}
+        {...tableProps}
+      />
+    ) : (
+      <Empty />
+    );
+
+    return <div className={`${prefixCls}-body`}>{content}</div>;
+  };
+
+  renderTransfer = ({ getPrefixCls }: ConfigConsumerProps) => {
+    const { dataSource, prefixCls: customizePrefixCls, className } = this.props;
+    const prefixCls = getPrefixCls('transfer-table', customizePrefixCls);
     return (
-      <Table />
+      <Transfer
+        body={this.renderBody}
+        {...this.props}
+        dataSource={dataSource as any}
+        className={classNames(prefixCls, className)}
+      />
     );
   };
 
   render() {
-    return <Transfer body={this.renderBody} {...this.props} />;
+    return <ConfigConsumer>{this.renderTransfer}</ConfigConsumer>;
   }
 }
 
