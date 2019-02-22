@@ -50,6 +50,7 @@ module.exports = {
     'docs/spec': pickerGenerator('spec'),
   },
   plugins: [
+    'bisheng-plugin-typescript-interface',
     'bisheng-plugin-description',
     'bisheng-plugin-toc?maxDepth=2&keepElem',
     'bisheng-plugin-antd?injectProvider',

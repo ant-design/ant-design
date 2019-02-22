@@ -45,6 +45,28 @@ This component aims for localization of the built-in text, if you want to suppor
 
 ## API
 
-| Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
-| locale | language package setting, you can find the packages in [antd/lib/locale-provider](http://unpkg.com/antd/lib/locale-provider/) | object | - |
+```typescriptInterface
+{
+    "filePath":"components/locale-provider/index.tsx",
+    "interfaceName":"LocaleProviderProps",
+    "language":"en-US",
+    "columnNames":[
+        {
+            "label":"Property",
+            "key":"name"
+        },
+        {
+            "label":"Description",
+            "key":"description"
+        },
+        {
+            "label":"Type",
+            "key":"types"
+        },
+        {
+            "label":"Default",
+            "key":"default"
+        }
+    ]
+}
+```

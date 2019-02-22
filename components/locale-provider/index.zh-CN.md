@@ -46,6 +46,28 @@ return <LocaleProvider locale={locales.en_US}><App /></LocaleProvider>;
 
 ## API
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| locale | 语言包配置，语言包可到 [antd/lib/locale-provider](http://unpkg.com/antd/lib/locale-provider/) 目录下寻找 | object | - |
+```typescriptInterface
+{
+    "filePath":"components/locale-provider/index.tsx",
+    "interfaceName":"LocaleProviderProps",
+    "language":"en-US",
+    "columnNames":[
+        {
+            "label":"属性",
+            "key":"name"
+        },
+        {
+            "label":"说明",
+            "key":"description"
+        },
+        {
+            "label":"类型",
+            "key":"types"
+        },
+        {
+            "label":"默认值",
+            "key":"default"
+        }
+    ]
+}
+```

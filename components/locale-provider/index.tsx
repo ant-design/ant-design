@@ -19,6 +19,14 @@ export interface Locale {
 }
 
 export interface LocaleProviderProps {
+  /**
+   * @language en-US
+   * @description language package setting, you can find the packages in [antd/lib/locale-provider](http://unpkg.com/antd/lib/locale-provider/)
+   */
+  /**
+   * @language zh-CN
+   * @description 语言包配置，语言包可到 [antd/lib/locale-provider](http://unpkg.com/antd/lib/locale-provider/) 目录下寻找
+   */
   locale: Locale;
   children?: React.ReactNode;
 }
