@@ -50,6 +50,7 @@ This component aims for localization of the built-in text, if you want to suppor
     "filePath":"components/locale-provider/index.tsx",
     "interfaceName":"LocaleProviderProps",
     "language":"en-US",
+    "exclude":["children"],
     "columnNames":[
         {
             "label":"Property",
