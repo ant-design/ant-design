@@ -20,7 +20,7 @@ timeline: true
 `2019-02-23`
 
 - Form
-  - 🐞 Use new method to repair align issue of Form.Item with valiate message. [#14946](https://github.com/ant-design/ant-design/issues/14946)
+  - 🐞 Use new method to repair align issue of Form.Item with validate message. [#14946](https://github.com/ant-design/ant-design/issues/14946)
   - 🐞 Improved warning message logic of generating Form.Item `help` and `validateStatus`. [#14911](https://github.com/ant-design/ant-design/issues/14911)
 - 🐞 Fixed extra space at the bottom of Table header in chrome. [#14926](https://github.com/ant-design/ant-design/issues/14926)
 - 🐞 Fixed that Select check icon is not aligned center. [#15016](https://github.com/ant-design/ant-design/issues/15016)
