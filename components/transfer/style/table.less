@@ -24,8 +24,6 @@
   }
 
   .@{transfer-prefix-cls}-list {
-    width: auto;
-    height: auto;
     vertical-align: top;
 
     &:first-child {
@@ -44,7 +42,11 @@
 
     &-body {
       padding: 12px;
-      overflow-x: auto;
+
+      // Search
+      &-search-wrapper {
+        position: static;
+      }
 
       // Table style
       .@{table-prefix-cls} {

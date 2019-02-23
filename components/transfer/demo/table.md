@@ -15,7 +15,7 @@ only: true
 Use build-in Table Transfer
 
 ````jsx
-import { Transfer } from 'antd';
+import { Transfer, Checkbox } from 'antd';
 
 const leftTable = {
   columns: [{
@@ -37,7 +37,7 @@ const rightTable = {
 };
 
 const mockData = [];
-for (let i = 0; i < 20; i++) {
+for (let i = 0; i < 15; i++) {
   mockData.push({
     key: i.toString(),
     name: `name ${i + 1}`,
@@ -48,22 +48,34 @@ for (let i = 0; i < 20; i++) {
 class App extends React.Component {
   state = {
     targetKeys: [],
+    showSearch: false,
   };
 
   onChange = (targetKeys) => {
     this.setState({ targetKeys });
   };
 
+  onShowSearchChange = ({ target: { checked } }) => {
+    this.setState({ showSearch: checked });
+  };
+
   render() {
-    const { targetKeys } = this.state;
+    const { targetKeys, showSearch } = this.state;
     return (
-      <Transfer.Table
-        dataSource={mockData}
-        targetKeys={targetKeys}
-        leftTable={leftTable}
-        rightTable={rightTable}
-        onChange={this.onChange}
-      />
+      <div>
+        <Checkbox checked={showSearch} onChange={this.onShowSearchChange}>
+          showSearch
+        </Checkbox>
+        <br />
+        <Transfer.Table
+          showSearch={showSearch}
+          dataSource={mockData}
+          targetKeys={targetKeys}
+          leftTable={leftTable}
+          rightTable={rightTable}
+          onChange={this.onChange}
+        />
+      </div>
     );
   }
 }

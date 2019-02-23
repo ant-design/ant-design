@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import Table, { TableProps, TableRowSelection, PaginationConfig } from '../table';
 import Empty from '../empty';
+import Search from './search';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Transfer, { TransferProps } from './index';
 import { TransferListProps } from './list';
@@ -29,6 +30,7 @@ class TableTransfer<T> extends React.Component<TableTransferProps<T>> {
       handleSelect,
       handleSelectAll,
     } = listProps;
+    const { showSearch } = this.props;
     const isPrimary = direction === 'left';
     const { pagination, rowSelection = {}, ...tableProps } = isPrimary
       ? generatePrimaryTable(this.props)
@@ -53,6 +55,19 @@ class TableTransfer<T> extends React.Component<TableTransferProps<T>> {
       selectedRowKeys: checkedKeys,
     };
 
+    const search = showSearch && (
+      <div className={`${prefixCls}-body-search-wrapper`}>
+        <Search
+          prefixCls={`${prefixCls}-search`}
+          // onChange={this.handleFilter}
+          // handleClear={this.handleClear}
+          // placeholder={searchPlaceholder}
+          // value={filter}
+          // disabled={disabled}
+        />
+      </div>
+    );
+
     const content = dataSource.length ? (
       <Table
         dataSource={dataSource as any}
@@ -64,7 +79,12 @@ class TableTransfer<T> extends React.Component<TableTransferProps<T>> {
       <Empty />
     );
 
-    return <div className={`${prefixCls}-body`}>{content}</div>;
+    return (
+      <div className={`${prefixCls}-body`}>
+        {search}
+        {content}
+      </div>
+    );
   };
 
   renderTransfer = ({ getPrefixCls }: ConfigConsumerProps) => {
