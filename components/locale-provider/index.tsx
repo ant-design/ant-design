@@ -20,6 +20,9 @@ export interface Locale {
 
 export interface LocaleProviderProps {
   /**
+   * @types Object
+   */
+  /**
    * @language en-US
    * @description language package setting, you can find the packages in [antd/lib/locale-provider](http://unpkg.com/antd/lib/locale-provider/)
    */
