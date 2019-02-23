@@ -15,6 +15,21 @@ timeline: true
 
 ---
 
+## 3.13.6
+
+`2019-02-23`
+
+- Form
+  - 🐞 使用新的方式修复 Form.Item 在有错误提示时的布局对齐问题。[#14946](https://github.com/ant-design/ant-design/issues/14946)
+  - 🐞 优化 Form.Item 自动生成 `help` 和 `validateStatus` 的警告信息。[#14911](https://github.com/ant-design/ant-design/issues/14911)
+- 🐞 修复 chrome 下 Table 列头有一点额外空白的样式问题。[#14926](https://github.com/ant-design/ant-design/issues/14926)
+- 🐞 修复 Select 选中图标位置偏下的问题。[#15016](https://github.com/ant-design/ant-design/issues/15016)
+- 🐞 修复 Input.Search 增加 `addonBefore` 或 `addonAfter` 时的样式问题。[#14959](https://github.com/ant-design/ant-design/issues/14959)
+- 🐞 修复 Tree 节点内底部边距叠加的问题。[#14958](https://github.com/ant-design/ant-design/issues/14958) [@Yangzhedi](https://github.com/Yangzhedi)
+- 🐞 优化 Icon 的 `type` 为空时的可访问性问题。[#14970](https://github.com/ant-design/ant-design/issues/14970)
+- 🐞 修复 Dropdown 的菜单失效样式。[#14952](https://github.com/ant-design/ant-design/issues/14952)
+- 🇮🇩 优化印度尼西亚国际化文案。[#15013](https://github.com/ant-design/ant-design/issues/15013) [@kamalmahmudi](https://github.com/kamalmahmudi)
+
 ## 3.13.5
 
 `2019-02-19`
