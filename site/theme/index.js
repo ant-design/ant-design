@@ -19,6 +19,54 @@ function pickerGenerator(module) {
   };
 }
 
+const bishengPluginTypescriptInterfaceConfig = {
+  base: {
+    exclude: ['children'],
+  },
+  i18n: {
+    'en-US': {
+      columnNames: [
+        {
+          label: 'Property',
+          key: 'name',
+        },
+        {
+          label: 'Description',
+          key: 'description',
+        },
+        {
+          label: 'Type',
+          key: 'types',
+        },
+        {
+          label: 'Default',
+          key: 'default',
+        },
+      ],
+    },
+    'zh-CN': {
+      columnNames: [
+        {
+          label: '属性',
+          key: 'name',
+        },
+        {
+          label: '说明',
+          key: 'description',
+        },
+        {
+          label: '类型',
+          key: 'types',
+        },
+        {
+          label: '默认值',
+          key: 'default',
+        },
+      ],
+    },
+  },
+};
+
 module.exports = {
   lazyLoad(nodePath, nodeValue) {
     if (typeof nodeValue === 'string') {
@@ -50,7 +98,9 @@ module.exports = {
     'docs/spec': pickerGenerator('spec'),
   },
   plugins: [
-    'bisheng-plugin-typescript-interface',
+    `bisheng-plugin-typescript-interface?encodeConfig=${Buffer.from(
+      JSON.stringify(bishengPluginTypescriptInterfaceConfig),
+    ).toString('base64')}`,
     'bisheng-plugin-description',
     'bisheng-plugin-toc?maxDepth=2&keepElem',
     'bisheng-plugin-antd?injectProvider',

@@ -50,25 +50,6 @@ return <LocaleProvider locale={locales.en_US}><App /></LocaleProvider>;
 {
     "filePath":"components/locale-provider/index.tsx",
     "interfaceName":"LocaleProviderProps",
-    "language":"zh-CN",
-    "exclude":["children"],
-    "columnNames":[
-        {
-            "label":"属性",
-            "key":"name"
-        },
-        {
-            "label":"说明",
-            "key":"description"
-        },
-        {
-            "label":"类型",
-            "key":"types"
-        },
-        {
-            "label":"默认值",
-            "key":"default"
-        }
-    ]
+    "language":"zh-CN"
 }
 ```
