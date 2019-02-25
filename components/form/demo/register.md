@@ -132,9 +132,8 @@ class RegistrationForm extends React.Component {
     ));
 
     return (
-      <Form onSubmit={this.handleSubmit}>
+      <Form {...formItemLayout} onSubmit={this.handleSubmit}>
         <Form.Item
-          {...formItemLayout}
           label="E-mail"
         >
           {getFieldDecorator('email', {
@@ -148,7 +147,6 @@ class RegistrationForm extends React.Component {
           )}
         </Form.Item>
         <Form.Item
-          {...formItemLayout}
           label="Password"
         >
           {getFieldDecorator('password', {
@@ -162,7 +160,6 @@ class RegistrationForm extends React.Component {
           )}
         </Form.Item>
         <Form.Item
-          {...formItemLayout}
           label="Confirm Password"
         >
           {getFieldDecorator('confirm', {
@@ -176,7 +173,6 @@ class RegistrationForm extends React.Component {
           )}
         </Form.Item>
         <Form.Item
-          {...formItemLayout}
           label={(
             <span>
               Nickname&nbsp;
@@ -193,7 +189,6 @@ class RegistrationForm extends React.Component {
           )}
         </Form.Item>
         <Form.Item
-          {...formItemLayout}
           label="Habitual Residence"
         >
           {getFieldDecorator('residence', {
@@ -204,7 +199,6 @@ class RegistrationForm extends React.Component {
           )}
         </Form.Item>
         <Form.Item
-          {...formItemLayout}
           label="Phone Number"
         >
           {getFieldDecorator('phone', {
@@ -214,7 +208,6 @@ class RegistrationForm extends React.Component {
           )}
         </Form.Item>
         <Form.Item
-          {...formItemLayout}
           label="Website"
         >
           {getFieldDecorator('website', {
@@ -230,7 +223,6 @@ class RegistrationForm extends React.Component {
           )}
         </Form.Item>
         <Form.Item
-          {...formItemLayout}
           label="Captcha"
           extra="We must make sure that your are a human."
         >
