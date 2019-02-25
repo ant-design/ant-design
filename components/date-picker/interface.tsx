@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as moment from 'moment';
 import { TimePickerProps } from '../time-picker';
+import { tuple } from '../_util/type';
 
 export interface PickerProps {
   id?: number | string;
@@ -32,6 +33,9 @@ export interface SinglePickerProps {
   onChange?: (date: moment.Moment, dateString: string) => void;
 }
 
+const DatePickerModes = tuple('time', 'date', 'month', 'year');
+export type DatePickerMode = (typeof DatePickerModes)[number];
+
 export interface DatePickerProps extends PickerProps, SinglePickerProps {
   className?: string;
   showTime?: TimePickerProps | boolean;
@@ -45,9 +49,10 @@ export interface DatePickerProps extends PickerProps, SinglePickerProps {
     disabledSeconds?: () => number[];
   };
   onOpenChange?: (status: boolean) => void;
+  onPanelChange?: (value: moment.Moment | undefined, mode: DatePickerMode) => void;
   onOk?: (selectedTime: moment.Moment) => void;
   placeholder?: string;
-  mode?: 'time' | 'date' | 'month' | 'year';
+  mode?: DatePickerMode;
 }
 
 export interface MonthPickerProps extends PickerProps, SinglePickerProps {
