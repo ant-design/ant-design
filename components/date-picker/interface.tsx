@@ -4,6 +4,7 @@ import { TimePickerProps } from '../time-picker';
 
 export interface PickerProps {
   id?: number | string;
+  name?: string;
   prefixCls?: string;
   inputPrefixCls?: string;
   format?: string | string[];
