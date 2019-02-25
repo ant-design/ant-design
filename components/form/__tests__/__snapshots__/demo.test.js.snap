@@ -4653,7 +4653,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             style="display:inline-block;width:calc(50% - 12px)"
           >
             <div
-              class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+              class="ant-form-item-control-wrapper"
             >
               <div
                 class="ant-form-item-control has-error"
@@ -4714,7 +4714,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             style="display:inline-block;width:calc(50% - 12px)"
           >
             <div
-              class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+              class="ant-form-item-control-wrapper"
             >
               <div
                 class="ant-form-item-control"
