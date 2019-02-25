@@ -11,6 +11,7 @@ import Checkbox from '../checkbox';
 import Radio from '../radio';
 import FilterDropdownMenuWrapper from './FilterDropdownMenuWrapper';
 import { FilterMenuProps, FilterMenuState, ColumnProps, ColumnFilterItem } from './interface';
+import { generateValueMaps } from './util';
 
 function stopPropagation(e: React.SyntheticEvent<any>) {
   e.stopPropagation();
@@ -46,6 +47,9 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
     ) {
       newState.selectedKeys = nextProps.selectedKeys;
     }
+    if (!shallowequal((prevProps.column || {}).filters, (nextProps.column || {}).filters)) {
+      newState.valueKeys = generateValueMaps(nextProps.column.filters);
+    }
     if ('filterDropdownVisible' in column) {
       newState.visible = column.filterDropdownVisible as boolean;
     }
@@ -62,6 +66,7 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
 
     this.state = {
       selectedKeys: props.selectedKeys,
+      valueKeys: generateValueMaps(props.column.filters),
       keyPathOfSelectedItem: {}, // 记录所有有选中子菜单的祖先菜单
       visible,
       prevProps: props,
@@ -133,10 +138,14 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
   };
 
   confirmFilter() {
-    const { selectedKeys } = this.state;
+    const { selectedKeys, valueKeys } = this.state;
+    const { filterDropdown } = this.props.column;
 
     if (!shallowequal(selectedKeys, this.props.selectedKeys)) {
-      this.props.confirmFilter(this.props.column, selectedKeys);
+      this.props.confirmFilter(
+        this.props.column,
+        filterDropdown ? selectedKeys : selectedKeys.map(key => valueKeys[key]),
+      );
     }
   }
 

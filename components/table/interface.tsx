@@ -241,6 +241,7 @@ export interface FilterMenuProps<T> {
 
 export interface FilterMenuState<T> {
   selectedKeys: string[];
+  valueKeys: { [name: string]: any };
   keyPathOfSelectedItem: { [key: string]: string };
   visible?: boolean;
   prevProps: FilterMenuProps<T>;
