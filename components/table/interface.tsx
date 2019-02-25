@@ -239,10 +239,11 @@ export interface FilterMenuProps<T> {
   getPopupContainer?: GetPopupContainer;
 }
 
-export interface FilterMenuState {
+export interface FilterMenuState<T> {
   selectedKeys: string[];
   keyPathOfSelectedItem: { [key: string]: string };
   visible?: boolean;
+  prevProps: FilterMenuProps<T>;
 }
 
 export type PrepareParamsArgumentsReturn<T> = [

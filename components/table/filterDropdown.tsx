@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import { polyfill } from 'react-lifecycles-compat';
 import Menu, { SubMenu, Item as MenuItem } from 'rc-menu';
 import closest from 'dom-closest';
 import classNames from 'classnames';
@@ -18,11 +19,38 @@ function stopPropagation(e: React.SyntheticEvent<any>) {
   }
 }
 
-export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState> {
+class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<T>> {
   static defaultProps = {
     handleFilter() {},
     column: {},
   };
+
+  static getDerivedStateFromProps<T>(nextProps: FilterMenuProps<T>, prevState: FilterMenuState<T>) {
+    const { column } = nextProps;
+    const { prevProps } = prevState;
+
+    const newState: Partial<FilterMenuState<T>> = {
+      prevProps: nextProps,
+    };
+
+    /**
+     * if the state is visible the component should ignore updates on selectedKeys prop to avoid
+     * that the user selection is lost
+     * this happens frequently when a table is connected on some sort of realtime data
+     * Fixes https://github.com/ant-design/ant-design/issues/10289 and
+     * https://github.com/ant-design/ant-design/issues/10209
+     */
+    if (
+      'selectedKeys' in nextProps &&
+      !shallowequal(prevProps.selectedKeys, nextProps.selectedKeys)
+    ) {
+      newState.selectedKeys = nextProps.selectedKeys;
+    }
+    if ('filterDropdownVisible' in column) {
+      newState.visible = column.filterDropdownVisible as boolean;
+    }
+    return newState;
+  }
 
   neverShown: boolean;
 
@@ -36,6 +64,7 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
       selectedKeys: props.selectedKeys,
       keyPathOfSelectedItem: {}, // 记录所有有选中子菜单的祖先菜单
       visible,
+      prevProps: props,
     };
   }
 
@@ -44,33 +73,9 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
     this.setNeverShown(column);
   }
 
-  componentWillReceiveProps(nextProps: FilterMenuProps<T>) {
-    const { column } = nextProps;
+  componentDidUpdate() {
+    const { column } = this.props;
     this.setNeverShown(column);
-    const newState = {} as {
-      selectedKeys: string[];
-      visible: boolean;
-    };
-
-    /**
-     * if the state is visible the component should ignore updates on selectedKeys prop to avoid
-     * that the user selection is lost
-     * this happens frequently when a table is connected on some sort of realtime data
-     * Fixes https://github.com/ant-design/ant-design/issues/10289 and
-     * https://github.com/ant-design/ant-design/issues/10209
-     */
-    if (
-      'selectedKeys' in nextProps &&
-      !shallowequal(this.props.selectedKeys, nextProps.selectedKeys)
-    ) {
-      newState.selectedKeys = nextProps.selectedKeys;
-    }
-    if ('filterDropdownVisible' in column) {
-      newState.visible = column.filterDropdownVisible as boolean;
-    }
-    if (Object.keys(newState).length > 0) {
-      this.setState(newState);
-    }
   }
 
   getDropdownVisible() {
@@ -290,3 +295,7 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
     );
   }
 }
+
+polyfill(FilterMenu);
+
+export default FilterMenu;
