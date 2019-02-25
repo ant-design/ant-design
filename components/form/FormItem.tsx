@@ -260,21 +260,23 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   renderWrapper(prefixCls: string, children: React.ReactNode) {
     return (
       <FormContext.Consumer>
-        {({ wrapperCol: contextWrapperCol }: FormContextProps) => {
+        {({ wrapperCol: contextWrapperCol, vertical }: FormContextProps) => {
           const { wrapperCol } = this.props;
-          const mergedWrapperCol: ColProps = {
-            ...contextWrapperCol,
-            ...wrapperCol,
-          };
+          const mergedWrapperCol: ColProps =
+            ('wrapperCol' in this.props ? wrapperCol : contextWrapperCol) || {};
 
           const className = classNames(
             `${prefixCls}-item-control-wrapper`,
             mergedWrapperCol.className,
           );
+
+          // No pass FormContext since it's useless
           return (
-            <Col {...mergedWrapperCol} className={className} key="wrapper">
-              {children}
-            </Col>
+            <FormContext.Provider value={{ vertical }}>
+              <Col {...mergedWrapperCol} className={className} key="wrapper">
+                {children}
+              </Col>
+            </FormContext.Provider>
           );
         }}
       </FormContext.Consumer>
@@ -331,10 +333,8 @@ export default class FormItem extends React.Component<FormItemProps, any> {
           const { label, labelCol, colon, id } = this.props;
           const required = this.isRequired();
 
-          const mergedLabelCol: ColProps = {
-            ...contextLabelCol,
-            ...labelCol,
-          };
+          const mergedLabelCol: ColProps =
+            ('labelCol' in this.props ? labelCol : contextLabelCol) || {};
 
           const labelColClassName = classNames(`${prefixCls}-item-label`, mergedLabelCol.className);
           const labelClassName = classNames({

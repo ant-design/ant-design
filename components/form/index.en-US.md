@@ -36,10 +36,10 @@ A form field is defined using `<Form.Item />`.
 | -------- | ----------- | ---- | ------------- |
 | form | Decorated by `Form.create()` will be automatically set `this.props.form` property | object | n/a |
 | hideRequiredMark | Hide required mark of all form items | Boolean | false |
-| labelCol | (Added in 3.14.0) The layout of label. You can set `span` `offset` to something like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` same as with `<Col>` | [object](https://ant.design/components/grid/#Col) |  |
+| labelCol | (Added in 3.14.0. Previous version can only set on FormItem.) The layout of label. You can set `span` `offset` to something like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` same as with `<Col>` | [object](https://ant.design/components/grid/#Col) |  |
 | layout | Define form layout | 'horizontal'\|'vertical'\|'inline' | 'horizontal' |
 | onSubmit | Defines a function will be called if form data validation is successful. | Function(e:Event) |  |
-| wrapperCol | (Added in 3.14.0) The layout for input controls, same as `labelCol` | [object](https://ant.design/components/grid/#Col) |  |
+| wrapperCol | (Added in 3.14.0. Previous version can only set on FormItem.) The layout for input controls, same as `labelCol` | [object](https://ant.design/components/grid/#Col) |  |
 
 ### Form.create(options)
 
