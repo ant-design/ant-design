@@ -266,6 +266,52 @@ exports[`Table.filter renders menu correctly 1`] = `
             />
           </div>
         </li>
+        <li
+          class="ant-dropdown-menu-item"
+          role="menuitem"
+        >
+          <label
+            class="ant-checkbox-wrapper"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span>
+            Light
+          </span>
+        </li>
+        <li
+          class="ant-dropdown-menu-item"
+          role="menuitem"
+        >
+          <label
+            class="ant-checkbox-wrapper"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span>
+            Bamboo
+          </span>
+        </li>
       </ul>
       <div
         class="ant-table-filter-dropdown-btns"
@@ -360,6 +406,52 @@ exports[`Table.filter renders radio filter correctly 1`] = `
               class="ant-dropdown-menu-submenu-arrow"
             />
           </div>
+        </li>
+        <li
+          class="ant-dropdown-menu-item"
+          role="menuitem"
+        >
+          <label
+            class="ant-radio-wrapper"
+          >
+            <span
+              class="ant-radio"
+            >
+              <input
+                class="ant-radio-input"
+                type="radio"
+              />
+              <span
+                class="ant-radio-inner"
+              />
+            </span>
+          </label>
+          <span>
+            Light
+          </span>
+        </li>
+        <li
+          class="ant-dropdown-menu-item"
+          role="menuitem"
+        >
+          <label
+            class="ant-radio-wrapper"
+          >
+            <span
+              class="ant-radio"
+            >
+              <input
+                class="ant-radio-input"
+                type="radio"
+              />
+              <span
+                class="ant-radio-inner"
+              />
+            </span>
+          </label>
+          <span>
+            Bamboo
+          </span>
         </li>
       </ul>
       <div

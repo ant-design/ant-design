@@ -18,6 +18,8 @@ describe('Table.filter', () => {
         value: 'title',
         children: [{ text: 'Designer', value: 'designer' }, { text: 'Coder', value: 'coder' }],
       },
+      { text: 'Light', value: false },
+      { text: 'Bamboo', value: 93 },
     ],
     onFilter: filterFn,
   };
@@ -306,7 +308,7 @@ describe('Table.filter', () => {
     expect(handleChange).not.toHaveBeenCalled();
   });
 
-  it('three levels menu', () => {
+  it.only('three levels menu', () => {
     const filters = [
       { text: 'Upper', value: 'Upper' },
       { text: 'Lower', value: 'Lower' },
