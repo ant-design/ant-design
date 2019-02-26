@@ -5,6 +5,8 @@ import { enquireScreen } from 'enquire-js';
 import { addLocaleData, IntlProvider } from 'react-intl';
 import 'moment/locale/zh-cn';
 import { LocaleProvider } from 'antd';
+import LogRocket from 'logrocket';
+import setupLogRocketReact from 'logrocket-react';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
 import Header from './Header';
 import enLocale from '../../en-US';
@@ -16,6 +18,9 @@ if (typeof window !== 'undefined' && navigator.serviceWorker) {
     registrations.forEach(registration => registration.unregister());
   });
 }
+
+LogRocket.init('kpuw4z/ant-design');
+setupLogRocketReact(LogRocket);
 
 if (typeof window !== 'undefined') {
   /* eslint-disable global-require */
