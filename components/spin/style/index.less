@@ -23,6 +23,9 @@
   &-nested-loading {
     position: relative;
     > div > .@{spin-prefix-cls} {
+      position: absolute;
+      top: 0;
+      left: 0;
       z-index: 4;
       display: block;
       width: 100%;
@@ -32,14 +35,11 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        z-index: 5;
         margin: -@spin-dot-size / 2;
       }
       .@{spin-prefix-cls}-text {
-        z-index: 5;
         position: absolute;
         top: 50%;
-        left: 0;
         width: 100%;
         padding-top: (@spin-dot-size - @font-size-base) / 2 + 2px;
         text-shadow: 0 1px 2px @shadow-color-inverse;
