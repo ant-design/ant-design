@@ -11,15 +11,8 @@ export interface DescriptionsItemProps {
 }
 
 const DescriptionsItem = (props: DescriptionsItemProps) => {
-  const { prefixCls, label, children, span = 1 } = props;
-  return [
-    <td className={`${prefixCls}-item-label`} key="label">
-      {label}
-    </td>,
-    <td className={`${prefixCls}-item-content`} key="content" colSpan={span * 2 - 1}>
-      {children}
-    </td>,
-  ];
+  const { children } = props;
+  return children;
 };
 
 export interface DescriptionsProps {
@@ -40,9 +33,9 @@ interface DescriptionsClass extends React.SFC<DescriptionsProps> {
 const genChildrenArray = (
   cloneChildren: React.ReactNode,
   column: number,
-): Array<React.ReactNode[]> => {
-  const childrenArray: Array<React.ReactNode[]> = [];
-  let columnArray: React.ReactNode[] = [];
+): React.ReactElement<DescriptionsItemProps>[][] => {
+  const childrenArray: React.ReactElement<DescriptionsItemProps>[][] = [];
+  let columnArray: React.ReactElement<DescriptionsItemProps>[] = [];
   let width = 0;
   React.Children.forEach(cloneChildren, (children: React.ReactElement<DescriptionsItemProps>) => {
     columnArray.push(children);
@@ -65,21 +58,38 @@ const genChildrenArray = (
   return childrenArray;
 };
 
+const renderChildren = (child: React.ReactElement<DescriptionsItemProps>) => {
+  const { prefixCls, label, children, span = 1 } = child.props;
+  return [
+    <td className={`${prefixCls}-item-label`} key="label">
+      {label}
+    </td>,
+    <td className={`${prefixCls}-item-content`} key="content" colSpan={span * 2 - 1}>
+      {children}
+    </td>,
+  ];
+};
 const renderRow = (
-  child: React.ReactNode[],
+  child: React.ReactElement<DescriptionsItemProps>[],
   index: number,
   { prefixCls, column, isLast }: { prefixCls: string; column: number; isLast: boolean },
 ) => {
-  let lastChild = child.pop();
+  let lastChild = child.pop() as React.ReactElement<DescriptionsItemProps>;
   if (isLast) {
-    lastChild = React.cloneElement(lastChild as React.ReactElement<any>, {
+    lastChild = React.cloneElement(lastChild as React.ReactElement<DescriptionsItemProps>, {
       span: column - child.length,
     });
   }
+  const cloneChildren = React.Children.map(
+    child,
+    (children: React.ReactElement<DescriptionsItemProps>) => {
+      return renderChildren(children);
+    },
+  );
   return (
     <tr className={`${prefixCls}-item`} key={index}>
-      {child}
-      {lastChild}
+      {cloneChildren}
+      {renderChildren(lastChild)}
     </tr>
   );
 };
@@ -98,12 +108,18 @@ const Descriptions: DescriptionsClass = (props: DescriptionsProps) => (
       } = props;
       const prefixCls = getPrefixCls('descriptions', customizePrefixCls);
 
-      const cloneChildren = React.Children.map(children, (child: React.ReactElement<any>) => {
-        return React.cloneElement(child, {
-          prefixCls,
-        });
-      });
-      const childrenArray: Array<React.ReactNode[]> = genChildrenArray(cloneChildren, column);
+      const cloneChildren = React.Children.map(
+        children,
+        (child: React.ReactElement<DescriptionsItemProps>) => {
+          return React.cloneElement(child, {
+            prefixCls,
+          });
+        },
+      );
+      const childrenArray: Array<React.ReactElement<DescriptionsItemProps>[]> = genChildrenArray(
+        cloneChildren,
+        column,
+      );
       return (
         <div
           className={classNames(prefixCls, className, {

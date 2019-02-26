@@ -5,17 +5,17 @@
 
 .@{descriptions-prefix-cls} {
   &-title {
+    margin-bottom: 20px;
     color: @heading-color;
+    font-weight: bold;
     font-size: @font-size-lg;
     line-height: @line-height-base;
-    font-weight: bold;
-    margin-bottom: 20px;
   }
 
   &-view {
     width: 100%;
-    border-radius: 4px;
     overflow: hidden;
+    border-radius: 4px;
     table {
       width: 100%;
     }
@@ -28,23 +28,23 @@
   }
 
   &-item-label {
-    font-size: @font-size-base;
-    color: @heading-color;
-    line-height: @line-height-base;
     width: 1px;
+    color: @heading-color;
+    font-size: @font-size-base;
+    line-height: @line-height-base;
     &::after {
-      content: ':';
-      margin: 0 8px 0 2px;
       position: relative;
       top: -0.5px;
+      margin: 0 8px 0 2px;
+      content: ':';
     }
   }
 
   &-item-content {
     display: table-cell;
+    color: @text-color;
     font-size: @font-size-base;
     line-height: @line-height-base;
-    color: @text-color;
   }
 
   &.border {
@@ -61,8 +61,8 @@
     }
 
     .@{descriptions-prefix-cls}-item-label {
-      background-color: #fafafa;
       padding: 16px 24px;
+      background-color: #fafafa;
       &::after {
         display: none;
       }
