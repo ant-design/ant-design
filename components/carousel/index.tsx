@@ -22,6 +22,10 @@ if (typeof window !== 'undefined') {
 const SlickCarousel = require('react-slick').default;
 
 export type CarouselEffect = 'scrollx' | 'fade';
+export type BreakpointSetting = {
+  breakpoint: number;
+  settings: Object;
+};
 // Carousel
 export interface CarouselProps {
   effect?: CarouselEffect;
@@ -63,6 +67,7 @@ export interface CarouselProps {
   variableWidth?: boolean;
   useCSS?: boolean;
   slickGoTo?: number;
+  responsive?: Array<BreakpointSetting>;
 }
 
 export default class Carousel extends React.Component<CarouselProps, {}> {
