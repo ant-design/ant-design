@@ -39,7 +39,7 @@
     "react-dom": ">=16.0.0"
   },
   "dependencies": {
-    "@ant-design/icons": "~1.1.16",
+    "@ant-design/icons": "~1.2.0",
     "@ant-design/icons-react": "~1.1.2",
     "array-tree-filter": "^2.1.0",
     "babel-runtime": "6.x",
@@ -65,7 +65,7 @@
     "rc-dropdown": "~2.4.1",
     "rc-editor-mention": "^1.1.7",
     "rc-form": "^2.4.0",
-    "rc-input-number": "~4.3.7",
+    "rc-input-number": "~4.4.0",
     "rc-menu": "~7.4.12",
     "rc-notification": "~3.3.0",
     "rc-pagination": "~1.17.7",
