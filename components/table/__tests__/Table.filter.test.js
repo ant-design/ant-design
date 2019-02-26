@@ -18,8 +18,6 @@ describe('Table.filter', () => {
         value: 'title',
         children: [{ text: 'Designer', value: 'designer' }, { text: 'Coder', value: 'coder' }],
       },
-      { text: 'Light', value: false },
-      { text: 'Bamboo', value: 93 },
     ],
     onFilter: filterFn,
   };
@@ -308,7 +306,7 @@ describe('Table.filter', () => {
     expect(handleChange).not.toHaveBeenCalled();
   });
 
-  it.only('three levels menu', () => {
+  it('three levels menu', () => {
     const filters = [
       { text: 'Upper', value: 'Upper' },
       { text: 'Lower', value: 'Lower' },
@@ -367,6 +365,45 @@ describe('Table.filter', () => {
     wrapper.update();
     expect(renderedNames(wrapper)).toEqual(['Jack']);
     jest.useRealTimers();
+  });
+
+  describe('should support value types', () => {
+    [['Light', 93], ['Bamboo', false]].forEach(([text, value]) => {
+      it(`${typeof value} type`, () => {
+        const onFilter = jest.fn();
+        const filters = [{ text, value }];
+        const wrapper = mount(
+          createTable({
+            columns: [
+              {
+                ...column,
+                filters,
+                onFilter,
+              },
+            ],
+          }),
+        );
+        jest.useFakeTimers();
+        const dropdownWrapper = mount(
+          wrapper
+            .find('Trigger')
+            .instance()
+            .getComponent(),
+        );
+        dropdownWrapper
+          .find('MenuItem')
+          .first()
+          .simulate('click');
+        dropdownWrapper.find('.confirm').simulate('click');
+        wrapper.update();
+
+        expect(onFilter.mock.calls.length > 0).toBeTruthy();
+        onFilter.mock.calls.forEach(([val]) => {
+          expect(val).toBe(value);
+        });
+        jest.useRealTimers();
+      });
+    });
   });
 
   it('works with JSX in controlled mode', () => {

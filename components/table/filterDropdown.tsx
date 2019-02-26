@@ -241,6 +241,7 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
   };
 
   render() {
+    const { selectedKeys: originSelectedKeys } = this.state;
     const { column, locale, prefixCls, dropdownPrefixCls, getPopupContainer } = this.props;
     // default multiple selection in filter dropdown
     const multiple = 'filterMultiple' in column ? column.filterMultiple : true;
@@ -252,7 +253,7 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
       filterDropdown = filterDropdown({
         prefixCls: `${dropdownPrefixCls}-custom`,
         setSelectedKeys: (selectedKeys: Array<any>) => this.setSelectedKeys({ selectedKeys }),
-        selectedKeys: this.state.selectedKeys,
+        selectedKeys: originSelectedKeys,
         confirm: this.handleConfirm,
         clearFilters: this.handleClearFilters,
         filters: column.filters,
@@ -273,7 +274,7 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
           className={dropdownMenuClass}
           onSelect={this.setSelectedKeys}
           onDeselect={this.setSelectedKeys}
-          selectedKeys={this.state.selectedKeys}
+          selectedKeys={originSelectedKeys && originSelectedKeys.map(val => val.toString())}
           getPopupContainer={(triggerNode: HTMLElement) => triggerNode.parentNode}
         >
           {this.renderMenus(column.filters!)}
