@@ -16,7 +16,11 @@
   }
 
   &-enter-button {
-    .@{ant-prefix}-input-group-addon {
+    input {
+      border-right: 0;
+    }
+
+    input + .@{ant-prefix}-input-group-addon {
       padding: 0;
       border: 0;
 
