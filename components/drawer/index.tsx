@@ -37,6 +37,7 @@ export interface DrawerProps {
   placement?: placementType;
   onClose?: (e: EventType) => void;
   className?: string;
+  handler?: React.ReactNode;
 }
 
 export interface IDrawerState {
