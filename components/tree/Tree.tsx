@@ -192,7 +192,7 @@ export default class Tree extends React.Component<TreeProps, any> {
       } else if (switcherIcon) {
         const switcherOriginCls = switcherIcon.props.className || '';
         return React.cloneElement(switcherIcon, {
-          className: [switcherOriginCls, switcherCls],
+          className: classNames(switcherOriginCls, switcherCls),
         });
       } else {
         return <Icon type="caret-down" className={switcherCls} theme="filled" />;
