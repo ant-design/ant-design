@@ -1,4 +1,6 @@
 import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import raf from 'raf';
 import Animate from 'rc-animate';
 import classNames from 'classnames';
 import omit from 'omit.js';
@@ -61,6 +63,12 @@ class Tag extends React.Component<TagProps, TagState> {
     if (e.defaultPrevented) {
       return;
     }
+    const dom: any = ReactDOM.findDOMNode(this);
+    dom.style.width = `${dom.offsetWidth}px`;
+    const rafId = raf(() => {
+      dom.style.width = 0;
+      raf.cancel(rafId);
+    });
     if (!('visible' in this.props)) {
       this.setState({ visible });
     }
@@ -130,6 +138,7 @@ class Tag extends React.Component<TagProps, TagState> {
           showProp="show"
           transitionName={`${prefixCls}-zoom`}
           onEnd={this.animationEnd}
+          transitionAppear
         >
           <InnerTag
             show={visible}
