@@ -5,6 +5,15 @@ import Table from '..';
 import Input from '../../input';
 import Button from '../../button';
 
+function getDropdownWrapper(wrapper) {
+  return mount(
+    wrapper
+      .find('Trigger')
+      .instance()
+      .getComponent(),
+  );
+}
+
 describe('Table.filter', () => {
   const filterFn = (value, record) => record.name.indexOf(value) !== -1;
   const column = {
@@ -268,12 +277,7 @@ describe('Table.filter', () => {
   it('fires change event', () => {
     const handleChange = jest.fn();
     const wrapper = mount(createTable({ onChange: handleChange }));
-    const dropdownWrapper = mount(
-      wrapper
-        .find('Trigger')
-        .instance()
-        .getComponent(),
-    );
+    const dropdownWrapper = getDropdownWrapper(wrapper);
 
     dropdownWrapper
       .find('MenuItem')
@@ -294,12 +298,7 @@ describe('Table.filter', () => {
   it('should not fire change event on close filterDropdown without changing anything', () => {
     const handleChange = jest.fn();
     const wrapper = mount(createTable({ onChange: handleChange }));
-    const dropdownWrapper = mount(
-      wrapper
-        .find('Trigger')
-        .instance()
-        .getComponent(),
-    );
+    const dropdownWrapper = getDropdownWrapper(wrapper);
 
     dropdownWrapper.find('.clear').simulate('click');
 
@@ -339,12 +338,7 @@ describe('Table.filter', () => {
       }),
     );
     jest.useFakeTimers();
-    const dropdownWrapper = mount(
-      wrapper
-        .find('Trigger')
-        .instance()
-        .getComponent(),
-    );
+    const dropdownWrapper = getDropdownWrapper(wrapper);
     dropdownWrapper
       .find('.ant-dropdown-menu-submenu-title')
       .at(0)
@@ -384,12 +378,7 @@ describe('Table.filter', () => {
           }),
         );
         jest.useFakeTimers();
-        const dropdownWrapper = mount(
-          wrapper
-            .find('Trigger')
-            .instance()
-            .getComponent(),
-        );
+        const dropdownWrapper = getDropdownWrapper(wrapper);
         dropdownWrapper
           .find('MenuItem')
           .first()
@@ -436,12 +425,7 @@ describe('Table.filter', () => {
     }
 
     const wrapper = mount(<App />);
-    const dropdownWrapper = mount(
-      wrapper
-        .find('Trigger')
-        .instance()
-        .getComponent(),
-    );
+    const dropdownWrapper = getDropdownWrapper(wrapper);
 
     dropdownWrapper
       .find('MenuItem')
