@@ -741,6 +741,72 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
 </form>
 `;
 
+exports[`renders ./components/form/demo/customized-form-controls-hooks.md correctly 1`] = `
+<form
+  class="ant-form ant-form-inline"
+>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-label"
+    >
+      <label
+        class=""
+        for="customized_form_controls_price"
+        title="Price"
+      >
+        Price
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control"
+      >
+        <span
+          class="ant-form-item-children"
+        >
+          <input
+            class="ant-input"
+            data-__field="[object Object]"
+            data-__meta="[object Object]"
+            id="customized_form_controls_price"
+            type="text"
+            value=""
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control"
+      >
+        <span
+          class="ant-form-item-children"
+        >
+          <button
+            class="ant-btn ant-btn-primary"
+            type="submit"
+          >
+            <span>
+              Submit
+            </span>
+          </button>
+        </span>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
