@@ -30,7 +30,7 @@ describe('TimePicker', () => {
   it('allowEmpty deprecated', () => {
     mount(<TimePicker allowEmpty />);
     expect(errorSpy).toBeCalledWith(
-      'Warning: [antd - TimePicker] `allowEmpty` is deprecated. Please use `allowClear` instead.',
+      'Warning: [antd: TimePicker] `allowEmpty` is deprecated. Please use `allowClear` instead.',
     );
   });
 

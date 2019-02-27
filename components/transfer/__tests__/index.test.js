@@ -269,7 +269,7 @@ describe('Transfer', () => {
     ).toEqual('old1');
 
     expect(consoleErrorSpy).toBeCalledWith(
-      'Warning: [antd - Transfer] `notFoundContent` and `searchPlaceholder` will be removed, please use `locale` instead.',
+      'Warning: [antd: Transfer] `notFoundContent` and `searchPlaceholder` will be removed, please use `locale` instead.',
     );
     consoleErrorSpy.mockRestore();
   });
