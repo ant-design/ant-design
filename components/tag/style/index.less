@@ -17,7 +17,7 @@
   border-radius: @border-radius-base;
   cursor: pointer;
   opacity: 1;
-  transition: all 0.3s @ease-out;
+  transition: all 0.3s @ease-in-out-circ;
 
   &:hover {
     opacity: 0.85;
@@ -41,7 +41,7 @@
     color: @text-color-secondary;
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.3s @ease-in-out-circ;
 
     &:hover {
       color: @heading-color;
@@ -75,23 +75,6 @@
     &:active {
       background-color: @primary-7;
     }
-  }
-
-  &-close {
-    width: 0 !important;
-    margin: 0;
-    padding: 0;
-  }
-
-  &-zoom-enter,
-  &-zoom-appear {
-    animation: antFadeIn 0.2s @ease-in-out-circ;
-    animation-fill-mode: both;
-  }
-
-  &-zoom-leave {
-    animation: antZoomOut 0.3s @ease-in-out-circ;
-    animation-fill-mode: both;
   }
 
   &-hidden {
