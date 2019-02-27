@@ -12,7 +12,7 @@ title:
 > * 提供 `onChange` 事件或 [`trigger`](http://ant.design/components/form/#getFieldDecorator-参数) 的值同名的事件。
 > * 支持 ref：
 >   * React@16.8.0 之前只有 Class 组件支持。
->   * React@16.8.0 及之后可以通过 [useImperativeHandle](https://reactjs.org/docs/hooks-reference.html#useimperativehandle) 添加 ref 支持。
+>   * React@16.8.0 及之后可以通过 [useImperativeHandle](https://reactjs.org/docs/hooks-reference.html#useimperativehandle) 添加 ref 支持。（[示例](https://codesandbox.io/s/31mv8004rp)）
 
 ## en-US
 
@@ -21,7 +21,7 @@ Customized or third-party form controls can be used in Form, too. Controls must 
 > * It has event `onChange` or an event which name is equal to the value of [`trigger`](http://ant.design/components/form/?locale=en-US#getFieldDecorator's-parameters).
 > * Support ref:
 >   * Can only use class component before React@16.8.0.
->   * Can use [useImperativeHandle](https://reactjs.org/docs/hooks-reference.html#useimperativehandle) to add ref support after React@16.8.0.
+>   * Can use [useImperativeHandle](https://reactjs.org/docs/hooks-reference.html#useimperativehandle) to add ref support after React@16.8.0. ([Sample](https://codesandbox.io/s/31mv8004rp))
 
 ````jsx
 import {
