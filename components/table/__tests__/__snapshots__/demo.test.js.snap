@@ -1582,9 +1582,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                 />
               </button>
             </span>
-            <div
-              class="ant-form-explain-holder"
-            />
           </div>
         </div>
       </div>
@@ -1621,9 +1618,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                 />
               </button>
             </span>
-            <div
-              class="ant-form-explain-holder"
-            />
           </div>
         </div>
       </div>
@@ -1660,9 +1654,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                 />
               </button>
             </span>
-            <div
-              class="ant-form-explain-holder"
-            />
           </div>
         </div>
       </div>
@@ -1700,9 +1691,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                 />
               </button>
             </span>
-            <div
-              class="ant-form-explain-holder"
-            />
           </div>
         </div>
       </div>
@@ -1740,9 +1728,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                 />
               </button>
             </span>
-            <div
-              class="ant-form-explain-holder"
-            />
           </div>
         </div>
       </div>
@@ -1780,9 +1765,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                 />
               </button>
             </span>
-            <div
-              class="ant-form-explain-holder"
-            />
           </div>
         </div>
       </div>
@@ -1820,9 +1802,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                 />
               </button>
             </span>
-            <div
-              class="ant-form-explain-holder"
-            />
           </div>
         </div>
       </div>
@@ -1859,9 +1838,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                 />
               </button>
             </span>
-            <div
-              class="ant-form-explain-holder"
-            />
           </div>
         </div>
       </div>
@@ -1899,9 +1875,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                 />
               </button>
             </span>
-            <div
-              class="ant-form-explain-holder"
-            />
           </div>
         </div>
       </div>
@@ -1990,9 +1963,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                 </label>
               </div>
             </span>
-            <div
-              class="ant-form-explain-holder"
-            />
           </div>
         </div>
       </div>
@@ -2100,9 +2070,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                 </label>
               </div>
             </span>
-            <div
-              class="ant-form-explain-holder"
-            />
           </div>
         </div>
       </div>

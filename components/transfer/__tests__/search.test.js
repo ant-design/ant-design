@@ -83,7 +83,7 @@ describe('Search', () => {
       .simulate('change', { target: { value: 'a' } });
 
     expect(errorSpy.mock.calls[0][0]).toMatch(
-      'Warning: `onSearchChange` in Transfer is deprecated. Please use `onSearch` instead.',
+      'Warning: [antd: Transfer] `onSearchChange` is deprecated. Please use `onSearch` instead.',
     );
     expect(onSearchChange.mock.calls[0][0]).toEqual('left');
     expect(onSearchChange.mock.calls[0][1].target.value).toEqual('a');

@@ -97,16 +97,16 @@ export default class List extends React.Component<ListProps> {
     };
   }
 
-  renderItem = (item: React.ReactElement<any>, index: number) => {
-    const { dataSource, renderItem, rowKey } = this.props;
+  renderItem = (item: any, index: number) => {
+    const { renderItem, rowKey } = this.props;
     let key;
 
     if (typeof rowKey === 'function') {
-      key = rowKey(dataSource[index]);
+      key = rowKey(item);
     } else if (typeof rowKey === 'string') {
-      key = dataSource[rowKey];
+      key = item[rowKey];
     } else {
-      key = dataSource.key;
+      key = item.key;
     }
 
     if (!key) {

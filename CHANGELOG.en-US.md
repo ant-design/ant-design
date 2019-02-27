@@ -15,6 +15,38 @@ timeline: true
 
 ---
 
+## 3.13.6
+
+`2019-02-23`
+
+- Form
+  - 🐞 Use new method to repair align issue of Form.Item with validate message. [#14946](https://github.com/ant-design/ant-design/issues/14946)
+  - 🐞 Improved warning message logic of generating Form.Item `help` and `validateStatus`. [#14911](https://github.com/ant-design/ant-design/issues/14911)
+- 🐞 Fixed extra space at the bottom of Table header in chrome. [#14926](https://github.com/ant-design/ant-design/issues/14926)
+- 🐞 Fixed that Select check icon is not aligned center. [#15016](https://github.com/ant-design/ant-design/issues/15016)
+- 🐞 Fixed Input.Search `addonBefore` or `addonAfter` style issue. [#14959](https://github.com/ant-design/ant-design/issues/14959)
+- 🐞 Fixed growing space of Tree nodes. [#14958](https://github.com/ant-design/ant-design/issues/14958) [@Yangzhedi](https://github.com/Yangzhedi)
+- 🐞 Improved accessibility of Icon when `type` is falsy. [#14970](https://github.com/ant-design/ant-design/issues/14970)
+- 🐞 Fixed Dropdown subMenu disabled cursor style. [#14952](https://github.com/ant-design/ant-design/issues/14952)
+- 🇮🇩 Updated locale to be more natural for Indonesian. [#15013](https://github.com/ant-design/ant-design/issues/15013) [@kamalmahmudi](https://github.com/kamalmahmudi)
+
+## 3.13.5
+
+`2019-02-19`
+
+- 🐞 Revert FormItem with additional place holder. [#14937](https://github.com/ant-design/ant-design/pull/14937)
+- 🐞 Adjust Input style to support `text-align: inherit`. [#14912](https://github.com/ant-design/ant-design/pull/14912)
+- 🐞 Fix incorrect collapse icon position when Sider in the right. [#14446](https://github.com/ant-design/ant-design/pull/14446)
+- 🐞 Fix Table miss top border in some case. [#14922](https://github.com/ant-design/ant-design/pull/14922)
+- 🐞 Fix some TypeScript definitions. [#14857](https://github.com/ant-design/ant-design/pull/14857) [#14903](https://github.com/ant-design/ant-design/pull/14903)
+
+## 3.13.4
+
+`2019-02-18`
+
+- 🐞 Fix Table ajax load display no data. [#14898](https://github.com/ant-design/ant-design/pull/14898)
+- 🐞 Fix FormItem margin style not correct. [#14886](https://github.com/ant-design/ant-design/pull/14886)
+
 ## 3.13.3
 
 `2019-02-16`

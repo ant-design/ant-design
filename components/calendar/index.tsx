@@ -128,15 +128,21 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
   };
 
   setValue = (value: moment.Moment, way: 'select' | 'changePanel') => {
+    const prevValue = this.props.value || this.state.value;
+    const { mode } = this.state;
+
     if (!('value' in this.props)) {
       this.setState({ value });
     }
     if (way === 'select') {
+      if (prevValue && prevValue.month() !== value.month()) {
+        this.onPanelChange(value, mode);
+      }
       if (this.props.onSelect) {
         this.props.onSelect(value);
       }
     } else if (way === 'changePanel') {
-      this.onPanelChange(value, this.state.mode);
+      this.onPanelChange(value, mode);
     }
   };
 

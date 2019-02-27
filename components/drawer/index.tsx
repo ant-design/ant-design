@@ -37,6 +37,7 @@ export interface DrawerProps {
   placement?: placementType;
   onClose?: (e: EventType) => void;
   className?: string;
+  handler?: React.ReactNode;
 }
 
 export interface IDrawerState {
@@ -234,6 +235,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
     } = this.props;
     warning(
       wrapClassName === undefined,
+      'Drawer',
       'wrapClassName is deprecated, please use className instead.',
     );
     const haveMask = rest.mask ? '' : 'no-mask';

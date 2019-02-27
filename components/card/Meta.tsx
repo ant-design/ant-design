@@ -11,7 +11,7 @@ export interface CardMetaProps {
   description?: React.ReactNode;
 }
 
-export default (props: CardMetaProps) => (
+const Meta: React.SFC<CardMetaProps> = props => (
   <ConfigConsumer>
     {({ getPrefixCls }: ConfigConsumerProps) => {
       const {
@@ -45,3 +45,5 @@ export default (props: CardMetaProps) => (
     }}
   </ConfigConsumer>
 );
+
+export default Meta;
