@@ -89,6 +89,7 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
     // Warning if use other mode
     warning(
       !overlayProps.mode || overlayProps.mode === 'vertical',
+      'Dropdown',
       `mode="${overlayProps.mode}" is not supported for Dropdown\'s Menu.`,
     );
 
