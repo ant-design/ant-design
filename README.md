@@ -125,4 +125,4 @@ We welcome all contributions. Please read our [CONTRIBUTING.md](https://github.c
 
 If you are a collaborator, please follow our [Pull Request principle](https://github.com/ant-design/ant-design/wiki/PR-principle) to create a Pull Request by [collaborator template](https://github.com/ant-design/ant-design/compare?expand=1&template=collaborator.md).
 
-[![Let's fund issues in this repository](https://issuehunt.io/static/embed/issuehunt-button-v1.svg)](https://issuehunt.io/repos/34526884)
+[![Let's fund issues in this repository](https://issuehunt.io/static/embed/issuehunt-button-v1.svg)](https://issuehunt.io/repos/34526884) [![Greenkeeper badge](https://badges.greenkeeper.io/ant-design/ant-design.svg)](https://greenkeeper.io/)
