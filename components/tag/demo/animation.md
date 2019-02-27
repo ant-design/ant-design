@@ -15,7 +15,7 @@ Add or remove animations to your tag.
 
 ````jsx
 import {
-  Tag, Input, Tooltip, Icon,
+  Tag, Input, Icon,
 } from 'antd';
 import { TweenOneGroup } from 'rc-tween-one';
 
@@ -42,9 +42,8 @@ class EditableTagGroup extends React.Component {
   }
 
   handleInputConfirm = () => {
-    const state = this.state;
-    const inputValue = state.inputValue;
-    let tags = state.tags;
+    const { inputValue } = this.state;
+    let { tags } = this.state;
     if (inputValue && tags.indexOf(inputValue) === -1) {
       tags = [...tags, inputValue];
     }
@@ -59,7 +58,6 @@ class EditableTagGroup extends React.Component {
   saveInputRef = input => this.input = input
 
   forMap = (tag) => {
-    const isLongTag = tag.length > 20;
     const tagElem = (
       <Tag 
         closable 
@@ -68,16 +66,12 @@ class EditableTagGroup extends React.Component {
           this.handleClose(tag);
         }}
       >
-        {isLongTag ? `${tag.slice(0, 20)}...` : tag}
+        {tag}
       </Tag>
     );
     return (
       <span key={tag} style={{ display: 'inline-block' }}>
-        {isLongTag ? (
-          <Tooltip title={tag}>
-            {tagElem}
-          </Tooltip>
-        ) : tagElem}
+        {tagElem}
       </span>
     );
   }
