@@ -182,7 +182,8 @@
           line-height: @input-height-lg - 8px;
         }
       }
-      .@{select-prefix-cls}-selection__clear {
+      .@{select-prefix-cls}-selection__clear,
+      .@{select-prefix-cls}-arrow {
         top: @input-height-lg / 2;
       }
     }
@@ -204,7 +205,8 @@
           line-height: @input-height-sm - 10px;
         }
       }
-      .@{select-prefix-cls}-selection__clear {
+      .@{select-prefix-cls}-selection__clear,
+      .@{select-prefix-cls}-arrow {
         top: @input-height-sm / 2;
       }
     }
@@ -364,7 +366,8 @@
       }
     }
 
-    .@{select-prefix-cls}-selection__clear {
+    .@{select-prefix-cls}-selection__clear,
+    .@{select-prefix-cls}-arrow {
       top: @input-height-base / 2;
     }
   }
@@ -373,7 +376,8 @@
     padding-right: 16px;
   }
 
-  &-allow-clear &-selection--multiple &-selection__rendered {
+  &-allow-clear &-selection--multiple &-selection__rendered,
+  &-show-arrow &-selection--multiple &-selection__rendered {
     margin-right: 20px; // In case that clear button will overlap content
   }
 
@@ -410,7 +414,8 @@
       transition: all 0.3s @ease-in-out, height 0s;
     }
   }
-  &-combobox&-allow-clear &-selection:hover &-selection__rendered {
+  &-combobox&-allow-clear &-selection:hover &-selection__rendered,
+  &-combobox&-show-arrow &-selection:hover &-selection__rendered {
     margin-right: 20px; // In case that clear button will overlap content
   }
 }
