@@ -6,6 +6,7 @@ import Icon from '../icon';
 import CheckableTag from './CheckableTag';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Wave from '../_util/wave';
+import warning from '../_util/warning';
 
 export { CheckableTagProps } from './CheckableTag';
 
@@ -45,11 +46,10 @@ class Tag extends React.Component<TagProps, TagState> {
 
   constructor(props: TagProps) {
     super(props);
-    if (props.afterClose) {
-      console.warn(
-        "Warning: 'afterClose' will be discarded, please use 'onClose', we will delete this in the next version.",
-      );
-    }
+    warning(
+      !('afterClose' in props),
+      "'afterClose' will be deprecated, please use 'onClose', we will removed this in the next version.",
+    );
   }
 
   setVisible(visible: boolean, e: React.MouseEvent<HTMLElement>) {
