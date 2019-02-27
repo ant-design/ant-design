@@ -147,7 +147,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-select ant-select-enabled"
+    class="ant-select ant-select-enabled ant-select-loading"
     style="width:120px"
   >
     <div
