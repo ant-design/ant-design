@@ -179,7 +179,7 @@
     "rimraf": "^2.6.2",
     "scrollama": "^1.4.4",
     "stylelint": "~9.10.1",
-    "stylelint-config-prettier": "^4.0.0",
+    "stylelint-config-prettier": "^5.0.0",
     "stylelint-config-rational-order": "^0.0.4",
     "stylelint-config-standard": "^18.2.0",
     "stylelint-declaration-block-no-ignored-properties": "^1.1.0",
