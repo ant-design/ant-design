@@ -226,7 +226,7 @@ export default class Form extends React.Component<FormProps, any> {
   constructor(props: FormProps) {
     super(props);
 
-    warning(!props.form, 'It is unnecessary to pass `form` to `Form` after antd@1.7.0.');
+    warning(!props.form, 'Form', 'It is unnecessary to pass `form` to `Form` after antd@1.7.0.');
   }
 
   getChildContext() {

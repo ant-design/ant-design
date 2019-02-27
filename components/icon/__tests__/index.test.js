@@ -121,7 +121,7 @@ describe('Icon', () => {
     it('warns', () => {
       mount(<Icon type="clock-circle-o" theme="filled" />);
       expect(errorSpy).toBeCalledWith(
-        "Warning: The icon name 'clock-circle-o' already specify a theme 'outlined', the 'theme' prop 'filled' will be ignored.",
+        "Warning: [antd: Icon] The icon name 'clock-circle-o' already specify a theme 'outlined', the 'theme' prop 'filled' will be ignored.",
       );
     });
   });
