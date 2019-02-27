@@ -19,8 +19,18 @@ if (typeof window !== 'undefined' && navigator.serviceWorker) {
   });
 }
 
-LogRocket.init('kpuw4z/ant-design');
-setupLogRocketReact(LogRocket);
+window.addEventListener('error', function(e) {
+  // Ignore ResizeObserver error
+  if (e.message === 'ResizeObserver loop limit exceeded') {
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+  }
+});
+
+if (process.env.NODE_ENV === 'production') {
+  LogRocket.init('kpuw4z/ant-design');
+  setupLogRocketReact(LogRocket);
+}
 
 if (typeof window !== 'undefined') {
   /* eslint-disable global-require */
