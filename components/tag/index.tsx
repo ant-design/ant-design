@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Animate from 'rc-animate';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import { polyfill } from 'react-lifecycles-compat';
@@ -53,10 +52,23 @@ class Tag extends React.Component<TagProps, TagState> {
     visible: true,
   };
 
+  constructor(props: TagProps) {
+    super(props);
+    if (props.afterClose) {
+      console.warn(
+        "Warning: 'afterClose' will be discarded, please use 'onClose', we will delete this in the next version.",
+      );
+    }
+  }
+
   setVisible(visible: boolean, e: React.MouseEvent<HTMLElement>) {
-    const { onClose } = this.props;
+    const { onClose, afterClose } = this.props;
     if (onClose) {
       onClose(e);
+    }
+    if (afterClose && !onClose) {
+      // next version remove.
+      afterClose();
     }
     if (e.defaultPrevented) {
       return;
@@ -68,15 +80,6 @@ class Tag extends React.Component<TagProps, TagState> {
 
   handleIconClick = (e: React.MouseEvent<HTMLElement>) => {
     this.setVisible(false, e);
-  };
-
-  animationEnd = (_: string, existed: boolean) => {
-    if (!existed) {
-      const { afterClose } = this.props;
-      if (afterClose) {
-        afterClose();
-      }
-    }
   };
 
   isPresetColor(color?: string): boolean {
@@ -119,28 +122,19 @@ class Tag extends React.Component<TagProps, TagState> {
   }
 
   renderTag = (configProps: ConfigConsumerProps) => {
-    const { getPrefixCls } = configProps;
     const { prefixCls: customizePrefixCls, children, ...otherProps } = this.props;
     const { visible } = this.state;
-    const prefixCls = getPrefixCls('tag', customizePrefixCls);
     return (
       <Wave>
-        <Animate
-          component=""
-          showProp="show"
-          transitionName={`${prefixCls}-zoom`}
-          onEnd={this.animationEnd}
+        <InnerTag
+          show={visible}
+          {...otherProps}
+          className={this.getTagClassName(configProps)}
+          style={this.getTagStyle()}
         >
-          <InnerTag
-            show={visible}
-            {...otherProps}
-            className={this.getTagClassName(configProps)}
-            style={this.getTagStyle()}
-          >
-            {children}
-            {this.renderCloseIcon()}
-          </InnerTag>
-        </Animate>
+          {children}
+          {this.renderCloseIcon()}
+        </InnerTag>
       </Wave>
     );
   };
