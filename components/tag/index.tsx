@@ -24,15 +24,6 @@ interface TagState {
   visible: boolean;
 }
 
-interface InnterTagProps extends TagProps {
-  show: boolean;
-}
-
-const InnerTag = ({ show, ...restProps }: InnterTagProps) => {
-  const divProps = omit(restProps, ['onClose', 'afterClose', 'color', 'visible', 'closable']);
-  return <div {...divProps} />;
-};
-
 class Tag extends React.Component<TagProps, TagState> {
   static CheckableTag = CheckableTag;
   static defaultProps = {
@@ -123,18 +114,13 @@ class Tag extends React.Component<TagProps, TagState> {
 
   renderTag = (configProps: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, children, ...otherProps } = this.props;
-    const { visible } = this.state;
+    const divProps = omit(otherProps, ['onClose', 'afterClose', 'color', 'visible', 'closable']);
     return (
       <Wave>
-        <InnerTag
-          show={visible}
-          {...otherProps}
-          className={this.getTagClassName(configProps)}
-          style={this.getTagStyle()}
-        >
+        <div {...divProps} className={this.getTagClassName(configProps)} style={this.getTagStyle()}>
           {children}
           {this.renderCloseIcon()}
-        </InnerTag>
+        </div>
       </Wave>
     );
   };
