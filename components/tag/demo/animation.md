@@ -17,7 +17,6 @@ Add or remove animations to your tag.
 import {
   Tag, Input, Tooltip, Icon,
 } from 'antd';
-import Animate from 'rc-animate';
 import { TweenOneGroup } from 'rc-tween-one';
 
 
@@ -89,28 +88,14 @@ class EditableTagGroup extends React.Component {
     return (
       <div>
         <div style={{ marginBottom: 16 }}>
-          <h3 style={{ marginBottom: 8 }}>
-            Add Animate: 
-          </h3>
-          <Animate component="div" transitionName="antd-demo-tag-zoom">
-            {tagChild}
-          </Animate>
-        </div>
-        <div style={{ marginBottom: 16 }}>
-          <h3 style={{ marginBottom: 8 }}>
-            Add TweenOne: 
-          </h3>
           <TweenOneGroup 
             enter={{
-              scale: 0.8, opacity: 0, 
-              type: 'from', duration: 100,
+              scale: 0.8, opacity: 0, type: 'from', duration: 100,
               onComplete: (e) => {
                 e.target.style = '';
               },
             }}
-            leave={{ 
-              opacity: 0, width: 0, scale: 0, duration: 200,
-            }}
+            leave={{ opacity: 0, width: 0, scale: 0, duration: 200 }}
             appear={false}
           >
             {tagChild}
@@ -143,30 +128,3 @@ class EditableTagGroup extends React.Component {
 
 ReactDOM.render(<EditableTagGroup />, mountNode);
 ````
-
-```css
-.antd-demo-tag-zoom-enter,
-.antd-demo-tag-zoom-appear {
-  animation: antFadeIn 0.1s ease-in-out;
-   animation-fill-mode: both;
-}
-
-
-.antd-demo-tag-zoom-leave {
-  animation: antTagDemoZoomOut 0.2s ease-in-out;
-  animation-fill-mode: both;
-}
-
-@keyframes antTagDemoZoomOut {
-  0% {
-    transform: scale(1);
-    max-width: 100%;
-    opacity: 1;
-  }
-  100% {
-    transform: scale(0);
-    max-width: 0%;
-    opacity: 0;
-  }
-}
-```
