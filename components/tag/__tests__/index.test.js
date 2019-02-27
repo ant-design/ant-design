@@ -35,18 +35,6 @@ describe('Tag', () => {
     expect(wrapper.find('div.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
   });
 
-  it('should not call afterClose when change visible from false to true', () => {
-    const handleAfterClose = jest.fn();
-    const wrapper = mount(<Tag visible afterClose={handleAfterClose} />);
-    wrapper.setProps({ visible: false });
-    jest.runAllTimers();
-    expect(handleAfterClose).toHaveBeenCalled();
-    handleAfterClose.mockReset();
-    wrapper.setProps({ visible: true });
-    jest.runAllTimers();
-    expect(handleAfterClose).not.toHaveBeenCalled();
-  });
-
   describe('visibility', () => {
     it('can be controlled by visible with visible as initial value', () => {
       const wrapper = mount(<Tag visible />);
