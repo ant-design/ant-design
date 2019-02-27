@@ -90,7 +90,7 @@ describe('Table', () => {
   it('warning if both `expandedRowRender` & `scroll` are used', () => {
     mount(<Table expandedRowRender={() => null} scroll={{}} />);
     expect(warnSpy).toBeCalledWith(
-      'Warning: `expandedRowRender` and `scroll` are not compatible. Please use one of them at one time.',
+      'Warning: [antd: Table] `expandedRowRender` and `scroll` are not compatible. Please use one of them at one time.',
     );
   });
 });

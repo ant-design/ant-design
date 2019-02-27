@@ -291,7 +291,11 @@ class RangePicker extends React.Component<any, RangePickerState> {
     fixLocale(value, localeCode);
     fixLocale(showDate, localeCode);
 
-    warning(!('onOK' in props), 'It should be `RangePicker[onOk]`, instead of `onOK`!');
+    warning(
+      !('onOK' in props),
+      'RangePicker',
+      'It should be `RangePicker[onOk]`, instead of `onOK`!',
+    );
 
     const calendarClassName = classNames({
       [`${prefixCls}-time`]: showTime,

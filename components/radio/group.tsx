@@ -124,7 +124,6 @@ class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
               prefixCls={prefixCls}
               disabled={this.props.disabled}
               value={option}
-              onChange={this.onRadioChange}
               checked={this.state.value === option}
             >
               {option}
@@ -138,7 +137,6 @@ class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
               prefixCls={prefixCls}
               disabled={option.disabled || this.props.disabled}
               value={option.value}
-              onChange={this.onRadioChange}
               checked={this.state.value === option.value}
             >
               {option.label}

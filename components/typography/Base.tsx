@@ -110,7 +110,8 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
 
     warning(
       !editable || typeof children === 'string',
-      'When `editable` is enabled, the `children` of Text component should use string.',
+      'Typography',
+      'When `editable` is enabled, the `children` should use string.',
     );
 
     return {};
@@ -286,7 +287,8 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
 
     warning(
       toArray(children).every((child: React.ReactNode) => typeof child === 'string'),
-      '`ellipsis` for Typography should use string as children only.',
+      'Typography',
+      '`ellipsis` should use string as children only.',
     );
 
     const { content, text, ellipsis } = measure(
