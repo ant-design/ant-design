@@ -17,6 +17,11 @@ describe('DatePicker', () => {
     MockDate.reset();
   });
 
+  it('support name prop', () => {
+    const wrapper = mount(<DatePicker name="bamboo" />);
+    expect(wrapper.find('input').props().name).toBe('bamboo');
+  });
+
   it('prop locale should works', () => {
     const locale = {
       lang: {

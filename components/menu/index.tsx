@@ -88,13 +88,15 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
 
     warning(
       !('onOpen' in props || 'onClose' in props),
+      'Menu',
       '`onOpen` and `onClose` are removed, please use `onOpenChange` instead, ' +
         'see: https://u.ant.design/menu-on-open-change.',
     );
 
     warning(
       !('inlineCollapsed' in props && props.mode !== 'inline'),
-      "`inlineCollapsed` should only be used when Menu's `mode` is inline.",
+      'Menu',
+      '`inlineCollapsed` should only be used when `mode` is inline.',
     );
 
     let openKeys;

@@ -138,10 +138,10 @@ export default class Row extends React.Component<RowProps, RowState> {
       className,
     );
     const rowStyle =
-      (gutter as number) > 0
+      gutter! > 0
         ? {
-            marginLeft: (gutter as number) / -2,
-            marginRight: (gutter as number) / -2,
+            marginLeft: gutter! / -2,
+            marginRight: gutter! / -2,
             ...style,
           }
         : style;

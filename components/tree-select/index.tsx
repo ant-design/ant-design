@@ -29,6 +29,7 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
 
     warning(
       props.multiple !== false || !props.treeCheckable,
+      'TreeSelect',
       '`multiple` will alway be `true` when `treeCheckable` is true',
     );
   }

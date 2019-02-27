@@ -4,6 +4,7 @@ import omit from 'omit.js';
 import debounce from 'lodash/debounce';
 import { conductExpandParent, convertTreeToEntities } from 'rc-tree/lib/util';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { polyfill } from 'react-lifecycles-compat';
 
 import Tree, {
   TreeProps,
@@ -34,11 +35,22 @@ function getIcon(props: AntdTreeNodeAttribute): React.ReactNode {
   return <Icon type={expanded ? 'folder-open' : 'folder'} />;
 }
 
-export default class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeState> {
+class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeState> {
   static defaultProps = {
     showIcon: true,
     expandAction: 'click',
   };
+
+  static getDerivedStateFromProps(nextProps: DirectoryTreeProps) {
+    const newState: DirectoryTreeState = {};
+    if ('expandedKeys' in nextProps) {
+      newState.expandedKeys = nextProps.expandedKeys;
+    }
+    if ('selectedKeys' in nextProps) {
+      newState.selectedKeys = nextProps.selectedKeys;
+    }
+    return newState;
+  }
 
   state: DirectoryTreeState;
   tree: Tree;
@@ -80,15 +92,6 @@ export default class DirectoryTree extends React.Component<DirectoryTreeProps, D
     this.onDebounceExpand = debounce(this.expandFolderNode, 200, {
       leading: true,
     });
-  }
-
-  componentWillReceiveProps(nextProps: DirectoryTreeProps) {
-    if ('expandedKeys' in nextProps) {
-      this.setState({ expandedKeys: nextProps.expandedKeys });
-    }
-    if ('selectedKeys' in nextProps) {
-      this.setState({ selectedKeys: nextProps.selectedKeys });
-    }
   }
 
   onExpand = (expandedKeys: string[], info: AntTreeNodeExpandedEvent) => {
@@ -226,3 +229,7 @@ export default class DirectoryTree extends React.Component<DirectoryTreeProps, D
     return <ConfigConsumer>{this.renderDirectoryTree}</ConfigConsumer>;
   }
 }
+
+polyfill(DirectoryTree);
+
+export default DirectoryTree;
