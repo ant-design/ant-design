@@ -19,13 +19,26 @@ type Placement = (typeof Placements)[number];
 
 type OverlayFunc = () => React.ReactNode;
 
+type Align = {
+  points?: [string, string];
+  offset?: [number, number];
+  targetOffset?: [number, number];
+  overflow?: {
+    adjustX?: boolean;
+    adjustY?: boolean;
+  };
+  useCssRight?: boolean;
+  useCssBottom?: boolean;
+  useCssTransform?: boolean;
+};
+
 export interface DropDownProps {
   trigger?: ('click' | 'hover' | 'contextMenu')[];
   overlay: React.ReactNode | OverlayFunc;
   onVisibleChange?: (visible: boolean) => void;
   visible?: boolean;
   disabled?: boolean;
-  align?: Object;
+  align?: Align;
   getPopupContainer?: (triggerNode: Element) => HTMLElement;
   prefixCls?: string;
   className?: string;
