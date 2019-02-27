@@ -39,9 +39,8 @@ class EditableTagGroup extends React.Component {
   }
 
   handleInputConfirm = () => {
-    const state = this.state;
-    const inputValue = state.inputValue;
-    let tags = state.tags;
+    const { inputValue } = this.state;
+    let { tags } = this.state;
     if (inputValue && tags.indexOf(inputValue) === -1) {
       tags = [...tags, inputValue];
     }
