@@ -41,6 +41,7 @@
   "dependencies": {
     "@ant-design/icons": "~1.1.16",
     "@ant-design/icons-react": "~1.1.2",
+    "@types/react-slick": "^0.23.3",
     "array-tree-filter": "^2.1.0",
     "babel-runtime": "6.x",
     "classnames": "~2.2.6",
@@ -98,7 +99,6 @@
     "@types/react": "~16.8.1",
     "@types/react-dom": "^16.0.11",
     "@types/react-intl": "^2.3.14",
-    "@types/react-slick": "^0.23.2",
     "@types/warning": "^3.0.0",
     "@yesmeck/offline-plugin": "^5.0.5",
     "ansi-styles": "^3.2.1",
