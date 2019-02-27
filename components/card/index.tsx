@@ -71,11 +71,13 @@ export default class Card extends React.Component<CardProps, CardState> {
     if ('noHovering' in this.props) {
       warning(
         !this.props.noHovering,
-        '`noHovering` of Card is deprecated, you can remove it safely or use `hoverable` instead.',
+        'Card',
+        '`noHovering` is deprecated, you can remove it safely or use `hoverable` instead.',
       );
       warning(
         !!this.props.noHovering,
-        '`noHovering={false}` of Card is deprecated, use `hoverable` instead.',
+        'Card',
+        '`noHovering={false}` is deprecated, use `hoverable` instead.',
       );
     }
   }

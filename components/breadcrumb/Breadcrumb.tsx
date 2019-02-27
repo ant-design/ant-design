@@ -64,6 +64,7 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
     const props = this.props;
     warning(
       !('linkRender' in props || 'nameRender' in props),
+      'Breadcrumb',
       '`linkRender` and `nameRender` are removed, please use `itemRender` instead, ' +
         'see: https://u.ant.design/item-render.',
     );
@@ -106,7 +107,8 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
         }
         warning(
           element.type && element.type.__ANT_BREADCRUMB_ITEM,
-          "Breadcrumb only accepts Breadcrumb.Item as it's children",
+          'Breadcrumb',
+          "Only accepts Breadcrumb.Item as it's children",
         );
         return cloneElement(element, {
           separator,

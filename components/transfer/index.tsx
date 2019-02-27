@@ -110,8 +110,9 @@ export default class Transfer extends React.Component<TransferProps, any> {
 
     warning(
       !('notFoundContent' in props || 'searchPlaceholder' in props),
-      'Transfer[notFoundContent] and Transfer[searchPlaceholder] will be removed, ' +
-        'please use Transfer[locale] instead.',
+      'Transfer',
+      '`notFoundContent` and `searchPlaceholder` will be removed, ' +
+        'please use `locale` instead.',
     );
 
     const { selectedKeys = [], targetKeys = [] } = props;
@@ -277,7 +278,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
       [`${direction}Filter`]: value,
     });
     if (onSearchChange) {
-      warning(false, '`onSearchChange` in Transfer is deprecated. Please use `onSearch` instead.');
+      warning(false, 'Transfer', '`onSearchChange` is deprecated. Please use `onSearch` instead.');
       onSearchChange(direction, e);
     }
     if (onSearch) {
