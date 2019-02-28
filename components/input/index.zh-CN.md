@@ -53,7 +53,7 @@ Input 的其他属性和 React 自带的 [input](https://facebook.github.io/reac
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| enterButton | 是否有确认按钮，可设为按钮文字 | boolean\|ReactNode | false |
+| enterButton | 是否有确认按钮，可设为按钮文字。该属性会与 addon 冲突。 | boolean\|ReactNode | false |
 | onSearch | 点击搜索或按下回车键时的回调 | function(value, event) |  |
 
 其余属性和 Input 一致。
@@ -77,3 +77,16 @@ Input 的其他属性和 React 自带的 [input](https://facebook.github.io/reac
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | visibilityToggle | 是否显示切换按钮 | boolean | true |
+
+## FAQ
+
+### 为什么我动态改变 `prefix/suffix` 时，Input 会失去焦点？
+
+当 Input 动态添加或者删除 `prefix/suffix` 时，React 会重新创建 DOM 结构而新的 input 是没有焦点的。
+你可以预设一个空的 `<span />` 来保持 DOM 结构不变：
+
+```jsx
+const suffix = condition ? <Icon type="smile" /> : <span />;
+
+<Input suffix={suffix} />
+```

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import debounce from 'lodash/debounce';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { Settings } from 'react-slick';
 
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
@@ -23,45 +24,10 @@ const SlickCarousel = require('react-slick').default;
 
 export type CarouselEffect = 'scrollx' | 'fade';
 // Carousel
-export interface CarouselProps {
+export interface CarouselProps extends Settings {
   effect?: CarouselEffect;
-  dots?: boolean;
-  vertical?: boolean;
-  autoplay?: boolean;
-  easing?: string;
-  beforeChange?: (from: number, to: number) => void;
-  afterChange?: (current: number) => void;
   style?: React.CSSProperties;
   prefixCls?: string;
-  accessibility?: boolean;
-  nextArrow?: HTMLElement | any;
-  prevArrow?: HTMLElement | any;
-  pauseOnHover?: boolean;
-  className?: string;
-  adaptiveHeight?: boolean;
-  arrows?: boolean;
-  autoplaySpeed?: number;
-  centerMode?: boolean;
-  centerPadding?: string | any;
-  cssEase?: string | any;
-  dotsClass?: string;
-  draggable?: boolean;
-  fade?: boolean;
-  focusOnSelect?: boolean;
-  infinite?: boolean;
-  initialSlide?: number;
-  lazyLoad?: boolean;
-  rtl?: boolean;
-  slide?: string;
-  slidesToShow?: number;
-  slidesToScroll?: number;
-  speed?: number;
-  swipe?: boolean;
-  swipeToSlide?: boolean;
-  touchMove?: boolean;
-  touchThreshold?: number;
-  variableWidth?: boolean;
-  useCSS?: boolean;
   slickGoTo?: number;
 }
 

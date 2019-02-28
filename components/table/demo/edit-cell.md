@@ -34,18 +34,6 @@ class EditableCell extends React.Component {
     editing: false,
   }
 
-  componentDidMount() {
-    if (this.props.editable) {
-      document.addEventListener('click', this.handleClickOutside, true);
-    }
-  }
-
-  componentWillUnmount() {
-    if (this.props.editable) {
-      document.removeEventListener('click', this.handleClickOutside, true);
-    }
-  }
-
   toggleEdit = () => {
     const editing = !this.state.editing;
     this.setState({ editing }, () => {
@@ -53,13 +41,6 @@ class EditableCell extends React.Component {
         this.input.focus();
       }
     });
-  }
-
-  handleClickOutside = (e) => {
-    const { editing } = this.state;
-    if (editing && this.cell !== e.target && !this.cell.contains(e.target)) {
-      this.save();
-    }
   }
 
   save = () => {
@@ -103,6 +84,7 @@ class EditableCell extends React.Component {
                       <Input
                         ref={node => (this.input = node)}
                         onPressEnter={this.save}
+                        onBlur={this.save}
                       />
                     )}
                   </FormItem>
