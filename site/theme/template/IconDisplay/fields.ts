@@ -57,6 +57,7 @@ export const categories = {
     'radius-bottomleft',
     'radius-bottomright',
     'radius-upleft',
+    'radius-upright',
     'fullscreen',
     'fullscreen-exit',
   ],

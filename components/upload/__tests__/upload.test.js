@@ -360,4 +360,14 @@ describe('Upload', () => {
       done();
     });
   });
+
+  // https://github.com/ant-design/ant-design/issues/14439
+  it('should allow call abort function through upload instance', () => {
+    const wrapper = mount(
+      <Upload>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    expect(typeof wrapper.instance().upload.abort).toBe('function');
+  });
 });

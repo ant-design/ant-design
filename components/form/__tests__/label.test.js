@@ -5,7 +5,7 @@ import Form from '..';
 describe('Form', () => {
   // Mock of `querySelector`
   const originQuerySelector = HTMLElement.prototype.querySelector;
-  HTMLElement.prototype.querySelector = function(str) {
+  HTMLElement.prototype.querySelector = function querySelector(str) {
     const match = str.match(/^\[id=('|")(.*)('|")]$/);
     const id = match && match[2];
 
