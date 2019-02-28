@@ -122,9 +122,11 @@
   &-vertical&-sub,
   &-vertical-left&-sub,
   &-vertical-right&-sub {
+    min-width: 160px;
     padding: 0;
     border-right: 0;
     transform-origin: 0 0;
+
     .@{menu-prefix-cls}-item {
       left: 0;
       margin-left: 0;
@@ -139,11 +141,8 @@
     }
   }
 
-  &-horizontal&-sub,
-  &-vertical&-sub,
-  &-vertical-left&-sub,
-  &-vertical-right&-sub {
-    min-width: 160px;
+  &-horizontal&-sub {
+    min-width: 114px; // in case of submenu width is too big: https://codesandbox.io/s/qvpwm6mk66
   }
 
   &-item,

@@ -2,7 +2,6 @@
 
 exports[`Icon \`component\` prop can access to svg defs if has children 1`] = `
 <i
-  aria-label="icon: undefined"
   class="anticon my-home-icon"
 >
   <svg
@@ -25,7 +24,6 @@ exports[`Icon \`component\` prop can access to svg defs if has children 1`] = `
 
 exports[`Icon should give warning and render <i>{null}</i> 1`] = `
 <i
-  aria-label="icon: undefined"
   class="anticon"
 />
 `;
@@ -258,7 +256,6 @@ exports[`Icon should support older usage 1`] = `
 
 exports[`Icon should support pass svg paths as children 1`] = `
 <i
-  aria-label="icon: undefined"
   class="anticon"
 >
   <svg
@@ -282,7 +279,6 @@ exports[`Icon should support pass svg paths as children 1`] = `
 
 exports[`Icon should support svg react component 1`] = `
 <i
-  aria-label="icon: undefined"
   class="anticon my-home-icon"
 >
   <svg
@@ -335,7 +331,6 @@ exports[`Icon should support two-tone icon 1`] = `
 
 exports[`Icon support render svg as component 1`] = `
 <i
-  aria-label="icon: undefined"
   class="anticon"
 >
   <svg
@@ -352,7 +347,6 @@ exports[`Icon.createFromIconfontCN() should support iconfont.cn 1`] = `
   class="icons-list"
 >
   <i
-    aria-label="icon: undefined"
     class="anticon"
   >
     <svg
@@ -369,7 +363,6 @@ exports[`Icon.createFromIconfontCN() should support iconfont.cn 1`] = `
     </svg>
   </i>
   <i
-    aria-label="icon: undefined"
     class="anticon"
   >
     <svg
@@ -386,7 +379,6 @@ exports[`Icon.createFromIconfontCN() should support iconfont.cn 1`] = `
     </svg>
   </i>
   <i
-    aria-label="icon: undefined"
     class="anticon"
   >
     <svg

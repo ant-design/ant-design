@@ -147,4 +147,18 @@ describe('Calendar', () => {
     expect(wrapper.render()).toMatchSnapshot();
     MockDate.reset();
   });
+
+  it('should trigger onPanelChange when click last month of date', () => {
+    const onPanelChange = jest.fn();
+    const date = new Moment('1990-09-03');
+    const wrapper = mount(<Calendar onPanelChange={onPanelChange} value={date} />);
+
+    wrapper
+      .find('.ant-fullcalendar-cell')
+      .at(0)
+      .simulate('click');
+
+    expect(onPanelChange).toBeCalled();
+    expect(onPanelChange.mock.calls[0][0].month()).toEqual(date.month() - 1);
+  });
 });

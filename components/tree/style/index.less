@@ -6,6 +6,7 @@
 
 @tree-prefix-cls: ~'@{ant-prefix}-tree';
 @tree-showline-icon-color: @text-color-secondary;
+@tree-node-padding: 4px;
 
 .antCheckboxFn(@checkbox-prefix-cls: ~'@{ant-prefix}-tree-checkbox');
 
@@ -23,7 +24,7 @@
 
   li {
     margin: 0;
-    padding: 4px 0;
+    padding: @tree-node-padding 0;
     white-space: nowrap;
     list-style: none;
     outline: 0;
@@ -176,6 +177,19 @@
     display: none;
     &-open {
       display: block;
+    }
+
+    // https://github.com/ant-design/ant-design/issues/14958
+    > li {
+      // Provide additional padding between top child node and parent node
+      &:first-child {
+        padding-top: 2 * @tree-node-padding;
+      }
+
+      // Hide additional padding between last child node and next parent node
+      &:last-child {
+        padding-bottom: 0;
+      }
     }
   }
   li&-treenode-disabled {
