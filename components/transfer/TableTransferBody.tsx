@@ -66,6 +66,8 @@ class TableTransferBody<T> extends React.Component<TableTransferBodyProps<T>> {
     };
 
     // Make selection as default
+    const { getCheckboxProps } = rowSelection;
+
     const mergedRowSelection: TableRowSelection<T> = {
       ...rowSelection,
       onSelect(record, selected) {
@@ -75,6 +77,14 @@ class TableTransferBody<T> extends React.Component<TableTransferBodyProps<T>> {
         handleSelectAll(changedRows, !selected);
       },
       selectedRowKeys: checkedKeys,
+      getCheckboxProps: item => {
+        const checkboxProps: { [name: string]: any } =
+          (getCheckboxProps && getCheckboxProps(item)) || {};
+        if (disabled) {
+          checkboxProps.disabled = disabled;
+        }
+        return checkboxProps;
+      },
     };
 
     let filteredDataSource = dataSource;
