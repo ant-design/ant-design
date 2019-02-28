@@ -1111,3 +1111,745 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders ./components/transfer/demo/table.md correctly 1`] = `
+<div>
+  <button
+    aria-checked="false"
+    class="ant-switch"
+    role="switch"
+    type="button"
+  >
+    <span
+      class="ant-switch-inner"
+    >
+      showSearch
+    </span>
+  </button>
+  <button
+    aria-checked="false"
+    class="ant-switch"
+    role="switch"
+    type="button"
+  >
+    <span
+      class="ant-switch-inner"
+    >
+      disabled
+    </span>
+  </button>
+  <br />
+  <br />
+  <div
+    class="ant-transfer-table ant-transfer"
+  >
+    <div
+      class="ant-transfer-list"
+    >
+      <div
+        class="ant-transfer-list-header"
+      >
+        <label
+          class="ant-checkbox-wrapper"
+        >
+          <span
+            class="ant-checkbox"
+          >
+            <input
+              class="ant-checkbox-input"
+              type="checkbox"
+            />
+            <span
+              class="ant-checkbox-inner"
+            />
+          </span>
+        </label>
+        <span
+          class="ant-transfer-list-header-selected"
+        >
+          <span>
+            15 items
+          </span>
+          <span
+            class="ant-transfer-list-header-title"
+          />
+        </span>
+      </div>
+      <div
+        class="ant-transfer-list-body"
+      >
+        <div
+          class="ant-table-wrapper"
+        >
+          <div
+            class="ant-spin-nested-loading"
+          >
+            <div
+              class="ant-spin-container"
+            >
+              <div
+                class="ant-table ant-table-default ant-table-scroll-position-left"
+              >
+                <div
+                  class="ant-table-content"
+                >
+                  <div
+                    class="ant-table-body"
+                  >
+                    <table
+                      class=""
+                    >
+                      <colgroup>
+                        <col
+                          style="width:62px;min-width:62px"
+                        />
+                        <col />
+                        <col />
+                      </colgroup>
+                      <thead
+                        class="ant-table-thead"
+                      >
+                        <tr>
+                          <th
+                            class="ant-table-selection-column"
+                          >
+                            <div>
+                              <div
+                                class="ant-table-selection"
+                              >
+                                <label
+                                  class="ant-checkbox-wrapper"
+                                >
+                                  <span
+                                    class="ant-checkbox"
+                                  >
+                                    <input
+                                      class="ant-checkbox-input"
+                                      type="checkbox"
+                                    />
+                                    <span
+                                      class="ant-checkbox-inner"
+                                    />
+                                  </span>
+                                </label>
+                              </div>
+                            </div>
+                          </th>
+                          <th
+                            class=""
+                          >
+                            <div>
+                              Name
+                            </div>
+                          </th>
+                          <th
+                            class=""
+                          >
+                            <div>
+                              Description
+                            </div>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody
+                        class="ant-table-tbody"
+                      >
+                        <tr
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="0"
+                        >
+                          <td
+                            class="ant-table-selection-column"
+                          >
+                            <span>
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </span>
+                          </td>
+                          <td
+                            class=""
+                          >
+                            <span
+                              class="ant-table-row-indent indent-level-0"
+                              style="padding-left:0px"
+                            />
+                            name 1
+                          </td>
+                          <td
+                            class=""
+                          >
+                            Description of 1
+                          </td>
+                        </tr>
+                        <tr
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="1"
+                        >
+                          <td
+                            class="ant-table-selection-column"
+                          >
+                            <span>
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </span>
+                          </td>
+                          <td
+                            class=""
+                          >
+                            <span
+                              class="ant-table-row-indent indent-level-0"
+                              style="padding-left:0px"
+                            />
+                            name 2
+                          </td>
+                          <td
+                            class=""
+                          >
+                            Description of 2
+                          </td>
+                        </tr>
+                        <tr
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="2"
+                        >
+                          <td
+                            class="ant-table-selection-column"
+                          >
+                            <span>
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </span>
+                          </td>
+                          <td
+                            class=""
+                          >
+                            <span
+                              class="ant-table-row-indent indent-level-0"
+                              style="padding-left:0px"
+                            />
+                            name 3
+                          </td>
+                          <td
+                            class=""
+                          >
+                            Description of 3
+                          </td>
+                        </tr>
+                        <tr
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="3"
+                        >
+                          <td
+                            class="ant-table-selection-column"
+                          >
+                            <span>
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </span>
+                          </td>
+                          <td
+                            class=""
+                          >
+                            <span
+                              class="ant-table-row-indent indent-level-0"
+                              style="padding-left:0px"
+                            />
+                            name 4
+                          </td>
+                          <td
+                            class=""
+                          >
+                            Description of 4
+                          </td>
+                        </tr>
+                        <tr
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="4"
+                        >
+                          <td
+                            class="ant-table-selection-column"
+                          >
+                            <span>
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </span>
+                          </td>
+                          <td
+                            class=""
+                          >
+                            <span
+                              class="ant-table-row-indent indent-level-0"
+                              style="padding-left:0px"
+                            />
+                            name 5
+                          </td>
+                          <td
+                            class=""
+                          >
+                            Description of 5
+                          </td>
+                        </tr>
+                        <tr
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="5"
+                        >
+                          <td
+                            class="ant-table-selection-column"
+                          >
+                            <span>
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </span>
+                          </td>
+                          <td
+                            class=""
+                          >
+                            <span
+                              class="ant-table-row-indent indent-level-0"
+                              style="padding-left:0px"
+                            />
+                            name 6
+                          </td>
+                          <td
+                            class=""
+                          >
+                            Description of 6
+                          </td>
+                        </tr>
+                        <tr
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="6"
+                        >
+                          <td
+                            class="ant-table-selection-column"
+                          >
+                            <span>
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </span>
+                          </td>
+                          <td
+                            class=""
+                          >
+                            <span
+                              class="ant-table-row-indent indent-level-0"
+                              style="padding-left:0px"
+                            />
+                            name 7
+                          </td>
+                          <td
+                            class=""
+                          >
+                            Description of 7
+                          </td>
+                        </tr>
+                        <tr
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="7"
+                        >
+                          <td
+                            class="ant-table-selection-column"
+                          >
+                            <span>
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </span>
+                          </td>
+                          <td
+                            class=""
+                          >
+                            <span
+                              class="ant-table-row-indent indent-level-0"
+                              style="padding-left:0px"
+                            />
+                            name 8
+                          </td>
+                          <td
+                            class=""
+                          >
+                            Description of 8
+                          </td>
+                        </tr>
+                        <tr
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="8"
+                        >
+                          <td
+                            class="ant-table-selection-column"
+                          >
+                            <span>
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </span>
+                          </td>
+                          <td
+                            class=""
+                          >
+                            <span
+                              class="ant-table-row-indent indent-level-0"
+                              style="padding-left:0px"
+                            />
+                            name 9
+                          </td>
+                          <td
+                            class=""
+                          >
+                            Description of 9
+                          </td>
+                        </tr>
+                        <tr
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="9"
+                        >
+                          <td
+                            class="ant-table-selection-column"
+                          >
+                            <span>
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </span>
+                          </td>
+                          <td
+                            class=""
+                          >
+                            <span
+                              class="ant-table-row-indent indent-level-0"
+                              style="padding-left:0px"
+                            />
+                            name 10
+                          </td>
+                          <td
+                            class=""
+                          >
+                            Description of 10
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <ul
+                class="ant-pagination ant-table-pagination mini"
+                unselectable="unselectable"
+              >
+                <li
+                  aria-disabled="true"
+                  class="ant-pagination-disabled ant-pagination-prev"
+                  title="Previous Page"
+                >
+                  <a
+                    class="ant-pagination-item-link"
+                  >
+                    <i
+                      aria-label="icon: left"
+                      class="anticon anticon-left"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="left"
+                        fill="currentColor"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                        />
+                      </svg>
+                    </i>
+                  </a>
+                </li>
+                <li
+                  class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+                  tabindex="0"
+                  title="1"
+                >
+                  <a>
+                    1
+                  </a>
+                </li>
+                <li
+                  class="ant-pagination-item ant-pagination-item-2"
+                  tabindex="0"
+                  title="2"
+                >
+                  <a>
+                    2
+                  </a>
+                </li>
+                <li
+                  aria-disabled="false"
+                  class=" ant-pagination-next"
+                  tabindex="0"
+                  title="Next Page"
+                >
+                  <a
+                    class="ant-pagination-item-link"
+                  >
+                    <i
+                      aria-label="icon: right"
+                      class="anticon anticon-right"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="right"
+                        fill="currentColor"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                        />
+                      </svg>
+                    </i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-transfer-operation"
+    >
+      <button
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        disabled=""
+        type="button"
+      >
+        <i
+          aria-label="icon: right"
+          class="anticon anticon-right"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="right"
+            fill="currentColor"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+            />
+          </svg>
+        </i>
+      </button>
+      <button
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        disabled=""
+        type="button"
+      >
+        <i
+          aria-label="icon: left"
+          class="anticon anticon-left"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="left"
+            fill="currentColor"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+            />
+          </svg>
+        </i>
+      </button>
+    </div>
+    <div
+      class="ant-transfer-list"
+    >
+      <div
+        class="ant-transfer-list-header"
+      >
+        <label
+          class="ant-checkbox-wrapper"
+        >
+          <span
+            class="ant-checkbox"
+          >
+            <input
+              class="ant-checkbox-input"
+              type="checkbox"
+            />
+            <span
+              class="ant-checkbox-inner"
+            />
+          </span>
+        </label>
+        <span
+          class="ant-transfer-list-header-selected"
+        >
+          <span>
+            0 item
+          </span>
+          <span
+            class="ant-transfer-list-header-title"
+          />
+        </span>
+      </div>
+      <div
+        class="ant-transfer-list-body"
+      >
+        <div
+          class="ant-empty"
+        >
+          <div
+            class="ant-empty-image"
+          >
+            <img
+              alt="No Data"
+              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTg0IiBoZWlnaHQ9IjE1MiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjQgMzEuNjcpIj4KICAgICAgPGVsbGlwc2UgZmlsbC1vcGFjaXR5PSIuOCIgZmlsbD0iI0Y1RjVGNyIgY3g9IjY3Ljc5NyIgY3k9IjEwNi44OSIgcng9IjY3Ljc5NyIgcnk9IjEyLjY2OCIvPgogICAgICA8cGF0aCBkPSJNMTIyLjAzNCA2OS42NzRMOTguMTA5IDQwLjIyOWMtMS4xNDgtMS4zODYtMi44MjYtMi4yMjUtNC41OTMtMi4yMjVoLTUxLjQ0Yy0xLjc2NiAwLTMuNDQ0LjgzOS00LjU5MiAyLjIyNUwxMy41NiA2OS42NzR2MTUuMzgzaDEwOC40NzVWNjkuNjc0eiIgZmlsbD0iI0FFQjhDMiIvPgogICAgICA8cGF0aCBkPSJNMTAxLjUzNyA4Ni4yMTRMODAuNjMgNjEuMTAyYy0xLjAwMS0xLjIwNy0yLjUwNy0xLjg2Ny00LjA0OC0xLjg2N0gzMS43MjRjLTEuNTQgMC0zLjA0Ny42Ni00LjA0OCAxLjg2N0w2Ljc2OSA4Ni4yMTR2MTMuNzkyaDk0Ljc2OFY4Ni4yMTR6IiBmaWxsPSJ1cmwoI2xpbmVhckdyYWRpZW50LTEpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMy41NikiLz4KICAgICAgPHBhdGggZD0iTTMzLjgzIDBoNjcuOTMzYTQgNCAwIDAgMSA0IDR2OTMuMzQ0YTQgNCAwIDAgMS00IDRIMzMuODNhNCA0IDAgMCAxLTQtNFY0YTQgNCAwIDAgMSA0LTR6IiBmaWxsPSIjRjVGNUY3Ii8+CiAgICAgIDxwYXRoIGQ9Ik00Mi42NzggOS45NTNoNTAuMjM3YTIgMiAwIDAgMSAyIDJWMzYuOTFhMiAyIDAgMCAxLTIgMkg0Mi42NzhhMiAyIDAgMCAxLTItMlYxMS45NTNhMiAyIDAgMCAxIDItMnpNNDIuOTQgNDkuNzY3aDQ5LjcxM2EyLjI2MiAyLjI2MiAwIDEgMSAwIDQuNTI0SDQyLjk0YTIuMjYyIDIuMjYyIDAgMCAxIDAtNC41MjR6TTQyLjk0IDYxLjUzaDQ5LjcxM2EyLjI2MiAyLjI2MiAwIDEgMSAwIDQuNTI1SDQyLjk0YTIuMjYyIDIuMjYyIDAgMCAxIDAtNC41MjV6TTEyMS44MTMgMTA1LjAzMmMtLjc3NSAzLjA3MS0zLjQ5NyA1LjM2LTYuNzM1IDUuMzZIMjAuNTE1Yy0zLjIzOCAwLTUuOTYtMi4yOS02LjczNC01LjM2YTcuMzA5IDcuMzA5IDAgMCAxLS4yMjItMS43OVY2OS42NzVoMjYuMzE4YzIuOTA3IDAgNS4yNSAyLjQ0OCA1LjI1IDUuNDJ2LjA0YzAgMi45NzEgMi4zNyA1LjM3IDUuMjc3IDUuMzdoMzQuNzg1YzIuOTA3IDAgNS4yNzctMi40MjEgNS4yNzctNS4zOTNWNzUuMWMwLTIuOTcyIDIuMzQzLTUuNDI2IDUuMjUtNS40MjZoMjYuMzE4djMzLjU2OWMwIC42MTctLjA3NyAxLjIxNi0uMjIxIDEuNzg5eiIgZmlsbD0iI0RDRTBFNiIvPgogICAgPC9nPgogICAgPHBhdGggZD0iTTE0OS4xMjEgMzMuMjkybC02LjgzIDIuNjVhMSAxIDAgMCAxLTEuMzE3LTEuMjNsMS45MzctNi4yMDdjLTIuNTg5LTIuOTQ0LTQuMTA5LTYuNTM0LTQuMTA5LTEwLjQwOEMxMzguODAyIDguMTAyIDE0OC45MiAwIDE2MS40MDIgMCAxNzMuODgxIDAgMTg0IDguMTAyIDE4NCAxOC4wOTdjMCA5Ljk5NS0xMC4xMTggMTguMDk3LTIyLjU5OSAxOC4wOTctNC41MjggMC04Ljc0NC0xLjA2Ni0xMi4yOC0yLjkwMnoiIGZpbGw9IiNEQ0UwRTYiLz4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE0OS42NSAxNS4zODMpIiBmaWxsPSIjRkZGIj4KICAgICAgPGVsbGlwc2UgY3g9IjIwLjY1NCIgY3k9IjMuMTY3IiByeD0iMi44NDkiIHJ5PSIyLjgxNSIvPgogICAgICA8cGF0aCBkPSJNNS42OTggNS42M0gwTDIuODk4LjcwNHpNOS4yNTkuNzA0aDQuOTg1VjUuNjNIOS4yNTl6Ii8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4K"
+            />
+          </div>
+          <p
+            class="ant-empty-description"
+          >
+            No Data
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
