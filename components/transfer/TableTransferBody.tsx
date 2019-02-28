@@ -77,7 +77,10 @@ class TableTransferBody<T> extends React.Component<TableTransferBodyProps<T>> {
       selectedRowKeys: checkedKeys,
     };
 
-    const filteredDataSource = dataSource.filter(filterFunc);
+    let filteredDataSource = dataSource;
+    if (showSearch && filter) {
+      filteredDataSource = dataSource.filter(item => filterFunc(filter, item));
+    }
 
     const content = filteredDataSource.length ? (
       <Table
