@@ -7043,13 +7043,9 @@ exports[`ConfigProvider components Form configProvider 1`] = `
           />
         </span>
         <div
-          class="config-form-explain-holder"
+          class="config-form-explain"
         >
-          <span
-            class="config-form-explain"
-          >
-            Bamboo is Light
-          </span>
+          Bamboo is Light
         </div>
       </div>
     </div>
@@ -7080,13 +7076,9 @@ exports[`ConfigProvider components Form normal 1`] = `
           />
         </span>
         <div
-          class="ant-form-explain-holder"
+          class="ant-form-explain"
         >
-          <span
-            class="ant-form-explain"
-          >
-            Bamboo is Light
-          </span>
+          Bamboo is Light
         </div>
       </div>
     </div>
@@ -7117,13 +7109,9 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
           />
         </span>
         <div
-          class="prefix-Form-explain-holder"
+          class="prefix-Form-explain"
         >
-          <span
-            class="prefix-Form-explain"
-          >
-            Bamboo is Light
-          </span>
+          Bamboo is Light
         </div>
       </div>
     </div>

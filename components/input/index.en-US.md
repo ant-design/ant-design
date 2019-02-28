@@ -56,7 +56,7 @@ The rest of the props of `Input.TextArea` are the same as the original [textarea
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| enterButton | to show an enter button after input | boolean\|ReactNode | false |
+| enterButton | to show an enter button after input. This prop is conflict with addon. | boolean\|ReactNode | false |
 | onSearch | The callback function that is triggered when you click on the search-icon or press Enter key. | function(value, event) |  |
 
 Supports all props of `Input`.
@@ -80,3 +80,16 @@ Supports all props of `Input`.
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | visibilityToggle | Whether show toggle button | boolean | true |
+
+## FAQ
+
+### Why Input lose focus when change `prefix/suffix`
+
+When Input dynamic add or remove `prefix/suffix` will make React recreate the dom structure and new input will be not focused.
+You can set an empty `<span />` element to keep the dom structure:
+
+```jsx
+const suffix = condition ? <Icon type="smile" /> : <span />;
+
+<Input suffix={suffix} />
+```

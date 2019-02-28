@@ -172,6 +172,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
 
       warning(
         !('onOK' in props),
+        'DatePicker',
         'It should be `DatePicker[onOk]` or `MonthPicker[onOk]`, instead of `onOK`!',
       );
       const calendar = (
@@ -230,6 +231,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
             placeholder={placeholder}
             className={props.pickerInputClass}
             tabIndex={props.tabIndex}
+            name={props.name}
             {...dataOrAriaProps}
           />
           {clearIcon}

@@ -245,22 +245,29 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     class="ant-input-group ant-input-group-lg"
   >
     <div
-      class="ant-col-5"
+      class="ant-row"
+      style="margin-left:-4px;margin-right:-4px"
     >
-      <input
-        class="ant-input"
-        type="text"
-        value="0571"
-      />
-    </div>
-    <div
-      class="ant-col-8"
-    >
-      <input
-        class="ant-input"
-        type="text"
-        value="26888888"
-      />
+      <div
+        class="ant-col-5"
+        style="padding-left:4px;padding-right:4px"
+      >
+        <input
+          class="ant-input"
+          type="text"
+          value="0571"
+        />
+      </div>
+      <div
+        class="ant-col-8"
+        style="padding-left:4px;padding-right:4px"
+      >
+        <input
+          class="ant-input"
+          type="text"
+          value="26888888"
+        />
+      </div>
     </div>
   </span>
   <br />

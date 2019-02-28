@@ -40,11 +40,9 @@ class App extends React.Component {
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
-      <Form onSubmit={this.handleSubmit}>
+      <Form labelCol={{ span: 5 }} wrapperCol={{ span: 12 }} onSubmit={this.handleSubmit}>
         <Form.Item
           label="Note"
-          labelCol={{ span: 5 }}
-          wrapperCol={{ span: 12 }}
         >
           {getFieldDecorator('note', {
             rules: [{ required: true, message: 'Please input your note!' }],
@@ -54,8 +52,6 @@ class App extends React.Component {
         </Form.Item>
         <Form.Item
           label="Gender"
-          labelCol={{ span: 5 }}
-          wrapperCol={{ span: 12 }}
         >
           {getFieldDecorator('gender', {
             rules: [{ required: true, message: 'Please select your gender!' }],

@@ -47,15 +47,13 @@ class Demo extends React.Component {
       wrapperCol: { span: 14 },
     };
     return (
-      <Form onSubmit={this.handleSubmit}>
+      <Form {...formItemLayout} onSubmit={this.handleSubmit}>
         <Form.Item
-          {...formItemLayout}
           label="Plain Text"
         >
           <span className="ant-form-text">China</span>
         </Form.Item>
         <Form.Item
-          {...formItemLayout}
           label="Select"
           hasFeedback
         >
@@ -72,7 +70,6 @@ class Demo extends React.Component {
         </Form.Item>
 
         <Form.Item
-          {...formItemLayout}
           label="Select[multiple]"
         >
           {getFieldDecorator('select-multiple', {
@@ -89,7 +86,6 @@ class Demo extends React.Component {
         </Form.Item>
 
         <Form.Item
-          {...formItemLayout}
           label="InputNumber"
         >
           {getFieldDecorator('input-number', { initialValue: 3 })(
@@ -99,7 +95,6 @@ class Demo extends React.Component {
         </Form.Item>
 
         <Form.Item
-          {...formItemLayout}
           label="Switch"
         >
           {getFieldDecorator('switch', { valuePropName: 'checked' })(
@@ -108,7 +103,6 @@ class Demo extends React.Component {
         </Form.Item>
 
         <Form.Item
-          {...formItemLayout}
           label="Slider"
         >
           {getFieldDecorator('slider')(
@@ -120,7 +114,6 @@ class Demo extends React.Component {
         </Form.Item>
 
         <Form.Item
-          {...formItemLayout}
           label="Radio.Group"
         >
           {getFieldDecorator('radio-group')(
@@ -133,7 +126,6 @@ class Demo extends React.Component {
         </Form.Item>
 
         <Form.Item
-          {...formItemLayout}
           label="Radio.Button"
         >
           {getFieldDecorator('radio-button')(
@@ -146,7 +138,6 @@ class Demo extends React.Component {
         </Form.Item>
 
         <Form.Item
-          {...formItemLayout}
           label="Checkbox.Group"
         >
           {getFieldDecorator("checkbox-group", {
@@ -165,7 +156,6 @@ class Demo extends React.Component {
         </Form.Item>
 
         <Form.Item
-          {...formItemLayout}
           label="Rate"
         >
           {getFieldDecorator('rate', {
@@ -176,7 +166,6 @@ class Demo extends React.Component {
         </Form.Item>
 
         <Form.Item
-          {...formItemLayout}
           label="Upload"
           extra="longgggggggggggggggggggggggggggggggggg"
         >
@@ -193,7 +182,6 @@ class Demo extends React.Component {
         </Form.Item>
 
         <Form.Item
-          {...formItemLayout}
           label="Dragger"
         >
           <div className="dropbox">

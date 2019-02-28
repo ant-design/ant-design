@@ -22,7 +22,7 @@ subtitle: 日期选择框
 
 ### 国际化配置
 
-默认配置为 en-US，如果你需要设置其他语言，推荐在入口处使用我们提供的国际化组件,详见：[LocaleProvider国际化](http://ant.design/components/locale-provider-cn/)。
+默认配置为 en-US，如果你需要设置其他语言，推荐在入口处使用我们提供的国际化组件，详见：[LocaleProvider国际化](http://ant.design/components/locale-provider-cn/)。
 
 如有特殊需求（仅修改单一组件的语言），请使用 locale 参数，参考：[默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json)。
 

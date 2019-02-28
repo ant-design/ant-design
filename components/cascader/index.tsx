@@ -366,7 +366,8 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     } else {
       warning(
         typeof limit !== 'number',
-        "'limit' of showSearch in Cascader should be positive number or false.",
+        'Cascader',
+        "'limit' of showSearch should be positive number or false.",
       );
       filtered = flattenOptions.filter(path => filter(this.state.inputValue, path, names));
     }

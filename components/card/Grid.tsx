@@ -8,7 +8,7 @@ export interface CardGridProps {
   className?: string;
 }
 
-export default (props: CardGridProps) => (
+const Grid: React.SFC<CardGridProps> = props => (
   <ConfigConsumer>
     {({ getPrefixCls }: ConfigConsumerProps) => {
       const { prefixCls: customizePrefixCls, className, ...others } = props;
@@ -18,3 +18,5 @@ export default (props: CardGridProps) => (
     }}
   </ConfigConsumer>
 );
+
+export default Grid;
