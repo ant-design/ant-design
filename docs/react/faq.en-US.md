@@ -133,7 +133,7 @@ Alibaba pays us.
 
 ---
 
-## Errors & Warnings
+## Errors and Warnings
 
 Here are some errors & warnings that you may meet while using antd, but most of them are not bugs of antd.
 
