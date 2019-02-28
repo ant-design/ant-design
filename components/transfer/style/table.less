@@ -43,11 +43,6 @@
     &-body {
       padding: 12px;
 
-      // Search
-      &-search-wrapper {
-        position: static;
-      }
-
       // Table style
       .@{table-prefix-cls} {
         // Remove border
@@ -78,6 +73,16 @@
         top: 50%;
         transform: translateY(-50%);
       }
+    }
+
+    // Search
+    &-body-search-wrapper {
+      position: relative;
+      padding: 0 0 12px 0;
+    }
+
+    &-search-action {
+      top: 0;
     }
   }
 }
