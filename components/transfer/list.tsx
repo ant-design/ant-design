@@ -165,13 +165,15 @@ export default class TransferList extends React.Component<TransferListProps, any
     });
 
     const filteredDataSource: TransferItem[] = [];
-    const totalDataSource: TransferItem[] = [];
+    let totalDataSource: TransferItem[] = dataSource;
     const unit = dataSource.length > 1 ? itemsUnit : itemUnit;
 
     let listBody: React.ReactNode = bodyDom;
 
     // Render body if not customized
     if (!bodyDom) {
+      totalDataSource = [];
+
       const showItems = dataSource.map(item => {
         const { renderedText, renderedEl } = this.renderItem(item);
         if (filter && filter.trim() && !this.matchFilter(renderedText, item)) {
