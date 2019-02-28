@@ -25,6 +25,9 @@
     > td {
       padding-bottom: 16px;
     }
+    &:last-child {
+      border-bottom: none;
+    }
   }
 
   &-item-label {
@@ -49,15 +52,11 @@
 
   &.border {
     .@{descriptions-prefix-cls}-view {
-      border: 1px solid #d8d8d8;
+      border: 1px solid @border-color-split;
     }
 
     .@{descriptions-prefix-cls}-item {
-      border-bottom: 1px solid #d8d8d8;
-    }
-
-    .@{descriptions-prefix-cls}-item:last-child {
-      border-bottom: none;
+      border-bottom: 1px solid @border-color-split;
     }
 
     .@{descriptions-prefix-cls}-item-label {
