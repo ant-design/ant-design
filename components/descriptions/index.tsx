@@ -37,10 +37,10 @@ const genChildrenArray = (
   const childrenArray: React.ReactElement<DescriptionsItemProps>[][] = [];
   let columnArray: React.ReactElement<DescriptionsItemProps>[] = [];
   let width = 0;
-  React.Children.forEach(cloneChildren, (children: React.ReactElement<DescriptionsItemProps>) => {
-    columnArray.push(children);
-    if (children.props.span) {
-      width += children.props.span;
+  React.Children.forEach(cloneChildren, (node: React.ReactElement<DescriptionsItemProps>) => {
+    columnArray.push(node);
+    if (node.props.span) {
+      width += node.props.span;
     } else {
       width += 1;
     }
