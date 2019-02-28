@@ -99,6 +99,8 @@
     &.@{table-prefix-cls}-column-has-actions {
       position: relative;
       background-clip: padding-box; // For Firefox background bug, https://github.com/ant-design/ant-design/issues/12628
+      /* stylelint-disable-next-line */
+      -webkit-background-clip: border-box; // For Chrome extra space: https://github.com/ant-design/ant-design/issues/14926
 
       &.@{table-prefix-cls}-column-has-filters {
         .@{iconfont-css-prefix}-filter,

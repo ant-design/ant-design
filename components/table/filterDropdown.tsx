@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import { polyfill } from 'react-lifecycles-compat';
 import Menu, { SubMenu, Item as MenuItem } from 'rc-menu';
 import closest from 'dom-closest';
 import classNames from 'classnames';
@@ -10,6 +11,7 @@ import Checkbox from '../checkbox';
 import Radio from '../radio';
 import FilterDropdownMenuWrapper from './FilterDropdownMenuWrapper';
 import { FilterMenuProps, FilterMenuState, ColumnProps, ColumnFilterItem } from './interface';
+import { generateValueMaps } from './util';
 
 function stopPropagation(e: React.SyntheticEvent<any>) {
   e.stopPropagation();
@@ -18,38 +20,18 @@ function stopPropagation(e: React.SyntheticEvent<any>) {
   }
 }
 
-export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState> {
+class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<T>> {
   static defaultProps = {
     handleFilter() {},
     column: {},
   };
 
-  neverShown: boolean;
-
-  constructor(props: FilterMenuProps<T>) {
-    super(props);
-
-    const visible =
-      'filterDropdownVisible' in props.column ? props.column.filterDropdownVisible : false;
-
-    this.state = {
-      selectedKeys: props.selectedKeys,
-      keyPathOfSelectedItem: {}, // 记录所有有选中子菜单的祖先菜单
-      visible,
-    };
-  }
-
-  componentDidMount() {
-    const { column } = this.props;
-    this.setNeverShown(column);
-  }
-
-  componentWillReceiveProps(nextProps: FilterMenuProps<T>) {
+  static getDerivedStateFromProps<T>(nextProps: FilterMenuProps<T>, prevState: FilterMenuState<T>) {
     const { column } = nextProps;
-    this.setNeverShown(column);
-    const newState = {} as {
-      selectedKeys: string[];
-      visible: boolean;
+    const { prevProps } = prevState;
+
+    const newState: Partial<FilterMenuState<T>> = {
+      prevProps: nextProps,
     };
 
     /**
@@ -61,16 +43,44 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
      */
     if (
       'selectedKeys' in nextProps &&
-      !shallowequal(this.props.selectedKeys, nextProps.selectedKeys)
+      !shallowequal(prevProps.selectedKeys, nextProps.selectedKeys)
     ) {
       newState.selectedKeys = nextProps.selectedKeys;
+    }
+    if (!shallowequal((prevProps.column || {}).filters, (nextProps.column || {}).filters)) {
+      newState.valueKeys = generateValueMaps(nextProps.column.filters);
     }
     if ('filterDropdownVisible' in column) {
       newState.visible = column.filterDropdownVisible as boolean;
     }
-    if (Object.keys(newState).length > 0) {
-      this.setState(newState);
-    }
+    return newState;
+  }
+
+  neverShown: boolean;
+
+  constructor(props: FilterMenuProps<T>) {
+    super(props);
+
+    const visible =
+      'filterDropdownVisible' in props.column ? props.column.filterDropdownVisible : false;
+
+    this.state = {
+      selectedKeys: props.selectedKeys,
+      valueKeys: generateValueMaps(props.column.filters),
+      keyPathOfSelectedItem: {}, // 记录所有有选中子菜单的祖先菜单
+      visible,
+      prevProps: props,
+    };
+  }
+
+  componentDidMount() {
+    const { column } = this.props;
+    this.setNeverShown(column);
+  }
+
+  componentDidUpdate() {
+    const { column } = this.props;
+    this.setNeverShown(column);
   }
 
   getDropdownVisible() {
@@ -128,10 +138,14 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
   };
 
   confirmFilter() {
-    const { selectedKeys } = this.state;
+    const { selectedKeys, valueKeys } = this.state;
+    const { filterDropdown } = this.props.column;
 
     if (!shallowequal(selectedKeys, this.props.selectedKeys)) {
-      this.props.confirmFilter(this.props.column, selectedKeys);
+      this.props.confirmFilter(
+        this.props.column,
+        filterDropdown ? selectedKeys : selectedKeys.map(key => valueKeys[key]),
+      );
     }
   }
 
@@ -227,6 +241,7 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
   };
 
   render() {
+    const { selectedKeys: originSelectedKeys } = this.state;
     const { column, locale, prefixCls, dropdownPrefixCls, getPopupContainer } = this.props;
     // default multiple selection in filter dropdown
     const multiple = 'filterMultiple' in column ? column.filterMultiple : true;
@@ -238,7 +253,7 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
       filterDropdown = filterDropdown({
         prefixCls: `${dropdownPrefixCls}-custom`,
         setSelectedKeys: (selectedKeys: Array<any>) => this.setSelectedKeys({ selectedKeys }),
-        selectedKeys: this.state.selectedKeys,
+        selectedKeys: originSelectedKeys,
         confirm: this.handleConfirm,
         clearFilters: this.handleClearFilters,
         filters: column.filters,
@@ -259,7 +274,7 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
           className={dropdownMenuClass}
           onSelect={this.setSelectedKeys}
           onDeselect={this.setSelectedKeys}
-          selectedKeys={this.state.selectedKeys}
+          selectedKeys={originSelectedKeys && originSelectedKeys.map(val => val.toString())}
           getPopupContainer={(triggerNode: HTMLElement) => triggerNode.parentNode}
         >
           {this.renderMenus(column.filters!)}
@@ -290,3 +305,7 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
     );
   }
 }
+
+polyfill(FilterMenu);
+
+export default FilterMenu;

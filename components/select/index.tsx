@@ -83,7 +83,6 @@ export interface OptionProps {
   title?: string;
   children?: React.ReactNode;
   className?: string;
-  key?: string;
   style?: React.CSSProperties;
 }
 
@@ -131,7 +130,8 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
 
     warning(
       props.mode !== 'combobox',
-      'The combobox mode of Select is deprecated, ' +
+      'Select',
+      'The combobox mode is deprecated, ' +
         'it will be removed in next major version, ' +
         'please use AutoComplete instead',
     );

@@ -33,6 +33,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
   } = props;
   warning(
     !('iconType' in props),
+    'Modal',
     `The property 'iconType' is deprecated. Use the property 'icon' instead.`,
   );
   const icon = props.icon ? props.icon : iconType;

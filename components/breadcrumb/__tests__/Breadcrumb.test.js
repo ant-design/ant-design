@@ -23,7 +23,7 @@ describe('Breadcrumb', () => {
     );
     expect(errorSpy.mock.calls).toHaveLength(1);
     expect(errorSpy.mock.calls[0][0]).toMatch(
-      "Breadcrumb only accepts Breadcrumb.Item as it's children",
+      "Warning: [antd: Breadcrumb] Only accepts Breadcrumb.Item as it's children",
     );
   });
 
