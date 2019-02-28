@@ -166,76 +166,80 @@ export default class TransferList extends React.Component<TransferListProps, any
 
     const filteredDataSource: TransferItem[] = [];
     const totalDataSource: TransferItem[] = [];
-
-    const showItems = dataSource.map(item => {
-      const { renderedText, renderedEl } = this.renderItem(item);
-      if (filter && filter.trim() && !this.matchFilter(renderedText, item)) {
-        return null;
-      }
-
-      // all show items
-      totalDataSource.push(item);
-      if (!item.disabled) {
-        // response to checkAll items
-        filteredDataSource.push(item);
-      }
-
-      const checked = checkedKeys.indexOf(item.key) >= 0;
-      return (
-        <Item
-          disabled={disabled}
-          key={item.key}
-          item={item}
-          lazy={lazy}
-          renderedText={renderedText}
-          renderedEl={renderedEl}
-          checked={checked}
-          prefixCls={prefixCls}
-          onClick={this.handleSelect}
-        />
-      );
-    });
-
     const unit = dataSource.length > 1 ? itemsUnit : itemUnit;
 
-    const search = showSearch ? (
-      <div className={`${prefixCls}-body-search-wrapper`}>
-        <Search
-          prefixCls={`${prefixCls}-search`}
-          onChange={this.handleFilter}
-          handleClear={this.handleClear}
-          placeholder={searchPlaceholder}
-          value={filter}
-          disabled={disabled}
-        />
-      </div>
-    ) : null;
+    let listBody: React.ReactNode = bodyDom;
 
-    const searchNotFound = showItems.every(item => item === null) && (
-      <div className={`${prefixCls}-body-not-found`}>{notFoundContent}</div>
-    );
+    // Render body if not customized
+    if (!bodyDom) {
+      const showItems = dataSource.map(item => {
+        const { renderedText, renderedEl } = this.renderItem(item);
+        if (filter && filter.trim() && !this.matchFilter(renderedText, item)) {
+          return null;
+        }
 
-    const listBody = bodyDom || (
-      <div
-        className={classNames(
-          showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`,
-        )}
-      >
-        {search}
-        {!searchNotFound && (
-          <Animate
-            component="ul"
-            componentProps={{ onScroll }}
-            className={`${prefixCls}-content`}
-            transitionName={this.state.mounted ? `${prefixCls}-content-item-highlight` : ''}
-            transitionLeave={false}
-          >
-            {showItems}
-          </Animate>
-        )}
-        {searchNotFound}
-      </div>
-    );
+        // all show items
+        totalDataSource.push(item);
+        if (!item.disabled) {
+          // response to checkAll items
+          filteredDataSource.push(item);
+        }
+
+        const checked = checkedKeys.indexOf(item.key) >= 0;
+        return (
+          <Item
+            disabled={disabled}
+            key={item.key}
+            item={item}
+            lazy={lazy}
+            renderedText={renderedText}
+            renderedEl={renderedEl}
+            checked={checked}
+            prefixCls={prefixCls}
+            onClick={this.handleSelect}
+          />
+        );
+      });
+
+      const search = showSearch ? (
+        <div className={`${prefixCls}-body-search-wrapper`}>
+          <Search
+            prefixCls={`${prefixCls}-search`}
+            onChange={this.handleFilter}
+            handleClear={this.handleClear}
+            placeholder={searchPlaceholder}
+            value={filter}
+            disabled={disabled}
+          />
+        </div>
+      ) : null;
+
+      const searchNotFound = showItems.every(item => item === null) && (
+        <div className={`${prefixCls}-body-not-found`}>{notFoundContent}</div>
+      );
+
+      listBody = (
+        <div
+          className={classNames(
+            showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`,
+          )}
+        >
+          {search}
+          {!searchNotFound && (
+            <Animate
+              component="ul"
+              componentProps={{ onScroll }}
+              className={`${prefixCls}-content`}
+              transitionName={this.state.mounted ? `${prefixCls}-content-item-highlight` : ''}
+              transitionLeave={false}
+            >
+              {showItems}
+            </Animate>
+          )}
+          {searchNotFound}
+        </div>
+      );
+    }
 
     const listFooter = footerDom ? <div className={`${prefixCls}-footer`}>{footerDom}</div> : null;
 

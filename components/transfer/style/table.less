@@ -24,6 +24,7 @@
   }
 
   .@{transfer-prefix-cls}-list {
+    height: 250px;
     vertical-align: top;
 
     &:first-child {
@@ -69,9 +70,15 @@
 
       // Empty
       .@{ant-prefix}-empty {
-        position: relative;
+        position: absolute;
         top: 50%;
-        transform: translateY(-50%);
+        left: 50%;
+        margin: 0;
+        transform: translate(-50%, -50%);
+      }
+
+      &-with-search .@{ant-prefix}-empty {
+        margin-top: 20px;
       }
     }
 
