@@ -73,6 +73,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
   static defaultProps = {
     allowClear: true,
     showToday: false,
+    separator: '~',
   };
 
   static getDerivedStateFromProps(nextProps: any, prevState: any) {
@@ -278,6 +279,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
       dateRender,
       onCalendarChange,
       suffixIcon,
+      separator,
     } = props;
 
     const prefixCls = getPrefixCls('calendar', customizePrefixCls);
@@ -326,6 +328,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
     const calendar = (
       <RangeCalendar
         {...calendarProps}
+        seperator={separator}
         onChange={onCalendarChange}
         format={format}
         prefixCls={prefixCls}
@@ -388,7 +391,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
             className={`${prefixCls}-range-picker-input`}
             tabIndex={-1}
           />
-          <span className={`${prefixCls}-range-picker-separator`}> ~ </span>
+          <span className={`${prefixCls}-range-picker-separator`}> {separator} </span>
           <input
             disabled={props.disabled}
             readOnly
