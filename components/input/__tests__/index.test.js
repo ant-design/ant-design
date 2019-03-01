@@ -44,6 +44,27 @@ describe('TextArea', () => {
     expect(mockFunc).toHaveBeenCalledTimes(2);
   });
 
+  it('should use settimeout when ', () => {
+    const backup = window.requestAnimationFrame;
+    const setTimeoutBackUp = window.setTimeout;
+    // window.requestAnimationFrame = null;
+    window.setTimeout = jest.fn((cb, time) => {
+      setTimeoutBackUp(cb, time);
+    });
+    const wrapper = mount(<TextArea value="" readOnly autosize />);
+    const mockFunc = jest.spyOn(wrapper.instance(), 'resizeTextarea');
+    wrapper.setProps({ value: '1111\n2222\n3333' });
+    jest.runAllTimers();
+    expect(window.setTimeout).toHaveBeenCalledTimes(1);
+    expect(mockFunc).toHaveBeenCalledTimes(1);
+    wrapper.setProps({ value: '1111' });
+    jest.runAllTimers();
+    expect(mockFunc).toHaveBeenCalledTimes(2);
+    expect(window.setTimeout).toHaveBeenCalledTimes(100);
+    window.setTimeout = setTimeoutBackUp;
+    window.requestAnimationFrame = backup;
+  });
+
   it('should support disabled', () => {
     const wrapper = mount(<TextArea disabled />);
     expect(wrapper).toMatchSnapshot();
