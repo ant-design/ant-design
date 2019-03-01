@@ -11,6 +11,7 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 import interopDefault from '../_util/interopDefault';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
+import { formatDate } from './utils';
 
 export interface PickerProps {
   value?: moment.Moment;
@@ -98,7 +99,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
           showDate: value,
         });
       }
-      props.onChange(value, (value && value.format(props.format)) || '');
+      props.onChange(value, formatDate(value, props.format));
     };
 
     handleCalendarChange = (value: moment.Moment) => {
@@ -227,7 +228,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
             ref={this.saveInput}
             disabled={props.disabled}
             readOnly
-            value={(inputValue && inputValue.format(props.format)) || ''}
+            value={formatDate(inputValue, props.format)}
             placeholder={placeholder}
             className={props.pickerInputClass}
             tabIndex={props.tabIndex}
