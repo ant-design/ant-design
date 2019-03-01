@@ -68,7 +68,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
   static List = List;
   static Operation = Operation;
   static Search = Search;
-  static Table = TableTransfer;
+  static TableTransfer = TableTransfer;
 
   static defaultProps = {
     dataSource: [],

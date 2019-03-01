@@ -41,6 +41,17 @@ One or more elements can be selected from either column, one click on the proper
 | onSearch | A callback function which is executed when search field are changed | (direction: 'left'\|'right', value: string): void | - |
 | onSelectChange | A callback function which is executed when selected items are changed. | (sourceSelectedKeys, targetSelectedKeys): void |  |
 
+### Transfer.TableTransfer
+
+Add in 3.14.0.
+
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| leftTable | Left table props. ref [`Table`](/components/table/) | object | - |
+| rightTable | Right table props. ref [`Table`](/components/table/) | object | - |
+
+Other props is same as Transfer。
+
 ## Warning
 
 According the [standard](http://facebook.github.io/react/docs/lists-and-keys.html#keys) of React, the key should always be supplied directly to the elements in the array. In Transfer, the keys should be set on the elements included in `dataSource` array. By default, `key` property is used as an unique identifier.

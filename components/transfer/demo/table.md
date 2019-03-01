@@ -12,7 +12,7 @@ only: true
 
 ## en-US
 
-Use build-in Table Transfer
+Use build-in Table Transfer.
 
 ````jsx
 import { Transfer, Switch } from 'antd';
@@ -82,7 +82,7 @@ class App extends React.Component {
         />
         <br />
         <br />
-        <Transfer.Table
+        <Transfer.TableTransfer
           showSearch={showSearch}
           disabled={disabled}
           dataSource={mockData}

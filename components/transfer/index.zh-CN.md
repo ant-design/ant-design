@@ -42,6 +42,17 @@ title: Transfer
 | onSearch | 搜索框内容时改变时的回调函数 | (direction: 'left'\|'right', value: string): void | - |
 | onSelectChange | 选中项发生改变时的回调函数 | (sourceSelectedKeys, targetSelectedKeys): void |  |
 
+### Transfer.TableTransfer
+
+3.14.0 后新增。
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| leftTable | 左侧表格属性，参考 [`Table`](/components/table/) | object | - |
+| rightTable | 右侧表格属性，参考 [`Table`](/components/table/) | object | - |
+
+其他属性同 Transfer。
+
 ## 注意
 
 按照 React 的[规范](http://facebook.github.io/react/docs/lists-and-keys.html#keys)，所有的组件数组必须绑定 key。在 Transfer 中，`dataSource`里的数据值需要指定 `key` 值。对于 `dataSource` 默认将每列数据的 `key` 属性作为唯一的标识。
