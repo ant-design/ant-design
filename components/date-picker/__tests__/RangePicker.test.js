@@ -314,4 +314,9 @@ describe('RangePicker', () => {
     wrapper.find('.ant-calendar-range-quick-selector Tag').simulate('click');
     expect(handleOpenChange).toBeCalledWith(false);
   });
+
+  it('customize separator', () => {
+    const wrapper = mount(<RangePicker separator="test" />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });
