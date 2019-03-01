@@ -898,6 +898,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         class="ant-input ant-cascader-input "
         placeholder="Select Address"
         readonly=""
+        tabindex="-1"
         type="text"
         value=""
       />

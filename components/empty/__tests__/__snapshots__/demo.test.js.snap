@@ -146,6 +146,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
         autocomplete="off"
         class="ant-input ant-cascader-input "
         placeholder="Please select"
+        tabindex="-1"
         type="text"
         value=""
       />
