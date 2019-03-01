@@ -44,25 +44,21 @@ describe('TextArea', () => {
     expect(mockFunc).toHaveBeenCalledTimes(2);
   });
 
-  it('should use settimeout when ', () => {
-    const backup = window.requestAnimationFrame;
-    const setTimeoutBackUp = window.setTimeout;
-    // window.requestAnimationFrame = null;
-    window.setTimeout = jest.fn((cb, time) => {
-      setTimeoutBackUp(cb, time);
-    });
-    const wrapper = mount(<TextArea value="" readOnly autosize />);
-    const mockFunc = jest.spyOn(wrapper.instance(), 'resizeTextarea');
-    wrapper.setProps({ value: '1111\n2222\n3333' });
-    jest.runAllTimers();
-    expect(window.setTimeout).toHaveBeenCalledTimes(1);
-    expect(mockFunc).toHaveBeenCalledTimes(1);
-    wrapper.setProps({ value: '1111' });
-    jest.runAllTimers();
-    expect(mockFunc).toHaveBeenCalledTimes(2);
-    expect(window.setTimeout).toHaveBeenCalledTimes(100);
-    window.setTimeout = setTimeoutBackUp;
-    window.requestAnimationFrame = backup;
+  it('should support onPressEnter and onKeyDown', () => {
+    const fakeHandleKeyDown = jest.fn();
+    const fakeHandlePressEnter = jest.fn();
+    const wrapper = mount(
+      <TextArea onKeyDown={fakeHandleKeyDown} onPressEnter={fakeHandlePressEnter} />,
+    );
+    /** keyCode 65 is A */
+    wrapper.find('textarea').simulate('keydown', { keyCode: 65 });
+    expect(fakeHandleKeyDown).toHaveBeenCalledTimes(1);
+    expect(fakeHandlePressEnter).toHaveBeenCalledTimes(0);
+
+    /** keyCode 13 is Enter */
+    wrapper.find('textarea').simulate('keydown', { keyCode: 13 });
+    expect(fakeHandleKeyDown).toHaveBeenCalledTimes(2);
+    expect(fakeHandlePressEnter).toHaveBeenCalledTimes(1);
   });
 
   it('should support disabled', () => {
