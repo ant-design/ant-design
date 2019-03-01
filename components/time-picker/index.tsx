@@ -99,7 +99,8 @@ class TimePicker extends React.Component<TimePickerProps, any> {
 
     warning(
       !('allowEmpty' in props),
-      '`allowEmpty` in TimePicker is deprecated. Please use `allowClear` instead.',
+      'TimePicker',
+      '`allowEmpty` is deprecated. Please use `allowClear` instead.',
     );
   }
 

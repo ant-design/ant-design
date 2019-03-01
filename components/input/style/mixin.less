@@ -135,6 +135,7 @@
     float: left;
     width: 100%;
     margin-bottom: 0;
+    text-align: inherit;
     &:focus {
       z-index: 1; // Fix https://gw.alipayobjects.com/zos/rmsportal/DHNpoqfMXSfrSnlZvhsJ.png
       border-right-width: 1px;
@@ -346,6 +347,7 @@
   position: relative;
   display: inline-block;
   width: 100%;
+  text-align: start;
 
   &:hover .@{inputClass}:not(.@{inputClass}-disabled) {
     .hover();
@@ -353,6 +355,7 @@
 
   .@{inputClass} {
     position: relative;
+    text-align: inherit;
   }
 
   .@{inputClass}-prefix,

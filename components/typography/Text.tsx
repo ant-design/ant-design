@@ -9,7 +9,8 @@ interface TextProps extends BlockProps {
 const Text: React.SFC<TextProps> = ({ ellipsis, ...restProps }) => {
   warning(
     typeof ellipsis !== 'object',
-    '`ellipsis` in Typography.Text is only support boolean value.',
+    'Typography.Text',
+    '`ellipsis` is only support boolean value.',
   );
   return <Base {...restProps} ellipsis={!!ellipsis} component="span" />;
 };

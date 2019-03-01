@@ -28,7 +28,8 @@ export default class Popover extends React.Component<PopoverProps, {}> {
     const { title, content } = this.props;
     warning(
       !('overlay' in this.props),
-      'Popover[overlay] is removed, please use Popover[content] instead, ' +
+      'Popover',
+      '`overlay` is removed, please use `content` instead, ' +
         'see: https://u.ant.design/popover-content',
     );
     return (

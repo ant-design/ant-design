@@ -43,7 +43,7 @@ export function withThemeSuffix(type: string, theme: ThemeType) {
   } else if (theme === 'twoTone') {
     result += '-twotone';
   } else {
-    warning(false, `This icon '${type}' has unknown theme '${theme}'`);
+    warning(false, 'Icon', `This icon '${type}' has unknown theme '${theme}'`);
   }
   return result;
 }
