@@ -19,6 +19,7 @@ export interface FormItemProps {
   className?: string;
   id?: string;
   label?: React.ReactNode;
+  labelAlign?: 'left' | 'right';
   labelCol?: ColProps;
   wrapperCol?: ColProps;
   help?: React.ReactNode;
@@ -327,43 +328,36 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   };
 
   renderLabel(prefixCls: string) {
-    return (
-      <FormContext.Consumer key="label">
-        {({ vertical, labelCol: contextLabelCol }: FormContextProps) => {
-          const { label, labelCol, colon, id } = this.props;
-          const required = this.isRequired();
+    const { label, labelCol, colon, id, labelAlign = 'right' } = this.props;
+    const context = this.context;
+    const required = this.isRequired();
 
-          const mergedLabelCol: ColProps =
-            ('labelCol' in this.props ? labelCol : contextLabelCol) || {};
+    const labelClsBasic = `${prefixCls}-item-label`
+    const labelColClassName = classNames(labelClsBasic, labelAlign === 'left' && `${labelClsBasic}-left`, labelCol && labelCol.className);
+    const labelClassName = classNames({
+      [`${prefixCls}-item-required`]: required,
+    });
 
-          const labelColClassName = classNames(`${prefixCls}-item-label`, mergedLabelCol.className);
-          const labelClassName = classNames({
-            [`${prefixCls}-item-required`]: required,
-          });
+    let labelChildren = label;
+    // Keep label is original where there should have no colon
+    const haveColon = colon && !context.vertical;
+    // Remove duplicated user input colon
+    if (haveColon && typeof label === 'string' && (label as string).trim() !== '') {
+      labelChildren = (label as string).replace(/[：|:]\s*$/, '');
+    }
 
-          let labelChildren = label;
-          // Keep label is original where there should have no colon
-          const haveColon = colon && !vertical;
-          // Remove duplicated user input colon
-          if (haveColon && typeof label === 'string' && (label as string).trim() !== '') {
-            labelChildren = (label as string).replace(/[：|:]\s*$/, '');
-          }
-
-          return label ? (
-            <Col {...mergedLabelCol} className={labelColClassName}>
-              <label
-                htmlFor={id || this.getId()}
-                className={labelClassName}
-                title={typeof label === 'string' ? label : ''}
-                onClick={this.onLabelClick}
-              >
-                {labelChildren}
-              </label>
-            </Col>
-          ) : null;
-        }}
-      </FormContext.Consumer>
-    );
+    return label ? (
+      <Col {...labelCol} className={labelColClassName} key="label">
+        <label
+          htmlFor={id || this.getId()}
+          className={labelClassName}
+          title={typeof label === 'string' ? label : ''}
+          onClick={this.onLabelClick}
+        >
+          {labelChildren}
+        </label>
+      </Col>
+    ) : null;
   }
 
   renderChildren(prefixCls: string) {
