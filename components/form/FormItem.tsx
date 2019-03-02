@@ -18,6 +18,7 @@ export interface FormItemProps {
   className?: string;
   id?: string;
   label?: React.ReactNode;
+  labelAlign?: 'left' | 'right';
   labelCol?: ColProps;
   wrapperCol?: ColProps;
   help?: React.ReactNode;
@@ -323,11 +324,12 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   };
 
   renderLabel(prefixCls: string) {
-    const { label, labelCol, colon, id } = this.props;
+    const { label, labelCol, colon, id, labelAlign = 'right' } = this.props;
     const context = this.context;
     const required = this.isRequired();
 
-    const labelColClassName = classNames(`${prefixCls}-item-label`, labelCol && labelCol.className);
+    const labelClsBasic = `${prefixCls}-item-label`
+    const labelColClassName = classNames(labelClsBasic, labelAlign === 'left' && `${labelClsBasic}-left`, labelCol && labelCol.className);
     const labelClassName = classNames({
       [`${prefixCls}-item-required`]: required,
     });
