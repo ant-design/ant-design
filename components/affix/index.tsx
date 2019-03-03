@@ -60,7 +60,8 @@ class Affix extends React.Component<AffixProps, AffixState> {
   componentDidMount() {
     const { target } = this.props;
     if (target) {
-      // Wait for parent component ref has its value
+      // [Legacy] Wait for parent component ref has its value.
+      // We should use target as directly element instead of function which makes element check hard.
       this.timeout = setTimeout(() => {
         addObserveTarget(target(), this);
         // Mock Event object.
@@ -76,7 +77,15 @@ class Affix extends React.Component<AffixProps, AffixState> {
       if (target) {
         addObserveTarget(target(), this);
         // Mock Event object.
+        this.updatePosition({} as Event);
       }
+    }
+
+    if (
+      prevProps.offsetTop !== this.props.offsetTop ||
+      prevProps.offsetBottom !== this.props.offsetBottom
+    ) {
+      this.updatePosition({} as Event);
     }
 
     this.measure();
