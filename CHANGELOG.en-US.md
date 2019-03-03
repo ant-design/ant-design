@@ -35,7 +35,7 @@ timeline: true
 - 🐞 Fix Table filter can not support other type of value. [#15046](https://github.com/ant-design/ant-design/pull/15046)
 - 🐞 Fix Spin `wrapperClassName` setting `padding` icon is not centered. [#15056](https://github.com/ant-design/ant-design/pull/15056)
 - 🐞 Fix calendar `onPanelChange` in some cases will not trigger the problem. [#15063](https://github.com/ant-design/ant-design/pull/15063)
-- 🌟 Select to support `showArrow` in multi-select mode. [#15091](https://github.com/ant-design/ant-design/pull/15091)
+- 🌟 Select to supports `showArrow` in multi-select mode. [#15091](https://github.com/ant-design/ant-design/pull/15091)
 
 ## 3.13.6
 
