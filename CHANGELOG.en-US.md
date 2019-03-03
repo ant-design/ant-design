@@ -22,12 +22,12 @@ timeline: true
   - 🔥🔥🔥[Typography](https://github.com/ant-design/ant-design/pull/14250) provides basic formatting and common operations for text.
   - 🔥🔥🔥[PageHeader](https://github.com/ant-design/ant-design/pull/13637) can be used to declare the page theme, display important information about the page that the user is interested in, and host the relevant page. Action item.
 - 🌟 TimePicker provides `clearIcon` prop for customizing clear icons. [#14556](https://github.com/ant-design/ant-design/pull/14556)
-- 🌟 Statistic.Countdown support onFinish prop. [#14791](https://github.com/ant-design/ant-design/pull/14791)
+- 🌟 Statistic.Countdown support `onFinish` prop. [#14791](https://github.com/ant-design/ant-design/pull/14791)
 - 🌟 Support `extra` for Collapse.Panel. [62e65d](https://github.com/ant-design/ant-design/commit/62e65d955065b1862240f9f30d84de44349a0cf9)
 - 🌟 Support goto button in Pagination.  [#14798](https://github.com/ant-design/ant-design/pull/14819)
-- 🐞 Fixed the typescript type problem for Table`Column Filter`. [#15056](https://github.com/ant-design/ant-design/pull/15056)
+- 🐞 Fix the typescript type problem for Table `Column Filter`. [#15056](https://github.com/ant-design/ant-design/pull/15056)
 - DatePicker
-  - 🐞 Fix DatePicker not suppor name prop. [#15029](https://github.com/ant-design/ant-design/pull/15029)
+  - 🐞 Fix DatePicker not support name prop. [#15029](https://github.com/ant-design/ant-design/pull/15029)
   - 🐞 Fix missing problems with DatePicker`onPanelChange` typescript. [#15043](https://github.com/ant-design/ant-design/pull/15043)
   - 🌟 DatePicker supports `separator` prop. [#15055](https://github.com/ant-design/ant-design/pull/15055)
 - 🌟 The table supports `labelCol` & `wrapperCol` prop. [#15038](https://github.com/ant-design/ant-design/pull/15038)
