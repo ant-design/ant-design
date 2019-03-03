@@ -15,6 +15,29 @@ timeline: true
 
 ---
 
+## 3.14.0
+
+`2019-03-02`
+
+- 本月新增了两个组件：
+  - 🔥🔥🔥 [Typography](https://github.com/ant-design/ant-design/pull/14250) 提供了文本的基本格式及常见操作。
+  - 🔥🔥🔥 [PageHeader](https://github.com/ant-design/ant-design/pull/13637) 可用于声明页面主题、展示用户所关注的页面重要信息，以及承载与当前页相关的操作项。
+- 🌟 Timepicker 新增了 `clearIcon` prop，用于自定义清除图标。[#14556](https://github.com/ant-design/ant-design/pull/14556)
+- 🌟 Countdown 新增了 `onFinish` prop。[#14791](https://github.com/ant-design/ant-design/pull/14791)
+- 🌟 Collapse.Panel 新增了 `extra`。[62e65d](https://github.com/ant-design/ant-design/commit/62e65d955065b1862240f9f30d84de44349a0cf9)
+- 🌟 Pagination 支持通过 `showQuickJumper` 自定义分页跳转按钮。 [#14798](https://github.com/ant-design/ant-design/issues/14798)
+- 🐞 订正了 Table `column filter` 的 typescript 类型问题。[#14777](https://github.com/ant-design/ant-design/issues/14777)
+- DatePicker
+  - 🐞 修复 DatePicker `name` prop 无效的问题。[#15029](https://github.com/ant-design/ant-design/pull/15029)
+  - 🐞 修复 DatePicker `onPanelChange`  typescript 声明缺失的问题。[#15043](https://github.com/ant-design/ant-design/pull/15043)
+  - 🌟 DatePicker 支持 `separator` prop。[#15055](https://github.com/ant-design/ant-design/pull/15055)
+- 🌟 Form 支持 labelCol & wrapperCol prop。[#15038](https://github.com/ant-design/ant-design/pull/15038)
+- 🌟 Icon 增加了 'more' 的图标。[#15047](https://github.com/ant-design/ant-design/pull/15047)
+- 🐞 修复 Table 筛选不支持 string 以外类型的问题。[#15046](https://github.com/ant-design/ant-design/pull/15046)
+- 🐞 修复 Spin `wrapperClassName` 设置 `padding` 图标不居中的问题。[#13648](https://github.com/ant-design/ant-design/issues/13648)
+- 🐞 修复 Calendar `onPanelChange` 在某些情况下不会触发的问题。[#15063](https://github.com/ant-design/ant-design/pull/15063)
+- 🐞Select 在多选模式下支持 `showArrow`。[#15091](https://github.com/ant-design/ant-design/pull/15091)
+
 ## 3.13.6
 
 `2019-02-23`
