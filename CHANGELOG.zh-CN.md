@@ -25,7 +25,7 @@ timeline: true
 - 🌟 TimePicker 新增了 `clearIcon` prop，用于自定义清除图标。[#14556](https://github.com/ant-design/ant-design/pull/14556)
 - 🌟Statistic.Countdown 支持 `onFinish` prop。[#14791](https://github.com/ant-design/ant-design/pull/14791)
 - 🌟 Collapse.Panel 新增了 `extra`。[62e65d](https://github.com/ant-design/ant-design/commit/62e65d955065b1862240f9f30d84de44349a0cf9)
-- 🌟 Pagination 支持通过 `showQuickJumper` 自定义分页跳转按钮。 [#14798](https://github.com/ant-design/ant-design/pull/14819)
+- 🌟 Pagination 支持通过 `showQuickJumper` 自定义分页跳转按钮。 [#14819](https://github.com/ant-design/ant-design/pull/14819)
 - 🐞 订正了 Table `column filter` 的 typescript 类型问题。[#14777](https://github.com/ant-design/ant-design/issues/14777)
 - DatePicker
   - 🐞 修复 DatePicker `name` prop 无效的问题。[#15029](https://github.com/ant-design/ant-design/pull/15029)
@@ -36,7 +36,7 @@ timeline: true
 - 🐞 修复 Table 筛选不支持 string 以外类型的问题。[#15046](https://github.com/ant-design/ant-design/pull/15046)
 - 🐞 修复 Spin `wrapperClassName` 设置 `padding` 图标不居中的问题。[#15056](https://github.com/ant-design/ant-design/pull/15056)
 - 🐞 修复 Calendar `onPanelChange` 在某些情况下不会触发的问题。[#15063](https://github.com/ant-design/ant-design/pull/15063)
-- 🐞 Select 在多选模式下支持 `showArrow`。[#15091](https://github.com/ant-design/ant-design/pull/15091)
+- 🌟 Select 在多选模式下支持 `showArrow`。[#15091](https://github.com/ant-design/ant-design/pull/15091)
 
 ## 3.13.6
 
