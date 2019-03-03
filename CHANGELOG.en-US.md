@@ -21,7 +21,7 @@ timeline: true
 - Two new components added this month:
   - 🔥🔥🔥[Typography](https://github.com/ant-design/ant-design/pull/14250) provides basic formatting and common operations for text.
   - 🔥🔥🔥[PageHeader](https://github.com/ant-design/ant-design/pull/13637) can be used to declare the page theme, display important information about the page that the user is interested in, and host the relevant page. Action item.
-- 🌟 Timepicker added `clearIcon` prop for custom clearing icons. [#14556](https://github.com/ant-design/ant-design/pull/14556)
+- 🌟 Timepicker provides `clearIcon` prop for customizing clear icons. [#14556](https://github.com/ant-design/ant-design/pull/14556)
 - 🌟 Statistic.Countdown support onFinish prop. [#14791](https://github.com/ant-design/ant-design/pull/14791)
 - 🌟 Support `extra` for Collapse.Panel. [62e65d](https://github.com/ant-design/ant-design/commit/62e65d955065b1862240f9f30d84de44349a0cf9)
 - 🌟 Support goto button in Pagination.  [#14798](https://github.com/ant-design/ant-design/pull/14819)
