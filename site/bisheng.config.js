@@ -15,6 +15,8 @@ function alertBabelConfig(rules) {
       rule.options.plugins = rule.options.plugins.filter(
         plugin => !plugin.indexOf || plugin.indexOf('babel-plugin-add-module-exports') === -1,
       );
+      // Add babel-plugin-add-react-displayname
+      rule.options.plugins.push(require.resolve('babel-plugin-add-react-displayname'));
     } else if (rule.use) {
       alertBabelConfig(rule.use);
     }

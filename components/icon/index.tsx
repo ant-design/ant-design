@@ -91,7 +91,8 @@ const Icon: IconComponent<IconProps> = props => {
 
   warning(
     Boolean(type || Component || children),
-    'Icon should have `type` prop or `component` prop or `children`.',
+    'Icon',
+    'Should have `type` prop or `component` prop or `children`.',
   );
 
   const classString = classNames(
@@ -137,6 +138,7 @@ const Icon: IconComponent<IconProps> = props => {
         (React.Children.count(children) === 1 &&
           React.isValidElement(children) &&
           React.Children.only(children).type === 'use'),
+      'Icon',
       'Make sure that you provide correct `viewBox`' +
         ' prop (default `0 0 1024 1024`) to the icon.',
     );
@@ -153,6 +155,7 @@ const Icon: IconComponent<IconProps> = props => {
       const themeInName = getThemeFromTypeName(type);
       warning(
         !themeInName || theme === themeInName,
+        'Icon',
         `The icon name '${type}' already specify a theme '${themeInName}',` +
           ` the 'theme' prop '${theme}' will be ignored.`,
       );
@@ -180,7 +183,7 @@ const Icon: IconComponent<IconProps> = props => {
     <LocaleReceiver componentName="Icon">
       {(locale: TransferLocale) => (
         <i
-          aria-label={`${locale.icon}: ${type}`}
+          aria-label={type && `${locale.icon}: ${type}`}
           {...restProps}
           tabIndex={iconTabIndex}
           onClick={onClick}
@@ -196,6 +199,7 @@ const Icon: IconComponent<IconProps> = props => {
 function unstable_ChangeThemeOfIconsDangerously(theme?: ThemeType) {
   warning(
     false,
+    'Icon',
     `You are using the unstable method 'Icon.unstable_ChangeThemeOfAllIconsDangerously', ` +
       `make sure that all the icons with theme '${theme}' display correctly.`,
   );
@@ -205,6 +209,7 @@ function unstable_ChangeThemeOfIconsDangerously(theme?: ThemeType) {
 function unstable_ChangeDefaultThemeOfIcons(theme: ThemeType) {
   warning(
     false,
+    'Icon',
     `You are using the unstable method 'Icon.unstable_ChangeDefaultThemeOfIcons', ` +
       `make sure that all the icons with theme '${theme}' display correctly.`,
   );

@@ -45,7 +45,7 @@ class NumericInput extends React.Component {
   onBlur = () => {
     const { value, onBlur, onChange } = this.props;
     if (value.charAt(value.length - 1) === '.' || value === '-') {
-      onChange({ value: value.slice(0, -1) });
+      onChange(value.slice(0, -1));
     }
     if (onBlur) {
       onBlur();

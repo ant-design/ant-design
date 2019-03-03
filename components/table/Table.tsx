@@ -114,12 +114,14 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
 
     warning(
       !('columnsPageRange' in props || 'columnsPageSize' in props),
+      'Table',
       '`columnsPageRange` and `columnsPageSize` are removed, please use ' +
         'fixed columns instead, see: https://u.ant.design/fixed-columns.',
     );
 
     warning(
       !('expandedRowRender' in props) || !('scroll' in props),
+      'Table',
       '`expandedRowRender` and `scroll` are not compatible. Please use one of them at one time.',
     );
 
@@ -731,6 +733,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       typeof rowKey === 'function' ? rowKey(record, index) : (record as any)[rowKey!];
     warning(
       recordKey !== undefined,
+      'Table',
       'Each record in dataSource of table should have a unique `key` prop, ' +
         'or set `rowKey` of Table to an unique primary key, ' +
         'see https://u.ant.design/table-row-key',
@@ -1020,7 +1023,6 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     let current: number;
     let pageSize: number;
     const state = this.state;
-    const pagination = this.props.pagination || {};
     // 如果没有分页的话，默认全部展示
     if (!this.hasPagination()) {
       pageSize = Number.MAX_VALUE;
@@ -1034,11 +1036,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     // ---
     // 当数据量少于等于每页数量时，直接设置数据
     // 否则进行读取分页数据
-    if (
-      data.length > pageSize ||
-      pageSize === Number.MAX_VALUE ||
-      (pagination.current === undefined && current * pageSize > data.length)
-    ) {
+    if (data.length > pageSize || pageSize === Number.MAX_VALUE) {
       data = data.filter((_, i) => {
         return i >= (current - 1) * pageSize && i < current * pageSize;
       });

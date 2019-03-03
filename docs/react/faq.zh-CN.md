@@ -7,17 +7,14 @@ title: FAQ
 
 ---
 
-### 你们会提供 Vue 版本的 Ant Design 吗？
-
-不，但是 [ant-design 基于 MIT 协议开源](https://github.com/ant-design/ant-design/blob/master/LICENSE)，所以你可以尝试用 ant-design 的[样式](https://github.com/ant-design/ant-design/tree/master/style)去实现一套，例如：[ant-design-vue](https://github.com/vueComponent/ant-design-vue) [vue-beauty](https://github.com/FE-Driver/vue-beauty) 或者 [antue](https://github.com/zzuu666/antue)。
-
 ### 你们会提供 Sass/Stylus 等格式的样式文件吗？
 
 不。事实上你可以使用工具（请自行 Google）将 Less 转换成 Sass/Stylus 等。
 
 ### 当我点击 `Select Dropdown DatePicker TimePicker Popover Popconfirm` 内的另一个 popup 组件时它会消失，如何解决？
 
-使用 `<Select getPopupContainer={trigger => trigger.parentNode}>` 来在 Popover 中渲染组件，或者使用其他的 getXxxxContainer 参数。
+该问题在 3.11.0 后已经解决。
+如果你仍在使用旧版本，你可以通过 `<Select getPopupContainer={trigger => trigger.parentNode}>` 来在 Popover 中渲染组件，或者使用其他的 getXxxxContainer 参数。
 
 https://ant.design/components/select/#Select-props
 
