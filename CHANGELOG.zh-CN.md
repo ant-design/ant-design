@@ -32,7 +32,7 @@ timeline: true
   - 🐞 修复 DatePicker `onPanelChange`  typescript 声明缺失的问题。[#15043](https://github.com/ant-design/ant-design/pull/15043)
   - 🌟 DatePicker 支持 `separator` prop。[#15055](https://github.com/ant-design/ant-design/pull/15055)
 - 🌟 Form 支持 labelCol & wrapperCol prop。[#15038](https://github.com/ant-design/ant-design/pull/15038)
-- 🌟 Icon 增加了 'more' 的图标。[#15047](https://github.com/ant-design/ant-design/pull/15047)
+- 🌟 Icon 增加了 `more` 的图标。[#15047](https://github.com/ant-design/ant-design/pull/15047)
 - 🐞 修复 Table 筛选不支持 string 以外类型的问题。[#15046](https://github.com/ant-design/ant-design/pull/15046)
 - 🐞 修复 Spin `wrapperClassName` 设置 `padding` 图标不居中的问题。[#13648](https://github.com/ant-design/ant-design/issues/13648)
 - 🐞 修复 Calendar `onPanelChange` 在某些情况下不会触发的问题。[#15063](https://github.com/ant-design/ant-design/pull/15063)

@@ -31,7 +31,7 @@ timeline: true
   - 🐞 Fix missing problems with DatePicker`onPanelChange` typescript. [#15043](https://github.com/ant-design/ant-design/pull/15043)
   - 🌟DatePicker supports `separator` prop. [#15055](https://github.com/ant-design/ant-design/pull/15055)
 - 🌟The table supports labelCol&wrapperCol prop. [#15038](https://github.com/ant-design/ant-design/pull/15038)
-- 🌟 The icon for 'more' has been added to the icon. [#15047](https://github.com/ant-design/ant-design/pull/15047)
+- 🌟 The icon for `more` has been added to the icon. [#15047](https://github.com/ant-design/ant-design/pull/15047)
 - 🐞 Repair table filtering does not support problems other than string. [#15046](https://github.com/ant-design/ant-design/pull/15046)
 - 🐞 Fix Spin `wrapperClassName` setting `padding` icon is not centered. [#13648](https://github.com/ant-design/ant-design/issues/13648)
 - 🐞 Fix calendar `onPanelChange` in some cases will not trigger the problem. [#15063](https://github.com/ant-design/ant-design/pull/15063)
