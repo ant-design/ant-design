@@ -21,18 +21,18 @@ timeline: true
 - Two new components added this month:
   - 🔥🔥🔥[Typography](https://github.com/ant-design/ant-design/pull/14250) provides basic formatting and common operations for text.
   - 🔥🔥🔥[PageHeader](https://github.com/ant-design/ant-design/pull/13637) can be used to declare the page theme, display important information about the page that the user is interested in, and host the relevant page. Action item.
-- 🌟Timepicker added `clearIcon` prop for custom clearing icons. [#14556](https://github.com/ant-design/ant-design/pull/14556)
-- 🌟Added `onFinish` prop to the countdown. [#14791](https://github.com/ant-design/ant-design/pull/14791)
-- 🌟 Added `extra` to Collapse.Panel. [62e65d](https://github.com/ant-design/ant-design/commit/62e65d955065b1862240f9f30d84de44349a0cf9)
-- 🌟 Pagination supports custom paging jump buttons via `showQuickJumper`. [#14798](https://github.com/ant-design/ant-design/issues/14798)
-- 🐞 Fixed the typescript type problem for Table`Column Filter`. [#14777](https://github.com/ant-design/ant-design/issues/14777)
+- 🌟 Timepicker added `clearIcon` prop for custom clearing icons. [#14556](https://github.com/ant-design/ant-design/pull/14556)
+- 🌟 Statistic.Countdown support onFinish prop. [#14791](https://github.com/ant-design/ant-design/pull/14791)
+- 🌟 Support `extra` for Collapse.Panel. [62e65d](https://github.com/ant-design/ant-design/commit/62e65d955065b1862240f9f30d84de44349a0cf9)
+- 🌟 Support goto button in Pagination.  [#14798](https://github.com/ant-design/ant-design/pull/14819)
+- 🐞 Fixed the typescript type problem for Table`Column Filter`. [#15056](https://github.com/ant-design/ant-design/pull/15056)
 - DatePicker
-  - 🐞 Fixed an issue where the DatePicker `name` prop is invalid. [#15029](https://github.com/ant-design/ant-design/pull/15029)
+  - 🐞 Fix DatePicker not suppor name prop. [#15029](https://github.com/ant-design/ant-design/pull/15029)
   - 🐞 Fix missing problems with DatePicker`onPanelChange` typescript. [#15043](https://github.com/ant-design/ant-design/pull/15043)
-  - 🌟DatePicker supports `separator` prop. [#15055](https://github.com/ant-design/ant-design/pull/15055)
-- 🌟The table supports labelCol&wrapperCol prop. [#15038](https://github.com/ant-design/ant-design/pull/15038)
+  - 🌟 DatePicker supports `separator` prop. [#15055](https://github.com/ant-design/ant-design/pull/15055)
+- 🌟 The table supports `labelCol` & `wrapperCol` prop. [#15038](https://github.com/ant-design/ant-design/pull/15038)
 - 🌟 The icon for `more` has been added to the icon. [#15047](https://github.com/ant-design/ant-design/pull/15047)
-- 🐞 Repair table filtering does not support problems other than string. [#15046](https://github.com/ant-design/ant-design/pull/15046)
+- 🐞 Fix Table filter can not support other type of value. [#15046](https://github.com/ant-design/ant-design/pull/15046)
 - 🐞 Fix Spin `wrapperClassName` setting `padding` icon is not centered. [#13648](https://github.com/ant-design/ant-design/issues/13648)
 - 🐞 Fix calendar `onPanelChange` in some cases will not trigger the problem. [#15063](https://github.com/ant-design/ant-design/pull/15063)
 - 🐞 Select to support `showArrow` in multi-select mode. [#15091](https://github.com/ant-design/ant-design/pull/15091)
