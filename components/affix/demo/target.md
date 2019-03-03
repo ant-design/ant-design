@@ -3,7 +3,6 @@ order: 2
 title:
   zh-CN: 滚动容器
   en-US: Container to scroll.
-only: true
 ---
 
 ## zh-CN
@@ -22,7 +21,7 @@ class Demo extends React.Component {
     return (
       <div className="scrollable-container" ref={(node) => { this.container = node; }}>
         <div className="background">
-          <Affix target={() => this.container} debug>
+          <Affix target={() => this.container}>
             <Button type="primary">
               Fixed at the top of container
             </Button>

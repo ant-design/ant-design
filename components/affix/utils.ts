@@ -1,5 +1,4 @@
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
-import getScroll from '../_util/getScroll';
 import Affix from './';
 
 // ======================== Observer ========================
@@ -22,7 +21,6 @@ interface ObserverEntity {
 let observerEntities: ObserverEntity[] = [];
 
 export function addObserveTarget(target: HTMLElement | Window | null, affix: Affix): void {
-  console.log('???', target);
   if (!target) return;
 
   let entity: ObserverEntity | undefined = observerEntities.find(item => item.target === target);
@@ -74,23 +72,4 @@ export function getTargetRect(target: HTMLElement | Window | null): ClientRect {
   return target !== window
     ? (target as HTMLElement).getBoundingClientRect()
     : ({ top: 0, bottom: window.innerHeight } as ClientRect);
-}
-
-export function getOffset(element: HTMLElement, target: HTMLElement | Window | null) {
-  const elemRect = element.getBoundingClientRect();
-  const targetRect = getTargetRect(target);
-
-  const scrollTop = getScroll(target, true);
-  const scrollLeft = getScroll(target, false);
-
-  const docElem = window.document.body;
-  const clientTop = docElem.clientTop || 0;
-  const clientLeft = docElem.clientLeft || 0;
-
-  return {
-    top: elemRect.top - targetRect.top + scrollTop - clientTop,
-    left: elemRect.left - targetRect.left + scrollLeft - clientLeft,
-    width: elemRect.width,
-    height: elemRect.height,
-  };
 }
