@@ -44,6 +44,23 @@ describe('TextArea', () => {
     expect(mockFunc).toHaveBeenCalledTimes(2);
   });
 
+  it('should support onPressEnter and onKeyDown', () => {
+    const fakeHandleKeyDown = jest.fn();
+    const fakeHandlePressEnter = jest.fn();
+    const wrapper = mount(
+      <TextArea onKeyDown={fakeHandleKeyDown} onPressEnter={fakeHandlePressEnter} />,
+    );
+    /** keyCode 65 is A */
+    wrapper.find('textarea').simulate('keydown', { keyCode: 65 });
+    expect(fakeHandleKeyDown).toHaveBeenCalledTimes(1);
+    expect(fakeHandlePressEnter).toHaveBeenCalledTimes(0);
+
+    /** keyCode 13 is Enter */
+    wrapper.find('textarea').simulate('keydown', { keyCode: 13 });
+    expect(fakeHandleKeyDown).toHaveBeenCalledTimes(2);
+    expect(fakeHandlePressEnter).toHaveBeenCalledTimes(1);
+  });
+
   it('should support disabled', () => {
     const wrapper = mount(<TextArea disabled />);
     expect(wrapper).toMatchSnapshot();

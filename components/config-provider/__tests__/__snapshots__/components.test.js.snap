@@ -5799,6 +5799,7 @@ exports[`ConfigProvider components Cascader configProvider 1`] = `
     autocomplete="off"
     class="config-input config-cascader-input "
     placeholder="Please select"
+    tabindex="-1"
     type="text"
     value=""
   />
@@ -5835,6 +5836,7 @@ exports[`ConfigProvider components Cascader normal 1`] = `
     autocomplete="off"
     class="ant-input ant-cascader-input "
     placeholder="Please select"
+    tabindex="-1"
     type="text"
     value=""
   />
@@ -5871,6 +5873,7 @@ exports[`ConfigProvider components Cascader prefixCls 1`] = `
     autocomplete="off"
     class="ant-input prefix-Cascader-input "
     placeholder="Please select"
+    tabindex="-1"
     type="text"
     value=""
   />
