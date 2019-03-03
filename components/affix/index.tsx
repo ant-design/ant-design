@@ -154,6 +154,8 @@ class Affix extends React.Component<AffixProps, AffixState> {
       newState.affixStyle = {
         position: 'fixed',
         top: offsetTop + targetRect.top,
+        width: placeholderReact.width,
+        height: placeholderReact.height,
       };
       newState.placeholderStyle = {
         width: placeholderReact.width,
@@ -167,6 +169,8 @@ class Affix extends React.Component<AffixProps, AffixState> {
       newState.affixStyle = {
         position: 'fixed',
         bottom: offsetBottom + targetBottomOffset,
+        width: placeholderReact.width,
+        height: placeholderReact.height,
       };
       newState.placeholderStyle = {
         width: placeholderReact.width,
