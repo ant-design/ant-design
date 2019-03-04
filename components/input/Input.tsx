@@ -142,9 +142,10 @@ class Input extends React.Component<InputProps, any> {
   setValue(
     value: string,
     e: React.ChangeEvent<HTMLInputElement> | React.MouseEvent<HTMLElement, MouseEvent>,
+    callback?: () => void,
   ) {
     if (!('value' in this.props)) {
-      this.setState({ value });
+      this.setState({ value }, callback);
     }
     const { onChange } = this.props;
     if (onChange) {
@@ -167,7 +168,9 @@ class Input extends React.Component<InputProps, any> {
   }
 
   handleReset = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-    this.setValue('', e);
+    this.setValue('', e, () => {
+      this.focus();
+    });
   };
 
   handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
