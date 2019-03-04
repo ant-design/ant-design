@@ -481,8 +481,6 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
 exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
-  labelcol="[object Object]"
-  wrappercol="[object Object]"
 >
   <div
     class="ant-row ant-form-item"
@@ -1513,8 +1511,6 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
 exports[`renders ./components/form/demo/register.md correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
-  labelcol="[object Object]"
-  wrappercol="[object Object]"
 >
   <div
     class="ant-row ant-form-item"
@@ -2469,8 +2465,6 @@ exports[`renders ./components/form/demo/style-check-debug.md correctly 1`] = `
 exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
-  labelcol="[object Object]"
-  wrappercol="[object Object]"
 >
   <div
     class="ant-row ant-form-item"
@@ -2889,8 +2883,6 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
 exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
-  labelcol="[object Object]"
-  wrappercol="[object Object]"
 >
   <div
     class="ant-row ant-form-item"
@@ -4107,8 +4099,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
 exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
-  labelcol="[object Object]"
-  wrappercol="[object Object]"
 >
   <div
     class="ant-row ant-form-item ant-form-item-with-help"
