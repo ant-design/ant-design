@@ -130,13 +130,15 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, pickerType
 
       return (
         <ConfigConsumer>
-          {({ getPrefixCls }: ConfigConsumerProps) => {
+          {({ getPrefixCls, getPopupContainer: getContextPopupContainer }: ConfigConsumerProps) => {
             const {
               prefixCls: customizePrefixCls,
               inputPrefixCls: customizeInputPrefixCls,
+              getCalendarContainer,
               size,
               disabled,
             } = this.props;
+            const getPopupContainer = getCalendarContainer || getContextPopupContainer;
             const prefixCls = getPrefixCls('calendar', customizePrefixCls);
             const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
             const pickerClass = classNames(`${prefixCls}-picker`, {
@@ -170,6 +172,7 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, pickerType
             return (
               <Picker
                 {...this.props}
+                getCalendarContainer={getPopupContainer}
                 format={mergedFormat}
                 ref={this.savePicker}
                 pickerClass={pickerClass}
