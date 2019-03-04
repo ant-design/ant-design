@@ -11,7 +11,7 @@ export interface GeneratorProps {
 export interface BasicProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   hasSider?: boolean;
-  tagName: 'header' | 'footer' | 'main' | 'section';
+  tagName?: 'header' | 'footer' | 'main' | 'section';
 }
 
 function generator({ suffixCls, tagName }: GeneratorProps) {
@@ -38,13 +38,9 @@ function generator({ suffixCls, tagName }: GeneratorProps) {
 
 class Basic extends React.Component<BasicProps, any> {
   render() {
-    const { prefixCls, className, children, tagName: CustomElement, ...others } = this.props;
+    const { prefixCls, className, children, tagName, ...others } = this.props;
     const classString = classNames(className, prefixCls);
-    return (
-      <CustomElement className={classString} {...others}>
-        {children}
-      </CustomElement>
-    );
+    return React.createElement(tagName, { className: classString, ...others }, children);
   }
 }
 
@@ -76,15 +72,11 @@ class BasicLayout extends React.Component<BasicProps, BasicLayoutState> {
   }
 
   render() {
-    const { prefixCls, className, children, hasSider, tagName: CustomElement, ...others } = this.props;
+    const { prefixCls, className, children, hasSider, tagName, ...others } = this.props;
     const classString = classNames(className, prefixCls, {
       [`${prefixCls}-has-sider`]: hasSider || this.state.siders.length > 0,
     });
-    return (
-      <CustomElement className={classString} {...others}>
-        {children}
-      </CustomElement>
-    );
+    return React.createElement(tagName, { className: classString, ...others }, children);
   }
 }
 
