@@ -32,6 +32,7 @@ Display statistic number.
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | format | Format as [moment](http://momentjs.com/) | string | 'HH:mm:ss' |
+| onFinish | Trigger when time's up | () => void | - |
 | prefix | prefix node of value | string \| ReactNode | - |
 | suffix | suffix node of value | string \| ReactNode | - |
 | title | Display title | string \| ReactNode | - |

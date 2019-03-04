@@ -3,13 +3,14 @@ import * as ReactDOM from 'react-dom';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Animate from 'rc-animate';
-import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
 import Row from '../grid/row';
 import Col, { ColProps } from '../grid/col';
 import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 import { tuple } from '../_util/type';
+import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
+import { FormContext, FormContextProps } from './context';
 
 const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
 
@@ -33,10 +34,6 @@ function intersperseSpace<T>(list: Array<T>): Array<T | string> {
   return list.reduce((current, item) => [...current, ' ', item], []).slice(1);
 }
 
-export interface FormItemContext {
-  vertical: boolean;
-}
-
 export default class FormItem extends React.Component<FormItemProps, any> {
   static defaultProps = {
     hasFeedback: false,
@@ -56,12 +53,6 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     children: PropTypes.node,
     colon: PropTypes.bool,
   };
-
-  static contextTypes = {
-    vertical: PropTypes.bool,
-  };
-
-  context: FormItemContext;
 
   helpShow = false;
 
@@ -267,15 +258,28 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   }
 
   renderWrapper(prefixCls: string, children: React.ReactNode) {
-    const { wrapperCol } = this.props;
-    const className = classNames(
-      `${prefixCls}-item-control-wrapper`,
-      wrapperCol && wrapperCol.className,
-    );
     return (
-      <Col {...wrapperCol} className={className} key="wrapper">
-        {children}
-      </Col>
+      <FormContext.Consumer>
+        {({ wrapperCol: contextWrapperCol, vertical }: FormContextProps) => {
+          const { wrapperCol } = this.props;
+          const mergedWrapperCol: ColProps =
+            ('wrapperCol' in this.props ? wrapperCol : contextWrapperCol) || {};
+
+          const className = classNames(
+            `${prefixCls}-item-control-wrapper`,
+            mergedWrapperCol.className,
+          );
+
+          // No pass FormContext since it's useless
+          return (
+            <FormContext.Provider value={{ vertical }}>
+              <Col {...mergedWrapperCol} className={className} key="wrapper">
+                {children}
+              </Col>
+            </FormContext.Provider>
+          );
+        }}
+      </FormContext.Consumer>
     );
   }
 
@@ -323,35 +327,43 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   };
 
   renderLabel(prefixCls: string) {
-    const { label, labelCol, colon, id } = this.props;
-    const context = this.context;
-    const required = this.isRequired();
+    return (
+      <FormContext.Consumer>
+        {({ vertical, labelCol: contextLabelCol }: FormContextProps) => {
+          const { label, labelCol, colon, id } = this.props;
+          const required = this.isRequired();
 
-    const labelColClassName = classNames(`${prefixCls}-item-label`, labelCol && labelCol.className);
-    const labelClassName = classNames({
-      [`${prefixCls}-item-required`]: required,
-    });
+          const mergedLabelCol: ColProps =
+            ('labelCol' in this.props ? labelCol : contextLabelCol) || {};
 
-    let labelChildren = label;
-    // Keep label is original where there should have no colon
-    const haveColon = colon && !context.vertical;
-    // Remove duplicated user input colon
-    if (haveColon && typeof label === 'string' && (label as string).trim() !== '') {
-      labelChildren = (label as string).replace(/[：|:]\s*$/, '');
-    }
+          const labelColClassName = classNames(`${prefixCls}-item-label`, mergedLabelCol.className);
+          const labelClassName = classNames({
+            [`${prefixCls}-item-required`]: required,
+          });
 
-    return label ? (
-      <Col {...labelCol} className={labelColClassName} key="label">
-        <label
-          htmlFor={id || this.getId()}
-          className={labelClassName}
-          title={typeof label === 'string' ? label : ''}
-          onClick={this.onLabelClick}
-        >
-          {labelChildren}
-        </label>
-      </Col>
-    ) : null;
+          let labelChildren = label;
+          // Keep label is original where there should have no colon
+          const haveColon = colon && !vertical;
+          // Remove duplicated user input colon
+          if (haveColon && typeof label === 'string' && (label as string).trim() !== '') {
+            labelChildren = (label as string).replace(/[：|:]\s*$/, '');
+          }
+
+          return label ? (
+            <Col {...mergedLabelCol} className={labelColClassName} key="label">
+              <label
+                htmlFor={id || this.getId()}
+                className={labelClassName}
+                title={typeof label === 'string' ? label : ''}
+                onClick={this.onLabelClick}
+              >
+                {labelChildren}
+              </label>
+            </Col>
+          ) : null;
+        }}
+      </FormContext.Consumer>
+    );
   }
 
   renderChildren(prefixCls: string) {

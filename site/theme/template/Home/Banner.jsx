@@ -68,9 +68,7 @@ class Banner extends React.PureComponent {
               <FormattedMessage id="app.home.introduce" />
             </p>
             <div className="banner-btns" key="buttons">
-              <Link
-                to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}
-              >
+              <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
                 <Button type="primary" className="banner-btn components">
                   <FormattedMessage id="app.home.getting-started" />
                 </Button>

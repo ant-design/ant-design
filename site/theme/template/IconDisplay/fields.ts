@@ -151,6 +151,7 @@ export const categories = {
     'desktop',
     'download',
     'ellipsis',
+    'more',
     'file',
     'file-text',
     'file-unknown',

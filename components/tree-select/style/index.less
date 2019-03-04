@@ -160,8 +160,12 @@
 .@{select-prefix-cls}-tree-dropdown {
   .reset-component;
   .@{select-prefix-cls}-dropdown-search {
+    position: sticky;
+    top: 0;
+    z-index: 1;
     display: block;
     padding: 4px;
+    background: @component-background;
     .@{select-prefix-cls}-search__field__wrap {
       width: 100%;
     }

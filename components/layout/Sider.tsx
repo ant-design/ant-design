@@ -254,10 +254,10 @@ class Sider extends React.Component<SiderProps, SiderState> {
       [`${prefixCls}-zero-width`]: parseFloat(siderWidth) === 0,
     });
     return (
-      <div className={siderCls} {...divProps} style={divStyle}>
+      <aside className={siderCls} {...divProps} style={divStyle}>
         <div className={`${prefixCls}-children`}>{this.props.children}</div>
         {collapsible || (this.state.below && zeroWidthTrigger) ? triggerDom : null}
-      </div>
+      </aside>
     );
   };
 
