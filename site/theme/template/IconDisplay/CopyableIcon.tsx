@@ -23,7 +23,7 @@ const CopyableIcon: React.SFC<CopyableIconProps> = ({
 }) => {
   const className = classNames({
     copied: justCopied === type,
-    outlined: theme === 'twoTone'
+    outlined: theme === 'twoTone',
   });
   return (
     <CopyToClipboard
