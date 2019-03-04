@@ -11,7 +11,7 @@ export interface GeneratorProps {
 export interface BasicProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   hasSider?: boolean;
-  tagName: 'header' | 'footer' | 'main' | 'section';
+  tagName?: 'header' | 'footer' | 'main' | 'section';
 }
 
 function generator({ suffixCls, tagName }: GeneratorProps) {
