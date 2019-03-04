@@ -26,7 +26,6 @@ timeline: true
 - 🌟 Collapse.Panel support `extra` prop. [62e65d](https://github.com/ant-design/ant-design/commit/62e65d955065b1862240f9f30d84de44349a0cf9)
 - DatePicker
   - 🐞 Fix not support name prop. [#15029](https://github.com/ant-design/ant-design/pull/15029)
-  - 🐞 Fixed a problem with the `onPanelChange` TypeScript declaration missing. [#15043](https://github.com/ant-design/ant-design/pull/15043)
   - 🌟 Supports `separator` prop. [#15055](https://github.com/ant-design/ant-design/pull/15055)
 - 🌟 The Form supports `labelCol` & `wrapperCol` prop. [#15038](https://github.com/ant-design/ant-design/pull/15038)
 - 🌟 Add type `more` for Icon. [#15047](https://github.com/ant-design/ant-design/pull/15047)
@@ -34,9 +33,11 @@ timeline: true
 - 🐞 Fix Spin `wrapperClassName` setting `padding` icon is not centered. [#15056](https://github.com/ant-design/ant-design/pull/15056)
 - 🐞 Fix Calendar won't trigger `onPanelChange` correctly in some cases. [#15063](https://github.com/ant-design/ant-design/pull/15063)
 - 🌟 Select supports `showArrow` in multi-select mode. [#15091](https://github.com/ant-design/ant-design/pull/15091)
-- 🌟 Support goto button in Pagination.  [#14819](https://github.com/ant-design/ant-design/pull/14819)
-- 🐞 Fix the TypeScript type problem for Table `Column Filter`. [#15056](https://github.com/ant-design/ant-design/pull/15056)
-
+- 🌟 Adjusted multiple TypeScript types
+  - 🐞 Fixed a problem with the `onPanelChange` TypeScript declaration missing. [#15043](https://github.com/ant-design/ant-design/pull/15043)
+  - 🐞 Fix the TypeScript type problem for Table `Column Filter`. [#15056](https://github.com/ant-design/ant-design/pull/15056)
+  - 🌟 Support goto button in Pagination.  [#14819](https://github.com/ant-design/ant-design/pull/14819)
+  
 ## 3.13.6
 
 `2019-02-23`
