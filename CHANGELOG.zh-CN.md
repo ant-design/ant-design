@@ -18,7 +18,9 @@ timeline: true
 `2019-03-04`
 
 - 🌟 PageHeader 支持 `className` prop。 [#15159](https://github.com/ant-design/ant-design/pull/15159)
-- 🐞 修复 Form 警告信息。 [#15160](https://github.com/ant-design/ant-design/pull/15160)
+- 🐞 修复 Form 输出警告信息的问题。 [#15160](https://github.com/ant-design/ant-design/pull/15160)
+- 🐞 修复 ConfigProvider 中 getPopupContainer 对于 DatePicker 无效的问题。[#15156](https://github.com/ant-design/ant-design/pull/15156)
+- 🐞 修复 Collapse `extra` 位置错误的问题。[#15176](https://github.com/ant-design/ant-design/pull/15176)
 
 ## 3.14.0
 

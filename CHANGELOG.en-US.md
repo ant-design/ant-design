@@ -21,6 +21,8 @@ timeline: true
 
 - 🌟 PageHeader support `className` prop. [#15159](https://github.com/ant-design/ant-design/pull/15159)
 - 🐞 Fix Form warning with unique key & additional attributes. [#15160](https://github.com/ant-design/ant-design/pull/15160)
+- 🐞 Fix `getPopupContainer` of ConfigProvider not work with DatePicker. [#15156](https://github.com/ant-design/ant-design/pull/15156)
+- 🐞 Fix Collapse `extra` node style missing. [#15176](https://github.com/ant-design/ant-design/pull/15176)
 
 ## 3.14.0
 
