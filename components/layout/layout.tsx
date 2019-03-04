@@ -40,7 +40,7 @@ class Basic extends React.Component<BasicProps, any> {
   render() {
     const { prefixCls, className, children, tagName, ...others } = this.props;
     const classString = classNames(className, prefixCls);
-    return React.createElement(tagName, { className: classString, ...others }, children);
+    return React.createElement(tagName!, { className: classString, ...others }, children);
   }
 }
 
@@ -76,7 +76,7 @@ class BasicLayout extends React.Component<BasicProps, BasicLayoutState> {
     const classString = classNames(className, prefixCls, {
       [`${prefixCls}-has-sider`]: hasSider || this.state.siders.length > 0,
     });
-    return React.createElement(tagName, { className: classString, ...others }, children);
+    return React.createElement(tagName!, { className: classString, ...others }, children);
   }
 }
 
