@@ -83,7 +83,6 @@ export interface OptionProps {
   title?: string;
   children?: React.ReactNode;
   className?: string;
-  key?: string;
   style?: React.CSSProperties;
 }
 

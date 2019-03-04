@@ -1718,6 +1718,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               data-__meta="[object Object]"
               id="register_residence"
               readonly=""
+              tabindex="-1"
               type="text"
               value=""
             />
@@ -4705,6 +4706,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               autocomplete="off"
               class="ant-input ant-cascader-input "
               readonly=""
+              tabindex="-1"
               type="text"
               value=""
             />
