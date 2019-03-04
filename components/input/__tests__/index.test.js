@@ -1,7 +1,5 @@
 import React from 'react';
-
 import { mount } from 'enzyme';
-
 /* eslint-disable import/no-unresolved */
 import Form from '../../form';
 import Input from '..';
@@ -117,6 +115,28 @@ describe('TextArea', () => {
       minHeight: -4,
       overflowY: undefined,
     });
+  });
+
+  it('when prop autosize changed, updateResizeObserverHook should be called', () => {
+    const wrapper = mount(<TextArea autosize />);
+    wrapper.setProps({ autosize: false });
+    expect(wrapper.instance().resizeObserver).toBe(null);
+  });
+
+  it('when prop value not in this.props, resizeTextarea should be called', () => {
+    const wrapper = mount(<TextArea />);
+    const resizeTextarea = jest.spyOn(wrapper.instance(), 'resizeTextarea');
+    wrapper.find('textarea').simulate('change', 'test');
+    expect(resizeTextarea).toHaveBeenCalled();
+  });
+
+  it('handleKeyDown', () => {
+    const onPressEnter = jest.fn();
+    const onKeyDown = jest.fn();
+    const wrapper = mount(<TextArea onPressEnter={onPressEnter} onKeyDown={onKeyDown} />);
+    wrapper.instance().handleKeyDown({ keyCode: 13 });
+    expect(onPressEnter).toBeCalled();
+    expect(onKeyDown).toBeCalled();
   });
 });
 
