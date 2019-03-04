@@ -11,12 +11,15 @@ export interface GeneratorProps {
 export interface BasicProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   hasSider?: boolean;
-  tagName?: 'header' | 'footer' | 'main' | 'section';
+}
+
+interface BasicPropsWithTagName extends BasicProps {
+  tagName: 'header' | 'footer' | 'main' | 'section';
 }
 
 function generator({ suffixCls, tagName }: GeneratorProps) {
-  return (BasicComponent: React.ComponentClass<BasicProps>): any => {
-    return class Adapter extends React.Component<BasicProps, any> {
+  return (BasicComponent: React.ComponentClass<BasicPropsWithTagName>): any => {
+    return class Adapter extends React.Component<BasicPropsWithTagName, any> {
       static Header: any;
       static Footer: any;
       static Content: any;
@@ -36,11 +39,11 @@ function generator({ suffixCls, tagName }: GeneratorProps) {
   };
 }
 
-class Basic extends React.Component<BasicProps, any> {
+class Basic extends React.Component<BasicPropsWithTagName, any> {
   render() {
     const { prefixCls, className, children, tagName, ...others } = this.props;
     const classString = classNames(className, prefixCls);
-    return React.createElement(tagName!, { className: classString, ...others }, children);
+    return React.createElement(tagName, { className: classString, ...others }, children);
   }
 }
 
@@ -48,7 +51,7 @@ interface BasicLayoutState {
   siders: string[];
 }
 
-class BasicLayout extends React.Component<BasicProps, BasicLayoutState> {
+class BasicLayout extends React.Component<BasicPropsWithTagName, BasicLayoutState> {
   static childContextTypes = {
     siderHook: PropTypes.object,
   };
@@ -76,7 +79,7 @@ class BasicLayout extends React.Component<BasicProps, BasicLayoutState> {
     const classString = classNames(className, prefixCls, {
       [`${prefixCls}-has-sider`]: hasSider || this.state.siders.length > 0,
     });
-    return React.createElement(tagName!, { className: classString, ...others }, children);
+    return React.createElement(tagName, { className: classString, ...others }, children);
   }
 }
 
