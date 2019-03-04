@@ -25,9 +25,9 @@ timeline: true
 - 🌟 Statistic.Countdown supports `onFinish` prop. [#14791](https://github.com/ant-design/ant-design/pull/14791)
 - 🌟 Collapse.Panel support `extra` prop. [62e65d](https://github.com/ant-design/ant-design/commit/62e65d955065b1862240f9f30d84de44349a0cf9)
 - DatePicker
-  - 🐞 Fix DatePicker not support name prop. [#15029](https://github.com/ant-design/ant-design/pull/15029)
-  - 🐞 Fix missing problems with DatePicker `onPanelChange` TypeScript. [#15043](https://github.com/ant-design/ant-design/pull/15043)
-  - 🌟 DatePicker supports `separator` prop. [#15055](https://github.com/ant-design/ant-design/pull/15055)
+  - 🐞 Fix not support name prop. [#15029](https://github.com/ant-design/ant-design/pull/15029)
+  - 🐞 Fixed a problem with the `onPanelChange` TypeScript declaration missing. [#15043](https://github.com/ant-design/ant-design/pull/15043)
+  - 🌟 Supports `separator` prop. [#15055](https://github.com/ant-design/ant-design/pull/15055)
 - 🌟 The Form supports `labelCol` & `wrapperCol` prop. [#15038](https://github.com/ant-design/ant-design/pull/15038)
 - 🌟 Add type `more` for Icon. [#15047](https://github.com/ant-design/ant-design/pull/15047)
 - 🐞 Fix Table filter can not support other type of value. [#15046](https://github.com/ant-design/ant-design/pull/15046)

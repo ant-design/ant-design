@@ -26,9 +26,9 @@ timeline: true
 - 🌟Statistic.Countdown 支持 `onFinish` prop。[#14791](https://github.com/ant-design/ant-design/pull/14791)
 - 🌟 Collapse.Panel 新增了 `extra`。[62e65d](https://github.com/ant-design/ant-design/commit/62e65d955065b1862240f9f30d84de44349a0cf9)
 - DatePicker
-  - 🐞 修复 DatePicker `name` prop 无效的问题。[#15029](https://github.com/ant-design/ant-design/pull/15029)
-  - 🐞 修复 DatePicker `onPanelChange`  TypeScript 声明缺失的问题。[#15043](https://github.com/ant-design/ant-design/pull/15043)
-  - 🌟 DatePicker 支持 `separator` prop。[#15055](https://github.com/ant-design/ant-design/pull/15055)
+  - 🐞 修复 `name` prop 无效的问题。[#15029](https://github.com/ant-design/ant-design/pull/15029)
+  - 🐞 修复 `onPanelChange`  TypeScript 声明缺失的问题。[#15043](https://github.com/ant-design/ant-design/pull/15043)
+  - 🌟 支持 `separator` prop。[#15055](https://github.com/ant-design/ant-design/pull/15055)
 - 🌟 Form 支持 `labelCol` & `wrapperCol` prop。[#15038](https://github.com/ant-design/ant-design/pull/15038)
 - 🌟 Icon 增加了 `more` 的图标。[#15047](https://github.com/ant-design/ant-design/pull/15047)
 - 🐞 修复 Table 筛选不支持 string 以外类型的问题。[#15046](https://github.com/ant-design/ant-design/pull/15046)
