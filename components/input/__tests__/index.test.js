@@ -117,14 +117,8 @@ describe('TextArea', () => {
     });
   });
 
-  it('when prop autosize changed, updateResizeObserverHook should be called', () => {
-    const wrapper = mount(<TextArea autosize />);
-    wrapper.setProps({ autosize: false });
-    expect(wrapper.instance().resizeObserver).toBe(null);
-  });
-
   it('when prop value not in this.props, resizeTextarea should be called', () => {
-    const wrapper = mount(<TextArea />);
+    const wrapper = mount(<TextArea aria-label="textarea" />);
     const resizeTextarea = jest.spyOn(wrapper.instance(), 'resizeTextarea');
     wrapper.find('textarea').simulate('change', 'test');
     expect(resizeTextarea).toHaveBeenCalled();
@@ -133,7 +127,9 @@ describe('TextArea', () => {
   it('handleKeyDown', () => {
     const onPressEnter = jest.fn();
     const onKeyDown = jest.fn();
-    const wrapper = mount(<TextArea onPressEnter={onPressEnter} onKeyDown={onKeyDown} />);
+    const wrapper = mount(
+      <TextArea onPressEnter={onPressEnter} onKeyDown={onKeyDown} aria-label="textarea" />,
+    );
     wrapper.instance().handleKeyDown({ keyCode: 13 });
     expect(onPressEnter).toBeCalled();
     expect(onKeyDown).toBeCalled();
