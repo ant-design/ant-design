@@ -19,7 +19,7 @@ interface BasicPropsWithTagName extends BasicProps {
 
 function generator({ suffixCls, tagName }: GeneratorProps) {
   return (BasicComponent: React.ComponentClass<BasicPropsWithTagName>): any => {
-    return class Adapter extends React.Component<BasicPropsWithTagName, any> {
+    return class Adapter extends React.Component<BasicProps, any> {
       static Header: any;
       static Footer: any;
       static Content: any;
