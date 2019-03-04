@@ -25,8 +25,8 @@ timeline: true
 `2019-03-02`
 
 - 本月新增了两个组件：
-  - 🔥🔥🔥 [Typography](https://github.com/ant-design/ant-design/pull/14250) 提供了文本的基本格式及常见操作。
-  - 🔥🔥🔥 [PageHeader](https://github.com/ant-design/ant-design/pull/13637) 可用于声明页面主题、展示用户所关注的页面重要信息，以及承载与当前页相关的操作项。
+  - 🔥🔥🔥 [Typography](https://ant.design/components/typography-cn/) 提供了文本的基本格式及常见操作。
+  - 🔥🔥🔥 [PageHeader](https://ant.design/components/page-header-cn/) 可用于声明页面主题、展示用户所关注的页面重要信息，以及承载与当前页相关的操作项。
 - 🌟 TimePicker 新增了 `clearIcon` prop，用于自定义清除图标。[#14556](https://github.com/ant-design/ant-design/pull/14556)
 - 🌟Statistic.Countdown 支持 `onFinish` prop。[#14791](https://github.com/ant-design/ant-design/pull/14791)
 - 🌟 Collapse.Panel 新增了 `extra`。[62e65d](https://github.com/ant-design/ant-design/commit/62e65d955065b1862240f9f30d84de44349a0cf9)
