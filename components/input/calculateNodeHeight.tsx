@@ -45,7 +45,7 @@ export interface NodeType {
 const computedStyleCache: { [key: string]: NodeType } = {};
 let hiddenTextarea: HTMLTextAreaElement;
 
-function calculateNodeStyling(node: HTMLElement, useCache = false) {
+export function calculateNodeStyling(node: HTMLElement, useCache = false) {
   const nodeRef = (node.getAttribute('id') ||
     node.getAttribute('data-reactid') ||
     node.getAttribute('name')) as string;
