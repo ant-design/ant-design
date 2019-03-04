@@ -34,10 +34,15 @@ timeline: true
 - 🐞 修复 Spin `wrapperClassName` 设置 `padding` 图标不居中的问题。[#15056](https://github.com/ant-design/ant-design/pull/15056)
 - 🐞 修复 Calendar `onPanelChange` 在某些情况下不会触发的问题。[#15063](https://github.com/ant-design/ant-design/pull/15063)
 - 🌟 Select 在多选模式下支持 `showArrow`。[#15091](https://github.com/ant-design/ant-design/pull/15091)
+- 🐞 修复关闭抽屉时浮层阴影没有缓动消失的细节。[#15147](https://github.com/ant-design/ant-design/pull/15147)
+- 🌟 增加了两个 less 变量 `@drawer-header-padding` 和 `@drawer-body-padding` 以控制 Drawer 的 padding。[#15120](https://github.com/ant-design/ant-design/pull/15120)
+- 🐞 修复 Cascader 需要按 Tab 两次切换聚焦的问题。[#15117](https://github.com/ant-design/ant-design/pull/15117)
+- 🐞 InputNumber 的 `onChange` 将会返回 `null` 而不是 `undefined`，以修复组件的值无法正确收集和清空的问题。[#14960](https://github.com/ant-design/ant-design/pull/14960)
 - 🐞 调整了多处 TypeScript 的类型
-  - 🐞 修复 `onPanelChange`  TypeScript 声明缺失的问题。[#15043](https://github.com/ant-design/ant-design/pull/15043)
+  - 🐞 修复 `onPanelChange` TypeScript 声明缺失的问题。[#15043](https://github.com/ant-design/ant-design/pull/15043)
   - 🐞 订正了 Table `column filter` 的 TypeScript 类型问题。[#14777](https://github.com/ant-design/ant-design/issues/14777)
-  - 🌟 Pagination 支持添加分页跳转按钮。 [#14819](https://github.com/ant-design/ant-design/pull/14819) 
+  - 🌟 Pagination 支持添加分页跳转按钮。[#14819](https://github.com/ant-design/ant-design/pull/14819) 
+  - 🐞 修复 Carousel 的 responsive prop TypeScript 声明缺失的问题。[#15071](https://github.com/ant-design/ant-design/pull/15071)
 
 ## 3.13.6
 
