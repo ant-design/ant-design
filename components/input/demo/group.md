@@ -102,7 +102,7 @@ class CompactDemo extends React.Component {
         <br />
         <InputGroup compact>
           <Input style={{ width: '50%' }} defaultValue="input content" />
-          <DatePicker />
+          <DatePicker style={{ width: '50%' }} />
         </InputGroup>
         <br />
         <InputGroup compact>
