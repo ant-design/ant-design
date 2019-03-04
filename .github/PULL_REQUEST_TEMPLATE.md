@@ -18,15 +18,15 @@ Please makes sure that these form are filled before submitting your pull request
 - [ ] Branch merge
 - [ ] Other (about what?)
 
-### 👻 What's the background and how to resolve it?
+### 👻 What's the background?
 
  1. Describe the source of requirement, like related issue link.
 
- 2. Describe the existed solution.
+ 2. Describe the problem and the scenario.
 
 ### 💡 Solution
 
-1. List final API implementation and usage sample.
+1. How to fix the problem, and list final API implementation and usage sample if that is an new feature.
 
 2. GIF or snapshot should be provided if includes UI/interactive modification.
 
