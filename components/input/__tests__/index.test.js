@@ -137,6 +137,24 @@ describe('Input.Password', () => {
     wrapper.setProps({ visibilityToggle: true });
     expect(wrapper.find('.anticon-eye').length).toBe(1);
   });
+
+  it('should keep focus state', () => {
+    const wrapper = mount(<Input.Password defaultValue="111" autoFocus />);
+    expect(document.activeElement).toBe(
+      wrapper.find('input').at(0).getDOMNode()
+    );
+    wrapper
+      .find('.ant-input-password-icon')
+      .at(0)
+      .simulate('mousedown');
+    wrapper
+      .find('.ant-input-password-icon')
+      .at(0)
+      .simulate('click');
+    expect(document.activeElement).toBe(
+      wrapper.find('input').at(0).getDOMNode()
+    );
+  });
 });
 
 describe('Input allowClear', () => {
@@ -215,5 +233,16 @@ describe('Input allowClear', () => {
         .at(0)
         .getDOMNode().value,
     ).toBe('111');
+  });
+
+  it('should focus input after clear', () => {
+    const wrapper = mount(<Input allowClear defaultValue="111" />);
+    wrapper
+      .find('.ant-input-clear-icon')
+      .at(0)
+      .simulate('click');
+    expect(document.activeElement).toBe(
+      wrapper.find('input').at(0).getDOMNode()
+    );
   });
 });
