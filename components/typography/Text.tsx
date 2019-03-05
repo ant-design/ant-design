@@ -3,7 +3,7 @@ import warning from '../_util/warning';
 import Base, { BlockProps } from './Base';
 
 interface TextProps extends BlockProps {
-  ellipsis: boolean;
+  ellipsis?: boolean;
 }
 
 const Text: React.SFC<TextProps> = ({ ellipsis, ...restProps }) => {
