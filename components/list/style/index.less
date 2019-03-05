@@ -35,6 +35,12 @@
     display: flex;
     align-items: center;
     padding: @list-item-padding;
+
+    // https://github.com/ant-design/ant-design/issues/15186
+    > span {
+      display: contents;
+    }
+
     &-meta {
       display: flex;
       flex: 1;
