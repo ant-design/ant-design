@@ -163,16 +163,18 @@ class Upload extends React.Component<UploadProps, UploadState> {
 
   handleRemove(file: UploadFile) {
     const { onRemove } = this.props;
-    const { status } = file;
-
-    file.status = 'removed'; // eslint-disable-line
 
     Promise.resolve(typeof onRemove === 'function' ? onRemove(file) : onRemove).then(ret => {
       // Prevent removing file
       if (ret === false) {
-        file.status = status;
         return;
       }
+
+      if (this.upload) {
+        this.upload.abort(file);
+      }
+
+      file.status = 'removed'; // eslint-disable-line
 
       const removedFileList = removeFileItem(file, this.state.fileList);
       if (removedFileList) {
@@ -185,9 +187,6 @@ class Upload extends React.Component<UploadProps, UploadState> {
   }
 
   handleManualRemove = (file: UploadFile) => {
-    if (this.upload) {
-      this.upload.abort(file);
-    }
     this.handleRemove(file);
   };
 
