@@ -20,9 +20,9 @@ Please makes sure that these form are filled before submitting your pull request
 
 ### 👻 What's the background?
 
- 1. Describe the source of requirement, like related issue link.
+1. Describe the source of requirement, like related issue link.
 
- 2. Describe the problem and the scenario.
+2. Describe the problem and the scenario.
 
 ### 💡 Solution
 
