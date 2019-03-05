@@ -203,6 +203,14 @@ describe('DatePicker', () => {
     expect(extraNode.length).toBe(1);
     expect(extraNode.text()).toBe('decade');
   });
+  it('extra sidebar works', () => {
+    const wrapper = mount(
+      <DatePicker renderSidebar={mode => <span className="extra-node">{mode}</span>} />,
+    );
+    openPanel(wrapper);
+
+    expect(wrapper.simulate('click').render()).toMatchSnapshot();
+  });
 
   it('supports multiple formats', () => {
     const wrapper = mount(<DatePicker format={['DD/MM/YYYY', 'DD/MM/YY']} />);

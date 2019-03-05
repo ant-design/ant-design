@@ -319,4 +319,13 @@ describe('RangePicker', () => {
     const wrapper = mount(<RangePicker separator="test" />);
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  it('extra sidebar works', () => {
+    const wrapper = mount(
+      <DatePicker renderSidebar={mode => <span className="extra-node">{mode}</span>} />,
+    );
+    openPanel(wrapper);
+
+    expect(wrapper.simulate('click').render()).toMatchSnapshot();
+  });
 });

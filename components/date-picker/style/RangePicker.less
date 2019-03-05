@@ -24,8 +24,10 @@
   vertical-align: top;
 }
 
+@calendar-range-container-width: 552px;
+
 .@{calendar-prefix-cls}-range {
-  width: 552px;
+  width: @calendar-range-container-width;
   overflow: hidden;
 
   .@{calendar-prefix-cls}-date-panel {
@@ -218,6 +220,10 @@
 
   &-with-ranges.@{calendar-prefix-cls}-time .@{calendar-timepicker-prefix-cls} {
     height: 233px;
+  }
+
+  &.@{calendar-prefix-cls}-has-sidebar.@{calendar-prefix-cls} {
+    width: @calendar-range-container-width + @calendar-sider-width;
   }
 }
 

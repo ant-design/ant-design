@@ -82,6 +82,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 | disabledTime | to specify the time that cannot be selected | function(date) | - |
 | format | to set the date format, refer to [moment.js](http://momentjs.com/). When an array is provided, all values are used for parsing and first value is used for formatting. | string \| string[] | "YYYY-MM-DD" |
 | renderExtraFooter | render extra footer in panel | (mode) => React.ReactNode | - |
+| renderSidebar | render extra sidebar in panel | () => React.ReactNode | - |
 | showTime | to provide an additional time selection | object\|boolean | [TimePicker Options](/components/time-picker/#API) |
 | showTime.defaultValue | to set default time of selected date, [demo](#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/) | moment() |
 | showToday | whether to show "Today" button | boolean | true |
@@ -122,6 +123,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 | format | to set the date format, refer to [moment.js](http://momentjs.com/). When an array is provided, all values are used for parsing and first value is used for formatting. | string \| string[] | "YYYY-MM-DD HH:mm:ss" | |
 | ranges | preseted ranges for quick selection | { \[range: string]: [moment](http://momentjs.com/)\[] } \| { \[range: string]: () => [moment](http://momentjs.com/)\[] } | - | |
 | renderExtraFooter | render extra footer in panel | () => React.ReactNode | - | |
+| renderSidebar | render extra sidebar in panel | () => React.ReactNode | - |
 | separator | set separator between inputs | string | '~' | 3.14.0 |
 | showTime | to provide an additional time selection | object\|boolean | [TimePicker Options](/components/time-picker/#API) | |
 | showTime.defaultValue | to set default time of selected date, [demo](#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/)\[] | \[moment(), moment()] | |

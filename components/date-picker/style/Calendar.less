@@ -82,9 +82,12 @@
   }
 }
 
+@calendar-container-width: 280px;
+@calendar-sider-width: 120px;
+
 .@{calendar-prefix-cls} {
   position: relative;
-  width: 280px;
+  width: @calendar-container-width;
   font-size: @font-size-base;
   line-height: @line-height-base;
   text-align: left;
@@ -332,5 +335,21 @@
     line-height: @btn-height-sm - 2px;
 
     .button-disabled();
+  }
+
+  &&-has-sidebar {
+    width: @calendar-container-width + @calendar-sider-width;
+
+    .@{calendar-prefix-cls}-sidebar {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: @calendar-sider-width;
+      border-right: @border-width-base @border-style-base @border-color-split;
+    }
+    .@{calendar-prefix-cls}-panel {
+      margin-left: @calendar-sider-width;
+    }
   }
 }
