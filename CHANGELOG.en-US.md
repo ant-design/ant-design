@@ -14,13 +14,23 @@ timeline: true
 * Major version release is not included in this schedule for breaking change and new features.
 
 ---
+
+## 3.14.1
+
+`2019-03-04`
+
+- 🌟 PageHeader support `className` prop. [#15159](https://github.com/ant-design/ant-design/pull/15159)
+- 🐞 Fix Form warning with unique key & additional attributes. [#15160](https://github.com/ant-design/ant-design/pull/15160)
+- 🐞 Fix `getPopupContainer` of ConfigProvider not work with DatePicker. [#15156](https://github.com/ant-design/ant-design/pull/15156)
+- 🐞 Fix Collapse `extra` node style missing. [#15176](https://github.com/ant-design/ant-design/pull/15176)
+
 ## 3.14.0
 
 `2019-03-02`
 
 - Two new components added this month:
-  - 🔥🔥🔥[Typography](https://github.com/ant-design/ant-design/pull/14250) provides basic formatting and common operations for text.
-  - 🔥🔥🔥[PageHeader](https://github.com/ant-design/ant-design/pull/13637) can be used to declare the page theme, display important information about the page that the user is interested in, and host the relevant page. Action item.
+  - 🔥🔥🔥[Typography](https://ant.design/components/typography/) provides basic formatting and common operations for text.
+  - 🔥🔥🔥[PageHeader](https://ant.design/components/page-header/) can be used to declare the page theme, display important information about the page that the user is interested in, and host the relevant page. Action item.
 - 🌟 TimePicker provides `clearIcon` prop for customizing clear icon. [#14556](https://github.com/ant-design/ant-design/pull/14556)
 - 🌟 Statistic.Countdown supports `onFinish` prop. [#14791](https://github.com/ant-design/ant-design/pull/14791)
 - 🌟 Collapse.Panel support `extra` prop. [62e65d](https://github.com/ant-design/ant-design/commit/62e65d955065b1862240f9f30d84de44349a0cf9)
@@ -33,10 +43,15 @@ timeline: true
 - 🐞 Fix Spin `wrapperClassName` setting `padding` icon is not centered. [#15056](https://github.com/ant-design/ant-design/pull/15056)
 - 🐞 Fix Calendar won't trigger `onPanelChange` correctly in some cases. [#15063](https://github.com/ant-design/ant-design/pull/15063)
 - 🌟 Select supports `showArrow` in multi-select mode. [#15091](https://github.com/ant-design/ant-design/pull/15091)
+- 🐞 Fix closable Drawer hiding without transition. [#15147](https://github.com/ant-design/ant-design/pull/15147)
+- 🌟 Two less variables `@drawer-header-padding` and `@drawer-body-padding` have been added to control Drawer padding. [#15120](https://github.com/ant-design/ant-design/pull/15120)
+- 🐞 Fix Cascader should tab twice to exist. [#15117](https://github.com/ant-design/ant-design/pull/15117)
+- 🐞 The `onChange` of InputNumber will return `null` instead of `undefined` to fix the problem that the value of the control cannot be properly collected and emptied. [#14960](https://github.com/ant-design/ant-design/pull/14960)
 - 🌟 Adjusted multiple TypeScript types
   - 🐞 Fixed a problem with the `onPanelChange` TypeScript declaration missing. [#15043](https://github.com/ant-design/ant-design/pull/15043)
   - 🐞 Fix the TypeScript type problem for Table `Column Filter`. [#15056](https://github.com/ant-design/ant-design/pull/15056)
-  - 🌟 Support goto button in Pagination.  [#14819](https://github.com/ant-design/ant-design/pull/14819)
+  - 🌟 Support goto button in Pagination. [#14819](https://github.com/ant-design/ant-design/pull/14819)
+  - 🐞 Fix the problem that Carousel response prop TypeScript declaration is missing. [#15071](https://github.com/ant-design/ant-design/pull/15071)
   
 ## 3.13.6
 

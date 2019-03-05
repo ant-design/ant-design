@@ -297,6 +297,7 @@ exports[`Input.Password should change type when click 1`] = `
       <Icon
         className="ant-input-password-icon"
         onClick={[Function]}
+        onMouseDown={[Function]}
         type="eye"
       />
     }
@@ -323,6 +324,7 @@ exports[`Input.Password should change type when click 1`] = `
             className="ant-input-password-icon"
             key="passwordIcon"
             onClick={[Function]}
+            onMouseDown={[Function]}
             type="eye"
           >
             <LocaleReceiver
@@ -332,6 +334,7 @@ exports[`Input.Password should change type when click 1`] = `
                 aria-label="icon: eye"
                 className="anticon anticon-eye ant-input-password-icon"
                 onClick={[Function]}
+                onMouseDown={[Function]}
                 tabIndex={-1}
               >
                 <IconReact
@@ -380,6 +383,7 @@ exports[`Input.Password should change type when click 2`] = `
       <Icon
         className="ant-input-password-icon"
         onClick={[Function]}
+        onMouseDown={[Function]}
         type="eye-invisible"
       />
     }
@@ -406,6 +410,7 @@ exports[`Input.Password should change type when click 2`] = `
             className="ant-input-password-icon"
             key="passwordIcon"
             onClick={[Function]}
+            onMouseDown={[Function]}
             type="eye-invisible"
           >
             <LocaleReceiver
@@ -415,6 +420,7 @@ exports[`Input.Password should change type when click 2`] = `
                 aria-label="icon: eye-invisible"
                 className="anticon anticon-eye-invisible ant-input-password-icon"
                 onClick={[Function]}
+                onMouseDown={[Function]}
                 tabIndex={-1}
               >
                 <IconReact
@@ -467,6 +473,7 @@ exports[`Input.Password should change type when click 3`] = `
       <Icon
         className="ant-input-password-icon"
         onClick={[Function]}
+        onMouseDown={[Function]}
         type="eye"
       />
     }
@@ -493,6 +500,7 @@ exports[`Input.Password should change type when click 3`] = `
             className="ant-input-password-icon"
             key="passwordIcon"
             onClick={[Function]}
+            onMouseDown={[Function]}
             type="eye"
           >
             <LocaleReceiver
@@ -502,6 +510,7 @@ exports[`Input.Password should change type when click 3`] = `
                 aria-label="icon: eye"
                 className="anticon anticon-eye ant-input-password-icon"
                 onClick={[Function]}
+                onMouseDown={[Function]}
                 tabIndex={-1}
               >
                 <IconReact

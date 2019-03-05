@@ -39,15 +39,18 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
   getIcon() {
     const { prefixCls, action } = this.props;
     const iconTrigger = ActionMap[action] || '';
-    const iconProps = { [iconTrigger]: this.onChange };
-    return React.cloneElement(
-      <Icon
-        {...iconProps}
-        className={`${prefixCls}-icon`}
-        type={this.state.visible ? 'eye-invisible' : 'eye'}
-        key="passwordIcon"
-      />,
-    );
+    const iconProps = {
+      [iconTrigger]: this.onChange,
+      className: `${prefixCls}-icon`,
+      type: this.state.visible ? 'eye-invisible' : 'eye',
+      key: 'passwordIcon',
+      onMouseDown: (e: MouseEvent) => {
+        // Prevent focused state lost
+        // https://github.com/ant-design/ant-design/issues/15173
+        e.preventDefault();
+      },
+    };
+    return <Icon {...iconProps} />;
   }
 
   render() {

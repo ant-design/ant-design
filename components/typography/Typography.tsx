@@ -13,7 +13,7 @@ export interface TypographyProps {
 
 interface InternalTypographyProps extends TypographyProps {
   component?: string;
-  setContentRef: (node: HTMLElement) => void;
+  setContentRef?: (node: HTMLElement) => void;
 }
 
 const Typography: React.SFC<InternalTypographyProps> = ({

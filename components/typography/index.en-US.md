@@ -21,7 +21,7 @@ When need to display title or text content. Like:
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| copyable | Config copy. Can set copy text and callback when is an object | boolean \| { text: string, onCopy: Function } | false |boolean \| string | false |
+| copyable | Config copy. Can set copy text and callback when is an object | boolean \| { text: string, onCopy: Function } | false |
 | delete | delete line style | boolean | false |
 | disabled | Disable content | boolean | false |
 | editable | Editable. Can control edit state when is object | boolean \| { editing: boolean, onStart: Function, onChange: Function(string) } | false |
@@ -36,7 +36,7 @@ When need to display title or text content. Like:
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| copyable | Config copy. Can set copy text and callback when is an object | boolean \| { text: string, onCopy: Function } | false |boolean \| string | false |
+| copyable | Config copy. Can set copy text and callback when is an object | boolean \| { text: string, onCopy: Function } | false |
 | delete | delete line style | boolean | false |
 | disabled | Disable content | boolean | false |
 | editable | Editable. Can control edit state when is object | boolean \| { editing: boolean, onStart: Function, onChange: Function(string) } | false |
@@ -51,7 +51,7 @@ When need to display title or text content. Like:
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| copyable | Config copy. Can set copy text and callback when is an object | boolean \| { text: string, onCopy: Function } | false |boolean \| string | false |
+| copyable | Config copy. Can set copy text and callback when is an object | boolean \| { text: string, onCopy: Function } | false |
 | delete | delete line style | boolean | false |
 | disabled | Disable content | boolean | false |
 | editable | Editable. Can control edit state when is object | boolean \| { editing: boolean, onStart: Function, onChange: Function(string) } | false |

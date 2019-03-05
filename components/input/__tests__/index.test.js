@@ -1,10 +1,10 @@
 import React from 'react';
-
 import { mount } from 'enzyme';
-
+/* eslint-disable import/no-unresolved */
 import Form from '../../form';
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
+import calculateNodeHeight, { calculateNodeStyling } from '../calculateNodeHeight';
 
 const { TextArea } = Input;
 
@@ -69,6 +69,70 @@ describe('TextArea', () => {
   it('should support maxLength', () => {
     const wrapper = mount(<TextArea maxLength={10} />);
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it('calculateNodeStyling works correctly', () => {
+    const wrapper = document.createElement('textarea');
+    wrapper.id = 'test';
+    wrapper.wrap = 'wrap';
+    calculateNodeStyling(wrapper, true);
+    const value = calculateNodeStyling(wrapper, true);
+    expect(value).toEqual({
+      borderSize: 2,
+      boxSizing: '',
+      paddingSize: 4,
+      sizingStyle:
+        'letter-spacing:normal;line-height:normal;padding-top:2px;padding-bottom:2px;font-family:-webkit-small-control;font-weight:;font-size:;font-variant:;text-rendering:auto;text-transform:none;width:;text-indent:0;padding-left:2px;padding-right:2px;border-width:1px;box-sizing:',
+    });
+  });
+
+  it('boxSizing === "border-box"', () => {
+    const wrapper = document.createElement('textarea');
+    wrapper.style.boxSizing = 'border-box';
+    const { height } = calculateNodeHeight(wrapper);
+    expect(height).toBe(2);
+  });
+
+  it('boxSizing === "content-box"', () => {
+    const wrapper = document.createElement('textarea');
+    wrapper.style.boxSizing = 'content-box';
+    const { height } = calculateNodeHeight(wrapper);
+    expect(height).toBe(-4);
+  });
+
+  it('minRows or maxRows is not null', () => {
+    const wrapper = document.createElement('textarea');
+    expect(calculateNodeHeight(wrapper, 1, 1)).toEqual({
+      height: 0,
+      maxHeight: 9007199254740991,
+      minHeight: -4,
+      overflowY: undefined,
+    });
+    wrapper.style.boxSizing = 'content-box';
+    expect(calculateNodeHeight(wrapper, 1, 1)).toEqual({
+      height: -4,
+      maxHeight: 9007199254740991,
+      minHeight: -4,
+      overflowY: undefined,
+    });
+  });
+
+  it('when prop value not in this.props, resizeTextarea should be called', () => {
+    const wrapper = mount(<TextArea aria-label="textarea" />);
+    const resizeTextarea = jest.spyOn(wrapper.instance(), 'resizeTextarea');
+    wrapper.find('textarea').simulate('change', 'test');
+    expect(resizeTextarea).toHaveBeenCalled();
+  });
+
+  it('handleKeyDown', () => {
+    const onPressEnter = jest.fn();
+    const onKeyDown = jest.fn();
+    const wrapper = mount(
+      <TextArea onPressEnter={onPressEnter} onKeyDown={onKeyDown} aria-label="textarea" />,
+    );
+    wrapper.instance().handleKeyDown({ keyCode: 13 });
+    expect(onPressEnter).toBeCalled();
+    expect(onKeyDown).toBeCalled();
   });
 });
 
@@ -136,6 +200,24 @@ describe('Input.Password', () => {
     expect(wrapper.find('.anticon-eye').length).toBe(0);
     wrapper.setProps({ visibilityToggle: true });
     expect(wrapper.find('.anticon-eye').length).toBe(1);
+  });
+
+  it('should keep focus state', () => {
+    const wrapper = mount(<Input.Password defaultValue="111" autoFocus />);
+    expect(document.activeElement).toBe(
+      wrapper.find('input').at(0).getDOMNode()
+    );
+    wrapper
+      .find('.ant-input-password-icon')
+      .at(0)
+      .simulate('mousedown');
+    wrapper
+      .find('.ant-input-password-icon')
+      .at(0)
+      .simulate('click');
+    expect(document.activeElement).toBe(
+      wrapper.find('input').at(0).getDOMNode()
+    );
   });
 });
 
@@ -215,5 +297,16 @@ describe('Input allowClear', () => {
         .at(0)
         .getDOMNode().value,
     ).toBe('111');
+  });
+
+  it('should focus input after clear', () => {
+    const wrapper = mount(<Input allowClear defaultValue="111" />);
+    wrapper
+      .find('.ant-input-clear-icon')
+      .at(0)
+      .simulate('click');
+    expect(document.activeElement).toBe(
+      wrapper.find('input').at(0).getDOMNode()
+    );
   });
 });

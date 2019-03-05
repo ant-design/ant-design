@@ -18,6 +18,7 @@ export interface PageHeaderProps {
   footer?: React.ReactNode;
   extra?: React.ReactNode;
   onBack?: (e: React.MouseEvent<HTMLElement>) => void;
+  className?: string;
 }
 
 const renderBack = (
@@ -78,11 +79,23 @@ const renderFooter = (prefixCls: string, footer: React.ReactNode) => {
 const PageHeader: React.SFC<PageHeaderProps> = props => (
   <ConfigConsumer>
     {({ getPrefixCls }: ConfigConsumerProps) => {
-      const { prefixCls: customizePrefixCls, style, footer, children } = props;
+      const {
+        prefixCls: customizePrefixCls,
+        style,
+        footer,
+        children,
+        className: customizeClassName,
+      } = props;
+
       const prefixCls = getPrefixCls('page-header', customizePrefixCls);
-      const className = classnames(prefixCls, {
-        [`${prefixCls}-has-footer`]: footer,
-      });
+      const className = classnames(
+        prefixCls,
+        {
+          [`${prefixCls}-has-footer`]: footer,
+        },
+        customizeClassName,
+      );
+
       return (
         <div className={className} style={style}>
           {renderHeader(prefixCls, props)}

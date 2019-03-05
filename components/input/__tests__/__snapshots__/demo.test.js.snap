@@ -494,6 +494,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     />
     <span
       class="ant-calendar-picker"
+      style="width:50%"
     >
       <div>
         <input
@@ -1144,6 +1145,7 @@ exports[`renders ./components/input/demo/textarea-resize.md correctly 1`] = `
 <div>
   <button
     class="ant-btn"
+    style="margin-bottom:16px"
     type="button"
   >
     <span>

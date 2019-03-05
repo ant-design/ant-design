@@ -259,7 +259,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
   renderWrapper(prefixCls: string, children: React.ReactNode) {
     return (
-      <FormContext.Consumer>
+      <FormContext.Consumer key="wrapper">
         {({ wrapperCol: contextWrapperCol, vertical }: FormContextProps) => {
           const { wrapperCol } = this.props;
           const mergedWrapperCol: ColProps =
@@ -273,7 +273,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
           // No pass FormContext since it's useless
           return (
             <FormContext.Provider value={{ vertical }}>
-              <Col {...mergedWrapperCol} className={className} key="wrapper">
+              <Col {...mergedWrapperCol} className={className}>
                 {children}
               </Col>
             </FormContext.Provider>
@@ -328,7 +328,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
   renderLabel(prefixCls: string) {
     return (
-      <FormContext.Consumer>
+      <FormContext.Consumer key="label">
         {({ vertical, labelCol: contextLabelCol }: FormContextProps) => {
           const { label, labelCol, colon, id } = this.props;
           const required = this.isRequired();
@@ -350,7 +350,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
           }
 
           return label ? (
-            <Col {...mergedLabelCol} className={labelColClassName} key="label">
+            <Col {...mergedLabelCol} className={labelColClassName}>
               <label
                 htmlFor={id || this.getId()}
                 className={labelClassName}
