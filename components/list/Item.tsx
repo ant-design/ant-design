@@ -83,46 +83,30 @@ export default class Item extends React.Component<ListItemProps, any> {
     const prefixCls = getPrefixCls('list', customizePrefixCls);
     const classString = classNames(`${prefixCls}-item`, className);
 
-    const metaContent: React.ReactElement<any>[] = [];
-    const otherContent: React.ReactElement<any>[] = [];
-
-    React.Children.forEach(children, (element: React.ReactElement<any>) => {
-      if (element && element.type && element.type === Meta) {
-        metaContent.push(element);
-      } else {
-        otherContent.push(element);
-      }
-    });
-
-    const contentClassString = classNames(`${prefixCls}-item-content`, {
-      [`${prefixCls}-item-content-single`]: metaContent.length < 1,
-    });
-    const content =
-      otherContent.length > 0 ? <div className={contentClassString}>{otherContent}</div> : null;
-
-    let actionsContent;
-    if (actions && actions.length > 0) {
-      const actionsContentItem = (action: React.ReactNode, i: number) => (
-        <li key={`${prefixCls}-item-action-${i}`}>
-          {action}
-          {i !== actions.length - 1 && <em className={`${prefixCls}-item-action-split`} />}
-        </li>
-      );
-      actionsContent = (
-        <ul className={`${prefixCls}-item-action`}>
-          {actions.map((action, i) => actionsContentItem(action, i))}
-        </ul>
-      );
-    }
+    const actionsContent = actions && actions.length > 0 && (
+      <ul className={`${prefixCls}-item-action`}>
+        {actions.map((action: React.ReactNode, i: number) => (
+          <li key={`${prefixCls}-item-action-${i}`}>
+            {action}
+            {i !== actions.length - 1 && <em className={`${prefixCls}-item-action-split`} />}
+          </li>
+        ))}
+      </ul>
+    );
 
     const extraContent = (
       <div className={`${prefixCls}-item-extra-wrap`}>
         <div className={`${prefixCls}-item-main`}>
-          {metaContent}
-          {content}
+          {children}
           {actionsContent}
         </div>
         <div className={`${prefixCls}-item-extra`}>{extra}</div>
+      </div>
+    );
+
+    const itemChildren = (
+      <div {...others} className={classString}>
+        {extra ? extraContent : [children, actionsContent]}
       </div>
     );
 
@@ -136,20 +120,10 @@ export default class Item extends React.Component<ListItemProps, any> {
         xl={getGrid(grid, 'xl')}
         xxl={getGrid(grid, 'xxl')}
       >
-        <div {...others} className={classString}>
-          {extra && extraContent}
-          {!extra && metaContent}
-          {!extra && content}
-          {!extra && actionsContent}
-        </div>
+        {itemChildren}
       </Col>
     ) : (
-      <div {...others} className={classString}>
-        {extra && extraContent}
-        {!extra && metaContent}
-        {!extra && content}
-        {!extra && actionsContent}
-      </div>
+      itemChildren
     );
 
     return mainContent;

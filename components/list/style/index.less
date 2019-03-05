@@ -36,11 +36,6 @@
     align-items: center;
     padding: @list-item-padding;
 
-    // https://github.com/ant-design/ant-design/issues/15186
-    > span {
-      display: contents;
-    }
-
     &-meta {
       display: flex;
       flex: 1;
@@ -70,14 +65,6 @@
         font-size: @font-size-base;
         line-height: 22px;
       }
-    }
-    &-content {
-      display: flex;
-      flex: 1;
-      justify-content: flex-end;
-    }
-    &-content-single {
-      justify-content: flex-start;
     }
     &-action {
       flex: 0 0 auto;
