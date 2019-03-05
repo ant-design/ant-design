@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 开关
-type: Data Entry
+type: 数据录入
 title: Switch
 ---
 
@@ -24,7 +24,8 @@ title: Switch
 | loading | 加载中的开关 | boolean | false |
 | size | 开关大小，可选值：`default` `small` | string | default |
 | unCheckedChildren | 非选中时的内容 | string\|ReactNode |  |
-| onChange | 变化时回调函数 | Function(checked:Boolean) |  |
+| onChange | 变化时回调函数 | Function(checked: boolean, event: Event) |  |
+| onClick | 点击时回调函数 | Function(checked: boolean, event: Event) |  |
 | className | Switch 器类名 | string | - |
 
 ## 方法

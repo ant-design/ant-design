@@ -10,13 +10,13 @@ Ant Design 目前在外部也有许多产品实践，如果你的公司和产品
 
 ## 最佳实践
 
-### 蚂蚁金融云
+### 蚂蚁金融科技
 
 金融云是面向金融机构深度定制的行业云计算服务；助力金融机构向新金融转型升级，推动平台、数据和技术方面的能力全面对外开放。
 
-[立即访问](https://www.cloud.alipay.com)
+[立即访问](https://tech.antfin.com)
 
-![蚂蚁金融云](https://gw.alipayobjects.com/zos/rmsportal/KtMLtXsTucsJLWgfwZcw.png)
+![蚂蚁金融科技](https://gw.alipayobjects.com/zos/rmsportal/zQMWTCnhWwYNzEURbDUn.png)
 
 ### OceanBase 云平台
 

@@ -74,7 +74,7 @@ describe('message', () => {
     message.info('whatever', () => {});
   });
 
-  it('should have the default duration when using the onClose arguments', (done) => {
+  it('should have the default duration when using the onClose arguments', done => {
     jest.useRealTimers();
     const defaultDuration = 3;
     const now = Date.now();

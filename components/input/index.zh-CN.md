@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 输入框
-type: Data Entry
+type: 数据录入
 title: Input
 ---
 
@@ -30,6 +30,7 @@ title: Input
 | value | 输入框内容 | string |  |
 | onChange | 输入框内容变化时的回调 | function(e) | |
 | onPressEnter | 按下回车的回调 | function(e) |  |
+| allowClear | 可以点击清除图标删除内容 | boolean | |
 
 > 如果 `Input` 在 `Form.Item` 内，并且 `Form.Item` 设置了 `id` 和 `options` 属性，则 `value` `defaultValue` 和 `id` 属性会被自动设置。
 
@@ -52,7 +53,7 @@ Input 的其他属性和 React 自带的 [input](https://facebook.github.io/reac
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| enterButton | 是否有确认按钮，可设为按钮文字 | boolean\|ReactNode | false |
+| enterButton | 是否有确认按钮，可设为按钮文字。该属性会与 addon 冲突。 | boolean\|ReactNode | false |
 | onSearch | 点击搜索或按下回车键时的回调 | function(value, event) |  |
 
 其余属性和 Input 一致。
@@ -69,4 +70,23 @@ Input 的其他属性和 React 自带的 [input](https://facebook.github.io/reac
   <Input />
   <Input />
 </Input.Group>
+```
+
+#### Input.Password (3.12.0 中新增)
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| visibilityToggle | 是否显示切换按钮 | boolean | true |
+
+## FAQ
+
+### 为什么我动态改变 `prefix/suffix` 时，Input 会失去焦点？
+
+当 Input 动态添加或者删除 `prefix/suffix` 时，React 会重新创建 DOM 结构而新的 input 是没有焦点的。
+你可以预设一个空的 `<span />` 来保持 DOM 结构不变：
+
+```jsx
+const suffix = condition ? <Icon type="smile" /> : <span />;
+
+<Input suffix={suffix} />
 ```

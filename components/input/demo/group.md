@@ -18,7 +18,9 @@ Input.Group example
 Note: You don't need `Col` to control the width in the `compact` mode.
 
 ````jsx
-import { Input, Col, Select, InputNumber, DatePicker, AutoComplete, Cascader } from 'antd';
+import {
+  Input, Col, Row, Select, InputNumber, DatePicker, AutoComplete, Cascader,
+} from 'antd';
 
 const InputGroup = Input.Group;
 const Option = Select.Option;
@@ -66,12 +68,14 @@ class CompactDemo extends React.Component {
     return (
       <div>
         <InputGroup size="large">
-          <Col span={5}>
-            <Input defaultValue="0571" />
-          </Col>
-          <Col span={8}>
-            <Input defaultValue="26888888" />
-          </Col>
+          <Row gutter={8}>
+            <Col span={5}>
+              <Input defaultValue="0571" />
+            </Col>
+            <Col span={8}>
+              <Input defaultValue="26888888" />
+            </Col>
+          </Row>
         </InputGroup>
         <br />
         <InputGroup compact>
@@ -118,7 +122,13 @@ class CompactDemo extends React.Component {
             <Option value="2">Except</Option>
           </Select>
           <Input style={{ width: 100, textAlign: 'center' }} placeholder="Minimum" />
-          <Input style={{ width: 30, borderLeft: 0, pointerEvents: 'none', backgroundColor: '#fff' }} placeholder="~" disabled />
+          <Input
+            style={{
+              width: 30, borderLeft: 0, pointerEvents: 'none', backgroundColor: '#fff',
+            }}
+            placeholder="~"
+            disabled
+          />
           <Input style={{ width: 100, textAlign: 'center', borderLeft: 0 }} placeholder="Maximum" />
         </InputGroup>
         <br />

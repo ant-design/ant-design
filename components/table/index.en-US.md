@@ -61,12 +61,13 @@ const columns = [{
 | defaultExpandedRowKeys | Initial expanded row keys | string\[] | - |
 | expandedRowKeys | Current expanded row keys | string\[] | - |
 | expandedRowRender | Expanded container render for each row | Function(record, index, indent, expanded):ReactNode | - |
+| expandIcon | Customize row expand Icon. Ref [example](http://react-component.github.io/table/examples/expandIcon.html) | Function(props):ReactNode | - |
 | expandRowByClick | Whether to expand row by clicking anywhere in the whole row | boolean | `false` |
 | footer | Table footer renderer | Function(currentPageData) |  |
 | indentSize | Indent size in pixels of tree data | number | 15 |
 | loading | Loading status of table | boolean\|[object](https://ant.design/components/spin-cn/#API) ([more](https://github.com/ant-design/ant-design/issues/4544#issuecomment-271533135)) | `false` |
 | locale | i18n text including filter, sort, empty text, etc | object | filterConfirm: 'Ok' <br> filterReset: 'Reset' <br> emptyText: 'No Data' <br> [Default](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |
-| pagination | Pagination [config](#pagination) or [`Pagination`](/components/pagination/), hide it by setting it to `false` | object |  |
+| pagination | Config of pagination. You can ref table pagination [config](#pagination) or full [`pagination`](/components/pagination/) document, hide it by setting it to `false` | object |  |
 | rowClassName | Row's className | Function(record, index):string | - |
 | rowKey | Row's unique key, could be a string or function that returns a string | string\|Function(record):string | `key` |
 | rowSelection | Row selection [config](#rowSelection) | object | null |
@@ -86,11 +87,13 @@ Same as `onRow` `onHeaderRow` `onCell` `onHeaderCell`
 
 ```jsx
 <Table
-  onRow={(record) => {
+  onRow={(record, rowIndex) => {
     return {
-      onClick: () => {},       // click row
-      onMouseEnter: () => {},  // mouse enter row
-      onXxxx...
+      onClick: (event) => {},       // click row
+      onDoubleClick: (event) => {}, // double click row
+      onContextMenu: (event) => {}  // right button click row
+      onMouseEnter: (event) => {}   // mouse enter row
+      onMouseLeave: (event) => {}   // mouse leave row
     };
   }}
   onHeaderRow={(column) => {
@@ -110,7 +113,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | align | specify how content is aligned | 'left' \| 'right' \| 'center' | 'left' |
 | className | className of this column | string | - |
 | colSpan | Span of this column's title | number |  |
-| dataIndex | Display field of the data record, could be set like `a.b.c` | string | - |
+| dataIndex | Display field of the data record, could be set like `a.b.c`, `a[0].b.c[1]` | string | - |
 | defaultSortOrder | Default order of sorted values | 'ascend' \| 'descend' | - |
 | filterDropdown | Customized filter overlay | ReactNode | - |
 | filterDropdownVisible | Whether `filterDropdown` is visible | boolean | - |
@@ -126,7 +129,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | sortOrder | Order of sorted values: `'ascend'` `'descend'` `false` | boolean\|string | - |
 | title | Title of this column | ReactNode\|({ sortOrder, filters }) => ReactNode | - |
 | width | Width of this column | string\|number | - |
-| onCell | Set props on per cell | Function(record) | - |
+| onCell | Set props on per cell | Function(record, rowIndex) | - |
 | onFilter | Callback executed when the confirm filter button is clicked | Function | - |
 | onFilterDropdownVisibleChange | Callback executed when `filterDropdownVisible` is changed | function(visible) {} | - |
 | onHeaderCell | Set props on per header cell | Function(column) | - |
@@ -176,7 +179,7 @@ Properties for row selection.
 
 ## Using in TypeScript
 
-```jsx
+```tsx
 import { Table } from 'antd';
 import { ColumnProps } from 'antd/lib/table';
 
@@ -206,6 +209,13 @@ class NameColumn extends Table.Column<IUser> {}
 <UserTable dataSource={data}>
   <NameColumn key="name" title="Name" dataIndex="name" />
 </UserTable>
+
+// after TypeScript 2.9 can write like this
+// https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-9.html#generic-type-arguments-in-jsx-elements
+<Table<IUser> columns={columns} dataSource={data} />
+<Table<IUser> dataSource={data}>
+  <Table.Column<IUser> key="name" title="Name" dataIndex="name" />
+</Table>
 ```
 
 ## Note

@@ -3,13 +3,9 @@ order: 9
 title: FAQ
 ---
 
-有问题请先问 React：https://reactfaq.site 。
+以下整理了一些 Ant Design 社区常见的问题和官方答复，在提问之前建议找找有没有类似的问题。此外我们也维护了一个反馈较多 [FAQ issues 标签](http://u.ant.design/faq) 亦可参考。
 
 ---
-
-### 你们会提供 Vue 版本的 Ant Design 吗？
-
-不，但是 [ant-design 基于 MIT 协议开源](https://github.com/ant-design/ant-design/blob/master/LICENSE)，所以你可以尝试用 ant-design 的[样式](https://github.com/ant-design/ant-design/tree/master/style)去实现一套，例如：[ant-design-vue](https://github.com/vueComponent/ant-design-vue) [vue-beauty](https://github.com/FE-Driver/vue-beauty) 或者 [antue](https://github.com/zzuu666/antue)。
 
 ### 你们会提供 Sass/Stylus 等格式的样式文件吗？
 
@@ -17,7 +13,8 @@ title: FAQ
 
 ### 当我点击 `Select Dropdown DatePicker TimePicker Popover Popconfirm` 内的另一个 popup 组件时它会消失，如何解决？
 
-使用 `<Select getPopupContainer={trigger => trigger.parentNode}>` 来在 Popover 中渲染组件，或者使用其他的 getXxxxContainer 参数。
+该问题在 3.11.0 后已经解决。
+如果你仍在使用旧版本，你可以通过 `<Select getPopupContainer={trigger => trigger.parentNode}>` 来在 Popover 中渲染组件，或者使用其他的 getXxxxContainer 参数。
 
 https://ant.design/components/select/#Select-props
 
@@ -49,7 +46,7 @@ https://ant.design/components/select/#Select-props
 
 ```jsx
 import Menu from 'antd/lib/menu';
-import 'antd/lib/button/style/css';
+import 'antd/lib/menu/style/css';
 ```
 
 或者（ES6 支持的 tree shaking 方式）：
@@ -104,10 +101,15 @@ import { Menu, Breadcrumb, Icon } from 'antd';
 
 如果你需要一些 antd 没有包含的功能，你可以尝试通过 [HOC](https://gist.github.com/sebmarkbage/ef0bf1f338a7182b6775) 拓展 antd 的组件。 [更多](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.eeu8q01s1)
 
+### 开启了 Content Security Policy (CSP) 如何处理动态样式？
+
+你可以通过 [ConfigProvider](/components/config-provider/#Content-Security-Policy) 来配置 `nonce` 属性。
+
 ### 如何正确的拼写 Ant Design？
 
-- ✅ **Ant Design**：用空格分隔的首字母大写单词，指代设计语言
-- ✅ **antd**：全小写，指代 React UI 组件库
+- ✅ **Ant Design**：用空格分隔的首字母大写单词，指代设计语言。
+- ✅ **antd**：全小写，指代 React UI 组件库。
+- ✅ **ant.design**：特指 ant.design 网站网址。
 
 下面是一些典型的错误例子：
 

@@ -25,5 +25,6 @@ ReactDOM.render(
       <Badge dot><Avatar shape="square" icon="user" /></Badge>
     </span>
   </div>,
-  mountNode);
+  mountNode
+);
 ````

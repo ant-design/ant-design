@@ -37,5 +37,6 @@ ReactDOM.render(
   >
     {children}
   </Select>,
-  mountNode);
+  mountNode
+);
 ````

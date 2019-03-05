@@ -10,8 +10,14 @@ export default class Item extends React.Component<any, any> {
   }
   render() {
     const {
-      renderedText, renderedEl, item, lazy,
-      checked, disabled, prefixCls, onClick,
+      renderedText,
+      renderedEl,
+      item,
+      lazy,
+      checked,
+      disabled,
+      prefixCls,
+      onClick,
     } = this.props;
 
     const className = classNames({
@@ -28,7 +34,7 @@ export default class Item extends React.Component<any, any> {
       <li
         className={className}
         title={title}
-        onClick={(disabled || item.disabled) ? undefined : () => onClick(item)}
+        onClick={disabled || item.disabled ? undefined : () => onClick(item)}
       >
         <Checkbox checked={checked} disabled={disabled || item.disabled} />
         <span>{renderedEl}</span>

@@ -42,5 +42,6 @@ ReactDOM.render(
     <br />
     <WeekPicker suffixIcon="ab" onChange={onChange} placeholder="Select week" />
   </div>,
-  mountNode);
+  mountNode
+);
 ````

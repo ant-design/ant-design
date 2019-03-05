@@ -39,5 +39,6 @@ ReactDOM.render(
       type="error"
     />
   </div>,
-  mountNode);
+  mountNode
+);
 ````

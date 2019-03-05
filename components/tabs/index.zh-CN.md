@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 标签页
-type: Data Display
+type: 数据展示
 title: Tabs
 cols: 1
 ---

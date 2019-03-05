@@ -9,6 +9,9 @@ describe('Progress', () => {
 
     wrapper.setProps({ percent: 50, successPercent: 100 });
     expect(wrapper.find('.ant-progress-status-success')).toHaveLength(1);
+
+    wrapper.setProps({ percent: 100, successPercent: 0 });
+    expect(wrapper.find('.ant-progress-status-success')).toHaveLength(0);
   });
 
   it('render out-of-range progress', () => {
@@ -37,13 +40,18 @@ describe('Progress', () => {
         percent={50}
         successPercent={10}
         format={(percent, successPercent) => `${percent} ${successPercent}`}
-      />
+      />,
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('render strokeColor', () => {
     const wrapper = mount(<Progress type="circle" percent={50} strokeColor="red" />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('render normal progress', () => {
+    const wrapper = mount(<Progress status="normal" />);
     expect(wrapper.render()).toMatchSnapshot();
   });
 });

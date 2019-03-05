@@ -61,5 +61,6 @@ ReactDOM.render(
       placeholder="Please select"
     />
   </div>,
-  mountNode);
+  mountNode
+);
 ````

@@ -53,12 +53,8 @@ function showPropsConfirm() {
     content: 'Some descriptions',
     okText: 'Yes',
     okType: 'danger',
-    maskClosable: true,
     okButtonProps: {
       disabled: true,
-    },
-    cancelButtonProps: {
-      loading: true,
     },
     cancelText: 'No',
     onOk() {
@@ -82,5 +78,6 @@ ReactDOM.render(
       With extra props
     </Button>
   </div>,
-  mountNode);
+  mountNode
+);
 ````

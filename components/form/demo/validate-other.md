@@ -11,18 +11,16 @@ title:
 
 ## en-US
 
-Demostration for validataion configuration for form controls which are not show in the above demos.
+Demonstration of validation configuration for form controls which are not shown in the demos above.
 
 ````jsx
 import {
   Form, Select, InputNumber, Switch, Radio,
-  Slider, Button, Upload, Icon, Rate,
+  Slider, Button, Upload, Icon, Rate, Checkbox,
+  Row, Col,
 } from 'antd';
 
-const FormItem = Form.Item;
-const Option = Select.Option;
-const RadioButton = Radio.Button;
-const RadioGroup = Radio.Group;
+const { Option } = Select;
 
 class Demo extends React.Component {
   handleSubmit = (e) => {
@@ -49,15 +47,13 @@ class Demo extends React.Component {
       wrapperCol: { span: 14 },
     };
     return (
-      <Form onSubmit={this.handleSubmit}>
-        <FormItem
-          {...formItemLayout}
+      <Form {...formItemLayout} onSubmit={this.handleSubmit}>
+        <Form.Item
           label="Plain Text"
         >
           <span className="ant-form-text">China</span>
-        </FormItem>
-        <FormItem
-          {...formItemLayout}
+        </Form.Item>
+        <Form.Item
           label="Select"
           hasFeedback
         >
@@ -68,13 +64,12 @@ class Demo extends React.Component {
           })(
             <Select placeholder="Please select a country">
               <Option value="china">China</Option>
-              <Option value="use">U.S.A</Option>
+              <Option value="usa">U.S.A</Option>
             </Select>
           )}
-        </FormItem>
+        </Form.Item>
 
-        <FormItem
-          {...formItemLayout}
+        <Form.Item
           label="Select[multiple]"
         >
           {getFieldDecorator('select-multiple', {
@@ -88,64 +83,79 @@ class Demo extends React.Component {
               <Option value="blue">Blue</Option>
             </Select>
           )}
-        </FormItem>
+        </Form.Item>
 
-        <FormItem
-          {...formItemLayout}
+        <Form.Item
           label="InputNumber"
         >
           {getFieldDecorator('input-number', { initialValue: 3 })(
             <InputNumber min={1} max={10} />
           )}
           <span className="ant-form-text"> machines</span>
-        </FormItem>
+        </Form.Item>
 
-        <FormItem
-          {...formItemLayout}
+        <Form.Item
           label="Switch"
         >
           {getFieldDecorator('switch', { valuePropName: 'checked' })(
             <Switch />
           )}
-        </FormItem>
+        </Form.Item>
 
-        <FormItem
-          {...formItemLayout}
+        <Form.Item
           label="Slider"
         >
           {getFieldDecorator('slider')(
-            <Slider marks={{ 0: 'A', 20: 'B', 40: 'C', 60: 'D', 80: 'E', 100: 'F' }} />
+            <Slider marks={{
+              0: 'A', 20: 'B', 40: 'C', 60: 'D', 80: 'E', 100: 'F',
+            }}
+            />
           )}
-        </FormItem>
+        </Form.Item>
 
-        <FormItem
-          {...formItemLayout}
+        <Form.Item
           label="Radio.Group"
         >
           {getFieldDecorator('radio-group')(
-            <RadioGroup>
+            <Radio.Group>
               <Radio value="a">item 1</Radio>
               <Radio value="b">item 2</Radio>
               <Radio value="c">item 3</Radio>
-            </RadioGroup>
+            </Radio.Group>
           )}
-        </FormItem>
+        </Form.Item>
 
-        <FormItem
-          {...formItemLayout}
+        <Form.Item
           label="Radio.Button"
         >
           {getFieldDecorator('radio-button')(
-            <RadioGroup>
-              <RadioButton value="a">item 1</RadioButton>
-              <RadioButton value="b">item 2</RadioButton>
-              <RadioButton value="c">item 3</RadioButton>
-            </RadioGroup>
+            <Radio.Group>
+              <Radio.Button value="a">item 1</Radio.Button>
+              <Radio.Button value="b">item 2</Radio.Button>
+              <Radio.Button value="c">item 3</Radio.Button>
+            </Radio.Group>
           )}
-        </FormItem>
+        </Form.Item>
 
-        <FormItem
-          {...formItemLayout}
+        <Form.Item
+          label="Checkbox.Group"
+        >
+          {getFieldDecorator("checkbox-group", {
+            initialValue: ["A", "B"],
+          })(
+            <Checkbox.Group style={{ width: "100%" }}>
+              <Row>
+                <Col span={8}><Checkbox value="A">A</Checkbox></Col>
+                <Col span={8}><Checkbox disabled value="B">B</Checkbox></Col>
+                <Col span={8}><Checkbox value="C">C</Checkbox></Col>
+                <Col span={8}><Checkbox value="D">D</Checkbox></Col>
+                <Col span={8}><Checkbox value="E">E</Checkbox></Col>
+              </Row>
+            </Checkbox.Group>
+          )}
+        </Form.Item>
+
+        <Form.Item
           label="Rate"
         >
           {getFieldDecorator('rate', {
@@ -153,10 +163,9 @@ class Demo extends React.Component {
           })(
             <Rate />
           )}
-        </FormItem>
+        </Form.Item>
 
-        <FormItem
-          {...formItemLayout}
+        <Form.Item
           label="Upload"
           extra="longgggggggggggggggggggggggggggggggggg"
         >
@@ -170,10 +179,9 @@ class Demo extends React.Component {
               </Button>
             </Upload>
           )}
-        </FormItem>
+        </Form.Item>
 
-        <FormItem
-          {...formItemLayout}
+        <Form.Item
           label="Dragger"
         >
           <div className="dropbox">
@@ -190,19 +198,19 @@ class Demo extends React.Component {
               </Upload.Dragger>
             )}
           </div>
-        </FormItem>
+        </Form.Item>
 
-        <FormItem
+        <Form.Item
           wrapperCol={{ span: 12, offset: 6 }}
         >
           <Button type="primary" htmlType="submit">Submit</Button>
-        </FormItem>
+        </Form.Item>
       </Form>
     );
   }
 }
 
-const WrappedDemo = Form.create()(Demo);
+const WrappedDemo = Form.create({ name: 'validate_other' })(Demo);
 
 ReactDOM.render(<WrappedDemo />, mountNode);
 ````

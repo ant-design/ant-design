@@ -14,10 +14,11 @@ title:
 Use `setFieldsValue` to set other control's value programmaticly.
 
 ````jsx
-import { Form, Select, Input, Button } from 'antd';
+import {
+  Form, Select, Input, Button,
+} from 'antd';
 
-const FormItem = Form.Item;
-const Option = Select.Option;
+const { Option } = Select;
 
 class App extends React.Component {
   handleSubmit = (e) => {
@@ -39,22 +40,18 @@ class App extends React.Component {
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
-      <Form onSubmit={this.handleSubmit}>
-        <FormItem
+      <Form labelCol={{ span: 5 }} wrapperCol={{ span: 12 }} onSubmit={this.handleSubmit}>
+        <Form.Item
           label="Note"
-          labelCol={{ span: 5 }}
-          wrapperCol={{ span: 12 }}
         >
           {getFieldDecorator('note', {
             rules: [{ required: true, message: 'Please input your note!' }],
           })(
             <Input />
           )}
-        </FormItem>
-        <FormItem
+        </Form.Item>
+        <Form.Item
           label="Gender"
-          labelCol={{ span: 5 }}
-          wrapperCol={{ span: 12 }}
         >
           {getFieldDecorator('gender', {
             rules: [{ required: true, message: 'Please select your gender!' }],
@@ -67,20 +64,20 @@ class App extends React.Component {
               <Option value="female">female</Option>
             </Select>
           )}
-        </FormItem>
-        <FormItem
+        </Form.Item>
+        <Form.Item
           wrapperCol={{ span: 12, offset: 5 }}
         >
           <Button type="primary" htmlType="submit">
             Submit
           </Button>
-        </FormItem>
+        </Form.Item>
       </Form>
     );
   }
 }
 
-const WrappedApp = Form.create()(App);
+const WrappedApp = Form.create({ name: 'coordinated' })(App);
 
 ReactDOM.render(<WrappedApp />, mountNode);
 ````

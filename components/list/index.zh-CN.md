@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Data Display
+type: 数据展示
 title: List
 subtitle: 列表
 cols: 1
@@ -44,7 +44,7 @@ cols: 1
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| column | 列数 | number | - |
+| column | 列数，[可选值](https://github.com/ant-design/ant-design/blob/a7f17b4cdebbca07b3b9ce5698de61e772d46237/components/list/index.tsx#L16) | number | - |
 | gutter | 栅格间隔 | number | 0 |
 | xs | `<576px` 展示的列数 | number | - |
 | sm | `≥576px` 展示的列数 | number | - |

@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 2
 title: Real project with umi and dva
 ---
 
@@ -35,20 +35,22 @@ yarn create v1.12.0
 [3/4] 🔗  Linking dependencies...
 [4/4] 📃  Building fresh packages...
 
-success Installed "create-umi@0.3.1" with binaries:
+success Installed "create-umi@0.9.5" with binaries:
       - create-umi
-
-? What functionality do you want to enable? (Press <space> to select, <a> to toggle all, <i
-> to invert selection)
-❯◯ antd
- ◯ dva
- ◯ code splitting
- ◯ pwa
- ◯ dll
- ◯ hard source
 ```
 
 Yarn will install the latest version of [create-umi](https://github.com/umijs/create-umi) and then create the app with interactive ui.
+
+Select `app` and press Enter to confirm.
+
+```
+? Select the boilerplate type 
+  ant-design-pro  - Create project with an layout-only ant-design-pro boilerplate, use together with umi block. 
+❯ app             - Create project with a simple boilerplate, support typescript. 
+  block           - Create a umi block. 
+  library         - Create a library with umi. 
+  plugin          - Create a umi plugin. 
+```
 
 Select `antd` and `dva` and press Enter to confirm.
 
@@ -211,7 +213,7 @@ So far, we have completed a separate model and component. How do we connect them
 
 dva provides a `connect` method. If you are familiar with redux, this connect is from react-redux.
 
-Edit `src/pages/products.js` and replact it with the following,
+Edit `src/pages/products.js` and replace it with the following,
 
 ```js
 import { connect } from 'dva';
@@ -299,7 +301,7 @@ We have completed a simple application, but you may still have lots of questions
 
 You can:
 
-* Visit [umi offcial website](https://umijs.org/) and [dva offcial website](https://dvajs.com/)
+* Visit [umi official website](https://umijs.org/) and [dva official website](https://dvajs.com/)
 * Know [the umi routes](https://umijs.org/zh/guide/router.html)
 * Know [how to deploy umi application](https://umijs.org/zh/guide/deploy.html)
 * Checkout [dva knowledge](https://dvajs.com/knowledgemap/), including all the basic knowledge with ES6, React, dva

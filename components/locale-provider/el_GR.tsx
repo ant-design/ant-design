@@ -13,7 +13,6 @@ export default {
     filterTitle: 'Μενού φίλτρων',
     filterConfirm: 'ΟΚ',
     filterReset: 'Επαναφορά',
-    emptyText: 'Δεν υπάρχουν δεδομένα',
     selectAll: 'Επιλογή τρέχουσας σελίδας',
     selectInvert: 'Αντιστροφή τρέχουσας σελίδας',
   },
@@ -27,18 +26,17 @@ export default {
     cancelText: 'Άκυρο',
   },
   Transfer: {
-    notFoundContent: 'Δεν βρέθηκε',
     searchPlaceholder: 'Αναζήτηση',
     itemUnit: 'αντικείμενο',
     itemsUnit: 'αντικείμενα',
-  },
-  Select: {
-    notFoundContent: 'Δεν βρέθηκε',
   },
   Upload: {
     uploading: 'Μεταφόρτωση...',
     removeFile: 'Αφαίρεση αρχείου',
     uploadError: 'Σφάλμα μεταφόρτωσης',
     previewFile: 'Προεπισκόπηση αρχείου',
+  },
+  Empty: {
+    description: 'Δεν υπάρχουν δεδομένα',
   },
 };

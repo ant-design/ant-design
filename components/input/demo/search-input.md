@@ -1,8 +1,8 @@
 ---
 order: 4
 title:
-    zh-CN: 搜索框
-    en-US: Search box
+  zh-CN: 搜索框
+  en-US: Search box
 ---
 
 ## zh-CN
@@ -39,5 +39,6 @@ ReactDOM.render(
       onSearch={value => console.log(value)}
     />
   </div>,
-  mountNode);
+  mountNode
+);
 ````

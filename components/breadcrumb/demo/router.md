@@ -16,7 +16,9 @@ title:
 Used together with `react-router@2` `react-router@3`.
 
 ````jsx
-import { Router, Route, Link, hashHistory } from 'react-router';
+import {
+  Router, Route, Link, hashHistory,
+} from 'react-router';
 import { Breadcrumb, Alert } from 'antd';
 
 const Apps = () => (
@@ -52,7 +54,8 @@ ReactDOM.render(
       </Route>
     </Route>
   </Router>,
-  mountNode);
+  mountNode
+);
 ````
 
 ````css

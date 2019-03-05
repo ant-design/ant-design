@@ -1,23 +1,25 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@card-prefix-cls: ~"@{ant-prefix}-card";
+@card-prefix-cls: ~'@{ant-prefix}-card';
 @card-head-height: 48px;
-@card-hover-border: rgba(0, 0, 0, 0.09);
-@card-radius: @border-radius-sm;
+@card-hover-border: fade(@black, 9%);
+
+@gradient-min: fade(@card-background, 20%);
+@gradient-max: fade(@card-background, 40%);
 
 .@{card-prefix-cls} {
   .reset-component;
+  position: relative;
   background: @component-background;
   border-radius: @card-radius;
-  position: relative;
-  transition: all .3s;
+  transition: all 0.3s;
 
   &-hoverable {
     cursor: pointer;
     &:hover {
-      box-shadow: @card-shadow;
       border-color: @card-hover-border;
+      box-shadow: @card-shadow;
     }
   }
 
@@ -26,37 +28,37 @@
   }
 
   &-head {
-    background: @card-head-background;
-    border-bottom: @border-width-base @border-style-base @border-color-split;
-    padding: 0 @card-padding-base;
-    border-radius: @card-radius @card-radius 0 0;
-    .clearfix;
-    margin-bottom: -1px; // Fix card grid overflow bug: https://gw.alipayobjects.com/zos/rmsportal/XonYxBikwpgbqIQBeuhk.png
     min-height: @card-head-height;
-    font-size: @font-size-lg;
+    margin-bottom: -1px; // Fix card grid overflow bug: https://gw.alipayobjects.com/zos/rmsportal/XonYxBikwpgbqIQBeuhk.png
+    padding: 0 @card-padding-base;
     color: @card-head-color;
     font-weight: 500;
+    font-size: @font-size-lg;
+    background: @card-head-background;
+    border-bottom: @border-width-base @border-style-base @border-color-split;
+    border-radius: @card-radius @card-radius 0 0;
+    .clearfix;
 
     &-wrapper {
       display: flex;
+      align-items: center;
     }
 
     &-title {
+      display: inline-block;
+      flex: 1;
       padding: @card-head-padding 0;
-      text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
-      display: flex;
-      align-items: center;
-      flex: 1;
+      text-overflow: ellipsis;
     }
 
     .@{ant-prefix}-tabs {
-      margin-bottom: -17px;
       clear: both;
-      font-size: @font-size-base;
+      margin-bottom: -17px;
       color: @text-color;
       font-weight: normal;
+      font-size: @font-size-base;
 
       &-bar {
         border-bottom: @border-width-base @border-style-base @border-color-split;
@@ -66,13 +68,12 @@
 
   &-extra {
     float: right;
-    padding: @card-head-padding + 1.5px 0;
-    font-size: @font-size-base;
-    color: @text-color;
-    font-weight: normal;
-    text-align: right;
     // https://stackoverflow.com/a/22429853/3040605
     margin-left: auto;
+    padding: @card-head-padding 0;
+    color: @text-color;
+    font-weight: normal;
+    font-size: @font-size-base;
   }
 
   &-body {
@@ -86,13 +87,15 @@
   }
 
   &-grid {
-    border-radius: 0;
-    border: 0;
-    box-shadow: 1px 0 0 0 @border-color-split, 0 1px 0 0 @border-color-split, 1px 1px 0 0 @border-color-split, 1px 0 0 0 @border-color-split inset, 0 1px 0 0 @border-color-split inset;
-    width: 33.33%;
     float: left;
+    width: 33.33%;
     padding: @card-padding-base;
-    transition: all .3s;
+    border: 0;
+    border-radius: 0;
+    box-shadow: 1px 0 0 0 @border-color-split, 0 1px 0 0 @border-color-split,
+      1px 1px 0 0 @border-color-split, 1px 0 0 0 @border-color-split inset,
+      0 1px 0 0 @border-color-split inset;
+    transition: all 0.3s;
     &:hover {
       position: relative;
       z-index: 1;
@@ -101,8 +104,8 @@
   }
 
   &-contain-tabs > &-head &-head-title {
-    padding-bottom: 0;
     min-height: @card-head-height - @card-head-padding;
+    padding-bottom: 0;
   }
 
   &-contain-tabs &-extra {
@@ -111,8 +114,8 @@
 
   &-cover {
     > * {
-      width: 100%;
       display: block;
+      width: 100%;
     }
     img {
       border-radius: @card-radius @card-radius 0 0;
@@ -120,30 +123,30 @@
   }
 
   &-actions {
-    border-top: @border-width-base @border-style-base @border-color-split;
-    background: @card-actions-background;
-    .clearfix;
-    list-style: none;
     margin: 0;
     padding: 0;
+    list-style: none;
+    background: @card-actions-background;
+    border-top: @border-width-base @border-style-base @border-color-split;
+    .clearfix;
 
     & > li {
       float: left;
-      text-align: center;
       margin: 12px 0;
       color: @text-color-secondary;
+      text-align: center;
 
       & > span {
-        display: inline-block;
-        font-size: 14px;
-        cursor: pointer;
-        line-height: 22px;
-        min-width: 32px;
         position: relative;
+        display: inline-block;
+        min-width: 32px;
+        font-size: 14px;
+        line-height: 22px;
+        cursor: pointer;
 
         &:hover {
           color: @primary-color;
-          transition: color .3s;
+          transition: color 0.3s;
         }
 
         & > .anticon {
@@ -152,10 +155,10 @@
         }
 
         a {
-          color: @text-color-secondary;
-          line-height: 22px;
           display: inline-block;
           width: 100%;
+          color: @text-color-secondary;
+          line-height: 22px;
 
           &:hover {
             color: @primary-color;
@@ -179,7 +182,7 @@
 
   &-padding-transition &-head,
   &-padding-transition &-body {
-    transition: padding .3s;
+    transition: padding 0.3s;
   }
 
   &-type-inner &-head {
@@ -205,8 +208,8 @@
     .clearfix;
 
     &-avatar {
-      padding-right: 16px;
       float: left;
+      padding-right: 16px;
     }
 
     &-detail {
@@ -217,17 +220,21 @@
     }
 
     &-title {
-      font-size: @font-size-lg;
-      text-overflow: ellipsis;
       overflow: hidden;
-      white-space: nowrap;
       color: @card-head-color;
       font-weight: 500;
+      font-size: @font-size-lg;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
 
     &-description {
       color: @text-color-secondary;
     }
+  }
+
+  &-loading {
+    overflow: hidden;
   }
 
   &-loading &-body {
@@ -243,19 +250,21 @@
   &-loading-block {
     height: 14px;
     margin: 4px 0;
-    border-radius: @card-radius;
-    background: linear-gradient(90deg, rgba(207, 216, 220, .2), rgba(207, 216, 220, .4), rgba(207, 216, 220, .2));
-    animation: card-loading 1.4s ease infinite;
+    background: linear-gradient(90deg, @gradient-min, @gradient-max, @gradient-min);
     background-size: 600% 600%;
+    border-radius: @card-radius;
+    animation: card-loading 1.4s ease infinite;
   }
 }
 
 @keyframes card-loading {
   0%,
   100% {
-		background-position: 0 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
+
+@import './size';

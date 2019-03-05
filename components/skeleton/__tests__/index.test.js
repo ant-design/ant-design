@@ -3,11 +3,12 @@ import { mount } from 'enzyme';
 import Skeleton from '..';
 
 describe('Skeleton', () => {
-  const genSkeleton = props => mount(
-    <Skeleton loading {...props}>
-      Bamboo
-    </Skeleton>
-  );
+  const genSkeleton = props =>
+    mount(
+      <Skeleton loading {...props}>
+        Bamboo
+      </Skeleton>,
+    );
 
   describe('avatar', () => {
     it('size', () => {

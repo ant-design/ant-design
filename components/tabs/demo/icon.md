@@ -27,5 +27,6 @@ ReactDOM.render(
       Tab 2
     </TabPane>
   </Tabs>,
-  mountNode);
+  mountNode
+);
 ````

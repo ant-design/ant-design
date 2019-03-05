@@ -31,7 +31,6 @@ ReactDOM.render(
   <div>
     <DatePicker
       showTime
-      format="YYYY-MM-DD HH:mm:ss"
       placeholder="Select Time"
       onChange={onChange}
       onOk={onOk}
@@ -45,5 +44,6 @@ ReactDOM.render(
       onOk={onOk}
     />
   </div>,
-  mountNode);
+  mountNode
+);
 ````

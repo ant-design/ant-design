@@ -50,5 +50,6 @@ ReactDOM.render(
     <Cascader options={options} onChange={onChange} /><br /><br />
     <Cascader size="small" options={options} onChange={onChange} /><br /><br />
   </div>,
-  mountNode);
+  mountNode
+);
 ````

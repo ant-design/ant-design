@@ -1,4 +1,4 @@
-export default function getScroll(target: any, top: boolean): number {
+export default function getScroll(target: HTMLElement | Window | null, top: boolean): number {
   if (typeof window === 'undefined') {
     return 0;
   }
@@ -7,10 +7,10 @@ export default function getScroll(target: any, top: boolean): number {
   const method = top ? 'scrollTop' : 'scrollLeft';
   const isWindow = target === window;
 
-  let ret = isWindow ? target[prop] : target[method];
+  let ret = isWindow ? (target as Window)[prop] : (target as HTMLElement)[method];
   // ie6,7,8 standard mode
   if (isWindow && typeof ret !== 'number') {
-    ret = window.document.documentElement![method];
+    ret = (document.documentElement as HTMLElement)[method];
   }
 
   return ret;

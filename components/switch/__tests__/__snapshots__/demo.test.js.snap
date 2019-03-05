@@ -42,11 +42,13 @@ exports[`renders ./components/switch/demo/loading.md correctly 1`] = `
 <div>
   <button
     aria-checked="true"
-    class="ant-switch-loading ant-switch ant-switch-checked"
+    class="ant-switch-loading ant-switch ant-switch-checked ant-switch-disabled"
+    disabled=""
     role="switch"
     type="button"
   >
     <i
+      aria-label="icon: loading"
       class="anticon anticon-loading ant-switch-loading-icon"
     >
       <svg
@@ -70,11 +72,13 @@ exports[`renders ./components/switch/demo/loading.md correctly 1`] = `
   <br />
   <button
     aria-checked="false"
-    class="ant-switch-small ant-switch-loading ant-switch"
+    class="ant-switch-small ant-switch-loading ant-switch ant-switch-disabled"
+    disabled=""
     role="switch"
     type="button"
   >
     <i
+      aria-label="icon: loading"
       class="anticon anticon-loading ant-switch-loading-icon"
     >
       <svg
@@ -162,6 +166,7 @@ exports[`renders ./components/switch/demo/text.md correctly 1`] = `
       class="ant-switch-inner"
     >
       <i
+        aria-label="icon: check"
         class="anticon anticon-check"
       >
         <svg

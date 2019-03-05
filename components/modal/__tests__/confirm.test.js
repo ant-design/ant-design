@@ -1,4 +1,5 @@
 import Modal from '..';
+import { destroyFns } from '../Modal';
 
 const { confirm } = Modal;
 
@@ -93,7 +94,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
   it('trigger onCancel once when click on cancel button', () => {
     jest.useFakeTimers();
-    ['info', 'success', 'warning', 'error'].forEach((type) => {
+    ['info', 'success', 'warning', 'error'].forEach(type => {
       Modal[type]({
         title: 'title',
         content: 'content',
@@ -108,7 +109,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
   it('could be update', () => {
     jest.useFakeTimers();
-    ['info', 'success', 'warning', 'error'].forEach((type) => {
+    ['info', 'success', 'warning', 'error'].forEach(type => {
       const instance = Modal[type]({
         title: 'title',
         content: 'content',
@@ -131,7 +132,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
   it('could be destroy', () => {
     jest.useFakeTimers();
-    ['info', 'success', 'warning', 'error'].forEach((type) => {
+    ['info', 'success', 'warning', 'error'].forEach(type => {
       const instance = Modal[type]({
         title: 'title',
         content: 'content',
@@ -144,11 +145,55 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     jest.useRealTimers();
   });
 
+  it('could be Modal.destroyAll', () => {
+    jest.useFakeTimers();
+    ['info', 'success', 'warning', 'error'].forEach(type => {
+      Modal[type]({
+        title: 'title',
+        content: 'content',
+      });
+      expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
+    });
+    Modal.destroyAll();
+    ['info', 'success', 'warning', 'error'].forEach(type => {
+      jest.runAllTimers();
+      expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(0);
+    });
+    jest.useRealTimers();
+  });
+
   it('prefixCls', () => {
     open({ prefixCls: 'custom-modal' });
     expect($$('.custom-modal-mask')).toHaveLength(1);
     expect($$('.custom-modal-wrap')).toHaveLength(1);
     expect($$('.custom-modal-confirm')).toHaveLength(1);
     expect($$('.custom-modal-confirm-body-wrapper')).toHaveLength(1);
+  });
+
+  it('should be Modal.confirm without mask', () => {
+    open({ mask: false });
+    expect($$('.ant-modal-mask')).toHaveLength(0);
+  });
+
+  it('destroyFns should reduce when instance.destroy', () => {
+    jest.useFakeTimers();
+    Modal.destroyAll(); // clear destroyFns
+    jest.runAllTimers();
+    const instances = [];
+    ['info', 'success', 'warning', 'error'].forEach(type => {
+      const instance = Modal[type]({
+        title: 'title',
+        content: 'content',
+      });
+      instances.push(instance);
+    });
+    const { length } = instances;
+    instances.forEach((instance, index) => {
+      expect(destroyFns.length).toBe(length - index);
+      instance.destroy();
+      jest.runAllTimers();
+      expect(destroyFns.length).toBe(length - index - 1);
+    });
+    jest.useRealTimers();
   });
 });

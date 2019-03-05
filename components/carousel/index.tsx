@@ -1,5 +1,7 @@
 import * as React from 'react';
 import debounce from 'lodash/debounce';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { Settings } from 'react-slick';
 
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
@@ -8,10 +10,8 @@ if (typeof window !== 'undefined') {
     return {
       media: mediaQuery,
       matches: false,
-      addListener() {
-      },
-      removeListener() {
-      },
+      addListener() {},
+      removeListener() {},
     };
   };
   window.matchMedia = window.matchMedia || matchMediaPolyfill;
@@ -24,45 +24,10 @@ const SlickCarousel = require('react-slick').default;
 
 export type CarouselEffect = 'scrollx' | 'fade';
 // Carousel
-export interface CarouselProps {
+export interface CarouselProps extends Settings {
   effect?: CarouselEffect;
-  dots?: boolean;
-  vertical?: boolean;
-  autoplay?: boolean;
-  easing?: string;
-  beforeChange?: (from: number, to: number) => void;
-  afterChange?: (current: number) => void;
   style?: React.CSSProperties;
   prefixCls?: string;
-  accessibility?: boolean;
-  nextArrow?: HTMLElement | any;
-  prevArrow?: HTMLElement | any;
-  pauseOnHover?: boolean;
-  className?: string;
-  adaptiveHeight?: boolean;
-  arrows?: boolean;
-  autoplaySpeed?: number;
-  centerMode?: boolean;
-  centerPadding?: string | any;
-  cssEase?: string | any;
-  dotsClass?: string;
-  draggable?: boolean;
-  fade?: boolean;
-  focusOnSelect?: boolean;
-  infinite?: boolean;
-  initialSlide?: number;
-  lazyLoad?: boolean;
-  rtl?: boolean;
-  slide?: string;
-  slidesToShow?: number;
-  slidesToScroll?: number;
-  speed?: number;
-  swipe?: boolean;
-  swipeToSlide?: boolean;
-  touchMove?: boolean;
-  touchThreshold?: number;
-  variableWidth?: boolean;
-  useCSS?: boolean;
   slickGoTo?: number;
 }
 
@@ -70,7 +35,6 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
   static defaultProps = {
     dots: true,
     arrows: false,
-    prefixCls: 'ant-carousel',
     draggable: false,
   };
 
@@ -108,11 +72,11 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
     if (autoplay && this.slick && this.slick.innerSlider && this.slick.innerSlider.autoPlay) {
       this.slick.innerSlider.autoPlay();
     }
-  }
+  };
 
   saveSlick = (node: any) => {
     this.slick = node;
-  }
+  };
 
   next() {
     this.slick.slickNext();
@@ -126,8 +90,8 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
     this.slick.slickGoTo(slide, dontAnimate);
   }
 
-  render() {
-    let props = {
+  renderCarousel = ({ getPrefixCls }: ConfigConsumerProps) => {
+    const props = {
       ...this.props,
     };
 
@@ -135,7 +99,7 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
       props.fade = true;
     }
 
-    let className = props.prefixCls;
+    let className = getPrefixCls('carousel', props.prefixCls);
     if (props.vertical) {
       className = `${className} ${className}-vertical`;
     }
@@ -145,5 +109,9 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
         <SlickCarousel ref={this.saveSlick} {...props} />
       </div>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderCarousel}</ConfigConsumer>;
   }
 }

@@ -16,7 +16,9 @@ title:
 Used together with `react-router@4` or other router.
 
 ````jsx
-import { HashRouter as Router, Route, Switch, Link, withRouter } from 'react-router-dom';
+import {
+  HashRouter as Router, Route, Switch, Link, withRouter,
+} from 'react-router-dom';
 import { Breadcrumb, Alert } from 'antd';
 
 const Apps = () => (
@@ -77,7 +79,8 @@ ReactDOM.render(
   <Router>
     <Home />
   </Router>,
-  mountNode);
+  mountNode
+);
 ````
 
 ````css

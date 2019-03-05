@@ -20,7 +20,9 @@ Layout.Sider supports responsive layout.
 ````jsx
 import { Layout, Menu, Icon } from 'antd';
 
-const { Header, Content, Footer, Sider } = Layout;
+const {
+  Header, Content, Footer, Sider,
+} = Layout;
 
 ReactDOM.render(
   <Layout>
@@ -62,7 +64,8 @@ ReactDOM.render(
       </Footer>
     </Layout>
   </Layout>,
-  mountNode);
+  mountNode
+);
 ````
 
 ````css

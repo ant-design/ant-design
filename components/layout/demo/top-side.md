@@ -14,10 +14,14 @@ title:
 Both the top navigation and the sidebar, commonly used in documentation site.
 
 ````jsx
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import {
+  Layout, Menu, Breadcrumb, Icon,
+} from 'antd';
 
 const { SubMenu } = Menu;
-const { Header, Content, Footer, Sider } = Layout;
+const {
+  Header, Content, Footer, Sider,
+} = Layout;
 
 ReactDOM.render(
   <Layout>
@@ -77,7 +81,8 @@ ReactDOM.render(
       Ant Design ©2018 Created by Ant UED
     </Footer>
   </Layout>,
-  mountNode);
+  mountNode
+);
 ````
 
 ````css

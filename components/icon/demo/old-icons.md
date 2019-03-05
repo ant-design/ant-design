@@ -93,6 +93,7 @@ const icons = [
   'exclamation-circle-o',
   'exclamation-circle',
   'close',
+  'cross',
   'close-circle',
   'close-circle-o',
   'close-square',
@@ -311,5 +312,6 @@ ReactDOM.render(
   <div>
     {icons.map(icon => <Icon key={icon} type={icon} />)}
   </div>,
-  mountNode);
+  mountNode
+);
 ````

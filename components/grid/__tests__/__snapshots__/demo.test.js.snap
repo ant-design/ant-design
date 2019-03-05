@@ -525,37 +525,37 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
         >
           <span
             class="ant-slider-mark-text ant-slider-mark-text-active"
-            style="width:18%;margin-left:-9%;left:0%"
+            style="left:0%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
           >
             8
           </span>
           <span
             class="ant-slider-mark-text ant-slider-mark-text-active"
-            style="width:18%;margin-left:-9%;left:20%"
+            style="left:20%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
           >
             16
           </span>
           <span
             class="ant-slider-mark-text"
-            style="width:18%;margin-left:-9%;left:40%"
+            style="left:40%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
           >
             24
           </span>
           <span
             class="ant-slider-mark-text"
-            style="width:18%;margin-left:-9%;left:60%"
+            style="left:60%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
           >
             32
           </span>
           <span
             class="ant-slider-mark-text"
-            style="width:18%;margin-left:-9%;left:80%"
+            style="left:80%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
           >
             40
           </span>
           <span
             class="ant-slider-mark-text"
-            style="width:18%;margin-left:-9%;left:100%"
+            style="left:100%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
           >
             48
           </span>
@@ -623,37 +623,37 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
         >
           <span
             class="ant-slider-mark-text ant-slider-mark-text-active"
-            style="width:18%;margin-left:-9%;left:0%"
+            style="left:0%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
           >
             2
           </span>
           <span
             class="ant-slider-mark-text ant-slider-mark-text-active"
-            style="width:18%;margin-left:-9%;left:20%"
+            style="left:20%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
           >
             3
           </span>
           <span
             class="ant-slider-mark-text ant-slider-mark-text-active"
-            style="width:18%;margin-left:-9%;left:40%"
+            style="left:40%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
           >
             4
           </span>
           <span
             class="ant-slider-mark-text"
-            style="width:18%;margin-left:-9%;left:60%"
+            style="left:60%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
           >
             6
           </span>
           <span
             class="ant-slider-mark-text"
-            style="width:18%;margin-left:-9%;left:80%"
+            style="left:80%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
           >
             8
           </span>
           <span
             class="ant-slider-mark-text"
-            style="width:18%;margin-left:-9%;left:100%"
+            style="left:100%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
           >
             12
           </span>

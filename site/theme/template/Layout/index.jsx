@@ -5,15 +5,16 @@ import { enquireScreen } from 'enquire-js';
 import { addLocaleData, IntlProvider } from 'react-intl';
 import 'moment/locale/zh-cn';
 import { LocaleProvider } from 'antd';
+import LogRocket from 'logrocket';
+import setupLogRocketReact from 'logrocket-react';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
 import Header from './Header';
-import Footer from './Footer';
 import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
 import * as utils from '../utils';
 
 if (typeof window !== 'undefined' && navigator.serviceWorker) {
-  navigator.serviceWorker.getRegistrations().then((registrations) => {
+  navigator.serviceWorker.getRegistrations().then(registrations => {
     registrations.forEach(registration => registration.unregister());
   });
 }
@@ -27,26 +28,35 @@ if (typeof window !== 'undefined') {
   window['react-dom'] = ReactDOM;
   window.antd = require('antd');
   /* eslint-enable global-require */
+
+  // Error log statistic
+  window.addEventListener('error', function(e) {
+    // Ignore ResizeObserver error
+    if (e.message === 'ResizeObserver loop limit exceeded') {
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+    }
+  });
+
+  if (process.env.NODE_ENV === 'production') {
+    LogRocket.init('kpuw4z/ant-design');
+    setupLogRocketReact(LogRocket);
+  }
 }
 
 let isMobile = false;
-enquireScreen((b) => {
+enquireScreen(b => {
   isMobile = b;
 });
 
 export default class Layout extends React.Component {
   static contextTypes = {
     router: PropTypes.object.isRequired,
-  }
+  };
 
   static childContextTypes = {
     isMobile: PropTypes.bool,
   };
-
-  getChildContext() {
-    const { isMobile: mobile } = this.state;
-    return { isMobile: mobile };
-  }
 
   constructor(props) {
     super(props);
@@ -60,9 +70,14 @@ export default class Layout extends React.Component {
     };
   }
 
+  getChildContext() {
+    const { isMobile: mobile } = this.state;
+    return { isMobile: mobile };
+  }
+
   componentDidMount() {
     const { router } = this.context;
-    router.listen((loc) => {
+    router.listen(loc => {
       if (typeof window.ga !== 'undefined') {
         window.ga('send', 'pageview', loc.pathname + loc.search);
       }
@@ -80,7 +95,7 @@ export default class Layout extends React.Component {
       }, 0);
     }
 
-    enquireScreen((b) => {
+    enquireScreen(b => {
       this.setState({
         isMobile: !!b,
       });
@@ -95,13 +110,13 @@ export default class Layout extends React.Component {
     const { children, ...restProps } = this.props;
     const { appLocale } = this.state;
 
+    // Temp remove SentryBoundary
     return (
       <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
         <LocaleProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null}>
           <div className="page-wrapper">
             <Header {...restProps} />
             {children}
-            <Footer {...restProps} />
           </div>
         </LocaleProvider>
       </IntlProvider>

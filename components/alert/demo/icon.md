@@ -47,5 +47,6 @@ ReactDOM.render(
       showIcon
     />
   </div>,
-  mountNode);
+  mountNode
+);
 ````

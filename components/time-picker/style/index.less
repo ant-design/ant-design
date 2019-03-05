@@ -1,79 +1,50 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
-@import "../../input/style/mixin";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
+@import '../../input/style/mixin';
 
-@timepicker-prefix-cls: ~"@{ant-prefix}-time-picker";
+@timepicker-prefix-cls: ~'@{ant-prefix}-time-picker';
 @timepicker-item-height: 32px;
 
 .@{timepicker-prefix-cls}-panel {
   .reset-component;
-  font-family: @font-family;
-  z-index: @zindex-picker;
   position: absolute;
+  z-index: @zindex-picker;
+  font-family: @font-family;
 
   &-inner {
     position: relative;
-    outline: none;
-    list-style: none;
+    left: -2px;
     font-size: @font-size-base;
     text-align: left;
+    list-style: none;
     background-color: @component-background;
-    border-radius: @border-radius-base;
-    box-shadow: @box-shadow-base;
     background-clip: padding-box;
-    overflow: hidden;
-    left: -2px;
+    border-radius: @border-radius-base;
+    outline: none;
+    box-shadow: @box-shadow-base;
   }
 
   &-input {
+    width: 100%;
+    max-width: @time-picker-panel-column-width * 3 - @control-padding-horizontal - 2px;
     margin: 0;
     padding: 0;
+    line-height: normal;
     border: 0;
-    max-width: @time-picker-panel-column-width * 3 - @control-padding-horizontal - 2px;
-    cursor: auto;
     outline: 0;
+    cursor: auto;
 
     .placeholder;
 
     &-wrap {
-      box-sizing: border-box;
       position: relative;
+      box-sizing: border-box;
       padding: 7px 2px 7px @control-padding-horizontal;
       border-bottom: @border-width-base @border-style-base @border-color-split;
     }
 
     &-invalid {
-      border-color: red;
-    }
-  }
-
-  &-clear-btn {
-    position: absolute;
-    right: 8px;
-    cursor: pointer;
-    overflow: hidden;
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    line-height: 20px;
-    top: 7px;
-    margin: 0;
-
-    &-icon svg {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      margin: auto;
-      font-size: @font-size-base;
-      color: @disabled-color;
-      display: inline-block;
-      transition: color 0.3s ease;
-
-      &:hover {
-        color: @text-color-secondary;
-      }
+      border-color: @error-color;
     }
   }
 
@@ -82,22 +53,22 @@
   }
 
   &-select {
+    position: relative; // Fix chrome weird render bug
     float: left;
-    font-size: @font-size-base;
-    border-left: @border-width-base @border-style-base @border-color-split;
     box-sizing: border-box;
     width: @time-picker-panel-column-width;
-    overflow: hidden;
-    position: relative; // Fix chrome weird render bug
     max-height: @timepicker-item-height * 6;
+    overflow: hidden;
+    font-size: @font-size-base;
+    border-left: @border-width-base @border-style-base @border-color-split;
 
     &:hover {
       overflow-y: auto;
     }
 
     &:first-child {
-      border-left: 0;
       margin-left: 0;
+      border-left: 0;
     }
 
     &:last-child {
@@ -109,25 +80,25 @@
     }
 
     ul {
-      list-style: none;
       box-sizing: border-box;
+      width: 100%;
       margin: 0;
       padding: 0 0 @timepicker-item-height * 5;
-      width: 100%;
+      list-style: none;
     }
 
     li {
-      list-style: none;
       box-sizing: content-box;
-      margin: 0;
-      padding: 0 0 0 @control-padding-horizontal;
       width: 100%;
       height: @timepicker-item-height;
+      margin: 0;
+      padding: 0 0 0 @control-padding-horizontal;
       line-height: @timepicker-item-height;
       text-align: left;
+      list-style: none;
       cursor: pointer;
-      user-select: none;
       transition: background 0.3s;
+      user-select: none;
     }
 
     li:hover {
@@ -135,8 +106,8 @@
     }
 
     li&-option-selected {
-      background: @time-picker-selected-bg;
       font-weight: bold;
+      background: @time-picker-selected-bg;
       &:hover {
         background: @time-picker-selected-bg;
       }
@@ -189,9 +160,9 @@
   .reset-component;
   position: relative;
   display: inline-block;
-  outline: none;
-  transition: opacity .3s;
   width: 128px;
+  outline: none;
+  transition: opacity 0.3s;
 
   &-input {
     .input;
@@ -204,22 +175,38 @@
     opacity: 0;
   }
 
-  &-icon {
+  &-icon,
+  &-clear {
     position: absolute;
-    user-select: none;
-    transition: all .3s @ease-in-out;
+    top: 50%;
+    right: @control-padding-horizontal - 1px;
+    z-index: 1;
     width: 14px;
     height: 14px;
-    line-height: 14px;
-    right: @control-padding-horizontal - 1px;
-    color: @disabled-color;
-    top: 50%;
     margin-top: -7px;
+    color: @disabled-color;
+    line-height: 14px;
+    transition: all 0.3s @ease-in-out;
+    user-select: none;
     .@{timepicker-prefix-cls}-clock-icon {
-      color: @disabled-color;
       display: block;
+      color: @disabled-color;
       line-height: 1;
     }
+  }
+
+  &-clear {
+    z-index: 2;
+    background: @input-bg;
+    opacity: 0;
+    pointer-events: none;
+    &:hover {
+      color: @text-color-secondary;
+    }
+  }
+  &:hover &-clear {
+    opacity: 1;
+    pointer-events: auto;
   }
 
   &-large &-input {
@@ -230,7 +217,8 @@
     .input-sm;
   }
 
-  &-small &-icon {
+  &-small &-icon,
+  &-small &-clear {
     right: @control-padding-horizontal-sm - 1px;
   }
 }

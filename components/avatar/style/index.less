@@ -1,18 +1,18 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
 
-@avatar-prefix-cls: ~"@{ant-prefix}-avatar";
+@avatar-prefix-cls: ~'@{ant-prefix}-avatar';
 
 .@{avatar-prefix-cls} {
   .reset-component;
+  position: relative;
   display: inline-block;
-  text-align: center;
-  background: @avatar-bg;
+  overflow: hidden;
   color: @avatar-color;
   white-space: nowrap;
-  position: relative;
-  overflow: hidden;
+  text-align: center;
   vertical-align: middle;
+  background: @avatar-bg;
 
   &-image {
     background: transparent;
@@ -33,9 +33,9 @@
   }
 
   & > img {
+    display: block;
     width: 100%;
     height: 100%;
-    display: block;
   }
 }
 
@@ -45,8 +45,10 @@
   line-height: @size;
   border-radius: 50%;
 
-  & > * {
-    line-height: @size;
+  &-string {
+    position: absolute;
+    left: 50%;
+    transform-origin: 0 center;
   }
 
   &.@{avatar-prefix-cls}-icon {

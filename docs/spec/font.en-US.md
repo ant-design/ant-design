@@ -22,7 +22,7 @@ While defining the font system for a visual system, we propose to start from the
 In order to implement a good font system, the first thing is to choose an appropriate font family. Ant Design prefers the system default font family and then also provides a set of alternative font libraries to maintain readability for screens on different platforms and browsers and to make sure it's always user friendly, stable and professional to end user.
 
 ```css
-font-family: "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif,
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif,
  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 ```
 
@@ -36,23 +36,21 @@ In addition, in a lot of applications, numbers often need to be displayed vertic
 
 We have updated Ant Design's base font size from the original 12 to 14 to ensure the best user reading efficiency on most common monitors based on display screen reading distance (50 cm) and optimal reading angle (0.3).
 
-<div>
-  <img src="https://gw.alipayobjects.com/zos/rmsportal/yriUFbqOPtVniYYiikfb.png" />
+<div style="text-align:center;margin:40px 0;">
+  <img width="600" src="https://gw.alipayobjects.com/zos/rmsportal/yriUFbqOPtVniYYiikfb.png">
 </div>
 
 ## Font Scale & Line Height
 
 The font scale and line height determine the beauty of the dynamics and order of a font system. Font scale refers to a series of font with different sizes. Line height can be understood as an invisible box wrapped outside the font.
 
-<div>
-  <img src="https://gw.alipayobjects.com/zos/rmsportal/xpykKKFJQorFJltdXkie.png" />
+<div style="text-align:center;margin:40px 0;">
+  <img width="600" src="https://gw.alipayobjects.com/zos/rmsportal/xpykKKFJQorFJltdXkie.png">
 </div>
 
 Ant Design was inspired by the pentatonic scale and natural law to define 10 different font sizes and corresponding line heights.
 
-<div>
-  <img src="https://gw.alipayobjects.com/zos/rmsportal/iFjgfIBExksqCqGMwUlw.png" />
-</div>
+<img src="https://gw.alipayobjects.com/zos/rmsportal/iFjgfIBExksqCqGMwUlw.png" />
 
 In Ant Design's visual system, our recommended base font size is 14, and its corresponding line height is 22. The choice of the rest of the font scale can be freely defined according to the specific circumstances. It is recommended that in a design system (except for display pages), the choice of font scale should be controlled within 3 to 5 types, and the principle of restraint should be maintained.
 

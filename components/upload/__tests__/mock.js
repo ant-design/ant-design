@@ -11,5 +11,4 @@ export function setup() {
   });
 }
 
-
 export const teardown = mock.teardown.bind(mock);

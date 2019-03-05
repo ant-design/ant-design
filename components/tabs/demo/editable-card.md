@@ -27,7 +27,9 @@ class Demo extends React.Component {
     const panes = [
       { title: 'Tab 1', content: 'Content of Tab 1', key: '1' },
       { title: 'Tab 2', content: 'Content of Tab 2', key: '2' },
-      { title: 'Tab 3', content: 'Content of Tab 3', key: '3', closable: false },
+      {
+        title: 'Tab 3', content: 'Content of Tab 3', key: '3', closable: false,
+      },
     ];
     this.state = {
       activeKey: panes[0].key,
@@ -59,8 +61,12 @@ class Demo extends React.Component {
       }
     });
     const panes = this.state.panes.filter(pane => pane.key !== targetKey);
-    if (lastIndex >= 0 && activeKey === targetKey) {
-      activeKey = panes[lastIndex].key;
+    if (panes.length && activeKey === targetKey) {
+      if (lastIndex >= 0) {
+        activeKey = panes[lastIndex].key;
+      } else {
+        activeKey = panes[0].key;
+      }
     }
     this.setState({ panes, activeKey });
   }
