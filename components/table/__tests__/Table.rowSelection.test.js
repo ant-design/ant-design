@@ -4,6 +4,16 @@ import Table from '..';
 import Checkbox from '../../checkbox';
 
 describe('Table.rowSelection', () => {
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+  afterEach(() => {
+    errorSpy.mockReset();
+  });
+
+  afterAll(() => {
+    errorSpy.mockRestore();
+  });
+
   const columns = [
     {
       title: 'Name',
@@ -120,6 +130,10 @@ describe('Table.rowSelection', () => {
     checkboxs = wrapper.find('input');
     expect(checkboxs.at(1).props().checked).toBe(true);
     expect(checkboxs.at(2).props().checked).toBe(true);
+
+    expect(errorSpy).toBeCalledWith(
+      'Warning: [antd: Table] Do not set `checked` or `defaultChecked` in `getCheckboxProps`. Please use `selectedRowKeys` instead.',
+    );
   });
 
   it('can be controlled', () => {
