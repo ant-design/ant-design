@@ -25,7 +25,7 @@ describe('List.pagination', () => {
   }
 
   function renderedNames(wrapper) {
-    return wrapper.find('.ant-list-item-content').map(row => row.text());
+    return wrapper.find('.ant-list-item').map(row => row.text());
   }
 
   it('renders pagination correctly', () => {
