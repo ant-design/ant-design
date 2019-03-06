@@ -122,7 +122,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
     onFocus = () => {
       const { open, hadFocus } = this.state;
       if (!open && !hadFocus) {
-        this.setState({  hadFocus: true  });
+        this.setState({ hadFocus: true });
         this.props.onFocus()
       }
     };
@@ -130,7 +130,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
     onBlur = () => {
       const { open, hadFocus } = this.state;
       if (!open && hadFocus) {
-        this.setState({  hadFocus: false });
+        this.setState({ hadFocus: false });
         this.props.onBlur()
       }
     };
