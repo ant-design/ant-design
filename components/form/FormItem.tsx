@@ -37,7 +37,6 @@ function intersperseSpace<T>(list: Array<T>): Array<T | string> {
 export default class FormItem extends React.Component<FormItemProps, any> {
   static defaultProps = {
     hasFeedback: false,
-    colon: true,
   };
 
   static propTypes = {
@@ -70,7 +69,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   getHelpMessage() {
     const { help } = this.props;
     if (help === undefined && this.getOnlyControl()) {
-      const errors = this.getField().errors;
+      const { errors } = this.getField();
       if (errors) {
         return intersperseSpace(
           errors.map((e: any, index: number) => {
@@ -201,7 +200,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     c2: React.ReactNode,
     c3: React.ReactNode,
   ) {
-    const props = this.props;
+    const { props } = this;
     const onlyControl = this.getOnlyControl;
     const validateStatus =
       props.validateStatus === undefined && onlyControl
@@ -343,7 +342,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
           let labelChildren = label;
           // Keep label is original where there should have no colon
-          const haveColon = colon && !vertical;
+          const haveColon = colon !== false && !vertical;
           // Remove duplicated user input colon
           if (haveColon && typeof label === 'string' && (label as string).trim() !== '') {
             labelChildren = (label as string).replace(/[：|:]\s*$/, '');
@@ -389,7 +388,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     const itemClassName = {
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-with-help`]: this.helpShow,
-      [`${prefixCls}-item-no-colon`]: !colon,
+      [`${prefixCls}-item-no-colon`]: colon === false,
       [`${className}`]: !!className,
     };
     return (

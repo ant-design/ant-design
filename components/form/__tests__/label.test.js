@@ -45,6 +45,36 @@ describe('Form', () => {
     ).not.toContain('：');
   });
 
+  it('should disable colon when props colon Form is false', () => {
+    const wrapper = mount(
+      <Form colon={false}>
+        <Form.Item label="label:">input</Form.Item>
+      </Form>,
+    );
+    expect(
+      wrapper
+        .find('.ant-form-item')
+        .at(0)
+        .hasClass('ant-form-item-no-colon'),
+    ).toBe(true);
+  });
+
+  it('should props colon of Form.Item override the props colon of Form.', () => {
+    const wrapper = mount(
+      <Form colon={false}>
+        <Form.Item label="label" colon>
+          input
+        </Form.Item>
+      </Form>,
+    );
+    expect(
+      wrapper
+        .find('.ant-form-item')
+        .at(0)
+        .hasClass('ant-form-item-no-colon'),
+    ).toBe(false);
+  });
+
   it('should not remove duplicated user input colon when props colon is false', () => {
     const wrapper = mount(
       <Form>

@@ -8,7 +8,7 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { ColProps } from '../grid/col';
 import { Omit, tuple } from '../_util/type';
 import warning from '../_util/warning';
-import FormItem from './FormItem';
+import FormItem, { FormItemProps } from './FormItem';
 import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
 import { FormContext } from './context';
 
@@ -40,6 +40,7 @@ export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   hideRequiredMark?: boolean;
   labelCol?: ColProps;
   wrapperCol?: ColProps;
+  colon?: boolean;
 }
 
 export type ValidationRule = {
@@ -206,6 +207,7 @@ export default class Form extends React.Component<FormProps, any> {
     children: PropTypes.any,
     onSubmit: PropTypes.func,
     hideRequiredMark: PropTypes.bool,
+    colon: PropTypes.bool,
   };
 
   static Item = FormItem;
@@ -230,7 +232,13 @@ export default class Form extends React.Component<FormProps, any> {
   }
 
   renderForm = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, hideRequiredMark, className = '', layout } = this.props;
+    const {
+      prefixCls: customizePrefixCls,
+      hideRequiredMark,
+      className = '',
+      layout,
+      colon,
+    } = this.props;
     const prefixCls = getPrefixCls('form', customizePrefixCls);
     const formClassName = classNames(
       prefixCls,
@@ -251,9 +259,24 @@ export default class Form extends React.Component<FormProps, any> {
       'hideRequiredMark',
       'wrapperCol',
       'labelCol',
+      'colon',
     ]);
 
-    return <form {...formProps} className={formClassName} />;
+    let { children } = this.props;
+    if (colon === false) {
+      children = React.Children.map(
+        this.props.children,
+        (child: React.ReactElement<FormItemProps>) => {
+          if (!child || child.type !== FormItem || child.props.colon) {
+            return child;
+          }
+          return React.cloneElement(child, {
+            colon: false,
+          });
+        },
+      );
+    }
+    return <form {...formProps} children={children} className={formClassName} />;
   };
 
   render() {
