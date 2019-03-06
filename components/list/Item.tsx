@@ -70,6 +70,17 @@ export default class Item extends React.Component<ListItemProps, any> {
 
   context: any;
 
+  isItemContainsTextNode() {
+    const { children } = this.props;
+    let result;
+    React.Children.forEach(children, (element: React.ReactElement<any>) => {
+      if (typeof element === 'string') {
+        result = true;
+      }
+    });
+    return result;
+  }
+
   renderItem = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { grid } = this.context;
     const {
@@ -82,7 +93,7 @@ export default class Item extends React.Component<ListItemProps, any> {
     } = this.props;
     const prefixCls = getPrefixCls('list', customizePrefixCls);
     const actionsContent = actions && actions.length > 0 && (
-      <ul className={`${prefixCls}-item-action`}>
+      <ul className={`${prefixCls}-item-action`} key="actions">
         {actions.map((action: React.ReactNode, i: number) => (
           <li key={`${prefixCls}-item-action-${i}`}>
             {action}
@@ -92,18 +103,23 @@ export default class Item extends React.Component<ListItemProps, any> {
       </ul>
     );
     const itemChildren = (
-      <div {...others} className={classNames(`${prefixCls}-item`, className)}>
-        {extra ? (
-          <div className={`${prefixCls}-item-extra-wrap`}>
-            <div className={`${prefixCls}-item-main`}>
-              {children}
-              {actionsContent}
-            </div>
-            <div className={`${prefixCls}-item-extra`}>{extra}</div>
-          </div>
-        ) : (
-          [children, actionsContent]
-        )}
+      <div
+        {...others}
+        className={classNames(`${prefixCls}-item`, className, {
+          [`${prefixCls}-item-no-flex`]: !extra && this.isItemContainsTextNode(),
+        })}
+      >
+        {extra
+          ? [
+              <div className={`${prefixCls}-item-main`} key="content">
+                {children}
+                {actionsContent}
+              </div>,
+              <div className={`${prefixCls}-item-extra`} key="extra">
+                {extra}
+              </div>,
+            ]
+          : [children, actionsContent]}
       </div>
     );
 
