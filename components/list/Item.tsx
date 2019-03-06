@@ -81,8 +81,6 @@ export default class Item extends React.Component<ListItemProps, any> {
       ...others
     } = this.props;
     const prefixCls = getPrefixCls('list', customizePrefixCls);
-    const classString = classNames(`${prefixCls}-item`, className);
-
     const actionsContent = actions && actions.length > 0 && (
       <ul className={`${prefixCls}-item-action`}>
         {actions.map((action: React.ReactNode, i: number) => (
@@ -93,24 +91,23 @@ export default class Item extends React.Component<ListItemProps, any> {
         ))}
       </ul>
     );
-
-    const extraContent = (
-      <div className={`${prefixCls}-item-extra-wrap`}>
-        <div className={`${prefixCls}-item-main`}>
-          {children}
-          {actionsContent}
-        </div>
-        <div className={`${prefixCls}-item-extra`}>{extra}</div>
-      </div>
-    );
-
     const itemChildren = (
-      <div {...others} className={classString}>
-        {extra ? extraContent : [children, actionsContent]}
+      <div {...others} className={classNames(`${prefixCls}-item`, className)}>
+        {extra ? (
+          <div className={`${prefixCls}-item-extra-wrap`}>
+            <div className={`${prefixCls}-item-main`}>
+              {children}
+              {actionsContent}
+            </div>
+            <div className={`${prefixCls}-item-extra`}>{extra}</div>
+          </div>
+        ) : (
+          [children, actionsContent]
+        )}
       </div>
     );
 
-    const mainContent = grid ? (
+    return grid ? (
       <Col
         span={getGrid(grid, 'column')}
         xs={getGrid(grid, 'xs')}
@@ -125,8 +122,6 @@ export default class Item extends React.Component<ListItemProps, any> {
     ) : (
       itemChildren
     );
-
-    return mainContent;
   };
 
   render() {
