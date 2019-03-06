@@ -199,6 +199,30 @@ exports[`renders ./components/grid/demo/flex.md correctly 1`] = `
       col-4
     </div>
   </div>
+  <p>
+    sub-element fill rest
+  </p>
+  <div
+    class="ant-row-flex"
+  >
+    <div
+      class=""
+      style="width:100px"
+    >
+      100px
+    </div>
+    <div
+      class="ant-col-4"
+    >
+      col-4
+    </div>
+    <div
+      class=""
+      style="flex:auto"
+    >
+      fill rest
+    </div>
+  </div>
 </div>
 `;
 

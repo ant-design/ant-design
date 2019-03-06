@@ -59,6 +59,13 @@ ReactDOM.render(
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
     </Row>
+
+    <p>sub-element fill rest</p>
+    <Row type="flex">
+      <Col style={{ width: 100 }}>100px</Col>
+      <Col span={4}>col-4</Col>
+      <Col style={{ flex: 'auto' }}>fill rest</Col>
+    </Row>
   </div>,
   mountNode
 );
