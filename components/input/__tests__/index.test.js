@@ -205,7 +205,10 @@ describe('Input.Password', () => {
   it('should keep focus state', () => {
     const wrapper = mount(<Input.Password defaultValue="111" autoFocus />);
     expect(document.activeElement).toBe(
-      wrapper.find('input').at(0).getDOMNode()
+      wrapper
+        .find('input')
+        .at(0)
+        .getDOMNode(),
     );
     wrapper
       .find('.ant-input-password-icon')
@@ -216,7 +219,10 @@ describe('Input.Password', () => {
       .at(0)
       .simulate('click');
     expect(document.activeElement).toBe(
-      wrapper.find('input').at(0).getDOMNode()
+      wrapper
+        .find('input')
+        .at(0)
+        .getDOMNode(),
     );
   });
 });
@@ -306,7 +312,10 @@ describe('Input allowClear', () => {
       .at(0)
       .simulate('click');
     expect(document.activeElement).toBe(
-      wrapper.find('input').at(0).getDOMNode()
+      wrapper
+        .find('input')
+        .at(0)
+        .getDOMNode(),
     );
   });
 });

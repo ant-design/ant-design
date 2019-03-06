@@ -5,4 +5,4 @@ export function validProgress(progress: number | undefined) {
     return 100;
   }
   return progress;
-};
+}
