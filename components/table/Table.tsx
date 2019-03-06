@@ -153,7 +153,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     const key = this.getRecordKey(item, index);
     // Cache checkboxProps
     if (!this.CheckboxPropsCache[key]) {
-      this.CheckboxPropsCache[key] = rowSelection.getCheckboxProps(item);
+      this.CheckboxPropsCache[key] = rowSelection.getCheckboxProps(item) || {};
     }
     return this.CheckboxPropsCache[key];
   };
