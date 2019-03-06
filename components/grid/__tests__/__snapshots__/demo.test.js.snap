@@ -360,6 +360,79 @@ exports[`renders ./components/grid/demo/flex-align.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/grid/demo/flex-fill-rest.md correctly 1`] = `
+<div>
+  <p>
+    Fix left
+  </p>
+  <div
+    class="ant-row-flex"
+  >
+    <div
+      class=""
+      style="width:100px"
+    >
+      100px
+    </div>
+    <div
+      class=""
+      style="flex:auto"
+    >
+      fill rest
+    </div>
+  </div>
+  <p>
+    Fix middle
+  </p>
+  <div
+    class="ant-row-flex"
+  >
+    <div
+      class=""
+      style="flex:auto"
+    >
+      fill rest
+    </div>
+    <div
+      class=""
+      style="width:100px"
+    >
+      100px
+    </div>
+    <div
+      class=""
+      style="flex:auto"
+    >
+      fill rest
+    </div>
+  </div>
+  <p>
+    Merge with span
+  </p>
+  <div
+    class="ant-row-flex"
+  >
+    <div
+      class=""
+      style="width:100px"
+    >
+      100px
+    </div>
+    <div
+      class="ant-col-4"
+    >
+      col-4
+    </div>
+    <div
+      class=""
+      style="flex:auto"
+    >
+      fill rest
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/grid/demo/flex-order.md correctly 1`] = `
 <div>
   <div
