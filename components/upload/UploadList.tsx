@@ -9,7 +9,7 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 const imageTypes: string[] = ['image', 'webp', 'png', 'svg', 'gif', 'jpg', 'jpeg', 'bmp', 'dpg'];
 // https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
-const previewFile = (file: File | Blob, callback: Function) => {
+export const previewFile = (file: File | Blob, callback: Function) => {
   if (file.type && !imageTypes.includes(file.type)) {
     callback('');
   }
@@ -18,7 +18,7 @@ const previewFile = (file: File | Blob, callback: Function) => {
   reader.readAsDataURL(file);
 };
 
-const extname = (url: string) => {
+export const extname = (url: string) => {
   if (!url) {
     return '';
   }
@@ -87,13 +87,9 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       ) {
         return;
       }
-      /*eslint-disable */
       file.thumbUrl = '';
-      /*eslint-enable */
       previewFile(file.originFileObj, (previewDataUrl: string) => {
-        /*eslint-disable */
         file.thumbUrl = previewDataUrl;
-        /*eslint-enable */
         this.forceUpdate();
       });
     });
