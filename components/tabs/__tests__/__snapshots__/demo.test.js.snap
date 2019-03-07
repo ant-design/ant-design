@@ -904,7 +904,32 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.md correctly 1`] = `
           <div
             class="ant-tabs-nav ant-tabs-nav-animated"
           >
-            <div />
+            <div>
+              <div
+                aria-disabled="false"
+                aria-selected="true"
+                class="ant-tabs-tab-active ant-tabs-tab"
+                role="tab"
+              >
+                tab 1
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" ant-tabs-tab"
+                role="tab"
+              >
+                tab 2
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" ant-tabs-tab"
+                role="tab"
+              >
+                tab 3
+              </div>
+            </div>
             <div
               class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
             />
