@@ -8,6 +8,7 @@ import warning from '../_util/warning';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale-provider/default';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
+import { polyfill } from 'react-lifecycles-compat';
 
 export { TransferListProps } from './list';
 export { TransferOperationProps } from './operation';
@@ -62,7 +63,7 @@ export interface TransferLocale {
   itemsUnit: string;
 }
 
-export default class Transfer extends React.Component<TransferProps, any> {
+class Transfer extends React.Component<TransferProps, any> {
   // For high-level customized Transfer @dqaria
   static List = List;
   static Operation = Operation;
@@ -466,3 +467,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
     );
   }
 }
+
+polyfill(Transfer);
+
+export default Transfer;
