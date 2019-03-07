@@ -477,6 +477,7 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
         <i
           aria-label="icon: setting"
           class="anticon anticon-setting"
+          tabindex="-1"
         >
           <svg
             aria-hidden="true"
@@ -544,6 +545,7 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
         <i
           aria-label="icon: setting"
           class="anticon anticon-setting"
+          tabindex="-1"
         >
           <svg
             aria-hidden="true"
@@ -596,6 +598,7 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
         <i
           aria-label="icon: setting"
           class="anticon anticon-setting"
+          tabindex="-1"
         >
           <svg
             aria-hidden="true"
