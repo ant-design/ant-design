@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Upload from '..';
-import UploadList, { previewFile, extname } from '../UploadList';
+import UploadList from '../UploadList';
 import Form from '../../form';
 import { errorRequest, successRequest } from './requests';
 import { setup, teardown } from './mock';
@@ -359,12 +359,20 @@ describe('Upload List', () => {
   it('previewFile should work correctly', () => {
     const callback = jest.fn();
     const file = new File([''], 'test.txt', { type: 'text/plain' });
-    previewFile(file, callback);
+    const items = [{ uid: 'upload-list-item', url: '' }];
+    const wrapper = mount(
+      <UploadList listType="picture-card" items={items} locale={{ previewFile: '' }} />,
+    ).instance();
+    wrapper.previewFile(file, callback);
     expect(callback).toBeCalled();
   });
 
-  it('extname should work correctly', () => {
-    expect(extname()).toBe('');
+  it('extname should work correctly when url not exists', () => {
+    const items = [{ uid: 'upload-list-item', url: '' }];
+    const wrapper = mount(
+      <UploadList listType="picture-card" items={items} locale={{ previewFile: '' }} />,
+    );
+    expect(wrapper.find('.ant-upload-list-item-thumbnail').length).toBe(2);
   });
 
   it('when picture-card is loading, icon should render correctly', () => {

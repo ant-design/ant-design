@@ -8,17 +8,7 @@ import Progress from '../progress';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 const imageTypes: string[] = ['image', 'webp', 'png', 'svg', 'gif', 'jpg', 'jpeg', 'bmp', 'dpg'];
-// https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
-export const previewFile = (file: File | Blob, callback: Function) => {
-  if (file.type && !imageTypes.includes(file.type)) {
-    callback('');
-  }
-  const reader = new FileReader();
-  reader.onloadend = () => callback(reader.result);
-  reader.readAsDataURL(file);
-};
-
-export const extname = (url: string) => {
+const extname = (url: string) => {
   if (!url) {
     return '';
   }
@@ -72,6 +62,16 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     return onPreview(file);
   };
 
+  // https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
+  previewFile = (file: File | Blob, callback: Function) => {
+    if (file.type && !imageTypes.includes(file.type)) {
+      callback('');
+    }
+    const reader = new FileReader();
+    reader.onloadend = () => callback(reader.result);
+    reader.readAsDataURL(file);
+  };
+
   componentDidUpdate() {
     if (this.props.listType !== 'picture' && this.props.listType !== 'picture-card') {
       return;
@@ -88,7 +88,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         return;
       }
       file.thumbUrl = '';
-      previewFile(file.originFileObj, (previewDataUrl: string) => {
+      this.previewFile(file.originFileObj, (previewDataUrl: string) => {
         file.thumbUrl = previewDataUrl;
         this.forceUpdate();
       });
