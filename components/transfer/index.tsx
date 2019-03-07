@@ -100,6 +100,17 @@ export default class Transfer extends React.Component<TransferProps, any> {
     lazy: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   };
 
+  static getDerivedStateFromProps(nextProps: TransferProps) {
+    if (nextProps.selectedKeys) {
+      const targetKeys = nextProps.targetKeys || [];
+      return {
+        sourceSelectedKeys: nextProps.selectedKeys.filter(key => !targetKeys.includes(key)),
+        targetSelectedKeys: nextProps.selectedKeys.filter(key => targetKeys.includes(key)),
+      };
+    }
+    return null;
+  }
+
   separatedDataSource: {
     leftDataSource: TransferItem[];
     rightDataSource: TransferItem[];
@@ -124,24 +135,23 @@ export default class Transfer extends React.Component<TransferProps, any> {
     };
   }
 
-  componentWillReceiveProps(nextProps: TransferProps) {
-    const { sourceSelectedKeys, targetSelectedKeys } = this.state;
-
+  componentDidUpdate = (prevProps: TransferProps, prevState: any) => {
+    const { sourceSelectedKeys, targetSelectedKeys } = prevState;
     if (
-      nextProps.targetKeys !== this.props.targetKeys ||
-      nextProps.dataSource !== this.props.dataSource
+      prevProps.targetKeys !== this.props.targetKeys ||
+      prevProps.dataSource !== this.props.dataSource
     ) {
       // clear cached separated dataSource
       this.separatedDataSource = null;
 
-      if (!nextProps.selectedKeys) {
+      if (!prevProps.selectedKeys) {
         // clear key no longer existed
         // clear checkedKeys according to targetKeys
-        const { dataSource, targetKeys = [] } = nextProps;
+        const { dataSource, targetKeys = [] } = prevProps;
 
         const newSourceSelectedKeys: String[] = [];
         const newTargetSelectedKeys: String[] = [];
-        dataSource.forEach(({ key }) => {
+        dataSource.forEach(({ key }: { key: string }) => {
           if (sourceSelectedKeys.includes(key) && !targetKeys.includes(key)) {
             newSourceSelectedKeys.push(key);
           }
@@ -155,15 +165,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
         });
       }
     }
-
-    if (nextProps.selectedKeys) {
-      const targetKeys = nextProps.targetKeys || [];
-      this.setState({
-        sourceSelectedKeys: nextProps.selectedKeys.filter(key => !targetKeys.includes(key)),
-        targetSelectedKeys: nextProps.selectedKeys.filter(key => targetKeys.includes(key)),
-      });
-    }
-  }
+  };
 
   separateDataSource(props: TransferProps) {
     if (this.separatedDataSource) {
