@@ -28,15 +28,24 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
+const genExtra = () => (
+  <Icon
+    type="setting"
+    onClick={(event) => {
+      event.stopPropagation();
+    }}
+  />
+);
+
 ReactDOM.render(
   <Collapse defaultActiveKey={['1']} onChange={callback}>
-    <Panel header="This is panel header 1" key="1" extra={<Icon type="setting" />}>
+    <Panel header="This is panel header 1" key="1" extra={genExtra()}>
       <div>{text}</div>
     </Panel>
-    <Panel header="This is panel header 2" key="2" extra={<Icon type="setting" />}>
+    <Panel header="This is panel header 2" key="2" extra={genExtra()}>
       <div>{text}</div>
     </Panel>
-    <Panel header="This is panel header 3" key="3" extra={<Icon type="setting" />}>
+    <Panel header="This is panel header 3" key="3" extra={genExtra()}>
       <div>{text}</div>
     </Panel>
   </Collapse>,
