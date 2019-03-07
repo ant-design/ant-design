@@ -20,7 +20,7 @@ function fixControlledValue<T>(value: T) {
 }
 
 function hasPrefixSuffix(props: InputProps) {
-  return 'prefix' in props || props.suffix || props.allowClear;
+  return !!('prefix' in props || props.suffix || props.allowClear);
 }
 
 const InputSizes = tuple('small', 'default', 'large');
