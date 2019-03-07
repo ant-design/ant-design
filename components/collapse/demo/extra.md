@@ -32,6 +32,7 @@ const genExtra = () => (
   <Icon
     type="setting"
     onClick={(event) => {
+      // If you don't want click extra trigger collapse, you can prevent this:
       event.stopPropagation();
     }}
   />
