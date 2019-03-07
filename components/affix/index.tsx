@@ -8,7 +8,6 @@ import omit from 'omit.js';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import getScroll from '../_util/getScroll';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
-import { polyfill } from 'react-lifecycles-compat';
 
 function getTargetRect(target: HTMLElement | Window | null): ClientRect {
   return target !== window
@@ -64,7 +63,7 @@ export interface AffixState {
   placeholderStyle: React.CSSProperties | undefined;
 }
 
-class Affix extends React.Component<AffixProps, AffixState> {
+export default class Affix extends React.Component<AffixProps, AffixState> {
   static propTypes = {
     offsetTop: PropTypes.number,
     offsetBottom: PropTypes.number,
@@ -229,17 +228,17 @@ class Affix extends React.Component<AffixProps, AffixState> {
     });
   }
 
-  componentDidUpdate(prevProps: AffixProps) {
-    if (this.props.target !== prevProps.target) {
+  componentWillReceiveProps(nextProps: AffixProps) {
+    if (this.props.target !== nextProps.target) {
       this.clearEventListeners();
-      this.setTargetEventListeners(prevProps.target!);
+      this.setTargetEventListeners(nextProps.target!);
 
       // Mock Event object.
       this.updatePosition({} as Event);
     }
     if (
-      this.props.offsetTop !== prevProps.offsetTop ||
-      this.props.offsetBottom !== prevProps.offsetBottom
+      this.props.offsetTop !== nextProps.offsetTop ||
+      this.props.offsetBottom !== nextProps.offsetBottom
     ) {
       this.updatePosition({} as Event);
     }
@@ -307,7 +306,3 @@ class Affix extends React.Component<AffixProps, AffixState> {
     return <ConfigConsumer>{this.renderAffix}</ConfigConsumer>;
   }
 }
-
-polyfill(Affix);
-
-export default Affix;
