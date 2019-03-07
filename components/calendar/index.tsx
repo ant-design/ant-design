@@ -7,6 +7,7 @@ import enUS from './locale/en_US';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import interopDefault from '../_util/interopDefault';
+import { polyfill } from 'react-lifecycles-compat';
 
 export { HeaderProps } from './Header';
 
@@ -48,7 +49,7 @@ export interface CalendarState {
   mode?: CalendarMode;
 }
 
-export default class Calendar extends React.Component<CalendarProps, CalendarState> {
+class Calendar extends React.Component<CalendarProps, CalendarState> {
   static defaultProps = {
     locale: {},
     fullscreen: true,
@@ -74,6 +75,13 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     onChange: PropTypes.func,
   };
 
+  static getDerivedStateFromProps(nextProps: CalendarProps) {
+    if ('value' in nextProps) {
+      return { value: nextProps.value! };
+    }
+    return null;
+  }
+
   prefixCls?: string;
 
   constructor(props: CalendarProps) {
@@ -92,15 +100,10 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     };
   }
 
-  componentWillReceiveProps(nextProps: CalendarProps) {
-    if ('value' in nextProps) {
+  componentDidUpdate(prevProps: CalendarProps) {
+    if ('mode' in this.props && this.props.mode !== prevProps.mode) {
       this.setState({
-        value: nextProps.value!,
-      });
-    }
-    if ('mode' in nextProps && nextProps.mode !== this.props.mode) {
-      this.setState({
-        mode: nextProps.mode!,
+        mode: this.props.mode!,
       });
     }
   }
@@ -283,3 +286,7 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     );
   }
 }
+
+polyfill(Calendar);
+
+export default Calendar;
