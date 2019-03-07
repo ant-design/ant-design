@@ -9,6 +9,16 @@ import calculateNodeHeight, { calculateNodeStyling } from '../calculateNodeHeigh
 const { TextArea } = Input;
 
 describe('Input', () => {
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+  afterEach(() => {
+    errorSpy.mockReset();
+  });
+
+  afterAll(() => {
+    errorSpy.mockRestore();
+  });
+
   focusTest(Input);
 
   it('should support maxLength', () => {
@@ -19,6 +29,33 @@ describe('Input', () => {
   it('select()', () => {
     const wrapper = mount(<Input />);
     wrapper.instance().select();
+  });
+
+  describe('focus trigger warning', () => {
+    it('not trigger', () => {
+      const wrapper = mount(<Input suffix="bamboo" />);
+      wrapper
+        .find('input')
+        .instance()
+        .focus();
+      wrapper.setProps({
+        suffix: 'light',
+      });
+      expect(errorSpy).not.toBeCalled();
+    });
+    it('trigger warning', () => {
+      const wrapper = mount(<Input />);
+      wrapper
+        .find('input')
+        .instance()
+        .focus();
+      wrapper.setProps({
+        suffix: 'light',
+      });
+      expect(errorSpy).toBeCalledWith(
+        'Warning: [antd: Input] When Input is focused, dynamic add or remove prefix / suffix will make it lose focus caused by dom structure change. Read more: https://ant.design/components/input/#FAQ',
+      );
+    });
   });
 });
 
