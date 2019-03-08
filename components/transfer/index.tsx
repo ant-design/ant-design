@@ -136,43 +136,7 @@ class Transfer extends React.Component<TransferProps, any> {
     };
   }
 
-  componentDidUpdate = (prevProps: TransferProps, prevState: any) => {
-    const { sourceSelectedKeys, targetSelectedKeys } = prevState;
-    if (
-      prevProps.targetKeys !== this.props.targetKeys ||
-      prevProps.dataSource !== this.props.dataSource
-    ) {
-      // clear cached separated dataSource
-      this.separatedDataSource = null;
-
-      if (!prevProps.selectedKeys) {
-        // clear key no longer existed
-        // clear checkedKeys according to targetKeys
-        const { dataSource, targetKeys = [] } = prevProps;
-
-        const newSourceSelectedKeys: String[] = [];
-        const newTargetSelectedKeys: String[] = [];
-        dataSource.forEach(({ key }: { key: string }) => {
-          if (sourceSelectedKeys.includes(key) && !targetKeys.includes(key)) {
-            newSourceSelectedKeys.push(key);
-          }
-          if (targetSelectedKeys.includes(key) && targetKeys.includes(key)) {
-            newTargetSelectedKeys.push(key);
-          }
-        });
-        this.setState({
-          sourceSelectedKeys: newSourceSelectedKeys,
-          targetSelectedKeys: newTargetSelectedKeys,
-        });
-      }
-    }
-  };
-
   separateDataSource(props: TransferProps) {
-    if (this.separatedDataSource) {
-      return this.separatedDataSource;
-    }
-
     const { dataSource, rowKey, targetKeys = [] } = props;
 
     const leftDataSource: TransferItem[] = [];
@@ -192,12 +156,10 @@ class Transfer extends React.Component<TransferProps, any> {
       }
     });
 
-    this.separatedDataSource = {
+    return {
       leftDataSource,
       rightDataSource,
     };
-
-    return this.separatedDataSource;
   }
 
   moveTo = (direction: TransferDirection) => {

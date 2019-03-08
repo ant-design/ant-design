@@ -76,10 +76,14 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
   };
 
   static getDerivedStateFromProps(nextProps: CalendarProps) {
+    const newState = {} as CalendarState;
     if ('value' in nextProps) {
-      return { value: nextProps.value! };
+      newState.value = nextProps.value!;
     }
-    return null;
+    if ('mode' in nextProps) {
+      newState.mode = nextProps.mode;
+    }
+    return Object.keys(newState).length > 0 ? newState : null;
   }
 
   prefixCls?: string;
@@ -98,14 +102,6 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
       value,
       mode: props.mode,
     };
-  }
-
-  componentDidUpdate(prevProps: CalendarProps) {
-    if ('mode' in this.props && this.props.mode !== prevProps.mode) {
-      this.setState({
-        mode: this.props.mode!,
-      });
-    }
   }
 
   monthCellRender = (value: moment.Moment) => {
