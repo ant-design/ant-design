@@ -3,6 +3,7 @@ import { ColProps } from '../grid/col';
 
 export interface FormContextProps {
   vertical: boolean;
+  colon?: boolean;
   labelCol?: ColProps;
   wrapperCol?: ColProps;
 }

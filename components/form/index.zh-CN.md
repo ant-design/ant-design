@@ -42,6 +42,7 @@ title: Form
 | layout | 表单布局 | 'horizontal'\|'vertical'\|'inline' | 'horizontal' |
 | onSubmit | 数据验证成功后回调事件 | Function(e:Event) |  |
 | wrapperCol | （3.14.0 新增，之前的版本只能设置到 FormItem 上。）需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | [object](https://ant.design/components/grid/#Col) |  |
+| colon | 配置 Form.Item 的 colon 的默认值 | boolean | true |
 
 ### Form.create(options)
 

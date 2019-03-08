@@ -40,6 +40,7 @@ A form field is defined using `<Form.Item />`.
 | layout | Define form layout | 'horizontal'\|'vertical'\|'inline' | 'horizontal' |
 | onSubmit | Defines a function will be called if form data validation is successful. | Function(e:Event) |  |
 | wrapperCol | (Added in 3.14.0. Previous version can only set on FormItem.) The layout for input controls, same as `labelCol` | [object](https://ant.design/components/grid/#Col) |  |
+| colon | change default props colon value of Form.Item | boolean | true |
 
 ### Form.create(options)
 
