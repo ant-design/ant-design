@@ -3,6 +3,7 @@ import Moment from 'moment';
 import { mount } from 'enzyme';
 import MockDate from 'mockdate';
 import Calendar from '..';
+import Header from '../Header';
 
 describe('Calendar', () => {
   it('Calendar should be selectable', () => {
@@ -174,5 +175,62 @@ describe('Calendar', () => {
     expect(wrapper.find('.ant-fullcalendar-month-panel-table').length).toBe(1);
     expect(onPanelChange).toBeCalled();
     expect(onPanelChange.mock.calls[0][1]).toEqual('year');
+  });
+  it('if value.month > end.month, value.month -> end.month', () => {
+    const value = new Moment('1990-01-03');
+    const start = new Moment('2019-01-01');
+    const end = new Moment('2019-03-01');
+    const onValueChange = newValue => {
+      expect(newValue).toEqual(value.year('2019'));
+    };
+    const wrapper = mount(
+      <Header
+        onValueChange={onValueChange}
+        value={value}
+        validRange={[start, end]}
+        locale={{ year: '年' }}
+      />,
+    ).instance();
+    wrapper.onYearChange('2019');
+  });
+
+  it('if start.month > value.month, value.month -> start.month ', () => {
+    const value = new Moment('1990-01-03');
+    const start = new Moment('2019-11-01');
+    const end = new Moment('2019-03-01');
+    const onValueChange = newValue => {
+      expect(newValue).toEqual(value.year('2019').month('10'));
+    };
+    const wrapper = mount(
+      <Header
+        onValueChange={onValueChange}
+        value={value}
+        validRange={[start, end]}
+        locale={{ year: '年' }}
+      />,
+    ).instance();
+    wrapper.onYearChange('2019');
+  });
+
+  it('onMonthChange should work correctly', () => {
+    const value = new Moment('1990-01-03');
+    const onValueChange = newValue => {
+      expect(newValue).toEqual(value.month('11'));
+    };
+    const wrapper = mount(
+      <Header onValueChange={onValueChange} value={value} locale={{ year: '年' }} />,
+    ).instance();
+    wrapper.onMonthChange('11');
+  });
+
+  it('onTypeChange should work correctly', () => {
+    const onTypeChange = value => {
+      expect(value).toBe(11);
+    };
+    const value = new Moment('1990-01-03');
+    const wrapper = mount(
+      <Header onValueChange={onTypeChange} locale={{ year: '年' }} value={value} />,
+    ).instance();
+    wrapper.onTypeChange({ target: 11 });
   });
 });
