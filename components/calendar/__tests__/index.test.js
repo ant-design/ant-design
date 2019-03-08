@@ -134,9 +134,9 @@ describe('Calendar', () => {
     const onPanelChangeStub = jest.fn();
     const wrapper = mount(<Calendar mode={yearMode} onPanelChange={onPanelChangeStub} />);
     expect(wrapper.state().mode).toEqual(yearMode);
-    wrapper.instance().setType('date');
+    wrapper.setProps({ mode: monthMode });
     expect(wrapper.state().mode).toEqual(monthMode);
-    expect(onPanelChangeStub).toHaveBeenCalledTimes(1);
+    expect(onPanelChangeStub).toHaveBeenCalledTimes(0);
   });
 
   it('Calendar should support locale', () => {

@@ -31,8 +31,6 @@ export interface ScrollNumberState {
   count?: string | number | null;
 }
 
-let lastCount: any;
-
 class ScrollNumber extends Component<ScrollNumberProps, ScrollNumberState> {
   static defaultProps = {
     count: null,
@@ -44,11 +42,12 @@ class ScrollNumber extends Component<ScrollNumberProps, ScrollNumberState> {
       if (nextState.count === nextProps.count) {
         return null;
       }
-      lastCount = nextState.count;
       return { animateStarted: true };
     }
     return null;
   }
+
+  lastCount?: string | number | null;
 
   constructor(props: ScrollNumberProps) {
     super(props);
@@ -63,9 +62,9 @@ class ScrollNumber extends Component<ScrollNumberProps, ScrollNumberState> {
       return 10 + num;
     }
     const currentDigit = getNumberArray(this.state.count)[i];
-    const lastDigit = getNumberArray(lastCount)[i];
+    const lastDigit = getNumberArray(this.lastCount)[i];
     // 同方向则在同一侧切换数字
-    if (this.state.count! > lastCount) {
+    if (Number(this.state.count) > Number(this.lastCount)) {
       if (currentDigit >= lastDigit) {
         return 10 + num;
       }
@@ -77,10 +76,11 @@ class ScrollNumber extends Component<ScrollNumberProps, ScrollNumberState> {
     return num;
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(_: any, prevState: ScrollNumberState) {
+    this.lastCount = prevState.count;
     if (this.state.animateStarted) {
       this.setState({ animateStarted: false, count: this.props.count }, () => {
-        const onAnimated = this.props.onAnimated;
+        const { onAnimated } = this.props;
         if (onAnimated) {
           onAnimated();
         }
@@ -104,7 +104,7 @@ class ScrollNumber extends Component<ScrollNumberProps, ScrollNumberState> {
   renderCurrentNumber(prefixCls: string, num: number, i: number) {
     const position = this.getPositionByNum(num, i);
     const removeTransition =
-      this.state.animateStarted || getNumberArray(lastCount)[i] === undefined;
+      this.state.animateStarted || getNumberArray(this.lastCount)[i] === undefined;
     return createElement(
       'span',
       {
