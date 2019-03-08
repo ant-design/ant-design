@@ -1096,7 +1096,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
 
 exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
 <ul
-  class="ant-tree ant-tree-icon-hide draggable-tree"
+  class="ant-tree draggable-tree ant-tree-icon-hide ant-tree-block-node"
   role="tree"
   unselectable="on"
 >
