@@ -20,7 +20,7 @@ export interface BadgeProps {
   scrollNumberPrefixCls?: string;
   className?: string;
   status?: 'success' | 'processing' | 'default' | 'error' | 'warning';
-  text?: string | React.ReactNode;
+  text?: React.ReactNode;
   offset?: [number | string, number | string];
   title?: string;
 }
