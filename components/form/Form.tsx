@@ -38,7 +38,13 @@ export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   className?: string;
   prefixCls?: string;
   hideRequiredMark?: boolean;
+  /**
+   * @since 3.14.0
+   */
   labelCol?: ColProps;
+  /**
+   * @since 3.14.0
+   */
   wrapperCol?: ColProps;
   /**
    * @since 3.15.0
