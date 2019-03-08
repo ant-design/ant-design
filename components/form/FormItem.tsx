@@ -38,7 +38,6 @@ function intersperseSpace<T>(list: Array<T>): Array<T | string> {
 export default class FormItem extends React.Component<FormItemProps, any> {
   static defaultProps = {
     hasFeedback: false,
-    colon: true,
   };
 
   static propTypes = {
@@ -72,7 +71,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   getHelpMessage() {
     const { help } = this.props;
     if (help === undefined && this.getOnlyControl()) {
-      const errors = this.getField().errors;
+      const { errors } = this.getField();
       if (errors) {
         return intersperseSpace(
           errors.map((e: any, index: number) => {
@@ -203,7 +202,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     c2: React.ReactNode,
     c3: React.ReactNode,
   ) {
-    const props = this.props;
+    const { props } = this;
     const onlyControl = this.getOnlyControl;
     const validateStatus =
       props.validateStatus === undefined && onlyControl
@@ -331,7 +330,12 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   renderLabel(prefixCls: string) {
     return (
       <FormContext.Consumer key="label">
-        {({ vertical, labelAlign, labelCol: contextLabelCol }: FormContextProps) => {
+        {({
+          vertical,
+          labelAlign,
+          labelCol: contextLabelCol,
+          colon: contextColon,
+        }: FormContextProps) => {
           const { label, labelCol, colon, id } = this.props;
           const required = this.isRequired();
 
@@ -339,14 +343,19 @@ export default class FormItem extends React.Component<FormItemProps, any> {
             ('labelCol' in this.props ? labelCol : contextLabelCol) || {};
 
           const labelClsBasic = `${prefixCls}-item-label`;
-          const labelColClassName = classNames(labelClsBasic, labelAlign === 'left' && `${labelClsBasic}-left`, mergedLabelCol.className);
+          const labelColClassName = classNames(
+            labelClsBasic,
+            labelAlign === 'left' && `${labelClsBasic}-left`,
+            mergedLabelCol.className,
+          );
           const labelClassName = classNames({
             [`${prefixCls}-item-required`]: required,
           });
 
           let labelChildren = label;
           // Keep label is original where there should have no colon
-          const haveColon = colon && !vertical;
+          const computedColon = colon === true || (contextColon !== false && colon !== false);
+          const haveColon = computedColon && !vertical;
           // Remove duplicated user input colon
           if (haveColon && typeof label === 'string' && (label as string).trim() !== '') {
             labelChildren = (label as string).replace(/[：|:]\s*$/, '');
@@ -386,19 +395,28 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   }
 
   renderFormItem = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, style, colon, className } = this.props;
-    const prefixCls = getPrefixCls('form', customizePrefixCls);
-    const children = this.renderChildren(prefixCls);
-    const itemClassName = {
-      [`${prefixCls}-item`]: true,
-      [`${prefixCls}-item-with-help`]: this.helpShow,
-      [`${prefixCls}-item-no-colon`]: !colon,
-      [`${className}`]: !!className,
-    };
     return (
-      <Row className={classNames(itemClassName)} style={style}>
-        {children}
-      </Row>
+      <FormContext.Consumer key="row">
+        {({ colon: contextColon }: FormContextProps) => {
+          const { prefixCls: customizePrefixCls, style, colon, className } = this.props;
+
+          const computedColon = colon === true || (contextColon !== false && colon !== false);
+
+          const prefixCls = getPrefixCls('form', customizePrefixCls);
+          const children = this.renderChildren(prefixCls);
+          const itemClassName = {
+            [`${prefixCls}-item`]: true,
+            [`${prefixCls}-item-with-help`]: this.helpShow,
+            [`${prefixCls}-item-no-colon`]: !computedColon,
+            [`${className}`]: !!className,
+          };
+          return (
+            <Row className={classNames(itemClassName)} style={style}>
+              {children}
+            </Row>
+          );
+        }}
+      </FormContext.Consumer>
     );
   };
 
