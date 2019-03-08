@@ -20,7 +20,10 @@ timeline: true
 `2019-03-08`
 
 - 🌟 Tree 组件支持 `blockNode` 属性。[#14858](https://github.com/ant-design/ant-design/pull/14858) [@kimochg](https://github.com/kimochg)
-- 🌟 Form 组件支持 `labelAlign` 属性。[#15252](https://github.com/ant-design/ant-design/pull/15252) [@yoyo837](https://github.com/yoyo837)
+- Form
+  - 🌟 支持直接在 Form 上面配置 `colon` 属性。[#15276](https://github.com/ant-design/ant-design/pull/15276) [@DiamondYuan](https://github.com/DiamondYuan)
+  - 🌟 支持 `labelAlign` 属性。[#15252](https://github.com/ant-design/ant-design/pull/15252) [@yoyo837](https://github.com/yoyo837)
+  - 🐞 修复可能出现两个冒号的问题。[15285](https://github.com/ant-design/ant-design/pull/15285) [@jinxin0112](https://github.com/jinxin0112)
 - 🐞 修复组件 Typography 的 dom 结构问题。[#15210](https://github.com/ant-design/ant-design/pull/15210)
 - 🐞 修复 Affix 组件定位更新的逻辑问题。[#15150](https://github.com/ant-design/ant-design/pull/15150)
 - Input

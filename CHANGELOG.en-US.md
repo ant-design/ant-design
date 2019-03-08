@@ -20,7 +20,10 @@ timeline: true
 `2019-03-08`
 
 - 🌟 Tree add new prop `blockNode`. [#14858](https://github.com/ant-design/ant-design/pull/14858) [@kimochg](https://github.com/kimochg)
-- 🌟 Form add new prop `labelAlign`. [#15252](https://github.com/ant-design/ant-design/pull/15252) [@yoyo837](https://github.com/yoyo837)
+- Form
+  - 🌟 Support set `colon` prop in Form. [#15276](https://github.com/ant-design/ant-design/pull/15276) [@DiamondYuan](https://github.com/DiamondYuan)
+  - 🌟 Add new prop `labelAlign`. [#15252](https://github.com/ant-design/ant-design/pull/15252) [@yoyo837](https://github.com/yoyo837)
+  - 🐞 Fix two colons will appear in FormItem label. [15285](https://github.com/ant-design/ant-design/pull/15285) [@jinxin0112](https://github.com/jinxin0112)
 - 🐞 Fix Typography dom structure. [#15210](https://github.com/ant-design/ant-design/pull/15210)
 - 🐞 Fix Affix position update logic. [#15150](https://github.com/ant-design/ant-design/pull/15150)
 - Input
