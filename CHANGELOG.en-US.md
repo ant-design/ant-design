@@ -15,6 +15,24 @@ timeline: true
 
 ---
 
+## 3.14.2
+
+`2019-03-08`
+
+- 🐞 Fix Affix position update logic. [#15150](https://github.com/ant-design/ant-design/pull/15150)
+- Input
+  - 🐞 Fix Password focus state. [#15184](https://github.com/ant-design/ant-design/pull/15184)
+  - 🐞 Fix Search style with `allowClear` or `suffix`/`prefix`. [#15242](https://github.com/ant-design/ant-design/pull/15242)
+  - 🐞 Fix Input warning logic for focus lose. [#15251](https://github.com/ant-design/ant-design/pull/15251)
+- 🐞 Fix DatePicker and TimePicker cursor style. [#15218](https://github.com/ant-design/ant-design/pull/15218) [@yoyo837](https://github.com/yoyo837)
+- 🐞 Fix Steps style bug. [#15256](https://github.com/ant-design/ant-design/pull/15256)
+- TypeScript
+  - 🐞 Fix Typography `setContentRef` definition. [#15197](https://github.com/ant-design/ant-design/pull/15197)
+  - 🐞 Fix Layout `tagName` definition. [#15181](https://github.com/ant-design/ant-design/pull/15181) [@ngolin](https://github.com/ngolin)
+  - 🐞 Fix Text `ellipsis` definition. [#15209](https://github.com/ant-design/ant-design/pull/15209) [@xiaohuoni](https://github.com/xiaohuoni)
+  - 🐞 Fix Badge text types. [#15264](https://github.com/ant-design/ant-design/pull/15264)
+- 🇹🇷 Turkish translations of new components. [#15238](https://github.com/ant-design/ant-design/pull/15238) [@codesignist](https://github.com/codesignist)
+
 ## 3.14.1
 
 `2019-03-04`
@@ -52,7 +70,7 @@ timeline: true
   - 🐞 Fix the TypeScript type problem for Table `Column Filter`. [#15056](https://github.com/ant-design/ant-design/pull/15056)
   - 🌟 Support goto button in Pagination. [#14819](https://github.com/ant-design/ant-design/pull/14819)
   - 🐞 Fix the problem that Carousel response prop TypeScript declaration is missing. [#15071](https://github.com/ant-design/ant-design/pull/15071)
-  
+
 ## 3.13.6
 
 `2019-02-23`
