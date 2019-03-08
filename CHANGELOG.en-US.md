@@ -15,10 +15,13 @@ timeline: true
 
 ---
 
-## 3.14.2
+## 3.15.0
 
 `2019-03-08`
 
+- 🌟 Tree add new prop `blockNode`. [#14858](https://github.com/ant-design/ant-design/pull/14858) [@kimochg](https://github.com/kimochg)
+- 🌟 Form add new prop `labelAlign`. [#15252](https://github.com/ant-design/ant-design/pull/15252) [@yoyo837](https://github.com/yoyo837)
+- 🐞 Fix Typography dom structure. [#15210](https://github.com/ant-design/ant-design/pull/15210)
 - 🐞 Fix Affix position update logic. [#15150](https://github.com/ant-design/ant-design/pull/15150)
 - Input
   - 🐞 Fix Password focus state. [#15184](https://github.com/ant-design/ant-design/pull/15184)
@@ -32,7 +35,6 @@ timeline: true
   - 🐞 Fix Text `ellipsis` definition. [#15209](https://github.com/ant-design/ant-design/pull/15209) [@xiaohuoni](https://github.com/xiaohuoni)
   - 🐞 Fix Badge text types. [#15264](https://github.com/ant-design/ant-design/pull/15264)
 - 🇹🇷 Turkish translations of new components. [#15238](https://github.com/ant-design/ant-design/pull/15238) [@codesignist](https://github.com/codesignist)
-- 💄 Migrate to new lifecycle methods, include components Badge, Calendar, Menu, Transfer. [#15254](https://github.com/ant-design/ant-design/pull/15254) [@zy410419243](https://github.com/zy410419243)
 
 ## 3.14.1
 
