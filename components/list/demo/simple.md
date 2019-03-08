@@ -22,7 +22,7 @@ If a large or small list is desired, set the size property to either large or sm
 Customizing the header and footer of list by setting `header` and `footer` property.
 
 ````jsx
-import { List } from 'antd';
+import { List, Typography } from 'antd';
 
 const data = [
   'Racing car sprays burning fuel into crowd.',
@@ -40,7 +40,7 @@ ReactDOM.render(
       footer={<div>Footer</div>}
       bordered
       dataSource={data}
-      renderItem={item => (<List.Item>{item}</List.Item>)}
+      renderItem={item => (<List.Item><Typography.Text mark>[ITEM]</Typography.Text> {item}</List.Item>)}
     />
     <h3 style={{ margin: '16px 0' }}>Small Size</h3>
     <List
