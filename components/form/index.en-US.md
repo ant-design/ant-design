@@ -163,8 +163,7 @@ After wrapped by `getFieldDecorator`, `value`(or other property defined by `valu
 
 #### Special attention
 
-1. `getFieldDecorator` can not be used to decorate stateless component.
-2. If you use `react@<15.3.0`, then, you can't use `getFieldDecorator` in stateless component: <https://github.com/facebook/react/pull/6534>
+If you use `react@<15.3.0`, then, you can't use `getFieldDecorator` in stateless component: <https://github.com/facebook/react/pull/6534>
 
 #### getFieldDecorator(id, options) parameters
 

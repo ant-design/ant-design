@@ -17,31 +17,21 @@ class AffixMounter extends React.Component {
   render() {
     return (
       <div
-        style={{
-          height: 100,
-          overflowY: 'scroll',
-        }}
         ref={node => {
           this.container = node;
         }}
+        className="container"
       >
-        <div
-          className="background"
-          style={{
-            paddingTop: 60,
-            height: 300,
+        <Affix
+          className="fixed"
+          target={this.getTarget}
+          ref={ele => {
+            this.affix = ele;
           }}
+          {...this.props}
         >
-          <Affix
-            target={() => this.container}
-            ref={ele => {
-              this.affix = ele;
-            }}
-            {...this.props}
-          >
-            <Button type="primary">Fixed at the top of container</Button>
-          </Affix>
-        </div>
+          <Button type="primary">Fixed at the top of container</Button>
+        </Affix>
       </div>
     );
   }
@@ -50,24 +40,36 @@ class AffixMounter extends React.Component {
 describe('Affix Render', () => {
   let wrapper;
 
+  const classRect = {
+    container: {
+      top: 0,
+      bottom: 100,
+    },
+  };
+
+  const originGetBoundingClientRect = HTMLElement.prototype.getBoundingClientRect;
+  HTMLElement.prototype.getBoundingClientRect = function() {
+    return (
+      classRect[this.className] || {
+        top: 0,
+        bottom: 0,
+      }
+    );
+  };
+
   beforeAll(() => {
     jest.useFakeTimers();
   });
 
   afterAll(() => {
     jest.useRealTimers();
+    HTMLElement.prototype.getBoundingClientRect = originGetBoundingClientRect;
   });
-
-  const scrollTo = top => {
-    wrapper.instance().affix.fixedNode.parentNode.getBoundingClientRect = jest.fn(() => ({
-      bottom: 100,
-      height: 28,
-      left: 0,
-      right: 0,
-      top: 50 - top,
-      width: 195,
-    }));
-    wrapper.instance().container.scrollTop = top;
+  const movePlaceholder = top => {
+    classRect.fixed = {
+      top,
+      bottom: top,
+    };
     events.scroll({
       type: 'scroll',
     });
@@ -80,14 +82,14 @@ describe('Affix Render', () => {
     wrapper = mount(<AffixMounter />, { attachTo: document.getElementById('mounter') });
     jest.runAllTimers();
 
-    scrollTo(0);
-    expect(wrapper.instance().affix.state.affixStyle).toBe(null);
+    movePlaceholder(0);
+    expect(wrapper.instance().affix.state.affixStyle).toBeFalsy();
 
-    scrollTo(100);
-    expect(wrapper.instance().affix.state.affixStyle).not.toBe(null);
+    movePlaceholder(-100);
+    expect(wrapper.instance().affix.state.affixStyle).toBeTruthy();
 
-    scrollTo(0);
-    expect(wrapper.instance().affix.state.affixStyle).toBe(null);
+    movePlaceholder(0);
+    expect(wrapper.instance().affix.state.affixStyle).toBeFalsy();
   });
 
   it('support offsetBottom', () => {
@@ -96,16 +98,17 @@ describe('Affix Render', () => {
     wrapper = mount(<AffixMounter offsetBottom={0} />, {
       attachTo: document.getElementById('mounter'),
     });
+
     jest.runAllTimers();
 
-    scrollTo(0);
-    expect(wrapper.instance().affix.state.affixStyle).not.toBe(null);
+    movePlaceholder(300);
+    expect(wrapper.instance().affix.state.affixStyle).toBeTruthy();
 
-    scrollTo(100);
-    expect(wrapper.instance().affix.state.affixStyle).toBe(null);
+    movePlaceholder(0);
+    expect(wrapper.instance().affix.state.affixStyle).toBeFalsy();
 
-    scrollTo(0);
-    expect(wrapper.instance().affix.state.affixStyle).not.toBe(null);
+    movePlaceholder(300);
+    expect(wrapper.instance().affix.state.affixStyle).toBeTruthy();
   });
 
   it('updatePosition when offsetTop changed', () => {
@@ -116,7 +119,7 @@ describe('Affix Render', () => {
     });
     jest.runAllTimers();
 
-    scrollTo(100);
+    movePlaceholder(-100);
     expect(wrapper.instance().affix.state.affixStyle.top).toBe(0);
     wrapper.setProps({
       offsetTop: 10,

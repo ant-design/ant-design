@@ -166,8 +166,7 @@ validateFields(['field1', 'field2'], options, (errors, values) => {
 
 #### 特别注意
 
-1. `getFieldDecorator` 不能用于装饰纯函数组件。
-2. 如果使用的是 `react@<15.3.0`，则 `getFieldDecorator` 调用不能位于纯函数组件中: <https://github.com/facebook/react/pull/6534>
+如果使用的是 `react@<15.3.0`，则 `getFieldDecorator` 调用不能位于纯函数组件中: <https://github.com/facebook/react/pull/6534>
 
 #### getFieldDecorator(id, options) 参数
 
