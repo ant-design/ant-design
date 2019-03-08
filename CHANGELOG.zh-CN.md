@@ -19,7 +19,7 @@ timeline: true
 
 `2019-03-08`
 
-- 🐞 细分 Affix 组件定位更新的逻辑问题。[#15150](https://github.com/ant-design/ant-design/pull/15150)
+- 🐞 修复 Affix 组件定位更新的逻辑问题。[#15150](https://github.com/ant-design/ant-design/pull/15150)
 - Input
   - 🐞 修复 Password 聚焦的问题。[#15184](https://github.com/ant-design/ant-design/pull/15184)
   - 🐞 修复 Search 当使用了 `allowClear` 或者 `suffix`/`prefix` 时的样式问题。[#15242](https://github.com/ant-design/ant-design/pull/15242)
@@ -32,6 +32,7 @@ timeline: true
   - 🐞 修复 Text 的 `ellipsis` 定义。[#15209](https://github.com/ant-design/ant-design/pull/15209) [@xiaohuoni](https://github.com/xiaohuoni)
   - 🐞 修复 Badge 的 text 定义。[#15264](https://github.com/ant-design/ant-design/pull/15264)
 - 🇹🇷 添加一些新组件的土耳其语翻译。[#15238](https://github.com/ant-design/ant-design/pull/15238) [@codesignist](https://github.com/codesignist)
+- 💄 部分组件代码迁移到新的 React 生命周期函数，包括组件 Badge，Calendar，Menu，Transfer。[#15254](https://github.com/ant-design/ant-design/pull/15254) [@zy410419243](https://github.com/zy410419243)
 
 ## 3.14.1
 

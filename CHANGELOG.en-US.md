@@ -32,6 +32,7 @@ timeline: true
   - 🐞 Fix Text `ellipsis` definition. [#15209](https://github.com/ant-design/ant-design/pull/15209) [@xiaohuoni](https://github.com/xiaohuoni)
   - 🐞 Fix Badge text types. [#15264](https://github.com/ant-design/ant-design/pull/15264)
 - 🇹🇷 Turkish translations of new components. [#15238](https://github.com/ant-design/ant-design/pull/15238) [@codesignist](https://github.com/codesignist)
+- 💄 Migrate to new lifecycle methods, include components Badge, Calendar, Menu, Transfer. [#15254](https://github.com/ant-design/ant-design/pull/15254) [@zy410419243](https://github.com/zy410419243)
 
 ## 3.14.1
 
