@@ -19,9 +19,9 @@ timeline: true
 
 `2019-03-08`
 
-- 🌟 Tree support new prop `blockNode`. [#14858](https://github.com/ant-design/ant-design/pull/14858) [@kimochg](https://github.com/kimochg)
+- 🌟 Tree supports new prop `blockNode`. [#14858](https://github.com/ant-design/ant-design/pull/14858) [@kimochg](https://github.com/kimochg)
 - Form
-  - 🌟 Support `colon` prop in Form. [#15276](https://github.com/ant-design/ant-design/pull/15276) [@DiamondYuan](https://github.com/DiamondYuan)
+  - 🌟 Supports `colon` prop in Form. [#15276](https://github.com/ant-design/ant-design/pull/15276) [@DiamondYuan](https://github.com/DiamondYuan)
   - 🌟 Add new prop `labelAlign`. [#15252](https://github.com/ant-design/ant-design/pull/15252) [@yoyo837](https://github.com/yoyo837)
   - 🐞 Fix two colons will appear in FormItem label. [15285](https://github.com/ant-design/ant-design/pull/15285) [@jinxin0112](https://github.com/jinxin0112)
 - 🐞 Fix Typography dom structure. [#15210](https://github.com/ant-design/ant-design/pull/15210)
