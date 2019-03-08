@@ -6,6 +6,7 @@ import Dialog, { ModalFuncProps, destroyFns } from './Modal';
 import ActionButton from './ActionButton';
 import { getConfirmLocale } from './locale';
 import warning from '../_util/warning';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 interface ConfirmDialogProps extends ModalFuncProps {
   afterClose?: () => void;
@@ -163,7 +164,16 @@ export default function confirm(config: ModalFuncProps) {
   }
 
   function render(props: any) {
-    ReactDOM.render(<ConfirmDialog {...props} />, div);
+    ReactDOM.render(
+      <ConfigConsumer>
+        {({ getPrefixCls }: ConfigConsumerProps) => {
+          const { prefixCls: customizePrefixCls, ...others } = props;
+          const prefixCls = getPrefixCls('modal', customizePrefixCls);
+          return <ConfirmDialog {...others} prefixCls={prefixCls} />;
+        }}
+      </ConfigConsumer>,
+      div,
+    );
   }
 
   render(currentConfig);
