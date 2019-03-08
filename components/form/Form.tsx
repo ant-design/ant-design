@@ -41,15 +41,13 @@ export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   /**
    * @since 3.14.0
    */
-  labelCol?: ColProps;
-  /**
-   * @since 3.14.0
-   */
   wrapperCol?: ColProps;
+  labelCol?: ColProps;
   /**
    * @since 3.15.0
    */
   colon?: boolean;
+  labelAlign?: 'left' | 'right';
 }
 
 export type ValidationRule = {
@@ -262,6 +260,7 @@ export default class Form extends React.Component<FormProps, any> {
       'form',
       'hideRequiredMark',
       'wrapperCol',
+      'labelAlign',
       'labelCol',
       'colon',
     ]);
@@ -270,10 +269,10 @@ export default class Form extends React.Component<FormProps, any> {
   };
 
   render() {
-    const { wrapperCol, labelCol, layout, colon } = this.props;
+    const { wrapperCol, labelAlign, labelCol, layout, colon } = this.props;
     return (
       <FormContext.Provider
-        value={{ wrapperCol, labelCol, vertical: layout === 'vertical', colon }}
+        value={{ wrapperCol, labelAlign, labelCol, vertical: layout === 'vertical', colon }}
       >
         <ConfigConsumer>{this.renderForm}</ConfigConsumer>
       </FormContext.Provider>

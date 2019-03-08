@@ -19,6 +19,7 @@ export interface FormItemProps {
   className?: string;
   id?: string;
   label?: React.ReactNode;
+  labelAlign?: 'left' | 'right';
   labelCol?: ColProps;
   wrapperCol?: ColProps;
   help?: React.ReactNode;
@@ -42,6 +43,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+    labelAlign: PropTypes.string,
     labelCol: PropTypes.object,
     help: PropTypes.oneOfType([PropTypes.node, PropTypes.bool]),
     validateStatus: PropTypes.oneOf(ValidateStatuses),
@@ -328,14 +330,24 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   renderLabel(prefixCls: string) {
     return (
       <FormContext.Consumer key="label">
-        {({ vertical, labelCol: contextLabelCol, colon: contextColon }: FormContextProps) => {
+        {({
+          vertical,
+          labelAlign,
+          labelCol: contextLabelCol,
+          colon: contextColon,
+        }: FormContextProps) => {
           const { label, labelCol, colon, id } = this.props;
           const required = this.isRequired();
 
           const mergedLabelCol: ColProps =
             ('labelCol' in this.props ? labelCol : contextLabelCol) || {};
 
-          const labelColClassName = classNames(`${prefixCls}-item-label`, mergedLabelCol.className);
+          const labelClsBasic = `${prefixCls}-item-label`;
+          const labelColClassName = classNames(
+            labelClsBasic,
+            labelAlign === 'left' && `${labelClsBasic}-left`,
+            mergedLabelCol.className,
+          );
           const labelClassName = classNames({
             [`${prefixCls}-item-required`]: required,
           });
