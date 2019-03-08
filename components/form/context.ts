@@ -3,10 +3,12 @@ import { ColProps } from '../grid/col';
 
 export interface FormContextProps {
   vertical: boolean;
+  labelAlign?: string;
   labelCol?: ColProps;
   wrapperCol?: ColProps;
 }
 
 export const FormContext: Context<FormContextProps> = createReactContext({
+  labelAlign: 'right',
   vertical: false,
 });
