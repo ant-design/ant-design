@@ -64,7 +64,7 @@ class ScrollNumber extends Component<ScrollNumberProps, ScrollNumberState> {
     const currentDigit = getNumberArray(this.state.count)[i];
     const lastDigit = getNumberArray(this.lastCount)[i];
     // 同方向则在同一侧切换数字
-    if (this.state.count! > this.lastCount!) {
+    if (Number(this.state.count) > Number(this.lastCount)) {
       if (currentDigit >= lastDigit) {
         return 10 + num;
       }
