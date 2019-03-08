@@ -19,24 +19,25 @@ timeline: true
 
 `2019-03-08`
 
-- 🌟 Tree add new prop `blockNode`. [#14858](https://github.com/ant-design/ant-design/pull/14858) [@kimochg](https://github.com/kimochg)
+- 🌟 Tree support new prop `blockNode`. [#14858](https://github.com/ant-design/ant-design/pull/14858) [@kimochg](https://github.com/kimochg)
 - Form
-  - 🌟 Support set `colon` prop in Form. [#15276](https://github.com/ant-design/ant-design/pull/15276) [@DiamondYuan](https://github.com/DiamondYuan)
+  - 🌟 Support `colon` prop in Form. [#15276](https://github.com/ant-design/ant-design/pull/15276) [@DiamondYuan](https://github.com/DiamondYuan)
   - 🌟 Add new prop `labelAlign`. [#15252](https://github.com/ant-design/ant-design/pull/15252) [@yoyo837](https://github.com/yoyo837)
   - 🐞 Fix two colons will appear in FormItem label. [15285](https://github.com/ant-design/ant-design/pull/15285) [@jinxin0112](https://github.com/jinxin0112)
 - 🐞 Fix Typography dom structure. [#15210](https://github.com/ant-design/ant-design/pull/15210)
 - 🐞 Fix Affix position update logic. [#15150](https://github.com/ant-design/ant-design/pull/15150)
 - Input
-  - 🐞 Fix Password focus state. [#15184](https://github.com/ant-design/ant-design/pull/15184)
+  - 🐞 Fix Password lost focus when change `visibilityToggle`. [#15184](https://github.com/ant-design/ant-design/pull/15184)
+  - 🐞 Fix `allowClear` do not focus after clear content. [#15184](https://github.com/ant-design/ant-design/pull/15184)
   - 🐞 Fix Search style with `allowClear` or `suffix`/`prefix`. [#15242](https://github.com/ant-design/ant-design/pull/15242)
   - 🐞 Fix Input warning logic for focus lose. [#15251](https://github.com/ant-design/ant-design/pull/15251)
 - 🐞 Fix DatePicker and TimePicker cursor style. [#15218](https://github.com/ant-design/ant-design/pull/15218) [@yoyo837](https://github.com/yoyo837)
-- 🐞 Fix Steps style bug. [#15256](https://github.com/ant-design/ant-design/pull/15256)
+- 🐞 Fix Steps label text not align center. [#15256](https://github.com/ant-design/ant-design/pull/15256)
 - TypeScript
-  - 🐞 Fix Typography `setContentRef` definition. [#15197](https://github.com/ant-design/ant-design/pull/15197)
+  - ⚡️ Refactor and simplify List Item dom structure, and fix spaces lost inside List Item. [#15197](https://github.com/ant-design/ant-design/pull/15197)
   - 🐞 Fix Layout `tagName` definition. [#15181](https://github.com/ant-design/ant-design/pull/15181) [@ngolin](https://github.com/ngolin)
   - 🐞 Fix Text `ellipsis` definition. [#15209](https://github.com/ant-design/ant-design/pull/15209) [@xiaohuoni](https://github.com/xiaohuoni)
-  - 🐞 Fix Badge text types. [#15264](https://github.com/ant-design/ant-design/pull/15264)
+  - 🐞 Fix Badge `text` types. [#15264](https://github.com/ant-design/ant-design/pull/15264)
 - 🇹🇷 Turkish translations of new components. [#15238](https://github.com/ant-design/ant-design/pull/15238) [@codesignist](https://github.com/codesignist)
 
 ## 3.14.1
