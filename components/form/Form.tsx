@@ -38,8 +38,18 @@ export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   className?: string;
   prefixCls?: string;
   hideRequiredMark?: boolean;
+  /**
+   * @since 3.14.0
+   */
   labelCol?: ColProps;
+  /**
+   * @since 3.14.0
+   */
   wrapperCol?: ColProps;
+  /**
+   * @since 3.15.0
+   */
+  colon?: boolean;
 }
 
 export type ValidationRule = {
@@ -193,6 +203,7 @@ export interface ComponentDecorator {
 
 export default class Form extends React.Component<FormProps, any> {
   static defaultProps = {
+    colon: true,
     layout: 'horizontal' as FormLayout,
     hideRequiredMark: false,
     onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -206,6 +217,7 @@ export default class Form extends React.Component<FormProps, any> {
     children: PropTypes.any,
     onSubmit: PropTypes.func,
     hideRequiredMark: PropTypes.bool,
+    colon: PropTypes.bool,
   };
 
   static Item = FormItem;
@@ -251,15 +263,18 @@ export default class Form extends React.Component<FormProps, any> {
       'hideRequiredMark',
       'wrapperCol',
       'labelCol',
+      'colon',
     ]);
 
     return <form {...formProps} className={formClassName} />;
   };
 
   render() {
-    const { wrapperCol, labelCol, layout } = this.props;
+    const { wrapperCol, labelCol, layout, colon } = this.props;
     return (
-      <FormContext.Provider value={{ wrapperCol, labelCol, vertical: layout === 'vertical' }}>
+      <FormContext.Provider
+        value={{ wrapperCol, labelCol, vertical: layout === 'vertical', colon }}
+      >
         <ConfigConsumer>{this.renderForm}</ConfigConsumer>
       </FormContext.Provider>
     );
