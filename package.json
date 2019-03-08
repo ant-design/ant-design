@@ -195,6 +195,7 @@
     "test-node": "jest --config .jest.node.js --no-cache",
     "test-all": "./scripts/test-all.sh",
     "lint": "npm run lint:ts && npm run lint:es && npm run lint:demo && npm run lint:style",
+    "lint:deps": "antd-tools run deps-lint --ignore **/~*/**,**/_*/**,**/icon/**,**/__tests__/**,**/style/**,**/locale/**,**/*-provider/**,**/*.json",
     "lint:ts": "npm run tsc && antd-tools run ts-lint",
     "lint:es": "eslint tests site scripts components ./.*.js ./webpack.config.js --ext '.js,.jsx'",
     "lint:md": "remark components/",
