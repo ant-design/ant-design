@@ -31,8 +31,8 @@ timeline: true
   - 🐞 修复通过 `allowClear` 清除内容后没有获得焦点的问题。[#15184](https://github.com/ant-design/ant-design/pull/15184)
   - 🐞 修复 Search 当使用了 `allowClear` 或者 `suffix`/`prefix` 时的样式问题。[#15242](https://github.com/ant-design/ant-design/pull/15242)
   - 🐞 修复 Input 丢失焦点时的警告问题。[#15251](https://github.com/ant-design/ant-design/pull/15251)
-- 🐞 修复 DatePicker 和 TimePicker 的 cursor 样式问题。[#15218](https://github.com/ant-design/ant-design/pull/15218) [@yoyo837](https://github.com/yoyo837)
-- 🐞 修复 Steps 的 label 不居中的问题。[#15256](https://github.com/ant-design/ant-design/pull/15256)
+- 🐞 修复 DatePicker 和 TimePicker 的 cursor 样式问题。[#15218](https://github.com/ant-design/ant-design/pull/15218)
+- 🐞 修复 Steps 的 label 不居中的问题。[#15256](https://github.com/ant-design/ant-design/pull/15256) [@yoyo837](https://github.com/yoyo837)
 - TypeScript
   - 🐞 修复 Typography 的 `setContentRef` 定义。[#15197](https://github.com/ant-design/ant-design/pull/15197)
   - 🐞 修复 Layout 的 `tagName` 定义。[#15181](https://github.com/ant-design/ant-design/pull/15181) [@ngolin](https://github.com/ngolin)
