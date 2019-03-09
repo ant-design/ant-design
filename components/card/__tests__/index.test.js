@@ -55,4 +55,40 @@ describe('Card', () => {
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  it('warning', () => {
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(<Card noHovering>xxx</Card>);
+    expect(warnSpy).toBeCalledWith(
+      'Warning: [antd: Card] `noHovering` is deprecated, you can remove it safely or use `hoverable` instead.',
+    );
+    mount(<Card noHovering={false}>xxx</Card>);
+    expect(warnSpy).toBeCalledWith(
+      'Warning: [antd: Card] `noHovering={false}` is deprecated, use `hoverable` instead.',
+    );
+    warnSpy.mockRestore();
+  });
+
+  it('unmount', () => {
+    const wrapper = mount(<Card>xxx</Card>);
+    const removeResizeEventSpy = jest.spyOn(wrapper.instance().resizeEvent, 'remove');
+    wrapper.unmount();
+    expect(removeResizeEventSpy).toHaveBeenCalled();
+  });
+
+  it('onTabChange should work', () => {
+    const onTabChange = key => expect(key).toBe('test');
+    const wrapper = mount(<Card onTabChange={onTabChange}>xxx</Card>).instance();
+    wrapper.onTabChange('test');
+  });
+
+  it('getAction should work', () => {
+    const wrapper = mount(<Card>xxx</Card>).instance();
+    expect(wrapper.getAction([])).toBe(null);
+  });
+
+  it('getCompatibleHoverable should work', () => {
+    const wrapper = mount(<Card noHovering={false}>xxx</Card>).instance();
+    expect(wrapper.getCompatibleHoverable()).toBe(true);
+  });
 });
