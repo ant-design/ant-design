@@ -147,7 +147,7 @@ export default class Header extends React.Component<HeaderProps, any> {
       type === 'month'
         ? this.getMonthSelectElement(prefixCls, value.month(), this.getMonthsLocale(value))
         : null;
-    const size = (fullscreen ? 'default' : 'small') as any;
+    const size = fullscreen ? 'default' : 'small';
     const typeSwitch = (
       <Group onChange={this.onTypeChange} value={type} size={size}>
         <Button value="month">{locale.month}</Button>
