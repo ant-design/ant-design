@@ -435,4 +435,25 @@ describe('Transfer', () => {
     expect(listTarget.prop('style')).toHaveProperty('backgroundColor', 'blue');
     expect(operation.prop('style')).toHaveProperty('backgroundColor', 'yellow');
   });
+
+  it('handleScroll, handleFilter, handleClear, moveTo should work', () => {
+    const onScroll = jest.fn();
+    const onSearch = jest.fn();
+    const onChange = jest.fn();
+    const wrapper = mount(
+      <Transfer {...listCommonProps} onScroll={onScroll} onSearch={onSearch} onChange={onChange} />,
+    ).instance();
+    wrapper.handleScroll();
+    expect(onScroll).toBeCalled();
+    wrapper.handleLeftScroll();
+    expect(onScroll).toBeCalled();
+    wrapper.handleRightScroll();
+    expect(onScroll).toBeCalled();
+    wrapper.handleRightFilter({ target: 1 });
+    expect(onSearch).toBeCalled();
+    wrapper.handleRightClear();
+    expect(onSearch).toBeCalled();
+    wrapper.moveToLeft();
+    expect(onChange).toBeCalled();
+  });
 });
