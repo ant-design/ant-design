@@ -92,7 +92,7 @@ class Demo extends React.Component {
         mode={this.state.mode}
         onPanelChange={this.onPanelChange}
       />
-    )
+    );
   }
 }
 

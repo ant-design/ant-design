@@ -28,7 +28,7 @@ class Demo extends React.Component {
   render() {
     return (
       <Calendar onPanelChange={this.onPanelChange} mode={this.state.mode} />
-    )
+    );
   }
 }
 
