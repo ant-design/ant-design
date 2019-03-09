@@ -176,11 +176,8 @@ describe('Calendar', () => {
     expect(onPanelChange).toBeCalled();
     expect(onPanelChange.mock.calls[0][1]).toEqual('year');
   });
-  it('if value.month > end.month, value.month -> end.month', () => {
-    const value = new Moment('1990-01-03');
-    const start = new Moment('2019-01-01');
-    const end = new Moment('2019-03-01');
-    const onValueChange = jest.fn();
+
+  const createWrapper = (start, end, value, onValueChange) => {
     const wrapper = mount(
       <Header
         onValueChange={onValueChange}
@@ -197,7 +194,15 @@ describe('Calendar', () => {
       .find('.ant-select-dropdown-menu-item')
       .at(0)
       .simulate('click');
-    expect(onValueChange).toHaveBeenCalledWith(value.year('2019'));
+  };
+
+  it('if value.month > end.month, value.month -> end.month', () => {
+    const value = new Moment('1990-01-03');
+    const start = new Moment('2019-04-01');
+    const end = new Moment('2019-11-01');
+    const onValueChange = jest.fn();
+    createWrapper(start, end, value, onValueChange);
+    expect(onValueChange).toHaveBeenCalledWith(value.year('2019').month('3'));
   });
 
   it('if start.month > value.month, value.month -> start.month ', () => {
@@ -205,22 +210,7 @@ describe('Calendar', () => {
     const start = new Moment('2019-11-01');
     const end = new Moment('2019-03-01');
     const onValueChange = jest.fn();
-    const wrapper = mount(
-      <Header
-        onValueChange={onValueChange}
-        value={value}
-        validRange={[start, end]}
-        locale={{ year: '年' }}
-      />,
-    );
-    wrapper
-      .find('.ant-fullcalendar-year-select')
-      .hostNodes()
-      .simulate('click');
-    wrapper
-      .find('.ant-select-dropdown-menu-item')
-      .at(0)
-      .simulate('click');
+    createWrapper(start, end, value, onValueChange);
     expect(onValueChange).toHaveBeenCalledWith(value.year('2019').month('10'));
   });
 
