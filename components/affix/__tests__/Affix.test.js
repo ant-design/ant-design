@@ -48,8 +48,7 @@ describe('Affix Render', () => {
   };
 
   const originGetBoundingClientRect = HTMLElement.prototype.getBoundingClientRect;
-  // eslint-disable-next-line
-  HTMLElement.prototype.getBoundingClientRect = function() {
+  HTMLElement.prototype.getBoundingClientRect = function getRect() {
     return (
       classRect[this.className] || {
         top: 0,
