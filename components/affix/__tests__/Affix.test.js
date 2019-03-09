@@ -131,10 +131,10 @@ describe('Affix Render', () => {
   it('updatePosition when target changed', () => {
     const container = '<div id="mounter" />';
     const getTarget = () => container;
-    wrapper = mount(<Affix target={getTarget} />).instance();
-    wrapper.componentDidUpdate({ target: null });
-    expect(wrapper.state.status).toBe(0);
-    expect(wrapper.state.affixStyle).toBe(undefined);
-    expect(wrapper.state.placeholderStyle).toBe(undefined);
+    wrapper = mount(<Affix target={getTarget} />);
+    wrapper.setProps({ target: null });
+    expect(wrapper.instance().state.status).toBe(0);
+    expect(wrapper.instance().state.affixStyle).toBe(undefined);
+    expect(wrapper.instance().state.placeholderStyle).toBe(undefined);
   });
 });
