@@ -75,10 +75,28 @@ function monthCellRender(value) {
   ) : null;
 }
 
-ReactDOM.render(
-  <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />,
-  mountNode
-);
+class Demo extends React.Component {
+  state = {
+    mode: 'month',
+  }
+
+  onPanelChange = (value, mode) => {
+    this.setState({ mode });
+  }
+
+  render() {
+    return (
+      <Calendar
+        dateCellRender={dateCellRender}
+        monthCellRender={monthCellRender}
+        mode={this.state.mode}
+        onPanelChange={this.onPanelChange}
+      />
+    )
+  }
+}
+
+ReactDOM.render(<Demo />, mountNode);
 ````
 
 ````css

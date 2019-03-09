@@ -16,14 +16,23 @@ Nested inside a container element for rendering in limited space.
 ````jsx
 import { Calendar } from 'antd';
 
-function onPanelChange(value, mode) {
-  console.log(value, mode);
+class Demo extends React.Component {
+  state = {
+    mode: 'month',
+  }
+
+  onPanelChange = (value, mode) => {
+    this.setState({ mode });
+  }
+
+  render() {
+    return (
+      <div style={{ width: 300, border: '1px solid #d9d9d9', borderRadius: 4 }}>
+        <Calendar fullscreen={false} onPanelChange={this.onPanelChange} mode={this.state.mode} />
+      </div>
+    )
+  }
 }
 
-ReactDOM.render(
-  <div style={{ width: 300, border: '1px solid #d9d9d9', borderRadius: 4 }}>
-    <Calendar fullscreen={false} onPanelChange={onPanelChange} />
-  </div>,
-  mountNode
-);
+ReactDOM.render(<Demo />, mountNode);
 ````

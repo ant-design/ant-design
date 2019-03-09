@@ -21,6 +21,7 @@ class App extends React.Component {
   state = {
     value: moment('2017-01-25'),
     selectedValue: moment('2017-01-25'),
+    mode: 'month',
   }
 
   onSelect = (value) => {
@@ -30,16 +31,21 @@ class App extends React.Component {
     });
   }
 
-  onPanelChange = (value) => {
-    this.setState({ value });
+  onPanelChange = (value, mode) => {
+    this.setState({ value, mode });
   }
 
   render() {
-    const { value, selectedValue } = this.state;
+    const { value, selectedValue, mode } = this.state;
     return (
       <div>
         <Alert message={`You selected date: ${selectedValue && selectedValue.format('YYYY-MM-DD')}`} />
-        <Calendar value={value} onSelect={this.onSelect} onPanelChange={this.onPanelChange} />
+        <Calendar
+          value={value}
+          onSelect={this.onSelect}
+          onPanelChange={this.onPanelChange}
+          mode={mode}
+        />
       </div>
     );
   }
