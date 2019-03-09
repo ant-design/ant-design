@@ -213,7 +213,12 @@ class Sider extends React.Component<SiderProps, SiderState> {
     // special trigger when collapsedWidth == 0
     const zeroWidthTrigger =
       parseFloat(String(collapsedWidth || 0)) === 0 ? (
-        <span onClick={this.toggle} className={`${prefixCls}-zero-width-trigger`}>
+        <span
+          onClick={this.toggle}
+          className={`${prefixCls}-zero-width-trigger ${prefixCls}-zero-width-trigger-${
+            reverseArrow ? 'right' : 'left'
+          }`}
+        >
           <Icon type="bars" />
         </span>
       ) : null;
@@ -249,10 +254,10 @@ class Sider extends React.Component<SiderProps, SiderState> {
       [`${prefixCls}-zero-width`]: parseFloat(siderWidth) === 0,
     });
     return (
-      <div className={siderCls} {...divProps} style={divStyle}>
+      <aside className={siderCls} {...divProps} style={divStyle}>
         <div className={`${prefixCls}-children`}>{this.props.children}</div>
         {collapsible || (this.state.below && zeroWidthTrigger) ? triggerDom : null}
-      </div>
+      </aside>
     );
   };
 

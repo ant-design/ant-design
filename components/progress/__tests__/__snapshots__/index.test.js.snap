@@ -223,7 +223,7 @@ exports[`Progress render strokeColor 1`] = `
         stroke="#f3f3f3"
         stroke-linecap="round"
         stroke-width="6"
-        style="stroke: #f3f3f3; stroke-dasharray: 295.3097094374406px 295.3097094374406px; stroke-dashoffset: -0px;"
+        style="stroke: #f3f3f3; stroke-dasharray: 295.3097094374406px 295.3097094374406px; stroke-dashoffset: -0px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s;"
       />
       <path
         class="ant-progress-circle-path"
@@ -233,7 +233,7 @@ exports[`Progress render strokeColor 1`] = `
         fill-opacity="0"
         stroke-linecap="round"
         stroke-width="6"
-        style="stroke: red; stroke-dasharray: 147.6548547187203px 295.3097094374406px; stroke-dashoffset: -0px;"
+        style="stroke: red; stroke-dasharray: 147.6548547187203px 295.3097094374406px; stroke-dashoffset: -0px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s;"
       />
     </svg>
     <span

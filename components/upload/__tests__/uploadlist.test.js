@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Upload from '..';
+import UploadList from '../UploadList';
 import Form from '../../form';
 import { errorRequest, successRequest } from './requests';
 import { setup, teardown } from './mock';
@@ -348,5 +349,58 @@ describe('Upload List', () => {
     });
     wrapper.find(Form).simulate('submit');
     expect(errors).toBeNull();
+  });
+
+  it('return when prop onPreview not exists', () => {
+    const wrapper = mount(<UploadList />).instance();
+    expect(wrapper.handlePreview()).toBe(undefined);
+  });
+
+  it('previewFile should work correctly', () => {
+    const callback = jest.fn();
+    const file = new File([''], 'test.txt', { type: 'text/plain' });
+    const items = [{ uid: 'upload-list-item', url: '' }];
+    const wrapper = mount(
+      <UploadList listType="picture-card" items={items} locale={{ previewFile: '' }} />,
+    ).instance();
+    wrapper.previewFile(file, callback);
+    expect(callback).toBeCalled();
+  });
+
+  it('extname should work correctly when url not exists', () => {
+    const items = [{ uid: 'upload-list-item', url: '' }];
+    const wrapper = mount(
+      <UploadList listType="picture-card" items={items} locale={{ previewFile: '' }} />,
+    );
+    expect(wrapper.find('.ant-upload-list-item-thumbnail').length).toBe(2);
+  });
+
+  it('when picture-card is loading, icon should render correctly', () => {
+    const items = [{ status: 'uploading', uid: 'upload-list-item' }];
+    const wrapper = mount(
+      <UploadList listType="picture-card" items={items} locale={{ uploading: 'uploading' }} />,
+    );
+    expect(wrapper.find('.ant-upload-list-item-uploading-text').length).toBe(1);
+    expect(wrapper.find('.ant-upload-list-item-uploading-text').text()).toBe('uploading');
+  });
+
+  it('onPreview should be called, when url exists', () => {
+    const onPreview = jest.fn();
+    const items = [{ thumbUrl: 'thumbUrl', url: 'url', uid: 'upload-list-item' }];
+    const wrapper = mount(
+      <UploadList
+        listType="picture-card"
+        items={items}
+        locale={{ uploading: 'uploading' }}
+        onPreview={onPreview}
+      />,
+    );
+    wrapper.find('.ant-upload-list-item-thumbnail').simulate('click');
+    expect(onPreview).toBeCalled();
+    wrapper.find('.ant-upload-list-item-name').simulate('click');
+    expect(onPreview).toBeCalled();
+    wrapper.setProps({ items: [{ thumbUrl: 'thumbUrl', uid: 'upload-list-item' }] });
+    wrapper.find('.ant-upload-list-item-name').simulate('click');
+    expect(onPreview).toBeCalled();
   });
 });

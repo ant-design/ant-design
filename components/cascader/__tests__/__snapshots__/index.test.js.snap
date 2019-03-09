@@ -1237,6 +1237,7 @@ exports[`Cascader support controlled mode 1`] = `
     autocomplete="off"
     class="ant-input ant-cascader-input "
     readonly=""
+    tabindex="-1"
     type="text"
     value=""
   />

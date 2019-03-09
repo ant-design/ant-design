@@ -10,12 +10,17 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Password from './Password';
 import Icon from '../icon';
 import { Omit, tuple } from '../_util/type';
+import warning from '../_util/warning';
 
 function fixControlledValue<T>(value: T) {
   if (typeof value === 'undefined' || value === null) {
     return '';
   }
   return value;
+}
+
+function hasPrefixSuffix(props: InputProps) {
+  return !!('prefix' in props || props.suffix || props.allowClear);
 }
 
 const InputSizes = tuple('small', 'default', 'large');
@@ -84,6 +89,21 @@ class Input extends React.Component<InputProps, any> {
     };
   }
 
+  getSnapshotBeforeUpdate(prevProps: InputProps) {
+    if (hasPrefixSuffix(prevProps) !== hasPrefixSuffix(this.props)) {
+      warning(
+        this.input !== document.activeElement,
+        'Input',
+        `When Input is focused, dynamic add or remove prefix / suffix will make it lose focus caused by dom structure change. Read more: https://ant.design/components/input/#FAQ`,
+      );
+    }
+    return null;
+  }
+
+  // Since polyfill `getSnapshotBeforeUpdate` need work with `componentDidUpdate`.
+  // We keep an empty function here.
+  componentDidUpdate() {}
+
   handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const { onPressEnter, onKeyDown } = this.props;
     if (e.keyCode === 13 && onPressEnter) {
@@ -122,9 +142,10 @@ class Input extends React.Component<InputProps, any> {
   setValue(
     value: string,
     e: React.ChangeEvent<HTMLInputElement> | React.MouseEvent<HTMLElement, MouseEvent>,
+    callback?: () => void,
   ) {
     if (!('value' in this.props)) {
-      this.setState({ value });
+      this.setState({ value }, callback);
     }
     const { onChange } = this.props;
     if (onChange) {
@@ -147,7 +168,9 @@ class Input extends React.Component<InputProps, any> {
   }
 
   handleReset = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-    this.setValue('', e);
+    this.setValue('', e, () => {
+      this.focus();
+    });
   };
 
   handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -224,7 +247,7 @@ class Input extends React.Component<InputProps, any> {
     const { props } = this;
     const suffix = this.renderSuffix(prefixCls);
 
-    if (!('prefix' in props) && !suffix) {
+    if (!hasPrefixSuffix(props)) {
       return children;
     }
 

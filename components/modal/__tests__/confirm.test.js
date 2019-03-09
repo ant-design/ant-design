@@ -1,5 +1,5 @@
 import Modal from '..';
-import { destroyFns } from '../Modal'
+import { destroyFns } from '../Modal';
 
 const { confirm } = Modal;
 
@@ -185,15 +185,15 @@ describe('Modal.confirm triggers callbacks correctly', () => {
         title: 'title',
         content: 'content',
       });
-      instances.push(instance)
+      instances.push(instance);
     });
-    const { length } = instances
+    const { length } = instances;
     instances.forEach((instance, index) => {
       expect(destroyFns.length).toBe(length - index);
       instance.destroy();
       jest.runAllTimers();
       expect(destroyFns.length).toBe(length - index - 1);
-    })
+    });
     jest.useRealTimers();
   });
 });

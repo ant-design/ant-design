@@ -4,13 +4,13 @@ body {
 }
 
 body {
-  font-family: @font-family;
-  line-height: 1.5;
+  overflow-x: hidden;
   color: @site-text-color;
   font-size: 14px;
+  font-family: @font-family;
+  line-height: 1.5;
   background: #fff;
   transition: background 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-  overflow-x: hidden;
 }
 
 a {
@@ -22,26 +22,26 @@ a {
 }
 
 .main-wrapper {
-  background: #fff;
-  padding: 40px 0 0;
   position: relative;
+  padding: 40px 0 0;
+  background: #fff;
 }
 
 .main-container {
-  padding: 0 170px 144px 64px;
-  background: #fff;
-  min-height: 500px;
-  overflow: hidden;
   position: relative;
+  min-height: 500px;
+  padding: 0 170px 144px 64px;
+  overflow: hidden;
+  background: #fff;
 }
 
 .main-menu {
   z-index: 1;
 
   &-inner {
+    max-height: 100vh;
     overflow-x: hidden;
     overflow-y: hidden;
-    max-height: 100vh;
   }
 
   &:hover &-inner {
@@ -56,9 +56,9 @@ a {
   &.ant-menu-inline .ant-menu-submenu-title h4,
   &.ant-menu-inline > .ant-menu-item,
   &.ant-menu-inline .ant-menu-item a {
+    overflow: hidden;
     font-size: 14px;
     text-overflow: ellipsis;
-    overflow: hidden;
   }
 
   &.ant-menu-inline .ant-menu-item-group-title {
@@ -72,12 +72,12 @@ a {
   .menu-item-link-outside {
     position: relative;
     .anticon {
-      font-size: 12px;
-      color: @primary-color;
-      opacity: 0;
       position: absolute;
-      right: -10px;
       top: 16px;
+      right: -10px;
+      color: @primary-color;
+      font-size: 12px;
+      opacity: 0;
       transition: all 0.3s;
     }
     &:hover .anticon {
@@ -87,9 +87,9 @@ a {
 }
 
 .aside-container .chinese {
-  font-size: 12px;
   margin-left: 6px;
   font-weight: normal;
+  font-size: 12px;
   opacity: 0.67;
 }
 
@@ -99,8 +99,8 @@ a {
 
 .outside-link-icon {
   margin-left: 5px;
-  font-size: 12px;
   color: #aaa;
+  font-size: 12px;
 }
 
 .outside-link.internal {
@@ -118,13 +118,13 @@ a {
 }
 
 #react-content {
-  transition: transform 0.3s @ease-in-out-circ;
   height: 100%;
+  transition: transform 0.3s @ease-in-out-circ;
 }
 .page-wrapper {
-  overflow: hidden;
-  padding: 0;
   width: 100%;
+  padding: 0;
+  overflow: hidden;
   a {
     text-decoration: none;
   }
@@ -138,6 +138,6 @@ a {
   z-index: 1029;
 }
 
-#_hj_feedback_container .path1:before {
+#_hj_feedback_container .path1::before {
   color: @primary-color !important;
 }

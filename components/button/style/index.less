@@ -23,8 +23,8 @@
   // Ref: https://github.com/ant-design/ant-design/issues/7034
   > i,
   > span {
-    pointer-events: none;
     display: inline-block;
+    pointer-events: none;
   }
 
   &-primary {
@@ -78,20 +78,20 @@
     .btn-circle(@btn-prefix-cls);
   }
 
-  &:before {
+  &::before {
     position: absolute;
     top: -1px;
-    left: -1px;
-    bottom: -1px;
     right: -1px;
-    background: @component-background;
-    opacity: 0.35;
-    content: '';
-    border-radius: inherit;
+    bottom: -1px;
+    left: -1px;
     z-index: 1;
+    display: none;
+    background: @component-background;
+    border-radius: inherit;
+    opacity: 0.35;
     transition: opacity 0.2s;
     pointer-events: none;
-    display: none;
+    content: '';
   }
 
   .@{iconfont-css-prefix} {
@@ -107,14 +107,14 @@
     }
   }
 
-  &&-loading:before {
+  &&-loading::before {
     display: block;
   }
 
   &&-loading:not(&-circle):not(&-circle-outline):not(&-icon-only) {
+    position: relative;
     padding-left: 29px;
     pointer-events: none;
-    position: relative;
     .@{iconfont-css-prefix}:not(:last-child) {
       margin-left: -14px;
     }
@@ -132,8 +132,8 @@
   }
 
   &:not(&-circle):not(&-circle-outline)&-icon-only {
-    padding-left: 8px;
     padding-right: 8px;
+    padding-left: 8px;
   }
 
   // http://stackoverflow.com/a/21281554/3040605
@@ -149,9 +149,9 @@
   }
 
   &-background-ghost {
+    color: @component-background;
     background: transparent !important;
     border-color: @component-background;
-    color: @component-background;
   }
 
   &-background-ghost&-primary {
@@ -162,13 +162,13 @@
     .button-variant-ghost(@btn-danger-color);
   }
 
-  &-two-chinese-chars:first-letter {
+  &-two-chinese-chars::first-letter {
     letter-spacing: 0.34em;
   }
 
   &-two-chinese-chars > *:not(.@{iconfont-css-prefix}) {
-    letter-spacing: 0.34em;
     margin-right: -0.34em;
+    letter-spacing: 0.34em;
   }
 
   &-block {

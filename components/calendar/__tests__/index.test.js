@@ -134,9 +134,9 @@ describe('Calendar', () => {
     const onPanelChangeStub = jest.fn();
     const wrapper = mount(<Calendar mode={yearMode} onPanelChange={onPanelChangeStub} />);
     expect(wrapper.state().mode).toEqual(yearMode);
-    wrapper.instance().setType('date');
+    wrapper.setProps({ mode: monthMode });
     expect(wrapper.state().mode).toEqual(monthMode);
-    expect(onPanelChangeStub).toHaveBeenCalledTimes(1);
+    expect(onPanelChangeStub).toHaveBeenCalledTimes(0);
   });
 
   it('Calendar should support locale', () => {
@@ -146,5 +146,19 @@ describe('Calendar', () => {
     const wrapper = mount(<Calendar locale={zhCN} />);
     expect(wrapper.render()).toMatchSnapshot();
     MockDate.reset();
+  });
+
+  it('should trigger onPanelChange when click last month of date', () => {
+    const onPanelChange = jest.fn();
+    const date = new Moment('1990-09-03');
+    const wrapper = mount(<Calendar onPanelChange={onPanelChange} value={date} />);
+
+    wrapper
+      .find('.ant-fullcalendar-cell')
+      .at(0)
+      .simulate('click');
+
+    expect(onPanelChange).toBeCalled();
+    expect(onPanelChange.mock.calls[0][0].month()).toEqual(date.month() - 1);
   });
 });

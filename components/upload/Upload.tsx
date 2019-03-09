@@ -53,7 +53,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
 
   progressTimer: any;
 
-  private upload: any;
+  upload: any;
 
   constructor(props: UploadProps) {
     super(props);

@@ -15,14 +15,21 @@
     }
   }
 
-  .@{ant-prefix}-input-group-addon {
-    border: 0;
-    padding: 0;
+  &-enter-button {
+    input {
+      border-right: 0;
+    }
 
-    .@{search-prefix}-button {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-      width: 100%;
+    & + .@{ant-prefix}-input-group-addon,
+    input + .@{ant-prefix}-input-group-addon {
+      padding: 0;
+      border: 0;
+
+      .@{search-prefix}-button {
+        width: 100%;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
     }
   }
 }

@@ -4,7 +4,7 @@ import * as PropTypes from 'prop-types';
 import Tooltip from '../tooltip';
 import { ClickParam } from './index';
 
-interface MenuItemProps {
+export interface MenuItemProps {
   rootPrefixCls?: string;
   disabled?: boolean;
   level?: number;

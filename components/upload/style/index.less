@@ -29,26 +29,26 @@
   }
 
   &&-select-picture-card {
-    border: @border-width-base dashed @border-color-base;
+    display: table;
     width: @upload-picture-card-size;
     height: @upload-picture-card-size;
-    border-radius: @border-radius-base;
-    background-color: @background-color-light;
-    text-align: center;
-    cursor: pointer;
-    transition: border-color 0.3s ease;
-    vertical-align: top;
     margin-right: 8px;
     margin-bottom: 8px;
-    display: table;
+    text-align: center;
+    vertical-align: top;
+    background-color: @background-color-light;
+    border: @border-width-base dashed @border-color-base;
+    border-radius: @border-radius-base;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
 
     > .@{upload-prefix-cls} {
+      display: table-cell;
       width: 100%;
       height: 100%;
-      display: table-cell;
+      padding: 8px;
       text-align: center;
       vertical-align: middle;
-      padding: 8px;
     }
 
     &:hover {
@@ -57,15 +57,15 @@
   }
 
   &&-drag {
-    border: @border-width-base dashed @border-color-base;
-    transition: border-color 0.3s;
-    cursor: pointer;
-    border-radius: @border-radius-base;
-    text-align: center;
+    position: relative;
     width: 100%;
     height: 100%;
-    position: relative;
+    text-align: center;
     background: @background-color-light;
+    border: @border-width-base dashed @border-color-base;
+    border-radius: @border-radius-base;
+    cursor: pointer;
+    transition: border-color 0.3s;
 
     .@{upload-prefix-cls} {
       padding: 16px 0;
@@ -95,24 +95,24 @@
 
     p.@{upload-prefix-cls}-drag-icon {
       .@{iconfont-css-prefix} {
-        font-size: 48px;
         color: @primary-5;
+        font-size: 48px;
       }
       margin-bottom: 20px;
     }
     p.@{upload-prefix-cls}-text {
-      font-size: @font-size-lg;
       margin: 0 0 4px;
       color: @heading-color;
+      font-size: @font-size-lg;
     }
     p.@{upload-prefix-cls}-hint {
-      font-size: @font-size-base;
       color: @text-color-secondary;
+      font-size: @font-size-base;
     }
     .@{iconfont-css-prefix}-plus {
+      color: @disabled-color;
       font-size: 30px;
       transition: all 0.3s;
-      color: @disabled-color;
       &:hover {
         color: @text-color-secondary;
       }
@@ -127,17 +127,17 @@
   .reset-component;
   .clearfix;
   &-item {
-    margin-top: 8px;
-    font-size: @font-size-base;
     position: relative;
     height: 22px;
+    margin-top: 8px;
+    font-size: @font-size-base;
     &-name {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      padding-left: @font-size-base + 8px;
-      width: 100%;
       display: inline-block;
+      width: 100%;
+      padding-left: @font-size-base + 8px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
 
     &-info {
@@ -151,23 +151,23 @@
 
       .@{iconfont-css-prefix}-loading,
       .@{iconfont-css-prefix}-paper-clip {
-        font-size: @font-size-base;
-        color: @text-color-secondary;
         position: absolute;
         top: @font-size-base / 2 - 2px;
+        color: @text-color-secondary;
+        font-size: @font-size-base;
       }
     }
 
     .@{iconfont-css-prefix}-close {
       .iconfont-size-under-12px(10px);
-      transition: all 0.3s;
-      opacity: 0;
-      cursor: pointer;
       position: absolute;
       top: 6px;
       right: 4px;
       color: @text-color-secondary;
       line-height: 0;
+      cursor: pointer;
+      opacity: 0;
+      transition: all 0.3s;
       &:hover {
         color: @text-color;
       }
@@ -188,28 +188,28 @@
     }
 
     &-error .@{iconfont-css-prefix}-close {
-      opacity: 1;
       color: @error-color !important;
+      opacity: 1;
     }
 
     &-progress {
-      line-height: 0;
-      font-size: @font-size-base;
       position: absolute;
-      width: 100%;
       bottom: -12px;
+      width: 100%;
       padding-left: @font-size-base + 12px;
+      font-size: @font-size-base;
+      line-height: 0;
     }
   }
 
   &-picture,
   &-picture-card {
     .@{upload-item} {
-      padding: 8px;
-      border-radius: @border-radius-base;
-      border: @border-width-base @upload-picture-card-border-style @border-color-base;
-      height: 66px;
       position: relative;
+      height: 66px;
+      padding: 8px;
+      border: @border-width-base @upload-picture-card-border-style @border-color-base;
+      border-radius: @border-radius-base;
       &:hover {
         background: transparent;
       }
@@ -231,44 +231,44 @@
     }
 
     .@{upload-item}-thumbnail {
-      width: 48px;
-      height: 48px;
       position: absolute;
       top: 8px;
       left: 8px;
-      text-align: center;
-      line-height: 54px;
+      width: 48px;
+      height: 48px;
       font-size: 26px;
+      line-height: 54px;
+      text-align: center;
       opacity: 0.8;
     }
 
     .@{upload-item}-icon {
-      font-size: 26px;
       position: absolute;
       top: 50%;
       left: 50%;
+      font-size: 26px;
       transform: translate(-50%, -50%);
     }
 
     .@{upload-item}-thumbnail img {
+      display: block;
       width: 48px;
       height: 48px;
-      display: block;
       overflow: hidden;
     }
 
     .@{upload-item}-name {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      margin: 0 0 0 8px;
-      line-height: 44px;
-      transition: all 0.3s;
-      padding-left: 48px;
-      padding-right: 8px;
-      max-width: 100%;
       display: inline-block;
       box-sizing: border-box;
+      max-width: 100%;
+      margin: 0 0 0 8px;
+      padding-right: 8px;
+      padding-left: 48px;
+      overflow: hidden;
+      line-height: 44px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      transition: all 0.3s;
     }
 
     .@{upload-item}-uploading .@{upload-item}-name {
@@ -276,16 +276,16 @@
     }
 
     .@{upload-item}-progress {
-      padding-left: 56px;
-      margin-top: 0;
       bottom: 14px;
       width: ~'calc(100% - 24px)';
+      margin-top: 0;
+      padding-left: 56px;
     }
 
     .@{iconfont-css-prefix}-close {
       position: absolute;
-      right: 8px;
       top: 8px;
+      right: 8px;
       line-height: 1;
       opacity: 1;
     }
@@ -295,7 +295,7 @@
     // https://github.com/ant-design/ant-design/issues/11183
     float: left;
 
-    &.@{upload-prefix-cls}-list:after {
+    &.@{upload-prefix-cls}-list::after {
       display: none;
     }
     .@{upload-item} {
@@ -306,45 +306,45 @@
     }
 
     .@{upload-item}-info {
-      height: 100%;
       position: relative;
+      height: 100%;
       overflow: hidden;
 
-      &:before {
-        content: ' ';
+      &::before {
         position: absolute;
         z-index: 1;
-        background-color: fade(@black, 50%);
-        transition: all 0.3s;
         width: 100%;
         height: 100%;
+        background-color: fade(@black, 50%);
         opacity: 0;
+        transition: all 0.3s;
+        content: ' ';
       }
     }
 
-    .@{upload-item}:hover .@{upload-item}-info:before {
+    .@{upload-item}:hover .@{upload-item}-info::before {
       opacity: 1;
     }
 
     .@{upload-item}-actions {
       position: absolute;
-      left: 50%;
       top: 50%;
-      transform: translate(-50%, -50%);
+      left: 50%;
       z-index: 10;
       white-space: nowrap;
+      transform: translate(-50%, -50%);
       opacity: 0;
       transition: all 0.3s;
 
       .@{iconfont-css-prefix}-eye-o,
       .@{iconfont-css-prefix}-delete {
         z-index: 10;
-        transition: all 0.3s;
-        cursor: pointer;
-        font-size: 16px;
         width: 16px;
-        color: @text-color-dark;
         margin: 0 4px;
+        color: @text-color-dark;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s;
         &:hover {
           color: @text-color-inverse;
         }
@@ -358,18 +358,18 @@
 
     .@{upload-item}-thumbnail,
     .@{upload-item}-thumbnail img {
+      position: static;
       display: block;
       width: 100%;
       height: 100%;
-      position: static;
     }
 
     .@{upload-item}-name {
+      display: none;
       margin: 8px 0 0;
       padding: 0;
-      text-align: center;
       line-height: @line-height-base;
-      display: none;
+      text-align: center;
     }
 
     .anticon-picture + .@{upload-item}-name {
@@ -383,7 +383,7 @@
 
       .@{upload-item}-info {
         height: auto;
-        &:before,
+        &::before,
         .@{iconfont-css-prefix}-eye-o,
         .@{iconfont-css-prefix}-delete {
           display: none;
@@ -397,8 +397,8 @@
     }
 
     .@{upload-item}-progress {
-      padding-left: 0;
       bottom: 32px;
+      padding-left: 0;
     }
   }
 
@@ -436,8 +436,8 @@
   from {
     height: 0;
     margin: 0;
-    opacity: 0;
     padding: 0;
+    opacity: 0;
   }
 }
 
@@ -455,8 +455,8 @@
     width: 0;
     height: 0;
     margin: 0;
-    opacity: 0;
     padding: 0;
+    opacity: 0;
   }
 }
 

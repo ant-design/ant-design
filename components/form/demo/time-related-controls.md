@@ -67,9 +67,8 @@ class TimeRelatedForm extends React.Component {
       rules: [{ type: 'array', required: true, message: 'Please select time!' }],
     };
     return (
-      <Form onSubmit={this.handleSubmit}>
+      <Form {...formItemLayout} onSubmit={this.handleSubmit}>
         <Form.Item
-          {...formItemLayout}
           label="DatePicker"
         >
           {getFieldDecorator('date-picker', config)(
@@ -77,7 +76,6 @@ class TimeRelatedForm extends React.Component {
           )}
         </Form.Item>
         <Form.Item
-          {...formItemLayout}
           label="DatePicker[showTime]"
         >
           {getFieldDecorator('date-time-picker', config)(
@@ -85,7 +83,6 @@ class TimeRelatedForm extends React.Component {
           )}
         </Form.Item>
         <Form.Item
-          {...formItemLayout}
           label="MonthPicker"
         >
           {getFieldDecorator('month-picker', config)(
@@ -93,7 +90,6 @@ class TimeRelatedForm extends React.Component {
           )}
         </Form.Item>
         <Form.Item
-          {...formItemLayout}
           label="RangePicker"
         >
           {getFieldDecorator('range-picker', rangeConfig)(
@@ -101,7 +97,6 @@ class TimeRelatedForm extends React.Component {
           )}
         </Form.Item>
         <Form.Item
-          {...formItemLayout}
           label="RangePicker[showTime]"
         >
           {getFieldDecorator('range-time-picker', rangeConfig)(
@@ -109,7 +104,6 @@ class TimeRelatedForm extends React.Component {
           )}
         </Form.Item>
         <Form.Item
-          {...formItemLayout}
           label="TimePicker"
         >
           {getFieldDecorator('time-picker', config)(

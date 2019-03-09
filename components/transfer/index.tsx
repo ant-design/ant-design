@@ -8,6 +8,7 @@ import warning from '../_util/warning';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale-provider/default';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
+import { polyfill } from 'react-lifecycles-compat';
 
 export { TransferListProps } from './list';
 export { TransferOperationProps } from './operation';
@@ -62,7 +63,7 @@ export interface TransferLocale {
   itemsUnit: string;
 }
 
-export default class Transfer extends React.Component<TransferProps, any> {
+class Transfer extends React.Component<TransferProps, any> {
   // For high-level customized Transfer @dqaria
   static List = List;
   static Operation = Operation;
@@ -100,6 +101,17 @@ export default class Transfer extends React.Component<TransferProps, any> {
     lazy: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   };
 
+  static getDerivedStateFromProps(nextProps: TransferProps) {
+    if (nextProps.selectedKeys) {
+      const targetKeys = nextProps.targetKeys || [];
+      return {
+        sourceSelectedKeys: nextProps.selectedKeys.filter(key => !targetKeys.includes(key)),
+        targetSelectedKeys: nextProps.selectedKeys.filter(key => targetKeys.includes(key)),
+      };
+    }
+    return null;
+  }
+
   separatedDataSource: {
     leftDataSource: TransferItem[];
     rightDataSource: TransferItem[];
@@ -110,8 +122,9 @@ export default class Transfer extends React.Component<TransferProps, any> {
 
     warning(
       !('notFoundContent' in props || 'searchPlaceholder' in props),
-      'Transfer[notFoundContent] and Transfer[searchPlaceholder] will be removed, ' +
-        'please use Transfer[locale] instead.',
+      'Transfer',
+      '`notFoundContent` and `searchPlaceholder` will be removed, ' +
+        'please use `locale` instead.',
     );
 
     const { selectedKeys = [], targetKeys = [] } = props;
@@ -123,52 +136,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
     };
   }
 
-  componentWillReceiveProps(nextProps: TransferProps) {
-    const { sourceSelectedKeys, targetSelectedKeys } = this.state;
-
-    if (
-      nextProps.targetKeys !== this.props.targetKeys ||
-      nextProps.dataSource !== this.props.dataSource
-    ) {
-      // clear cached separated dataSource
-      this.separatedDataSource = null;
-
-      if (!nextProps.selectedKeys) {
-        // clear key no longer existed
-        // clear checkedKeys according to targetKeys
-        const { dataSource, targetKeys = [] } = nextProps;
-
-        const newSourceSelectedKeys: String[] = [];
-        const newTargetSelectedKeys: String[] = [];
-        dataSource.forEach(({ key }) => {
-          if (sourceSelectedKeys.includes(key) && !targetKeys.includes(key)) {
-            newSourceSelectedKeys.push(key);
-          }
-          if (targetSelectedKeys.includes(key) && targetKeys.includes(key)) {
-            newTargetSelectedKeys.push(key);
-          }
-        });
-        this.setState({
-          sourceSelectedKeys: newSourceSelectedKeys,
-          targetSelectedKeys: newTargetSelectedKeys,
-        });
-      }
-    }
-
-    if (nextProps.selectedKeys) {
-      const targetKeys = nextProps.targetKeys || [];
-      this.setState({
-        sourceSelectedKeys: nextProps.selectedKeys.filter(key => !targetKeys.includes(key)),
-        targetSelectedKeys: nextProps.selectedKeys.filter(key => targetKeys.includes(key)),
-      });
-    }
-  }
-
   separateDataSource(props: TransferProps) {
-    if (this.separatedDataSource) {
-      return this.separatedDataSource;
-    }
-
     const { dataSource, rowKey, targetKeys = [] } = props;
 
     const leftDataSource: TransferItem[] = [];
@@ -188,12 +156,10 @@ export default class Transfer extends React.Component<TransferProps, any> {
       }
     });
 
-    this.separatedDataSource = {
+    return {
       leftDataSource,
       rightDataSource,
     };
-
-    return this.separatedDataSource;
   }
 
   moveTo = (direction: TransferDirection) => {
@@ -277,7 +243,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
       [`${direction}Filter`]: value,
     });
     if (onSearchChange) {
-      warning(false, '`onSearchChange` in Transfer is deprecated. Please use `onSearch` instead.');
+      warning(false, 'Transfer', '`onSearchChange` is deprecated. Please use `onSearch` instead.');
       onSearchChange(direction, e);
     }
     if (onSearch) {
@@ -463,3 +429,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
     );
   }
 }
+
+polyfill(Transfer);
+
+export default Transfer;

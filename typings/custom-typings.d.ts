@@ -95,6 +95,8 @@ declare module 'lodash/padStart';
 
 declare module 'lodash/padEnd';
 
+declare module 'lodash/repeat';
+
 declare module 'lodash/uniqBy';
 
 declare module 'lodash/findIndex';

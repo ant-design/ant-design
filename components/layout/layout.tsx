@@ -6,14 +6,19 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface GeneratorProps {
   suffixCls: string;
+  tagName: 'header' | 'footer' | 'main' | 'section';
 }
 export interface BasicProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   hasSider?: boolean;
 }
 
-function generator({ suffixCls }: GeneratorProps) {
-  return (BasicComponent: React.ComponentClass<BasicProps>): any => {
+interface BasicPropsWithTagName extends BasicProps {
+  tagName: 'header' | 'footer' | 'main' | 'section';
+}
+
+function generator({ suffixCls, tagName }: GeneratorProps) {
+  return (BasicComponent: React.ComponentClass<BasicPropsWithTagName>): any => {
     return class Adapter extends React.Component<BasicProps, any> {
       static Header: any;
       static Footer: any;
@@ -24,7 +29,7 @@ function generator({ suffixCls }: GeneratorProps) {
         const { prefixCls: customizePrefixCls } = this.props;
         const prefixCls = getPrefixCls(suffixCls, customizePrefixCls);
 
-        return <BasicComponent prefixCls={prefixCls} {...this.props} />;
+        return <BasicComponent prefixCls={prefixCls} tagName={tagName} {...this.props} />;
       };
 
       render() {
@@ -34,15 +39,11 @@ function generator({ suffixCls }: GeneratorProps) {
   };
 }
 
-class Basic extends React.Component<BasicProps, any> {
+class Basic extends React.Component<BasicPropsWithTagName, any> {
   render() {
-    const { prefixCls, className, children, ...others } = this.props;
-    const divCls = classNames(className, prefixCls);
-    return (
-      <div className={divCls} {...others}>
-        {children}
-      </div>
-    );
+    const { prefixCls, className, children, tagName, ...others } = this.props;
+    const classString = classNames(className, prefixCls);
+    return React.createElement(tagName, { className: classString, ...others }, children);
   }
 }
 
@@ -50,7 +51,7 @@ interface BasicLayoutState {
   siders: string[];
 }
 
-class BasicLayout extends React.Component<BasicProps, BasicLayoutState> {
+class BasicLayout extends React.Component<BasicPropsWithTagName, BasicLayoutState> {
   static childContextTypes = {
     siderHook: PropTypes.object,
   };
@@ -74,15 +75,11 @@ class BasicLayout extends React.Component<BasicProps, BasicLayoutState> {
   }
 
   render() {
-    const { prefixCls, className, children, hasSider, ...others } = this.props;
-    const divCls = classNames(className, prefixCls, {
+    const { prefixCls, className, children, hasSider, tagName, ...others } = this.props;
+    const classString = classNames(className, prefixCls, {
       [`${prefixCls}-has-sider`]: hasSider || this.state.siders.length > 0,
     });
-    return (
-      <div className={divCls} {...others}>
-        {children}
-      </div>
-    );
+    return React.createElement(tagName, { className: classString, ...others }, children);
   }
 }
 
@@ -93,18 +90,22 @@ const Layout: React.ComponentClass<BasicProps> & {
   Sider: React.ComponentClass<SiderProps>;
 } = generator({
   suffixCls: 'layout',
+  tagName: 'section',
 })(BasicLayout);
 
 const Header = generator({
   suffixCls: 'layout-header',
+  tagName: 'header',
 })(Basic);
 
 const Footer = generator({
   suffixCls: 'layout-footer',
+  tagName: 'footer',
 })(Basic);
 
 const Content = generator({
   suffixCls: 'layout-content',
+  tagName: 'main',
 })(Basic);
 
 Layout.Header = Header;

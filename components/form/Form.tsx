@@ -4,11 +4,13 @@ import classNames from 'classnames';
 import createDOMForm from 'rc-form/lib/createDOMForm';
 import createFormField from 'rc-form/lib/createFormField';
 import omit from 'omit.js';
-import FormItem from './FormItem';
-import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ColProps } from '../grid/col';
 import { Omit, tuple } from '../_util/type';
 import warning from '../_util/warning';
+import FormItem from './FormItem';
+import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
+import { FormContext } from './context';
 
 type FormCreateOptionMessagesCallback = (...args: any[]) => string;
 
@@ -36,6 +38,16 @@ export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   className?: string;
   prefixCls?: string;
   hideRequiredMark?: boolean;
+  /**
+   * @since 3.14.0
+   */
+  wrapperCol?: ColProps;
+  labelCol?: ColProps;
+  /**
+   * @since 3.15.0
+   */
+  colon?: boolean;
+  labelAlign?: 'left' | 'right';
 }
 
 export type ValidationRule = {
@@ -189,6 +201,7 @@ export interface ComponentDecorator {
 
 export default class Form extends React.Component<FormProps, any> {
   static defaultProps = {
+    colon: true,
     layout: 'horizontal' as FormLayout,
     hideRequiredMark: false,
     onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -202,10 +215,7 @@ export default class Form extends React.Component<FormProps, any> {
     children: PropTypes.any,
     onSubmit: PropTypes.func,
     hideRequiredMark: PropTypes.bool,
-  };
-
-  static childContextTypes = {
-    vertical: PropTypes.bool,
+    colon: PropTypes.bool,
   };
 
   static Item = FormItem;
@@ -226,14 +236,7 @@ export default class Form extends React.Component<FormProps, any> {
   constructor(props: FormProps) {
     super(props);
 
-    warning(!props.form, 'It is unnecessary to pass `form` to `Form` after antd@1.7.0.');
-  }
-
-  getChildContext() {
-    const { layout } = this.props;
-    return {
-      vertical: layout === 'vertical',
-    };
+    warning(!props.form, 'Form', 'It is unnecessary to pass `form` to `Form` after antd@1.7.0.');
   }
 
   renderForm = ({ getPrefixCls }: ConfigConsumerProps) => {
@@ -256,12 +259,23 @@ export default class Form extends React.Component<FormProps, any> {
       'layout',
       'form',
       'hideRequiredMark',
+      'wrapperCol',
+      'labelAlign',
+      'labelCol',
+      'colon',
     ]);
 
     return <form {...formProps} className={formClassName} />;
   };
 
   render() {
-    return <ConfigConsumer>{this.renderForm}</ConfigConsumer>;
+    const { wrapperCol, labelAlign, labelCol, layout, colon } = this.props;
+    return (
+      <FormContext.Provider
+        value={{ wrapperCol, labelAlign, labelCol, vertical: layout === 'vertical', colon }}
+      >
+        <ConfigConsumer>{this.renderForm}</ConfigConsumer>
+      </FormContext.Provider>
+    );
   }
 }
