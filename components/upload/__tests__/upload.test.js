@@ -370,4 +370,56 @@ describe('Upload', () => {
     );
     expect(typeof wrapper.instance().upload.abort).toBe('function');
   });
+
+  it('unmount', () => {
+    const wrapper = mount(
+      <Upload>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    const unmountSpy = jest.spyOn(wrapper.instance(), 'componentWillUnmount');
+    wrapper.unmount();
+    expect(unmountSpy).toHaveBeenCalled();
+  });
+
+  it('onFileDrop should work', () => {
+    const wrapper = mount(
+      <Upload>
+        <button type="button">upload</button>
+      </Upload>,
+    ).instance();
+    wrapper.onFileDrop({ type: 'test' });
+    expect(wrapper.state.dragState).toBe('test');
+  });
+
+  it('beforeUpload should work', () => {
+    const wrapper = mount(
+      <Upload>
+        <button type="button">upload</button>
+      </Upload>,
+    ).instance();
+    expect(wrapper.beforeUpload()).toBe(true);
+  });
+
+  it('corrent dragCls when type is drag', () => {
+    const fileList = [{ status: 'uploading', uid: 'file' }];
+    const wrapper = mount(
+      <Upload type="drag" fileList={fileList}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    expect(wrapper.find('.ant-upload-drag-uploading').length).toBe(1);
+  });
+
+  it('return when targetItem is null', () => {
+    const fileList = [{ uid: 'file' }];
+    const wrapper = mount(
+      <Upload type="drag" fileList={fileList}>
+        <button type="button">upload</button>
+      </Upload>,
+    ).instance();
+    expect(wrapper.onSuccess('', { uid: 'fileItem' })).toBe(undefined);
+    expect(wrapper.onProgress('', { uid: 'fileItem' })).toBe(undefined);
+    expect(wrapper.onError('', '', { uid: 'fileItem' })).toBe(undefined);
+  });
 });
