@@ -538,6 +538,31 @@ describe('Menu', () => {
     expect(wrapper.find('.ant-menu-submenu-popup').length).toBe(0);
   });
 
+  it('onMouseEnter should work', () => {
+    const event = { target: 'test' };
+    const onMouseEnter = e => {
+      expect(e).toEqual(event);
+    };
+    const wrapper = mount(<Menu onMouseEnter={onMouseEnter} />).instance();
+    wrapper.handleMouseEnter(event);
+  });
+
+  it('onOpenChange should work', () => {
+    const event = [];
+    const onOpenChange = e => {
+      expect(e).toEqual(event);
+    };
+    const wrapper = mount(<Menu onOpenChange={onOpenChange} />).instance();
+    wrapper.handleOpenChange(event);
+  });
+
+  it('get correct animation type when switched from inline', () => {
+    const wrapper = mount(<Menu mode="inline" />);
+    wrapper.setProps({ mode: 'horizontal' });
+    expect(wrapper.instance().getMenuOpenAnimation('')).toBe('');
+    expect(wrapper.instance().switchingModeFromInline).toBe(false);
+  });
+
   it('Menu should not shake when collapsed changed', () => {
     const wrapper = mount(
       <Menu
