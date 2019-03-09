@@ -180,9 +180,7 @@ describe('Calendar', () => {
     const value = new Moment('1990-01-03');
     const start = new Moment('2019-01-01');
     const end = new Moment('2019-03-01');
-    const onValueChange = newValue => {
-      expect(newValue).toEqual(value.year('2019'));
-    };
+    const onValueChange = jest.fn();
     const wrapper = mount(
       <Header
         onValueChange={onValueChange}
@@ -190,17 +188,23 @@ describe('Calendar', () => {
         validRange={[start, end]}
         locale={{ year: '年' }}
       />,
-    ).instance();
-    wrapper.onYearChange('2019');
+    );
+    wrapper
+      .find('.ant-fullcalendar-year-select')
+      .hostNodes()
+      .simulate('click');
+    wrapper
+      .find('.ant-select-dropdown-menu-item')
+      .at(0)
+      .simulate('click');
+    expect(onValueChange).toHaveBeenCalledWith(value.year('2019'));
   });
 
   it('if start.month > value.month, value.month -> start.month ', () => {
     const value = new Moment('1990-01-03');
     const start = new Moment('2019-11-01');
     const end = new Moment('2019-03-01');
-    const onValueChange = newValue => {
-      expect(newValue).toEqual(value.year('2019').month('10'));
-    };
+    const onValueChange = jest.fn();
     const wrapper = mount(
       <Header
         onValueChange={onValueChange}
@@ -208,29 +212,58 @@ describe('Calendar', () => {
         validRange={[start, end]}
         locale={{ year: '年' }}
       />,
-    ).instance();
-    wrapper.onYearChange('2019');
+    );
+    wrapper
+      .find('.ant-fullcalendar-year-select')
+      .hostNodes()
+      .simulate('click');
+    wrapper
+      .find('.ant-select-dropdown-menu-item')
+      .at(0)
+      .simulate('click');
+    expect(onValueChange).toHaveBeenCalledWith(value.year('2019').month('10'));
   });
 
   it('onMonthChange should work correctly', () => {
-    const value = new Moment('1990-01-03');
-    const onValueChange = newValue => {
-      expect(newValue).toEqual(value.month('11'));
-    };
+    const start = new Moment('2018-11-01');
+    const end = new Moment('2019-03-01');
+    const value = new Moment('2018-12-03');
+    const onValueChange = jest.fn();
     const wrapper = mount(
-      <Header onValueChange={onValueChange} value={value} locale={{ year: '年' }} />,
-    ).instance();
-    wrapper.onMonthChange('11');
+      <Header
+        onValueChange={onValueChange}
+        value={value}
+        validRange={[start, end]}
+        locale={{ year: '年' }}
+        type="date"
+      />,
+    );
+    wrapper
+      .find('.ant-fullcalendar-month-select')
+      .hostNodes()
+      .simulate('click');
+    wrapper
+      .find('.ant-select-dropdown-menu-item')
+      .at(0)
+      .simulate('click');
+    expect(onValueChange).toHaveBeenCalledWith(value.month(10));
   });
 
   it('onTypeChange should work correctly', () => {
-    const onTypeChange = value => {
-      expect(value).toBe(11);
-    };
-    const value = new Moment('1990-01-03');
+    const onTypeChange = jest.fn();
+    const value = new Moment('2018-12-03');
     const wrapper = mount(
-      <Header onValueChange={onTypeChange} locale={{ year: '年' }} value={value} />,
-    ).instance();
-    wrapper.onTypeChange({ target: 11 });
+      <Header
+        onTypeChange={onTypeChange}
+        locale={{ year: '年', month: '月' }}
+        value={value}
+        type="date"
+      />,
+    );
+    wrapper
+      .find('input')
+      .at(1)
+      .simulate('change');
+    expect(onTypeChange).toBeCalledWith('month');
   });
 });
