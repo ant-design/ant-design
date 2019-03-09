@@ -12,6 +12,7 @@
     visibility: hidden;
   }
   &&-card &-card-bar &-tab {
+    height: @tabs-card-height - 1px;
     margin: 0;
     margin-right: 2px;
     padding: 0 16px;
@@ -23,6 +24,7 @@
     transition: all 0.3s @ease-in-out;
   }
   &&-card &-card-bar &-tab-active {
+    height: @tabs-card-height;
     padding-bottom: 1px;
     color: @tabs-card-active-color;
     background: @component-background;
