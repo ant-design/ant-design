@@ -1,51 +1,45 @@
 ---
-order: 2
+order: 3
 title:
-  zh-CN: 自定义尺寸
-  en-US: Custom size
+  zh-CN: 响应式
+  en-US: responsive
 ---
 
 ## zh-CN
 
-自定义尺寸，适应在各种容器中展示
+通过响应式的配置可以实现在小屏幕设备上的完美呈现。
 
 ## en-US
 
-Custom sizes to fit in a variety of containers
+Responsive configuration enables perfect presentation on small screen devices.
 
 ```jsx
-import { Descriptions, Radio } from 'antd';
-
-const RadioGroup = Radio.Group;
+import { Descriptions } from "antd";
 
 const DescriptionsItem = Descriptions.Item;
 
 class Demo extends React.Component {
   state = {
-    size: 'default',
+    size: "default",
   };
 
   onChange = e => {
-    console.log('size checked', e.target.value);
+    console.log("size checked", e.target.value);
     this.setState({
       size: e.target.value,
     });
   };
-  
+
   render() {
     return (
       <div>
-        <RadioGroup onChange={this.onChange} value={this.state.size}>
-          <Radio value="default">default</Radio>
-          <Radio value="middle">middle</Radio>
-          <Radio value="small">small</Radio>
-        </RadioGroup>
-        <br />
-        <br />
-        <Descriptions title="Custom Size" border size={this.state.size}>
-          <DescriptionsItem label="Product">
-            Cloud Database
-          </DescriptionsItem>
+        <Descriptions
+          title="Custom Size"
+          border
+          size={this.state.size}
+          column={{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}
+        >
+          <DescriptionsItem label="Product">Cloud Database</DescriptionsItem>
           <DescriptionsItem label="Billing">Prepaid</DescriptionsItem>
           <DescriptionsItem label="time">18:00:00</DescriptionsItem>
           <DescriptionsItem label="Amount">$80.00</DescriptionsItem>
@@ -71,5 +65,4 @@ class Demo extends React.Component {
 }
 
 ReactDOM.render(<Demo />, mountNode);
-
 ```

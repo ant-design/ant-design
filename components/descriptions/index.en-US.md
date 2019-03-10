@@ -19,7 +19,7 @@ When there is no data provided, display for friendly tips.
 | --- | --- | --- | --- |
 | title | The title of the description list, placed at the top | ReactNode | - |
 | border | whether to display the border | boolean  | false |
-| column | the number of `DescriptionItems` in a row | number  | 3 |
+| column | the number of `DescriptionItems` in a row,could be a number or a object like `{ xs: 8, sm: 16, md: 24}` | number  | 3 |
 | size | set the size of the list. Can be set to `middle`,`small`, or not filled | `default | middle | small` | false |
 
 ### DescriptionItem

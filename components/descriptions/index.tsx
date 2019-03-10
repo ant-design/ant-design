@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import warning from '../_util/warning';
+import { responsiveMap, Breakpoint, RowState, enquire, responsiveArray } from '../grid/row';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface DescriptionsItemProps {
@@ -23,11 +24,7 @@ export interface DescriptionsProps {
   size?: 'middle' | 'small' | 'default';
   children?: React.ReactNode;
   title?: string;
-  column?: number;
-}
-
-interface DescriptionsClass extends React.SFC<DescriptionsProps> {
-  Item: typeof DescriptionsItem;
+  column?: number | Partial<Record<Breakpoint, number>>;
 }
 
 /**
@@ -110,56 +107,128 @@ const renderRow = (
   );
 };
 
-const Descriptions: DescriptionsClass = (props: DescriptionsProps) => (
-  <ConfigConsumer>
-    {({ getPrefixCls }: ConfigConsumerProps) => {
-      const {
-        className,
-        prefixCls: customizePrefixCls,
-        column = 3,
-        title,
-        size,
-        children,
-        border,
-      } = props;
-      const prefixCls = getPrefixCls('descriptions', customizePrefixCls);
+const defaultColumnMap = {
+  xxl: 4,
+  xl: 3,
+  lg: 3,
+  md: 3,
+  sm: 2,
+  xs: 1,
+};
 
-      const cloneChildren = React.Children.map(
-        children,
-        (child: React.ReactElement<DescriptionsItemProps>) => {
-          return React.cloneElement(child, {
-            prefixCls,
-          });
+class Descriptions extends React.Component<DescriptionsProps, RowState> {
+  static defaultProps: DescriptionsProps;
+  static Item: typeof DescriptionsItem;
+  state: RowState = {
+    screens: {},
+  };
+
+  componentDidMount() {
+    const { column } = this.props;
+    Object.keys(responsiveMap).map((screen: Breakpoint) =>
+      enquire.register(responsiveMap[screen], {
+        match: () => {
+          if (typeof column !== 'object') {
+            return;
+          }
+          this.setState(prevState => ({
+            screens: {
+              ...prevState.screens,
+              [screen]: true,
+            },
+          }));
         },
-      );
-      const childrenArray: Array<React.ReactElement<DescriptionsItemProps>[]> = genChildrenArray(
-        cloneChildren,
-        column,
-      );
-      return (
-        <div
-          className={classNames(prefixCls, className, {
-            [size as string]: size !== 'default',
+        unmatch: () => {
+          if (typeof column !== 'object') {
+            return;
+          }
+          this.setState(prevState => ({
+            screens: {
+              ...prevState.screens,
+              [screen]: false,
+            },
+          }));
+        },
+        // Keep a empty destory to avoid triggering unmatch when unregister
+        destroy() {},
+      }),
+    );
+  }
+
+  componentWillUnmount() {
+    Object.keys(responsiveMap).map((screen: Breakpoint) =>
+      enquire.unregister(responsiveMap[screen]),
+    );
+  }
+
+  getColumn(): number {
+    const { column = 3 } = this.props;
+    if (typeof column === 'object') {
+      for (let i = 0; i < responsiveArray.length; i++) {
+        const breakpoint: Breakpoint = responsiveArray[i];
+        if (this.state.screens[breakpoint] && column[breakpoint] !== undefined) {
+          return column[breakpoint] || defaultColumnMap[breakpoint];
+        }
+      }
+    }
+    return column as number;
+  }
+
+  render() {
+    return (
+      <ConfigConsumer>
+        {({ getPrefixCls }: ConfigConsumerProps) => {
+          const {
+            className,
+            prefixCls: customizePrefixCls,
+            title,
+            size,
+            children,
             border,
-          })}
-        >
-          {title && <div className={`${prefixCls}-title`}>{title}</div>}
-          <div className={`${prefixCls}-view`}>
-            <table>
-              {childrenArray.map((child, index) =>
-                renderRow(child, index, {
-                  prefixCls,
-                  column,
-                  isLast: index + 1 === childrenArray.length,
-                }),
-              )}
-            </table>
-          </div>
-        </div>
-      );
-    }}
-  </ConfigConsumer>
-);
+          } = this.props;
+          const prefixCls = getPrefixCls('descriptions', customizePrefixCls);
+
+          const column = this.getColumn();
+
+          const cloneChildren = React.Children.map(
+            children,
+            (child: React.ReactElement<DescriptionsItemProps>) => {
+              return React.cloneElement(child, {
+                prefixCls,
+              });
+            },
+          );
+
+          const childrenArray: Array<
+            React.ReactElement<DescriptionsItemProps>[]
+          > = genChildrenArray(cloneChildren, column);
+
+          return (
+            <div
+              className={classNames(prefixCls, className, {
+                [size as string]: size !== 'default',
+                border,
+              })}
+            >
+              {title && <div className={`${prefixCls}-title`}>{title}</div>}
+              <div className={`${prefixCls}-view`}>
+                <table>
+                  {childrenArray.map((child, index) =>
+                    renderRow(child, index, {
+                      prefixCls,
+                      column,
+                      isLast: index + 1 === childrenArray.length,
+                    }),
+                  )}
+                </table>
+              </div>
+            </div>
+          );
+        }}
+      </ConfigConsumer>
+    );
+  }
+}
 
 Descriptions.defaultProps = {
   size: 'default',

@@ -2,7 +2,7 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
-let enquire: any;
+export let enquire: any;
 if (typeof window !== 'undefined') {
   const matchMediaPolyfill = (mediaQuery: string) => {
     return {
@@ -38,7 +38,7 @@ export interface RowState {
   screens: BreakpointMap;
 }
 
-const responsiveArray: Breakpoint[] = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
+export const responsiveArray: Breakpoint[] = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
 
 export const responsiveMap: BreakpointMap = {
   xs: '(max-width: 575px)',
