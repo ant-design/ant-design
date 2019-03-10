@@ -34,7 +34,7 @@ class Demo extends React.Component {
     return (
       <div>
         <Descriptions
-          title="Custom Size"
+          title="Responsive Descriptions"
           border
           size={this.state.size}
           column={{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}
