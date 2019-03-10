@@ -21,6 +21,7 @@ When need to display title or text content. Like:
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
+| code | code style | boolean | false |
 | copyable | Config copy. Can set copy text and callback when is an object | boolean \| { text: string, onCopy: Function } | false |
 | delete | delete line style | boolean | false |
 | disabled | Disable content | boolean | false |
@@ -36,6 +37,7 @@ When need to display title or text content. Like:
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
+| code | code style | boolean | false |
 | copyable | Config copy. Can set copy text and callback when is an object | boolean \| { text: string, onCopy: Function } | false |
 | delete | delete line style | boolean | false |
 | disabled | Disable content | boolean | false |
@@ -51,6 +53,7 @@ When need to display title or text content. Like:
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
+| code | code style | boolean | false |
 | copyable | Config copy. Can set copy text and callback when is an object | boolean \| { text: string, onCopy: Function } | false |
 | delete | delete line style | boolean | false |
 | disabled | Disable content | boolean | false |
