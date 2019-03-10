@@ -30,6 +30,11 @@ interface DescriptionsClass extends React.SFC<DescriptionsProps> {
   Item: typeof DescriptionsItem;
 }
 
+/**
+ * Convert children into `column` groups.
+ * @param cloneChildren: DescriptionsItem
+ * @param column: number
+ */
 const genChildrenArray = (
   cloneChildren: React.ReactNode,
   column: number,
@@ -48,7 +53,7 @@ const genChildrenArray = (
       childrenArray.push(columnArray);
       columnArray = [];
       width = 0;
-      warning(width > column, `column max is ${column}, here has width`);
+      warning(width > column, 'Descriptions', `column max is ${column}, here has width`);
     }
   });
   if (columnArray.length > 0) {
@@ -58,6 +63,16 @@ const genChildrenArray = (
   return childrenArray;
 };
 
+/**
+ * This code is for handling react15 does not support returning an array,
+ * It can convert a children into two td
+ * @param child DescriptionsItem
+ * @returns
+ * <>
+ *   <td>{DescriptionsItem.label}</td>
+ *   <td>{DescriptionsItem.children}</td>
+ * </>
+ */
 const renderChildren = (child: React.ReactElement<DescriptionsItemProps>) => {
   const { prefixCls, label, children, span = 1 } = child.props;
   return [
@@ -69,6 +84,7 @@ const renderChildren = (child: React.ReactElement<DescriptionsItemProps>) => {
     </td>,
   ];
 };
+
 const renderRow = (
   child: React.ReactElement<DescriptionsItemProps>[],
   index: number,

@@ -40,7 +40,7 @@ export interface RowState {
 
 const responsiveArray: Breakpoint[] = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
 
-const responsiveMap: BreakpointMap = {
+export const responsiveMap: BreakpointMap = {
   xs: '(max-width: 575px)',
   sm: '(min-width: 576px)',
   md: '(min-width: 768px)',
