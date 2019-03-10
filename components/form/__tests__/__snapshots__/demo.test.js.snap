@@ -481,8 +481,6 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
 exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
-  labelcol="[object Object]"
-  wrappercol="[object Object]"
 >
   <div
     class="ant-row ant-form-item"
@@ -778,7 +776,10 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M848 474H550V152h-76v322H176c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h298v322h76V550h298c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+                  d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                />
+                <path
+                  d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
                 />
               </svg>
             </i>
@@ -1510,8 +1511,6 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
 exports[`renders ./components/form/demo/register.md correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
-  labelcol="[object Object]"
-  wrappercol="[object Object]"
 >
   <div
     class="ant-row ant-form-item"
@@ -1715,6 +1714,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               data-__meta="[object Object]"
               id="register_residence"
               readonly=""
+              tabindex="-1"
               type="text"
               value=""
             />
@@ -2465,8 +2465,6 @@ exports[`renders ./components/form/demo/style-check-debug.md correctly 1`] = `
 exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
-  labelcol="[object Object]"
-  wrappercol="[object Object]"
 >
   <div
     class="ant-row ant-form-item"
@@ -2885,8 +2883,6 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
 exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
-  labelcol="[object Object]"
-  wrappercol="[object Object]"
 >
   <div
     class="ant-row ant-form-item"
@@ -4103,8 +4099,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
 exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
-  labelcol="[object Object]"
-  wrappercol="[object Object]"
 >
   <div
     class="ant-row ant-form-item ant-form-item-with-help"
@@ -4702,6 +4696,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               autocomplete="off"
               class="ant-input ant-cascader-input "
               readonly=""
+              tabindex="-1"
               type="text"
               value=""
             />

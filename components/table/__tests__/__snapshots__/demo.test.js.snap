@@ -1461,7 +1461,86 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
               </thead>
               <tbody
                 class="ant-table-tbody"
-              />
+              >
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
+                  index="0"
+                  style="cursor:move"
+                >
+                  <td
+                    class=""
+                  >
+                    <span
+                      class="ant-table-row-indent indent-level-0"
+                      style="padding-left:0px"
+                    />
+                    John Brown
+                  </td>
+                  <td
+                    class=""
+                  >
+                    32
+                  </td>
+                  <td
+                    class=""
+                  >
+                    New York No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
+                  index="1"
+                  style="cursor:move"
+                >
+                  <td
+                    class=""
+                  >
+                    <span
+                      class="ant-table-row-indent indent-level-0"
+                      style="padding-left:0px"
+                    />
+                    Jim Green
+                  </td>
+                  <td
+                    class=""
+                  >
+                    42
+                  </td>
+                  <td
+                    class=""
+                  >
+                    London No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
+                  index="2"
+                  style="cursor:move"
+                >
+                  <td
+                    class=""
+                  >
+                    <span
+                      class="ant-table-row-indent indent-level-0"
+                      style="padding-left:0px"
+                    />
+                    Joe Black
+                  </td>
+                  <td
+                    class=""
+                  >
+                    32
+                  </td>
+                  <td
+                    class=""
+                  >
+                    Sidney No. 1 Lake Park
+                  </td>
+                </tr>
+              </tbody>
             </table>
           </div>
         </div>

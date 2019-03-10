@@ -7,6 +7,7 @@ import enUS from './locale/en_US';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import interopDefault from '../_util/interopDefault';
+import { polyfill } from 'react-lifecycles-compat';
 
 export { HeaderProps } from './Header';
 
@@ -48,7 +49,7 @@ export interface CalendarState {
   mode?: CalendarMode;
 }
 
-export default class Calendar extends React.Component<CalendarProps, CalendarState> {
+class Calendar extends React.Component<CalendarProps, CalendarState> {
   static defaultProps = {
     locale: {},
     fullscreen: true,
@@ -74,6 +75,17 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     onChange: PropTypes.func,
   };
 
+  static getDerivedStateFromProps(nextProps: CalendarProps) {
+    const newState = {} as CalendarState;
+    if ('value' in nextProps) {
+      newState.value = nextProps.value!;
+    }
+    if ('mode' in nextProps) {
+      newState.mode = nextProps.mode;
+    }
+    return Object.keys(newState).length > 0 ? newState : null;
+  }
+
   prefixCls?: string;
 
   constructor(props: CalendarProps) {
@@ -90,19 +102,6 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
       value,
       mode: props.mode,
     };
-  }
-
-  componentWillReceiveProps(nextProps: CalendarProps) {
-    if ('value' in nextProps) {
-      this.setState({
-        value: nextProps.value!,
-      });
-    }
-    if ('mode' in nextProps && nextProps.mode !== this.props.mode) {
-      this.setState({
-        mode: nextProps.mode!,
-      });
-    }
   }
 
   monthCellRender = (value: moment.Moment) => {
@@ -283,3 +282,7 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     );
   }
 }
+
+polyfill(Calendar);
+
+export default Calendar;

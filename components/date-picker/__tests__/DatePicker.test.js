@@ -203,4 +203,11 @@ describe('DatePicker', () => {
     expect(extraNode.length).toBe(1);
     expect(extraNode.text()).toBe('decade');
   });
+
+  it('supports multiple formats', () => {
+    const wrapper = mount(<DatePicker format={['DD/MM/YYYY', 'DD/MM/YY']} />);
+    openPanel(wrapper);
+    wrapper.find('.ant-calendar-input').simulate('change', { target: { value: '02/07/18' } });
+    expect(wrapper.find('.ant-calendar-picker-input').getDOMNode().value).toBe('02/07/2018');
+  });
 });
