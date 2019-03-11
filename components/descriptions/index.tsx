@@ -162,7 +162,7 @@ class Descriptions extends React.Component<DescriptionsProps, RowState> {
   }
 
   getColumn(): number {
-    const { column = 3 } = this.props;
+    const { column } = this.props;
     if (typeof column === 'object') {
       for (let i = 0; i < responsiveArray.length; i++) {
         const breakpoint: Breakpoint = responsiveArray[i];
@@ -232,6 +232,7 @@ class Descriptions extends React.Component<DescriptionsProps, RowState> {
 
 Descriptions.defaultProps = {
   size: 'default',
+  column: defaultColumnMap,
 };
 
 Descriptions.Item = DescriptionsItem;
