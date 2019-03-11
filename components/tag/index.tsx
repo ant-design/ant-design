@@ -48,7 +48,7 @@ class Tag extends React.Component<TagProps, TagState> {
     super(props);
     warning(
       !('afterClose' in props),
-      'tag',
+      'Tag',
       "'afterClose' will be deprecated, please use 'onClose', we will remove this in the next version.",
     );
   }
