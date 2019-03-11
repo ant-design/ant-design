@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-给你的标签增加添加或删除动画。
+使用 [rc-tween-one](https://github.com/react-component/tween-one) 给标签增加添加或删除动画。
 
 ## en-US
 
-Add or remove animations to your tag.
+Add or remove animations to the tag using [rc-tween-one] (https://github.com/react-component/tween-one).
 
 ````jsx
 import {
