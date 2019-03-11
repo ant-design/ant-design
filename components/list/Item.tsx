@@ -119,7 +119,7 @@ export default class Item extends React.Component<ListItemProps, any> {
           [`${prefixCls}-item-no-flex`]: !this.isFlexMode(),
         })}
       >
-        {itemLayout === 'vertical'
+        {itemLayout === 'vertical' && extra
           ? [
               <div className={`${prefixCls}-item-main`} key="content">
                 {children}
