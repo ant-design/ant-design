@@ -255,6 +255,120 @@ exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/descriptions/demo/responsive.md correctly 1`] = `
+<div>
+  <div
+    class="ant-descriptions border"
+  >
+    <div
+      class="ant-descriptions-title"
+    >
+      Responsive Descriptions
+    </div>
+    <div
+      class="ant-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="ant-descriptions-item"
+          >
+            <td
+              class="ant-descriptions-item-label"
+            >
+              Product
+            </td>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+            >
+              Cloud Database
+            </td>
+            <td
+              class="ant-descriptions-item-label"
+            >
+              Billing
+            </td>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+            >
+              Prepaid
+            </td>
+            <td
+              class="ant-descriptions-item-label"
+            >
+              time
+            </td>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+            >
+              18:00:00
+            </td>
+            <td
+              class="ant-descriptions-item-label"
+            >
+              Amount
+            </td>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+            >
+              $80.00
+            </td>
+            <td
+              class="ant-descriptions-item-label"
+            >
+              Discount
+            </td>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+            >
+              $20.00
+            </td>
+            <td
+              class="ant-descriptions-item-label"
+            >
+              Official
+            </td>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+            >
+              $60.00
+            </td>
+            <td
+              class="ant-descriptions-item-label"
+            >
+              Info
+            </td>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="NaN"
+            >
+              Data disk type: MongoDB
+              <br />
+              Database version: 3.4
+              <br />
+              Package: dds.mongo.mid
+              <br />
+              Storage space: 10 GB
+              <br />
+              Replication_factor:3
+              <br />
+              Region: East China 1
+              <br />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
 <div>
   <div
