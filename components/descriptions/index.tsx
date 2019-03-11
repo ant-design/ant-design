@@ -12,8 +12,7 @@ export interface DescriptionsItemProps {
 }
 
 const DescriptionsItem = (props: DescriptionsItemProps) => {
-  const { children } = props;
-  return children;
+  return props.children;
 };
 
 export interface DescriptionsProps {
@@ -170,6 +169,7 @@ class Descriptions extends React.Component<DescriptionsProps, RowState> {
           return column[breakpoint] || defaultColumnMap[breakpoint];
         }
       }
+      return column.md as number;
     }
     return column as number;
   }
