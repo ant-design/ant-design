@@ -42,7 +42,10 @@ class ScrollNumber extends Component<ScrollNumberProps, ScrollNumberState> {
       if (nextState.count === nextProps.count) {
         return null;
       }
-      return { animateStarted: true };
+      return {
+        animateStarted: true,
+        count: nextProps.count,
+      };
     }
     return null;
   }
@@ -78,9 +81,10 @@ class ScrollNumber extends Component<ScrollNumberProps, ScrollNumberState> {
 
   componentDidUpdate(_: any, prevState: ScrollNumberState) {
     this.lastCount = prevState.count;
-    if (this.state.animateStarted) {
-      this.setState({ animateStarted: false, count: this.props.count }, () => {
-        const { onAnimated } = this.props;
+    const { animateStarted } = this.state;
+    const { onAnimated } = this.props;
+    if (animateStarted) {
+      this.setState({ animateStarted: !animateStarted }, () => {
         if (onAnimated) {
           onAnimated();
         }
