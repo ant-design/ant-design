@@ -13,6 +13,7 @@ module.exports = {
     'app.header.menu.resource': 'Resources',
     'app.header.menu.mobile': 'Mobile',
     'app.header.menu.pro': 'PRO',
+    'app.header.menu.ecosystem': 'Ecosystem',
     'app.header.lang': '中文',
     'app.content.edit-page': 'Edit this page on GitHub!',
     'app.content.edit-demo': 'Edit this demo on GitHub!',
