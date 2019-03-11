@@ -116,7 +116,10 @@ const defaultColumnMap = {
 };
 
 class Descriptions extends React.Component<DescriptionsProps, RowState> {
-  static defaultProps: DescriptionsProps;
+  static defaultProps: DescriptionsProps = {
+    size: 'default',
+    column: defaultColumnMap,
+  };
   static Item: typeof DescriptionsItem;
   state: RowState = {
     screens: {},
@@ -229,11 +232,6 @@ class Descriptions extends React.Component<DescriptionsProps, RowState> {
     );
   }
 }
-
-Descriptions.defaultProps = {
-  size: 'default',
-  column: defaultColumnMap,
-};
 
 Descriptions.Item = DescriptionsItem;
 
