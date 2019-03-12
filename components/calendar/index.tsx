@@ -144,17 +144,13 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
     }
   };
 
-  setType = (mode: CalendarMode) => {
-    this.setState({ mode });
-    this.onPanelChange(this.state.value, mode);
-  };
-
   onHeaderValueChange = (value: moment.Moment) => {
     this.setValue(value, 'changePanel');
   };
 
-  onHeaderTypeChange = (type: CalendarMode) => {
-    this.setType(type);
+  onHeaderTypeChange = (mode: CalendarMode) => {
+    this.setState({ mode });
+    this.onPanelChange(this.state.value, mode);
   };
 
   onPanelChange(value: moment.Moment, mode: CalendarMode | undefined) {
@@ -212,8 +208,6 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
       dateFullCellRender,
       monthFullCellRender,
     } = props;
-    const type = mode === 'year' ? 'month' : 'date';
-
     const monthCellRender = monthFullCellRender || this.monthCellRender;
     const dateCellRender = dateFullCellRender || this.dateCellRender;
 
@@ -255,7 +249,7 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
                 disabledDate={disabledDate}
                 Select={noop}
                 locale={locale.lang}
-                type={type}
+                type={mode === 'year' ? 'month' : 'date'}
                 prefixCls={prefixCls}
                 showHeader={false}
                 value={value}
