@@ -32,7 +32,7 @@ Please makes sure that these form are filled before submitting your pull request
 
 ### 📝 Changelog description
 
-> Describe changes from user side, and list all potential break changes or other risks.
+> Describe changes from userside, and list all potential break changes or other risks.
 
 1. English description
 
