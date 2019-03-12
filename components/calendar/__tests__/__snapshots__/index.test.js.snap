@@ -1049,7 +1049,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
   onChange={[Function]}
   onPanelChange={[MockFunction]}
   onSelect={[Function]}
-  value={"1990-09-02T15:00:00.000Z"}
+  value={"2017-08-09T08:00:00.000Z"}
 >
   <LocaleReceiver
     componentName="Calendar"
@@ -1100,7 +1100,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
           onValueChange={[Function]}
           prefixCls="ant-fullcalendar"
           type="month"
-          value={"1990-09-02T15:00:00.000Z"}
+          value={"2017-08-09T08:00:00.000Z"}
           yearSelectOffset={10}
           yearSelectTotal={20}
         >
@@ -1117,7 +1117,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                 showSearch={false}
                 size="default"
                 transitionName="slide-up"
-                value="1990"
+                value="2017"
               >
                 <Consumer>
                   <Select
@@ -1187,7 +1187,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                     tags={false}
                     tokenSeparators={Array []}
                     transitionName="slide-up"
-                    value="1990"
+                    value="2017"
                   >
                     <SelectTrigger
                       ariaId="test-uuid"
@@ -1223,7 +1223,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                       transitionName="slide-up"
                       value={
                         Array [
-                          "1990",
+                          "2017",
                         ]
                       }
                       visible={false}
@@ -1322,7 +1322,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                             prefixCls="ant-select-dropdown"
                             value={
                               Array [
-                                "1990",
+                                "2017",
                               ]
                             }
                             visible={false}
@@ -1344,7 +1344,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                         transitionName="slide-up"
                         value={
                           Array [
-                            "1990",
+                            "2017",
                           ]
                         }
                         visible={false}
@@ -1384,9 +1384,9 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                                     "opacity": 1,
                                   }
                                 }
-                                title="1990"
+                                title="2017"
                               >
-                                1990
+                                2017
                               </div>
                             </div>
                             <span
@@ -1452,7 +1452,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                 showSearch={false}
                 size="default"
                 transitionName="slide-up"
-                value="8"
+                value="7"
               >
                 <Consumer>
                   <Select
@@ -1522,7 +1522,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                     tags={false}
                     tokenSeparators={Array []}
                     transitionName="slide-up"
-                    value="8"
+                    value="7"
                   >
                     <SelectTrigger
                       ariaId="test-uuid"
@@ -1558,7 +1558,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                       transitionName="slide-up"
                       value={
                         Array [
-                          "8",
+                          "7",
                         ]
                       }
                       visible={false}
@@ -1657,7 +1657,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                             prefixCls="ant-select-dropdown"
                             value={
                               Array [
-                                "8",
+                                "7",
                               ]
                             }
                             visible={false}
@@ -1679,7 +1679,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                         transitionName="slide-up"
                         value={
                           Array [
-                            "8",
+                            "7",
                           ]
                         }
                         visible={false}
@@ -1719,9 +1719,9 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                                     "opacity": 1,
                                   }
                                 }
-                                title="Sep"
+                                title="Aug"
                               >
-                                Sep
+                                Aug
                               </div>
                             </div>
                             <span
@@ -1960,7 +1960,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
           showTypeSwitch={true}
           style={Object {}}
           type="date"
-          value={"1990-09-02T15:00:00.000Z"}
+          value={"2017-08-09T08:00:00.000Z"}
           visible={true}
         >
           <div
@@ -2011,7 +2011,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                 }
                 onSelect={[Function]}
                 prefixCls="ant-fullcalendar"
-                value={"1990-09-02T15:00:00.000Z"}
+                value={"2017-08-09T08:00:00.000Z"}
               >
                 <table
                   cellSpacing="0"
@@ -2057,7 +2057,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                     }
                     onSelect={[Function]}
                     prefixCls="ant-fullcalendar"
-                    value={"1990-09-02T15:00:00.000Z"}
+                    value={"2017-08-09T08:00:00.000Z"}
                   >
                     <thead>
                       <tr
@@ -2190,7 +2190,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                     }
                     onSelect={[Function]}
                     prefixCls="ant-fullcalendar"
-                    value={"1990-09-02T15:00:00.000Z"}
+                    value={"2017-08-09T08:00:00.000Z"}
                   >
                     <tbody
                       className="ant-fullcalendar-tbody"
@@ -2205,87 +2205,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                           key="0"
                           onClick={[Function]}
                           role="gridcell"
-                          title="August 26, 1990"
-                        >
-                          <div
-                            className="ant-fullcalendar-date"
-                          >
-                            <div
-                              className="ant-fullcalendar-value"
-                            >
-                              26
-                            </div>
-                            <div
-                              className="ant-fullcalendar-content"
-                            />
-                          </div>
-                        </td>
-                        <td
-                          className="ant-fullcalendar-cell ant-fullcalendar-last-month-cell"
-                          key="1"
-                          onClick={[Function]}
-                          role="gridcell"
-                          title="August 27, 1990"
-                        >
-                          <div
-                            className="ant-fullcalendar-date"
-                          >
-                            <div
-                              className="ant-fullcalendar-value"
-                            >
-                              27
-                            </div>
-                            <div
-                              className="ant-fullcalendar-content"
-                            />
-                          </div>
-                        </td>
-                        <td
-                          className="ant-fullcalendar-cell ant-fullcalendar-last-month-cell"
-                          key="2"
-                          onClick={[Function]}
-                          role="gridcell"
-                          title="August 28, 1990"
-                        >
-                          <div
-                            className="ant-fullcalendar-date"
-                          >
-                            <div
-                              className="ant-fullcalendar-value"
-                            >
-                              28
-                            </div>
-                            <div
-                              className="ant-fullcalendar-content"
-                            />
-                          </div>
-                        </td>
-                        <td
-                          className="ant-fullcalendar-cell ant-fullcalendar-last-month-cell"
-                          key="3"
-                          onClick={[Function]}
-                          role="gridcell"
-                          title="August 29, 1990"
-                        >
-                          <div
-                            className="ant-fullcalendar-date"
-                          >
-                            <div
-                              className="ant-fullcalendar-value"
-                            >
-                              29
-                            </div>
-                            <div
-                              className="ant-fullcalendar-content"
-                            />
-                          </div>
-                        </td>
-                        <td
-                          className="ant-fullcalendar-cell ant-fullcalendar-last-month-cell"
-                          key="4"
-                          onClick={[Function]}
-                          role="gridcell"
-                          title="August 30, 1990"
+                          title="July 30, 2017"
                         >
                           <div
                             className="ant-fullcalendar-date"
@@ -2302,10 +2222,10 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                         </td>
                         <td
                           className="ant-fullcalendar-cell ant-fullcalendar-last-month-cell ant-fullcalendar-last-day-of-month"
-                          key="5"
+                          key="1"
                           onClick={[Function]}
                           role="gridcell"
-                          title="August 31, 1990"
+                          title="July 31, 2017"
                         >
                           <div
                             className="ant-fullcalendar-date"
@@ -2322,10 +2242,10 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                         </td>
                         <td
                           className="ant-fullcalendar-cell"
-                          key="6"
+                          key="2"
                           onClick={[Function]}
                           role="gridcell"
-                          title="September 1, 1990"
+                          title="August 1, 2017"
                         >
                           <div
                             className="ant-fullcalendar-date"
@@ -2334,6 +2254,86 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                               className="ant-fullcalendar-value"
                             >
                               01
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="3"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="August 2, 2017"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              02
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="4"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="August 3, 2017"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              03
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="5"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="August 4, 2017"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              04
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="6"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="August 5, 2017"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              05
                             </div>
                             <div
                               className="ant-fullcalendar-content"
@@ -2351,87 +2351,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                           key="7"
                           onClick={[Function]}
                           role="gridcell"
-                          title="September 2, 1990"
-                        >
-                          <div
-                            className="ant-fullcalendar-date"
-                          >
-                            <div
-                              className="ant-fullcalendar-value"
-                            >
-                              02
-                            </div>
-                            <div
-                              className="ant-fullcalendar-content"
-                            />
-                          </div>
-                        </td>
-                        <td
-                          className="ant-fullcalendar-cell ant-fullcalendar-selected-day"
-                          key="8"
-                          onClick={[Function]}
-                          role="gridcell"
-                          title="September 3, 1990"
-                        >
-                          <div
-                            className="ant-fullcalendar-date"
-                          >
-                            <div
-                              className="ant-fullcalendar-value"
-                            >
-                              03
-                            </div>
-                            <div
-                              className="ant-fullcalendar-content"
-                            />
-                          </div>
-                        </td>
-                        <td
-                          className="ant-fullcalendar-cell"
-                          key="9"
-                          onClick={[Function]}
-                          role="gridcell"
-                          title="September 4, 1990"
-                        >
-                          <div
-                            className="ant-fullcalendar-date"
-                          >
-                            <div
-                              className="ant-fullcalendar-value"
-                            >
-                              04
-                            </div>
-                            <div
-                              className="ant-fullcalendar-content"
-                            />
-                          </div>
-                        </td>
-                        <td
-                          className="ant-fullcalendar-cell"
-                          key="10"
-                          onClick={[Function]}
-                          role="gridcell"
-                          title="September 5, 1990"
-                        >
-                          <div
-                            className="ant-fullcalendar-date"
-                          >
-                            <div
-                              className="ant-fullcalendar-value"
-                            >
-                              05
-                            </div>
-                            <div
-                              className="ant-fullcalendar-content"
-                            />
-                          </div>
-                        </td>
-                        <td
-                          className="ant-fullcalendar-cell"
-                          key="11"
-                          onClick={[Function]}
-                          role="gridcell"
-                          title="September 6, 1990"
+                          title="August 6, 2017"
                         >
                           <div
                             className="ant-fullcalendar-date"
@@ -2448,10 +2368,10 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                         </td>
                         <td
                           className="ant-fullcalendar-cell"
-                          key="12"
+                          key="8"
                           onClick={[Function]}
                           role="gridcell"
-                          title="September 7, 1990"
+                          title="August 7, 2017"
                         >
                           <div
                             className="ant-fullcalendar-date"
@@ -2468,10 +2388,10 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                         </td>
                         <td
                           className="ant-fullcalendar-cell"
-                          key="13"
+                          key="9"
                           onClick={[Function]}
                           role="gridcell"
-                          title="September 8, 1990"
+                          title="August 8, 2017"
                         >
                           <div
                             className="ant-fullcalendar-date"
@@ -2480,6 +2400,86 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                               className="ant-fullcalendar-value"
                             >
                               08
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell ant-fullcalendar-selected-day"
+                          key="10"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="August 9, 2017"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              09
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="11"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="August 10, 2017"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              10
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="12"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="August 11, 2017"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              11
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="13"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="August 12, 2017"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              12
                             </div>
                             <div
                               className="ant-fullcalendar-content"
@@ -2497,87 +2497,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                           key="14"
                           onClick={[Function]}
                           role="gridcell"
-                          title="September 9, 1990"
-                        >
-                          <div
-                            className="ant-fullcalendar-date"
-                          >
-                            <div
-                              className="ant-fullcalendar-value"
-                            >
-                              09
-                            </div>
-                            <div
-                              className="ant-fullcalendar-content"
-                            />
-                          </div>
-                        </td>
-                        <td
-                          className="ant-fullcalendar-cell"
-                          key="15"
-                          onClick={[Function]}
-                          role="gridcell"
-                          title="September 10, 1990"
-                        >
-                          <div
-                            className="ant-fullcalendar-date"
-                          >
-                            <div
-                              className="ant-fullcalendar-value"
-                            >
-                              10
-                            </div>
-                            <div
-                              className="ant-fullcalendar-content"
-                            />
-                          </div>
-                        </td>
-                        <td
-                          className="ant-fullcalendar-cell"
-                          key="16"
-                          onClick={[Function]}
-                          role="gridcell"
-                          title="September 11, 1990"
-                        >
-                          <div
-                            className="ant-fullcalendar-date"
-                          >
-                            <div
-                              className="ant-fullcalendar-value"
-                            >
-                              11
-                            </div>
-                            <div
-                              className="ant-fullcalendar-content"
-                            />
-                          </div>
-                        </td>
-                        <td
-                          className="ant-fullcalendar-cell"
-                          key="17"
-                          onClick={[Function]}
-                          role="gridcell"
-                          title="September 12, 1990"
-                        >
-                          <div
-                            className="ant-fullcalendar-date"
-                          >
-                            <div
-                              className="ant-fullcalendar-value"
-                            >
-                              12
-                            </div>
-                            <div
-                              className="ant-fullcalendar-content"
-                            />
-                          </div>
-                        </td>
-                        <td
-                          className="ant-fullcalendar-cell"
-                          key="18"
-                          onClick={[Function]}
-                          role="gridcell"
-                          title="September 13, 1990"
+                          title="August 13, 2017"
                         >
                           <div
                             className="ant-fullcalendar-date"
@@ -2594,10 +2514,10 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                         </td>
                         <td
                           className="ant-fullcalendar-cell"
-                          key="19"
+                          key="15"
                           onClick={[Function]}
                           role="gridcell"
-                          title="September 14, 1990"
+                          title="August 14, 2017"
                         >
                           <div
                             className="ant-fullcalendar-date"
@@ -2614,10 +2534,10 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                         </td>
                         <td
                           className="ant-fullcalendar-cell"
-                          key="20"
+                          key="16"
                           onClick={[Function]}
                           role="gridcell"
-                          title="September 15, 1990"
+                          title="August 15, 2017"
                         >
                           <div
                             className="ant-fullcalendar-date"
@@ -2626,6 +2546,86 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                               className="ant-fullcalendar-value"
                             >
                               15
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="17"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="August 16, 2017"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              16
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="18"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="August 17, 2017"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              17
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="19"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="August 18, 2017"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              18
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="20"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="August 19, 2017"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              19
                             </div>
                             <div
                               className="ant-fullcalendar-content"
@@ -2643,87 +2643,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                           key="21"
                           onClick={[Function]}
                           role="gridcell"
-                          title="September 16, 1990"
-                        >
-                          <div
-                            className="ant-fullcalendar-date"
-                          >
-                            <div
-                              className="ant-fullcalendar-value"
-                            >
-                              16
-                            </div>
-                            <div
-                              className="ant-fullcalendar-content"
-                            />
-                          </div>
-                        </td>
-                        <td
-                          className="ant-fullcalendar-cell"
-                          key="22"
-                          onClick={[Function]}
-                          role="gridcell"
-                          title="September 17, 1990"
-                        >
-                          <div
-                            className="ant-fullcalendar-date"
-                          >
-                            <div
-                              className="ant-fullcalendar-value"
-                            >
-                              17
-                            </div>
-                            <div
-                              className="ant-fullcalendar-content"
-                            />
-                          </div>
-                        </td>
-                        <td
-                          className="ant-fullcalendar-cell"
-                          key="23"
-                          onClick={[Function]}
-                          role="gridcell"
-                          title="September 18, 1990"
-                        >
-                          <div
-                            className="ant-fullcalendar-date"
-                          >
-                            <div
-                              className="ant-fullcalendar-value"
-                            >
-                              18
-                            </div>
-                            <div
-                              className="ant-fullcalendar-content"
-                            />
-                          </div>
-                        </td>
-                        <td
-                          className="ant-fullcalendar-cell"
-                          key="24"
-                          onClick={[Function]}
-                          role="gridcell"
-                          title="September 19, 1990"
-                        >
-                          <div
-                            className="ant-fullcalendar-date"
-                          >
-                            <div
-                              className="ant-fullcalendar-value"
-                            >
-                              19
-                            </div>
-                            <div
-                              className="ant-fullcalendar-content"
-                            />
-                          </div>
-                        </td>
-                        <td
-                          className="ant-fullcalendar-cell"
-                          key="25"
-                          onClick={[Function]}
-                          role="gridcell"
-                          title="September 20, 1990"
+                          title="August 20, 2017"
                         >
                           <div
                             className="ant-fullcalendar-date"
@@ -2740,10 +2660,10 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                         </td>
                         <td
                           className="ant-fullcalendar-cell"
-                          key="26"
+                          key="22"
                           onClick={[Function]}
                           role="gridcell"
-                          title="September 21, 1990"
+                          title="August 21, 2017"
                         >
                           <div
                             className="ant-fullcalendar-date"
@@ -2760,10 +2680,10 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                         </td>
                         <td
                           className="ant-fullcalendar-cell"
-                          key="27"
+                          key="23"
                           onClick={[Function]}
                           role="gridcell"
-                          title="September 22, 1990"
+                          title="August 22, 2017"
                         >
                           <div
                             className="ant-fullcalendar-date"
@@ -2772,6 +2692,86 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                               className="ant-fullcalendar-value"
                             >
                               22
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="24"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="August 23, 2017"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              23
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="25"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="August 24, 2017"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              24
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="26"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="August 25, 2017"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              25
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="27"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="August 26, 2017"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              26
                             </div>
                             <div
                               className="ant-fullcalendar-content"
@@ -2789,87 +2789,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                           key="28"
                           onClick={[Function]}
                           role="gridcell"
-                          title="September 23, 1990"
-                        >
-                          <div
-                            className="ant-fullcalendar-date"
-                          >
-                            <div
-                              className="ant-fullcalendar-value"
-                            >
-                              23
-                            </div>
-                            <div
-                              className="ant-fullcalendar-content"
-                            />
-                          </div>
-                        </td>
-                        <td
-                          className="ant-fullcalendar-cell"
-                          key="29"
-                          onClick={[Function]}
-                          role="gridcell"
-                          title="September 24, 1990"
-                        >
-                          <div
-                            className="ant-fullcalendar-date"
-                          >
-                            <div
-                              className="ant-fullcalendar-value"
-                            >
-                              24
-                            </div>
-                            <div
-                              className="ant-fullcalendar-content"
-                            />
-                          </div>
-                        </td>
-                        <td
-                          className="ant-fullcalendar-cell"
-                          key="30"
-                          onClick={[Function]}
-                          role="gridcell"
-                          title="September 25, 1990"
-                        >
-                          <div
-                            className="ant-fullcalendar-date"
-                          >
-                            <div
-                              className="ant-fullcalendar-value"
-                            >
-                              25
-                            </div>
-                            <div
-                              className="ant-fullcalendar-content"
-                            />
-                          </div>
-                        </td>
-                        <td
-                          className="ant-fullcalendar-cell"
-                          key="31"
-                          onClick={[Function]}
-                          role="gridcell"
-                          title="September 26, 1990"
-                        >
-                          <div
-                            className="ant-fullcalendar-date"
-                          >
-                            <div
-                              className="ant-fullcalendar-value"
-                            >
-                              26
-                            </div>
-                            <div
-                              className="ant-fullcalendar-content"
-                            />
-                          </div>
-                        </td>
-                        <td
-                          className="ant-fullcalendar-cell"
-                          key="32"
-                          onClick={[Function]}
-                          role="gridcell"
-                          title="September 27, 1990"
+                          title="August 27, 2017"
                         >
                           <div
                             className="ant-fullcalendar-date"
@@ -2886,10 +2806,10 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                         </td>
                         <td
                           className="ant-fullcalendar-cell"
-                          key="33"
+                          key="29"
                           onClick={[Function]}
                           role="gridcell"
-                          title="September 28, 1990"
+                          title="August 28, 2017"
                         >
                           <div
                             className="ant-fullcalendar-date"
@@ -2906,10 +2826,10 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                         </td>
                         <td
                           className="ant-fullcalendar-cell"
-                          key="34"
+                          key="30"
                           onClick={[Function]}
                           role="gridcell"
-                          title="September 29, 1990"
+                          title="August 29, 2017"
                         >
                           <div
                             className="ant-fullcalendar-date"
@@ -2924,18 +2844,12 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                             />
                           </div>
                         </td>
-                      </tr>
-                      <tr
-                        className=""
-                        key="5"
-                        role="row"
-                      >
                         <td
-                          className="ant-fullcalendar-cell ant-fullcalendar-last-day-of-month"
-                          key="35"
+                          className="ant-fullcalendar-cell"
+                          key="31"
                           onClick={[Function]}
                           role="gridcell"
-                          title="September 30, 1990"
+                          title="August 30, 2017"
                         >
                           <div
                             className="ant-fullcalendar-date"
@@ -2951,11 +2865,31 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                           </div>
                         </td>
                         <td
-                          className="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
-                          key="36"
+                          className="ant-fullcalendar-cell ant-fullcalendar-last-day-of-month"
+                          key="32"
                           onClick={[Function]}
                           role="gridcell"
-                          title="October 1, 1990"
+                          title="August 31, 2017"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              31
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
+                          key="33"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 1, 2017"
                         >
                           <div
                             className="ant-fullcalendar-date"
@@ -2972,10 +2906,10 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                         </td>
                         <td
                           className="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
-                          key="37"
+                          key="34"
                           onClick={[Function]}
                           role="gridcell"
-                          title="October 2, 1990"
+                          title="September 2, 2017"
                         >
                           <div
                             className="ant-fullcalendar-date"
@@ -2990,12 +2924,18 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                             />
                           </div>
                         </td>
+                      </tr>
+                      <tr
+                        className=""
+                        key="5"
+                        role="row"
+                      >
                         <td
                           className="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
-                          key="38"
+                          key="35"
                           onClick={[Function]}
                           role="gridcell"
-                          title="October 3, 1990"
+                          title="September 3, 2017"
                         >
                           <div
                             className="ant-fullcalendar-date"
@@ -3012,10 +2952,10 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                         </td>
                         <td
                           className="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
-                          key="39"
+                          key="36"
                           onClick={[Function]}
                           role="gridcell"
-                          title="October 4, 1990"
+                          title="September 4, 2017"
                         >
                           <div
                             className="ant-fullcalendar-date"
@@ -3032,10 +2972,10 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                         </td>
                         <td
                           className="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
-                          key="40"
+                          key="37"
                           onClick={[Function]}
                           role="gridcell"
-                          title="October 5, 1990"
+                          title="September 5, 2017"
                         >
                           <div
                             className="ant-fullcalendar-date"
@@ -3052,10 +2992,10 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                         </td>
                         <td
                           className="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
-                          key="41"
+                          key="38"
                           onClick={[Function]}
                           role="gridcell"
-                          title="October 6, 1990"
+                          title="September 6, 2017"
                         >
                           <div
                             className="ant-fullcalendar-date"
@@ -3064,6 +3004,66 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                               className="ant-fullcalendar-value"
                             >
                               06
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
+                          key="39"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 7, 2017"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              07
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
+                          key="40"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 8, 2017"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              08
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
+                          key="41"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 9, 2017"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              09
                             </div>
                             <div
                               className="ant-fullcalendar-content"
@@ -3093,7 +3093,7 @@ exports[`Calendar switch should work correctly without prop mode 2`] = `
     [MockFunction] {
       "calls": Array [
         Array [
-          "1990-09-02T15:00:00.000Z",
+          "2017-08-09T08:00:00.000Z",
           "year",
         ],
       ],
@@ -3106,7 +3106,7 @@ exports[`Calendar switch should work correctly without prop mode 2`] = `
     }
   }
   onSelect={[Function]}
-  value={"1990-09-02T15:00:00.000Z"}
+  value={"2017-08-09T08:00:00.000Z"}
 >
   <LocaleReceiver
     componentName="Calendar"
@@ -3157,7 +3157,7 @@ exports[`Calendar switch should work correctly without prop mode 2`] = `
           onValueChange={[Function]}
           prefixCls="ant-fullcalendar"
           type="year"
-          value={"1990-09-02T15:00:00.000Z"}
+          value={"2017-08-09T08:00:00.000Z"}
           yearSelectOffset={10}
           yearSelectTotal={20}
         >
@@ -3174,7 +3174,7 @@ exports[`Calendar switch should work correctly without prop mode 2`] = `
                 showSearch={false}
                 size="default"
                 transitionName="slide-up"
-                value="1990"
+                value="2017"
               >
                 <Consumer>
                   <Select
@@ -3244,7 +3244,7 @@ exports[`Calendar switch should work correctly without prop mode 2`] = `
                     tags={false}
                     tokenSeparators={Array []}
                     transitionName="slide-up"
-                    value="1990"
+                    value="2017"
                   >
                     <SelectTrigger
                       ariaId="test-uuid"
@@ -3280,7 +3280,7 @@ exports[`Calendar switch should work correctly without prop mode 2`] = `
                       transitionName="slide-up"
                       value={
                         Array [
-                          "1990",
+                          "2017",
                         ]
                       }
                       visible={false}
@@ -3379,7 +3379,7 @@ exports[`Calendar switch should work correctly without prop mode 2`] = `
                             prefixCls="ant-select-dropdown"
                             value={
                               Array [
-                                "1990",
+                                "2017",
                               ]
                             }
                             visible={false}
@@ -3401,7 +3401,7 @@ exports[`Calendar switch should work correctly without prop mode 2`] = `
                         transitionName="slide-up"
                         value={
                           Array [
-                            "1990",
+                            "2017",
                           ]
                         }
                         visible={false}
@@ -3441,9 +3441,9 @@ exports[`Calendar switch should work correctly without prop mode 2`] = `
                                     "opacity": 1,
                                   }
                                 }
-                                title="1990"
+                                title="2017"
                               >
-                                1990
+                                2017
                               </div>
                             </div>
                             <span
@@ -3676,7 +3676,7 @@ exports[`Calendar switch should work correctly without prop mode 2`] = `
             [MockFunction] {
               "calls": Array [
                 Array [
-                  "1990-09-02T15:00:00.000Z",
+                  "2017-08-09T08:00:00.000Z",
                   "year",
                 ],
               ],
@@ -3697,7 +3697,7 @@ exports[`Calendar switch should work correctly without prop mode 2`] = `
           showTypeSwitch={true}
           style={Object {}}
           type="month"
-          value={"1990-09-02T15:00:00.000Z"}
+          value={"2017-08-09T08:00:00.000Z"}
           visible={true}
         >
           <div
@@ -3748,7 +3748,7 @@ exports[`Calendar switch should work correctly without prop mode 2`] = `
                 }
                 onSelect={[Function]}
                 prefixCls="ant-fullcalendar-month-panel"
-                value={"1990-09-02T15:00:00.000Z"}
+                value={"2017-08-09T08:00:00.000Z"}
               >
                 <table
                   cellSpacing="0"
@@ -3913,7 +3913,7 @@ exports[`Calendar switch should work correctly without prop mode 2`] = `
                         </div>
                       </td>
                       <td
-                        className="ant-fullcalendar-month-panel-cell"
+                        className="ant-fullcalendar-month-panel-cell ant-fullcalendar-month-panel-selected-cell"
                         key="7"
                         onClick={[Function]}
                         role="gridcell"
@@ -3933,7 +3933,7 @@ exports[`Calendar switch should work correctly without prop mode 2`] = `
                         </div>
                       </td>
                       <td
-                        className="ant-fullcalendar-month-panel-cell ant-fullcalendar-month-panel-selected-cell"
+                        className="ant-fullcalendar-month-panel-cell"
                         key="8"
                         onClick={[Function]}
                         role="gridcell"

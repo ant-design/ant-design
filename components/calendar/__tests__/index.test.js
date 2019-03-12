@@ -164,7 +164,7 @@ describe('Calendar', () => {
 
   it('switch should work correctly without prop mode', () => {
     const onPanelChange = jest.fn();
-    const date = new Moment('1990-09-03');
+    const date = new Moment(new Date(Date.UTC(2017, 7, 9, 8)));
     const wrapper = mount(<Calendar onPanelChange={onPanelChange} value={date} />);
     expect(wrapper).toMatchSnapshot();
     expect(wrapper.state().mode).toBe('month');
