@@ -170,6 +170,7 @@ describe('Calendar', () => {
       .find('.ant-radio-button-input')
       .at(1)
       .simulate('change');
+    expect(wrapper).toMatchSnapshot();
     expect(onPanelChange).toBeCalled();
     expect(onPanelChange.mock.calls[0][1]).toEqual('year');
   });
