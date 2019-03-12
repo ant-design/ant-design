@@ -33,7 +33,6 @@
 
     .@{confirm-prefix-cls}-content {
       margin-top: 8px;
-      margin-left: 38px;
       color: @text-color;
       font-size: @font-size-base;
     }
@@ -42,6 +41,11 @@
       float: left;
       margin-right: 16px;
       font-size: 22px;
+
+      // `content` after `icon` should set marginLeft
+      + .@{confirm-prefix-cls}-title + .@{confirm-prefix-cls}-content {
+        margin-left: 38px;
+      }
     }
   }
 
