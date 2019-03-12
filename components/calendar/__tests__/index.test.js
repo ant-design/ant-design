@@ -162,13 +162,17 @@ describe('Calendar', () => {
     expect(onPanelChange.mock.calls[0][0].month()).toEqual(date.month() - 1);
   });
 
-  it('switch should work correctly without prop mode', () => {
+  it('switch should work correctly without prop mode', async () => {
     const onPanelChange = jest.fn();
     const date = new Moment(new Date(Date.UTC(2017, 7, 9, 8)));
     const wrapper = mount(<Calendar onPanelChange={onPanelChange} value={date} />);
     expect(wrapper).toMatchSnapshot();
     expect(wrapper.state().mode).toBe('month');
     wrapper.find('.ant-radio-button-input[value="year"]').simulate('change');
+    // https://github.com/airbnb/enzyme/issues/1153#issuecomment-471401030
+    // try to fix heap out of memory in react 15
+    await wrapper.instance().forceUpdate();
+    wrapper.update();
     expect(wrapper).toMatchSnapshot();
     expect(onPanelChange).toBeCalled();
     expect(onPanelChange.mock.calls[0][1]).toEqual('year');
