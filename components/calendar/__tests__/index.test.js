@@ -168,10 +168,7 @@ describe('Calendar', () => {
     const wrapper = mount(<Calendar onPanelChange={onPanelChange} value={date} />);
     expect(wrapper).toMatchSnapshot();
     expect(wrapper.state().mode).toBe('month');
-    wrapper
-      .find('.ant-radio-button-input')
-      .at(1)
-      .simulate('change');
+    wrapper.find('.ant-radio-button-input[value="year"]').simulate('change');
     expect(wrapper).toMatchSnapshot();
     expect(onPanelChange).toBeCalled();
     expect(onPanelChange.mock.calls[0][1]).toEqual('year');
