@@ -166,14 +166,12 @@ describe('Calendar', () => {
     const onPanelChange = jest.fn();
     const date = new Moment(new Date(Date.UTC(2017, 7, 9, 8)));
     const wrapper = mount(<Calendar onPanelChange={onPanelChange} value={date} />);
-    expect(wrapper).toMatchSnapshot();
     expect(wrapper.state().mode).toBe('month');
+    expect(wrapper.find('.ant-fullcalendar-table').length).toBe(1);
+    expect(wrapper.find('.ant-fullcalendar-month-panel-table').length).toBe(0);
     wrapper.find('.ant-radio-button-input[value="year"]').simulate('change');
-    // https://github.com/airbnb/enzyme/issues/1153#issuecomment-471401030
-    // try to fix heap out of memory in react 15
-    await wrapper.instance().forceUpdate();
-    wrapper.update();
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('.ant-fullcalendar-table').length).toBe(0);
+    expect(wrapper.find('.ant-fullcalendar-month-panel-table').length).toBe(1);
     expect(onPanelChange).toBeCalled();
     expect(onPanelChange.mock.calls[0][1]).toEqual('year');
   });
