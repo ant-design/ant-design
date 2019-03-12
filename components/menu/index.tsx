@@ -157,6 +157,7 @@ class Menu extends React.Component<MenuProps, MenuState> {
       onMouseEnter(e);
     }
   };
+
   handleTransitionEnd = (e: TransitionEvent) => {
     // when inlineCollapsed menu width animation finished
     // https://github.com/ant-design/ant-design/issues/12864
@@ -169,6 +170,7 @@ class Menu extends React.Component<MenuProps, MenuState> {
       this.restoreModeVerticalFromInline();
     }
   };
+
   handleClick = (e: ClickParam) => {
     this.handleOpenChange([]);
 
@@ -185,6 +187,7 @@ class Menu extends React.Component<MenuProps, MenuState> {
       onOpenChange(openKeys);
     }
   };
+
   setOpenKeys(openKeys: string[]) {
     if (!('openKeys' in this.props)) {
       this.setState({ openKeys });
