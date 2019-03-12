@@ -161,4 +161,16 @@ describe('Calendar', () => {
     expect(onPanelChange).toBeCalled();
     expect(onPanelChange.mock.calls[0][0].month()).toEqual(date.month() - 1);
   });
+
+  it('switch should work correctly without prop mode', () => {
+    const onPanelChange = jest.fn();
+    const wrapper = mount(<Calendar onPanelChange={onPanelChange} />);
+    expect(wrapper.state().mode).toBe('month');
+    wrapper
+      .find('.ant-radio-button-input')
+      .at(1)
+      .simulate('change');
+    expect(onPanelChange).toBeCalled();
+    expect(onPanelChange.mock.calls[0][1]).toEqual('year');
+  });
 });
