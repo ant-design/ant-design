@@ -31,6 +31,7 @@ export interface AvatarProps {
 export interface AvatarState {
   scale: number;
   isImgExist: boolean;
+  avatarDisplay: boolean;
 }
 
 export default class Avatar extends React.Component<AvatarProps, AvatarState> {
@@ -42,6 +43,7 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
   state = {
     scale: 1,
     isImgExist: true,
+    avatarDisplay: true,
   };
 
   private avatarChildren: any;
@@ -54,9 +56,21 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
     if (
       prevProps.children !== this.props.children ||
       (prevState.scale !== this.state.scale && this.state.scale === 1) ||
-      prevState.isImgExist !== this.state.isImgExist
+      prevState.isImgExist !== this.state.isImgExist ||
+      !this.state.avatarDisplay
     ) {
       this.setScale();
+      if (this.avatarChildren && this.avatarChildren.offsetWidth !== 0) {
+        this.setState({
+          avatarDisplay: true,
+        });
+      }
+    } else {
+      if (this.avatarChildren && this.avatarChildren.offsetWidth === 0 && this.state.scale === 1) {
+        this.setState({
+          avatarDisplay: false,
+        });
+      }
     }
 
     if (prevProps.src !== this.props.src) {
@@ -66,7 +80,8 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
 
   setScale = () => {
     const childrenNode = this.avatarChildren;
-    if (childrenNode) {
+    // denominator is 0 is no meaning
+    if (childrenNode && childrenNode.offsetWidth !== 0) {
       const childrenWidth = childrenNode.offsetWidth;
       const avatarNode = ReactDOM.findDOMNode(this) as Element;
       const avatarWidth = avatarNode.getBoundingClientRect().width;
