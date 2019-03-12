@@ -53,7 +53,6 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
   static defaultProps = {
     locale: {},
     fullscreen: true,
-    mode: 'month' as CalendarMode,
     onSelect: noop,
     onPanelChange: noop,
     onChange: noop,
@@ -100,7 +99,7 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
     }
     this.state = {
       value,
-      mode: props.mode,
+      mode: props.mode || 'month',
     };
   }
 
@@ -145,19 +144,16 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
     }
   };
 
-  setType = (type: string) => {
-    const mode = type === 'date' ? 'month' : 'year';
-    if (this.state.mode !== mode) {
-      this.setState({ mode });
-      this.onPanelChange(this.state.value, mode);
-    }
+  setType = (mode: CalendarMode) => {
+    this.setState({ mode });
+    this.onPanelChange(this.state.value, mode);
   };
 
   onHeaderValueChange = (value: moment.Moment) => {
     this.setValue(value, 'changePanel');
   };
 
-  onHeaderTypeChange = (type: string) => {
+  onHeaderTypeChange = (type: CalendarMode) => {
     this.setType(type);
   };
 
@@ -246,7 +242,7 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
             <div className={cls} style={style}>
               <Header
                 fullscreen={fullscreen}
-                type={type}
+                type={mode}
                 value={value}
                 locale={locale.lang}
                 prefixCls={prefixCls}
