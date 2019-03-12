@@ -1276,7 +1276,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               checked=""
               class="config-radio-button-input"
               type="radio"
-              value="date"
+              value="month"
             />
             <span
               class="config-radio-button-inner"
@@ -1295,7 +1295,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             <input
               class="config-radio-button-input"
               type="radio"
-              value="month"
+              value="year"
             />
             <span
               class="config-radio-button-inner"
@@ -2264,7 +2264,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             <input
               class="config-radio-button-input"
               type="radio"
-              value="date"
+              value="month"
             />
             <span
               class="config-radio-button-inner"
@@ -2284,7 +2284,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               checked=""
               class="config-radio-button-input"
               type="radio"
-              value="month"
+              value="year"
             />
             <span
               class="config-radio-button-inner"
@@ -2672,7 +2672,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               checked=""
               class="ant-radio-button-input"
               type="radio"
-              value="date"
+              value="month"
             />
             <span
               class="ant-radio-button-inner"
@@ -2691,7 +2691,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             <input
               class="ant-radio-button-input"
               type="radio"
-              value="month"
+              value="year"
             />
             <span
               class="ant-radio-button-inner"
@@ -3660,7 +3660,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             <input
               class="ant-radio-button-input"
               type="radio"
-              value="date"
+              value="month"
             />
             <span
               class="ant-radio-button-inner"
@@ -3680,7 +3680,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               checked=""
               class="ant-radio-button-input"
               type="radio"
-              value="month"
+              value="year"
             />
             <span
               class="ant-radio-button-inner"
@@ -4068,7 +4068,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               checked=""
               class="ant-radio-button-input"
               type="radio"
-              value="date"
+              value="month"
             />
             <span
               class="ant-radio-button-inner"
@@ -4087,7 +4087,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             <input
               class="ant-radio-button-input"
               type="radio"
-              value="month"
+              value="year"
             />
             <span
               class="ant-radio-button-inner"
@@ -5056,7 +5056,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             <input
               class="ant-radio-button-input"
               type="radio"
-              value="date"
+              value="month"
             />
             <span
               class="ant-radio-button-inner"
@@ -5076,7 +5076,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               checked=""
               class="ant-radio-button-input"
               type="radio"
-              value="month"
+              value="year"
             />
             <span
               class="ant-radio-button-inner"
