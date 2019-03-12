@@ -6,6 +6,11 @@
 // styles targeting irrelevant browsers while applying new styles.
 //
 // Normalize is licensed MIT. https://github.com/necolas/normalize.css
+@font-face {
+  font-family: "Helvetica Neue For Number";
+  src: local("Helvetica Neue");
+  unicode-range: U+30-39;
+}
 
 // HTML & Body reset
 html,
@@ -104,22 +109,6 @@ hr {
 // Typography
 //
 
-// remove top margins from headings
-//
-// By default, `<h1>`-`<h6>` all receive top and bottom margins. We nuke the top
-// margin for easier control within type scales as it avoids margin collapsing.
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-top: 0;
-  margin-bottom: 0.5em;
-  color: @heading-color;
-  font-weight: 500;
-}
-
 // Reset margins on paragraphs
 //
 // Similarly, the top margin on `<p>`s get reset. However, we also reset the
@@ -216,45 +205,6 @@ sub {
 }
 sup {
   top: -0.5em;
-}
-
-//
-// Links
-//
-
-a {
-  color: @link-color;
-  text-decoration: @link-decoration;
-  background-color: transparent; // remove the gray background on active links in IE 10.
-  outline: none;
-  cursor: pointer;
-  transition: color 0.3s;
-  -webkit-text-decoration-skip: objects; // remove gaps in links underline in iOS 8+ and Safari 8+.
-
-  &:focus {
-    text-decoration: underline;
-    text-decoration-skip-ink: auto;
-  }
-
-  &:hover {
-    color: @link-hover-color;
-  }
-
-  &:active {
-    color: @link-active-color;
-  }
-
-  &:active,
-  &:hover {
-    text-decoration: @link-hover-decoration;
-    outline: 0;
-  }
-
-  &[disabled] {
-    color: @disabled-color;
-    cursor: not-allowed;
-    pointer-events: none;
-  }
 }
 
 //
