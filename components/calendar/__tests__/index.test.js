@@ -164,7 +164,8 @@ describe('Calendar', () => {
 
   it('switch should work correctly without prop mode', () => {
     const onPanelChange = jest.fn();
-    const wrapper = mount(<Calendar onPanelChange={onPanelChange} />);
+    const date = new Moment('1990-09-03');
+    const wrapper = mount(<Calendar onPanelChange={onPanelChange} value={date} />);
     expect(wrapper.state().mode).toBe('month');
     wrapper
       .find('.ant-radio-button-input')

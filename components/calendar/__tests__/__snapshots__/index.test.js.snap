@@ -1051,7 +1051,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
     [MockFunction] {
       "calls": Array [
         Array [
-          "2019-03-12T06:48:31.611Z",
+          "1990-09-02T15:00:00.000Z",
           "year",
         ],
       ],
@@ -1064,6 +1064,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
     }
   }
   onSelect={[Function]}
+  value={"1990-09-02T15:00:00.000Z"}
 >
   <LocaleReceiver
     componentName="Calendar"
@@ -1114,7 +1115,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
           onValueChange={[Function]}
           prefixCls="ant-fullcalendar"
           type="year"
-          value={"2019-03-12T06:48:31.611Z"}
+          value={"1990-09-02T15:00:00.000Z"}
           yearSelectOffset={10}
           yearSelectTotal={20}
         >
@@ -1131,7 +1132,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                 showSearch={false}
                 size="default"
                 transitionName="slide-up"
-                value="2019"
+                value="1990"
               >
                 <Consumer>
                   <Select
@@ -1201,7 +1202,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                     tags={false}
                     tokenSeparators={Array []}
                     transitionName="slide-up"
-                    value="2019"
+                    value="1990"
                   >
                     <SelectTrigger
                       ariaId="test-uuid"
@@ -1237,7 +1238,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                       transitionName="slide-up"
                       value={
                         Array [
-                          "2019",
+                          "1990",
                         ]
                       }
                       visible={false}
@@ -1336,7 +1337,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                             prefixCls="ant-select-dropdown"
                             value={
                               Array [
-                                "2019",
+                                "1990",
                               ]
                             }
                             visible={false}
@@ -1358,7 +1359,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                         transitionName="slide-up"
                         value={
                           Array [
-                            "2019",
+                            "1990",
                           ]
                         }
                         visible={false}
@@ -1398,9 +1399,9 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                                     "opacity": 1,
                                   }
                                 }
-                                title="2019"
+                                title="1990"
                               >
-                                2019
+                                1990
                               </div>
                             </div>
                             <span
@@ -1633,7 +1634,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
             [MockFunction] {
               "calls": Array [
                 Array [
-                  "2019-03-12T06:48:31.611Z",
+                  "1990-09-02T15:00:00.000Z",
                   "year",
                 ],
               ],
@@ -1654,7 +1655,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
           showTypeSwitch={true}
           style={Object {}}
           type="month"
-          value={"2019-03-12T06:48:31.611Z"}
+          value={"1990-09-02T15:00:00.000Z"}
           visible={true}
         >
           <div
@@ -1705,7 +1706,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                 }
                 onSelect={[Function]}
                 prefixCls="ant-fullcalendar-month-panel"
-                value={"2019-03-12T06:48:31.611Z"}
+                value={"1990-09-02T15:00:00.000Z"}
               >
                 <table
                   cellSpacing="0"
@@ -1760,7 +1761,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                         </div>
                       </td>
                       <td
-                        className="ant-fullcalendar-month-panel-cell ant-fullcalendar-month-panel-selected-cell ant-fullcalendar-month-panel-current-cell"
+                        className="ant-fullcalendar-month-panel-cell"
                         key="2"
                         onClick={[Function]}
                         role="gridcell"
@@ -1890,7 +1891,7 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
                         </div>
                       </td>
                       <td
-                        className="ant-fullcalendar-month-panel-cell"
+                        className="ant-fullcalendar-month-panel-cell ant-fullcalendar-month-panel-selected-cell"
                         key="8"
                         onClick={[Function]}
                         role="gridcell"
