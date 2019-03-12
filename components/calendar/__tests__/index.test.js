@@ -166,6 +166,7 @@ describe('Calendar', () => {
     const onPanelChange = jest.fn();
     const date = new Moment('1990-09-03');
     const wrapper = mount(<Calendar onPanelChange={onPanelChange} value={date} />);
+    expect(wrapper).toMatchSnapshot();
     expect(wrapper.state().mode).toBe('month');
     wrapper
       .find('.ant-radio-button-input')

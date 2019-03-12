@@ -1047,6 +1047,2048 @@ exports[`Calendar switch should work correctly without prop mode 1`] = `
   fullscreen={true}
   locale={Object {}}
   onChange={[Function]}
+  onPanelChange={[MockFunction]}
+  onSelect={[Function]}
+  value={"1990-09-02T15:00:00.000Z"}
+>
+  <LocaleReceiver
+    componentName="Calendar"
+    defaultLocale={[Function]}
+  >
+    <Consumer>
+      <div
+        className=" ant-fullcalendar-fullscreen"
+      >
+        <Header
+          fullscreen={true}
+          locale={
+            Object {
+              "backToToday": "Back to today",
+              "clear": "Clear",
+              "dateFormat": "M/D/YYYY",
+              "dateSelect": "select date",
+              "dateTimeFormat": "M/D/YYYY HH:mm:ss",
+              "dayFormat": "D",
+              "decadeSelect": "Choose a decade",
+              "month": "Month",
+              "monthBeforeYear": true,
+              "monthSelect": "Choose a month",
+              "nextCentury": "Next century",
+              "nextDecade": "Next decade",
+              "nextMonth": "Next month (PageDown)",
+              "nextYear": "Next year (Control + right)",
+              "now": "Now",
+              "ok": "Ok",
+              "placeholder": "Select date",
+              "previousCentury": "Last century",
+              "previousDecade": "Last decade",
+              "previousMonth": "Previous month (PageUp)",
+              "previousYear": "Last year (Control + left)",
+              "rangePlaceholder": Array [
+                "Start date",
+                "End date",
+              ],
+              "timeSelect": "select time",
+              "today": "Today",
+              "weekSelect": "Choose a week",
+              "year": "Year",
+              "yearFormat": "YYYY",
+              "yearSelect": "Choose a year",
+            }
+          }
+          onTypeChange={[Function]}
+          onValueChange={[Function]}
+          prefixCls="ant-fullcalendar"
+          type="month"
+          value={"1990-09-02T15:00:00.000Z"}
+          yearSelectOffset={10}
+          yearSelectTotal={20}
+        >
+          <Consumer>
+            <div
+              className="ant-fullcalendar-header"
+            >
+              <Select
+                choiceTransitionName="zoom"
+                className="ant-fullcalendar-year-select"
+                dropdownMatchSelectWidth={false}
+                getPopupContainer={[Function]}
+                onChange={[Function]}
+                showSearch={false}
+                size="default"
+                transitionName="slide-up"
+                value="1990"
+              >
+                <Consumer>
+                  <Select
+                    allowClear={false}
+                    autoClearSearchValue={true}
+                    backfill={false}
+                    choiceTransitionName="zoom"
+                    className="ant-fullcalendar-year-select"
+                    clearIcon={
+                      <Icon
+                        className="ant-select-clear-icon"
+                        theme="filled"
+                        type="close-circle"
+                      />
+                    }
+                    combobox={false}
+                    defaultActiveFirstOption={true}
+                    defaultOpen={false}
+                    dropdownMatchSelectWidth={false}
+                    dropdownMenuStyle={Object {}}
+                    dropdownRender={[Function]}
+                    dropdownStyle={Object {}}
+                    getPopupContainer={[Function]}
+                    inputIcon={
+                      <Icon
+                        className="ant-select-arrow-icon"
+                        type="down"
+                      />
+                    }
+                    labelInValue={false}
+                    menuItemSelectedIcon={
+                      <Icon
+                        className="ant-select-selected-icon"
+                        type="check"
+                      />
+                    }
+                    multiple={false}
+                    notFoundContent={
+                      <Consumer>
+                        [Function]
+                      </Consumer>
+                    }
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onDeselect={[Function]}
+                    onFocus={[Function]}
+                    onInputKeyDown={[Function]}
+                    onSearch={[Function]}
+                    onSelect={[Function]}
+                    optionFilterProp="value"
+                    optionLabelProp="children"
+                    placeholder=""
+                    prefixCls="ant-select"
+                    removeIcon={
+                      <Icon
+                        className="ant-select-remove-icon"
+                        type="close"
+                      />
+                    }
+                    showAction={
+                      Array [
+                        "click",
+                      ]
+                    }
+                    showSearch={false}
+                    tabIndex={0}
+                    tags={false}
+                    tokenSeparators={Array []}
+                    transitionName="slide-up"
+                    value="1990"
+                  >
+                    <SelectTrigger
+                      ariaId="test-uuid"
+                      backfillValue=""
+                      combobox={false}
+                      defaultActiveFirstOption={true}
+                      dropdownMatchSelectWidth={false}
+                      dropdownMenuStyle={Object {}}
+                      dropdownRender={[Function]}
+                      dropdownStyle={Object {}}
+                      empty={false}
+                      getPopupContainer={[Function]}
+                      inputValue=""
+                      menuItemSelectedIcon={
+                        <Icon
+                          className="ant-select-selected-icon"
+                          type="check"
+                        />
+                      }
+                      multiple={false}
+                      onDropdownVisibleChange={[Function]}
+                      onMenuDeselect={[Function]}
+                      onMenuSelect={[Function]}
+                      onPopupFocus={[Function]}
+                      options={Array []}
+                      prefixCls="ant-select"
+                      showAction={
+                        Array [
+                          "click",
+                        ]
+                      }
+                      showSearch={false}
+                      transitionName="slide-up"
+                      value={
+                        Array [
+                          "1990",
+                        ]
+                      }
+                      visible={false}
+                    >
+                      <Trigger
+                        action={Array []}
+                        afterPopupVisibleChange={[Function]}
+                        ariaId="test-uuid"
+                        backfillValue=""
+                        blurDelay={0.15}
+                        builtinPlacements={
+                          Object {
+                            "bottomLeft": Object {
+                              "offset": Array [
+                                0,
+                                4,
+                              ],
+                              "overflow": Object {
+                                "adjustX": 0,
+                                "adjustY": 1,
+                              },
+                              "points": Array [
+                                "tl",
+                                "bl",
+                              ],
+                            },
+                            "topLeft": Object {
+                              "offset": Array [
+                                0,
+                                -4,
+                              ],
+                              "overflow": Object {
+                                "adjustX": 0,
+                                "adjustY": 1,
+                              },
+                              "points": Array [
+                                "bl",
+                                "tl",
+                              ],
+                            },
+                          }
+                        }
+                        combobox={false}
+                        defaultActiveFirstOption={true}
+                        defaultPopupVisible={false}
+                        destroyPopupOnHide={false}
+                        dropdownMatchSelectWidth={false}
+                        dropdownMenuStyle={Object {}}
+                        dropdownRender={[Function]}
+                        dropdownStyle={Object {}}
+                        focusDelay={0}
+                        getDocument={[Function]}
+                        getPopupClassNameFromAlign={[Function]}
+                        getPopupContainer={[Function]}
+                        hideAction={
+                          Array [
+                            "click",
+                          ]
+                        }
+                        inputValue=""
+                        mask={false}
+                        maskClosable={true}
+                        menuItemSelectedIcon={
+                          <Icon
+                            className="ant-select-selected-icon"
+                            type="check"
+                          />
+                        }
+                        mouseEnterDelay={0}
+                        mouseLeaveDelay={0.1}
+                        multiple={false}
+                        onDropdownVisibleChange={[Function]}
+                        onMenuDeselect={[Function]}
+                        onMenuSelect={[Function]}
+                        onPopupAlign={[Function]}
+                        onPopupVisibleChange={[Function]}
+                        options={Array []}
+                        popup={
+                          <DropdownMenu
+                            ariaId="test-uuid"
+                            backfillValue=""
+                            defaultActiveFirstOption={true}
+                            dropdownMenuStyle={Object {}}
+                            inputValue=""
+                            menuItemSelectedIcon={
+                              <Icon
+                                className="ant-select-selected-icon"
+                                type="check"
+                              />
+                            }
+                            menuItems={Array []}
+                            multiple={false}
+                            onMenuDeselect={[Function]}
+                            onMenuSelect={[Function]}
+                            onPopupFocus={[Function]}
+                            prefixCls="ant-select-dropdown"
+                            value={
+                              Array [
+                                "1990",
+                              ]
+                            }
+                            visible={false}
+                          />
+                        }
+                        popupAlign={Object {}}
+                        popupClassName="ant-select-dropdown--single"
+                        popupPlacement="bottomLeft"
+                        popupStyle={Object {}}
+                        popupTransitionName="slide-up"
+                        popupVisible={false}
+                        prefixCls="ant-select-dropdown"
+                        showAction={
+                          Array [
+                            "click",
+                          ]
+                        }
+                        showSearch={false}
+                        transitionName="slide-up"
+                        value={
+                          Array [
+                            "1990",
+                          ]
+                        }
+                        visible={false}
+                      >
+                        <div
+                          className="ant-fullcalendar-year-select ant-select ant-select-enabled"
+                          key="trigger"
+                          onBlur={[Function]}
+                          onClick={[Function]}
+                          onFocus={[Function]}
+                          onMouseDown={[Function]}
+                          onMouseOut={[Function]}
+                          onMouseUp={[Function]}
+                          onTouchStart={[Function]}
+                        >
+                          <div
+                            aria-autocomplete="list"
+                            aria-controls="test-uuid"
+                            aria-expanded={false}
+                            aria-haspopup="true"
+                            className="ant-select-selection
+            ant-select-selection--single"
+                            key="selection"
+                            onKeyDown={[Function]}
+                            role="combobox"
+                            tabIndex={0}
+                          >
+                            <div
+                              className="ant-select-selection__rendered"
+                            >
+                              <div
+                                className="ant-select-selection-selected-value"
+                                key="value"
+                                style={
+                                  Object {
+                                    "display": "block",
+                                    "opacity": 1,
+                                  }
+                                }
+                                title="1990"
+                              >
+                                1990
+                              </div>
+                            </div>
+                            <span
+                              className="ant-select-arrow"
+                              key="arrow"
+                              onClick={[Function]}
+                              style={
+                                Object {
+                                  "WebkitUserSelect": "none",
+                                  "userSelect": "none",
+                                }
+                              }
+                              unselectable="on"
+                            >
+                              <Icon
+                                className="ant-select-arrow-icon"
+                                type="down"
+                              >
+                                <LocaleReceiver
+                                  componentName="Icon"
+                                >
+                                  <i
+                                    aria-label="icon: down"
+                                    className="anticon anticon-down ant-select-arrow-icon"
+                                  >
+                                    <IconReact
+                                      className=""
+                                      type="down-o"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        className=""
+                                        data-icon="down"
+                                        fill="currentColor"
+                                        height="1em"
+                                        key="svg-down"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                          key="svg-down-svg-0"
+                                        />
+                                      </svg>
+                                    </IconReact>
+                                  </i>
+                                </LocaleReceiver>
+                              </Icon>
+                            </span>
+                          </div>
+                        </div>
+                      </Trigger>
+                    </SelectTrigger>
+                  </Select>
+                </Consumer>
+              </Select>
+              <Select
+                choiceTransitionName="zoom"
+                className="ant-fullcalendar-month-select"
+                dropdownMatchSelectWidth={false}
+                getPopupContainer={[Function]}
+                onChange={[Function]}
+                showSearch={false}
+                size="default"
+                transitionName="slide-up"
+                value="8"
+              >
+                <Consumer>
+                  <Select
+                    allowClear={false}
+                    autoClearSearchValue={true}
+                    backfill={false}
+                    choiceTransitionName="zoom"
+                    className="ant-fullcalendar-month-select"
+                    clearIcon={
+                      <Icon
+                        className="ant-select-clear-icon"
+                        theme="filled"
+                        type="close-circle"
+                      />
+                    }
+                    combobox={false}
+                    defaultActiveFirstOption={true}
+                    defaultOpen={false}
+                    dropdownMatchSelectWidth={false}
+                    dropdownMenuStyle={Object {}}
+                    dropdownRender={[Function]}
+                    dropdownStyle={Object {}}
+                    getPopupContainer={[Function]}
+                    inputIcon={
+                      <Icon
+                        className="ant-select-arrow-icon"
+                        type="down"
+                      />
+                    }
+                    labelInValue={false}
+                    menuItemSelectedIcon={
+                      <Icon
+                        className="ant-select-selected-icon"
+                        type="check"
+                      />
+                    }
+                    multiple={false}
+                    notFoundContent={
+                      <Consumer>
+                        [Function]
+                      </Consumer>
+                    }
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onDeselect={[Function]}
+                    onFocus={[Function]}
+                    onInputKeyDown={[Function]}
+                    onSearch={[Function]}
+                    onSelect={[Function]}
+                    optionFilterProp="value"
+                    optionLabelProp="children"
+                    placeholder=""
+                    prefixCls="ant-select"
+                    removeIcon={
+                      <Icon
+                        className="ant-select-remove-icon"
+                        type="close"
+                      />
+                    }
+                    showAction={
+                      Array [
+                        "click",
+                      ]
+                    }
+                    showSearch={false}
+                    tabIndex={0}
+                    tags={false}
+                    tokenSeparators={Array []}
+                    transitionName="slide-up"
+                    value="8"
+                  >
+                    <SelectTrigger
+                      ariaId="test-uuid"
+                      backfillValue=""
+                      combobox={false}
+                      defaultActiveFirstOption={true}
+                      dropdownMatchSelectWidth={false}
+                      dropdownMenuStyle={Object {}}
+                      dropdownRender={[Function]}
+                      dropdownStyle={Object {}}
+                      empty={false}
+                      getPopupContainer={[Function]}
+                      inputValue=""
+                      menuItemSelectedIcon={
+                        <Icon
+                          className="ant-select-selected-icon"
+                          type="check"
+                        />
+                      }
+                      multiple={false}
+                      onDropdownVisibleChange={[Function]}
+                      onMenuDeselect={[Function]}
+                      onMenuSelect={[Function]}
+                      onPopupFocus={[Function]}
+                      options={Array []}
+                      prefixCls="ant-select"
+                      showAction={
+                        Array [
+                          "click",
+                        ]
+                      }
+                      showSearch={false}
+                      transitionName="slide-up"
+                      value={
+                        Array [
+                          "8",
+                        ]
+                      }
+                      visible={false}
+                    >
+                      <Trigger
+                        action={Array []}
+                        afterPopupVisibleChange={[Function]}
+                        ariaId="test-uuid"
+                        backfillValue=""
+                        blurDelay={0.15}
+                        builtinPlacements={
+                          Object {
+                            "bottomLeft": Object {
+                              "offset": Array [
+                                0,
+                                4,
+                              ],
+                              "overflow": Object {
+                                "adjustX": 0,
+                                "adjustY": 1,
+                              },
+                              "points": Array [
+                                "tl",
+                                "bl",
+                              ],
+                            },
+                            "topLeft": Object {
+                              "offset": Array [
+                                0,
+                                -4,
+                              ],
+                              "overflow": Object {
+                                "adjustX": 0,
+                                "adjustY": 1,
+                              },
+                              "points": Array [
+                                "bl",
+                                "tl",
+                              ],
+                            },
+                          }
+                        }
+                        combobox={false}
+                        defaultActiveFirstOption={true}
+                        defaultPopupVisible={false}
+                        destroyPopupOnHide={false}
+                        dropdownMatchSelectWidth={false}
+                        dropdownMenuStyle={Object {}}
+                        dropdownRender={[Function]}
+                        dropdownStyle={Object {}}
+                        focusDelay={0}
+                        getDocument={[Function]}
+                        getPopupClassNameFromAlign={[Function]}
+                        getPopupContainer={[Function]}
+                        hideAction={
+                          Array [
+                            "click",
+                          ]
+                        }
+                        inputValue=""
+                        mask={false}
+                        maskClosable={true}
+                        menuItemSelectedIcon={
+                          <Icon
+                            className="ant-select-selected-icon"
+                            type="check"
+                          />
+                        }
+                        mouseEnterDelay={0}
+                        mouseLeaveDelay={0.1}
+                        multiple={false}
+                        onDropdownVisibleChange={[Function]}
+                        onMenuDeselect={[Function]}
+                        onMenuSelect={[Function]}
+                        onPopupAlign={[Function]}
+                        onPopupVisibleChange={[Function]}
+                        options={Array []}
+                        popup={
+                          <DropdownMenu
+                            ariaId="test-uuid"
+                            backfillValue=""
+                            defaultActiveFirstOption={true}
+                            dropdownMenuStyle={Object {}}
+                            inputValue=""
+                            menuItemSelectedIcon={
+                              <Icon
+                                className="ant-select-selected-icon"
+                                type="check"
+                              />
+                            }
+                            menuItems={Array []}
+                            multiple={false}
+                            onMenuDeselect={[Function]}
+                            onMenuSelect={[Function]}
+                            onPopupFocus={[Function]}
+                            prefixCls="ant-select-dropdown"
+                            value={
+                              Array [
+                                "8",
+                              ]
+                            }
+                            visible={false}
+                          />
+                        }
+                        popupAlign={Object {}}
+                        popupClassName="ant-select-dropdown--single"
+                        popupPlacement="bottomLeft"
+                        popupStyle={Object {}}
+                        popupTransitionName="slide-up"
+                        popupVisible={false}
+                        prefixCls="ant-select-dropdown"
+                        showAction={
+                          Array [
+                            "click",
+                          ]
+                        }
+                        showSearch={false}
+                        transitionName="slide-up"
+                        value={
+                          Array [
+                            "8",
+                          ]
+                        }
+                        visible={false}
+                      >
+                        <div
+                          className="ant-fullcalendar-month-select ant-select ant-select-enabled"
+                          key="trigger"
+                          onBlur={[Function]}
+                          onClick={[Function]}
+                          onFocus={[Function]}
+                          onMouseDown={[Function]}
+                          onMouseOut={[Function]}
+                          onMouseUp={[Function]}
+                          onTouchStart={[Function]}
+                        >
+                          <div
+                            aria-autocomplete="list"
+                            aria-controls="test-uuid"
+                            aria-expanded={false}
+                            aria-haspopup="true"
+                            className="ant-select-selection
+            ant-select-selection--single"
+                            key="selection"
+                            onKeyDown={[Function]}
+                            role="combobox"
+                            tabIndex={0}
+                          >
+                            <div
+                              className="ant-select-selection__rendered"
+                            >
+                              <div
+                                className="ant-select-selection-selected-value"
+                                key="value"
+                                style={
+                                  Object {
+                                    "display": "block",
+                                    "opacity": 1,
+                                  }
+                                }
+                                title="Sep"
+                              >
+                                Sep
+                              </div>
+                            </div>
+                            <span
+                              className="ant-select-arrow"
+                              key="arrow"
+                              onClick={[Function]}
+                              style={
+                                Object {
+                                  "WebkitUserSelect": "none",
+                                  "userSelect": "none",
+                                }
+                              }
+                              unselectable="on"
+                            >
+                              <Icon
+                                className="ant-select-arrow-icon"
+                                type="down"
+                              >
+                                <LocaleReceiver
+                                  componentName="Icon"
+                                >
+                                  <i
+                                    aria-label="icon: down"
+                                    className="anticon anticon-down ant-select-arrow-icon"
+                                  >
+                                    <IconReact
+                                      className=""
+                                      type="down-o"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        className=""
+                                        data-icon="down"
+                                        fill="currentColor"
+                                        height="1em"
+                                        key="svg-down"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                          key="svg-down-svg-0"
+                                        />
+                                      </svg>
+                                    </IconReact>
+                                  </i>
+                                </LocaleReceiver>
+                              </Icon>
+                            </span>
+                          </div>
+                        </div>
+                      </Trigger>
+                    </SelectTrigger>
+                  </Select>
+                </Consumer>
+              </Select>
+              <RadioGroup
+                buttonStyle="outline"
+                disabled={false}
+                onChange={[Function]}
+                size="default"
+                value="month"
+              >
+                <Consumer>
+                  <div
+                    className="ant-radio-group ant-radio-group-outline ant-radio-group-default"
+                  >
+                    <RadioButton
+                      value="month"
+                    >
+                      <Consumer>
+                        <Radio
+                          checked={true}
+                          disabled={false}
+                          prefixCls="ant-radio-button"
+                          type="radio"
+                          value="month"
+                        >
+                          <Consumer>
+                            <label
+                              className="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+                            >
+                              <Checkbox
+                                checked={true}
+                                className=""
+                                defaultChecked={false}
+                                disabled={false}
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onFocus={[Function]}
+                                prefixCls="ant-radio-button"
+                                style={Object {}}
+                                type="radio"
+                                value="month"
+                              >
+                                <span
+                                  className="ant-radio-button ant-radio-button-checked"
+                                  style={Object {}}
+                                >
+                                  <input
+                                    checked={true}
+                                    className="ant-radio-button-input"
+                                    disabled={false}
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    onFocus={[Function]}
+                                    type="radio"
+                                    value="month"
+                                  />
+                                  <span
+                                    className="ant-radio-button-inner"
+                                  />
+                                </span>
+                              </Checkbox>
+                              <span>
+                                Month
+                              </span>
+                            </label>
+                          </Consumer>
+                        </Radio>
+                      </Consumer>
+                    </RadioButton>
+                    <RadioButton
+                      value="year"
+                    >
+                      <Consumer>
+                        <Radio
+                          checked={false}
+                          disabled={false}
+                          prefixCls="ant-radio-button"
+                          type="radio"
+                          value="year"
+                        >
+                          <Consumer>
+                            <label
+                              className="ant-radio-button-wrapper"
+                            >
+                              <Checkbox
+                                checked={false}
+                                className=""
+                                defaultChecked={false}
+                                disabled={false}
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onFocus={[Function]}
+                                prefixCls="ant-radio-button"
+                                style={Object {}}
+                                type="radio"
+                                value="year"
+                              >
+                                <span
+                                  className="ant-radio-button"
+                                  style={Object {}}
+                                >
+                                  <input
+                                    checked={false}
+                                    className="ant-radio-button-input"
+                                    disabled={false}
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    onFocus={[Function]}
+                                    type="radio"
+                                    value="year"
+                                  />
+                                  <span
+                                    className="ant-radio-button-inner"
+                                  />
+                                </span>
+                              </Checkbox>
+                              <span>
+                                Year
+                              </span>
+                            </label>
+                          </Consumer>
+                        </Radio>
+                      </Consumer>
+                    </RadioButton>
+                  </div>
+                </Consumer>
+              </RadioGroup>
+            </div>
+          </Consumer>
+        </Header>
+        <CalendarMixinWrapper
+          Select={[Function]}
+          className=""
+          dateCellRender={[Function]}
+          defaultType="date"
+          fullscreen={true}
+          locale={
+            Object {
+              "backToToday": "Back to today",
+              "clear": "Clear",
+              "dateFormat": "M/D/YYYY",
+              "dateSelect": "select date",
+              "dateTimeFormat": "M/D/YYYY HH:mm:ss",
+              "dayFormat": "D",
+              "decadeSelect": "Choose a decade",
+              "month": "Month",
+              "monthBeforeYear": true,
+              "monthSelect": "Choose a month",
+              "nextCentury": "Next century",
+              "nextDecade": "Next decade",
+              "nextMonth": "Next month (PageDown)",
+              "nextYear": "Next year (Control + right)",
+              "now": "Now",
+              "ok": "Ok",
+              "placeholder": "Select date",
+              "previousCentury": "Last century",
+              "previousDecade": "Last decade",
+              "previousMonth": "Previous month (PageUp)",
+              "previousYear": "Last year (Control + left)",
+              "rangePlaceholder": Array [
+                "Start date",
+                "End date",
+              ],
+              "timeSelect": "select time",
+              "today": "Today",
+              "weekSelect": "Choose a week",
+              "year": "Year",
+              "yearFormat": "YYYY",
+              "yearSelect": "Choose a year",
+            }
+          }
+          monthCellRender={[Function]}
+          onChange={[Function]}
+          onClear={[Function]}
+          onKeyDown={[Function]}
+          onPanelChange={[MockFunction]}
+          onSelect={[Function]}
+          onTypeChange={[Function]}
+          prefixCls="ant-fullcalendar"
+          renderFooter={[Function]}
+          renderSidebar={[Function]}
+          showHeader={false}
+          showTypeSwitch={true}
+          style={Object {}}
+          type="date"
+          value={"1990-09-02T15:00:00.000Z"}
+          visible={true}
+        >
+          <div
+            className="ant-fullcalendar ant-fullcalendar-full ant-fullcalendar-fullscreen"
+            style={Object {}}
+            tabIndex="0"
+          >
+            <div
+              className="ant-fullcalendar-calendar-body"
+              key="calendar-body"
+            >
+              <DateTable
+                dateRender={[Function]}
+                locale={
+                  Object {
+                    "backToToday": "Back to today",
+                    "clear": "Clear",
+                    "dateFormat": "M/D/YYYY",
+                    "dateSelect": "select date",
+                    "dateTimeFormat": "M/D/YYYY HH:mm:ss",
+                    "dayFormat": "D",
+                    "decadeSelect": "Choose a decade",
+                    "month": "Month",
+                    "monthBeforeYear": true,
+                    "monthSelect": "Choose a month",
+                    "nextCentury": "Next century",
+                    "nextDecade": "Next decade",
+                    "nextMonth": "Next month (PageDown)",
+                    "nextYear": "Next year (Control + right)",
+                    "now": "Now",
+                    "ok": "Ok",
+                    "placeholder": "Select date",
+                    "previousCentury": "Last century",
+                    "previousDecade": "Last decade",
+                    "previousMonth": "Previous month (PageUp)",
+                    "previousYear": "Last year (Control + left)",
+                    "rangePlaceholder": Array [
+                      "Start date",
+                      "End date",
+                    ],
+                    "timeSelect": "select time",
+                    "today": "Today",
+                    "weekSelect": "Choose a week",
+                    "year": "Year",
+                    "yearFormat": "YYYY",
+                    "yearSelect": "Choose a year",
+                  }
+                }
+                onSelect={[Function]}
+                prefixCls="ant-fullcalendar"
+                value={"1990-09-02T15:00:00.000Z"}
+              >
+                <table
+                  cellSpacing="0"
+                  className="ant-fullcalendar-table"
+                  role="grid"
+                >
+                  <DateTHead
+                    dateRender={[Function]}
+                    locale={
+                      Object {
+                        "backToToday": "Back to today",
+                        "clear": "Clear",
+                        "dateFormat": "M/D/YYYY",
+                        "dateSelect": "select date",
+                        "dateTimeFormat": "M/D/YYYY HH:mm:ss",
+                        "dayFormat": "D",
+                        "decadeSelect": "Choose a decade",
+                        "month": "Month",
+                        "monthBeforeYear": true,
+                        "monthSelect": "Choose a month",
+                        "nextCentury": "Next century",
+                        "nextDecade": "Next decade",
+                        "nextMonth": "Next month (PageDown)",
+                        "nextYear": "Next year (Control + right)",
+                        "now": "Now",
+                        "ok": "Ok",
+                        "placeholder": "Select date",
+                        "previousCentury": "Last century",
+                        "previousDecade": "Last decade",
+                        "previousMonth": "Previous month (PageUp)",
+                        "previousYear": "Last year (Control + left)",
+                        "rangePlaceholder": Array [
+                          "Start date",
+                          "End date",
+                        ],
+                        "timeSelect": "select time",
+                        "today": "Today",
+                        "weekSelect": "Choose a week",
+                        "year": "Year",
+                        "yearFormat": "YYYY",
+                        "yearSelect": "Choose a year",
+                      }
+                    }
+                    onSelect={[Function]}
+                    prefixCls="ant-fullcalendar"
+                    value={"1990-09-02T15:00:00.000Z"}
+                  >
+                    <thead>
+                      <tr
+                        role="row"
+                      >
+                        <th
+                          className="ant-fullcalendar-column-header"
+                          key="0"
+                          role="columnheader"
+                          title="Sun"
+                        >
+                          <span
+                            className="ant-fullcalendar-column-header-inner"
+                          >
+                            Su
+                          </span>
+                        </th>
+                        <th
+                          className="ant-fullcalendar-column-header"
+                          key="1"
+                          role="columnheader"
+                          title="Mon"
+                        >
+                          <span
+                            className="ant-fullcalendar-column-header-inner"
+                          >
+                            Mo
+                          </span>
+                        </th>
+                        <th
+                          className="ant-fullcalendar-column-header"
+                          key="2"
+                          role="columnheader"
+                          title="Tue"
+                        >
+                          <span
+                            className="ant-fullcalendar-column-header-inner"
+                          >
+                            Tu
+                          </span>
+                        </th>
+                        <th
+                          className="ant-fullcalendar-column-header"
+                          key="3"
+                          role="columnheader"
+                          title="Wed"
+                        >
+                          <span
+                            className="ant-fullcalendar-column-header-inner"
+                          >
+                            We
+                          </span>
+                        </th>
+                        <th
+                          className="ant-fullcalendar-column-header"
+                          key="4"
+                          role="columnheader"
+                          title="Thu"
+                        >
+                          <span
+                            className="ant-fullcalendar-column-header-inner"
+                          >
+                            Th
+                          </span>
+                        </th>
+                        <th
+                          className="ant-fullcalendar-column-header"
+                          key="5"
+                          role="columnheader"
+                          title="Fri"
+                        >
+                          <span
+                            className="ant-fullcalendar-column-header-inner"
+                          >
+                            Fr
+                          </span>
+                        </th>
+                        <th
+                          className="ant-fullcalendar-column-header"
+                          key="6"
+                          role="columnheader"
+                          title="Sat"
+                        >
+                          <span
+                            className="ant-fullcalendar-column-header-inner"
+                          >
+                            Sa
+                          </span>
+                        </th>
+                      </tr>
+                    </thead>
+                  </DateTHead>
+                  <DateTBody
+                    dateRender={[Function]}
+                    hoverValue={Array []}
+                    locale={
+                      Object {
+                        "backToToday": "Back to today",
+                        "clear": "Clear",
+                        "dateFormat": "M/D/YYYY",
+                        "dateSelect": "select date",
+                        "dateTimeFormat": "M/D/YYYY HH:mm:ss",
+                        "dayFormat": "D",
+                        "decadeSelect": "Choose a decade",
+                        "month": "Month",
+                        "monthBeforeYear": true,
+                        "monthSelect": "Choose a month",
+                        "nextCentury": "Next century",
+                        "nextDecade": "Next decade",
+                        "nextMonth": "Next month (PageDown)",
+                        "nextYear": "Next year (Control + right)",
+                        "now": "Now",
+                        "ok": "Ok",
+                        "placeholder": "Select date",
+                        "previousCentury": "Last century",
+                        "previousDecade": "Last decade",
+                        "previousMonth": "Previous month (PageUp)",
+                        "previousYear": "Last year (Control + left)",
+                        "rangePlaceholder": Array [
+                          "Start date",
+                          "End date",
+                        ],
+                        "timeSelect": "select time",
+                        "today": "Today",
+                        "weekSelect": "Choose a week",
+                        "year": "Year",
+                        "yearFormat": "YYYY",
+                        "yearSelect": "Choose a year",
+                      }
+                    }
+                    onSelect={[Function]}
+                    prefixCls="ant-fullcalendar"
+                    value={"1990-09-02T15:00:00.000Z"}
+                  >
+                    <tbody
+                      className="ant-fullcalendar-tbody"
+                    >
+                      <tr
+                        className=""
+                        key="0"
+                        role="row"
+                      >
+                        <td
+                          className="ant-fullcalendar-cell ant-fullcalendar-last-month-cell"
+                          key="0"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="August 26, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              26
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell ant-fullcalendar-last-month-cell"
+                          key="1"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="August 27, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              27
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell ant-fullcalendar-last-month-cell"
+                          key="2"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="August 28, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              28
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell ant-fullcalendar-last-month-cell"
+                          key="3"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="August 29, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              29
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell ant-fullcalendar-last-month-cell"
+                          key="4"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="August 30, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              30
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell ant-fullcalendar-last-month-cell ant-fullcalendar-last-day-of-month"
+                          key="5"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="August 31, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              31
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="6"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 1, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              01
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                      </tr>
+                      <tr
+                        className="ant-fullcalendar-active-week"
+                        key="1"
+                        role="row"
+                      >
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="7"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 2, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              02
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell ant-fullcalendar-selected-day"
+                          key="8"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 3, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              03
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="9"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 4, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              04
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="10"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 5, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              05
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="11"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 6, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              06
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="12"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 7, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              07
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="13"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 8, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              08
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                      </tr>
+                      <tr
+                        className=""
+                        key="2"
+                        role="row"
+                      >
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="14"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 9, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              09
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="15"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 10, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              10
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="16"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 11, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              11
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="17"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 12, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              12
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="18"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 13, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              13
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="19"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 14, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              14
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="20"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 15, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              15
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                      </tr>
+                      <tr
+                        className=""
+                        key="3"
+                        role="row"
+                      >
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="21"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 16, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              16
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="22"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 17, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              17
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="23"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 18, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              18
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="24"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 19, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              19
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="25"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 20, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              20
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="26"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 21, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              21
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="27"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 22, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              22
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                      </tr>
+                      <tr
+                        className=""
+                        key="4"
+                        role="row"
+                      >
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="28"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 23, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              23
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="29"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 24, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              24
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="30"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 25, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              25
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="31"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 26, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              26
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="32"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 27, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              27
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="33"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 28, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              28
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell"
+                          key="34"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 29, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              29
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                      </tr>
+                      <tr
+                        className=""
+                        key="5"
+                        role="row"
+                      >
+                        <td
+                          className="ant-fullcalendar-cell ant-fullcalendar-last-day-of-month"
+                          key="35"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="September 30, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              30
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
+                          key="36"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="October 1, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              01
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
+                          key="37"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="October 2, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              02
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
+                          key="38"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="October 3, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              03
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
+                          key="39"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="October 4, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              04
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
+                          key="40"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="October 5, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              05
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                        <td
+                          className="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
+                          key="41"
+                          onClick={[Function]}
+                          role="gridcell"
+                          title="October 6, 1990"
+                        >
+                          <div
+                            className="ant-fullcalendar-date"
+                          >
+                            <div
+                              className="ant-fullcalendar-value"
+                            >
+                              06
+                            </div>
+                            <div
+                              className="ant-fullcalendar-content"
+                            />
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </DateTBody>
+                </table>
+              </DateTable>
+            </div>
+          </div>
+        </CalendarMixinWrapper>
+      </div>
+    </Consumer>
+  </LocaleReceiver>
+</Calendar>
+`;
+
+exports[`Calendar switch should work correctly without prop mode 2`] = `
+<Calendar
+  fullscreen={true}
+  locale={Object {}}
+  onChange={[Function]}
   onPanelChange={
     [MockFunction] {
       "calls": Array [
