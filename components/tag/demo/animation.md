@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Add or remove animations to the tag using [rc-tween-one] (https://github.com/react-component/tween-one).
+Animating the Tag by using [rc-tween-one] (https://github.com/react-component/tween-one).
 
 ````jsx
 import {
