@@ -36,7 +36,9 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     'Modal',
     `The property 'iconType' is deprecated. Use the property 'icon' instead.`,
   );
-  const icon = props.icon ? props.icon : iconType;
+
+  // 支持传入{ icon: null }来隐藏`Modal.confirm`默认的Icon
+  const icon = props.icon === undefined ? iconType : props.icon;
   const okType = props.okType || 'primary';
   const prefixCls = props.prefixCls || 'ant-modal';
   const contentPrefixCls = `${prefixCls}-confirm`;
