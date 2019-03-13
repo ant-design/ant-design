@@ -32,6 +32,9 @@ function getStyle() {
     #header #nav .ant-menu-item {
       border-color: transparent;
     }
+    #header #nav .ant-menu-submenu {
+      border-color: transparent;
+    }
     #header #nav .ant-menu-item.hide-in-home-page {
       display: none;
     }
