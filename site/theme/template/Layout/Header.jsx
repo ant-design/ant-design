@@ -219,7 +219,7 @@ export default class Header extends React.Component {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                教程
+                Ant Design 实战教程
               </a>
             </Menu.Item>
           ) : null}
