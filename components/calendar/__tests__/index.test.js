@@ -225,7 +225,7 @@ describe('Calendar', () => {
         value={value}
         validRange={[start, end]}
         locale={{ year: '年' }}
-        type="date"
+        type="month"
       />,
     );
     wrapper
@@ -254,6 +254,6 @@ describe('Calendar', () => {
       .find('input')
       .at(1)
       .simulate('change');
-    expect(onTypeChange).toBeCalledWith('month');
+    expect(onTypeChange).toBeCalledWith('year');
   });
 });
