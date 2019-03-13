@@ -42,7 +42,7 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
     const iconProps = {
       [iconTrigger]: this.onChange,
       className: `${prefixCls}-icon`,
-      type: this.state.visible ? 'eye-invisible' : 'eye',
+      type: this.state.visible ? 'eye' : 'eye-invisible',
       key: 'passwordIcon',
       onMouseDown: (e: MouseEvent) => {
         // Prevent focused state lost
