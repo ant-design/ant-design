@@ -104,7 +104,7 @@
     "@yesmeck/offline-plugin": "^5.0.5",
     "ansi-styles": "^3.2.1",
     "antd-theme-generator": "^1.1.4",
-    "antd-tools": "^7.1.0",
+    "antd-tools": "^7.1.1",
     "babel-eslint": "^10.0.1",
     "babel-plugin-add-react-displayname": "^0.0.5",
     "bisheng": "^1.1.0",
