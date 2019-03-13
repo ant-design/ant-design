@@ -1,0 +1,42 @@
+import Pagination from 'rc-pagination/lib/locale/ar_EG';
+import DatePicker from '../date-picker/locale/ar_EG';
+import TimePicker from '../time-picker/locale/ar_EG';
+import Calendar from '../calendar/locale/ar_EG';
+
+export default {
+  locale: 'am',
+  Pagination,
+  DatePicker,
+  TimePicker,
+  Calendar,
+  Table: {
+    filterTitle: 'ርእስ ማጣሪያ',
+    filterConfirm: 'ማጣሪያ ያረጋግጡ',
+    filterReset: 'ማጣሪያውን ዳግም አስጀምር',
+    selectAll: 'ሁሉንም ምረጥ',
+    selectInvert: 'ይምረጡ ገልብጥ',
+  },
+  Modal: {
+    okText: 'እሺ',
+    cancelText: 'ይቅር',
+    justOkText: 'እሺ ጥሩ ነው',
+  },
+  Popconfirm: {
+    okText: 'እሺ',
+    cancelText: 'ይቅር',
+  },
+  Transfer: {
+    searchPlaceholder: 'ፍለጋ',
+    itemUnit: 'የንጥል መለኪያ',
+    itemsUnit: 'የንጥል አሃዶች',
+  },
+  Upload: {
+    uploading: 'በመስቀል ላይ...',
+    removeFile: 'ፋይል አስወግድ',
+    uploadError: 'ፋይሉን በመጫን ላይ ችግር',
+    previewFile: 'የፋይል ቅድመ-እይታ',
+  },
+  Empty: {
+    description: 'መግለጫ',
+  },
+};
