@@ -172,9 +172,15 @@ class Descriptions extends React.Component<DescriptionsProps, RowState> {
           return column[breakpoint] || defaultColumnMap[breakpoint];
         }
       }
-      return column.md as number;
     }
-    return column as number;
+
+    //If the configuration is not an object, it is a number, return number
+    if (typeof column === 'number') {
+      return column as number;
+    }
+    // If it is an object, but no response is found, this happens only in the test.
+    // Maybe there are some strange environments
+    return 3;
   }
 
   render() {
