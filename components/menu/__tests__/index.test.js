@@ -2,6 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Menu from '..';
 import Icon from '../../icon';
+import Layout from '../../layout';
 
 jest.mock('mutationobserver-shim', () => {
   global.MutationObserver = function MutationObserver() {
@@ -493,5 +494,47 @@ describe('Menu', () => {
 
     const text = wrapper.find('.ant-tooltip-inner').text();
     expect(text).toBe('bamboo lucky');
+  });
+
+  it('render correctly when using with Layout.Sider', () => {
+    class Demo extends React.Component {
+      state = {
+        collapsed: false,
+      };
+
+      onCollapse = collapsed => this.setState({ collapsed });
+
+      render() {
+        const { collapsed } = this.state;
+        return (
+          <Layout style={{ minHeight: '100vh' }}>
+            <Layout.Sider collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
+              <div className="logo" />
+              <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+                <SubMenu
+                  key="sub1"
+                  title={
+                    <span>
+                      <Icon type="user" />
+                      <span>User</span>
+                    </span>
+                  }
+                >
+                  <Menu.Item key="3">Tom</Menu.Item>
+                  <Menu.Item key="4">Bill</Menu.Item>
+                  <Menu.Item key="5">Alex</Menu.Item>
+                </SubMenu>
+              </Menu>
+            </Layout.Sider>
+          </Layout>
+        );
+      }
+    }
+    const wrapper = mount(<Demo />);
+    wrapper.find('.ant-menu-submenu-title').simulate('click');
+    wrapper.find('.ant-layout-sider-trigger').simulate('click');
+    jest.runAllTimers();
+    wrapper.update();
+    expect(wrapper.find('.ant-menu-submenu-popup').length).toBe(0);
   });
 });
