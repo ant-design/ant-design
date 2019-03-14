@@ -64,8 +64,8 @@ export default class UploadList extends React.Component<UploadListProps, any> {
 
   // https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
   previewFile = (file: File | Blob, callback: Function) => {
-    if (file.type && !imageTypes.includes(file.type)) {
-      callback('');
+    if (file.type.indexOf('image/') === -1) {
+      return callback('');
     }
     const reader = new FileReader();
     reader.onloadend = () => callback(reader.result);
