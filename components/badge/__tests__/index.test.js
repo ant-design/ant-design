@@ -89,4 +89,10 @@ describe('Badge', () => {
     );
     expect(wrapper).toMatchSnapshot();
   });
+
+  // https://github.com/ant-design/ant-design/issues/15349
+  it('should color style  works on Badge', () => {
+    const wrapper = mount(<Badge style={{ color: 'red' }} status="success" text="Success" />);
+    expect(wrapper.find('.ant-badge-status-text').props().style.color).toBe('red');
+  });
 });
