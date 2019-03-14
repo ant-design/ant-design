@@ -113,7 +113,9 @@
   }
 
   &-not-a-wrapper {
-    vertical-align: middle;
+    &:not(.@{badge-prefix-cls}-status) {
+      vertical-align: middle;
+    }
 
     .@{ant-prefix}-scroll-number {
       position: relative;
