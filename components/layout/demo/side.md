@@ -1,7 +1,6 @@
 ---
 order: 3
 iframe: 360
-only: true
 title:
   zh-CN: 侧边布局
   en-US: Sider
@@ -50,7 +49,7 @@ class SiderDemo extends React.Component {
           onCollapse={this.onCollapse}
         >
           <div className="logo" />
-          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" subMenuCloseDelay={9999}>
+          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
             <Menu.Item key="1">
               <Icon type="pie-chart" />
               <span>Option 1</span>
