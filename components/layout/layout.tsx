@@ -77,7 +77,8 @@ class BasicLayout extends React.Component<BasicPropsWithTagName, BasicLayoutStat
   render() {
     const { prefixCls, className, children, hasSider, tagName, ...others } = this.props;
     const classString = classNames(className, prefixCls, {
-      [`${prefixCls}-has-sider`]: hasSider || this.state.siders.length > 0,
+      [`${prefixCls}-has-sider`]:
+        typeof hasSider === 'boolean' ? hasSider : this.state.siders.length > 0,
     });
     return React.createElement(tagName, { className: classString, ...others }, children);
   }

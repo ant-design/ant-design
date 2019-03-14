@@ -95,6 +95,15 @@ describe('Layout', () => {
     wrapper.setProps({ collapsed: true });
     expect(wrapper.instance().state.collapsed).toBe(true);
   });
+
+  it('should not add ant-layout-has-sider when `hasSider` is `false`', () => {
+    const wrapper = mount(
+      <Layout hasSider={false}>
+        <Sider>Sider</Sider>
+      </Layout>,
+    );
+    expect(wrapper.find('.ant-layout').hasClass('ant-layout-has-sider')).toBe(false);
+  });
 });
 
 describe('Sider onBreakpoint', () => {
