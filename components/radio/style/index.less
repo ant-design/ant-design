@@ -6,6 +6,8 @@
 @radio-inner-prefix-cls: ~'@{radio-prefix-cls}-inner';
 @radio-duration: 0.3s;
 @radio-focused-outline: 3px solid fade(@radio-dot-color, 6%);
+@radio-wrapper-margin-right: 8px;
+@radio-checked-inner-scale: 0.875;
 
 .@{radio-group-prefix-cls} {
   .reset-component;
@@ -18,7 +20,7 @@
   .reset-component;
   position: relative;
   display: inline-block;
-  margin-right: 8px;
+  margin-right: @radio-wrapper-margin-right;
   white-space: nowrap;
   cursor: pointer;
 }
@@ -112,7 +114,7 @@
   .@{radio-inner-prefix-cls} {
     border-color: @radio-dot-color;
     &::after {
-      transform: scale(0.875);
+      transform: scale(@radio-checked-inner-scale);
       opacity: 1;
       transition: all @radio-duration @ease-in-out-circ;
     }
