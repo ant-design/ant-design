@@ -77,18 +77,31 @@ describe('Card', () => {
   });
 
   it('onTabChange should work', () => {
-    const onTabChange = key => expect(key).toBe('test');
-    const wrapper = mount(<Card onTabChange={onTabChange}>xxx</Card>).instance();
-    wrapper.onTabChange('test');
-  });
-
-  it('getAction should work', () => {
-    const wrapper = mount(<Card>xxx</Card>).instance();
-    expect(wrapper.getAction([])).toBe(null);
+    const tabList = [
+      {
+        key: 'tab1',
+        tab: 'tab1',
+      },
+      {
+        key: 'tab2',
+        tab: 'tab2',
+      },
+    ];
+    const onTabChange = jest.fn();
+    const wrapper = mount(
+      <Card onTabChange={onTabChange} tabList={tabList}>
+        xxx
+      </Card>,
+    );
+    wrapper
+      .find('.ant-tabs-tab')
+      .at(1)
+      .simulate('click');
+    expect(onTabChange).toBeCalledWith('tab2');
   });
 
   it('getCompatibleHoverable should work', () => {
-    const wrapper = mount(<Card noHovering={false}>xxx</Card>).instance();
-    expect(wrapper.getCompatibleHoverable()).toBe(true);
+    const wrapper = mount(<Card noHovering={false}>xxx</Card>);
+    expect(wrapper.find('.ant-card-hoverable').length).toBe(1);
   });
 });
