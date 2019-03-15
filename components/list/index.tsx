@@ -77,7 +77,7 @@ export default class List extends React.Component<ListProps> {
 
   defaultPaginationProps = {
     current: 1,
-    pageSize: 10,
+    defaultPageSize: 10,
     onChange: (page: number, pageSize: number) => {
       const { pagination } = this.props;
       this.setState({
@@ -197,7 +197,9 @@ export default class List extends React.Component<ListProps> {
       ...(pagination || {}),
     };
 
-    const largestPage = Math.ceil(paginationProps.total / paginationProps.pageSize);
+    const largestPage = Math.ceil(
+      paginationProps.total / (paginationProps.pageSize || paginationProps.defaultPageSize),
+    );
     if (paginationProps.current > largestPage) {
       paginationProps.current = largestPage;
     }
@@ -209,9 +211,14 @@ export default class List extends React.Component<ListProps> {
 
     let splitDataSource = [...dataSource];
     if (pagination) {
-      if (dataSource.length > (paginationProps.current - 1) * paginationProps.pageSize) {
+      if (
+        dataSource.length >
+        (paginationProps.current - 1) *
+          (paginationProps.pageSize || paginationProps.defaultPageSize)
+      ) {
         splitDataSource = [...dataSource].splice(
-          (paginationProps.current - 1) * paginationProps.pageSize,
+          (paginationProps.current - 1) *
+            (paginationProps.pageSize || paginationProps.defaultPageSize),
           paginationProps.pageSize,
         );
       }
