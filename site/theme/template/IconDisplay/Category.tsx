@@ -28,11 +28,15 @@ class Category extends React.Component<CategoryProps, CategoryState> {
       </span>,
     );
     this.setState({ justCopied: type }, () => {
-      setTimeout(() => {
+      this.copyId = window.setTimeout(() => {
         this.setState({ justCopied: null });
       }, 2000);
     });
   };
+  
+  componentWillUnmount() {
+    window.clearTimeout(this.copyId);
+  }
 
   render() {
     const {
