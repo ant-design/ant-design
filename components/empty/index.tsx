@@ -13,6 +13,10 @@ export interface EmptyProps {
   style?: React.CSSProperties;
   image?: React.ReactNode;
   description?: React.ReactNode;
+  /**
+   * @since 3.16.0
+   */
+  imageSize?: number;
   children?: React.ReactNode;
 }
 
@@ -24,6 +28,7 @@ const Empty: React.SFC<EmptyProps> = (props: EmptyProps) => (
         prefixCls: customizePrefixCls,
         image,
         description,
+        imageSize,
         children,
         ...restProps
       } = props;
@@ -44,9 +49,16 @@ const Empty: React.SFC<EmptyProps> = (props: EmptyProps) => (
               imageNode = image;
             }
 
+            const imageStyle: React.CSSProperties = {};
+            if (imageSize) {
+              imageStyle.height = `${imageSize}px`;
+            }
+
             return (
               <div className={classNames(prefixCls, className)} {...restProps}>
-                <div className={`${prefixCls}-image`}>{imageNode}</div>
+                <div style={imageStyle} className={`${prefixCls}-image`}>
+                  {imageNode}
+                </div>
 
                 <p className={`${prefixCls}-description`}>{des}</p>
 
