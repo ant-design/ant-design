@@ -27,8 +27,7 @@ function getShowDateFromValue(value: RangePickerValue) {
   if (!start && !end) {
     return;
   }
-  const newEnd = end && end.isSame(start, 'month') ? end.clone().add(1, 'month') : end;
-  return [start, newEnd] as RangePickerValue;
+  return [start, end] as RangePickerValue;
 }
 
 function pickerValueAdapter(
