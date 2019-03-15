@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Mention from '..';
-import { Nav } from 'rc-editor-mention';
 
 const { toContentState } = Mention;
 
@@ -115,24 +114,14 @@ describe('Mention', () => {
     expect(items.at(0).props().children).toBe('bamboo');
   });
 
-  it('onBlur', () => {
-    const e = { test: 1 };
-    const onBlur = event => {
-      expect(event).toEqual(e);
-    };
-    const wrapper = mount(<Mention onBlur={onBlur} />).instance();
-    wrapper.onBlur(e);
-    expect(wrapper.state.focus).toBe(false);
-  });
-
   it('check filteredSuggestions', () => {
-    let wrapper = mount(<Mention defaultSuggestions={[<Nav value="light" />]} />).instance();
-    wrapper.defaultSearchChange('test');
-    expect(wrapper.state.filteredSuggestions).toEqual([]);
-    wrapper.defaultSearchChange('light');
-    expect(wrapper.state.filteredSuggestions).toEqual([<Nav value="light" />]);
-    wrapper = mount(<Mention defaultSuggestions={[<Nav />]} />).instance();
-    wrapper.defaultSearchChange('test');
-    expect(wrapper.state.filteredSuggestions).toEqual([<Nav />]);
+    const wrapper = mount(<Mention defaultSuggestions={[<Mention.Nav value="light" />]} />);
+    wrapper.find('DraftEditorContents').simulate('focus');
+    const ed = wrapper.find('.public-DraftEditor-content');
+    ed.simulate('beforeInput', { data: '@l' });
+    jest.runAllTimers();
+    const items = wrapper.find('div.ant-mention-dropdown-item');
+    expect(items.length).toBe(1);
+    expect(items.at(0).props().value).toBe('light');
   });
 });
