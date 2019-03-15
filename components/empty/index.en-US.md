@@ -22,4 +22,5 @@ When there is no data provided, display for friendly tips.
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | description | Customize description | string \| ReactNode | - |
+| imageSize | image size | number | - |
 | image | Customize image. Will tread as image url when string provided | string \| ReactNode | false |
