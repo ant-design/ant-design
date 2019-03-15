@@ -21,6 +21,7 @@ export interface PickerProps {
 
 export interface PickerState {
   open: boolean;
+  hadFocus: boolean;
   value: moment.Moment | null;
   showDate: moment.Moment | null;
 }
@@ -68,6 +69,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
         value,
         showDate: value,
         open: false,
+        hadFocus: false,
       };
     }
 
@@ -114,6 +116,22 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
 
       if (onOpenChange) {
         onOpenChange(open);
+      }
+    };
+
+    onFocus = () => {
+      const { open, hadFocus } = this.state;
+      if (!open && !hadFocus) {
+        this.setState({ hadFocus: true });
+        this.props.onFocus()
+      }
+    };
+
+    onBlur = () => {
+      const { open, hadFocus } = this.state;
+      if (!open && hadFocus) {
+        this.setState({ hadFocus: false });
+        this.props.onBlur()
       }
     };
 
@@ -245,8 +263,8 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
           id={props.id}
           className={classNames(props.className, props.pickerClass)}
           style={{ ...pickerStyle, ...props.style }}
-          onFocus={props.onFocus}
-          onBlur={props.onBlur}
+          onFocus={this.onFocus}
+          onBlur={this.onBlur}
           onMouseEnter={props.onMouseEnter}
           onMouseLeave={props.onMouseLeave}
         >

@@ -29,6 +29,14 @@ export default function focusTest(Component) {
       expect(handleFocus).toBeCalled();
     });
 
+    it('focus() and onFocus trigger only once', () => {
+      const handleFocus = jest.fn();
+      const wrapper = mount(<Component onFocus={handleFocus} />, { attachTo: container });
+      wrapper.instance().focus();
+      jest.runAllTimers();
+      expect(handleFocus).toBeCalledTimes(1);
+    });
+
     it('blur() and onBlur', () => {
       const handleBlur = jest.fn();
       const wrapper = mount(<Component onBlur={handleBlur} />, { attachTo: container });
@@ -37,6 +45,16 @@ export default function focusTest(Component) {
       wrapper.instance().blur();
       jest.runAllTimers();
       expect(handleBlur).toBeCalled();
+    });
+
+    it('blur() and onBlur only trigger once', () => {
+      const handleBlur = jest.fn();
+      const wrapper = mount(<Component onBlur={handleBlur} />, { attachTo: container });
+      wrapper.instance().focus();
+      jest.runAllTimers();
+      wrapper.instance().blur();
+      jest.runAllTimers();
+      expect(handleBlur).toBeCalledTimes(1);
     });
 
     it('autoFocus', () => {
