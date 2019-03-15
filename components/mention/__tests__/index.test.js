@@ -115,6 +115,9 @@ describe('Mention', () => {
   });
 
   it('check filteredSuggestions', () => {
+    if (process.env.REACT === '15') {
+      return;
+    }
     const wrapper = mount(<Mention defaultSuggestions={[<Mention.Nav value="light" />]} />);
     wrapper.find('DraftEditorContents').simulate('focus');
     const ed = wrapper.find('.public-DraftEditor-content');
