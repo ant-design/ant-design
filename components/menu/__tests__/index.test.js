@@ -539,21 +539,18 @@ describe('Menu', () => {
   });
 
   it('onMouseEnter should work', () => {
-    const event = { target: 'test' };
-    const onMouseEnter = e => {
-      expect(e).toEqual(event);
-    };
-    const wrapper = mount(<Menu onMouseEnter={onMouseEnter} />).instance();
-    wrapper.handleMouseEnter(event);
-  });
-
-  it('onOpenChange should work', () => {
-    const event = [];
-    const onOpenChange = e => {
-      expect(e).toEqual(event);
-    };
-    const wrapper = mount(<Menu onOpenChange={onOpenChange} />).instance();
-    wrapper.handleOpenChange(event);
+    const onMouseEnter = jest.fn();
+    const wrapper = mount(
+      <Menu onMouseEnter={onMouseEnter} defaultSelectedKeys={['test1']}>
+        <Menu.Item key="test1">Navigation One</Menu.Item>
+        <Menu.Item key="test2">Navigation Two</Menu.Item>
+      </Menu>,
+    );
+    wrapper
+      .find('Menu')
+      .at(1)
+      .simulate('mouseenter');
+    expect(onMouseEnter).toHaveBeenCalled();
   });
 
   it('get correct animation type when switched from inline', () => {
