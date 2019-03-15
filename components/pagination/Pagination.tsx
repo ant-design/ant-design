@@ -31,7 +31,7 @@ export interface PaginationProps {
   itemRender?: (
     page: number,
     type: 'page' | 'prev' | 'next' | 'jump-prev' | 'jump-next',
-    originalElement: HTMLElement,
+    originalElement: React.ReactElement<HTMLElement>,
   ) => React.ReactNode;
   role?: string;
 }
