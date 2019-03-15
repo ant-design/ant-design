@@ -46,7 +46,8 @@ subtitle: 导航菜单
 | onClick | 点击 MenuItem 调用此函数 | function({ item, key, keyPath }) | - |
 | onDeselect | 取消选中时调用，仅在 multiple 生效 | function({ item, key, selectedKeys }) | - |
 | onOpenChange | SubMenu 展开/关闭的回调 | function(openKeys: string\[]) | noop |
-| onSelect | 被选中时调用 | function({ item, key, selectedKeys }) | 无   |
+| onSelect | 被选中时调用 | function({ item, key, selectedKeys }) | -   |
+| onMouseEnter | 鼠标移入时调用 | function(e: MouseEvent) | -   |
 
 > More options in [rc-menu](https://github.com/react-component/menu#api)
 
