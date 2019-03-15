@@ -17,6 +17,8 @@ interface CategoryState {
 }
 
 class Category extends React.Component<CategoryProps, CategoryState> {
+  copyId?: number;
+
   state = {
     justCopied: null,
   };
