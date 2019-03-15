@@ -382,25 +382,6 @@ describe('Upload', () => {
     expect(unmountSpy).toHaveBeenCalled();
   });
 
-  it('onFileDrop should work', () => {
-    const wrapper = mount(
-      <Upload>
-        <button type="button">upload</button>
-      </Upload>,
-    ).instance();
-    wrapper.onFileDrop({ type: 'test' });
-    expect(wrapper.state.dragState).toBe('test');
-  });
-
-  it('beforeUpload should work', () => {
-    const wrapper = mount(
-      <Upload>
-        <button type="button">upload</button>
-      </Upload>,
-    ).instance();
-    expect(wrapper.beforeUpload()).toBe(true);
-  });
-
   it('corrent dragCls when type is drag', () => {
     const fileList = [{ status: 'uploading', uid: 'file' }];
     const wrapper = mount(
