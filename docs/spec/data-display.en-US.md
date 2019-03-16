@@ -37,7 +37,7 @@ These components are used extensively in navigation and are also suitable for le
 
 ## Card
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/xtIGZmqUHAovPPKjwyVT.png" description="如页面内容加载过慢时，可采用『预加载』或『分步获取』的方式来缓解用户在等待时间中的焦虑感。">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/xtIGZmqUHAovPPKjwyVT.png" description="If the content of the page is too slow, you can use &quot;preload&quot; or &quot;step-by-step&quot; to alleviate the user's anxiety during waiting time.">
 
 A card is a container for carrying information. There is not too much limit to the types of content that can be carried. It makes a type of information centralized, enhances the sense of block and is easier to operate. Cards are usually arranged in a grid or matrix to convey the hierarchical relationship between each other. Cards are suitable for lighter and more personalized information block display.
 
