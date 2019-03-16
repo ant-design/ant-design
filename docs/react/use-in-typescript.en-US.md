@@ -14,7 +14,7 @@ Ensure your system has installed latest version of [yarn](https://yarnpkg.com) o
 Create a new project named `antd-demo-ts` using yarn.
 
 ```bash
-$ yarn create react-app antd-demo-ts --typescript
+$ yarn create-react-app antd-demo-ts --typescript
 ```
 
 If you are using npm (we will use yarn in the following instructions, it's ok to replace yarn with npm)
