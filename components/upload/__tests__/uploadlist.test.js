@@ -403,4 +403,33 @@ describe('Upload List', () => {
     wrapper.find('.ant-upload-list-item-name').simulate('click');
     expect(onPreview).toBeCalled();
   });
+
+  it('upload image file should be converted to the base64', async () => {
+    const mockFile = new File([''], 'foo.png', {
+      type: 'image/png',
+    });
+
+    const wrapper = mount(
+      <UploadList listType="picture-card" items={fileList} locale={{ uploading: 'uploading' }} />,
+    );
+    const instance = wrapper.instance();
+    const callback = jest.fn();
+    instance.previewFile(mockFile, callback);
+    await delay(100);
+    expect(callback).toBeCalledWith('data:image/png;base64,');
+  });
+
+  it("upload non image file shouldn't be converted to the base64", () => {
+    const mockFile = new File([''], 'foo.7z', {
+      type: 'application/x-7z-compressed',
+    });
+
+    const wrapper = mount(
+      <UploadList listType="picture-card" items={fileList} locale={{ uploading: 'uploading' }} />,
+    );
+    const instance = wrapper.instance();
+    const callback = jest.fn();
+    instance.previewFile(mockFile, callback);
+    expect(callback).toBeCalledWith('');
+  });
 });
