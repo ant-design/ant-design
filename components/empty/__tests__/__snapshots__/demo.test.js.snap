@@ -470,6 +470,7 @@ exports[`renders ./components/empty/demo/customize.md correctly 1`] = `
 >
   <div
     class="ant-empty-image"
+    style="height:200px"
   >
     <img
       alt="empty"
