@@ -2,16 +2,19 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import emptyImg from './empty.svg';
+import defaultEmptyImg from './empty.svg';
+import simpleEmptyImg from './simple.svg';
 
 export interface TransferLocale {
   description: string;
 }
+
+type ImageMode = 'default' | 'simple' | React.ReactNode;
 export interface EmptyProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
-  image?: React.ReactNode;
+  image?: ImageMode;
   description?: React.ReactNode;
   /**
    * @since 3.16.0
@@ -26,7 +29,7 @@ const Empty: React.SFC<EmptyProps> = (props: EmptyProps) => (
       const {
         className,
         prefixCls: customizePrefixCls,
-        image,
+        image = 'default',
         description,
         imageSize,
         children,
@@ -41,22 +44,30 @@ const Empty: React.SFC<EmptyProps> = (props: EmptyProps) => (
             const alt = typeof des === 'string' ? des : 'empty';
 
             let imageNode: React.ReactNode = null;
-            if (!image) {
-              imageNode = <img alt={alt} src={emptyImg} />;
-            } else if (typeof image === 'string') {
-              imageNode = <img alt={alt} src={image} />;
+            if (typeof image === 'string') {
+              switch (image) {
+                case 'default': {
+                  imageNode = <img alt={alt} src={defaultEmptyImg} />;
+                  break;
+                }
+                case 'simple': {
+                  imageNode = <img alt={alt} src={simpleEmptyImg} />;
+                  break;
+                }
+                default: {
+                  imageNode = <img alt={alt} src={image} />;
+                }
+              }
             } else {
               imageNode = image;
             }
 
-            const imageStyle: React.CSSProperties = {};
-            if (imageSize) {
-              imageStyle.height = `${imageSize}px`;
-            }
-
             return (
               <div className={classNames(prefixCls, className)} {...restProps}>
-                <div style={imageStyle} className={`${prefixCls}-image`}>
+                <div
+                  style={imageSize ? { height: `${imageSize}px` } : undefined}
+                  className={`${prefixCls}-image`}
+                >
                   {imageNode}
                 </div>
 
