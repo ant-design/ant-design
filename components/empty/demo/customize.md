@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Customize image source,image size, description and extra content.
+Customize image source, image size, description and extra content.
 
 ```jsx
 import { Empty, Button } from 'antd';
