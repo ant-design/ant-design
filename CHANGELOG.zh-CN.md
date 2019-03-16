@@ -15,6 +15,37 @@ timeline: true
 
 ---
 
+## 3.15.1
+
+`2019-03-17`
+
+- 🌟 添加 less 变量 `@pagination-item-bg-active`。 [#14739](https://github.com/ant-design/ant-design/issues/14739)
+- 🌟 添加 less 变量 `@icon-color`。[#15343](https://github.com/ant-design/ant-design/issues/15343)
+- 🌟 添加两个 less 变量 `@btn-border-width` 和 `@btn-border-style` 来独立控制 Button 的样式。[#15397](https://github.com/ant-design/ant-design/issues/15343) [@searleb](https://github.com/searleb)
+- 🌟 添加 deps lint。[#15343](https://github.com/ant-design/ant-design/issues/15397)
+- 🌟 Modal 组件添加 `Modal.confirm({ icon: null })` 来隐藏默认的 Icon。[#15319](https://github.com/ant-design/ant-design/pull/15319)
+- List
+  - 🐞 保持 List 组件内容颜色与之前的版本一致。[#15296](https://github.com/ant-design/ant-design/issues/15296)
+  - 🐞 修复 List 的一些央视问题。[#15329](https://github.com/ant-design/ant-design/issues/15329)
+- Badge
+  - 🐞 修复 Badge 组件应当支持自定义颜色。[#15349](https://github.com/ant-design/ant-design/issues/15349) [@DiamondYuan](https://github.com/DiamondYuan)
+  - 🐞 修复 Badge 组件内带小圆点时的高度问题。[#15367](https://github.com/ant-design/ant-design/issues/15367)
+- 🐞 修复 Tabs 组件在卡片模式下 tabbar 的样式。[#15297](https://github.com/ant-design/ant-design/issues/15297) [@rinick](https://github.com/rinick)
+- 🐞 修复 Calendar 无法切换类型的问题。[#15334](https://github.com/ant-design/ant-design/issues/15334) [@zy410419243](https://github.com/zy410419243)
+- 🐞 修复 Avatar 组件设置了 `display: none` 的时候无法计算偏移量的问题。[#15351](https://github.com/ant-design/ant-design/pull/15351) [@ppbl](https://github.com/ppbl)
+- 🐞 修复 Input.Password 组件的后置 Icon。[#15369](https://github.com/ant-design/ant-design/issues/15369) [melchior-voidwolf](https://github.com/melchior-voidwolf)
+- 🐞 修复即使在指定 Layout 的 `hasSider` 属性为 `false` 的时候依然会加 `ant-layout-has-sider` 的 classname 的问题[#15396](https://github.com/ant-design/ant-design/pull/15396) [@SoraYama](https://github.com/SoraYama)
+- 🐞 修复 Divider 在 PageHeader 组件中的对齐问题。[#15336](https://github.com/ant-design/ant-design/issues/15336)
+- 🐞 修复 Menu 收缩后，SubMenu 异常渲染的问题。[#15409](https://github.com/ant-design/ant-design/pull/15409) [@zy410419243](https://github.com/zy410419243)
+- 🐞 修复 Skeleton 组件的样式问题。[#15413](https://github.com/ant-design/ant-design/issues/15413) [@Maktel](https://github.com/Maktel)
+- 🐞 修复一个 setTimeout 引起的 warning。[#15434](https://github.com/ant-design/ant-design/pull/15434) [@chiaweilee](https://github.com/chiaweilee)
+- Typescript
+  - 🌟 FormComponentProps 新增 Form 值的范型。[#15355](https://github.com/ant-design/ant-design/pull/15355)
+  - 🌟 导出 ConfigProviderProps 定义。[#15438](https://github.com/ant-design/ant-design/issues/15438) [@DiamondYuan](https://github.com/DiamondYuan) 
+  - 🐞 添加 BreadcrumbItem 的 `onClick` 定义。[#15331](https://github.com/ant-design/ant-design/pull/15331) [tgxpuisb](https://github.com/tgxpuisb) 
+  - 🐞 添加 Steps.Step 组件的 `style` 定义。[#15358](https://github.com/ant-design/ant-design/issues/15358) [@pavolgolias](https://github.com/pavolgolias)
+  - 🐞 修复 PaginationProps 组件 `itemRender` 函数的类型错误。[#15384](https://github.com/ant-design/ant-design/issues/15384) [@DiamondYuan](https://github.com/DiamondYuan)
+
 ## 3.15.0
 
 `2019-03-08`
