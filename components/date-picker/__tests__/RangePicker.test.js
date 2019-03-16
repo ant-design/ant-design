@@ -319,4 +319,21 @@ describe('RangePicker', () => {
     const wrapper = mount(<RangePicker separator="test" />);
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  // https://github.com/ant-design/ant-design/issues/13302
+  it('in "month" mode，left panel and right panel should be the same month', () => {
+    const wrapper = mount(<RangePicker mode={['month', 'month']} />);
+    wrapper.setProps({ value: [moment(), moment()] });
+    expect(
+      wrapper
+        .find('.ant-calendar-range-picker-input')
+        .first()
+        .getDOMNode().value,
+    ).toBe(
+      wrapper
+        .find('.ant-calendar-range-picker-input')
+        .last()
+        .getDOMNode().value,
+    );
+  });
 });

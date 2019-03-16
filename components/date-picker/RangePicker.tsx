@@ -21,7 +21,7 @@ export interface RangePickerState {
   hoverValue?: RangePickerValue;
 }
 
-function getShowDateFromValue(value: RangePickerValue, mode?: string[]) {
+function getShowDateFromValue(value: RangePickerValue, mode?: string | string[]) {
   const [start, end] = value;
   // value could be an empty array, then we should not reset showDate
   if (!start && !end) {
