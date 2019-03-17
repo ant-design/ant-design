@@ -29,6 +29,8 @@ export interface ListGridType {
 
 export type ListSize = 'small' | 'default' | 'large';
 
+export type ListItemLayout = 'horizontal' | 'vertical';
+
 export interface ListProps {
   bordered?: boolean;
   className?: string;
@@ -37,7 +39,7 @@ export interface ListProps {
   extra?: React.ReactNode;
   grid?: ListGridType;
   id?: string;
-  itemLayout?: string;
+  itemLayout?: ListItemLayout;
   loading?: boolean | SpinProps;
   loadMore?: React.ReactNode;
   pagination?: PaginationConfig | false;
