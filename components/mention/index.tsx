@@ -40,7 +40,7 @@ export interface MentionState {
 class Mention extends React.Component<MentionProps, MentionState> {
   static getMentions = getMentions;
   static defaultProps = {
-    notFoundContent: '无匹配结果，轻敲空格完成输入',
+    notFoundContent: 'No matches found',
     loading: false,
     multiLines: false,
     placement: 'bottom' as MentionPlacement,

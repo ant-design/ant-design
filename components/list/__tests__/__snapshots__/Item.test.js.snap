@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List Item Layout horizontal itemLayout List should accept extra node 1`] = `
+<div
+  class="ant-list ant-list-split"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-list-item"
+      >
+        <div
+          class="ant-list-item-meta"
+        >
+          <div
+            class="ant-list-item-meta-content"
+          >
+            <h4
+              class="ant-list-item-meta-title"
+            >
+              <a
+                href="http://ant.design"
+              >
+                ant design
+              </a>
+            </h4>
+            <div
+              class="ant-list-item-meta-description"
+            >
+              Ant Design, a design language for background applications, is refined by Ant UED Team.
+            </div>
+          </div>
+        </div>
+        <ul
+          class="ant-list-item-action"
+        >
+          <li>
+            <a>
+              Action
+            </a>
+          </li>
+        </ul>
+        <span>
+          extra
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

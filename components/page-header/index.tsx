@@ -3,7 +3,8 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Icon from '../icon';
 import classnames from 'classnames';
 import { BreadcrumbProps } from '../breadcrumb';
-import { Divider, Breadcrumb } from '../index';
+import Divider from '../divider';
+import Breadcrumb from '../breadcrumb';
 import Tag from '../tag';
 import Wave from '../_util/wave';
 

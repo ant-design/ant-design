@@ -66,6 +66,7 @@ export default class Item extends React.Component<ListItemProps, any> {
 
   static contextTypes = {
     grid: PropTypes.any,
+    itemLayout: PropTypes.string,
   };
 
   context: any;
@@ -81,8 +82,17 @@ export default class Item extends React.Component<ListItemProps, any> {
     return result;
   }
 
+  isFlexMode() {
+    const { extra } = this.props;
+    const { itemLayout } = this.context;
+    if (itemLayout === 'vertical') {
+      return !!extra;
+    }
+    return !this.isItemContainsTextNode();
+  }
+
   renderItem = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { grid } = this.context;
+    const { grid, itemLayout } = this.context;
     const {
       prefixCls: customizePrefixCls,
       children,
@@ -106,10 +116,10 @@ export default class Item extends React.Component<ListItemProps, any> {
       <div
         {...others}
         className={classNames(`${prefixCls}-item`, className, {
-          [`${prefixCls}-item-no-flex`]: !extra && this.isItemContainsTextNode(),
+          [`${prefixCls}-item-no-flex`]: !this.isFlexMode(),
         })}
       >
-        {extra
+        {itemLayout === 'vertical' && extra
           ? [
               <div className={`${prefixCls}-item-main`} key="content">
                 {children}
@@ -119,7 +129,11 @@ export default class Item extends React.Component<ListItemProps, any> {
                 {extra}
               </div>,
             ]
-          : [children, actionsContent]}
+          : [
+              children,
+              actionsContent,
+              extra ? React.cloneElement(extra as React.ReactElement<any>, { key: 'extra' }) : null,
+            ]}
       </div>
     );
 

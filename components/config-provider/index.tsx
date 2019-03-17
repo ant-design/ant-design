@@ -27,7 +27,7 @@ export const configConsumerProps = [
   'autoInsertSpaceInButton',
 ];
 
-interface ConfigProviderProps {
+export interface ConfigProviderProps {
   getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
   prefixCls?: string;
   children?: React.ReactNode;

@@ -191,6 +191,12 @@
   &-edit-content {
     position: relative;
 
+    div& {
+      left: -@input-padding-horizontal - 1px;
+      margin-top: -@input-padding-vertical-base - 1px;
+      margin-bottom: calc(1em - @input-padding-vertical-base - 2px);
+    }
+
     &-confirm {
       position: absolute;
       right: 10px;

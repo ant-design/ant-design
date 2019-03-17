@@ -37,14 +37,25 @@ export default class Article extends React.Component {
   }
 
   onResourceClick = e => {
-    const cardNode = e.target.closest('.resource-card');
-    if (!window.gtag || !cardNode) {
+    if (!window.gtag) {
       return;
     }
-    window.gtag('event', 'resource', {
-      event_category: 'Download',
-      event_label: cardNode.href,
-    });
+    const cardNode = e.target.closest('.resource-card');
+    if (cardNode) {
+      window.gtag('event', 'resource', {
+        event_category: 'Download',
+        event_label: cardNode.href,
+      });
+    }
+    if (
+      window.location.href.indexOf('docs/react/recommendation') > 0 &&
+      e.target.matches('.markdown > table td > a[href]')
+    ) {
+      window.gtag('event', 'recommendation', {
+        event_category: 'Click',
+        event_label: e.target.href,
+      });
+    }
   };
 
   getArticle(article) {

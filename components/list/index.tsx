@@ -60,6 +60,7 @@ export default class List extends React.Component<ListProps> {
 
   static childContextTypes = {
     grid: PropTypes.any,
+    itemLayout: PropTypes.string,
   };
 
   static defaultProps = {
@@ -94,6 +95,7 @@ export default class List extends React.Component<ListProps> {
   getChildContext() {
     return {
       grid: this.props.grid,
+      itemLayout: this.props.itemLayout,
     };
   }
 
