@@ -109,6 +109,63 @@ describe('List.pagination', () => {
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
   });
 
+  it('should change pageSize via Select', () => {
+    const listData = [];
+    // eslint-disable-next-line no-plusplus
+    for (let i = 0; i < 23; i++) {
+      listData.push({
+        href: 'http://ant.design',
+        title: `ant design part ${i}`,
+        avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+        description:
+          'Ant Design, a design language for background applications, is refined by Ant UED Team.',
+        content:
+          'Ant Design, a design language for background applications, is refined by Ant UED Team.',
+      });
+    }
+    const wrapper = mount(
+      <List
+        itemLayout="vertical"
+        size="large"
+        pagination={{
+          showSizeChanger: true,
+          showQuickJumper: true,
+          defaultPageSize: 3,
+          pageSizeOptions: ['3', '6', '9'],
+          total: 23,
+        }}
+        dataSource={listData}
+        renderItem={item => (
+          <List.Item key={item.title}>
+            <List.Item.Meta
+              title={<a href={item.href}>{item.title}</a>}
+              description={item.description}
+            />
+            {item.content}
+          </List.Item>
+        )}
+      />,
+    );
+    wrapper
+      .find('.ant-pagination-options-size-changer')
+      .first()
+      .simulate('click');
+    wrapper
+      .find('.ant-select-dropdown-menu-item')
+      .at(1)
+      .simulate('click');
+    expect(wrapper.find('.ant-select-selection-selected-value').text()).toEqual('6');
+    wrapper
+      .find('.ant-pagination-options-size-changer')
+      .first()
+      .simulate('click');
+    wrapper
+      .find('.ant-select-dropdown-menu-item')
+      .at(2)
+      .simulate('click');
+    expect(wrapper.find('.ant-select-selection-selected-value').text()).toEqual('9');
+  });
+
   // https://github.com/ant-design/ant-design/issues/5259
   it('change to correct page when data source changes', () => {
     const wrapper = mount(createList({ pagination: { pageSize: 1 } }));
