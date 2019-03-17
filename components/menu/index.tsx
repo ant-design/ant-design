@@ -54,6 +54,7 @@ export interface MenuProps {
   focusable?: boolean;
   onMouseEnter?: (e: MouseEvent) => void;
   getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
+  overflowedIndicator?: React.ReactNode;
 }
 
 export interface MenuState {
