@@ -415,7 +415,7 @@ describe('Upload List', () => {
     const instance = wrapper.instance();
     const callback = jest.fn();
     instance.previewFile(mockFile, callback);
-    await delay(100);
+    await delay(300);
     expect(callback).toBeCalledWith('data:image/png;base64,');
   });
 
