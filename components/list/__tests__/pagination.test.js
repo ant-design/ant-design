@@ -154,7 +154,7 @@ describe('List.pagination', () => {
       .find('.ant-select-dropdown-menu-item')
       .at(1)
       .simulate('click');
-    expect(wrapper.find('.ant-select-selection-selected-value').text()).toEqual('6');
+    expect(wrapper.find('.ant-select-selection-selected-value').text()).toEqual('6 / page');
     wrapper
       .find('.ant-pagination-options-size-changer')
       .first()
@@ -163,7 +163,7 @@ describe('List.pagination', () => {
       .find('.ant-select-dropdown-menu-item')
       .at(2)
       .simulate('click');
-    expect(wrapper.find('.ant-select-selection-selected-value').text()).toEqual('9');
+    expect(wrapper.find('.ant-select-selection-selected-value').text()).toEqual('9 / page');
   });
 
   // https://github.com/ant-design/ant-design/issues/5259
