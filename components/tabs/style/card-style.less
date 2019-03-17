@@ -24,11 +24,10 @@
   }
   &&-card &-card-bar &-tab-active {
     height: @tabs-card-height;
-    padding-bottom: 1px;
     color: @tabs-card-active-color;
     background: @component-background;
     border-color: @border-color-split;
-    border-bottom: 0;
+    border-bottom: @border-width-base solid @component-background;
   }
   &&-card &-card-bar &-tab-inactive {
     padding: 0;
