@@ -110,6 +110,9 @@ describe('List.pagination', () => {
   });
 
   it('should change pageSize via Select', () => {
+    if (process.env.REACT === '15') {
+      return;
+    }
     const listData = [];
     // eslint-disable-next-line no-plusplus
     for (let i = 0; i < 23; i++) {
@@ -150,6 +153,7 @@ describe('List.pagination', () => {
       .find('.ant-pagination-options-size-changer')
       .first()
       .simulate('click');
+    expect(wrapper.find('.ant-select-dropdown-menu-item')).toHaveLength(3);
     wrapper
       .find('.ant-select-dropdown-menu-item')
       .at(1)
