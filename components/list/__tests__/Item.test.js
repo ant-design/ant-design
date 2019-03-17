@@ -3,15 +3,19 @@ import { mount } from 'enzyme';
 import List from '..';
 
 describe('List Item Layout', () => {
-  const data = [{
-    key: 1,
-    href: 'http://ant.design',
-    title: `ant design`,
-    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-    description: 'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-    content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
-    extra: 'extra',
-  }];
+  const data = [
+    {
+      key: 1,
+      href: 'http://ant.design',
+      title: `ant design`,
+      avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+      description:
+        'Ant Design, a design language for background applications, is refined by Ant UED Team.',
+      content:
+        'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
+      extra: 'extra',
+    },
+  ];
 
   it('horizontal itemLayout List which contains string nodes should not be flex container', () => {
     const wrapper = mount(
@@ -22,9 +26,14 @@ describe('List Item Layout', () => {
             I am <span>ant</span> design list item
           </List.Item>
         )}
-      />
+      />,
     );
-    expect(wrapper.find('.ant-list-item').at(0).hasClass('ant-list-item-no-flex')).toBe(true);
+    expect(
+      wrapper
+        .find('.ant-list-item')
+        .at(0)
+        .hasClass('ant-list-item-no-flex'),
+    ).toBe(true);
   });
 
   it('horizontal itemLayout List should be flex container defaultly', () => {
@@ -39,9 +48,14 @@ describe('List Item Layout', () => {
             />
           </List.Item>
         )}
-      />
+      />,
     );
-    expect(wrapper.find('.ant-list-item').at(0).hasClass('ant-list-item-no-flex')).toBe(false);
+    expect(
+      wrapper
+        .find('.ant-list-item')
+        .at(0)
+        .hasClass('ant-list-item-no-flex'),
+    ).toBe(false);
   });
 
   it('vertical itemLayout List should be flex container when there is extra node', () => {
@@ -57,9 +71,14 @@ describe('List Item Layout', () => {
             />
           </List.Item>
         )}
-      />
+      />,
     );
-    expect(wrapper.find('.ant-list-item').at(0).hasClass('ant-list-item-no-flex')).toBe(false);
+    expect(
+      wrapper
+        .find('.ant-list-item')
+        .at(0)
+        .hasClass('ant-list-item-no-flex'),
+    ).toBe(false);
   });
 
   it('vertical itemLayout List should not be flex container when there is not extra node', () => {
@@ -75,9 +94,14 @@ describe('List Item Layout', () => {
             />
           </List.Item>
         )}
-      />
+      />,
     );
-    expect(wrapper.find('.ant-list-item').at(0).hasClass('ant-list-item-no-flex')).toBe(true);
+    expect(
+      wrapper
+        .find('.ant-list-item')
+        .at(0)
+        .hasClass('ant-list-item-no-flex'),
+    ).toBe(true);
   });
 
   it('horizontal itemLayout List should accept extra node', () => {
@@ -92,7 +116,7 @@ describe('List Item Layout', () => {
             />
           </List.Item>
         )}
-      />
+      />,
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
