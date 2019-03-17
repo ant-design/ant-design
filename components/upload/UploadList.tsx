@@ -16,7 +16,7 @@ const extname = (url: string) => {
   const filenameWithoutSuffix = filename.split(/#|\?/)[0];
   return (/\.[^./\\]*$/.exec(filenameWithoutSuffix) || [''])[0];
 };
-const isImageFileType = (type: string): boolean => !!type && type.startsWith('image/');
+const isImageFileType = (type: string): boolean => !!type && type.indexOf('image/') === 0;
 const isImageUrl = (file: UploadFile): boolean => {
   if (isImageFileType(file.type)) {
     return true;

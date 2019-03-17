@@ -279,7 +279,7 @@ describe('Upload List', () => {
         uid: '-12',
         url:
           'https://publish-pic-cpu.baidu.com/1296beb3-50d9-4276-885f-52645cbb378e.jpeg@w_228%2ch_152',
-        type: 'image',
+        type: 'image/png',
       },
     ];
 
