@@ -197,9 +197,11 @@ export default class List extends React.Component<ListProps> {
       ...(pagination || {}),
     };
 
-    const largestPage = Math.ceil(
-      paginationProps.total / (paginationProps.pageSize || paginationProps.defaultPageSize),
-    );
+    const pageSize =
+      typeof paginationProps.pageSize === 'number'
+        ? paginationProps.pageSize
+        : paginationProps.defaultPageSize;
+    const largestPage = Math.ceil(paginationProps.total / pageSize);
     if (paginationProps.current > largestPage) {
       paginationProps.current = largestPage;
     }
@@ -211,15 +213,10 @@ export default class List extends React.Component<ListProps> {
 
     let splitDataSource = [...dataSource];
     if (pagination) {
-      if (
-        dataSource.length >
-        (paginationProps.current - 1) *
-          (paginationProps.pageSize || paginationProps.defaultPageSize)
-      ) {
+      if (dataSource.length > (paginationProps.current - 1) * pageSize) {
         splitDataSource = [...dataSource].splice(
-          (paginationProps.current - 1) *
-            (paginationProps.pageSize || paginationProps.defaultPageSize),
-          paginationProps.pageSize,
+          (paginationProps.current - 1) * pageSize,
+          pageSize,
         );
       }
     }
