@@ -60,17 +60,6 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
       !this.state.avatarDisplay
     ) {
       this.setScale();
-      if (this.avatarChildren && this.avatarChildren.offsetWidth !== 0) {
-        this.setState({
-          avatarDisplay: true,
-        });
-      }
-    } else {
-      if (this.avatarChildren && this.avatarChildren.offsetWidth === 0 && this.state.scale === 1) {
-        this.setState({
-          avatarDisplay: false,
-        });
-      }
     }
 
     if (prevProps.src !== this.props.src) {
@@ -89,12 +78,18 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
       if (avatarWidth - 8 < childrenWidth) {
         this.setState({
           scale: (avatarWidth - 8) / childrenWidth,
+          avatarDisplay: true,
         });
       } else {
         this.setState({
           scale: 1,
+          avatarDisplay: true,
         });
       }
+    } else if (this.state.avatarDisplay) {
+      this.setState({
+        avatarDisplay: false,
+      });
     }
   };
 
