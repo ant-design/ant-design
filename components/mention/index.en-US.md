@@ -38,7 +38,7 @@ When need to mention someone or something.
 | getSuggestionContainer | rendered to the root of the menu. Default rendered to the body dom. If gets any problem of the menu while scrolling. Try to make the root the dom scrolled, and make it position relative. | function | () => document.body |
 | loading | loading mode | boolean | false |
 | multiLines | multilines mode | boolean | false |
-| notFoundContent | suggestion when suggestions empty | string | '无匹配结果，轻敲空格完成输入' |
+| notFoundContent | suggestion when suggestions empty | string | 'No matches found' |
 | placeholder | placeholder of input | string | null |
 | placement | The position of the suggestion relative to the target, which can be one of `top` and `bottom` | string | 'bottom'. |
 | prefix | character which will trigger Mention to show mention list | string or Array&lt;string> | '@' |
