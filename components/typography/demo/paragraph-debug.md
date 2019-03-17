@@ -40,24 +40,6 @@ ReactDOM.render(
         <li><a href="/docs/resource/download">Resource Download</a></li>
       </ul>
     </Paragraph>
-
-    <Title>Introduction</Title>
-    <Paragraph>
-      With the trend of technology incorporating into our daily lives products now have the users experience as a primary focus.
-      The ultimate goal of Ant Design is to improve the user experience. Ant Design has gradually polished out a design system for enterprise-level products. Ant Design is based on <Text mark>fluid and natural</Text> design values, base on modular design patterns, with the goal of reducing redundant design costs, allowing designers to focus on a <Text strong>better user experience</Text>.
-    </Paragraph>
-    <Title level={2}>Design resources</Title>
-    <Paragraph>
-      We provide comprehensive design principles, best practices, and design resource documentation (<Text code>Sketch</Text> and <Text code>Axure</Text>)，to help the business quickly design high quality product prototypes.
-    </Paragraph>
-
-    <Paragraph>
-      <ul>
-        <li><a href="/docs/spec/proximity">Design Principles</a></li>
-        <li><a href="/docs/pattern/navigation">Design Patterns</a></li>
-        <li><a href="/docs/resource/download">Design Resources</a></li>
-      </ul>
-    </Paragraph>
   </div>,
   mountNode
 );
