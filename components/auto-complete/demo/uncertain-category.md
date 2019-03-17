@@ -41,7 +41,7 @@ function searchResult(query) {
 function renderOption(item) {
   return (
     <Option key={item.category} text={item.category}>
-      {item.query} 在
+      Found {item.query} on  
       <a
         href={`https://s.taobao.com/search?q=${item.query}`}
         target="_blank"
@@ -49,8 +49,7 @@ function renderOption(item) {
       >
         {item.category}
       </a>
-      区块中
-      <span className="global-search-item-count">约 {item.count} 个结果</span>
+      <span className="global-search-item-count">{item.count} results</span>
     </Option>
   );
 }
