@@ -404,7 +404,7 @@ describe('Upload List', () => {
     expect(onPreview).toBeCalled();
   });
 
-  it('upload image file should be converted to the base64', async () => {
+  it('upload image file should be converted to the base64', done => {
     const mockFile = new File([''], 'foo.png', {
       type: 'image/png',
     });
@@ -413,10 +413,11 @@ describe('Upload List', () => {
       <UploadList listType="picture-card" items={fileList} locale={{ uploading: 'uploading' }} />,
     );
     const instance = wrapper.instance();
-    const callback = jest.fn();
+    const callback = dataUrl => {
+      expect(dataUrl).toEqual('data:image/png;base64,');
+      done();
+    };
     instance.previewFile(mockFile, callback);
-    await delay(300);
-    expect(callback).toBeCalledWith('data:image/png;base64,');
   });
 
   it("upload non image file shouldn't be converted to the base64", () => {
