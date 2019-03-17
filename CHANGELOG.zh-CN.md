@@ -19,17 +19,16 @@ timeline: true
 
 `2019-03-17`
 
-- 🌟 添加了四个 less 变量 `@pagination-item-bg-active`、`@icon-color`、`@btn-border-width` 以及 `@btn-border-style`。 [#15302](https://github.com/ant-design/ant-design/pull/15302)、[#15345](https://github.com/ant-design/ant-design/pull/15345)、[#15397](https://github.com/ant-design/ant-design/pull/15397) [@searleb](https://github.com/searleb)
-- 🌟 修复 PageHeader tree shaking 失效的问题。[#15354](https://github.com/ant-design/ant-design/pull/15354)
-- 🌟 Modal 组件添加 `Modal.confirm({ icon: null })` 来隐藏默认的 Icon。[#15319](https://github.com/ant-design/ant-design/pull/15319)
+- 🌟 补充了 less 变量 `@pagination-item-bg-active`、`@icon-color`。 [#15302](https://github.com/ant-design/ant-design/pull/15302) [#15345](https://github.com/ant-design/ant-design/pull/15345)
+- 🐞 修复引入 PageHeader 导致 tree shaking 失效的问题。[#15354](https://github.com/ant-design/ant-design/pull/15354)
 - List
-  - 🐞 保持 List 组件内容颜色与之前的版本一致。[#15301](https://github.com/ant-design/ant-design/pull/15301)
   - 🐞 修复 List 的一些样式问题。[#15328](https://github.com/ant-design/ant-design/pull/15328)
+  - 🐞 保持 List 组件内容颜色与之前的版本一致。[#15301](https://github.com/ant-design/ant-design/pull/15301)
+- 🐞 修复 Calendar 无法切换类型的问题。[#15338](https://github.com/ant-design/ant-design/pull/15338) [@zy410419243](https://github.com/zy410419243)
 - Badge
   - 🐞 修复 Badge 组件不支持自定义颜色的问题。[#15356](https://github.com/ant-design/ant-design/pull/15356)  [@DiamondYuan](https://github.com/DiamondYuan)
   - 🐞 修复 Badge 组件内带小圆点时的高度问题。[#15395](https://github.com/ant-design/ant-design/pull/15395)
-- 🐞 修复 Tabs 组件在卡片模式下 tabbar 的样式。[#15299](https://github.com/ant-design/ant-design/pull/15299) [@rinick](https://github.com/rinick)
-- 🐞 修复 Calendar 无法切换类型的问题。[#15338](https://github.com/ant-design/ant-design/pull/15338) [@zy410419243](https://github.com/zy410419243)
+- 🐞 微调 Tabs 标签模式在浏览器放大时丢失边框的问题。[#15299](https://github.com/ant-design/ant-design/pull/15299) [@rinick](https://github.com/rinick)
 - 🐞 修复 Avatar 组件设置了 `display: none` 的时候无法计算偏移量的问题。[#15351](https://github.com/ant-design/ant-design/pull/15351) [@ppbl](https://github.com/ppbl)
 - 🐞 修复 Input.Password 组件的后置 Icon。[#15381](https://github.com/ant-design/ant-design/pull/15381) [@melchior-voidwolf](https://github.com/melchior-voidwolf)
 - 🐞 修复 Layout 即使在 `hasSider` 属性为 `false` 的时候依然会加 `ant-layout-has-sider` 的 classname 的问题[#15396](https://github.com/ant-design/ant-design/pull/15396) [@SoraYama](https://github.com/SoraYama)
@@ -39,7 +38,7 @@ timeline: true
 - 调整了多处 Typescript 类型
   - 🌟 FormComponentProps 新增 Form 值的范型。[#15355](https://github.com/ant-design/ant-design/pull/15355)
   - 🌟 导出 ConfigProviderProps 定义。[#15446](https://github.com/ant-design/ant-design/pull/15446) [@DiamondYuan](https://github.com/DiamondYuan)
-  - 🐞 添加 Breadcrumb.Item 的 `onClick` 定义。[#15331](https://github.com/ant-design/ant-design/pull/15331) [@tgxpuisb](https://github.com/tgxpuisb) 
+  - 🐞 添加 Breadcrumb.Item 的 `onClick` 定义。[#15331](https://github.com/ant-design/ant-design/pull/15331) [@tgxpuisb](https://github.com/tgxpuisb)
   - 🐞 添加 Steps.Step 组件的 `style` 定义。[#15393](https://github.com/ant-design/ant-design/pull/15393) [@pavolgolias](https://github.com/pavolgolias)
   - 🐞 修复 PaginationProps 组件 `itemRender` 函数的类型错误。[#15428](https://github.com/ant-design/ant-design/pull/15428) [@DiamondYuan](https://github.com/DiamondYuan)
 
