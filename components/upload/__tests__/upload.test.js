@@ -379,7 +379,6 @@ describe('Upload', () => {
     );
     const clearIntervalSpy = jest.spyOn(global, 'clearInterval');
     expect(clearIntervalSpy).not.toHaveBeenCalled();
-    clearIntervalSpy.mockRestore();
     wrapper.unmount();
     expect(clearIntervalSpy).toHaveBeenCalled();
     clearIntervalSpy.mockRestore();
