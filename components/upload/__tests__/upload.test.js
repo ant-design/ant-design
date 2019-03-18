@@ -377,9 +377,10 @@ describe('Upload', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    const unmountSpy = jest.spyOn(global, 'clearInterval');
+    const clearIntervalSpy = jest.spyOn(global, 'clearInterval');
+    expect(clearIntervalSpy).not.toHaveBeenCalled();
     wrapper.unmount();
-    expect(unmountSpy).toHaveBeenCalled();
+    expect(clearIntervalSpy).toHaveBeenCalled();
   });
 
   it('corrent dragCls when type is drag', () => {
