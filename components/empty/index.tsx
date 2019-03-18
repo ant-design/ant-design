@@ -75,7 +75,7 @@ export default class Empty extends React.Component<EmptyProps, any> {
     return (
       <ConfigConsumer>
         {(configArgument: ConfigConsumerProps) => (
-          <LocaleReceiver>
+          <LocaleReceiver componentName="Empty">
             {(locale: TransferLocale) => this.renderEmpty(configArgument, locale)}
           </LocaleReceiver>
         )}

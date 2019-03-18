@@ -22,5 +22,4 @@ When there is no data provided, display for friendly tips.
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | description | Customize description | string \| ReactNode | - |
-| imageSize | image size | number | - |
-| image | Customize image. Will tread as image url when string provided. since 3.16.0,you can choose another style of image by setting image to 'simple'. | string \| ReactNode | false |
+| image | Customize image. Will tread as image url when string provided. since 3.16.0,you can choose another style of image by setting image to `Empty.PRESENTED_IMAGE_SIMPLE`. | string \| { src:string , style:React.CSSProperties } \| ReactNode | false |

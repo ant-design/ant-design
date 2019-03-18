@@ -10,13 +10,13 @@ const renderEmpty = (componentName?: string): React.ReactNode => (
       switch (componentName) {
         case 'Table':
         case 'List':
-          return <Empty image="simple" className={`${prefix}-normal`} />;
+          return <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} className={`${prefix}-normal`} />;
 
         case 'Select':
         case 'TreeSelect':
         case 'Cascader':
         case 'Transfer':
-          return <Empty image="simple" className={`${prefix}-small`} />;
+          return <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} className={`${prefix}-small`} />;
         default:
           return <Empty />;
       }
