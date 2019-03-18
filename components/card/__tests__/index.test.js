@@ -104,4 +104,13 @@ describe('Card', () => {
     const wrapper = mount(<Card noHovering={false}>xxx</Card>);
     expect(wrapper.find('.ant-card-hoverable').length).toBe(1);
   });
+
+  it('should not render when actions is number', () => {
+    const wrapper = mount(
+      <Card title="Card title" actions={11}>
+        <p>Card content</p>
+      </Card>,
+    );
+    expect(wrapper.find('.ant-card-actions').length).toBe(0);
+  });
 });

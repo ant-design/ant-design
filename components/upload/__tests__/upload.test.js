@@ -377,7 +377,7 @@ describe('Upload', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    const unmountSpy = jest.spyOn(wrapper.instance(), 'componentWillUnmount');
+    const unmountSpy = jest.spyOn(global, 'clearInterval');
     wrapper.unmount();
     expect(unmountSpy).toHaveBeenCalled();
   });
