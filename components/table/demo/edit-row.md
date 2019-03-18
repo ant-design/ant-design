@@ -3,7 +3,6 @@ order: 23
 title:
   en-US: Editable Rows
   zh-CN: 可编辑行
-only: true
 ---
 
 ## zh-CN
