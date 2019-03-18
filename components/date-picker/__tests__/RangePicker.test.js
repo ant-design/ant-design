@@ -321,7 +321,7 @@ describe('RangePicker', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/13302
-  it('in "month" mode，left panel and right panel should be the same month', () => {
+  it('in "month" mode，left panel and right panel could be the same month', () => {
     const wrapper = mount(<RangePicker mode={['month', 'month']} />);
     wrapper.setProps({ value: [moment(), moment()] });
     expect(

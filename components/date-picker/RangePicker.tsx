@@ -27,10 +27,10 @@ function getShowDateFromValue(value: RangePickerValue, mode?: string | string[])
   if (!start && !end) {
     return;
   }
-  const newEnd = end && end.isSame(start, 'month') ? end.clone().add(1, 'month') : end;
   if (mode && mode[0] === 'month') {
     return [start, end] as RangePickerValue;
   } else {
+    const newEnd = end && end.isSame(start, 'month') ? end.clone().add(1, 'month') : end;
     return [start, newEnd] as RangePickerValue;
   }
 }
