@@ -38,7 +38,7 @@ export default class Empty extends React.Component<EmptyProps, any> {
           const {
             className,
             prefixCls: customizePrefixCls,
-            image = defaultEmptyImg,
+            image = Empty.PRESENTED_IMAGE_DEFAULT,
             description,
             children,
             ...restProps
@@ -58,7 +58,7 @@ export default class Empty extends React.Component<EmptyProps, any> {
                   imageNode = <img alt={alt} src={image} />;
                 } else if (!React.isValidElement(image)) {
                   const { src, style } = image;
-                  imageNode = <img alt={alt} src={src || defaultEmptyImg} />;
+                  imageNode = <img alt={alt} src={src || Empty.PRESENTED_IMAGE_DEFAULT} />;
                   imageStyle = style;
                 } else {
                   imageNode = image;
