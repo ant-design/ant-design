@@ -31,54 +31,54 @@ export default class Empty extends React.Component<EmptyProps, any> {
 
   static PRESENTED_IMAGE_SIMPLE = simpleEmptyImg;
 
+  renderEmpty = ({ getPrefixCls }: ConfigConsumerProps, locale: TransferLocale) => {
+    const {
+      className,
+      prefixCls: customizePrefixCls,
+      image = Empty.PRESENTED_IMAGE_DEFAULT,
+      description,
+      children,
+      ...restProps
+    } = this.props;
+
+    const prefixCls = getPrefixCls('empty', customizePrefixCls);
+    const des = description || locale.description;
+    const alt = typeof des === 'string' ? des : 'empty';
+
+    let imageNode: React.ReactNode = null;
+    let imageStyle: React.CSSProperties = {};
+
+    if (typeof image === 'string') {
+      imageNode = <img alt={alt} src={image} />;
+    } else if (!React.isValidElement(image)) {
+      const { src, style } = image;
+      imageNode = <img alt={alt} src={src || Empty.PRESENTED_IMAGE_DEFAULT} />;
+      imageStyle = style;
+    } else {
+      imageNode = image;
+    }
+
+    return (
+      <div className={classNames(prefixCls, className)} {...restProps}>
+        <div className={`${prefixCls}-image`} style={imageStyle}>
+          {imageNode}
+        </div>
+
+        <p className={`${prefixCls}-description`}>{des}</p>
+
+        {children && <div className={`${prefixCls}-footer`}>{children}</div>}
+      </div>
+    );
+  };
+
   render() {
     return (
       <ConfigConsumer>
-        {({ getPrefixCls }: ConfigConsumerProps) => {
-          const {
-            className,
-            prefixCls: customizePrefixCls,
-            image = Empty.PRESENTED_IMAGE_DEFAULT,
-            description,
-            children,
-            ...restProps
-          } = this.props;
-          const prefixCls = getPrefixCls('empty', customizePrefixCls);
-
-          return (
-            <LocaleReceiver componentName="Empty">
-              {(locale: TransferLocale) => {
-                const des = description || locale.description;
-                const alt = typeof des === 'string' ? des : 'empty';
-
-                let imageNode: React.ReactNode = null;
-                let imageStyle: React.CSSProperties = {};
-
-                if (typeof image === 'string') {
-                  imageNode = <img alt={alt} src={image} />;
-                } else if (!React.isValidElement(image)) {
-                  const { src, style } = image;
-                  imageNode = <img alt={alt} src={src || Empty.PRESENTED_IMAGE_DEFAULT} />;
-                  imageStyle = style;
-                } else {
-                  imageNode = image;
-                }
-
-                return (
-                  <div className={classNames(prefixCls, className)} {...restProps}>
-                    <div className={`${prefixCls}-image`} style={imageStyle}>
-                      {imageNode}
-                    </div>
-
-                    <p className={`${prefixCls}-description`}>{des}</p>
-
-                    {children && <div className={`${prefixCls}-footer`}>{children}</div>}
-                  </div>
-                );
-              }}
-            </LocaleReceiver>
-          );
-        }}
+        {(configArgument: ConfigConsumerProps) => (
+          <LocaleReceiver>
+            {(locale: TransferLocale) => this.renderEmpty(configArgument, locale)}
+          </LocaleReceiver>
+        )}
       </ConfigConsumer>
     );
   }
