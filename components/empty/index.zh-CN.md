@@ -23,4 +23,5 @@ cols: 1
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | description | 自定义描述内容 | string \| ReactNode | - |
-| image | 设置显示图片，为 string 时表示自定义图片地址。在 3.16.0 后，可以设置为 `Empty.PRESENTED_IMAGE_SIMPLE` 选择另一种风格的内置图片 | string \|{ src:string, style:React.CSSProperties }\| ReactNode | default |
+| imageStyle | 图片样式 | 同 style | - |
+| image | 设置显示图片，为 string 时表示自定义图片地址。在 3.16.0 后，可以设置为 `Empty.PRESENTED_IMAGE_SIMPLE` 选择另一种风格的内置图片 | string \| ReactNode | `Empty.PRESENTED_IMAGE_DEFAULT` |
