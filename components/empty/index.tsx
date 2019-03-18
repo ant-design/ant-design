@@ -9,19 +9,12 @@ export interface TransferLocale {
   description: string;
 }
 
-type ImageType =
-  | string
-  | {
-      src?: string;
-      style?: React.CSSProperties;
-    }
-  | React.ReactNode;
-
 export interface EmptyProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
-  image?: ImageType;
+  imageStyle?: React.CSSProperties;
+  image?: React.ReactNode;
   description?: React.ReactNode;
   children?: React.ReactNode;
 }
@@ -38,6 +31,7 @@ export default class Empty extends React.Component<EmptyProps, any> {
       image = Empty.PRESENTED_IMAGE_DEFAULT,
       description,
       children,
+      imageStyle,
       ...restProps
     } = this.props;
 
@@ -46,14 +40,9 @@ export default class Empty extends React.Component<EmptyProps, any> {
     const alt = typeof des === 'string' ? des : 'empty';
 
     let imageNode: React.ReactNode = null;
-    let imageStyle: React.CSSProperties = {};
 
     if (typeof image === 'string') {
       imageNode = <img alt={alt} src={image} />;
-    } else if (!React.isValidElement(image)) {
-      const { src, style } = image;
-      imageNode = <img alt={alt} src={src || Empty.PRESENTED_IMAGE_DEFAULT} />;
-      imageStyle = style;
     } else {
       imageNode = image;
     }

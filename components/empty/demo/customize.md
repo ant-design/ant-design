@@ -18,12 +18,9 @@ import { Empty, Button } from 'antd';
 
 ReactDOM.render(
   <Empty
-    image={{
-      src:
-        'https://gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original',
-      style: {
+    image="https://gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original"
+    imageStyle={{
         height: '200px',
-      },
     }}
     description={
       <span>
