@@ -22,56 +22,59 @@ export interface EmptyProps {
   children?: React.ReactNode;
 }
 
-export default class Empty extends React.Component<EmptyProps, any> {
-  static PRESENTED_IMAGE_DEFAULT = defaultEmptyImg;
+const OriginEmpty: React.SFC<EmptyProps> = (props: EmptyProps) => (
+  <ConfigConsumer>
+    {({ getPrefixCls }: ConfigConsumerProps) => {
+      const {
+        className,
+        prefixCls: customizePrefixCls,
+        image = defaultEmptyImg,
+        description,
+        children,
+        imageStyle,
+        ...restProps
+      } = props;
 
-  static PRESENTED_IMAGE_SIMPLE = simpleEmptyImg;
+      return (
+        <LocaleReceiver componentName="Empty">
+          {(locale: TransferLocale) => {
+            const prefixCls = getPrefixCls('empty', customizePrefixCls);
+            const des = description || locale.description;
+            const alt = typeof des === 'string' ? des : 'empty';
 
-  renderEmpty = ({ getPrefixCls }: ConfigConsumerProps, locale: TransferLocale) => {
-    const {
-      className,
-      prefixCls: customizePrefixCls,
-      image = Empty.PRESENTED_IMAGE_DEFAULT,
-      description,
-      children,
-      imageStyle,
-      ...restProps
-    } = this.props;
+            let imageNode: React.ReactNode = null;
 
-    const prefixCls = getPrefixCls('empty', customizePrefixCls);
-    const des = description || locale.description;
-    const alt = typeof des === 'string' ? des : 'empty';
+            if (typeof image === 'string') {
+              imageNode = <img alt={alt} src={image} />;
+            } else {
+              imageNode = image;
+            }
 
-    let imageNode: React.ReactNode = null;
+            return (
+              <div className={classNames(prefixCls, className)} {...restProps}>
+                <div className={`${prefixCls}-image`} style={imageStyle}>
+                  {imageNode}
+                </div>
 
-    if (typeof image === 'string') {
-      imageNode = <img alt={alt} src={image} />;
-    } else {
-      imageNode = image;
-    }
+                <p className={`${prefixCls}-description`}>{des}</p>
 
-    return (
-      <div className={classNames(prefixCls, className)} {...restProps}>
-        <div className={`${prefixCls}-image`} style={imageStyle}>
-          {imageNode}
-        </div>
+                {children && <div className={`${prefixCls}-footer`}>{children}</div>}
+              </div>
+            );
+          }}
+        </LocaleReceiver>
+      );
+    }}
+  </ConfigConsumer>
+);
 
-        <p className={`${prefixCls}-description`}>{des}</p>
+type EmptyType = typeof OriginEmpty & {
+  PRESENTED_IMAGE_DEFAULT: string;
+  PRESENTED_IMAGE_SIMPLE: string;
+};
 
-        {children && <div className={`${prefixCls}-footer`}>{children}</div>}
-      </div>
-    );
-  };
+const Empty: EmptyType = OriginEmpty as EmptyType;
+Empty.PRESENTED_IMAGE_DEFAULT = defaultEmptyImg;
+Empty.PRESENTED_IMAGE_SIMPLE = simpleEmptyImg;
 
-  render() {
-    return (
-      <ConfigConsumer>
-        {(configArgument: ConfigConsumerProps) => (
-          <LocaleReceiver componentName="Empty">
-            {(locale: TransferLocale) => this.renderEmpty(configArgument, locale)}
-          </LocaleReceiver>
-        )}
-      </ConfigConsumer>
-    );
-  }
-}
+export default Empty;
