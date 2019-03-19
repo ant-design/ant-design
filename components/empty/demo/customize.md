@@ -20,7 +20,7 @@ ReactDOM.render(
   <Empty
     image="https://gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original"
     imageStyle={{
-        height: '200px',
+      height: 200,
     }}
     description={
       <span>
