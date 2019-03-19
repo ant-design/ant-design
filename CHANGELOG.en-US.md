@@ -20,7 +20,7 @@ timeline: true
 `2019-03-17`
 
 - 🌟 Add four less variables `@pagination-item-bg-active`, `@icon-color`. [#15302](https://github.com/ant-design/ant-design/pull/15302) [#15343](https://github.com/ant-design/ant-design/issues/15343)
-- 🐞 Fix tree shaking not working for importing PageHeader. [#15354](https://github.com/ant-design/ant-design/pull/15354)
+- 🐞 Fix tree-shaking not working for importing PageHeader. [#15354](https://github.com/ant-design/ant-design/pull/15354)
 - List
   - 🐞 Fix some List Item styling issues. [#15328](https://github.com/ant-design/ant-design/pull/15328)
   - 🐞 Keep same content color of List like previous version. [#15301](https://github.com/ant-design/ant-design/pull/15301)
