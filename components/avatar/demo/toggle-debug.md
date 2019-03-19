@@ -19,7 +19,7 @@ import { Avatar, Button } from 'antd';
 
 class App extends React.Component {
   state = {
-    hide: false,
+    hide: true,
     size: 'large',
   };
 

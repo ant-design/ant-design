@@ -446,12 +446,20 @@ exports[`renders ./components/avatar/demo/toggle-debug.md correctly 1`] = `
     type="button"
   >
     <span>
-      Toggle Avatar
+      Toggle Avatar visibility
+    </span>
+  </button>
+  <button
+    class="ant-btn"
+    type="button"
+  >
+    <span>
+      Toggle Avatar size
     </span>
   </button>
   <span
     class="ant-avatar ant-avatar-lg ant-avatar-circle"
-    style="background:#7265e6;display:"
+    style="background:#7265e6;display:none"
   >
     <span
       class="ant-avatar-string"
@@ -461,14 +469,14 @@ exports[`renders ./components/avatar/demo/toggle-debug.md correctly 1`] = `
   </span>
   <span
     class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image"
-    style="background:#00a2ae;display:"
+    style="background:#00a2ae;display:none"
   >
     <img
       src="invalid"
     />
   </span>
   <div
-    style="display:"
+    style="display:none"
   >
     <span
       class="ant-avatar ant-avatar-lg ant-avatar-circle"
