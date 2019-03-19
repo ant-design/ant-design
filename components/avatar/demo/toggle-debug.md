@@ -37,14 +37,14 @@ class App extends React.Component {
           Avatar
         </Avatar>
         <Avatar size="large" src="invalid" style={{ background: '#00a2ae', display: hide ? 'none' : '' }}>
-          Invalid src
+          Invalid
         </Avatar>
         <div style={{ display: hide ? 'none' : '' }}>
           <Avatar size="large" style={{ background: '#7265e6' }}>
             Avatar
           </Avatar>
           <Avatar size="large" src="invalid" style={{ background: '#00a2ae' }}>
-            Invalid src
+            Invalid
           </Avatar>
         </div>
       </div>
