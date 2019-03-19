@@ -12,6 +12,12 @@ cols: 1
 
 当目前没有数据时，用于显式的用户提示。
 
+## 内置图片 (3.16.0 以上版本)
+
++ Empty.PRESENTED_IMAGE_SIMPLE
+
++ Empty.PRESENTED_IMAGE_DEFAULT
+
 ## API
 
 ```jsx
@@ -24,4 +30,4 @@ cols: 1
 | --- | --- | --- | --- |
 | description | 自定义描述内容 | string \| ReactNode | - |
 | imageStyle | 图片样式 | 同 style | - |
-| image | 设置显示图片，为 string 时表示自定义图片地址。在 3.16.0 后，可以设置为 `Empty.PRESENTED_IMAGE_SIMPLE` 选择另一种风格的内置图片 | string \| ReactNode | `Empty.PRESENTED_IMAGE_DEFAULT` |
+| image | 设置显示图片，为 string 时表示自定义图片地址。 | string \| ReactNode | `Empty.PRESENTED_IMAGE_DEFAULT` |
