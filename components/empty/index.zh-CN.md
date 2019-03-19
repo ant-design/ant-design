@@ -16,11 +16,11 @@ cols: 1
 
 + Empty.PRESENTED_IMAGE_SIMPLE
 
-![image](https://user-images.githubusercontent.com/507615/54591679-b0ceb580-4a65-11e9-925c-ad15b4eae93d.png)
+<img src="https://user-images.githubusercontent.com/507615/54591679-b0ceb580-4a65-11e9-925c-ad15b4eae93d.png" width="100px">
 
 + Empty.PRESENTED_IMAGE_DEFAULT
 
-![image](https://user-images.githubusercontent.com/507615/54591670-ac0a0180-4a65-11e9-846c-e55ffce0fe7b.png)
+<img src="https://user-images.githubusercontent.com/507615/54591670-ac0a0180-4a65-11e9-846c-e55ffce0fe7b.png" width="100px">
 
 ## API
 
