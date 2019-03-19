@@ -43,7 +43,7 @@ Ant Design 的色板还具备进一步拓展的能力。经过设计师和程序
 `````__react
 import Palette from '../../site/theme/template/Color/Palette';
 
-ReactDOM.render(<Palette color={{ name: 'grey' }} direction="horizontal" />, mountNode);
+ReactDOM.render(<Palette color={{ name: 'gray' }} direction="horizontal" />, mountNode);
 `````
 
 ### 数据可视化色板（敬请期待）
