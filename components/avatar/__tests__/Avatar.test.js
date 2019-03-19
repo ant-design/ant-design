@@ -3,6 +3,31 @@ import { mount } from 'enzyme';
 import Avatar from '..';
 
 describe('Avatar Render', () => {
+  let originOffsetWidth;
+  let originGetBoundingClientRect;
+  beforeAll(() => {
+    // Mock offsetHeight
+    originOffsetWidth =
+      Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetWidth').get;
+    Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
+      get() {
+        return 100;
+      },
+    });
+    // Mock getBoundingClientRect
+    originGetBoundingClientRect = HTMLElement.prototype.getBoundingClientRect;
+    HTMLElement.prototype.getBoundingClientRect = () => ({ width: 80 });
+  });
+
+  afterAll(() => {
+    // Restore Mock offsetHeight
+    Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
+      get: originOffsetWidth,
+    });
+    // Restore Mock getBoundingClientRect
+    HTMLElement.prototype.getBoundingClientRect = originGetBoundingClientRect;
+  });
+
   it('Render long string correctly', () => {
     const wrapper = mount(<Avatar>TestString</Avatar>);
     const children = wrapper.find('.ant-avatar-string');
@@ -93,5 +118,13 @@ describe('Avatar Render', () => {
     // cleanup
     wrapper.detach();
     global.document.body.removeChild(div);
+  });
+
+  it('should calculate scale of avatar children correctly', () => {
+    const wrapper = mount(<Avatar>Avatar</Avatar>);
+    expect(wrapper.state().scale).toBe(0.72);
+    HTMLElement.prototype.getBoundingClientRect = () => ({ width: 40 });
+    wrapper.setProps({ children: 'xx' });
+    expect(wrapper.state().scale).toBe(0.32);
   });
 });
