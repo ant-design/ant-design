@@ -46,6 +46,7 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
   private avatarNode: HTMLElement;
   private avatarChildren: HTMLElement;
   private lastChildrenWidth: number;
+  private lastNodeWidth: number;
 
   componentDidMount() {
     this.setScale();
@@ -59,20 +60,24 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
   }
 
   setScale = () => {
+    if (!this.avatarChildren || !this.avatarNode) {
+      return;
+    }
+    const childrenWidth = this.avatarChildren.offsetWidth; // offsetWidth avoid affecting be transform scale
+    const nodeWidth = this.avatarNode.getBoundingClientRect().width;
+    // denominator is 0 is no meaning
     if (
-      !this.avatarChildren ||
-      this.avatarChildren.offsetWidth === 0 ||
-      this.lastChildrenWidth === this.avatarChildren.offsetWidth
+      childrenWidth === 0 ||
+      nodeWidth === 0 ||
+      (this.lastChildrenWidth === childrenWidth && this.lastNodeWidth === nodeWidth)
     ) {
       return;
     }
-    // denominator is 0 is no meaning
-    const { offsetWidth } = this.avatarChildren;
-    this.lastChildrenWidth = offsetWidth;
-    const avatarWidth = this.avatarNode.getBoundingClientRect().width;
+    this.lastChildrenWidth = childrenWidth;
+    this.lastNodeWidth = nodeWidth;
     // add 4px gap for each side to get better performance
     this.setState({
-      scale: avatarWidth - 8 < offsetWidth ? (avatarWidth - 8) / offsetWidth : 1,
+      scale: nodeWidth - 8 < childrenWidth ? (nodeWidth - 8) / childrenWidth : 1,
     });
   };
 

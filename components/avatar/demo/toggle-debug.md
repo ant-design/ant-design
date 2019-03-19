@@ -20,6 +20,7 @@ import { Avatar, Button } from 'antd';
 class App extends React.Component {
   state = {
     hide: false,
+    size: 'large',
   };
 
   toggle = () => {
@@ -28,22 +29,34 @@ class App extends React.Component {
     });
   }
 
+  toggleSize = () => {
+    const sizes = ['small', 'default', 'large'];
+    let current = sizes.indexOf(this.state.size) + 1;
+    if (current > 2) {
+      current = 0;
+    }
+    this.setState({
+      size: sizes[current],
+    });
+  }
+
   render() {
-    const { hide } = this.state;
+    const { hide, size } = this.state;
     return (
       <div>
-        <Button onClick={this.toggle}>Toggle Avatar</Button>
-        <Avatar size="large" style={{ background: '#7265e6', display: hide ? 'none' : '' }}>
+        <Button onClick={this.toggle}>Toggle Avatar visibility</Button>
+        <Button onClick={this.toggleSize}>Toggle Avatar size</Button>
+        <Avatar size={size} style={{ background: '#7265e6', display: hide ? 'none' : '' }}>
           Avatar
         </Avatar>
-        <Avatar size="large" src="invalid" style={{ background: '#00a2ae', display: hide ? 'none' : '' }}>
+        <Avatar size={size} src="invalid" style={{ background: '#00a2ae', display: hide ? 'none' : '' }}>
           Invalid
         </Avatar>
         <div style={{ display: hide ? 'none' : '' }}>
-          <Avatar size="large" style={{ background: '#7265e6' }}>
+          <Avatar size={size} style={{ background: '#7265e6' }}>
             Avatar
           </Avatar>
-          <Avatar size="large" src="invalid" style={{ background: '#00a2ae' }}>
+          <Avatar size={size} src="invalid" style={{ background: '#00a2ae' }}>
             Invalid
           </Avatar>
         </div>
