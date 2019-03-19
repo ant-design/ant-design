@@ -6,6 +6,7 @@ interface LineProps extends ProgressProps {
   prefixCls: string;
   children: React.ReactNode;
 }
+// type BackgroundProps = { background?: string } | { backgroundImage?: string };
 
 const Line: React.SFC<LineProps> = props => {
   const {
@@ -18,11 +19,20 @@ const Line: React.SFC<LineProps> = props => {
     strokeLinecap,
     children,
   } = props;
+  let backgroundProps;
+  if (strokeColor && typeof strokeColor !== 'string') {
+    const { from = '#ccc', to = '#f96', direction = 'to right' } = strokeColor;
+    backgroundProps = { backgroundImage: `linear-gradient(${direction}, ${from}, ${to})` };
+  } else {
+    backgroundProps = {
+      background: strokeColor,
+    };
+  }
   const percentStyle = {
     width: `${validProgress(percent)}%`,
     height: strokeWidth || (size === 'small' ? 6 : 8),
-    background: strokeColor,
     borderRadius: strokeLinecap === 'square' ? 0 : '100px',
+    ...backgroundProps,
   };
   const successPercentStyle = {
     width: `${validProgress(successPercent)}%`,
