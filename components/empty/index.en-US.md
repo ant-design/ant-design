@@ -29,5 +29,5 @@ When there is no data provided, display for friendly tips.
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | description | Customize description | string \| ReactNode | - |
-| imageStyle | style of image | same as style | - |
+| imageStyle | style of image |  CSSProperties | - |
 | image | Customize image. Will tread as image url when string provided. | string \| ReactNode | `Empty.PRESENTED_IMAGE_DEFAULT` |
