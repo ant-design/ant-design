@@ -165,7 +165,7 @@
     "react-infinite-scroller": "^1.2.1",
     "react-intl": "^2.7.0",
     "react-resizable": "^1.7.5",
-    "react-router-dom": "^4.3.1",
+    "react-router-dom": "^5.0.0",
     "react-sticky": "^6.0.3",
     "react-test-renderer": "^16.6.3",
     "react-virtualized": "~9.21.0",
