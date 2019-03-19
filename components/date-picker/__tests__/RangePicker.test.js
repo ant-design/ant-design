@@ -323,6 +323,22 @@ describe('RangePicker', () => {
   // https://github.com/ant-design/ant-design/issues/13302
   it('in "month" mode，left panel and right panel could be the same month', () => {
     const wrapper = mount(<RangePicker mode={['month', 'month']} />);
+    wrapper.setProps({ value: [moment(), moment()] });
+    expect(
+      wrapper
+        .find('.ant-calendar-range-picker-input')
+        .first()
+        .getDOMNode().value,
+    ).toBe(
+      wrapper
+        .find('.ant-calendar-range-picker-input')
+        .last()
+        .getDOMNode().value,
+    );
+  });
+
+  it('in "month" mode, when the left and right panels select the same month, the cell status is correct', () => {
+    const wrapper = mount(<RangePicker mode={['month', 'month']} />);
     wrapper.find('.ant-calendar-picker-input').simulate('click');
     wrapper
       .find('.ant-calendar-range-left .ant-calendar-month-panel-cell')
@@ -347,6 +363,12 @@ describe('RangePicker', () => {
     expect(
       wrapper
         .find('.ant-calendar-range-left .ant-calendar-month-panel-cell')
+        .at(2)
+        .hasClass('ant-calendar-month-panel-selected-cell'),
+    ).toBe(false);
+    expect(
+      wrapper
+        .find('.ant-calendar-range-left .ant-calendar-month-panel-cell')
         .at(4)
         .hasClass('ant-calendar-month-panel-cell-disabled'),
     ).toBe(true);
@@ -356,5 +378,11 @@ describe('RangePicker', () => {
         .at(2)
         .hasClass('ant-calendar-month-panel-cell-disabled'),
     ).toBe(true);
+    expect(
+      wrapper
+        .find('.ant-calendar-range-right .ant-calendar-month-panel-cell')
+        .at(4)
+        .hasClass('ant-calendar-month-panel-cell-disabled'),
+    ).toBe(false);
   });
 });
