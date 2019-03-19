@@ -13,13 +13,9 @@ export default class ComponentDoc extends React.Component {
     intl: PropTypes.object,
   };
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      expandAll: false,
-    };
-  }
+  state = {
+    expandAll: false,
+  };
 
   handleExpandToggle = () => {
     const { expandAll } = this.state;
@@ -117,7 +113,7 @@ export default class ComponentDoc extends React.Component {
           </section>
           <Row gutter={16}>
             <Col
-              span={isSingleCol ? '24' : '12'}
+              span={isSingleCol ? 24 : 12}
               className={isSingleCol ? 'code-boxes-col-1-1' : 'code-boxes-col-2-1'}
             >
               {leftChildren}

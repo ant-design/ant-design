@@ -11,13 +11,13 @@
 .@{select-tree-prefix-cls} {
   .reset-component;
   margin: 0;
-  padding: 0 4px;
   margin-top: -4px;
+  padding: 0 4px;
   li {
-    padding: 0;
     margin: 8px 0;
-    list-style: none;
+    padding: 0;
     white-space: nowrap;
+    list-style: none;
     outline: 0;
     &.filter-node {
       > span {
@@ -30,14 +30,14 @@
     }
     .@{select-tree-prefix-cls}-node-content-wrapper {
       display: inline-block;
-      padding: 3px 5px;
-      border-radius: 2px;
-      margin: 0;
-      cursor: pointer;
-      text-decoration: none;
-      color: @text-color;
-      transition: all 0.3s;
       width: ~'calc(100% - 24px)';
+      margin: 0;
+      padding: 3px 5px;
+      color: @text-color;
+      text-decoration: none;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.3s;
       &:hover {
         background-color: @item-hover-bg;
       }
@@ -54,25 +54,25 @@
       }
       &.@{select-tree-prefix-cls}-switcher,
       &.@{select-tree-prefix-cls}-iconEle {
-        margin: 0;
+        display: inline-block;
         width: 24px;
         height: 24px;
+        margin: 0;
         line-height: 22px;
-        display: inline-block;
+        text-align: center;
         vertical-align: middle;
         border: 0 none;
-        cursor: pointer;
         outline: none;
-        text-align: center;
+        cursor: pointer;
       }
       &.@{select-prefix-cls}-icon_loading {
         .@{select-prefix-cls}-switcher-loading-icon {
-          display: inline-block;
           position: absolute;
           left: 0;
+          display: inline-block;
           color: @primary-color;
-          transform: none;
           font-size: 14px;
+          transform: none;
           svg {
             position: absolute;
             top: 0;
@@ -103,14 +103,14 @@
         &.@{select-tree-prefix-cls}-switcher_open,
         &.@{select-tree-prefix-cls}-switcher_close {
           .@{select-prefix-cls}-switcher-loading-icon {
-            display: inline-block;
             position: absolute;
             left: 0;
+            display: inline-block;
             width: 24px;
             height: 24px;
             color: @primary-color;
-            transform: none;
             font-size: 14px;
+            transform: none;
             svg {
               position: absolute;
               top: 0;
@@ -160,15 +160,19 @@
 .@{select-prefix-cls}-tree-dropdown {
   .reset-component;
   .@{select-prefix-cls}-dropdown-search {
+    position: sticky;
+    top: 0;
+    z-index: 1;
     display: block;
     padding: 4px;
+    background: @component-background;
     .@{select-prefix-cls}-search__field__wrap {
       width: 100%;
     }
     .@{select-prefix-cls}-search__field {
-      padding: 4px 7px;
-      width: 100%;
       box-sizing: border-box;
+      width: 100%;
+      padding: 4px 7px;
       border: @border-width-base @border-style-base @border-color-base;
       border-radius: 4px;
       outline: none;
@@ -178,9 +182,9 @@
     }
   }
   .@{select-prefix-cls}-not-found {
-    cursor: not-allowed;
-    color: @disabled-color;
-    padding: 7px 16px;
     display: block;
+    padding: 7px 16px;
+    color: @disabled-color;
+    cursor: not-allowed;
   }
 }

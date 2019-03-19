@@ -3,6 +3,27 @@ import { mount } from 'enzyme';
 import Form from '..';
 
 describe('Form', () => {
+  // Mock of `querySelector`
+  const originQuerySelector = HTMLElement.prototype.querySelector;
+  HTMLElement.prototype.querySelector = function querySelector(str) {
+    const match = str.match(/^\[id=('|")(.*)('|")]$/);
+    const id = match && match[2];
+
+    // Use origin logic
+    if (id) {
+      const [input] = this.getElementsByTagName('input');
+      if (input && input.id === id) {
+        return input;
+      }
+    }
+
+    return originQuerySelector.call(this, str);
+  };
+
+  afterAll(() => {
+    HTMLElement.prototype.querySelector = originQuerySelector;
+  });
+
   it('should remove duplicated user input colon', () => {
     const wrapper = mount(
       <Form>
@@ -18,6 +39,58 @@ describe('Form', () => {
     ).not.toContain(':');
     expect(
       wrapper
+        .find('.ant-form-item-label label')
+        .at(1)
+        .text(),
+    ).not.toContain('：');
+  });
+
+  it('should disable colon when props colon Form is false', () => {
+    const wrapper = mount(
+      <Form colon={false}>
+        <Form.Item>input</Form.Item>
+      </Form>,
+    );
+    expect(
+      wrapper
+        .find('.ant-form-item')
+        .at(0)
+        .hasClass('ant-form-item-no-colon'),
+    ).toBe(true);
+  });
+
+  it('should props colon of Form.Item override the props colon of Form.', () => {
+    const wrapper = mount(
+      <Form colon={false}>
+        <Form.Item label="label">input</Form.Item>
+        <Form.Item label="label" colon>
+          input
+        </Form.Item>
+        <Form.Item label="label" colon={false}>
+          input
+        </Form.Item>
+      </Form>,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+
+    const testLabel = mount(
+      <Form colon={false}>
+        <Form.Item label="label:" colon>
+          input
+        </Form.Item>
+        <Form.Item label="label：" colon>
+          input
+        </Form.Item>
+      </Form>,
+    );
+    expect(
+      testLabel
+        .find('.ant-form-item-label label')
+        .at(0)
+        .text(),
+    ).not.toContain(':');
+    expect(
+      testLabel
         .find('.ant-form-item-label label')
         .at(1)
         .text(),

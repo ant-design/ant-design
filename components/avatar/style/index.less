@@ -5,14 +5,14 @@
 
 .@{avatar-prefix-cls} {
   .reset-component;
+  position: relative;
   display: inline-block;
-  text-align: center;
-  background: @avatar-bg;
+  overflow: hidden;
   color: @avatar-color;
   white-space: nowrap;
-  position: relative;
-  overflow: hidden;
+  text-align: center;
   vertical-align: middle;
+  background: @avatar-bg;
 
   &-image {
     background: transparent;
@@ -33,9 +33,9 @@
   }
 
   & > img {
+    display: block;
     width: 100%;
     height: 100%;
-    display: block;
   }
 }
 

@@ -188,6 +188,19 @@ describe('Upload', () => {
     });
   });
 
+  // https://github.com/ant-design/ant-design/issues/14779
+  it('should contain input file control if upload button is hidden', () => {
+    const wrapper = mount(
+      <Upload action="http://upload.com">
+        <button type="button">upload</button>
+      </Upload>,
+    );
+
+    expect(wrapper.find('input[type="file"]').length).toBe(1);
+    wrapper.setProps({ children: null });
+    expect(wrapper.find('input[type="file"]').length).toBe(1);
+  });
+
   it('should be controlled by fileList', () => {
     const fileList = [
       {
@@ -318,5 +331,43 @@ describe('Upload', () => {
     const linkNode = wrapper.find('a.ant-upload-list-item-name');
     expect(linkNode.props().download).toBe('image');
     expect(linkNode.props().rel).toBe('noopener');
+  });
+
+  it('should not stop remove when return value of onRemove is false', done => {
+    const mockRemove = jest.fn(() => false);
+    const props = {
+      onRemove: mockRemove,
+      fileList: [
+        {
+          uid: '-1',
+          name: 'foo.png',
+          status: 'done',
+          url: 'http://www.baidu.com/xxx.png',
+        },
+      ],
+    };
+
+    const wrapper = mount(<Upload {...props} />);
+
+    wrapper.find('div.ant-upload-list-item i.anticon-close').simulate('click');
+
+    setImmediate(() => {
+      wrapper.update();
+
+      expect(mockRemove).toBeCalled();
+      expect(props.fileList).toHaveLength(1);
+      expect(props.fileList[0].status).toBe('done');
+      done();
+    });
+  });
+
+  // https://github.com/ant-design/ant-design/issues/14439
+  it('should allow call abort function through upload instance', () => {
+    const wrapper = mount(
+      <Upload>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    expect(typeof wrapper.instance().upload.abort).toBe('function');
   });
 });

@@ -18,7 +18,7 @@ import {
   Button, Modal, Form, Input, Radio,
 } from 'antd';
 
-const CollectionCreateForm = Form.create()(
+const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
   // eslint-disable-next-line
   class extends React.Component {
     render() {

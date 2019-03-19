@@ -1,10 +1,11 @@
 .iconfont-mixin() {
   display: inline-block;
+  color: @icon-color;
   font-style: normal;
-  vertical-align: -0.125em; // for SVG icon, see https://blog.prototypr.io/align-svg-icons-to-text-and-say-goodbye-to-font-icons-d44b3d7b26b4
+  line-height: 0;
   text-align: center;
   text-transform: none;
-  line-height: 0;
+  vertical-align: -0.125em; // for SVG icon, see https://blog.prototypr.io/align-svg-icons-to-text-and-say-goodbye-to-font-icons-d44b3d7b26b4
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -17,7 +18,7 @@
     display: inline-block;
   }
 
-  &:before {
+  &::before {
     display: none; // dont display old icon.
   }
 

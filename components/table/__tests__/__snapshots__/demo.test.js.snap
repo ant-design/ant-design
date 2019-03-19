@@ -40,13 +40,14 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                   >
                     <div
                       class="ant-table-column-sorters"
-                      title="Name"
                     >
                       Name
                       <div
                         class="ant-table-column-sorter"
+                        title="Sort"
                       >
                         <i
+                          aria-label="icon: caret-up"
                           class="anticon anticon-caret-up ant-table-column-sorter-up off"
                         >
                           <svg
@@ -64,6 +65,7 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                           </svg>
                         </i>
                         <i
+                          aria-label="icon: caret-down"
                           class="anticon anticon-caret-down ant-table-column-sorter-down off"
                         >
                           <svg
@@ -90,7 +92,9 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                       Gender
                     </div>
                     <i
+                      aria-label="icon: filter"
                       class="anticon anticon-filter ant-dropdown-trigger"
+                      tabindex="-1"
                       title="Filter menu"
                     >
                       <svg
@@ -125,7 +129,23 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
           <div
             class="ant-table-placeholder"
           >
-            No data
+            <div
+              class="ant-empty ant-empty-normal"
+            >
+              <div
+                class="ant-empty-image"
+              >
+                <img
+                  alt="No Data"
+                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNDEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAxKSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDxlbGxpcHNlIGZpbGw9IiNGNUY1RjUiIGN4PSIzMiIgY3k9IjMzIiByeD0iMzIiIHJ5PSI3Ii8+CiAgICA8ZyBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0iI0Q5RDlEOSI+CiAgICAgIDxwYXRoIGQ9Ik01NSAxMi43Nkw0NC44NTQgMS4yNThDNDQuMzY3LjQ3NCA0My42NTYgMCA0Mi45MDcgMEgyMS4wOTNjLS43NDkgMC0xLjQ2LjQ3NC0xLjk0NyAxLjI1N0w5IDEyLjc2MVYyMmg0NnYtOS4yNHoiLz4KICAgICAgPHBhdGggZD0iTTQxLjYxMyAxNS45MzFjMC0xLjYwNS45OTQtMi45MyAyLjIyNy0yLjkzMUg1NXYxOC4xMzdDNTUgMzMuMjYgNTMuNjggMzUgNTIuMDUgMzVoLTQwLjFDMTAuMzIgMzUgOSAzMy4yNTkgOSAzMS4xMzdWMTNoMTEuMTZjMS4yMzMgMCAyLjIyNyAxLjMyMyAyLjIyNyAyLjkyOHYuMDIyYzAgMS42MDUgMS4wMDUgMi45MDEgMi4yMzcgMi45MDFoMTQuNzUyYzEuMjMyIDAgMi4yMzctMS4zMDggMi4yMzctMi45MTN2LS4wMDd6IiBmaWxsPSIjRkFGQUZBIi8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4K"
+                />
+              </div>
+              <p
+                class="ant-empty-description"
+              >
+                No Data
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -239,14 +259,14 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                   >
                     <span>
                       <div
-                        class="ant-tag ant-tag-blue"
+                        class="ant-tag ant-tag-green"
                       >
-                        nice
+                        NICE
                       </div>
                       <div
-                        class="ant-tag ant-tag-blue"
+                        class="ant-tag ant-tag-geekblue"
                       >
-                        developer
+                        DEVELOPER
                       </div>
                     </span>
                   </td>
@@ -302,9 +322,9 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                   >
                     <span>
                       <div
-                        class="ant-tag ant-tag-blue"
+                        class="ant-tag ant-tag-volcano"
                       >
-                        loser
+                        LOSER
                       </div>
                     </span>
                   </td>
@@ -360,14 +380,14 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                   >
                     <span>
                       <div
-                        class="ant-tag ant-tag-blue"
+                        class="ant-tag ant-tag-green"
                       >
-                        cool
+                        COOL
                       </div>
                       <div
-                        class="ant-tag ant-tag-blue"
+                        class="ant-tag ant-tag-geekblue"
                       >
-                        teacher
+                        TEACHER
                       </div>
                     </span>
                   </td>
@@ -409,6 +429,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: left"
               class="anticon anticon-left"
             >
               <svg
@@ -445,6 +466,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -638,6 +660,7 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: left"
               class="anticon anticon-left"
             >
               <svg
@@ -674,6 +697,7 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -950,6 +974,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: left"
               class="anticon anticon-left"
             >
               <svg
@@ -986,6 +1011,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -1052,7 +1078,9 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                       Name
                     </div>
                     <i
+                      aria-label="icon: search"
                       class="anticon anticon-search ant-table-filter-icon ant-dropdown-trigger"
+                      tabindex="-1"
                       title="Filter menu"
                     >
                       <svg
@@ -1077,7 +1105,9 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                       Age
                     </div>
                     <i
+                      aria-label="icon: search"
                       class="anticon anticon-search ant-table-filter-icon ant-dropdown-trigger"
+                      tabindex="-1"
                       title="Filter menu"
                     >
                       <svg
@@ -1102,7 +1132,9 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                       Address
                     </div>
                     <i
+                      aria-label="icon: search"
                       class="anticon anticon-search ant-table-filter-icon ant-dropdown-trigger"
+                      tabindex="-1"
                       title="Filter menu"
                     >
                       <svg
@@ -1311,6 +1343,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: left"
               class="anticon anticon-left"
             >
               <svg
@@ -1347,6 +1380,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -1427,7 +1461,86 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
               </thead>
               <tbody
                 class="ant-table-tbody"
-              />
+              >
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
+                  index="0"
+                  style="cursor:move"
+                >
+                  <td
+                    class=""
+                  >
+                    <span
+                      class="ant-table-row-indent indent-level-0"
+                      style="padding-left:0px"
+                    />
+                    John Brown
+                  </td>
+                  <td
+                    class=""
+                  >
+                    32
+                  </td>
+                  <td
+                    class=""
+                  >
+                    New York No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
+                  index="1"
+                  style="cursor:move"
+                >
+                  <td
+                    class=""
+                  >
+                    <span
+                      class="ant-table-row-indent indent-level-0"
+                      style="padding-left:0px"
+                    />
+                    Jim Green
+                  </td>
+                  <td
+                    class=""
+                  >
+                    42
+                  </td>
+                  <td
+                    class=""
+                  >
+                    London No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
+                  index="2"
+                  style="cursor:move"
+                >
+                  <td
+                    class=""
+                  >
+                    <span
+                      class="ant-table-row-indent indent-level-0"
+                      style="padding-left:0px"
+                    />
+                    Joe Black
+                  </td>
+                  <td
+                    class=""
+                  >
+                    32
+                  </td>
+                  <td
+                    class=""
+                  >
+                    Sidney No. 1 Lake Park
+                  </td>
+                </tr>
+              </tbody>
             </table>
           </div>
         </div>
@@ -1445,6 +1558,7 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: left"
               class="anticon anticon-left"
             >
               <svg
@@ -1481,6 +1595,7 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -2064,7 +2179,9 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                   <col
                     class="ant-table-expand-icon-col"
                   />
-                  <col />
+                  <col
+                    style="width:62px;min-width:62px"
+                  />
                   <col
                     style="width:150px;min-width:150px"
                   />
@@ -2220,6 +2337,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           More actions 
                           <i
+                            aria-label="icon: down"
                             class="anticon anticon-down"
                           >
                             <svg
@@ -2317,6 +2435,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           More actions 
                           <i
+                            aria-label="icon: down"
                             class="anticon anticon-down"
                           >
                             <svg
@@ -2414,6 +2533,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           More actions 
                           <i
+                            aria-label="icon: down"
                             class="anticon anticon-down"
                           >
                             <svg
@@ -2511,6 +2631,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           More actions 
                           <i
+                            aria-label="icon: down"
                             class="anticon anticon-down"
                           >
                             <svg
@@ -2608,6 +2729,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           More actions 
                           <i
+                            aria-label="icon: down"
                             class="anticon anticon-down"
                           >
                             <svg
@@ -2705,6 +2827,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           More actions 
                           <i
+                            aria-label="icon: down"
                             class="anticon anticon-down"
                           >
                             <svg
@@ -2802,6 +2925,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           More actions 
                           <i
+                            aria-label="icon: down"
                             class="anticon anticon-down"
                           >
                             <svg
@@ -2899,6 +3023,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           More actions 
                           <i
+                            aria-label="icon: down"
                             class="anticon anticon-down"
                           >
                             <svg
@@ -2996,6 +3121,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           More actions 
                           <i
+                            aria-label="icon: down"
                             class="anticon anticon-down"
                           >
                             <svg
@@ -3093,6 +3219,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           More actions 
                           <i
+                            aria-label="icon: down"
                             class="anticon anticon-down"
                           >
                             <svg
@@ -3136,6 +3263,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
               class="ant-pagination-item-link"
             >
               <i
+                aria-label="icon: left"
                 class="anticon anticon-left"
               >
                 <svg
@@ -3172,6 +3300,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
               class="ant-pagination-item-link"
             >
               <i
+                aria-label="icon: right"
                 class="anticon anticon-right"
               >
                 <svg
@@ -3368,6 +3497,7 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
               class="ant-pagination-item-link"
             >
               <i
+                aria-label="icon: left"
                 class="anticon anticon-left"
               >
                 <svg
@@ -3404,6 +3534,7 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
               class="ant-pagination-item-link"
             >
               <i
+                aria-label="icon: right"
                 class="anticon anticon-right"
               >
                 <svg
@@ -3848,6 +3979,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: left"
               class="anticon anticon-left"
             >
               <svg
@@ -3923,6 +4055,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
               class="ant-pagination-item-container"
             >
               <i
+                aria-label="icon: double-right"
                 class="anticon anticon-double-right ant-pagination-item-link-icon"
               >
                 <svg
@@ -3966,6 +4099,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -4189,6 +4323,7 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: left"
               class="anticon anticon-left"
             >
               <svg
@@ -4225,6 +4360,7 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -4272,7 +4408,9 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
               class=""
             >
               <colgroup>
-                <col />
+                <col
+                  style="width:62px;min-width:62px"
+                />
                 <col />
                 <col
                   style="width:12%;min-width:12%"
@@ -4450,6 +4588,7 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: left"
               class="anticon anticon-left"
             >
               <svg
@@ -4486,6 +4625,7 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -4951,6 +5091,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: left"
               class="anticon anticon-left"
             >
               <svg
@@ -4987,6 +5128,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -6347,6 +6489,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: left"
               class="anticon anticon-left"
             >
               <svg
@@ -6422,6 +6565,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
               class="ant-pagination-item-container"
             >
               <i
+                aria-label="icon: double-right"
                 class="anticon anticon-double-right ant-pagination-item-link-icon"
               >
                 <svg
@@ -6465,6 +6609,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -7790,6 +7935,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: left"
               class="anticon anticon-left"
             >
               <svg
@@ -7836,6 +7982,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -7920,7 +8067,9 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                         Name
                       </div>
                       <i
+                        aria-label="icon: filter"
                         class="anticon anticon-filter ant-dropdown-trigger"
+                        tabindex="-1"
                         title="Filter menu"
                       >
                         <svg
@@ -7970,13 +8119,14 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     >
                       <div
                         class="ant-table-column-sorters"
-                        title="Age"
                       >
                         Age
                         <div
                           class="ant-table-column-sorter"
+                          title="Sort"
                         >
                           <i
+                            aria-label="icon: caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up off"
                           >
                             <svg
@@ -7994,6 +8144,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                             </svg>
                           </i>
                           <i
+                            aria-label="icon: caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down off"
                           >
                             <svg
@@ -8628,7 +8779,9 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                         Name
                       </div>
                       <i
+                        aria-label="icon: filter"
                         class="anticon anticon-filter ant-dropdown-trigger"
+                        tabindex="-1"
                         title="Filter menu"
                       >
                         <svg
@@ -8983,6 +9136,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: left"
               class="anticon anticon-left"
             >
               <svg
@@ -9058,6 +9212,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
               class="ant-pagination-item-container"
             >
               <i
+                aria-label="icon: double-right"
                 class="anticon anticon-double-right ant-pagination-item-link-icon"
               >
                 <svg
@@ -9101,6 +9256,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -9161,30 +9317,14 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                   >
                     <div
                       class="ant-table-column-sorters"
-                      title="Name"
                     >
                       Name
                       <div
                         class="ant-table-column-sorter"
+                        title="Sort"
                       >
                         <i
-                          class="anticon anticon-caret-up ant-table-column-sorter-up off"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class=""
-                            data-icon="caret-up"
-                            fill="currentColor"
-                            height="1em"
-                            viewBox="0 0 1024 1024"
-                            width="1em"
-                          >
-                            <path
-                              d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                            />
-                          </svg>
-                        </i>
-                        <i
+                          aria-label="icon: caret-down"
                           class="anticon anticon-caret-down ant-table-column-sorter-down off"
                         >
                           <svg
@@ -9204,7 +9344,9 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                       </div>
                     </div>
                     <i
+                      aria-label="icon: filter"
                       class="anticon anticon-filter ant-dropdown-trigger"
+                      tabindex="-1"
                       title="Filter menu"
                     >
                       <svg
@@ -9227,13 +9369,14 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                   >
                     <div
                       class="ant-table-column-sorters"
-                      title="Age"
                     >
                       Age
                       <div
                         class="ant-table-column-sorter"
+                        title="Sort"
                       >
                         <i
+                          aria-label="icon: caret-up"
                           class="anticon anticon-caret-up ant-table-column-sorter-up off"
                         >
                           <svg
@@ -9251,6 +9394,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                           </svg>
                         </i>
                         <i
+                          aria-label="icon: caret-down"
                           class="anticon anticon-caret-down ant-table-column-sorter-down on"
                         >
                           <svg
@@ -9275,13 +9419,14 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                   >
                     <div
                       class="ant-table-column-sorters"
-                      title="Address"
                     >
                       Address
                       <div
                         class="ant-table-column-sorter"
+                        title="Sort"
                       >
                         <i
+                          aria-label="icon: caret-up"
                           class="anticon anticon-caret-up ant-table-column-sorter-up off"
                         >
                           <svg
@@ -9299,6 +9444,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                           </svg>
                         </i>
                         <i
+                          aria-label="icon: caret-down"
                           class="anticon anticon-caret-down ant-table-column-sorter-down off"
                         >
                           <svg
@@ -9318,7 +9464,9 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                       </div>
                     </div>
                     <i
+                      aria-label="icon: filter"
                       class="anticon anticon-filter ant-dropdown-trigger"
+                      tabindex="-1"
                       title="Filter menu"
                     >
                       <svg
@@ -9455,6 +9603,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: left"
               class="anticon anticon-left"
             >
               <svg
@@ -9491,6 +9640,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -9815,6 +9965,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: left"
               class="anticon anticon-left"
             >
               <svg
@@ -9851,6 +10002,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -10143,6 +10295,7 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: left"
               class="anticon anticon-left"
             >
               <svg
@@ -10179,6 +10332,7 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -10268,13 +10422,14 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     >
                       <div
                         class="ant-table-column-sorters"
-                        title="Name"
                       >
                         Name
                         <div
                           class="ant-table-column-sorter"
+                          title="Sort"
                         >
                           <i
+                            aria-label="icon: caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up off"
                           >
                             <svg
@@ -10292,6 +10447,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                             </svg>
                           </i>
                           <i
+                            aria-label="icon: caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down off"
                           >
                             <svg
@@ -10311,7 +10467,9 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                         </div>
                       </div>
                       <i
+                        aria-label="icon: filter"
                         class="anticon anticon-filter ant-dropdown-trigger"
+                        tabindex="-1"
                         title="Filter menu"
                       >
                         <svg
@@ -10334,13 +10492,14 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     >
                       <div
                         class="ant-table-column-sorters"
-                        title="Age"
                       >
                         Age
                         <div
                           class="ant-table-column-sorter"
+                          title="Sort"
                         >
                           <i
+                            aria-label="icon: caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up off"
                           >
                             <svg
@@ -10358,6 +10517,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                             </svg>
                           </i>
                           <i
+                            aria-label="icon: caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down off"
                           >
                             <svg
@@ -10382,13 +10542,14 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     >
                       <div
                         class="ant-table-column-sorters"
-                        title="Address"
                       >
                         Address
                         <div
                           class="ant-table-column-sorter"
+                          title="Sort"
                         >
                           <i
+                            aria-label="icon: caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up off"
                           >
                             <svg
@@ -10406,6 +10567,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                             </svg>
                           </i>
                           <i
+                            aria-label="icon: caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down off"
                           >
                             <svg
@@ -10425,7 +10587,9 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                         </div>
                       </div>
                       <i
+                        aria-label="icon: filter"
                         class="anticon anticon-filter ant-dropdown-trigger"
+                        tabindex="-1"
                         title="Filter menu"
                       >
                         <svg
@@ -10562,6 +10726,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
               class="ant-pagination-item-link"
             >
               <i
+                aria-label="icon: left"
                 class="anticon anticon-left"
               >
                 <svg
@@ -10598,6 +10763,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
               class="ant-pagination-item-link"
             >
               <i
+                aria-label="icon: right"
                 class="anticon anticon-right"
               >
                 <svg
@@ -10852,6 +11018,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: left"
               class="anticon anticon-left"
             >
               <svg
@@ -10888,6 +11055,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -10935,7 +11103,9 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
               class=""
             >
               <colgroup>
-                <col />
+                <col
+                  style="width:62px;min-width:62px"
+                />
                 <col />
                 <col />
                 <col />
@@ -11214,6 +11384,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: left"
               class="anticon anticon-left"
             >
               <svg
@@ -11250,6 +11421,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -11314,7 +11486,9 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                 class=""
               >
                 <colgroup>
-                  <col />
+                  <col
+                    style="width:62px;min-width:62px"
+                  />
                   <col />
                   <col />
                   <col />
@@ -11842,6 +12016,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
               class="ant-pagination-item-link"
             >
               <i
+                aria-label="icon: left"
                 class="anticon anticon-left"
               >
                 <svg
@@ -11915,6 +12090,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
               class="ant-pagination-item-link"
             >
               <i
+                aria-label="icon: right"
                 class="anticon anticon-right"
               >
                 <svg
@@ -11963,7 +12139,9 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
               class=""
             >
               <colgroup>
-                <col />
+                <col
+                  style="width:62px;min-width:62px"
+                />
                 <col />
                 <col />
                 <col />
@@ -11998,6 +12176,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                           class="ant-table-selection-down ant-dropdown-trigger"
                         >
                           <i
+                            aria-label="icon: down"
                             class="anticon anticon-down"
                           >
                             <svg
@@ -12512,6 +12691,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: left"
               class="anticon anticon-left"
             >
               <svg
@@ -12585,6 +12765,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
             class="ant-pagination-item-link"
           >
             <i
+              aria-label="icon: right"
               class="anticon anticon-right"
             >
               <svg
@@ -12760,6 +12941,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
               class="ant-pagination-item-link"
             >
               <i
+                aria-label="icon: left"
                 class="anticon anticon-left"
               >
                 <svg
@@ -12796,6 +12978,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
               class="ant-pagination-item-link"
             >
               <i
+                aria-label="icon: right"
                 class="anticon anticon-right"
               >
                 <svg
@@ -12967,6 +13150,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
               class="ant-pagination-item-link"
             >
               <i
+                aria-label="icon: left"
                 class="anticon anticon-left"
               >
                 <svg
@@ -13003,6 +13187,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
               class="ant-pagination-item-link"
             >
               <i
+                aria-label="icon: right"
                 class="anticon anticon-right"
               >
                 <svg

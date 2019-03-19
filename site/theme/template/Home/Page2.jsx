@@ -123,6 +123,9 @@ export default function Page2({ isMobile, locale }) {
       <a href="https://ng.ant.design/" target="_black">
         Ant Design of Angular <Icon type="right" />
       </a>
+      <a href="https://vue.ant.design/" target="_black">
+        Ant Design of Vue <Icon type="right" />
+      </a>
     </div>
   );
   const children = page2Data.map((item, i) => {
@@ -152,8 +155,14 @@ export default function Page2({ isMobile, locale }) {
             </span>,
           ];
     const content = isMobile && !i ? componentButton : moreContent;
+    const BlockElement = item.link ? 'a' : 'div';
     return (
-      <a className="product-block" key={item.name} href={item.link} style={{ display: 'block' }}>
+      <BlockElement
+        className="product-block"
+        key={item.name}
+        href={item.link}
+        style={{ display: 'block' }}
+      >
         <Row>
           <Col
             xs={8}
@@ -169,7 +178,7 @@ export default function Page2({ isMobile, locale }) {
             {content}
           </Col>
         </Row>
-      </a>
+      </BlockElement>
     );
   });
   return (

@@ -15,6 +15,8 @@ function alertBabelConfig(rules) {
       rule.options.plugins = rule.options.plugins.filter(
         plugin => !plugin.indexOf || plugin.indexOf('babel-plugin-add-module-exports') === -1,
       );
+      // Add babel-plugin-add-react-displayname
+      rule.options.plugins.push(require.resolve('babel-plugin-add-react-displayname'));
     } else if (rule.use) {
       alertBabelConfig(rule.use);
     }
@@ -121,6 +123,11 @@ module.exports = {
     config.plugins.push(new CSSSplitWebpackPlugin({ size: 4000 }));
 
     return config;
+  },
+
+  devServerConfig: {
+    public: process.env.DEV_HOST || 'localhost',
+    disableHostCheck: !!process.env.DEV_HOST,
   },
 
   htmlTemplateExtraData: {

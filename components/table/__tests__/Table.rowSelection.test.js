@@ -4,6 +4,16 @@ import Table from '..';
 import Checkbox from '../../checkbox';
 
 describe('Table.rowSelection', () => {
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+  afterEach(() => {
+    errorSpy.mockReset();
+  });
+
+  afterAll(() => {
+    errorSpy.mockRestore();
+  });
+
   const columns = [
     {
       title: 'Name',
@@ -120,6 +130,10 @@ describe('Table.rowSelection', () => {
     checkboxs = wrapper.find('input');
     expect(checkboxs.at(1).props().checked).toBe(true);
     expect(checkboxs.at(2).props().checked).toBe(true);
+
+    expect(errorSpy).toBeCalledWith(
+      'Warning: [antd: Table] Do not set `checked` or `defaultChecked` in `getCheckboxProps`. Please use `selectedRowKeys` instead.',
+    );
   });
 
   it('can be controlled', () => {
@@ -650,5 +664,18 @@ describe('Table.rowSelection', () => {
 
     checkboxes.at(2).simulate('change', { target: { checked: true } });
     expect(checkboxAll.instance().state).toEqual({ indeterminate: false, checked: true });
+  });
+
+  it('clear selection className when remove `rowSelection`', () => {
+    const dataSource = [{ id: 1, name: 'Hello', age: 10 }, { id: 2, name: 'World', age: 30 }];
+
+    const wrapper = mount(<Table columns={columns} dataSource={dataSource} rowSelection={{}} />);
+    const checkboxes = wrapper.find('input');
+    checkboxes.at(1).simulate('change', { target: { checked: true } });
+
+    expect(wrapper.find('.ant-table-row-selected').length).toBe(1);
+
+    wrapper.setProps({ rowSelection: null });
+    expect(wrapper.find('.ant-table-row-selected').length).toBe(0);
   });
 });

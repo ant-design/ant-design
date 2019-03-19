@@ -13,7 +13,6 @@ export default {
     filterTitle: 'Filter',
     filterConfirm: 'Filtriraj',
     filterReset: 'Pobriši filter',
-    emptyText: 'Ni podatkov',
     selectAll: 'Izberi vse na trenutni strani',
     selectInvert: 'Obrni izbor na trenutni strani',
   },
@@ -27,18 +26,17 @@ export default {
     cancelText: 'Prekliči',
   },
   Transfer: {
-    notFoundContent: 'Ni rezultatov iskanja',
     searchPlaceholder: 'Išči tukaj',
     itemUnit: 'Objekt',
     itemsUnit: 'Objektov',
-  },
-  Select: {
-    notFoundContent: 'Ni bilo mogoče najti',
   },
   Upload: {
     uploading: 'Nalaganje...',
     removeFile: 'Odstrani datoteko',
     uploadError: 'Napaka pri nalaganju',
     previewFile: 'Predogled datoteke',
+  },
+  Empty: {
+    description: 'Ni podatkov',
   },
 };

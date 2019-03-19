@@ -2,9 +2,9 @@
 
 .@{calendar-prefix-cls}-picker-container {
   .reset-component;
-  font-family: @font-family;
   position: absolute;
   z-index: @zindex-picker;
+  font-family: @font-family;
 
   &.slide-up-enter.slide-up-enter-active&-placement-topLeft,
   &.slide-up-enter.slide-up-enter-active&-placement-topRight,
@@ -36,6 +36,7 @@
   position: relative;
   display: inline-block;
   outline: none;
+  cursor: text;
   transition: opacity 0.3s;
 
   &-input {
@@ -58,26 +59,26 @@
   &-clear,
   &-icon {
     position: absolute;
+    top: 50%;
+    right: @control-padding-horizontal;
+    z-index: 1;
     width: 14px;
     height: 14px;
-    right: @control-padding-horizontal;
-    top: 50%;
     margin-top: -7px;
-    line-height: 14px;
     font-size: @font-size-sm;
+    line-height: 14px;
     transition: all 0.3s;
     user-select: none;
-    z-index: 1;
   }
 
   &-clear {
-    opacity: 0;
     z-index: 2;
-    font-size: @font-size-base;
     color: @disabled-color;
+    font-size: @font-size-base;
     background: @input-bg;
-    pointer-events: none;
     cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
     &:hover {
       color: @text-color-secondary;
     }
@@ -89,10 +90,9 @@
   }
 
   &-icon {
-    font-family: 'anticon';
-    font-size: @font-size-base;
-    color: @disabled-color;
     display: inline-block;
+    color: @disabled-color;
+    font-size: @font-size-base;
     line-height: 1;
   }
 

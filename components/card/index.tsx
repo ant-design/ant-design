@@ -7,6 +7,7 @@ import Meta from './Meta';
 import Tabs from '../tabs';
 import Row from '../row';
 import Col from '../col';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
 import warning from '../_util/warning';
 import { Omit } from '../_util/type';
@@ -15,6 +16,7 @@ export { CardGridProps } from './Grid';
 export { CardMetaProps } from './Meta';
 
 export type CardType = 'inner';
+export type CardSize = 'default' | 'small';
 
 export interface CardTabListType {
   key: string;
@@ -36,6 +38,7 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   children?: React.ReactNode;
   id?: string;
   className?: string;
+  size?: CardSize;
   type?: CardType;
   cover?: React.ReactNode;
   actions?: React.ReactNode[];
@@ -68,11 +71,13 @@ export default class Card extends React.Component<CardProps, CardState> {
     if ('noHovering' in this.props) {
       warning(
         !this.props.noHovering,
-        '`noHovering` of Card is deprecated, you can remove it safely or use `hoverable` instead.',
+        'Card',
+        '`noHovering` is deprecated, you can remove it safely or use `hoverable` instead.',
       );
       warning(
         !!this.props.noHovering,
-        '`noHovering={false}` of Card is deprecated, use `hoverable` instead.',
+        'Card',
+        '`noHovering={false}` is deprecated, use `hoverable` instead.',
       );
     }
   }
@@ -144,9 +149,9 @@ export default class Card extends React.Component<CardProps, CardState> {
     return !!hoverable;
   }
 
-  render() {
+  renderCard = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
-      prefixCls = 'ant-card',
+      prefixCls: customizePrefixCls,
       className,
       extra,
       headStyle = {},
@@ -156,6 +161,7 @@ export default class Card extends React.Component<CardProps, CardState> {
       title,
       loading,
       bordered = true,
+      size = 'default',
       type,
       cover,
       actions,
@@ -166,6 +172,7 @@ export default class Card extends React.Component<CardProps, CardState> {
       ...others
     } = this.props;
 
+    const prefixCls = getPrefixCls('card', customizePrefixCls);
     const classString = classNames(prefixCls, className, {
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-bordered`]: bordered,
@@ -174,6 +181,7 @@ export default class Card extends React.Component<CardProps, CardState> {
       [`${prefixCls}-padding-transition`]: this.updateWiderPaddingCalled,
       [`${prefixCls}-contain-grid`]: this.isContainGrid(),
       [`${prefixCls}-contain-tabs`]: tabList && tabList.length,
+      [`${prefixCls}-${size}`]: size !== 'default',
       [`${prefixCls}-type-${type}`]: !!type,
     });
 
@@ -219,17 +227,6 @@ export default class Card extends React.Component<CardProps, CardState> {
             <div className={`${prefixCls}-loading-block`} />
           </Col>
           <Col span={16}>
-            <div className={`${prefixCls}-loading-block`} />
-          </Col>
-        </Row>
-        <Row gutter={8}>
-          <Col span={8}>
-            <div className={`${prefixCls}-loading-block`} />
-          </Col>
-          <Col span={6}>
-            <div className={`${prefixCls}-loading-block`} />
-          </Col>
-          <Col span={8}>
             <div className={`${prefixCls}-loading-block`} />
           </Col>
         </Row>
@@ -287,5 +284,9 @@ export default class Card extends React.Component<CardProps, CardState> {
         {actionDom}
       </div>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderCard}</ConfigConsumer>;
   }
 }

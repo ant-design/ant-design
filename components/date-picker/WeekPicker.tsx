@@ -5,6 +5,7 @@ import Calendar from 'rc-calendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
 import Icon from '../icon';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import interopDefault from '../_util/interopDefault';
 
 function formatValue(value: moment.Moment | null, format: string): string {
@@ -37,6 +38,7 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
   }
 
   private input: any;
+  private prefixCls?: string;
 
   constructor(props: any) {
     super(props);
@@ -53,9 +55,17 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
     };
   }
 
+  componentDidUpdate(_: any, prevState: WeekPickerState) {
+    if (!('open' in this.props) && prevState.open && !this.state.open) {
+      this.focus();
+    }
+  }
+
   weekDateRender = (current: any) => {
     const selectedValue = this.state.value;
-    const { prefixCls } = this.props;
+    const { prefixCls } = this;
+    const { dateRender } = this.props;
+    const dateNode = dateRender ? dateRender(current) : current.date();
     if (
       selectedValue &&
       current.year() === selectedValue.year() &&
@@ -63,11 +73,11 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
     ) {
       return (
         <div className={`${prefixCls}-selected-day`}>
-          <div className={`${prefixCls}-date`}>{current.date()}</div>
+          <div className={`${prefixCls}-date`}>{dateNode}</div>
         </div>
       );
     }
-    return <div className={`${prefixCls}-date`}>{current.date()}</div>;
+    return <div className={`${prefixCls}-date`}>{dateNode}</div>;
   };
 
   handleChange = (value: moment.Moment | null) => {
@@ -86,16 +96,19 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
     if (onOpenChange) {
       onOpenChange(open);
     }
-
-    if (!open) {
-      this.focus();
-    }
   };
 
   clearSelection = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     e.stopPropagation();
     this.handleChange(null);
+  };
+
+  renderFooter = (...args: any[]) => {
+    const { prefixCls, renderExtraFooter } = this.props;
+    return renderExtraFooter ? (
+      <div className={`${prefixCls}-footer-extra`}>{renderExtraFooter(...args)}</div>
+    ) : null;
   };
 
   focus() {
@@ -110,9 +123,9 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
     this.input = node;
   };
 
-  render() {
+  renderWeekPicker = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
-      prefixCls,
+      prefixCls: customizePrefixCls,
       className,
       disabled,
       pickerClass,
@@ -130,8 +143,13 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
       suffixIcon,
     } = this.props;
 
-    const { open } = this.state;
-    const pickerValue = this.state.value;
+    const prefixCls = getPrefixCls('calendar', customizePrefixCls);
+    // To support old version react.
+    // Have to add prefixCls on the instance.
+    // https://github.com/facebook/react/issues/12397
+    this.prefixCls = prefixCls;
+
+    const { open, value: pickerValue } = this.state;
     if (pickerValue && localeCode) {
       pickerValue.locale(localeCode);
     }
@@ -149,6 +167,7 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
         showDateInput={false}
         showToday={false}
         disabledDate={disabledDate}
+        renderFooter={this.renderFooter}
       />
     );
     const clearIcon =
@@ -205,6 +224,10 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
         </RcDatePicker>
       </span>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderWeekPicker}</ConfigConsumer>;
   }
 }
 

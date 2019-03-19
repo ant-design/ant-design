@@ -10,6 +10,8 @@ Provide a placeholder at the place which need waiting for loading.
 
 - When resource needs long time to load, like low network speed.
 - The component contains much information. Such as List or Card.
+- Only works when loading data at first time.
+- Could be replaced by Spin in all situation, but provide better user experience than spin if it works.
 
 ## API
 

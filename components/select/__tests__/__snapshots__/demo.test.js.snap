@@ -7,7 +7,7 @@ exports[`renders ./components/select/demo/automatic-tokenization.md correctly 1`
 >
   <div
     aria-autocomplete="list"
-    aria-controls="test-uuid"
+    aria-controls=""
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
@@ -50,7 +50,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
-      aria-controls="test-uuid"
+      aria-controls=""
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -75,6 +75,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
         unselectable="on"
       >
         <i
+          aria-label="icon: down"
           class="anticon anticon-down ant-select-arrow-icon"
         >
           <svg
@@ -100,7 +101,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
-      aria-controls="test-uuid"
+      aria-controls=""
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -125,6 +126,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
         unselectable="on"
       >
         <i
+          aria-label="icon: down"
           class="anticon anticon-down ant-select-arrow-icon"
         >
           <svg
@@ -145,12 +147,12 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-select ant-select-enabled"
+    class="ant-select ant-select-enabled ant-select-loading"
     style="width:120px"
   >
     <div
       aria-autocomplete="list"
-      aria-controls="test-uuid"
+      aria-controls=""
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -175,6 +177,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
         unselectable="on"
       >
         <i
+          aria-label="icon: loading"
           class="anticon anticon-loading"
         >
           <svg
@@ -205,7 +208,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
-      aria-controls="test-uuid"
+      aria-controls=""
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -230,6 +233,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
         unselectable="on"
       >
         <i
+          aria-label="icon: down"
           class="anticon anticon-down ant-select-arrow-icon"
         >
           <svg
@@ -255,7 +259,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
-      aria-controls="test-uuid"
+      aria-controls=""
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -280,6 +284,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
         unselectable="on"
       >
         <i
+          aria-label="icon: down"
           class="anticon anticon-down ant-select-arrow-icon"
         >
           <svg
@@ -309,7 +314,7 @@ exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] 
 >
   <div
     aria-autocomplete="list"
-    aria-controls="test-uuid"
+    aria-controls=""
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
@@ -334,6 +339,7 @@ exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] 
       unselectable="on"
     >
       <i
+        aria-label="icon: down"
         class="anticon anticon-down ant-select-arrow-icon"
       >
         <svg
@@ -362,7 +368,7 @@ exports[`renders ./components/select/demo/hide-selected.md correctly 1`] = `
 >
   <div
     aria-autocomplete="list"
-    aria-controls="test-uuid"
+    aria-controls=""
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
@@ -411,7 +417,7 @@ exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
 >
   <div
     aria-autocomplete="list"
-    aria-controls="test-uuid"
+    aria-controls=""
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
@@ -436,6 +442,7 @@ exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
       unselectable="on"
     >
       <i
+        aria-label="icon: down"
         class="anticon anticon-down ant-select-arrow-icon"
       >
         <svg
@@ -464,7 +471,7 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
 >
   <div
     aria-autocomplete="list"
-    aria-controls="test-uuid"
+    aria-controls=""
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
@@ -498,6 +505,7 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
             class="ant-select-selection__choice__remove"
           >
             <i
+              aria-label="icon: close"
               class="anticon anticon-close ant-select-remove-icon"
             >
               <svg
@@ -532,6 +540,7 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
             class="ant-select-selection__choice__remove"
           >
             <i
+              aria-label="icon: close"
               class="anticon anticon-close ant-select-remove-icon"
             >
               <svg
@@ -581,7 +590,7 @@ exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
 >
   <div
     aria-autocomplete="list"
-    aria-controls="test-uuid"
+    aria-controls=""
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
@@ -606,6 +615,7 @@ exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
       unselectable="on"
     >
       <i
+        aria-label="icon: down"
         class="anticon anticon-down ant-select-arrow-icon"
       >
         <svg
@@ -634,7 +644,7 @@ exports[`renders ./components/select/demo/search.md correctly 1`] = `
 >
   <div
     aria-autocomplete="list"
-    aria-controls="test-uuid"
+    aria-controls=""
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
@@ -678,6 +688,7 @@ exports[`renders ./components/select/demo/search.md correctly 1`] = `
       unselectable="on"
     >
       <i
+        aria-label="icon: down"
         class="anticon anticon-down ant-select-arrow-icon"
       >
         <svg
@@ -706,7 +717,7 @@ exports[`renders ./components/select/demo/search-box.md correctly 1`] = `
 >
   <div
     aria-autocomplete="list"
-    aria-controls="test-uuid"
+    aria-controls=""
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
@@ -755,7 +766,7 @@ exports[`renders ./components/select/demo/select-users.md correctly 1`] = `
 >
   <div
     aria-autocomplete="list"
-    aria-controls="test-uuid"
+    aria-controls=""
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
@@ -869,7 +880,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
-      aria-controls="test-uuid"
+      aria-controls=""
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -894,6 +905,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
         unselectable="on"
       >
         <i
+          aria-label="icon: down"
           class="anticon anticon-down ant-select-arrow-icon"
         >
           <svg
@@ -920,7 +932,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
-      aria-controls="test-uuid"
+      aria-controls=""
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -954,6 +966,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
               class="ant-select-selection__choice__remove"
             >
               <i
+                aria-label="icon: close"
                 class="anticon anticon-close ant-select-remove-icon"
               >
                 <svg
@@ -988,6 +1001,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
               class="ant-select-selection__choice__remove"
             >
               <i
+                aria-label="icon: close"
                 class="anticon anticon-close ant-select-remove-icon"
               >
                 <svg
@@ -1035,7 +1049,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
-      aria-controls="test-uuid"
+      aria-controls=""
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -1069,6 +1083,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
               class="ant-select-selection__choice__remove"
             >
               <i
+                aria-label="icon: close"
                 class="anticon anticon-close ant-select-remove-icon"
               >
                 <svg
@@ -1103,6 +1118,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
               class="ant-select-selection__choice__remove"
             >
               <i
+                aria-label="icon: close"
                 class="anticon anticon-close ant-select-remove-icon"
               >
                 <svg
@@ -1154,7 +1170,7 @@ exports[`renders ./components/select/demo/suffix.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
-      aria-controls="test-uuid"
+      aria-controls=""
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -1179,6 +1195,7 @@ exports[`renders ./components/select/demo/suffix.md correctly 1`] = `
         unselectable="on"
       >
         <i
+          aria-label="icon: smile"
           class="anticon anticon-smile ant-select-arrow-icon"
         >
           <svg
@@ -1204,7 +1221,7 @@ exports[`renders ./components/select/demo/suffix.md correctly 1`] = `
   >
     <div
       aria-autocomplete="list"
-      aria-controls="test-uuid"
+      aria-controls=""
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
@@ -1229,6 +1246,7 @@ exports[`renders ./components/select/demo/suffix.md correctly 1`] = `
         unselectable="on"
       >
         <i
+          aria-label="icon: meh"
           class="anticon anticon-meh ant-select-arrow-icon"
         >
           <svg
@@ -1258,7 +1276,7 @@ exports[`renders ./components/select/demo/tags.md correctly 1`] = `
 >
   <div
     aria-autocomplete="list"
-    aria-controls="test-uuid"
+    aria-controls=""
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection

@@ -1,4 +1,4 @@
-declare module 'classnames';
+declare module '*.svg';
 
 declare module 'rc-calendar*';
 
@@ -13,8 +13,6 @@ declare module 'rc-animate';
 declare module 'rc-util*';
 
 declare module 'shallowequal';
-
-declare module 'warning';
 
 declare module 'css-animation*';
 
@@ -93,11 +91,17 @@ declare module '*.json' {
 
 declare module 'lodash/debounce';
 
+declare module 'lodash/padStart';
+
+declare module 'lodash/padEnd';
+
+declare module 'lodash/repeat';
+
 declare module 'lodash/uniqBy';
 
-declare module 'raf';
+declare module 'lodash/findIndex';
 
-declare module 'intersperse';
+declare module 'raf';
 
 declare module 'react-lifecycles-compat';
 

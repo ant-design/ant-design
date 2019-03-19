@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form should props colon of Form.Item override the props colon of Form. 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+>
+  <div
+    class="ant-row ant-form-item ant-form-item-no-colon"
+  >
+    <div
+      class="ant-form-item-label"
+    >
+      <label
+        class=""
+        title="label"
+      >
+        label
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control"
+      >
+        <span
+          class="ant-form-item-children"
+        >
+          input
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-label"
+    >
+      <label
+        class=""
+        title="label"
+      >
+        label
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control"
+      >
+        <span
+          class="ant-form-item-children"
+        >
+          input
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item ant-form-item-no-colon"
+  >
+    <div
+      class="ant-form-item-label"
+    >
+      <label
+        class=""
+        title="label"
+      >
+        label
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control"
+      >
+        <span
+          class="ant-form-item-children"
+        >
+          input
+        </span>
+      </div>
+    </div>
+  </div>
+</form>
+`;

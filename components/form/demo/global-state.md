@@ -21,6 +21,7 @@ We can store form data into upper component or [Redux](https://github.com/reactj
 import { Form, Input } from 'antd';
 
 const CustomizedForm = Form.create({
+  name: 'global_state',
   onFieldsChange(props, changedFields) {
     props.onChange(changedFields);
   },

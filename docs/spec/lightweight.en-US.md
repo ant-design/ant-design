@@ -4,7 +4,7 @@ order: 7
 title: Keep it Lightweight
 ---
 
-Fitts’s Law is an ergonomic principle that ties the size of a target and its contextual proximity to ease of use.In other words, if a tool is close at hand and large enough to target, then we can improve the user’s interaction. Putting tools in context makes for lightweight interaction.
+Fitts's Law is an ergonomic principle that ties the size of a target and its contextual proximity to ease of use.In other words, if a tool is close at hand and large enough to target, then we can improve the user's interaction. Putting tools in context makes for lightweight interaction.
 
 
 > <img src="https://os.alipayobjects.com/rmsportal/wAcbQmeqTWDqsnu.png" width="150" />
@@ -38,22 +38,6 @@ Instead of making Contextual Tools always visible, we can show them on demand. O
 <img class="preview-img" align="right" alt="example of Toggle-Reveal Tools" description="The table reveals an input box from the text only when the edit mode is turned on for the area." src="https://gw.alipayobjects.com/zos/rmsportal/iLilpTYKqogBNlwpmVGw.png">
 
 Toggle a tool mode for an area or page when the actions are not the main flow. The tools to accomplish this are revealed on the activation of the toggle.
-
-<br>
-
----
-
-## Interaction in Context
-
-<img class="preview-img" align="right" alt="good example" description="On mouse hover, the Tooltips are revealed to prompt the user to copy the text." src="https://gw.alipayobjects.com/zos/rmsportal/qdBJSanANPKpqeMyRUPX.png" good>
-
-<img class="preview-img" align="right" alt="good example" description="When highlighted or double-clicked, the text is automatically copied to the clipboard. The system helps automate the user flow and brings a surprise." src="https://gw.alipayobjects.com/zos/rmsportal/FDuQKkLcQdzdTUTgAeQM.png" good>
-
-<img class="preview-img" align="right" alt="bad example" description="The copy icon appears near the copyable text." src="https://gw.alipayobjects.com/zos/rmsportal/XHWinYiDxwwgwYnOxRkS.png" bad>
-
-If the actions are secondary or alternative, hide Contextual Tools in the user flow, in order to keep visual clutter to a minimum, reduce the load of cognition burden and bring a surprise.
-
-Some relative knowledge of [Providing an Invitation](/docs/spec/invitation) can also be applied.
 
 <br>
 

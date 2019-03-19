@@ -17,6 +17,11 @@ describe('DatePicker', () => {
     MockDate.reset();
   });
 
+  it('support name prop', () => {
+    const wrapper = mount(<DatePicker name="bamboo" />);
+    expect(wrapper.find('input').props().name).toBe('bamboo');
+  });
+
   it('prop locale should works', () => {
     const locale = {
       lang: {
@@ -162,5 +167,47 @@ describe('DatePicker', () => {
     const wrapper = mount(<DatePicker disabledDate={disabledDate} />);
 
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('extra footer works', () => {
+    const wrapper = mount(
+      <DatePicker renderExtraFooter={mode => <span className="extra-node">{mode}</span>} />,
+    );
+    openPanel(wrapper);
+
+    let extraNode = wrapper.find('.extra-node');
+    expect(extraNode.length).toBe(1);
+    expect(extraNode.text()).toBe('date');
+
+    wrapper
+      .find('.ant-calendar-month-select')
+      .hostNodes()
+      .simulate('click');
+    extraNode = wrapper.find('.ant-calendar-month-panel .extra-node');
+    expect(extraNode.length).toBe(1);
+    expect(extraNode.text()).toBe('month');
+
+    wrapper
+      .find('.ant-calendar-year-select')
+      .hostNodes()
+      .simulate('click');
+    extraNode = wrapper.find('.ant-calendar-year-panel .extra-node');
+    expect(extraNode.length).toBe(1);
+    expect(extraNode.text()).toBe('year');
+
+    wrapper
+      .find('.ant-calendar-year-panel-decade-select')
+      .hostNodes()
+      .simulate('click');
+    extraNode = wrapper.find('.ant-calendar-decade-panel .extra-node');
+    expect(extraNode.length).toBe(1);
+    expect(extraNode.text()).toBe('decade');
+  });
+
+  it('supports multiple formats', () => {
+    const wrapper = mount(<DatePicker format={['DD/MM/YYYY', 'DD/MM/YY']} />);
+    openPanel(wrapper);
+    wrapper.find('.ant-calendar-input').simulate('change', { target: { value: '02/07/18' } });
+    expect(wrapper.find('.ant-calendar-picker-input').getDOMNode().value).toBe('02/07/2018');
   });
 });

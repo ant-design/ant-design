@@ -8,9 +8,11 @@ import classNames from 'classnames';
 import shallowequal from 'shallowequal';
 import Icon from '../icon';
 import Tag from '../tag';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 import interopDefault from '../_util/interopDefault';
 import { RangePickerValue, RangePickerPresetRange } from './interface';
+import { formatDate } from './utils';
 
 export interface RangePickerState {
   value?: RangePickerValue;
@@ -27,10 +29,6 @@ function getShowDateFromValue(value: RangePickerValue) {
   }
   const newEnd = end && end.isSame(start, 'month') ? end.clone().add(1, 'month') : end;
   return [start, newEnd] as RangePickerValue;
-}
-
-function formatValue(value: moment.Moment | undefined, format: string): string {
-  return (value && value.format(format)) || '';
 }
 
 function pickerValueAdapter(
@@ -70,10 +68,9 @@ function fixLocale(value: RangePickerValue | undefined, localeCode: string) {
 
 class RangePicker extends React.Component<any, RangePickerState> {
   static defaultProps = {
-    prefixCls: 'ant-calendar',
-    tagPrefixCls: 'ant-tag',
     allowClear: true,
     showToday: false,
+    separator: '~',
   };
 
   static getDerivedStateFromProps(nextProps: any, prevState: any) {
@@ -100,6 +97,8 @@ class RangePicker extends React.Component<any, RangePickerState> {
   }
 
   private picker: HTMLSpanElement;
+  private prefixCls?: string;
+  private tagPrefixCls?: string;
 
   constructor(props: any) {
     super(props);
@@ -123,6 +122,12 @@ class RangePicker extends React.Component<any, RangePickerState> {
     };
   }
 
+  componentDidUpdate(_: any, prevState: RangePickerState) {
+    if (!('open' in this.props) && prevState.open && !this.state.open) {
+      this.focus();
+    }
+  }
+
   clearSelection = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     e.stopPropagation();
@@ -141,7 +146,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
       }));
     }
     const [start, end] = value;
-    props.onChange(value, [formatValue(start, props.format), formatValue(end, props.format)]);
+    props.onChange(value, [formatDate(start, props.format), formatDate(end, props.format)]);
   };
 
   handleOpenChange = (open: boolean) => {
@@ -156,10 +161,6 @@ class RangePicker extends React.Component<any, RangePickerState> {
     const { onOpenChange } = this.props;
     if (onOpenChange) {
       onOpenChange(open);
-    }
-
-    if (!open) {
-      this.focus();
     }
   };
 
@@ -221,7 +222,8 @@ class RangePicker extends React.Component<any, RangePickerState> {
   };
 
   renderFooter = (...args: any[]) => {
-    const { prefixCls, ranges, renderExtraFooter, tagPrefixCls } = this.props;
+    const { ranges, renderExtraFooter } = this.props;
+    const { prefixCls, tagPrefixCls } = this;
     if (!ranges && !renderExtraFooter) {
       return null;
     }
@@ -254,11 +256,12 @@ class RangePicker extends React.Component<any, RangePickerState> {
     return [rangeNode, customFooter];
   };
 
-  render() {
+  renderRangePicker = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { state, props } = this;
     const { value, showDate, hoverValue, open } = state;
     const {
-      prefixCls,
+      prefixCls: customizePrefixCls,
+      tagPrefixCls: customizeTagPrefixCls,
       popupStyle,
       style,
       disabledDate,
@@ -273,12 +276,25 @@ class RangePicker extends React.Component<any, RangePickerState> {
       dateRender,
       onCalendarChange,
       suffixIcon,
+      separator,
     } = props;
+
+    const prefixCls = getPrefixCls('calendar', customizePrefixCls);
+    const tagPrefixCls = getPrefixCls('tag', customizeTagPrefixCls);
+    // To support old version react.
+    // Have to add prefixCls on the instance.
+    // https://github.com/facebook/react/issues/12397
+    this.prefixCls = prefixCls;
+    this.tagPrefixCls = tagPrefixCls;
 
     fixLocale(value, localeCode);
     fixLocale(showDate, localeCode);
 
-    warning(!('onOK' in props), 'It should be `RangePicker[onOk]`, instead of `onOK`!');
+    warning(
+      !('onOK' in props),
+      'RangePicker',
+      'It should be `RangePicker[onOk]`, instead of `onOK`!',
+    );
 
     const calendarClassName = classNames({
       [`${prefixCls}-time`]: showTime,
@@ -309,6 +325,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
     const calendar = (
       <RangeCalendar
         {...calendarProps}
+        seperator={separator}
         onChange={onCalendarChange}
         format={format}
         prefixCls={prefixCls}
@@ -366,16 +383,16 @@ class RangePicker extends React.Component<any, RangePickerState> {
           <input
             disabled={props.disabled}
             readOnly
-            value={(start && start.format(props.format)) || ''}
+            value={formatDate(start, props.format)}
             placeholder={startPlaceholder}
             className={`${prefixCls}-range-picker-input`}
             tabIndex={-1}
           />
-          <span className={`${prefixCls}-range-picker-separator`}> ~ </span>
+          <span className={`${prefixCls}-range-picker-separator`}> {separator} </span>
           <input
             disabled={props.disabled}
             readOnly
-            value={(end && end.format(props.format)) || ''}
+            value={formatDate(end, props.format)}
             placeholder={endPlaceholder}
             className={`${prefixCls}-range-picker-input`}
             tabIndex={-1}
@@ -412,6 +429,10 @@ class RangePicker extends React.Component<any, RangePickerState> {
         </RcDatePicker>
       </span>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderRangePicker}</ConfigConsumer>;
   }
 }
 

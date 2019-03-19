@@ -9,8 +9,8 @@
   position: absolute;
   z-index: @zindex-tooltip;
   display: block;
-  visibility: visible;
   max-width: @tooltip-max-width;
+  visibility: visible;
 
   &-hidden {
     display: none;
@@ -39,15 +39,16 @@
 
   // Wrapper for the tooltip content
   &-inner {
+    min-width: 30px;
+    min-height: 32px;
     padding: 6px 8px;
     color: @tooltip-color;
     text-align: left;
     text-decoration: none;
+    word-wrap: break-word;
     background-color: @tooltip-bg;
     border-radius: @border-radius-base;
     box-shadow: @box-shadow-base;
-    min-height: 32px;
-    word-wrap: break-word;
   }
 
   // Arrows
@@ -55,8 +56,8 @@
     position: absolute;
     width: 0;
     height: 0;
-    border-color: transparent;
     border-style: solid;
+    border-color: transparent;
   }
 
   &-placement-top &-arrow,

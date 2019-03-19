@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { Row, Col, Menu, Icon, Affix } from 'antd';
 import classNames from 'classnames';
+import get from 'lodash/get';
 import MobileMenu from 'rc-drawer';
 import Article from './Article';
 import PrevAndNext from './PrevAndNext';
@@ -55,7 +56,7 @@ const getSideBarOpenKeys = nextProps => {
   return shouldOpenKeys;
 };
 
-export default class MainContent extends React.PureComponent {
+export default class MainContent extends Component {
   static contextTypes = {
     intl: PropTypes.object.isRequired,
     isMobile: PropTypes.bool.isRequired,
@@ -70,19 +71,28 @@ export default class MainContent extends React.PureComponent {
   }
 
   static getDerivedStateFromProps(props, state) {
-    return {
-      ...state,
-      openKeys: getSideBarOpenKeys(props),
-    };
+    if (!state.openKeys) {
+      return {
+        ...state,
+        openKeys: getSideBarOpenKeys(props),
+      };
+    }
+    return null;
   }
 
   componentDidUpdate(prevProps) {
     const { location } = this.props;
-    if (!prevProps || prevProps.location.pathname !== location.pathname) {
+    const { location: prevLocation = {} } = prevProps || {};
+    if (!prevProps || prevLocation.pathname !== location.pathname) {
       this.bindScroller();
     }
-    if (!window.location.hash && prevProps && prevProps.location.pathname !== location.pathname) {
+    if (!window.location.hash && prevLocation.pathname !== location.pathname) {
       document.documentElement.scrollTop = 0;
+    }
+    // when subMenu not equal
+    if (get(this.props, 'route.path') !== get(prevProps, 'route.path')) {
+      // reset menu OpenKeys
+      this.handleMenuOpenChange();
     }
     setTimeout(() => {
       if (

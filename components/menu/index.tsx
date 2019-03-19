@@ -2,12 +2,12 @@ import * as React from 'react';
 import RcMenu, { Divider, ItemGroup } from 'rc-menu';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { ConfigConsumer, ConfigProviderProps } from '../config-provider';
-import animation from '../_util/openAnimation';
-import warning from '../_util/warning';
 import SubMenu from './SubMenu';
 import Item from './MenuItem';
-import { SiderContext } from '../layout/Sider';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import animation from '../_util/openAnimation';
+import warning from '../_util/warning';
+import { polyfill } from 'react-lifecycles-compat';
 
 export interface SelectParam {
   key: string;
@@ -28,7 +28,7 @@ export type MenuMode = 'vertical' | 'vertical-left' | 'vertical-right' | 'horizo
 
 export type MenuTheme = 'light' | 'dark';
 
-export interface MenuProps extends ConfigProviderProps {
+export interface MenuProps {
   id?: string;
   theme?: MenuTheme;
   mode?: MenuMode;
@@ -53,19 +53,19 @@ export interface MenuProps extends ConfigProviderProps {
   subMenuOpenDelay?: number;
   focusable?: boolean;
   onMouseEnter?: (e: MouseEvent) => void;
+  getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
 }
 
 export interface MenuState {
   openKeys: string[];
 }
 
-export default class Menu extends React.Component<MenuProps, MenuState> {
+class Menu extends React.Component<MenuProps, MenuState> {
   static Divider = Divider;
   static Item = Item;
   static SubMenu = SubMenu;
   static ItemGroup = ItemGroup;
   static defaultProps: Partial<MenuProps> = {
-    prefixCls: 'ant-menu',
     className: '',
     theme: 'light', // or dark
     focusable: false,
@@ -79,22 +79,32 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     collapsedWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   };
 
+  static getDerivedStateFromProps(nextProps: MenuProps) {
+    if ('openKeys' in nextProps) {
+      return { openKeys: nextProps.openKeys! };
+    }
+    return null;
+  }
+
   context: any;
   switchingModeFromInline: boolean;
   inlineOpenKeys: string[] = [];
+  contextSiderCollapsed: boolean = true;
 
   constructor(props: MenuProps) {
     super(props);
 
     warning(
       !('onOpen' in props || 'onClose' in props),
+      'Menu',
       '`onOpen` and `onClose` are removed, please use `onOpenChange` instead, ' +
         'see: https://u.ant.design/menu-on-open-change.',
     );
 
     warning(
       !('inlineCollapsed' in props && props.mode !== 'inline'),
-      "`inlineCollapsed` should only be used when Menu's `mode` is inline.",
+      'Menu',
+      '`inlineCollapsed` should only be used when `mode` is inline.',
     );
 
     let openKeys;
@@ -116,29 +126,24 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     };
   }
 
-  componentWillReceiveProps(nextProps: MenuProps, nextContext: SiderContext) {
-    if (this.props.mode === 'inline' && nextProps.mode !== 'inline') {
+  componentDidUpdate(prevProps: MenuProps) {
+    if (prevProps.mode === 'inline' && this.props.mode !== 'inline') {
       this.switchingModeFromInline = true;
     }
-
-    if ('openKeys' in nextProps) {
-      this.setState({ openKeys: nextProps.openKeys! });
-      return;
-    }
-
     if (
-      (nextProps.inlineCollapsed && !this.props.inlineCollapsed) ||
-      (nextContext.siderCollapsed && !this.context.siderCollapsed)
+      (this.props.inlineCollapsed && !prevProps.inlineCollapsed) ||
+      (this.getInlineCollapsed() && this.contextSiderCollapsed)
     ) {
+      this.contextSiderCollapsed = false;
       this.switchingModeFromInline = true;
       this.inlineOpenKeys = this.state.openKeys;
       this.setState({ openKeys: [] });
     }
-
     if (
-      (!nextProps.inlineCollapsed && this.props.inlineCollapsed) ||
-      (!nextContext.siderCollapsed && this.context.siderCollapsed)
+      (!this.props.inlineCollapsed && prevProps.inlineCollapsed) ||
+      (!this.getInlineCollapsed() && !this.contextSiderCollapsed)
     ) {
+      this.contextSiderCollapsed = true;
       this.setState({ openKeys: this.inlineOpenKeys });
       this.inlineOpenKeys = [];
     }
@@ -183,7 +188,6 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
       onClick(e);
     }
   };
-
   handleOpenChange = (openKeys: string[]) => {
     this.setOpenKeys(openKeys);
 
@@ -238,11 +242,12 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     return menuOpenAnimation;
   }
 
-  renderMenu = ({ getPopupContainer }: ConfigProviderProps) => {
-    const { prefixCls, className, theme } = this.props;
+  renderMenu = ({ getPopupContainer, getPrefixCls }: ConfigConsumerProps) => {
+    const { prefixCls: customizePrefixCls, className, theme } = this.props;
     const menuMode = this.getRealMenuMode();
     const menuOpenAnimation = this.getMenuOpenAnimation(menuMode!);
 
+    const prefixCls = getPrefixCls('menu', customizePrefixCls);
     const menuClassName = classNames(className, `${prefixCls}-${theme}`, {
       [`${prefixCls}-inline-collapsed`]: this.getInlineCollapsed(),
     });
@@ -276,6 +281,7 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
         getPopupContainer={getPopupContainer}
         {...this.props}
         {...menuProps}
+        prefixCls={prefixCls}
         onTransitionEnd={this.handleTransitionEnd}
         onMouseEnter={this.handleMouseEnter}
       />
@@ -286,3 +292,7 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     return <ConfigConsumer>{this.renderMenu}</ConfigConsumer>;
   }
 }
+
+polyfill(Menu);
+
+export default Menu;

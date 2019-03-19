@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import Icon from '../icon';
 import classNames from 'classnames';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface AvatarProps {
   /** Shape of avatar, options:`circle`, `square` */
@@ -30,11 +31,11 @@ export interface AvatarProps {
 export interface AvatarState {
   scale: number;
   isImgExist: boolean;
+  avatarDisplay: boolean;
 }
 
 export default class Avatar extends React.Component<AvatarProps, AvatarState> {
   static defaultProps = {
-    prefixCls: 'ant-avatar',
     shape: 'circle' as AvatarProps['shape'],
     size: 'default' as AvatarProps['size'],
   };
@@ -42,6 +43,7 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
   state = {
     scale: 1,
     isImgExist: true,
+    avatarDisplay: true,
   };
 
   private avatarChildren: any;
@@ -54,15 +56,32 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
     if (
       prevProps.children !== this.props.children ||
       (prevState.scale !== this.state.scale && this.state.scale === 1) ||
-      prevState.isImgExist !== this.state.isImgExist
+      prevState.isImgExist !== this.state.isImgExist ||
+      !this.state.avatarDisplay
     ) {
       this.setScale();
+      if (this.avatarChildren && this.avatarChildren.offsetWidth !== 0) {
+        this.setState({
+          avatarDisplay: true,
+        });
+      }
+    } else {
+      if (this.avatarChildren && this.avatarChildren.offsetWidth === 0 && this.state.scale === 1) {
+        this.setState({
+          avatarDisplay: false,
+        });
+      }
+    }
+
+    if (prevProps.src !== this.props.src) {
+      this.setState({ isImgExist: true, scale: 1 });
     }
   }
 
   setScale = () => {
     const childrenNode = this.avatarChildren;
-    if (childrenNode) {
+    // denominator is 0 is no meaning
+    if (childrenNode && childrenNode.offsetWidth !== 0) {
       const childrenWidth = childrenNode.offsetWidth;
       const avatarNode = ReactDOM.findDOMNode(this) as Element;
       const avatarWidth = avatarNode.getBoundingClientRect().width;
@@ -87,10 +106,22 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
     }
   };
 
-  render() {
-    const { prefixCls, shape, size, src, srcSet, icon, className, alt, ...others } = this.props;
+  renderAvatar = ({ getPrefixCls }: ConfigConsumerProps) => {
+    const {
+      prefixCls: customizePrefixCls,
+      shape,
+      size,
+      src,
+      srcSet,
+      icon,
+      className,
+      alt,
+      ...others
+    } = this.props;
 
     const { isImgExist, scale } = this.state;
+
+    const prefixCls = getPrefixCls('avatar', customizePrefixCls);
 
     const sizeCls = classNames({
       [`${prefixCls}-lg`]: size === 'large',
@@ -155,5 +186,9 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
         {children}
       </span>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderAvatar}</ConfigConsumer>;
   }
 }

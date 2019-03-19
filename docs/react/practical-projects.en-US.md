@@ -35,20 +35,22 @@ yarn create v1.12.0
 [3/4] 🔗  Linking dependencies...
 [4/4] 📃  Building fresh packages...
 
-success Installed "create-umi@0.3.1" with binaries:
+success Installed "create-umi@0.9.5" with binaries:
       - create-umi
-
-? What functionality do you want to enable? (Press <space> to select, <a> to toggle all, <i
-> to invert selection)
-❯◯ antd
- ◯ dva
- ◯ code splitting
- ◯ pwa
- ◯ dll
- ◯ hard source
 ```
 
 Yarn will install the latest version of [create-umi](https://github.com/umijs/create-umi) and then create the app with interactive ui.
+
+Select `app` and press Enter to confirm.
+
+```
+? Select the boilerplate type 
+  ant-design-pro  - Create project with an layout-only ant-design-pro boilerplate, use together with umi block. 
+❯ app             - Create project with a simple boilerplate, support typescript. 
+  block           - Create a umi block. 
+  library         - Create a library with umi. 
+  plugin          - Create a umi plugin. 
+```
 
 Select `antd` and `dva` and press Enter to confirm.
 

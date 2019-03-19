@@ -36,7 +36,7 @@ export default class Article extends React.Component {
     clearTimeout(this.pingTimer);
   }
 
-  onArticleClick = e => {
+  onResourceClick = e => {
     if (!window.gtag) {
       return;
     }
@@ -95,7 +95,7 @@ export default class Article extends React.Component {
     return (
       <DocumentTitle title={`${title[locale] || title} - Ant Design`}>
         {/* eslint-disable-next-line */}
-        <article className="markdown" onClick={this.onArticleClick}>
+        <article className="markdown" onClick={this.onResourceClick}>
           {isNotTranslated && (
             <Alert
               type="warning"

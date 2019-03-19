@@ -7,6 +7,7 @@ exports[`renders ./components/dropdown/demo/basic.md correctly 1`] = `
 >
   Hover me 
   <i
+    aria-label="icon: down"
     class="anticon anticon-down"
   >
     <svg
@@ -53,6 +54,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
       type="button"
     >
       <i
+        aria-label="icon: ellipsis"
         class="anticon anticon-ellipsis"
       >
         <svg
@@ -90,6 +92,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
       type="button"
     >
       <i
+        aria-label="icon: ellipsis"
         class="anticon anticon-ellipsis"
       >
         <svg
@@ -117,6 +120,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
       Button 
     </span>
     <i
+      aria-label="icon: down"
       class="anticon anticon-down"
     >
       <svg
@@ -144,6 +148,7 @@ exports[`renders ./components/dropdown/demo/event.md correctly 1`] = `
 >
   Hover me, Click menu item 
   <i
+    aria-label="icon: down"
     class="anticon anticon-down"
   >
     <svg
@@ -170,6 +175,7 @@ exports[`renders ./components/dropdown/demo/item.md correctly 1`] = `
 >
   Hover me 
   <i
+    aria-label="icon: down"
     class="anticon anticon-down"
   >
     <svg
@@ -196,6 +202,7 @@ exports[`renders ./components/dropdown/demo/overlay-visible.md correctly 1`] = `
 >
   Hover me 
   <i
+    aria-label="icon: down"
     class="anticon anticon-down"
   >
     <svg
@@ -276,6 +283,7 @@ exports[`renders ./components/dropdown/demo/sub-menu.md correctly 1`] = `
 >
   Cascading menu 
   <i
+    aria-label="icon: down"
     class="anticon anticon-down"
   >
     <svg
@@ -302,6 +310,7 @@ exports[`renders ./components/dropdown/demo/trigger.md correctly 1`] = `
 >
   Click me 
   <i
+    aria-label="icon: down"
     class="anticon anticon-down"
   >
     <svg

@@ -33,9 +33,11 @@ exports[`Calendar Calendar should support locale 1`] = `
         </div>
         <span
           class="ant-select-arrow"
+          style="user-select: none;"
           unselectable="on"
         >
           <i
+            aria-label="icon: down"
             class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
@@ -81,9 +83,11 @@ exports[`Calendar Calendar should support locale 1`] = `
         </div>
         <span
           class="ant-select-arrow"
+          style="user-select: none;"
           unselectable="on"
         >
           <i
+            aria-label="icon: down"
             class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
@@ -116,7 +120,7 @@ exports[`Calendar Calendar should support locale 1`] = `
             checked=""
             class="ant-radio-button-input"
             type="radio"
-            value="date"
+            value="month"
           />
           <span
             class="ant-radio-button-inner"
@@ -135,7 +139,7 @@ exports[`Calendar Calendar should support locale 1`] = `
           <input
             class="ant-radio-button-input"
             type="radio"
-            value="month"
+            value="year"
           />
           <span
             class="ant-radio-button-inner"

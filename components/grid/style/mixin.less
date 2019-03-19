@@ -4,9 +4,9 @@
 // ------------------------
 .make-row(@gutter: @grid-gutter-width) {
   position: relative;
-  margin-left: (@gutter / -2);
-  margin-right: (@gutter / -2);
   height: auto;
+  margin-right: (@gutter / -2);
+  margin-left: (@gutter / -2);
   .clearfix;
 }
 
@@ -24,8 +24,8 @@
       position: relative;
       // Prevent columns from collapsing when empty
       min-height: 1px;
-      padding-left: (@grid-gutter-width / 2);
       padding-right: (@grid-gutter-width / 2);
+      padding-left: (@grid-gutter-width / 2);
     }
   }
   .col(1);
@@ -45,8 +45,8 @@
   .col(@index, @list) when (@index > @grid-columns) {
     // terminal
     @{list} {
-      float: left;
       flex: 0 0 auto;
+      float: left;
     }
   }
   .col(1); // kickstart it

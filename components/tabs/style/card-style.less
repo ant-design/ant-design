@@ -12,21 +12,22 @@
     visibility: hidden;
   }
   &&-card &-card-bar &-tab {
+    height: @tabs-card-height;
     margin: 0;
-    border: @border-width-base @border-style-base @border-color-split;
-    border-bottom: 0;
-    border-radius: @border-radius-base @border-radius-base 0 0;
-    background: @tabs-card-head-background;
     margin-right: 2px;
     padding: 0 16px;
-    transition: all 0.3s @ease-in-out;
     line-height: @tabs-card-height - 2px;
+    background: @tabs-card-head-background;
+    border: @border-width-base @border-style-base @border-color-split;
+    border-radius: @border-radius-base @border-radius-base 0 0;
+    transition: all 0.3s @ease-in-out;
   }
   &&-card &-card-bar &-tab-active {
+    height: @tabs-card-height;
+    color: @tabs-card-active-color;
     background: @component-background;
     border-color: @border-color-split;
-    color: @tabs-card-active-color;
-    padding-bottom: 1px;
+    border-bottom: @border-width-base solid @component-background;
   }
   &&-card &-card-bar &-tab-inactive {
     padding: 0;
@@ -35,16 +36,16 @@
     margin-bottom: 0;
   }
   &&-card &-card-bar &-tab &-close-x {
-    color: @text-color-secondary;
-    transition: all 0.3s;
-    font-size: @font-size-sm;
-    margin-left: 3px;
-    margin-right: -5px;
-    overflow: hidden;
-    vertical-align: middle;
     width: 16px;
     height: 16px;
     height: @font-size-base;
+    margin-right: -5px;
+    margin-left: 3px;
+    overflow: hidden;
+    color: @text-color-secondary;
+    font-size: @font-size-sm;
+    vertical-align: middle;
+    transition: all 0.3s;
     &:hover {
       color: @heading-color;
     }
@@ -69,13 +70,13 @@
       position: relative;
       width: 20px;
       height: 20px;
+      color: @text-color;
+      font-size: 12px;
       line-height: 20px;
       text-align: center;
-      cursor: pointer;
-      border-radius: @border-radius-sm;
       border: @border-width-base @border-style-base @border-color-split;
-      font-size: 12px;
-      color: @text-color;
+      border-radius: @border-radius-sm;
+      cursor: pointer;
       transition: all 0.3s;
       &:hover {
         color: @tabs-card-active-color;
@@ -99,8 +100,8 @@
       height: auto;
     }
     .@{tab-prefix-cls}-tab {
-      border-bottom: @border-width-base @border-style-base @border-color-split;
       margin-bottom: 8px;
+      border-bottom: @border-width-base @border-style-base @border-color-split;
       &-active {
         padding-bottom: 4px;
       }
@@ -118,9 +119,9 @@
       margin-right: 0;
     }
     .@{tab-prefix-cls}-tab {
+      margin-right: 1px;
       border-right: 0;
       border-radius: @border-radius-base 0 0 @border-radius-base;
-      margin-right: 1px;
       &-active {
         margin-right: -1px;
         padding-right: 18px;
@@ -133,9 +134,9 @@
       margin-left: 0;
     }
     .@{tab-prefix-cls}-tab {
+      margin-left: 1px;
       border-left: 0;
       border-radius: 0 @border-radius-base @border-radius-base 0;
-      margin-left: 1px;
       &-active {
         margin-left: -1px;
         padding-left: 18px;
@@ -145,14 +146,14 @@
 
   // https://github.com/ant-design/ant-design/issues/9104
   & &-card-bar&-bottom-bar &-tab {
-    border-bottom: @border-width-base @border-style-base @border-color-split;
     border-top: 0;
+    border-bottom: @border-width-base @border-style-base @border-color-split;
     border-radius: 0 0 @border-radius-base @border-radius-base;
   }
 
   & &-card-bar&-bottom-bar &-tab-active {
-    color: @primary-color;
-    padding-bottom: 0;
     padding-top: 1px;
+    padding-bottom: 0;
+    color: @primary-color;
   }
 }

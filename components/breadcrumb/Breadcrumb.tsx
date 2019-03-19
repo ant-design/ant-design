@@ -1,9 +1,10 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import { cloneElement } from 'react';
-import warning from '../_util/warning';
-import BreadcrumbItem from './BreadcrumbItem';
 import classNames from 'classnames';
+import BreadcrumbItem from './BreadcrumbItem';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import warning from '../_util/warning';
 
 export interface Route {
   path: string;
@@ -47,7 +48,6 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
   static Item: typeof BreadcrumbItem;
 
   static defaultProps = {
-    prefixCls: 'ant-breadcrumb',
     separator: '/',
   };
 
@@ -64,16 +64,17 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
     const props = this.props;
     warning(
       !('linkRender' in props || 'nameRender' in props),
+      'Breadcrumb',
       '`linkRender` and `nameRender` are removed, please use `itemRender` instead, ' +
         'see: https://u.ant.design/item-render.',
     );
   }
 
-  render() {
+  renderBreadcrumb = ({ getPrefixCls }: ConfigConsumerProps) => {
     let crumbs;
     const {
+      prefixCls: customizePrefixCls,
       separator,
-      prefixCls,
       style,
       className,
       routes,
@@ -81,6 +82,7 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
       children,
       itemRender = defaultItemRender,
     } = this.props;
+    const prefixCls = getPrefixCls('breadcrumb', customizePrefixCls);
     if (routes && routes.length > 0) {
       const paths: string[] = [];
       crumbs = routes.map(route => {
@@ -105,7 +107,8 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
         }
         warning(
           element.type && element.type.__ANT_BREADCRUMB_ITEM,
-          "Breadcrumb only accepts Breadcrumb.Item as it's children",
+          'Breadcrumb',
+          "Only accepts Breadcrumb.Item as it's children",
         );
         return cloneElement(element, {
           separator,
@@ -118,5 +121,9 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
         {crumbs}
       </div>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderBreadcrumb}</ConfigConsumer>;
   }
 }

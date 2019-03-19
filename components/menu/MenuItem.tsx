@@ -4,14 +4,17 @@ import * as PropTypes from 'prop-types';
 import Tooltip from '../tooltip';
 import { ClickParam } from './index';
 
-interface MenuItemProps {
+export interface MenuItemProps {
   rootPrefixCls?: string;
   disabled?: boolean;
   level?: number;
   title?: React.ReactNode;
   children?: React.ReactNode;
   className?: string;
+  style?: React.CSSProperties;
   onClick?: (param: ClickParam) => void;
+  onMouseEnter?: (e: { key: string; domEvent: MouseEvent }) => void;
+  onMouseLeave?: (e: { key: string; domEvent: MouseEvent }) => void;
 }
 
 class MenuItem extends React.Component<MenuItemProps, any> {
@@ -25,11 +28,9 @@ class MenuItem extends React.Component<MenuItemProps, any> {
   onKeyDown = (e: React.MouseEvent<HTMLElement>) => {
     this.menuItem.onKeyDown(e);
   };
-
   saveMenuItem = (menuItem: any) => {
     this.menuItem = menuItem;
   };
-
   render() {
     const { inlineCollapsed } = this.context;
     const { level, children, rootPrefixCls } = this.props;

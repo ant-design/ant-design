@@ -94,6 +94,15 @@ describe('Icon', () => {
     }).not.toThrow();
   });
 
+  it('support render svg as component', () => {
+    const renderSvg = () => (
+      <svg viewBox="0 0 1024 1024" width="1em" height="1em" fill="currentColor" />
+    );
+    const SvgIcon = props => <Icon component={renderSvg} {...props} />;
+
+    expect(mount(<SvgIcon />).render()).toMatchSnapshot();
+  });
+
   describe('warning on conflicting theme', () => {
     let errorSpy;
     beforeEach(() => {
@@ -112,7 +121,7 @@ describe('Icon', () => {
     it('warns', () => {
       mount(<Icon type="clock-circle-o" theme="filled" />);
       expect(errorSpy).toBeCalledWith(
-        "Warning: The icon name 'clock-circle-o' already specify a theme 'outlined', the 'theme' prop 'filled' will be ignored.",
+        "Warning: [antd: Icon] The icon name 'clock-circle-o' already specify a theme 'outlined', the 'theme' prop 'filled' will be ignored.",
       );
     });
   });

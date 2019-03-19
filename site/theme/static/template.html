@@ -13,15 +13,11 @@
       #nprogress { display: none }
     </style>
     <link rel="stylesheet/less" type="text/css" href="{{ root }}color.less"/>
-    <script src="https://gw.alipayobjects.com/os/lib/??es6-shim/0.35.3/es6-sham.min.js,es6-shim/0.35.3/es6-shim.min.js"></script>
+    <script src="https://gw.alipayobjects.com/os/lib/es6-shim/0.35.5/??es6-sham.min.js,es6-shim.min.js"></script>
     <!--[if lte IE 10]>
     <script src="https://as.alipayobjects.com/g/component/??console-polyfill/0.2.2/index.js,media-match/2.0.2/media.match.min.js"></script>
     <![endif]-->
-    <script>
-    if (!window.Intl) {
-      document.writeln('<script src="https://as.alipayobjects.com/g/component/intl/1.0.1/??Intl.js,locale-data/jsonp/en.js,locale-data/jsonp/zh.js"\>\<\/script>');
-    }
-    </script>
+    <script src="https://as.alipayobjects.com/g/component/intl/1.0.1/??Intl.min.js,locale-data/jsonp/en.js,locale-data/jsonp/zh.js"></script>
     <script>
     (function() {
       function isLocalStorageNameSupported() {
@@ -78,7 +74,6 @@
     <div id="react-content">
       {{ content | safe }}
     </div>
-    <script src="{{ root }}common.js"></script>
     <script src="{{ root }}index.js"></script>
     <!-- Global Site Tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-72788897-1"></script>

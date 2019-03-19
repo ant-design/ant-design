@@ -45,8 +45,8 @@
   }
 
   > .@{table-prefix-cls}-title {
-    border-bottom: @border-width-base @border-style-base @border-color-split;
     top: 0;
+    border-bottom: @border-width-base @border-style-base @border-color-split;
   }
 
   > .@{table-prefix-cls}-content {
@@ -74,7 +74,7 @@
         padding: @table-padding-vertical-sm @table-padding-horizontal-sm;
       }
       > .@{table-prefix-cls}-thead > tr > th {
-        background-color: @component-background;
+        background-color: transparent;
         border-bottom: @border-width-base @border-style-base @border-color-split;
       }
       > .@{table-prefix-cls}-thead > tr > th.@{table-prefix-cls}-column-sort {
@@ -112,8 +112,8 @@
 
     .@{table-prefix-cls}-title {
       border: 0;
-      border-bottom: @border-width-base @border-style-base @border-color-split;
       border-right: @border-width-base @border-style-base @border-color-split;
+      border-bottom: @border-width-base @border-style-base @border-color-split;
     }
 
     .@{table-prefix-cls}-content {
@@ -124,15 +124,15 @@
       border: 0;
       border-top: @border-width-base @border-style-base @border-color-split;
       border-right: @border-width-base @border-style-base @border-color-split;
-      &:before {
+      &::before {
         display: none;
       }
     }
 
     .@{table-prefix-cls}-placeholder {
-      border-left: 0;
-      border-bottom: 0;
       border-right: 0;
+      border-bottom: 0;
+      border-left: 0;
     }
 
     .@{table-prefix-cls}-thead > tr > th:last-child,
@@ -148,8 +148,8 @@
     }
 
     .@{table-prefix-cls}-fixed-right {
-      border-left: @border-width-base @border-style-base @border-color-split;
       border-right: @border-width-base @border-style-base @border-color-split;
+      border-left: @border-width-base @border-style-base @border-color-split;
     }
   }
 

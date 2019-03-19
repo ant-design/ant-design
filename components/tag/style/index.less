@@ -6,18 +6,18 @@
 .@{tag-prefix-cls} {
   .reset-component;
   display: inline-block;
-  line-height: 20px;
   height: 22px;
-  padding: 0 7px;
-  border-radius: @border-radius-base;
-  border: @border-width-base @border-style-base @border-color-base;
-  background: @tag-default-bg;
-  font-size: @tag-font-size;
-  transition: all 0.3s @ease-out;
-  opacity: 1;
   margin-right: 8px;
-  cursor: pointer;
+  padding: 0 7px;
+  font-size: @tag-font-size;
+  line-height: 20px;
   white-space: nowrap;
+  background: @tag-default-bg;
+  border: @border-width-base @border-style-base @border-color-base;
+  border-radius: @border-radius-base;
+  cursor: pointer;
+  opacity: 1;
+  transition: all 0.3s @ease-out;
 
   &:hover {
     opacity: 0.85;
@@ -37,11 +37,11 @@
 
   .@{iconfont-css-prefix}-close {
     .iconfont-size-under-12px(10px);
-    cursor: pointer;
     margin-left: 3px;
-    transition: all 0.3s;
     color: @text-color-secondary;
     font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
 
     &:hover {
       color: @heading-color;
@@ -55,7 +55,7 @@
     a:hover,
     .@{iconfont-css-prefix}-close,
     .@{iconfont-css-prefix}-close:hover {
-      color: #fff;
+      color: @text-color-inverse;
     }
   }
 
@@ -67,7 +67,7 @@
     }
     &:active,
     &-checked {
-      color: #fff;
+      color: @text-color-inverse;
     }
     &-checked {
       background-color: @primary-6;
@@ -79,8 +79,8 @@
 
   &-close {
     width: 0 !important;
-    padding: 0;
     margin: 0;
+    padding: 0;
   }
 
   &-zoom-enter,
@@ -114,9 +114,9 @@
       border-color: @@lightBorderColor;
     }
     &-@{color}-inverse {
+      color: @text-color-inverse;
       background: @@darkColor;
       border-color: @@darkColor;
-      color: #fff;
     }
   }
 
