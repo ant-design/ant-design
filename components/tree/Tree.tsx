@@ -146,6 +146,7 @@ export interface TreeProps {
   prefixCls?: string;
   filterTreeNode?: (node: AntTreeNode) => boolean;
   children?: React.ReactNode | React.ReactNode[];
+  blockNode?: boolean;
 }
 
 export default class Tree extends React.Component<TreeProps, any> {
@@ -159,6 +160,7 @@ export default class Tree extends React.Component<TreeProps, any> {
       ...animation,
       appear: null,
     },
+    blockNode: false,
   };
 
   tree: any;
@@ -190,7 +192,7 @@ export default class Tree extends React.Component<TreeProps, any> {
       } else if (switcherIcon) {
         const switcherOriginCls = switcherIcon.props.className || '';
         return React.cloneElement(switcherIcon, {
-          className: [switcherOriginCls, switcherCls],
+          className: classNames(switcherOriginCls, switcherCls),
         });
       } else {
         return <Icon type="caret-down" className={switcherCls} theme="filled" />;
@@ -204,7 +206,7 @@ export default class Tree extends React.Component<TreeProps, any> {
 
   renderTree = ({ getPrefixCls }: ConfigConsumerProps) => {
     const props = this.props;
-    const { prefixCls: customizePrefixCls, className, showIcon, switcherIcon } = props;
+    const { prefixCls: customizePrefixCls, className, showIcon, switcherIcon, blockNode } = props;
     const checkable = props.checkable;
     const prefixCls = getPrefixCls('tree', customizePrefixCls);
     return (
@@ -212,7 +214,10 @@ export default class Tree extends React.Component<TreeProps, any> {
         ref={this.setTreeRef}
         {...props}
         prefixCls={prefixCls}
-        className={classNames(!showIcon && `${prefixCls}-icon-hide`, className)}
+        className={classNames(className, {
+          [`${prefixCls}-icon-hide`]: !showIcon,
+          [`${prefixCls}-block-node`]: blockNode,
+        })}
         checkable={checkable ? <span className={`${prefixCls}-checkbox-inner`} /> : checkable}
         switcherIcon={(nodeProps: AntTreeNodeProps) =>
           this.renderSwitcherIcon(prefixCls, switcherIcon, nodeProps)

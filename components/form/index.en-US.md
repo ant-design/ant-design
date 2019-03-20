@@ -36,10 +36,12 @@ A form field is defined using `<Form.Item />`.
 | -------- | ----------- | ---- | ------------- |
 | form | Decorated by `Form.create()` will be automatically set `this.props.form` property | object | n/a |
 | hideRequiredMark | Hide required mark of all form items | Boolean | false |
+| labelAlign | Label text align | 'left' \| 'right' | 'right' |
 | labelCol | (Added in 3.14.0. Previous version can only set on FormItem.) The layout of label. You can set `span` `offset` to something like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` same as with `<Col>` | [object](https://ant.design/components/grid/#Col) |  |
 | layout | Define form layout | 'horizontal'\|'vertical'\|'inline' | 'horizontal' |
 | onSubmit | Defines a function will be called if form data validation is successful. | Function(e:Event) |  |
 | wrapperCol | (Added in 3.14.0. Previous version can only set on FormItem.) The layout for input controls, same as `labelCol` | [object](https://ant.design/components/grid/#Col) |  |
+| colon | change default props colon value of Form.Item | boolean | true |
 
 ### Form.create(options)
 
@@ -162,8 +164,7 @@ After wrapped by `getFieldDecorator`, `value`(or other property defined by `valu
 
 #### Special attention
 
-1. `getFieldDecorator` can not be used to decorate stateless component.
-2. If you use `react@<15.3.0`, then, you can't use `getFieldDecorator` in stateless component: <https://github.com/facebook/react/pull/6534>
+If you use `react@<15.3.0`, then, you can't use `getFieldDecorator` in stateless component: <https://github.com/facebook/react/pull/6534>
 
 #### getFieldDecorator(id, options) parameters
 

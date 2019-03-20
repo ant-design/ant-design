@@ -30,7 +30,7 @@ if (typeof window !== 'undefined') {
   /* eslint-enable global-require */
 
   // Error log statistic
-  window.addEventListener('error', function(e) {
+  window.addEventListener('error', function onError(e) {
     // Ignore ResizeObserver error
     if (e.message === 'ResizeObserver loop limit exceeded') {
       e.stopPropagation();

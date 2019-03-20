@@ -7,7 +7,7 @@ describe('Collapse', () => {
     const wrapper = mount(
       <Collapse expandIcon={() => null}>
         <Collapse.Panel header="header" />
-      </Collapse>
+      </Collapse>,
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
@@ -17,7 +17,7 @@ describe('Collapse', () => {
       <Collapse>
         <Collapse.Panel header="header" extra={<button type="button">action</button>} />
         <Collapse.Panel header="header" extra={<button type="button">action</button>} />
-      </Collapse>
+      </Collapse>,
     );
     expect(wrapper.render()).toMatchSnapshot();
   });

@@ -101,7 +101,11 @@ input[type='checkbox'] {
     text-align: right;
     vertical-align: middle;
 
-    label {
+    &-left {
+      text-align: left;
+    }
+
+    > label {
       color: @label-color;
 
       &::after {
