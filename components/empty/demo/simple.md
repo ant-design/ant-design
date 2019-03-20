@@ -7,17 +7,17 @@ title:
 
 ## zh-CN
 
-可以通过设置 image 为 'simple' 选择另一种风格的图片。
+可以通过设置 image 为 Empty.PRESENTED_IMAGE_SIMPLE 选择另一种风格的图片。
 
 ## en-US
 
-You can choose another style of image by setting image to 'simple'.
+You can choose another style of image by setting image to Empty.PRESENTED_IMAGE_SIMPLE
 
 ```jsx
 import { Empty } from 'antd';
 
 ReactDOM.render(
-  <Empty image="simple" imageSize={40} />,
+  <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} imageStyle={{ height:40 }} />,
   mountNode
 );
 ```
