@@ -156,16 +156,12 @@ describe('List.pagination', () => {
     expect(wrapper.find('.ant-select-dropdown-menu-item')).toHaveLength(3);
     wrapper
       .find('.ant-select-dropdown-menu-item')
-      .at(1)
+      .second()
       .simulate('click');
     expect(wrapper.find('.ant-select-selection-selected-value').text()).toEqual('6 / page');
     wrapper
-      .find('.ant-pagination-options-size-changer')
-      .first()
-      .simulate('click');
-    wrapper
       .find('.ant-select-dropdown-menu-item')
-      .at(2)
+      .last(1)
       .simulate('click');
     expect(wrapper.find('.ant-select-selection-selected-value').text()).toEqual('9 / page');
   });
