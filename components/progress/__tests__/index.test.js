@@ -53,8 +53,9 @@ describe('Progress', () => {
         from: '#108ee9',
         to: '#87d068',
       },
+      type: 'line',
     });
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('render normal progress', () => {
