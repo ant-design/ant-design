@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Progress from '..';
+import { handleGradient } from '../Line';
 
 describe('Progress', () => {
   it('successPercent should decide the progress status when it exists', () => {
@@ -68,5 +69,15 @@ describe('Progress', () => {
   it('render normal progress', () => {
     const wrapper = mount(<Progress status="normal" />);
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('get correct line-gradient', () => {
+    expect(handleGradient({ from: 'test', to: 'test' }).backgroundImage).toBe(
+      'linear-gradient(to right, test, test)',
+    );
+    expect(handleGradient({}).backgroundImage).toBe('linear-gradient(to right, #108ee9, #87d068)');
+    expect(handleGradient({ from: 'test', to: 'test', '0%': 'test' }).backgroundImage).toBe(
+      'linear-gradient(to right, test 0%)',
+    );
   });
 });
