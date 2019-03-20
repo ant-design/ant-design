@@ -156,12 +156,7 @@ describe('List.pagination', () => {
     expect(wrapper.find('.ant-select-dropdown-menu-item')).toHaveLength(3);
     wrapper
       .find('.ant-select-dropdown-menu-item')
-      .second()
-      .simulate('click');
-    expect(wrapper.find('.ant-select-selection-selected-value').text()).toEqual('6 / page');
-    wrapper
-      .find('.ant-select-dropdown-menu-item')
-      .last(1)
+      .last()
       .simulate('click');
     expect(wrapper.find('.ant-select-selection-selected-value').text()).toEqual('9 / page');
   });
