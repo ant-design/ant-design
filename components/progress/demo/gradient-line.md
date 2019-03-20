@@ -7,7 +7,7 @@ title:
 
 ## zh-CN
 
-`linear-gradient` 的一封装。推荐只传两种颜色。
+`linear-gradient` 的封装。推荐只传两种颜色。
 
 ## en-US
 
