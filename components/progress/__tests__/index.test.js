@@ -56,6 +56,13 @@ describe('Progress', () => {
       type: 'line',
     });
     expect(wrapper).toMatchSnapshot();
+    wrapper.setProps({
+      strokeColor: {
+        '0%': '#108ee9',
+        '100%': '#87d068',
+      },
+    });
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('render normal progress', () => {
