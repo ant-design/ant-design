@@ -48,6 +48,13 @@ describe('Progress', () => {
   it('render strokeColor', () => {
     const wrapper = mount(<Progress type="circle" percent={50} strokeColor="red" />);
     expect(wrapper.render()).toMatchSnapshot();
+    wrapper.setProps({
+      strokeColor: {
+        from: '#108ee9',
+        to: '#87d068',
+      },
+    });
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('render normal progress', () => {
