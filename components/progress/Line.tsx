@@ -21,7 +21,7 @@ export const sortGradient = (gradients: StringGradients) => {
   let tempArr = [];
   const result: StringGradients = {};
   for (const [key, value] of Object.entries(gradients)) {
-    const formatKey = parseFloat(key.replace('%', ''));
+    const formatKey = parseFloat(key.replace(/%/g, ''));
     if (isNaN(formatKey)) {
       return {};
     }
