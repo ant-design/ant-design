@@ -64,7 +64,7 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
       return;
     }
     const childrenWidth = this.avatarChildren.offsetWidth; // offsetWidth avoid affecting be transform scale
-    const nodeWidth = this.avatarNode.getBoundingClientRect().width;
+    const nodeWidth = this.avatarNode.offsetWidth;
     // denominator is 0 is no meaning
     if (
       childrenWidth === 0 ||
