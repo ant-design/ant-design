@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Progress from '..';
-import { handleGradient } from '../Line';
+import { handleGradient, sortGradient } from '../Line';
 
 describe('Progress', () => {
   it('successPercent should decide the progress status when it exists', () => {
@@ -75,9 +75,17 @@ describe('Progress', () => {
     expect(handleGradient({ from: 'test', to: 'test' }).backgroundImage).toBe(
       'linear-gradient(to right, test, test)',
     );
-    expect(handleGradient({}).backgroundImage).toBe('linear-gradient(to right, #108ee9, #87d068)');
+    expect(handleGradient({}).backgroundImage).toBe('linear-gradient(to right, #1890ff, #1890ff)');
     expect(handleGradient({ from: 'test', to: 'test', '0%': 'test' }).backgroundImage).toBe(
       'linear-gradient(to right, test 0%)',
     );
+  });
+
+  it('sort gradients correctly', () => {
+    expect(sortGradient({ '10%': 'test10', '30%': 'test30', '20%': 'test20' })).toEqual({
+      '10%': 'test10',
+      '20%': 'test20',
+      '30%': 'test30',
+    });
   });
 });

@@ -8,12 +8,57 @@ interface LineProps extends ProgressProps {
 }
 type StringGradients = { [percent: string]: string };
 
+/**
+ * {                             {
+ *   '0%': '#afc163',              '0%': '#afc163',
+ *   '75%': '#009900',             '25%': '#66FF00',
+ *   '50%': 'green',     ====>     '50%': '#00CC00',
+ *   '25%': '#66FF00',             '75%': '#009900',
+ *   '100%': '#ffffff'             '100%': '#ffffff'
+ * }                             }
+ */
+export const sortGradient = (gradients: StringGradients) => {
+  let tempArr = [];
+  const result: StringGradients = {};
+  for (const [key, value] of Object.entries(gradients)) {
+    const formatKey = parseFloat(key.replace('%', ''));
+    if (isNaN(formatKey)) {
+      return {};
+    }
+    tempArr.push({
+      key: formatKey,
+      value,
+    });
+  }
+  tempArr = tempArr.sort((a, b) => a.key - b.key);
+  for (const item of tempArr) {
+    const { key, value } = item;
+    result[key + '%'] = value;
+  }
+  return result;
+};
+
+/**
+ * {
+ *   '0%': '#afc163',
+ *   '25%': '#66FF00',
+ *   '50%': '#00CC00',     ====>  linear-gradient(to right, #afc163 0%, #66FF00 25%,
+ *   '75%': '#009900',              #00CC00 50%, #009900 75%, #ffffff 100%)
+ *   '100%': '#ffffff'
+ * }
+ *
+ * Then this man came to realize the truth:
+ * Besides six pence, there is the moon.
+ * Besides bread and butter, there is the bug.
+ * And...
+ * Besides women, there is the code.
+ */
 export const handleGradient = (strokeColor: ProgressGradient) => {
-  const { from = '#108ee9', to = '#87d068', direction = 'to right', ...rest } = strokeColor;
-  const keys = Object.keys(rest);
-  if (keys.length !== 0) {
+  const { from = '#1890ff', to = '#1890ff', direction = 'to right', ...rest } = strokeColor;
+  if (Object.keys(rest).length !== 0) {
     let backgroundImage = `linear-gradient(${direction}, `;
-    for (const key of keys) {
+    const sortedGradients = sortGradient(rest as StringGradients);
+    for (const key of Object.keys(sortedGradients)) {
       const value = (rest as StringGradients)[key];
       backgroundImage += `${value} ${key}, `;
     }
