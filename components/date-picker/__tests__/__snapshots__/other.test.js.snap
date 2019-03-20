@@ -1029,7 +1029,7 @@ exports[`Picker format by locale date 1`] = `
 exports[`Picker format by locale dateTime 1`] = `
 <span
   class="ant-calendar-picker"
-  style="width: 195px;"
+  style="min-width: 195px;"
 >
   <div>
     <input
