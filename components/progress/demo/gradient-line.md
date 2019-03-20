@@ -1,26 +1,25 @@
 ---
 order: 11
 title:
-  zh-CN: todo
-  en-US: todo
-only: true
+  zh-CN: 自定义进度条渐变色
+  en-US: Custom line gradient
 ---
 
 ## zh-CN
 
-todo
+`linear-gradient` 的一封装。推荐只传两种颜色。
 
 ## en-US
 
-todo
+A package of `linear-gradient`. It is recommended to only pass two colors.
 
 ````jsx
 import { Progress } from 'antd';
 
 const strokeColor = {
-  from: '#ccc',
-  to: '#f96',
+  from: '#108ee9',
+  to: '#87d068',
 }
 
-ReactDOM.render(<Progress strokeColor={strokeColor} percent={90} status="active" />, mountNode);
+ReactDOM.render(<Progress strokeColor={strokeColor} percent={99.9} status="active" />, mountNode);
 ````
