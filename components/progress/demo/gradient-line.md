@@ -16,10 +16,26 @@ A package of `linear-gradient`. It is recommended to only pass two colors.
 ````jsx
 import { Progress } from 'antd';
 
-const strokeColor = {
-  from: '#108ee9',
-  to: '#87d068',
-}
+const Demo = () => (
+  <div>
+    <Progress
+      strokeColor={{
+        '0%': '#108ee9',
+        '100%': '#87d068',
+      }}
+      percent={99.9}
+      status="active"
+    />
+    <Progress
+      strokeColor={{
+        from: '#108ee9',
+        to: '#87d068',
+      }}
+      percent={99.9}
+      status="active"
+    />
+  </div>
+);
 
-ReactDOM.render(<Progress strokeColor={strokeColor} percent={99.9} status="active" />, mountNode);
+ReactDOM.render(<Demo />, mountNode);
 ````

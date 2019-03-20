@@ -1,11 +1,27 @@
 import * as React from 'react';
 import { validProgress } from './utils';
-import { ProgressProps } from './progress';
+import { ProgressProps, ProgressGradient } from './progress';
 
 interface LineProps extends ProgressProps {
   prefixCls: string;
   children: React.ReactNode;
 }
+type StringGradients = { [percent: string]: string };
+
+export const handleGradient = (strokeColor: ProgressGradient) => {
+  const { from = '#108ee9', to = '#87d068', direction = 'to right', ...rest } = strokeColor;
+  const keys = Object.keys(rest);
+  if (keys.length !== 0) {
+    let backgroundImage = `linear-gradient(${direction}, `;
+    for (const key of keys) {
+      const value = (rest as StringGradients)[key];
+      backgroundImage += `${value} ${key}, `;
+    }
+    backgroundImage = backgroundImage.substring(0, backgroundImage.length - 2) + ')';
+    return { backgroundImage };
+  }
+  return { backgroundImage: `linear-gradient(${direction}, ${from}, ${to})` };
+};
 
 const Line: React.SFC<LineProps> = props => {
   const {
@@ -20,8 +36,7 @@ const Line: React.SFC<LineProps> = props => {
   } = props;
   let backgroundProps;
   if (strokeColor && typeof strokeColor !== 'string') {
-    const { from = '#108ee9', to = '#87d068', direction = 'to right' } = strokeColor;
-    backgroundProps = { backgroundImage: `linear-gradient(${direction}, ${from}, ${to})` };
+    backgroundProps = handleGradient(strokeColor);
   } else {
     backgroundProps = {
       background: strokeColor,
