@@ -2550,7 +2550,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
           <span
             class="ant-calendar-picker"
             id="time_related_controls_date-time-picker"
-            style="width:195px"
+            style="min-width:195px"
           >
             <div>
               <input
