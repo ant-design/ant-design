@@ -54,7 +54,7 @@ export interface ListProps {
 }
 
 export interface ListLocale {
-  emptyText: string;
+  emptyText: React.ReactNode | (() => React.ReactNode);
 }
 
 export default class List extends React.Component<ListProps> {
