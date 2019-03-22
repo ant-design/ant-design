@@ -6,20 +6,19 @@ interface LineProps extends ProgressProps {
   prefixCls: string;
   children: React.ReactNode;
 }
-type StringGradients = { [percent: string]: string };
 
 /**
- * {                             {
- *   '0%': '#afc163',              '0%': '#afc163',
- *   '75%': '#009900',             '25%': '#66FF00',
- *   '50%': 'green',     ====>     '50%': '#00CC00',
- *   '25%': '#66FF00',             '75%': '#009900',
- *   '100%': '#ffffff'             '100%': '#ffffff'
- * }                             }
+ * {
+ *   '0%': '#afc163',
+ *   '75%': '#009900',
+ *   '50%': 'green',     ====>     '#afc163 0%, #66FF00 25%, #00CC00 50%, #009900 75%, #ffffff 100%'
+ *   '25%': '#66FF00',
+ *   '100%': '#ffffff'
+ * }
  */
-export const sortGradient = (gradients: StringGradients) => {
+export const sortGradient = (gradients: ProgressGradient) => {
   let tempArr = [];
-  const result: StringGradients = {};
+  let result = '';
   for (const [key, value] of Object.entries(gradients)) {
     const formatKey = parseFloat(key.replace(/%/g, ''));
     if (isNaN(formatKey)) {
@@ -33,9 +32,9 @@ export const sortGradient = (gradients: StringGradients) => {
   tempArr = tempArr.sort((a, b) => a.key - b.key);
   for (const item of tempArr) {
     const { key, value } = item;
-    result[key + '%'] = value;
+    result += `${value} ${key}%, `;
   }
-  return result;
+  return result.substring(0, result.length - 2);
 };
 
 /**
@@ -56,14 +55,8 @@ export const sortGradient = (gradients: StringGradients) => {
 export const handleGradient = (strokeColor: ProgressGradient) => {
   const { from = '#1890ff', to = '#1890ff', direction = 'to right', ...rest } = strokeColor;
   if (Object.keys(rest).length !== 0) {
-    let backgroundImage = `linear-gradient(${direction}, `;
-    const sortedGradients = sortGradient(rest as StringGradients);
-    for (const key of Object.keys(sortedGradients)) {
-      const value = (rest as StringGradients)[key];
-      backgroundImage += `${value} ${key}, `;
-    }
-    backgroundImage = backgroundImage.substring(0, backgroundImage.length - 2) + ')';
-    return { backgroundImage };
+    const sortedGradients = sortGradient(rest as ProgressGradient);
+    return { backgroundImage: `linear-gradient(${direction}, ${sortedGradients})` };
   }
   return { backgroundImage: `linear-gradient(${direction}, ${from}, ${to})` };
 };

@@ -82,10 +82,8 @@ describe('Progress', () => {
   });
 
   it('sort gradients correctly', () => {
-    expect(sortGradient({ '10%': 'test10', '30%': 'test30', '20%': 'test20' })).toEqual({
-      '10%': 'test10',
-      '20%': 'test20',
-      '30%': 'test30',
-    });
+    expect(sortGradient({ '10%': 'test10', '30%': 'test30', '20%': 'test20' })).toBe(
+      'test10 10%, test20 20%, test30 30%',
+    );
   });
 });
