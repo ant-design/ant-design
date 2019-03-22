@@ -580,6 +580,12 @@
     }
   }
 
+  // Patch for popup adjust
+  // https://github.com/ant-design/ant-design/issues/14422
+  &--empty&--multiple &-menu-item {
+    padding-right: @control-padding-horizontal;
+  }
+
   &-container-open,
   &-open {
     .@{select-prefix-cls}-dropdown {
