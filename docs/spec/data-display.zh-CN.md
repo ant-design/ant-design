@@ -1,11 +1,7 @@
 ---
-category:
-  zh-CN: 模式
-  en-US: Patterns
+category: 模式
 order: 10
-title:
-  zh-CN: 数据展示
-  en-US: Data Display
+title: 数据展示
 ---
 
 合适的数据展示方式可以帮助用户快速地定位和浏览数据，以及更高效得协同工作。在设计时有以下几点需要注意：
