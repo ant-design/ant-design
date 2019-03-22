@@ -12,7 +12,7 @@ const ProgressTypes = tuple('line', 'circle', 'dashboard');
 export type ProgressType = (typeof ProgressTypes)[number];
 const ProgressStatuses = tuple('normal', 'exception', 'active', 'success');
 export type ProgressSize = 'default' | 'small';
-type StringGradients = { [percentage: string]: string };
+export type StringGradients = { [percentage: string]: string };
 type FromToGradients = { from: string; to: string };
 export type ProgressGradient = { direction?: string } & (StringGradients | FromToGradients);
 export interface ProgressProps {

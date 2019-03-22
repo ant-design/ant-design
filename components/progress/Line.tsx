@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { validProgress } from './utils';
-import { ProgressProps, ProgressGradient } from './progress';
+import { ProgressProps, ProgressGradient, StringGradients } from './progress';
 
 interface LineProps extends ProgressProps {
   prefixCls: string;
@@ -18,7 +18,6 @@ interface LineProps extends ProgressProps {
  */
 export const sortGradient = (gradients: ProgressGradient) => {
   let tempArr = [];
-  let result = '';
   for (const [key, value] of Object.entries(gradients)) {
     const formatKey = parseFloat(key.replace(/%/g, ''));
     if (isNaN(formatKey)) {
@@ -30,11 +29,7 @@ export const sortGradient = (gradients: ProgressGradient) => {
     });
   }
   tempArr = tempArr.sort((a, b) => a.key - b.key);
-  for (const item of tempArr) {
-    const { key, value } = item;
-    result += `${value} ${key}%, `;
-  }
-  return result.substring(0, result.length - 2);
+  return tempArr.map(({ key, value }) => `${value} ${key}%`).join(', ');
 };
 
 /**
@@ -55,7 +50,7 @@ export const sortGradient = (gradients: ProgressGradient) => {
 export const handleGradient = (strokeColor: ProgressGradient) => {
   const { from = '#1890ff', to = '#1890ff', direction = 'to right', ...rest } = strokeColor;
   if (Object.keys(rest).length !== 0) {
-    const sortedGradients = sortGradient(rest as ProgressGradient);
+    const sortedGradients = sortGradient(rest as StringGradients);
     return { backgroundImage: `linear-gradient(${direction}, ${sortedGradients})` };
   }
   return { backgroundImage: `linear-gradient(${direction}, ${from}, ${to})` };
