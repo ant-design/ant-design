@@ -2157,7 +2157,7 @@ exports[`renders ./components/form/demo/style-check-debug.md correctly 1`] = `
             class="ant-form-item-label"
           >
             <label
-              class=""
+              class="ant-form-item-required ant-form-item-no-colon"
               title="select:64px"
             >
               select:64px
@@ -2230,7 +2230,7 @@ exports[`renders ./components/form/demo/style-check-debug.md correctly 1`] = `
             class="ant-form-item-label"
           >
             <label
-              class=""
+              class="ant-form-item-no-colon"
               title="InputNumber:64px"
             >
               InputNumber:64px
@@ -2334,7 +2334,7 @@ exports[`renders ./components/form/demo/style-check-debug.md correctly 1`] = `
             class="ant-form-item-label"
           >
             <label
-              class=""
+              class="ant-form-item-no-colon"
               title="DatePicker: 64.5px"
             >
               DatePicker: 64.5px
@@ -2395,7 +2395,7 @@ exports[`renders ./components/form/demo/style-check-debug.md correctly 1`] = `
             class="ant-form-item-label"
           >
             <label
-              class=""
+              class="ant-form-item-no-colon"
               title="RadioGroup: 64px"
             >
               RadioGroup: 64px
