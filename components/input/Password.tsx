@@ -5,7 +5,7 @@ import Icon from '../icon';
 
 export interface PasswordProps extends InputProps {
   readonly inputPrefixCls?: string;
-  readonly action: string;
+  readonly action?: string;
   visibilityToggle?: boolean;
 }
 
@@ -37,7 +37,7 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
   };
 
   getIcon() {
-    const { prefixCls, action } = this.props;
+    const { prefixCls, action = 'click' } = this.props;
     const iconTrigger = ActionMap[action] || '';
     const iconProps = {
       [iconTrigger]: this.onChange,
