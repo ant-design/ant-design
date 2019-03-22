@@ -1,11 +1,13 @@
 import * as React from 'react';
-import RcCalendar from 'rc-calendar';
+
+import { DatePickerDecorator, DatePickerProps } from './interface';
+
 import MonthCalendar from 'rc-calendar/lib/MonthCalendar';
+import RangePicker from './RangePicker';
+import RcCalendar from 'rc-calendar';
+import WeekPicker from './WeekPicker';
 import createPicker from './createPicker';
 import wrapPicker from './wrapPicker';
-import RangePicker from './RangePicker';
-import WeekPicker from './WeekPicker';
-import { DatePickerProps, DatePickerDecorator } from './interface';
 
 const DatePicker = wrapPicker(createPicker(RcCalendar), 'date') as React.ClassicComponentClass<
   DatePickerProps

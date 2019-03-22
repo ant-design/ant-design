@@ -1,5 +1,6 @@
-import Icon, { IconProps } from './index';
 import * as React from 'react';
+
+import Icon, { IconProps } from './index';
 
 const customCache = new Set<string>();
 

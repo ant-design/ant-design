@@ -1,7 +1,9 @@
 import * as React from 'react';
+
 import Modal, { ModalFuncProps, destroyFns } from './Modal';
-import confirm from './confirm';
+
 import Icon from '../icon';
+import confirm from './confirm';
 
 export { ActionButtonProps } from './ActionButton';
 export { ModalProps, ModalFuncProps } from './Modal';

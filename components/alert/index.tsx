@@ -1,9 +1,11 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import Animate from 'rc-animate';
-import Icon, { ThemeType } from '../icon';
-import classNames from 'classnames';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import Icon, { ThemeType } from '../icon';
+
+import Animate from 'rc-animate';
+import classNames from 'classnames';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 
 function noop() {}

@@ -1,7 +1,7 @@
 import OriginTypography from './Typography';
+import Paragraph from './Paragraph';
 import Text from './Text';
 import Title from './Title';
-import Paragraph from './Paragraph';
 
 type TypographyProps = typeof OriginTypography & {
   Text: typeof Text;

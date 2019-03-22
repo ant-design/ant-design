@@ -1,15 +1,17 @@
 import * as React from 'react';
 import * as moment from 'moment';
-import omit from 'omit.js';
-import { polyfill } from 'react-lifecycles-compat';
+
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
+import Icon from '../icon';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import RcTimePicker from 'rc-time-picker/lib/TimePicker';
 import classNames from 'classnames';
-import warning from '../_util/warning';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import defaultLocale from './locale/en_US';
 import interopDefault from '../_util/interopDefault';
-import Icon from '../icon';
+import omit from 'omit.js';
+import { polyfill } from 'react-lifecycles-compat';
+import warning from '../_util/warning';
 
 export function generateShowHourMinuteSecond(format: string) {
   // Ref: http://momentjs.com/docs/#/parsing/string-format/

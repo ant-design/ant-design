@@ -1,5 +1,7 @@
 import * as React from 'react';
-import { getNodeChildren, convertTreeToEntities } from 'rc-tree/lib/util';
+
+import { convertTreeToEntities, getNodeChildren } from 'rc-tree/lib/util';
+
 import { AntTreeNodeProps } from './Tree';
 
 enum Record {

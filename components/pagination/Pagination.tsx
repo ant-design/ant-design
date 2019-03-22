@@ -1,12 +1,14 @@
 import * as React from 'react';
-import RcPagination from 'rc-pagination';
-import enUS from 'rc-pagination/lib/locale/en_US';
-import classNames from 'classnames';
-import MiniSelect from './MiniSelect';
-import Icon from '../icon';
-import Select from '../select';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
+import Icon from '../icon';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import MiniSelect from './MiniSelect';
+import RcPagination from 'rc-pagination';
+import Select from '../select';
+import classNames from 'classnames';
+import enUS from 'rc-pagination/lib/locale/en_US';
 
 export interface PaginationProps {
   total?: number;

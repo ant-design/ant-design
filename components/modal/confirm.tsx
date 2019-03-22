@@ -1,9 +1,11 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import classNames from 'classnames';
-import Icon from '../icon';
+
 import Dialog, { ModalFuncProps, destroyFns } from './Modal';
+
 import ActionButton from './ActionButton';
+import Icon from '../icon';
+import classNames from 'classnames';
 import { getConfirmLocale } from './locale';
 import warning from '../_util/warning';
 

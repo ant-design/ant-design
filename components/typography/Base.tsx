@@ -1,21 +1,23 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import { polyfill } from 'react-lifecycles-compat';
-import toArray from 'rc-util/lib/Children/toArray';
-import copy from 'copy-to-clipboard';
-import omit from 'omit.js';
-import { withConfigConsumer, ConfigConsumerProps, configConsumerProps } from '../config-provider';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import warning from '../_util/warning';
-import TransButton from '../_util/transButton';
-import ResizeObserver from '../_util/resizeObserver';
-import raf from '../_util/raf';
-import isStyleSupport from '../_util/styleChecker';
-import Icon from '../icon';
-import Tooltip from '../tooltip';
+
+import { ConfigConsumerProps, configConsumerProps, withConfigConsumer } from '../config-provider';
 import Typography, { TypographyProps } from './Typography';
+
 import Editable from './Editable';
+import Icon from '../icon';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import ResizeObserver from '../_util/resizeObserver';
+import Tooltip from '../tooltip';
+import TransButton from '../_util/transButton';
+import classNames from 'classnames';
+import copy from 'copy-to-clipboard';
+import isStyleSupport from '../_util/styleChecker';
 import { measure } from './util';
+import omit from 'omit.js';
+import { polyfill } from 'react-lifecycles-compat';
+import raf from '../_util/raf';
+import toArray from 'rc-util/lib/Children/toArray';
+import warning from '../_util/warning';
 
 export type BaseType = 'secondary' | 'danger' | 'warning';
 

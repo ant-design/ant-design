@@ -1,10 +1,12 @@
 import * as React from 'react';
+
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import TimePickerPanel from 'rc-time-picker/lib/Panel';
 import classNames from 'classnames';
 import enUS from './locale/en_US';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { generateShowHourMinuteSecond } from '../time-picker';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 type PickerType = 'date' | 'week' | 'month';
 

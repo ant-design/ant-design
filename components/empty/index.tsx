@@ -1,7 +1,9 @@
 import * as React from 'react';
-import classNames from 'classnames';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import classNames from 'classnames';
 import emptyImg from './empty.svg';
 
 export interface TransferLocale {

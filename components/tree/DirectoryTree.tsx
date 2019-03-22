@@ -1,20 +1,21 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import omit from 'omit.js';
-import debounce from 'lodash/debounce';
-import { conductExpandParent, convertTreeToEntities } from 'rc-tree/lib/util';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import { polyfill } from 'react-lifecycles-compat';
 
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Tree, {
-  TreeProps,
-  AntdTreeNodeAttribute,
+  AntTreeNode,
   AntTreeNodeExpandedEvent,
   AntTreeNodeSelectedEvent,
-  AntTreeNode,
+  AntdTreeNodeAttribute,
+  TreeProps,
 } from './Tree';
 import { calcRangeKeys, getFullKeyList } from './util';
+import { conductExpandParent, convertTreeToEntities } from 'rc-tree/lib/util';
+
 import Icon from '../icon';
+import classNames from 'classnames';
+import debounce from 'lodash/debounce';
+import omit from 'omit.js';
+import { polyfill } from 'react-lifecycles-compat';
 
 export type ExpandAction = false | 'click' | 'doubleClick';
 

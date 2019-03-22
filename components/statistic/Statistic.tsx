@@ -1,10 +1,11 @@
 import * as React from 'react';
-import classNames from 'classnames';
 
-import { withConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import StatisticNumber from './Number';
+import { ConfigConsumerProps, withConfigConsumer } from '../config-provider';
+import { FormatConfig, valueType } from './utils';
+
 import Countdown from './Countdown';
-import { valueType, FormatConfig } from './utils';
+import StatisticNumber from './Number';
+import classNames from 'classnames';
 
 interface StatisticComponent {
   Countdown: typeof Countdown;

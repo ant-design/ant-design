@@ -1,16 +1,18 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import addEventListener from 'rc-util/lib/Dom/addEventListener';
-import omit from 'omit.js';
+
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
+import Col from '../col';
 import Grid from './Grid';
 import Meta from './Meta';
-import Tabs from '../tabs';
+import { Omit } from '../_util/type';
 import Row from '../row';
-import Col from '../col';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import Tabs from '../tabs';
+import addEventListener from 'rc-util/lib/Dom/addEventListener';
+import classNames from 'classnames';
+import omit from 'omit.js';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
 import warning from '../_util/warning';
-import { Omit } from '../_util/type';
 
 export { CardGridProps } from './Grid';
 export { CardMetaProps } from './Meta';

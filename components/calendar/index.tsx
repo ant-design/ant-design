@@ -1,11 +1,13 @@
-import * as React from 'react';
 import * as PropTypes from 'prop-types';
+import * as React from 'react';
 import * as moment from 'moment';
+
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
 import FullCalendar from 'rc-calendar/lib/FullCalendar';
 import Header from './Header';
-import enUS from './locale/en_US';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import enUS from './locale/en_US';
 import interopDefault from '../_util/interopDefault';
 import { polyfill } from 'react-lifecycles-compat';
 

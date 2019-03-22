@@ -1,5 +1,6 @@
-import * as React from 'react';
 import * as PropTypes from 'prop-types';
+import * as React from 'react';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface BreadcrumbItemProps {

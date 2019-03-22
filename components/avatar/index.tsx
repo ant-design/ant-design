@@ -1,7 +1,9 @@
 import * as React from 'react';
+
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
 import Icon from '../icon';
 import classNames from 'classnames';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface AvatarProps {
   /** Shape of avatar, options:`circle`, `square` */

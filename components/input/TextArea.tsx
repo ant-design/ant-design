@@ -1,10 +1,12 @@
 import * as React from 'react';
-import omit from 'omit.js';
-import classNames from 'classnames';
-import { polyfill } from 'react-lifecycles-compat';
-import calculateNodeHeight from './calculateNodeHeight';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
 import ResizeObserver from '../_util/resizeObserver';
+import calculateNodeHeight from './calculateNodeHeight';
+import classNames from 'classnames';
+import omit from 'omit.js';
+import { polyfill } from 'react-lifecycles-compat';
 
 function onNextFrame(cb: () => void) {
   if (window.requestAnimationFrame) {

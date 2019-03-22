@@ -1,44 +1,46 @@
+import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import RcTable from 'rc-table';
-import * as PropTypes from 'prop-types';
-import classNames from 'classnames';
-import shallowEqual from 'shallowequal';
-import FilterDropdown from './filterDropdown';
-import createStore, { Store } from './createStore';
-import SelectionBox from './SelectionBox';
-import SelectionCheckboxAll from './SelectionCheckboxAll';
-import Column from './Column';
-import ColumnGroup from './ColumnGroup';
-import createBodyRow from './createBodyRow';
-import { flatArray, treeMap, flatFilter, normalizeColumns } from './util';
+
 import {
-  TableProps,
-  TableSize,
-  TableState,
-  TableComponents,
-  RowSelectionType,
-  TableLocale,
   AdditionalCellProps,
   ColumnProps,
   CompareFn,
-  SortOrder,
-  TableStateFilters,
-  SelectionItemSelectFn,
-  SelectionInfo,
-  TableSelectWay,
-  TableRowSelection,
   PaginationConfig,
   PrepareParamsArgumentsReturn,
+  RowSelectionType,
+  SelectionInfo,
+  SelectionItemSelectFn,
+  SortOrder,
+  TableComponents,
+  TableLocale,
+  TableProps,
+  TableRowSelection,
+  TableSelectWay,
+  TableSize,
+  TableState,
+  TableStateFilters,
 } from './interface';
-import Pagination from '../pagination';
-import Icon from '../icon';
-import Spin, { SpinProps } from '../spin';
-import { RadioChangeEvent } from '../radio';
-import { CheckboxChangeEvent } from '../checkbox';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import defaultLocale from '../locale-provider/default';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
+import Spin, { SpinProps } from '../spin';
+import createStore, { Store } from './createStore';
+import { flatArray, flatFilter, normalizeColumns, treeMap } from './util';
+
+import { CheckboxChangeEvent } from '../checkbox';
+import Column from './Column';
+import ColumnGroup from './ColumnGroup';
+import FilterDropdown from './filterDropdown';
+import Icon from '../icon';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import Pagination from '../pagination';
+import { RadioChangeEvent } from '../radio';
+import RcTable from 'rc-table';
+import SelectionBox from './SelectionBox';
+import SelectionCheckboxAll from './SelectionCheckboxAll';
+import classNames from 'classnames';
+import createBodyRow from './createBodyRow';
+import defaultLocale from '../locale-provider/default';
+import shallowEqual from 'shallowequal';
 import warning from '../_util/warning';
 
 function noop() {}

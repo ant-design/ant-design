@@ -1,14 +1,16 @@
-import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import classNames from 'classnames';
+import * as React from 'react';
+
+import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import List, { TransferListProps } from './list';
+
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import Operation from './operation';
 import Search from './search';
-import warning from '../_util/warning';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import classNames from 'classnames';
 import defaultLocale from '../locale-provider/default';
-import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import { polyfill } from 'react-lifecycles-compat';
+import warning from '../_util/warning';
 
 export { TransferListProps } from './list';
 export { TransferOperationProps } from './operation';

@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { ColumnFilterItem } from './interface';
 
 export function flatArray(data: any[] = [], childrenName = 'children') {

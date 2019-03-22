@@ -1,12 +1,14 @@
 import * as React from 'react';
 import * as moment from 'moment';
-import { polyfill } from 'react-lifecycles-compat';
+
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
 import Calendar from 'rc-calendar';
+import Icon from '../icon';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
-import Icon from '../icon';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import interopDefault from '../_util/interopDefault';
+import { polyfill } from 'react-lifecycles-compat';
 
 function formatValue(value: moment.Moment | null, format: string): string {
   return (value && value.format(format)) || '';

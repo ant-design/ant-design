@@ -1,6 +1,8 @@
 import * as React from 'react';
-import Empty from '../empty';
+
 import { ConfigConsumer, ConfigConsumerProps } from './';
+
+import Empty from '../empty';
 import emptyImg from './empty.svg';
 
 const renderEmpty = (componentName?: string): React.ReactNode => (

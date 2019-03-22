@@ -1,9 +1,11 @@
 import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
 import * as moment from 'moment';
-import interopDefault from '../_util/interopDefault';
+
+import { FormatConfig, countdownValueType, formatCountdown } from './utils';
 import Statistic, { StatisticProps } from './Statistic';
-import { formatCountdown, countdownValueType, FormatConfig } from './utils';
+
+import interopDefault from '../_util/interopDefault';
+import { polyfill } from 'react-lifecycles-compat';
 
 const REFRESH_INTERVAL = 1000 / 30;
 

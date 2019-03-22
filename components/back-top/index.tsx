@@ -1,11 +1,13 @@
 import * as React from 'react';
+
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
 import Animate from 'rc-animate';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import classNames from 'classnames';
+import getScroll from '../_util/getScroll';
 import omit from 'omit.js';
 import raf from 'raf';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import getScroll from '../_util/getScroll';
 
 const easeInOutCubic = (t: number, b: number, c: number, d: number) => {
   const cc = c - b;

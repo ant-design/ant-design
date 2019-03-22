@@ -1,7 +1,9 @@
 import * as React from 'react';
-import debounce from 'lodash/debounce';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
 import { Settings } from 'react-slick';
+import debounce from 'lodash/debounce';
 
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82

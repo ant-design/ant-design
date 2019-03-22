@@ -1,8 +1,10 @@
 import * as React from 'react';
-import { createElement, Component } from 'react';
-import omit from 'omit.js';
-import classNames from 'classnames';
+
+import { Component, createElement } from 'react';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
+import classNames from 'classnames';
+import omit from 'omit.js';
 import { polyfill } from 'react-lifecycles-compat';
 
 function getNumberArray(num: string | number | undefined | null) {

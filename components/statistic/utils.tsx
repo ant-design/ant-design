@@ -1,7 +1,8 @@
 import * as React from 'react';
 import * as moment from 'moment';
-import padStart from 'lodash/padStart';
+
 import interopDefault from '../_util/interopDefault';
+import padStart from 'lodash/padStart';
 
 export type valueType = number | string;
 export type countdownValueType = valueType | string;

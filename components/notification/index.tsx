@@ -1,6 +1,7 @@
 import * as React from 'react';
-import Notification from 'rc-notification';
+
 import Icon from '../icon';
+import Notification from 'rc-notification';
 
 export type NotificationPlacement = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
 

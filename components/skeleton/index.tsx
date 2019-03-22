@@ -1,9 +1,11 @@
 import * as React from 'react';
-import classNames from 'classnames';
+
 import Avatar, { SkeletonAvatarProps } from './Avatar';
-import Title, { SkeletonTitleProps } from './Title';
-import Paragraph, { SkeletonParagraphProps } from './Paragraph';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import Paragraph, { SkeletonParagraphProps } from './Paragraph';
+import Title, { SkeletonTitleProps } from './Title';
+
+import classNames from 'classnames';
 
 export interface SkeletonProps {
   active?: boolean;

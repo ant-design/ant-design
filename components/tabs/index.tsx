@@ -1,13 +1,15 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import RcTabs, { TabPane } from 'rc-tabs';
-import TabContent from 'rc-tabs/lib/TabContent';
-import TabBar from './TabBar';
-import classNames from 'classnames';
-import Icon from '../icon';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import warning from '../_util/warning';
+import RcTabs, { TabPane } from 'rc-tabs';
+
+import Icon from '../icon';
+import TabBar from './TabBar';
+import TabContent from 'rc-tabs/lib/TabContent';
+import classNames from 'classnames';
 import { isFlexSupported } from '../_util/styleChecker';
+import warning from '../_util/warning';
 
 export type TabsType = 'line' | 'card' | 'editable-card';
 export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';

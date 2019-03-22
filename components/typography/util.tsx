@@ -1,5 +1,7 @@
-import { render, unmountComponentAtNode } from 'react-dom';
 import * as React from 'react';
+
+import { render, unmountComponentAtNode } from 'react-dom';
+
 import toArray from 'rc-util/lib/Children/toArray';
 
 interface MeasureResult {

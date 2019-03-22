@@ -1,5 +1,5 @@
-import Upload from './Upload';
 import Dragger from './Dragger';
+import Upload from './Upload';
 
 export { UploadProps, UploadListProps, UploadChangeParam } from './interface';
 export { DraggerProps } from './Dragger';

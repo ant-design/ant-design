@@ -1,12 +1,14 @@
-import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { polyfill } from 'react-lifecycles-compat';
-import Group from './button-group';
-import omit from 'omit.js';
-import Icon from '../icon';
+import * as React from 'react';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
+import Group from './button-group';
+import Icon from '../icon';
 import Wave from '../_util/wave';
+import classNames from 'classnames';
+import omit from 'omit.js';
+import { polyfill } from 'react-lifecycles-compat';
 import { tuple } from '../_util/type';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;

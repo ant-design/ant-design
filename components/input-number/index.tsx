@@ -1,9 +1,11 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import RcInputNumber from 'rc-input-number';
-import Icon from '../icon';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
+import Icon from '../icon';
 import { Omit } from '../_util/type';
+import RcInputNumber from 'rc-input-number';
+import classNames from 'classnames';
 
 // omitting this attrs because they conflicts with the ones defined in InputNumberProps
 export type OmitAttrs = 'defaultValue' | 'onChange' | 'size';

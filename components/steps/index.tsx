@@ -1,8 +1,10 @@
-import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import RcSteps from 'rc-steps';
-import Icon from '../icon';
+import * as React from 'react';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
+import Icon from '../icon';
+import RcSteps from 'rc-steps';
 
 export interface StepsProps {
   className?: string;

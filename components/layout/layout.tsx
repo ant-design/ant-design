@@ -1,8 +1,10 @@
-import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { SiderProps } from './Sider';
+import * as React from 'react';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
+import { SiderProps } from './Sider';
+import classNames from 'classnames';
 
 export interface GeneratorProps {
   suffixCls: string;

@@ -1,7 +1,9 @@
 import * as React from 'react';
-import classNames from 'classnames';
+
 import Input, { InputProps } from './Input';
+
 import Icon from '../icon';
+import classNames from 'classnames';
 
 export interface PasswordProps extends InputProps {
   readonly inputPrefixCls?: string;

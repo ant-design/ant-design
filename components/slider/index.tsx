@@ -1,9 +1,11 @@
 import * as React from 'react';
-import RcSlider from 'rc-slider/lib/Slider';
-import RcRange from 'rc-slider/lib/Range';
-import RcHandle from 'rc-slider/lib/Handle';
-import Tooltip from '../tooltip';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
+import RcHandle from 'rc-slider/lib/Handle';
+import RcRange from 'rc-slider/lib/Range';
+import RcSlider from 'rc-slider/lib/Slider';
+import Tooltip from '../tooltip';
 
 export interface SliderMarks {
   [key: number]:

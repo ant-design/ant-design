@@ -1,9 +1,11 @@
-import * as React from 'react';
 import * as PropTypes from 'prop-types';
+import * as React from 'react';
+
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
+import { AbstractCheckboxProps } from '../checkbox/Checkbox';
 import Radio from './radio';
 import { RadioChangeEvent } from './interface';
-import { AbstractCheckboxProps } from '../checkbox/Checkbox';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export type RadioButtonProps = AbstractCheckboxProps<RadioChangeEvent>;
 

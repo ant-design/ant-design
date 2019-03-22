@@ -1,10 +1,12 @@
 import * as React from 'react';
-import RcCollapse from 'rc-collapse';
-import classNames from 'classnames';
+
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
 import CollapsePanel from './CollapsePanel';
 import Icon from '../icon';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import RcCollapse from 'rc-collapse';
 import animation from '../_util/openAnimation';
+import classNames from 'classnames';
 
 export interface CollapseProps {
   activeKey?: Array<string> | string;

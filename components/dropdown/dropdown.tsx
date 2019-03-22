@@ -1,11 +1,13 @@
 import * as React from 'react';
+
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
+import DropdownButton from './dropdown-button';
+import Icon from '../icon';
 import RcDropdown from 'rc-dropdown';
 import classNames from 'classnames';
-import DropdownButton from './dropdown-button';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import warning from '../_util/warning';
-import Icon from '../icon';
 import { tuple } from '../_util/type';
+import warning from '../_util/warning';
 
 const Placements = tuple(
   'topLeft',

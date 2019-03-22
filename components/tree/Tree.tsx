@@ -1,10 +1,12 @@
 import * as React from 'react';
-import RcTree, { TreeNode } from 'rc-tree';
-import DirectoryTree from './DirectoryTree';
-import classNames from 'classnames';
-import Icon from '../icon';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import RcTree, { TreeNode } from 'rc-tree';
+
+import DirectoryTree from './DirectoryTree';
+import Icon from '../icon';
 import animation from '../_util/openAnimation';
+import classNames from 'classnames';
 
 export interface AntdTreeNodeAttribute {
   eventKey: string;

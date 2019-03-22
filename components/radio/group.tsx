@@ -1,16 +1,18 @@
-import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import classNames from 'classnames';
-import shallowEqual from 'shallowequal';
-import { polyfill } from 'react-lifecycles-compat';
-import Radio from './radio';
+import * as React from 'react';
+
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import {
-  RadioGroupProps,
-  RadioGroupState,
   RadioChangeEvent,
   RadioGroupButtonStyle,
+  RadioGroupProps,
+  RadioGroupState,
 } from './interface';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
+import Radio from './radio';
+import classNames from 'classnames';
+import { polyfill } from 'react-lifecycles-compat';
+import shallowEqual from 'shallowequal';
 
 function getCheckedValue(children: React.ReactNode) {
   let value = null;

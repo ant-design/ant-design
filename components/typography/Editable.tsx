@@ -1,8 +1,9 @@
 import * as React from 'react';
-import KeyCode from 'rc-util/lib/KeyCode';
-import { polyfill } from 'react-lifecycles-compat';
+
 import Icon from '../icon';
+import KeyCode from 'rc-util/lib/KeyCode';
 import TextArea from '../input/TextArea';
+import { polyfill } from 'react-lifecycles-compat';
 
 interface EditableProps {
   prefixCls?: string;

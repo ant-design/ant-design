@@ -1,7 +1,9 @@
 import * as React from 'react';
+
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
 import RcCollapse from 'rc-collapse';
 import classNames from 'classnames';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface CollapsePanelProps {
   key: string;

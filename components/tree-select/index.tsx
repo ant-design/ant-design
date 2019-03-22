@@ -1,12 +1,14 @@
 import * as React from 'react';
-import RcTreeSelect, { TreeNode, SHOW_ALL, SHOW_PARENT, SHOW_CHILD } from 'rc-tree-select';
-import classNames from 'classnames';
-import { TreeSelectProps } from './interface';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import warning from '../_util/warning';
-import Icon from '../icon';
+import RcTreeSelect, { SHOW_ALL, SHOW_CHILD, SHOW_PARENT, TreeNode } from 'rc-tree-select';
+
 import { AntTreeNodeProps } from '../tree';
+import Icon from '../icon';
+import { TreeSelectProps } from './interface';
+import classNames from 'classnames';
 import omit from 'omit.js';
+import warning from '../_util/warning';
 
 export { TreeNode, TreeSelectProps } from './interface';
 

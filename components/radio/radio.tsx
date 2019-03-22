@@ -1,12 +1,14 @@
-import * as React from 'react';
 import * as PropTypes from 'prop-types';
+import * as React from 'react';
+
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { RadioChangeEvent, RadioGroupContext, RadioProps } from './interface';
+
+import RadioButton from './radioButton';
+import RadioGroup from './group';
 import RcCheckbox from 'rc-checkbox';
 import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
-import RadioGroup from './group';
-import RadioButton from './radioButton';
-import { RadioProps, RadioChangeEvent, RadioGroupContext } from './interface';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export default class Radio extends React.Component<RadioProps, {}> {
   static Group: typeof RadioGroup;

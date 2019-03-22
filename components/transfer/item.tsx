@@ -1,8 +1,9 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
-import Lazyload from 'react-lazy-load';
+
 import Checkbox from '../checkbox';
+import Lazyload from 'react-lazy-load';
+import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
+import classNames from 'classnames';
 
 export default class Item extends React.Component<any, any> {
   shouldComponentUpdate(...args: any[]) {

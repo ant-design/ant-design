@@ -1,11 +1,13 @@
 import * as React from 'react';
-import Animate from 'rc-animate';
-import classNames from 'classnames';
-import { UploadListProps, UploadFile, UploadListType } from './interface';
-import Icon from '../icon';
-import Tooltip from '../tooltip';
-import Progress from '../progress';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { UploadFile, UploadListProps, UploadListType } from './interface';
+
+import Animate from 'rc-animate';
+import Icon from '../icon';
+import Progress from '../progress';
+import Tooltip from '../tooltip';
+import classNames from 'classnames';
 
 const extname = (url: string) => {
   if (!url) {

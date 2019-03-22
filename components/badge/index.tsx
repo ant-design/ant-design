@@ -1,9 +1,11 @@
-import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import Animate from 'rc-animate';
-import classNames from 'classnames';
-import ScrollNumber from './ScrollNumber';
+import * as React from 'react';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
+import Animate from 'rc-animate';
+import ScrollNumber from './ScrollNumber';
+import classNames from 'classnames';
 
 export { ScrollNumberProps } from './ScrollNumber';
 

@@ -1,9 +1,11 @@
 import * as React from 'react';
-import RcMention, { Nav, toString, toEditorState, getMentions } from 'rc-editor-mention';
-import { polyfill } from 'react-lifecycles-compat';
-import classNames from 'classnames';
-import Icon from '../icon';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import RcMention, { Nav, getMentions, toEditorState, toString } from 'rc-editor-mention';
+
+import Icon from '../icon';
+import classNames from 'classnames';
+import { polyfill } from 'react-lifecycles-compat';
 
 export type MentionPlacement = 'top' | 'bottom';
 

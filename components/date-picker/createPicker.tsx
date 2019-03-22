@@ -1,17 +1,18 @@
 import * as React from 'react';
 import * as moment from 'moment';
-import { polyfill } from 'react-lifecycles-compat';
+
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
+import Icon from '../icon';
 import MonthCalendar from 'rc-calendar/lib/MonthCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
-import omit from 'omit.js';
-import Icon from '../icon';
-
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import warning from '../_util/warning';
-import interopDefault from '../_util/interopDefault';
-import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 import { formatDate } from './utils';
+import getDataOrAriaProps from '../_util/getDataOrAriaProps';
+import interopDefault from '../_util/interopDefault';
+import omit from 'omit.js';
+import { polyfill } from 'react-lifecycles-compat';
+import warning from '../_util/warning';
 
 export interface PickerProps {
   value?: moment.Moment;

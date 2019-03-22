@@ -1,18 +1,20 @@
 import * as React from 'react';
-import classNames from 'classnames';
 import * as allIcons from '@ant-design/icons/lib/dist';
-import ReactIcon from '@ant-design/icons-react';
-import createFromIconfontCN from './IconFont';
+
 import {
+  alias,
+  getThemeFromTypeName,
+  removeTypeTheme,
   svgBaseProps,
   withThemeSuffix,
-  removeTypeTheme,
-  getThemeFromTypeName,
-  alias,
 } from './utils';
-import warning from '../_util/warning';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { getTwoToneColor, setTwoToneColor } from './twoTonePrimaryColor';
+
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import ReactIcon from '@ant-design/icons-react';
+import classNames from 'classnames';
+import createFromIconfontCN from './IconFont';
+import warning from '../_util/warning';
 
 // Initial setting
 ReactIcon.add(...Object.keys(allIcons).map(key => (allIcons as any)[key]));

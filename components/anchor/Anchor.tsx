@@ -1,11 +1,13 @@
+import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import * as PropTypes from 'prop-types';
-import classNames from 'classnames';
-import addEventListener from 'rc-util/lib/Dom/addEventListener';
+
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
 import Affix from '../affix';
 import AnchorLink from './AnchorLink';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import addEventListener from 'rc-util/lib/Dom/addEventListener';
+import classNames from 'classnames';
 import getScroll from '../_util/getScroll';
 import raf from 'raf';
 

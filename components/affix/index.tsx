@@ -1,12 +1,13 @@
 import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
+
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { addObserveTarget, getTargetRect, removeObserveTarget } from './utils';
+
 import classNames from 'classnames';
 import omit from 'omit.js';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { polyfill } from 'react-lifecycles-compat';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
-
 import warning from '../_util/warning';
-import { addObserveTarget, removeObserveTarget, getTargetRect } from './utils';
 
 function getDefaultTarget() {
   return typeof window !== 'undefined' ? window : null;

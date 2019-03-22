@@ -1,4 +1,13 @@
+import * as PropTypes from 'prop-types';
+import * as React from 'react';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
+import Icon from '../icon';
+import classNames from 'classnames';
+import isNumeric from '../_util/isNumeric';
+import omit from 'omit.js';
+import { polyfill } from 'react-lifecycles-compat';
 
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
@@ -13,14 +22,6 @@ if (typeof window !== 'undefined') {
   };
   window.matchMedia = window.matchMedia || matchMediaPolyfill;
 }
-
-import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
-import classNames from 'classnames';
-import omit from 'omit.js';
-import * as PropTypes from 'prop-types';
-import Icon from '../icon';
-import isNumeric from '../_util/isNumeric';
 
 const dimensionMap = {
   xs: '480px',

@@ -1,10 +1,12 @@
 import * as React from 'react';
+
 import Checkbox, { CheckboxChangeEvent } from '../checkbox';
-import Dropdown from '../dropdown';
-import Menu from '../menu';
-import Icon from '../icon';
-import classNames from 'classnames';
 import { SelectionCheckboxAllProps, SelectionCheckboxAllState, SelectionItem } from './interface';
+
+import Dropdown from '../dropdown';
+import Icon from '../icon';
+import Menu from '../menu';
+import classNames from 'classnames';
 
 export default class SelectionCheckboxAll<T> extends React.Component<
   SelectionCheckboxAllProps<T>,

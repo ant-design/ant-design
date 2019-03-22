@@ -1,9 +1,11 @@
-import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import classNames from 'classnames';
-import omit from 'omit.js';
-import debounce from 'lodash/debounce';
+import * as React from 'react';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
+import classNames from 'classnames';
+import debounce from 'lodash/debounce';
+import omit from 'omit.js';
 import { tuple } from '../_util/type';
 
 const SpinSizes = tuple('small', 'default', 'large');

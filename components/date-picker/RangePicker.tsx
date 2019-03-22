@@ -1,18 +1,20 @@
 /* tslint:disable jsx-no-multiline-js */
 import * as React from 'react';
 import * as moment from 'moment';
-import { polyfill } from 'react-lifecycles-compat';
+
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { RangePickerPresetRange, RangePickerValue } from './interface';
+
+import Icon from '../icon';
 import RangeCalendar from 'rc-calendar/lib/RangeCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
-import classNames from 'classnames';
-import shallowequal from 'shallowequal';
-import Icon from '../icon';
 import Tag from '../tag';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import warning from '../_util/warning';
-import interopDefault from '../_util/interopDefault';
-import { RangePickerValue, RangePickerPresetRange } from './interface';
+import classNames from 'classnames';
 import { formatDate } from './utils';
+import interopDefault from '../_util/interopDefault';
+import { polyfill } from 'react-lifecycles-compat';
+import shallowequal from 'shallowequal';
+import warning from '../_util/warning';
 
 export interface RangePickerState {
   value?: RangePickerValue;

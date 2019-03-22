@@ -1,11 +1,13 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-import classNames from 'classnames';
-import Icon from '../icon';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import { tuple } from '../_util/type';
-import Line from './Line';
+
 import Circle from './Circle';
+import Icon from '../icon';
+import Line from './Line';
+import classNames from 'classnames';
+import { tuple } from '../_util/type';
 import { validProgress } from './utils';
 
 const ProgressTypes = tuple('line', 'circle', 'dashboard');

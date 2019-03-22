@@ -1,16 +1,18 @@
+import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import * as PropTypes from 'prop-types';
-import classNames from 'classnames';
-import Animate from 'rc-animate';
-import Row from '../grid/row';
+
 import Col, { ColProps } from '../grid/col';
-import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import warning from '../_util/warning';
-import { tuple } from '../_util/type';
-import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
+import { FIELD_DATA_PROP, FIELD_META_PROP } from './constants';
 import { FormContext, FormContextProps } from './context';
+
+import Animate from 'rc-animate';
+import Icon from '../icon';
+import Row from '../grid/row';
+import classNames from 'classnames';
+import { tuple } from '../_util/type';
+import warning from '../_util/warning';
 
 const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
 
@@ -141,6 +143,8 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   getField() {
     return this.getChildProp(FIELD_DATA_PROP);
   }
+
+  // new form below
 
   onHelpAnimEnd = (_key: string, helpShow: boolean) => {
     this.helpShow = helpShow;

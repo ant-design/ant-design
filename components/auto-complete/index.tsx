@@ -1,10 +1,12 @@
 import * as React from 'react';
-import { Option, OptGroup } from 'rc-select';
-import classNames from 'classnames';
-import InputElement from './InputElement';
-import Input, { InputProps } from '../input';
-import Select, { AbstractSelectProps, SelectValue, OptionProps, OptGroupProps } from '../select';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import Input, { InputProps } from '../input';
+import { OptGroup, Option } from 'rc-select';
+import Select, { AbstractSelectProps, OptGroupProps, OptionProps, SelectValue } from '../select';
+
+import InputElement from './InputElement';
+import classNames from 'classnames';
 
 export interface DataSourceItemObject {
   value: string;

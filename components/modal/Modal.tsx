@@ -1,14 +1,16 @@
-import * as React from 'react';
-import Dialog from 'rc-dialog';
 import * as PropTypes from 'prop-types';
-import classNames from 'classnames';
-import addEventListener from 'rc-util/lib/Dom/addEventListener';
-import { getConfirmLocale } from './locale';
-import Icon from '../icon';
-import Button from '../button';
+import * as React from 'react';
+
 import { ButtonType, NativeButtonProps } from '../button/button';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
+import Button from '../button';
+import Dialog from 'rc-dialog';
+import Icon from '../icon';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import addEventListener from 'rc-util/lib/Dom/addEventListener';
+import classNames from 'classnames';
+import { getConfirmLocale } from './locale';
 
 let mousePosition: { x: number; y: number } | null;
 let mousePositionEventBinded: boolean;

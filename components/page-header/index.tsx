@@ -1,12 +1,14 @@
 import * as React from 'react';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import Icon from '../icon';
-import classnames from 'classnames';
+
+import Breadcrumb from '../breadcrumb';
 import { BreadcrumbProps } from '../breadcrumb';
 import Divider from '../divider';
-import Breadcrumb from '../breadcrumb';
+import Icon from '../icon';
 import Tag from '../tag';
 import Wave from '../_util/wave';
+import classnames from 'classnames';
 
 export interface PageHeaderProps {
   backIcon?: React.ReactNode;

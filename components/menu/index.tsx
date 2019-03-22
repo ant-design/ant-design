@@ -1,13 +1,15 @@
-import * as React from 'react';
-import RcMenu, { Divider, ItemGroup } from 'rc-menu';
 import * as PropTypes from 'prop-types';
-import classNames from 'classnames';
-import SubMenu from './SubMenu';
-import Item from './MenuItem';
+import * as React from 'react';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import RcMenu, { Divider, ItemGroup } from 'rc-menu';
+
+import Item from './MenuItem';
+import SubMenu from './SubMenu';
 import animation from '../_util/openAnimation';
-import warning from '../_util/warning';
+import classNames from 'classnames';
 import { polyfill } from 'react-lifecycles-compat';
+import warning from '../_util/warning';
 
 export interface SelectParam {
   key: string;

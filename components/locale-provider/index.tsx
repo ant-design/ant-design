@@ -1,8 +1,10 @@
-import * as React from 'react';
 import * as PropTypes from 'prop-types';
+import * as React from 'react';
 import * as moment from 'moment';
-import interopDefault from '../_util/interopDefault';
+
 import { ModalLocale, changeConfirmLocale } from '../modal/locale';
+
+import interopDefault from '../_util/interopDefault';
 
 export interface Locale {
   locale: string;

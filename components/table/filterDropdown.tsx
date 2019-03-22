@@ -1,17 +1,19 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { polyfill } from 'react-lifecycles-compat';
-import Menu, { SubMenu, Item as MenuItem } from 'rc-menu';
-import closest from 'dom-closest';
-import classNames from 'classnames';
-import shallowequal from 'shallowequal';
-import Dropdown from '../dropdown';
-import Icon from '../icon';
+
+import { ColumnFilterItem, ColumnProps, FilterMenuProps, FilterMenuState } from './interface';
+import Menu, { Item as MenuItem, SubMenu } from 'rc-menu';
+
 import Checkbox from '../checkbox';
-import Radio from '../radio';
+import Dropdown from '../dropdown';
 import FilterDropdownMenuWrapper from './FilterDropdownMenuWrapper';
-import { FilterMenuProps, FilterMenuState, ColumnProps, ColumnFilterItem } from './interface';
+import Icon from '../icon';
+import Radio from '../radio';
+import classNames from 'classnames';
+import closest from 'dom-closest';
 import { generateValueMaps } from './util';
+import { polyfill } from 'react-lifecycles-compat';
+import shallowequal from 'shallowequal';
 
 function stopPropagation(e: React.SyntheticEvent<any>) {
   e.stopPropagation();

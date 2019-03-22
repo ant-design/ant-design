@@ -1,7 +1,7 @@
-import Pagination from 'rc-pagination/lib/locale/cs_CZ';
-import DatePicker from '../date-picker/locale/cs_CZ';
-import TimePicker from '../time-picker/locale/cs_CZ';
 import Calendar from '../calendar/locale/cs_CZ';
+import DatePicker from '../date-picker/locale/cs_CZ';
+import Pagination from 'rc-pagination/lib/locale/cs_CZ';
+import TimePicker from '../time-picker/locale/cs_CZ';
 
 export default {
   locale: 'cs',

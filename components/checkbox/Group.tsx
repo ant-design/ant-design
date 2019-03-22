@@ -1,11 +1,13 @@
-import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import { polyfill } from 'react-lifecycles-compat';
-import classNames from 'classnames';
-import shallowEqual from 'shallowequal';
-import omit from 'omit.js';
+import * as React from 'react';
+
 import Checkbox, { CheckboxChangeEvent } from './Checkbox';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
+import classNames from 'classnames';
+import omit from 'omit.js';
+import { polyfill } from 'react-lifecycles-compat';
+import shallowEqual from 'shallowequal';
 
 export type CheckboxValueType = string | number | boolean;
 

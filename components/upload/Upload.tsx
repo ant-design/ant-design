@@ -1,25 +1,27 @@
 import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
-import RcUpload from 'rc-upload';
-import classNames from 'classnames';
-import uniqBy from 'lodash/uniqBy';
-import findIndex from 'lodash/findIndex';
-import Dragger from './Dragger';
-import UploadList from './UploadList';
+
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import {
   RcFile,
+  UploadChangeParam,
+  UploadFile,
+  UploadListType,
+  UploadLocale,
   UploadProps,
   UploadState,
-  UploadFile,
-  UploadLocale,
-  UploadChangeParam,
   UploadType,
-  UploadListType,
 } from './interface';
 import { T, fileToObject, genPercentAdd, getFileItem, removeFileItem } from './utils';
+
+import Dragger from './Dragger';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import RcUpload from 'rc-upload';
+import UploadList from './UploadList';
+import classNames from 'classnames';
 import defaultLocale from '../locale-provider/default';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import findIndex from 'lodash/findIndex';
+import { polyfill } from 'react-lifecycles-compat';
+import uniqBy from 'lodash/uniqBy';
 
 export { UploadProps };
 

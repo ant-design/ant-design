@@ -1,12 +1,14 @@
 import * as React from 'react';
+
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
 import Animate from 'rc-animate';
+import CheckableTag from './CheckableTag';
+import Icon from '../icon';
+import Wave from '../_util/wave';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import { polyfill } from 'react-lifecycles-compat';
-import Icon from '../icon';
-import CheckableTag from './CheckableTag';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import Wave from '../_util/wave';
 
 export { CheckableTagProps } from './CheckableTag';
 

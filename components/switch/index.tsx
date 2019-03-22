@@ -1,11 +1,13 @@
-import * as React from 'react';
 import * as PropTypes from 'prop-types';
+import * as React from 'react';
+
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
+import Icon from '../icon';
 import RcSwitch from 'rc-switch';
+import Wave from '../_util/wave';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import Wave from '../_util/wave';
-import Icon from '../icon';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface SwitchProps {
   prefixCls?: string;

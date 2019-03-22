@@ -1,8 +1,8 @@
-import Input from './Input';
 import Group from './Group';
+import Input from './Input';
+import Password from './Password';
 import Search from './Search';
 import TextArea from './TextArea';
-import Password from './Password';
 
 export { InputProps } from './Input';
 export { GroupProps } from './Group';

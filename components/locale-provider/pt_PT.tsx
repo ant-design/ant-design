@@ -1,7 +1,7 @@
-import Pagination from 'rc-pagination/lib/locale/pt_PT';
-import DatePicker from '../date-picker/locale/pt_PT';
-import TimePicker from '../time-picker/locale/pt_PT';
 import Calendar from '../calendar/locale/pt_PT';
+import DatePicker from '../date-picker/locale/pt_PT';
+import Pagination from 'rc-pagination/lib/locale/pt_PT';
+import TimePicker from '../time-picker/locale/pt_PT';
 
 export default {
   locale: 'pt',

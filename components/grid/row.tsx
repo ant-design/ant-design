@@ -1,4 +1,11 @@
+import * as PropTypes from 'prop-types';
+import * as React from 'react';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
+import RowContext from './RowContext';
+import classNames from 'classnames';
+import { tuple } from '../_util/type';
 
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
@@ -15,12 +22,6 @@ if (typeof window !== 'undefined') {
   window.matchMedia = window.matchMedia || matchMediaPolyfill;
   enquire = require('enquire.js');
 }
-
-import * as React from 'react';
-import classNames from 'classnames';
-import * as PropTypes from 'prop-types';
-import RowContext from './RowContext';
-import { tuple } from '../_util/type';
 
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type BreakpointMap = Partial<Record<Breakpoint, string>>;

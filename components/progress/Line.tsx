@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { validProgress } from './utils';
+
 import { ProgressProps } from './progress';
+import { validProgress } from './utils';
 
 interface LineProps extends ProgressProps {
   prefixCls: string;

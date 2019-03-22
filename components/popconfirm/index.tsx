@@ -1,12 +1,14 @@
 import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
-import Tooltip, { AbstractTooltipProps } from '../tooltip';
-import Icon from '../icon';
-import Button from '../button';
+
 import { ButtonType, NativeButtonProps } from '../button/button';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import Tooltip, { AbstractTooltipProps } from '../tooltip';
+
+import Button from '../button';
+import Icon from '../icon';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale-provider/default';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { polyfill } from 'react-lifecycles-compat';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode;

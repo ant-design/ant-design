@@ -1,15 +1,17 @@
-import * as React from 'react';
 import * as PropTypes from 'prop-types';
+import * as React from 'react';
+
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { Omit, tuple } from '../_util/type';
+
+import Group from './Group';
+import Icon from '../icon';
+import Password from './Password';
+import Search from './Search';
+import TextArea from './TextArea';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import { polyfill } from 'react-lifecycles-compat';
-import Group from './Group';
-import Search from './Search';
-import TextArea from './TextArea';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import Password from './Password';
-import Icon from '../icon';
-import { Omit, tuple } from '../_util/type';
 import warning from '../_util/warning';
 
 function fixControlledValue<T>(value: T) {

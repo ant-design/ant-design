@@ -1,8 +1,10 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import TimelineItem, { TimeLineItemProps } from './TimelineItem';
-import Icon from '../icon';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import TimelineItem, { TimeLineItemProps } from './TimelineItem';
+
+import Icon from '../icon';
+import classNames from 'classnames';
 
 export interface TimelineProps {
   prefixCls?: string;

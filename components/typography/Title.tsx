@@ -1,7 +1,9 @@
 import * as React from 'react';
-import warning from 'warning';
+
 import Base, { BlockProps } from './Base';
-import { tupleNum, Omit } from '../_util/type';
+import { Omit, tupleNum } from '../_util/type';
+
+import warning from 'warning';
 
 const TITLE_ELE_LIST = tupleNum(1, 2, 3, 4);
 

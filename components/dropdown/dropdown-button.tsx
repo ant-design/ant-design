@@ -1,9 +1,11 @@
 import * as React from 'react';
-import Button from '../button';
-import { ButtonHTMLType } from '../button/button';
-import { ButtonGroupProps } from '../button/button-group';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Dropdown, { DropDownProps } from './dropdown';
+
+import Button from '../button';
+import { ButtonGroupProps } from '../button/button-group';
+import { ButtonHTMLType } from '../button/button';
 import classNames from 'classnames';
 const ButtonGroup = Button.Group;
 

@@ -1,8 +1,10 @@
 import * as React from 'react';
 import * as moment from 'moment';
-import Select from '../select';
-import { Group, Button, RadioChangeEvent } from '../radio';
+
+import { Button, Group, RadioChangeEvent } from '../radio';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
+import Select from '../select';
 const Option = Select.Option;
 
 export interface HeaderProps {

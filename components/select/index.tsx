@@ -1,12 +1,14 @@
-import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import RcSelect, { Option, OptGroup } from 'rc-select';
-import classNames from 'classnames';
+import * as React from 'react';
+
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
-import omit from 'omit.js';
-import warning from '../_util/warning';
+import RcSelect, { OptGroup, Option } from 'rc-select';
+
 import Icon from '../icon';
+import classNames from 'classnames';
+import omit from 'omit.js';
 import { tuple } from '../_util/type';
+import warning from '../_util/warning';
 
 const SelectSizes = tuple('default', 'large', 'small');
 

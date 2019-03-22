@@ -1,14 +1,16 @@
 import * as React from 'react';
+
+import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
+
+import Icon from '../icon';
+import Input from '../input';
+import KeyCode from 'rc-util/lib/KeyCode';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import RcCascader from 'rc-cascader';
 import arrayTreeFilter from 'array-tree-filter';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import KeyCode from 'rc-util/lib/KeyCode';
 import { polyfill } from 'react-lifecycles-compat';
-import Input from '../input';
-import Icon from '../icon';
-import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import warning from '../_util/warning';
 
 export interface CascaderOptionType {

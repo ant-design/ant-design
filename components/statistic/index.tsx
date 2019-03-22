@@ -1,5 +1,5 @@
-import Statistic from './Statistic';
 import Countdown from './Countdown';
+import Statistic from './Statistic';
 
 Statistic.Countdown = Countdown;
 

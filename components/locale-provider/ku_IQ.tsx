@@ -1,7 +1,7 @@
-import Pagination from 'rc-pagination/lib/locale/ku_IQ';
-import DatePicker from '../date-picker/locale/ku_IQ';
-import TimePicker from '../time-picker/locale/ku_IQ';
 import Calendar from '../calendar/locale/ku_IQ';
+import DatePicker from '../date-picker/locale/ku_IQ';
+import Pagination from 'rc-pagination/lib/locale/ku_IQ';
+import TimePicker from '../time-picker/locale/ku_IQ';
 
 export default {
   locale: 'ku-iq',

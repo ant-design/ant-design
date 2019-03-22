@@ -1,12 +1,14 @@
-import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import RcDrawer from 'rc-drawer';
+import * as React from 'react';
+
+import { ConfigConsumerProps, withConfigConsumer } from '../config-provider';
 import createReactContext, { Context } from 'create-react-context';
-import warning from '../_util/warning';
-import classNames from 'classnames';
+
 import Icon from '../icon';
-import { withConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import RcDrawer from 'rc-drawer';
+import classNames from 'classnames';
 import { tuple } from '../_util/type';
+import warning from '../_util/warning';
 
 const DrawerContext: Context<Drawer | null> = createReactContext(null);
 

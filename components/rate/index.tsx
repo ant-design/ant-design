@@ -1,10 +1,12 @@
-import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import RcRate from 'rc-rate';
-import omit from 'omit.js';
-import Icon from '../icon';
-import Tooltip from '../tooltip';
+import * as React from 'react';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
+import Icon from '../icon';
+import RcRate from 'rc-rate';
+import Tooltip from '../tooltip';
+import omit from 'omit.js';
 
 export interface RateProps {
   prefixCls?: string;

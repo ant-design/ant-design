@@ -1,9 +1,11 @@
-import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import { polyfill } from 'react-lifecycles-compat';
-import classNames from 'classnames';
-import { AntAnchor } from './Anchor';
+import * as React from 'react';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
+import { AntAnchor } from './Anchor';
+import classNames from 'classnames';
+import { polyfill } from 'react-lifecycles-compat';
 
 export interface AnchorLinkProps {
   prefixCls?: string;

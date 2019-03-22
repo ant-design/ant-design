@@ -1,8 +1,10 @@
-import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import classNames from 'classnames';
-import RowContext from './RowContext';
+import * as React from 'react';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
+import RowContext from './RowContext';
+import classNames from 'classnames';
 
 const objectOrNumber = PropTypes.oneOfType([PropTypes.object, PropTypes.number]);
 

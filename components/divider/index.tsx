@@ -1,6 +1,8 @@
 import * as React from 'react';
-import classNames from 'classnames';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
+import classNames from 'classnames';
 
 export interface DividerProps {
   prefixCls?: string;

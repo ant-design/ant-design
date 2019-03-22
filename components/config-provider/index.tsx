@@ -1,6 +1,6 @@
 import * as React from 'react';
-import createReactContext, { Context } from 'create-react-context';
 
+import createReactContext, { Context } from 'create-react-context';
 import defaultRenderEmpty, { RenderEmptyHandler } from './renderEmpty';
 
 export { RenderEmptyHandler };

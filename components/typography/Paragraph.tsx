@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import Base, { BlockProps } from './Base';
 
 interface ParagraphProps extends BlockProps {}

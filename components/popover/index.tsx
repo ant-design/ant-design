@@ -1,6 +1,8 @@
 import * as React from 'react';
-import Tooltip, { AbstractTooltipProps, TooltipPlacement, TooltipTrigger } from '../tooltip';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import Tooltip, { AbstractTooltipProps, TooltipPlacement, TooltipTrigger } from '../tooltip';
+
 import warning from '../_util/warning';
 
 export interface PopoverProps extends AbstractTooltipProps {
