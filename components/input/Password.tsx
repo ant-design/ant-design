@@ -37,8 +37,8 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
   };
 
   getIcon() {
-    const { prefixCls, action = 'click' } = this.props;
-    const iconTrigger = ActionMap[action] || '';
+    const { prefixCls, action } = this.props;
+    const iconTrigger = ActionMap[action!] || '';
     const iconProps = {
       [iconTrigger]: this.onChange,
       className: `${prefixCls}-icon`,
