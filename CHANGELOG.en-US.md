@@ -15,6 +15,20 @@ timeline: true
 
 ---
 
+## 3.15.2
+
+`2019-03-23`
+
+- 📖 New English translation for [Data Display](https://ant.design/docs/spec/data-display) and [Feedback](https://ant.design/docs/spec/feedback). [#15454](https://github.com/ant-design/ant-design/pull/15454) [@klouskingsley](https://github.com/klouskingsley) [#15460](https://github.com/ant-design/ant-design/pull/15460) [@klouskingsley](https://github.com/klouskingsley)
+- 🌟 Add two less variables `@font-feature-settings` and `@select-item-selected-font-weight`. [#15506](https://github.com/ant-design/ant-design/pull/15506) [@dancerphil](https://github.com/dancerphil) [#15515](https://github.com/ant-design/ant-design/pull/15515) [@willc001](https://github.com/willc001) 
+- 🐞 Fix the scale calculate logic when Avatar is remounted. [#15503](https://github.com/ant-design/ant-design/pull/15503)
+- 🐞 Fix inefficient custom `width` for DatePicker. [#15547](https://github.com/ant-design/ant-design/pull/15547) [@DiamondYuan](https://github.com/DiamondYuan)
+- 🐞 Fix the incorrect priority of icon style for Notification. [#15530](https://github.com/ant-design/ant-design/pull/15530)
+- 🐞 Fix that `notFound` content is not aligned for Select. [#15570](https://github.com/ant-design/ant-design/pull/15570)
+- 🐞 Fix empty missing when `loading` property is true for Table. [#15583](https://github.com/ant-design/ant-design/pull/15583)
+- 🐞 Fix the incorrect `white-space` style for Tag. [#15526](https://github.com/ant-design/ant-design/pull/15526) [@Kapiroska](https://github.com/Kapiroska)
+- 🐞 Fix the incorrect judgement on image type for Upload. [#15354](https://github.com/ant-design/ant-design/pull/15354)
+
 ## 3.15.1
 
 `2019-03-17`
