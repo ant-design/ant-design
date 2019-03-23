@@ -54,7 +54,7 @@ const generateList = (data) => {
     const key = node.key;
     dataList.push({ key, title: key });
     if (node.children) {
-      generateList(node.children, node.key);
+      generateList(node.children);
     }
   }
 };
