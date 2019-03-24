@@ -236,7 +236,7 @@ describe('Input.Password', () => {
     const wrapper = mount(<Input.Password visibilityToggle={false} />);
     expect(wrapper.find('.anticon-eye').length).toBe(0);
     wrapper.setProps({ visibilityToggle: true });
-    expect(wrapper.find('.anticon-eye').length).toBe(1);
+    expect(wrapper.find('.anticon-eye-invisible').length).toBe(1);
   });
 
   it('should keep focus state', () => {

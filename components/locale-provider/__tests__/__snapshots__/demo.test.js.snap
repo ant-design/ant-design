@@ -800,7 +800,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   checked=""
                   class="ant-radio-button-input"
                   type="radio"
-                  value="date"
+                  value="month"
                 />
                 <span
                   class="ant-radio-button-inner"
@@ -819,7 +819,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                 <input
                   class="ant-radio-button-input"
                   type="radio"
-                  value="month"
+                  value="year"
                 />
                 <span
                   class="ant-radio-button-inner"

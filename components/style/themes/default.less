@@ -47,12 +47,14 @@
 @text-color-warning: @gold-7;
 @text-color-danger: @red-7;
 @text-color-inverse: @white;
+@icon-color: inherit;
 @icon-color-hover: fade(@black, 75%);
 @heading-color: fade(#000, 85%);
 @heading-color-dark: fade(@white, 100%);
 @text-color-dark: fade(@white, 85%);
 @text-color-secondary-dark: fade(@white, 65%);
 @font-variant-base: tabular-nums;
+@font-feature-settings-base: 'tnum';
 @font-size-base: 14px;
 @font-size-lg: @font-size-base + 2px;
 @font-size-sm: 12px;
@@ -304,6 +306,7 @@
 // Select
 // ---
 @select-border-color: @border-color-base;
+@select-item-selected-font-weight: 600;
 
 // Tooltip
 // ---
@@ -498,6 +501,7 @@
 @pagination-item-size-sm: 24px;
 @pagination-font-family: Arial;
 @pagination-font-weight-active: 500;
+@pagination-item-bg-active: transparent;
 
 // Breadcrumb
 // ---

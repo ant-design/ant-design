@@ -103,10 +103,6 @@ a {
   font-size: 12px;
 }
 
-.outside-link.internal {
-  display: none;
-}
-
 // reset menu text color
 .menu-site .ant-menu-item > a {
   color: @site-text-color;
@@ -138,6 +134,11 @@ a {
   z-index: 1029;
 }
 
-#_hj_feedback_container .path1::before {
-  color: @primary-color !important;
+#_hj_feedback_container {
+  .path1::before {
+    color: @primary-color !important;
+  }
+  .path2::before {
+    color: #fff !important;
+  }
 }

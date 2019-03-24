@@ -24,7 +24,7 @@ Please note that Affix should not cover other content on the page, especially wh
 **Note:** Children of `Affix` can not be `position: absolute`, but you can set `Affix` as `position: absolute`:
 
 ```jsx
-<Affix style={{ position: 'absolute', top: y, left: x}}>
+<Affix style={{ position: 'absolute', top: y, left: x }}>
   ...
 </Affix>
 ```

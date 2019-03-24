@@ -48,7 +48,7 @@ describe('Affix Render', () => {
   };
 
   const originGetBoundingClientRect = HTMLElement.prototype.getBoundingClientRect;
-  HTMLElement.prototype.getBoundingClientRect = function() {
+  HTMLElement.prototype.getBoundingClientRect = function getBoundingClientRect() {
     return (
       classRect[this.className] || {
         top: 0,

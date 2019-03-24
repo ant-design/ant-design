@@ -279,7 +279,7 @@ describe('Upload List', () => {
         uid: '-12',
         url:
           'https://publish-pic-cpu.baidu.com/1296beb3-50d9-4276-885f-52645cbb378e.jpeg@w_228%2ch_152',
-        type: 'image',
+        type: 'image/png',
       },
     ];
 
@@ -402,5 +402,35 @@ describe('Upload List', () => {
     wrapper.setProps({ items: [{ thumbUrl: 'thumbUrl', uid: 'upload-list-item' }] });
     wrapper.find('.ant-upload-list-item-name').simulate('click');
     expect(onPreview).toBeCalled();
+  });
+
+  it('upload image file should be converted to the base64', done => {
+    const mockFile = new File([''], 'foo.png', {
+      type: 'image/png',
+    });
+
+    const wrapper = mount(
+      <UploadList listType="picture-card" items={fileList} locale={{ uploading: 'uploading' }} />,
+    );
+    const instance = wrapper.instance();
+    const callback = dataUrl => {
+      expect(dataUrl).toEqual('data:image/png;base64,');
+      done();
+    };
+    instance.previewFile(mockFile, callback);
+  });
+
+  it("upload non image file shouldn't be converted to the base64", () => {
+    const mockFile = new File([''], 'foo.7z', {
+      type: 'application/x-7z-compressed',
+    });
+
+    const wrapper = mount(
+      <UploadList listType="picture-card" items={fileList} locale={{ uploading: 'uploading' }} />,
+    );
+    const instance = wrapper.instance();
+    const callback = jest.fn();
+    instance.previewFile(mockFile, callback);
+    expect(callback).toBeCalledWith('');
   });
 });

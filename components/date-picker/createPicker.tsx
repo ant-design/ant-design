@@ -34,7 +34,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
 
     static getDerivedStateFromProps(nextProps: PickerProps, prevState: PickerState) {
       const state: Partial<PickerState> = {};
-      let open: boolean = prevState.open;
+      let { open } = prevState;
 
       if ('open' in nextProps) {
         state.open = nextProps.open;
@@ -53,6 +53,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
     }
 
     private input: any;
+
     private prefixCls?: string;
 
     constructor(props: any) {
@@ -92,7 +93,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
     };
 
     handleChange = (value: moment.Moment | null) => {
-      const props = this.props;
+      const { props } = this;
       if (!('value' in props)) {
         this.setState({
           value,
@@ -155,13 +156,13 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
 
       let pickerProps: Object = {};
       let calendarProps: any = {};
-      const pickerStyle: { width?: number } = {};
+      const pickerStyle: { minWidth?: number } = {};
       if (props.showTime) {
         calendarProps = {
           // fix https://github.com/ant-design/ant-design/issues/1902
           onSelect: this.handleChange,
         };
-        pickerStyle.width = 195;
+        pickerStyle.minWidth = 195;
       } else {
         pickerProps = {
           onChange: this.handleChange,

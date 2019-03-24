@@ -29,6 +29,8 @@ export interface ListGridType {
 
 export type ListSize = 'small' | 'default' | 'large';
 
+export type ListItemLayout = 'horizontal' | 'vertical';
+
 export interface ListProps {
   bordered?: boolean;
   className?: string;
@@ -37,7 +39,7 @@ export interface ListProps {
   extra?: React.ReactNode;
   grid?: ListGridType;
   id?: string;
-  itemLayout?: string;
+  itemLayout?: ListItemLayout;
   loading?: boolean | SpinProps;
   loadMore?: React.ReactNode;
   pagination?: PaginationConfig | false;
@@ -52,7 +54,7 @@ export interface ListProps {
 }
 
 export interface ListLocale {
-  emptyText: string;
+  emptyText: React.ReactNode | (() => React.ReactNode);
 }
 
 export default class List extends React.Component<ListProps> {
@@ -60,6 +62,7 @@ export default class List extends React.Component<ListProps> {
 
   static childContextTypes = {
     grid: PropTypes.any,
+    itemLayout: PropTypes.string,
   };
 
   static defaultProps = {
@@ -94,6 +97,7 @@ export default class List extends React.Component<ListProps> {
   getChildContext() {
     return {
       grid: this.props.grid,
+      itemLayout: this.props.itemLayout,
     };
   }
 

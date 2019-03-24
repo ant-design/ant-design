@@ -109,7 +109,7 @@ class Editable extends React.Component<EditableProps, EditableState> {
     const { prefixCls, ['aria-label']: ariaLabel } = this.props;
 
     return (
-      <div className={`${prefixCls}-edit-content`}>
+      <div className={`${prefixCls} ${prefixCls}-edit-content`}>
         <TextArea
           ref={this.setTextarea}
           value={current}
