@@ -35,6 +35,27 @@
   }
 }
 
+.@{form-prefix-cls}-item-label > label {
+  color: @label-color;
+
+  &::after {
+    & when (@form-item-trailing-colon=true) {
+      content: ':';
+    }
+    & when not (@form-item-trailing-colon=true) {
+      content: ' ';
+    }
+
+    position: relative;
+    top: -0.5px;
+    margin: 0 8px 0 2px;
+  }
+
+  &.@{form-prefix-cls}-item-no-colon::after {
+    content: ' ';
+  }
+}
+
 // Radio && Checkbox
 input[type='radio'],
 input[type='checkbox'] {
@@ -105,30 +126,10 @@ input[type='checkbox'] {
     &-left {
       text-align: left;
     }
-
-    > label {
-      color: @label-color;
-
-      &::after {
-        & when (@form-item-trailing-colon=true) {
-          content: ':';
-        }
-        & when not (@form-item-trailing-colon=true) {
-          content: ' ';
-        }
-        position: relative;
-        top: -0.5px;
-        margin: 0 8px 0 2px;
-      }
-    }
   }
 
   .@{ant-prefix}-switch {
     margin: 2px 0 4px;
-  }
-
-  &-no-colon &-label label::after {
-    content: ' ';
   }
 }
 

@@ -5,13 +5,13 @@ exports[`Form should props colon of Form.Item override the props colon of Form. 
   class="ant-form ant-form-horizontal"
 >
   <div
-    class="ant-row ant-form-item ant-form-item-no-colon"
+    class="ant-row ant-form-item"
   >
     <div
       class="ant-form-item-label"
     >
       <label
-        class=""
+        class="ant-form-item-no-colon"
         title="label"
       >
         label
@@ -59,13 +59,13 @@ exports[`Form should props colon of Form.Item override the props colon of Form. 
     </div>
   </div>
   <div
-    class="ant-row ant-form-item ant-form-item-no-colon"
+    class="ant-row ant-form-item"
   >
     <div
       class="ant-form-item-label"
     >
       <label
-        class=""
+        class="ant-form-item-no-colon"
         title="label"
       >
         label
