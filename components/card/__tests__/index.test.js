@@ -55,4 +55,62 @@ describe('Card', () => {
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  it('warning', () => {
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(<Card noHovering>xxx</Card>);
+    expect(warnSpy).toBeCalledWith(
+      'Warning: [antd: Card] `noHovering` is deprecated, you can remove it safely or use `hoverable` instead.',
+    );
+    mount(<Card noHovering={false}>xxx</Card>);
+    expect(warnSpy).toBeCalledWith(
+      'Warning: [antd: Card] `noHovering={false}` is deprecated, use `hoverable` instead.',
+    );
+    warnSpy.mockRestore();
+  });
+
+  it('unmount', () => {
+    const wrapper = mount(<Card>xxx</Card>);
+    const removeResizeEventSpy = jest.spyOn(wrapper.instance().resizeEvent, 'remove');
+    wrapper.unmount();
+    expect(removeResizeEventSpy).toHaveBeenCalled();
+  });
+
+  it('onTabChange should work', () => {
+    const tabList = [
+      {
+        key: 'tab1',
+        tab: 'tab1',
+      },
+      {
+        key: 'tab2',
+        tab: 'tab2',
+      },
+    ];
+    const onTabChange = jest.fn();
+    const wrapper = mount(
+      <Card onTabChange={onTabChange} tabList={tabList}>
+        xxx
+      </Card>,
+    );
+    wrapper
+      .find('.ant-tabs-tab')
+      .at(1)
+      .simulate('click');
+    expect(onTabChange).toBeCalledWith('tab2');
+  });
+
+  it('getCompatibleHoverable should work', () => {
+    const wrapper = mount(<Card noHovering={false}>xxx</Card>);
+    expect(wrapper.find('.ant-card-hoverable').length).toBe(1);
+  });
+
+  it('should not render when actions is number', () => {
+    const wrapper = mount(
+      <Card title="Card title" actions={11}>
+        <p>Card content</p>
+      </Card>,
+    );
+    expect(wrapper.find('.ant-card-actions').length).toBe(0);
+  });
 });

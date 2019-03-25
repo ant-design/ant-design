@@ -113,4 +113,18 @@ describe('Mention', () => {
     expect(items.length).toBe(1);
     expect(items.at(0).props().children).toBe('bamboo');
   });
+
+  it('check filteredSuggestions', () => {
+    if (process.env.REACT === '15') {
+      return;
+    }
+    const wrapper = mount(<Mention defaultSuggestions={[<Mention.Nav value="light" />]} />);
+    wrapper.find('DraftEditorContents').simulate('focus');
+    const ed = wrapper.find('.public-DraftEditor-content');
+    ed.simulate('beforeInput', { data: '@l' });
+    jest.runAllTimers();
+    const items = wrapper.find('div.ant-mention-dropdown-item');
+    expect(items.length).toBe(1);
+    expect(items.at(0).props().value).toBe('light');
+  });
 });

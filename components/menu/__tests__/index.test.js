@@ -538,6 +538,28 @@ describe('Menu', () => {
     expect(wrapper.find('.ant-menu-submenu-popup').length).toBe(0);
   });
 
+  it('onMouseEnter should work', () => {
+    const onMouseEnter = jest.fn();
+    const wrapper = mount(
+      <Menu onMouseEnter={onMouseEnter} defaultSelectedKeys={['test1']}>
+        <Menu.Item key="test1">Navigation One</Menu.Item>
+        <Menu.Item key="test2">Navigation Two</Menu.Item>
+      </Menu>,
+    );
+    wrapper
+      .find('Menu')
+      .at(1)
+      .simulate('mouseenter');
+    expect(onMouseEnter).toHaveBeenCalled();
+  });
+
+  it('get correct animation type when switched from inline', () => {
+    const wrapper = mount(<Menu mode="inline" />);
+    wrapper.setProps({ mode: 'horizontal' });
+    expect(wrapper.instance().getMenuOpenAnimation('')).toBe('');
+    expect(wrapper.instance().switchingModeFromInline).toBe(false);
+  });
+
   it('Menu should not shake when collapsed changed', () => {
     const wrapper = mount(
       <Menu
