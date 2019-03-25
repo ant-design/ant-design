@@ -537,4 +537,33 @@ describe('Menu', () => {
     wrapper.update();
     expect(wrapper.find('.ant-menu-submenu-popup').length).toBe(0);
   });
+
+  it('Menu should not shake when collapsed changed', () => {
+    const wrapper = mount(
+      <Menu
+        defaultSelectedKeys={['5']}
+        defaultOpenKeys={['sub1']}
+        mode="inline"
+        inlineCollapsed={false}
+      >
+        <SubMenu
+          key="sub1"
+          title={
+            <span>
+              <span>Navigation One</span>
+            </span>
+          }
+        >
+          <Menu.Item key="5">Option 5</Menu.Item>
+          <Menu.Item key="6">Option 6</Menu.Item>
+        </SubMenu>
+      </Menu>,
+    );
+    expect(wrapper.instance().contextSiderCollapsed).toBe(true);
+    wrapper.setProps({ inlineCollapsed: true });
+    expect(wrapper.instance().contextSiderCollapsed).toBe(false);
+    jest.runAllTimers();
+    wrapper.update();
+    expect(wrapper.instance().contextSiderCollapsed).toBe(false);
+  });
 });
