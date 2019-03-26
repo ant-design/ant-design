@@ -1,11 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import AutoComplete from '..';
-import focusTest from '../../../tests/shared/focusTest';
 
 describe('AutoComplete with Custom Input Element Render', () => {
-  focusTest(AutoComplete);
-
   it('AutoComplete with custom Input render perfectly', () => {
     const wrapper = mount(
       <AutoComplete dataSource={['12345', '23456', '34567']}>
