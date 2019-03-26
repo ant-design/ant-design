@@ -537,4 +537,55 @@ describe('Menu', () => {
     wrapper.update();
     expect(wrapper.find('.ant-menu-submenu-popup').length).toBe(0);
   });
+
+  it('onMouseEnter should work', () => {
+    const onMouseEnter = jest.fn();
+    const wrapper = mount(
+      <Menu onMouseEnter={onMouseEnter} defaultSelectedKeys={['test1']}>
+        <Menu.Item key="test1">Navigation One</Menu.Item>
+        <Menu.Item key="test2">Navigation Two</Menu.Item>
+      </Menu>,
+    );
+    wrapper
+      .find('Menu')
+      .at(1)
+      .simulate('mouseenter');
+    expect(onMouseEnter).toHaveBeenCalled();
+  });
+
+  it('get correct animation type when switched from inline', () => {
+    const wrapper = mount(<Menu mode="inline" />);
+    wrapper.setProps({ mode: 'horizontal' });
+    expect(wrapper.instance().getMenuOpenAnimation('')).toBe('');
+    expect(wrapper.instance().switchingModeFromInline).toBe(false);
+  });
+
+  it('Menu should not shake when collapsed changed', () => {
+    const wrapper = mount(
+      <Menu
+        defaultSelectedKeys={['5']}
+        defaultOpenKeys={['sub1']}
+        mode="inline"
+        inlineCollapsed={false}
+      >
+        <SubMenu
+          key="sub1"
+          title={
+            <span>
+              <span>Navigation One</span>
+            </span>
+          }
+        >
+          <Menu.Item key="5">Option 5</Menu.Item>
+          <Menu.Item key="6">Option 6</Menu.Item>
+        </SubMenu>
+      </Menu>,
+    );
+    expect(wrapper.instance().contextSiderCollapsed).toBe(true);
+    wrapper.setProps({ inlineCollapsed: true });
+    expect(wrapper.instance().contextSiderCollapsed).toBe(false);
+    jest.runAllTimers();
+    wrapper.update();
+    expect(wrapper.instance().contextSiderCollapsed).toBe(false);
+  });
 });

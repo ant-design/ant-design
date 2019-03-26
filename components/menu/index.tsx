@@ -189,6 +189,7 @@ class Menu extends React.Component<MenuProps, MenuState> {
       onClick(e);
     }
   };
+
   handleOpenChange = (openKeys: string[]) => {
     this.setOpenKeys(openKeys);
 
@@ -217,6 +218,9 @@ class Menu extends React.Component<MenuProps, MenuState> {
     const { inlineCollapsed } = this.props;
     if (this.context.siderCollapsed !== undefined) {
       return this.context.siderCollapsed;
+    }
+    if (this.contextSiderCollapsed) {
+      return false;
     }
     return inlineCollapsed;
   }

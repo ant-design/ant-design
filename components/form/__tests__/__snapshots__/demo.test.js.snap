@@ -2121,7 +2121,7 @@ exports[`renders ./components/form/demo/style-check-debug.md correctly 1`] = `
             class="ant-form-item-label"
           >
             <label
-              class=""
+              class="ant-form-item-no-colon"
               title="input:64.5px"
             >
               input:64.5px
