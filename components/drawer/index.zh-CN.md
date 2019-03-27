@@ -34,6 +34,7 @@ title: Drawer
 | zIndex | 设置 Drawer 的 `z-index` | Number | 1000 |
 | placement | 抽屉的方向 | 'top'  \| 'right' \| 'bottom' \| 'left' | 'right'
 | onClose | 点击遮罩层或右上角叉或取消按钮的回调 | function(e) | 无 |
+| extra | 遮罩层卡片右上角的操作区域 | string \| ReactNode | - |
 
 <style>
 #_hj_feedback_container {

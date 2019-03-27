@@ -38,6 +38,7 @@ export interface DrawerProps {
   onClose?: (e: EventType) => void;
   className?: string;
   handler?: React.ReactNode;
+  extra?: string | React.ReactNode;
 }
 
 export interface IDrawerState {
@@ -157,15 +158,17 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
   };
 
   renderHeader() {
-    const { title, prefixCls, closable } = this.props;
+    const { title, prefixCls, closable, extra } = this.props;
     if (!title && !closable) {
       return null;
     }
 
     const headerClassName = title ? `${prefixCls}-header` : `${prefixCls}-header-no-title`;
+    const extraClassName = closable ? `${prefixCls}-extra` : `${prefixCls}-extra-no-closeIcon`;
     return (
       <div className={headerClassName}>
         {title && <div className={`${prefixCls}-title`}>{title}</div>}
+        {extra && <span className={extraClassName}>{extra}</span>}
         {closable && this.renderCloseIcon()}
       </div>
     );

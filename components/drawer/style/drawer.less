@@ -104,6 +104,7 @@
   }
 
   &-title {
+    display: inline-block;
     margin: 0;
     color: @heading-color;
     font-weight: 500;
@@ -160,6 +161,7 @@
   }
 
   &-header-no-title {
+    display: inline-block;
     color: @text-color;
     background: @component-background;
   }
@@ -180,11 +182,27 @@
     filter: ~'alpha(opacity=50)';
     transition: opacity @animation-duration-slow linear, height 0s ease @animation-duration-slow;
   }
+
   &-open {
     transition: transform @animation-duration-slow @ease-base-out;
     &-content {
       box-shadow: @shadow-2;
     }
+  }
+
+  &-extra {
+    float: right;
+    margin-right: 20px;
+    color: @text-color;
+    font-weight: normal;
+    font-size: @font-size-base;
+  }
+
+  &-extra-no-closeIcon {
+    float: right;
+    color: @text-color;
+    font-weight: normal;
+    font-size: @font-size-base;
   }
 }
 
