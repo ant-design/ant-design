@@ -7,7 +7,7 @@ import omit from 'omit.js';
 import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Wave from '../_util/wave';
-import { tuple } from '../_util/type';
+import { Omit, tuple } from '../_util/type';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
@@ -67,13 +67,13 @@ export type AnchorButtonProps = {
   target?: string;
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 } & BaseButtonProps &
-  React.AnchorHTMLAttributes<HTMLAnchorElement>;
+  Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'type'>;
 
 export type NativeButtonProps = {
   htmlType?: ButtonHTMLType;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 } & BaseButtonProps &
-  React.ButtonHTMLAttributes<HTMLButtonElement>;
+  Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type'>;
 
 export type ButtonProps = AnchorButtonProps | NativeButtonProps;
 
