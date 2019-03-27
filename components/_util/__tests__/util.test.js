@@ -1,8 +1,11 @@
 import raf from 'raf';
+import React from 'react';
+import { mount } from 'enzyme';
 import delayRaf from '../raf';
 import throttleByAnimationFrame from '../throttleByAnimationFrame';
 import getDataOrAriaProps from '../getDataOrAriaProps';
 import triggerEvent from '../triggerEvent';
+import Wave from '../wave';
 
 describe('Test utils function', () => {
   beforeAll(() => {
@@ -127,5 +130,34 @@ describe('Test utils function', () => {
     );
     triggerEvent(button, 'click');
     expect(button.style.width).toBe('100px');
+  });
+
+  describe('wave', () => {
+    it('bindAnimationEvent should return when node is null', () => {
+      const wrapper = mount(
+        <Wave>
+          <button type="button" disabled />
+        </Wave>,
+      ).instance();
+      expect(wrapper.bindAnimationEvent()).toBe(undefined);
+    });
+
+    it('bindAnimationEvent.onClick should return when children is hidden', () => {
+      const wrapper = mount(
+        <Wave>
+          <button type="button" style={{ display: 'none' }} />
+        </Wave>,
+      ).instance();
+      expect(wrapper.bindAnimationEvent()).toBe(undefined);
+    });
+
+    it('bindAnimationEvent.onClick should return when children is input', () => {
+      const wrapper = mount(
+        <Wave>
+          <input />
+        </Wave>,
+      ).instance();
+      expect(wrapper.bindAnimationEvent()).toBe(undefined);
+    });
   });
 });

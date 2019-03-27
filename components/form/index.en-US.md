@@ -232,6 +232,10 @@ interface UserFormProps extends FormComponentProps {
 class UserForm extends React.Component<UserFormProps, any> {
   // ...
 }
+
+const App = Form.create<UserFormProps>({
+  // ...
+})(UserForm);
 ```
 
 <style>

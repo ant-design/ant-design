@@ -13,8 +13,8 @@ Handling the overall layout of a page.
 
 The first level navigation is inclined left near a logo, and the secondary menu is inclined right.
 
-- Top Navigation (almost systems): the height of the first level navigation `64px`, the second level navigation `48px`.
-- Top Navigation(contents page): the height of the first level navigation `80px`, the second level navigation `56px`.
+- Top Navigation: the height of the first level navigation `64px`, the second level navigation `48px`.
+- Top Navigation (for landing pages): the height of the first level navigation `80px`, the second level navigation `56px`.
 - Calculation formula of a top navigation: `48+8n`.
 - Calculation formula of an aside navigation: `200+8n`.
 

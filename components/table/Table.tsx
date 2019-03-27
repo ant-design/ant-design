@@ -1121,7 +1121,6 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     renderEmpty: RenderEmptyHandler,
     dropdownPrefixCls: string,
     contextLocale: TableLocale,
-    loading: SpinProps,
   ) => {
     const { style, className, showHeader, locale, ...restProps } = this.props;
     const data = this.getCurrentPageData();
@@ -1164,7 +1163,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         className={classString}
         expandIconColumnIndex={expandIconColumnIndex}
         expandIconAsCell={expandIconAsCell}
-        emptyText={!loading.spinning && mergedLocale.emptyText}
+        emptyText={mergedLocale.emptyText}
       />
     );
   };
@@ -1189,7 +1188,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     const dropdownPrefixCls = getPrefixCls('dropdown', customizeDropdownPrefixCls);
     const table = (
       <LocaleReceiver componentName="Table" defaultLocale={defaultLocale.Table}>
-        {locale => this.renderTable(prefixCls, renderEmpty, dropdownPrefixCls, locale, loading)}
+        {locale => this.renderTable(prefixCls, renderEmpty, dropdownPrefixCls, locale)}
       </LocaleReceiver>
     );
 

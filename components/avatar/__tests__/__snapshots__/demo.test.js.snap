@@ -439,6 +439,81 @@ exports[`renders ./components/avatar/demo/dynamic.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/avatar/demo/toggle-debug.md correctly 1`] = `
+<div>
+  <button
+    class="ant-btn"
+    type="button"
+  >
+    <span>
+      Toggle Avatar visibility
+    </span>
+  </button>
+  <button
+    class="ant-btn"
+    type="button"
+  >
+    <span>
+      Toggle Avatar size
+    </span>
+  </button>
+  <button
+    class="ant-btn"
+    type="button"
+  >
+    <span>
+      Change Avatar scale
+    </span>
+  </button>
+  <br />
+  <br />
+  <div
+    style="text-align:center;transform:scale(1);margin-top:24px"
+  >
+    <span
+      class="ant-avatar ant-avatar-lg ant-avatar-circle"
+      style="background:#7265e6;display:none"
+    >
+      <span
+        class="ant-avatar-string"
+      >
+        Avatar
+      </span>
+    </span>
+    <span
+      class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image"
+      style="background:#00a2ae;display:none"
+    >
+      <img
+        src="invalid"
+      />
+    </span>
+    <div
+      style="display:none"
+    >
+      <span
+        class="ant-avatar ant-avatar-lg ant-avatar-circle"
+        style="background:#7265e6"
+      >
+        <span
+          class="ant-avatar-string"
+        >
+          Avatar
+        </span>
+      </span>
+      <span
+        class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image"
+        style="background:#00a2ae"
+      >
+        <img
+          src="invalid"
+        />
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/avatar/demo/type.md correctly 1`] = `
 <div>
   <span

@@ -15,12 +15,26 @@ timeline: true
 
 ---
 
+## 3.15.2
+
+`2019-03-23`
+
+- 📖 翻译[模式-数据展示](https://ant.design/docs/spec/data-display)和[模式-反馈](https://ant.design/docs/spec/feedback)文档到英文。[#15454](https://github.com/ant-design/ant-design/pull/15454) [@klouskingsley](https://github.com/klouskingsley) [#15460](https://github.com/ant-design/ant-design/pull/15460) [@klouskingsley](https://github.com/klouskingsley)
+- 🌟 新增 less 变量 `@font-feature-settings` 和 `@select-item-selected-font-weight`。[#15506](https://github.com/ant-design/ant-design/pull/15506) [@dancerphil](https://github.com/dancerphil) [#15515](https://github.com/ant-design/ant-design/pull/15515) [@willc001](https://github.com/willc001) 
+- 🐞 修复 Avatar 组件在重新挂载后字符大小和长度计算错误的问题。[#15503](https://github.com/ant-design/ant-design/pull/15503)
+- 🐞 修复 DatePicker 组件的宽度无法自定义的问题。[#15547](https://github.com/ant-design/ant-design/pull/15547) [@DiamondYuan](https://github.com/DiamondYuan)
+- 🐞 修复 Notification 组件的 icon 样式被全局默认样式覆盖的问题。[#15530](https://github.com/ant-design/ant-design/pull/15530)
+- 🐞 修复 Select 组件的空状态文本和图片没有对齐的问题。[#15570](https://github.com/ant-design/ant-design/pull/15570)
+- 🐞 修复 Table 组件在加载中时空状态丢失的问题。[#15583](https://github.com/ant-design/ant-design/pull/15583)
+- 🐞 修复 Tag 组件的内容长度超过屏幕宽度时不可见的问题。[#15526](https://github.com/ant-design/ant-design/pull/15526) [@Kapiroska](https://github.com/Kapiroska)
+- 🐞 修复 Upload 组件对图片类型文件判断不准确的问题。[#15354](https://github.com/ant-design/ant-design/pull/15354)
+
 ## 3.15.1
 
 `2019-03-17`
 
 - 🌟 补充了 less 变量 `@pagination-item-bg-active`、`@icon-color`。 [#15302](https://github.com/ant-design/ant-design/pull/15302) [#15345](https://github.com/ant-design/ant-design/pull/15345)
-- 🐞 修复引入 PageHeader 导致 tree shaking 失效的问题。[#15354](https://github.com/ant-design/ant-design/pull/15354)
+- 🐞 修复引入 PageHeader 导致 tree-shaking 失效的问题。[#15354](https://github.com/ant-design/ant-design/pull/15354)
 - List
   - 🐞 修复 List 的一些样式问题。[#15328](https://github.com/ant-design/ant-design/pull/15328)
   - 🐞 保持 List 组件内容颜色与之前的版本一致。[#15301](https://github.com/ant-design/ant-design/pull/15301)
@@ -30,13 +44,13 @@ timeline: true
   - 🐞 修复 Badge 组件内带小圆点时的高度问题。[#15395](https://github.com/ant-design/ant-design/pull/15395)
 - 🐞 微调 Tabs 标签模式在浏览器放大时丢失边框的问题。[#15299](https://github.com/ant-design/ant-design/pull/15299) [@rinick](https://github.com/rinick)
 - 🐞 修复 Avatar 组件设置了 `display: none` 的时候无法计算偏移量的问题。[#15351](https://github.com/ant-design/ant-design/pull/15351) [@ppbl](https://github.com/ppbl)
-- 🐞 修复 Input.Password 组件的后置 Icon。[#15381](https://github.com/ant-design/ant-design/pull/15381) [@melchior-voidwolf](https://github.com/melchior-voidwolf)
-- 🐞 修复 Layout 即使在 `hasSider` 属性为 `false` 的时候依然会加 `ant-layout-has-sider` 的 classname 的问题[#15396](https://github.com/ant-design/ant-design/pull/15396) [@SoraYama](https://github.com/SoraYama)
+- 🐞 修复 Input.Password 组件的 `suffix` 失效问题。[#15381](https://github.com/ant-design/ant-design/pull/15381) [@melchior-voidwolf](https://github.com/melchior-voidwolf)
+- 🐞 修复 Layout 即使在 `hasSider` 属性为 `false` 的时候依然会加 `ant-layout-has-sider` 类名的问题[#15396](https://github.com/ant-design/ant-design/pull/15396) [@SoraYama](https://github.com/SoraYama)
 - 🐞 修复 Divider 在 PageHeader 组件中的对齐问题。[#15400](https://github.com/ant-design/ant-design/pull/15400)
 - 🐞 修复 Menu 收缩后，SubMenu 异常渲染的问题。[#15409](https://github.com/ant-design/ant-design/pull/15409) [@zy410419243](https://github.com/zy410419243)
 - 🐞 修复 Skeleton 组件的样式问题。[#15421](https://github.com/ant-design/ant-design/pull/15421) [@Maktel](https://github.com/Maktel)
 - 调整了多处 Typescript 类型
-  - 🌟 FormComponentProps 新增 Form 值的范型。[#15355](https://github.com/ant-design/ant-design/pull/15355)
+  - 🌟 FormComponentProps 新增 Form 值的泛型。[#15355](https://github.com/ant-design/ant-design/pull/15355)
   - 🌟 导出 ConfigProviderProps 定义。[#15446](https://github.com/ant-design/ant-design/pull/15446) [@DiamondYuan](https://github.com/DiamondYuan)
   - 🐞 添加 Breadcrumb.Item 的 `onClick` 定义。[#15331](https://github.com/ant-design/ant-design/pull/15331) [@tgxpuisb](https://github.com/tgxpuisb)
   - 🐞 添加 Steps.Step 组件的 `style` 定义。[#15393](https://github.com/ant-design/ant-design/pull/15393) [@pavolgolias](https://github.com/pavolgolias)
