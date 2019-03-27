@@ -51,7 +51,7 @@ const renderBreadcrumb = (breadcrumb: BreadcrumbProps) => {
 
 const renderHeader = (prefixCls: string, props: PageHeaderProps) => {
   const { breadcrumb, backIcon, onBack } = props;
-  if (breadcrumb && breadcrumb.routes && breadcrumb.routes.length > 2) {
+  if (breadcrumb && breadcrumb.routes && breadcrumb.routes.length >= 2) {
     return renderBreadcrumb(breadcrumb);
   }
   return renderBack(prefixCls, backIcon, onBack);
