@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Item } from 'rc-menu';
 import Tooltip from '../tooltip';
-import { ClickParam } from './index';
+import { ClickParam } from '.';
 
 export interface MenuItemProps {
   rootPrefixCls?: string;
@@ -16,33 +16,29 @@ export interface MenuItemProps {
   onMouseLeave?: (e: { key: string; domEvent: MouseEvent }) => void;
 }
 
-class MenuItem extends React.Component<MenuItemProps> {
-  static isMenuItem = 1;
+export default class MenuItem extends React.Component<MenuItemProps> {
+  static isMenuItem = true;
   private menuItem: this;
 
   onKeyDown = (e: React.MouseEvent<HTMLElement>) => {
     this.menuItem.onKeyDown(e);
   };
+
   saveMenuItem = (menuItem: this) => {
     this.menuItem = menuItem;
   };
-  render() {
-    const { level, children, rootPrefixCls } = this.props;
-    const { title, ...rest } = this.props;
 
-    let titleNode;
-    titleNode = title || (level === 1 ? children : '');
+  render() {
+    const { rootPrefixCls, title, ...rest } = this.props;
 
     return (
       <Tooltip
-        title={titleNode}
+        title={title}
         placement="right"
         overlayClassName={`${rootPrefixCls}-inline-collapsed-tooltip`}
       >
-        <Item {...rest} title={title} ref={this.saveMenuItem} />
+        <Item {...rest} rootPrefixCls={rootPrefixCls} title={title} ref={this.saveMenuItem} />
       </Tooltip>
     );
   }
 }
-
-export default MenuItem;
