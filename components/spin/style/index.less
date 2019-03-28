@@ -125,7 +125,7 @@
 
     .square(@spin-dot-size);
 
-    i {
+    &-item {
       position: absolute;
       display: block;
       width: 9px;
@@ -136,6 +136,7 @@
       transform-origin: 50% 50%;
       opacity: 0.3;
       animation: antSpinMove 1s infinite linear alternate;
+
       &:nth-child(1) {
         top: 0;
         left: 0;
