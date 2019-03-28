@@ -29,14 +29,14 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     maskStyle,
     okButtonProps,
     cancelButtonProps,
-    iconType = 'question-circle',
   } = props;
   warning(
     !('iconType' in props),
     'Modal',
     `The property 'iconType' is deprecated. Use the property 'icon' instead.`,
   );
-  const icon = props.icon ? props.icon : iconType;
+  let icon = 'icon' in props ? props.icon : props.iconType;
+  if (icon === undefined) icon = 'question-circle';
   const okType = props.okType || 'primary';
   const prefixCls = props.prefixCls || 'ant-modal';
   const contentPrefixCls = `${prefixCls}-confirm`;
@@ -99,7 +99,14 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
         <div className={`${contentPrefixCls}-body`}>
           {iconNode}
           <span className={`${contentPrefixCls}-title`}>{props.title}</span>
-          <div className={`${contentPrefixCls}-content`}>{props.content}</div>
+          <div
+            className={classNames({
+              [`${contentPrefixCls}-content`]: true,
+              [`${contentPrefixCls}-content-noicon`]: !iconNode,
+            })}
+          >
+            {props.content}
+          </div>
         </div>
         <div className={`${contentPrefixCls}-btns`}>
           {cancelButton}
