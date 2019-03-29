@@ -171,10 +171,19 @@ class Menu extends React.Component<MenuProps, MenuState> {
     // when inlineCollapsed menu width animation finished
     // https://github.com/ant-design/ant-design/issues/12864
     const widthCollapsed = e.propertyName === 'width' && e.target === e.currentTarget;
+
+    // Fix SVGElement e.target.className.indexOf is not a function
+    // https://github.com/ant-design/ant-design/issues/15699
+    const { className } = e.target as (HTMLElement | SVGElement);
+    // SVGAnimatedString.animVal should be identical to SVGAnimatedString.baseVal, unless during an animation.
+    const classNameValue =
+      Object.prototype.toString.call(className) === '[object SVGAnimatedString]'
+        ? className.animVal
+        : className;
+
     // Fix for <Menu style={{ width: '100%' }} />, the width transition won't trigger when menu is collapsed
     // https://github.com/ant-design/ant-design-pro/issues/2783
-    const iconScaled =
-      e.propertyName === 'font-size' && (e.target as HTMLElement).className.indexOf('anticon') >= 0;
+    const iconScaled = e.propertyName === 'font-size' && classNameValue.indexOf('anticon') >= 0;
     if (widthCollapsed || iconScaled) {
       this.restoreModeVerticalFromInline();
     }
