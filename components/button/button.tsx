@@ -90,6 +90,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     loading: false,
     ghost: false,
     block: false,
+    htmlType: 'button',
   };
 
   static propTypes = {
@@ -219,6 +220,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
         break;
       case 'small':
         sizeCls = 'sm';
+        break;
       default:
         break;
     }
@@ -265,7 +267,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
       <Wave>
         <button
           {...otherProps as NativeButtonProps}
-          type={htmlType || 'button'}
+          type={htmlType}
           className={classes}
           onClick={this.handleClick}
           ref={this.saveButtonRef}
