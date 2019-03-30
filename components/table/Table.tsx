@@ -884,7 +884,14 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         );
 
         sortButton = (
-          <div title={locale.sortTitle} className={`${prefixCls}-column-sorter`} key="sorter">
+          <div
+            title={locale.sortTitle}
+            className={classNames(
+              `${prefixCls}-column-sorter-inner`,
+              ascend && descend && `${prefixCls}-column-sorter-inner-full`,
+            )}
+            key="sorter"
+          >
             {ascend}
             {descend}
           </div>
@@ -919,8 +926,10 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         }),
         title: [
           <div key="title" className={sortButton ? `${prefixCls}-column-sorters` : undefined}>
-            {this.renderColumnTitle(column.title)}
-            {sortButton}
+            <span className={`${prefixCls}-column-title`}>
+              {this.renderColumnTitle(column.title)}
+            </span>
+            <span className={`${prefixCls}-column-sorter`}>{sortButton}</span>
           </div>,
           filterDropdown,
         ],
