@@ -25,6 +25,7 @@ export interface AbstractCheckboxGroupProps {
 }
 
 export interface CheckboxGroupProps extends AbstractCheckboxGroupProps {
+  name?: string;
   defaultValue?: Array<CheckboxValueType>;
   value?: Array<CheckboxValueType>;
   onChange?: (checkedValue: Array<CheckboxValueType>) => void;
