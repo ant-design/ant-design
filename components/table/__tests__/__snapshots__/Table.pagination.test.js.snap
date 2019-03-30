@@ -33,7 +33,14 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
                     class=""
                   >
                     <div>
-                      Name
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Name
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                 </tr>
@@ -210,7 +217,14 @@ exports[`Table.pagination renders pagination correctly 1`] = `
                     class=""
                   >
                     <div>
-                      Name
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Name
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                 </tr>

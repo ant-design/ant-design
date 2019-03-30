@@ -381,14 +381,28 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
                         class=""
                       >
                         <div>
-                          Name
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Name
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
                         </div>
                       </th>
                       <th
                         class=""
                       >
                         <div>
-                          Age
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Age
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
                         </div>
                       </th>
                     </tr>
