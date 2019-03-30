@@ -31,11 +31,11 @@ export type ListSize = 'small' | 'default' | 'large';
 
 export type ListItemLayout = 'horizontal' | 'vertical';
 
-export interface ListProps {
+export interface ListProps<T> {
   bordered?: boolean;
   className?: string;
   children?: React.ReactNode;
-  dataSource: any;
+  dataSource: T[];
   extra?: React.ReactNode;
   grid?: ListGridType;
   id?: string;
@@ -45,7 +45,7 @@ export interface ListProps {
   pagination?: PaginationConfig | false;
   prefixCls?: string;
   rowKey?: any;
-  renderItem: any;
+  renderItem: (item: T, index: number) => React.ReactNode;
   size?: ListSize;
   split?: boolean;
   header?: React.ReactNode;
@@ -57,7 +57,7 @@ export interface ListLocale {
   emptyText: React.ReactNode | (() => React.ReactNode);
 }
 
-export default class List extends React.Component<ListProps> {
+export default class List<T> extends React.Component<ListProps<T>> {
   static Item: typeof Item = Item;
 
   static childContextTypes = {
@@ -70,7 +70,7 @@ export default class List extends React.Component<ListProps> {
     bordered: false,
     split: true,
     loading: false,
-    pagination: false as ListProps['pagination'],
+    pagination: false as ListProps<any>['pagination'],
   };
 
   state = {

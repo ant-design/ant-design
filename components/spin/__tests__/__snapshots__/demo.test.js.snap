@@ -7,10 +7,18 @@ exports[`renders ./components/spin/demo/basic.md correctly 1`] = `
   <span
     class="ant-spin-dot ant-spin-dot-spin"
   >
-    <i />
-    <i />
-    <i />
-    <i />
+    <i
+      class="ant-spin-dot-item"
+    />
+    <i
+      class="ant-spin-dot-item"
+    />
+    <i
+      class="ant-spin-dot-item"
+    />
+    <i
+      class="ant-spin-dot-item"
+    />
   </span>
 </div>
 `;
@@ -94,10 +102,18 @@ exports[`renders ./components/spin/demo/inside.md correctly 1`] = `
     <span
       class="ant-spin-dot ant-spin-dot-spin"
     >
-      <i />
-      <i />
-      <i />
-      <i />
+      <i
+        class="ant-spin-dot-item"
+      />
+      <i
+        class="ant-spin-dot-item"
+      />
+      <i
+        class="ant-spin-dot-item"
+      />
+      <i
+        class="ant-spin-dot-item"
+      />
     </span>
   </div>
 </div>
@@ -154,10 +170,18 @@ exports[`renders ./components/spin/demo/size.md correctly 1`] = `
     <span
       class="ant-spin-dot ant-spin-dot-spin"
     >
-      <i />
-      <i />
-      <i />
-      <i />
+      <i
+        class="ant-spin-dot-item"
+      />
+      <i
+        class="ant-spin-dot-item"
+      />
+      <i
+        class="ant-spin-dot-item"
+      />
+      <i
+        class="ant-spin-dot-item"
+      />
     </span>
   </div>
   <div
@@ -166,10 +190,18 @@ exports[`renders ./components/spin/demo/size.md correctly 1`] = `
     <span
       class="ant-spin-dot ant-spin-dot-spin"
     >
-      <i />
-      <i />
-      <i />
-      <i />
+      <i
+        class="ant-spin-dot-item"
+      />
+      <i
+        class="ant-spin-dot-item"
+      />
+      <i
+        class="ant-spin-dot-item"
+      />
+      <i
+        class="ant-spin-dot-item"
+      />
     </span>
   </div>
   <div
@@ -178,10 +210,18 @@ exports[`renders ./components/spin/demo/size.md correctly 1`] = `
     <span
       class="ant-spin-dot ant-spin-dot-spin"
     >
-      <i />
-      <i />
-      <i />
-      <i />
+      <i
+        class="ant-spin-dot-item"
+      />
+      <i
+        class="ant-spin-dot-item"
+      />
+      <i
+        class="ant-spin-dot-item"
+      />
+      <i
+        class="ant-spin-dot-item"
+      />
     </span>
   </div>
 </div>
@@ -198,10 +238,18 @@ exports[`renders ./components/spin/demo/tip.md correctly 1`] = `
       <span
         class="ant-spin-dot ant-spin-dot-spin"
       >
-        <i />
-        <i />
-        <i />
-        <i />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
       </span>
       <div
         class="ant-spin-text"
