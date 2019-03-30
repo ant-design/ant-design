@@ -588,4 +588,31 @@ describe('Menu', () => {
     wrapper.update();
     expect(wrapper.instance().contextSiderCollapsed).toBe(false);
   });
+
+  it('MenuItem should not render Tooltip when inlineCollapsed is false', () => {
+    const wrapper = mount(
+      <Menu defaultSelectedKeys={['mail']} defaultOpenKeys={['mail']} mode="horizontal">
+        <Menu.Item key="mail">
+          <Icon type="mail" />
+          Navigation One
+        </Menu.Item>
+        <Menu.Item key="app">
+          <Icon type="appstore" />
+          Navigation Two
+        </Menu.Item>
+        <Menu.Item key="alipay">
+          <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
+            Navigation Four - Link
+          </a>
+        </Menu.Item>
+      </Menu>,
+    );
+    wrapper
+      .find('MenuItem')
+      .first()
+      .simulate('mouseenter');
+    jest.runAllTimers();
+    wrapper.update();
+    expect(wrapper.find('.ant-tooltip-inner').length).toBe(0);
+  });
 });

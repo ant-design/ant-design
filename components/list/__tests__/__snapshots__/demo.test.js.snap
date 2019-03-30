@@ -377,10 +377,18 @@ exports[`renders ./components/list/demo/loadmore.md correctly 1`] = `
         <span
           class="ant-spin-dot ant-spin-dot-spin"
         >
-          <i />
-          <i />
-          <i />
-          <i />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
         </span>
       </div>
     </div>
