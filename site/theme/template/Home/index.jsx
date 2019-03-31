@@ -53,7 +53,7 @@ function getStyle() {
     }
     @media only screen and (max-width: 767.99px) {
       #footer .footer-wrap{
-        padding: 40px 24px
+        padding: 40px 24px;
       }
       footer .footer-wrap .ant-row {
         padding: 0;

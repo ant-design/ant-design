@@ -95,12 +95,14 @@ export default class MainContent extends Component {
       this.handleMenuOpenChange();
     }
     setTimeout(() => {
-      if (
-        window.location.hash &&
-        document.querySelector(decodeURIComponent(window.location.hash)) &&
-        document.documentElement.scrollTop === 0
-      ) {
-        document.querySelector(decodeURIComponent(window.location.hash)).scrollIntoView();
+      if (!window.location.hash) {
+        return;
+      }
+      const element = document.getElementById(
+        decodeURIComponent(window.location.hash.replace('#', '')),
+      );
+      if (element && document.documentElement.scrollTop === 0) {
+        element.scrollIntoView();
       }
     }, 0);
   }
