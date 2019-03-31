@@ -1757,7 +1757,14 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                           class="ant-table-column-has-actions ant-table-column-has-filters"
                         >
                           <div>
-                            Name
+                            <span
+                              class="ant-table-column-title"
+                            >
+                              Name
+                            </span>
+                            <span
+                              class="ant-table-column-sorter"
+                            />
                           </div>
                           <i
                             aria-label="icon: filter"
@@ -1784,7 +1791,14 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                           class=""
                         >
                           <div>
-                            Age
+                            <span
+                              class="ant-table-column-title"
+                            >
+                              Age
+                            </span>
+                            <span
+                              class="ant-table-column-sorter"
+                            />
                           </div>
                         </th>
                       </tr>
