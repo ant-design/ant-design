@@ -17,27 +17,26 @@ And you can always set it to a hex color string for custom color.
 ````jsx
 import { Badge } from 'antd';
 
+const colors = ['pink', 'red', 'yellow', 'orange',	'cyan',	'green',	'blue',	'purple',	'geekblue',	'magenta', 'volcano', 'gold', 'lime'];
+
 ReactDOM.render(
   <div>
     <h4 style={{ marginBottom: 16 }}>Presets:</h4>
     <div>
-      <Badge color="magenta" text="magenta" />
-      <Badge color="red" text="red" />
-      <Badge color="volcano" text="volcano" />
-      <Badge color="orange" text="orange" />
-      <Badge color="gold" text="gold" />
-      <Badge color="lime" text="lime" />
-      <Badge color="green" text="green" />
-      <Badge color="cyan" text="cyan" />
-      <Badge color="blue" text="blue" />
-      <Badge color="geekblue" text="geekblue" />
-      <Badge color="purple" text="purple" />
+      {colors.map((color) => (
+        <div key={color}>
+          <Badge color={color} text={color} />
+        </div>
+      ))}
     </div>
     <h4 style={{ margin: '16px 0' }}>Custom:</h4>
     <div>
       <Badge color="#f50" text="#f50" />
+      <br />
       <Badge color="#2db7f5" text="#2db7f5" />
+      <br />
       <Badge color="#87d068" text="#87d068" />
+      <br />
       <Badge color="#108ee9" text="#108ee9" />
     </div>
   </div>,
