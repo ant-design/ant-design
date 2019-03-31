@@ -6,7 +6,7 @@ import { polyfill } from 'react-lifecycles-compat';
 import Icon from '../icon';
 import CheckableTag from './CheckableTag';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import { PresetColorTypes, PresetColorType } from '../_util/colors';
+import { PresetColorTypes } from '../_util/colors';
 import Wave from '../_util/wave';
 
 export { CheckableTagProps } from './CheckableTag';
@@ -14,7 +14,7 @@ export { CheckableTagProps } from './CheckableTag';
 export interface TagProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   className?: string;
-  color?: PresetColorType | string;
+  color?: string;
   closable?: boolean;
   visible?: boolean;
   onClose?: Function;
