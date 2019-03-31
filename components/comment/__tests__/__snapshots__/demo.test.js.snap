@@ -151,7 +151,7 @@ exports[`renders ./components/comment/demo/editor.md correctly 1`] = `
               class="ant-row ant-form-item"
             >
               <div
-                class="ant-form-item-control-wrapper"
+                class="ant-col ant-form-item-control-wrapper"
               >
                 <div
                   class="ant-form-item-control"
@@ -171,7 +171,7 @@ exports[`renders ./components/comment/demo/editor.md correctly 1`] = `
               class="ant-row ant-form-item"
             >
               <div
-                class="ant-form-item-control-wrapper"
+                class="ant-col ant-form-item-control-wrapper"
               >
                 <div
                   class="ant-form-item-control"

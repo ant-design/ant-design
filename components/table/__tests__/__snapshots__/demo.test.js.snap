@@ -1632,7 +1632,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
         class="ant-row ant-form-item"
       >
         <div
-          class="ant-form-item-label"
+          class="ant-col ant-form-item-label"
         >
           <label
             class=""
@@ -1642,7 +1642,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           </label>
         </div>
         <div
-          class="ant-form-item-control-wrapper"
+          class="ant-col ant-form-item-control-wrapper"
         >
           <div
             class="ant-form-item-control"
@@ -1668,7 +1668,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
         class="ant-row ant-form-item"
       >
         <div
-          class="ant-form-item-label"
+          class="ant-col ant-form-item-label"
         >
           <label
             class=""
@@ -1678,7 +1678,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           </label>
         </div>
         <div
-          class="ant-form-item-control-wrapper"
+          class="ant-col ant-form-item-control-wrapper"
         >
           <div
             class="ant-form-item-control"
@@ -1704,7 +1704,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
         class="ant-row ant-form-item"
       >
         <div
-          class="ant-form-item-label"
+          class="ant-col ant-form-item-label"
         >
           <label
             class=""
@@ -1714,7 +1714,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           </label>
         </div>
         <div
-          class="ant-form-item-control-wrapper"
+          class="ant-col ant-form-item-control-wrapper"
         >
           <div
             class="ant-form-item-control"
@@ -1740,7 +1740,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
         class="ant-row ant-form-item"
       >
         <div
-          class="ant-form-item-label"
+          class="ant-col ant-form-item-label"
         >
           <label
             class=""
@@ -1750,7 +1750,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           </label>
         </div>
         <div
-          class="ant-form-item-control-wrapper"
+          class="ant-col ant-form-item-control-wrapper"
         >
           <div
             class="ant-form-item-control"
@@ -1777,7 +1777,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
         class="ant-row ant-form-item"
       >
         <div
-          class="ant-form-item-label"
+          class="ant-col ant-form-item-label"
         >
           <label
             class=""
@@ -1787,7 +1787,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           </label>
         </div>
         <div
-          class="ant-form-item-control-wrapper"
+          class="ant-col ant-form-item-control-wrapper"
         >
           <div
             class="ant-form-item-control"
@@ -1814,7 +1814,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
         class="ant-row ant-form-item"
       >
         <div
-          class="ant-form-item-label"
+          class="ant-col ant-form-item-label"
         >
           <label
             class=""
@@ -1824,7 +1824,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           </label>
         </div>
         <div
-          class="ant-form-item-control-wrapper"
+          class="ant-col ant-form-item-control-wrapper"
         >
           <div
             class="ant-form-item-control"
@@ -1851,7 +1851,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
         class="ant-row ant-form-item"
       >
         <div
-          class="ant-form-item-label"
+          class="ant-col ant-form-item-label"
         >
           <label
             class=""
@@ -1861,7 +1861,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           </label>
         </div>
         <div
-          class="ant-form-item-control-wrapper"
+          class="ant-col ant-form-item-control-wrapper"
         >
           <div
             class="ant-form-item-control"
@@ -1888,7 +1888,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
         class="ant-row ant-form-item"
       >
         <div
-          class="ant-form-item-label"
+          class="ant-col ant-form-item-label"
         >
           <label
             class=""
@@ -1898,7 +1898,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           </label>
         </div>
         <div
-          class="ant-form-item-control-wrapper"
+          class="ant-col ant-form-item-control-wrapper"
         >
           <div
             class="ant-form-item-control"
@@ -1924,7 +1924,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
         class="ant-row ant-form-item"
       >
         <div
-          class="ant-form-item-label"
+          class="ant-col ant-form-item-label"
         >
           <label
             class=""
@@ -1934,7 +1934,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           </label>
         </div>
         <div
-          class="ant-form-item-control-wrapper"
+          class="ant-col ant-form-item-control-wrapper"
         >
           <div
             class="ant-form-item-control"
@@ -1961,7 +1961,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
         class="ant-row ant-form-item"
       >
         <div
-          class="ant-form-item-label"
+          class="ant-col ant-form-item-label"
         >
           <label
             class=""
@@ -1971,7 +1971,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           </label>
         </div>
         <div
-          class="ant-form-item-control-wrapper"
+          class="ant-col ant-form-item-control-wrapper"
         >
           <div
             class="ant-form-item-control"
@@ -2049,7 +2049,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
         class="ant-row ant-form-item"
       >
         <div
-          class="ant-form-item-label"
+          class="ant-col ant-form-item-label"
         >
           <label
             class=""
@@ -2059,7 +2059,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           </label>
         </div>
         <div
-          class="ant-form-item-control-wrapper"
+          class="ant-col ant-form-item-control-wrapper"
         >
           <div
             class="ant-form-item-control"
