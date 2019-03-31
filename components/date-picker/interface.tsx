@@ -81,7 +81,7 @@ export interface RangePickerProps extends PickerProps {
   };
   placeholder?: [string, string];
   mode?: string | string[];
-  separator?: string;
+  separator?: React.ReactNode;
   disabledTime?: (
     current: moment.Moment | undefined,
     type: string,
