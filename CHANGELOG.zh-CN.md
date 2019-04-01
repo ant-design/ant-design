@@ -26,7 +26,6 @@ timeline: true
 - 🌟 Empty 支持通过 `Empty.PRESENTED_IMAGE_DEFAULT` 和 `Empty.PRESENTED_IMAGE_SIMPLE` 访问预置图片。[#15487](https://github.com/ant-design/ant-design/pull/15487)
 - 🌟 Progress.Line 支持渐变色。[#15524](https://github.com/ant-design/ant-design/pull/15524) [@zy410419243](https://github.com/zy410419243)
 - 🌟 更新 `rc-calendar` 依赖，允许默认值可以是空。[#520](https://github.com/react-component/calendar/pull/520)
-- 🌟 更新组件依赖。[#15312](https://github.com/ant-design/ant-design/issues/15312)
 - ⚡️ 重构 Form 移动 `ant-form-item-no-colon` 样式到 Form.Item 中。[#15592](https://github.com/ant-design/ant-design/pull/15592) [@HsuanXyz](https://github.com/HsuanXyz)
 - 🐞 修复 DatePicker 中 disabled 和 selected 日期单元的样式。[#15608](https://github.com/ant-design/ant-design/pull/15608)
 - 🐞 修复 Menu 收缩的异常闪动。[#15625](https://github.com/ant-design/ant-design/pull/15625) [@zy410419243](https://github.com/zy410419243)
