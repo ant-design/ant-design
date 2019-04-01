@@ -5,6 +5,7 @@ import { polyfill } from 'react-lifecycles-compat';
 import Icon from '../icon';
 import CheckableTag from './CheckableTag';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { PresetColorTypes } from '../_util/colors';
 import Wave from '../_util/wave';
 import warning from '../_util/warning';
 
@@ -24,6 +25,8 @@ export interface TagProps extends React.HTMLAttributes<HTMLDivElement> {
 interface TagState {
   visible: boolean;
 }
+
+const PresetColorRegex = new RegExp(`^(${PresetColorTypes.join('|')})(-inverse)?$`);
 
 class Tag extends React.Component<TagProps, TagState> {
   static CheckableTag = CheckableTag;
@@ -78,9 +81,7 @@ class Tag extends React.Component<TagProps, TagState> {
     if (!color) {
       return false;
     }
-    return /^(pink|red|yellow|orange|cyan|green|blue|purple|geekblue|magenta|volcano|gold|lime)(-inverse)?$/.test(
-      color,
-    );
+    return PresetColorRegex.test(color);
   }
 
   getTagStyle() {

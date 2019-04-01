@@ -97,7 +97,14 @@ exports[`Table.filter renders filter correctly 1`] = `
                     class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
                     <div>
-                      Name
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Name
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                     <i
                       aria-label="icon: filter"

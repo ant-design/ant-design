@@ -32,6 +32,7 @@ Checkbox component.
 | -------- | ----------- | ---- | ------- |
 | defaultValue | Default selected value | string\[] | \[] |
 | disabled | Disable all checkboxes | boolean | false |
+| name | The `name` property of all `input[type="checkbox"]` children | string | - |
 | options | Specifies options | string\[] | \[] |
 | value | Used for setting the currently selected value. | string\[] | \[] |
 | onChange | The callback function that is triggered when the state changes. | Function(checkedValue) | - |

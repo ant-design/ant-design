@@ -40,56 +40,112 @@ exports[`Table renders empty table 1`] = `
                     class=""
                   >
                     <div>
-                      Column 1
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Column 1
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Column 2
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Column 2
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Column 3
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Column 3
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Column 4
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Column 4
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Column 5
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Column 5
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Column 6
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Column 6
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Column 7
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Column 7
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Column 8
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Column 8
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                 </tr>
@@ -167,56 +223,112 @@ exports[`Table renders empty table with custom emptyText 1`] = `
                     class=""
                   >
                     <div>
-                      Column 1
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Column 1
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Column 2
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Column 2
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Column 3
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Column 3
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Column 4
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Column 4
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Column 5
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Column 5
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Column 6
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Column 6
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Column 7
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Column 7
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Column 8
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Column 8
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                 </tr>
@@ -290,77 +402,154 @@ exports[`Table renders empty table with fixed columns 1`] = `
                       class="ant-table-fixed-columns-in-body"
                     >
                       <div>
-                        Full Name
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Full Name
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class="ant-table-fixed-columns-in-body"
                     >
                       <div>
-                        Age
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Age
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Column 1
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Column 1
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Column 2
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Column 2
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Column 3
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Column 3
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Column 4
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Column 4
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Column 5
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Column 5
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Column 6
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Column 6
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Column 7
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Column 7
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Column 8
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Column 8
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class="ant-table-fixed-columns-in-body"
                     >
                       <div>
-                        Action
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Action
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                   </tr>
@@ -421,14 +610,28 @@ exports[`Table renders empty table with fixed columns 1`] = `
                         class=""
                       >
                         <div>
-                          Full Name
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Full Name
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
                         </div>
                       </th>
                       <th
                         class=""
                       >
                         <div>
-                          Age
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Age
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
                         </div>
                       </th>
                     </tr>
@@ -466,7 +669,14 @@ exports[`Table renders empty table with fixed columns 1`] = `
                         class=""
                       >
                         <div>
-                          Action
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Action
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
                         </div>
                       </th>
                     </tr>
@@ -547,56 +757,112 @@ exports[`Table renders empty table without emptyText when loading 1`] = `
                     class=""
                   >
                     <div>
-                      Column 1
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Column 1
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Column 2
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Column 2
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Column 3
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Column 3
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Column 4
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Column 4
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Column 5
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Column 5
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Column 6
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Column 6
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Column 7
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Column 7
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Column 8
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Column 8
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                 </tr>

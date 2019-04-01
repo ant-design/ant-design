@@ -71,6 +71,16 @@ describe('CheckboxGroup', () => {
     expect(onChangeGroup).toBeCalledWith(['Apple']);
   });
 
+  it('all children should have a name property', () => {
+    const wrapper = mount(<Checkbox.Group name="checkboxgroup" options={['Yes', 'No']} />);
+
+    expect(
+      wrapper.find('input[type="checkbox"]').forEach(el => {
+        expect(el.props().name).toEqual('checkboxgroup');
+      }),
+    );
+  });
+
   it('passes prefixCls down to checkbox', () => {
     const options = [{ label: 'Apple', value: 'Apple' }, { label: 'Orange', value: 'Orange' }];
 
