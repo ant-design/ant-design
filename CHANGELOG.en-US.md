@@ -25,6 +25,7 @@ timeline: true
 - 🌟 Empty support `imageStyle` prop. [#15487](https://github.com/ant-design/ant-design/pull/15487)
 - 🌟 Empty support `Empty.PRESENTED_IMAGE_DEFAULT` and `Empty.PRESENTED_IMAGE_SIMPLE` for default image. [#15487](https://github.com/ant-design/ant-design/pull/15487)
 - 🌟 Progress.Line support gradient line color. [#15524](https://github.com/ant-design/ant-design/pull/15524) [@zy410419243](https://github.com/zy410419243)
+- 🌟 Update `rc-calendar` to support default value can be null. [#520](https://github.com/react-component/calendar/pull/520)
 - ⚡️ Refactor Form move `ant-form-item-no-colon` selector position in Form.Item. [#15592](https://github.com/ant-design/ant-design/pull/15592) [@HsuanXyz](https://github.com/HsuanXyz)
 - 🐞 Fix disabled and selected date cell style of DatePicker. [#15608](https://github.com/ant-design/ant-design/pull/15608)
 - 🐞 Fix Menu unexpected shaking when collapsed. [#15625](https://github.com/ant-design/ant-design/pull/15625) [@zy410419243](https://github.com/zy410419243)
@@ -42,7 +43,7 @@ timeline: true
 - 💄 Adjust Card and PageHeader padding from `32px` to `24px`. [#15755](https://github.com/ant-design/ant-design/pull/15755)
 - 🌟 Add less variables
   - 🌟 Button add `@btn-border-width` and `@btn-border-style`. [#15397](https://github.com/ant-design/ant-design/pull/15397) [@searleb](https://github.com/searleb)
-  - 🌟 Modal add `@modal-body-padding` and `@@modal-footer-bg`. [#15476](https://github.com/ant-design/ant-design/pull/15476) [#15469](https://github.com/ant-design/ant-design/pull/15469) [@shumkovdenis](https://github.com/shumkovdenis)
+  - 🌟 Modal add `@modal-body-padding` and `@modal-footer-bg`. [#15476](https://github.com/ant-design/ant-design/pull/15476) [#15469](https://github.com/ant-design/ant-design/pull/15469) [@shumkovdenis](https://github.com/shumkovdenis)
   - 🌟 Radio add `@radio-button-checked-bg`. [#15541](https://github.com/ant-design/ant-design/pull/15541) [@willc001](https://github.com/willc001)
 - 🌟 Adjust multiple TypeScript types
   - 🐞 **Fix for changes in `@types/react` for Button.** [#15702](https://github.com/ant-design/ant-design/pull/15702) [@ferdikoomen](https://github.com/ferdikoomen)
