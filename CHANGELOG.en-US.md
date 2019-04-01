@@ -45,9 +45,9 @@ timeline: true
   - 🌟 Modal add `@modal-body-padding` and `@@modal-footer-bg`. [#15476](https://github.com/ant-design/ant-design/pull/15476) [#15469](https://github.com/ant-design/ant-design/pull/15469) [@shumkovdenis](https://github.com/shumkovdenis)
   - 🌟 Radio add `@radio-button-checked-bg`. [#15541](https://github.com/ant-design/ant-design/pull/15541) [@willc001](https://github.com/willc001)
 - 🌟 Adjust multiple TypeScript types
+  - 🐞 **Fix for changes in `@types/react` for Button.** [#15702](https://github.com/ant-design/ant-design/pull/15702) [@ferdikoomen](https://github.com/ferdikoomen)
   - 🌟 Menu add `overflowedIndicator` type. [#15355](https://github.com/ant-design/ant-design/pull/15459) [@Yangzhedi](https://github.com/Yangzhedi)
   - 🐞 Fix Input `action` definition. [#15598](https://github.com/ant-design/ant-design/pull/15598) [@Yangzhedi](https://github.com/Yangzhedi)
-  - 🐞 Fix for changes in `@types/react` for Button. [#15702](https://github.com/ant-design/ant-design/pull/15702) [@ferdikoomen](https://github.com/ferdikoomen)
   - 🐞 Fix Tree `onLoad` typo. [#15718](https://github.com/ant-design/ant-design/pull/15718) [@babycannotsay](https://github.com/babycannotsay)
   - 🌟 CheckBox.Group add `name` type. [#15753](https://github.com/ant-design/ant-design/pull/15753)
   - 🌟 RangePicker add `separator` type. [#15765](https://github.com/ant-design/ant-design/pull/15765)
