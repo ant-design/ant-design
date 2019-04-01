@@ -15,6 +15,51 @@ timeline: true
 
 ---
 
+## 3.16.0
+
+`2019-04-01`
+
+- 🌟 Badge support customize color. [#15764](https://github.com/ant-design/ant-design/pull/15764)
+- 🌟 Checkbox.Group support `name` prop. [#15760](https://github.com/ant-design/ant-design/pull/15760) [@bencallaway](https://github.com/bencallaway)
+- 🌟 Modal support `confirm({ icon: null })` to hide Icon. [#15319](https://github.com/ant-design/ant-design/pull/15319) [@Adamwu1992](https://github.com/Adamwu1992)
+- Empty
+  - 🌟 Support `imageStyle` prop. [#15487](https://github.com/ant-design/ant-design/pull/15487)
+  - 🌟 Support `Empty.PRESENTED_IMAGE_DEFAULT` and `Empty.PRESENTED_IMAGE_SIMPLE` for default image. [#15487](https://github.com/ant-design/ant-design/pull/15487)
+- 🌟 Progress.Line support gradient line color. [#15524](https://github.com/ant-design/ant-design/pull/15524) [@zy410419243](https://github.com/zy410419243)
+- DatePicker
+  - 🌟 Update `rc-calendar` to support default value can be null. [#520](https://github.com/react-component/calendar/pull/520)
+  - 🐞 Fix disabled and selected date cell style of DatePicker. [#15608](https://github.com/ant-design/ant-design/pull/15608)
+  - 🐞 Fix RangePicker can not select same month. [#15427](https://github.com/ant-design/ant-design/pull/15427)
+- ⚡️ Refactor Form move `ant-form-item-no-colon` selector position in Form.Item. [#15592](https://github.com/ant-design/ant-design/pull/15592) [@HsuanXyz](https://github.com/HsuanXyz)
+- Menu
+  - 🐞 Fix Menu unexpected shaking when collapsed. [#15625](https://github.com/ant-design/ant-design/pull/15625) [@zy410419243](https://github.com/zy410419243)
+  - 🐞 Fix MenuItem rendered unexpected Tooltip when `inlineCollapsed` is `false`. [#15705](https://github.com/ant-design/ant-design/pull/15705) [@zy410419243](https://github.com/zy410419243)
+- 🐞 Fix Upload border jumping issue in Chrome. [#15636](https://github.com/ant-design/ant-design/pull/15636)
+- 🐞 Fix clear icon style in Input and Input.Search. [#15672](https://github.com/ant-design/ant-design/pull/15672)
+- 🐞 PageHeader support level 2 breadcrumb. [#15689](https://github.com/ant-design/ant-design/pull/15689)
+- Tag
+  - 🐞 Revert Tag wrap style to fix display in table. [#15690](https://github.com/ant-design/ant-design/pull/15690)
+  - 💄 Remove Tag animation. [#15233](https://github.com/ant-design/ant-design/pull/15233)
+- 🐞 Fix Spin style when `indicator` is Icon. [#15712](https://github.com/ant-design/ant-design/pull/15712)
+- 🐞 Fix collapsible Layout.Sider throw error when use svg icon. [#15720](https://github.com/ant-design/ant-design/pull/15720) [@wx1322](https://github.com/wx1322)
+- 💄 Remove underlines from focused links. [#15759](https://github.com/ant-design/ant-design/pull/15759) [@Nouzbe](https://github.com/Nouzbe)
+- Table
+  - 💄 Move Table sort button after title closely. [#15758](https://github.com/ant-design/ant-design/pull/15758)
+  - 💄 Fix components covered by Table fixed columns. [#15782](https://github.com/ant-design/ant-design/pull/15782)
+- 🐞 Fix col element missing relative style. [#15766](https://github.com/ant-design/ant-design/pull/15766)
+- 💄 Adjust Card and PageHeader padding from `32px` to `24px`. [#15755](https://github.com/ant-design/ant-design/pull/15755)
+- 🌟 Add less variables
+  - 🌟 Button add `@btn-border-width` and `@btn-border-style`. [#15397](https://github.com/ant-design/ant-design/pull/15397) [@searleb](https://github.com/searleb)
+  - 🌟 Modal add `@modal-body-padding` and `@modal-footer-bg`. [#15476](https://github.com/ant-design/ant-design/pull/15476) [#15469](https://github.com/ant-design/ant-design/pull/15469) [@shumkovdenis](https://github.com/shumkovdenis)
+  - 🌟 Radio add `@radio-button-checked-bg`. [#15541](https://github.com/ant-design/ant-design/pull/15541) [@willc001](https://github.com/willc001)
+- 🌟 Adjust multiple TypeScript types
+  - 🐞 **Fix for changes in `@types/react` for Button.** [#15702](https://github.com/ant-design/ant-design/pull/15702) [@ferdikoomen](https://github.com/ferdikoomen)
+  - 🌟 Menu add `overflowedIndicator` type. [#15355](https://github.com/ant-design/ant-design/pull/15459) [@Yangzhedi](https://github.com/Yangzhedi)
+  - 🐞 Fix Input `action` definition. [#15598](https://github.com/ant-design/ant-design/pull/15598) [@Yangzhedi](https://github.com/Yangzhedi)
+  - 🐞 Fix Tree `onLoad` typo. [#15718](https://github.com/ant-design/ant-design/pull/15718) [@babycannotsay](https://github.com/babycannotsay)
+  - 🌟 CheckBox.Group add `name` type. [#15753](https://github.com/ant-design/ant-design/pull/15753)
+  - 🌟 RangePicker add `separator` type. [#15765](https://github.com/ant-design/ant-design/pull/15765)
+
 ## 3.15.2
 
 `2019-03-23`
