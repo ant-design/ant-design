@@ -217,7 +217,7 @@
     "deploy:china-mirror": "git checkout gh-pages && git pull origin gh-pages && git push git@gitee.com:ant-design/ant-design.git gh-pages",
     "pub": "antd-tools run pub",
     "prepublish": "antd-tools run guard",
-    "pre-publish": "npm run test-all && node ./scripts/prepub",
+    "pre-publish": "npm run test-all && node ./scripts/prepub && node ./tests/dekko/publish.test.js",
     "authors": "git log --format='%aN <%aE>' | sort -u | grep -v 'users.noreply.github.com' | grep -v 'gitter.im' | grep -v '.local>' | grep -v 'alibaba-inc.com' | grep -v 'alipay.com' | grep -v 'taobao.com' > AUTHORS.txt",
     "lint-staged": "lint-staged",
     "lint-staged:ts": "tsc && node node_modules/tslint/bin/tslint",
