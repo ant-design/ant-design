@@ -28,6 +28,7 @@ timeline: true
 - 🌟 Update `rc-calendar` to support default value can be null. [#520](https://github.com/react-component/calendar/pull/520)
 - ⚡️ Refactor Form move `ant-form-item-no-colon` selector position in Form.Item. [#15592](https://github.com/ant-design/ant-design/pull/15592) [@HsuanXyz](https://github.com/HsuanXyz)
 - 🐞 Fix disabled and selected date cell style of DatePicker. [#15608](https://github.com/ant-design/ant-design/pull/15608)
+- 🐞 Fix RangePicker can not select same month. [#15427](https://github.com/ant-design/ant-design/pull/15427)
 - 🐞 Fix Menu unexpected shaking when collapsed. [#15625](https://github.com/ant-design/ant-design/pull/15625) [@zy410419243](https://github.com/zy410419243)
 - 🐞 Fix Upload border jumping issue in Chrome. [#15636](https://github.com/ant-design/ant-design/pull/15636)
 - 🐞 Fix clear icon style in Input and Input.Search. [#15672](https://github.com/ant-design/ant-design/pull/15672)

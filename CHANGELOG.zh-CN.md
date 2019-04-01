@@ -28,6 +28,7 @@ timeline: true
 - 🌟 更新 `rc-calendar` 依赖，允许默认值可以是空。[#520](https://github.com/react-component/calendar/pull/520)
 - ⚡️ 重构 Form 移动 `ant-form-item-no-colon` 样式到 Form.Item 中。[#15592](https://github.com/ant-design/ant-design/pull/15592) [@HsuanXyz](https://github.com/HsuanXyz)
 - 🐞 修复 DatePicker 中 disabled 和 selected 日期单元的样式。[#15608](https://github.com/ant-design/ant-design/pull/15608)
+- 🐞 修复 RangePicker 不能选择同一个月的问题。[#15427](https://github.com/ant-design/ant-design/pull/15427)
 - 🐞 修复 Menu 收缩的异常闪动。[#15625](https://github.com/ant-design/ant-design/pull/15625) [@zy410419243](https://github.com/zy410419243)
 - 🐞 修复 Chrome 中 Upload 边框跳动的问题。[#15636](https://github.com/ant-design/ant-design/pull/15636)
 - 🐞 修复 Input 和 Input.Search 中清除按钮图标样式。[#15672](https://github.com/ant-design/ant-design/pull/15672)
