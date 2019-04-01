@@ -25,7 +25,6 @@ timeline: true
 - 🌟 Empty 支持 `imageStyle` 属性。[#15487](https://github.com/ant-design/ant-design/pull/15487)
 - 🌟 Empty 支持通过 `Empty.PRESENTED_IMAGE_DEFAULT` 和 `Empty.PRESENTED_IMAGE_SIMPLE` 访问预置图片。[#15487](https://github.com/ant-design/ant-design/pull/15487)
 - 🌟 Progress.Line 支持渐变色。[#15524](https://github.com/ant-design/ant-design/pull/15524) [@zy410419243](https://github.com/zy410419243)
-- 🌟 Button 添加默认 html type。[#15719](https://github.com/ant-design/ant-design/pull/15719) [@DJanoskova](https://github.com/DJanoskova)
 - ⚡️ 重构 Form 移动 `ant-form-item-no-colon` 样式到 Form.Item 中。[#15592](https://github.com/ant-design/ant-design/pull/15592) [@HsuanXyz](https://github.com/HsuanXyz)
 - 🐞 修复 DatePicker 中 disabled 和 selected 日期单元的样式[#15608](https://github.com/ant-design/ant-design/pull/15608)
 - 🐞 修复 Menu 收缩的异常闪动。[#15625](https://github.com/ant-design/ant-design/pull/15625) [@zy410419243](https://github.com/zy410419243)
@@ -40,7 +39,7 @@ timeline: true
 - 💄 移除聚焦链接的下划线样式。[#15759](https://github.com/ant-design/ant-design/pull/15759) [@Nouzbe](https://github.com/Nouzbe)
 - 💄 将 Table 排序按钮移至标题后。[#15758](https://github.com/ant-design/ant-design/pull/15758)
 - 🐞 修复 Col 丢失相关样式的问题。[#15766](https://github.com/ant-design/ant-design/pull/15766)
-- 💄 调整 Card 和 PageHeader 样式将 padding 从 32px 改成 24px。[#15755](https://github.com/ant-design/ant-design/pull/15755)
+- 💄 调整 Card 和 PageHeader 样式，将 padding 从 `32px` 改成 `24px`。[#15755](https://github.com/ant-design/ant-design/pull/15755)
 - 🌟 添加 less 变量
   - 🌟 Button 添加 `@btn-border-width` 和 `@btn-border-style`。[#15397](https://github.com/ant-design/ant-design/pull/15397) [@searleb](https://github.com/searleb)
   - 🌟 Modal 添加 `@modal-body-padding` 和 `@@modal-footer-bg`。[#15476](https://github.com/ant-design/ant-design/pull/15476) [#15469](https://github.com/ant-design/ant-design/pull/15469) [@shumkovdenis](https://github.com/shumkovdenis)

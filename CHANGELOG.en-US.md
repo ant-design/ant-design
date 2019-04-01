@@ -25,7 +25,6 @@ timeline: true
 - 🌟 Empty support `imageStyle` prop. [#15487](https://github.com/ant-design/ant-design/pull/15487)
 - 🌟 Empty support `Empty.PRESENTED_IMAGE_DEFAULT` and `Empty.PRESENTED_IMAGE_SIMPLE` for default image. [#15487](https://github.com/ant-design/ant-design/pull/15487)
 - 🌟 Progress.Line support gradient line color. [#15524](https://github.com/ant-design/ant-design/pull/15524) [@zy410419243](https://github.com/zy410419243)
-- 🌟 Button add default html type. [#15719](https://github.com/ant-design/ant-design/pull/15719) [@DJanoskova](https://github.com/DJanoskova)
 - ⚡️ Refactor Form move `ant-form-item-no-colon` selector position in Form.Item. [#15592](https://github.com/ant-design/ant-design/pull/15592) [@HsuanXyz](https://github.com/HsuanXyz)
 - 🐞 Fix disabled and selected date cell style of DatePicker. [#15608](https://github.com/ant-design/ant-design/pull/15608)
 - 🐞 Fix Menu unexpected shaking when collapsed. [#15625](https://github.com/ant-design/ant-design/pull/15625) [@zy410419243](https://github.com/zy410419243)
@@ -40,7 +39,7 @@ timeline: true
 - 💄 Remove underlines from focused links. [#15759](https://github.com/ant-design/ant-design/pull/15759) [@Nouzbe](https://github.com/Nouzbe)
 - 💄 Move Table sort button after title closely. [#15758](https://github.com/ant-design/ant-design/pull/15758)
 - 🐞 Fix col element missing relative style. [#15766](https://github.com/ant-design/ant-design/pull/15766)
-- 💄 Adjust Card and PageHeader padding from 32px to 24px. [#15755](https://github.com/ant-design/ant-design/pull/15755)
+- 💄 Adjust Card and PageHeader padding from `32px` to `24px`. [#15755](https://github.com/ant-design/ant-design/pull/15755)
 - 🌟 Add less variables
   - 🌟 Button add `@btn-border-width` and `@btn-border-style`. [#15397](https://github.com/ant-design/ant-design/pull/15397) [@searleb](https://github.com/searleb)
   - 🌟 Modal add `@modal-body-padding` and `@@modal-footer-bg`. [#15476](https://github.com/ant-design/ant-design/pull/15476) [#15469](https://github.com/ant-design/ant-design/pull/15469) [@shumkovdenis](https://github.com/shumkovdenis)
