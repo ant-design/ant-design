@@ -12,7 +12,9 @@ const ProgressTypes = tuple('line', 'circle', 'dashboard');
 export type ProgressType = (typeof ProgressTypes)[number];
 const ProgressStatuses = tuple('normal', 'exception', 'active', 'success');
 export type ProgressSize = 'default' | 'small';
-
+export type StringGradients = { [percentage: string]: string };
+type FromToGradients = { from: string; to: string };
+export type ProgressGradient = { direction?: string } & (StringGradients | FromToGradients);
 export interface ProgressProps {
   prefixCls?: string;
   className?: string;
@@ -24,7 +26,7 @@ export interface ProgressProps {
   showInfo?: boolean;
   strokeWidth?: number;
   strokeLinecap?: string;
-  strokeColor?: string;
+  strokeColor?: string | ProgressGradient;
   trailColor?: string;
   width?: number;
   style?: React.CSSProperties;
@@ -33,7 +35,7 @@ export interface ProgressProps {
   size?: ProgressSize;
 }
 
-export default class Progress extends React.Component<ProgressProps, {}> {
+export default class Progress extends React.Component<ProgressProps> {
   static defaultProps = {
     type: 'line',
     percent: 0,
@@ -52,7 +54,7 @@ export default class Progress extends React.Component<ProgressProps, {}> {
     width: PropTypes.number,
     strokeWidth: PropTypes.number,
     strokeLinecap: PropTypes.oneOf(['round', 'square']),
-    strokeColor: PropTypes.string,
+    strokeColor: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     trailColor: PropTypes.string,
     format: PropTypes.func,
     gapDegree: PropTypes.number,

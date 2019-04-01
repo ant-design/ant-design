@@ -41,55 +41,70 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                     <div
                       class="ant-table-column-sorters"
                     >
-                      Name
-                      <div
-                        class="ant-table-column-sorter"
-                        title="Sort"
+                      <span
+                        class="ant-table-column-title"
                       >
-                        <i
-                          aria-label="icon: caret-up"
-                          class="anticon anticon-caret-up ant-table-column-sorter-up off"
+                        Name
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      >
+                        <div
+                          class="ant-table-column-sorter-inner ant-table-column-sorter-inner-full"
+                          title="Sort"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class=""
-                            data-icon="caret-up"
-                            fill="currentColor"
-                            height="1em"
-                            viewBox="0 0 1024 1024"
-                            width="1em"
+                          <i
+                            aria-label="icon: caret-up"
+                            class="anticon anticon-caret-up ant-table-column-sorter-up off"
                           >
-                            <path
-                              d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                            />
-                          </svg>
-                        </i>
-                        <i
-                          aria-label="icon: caret-down"
-                          class="anticon anticon-caret-down ant-table-column-sorter-down off"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class=""
-                            data-icon="caret-down"
-                            fill="currentColor"
-                            height="1em"
-                            viewBox="0 0 1024 1024"
-                            width="1em"
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="caret-up"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                            >
+                              <path
+                                d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                              />
+                            </svg>
+                          </i>
+                          <i
+                            aria-label="icon: caret-down"
+                            class="anticon anticon-caret-down ant-table-column-sorter-down off"
                           >
-                            <path
-                              d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                            />
-                          </svg>
-                        </i>
-                      </div>
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="caret-down"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                            >
+                              <path
+                                d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                              />
+                            </svg>
+                          </i>
+                        </div>
+                      </span>
                     </div>
                   </th>
                   <th
                     class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
                     <div>
-                      Gender
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Gender
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                     <i
                       aria-label="icon: filter"
@@ -116,7 +131,14 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                     class=""
                   >
                     <div>
-                      Email
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Email
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                 </tr>
@@ -191,35 +213,70 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                     class=""
                   >
                     <div>
-                      Name
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Name
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Age
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Age
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Address
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Address
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Tags
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Tags
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Action
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Action
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                 </tr>
@@ -531,21 +588,42 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                     class=""
                   >
                     <div>
-                      Name
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Name
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class="column-money"
                   >
                     <div>
-                      Cash Assets
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Cash Assets
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Address
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Address
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                 </tr>
@@ -759,14 +837,28 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                     class=""
                   >
                     <div>
-                      Name
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Name
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Age
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Age
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
@@ -774,14 +866,28 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                     colspan="2"
                   >
                     <div>
-                      Home phone
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Home phone
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Address
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Address
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                 </tr>
@@ -1075,7 +1181,14 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                     class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
                     <div>
-                      Name
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Name
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                     <i
                       aria-label="icon: search"
@@ -1102,7 +1215,14 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                     class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
                     <div>
-                      Age
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Age
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                     <i
                       aria-label="icon: search"
@@ -1129,7 +1249,14 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                     class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
                     <div>
-                      Address
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Address
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                     <i
                       aria-label="icon: search"
@@ -1440,21 +1567,42 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
                     class=""
                   >
                     <div>
-                      Name
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Name
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Age
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Age
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Address
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Address
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                 </tr>
@@ -2206,53 +2354,88 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       class="ant-table-selection-column"
                     >
                       <div>
-                        <div
-                          class="ant-table-selection"
+                        <span
+                          class="ant-table-column-title"
                         >
-                          <label
-                            class="ant-checkbox-wrapper"
+                          <div
+                            class="ant-table-selection"
                           >
-                            <span
-                              class="ant-checkbox"
+                            <label
+                              class="ant-checkbox-wrapper"
                             >
-                              <input
-                                class="ant-checkbox-input"
-                                type="checkbox"
-                              />
                               <span
-                                class="ant-checkbox-inner"
-                              />
-                            </span>
-                          </label>
-                        </div>
+                                class="ant-checkbox"
+                              >
+                                <input
+                                  class="ant-checkbox-input"
+                                  type="checkbox"
+                                />
+                                <span
+                                  class="ant-checkbox-inner"
+                                />
+                              </span>
+                            </label>
+                          </div>
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Name
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Name
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Age
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Age
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Address
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Address
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Action
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Action
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                   </tr>
@@ -3374,28 +3557,56 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                       class=""
                     >
                       <div>
-                        name
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          name
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        age
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          age
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        address
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          address
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        operation
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          operation
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                   </tr>
@@ -3602,28 +3813,56 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                     class=""
                   >
                     <div>
-                      name
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        name
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      age
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        age
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      address
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        address
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      operation
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        operation
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                 </tr>
@@ -4168,28 +4407,56 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                     class=""
                   >
                     <div>
-                      Name
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Name
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Age
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Age
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Address
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Address
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Action
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Action
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                 </tr>
@@ -4427,46 +4694,74 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
                     class="ant-table-selection-column"
                   >
                     <div>
-                      <div
-                        class="ant-table-selection"
+                      <span
+                        class="ant-table-column-title"
                       >
-                        <label
-                          class="ant-checkbox-wrapper"
+                        <div
+                          class="ant-table-selection"
                         >
-                          <span
-                            class="ant-checkbox"
+                          <label
+                            class="ant-checkbox-wrapper"
                           >
-                            <input
-                              class="ant-checkbox-input"
-                              type="checkbox"
-                            />
                             <span
-                              class="ant-checkbox-inner"
-                            />
-                          </span>
-                        </label>
-                      </div>
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </div>
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Name
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Name
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Age
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Age
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Address
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Address
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                 </tr>
@@ -4704,77 +4999,154 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                       class="ant-table-fixed-columns-in-body"
                     >
                       <div>
-                        Full Name
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Full Name
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class="ant-table-fixed-columns-in-body"
                     >
                       <div>
-                        Age
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Age
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Column 1
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Column 1
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Column 2
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Column 2
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Column 3
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Column 3
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Column 4
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Column 4
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Column 5
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Column 5
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Column 6
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Column 6
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Column 7
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Column 7
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Column 8
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Column 8
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class="ant-table-fixed-columns-in-body"
                     >
                       <div>
-                        Action
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Action
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                   </tr>
@@ -4951,14 +5323,28 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                         class=""
                       >
                         <div>
-                          Full Name
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Full Name
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
                         </div>
                       </th>
                       <th
                         class=""
                       >
                         <div>
-                          Age
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Age
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
                         </div>
                       </th>
                     </tr>
@@ -5035,7 +5421,14 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                         class=""
                       >
                         <div>
-                          Action
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Action
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
                         </div>
                       </th>
                     </tr>
@@ -5220,77 +5613,154 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       class="ant-table-fixed-columns-in-body"
                     >
                       <div>
-                        Full Name
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Full Name
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class="ant-table-fixed-columns-in-body"
                     >
                       <div>
-                        Age
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Age
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Column 1
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Column 1
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Column 2
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Column 2
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Column 3
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Column 3
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Column 4
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Column 4
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Column 5
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Column 5
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Column 6
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Column 6
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Column 7
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Column 7
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Column 8
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Column 8
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class="ant-table-fixed-columns-in-body"
                     >
                       <div>
-                        Action
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Action
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                   </tr>
@@ -6050,14 +6520,28 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       class=""
                     >
                       <div>
-                        Full Name
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Full Name
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Age
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Age
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                   </tr>
@@ -6303,7 +6787,14 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       class=""
                     >
                       <div>
-                        Action
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Action
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                   </tr>
@@ -6676,21 +7167,42 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                       class=""
                     >
                       <div>
-                        Name
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Name
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Age
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Age
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Address
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Address
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                   </tr>
@@ -8064,7 +8576,14 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       rowspan="4"
                     >
                       <div>
-                        Name
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Name
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                       <i
                         aria-label="icon: filter"
@@ -8092,7 +8611,14 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       colspan="4"
                     >
                       <div>
-                        Other
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Other
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
@@ -8100,7 +8626,14 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       colspan="2"
                     >
                       <div>
-                        Company
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Company
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
@@ -8108,7 +8641,14 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       rowspan="4"
                     >
                       <div>
-                        Gender
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Gender
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                   </tr>
@@ -8120,48 +8660,56 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       <div
                         class="ant-table-column-sorters"
                       >
-                        Age
-                        <div
-                          class="ant-table-column-sorter"
-                          title="Sort"
+                        <span
+                          class="ant-table-column-title"
                         >
-                          <i
-                            aria-label="icon: caret-up"
-                            class="anticon anticon-caret-up ant-table-column-sorter-up off"
+                          Age
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        >
+                          <div
+                            class="ant-table-column-sorter-inner ant-table-column-sorter-inner-full"
+                            title="Sort"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="caret-up"
-                              fill="currentColor"
-                              height="1em"
-                              viewBox="0 0 1024 1024"
-                              width="1em"
+                            <i
+                              aria-label="icon: caret-up"
+                              class="anticon anticon-caret-up ant-table-column-sorter-up off"
                             >
-                              <path
-                                d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                              />
-                            </svg>
-                          </i>
-                          <i
-                            aria-label="icon: caret-down"
-                            class="anticon anticon-caret-down ant-table-column-sorter-down off"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="caret-down"
-                              fill="currentColor"
-                              height="1em"
-                              viewBox="0 0 1024 1024"
-                              width="1em"
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="caret-up"
+                                fill="currentColor"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                />
+                              </svg>
+                            </i>
+                            <i
+                              aria-label="icon: caret-down"
+                              class="anticon anticon-caret-down ant-table-column-sorter-down off"
                             >
-                              <path
-                                d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                              />
-                            </svg>
-                          </i>
-                        </div>
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="caret-down"
+                                fill="currentColor"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                />
+                              </svg>
+                            </i>
+                          </div>
+                        </span>
                       </div>
                     </th>
                     <th
@@ -8169,7 +8717,14 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       colspan="3"
                     >
                       <div>
-                        Address
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Address
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
@@ -8177,7 +8732,14 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       rowspan="3"
                     >
                       <div>
-                        Company Address
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Company Address
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
@@ -8185,7 +8747,14 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       rowspan="3"
                     >
                       <div>
-                        Company Name
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Company Name
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                   </tr>
@@ -8195,7 +8764,14 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       rowspan="2"
                     >
                       <div>
-                        Street
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Street
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
@@ -8203,7 +8779,14 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       colspan="2"
                     >
                       <div>
-                        Block
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Block
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                   </tr>
@@ -8212,14 +8795,28 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       class=""
                     >
                       <div>
-                        Building
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Building
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Door No.
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Door No.
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                   </tr>
@@ -8776,7 +9373,14 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       rowspan="4"
                     >
                       <div>
-                        Name
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Name
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                       <i
                         aria-label="icon: filter"
@@ -8990,7 +9594,14 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       rowspan="4"
                     >
                       <div>
-                        Gender
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Gender
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                   </tr>
@@ -9318,30 +9929,38 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                     <div
                       class="ant-table-column-sorters"
                     >
-                      Name
-                      <div
-                        class="ant-table-column-sorter"
-                        title="Sort"
+                      <span
+                        class="ant-table-column-title"
                       >
-                        <i
-                          aria-label="icon: caret-down"
-                          class="anticon anticon-caret-down ant-table-column-sorter-down off"
+                        Name
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      >
+                        <div
+                          class="ant-table-column-sorter-inner"
+                          title="Sort"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class=""
-                            data-icon="caret-down"
-                            fill="currentColor"
-                            height="1em"
-                            viewBox="0 0 1024 1024"
-                            width="1em"
+                          <i
+                            aria-label="icon: caret-down"
+                            class="anticon anticon-caret-down ant-table-column-sorter-down off"
                           >
-                            <path
-                              d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                            />
-                          </svg>
-                        </i>
-                      </div>
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="caret-down"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                            >
+                              <path
+                                d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                              />
+                            </svg>
+                          </i>
+                        </div>
+                      </span>
                     </div>
                     <i
                       aria-label="icon: filter"
@@ -9370,48 +9989,56 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                     <div
                       class="ant-table-column-sorters"
                     >
-                      Age
-                      <div
-                        class="ant-table-column-sorter"
-                        title="Sort"
+                      <span
+                        class="ant-table-column-title"
                       >
-                        <i
-                          aria-label="icon: caret-up"
-                          class="anticon anticon-caret-up ant-table-column-sorter-up off"
+                        Age
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      >
+                        <div
+                          class="ant-table-column-sorter-inner ant-table-column-sorter-inner-full"
+                          title="Sort"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class=""
-                            data-icon="caret-up"
-                            fill="currentColor"
-                            height="1em"
-                            viewBox="0 0 1024 1024"
-                            width="1em"
+                          <i
+                            aria-label="icon: caret-up"
+                            class="anticon anticon-caret-up ant-table-column-sorter-up off"
                           >
-                            <path
-                              d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                            />
-                          </svg>
-                        </i>
-                        <i
-                          aria-label="icon: caret-down"
-                          class="anticon anticon-caret-down ant-table-column-sorter-down on"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class=""
-                            data-icon="caret-down"
-                            fill="currentColor"
-                            height="1em"
-                            viewBox="0 0 1024 1024"
-                            width="1em"
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="caret-up"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                            >
+                              <path
+                                d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                              />
+                            </svg>
+                          </i>
+                          <i
+                            aria-label="icon: caret-down"
+                            class="anticon anticon-caret-down ant-table-column-sorter-down on"
                           >
-                            <path
-                              d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                            />
-                          </svg>
-                        </i>
-                      </div>
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="caret-down"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                            >
+                              <path
+                                d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                              />
+                            </svg>
+                          </i>
+                        </div>
+                      </span>
                     </div>
                   </th>
                   <th
@@ -9420,48 +10047,56 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                     <div
                       class="ant-table-column-sorters"
                     >
-                      Address
-                      <div
-                        class="ant-table-column-sorter"
-                        title="Sort"
+                      <span
+                        class="ant-table-column-title"
                       >
-                        <i
-                          aria-label="icon: caret-up"
-                          class="anticon anticon-caret-up ant-table-column-sorter-up off"
+                        Address
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      >
+                        <div
+                          class="ant-table-column-sorter-inner ant-table-column-sorter-inner-full"
+                          title="Sort"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class=""
-                            data-icon="caret-up"
-                            fill="currentColor"
-                            height="1em"
-                            viewBox="0 0 1024 1024"
-                            width="1em"
+                          <i
+                            aria-label="icon: caret-up"
+                            class="anticon anticon-caret-up ant-table-column-sorter-up off"
                           >
-                            <path
-                              d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                            />
-                          </svg>
-                        </i>
-                        <i
-                          aria-label="icon: caret-down"
-                          class="anticon anticon-caret-down ant-table-column-sorter-down off"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class=""
-                            data-icon="caret-down"
-                            fill="currentColor"
-                            height="1em"
-                            viewBox="0 0 1024 1024"
-                            width="1em"
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="caret-up"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                            >
+                              <path
+                                d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                              />
+                            </svg>
+                          </i>
+                          <i
+                            aria-label="icon: caret-down"
+                            class="anticon anticon-caret-down ant-table-column-sorter-down off"
                           >
-                            <path
-                              d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                            />
-                          </svg>
-                        </i>
-                      </div>
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="caret-down"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                            >
+                              <path
+                                d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                              />
+                            </svg>
+                          </i>
+                        </div>
+                      </span>
                     </div>
                     <i
                       aria-label="icon: filter"
@@ -9704,7 +10339,14 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     colspan="2"
                   >
                     <div>
-                      Name
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Name
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
@@ -9712,7 +10354,14 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     rowspan="2"
                   >
                     <div>
-                      Age
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Age
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
@@ -9720,7 +10369,14 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     rowspan="2"
                   >
                     <div>
-                      Address
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Address
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
@@ -9728,7 +10384,14 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     rowspan="2"
                   >
                     <div>
-                      Tags
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Tags
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
@@ -9736,7 +10399,14 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     rowspan="2"
                   >
                     <div>
-                      Action
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Action
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                 </tr>
@@ -9745,14 +10415,28 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     class=""
                   >
                     <div>
-                      First Name
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        First Name
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Last Name
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Last Name
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                 </tr>
@@ -10074,49 +10758,98 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
                     class=""
                   >
                     <div>
-                      Name
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Name
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Platform
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Platform
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Version
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Version
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Upgraded
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Upgraded
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Creator
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Creator
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Date
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Date
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Action
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Action
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                 </tr>
@@ -10423,48 +11156,56 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                       <div
                         class="ant-table-column-sorters"
                       >
-                        Name
-                        <div
-                          class="ant-table-column-sorter"
-                          title="Sort"
+                        <span
+                          class="ant-table-column-title"
                         >
-                          <i
-                            aria-label="icon: caret-up"
-                            class="anticon anticon-caret-up ant-table-column-sorter-up off"
+                          Name
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        >
+                          <div
+                            class="ant-table-column-sorter-inner ant-table-column-sorter-inner-full"
+                            title="Sort"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="caret-up"
-                              fill="currentColor"
-                              height="1em"
-                              viewBox="0 0 1024 1024"
-                              width="1em"
+                            <i
+                              aria-label="icon: caret-up"
+                              class="anticon anticon-caret-up ant-table-column-sorter-up off"
                             >
-                              <path
-                                d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                              />
-                            </svg>
-                          </i>
-                          <i
-                            aria-label="icon: caret-down"
-                            class="anticon anticon-caret-down ant-table-column-sorter-down off"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="caret-down"
-                              fill="currentColor"
-                              height="1em"
-                              viewBox="0 0 1024 1024"
-                              width="1em"
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="caret-up"
+                                fill="currentColor"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                />
+                              </svg>
+                            </i>
+                            <i
+                              aria-label="icon: caret-down"
+                              class="anticon anticon-caret-down ant-table-column-sorter-down off"
                             >
-                              <path
-                                d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                              />
-                            </svg>
-                          </i>
-                        </div>
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="caret-down"
+                                fill="currentColor"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                />
+                              </svg>
+                            </i>
+                          </div>
+                        </span>
                       </div>
                       <i
                         aria-label="icon: filter"
@@ -10493,48 +11234,56 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                       <div
                         class="ant-table-column-sorters"
                       >
-                        Age
-                        <div
-                          class="ant-table-column-sorter"
-                          title="Sort"
+                        <span
+                          class="ant-table-column-title"
                         >
-                          <i
-                            aria-label="icon: caret-up"
-                            class="anticon anticon-caret-up ant-table-column-sorter-up off"
+                          Age
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        >
+                          <div
+                            class="ant-table-column-sorter-inner ant-table-column-sorter-inner-full"
+                            title="Sort"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="caret-up"
-                              fill="currentColor"
-                              height="1em"
-                              viewBox="0 0 1024 1024"
-                              width="1em"
+                            <i
+                              aria-label="icon: caret-up"
+                              class="anticon anticon-caret-up ant-table-column-sorter-up off"
                             >
-                              <path
-                                d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                              />
-                            </svg>
-                          </i>
-                          <i
-                            aria-label="icon: caret-down"
-                            class="anticon anticon-caret-down ant-table-column-sorter-down off"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="caret-down"
-                              fill="currentColor"
-                              height="1em"
-                              viewBox="0 0 1024 1024"
-                              width="1em"
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="caret-up"
+                                fill="currentColor"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                />
+                              </svg>
+                            </i>
+                            <i
+                              aria-label="icon: caret-down"
+                              class="anticon anticon-caret-down ant-table-column-sorter-down off"
                             >
-                              <path
-                                d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                              />
-                            </svg>
-                          </i>
-                        </div>
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="caret-down"
+                                fill="currentColor"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                />
+                              </svg>
+                            </i>
+                          </div>
+                        </span>
                       </div>
                     </th>
                     <th
@@ -10543,48 +11292,56 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                       <div
                         class="ant-table-column-sorters"
                       >
-                        Address
-                        <div
-                          class="ant-table-column-sorter"
-                          title="Sort"
+                        <span
+                          class="ant-table-column-title"
                         >
-                          <i
-                            aria-label="icon: caret-up"
-                            class="anticon anticon-caret-up ant-table-column-sorter-up off"
+                          Address
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        >
+                          <div
+                            class="ant-table-column-sorter-inner ant-table-column-sorter-inner-full"
+                            title="Sort"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="caret-up"
-                              fill="currentColor"
-                              height="1em"
-                              viewBox="0 0 1024 1024"
-                              width="1em"
+                            <i
+                              aria-label="icon: caret-up"
+                              class="anticon anticon-caret-up ant-table-column-sorter-up off"
                             >
-                              <path
-                                d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                              />
-                            </svg>
-                          </i>
-                          <i
-                            aria-label="icon: caret-down"
-                            class="anticon anticon-caret-down ant-table-column-sorter-down off"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="caret-down"
-                              fill="currentColor"
-                              height="1em"
-                              viewBox="0 0 1024 1024"
-                              width="1em"
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="caret-up"
+                                fill="currentColor"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                />
+                              </svg>
+                            </i>
+                            <i
+                              aria-label="icon: caret-down"
+                              class="anticon anticon-caret-down ant-table-column-sorter-down off"
                             >
-                              <path
-                                d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                              />
-                            </svg>
-                          </i>
-                        </div>
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="caret-down"
+                                fill="currentColor"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                />
+                              </svg>
+                            </i>
+                          </div>
+                        </span>
                       </div>
                       <i
                         aria-label="icon: filter"
@@ -10834,7 +11591,14 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                     class="react-resizable"
                   >
                     <div>
-                      Date
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Date
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                     <span
                       class="react-resizable-handle"
@@ -10845,7 +11609,14 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                     class="react-resizable"
                   >
                     <div>
-                      Amount
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Amount
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                     <span
                       class="react-resizable-handle"
@@ -10856,7 +11627,14 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                     class="react-resizable"
                   >
                     <div>
-                      Type
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Type
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                     <span
                       class="react-resizable-handle"
@@ -10867,7 +11645,14 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                     class="react-resizable"
                   >
                     <div>
-                      Note
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Note
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                     <span
                       class="react-resizable-handle"
@@ -10878,7 +11663,14 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                     class=""
                   >
                     <div>
-                      Action
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Action
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                 </tr>
@@ -11118,46 +11910,74 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                     class="ant-table-selection-column"
                   >
                     <div>
-                      <div
-                        class="ant-table-selection"
+                      <span
+                        class="ant-table-column-title"
                       >
-                        <label
-                          class="ant-checkbox-wrapper"
+                        <div
+                          class="ant-table-selection"
                         >
-                          <span
-                            class="ant-checkbox"
+                          <label
+                            class="ant-checkbox-wrapper"
                           >
-                            <input
-                              class="ant-checkbox-input"
-                              type="checkbox"
-                            />
                             <span
-                              class="ant-checkbox-inner"
-                            />
-                          </span>
-                        </label>
-                      </div>
+                              class="ant-checkbox"
+                            >
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
+                              />
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                        </div>
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Name
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Name
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Age
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Age
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Address
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Address
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                 </tr>
@@ -11501,46 +12321,74 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                       class="ant-table-selection-column"
                     >
                       <div>
-                        <div
-                          class="ant-table-selection"
+                        <span
+                          class="ant-table-column-title"
                         >
-                          <label
-                            class="ant-checkbox-wrapper"
+                          <div
+                            class="ant-table-selection"
                           >
-                            <span
-                              class="ant-checkbox"
+                            <label
+                              class="ant-checkbox-wrapper"
                             >
-                              <input
-                                class="ant-checkbox-input"
-                                type="checkbox"
-                              />
                               <span
-                                class="ant-checkbox-inner"
-                              />
-                            </span>
-                          </label>
-                        </div>
+                                class="ant-checkbox"
+                              >
+                                <input
+                                  class="ant-checkbox-input"
+                                  type="checkbox"
+                                />
+                                <span
+                                  class="ant-checkbox-inner"
+                                />
+                              </span>
+                            </label>
+                          </div>
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Name
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Name
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Age
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Age
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Address
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Address
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                   </tr>
@@ -12154,68 +13002,96 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                     class="ant-table-selection-column ant-table-selection-column-custom"
                   >
                     <div>
-                      <div
-                        class="ant-table-selection"
+                      <span
+                        class="ant-table-column-title"
                       >
-                        <label
-                          class="ant-table-selection-select-all-custom ant-checkbox-wrapper"
-                        >
-                          <span
-                            class="ant-checkbox"
-                          >
-                            <input
-                              class="ant-checkbox-input"
-                              type="checkbox"
-                            />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
-                          </span>
-                        </label>
                         <div
-                          class="ant-table-selection-down ant-dropdown-trigger"
+                          class="ant-table-selection"
                         >
-                          <i
-                            aria-label="icon: down"
-                            class="anticon anticon-down"
+                          <label
+                            class="ant-table-selection-select-all-custom ant-checkbox-wrapper"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="down"
-                              fill="currentColor"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
+                            <span
+                              class="ant-checkbox"
                             >
-                              <path
-                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox"
                               />
-                            </svg>
-                          </i>
+                              <span
+                                class="ant-checkbox-inner"
+                              />
+                            </span>
+                          </label>
+                          <div
+                            class="ant-table-selection-down ant-dropdown-trigger"
+                          >
+                            <i
+                              aria-label="icon: down"
+                              class="anticon anticon-down"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="down"
+                                fill="currentColor"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                />
+                              </svg>
+                            </i>
+                          </div>
                         </div>
-                      </div>
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Name
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Name
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Age
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Age
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Address
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Address
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                 </tr>
@@ -12829,21 +13705,42 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                       class=""
                     >
                       <div>
-                        Name
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Name
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Age
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Age
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Address
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Address
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                   </tr>
@@ -13038,21 +13935,42 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                       class=""
                     >
                       <div>
-                        Name
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Name
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Age
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Age
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                     <th
                       class=""
                     >
                       <div>
-                        Address
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Address
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
                       </div>
                     </th>
                   </tr>
