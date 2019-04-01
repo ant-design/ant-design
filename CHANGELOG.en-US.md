@@ -15,6 +15,12 @@ timeline: true
 
 ---
 
+## 3.16.1
+
+`2019-04-01`
+
+- 🐞 Fix `antd.less` file missing. [#15790](https://github.com/ant-design/ant-design/issues/15790)
+
 ## 3.16.0
 
 `2019-04-01`
