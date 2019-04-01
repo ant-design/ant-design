@@ -33,6 +33,7 @@ title: Checkbox
 | --- | --- | --- | --- |
 | defaultValue | 默认选中的选项 | string\[] | \[] |
 | disabled | 整组失效 | boolean | false |
+| name | CheckboxGroup 下所有 `input[type="checkbox"]` 的 `name` 属性 | string | - |
 | options | 指定可选项 | string\[] | \[] |
 | value | 指定选中的选项 | string\[] | \[] |
 | onChange | 变化时回调函数 | Function(checkedValue) | - |

@@ -81,6 +81,7 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
         toggleOption: this.toggleOption,
         value: this.state.value,
         disabled: this.props.disabled,
+        name: this.props.name,
       },
     };
   }
