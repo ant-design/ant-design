@@ -41,6 +41,7 @@ timeline: true
 - 💄 Move Table sort button after title closely. [#15758](https://github.com/ant-design/ant-design/pull/15758)
 - 🐞 Fix col element missing relative style. [#15766](https://github.com/ant-design/ant-design/pull/15766)
 - 💄 Adjust Card and PageHeader padding from `32px` to `24px`. [#15755](https://github.com/ant-design/ant-design/pull/15755)
+- 💄 Fix components covered by Table fixed columns. [#15782](https://github.com/ant-design/ant-design/pull/15782)
 - 🌟 Add less variables
   - 🌟 Button add `@btn-border-width` and `@btn-border-style`. [#15397](https://github.com/ant-design/ant-design/pull/15397) [@searleb](https://github.com/searleb)
   - 🌟 Modal add `@modal-body-padding` and `@modal-footer-bg`. [#15476](https://github.com/ant-design/ant-design/pull/15476) [#15469](https://github.com/ant-design/ant-design/pull/15469) [@shumkovdenis](https://github.com/shumkovdenis)
