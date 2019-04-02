@@ -3,7 +3,7 @@ const path = require('path');
 const packageInfo = require('./package.json');
 
 // We need compile additional content for antd user
-function finalizeDist() {
+function finalizeCompile() {
   if (fs.existsSync(path.join(__dirname, './lib'))) {
     // Build package.json version to lib/version/index.js
     // prevent json-loader needing in user-side
@@ -28,13 +28,10 @@ function finalizeDist() {
     );
     // eslint-disable-next-line
     console.log('Wrote version into lib/version/index.d.ts');
-  }
 
-  if (fs.existsSync(path.join(__dirname, './dist'))) {
     // Build a entry less file to dist/antd.less
     const componentsPath = path.join(process.cwd(), 'components');
     let componentsLessContent = '';
-
     // Build components in one file: lib/style/components.less
     fs.readdir(componentsPath, (err, files) => {
       files.forEach((file) => {
@@ -46,19 +43,27 @@ function finalizeDist() {
         path.join(process.cwd(), 'lib', 'style', 'components.less'),
         componentsLessContent,
       );
-
-      // Build less entry file: dist/antd.less
-      fs.writeFileSync(
-        path.join(process.cwd(), 'dist', 'antd.less'),
-        '@import "../lib/style/index.less";\n@import "../lib/style/components.less";',
-      );
     });
+  }
+}
+
+function finalizeDist() {
+  if (fs.existsSync(path.join(__dirname, './dist'))) {
+    // Build less entry file: dist/antd.less
+    fs.writeFileSync(
+      path.join(process.cwd(), 'dist', 'antd.less'),
+      '@import "../lib/style/index.less";\n@import "../lib/style/components.less";',
+    );
+
     // eslint-disable-next-line
     console.log('Built a entry less file to dist/antd.less');
   }
 }
 
 module.exports = {
+  compile: {
+    finalize: finalizeCompile,
+  },
   dist: {
     finalize: finalizeDist,
   },
