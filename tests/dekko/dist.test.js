@@ -12,6 +12,8 @@ $('lib/style')
 
 $('dist')
   .isDirectory()
+  .hasFile('antd-with-locales.js')
+  .hasFile('antd-with-locales.min.js')
   .hasFile('antd.css')
   .hasFile('antd.min.css')
   .hasFile('antd.js')
