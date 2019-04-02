@@ -361,7 +361,7 @@ describe('Table.filter', () => {
     jest.useRealTimers();
   });
 
-  describe('should support value types', () => {
+  describe.only('should support value types', () => {
     [['Light', 93], ['Bamboo', false]].forEach(([text, value]) => {
       it(`${typeof value} type`, () => {
         const onFilter = jest.fn();
@@ -383,6 +383,10 @@ describe('Table.filter', () => {
           .find('MenuItem')
           .first()
           .simulate('click');
+
+        // This test can be remove if refactor
+        expect(typeof wrapper.find('FilterMenu').state().selectedKeys[0]).toEqual('string');
+
         dropdownWrapper.find('.confirm').simulate('click');
         wrapper.update();
 
@@ -390,6 +394,25 @@ describe('Table.filter', () => {
         onFilter.mock.calls.forEach(([val]) => {
           expect(val).toBe(value);
         });
+
+        // This test can be remove if refactor
+        expect(typeof wrapper.find('FilterMenu').state().selectedKeys[0]).toEqual(typeof value);
+
+        // Another time of Filter show
+        // https://github.com/ant-design/ant-design/issues/15593
+        getDropdownWrapper(wrapper)
+          .find('MenuItem')
+          .first()
+          .simulate('click');
+
+        expect(
+          wrapper
+            .find('FilterMenu')
+            .find('Checkbox')
+            .at(0)
+            .props().checked,
+        ).toEqual(true);
+
         jest.useRealTimers();
       });
     });
