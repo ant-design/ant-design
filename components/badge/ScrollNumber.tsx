@@ -132,7 +132,8 @@ class ScrollNumber extends Component<ScrollNumberProps, ScrollNumberState> {
 
   renderNumberElement(prefixCls: string) {
     const { count } = this.state;
-    if (count && Number(count) % 1 === 0) {
+    const numVal = Number(count);
+    if (count && numVal % 1 === 0 && numVal >= 0) {
       return getNumberArray(count)
         .map((num, i) => this.renderCurrentNumber(prefixCls, num, i))
         .reverse();

@@ -73,6 +73,33 @@ exports[`Badge badge should support float number 2`] = `
 </Badge>
 `;
 
+exports[`Badge render correct with negative number 1`] = `
+<div>
+  <span
+    class="ant-badge ant-badge-not-a-wrapper"
+  >
+    <sup
+      class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+      data-show="true"
+      title="-10"
+    >
+      -10
+    </sup>
+  </span>
+  <span
+    class="ant-badge ant-badge-not-a-wrapper"
+  >
+    <sup
+      class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+      data-show="true"
+      title="-10"
+    >
+      -10
+    </sup>
+  </span>
+</div>
+`;
+
 exports[`Badge should be compatible with borderColor style 1`] = `
 <span
   class="ant-badge ant-badge-not-a-wrapper"
