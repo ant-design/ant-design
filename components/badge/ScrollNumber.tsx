@@ -11,7 +11,10 @@ function getNumberArray(num: string | number | undefined | null) {
         .toString()
         .split('')
         .reverse()
-        .map(i => Number(i))
+        .map(i => {
+          const current = Number(i);
+          return isNaN(current) ? i : current;
+        })
     : [];
 }
 
@@ -60,13 +63,18 @@ class ScrollNumber extends Component<ScrollNumberProps, ScrollNumberState> {
   }
 
   getPositionByNum(num: number, i: number) {
+    const { count } = this.state;
+    const currentCount = Math.abs(Number(count));
+    const lastCount = Math.abs(Number(this.lastCount));
+    const currentDigit = Math.abs(getNumberArray(this.state.count)[i] as number);
+    const lastDigit = Math.abs(getNumberArray(this.lastCount)[i] as number);
+
     if (this.state.animateStarted) {
       return 10 + num;
     }
-    const currentDigit = getNumberArray(this.state.count)[i];
-    const lastDigit = getNumberArray(this.lastCount)[i];
+
     // 同方向则在同一侧切换数字
-    if (Number(this.state.count) > Number(this.lastCount)) {
+    if (currentCount > lastCount) {
       if (currentDigit >= lastDigit) {
         return 10 + num;
       }
@@ -107,26 +115,35 @@ class ScrollNumber extends Component<ScrollNumberProps, ScrollNumberState> {
         </p>,
       );
     }
+
     return childrenToReturn;
   }
 
-  renderCurrentNumber(prefixCls: string, num: number, i: number) {
-    const position = this.getPositionByNum(num, i);
-    const removeTransition =
-      this.state.animateStarted || getNumberArray(this.lastCount)[i] === undefined;
-    return createElement(
-      'span',
-      {
-        className: `${prefixCls}-only`,
-        style: {
-          transition: removeTransition ? 'none' : undefined,
-          msTransform: `translateY(${-position * 100}%)`,
-          WebkitTransform: `translateY(${-position * 100}%)`,
-          transform: `translateY(${-position * 100}%)`,
+  renderCurrentNumber(prefixCls: string, num: number | string, i: number) {
+    if (typeof num === 'number') {
+      const position = this.getPositionByNum(num, i);
+      const removeTransition =
+        this.state.animateStarted || getNumberArray(this.lastCount)[i] === undefined;
+      return createElement(
+        'span',
+        {
+          className: `${prefixCls}-only`,
+          style: {
+            transition: removeTransition ? 'none' : undefined,
+            msTransform: `translateY(${-position * 100}%)`,
+            WebkitTransform: `translateY(${-position * 100}%)`,
+            transform: `translateY(${-position * 100}%)`,
+          },
+          key: i,
         },
-        key: i,
-      },
-      this.renderNumberList(position),
+        this.renderNumberList(position),
+      );
+    }
+
+    return (
+      <span key="symbol" className={`${prefixCls}-symbol`}>
+        {num}
+      </span>
     );
   }
 
