@@ -11,22 +11,14 @@ exports[`List.pagination renders pagination correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-list-item"
+        class="ant-list-item ant-list-item-no-flex"
       >
-        <div
-          class="ant-list-item-content ant-list-item-content-single"
-        >
-          Jack
-        </div>
+        Jack
       </div>
       <div
-        class="ant-list-item"
+        class="ant-list-item ant-list-item-no-flex"
       >
-        <div
-          class="ant-list-item-content ant-list-item-content-single"
-        >
-          Lucy
-        </div>
+        Lucy
       </div>
     </div>
   </div>

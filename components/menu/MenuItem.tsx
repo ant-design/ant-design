@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { Item } from 'rc-menu';
-import * as PropTypes from 'prop-types';
 import Tooltip from '../tooltip';
-import { ClickParam } from './index';
+import { ClickParam } from '.';
 
-interface MenuItemProps {
+export interface MenuItemProps {
   rootPrefixCls?: string;
   disabled?: boolean;
   level?: number;
@@ -17,40 +16,29 @@ interface MenuItemProps {
   onMouseLeave?: (e: { key: string; domEvent: MouseEvent }) => void;
 }
 
-class MenuItem extends React.Component<MenuItemProps, any> {
-  static contextTypes = {
-    inlineCollapsed: PropTypes.bool,
-  };
-  static isMenuItem = 1;
-  context: any;
-  private menuItem: any;
+export default class MenuItem extends React.Component<MenuItemProps> {
+  static isMenuItem = true;
+  private menuItem: this;
 
   onKeyDown = (e: React.MouseEvent<HTMLElement>) => {
     this.menuItem.onKeyDown(e);
   };
-  saveMenuItem = (menuItem: any) => {
+
+  saveMenuItem = (menuItem: this) => {
     this.menuItem = menuItem;
   };
-  render() {
-    const { inlineCollapsed } = this.context;
-    const { level, children, rootPrefixCls } = this.props;
-    const { title, ...rest } = this.props;
 
-    let titleNode;
-    if (inlineCollapsed) {
-      titleNode = title || (level === 1 ? children : '');
-    }
+  render() {
+    const { rootPrefixCls, title, ...rest } = this.props;
 
     return (
       <Tooltip
-        title={titleNode}
+        title={title}
         placement="right"
         overlayClassName={`${rootPrefixCls}-inline-collapsed-tooltip`}
       >
-        <Item {...rest} title={inlineCollapsed ? null : title} ref={this.saveMenuItem} />
+        <Item {...rest} rootPrefixCls={rootPrefixCls} title={title} ref={this.saveMenuItem} />
       </Tooltip>
     );
   }
 }
-
-export default MenuItem;

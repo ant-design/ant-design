@@ -85,6 +85,8 @@ export { default as Statistic } from './statistic';
 
 export { default as notification } from './notification';
 
+export { default as PageHeader } from './page-header';
+
 export { default as Pagination } from './pagination';
 
 export { default as Popconfirm } from './popconfirm';

@@ -7,17 +7,6 @@ import Tooltip from '../tooltip';
 import Progress from '../progress';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
-const imageTypes: string[] = ['image', 'webp', 'png', 'svg', 'gif', 'jpg', 'jpeg', 'bmp', 'dpg'];
-// https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
-const previewFile = (file: File | Blob, callback: Function) => {
-  if (file.type && !imageTypes.includes(file.type)) {
-    callback('');
-  }
-  const reader = new FileReader();
-  reader.onloadend = () => callback(reader.result);
-  reader.readAsDataURL(file);
-};
-
 const extname = (url: string) => {
   if (!url) {
     return '';
@@ -27,8 +16,9 @@ const extname = (url: string) => {
   const filenameWithoutSuffix = filename.split(/#|\?/)[0];
   return (/\.[^./\\]*$/.exec(filenameWithoutSuffix) || [''])[0];
 };
+const isImageFileType = (type: string): boolean => !!type && type.indexOf('image/') === 0;
 const isImageUrl = (file: UploadFile): boolean => {
-  if (imageTypes.includes(file.type)) {
+  if (isImageFileType(file.type)) {
     return true;
   }
   const url: string = (file.thumbUrl || file.url) as string;
@@ -72,6 +62,16 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     return onPreview(file);
   };
 
+  // https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
+  previewFile = (file: File | Blob, callback: Function) => {
+    if (!isImageFileType(file.type)) {
+      return callback('');
+    }
+    const reader = new FileReader();
+    reader.onloadend = () => callback(reader.result);
+    reader.readAsDataURL(file);
+  };
+
   componentDidUpdate() {
     if (this.props.listType !== 'picture' && this.props.listType !== 'picture-card') {
       return;
@@ -87,13 +87,9 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       ) {
         return;
       }
-      /*eslint-disable */
       file.thumbUrl = '';
-      /*eslint-enable */
-      previewFile(file.originFileObj, (previewDataUrl: string) => {
-        /*eslint-disable */
+      this.previewFile(file.originFileObj, (previewDataUrl: string) => {
         file.thumbUrl = previewDataUrl;
-        /*eslint-enable */
         this.forceUpdate();
       });
     });

@@ -1276,7 +1276,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               checked=""
               class="config-radio-button-input"
               type="radio"
-              value="date"
+              value="month"
             />
             <span
               class="config-radio-button-inner"
@@ -1295,7 +1295,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             <input
               class="config-radio-button-input"
               type="radio"
-              value="month"
+              value="year"
             />
             <span
               class="config-radio-button-inner"
@@ -2264,7 +2264,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             <input
               class="config-radio-button-input"
               type="radio"
-              value="date"
+              value="month"
             />
             <span
               class="config-radio-button-inner"
@@ -2284,7 +2284,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               checked=""
               class="config-radio-button-input"
               type="radio"
-              value="month"
+              value="year"
             />
             <span
               class="config-radio-button-inner"
@@ -2672,7 +2672,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               checked=""
               class="ant-radio-button-input"
               type="radio"
-              value="date"
+              value="month"
             />
             <span
               class="ant-radio-button-inner"
@@ -2691,7 +2691,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             <input
               class="ant-radio-button-input"
               type="radio"
-              value="month"
+              value="year"
             />
             <span
               class="ant-radio-button-inner"
@@ -3660,7 +3660,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             <input
               class="ant-radio-button-input"
               type="radio"
-              value="date"
+              value="month"
             />
             <span
               class="ant-radio-button-inner"
@@ -3680,7 +3680,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               checked=""
               class="ant-radio-button-input"
               type="radio"
-              value="month"
+              value="year"
             />
             <span
               class="ant-radio-button-inner"
@@ -4068,7 +4068,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               checked=""
               class="ant-radio-button-input"
               type="radio"
-              value="date"
+              value="month"
             />
             <span
               class="ant-radio-button-inner"
@@ -4087,7 +4087,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             <input
               class="ant-radio-button-input"
               type="radio"
-              value="month"
+              value="year"
             />
             <span
               class="ant-radio-button-inner"
@@ -5056,7 +5056,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             <input
               class="ant-radio-button-input"
               type="radio"
-              value="date"
+              value="month"
             />
             <span
               class="ant-radio-button-inner"
@@ -5076,7 +5076,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               checked=""
               class="ant-radio-button-input"
               type="radio"
-              value="month"
+              value="year"
             />
             <span
               class="ant-radio-button-inner"
@@ -5799,6 +5799,7 @@ exports[`ConfigProvider components Cascader configProvider 1`] = `
     autocomplete="off"
     class="config-input config-cascader-input "
     placeholder="Please select"
+    tabindex="-1"
     type="text"
     value=""
   />
@@ -5835,6 +5836,7 @@ exports[`ConfigProvider components Cascader normal 1`] = `
     autocomplete="off"
     class="ant-input ant-cascader-input "
     placeholder="Please select"
+    tabindex="-1"
     type="text"
     value=""
   />
@@ -5871,6 +5873,7 @@ exports[`ConfigProvider components Cascader prefixCls 1`] = `
     autocomplete="off"
     class="ant-input prefix-Cascader-input "
     placeholder="Please select"
+    tabindex="-1"
     type="text"
     value=""
   />
@@ -11110,10 +11113,18 @@ exports[`ConfigProvider components Spin configProvider 1`] = `
   <span
     class="config-spin-dot config-spin-dot-spin"
   >
-    <i />
-    <i />
-    <i />
-    <i />
+    <i
+      class="config-spin-dot-item"
+    />
+    <i
+      class="config-spin-dot-item"
+    />
+    <i
+      class="config-spin-dot-item"
+    />
+    <i
+      class="config-spin-dot-item"
+    />
   </span>
 </div>
 `;
@@ -11125,10 +11136,18 @@ exports[`ConfigProvider components Spin normal 1`] = `
   <span
     class="ant-spin-dot ant-spin-dot-spin"
   >
-    <i />
-    <i />
-    <i />
-    <i />
+    <i
+      class="ant-spin-dot-item"
+    />
+    <i
+      class="ant-spin-dot-item"
+    />
+    <i
+      class="ant-spin-dot-item"
+    />
+    <i
+      class="ant-spin-dot-item"
+    />
   </span>
 </div>
 `;
@@ -11140,10 +11159,18 @@ exports[`ConfigProvider components Spin prefixCls 1`] = `
   <span
     class="prefix-Spin-dot prefix-Spin-dot-spin"
   >
-    <i />
-    <i />
-    <i />
-    <i />
+    <i
+      class="prefix-Spin-dot-item"
+    />
+    <i
+      class="prefix-Spin-dot-item"
+    />
+    <i
+      class="prefix-Spin-dot-item"
+    />
+    <i
+      class="prefix-Spin-dot-item"
+    />
   </span>
 </div>
 `;
@@ -11393,48 +11420,56 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                     <div
                       class="config-table-column-sorters"
                     >
-                      Name
-                      <div
-                        class="config-table-column-sorter"
-                        title="Sort"
+                      <span
+                        class="config-table-column-title"
                       >
-                        <i
-                          aria-label="icon: caret-up"
-                          class="anticon anticon-caret-up config-table-column-sorter-up off"
+                        Name
+                      </span>
+                      <span
+                        class="config-table-column-sorter"
+                      >
+                        <div
+                          class="config-table-column-sorter-inner config-table-column-sorter-inner-full"
+                          title="Sort"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class=""
-                            data-icon="caret-up"
-                            fill="currentColor"
-                            height="1em"
-                            viewBox="0 0 1024 1024"
-                            width="1em"
+                          <i
+                            aria-label="icon: caret-up"
+                            class="anticon anticon-caret-up config-table-column-sorter-up off"
                           >
-                            <path
-                              d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                            />
-                          </svg>
-                        </i>
-                        <i
-                          aria-label="icon: caret-down"
-                          class="anticon anticon-caret-down config-table-column-sorter-down off"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class=""
-                            data-icon="caret-down"
-                            fill="currentColor"
-                            height="1em"
-                            viewBox="0 0 1024 1024"
-                            width="1em"
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="caret-up"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                            >
+                              <path
+                                d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                              />
+                            </svg>
+                          </i>
+                          <i
+                            aria-label="icon: caret-down"
+                            class="anticon anticon-caret-down config-table-column-sorter-down off"
                           >
-                            <path
-                              d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                            />
-                          </svg>
-                        </i>
-                      </div>
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="caret-down"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                            >
+                              <path
+                                d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                              />
+                            </svg>
+                          </i>
+                        </div>
+                      </span>
                     </div>
                     <i
                       aria-label="icon: filter"
@@ -11596,48 +11631,56 @@ exports[`ConfigProvider components Table normal 1`] = `
                     <div
                       class="ant-table-column-sorters"
                     >
-                      Name
-                      <div
-                        class="ant-table-column-sorter"
-                        title="Sort"
+                      <span
+                        class="ant-table-column-title"
                       >
-                        <i
-                          aria-label="icon: caret-up"
-                          class="anticon anticon-caret-up ant-table-column-sorter-up off"
+                        Name
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      >
+                        <div
+                          class="ant-table-column-sorter-inner ant-table-column-sorter-inner-full"
+                          title="Sort"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class=""
-                            data-icon="caret-up"
-                            fill="currentColor"
-                            height="1em"
-                            viewBox="0 0 1024 1024"
-                            width="1em"
+                          <i
+                            aria-label="icon: caret-up"
+                            class="anticon anticon-caret-up ant-table-column-sorter-up off"
                           >
-                            <path
-                              d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                            />
-                          </svg>
-                        </i>
-                        <i
-                          aria-label="icon: caret-down"
-                          class="anticon anticon-caret-down ant-table-column-sorter-down off"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class=""
-                            data-icon="caret-down"
-                            fill="currentColor"
-                            height="1em"
-                            viewBox="0 0 1024 1024"
-                            width="1em"
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="caret-up"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                            >
+                              <path
+                                d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                              />
+                            </svg>
+                          </i>
+                          <i
+                            aria-label="icon: caret-down"
+                            class="anticon anticon-caret-down ant-table-column-sorter-down off"
                           >
-                            <path
-                              d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                            />
-                          </svg>
-                        </i>
-                      </div>
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="caret-down"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                            >
+                              <path
+                                d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                              />
+                            </svg>
+                          </i>
+                        </div>
+                      </span>
                     </div>
                     <i
                       aria-label="icon: filter"
@@ -11799,48 +11842,56 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                     <div
                       class="prefix-Table-column-sorters"
                     >
-                      Name
-                      <div
-                        class="prefix-Table-column-sorter"
-                        title="Sort"
+                      <span
+                        class="prefix-Table-column-title"
                       >
-                        <i
-                          aria-label="icon: caret-up"
-                          class="anticon anticon-caret-up prefix-Table-column-sorter-up off"
+                        Name
+                      </span>
+                      <span
+                        class="prefix-Table-column-sorter"
+                      >
+                        <div
+                          class="prefix-Table-column-sorter-inner prefix-Table-column-sorter-inner-full"
+                          title="Sort"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class=""
-                            data-icon="caret-up"
-                            fill="currentColor"
-                            height="1em"
-                            viewBox="0 0 1024 1024"
-                            width="1em"
+                          <i
+                            aria-label="icon: caret-up"
+                            class="anticon anticon-caret-up prefix-Table-column-sorter-up off"
                           >
-                            <path
-                              d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                            />
-                          </svg>
-                        </i>
-                        <i
-                          aria-label="icon: caret-down"
-                          class="anticon anticon-caret-down prefix-Table-column-sorter-down off"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class=""
-                            data-icon="caret-down"
-                            fill="currentColor"
-                            height="1em"
-                            viewBox="0 0 1024 1024"
-                            width="1em"
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="caret-up"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                            >
+                              <path
+                                d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                              />
+                            </svg>
+                          </i>
+                          <i
+                            aria-label="icon: caret-down"
+                            class="anticon anticon-caret-down prefix-Table-column-sorter-down off"
                           >
-                            <path
-                              d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                            />
-                          </svg>
-                        </i>
-                      </div>
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="caret-down"
+                              fill="currentColor"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                            >
+                              <path
+                                d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                              />
+                            </svg>
+                          </i>
+                        </div>
+                      </span>
                     </div>
                     <i
                       aria-label="icon: filter"

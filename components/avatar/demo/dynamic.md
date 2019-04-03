@@ -50,6 +50,5 @@ class Autoset extends React.Component {
   }
 }
 
-ReactDOM.render(<Autoset />,
-  mountNode);
+ReactDOM.render(<Autoset />, mountNode);
 ````

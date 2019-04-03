@@ -245,3 +245,141 @@ exports[`Progress render strokeColor 1`] = `
   </div>
 </div>
 `;
+
+exports[`Progress render strokeColor 2`] = `
+<Progress
+  gapDegree={0}
+  percent={50}
+  showInfo={true}
+  size="default"
+  strokeColor={
+    Object {
+      "from": "#108ee9",
+      "to": "#87d068",
+    }
+  }
+  strokeLinecap="round"
+  trailColor="#f3f3f3"
+  type="line"
+>
+  <Consumer>
+    <div
+      className="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    >
+      <Line
+        gapDegree={0}
+        percent={50}
+        prefixCls="ant-progress"
+        showInfo={true}
+        size="default"
+        strokeColor={
+          Object {
+            "from": "#108ee9",
+            "to": "#87d068",
+          }
+        }
+        strokeLinecap="round"
+        trailColor="#f3f3f3"
+        type="line"
+      >
+        <div>
+          <div
+            className="ant-progress-outer"
+          >
+            <div
+              className="ant-progress-inner"
+            >
+              <div
+                className="ant-progress-bg"
+                style={
+                  Object {
+                    "backgroundImage": "linear-gradient(to right, #108ee9, #87d068)",
+                    "borderRadius": "100px",
+                    "height": 8,
+                    "width": "50%",
+                  }
+                }
+              />
+            </div>
+          </div>
+          <span
+            className="ant-progress-text"
+            title="50%"
+          >
+            50%
+          </span>
+        </div>
+      </Line>
+    </div>
+  </Consumer>
+</Progress>
+`;
+
+exports[`Progress render strokeColor 3`] = `
+<Progress
+  gapDegree={0}
+  percent={50}
+  showInfo={true}
+  size="default"
+  strokeColor={
+    Object {
+      "0%": "#108ee9",
+      "100%": "#87d068",
+    }
+  }
+  strokeLinecap="round"
+  trailColor="#f3f3f3"
+  type="line"
+>
+  <Consumer>
+    <div
+      className="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    >
+      <Line
+        gapDegree={0}
+        percent={50}
+        prefixCls="ant-progress"
+        showInfo={true}
+        size="default"
+        strokeColor={
+          Object {
+            "0%": "#108ee9",
+            "100%": "#87d068",
+          }
+        }
+        strokeLinecap="round"
+        trailColor="#f3f3f3"
+        type="line"
+      >
+        <div>
+          <div
+            className="ant-progress-outer"
+          >
+            <div
+              className="ant-progress-inner"
+            >
+              <div
+                className="ant-progress-bg"
+                style={
+                  Object {
+                    "backgroundImage": "linear-gradient(to right, #108ee9 0%, #87d068 100%)",
+                    "borderRadius": "100px",
+                    "height": 8,
+                    "width": "50%",
+                  }
+                }
+              />
+            </div>
+          </div>
+          <span
+            className="ant-progress-text"
+            title="50%"
+          >
+            50%
+          </span>
+        </div>
+      </Line>
+    </div>
+  </Consumer>
+</Progress>
+`;

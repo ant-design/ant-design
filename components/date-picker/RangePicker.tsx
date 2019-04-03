@@ -12,6 +12,7 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 import interopDefault from '../_util/interopDefault';
 import { RangePickerValue, RangePickerPresetRange } from './interface';
+import { formatDate } from './utils';
 
 export interface RangePickerState {
   value?: RangePickerValue;
@@ -20,18 +21,18 @@ export interface RangePickerState {
   hoverValue?: RangePickerValue;
 }
 
-function getShowDateFromValue(value: RangePickerValue) {
+function getShowDateFromValue(value: RangePickerValue, mode?: string | string[]) {
   const [start, end] = value;
   // value could be an empty array, then we should not reset showDate
   if (!start && !end) {
     return;
   }
-  const newEnd = end && end.isSame(start, 'month') ? end.clone().add(1, 'month') : end;
-  return [start, newEnd] as RangePickerValue;
-}
-
-function formatValue(value: moment.Moment | undefined, format: string): string {
-  return (value && value.format(format)) || '';
+  if (mode && mode[0] === 'month') {
+    return [start, end] as RangePickerValue;
+  } else {
+    const newEnd = end && end.isSame(start, 'month') ? end.clone().add(1, 'month') : end;
+    return [start, newEnd] as RangePickerValue;
+  }
 }
 
 function pickerValueAdapter(
@@ -86,7 +87,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
       if (!shallowequal(nextProps.value, prevState.value)) {
         state = {
           ...state,
-          showDate: getShowDateFromValue(value) || prevState.showDate,
+          showDate: getShowDateFromValue(value, nextProps.mode) || prevState.showDate,
         };
       }
     }
@@ -149,7 +150,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
       }));
     }
     const [start, end] = value;
-    props.onChange(value, [formatValue(start, props.format), formatValue(end, props.format)]);
+    props.onChange(value, [formatDate(start, props.format), formatDate(end, props.format)]);
   };
 
   handleOpenChange = (open: boolean) => {
@@ -386,7 +387,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
           <input
             disabled={props.disabled}
             readOnly
-            value={(start && start.format(props.format)) || ''}
+            value={formatDate(start, props.format)}
             placeholder={startPlaceholder}
             className={`${prefixCls}-range-picker-input`}
             tabIndex={-1}
@@ -395,7 +396,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
           <input
             disabled={props.disabled}
             readOnly
-            value={(end && end.format(props.format)) || ''}
+            value={formatDate(end, props.format)}
             placeholder={endPlaceholder}
             className={`${prefixCls}-range-picker-input`}
             tabIndex={-1}

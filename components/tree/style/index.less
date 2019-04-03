@@ -249,4 +249,19 @@
       }
     }
   }
+
+  &.@{tree-prefix-cls}-block-node {
+    li {
+      .@{tree-prefix-cls}-node-content-wrapper {
+        width: ~'calc(100% - 24px)';
+      }
+      span {
+        &.@{tree-prefix-cls}-checkbox {
+          + .@{tree-prefix-cls}-node-content-wrapper {
+            width: ~'calc(100% - 46px)';
+          }
+        }
+      }
+    }
+  }
 }

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { polyfill } from 'react-lifecycles-compat';
 import List, { TransferListProps } from './list';
 import Operation from './operation';
 import Search from './search';
@@ -63,7 +64,7 @@ export interface TransferLocale {
   itemsUnit: string;
 }
 
-export default class Transfer extends React.Component<TransferProps, any> {
+class Transfer extends React.Component<TransferProps, any> {
   // For high-level customized Transfer @dqaria
   static List = List;
   static Operation = Operation;
@@ -102,6 +103,17 @@ export default class Transfer extends React.Component<TransferProps, any> {
     lazy: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   };
 
+  static getDerivedStateFromProps(nextProps: TransferProps) {
+    if (nextProps.selectedKeys) {
+      const targetKeys = nextProps.targetKeys || [];
+      return {
+        sourceSelectedKeys: nextProps.selectedKeys.filter(key => !targetKeys.includes(key)),
+        targetSelectedKeys: nextProps.selectedKeys.filter(key => targetKeys.includes(key)),
+      };
+    }
+    return null;
+  }
+
   separatedDataSource: {
     leftDataSource: TransferItem[];
     rightDataSource: TransferItem[];
@@ -126,52 +138,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
     };
   }
 
-  componentWillReceiveProps(nextProps: TransferProps) {
-    const { sourceSelectedKeys, targetSelectedKeys } = this.state;
-
-    if (
-      nextProps.targetKeys !== this.props.targetKeys ||
-      nextProps.dataSource !== this.props.dataSource
-    ) {
-      // clear cached separated dataSource
-      this.separatedDataSource = null;
-
-      if (!nextProps.selectedKeys) {
-        // clear key no longer existed
-        // clear checkedKeys according to targetKeys
-        const { dataSource, targetKeys = [] } = nextProps;
-
-        const newSourceSelectedKeys: String[] = [];
-        const newTargetSelectedKeys: String[] = [];
-        dataSource.forEach(({ key }) => {
-          if (sourceSelectedKeys.includes(key) && !targetKeys.includes(key)) {
-            newSourceSelectedKeys.push(key);
-          }
-          if (targetSelectedKeys.includes(key) && targetKeys.includes(key)) {
-            newTargetSelectedKeys.push(key);
-          }
-        });
-        this.setState({
-          sourceSelectedKeys: newSourceSelectedKeys,
-          targetSelectedKeys: newTargetSelectedKeys,
-        });
-      }
-    }
-
-    if (nextProps.selectedKeys) {
-      const targetKeys = nextProps.targetKeys || [];
-      this.setState({
-        sourceSelectedKeys: nextProps.selectedKeys.filter(key => !targetKeys.includes(key)),
-        targetSelectedKeys: nextProps.selectedKeys.filter(key => targetKeys.includes(key)),
-      });
-    }
-  }
-
   separateDataSource(props: TransferProps) {
-    if (this.separatedDataSource) {
-      return this.separatedDataSource;
-    }
-
     const { dataSource, rowKey, targetKeys = [] } = props;
 
     const leftDataSource: TransferItem[] = [];
@@ -191,12 +158,10 @@ export default class Transfer extends React.Component<TransferProps, any> {
       }
     });
 
-    this.separatedDataSource = {
+    return {
       leftDataSource,
       rightDataSource,
     };
-
-    return this.separatedDataSource;
   }
 
   moveTo = (direction: TransferDirection) => {
@@ -468,3 +433,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
     );
   }
 }
+
+polyfill(Transfer);
+
+export default Transfer;

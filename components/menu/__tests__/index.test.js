@@ -2,6 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Menu from '..';
 import Icon from '../../icon';
+import Layout from '../../layout';
 
 jest.mock('mutationobserver-shim', () => {
   global.MutationObserver = function MutationObserver() {
@@ -493,5 +494,125 @@ describe('Menu', () => {
 
     const text = wrapper.find('.ant-tooltip-inner').text();
     expect(text).toBe('bamboo lucky');
+  });
+
+  it('render correctly when using with Layout.Sider', () => {
+    class Demo extends React.Component {
+      state = {
+        collapsed: false,
+      };
+
+      onCollapse = collapsed => this.setState({ collapsed });
+
+      render() {
+        const { collapsed } = this.state;
+        return (
+          <Layout style={{ minHeight: '100vh' }}>
+            <Layout.Sider collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
+              <div className="logo" />
+              <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+                <SubMenu
+                  key="sub1"
+                  title={
+                    <span>
+                      <Icon type="user" />
+                      <span>User</span>
+                    </span>
+                  }
+                >
+                  <Menu.Item key="3">Tom</Menu.Item>
+                  <Menu.Item key="4">Bill</Menu.Item>
+                  <Menu.Item key="5">Alex</Menu.Item>
+                </SubMenu>
+              </Menu>
+            </Layout.Sider>
+          </Layout>
+        );
+      }
+    }
+    const wrapper = mount(<Demo />);
+    wrapper.find('.ant-menu-submenu-title').simulate('click');
+    wrapper.find('.ant-layout-sider-trigger').simulate('click');
+    jest.runAllTimers();
+    wrapper.update();
+    expect(wrapper.find('.ant-menu-submenu-popup').length).toBe(0);
+  });
+
+  it('onMouseEnter should work', () => {
+    const onMouseEnter = jest.fn();
+    const wrapper = mount(
+      <Menu onMouseEnter={onMouseEnter} defaultSelectedKeys={['test1']}>
+        <Menu.Item key="test1">Navigation One</Menu.Item>
+        <Menu.Item key="test2">Navigation Two</Menu.Item>
+      </Menu>,
+    );
+    wrapper
+      .find('Menu')
+      .at(1)
+      .simulate('mouseenter');
+    expect(onMouseEnter).toHaveBeenCalled();
+  });
+
+  it('get correct animation type when switched from inline', () => {
+    const wrapper = mount(<Menu mode="inline" />);
+    wrapper.setProps({ mode: 'horizontal' });
+    expect(wrapper.instance().getMenuOpenAnimation('')).toBe('');
+    expect(wrapper.instance().switchingModeFromInline).toBe(false);
+  });
+
+  it('Menu should not shake when collapsed changed', () => {
+    const wrapper = mount(
+      <Menu
+        defaultSelectedKeys={['5']}
+        defaultOpenKeys={['sub1']}
+        mode="inline"
+        inlineCollapsed={false}
+      >
+        <SubMenu
+          key="sub1"
+          title={
+            <span>
+              <span>Navigation One</span>
+            </span>
+          }
+        >
+          <Menu.Item key="5">Option 5</Menu.Item>
+          <Menu.Item key="6">Option 6</Menu.Item>
+        </SubMenu>
+      </Menu>,
+    );
+    expect(wrapper.instance().contextSiderCollapsed).toBe(true);
+    wrapper.setProps({ inlineCollapsed: true });
+    expect(wrapper.instance().contextSiderCollapsed).toBe(false);
+    jest.runAllTimers();
+    wrapper.update();
+    expect(wrapper.instance().contextSiderCollapsed).toBe(false);
+  });
+
+  it('MenuItem should not render Tooltip when inlineCollapsed is false', () => {
+    const wrapper = mount(
+      <Menu defaultSelectedKeys={['mail']} defaultOpenKeys={['mail']} mode="horizontal">
+        <Menu.Item key="mail">
+          <Icon type="mail" />
+          Navigation One
+        </Menu.Item>
+        <Menu.Item key="app">
+          <Icon type="appstore" />
+          Navigation Two
+        </Menu.Item>
+        <Menu.Item key="alipay">
+          <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
+            Navigation Four - Link
+          </a>
+        </Menu.Item>
+      </Menu>,
+    );
+    wrapper
+      .find('MenuItem')
+      .first()
+      .simulate('mouseenter');
+    jest.runAllTimers();
+    wrapper.update();
+    expect(wrapper.find('.ant-tooltip-inner').length).toBe(0);
   });
 });

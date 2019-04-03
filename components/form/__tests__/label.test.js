@@ -31,6 +31,7 @@ describe('Form', () => {
         <Form.Item label="label：">input</Form.Item>
       </Form>,
     );
+
     expect(
       wrapper
         .find('.ant-form-item-label label')
@@ -39,6 +40,58 @@ describe('Form', () => {
     ).not.toContain(':');
     expect(
       wrapper
+        .find('.ant-form-item-label label')
+        .at(1)
+        .text(),
+    ).not.toContain('：');
+  });
+
+  it('should disable colon when props colon Form is false', () => {
+    const wrapper = mount(
+      <Form colon={false}>
+        <Form.Item label="label">input</Form.Item>
+      </Form>,
+    );
+    expect(
+      wrapper
+        .find('.ant-form-item-label label')
+        .at(0)
+        .hasClass('ant-form-item-no-colon'),
+    ).toBe(true);
+  });
+
+  it('should props colon of Form.Item override the props colon of Form.', () => {
+    const wrapper = mount(
+      <Form colon={false}>
+        <Form.Item label="label">input</Form.Item>
+        <Form.Item label="label" colon>
+          input
+        </Form.Item>
+        <Form.Item label="label" colon={false}>
+          input
+        </Form.Item>
+      </Form>,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+
+    const testLabel = mount(
+      <Form colon={false}>
+        <Form.Item label="label:" colon>
+          input
+        </Form.Item>
+        <Form.Item label="label：" colon>
+          input
+        </Form.Item>
+      </Form>,
+    );
+    expect(
+      testLabel
+        .find('.ant-form-item-label label')
+        .at(0)
+        .text(),
+    ).not.toContain(':');
+    expect(
+      testLabel
         .find('.ant-form-item-label label')
         .at(1)
         .text(),

@@ -38,8 +38,16 @@ export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   className?: string;
   prefixCls?: string;
   hideRequiredMark?: boolean;
-  labelCol?: ColProps;
+  /**
+   * @since 3.14.0
+   */
   wrapperCol?: ColProps;
+  labelCol?: ColProps;
+  /**
+   * @since 3.15.0
+   */
+  colon?: boolean;
+  labelAlign?: 'left' | 'right';
 }
 
 export type ValidationRule = {
@@ -67,7 +75,7 @@ export type ValidationRule = {
   validator?: (rule: any, value: any, callback: any, source?: any, options?: any) => any;
 };
 
-export type ValidateCallback = (errors: any, values: any) => void;
+export type ValidateCallback<V> = (errors: any, values: V) => void;
 
 export type GetFieldDecoratorOptions = {
   /** 子节点的值的属性，如 Checkbox 的是 'checked' */
@@ -126,7 +134,7 @@ export type ValidateFieldsOptions = {
 };
 
 // function create
-export type WrappedFormUtils = {
+export type WrappedFormUtils<V = any> = {
   /** 获取一组输入控件的值，如不传入参数，则获取全部组件的值 */
   getFieldsValue(fieldNames?: Array<string>): { [field: string]: any };
   /** 获取一个输入控件的值 */
@@ -139,26 +147,26 @@ export type WrappedFormUtils = {
   validateFields(
     fieldNames: Array<string>,
     options: ValidateFieldsOptions,
-    callback: ValidateCallback,
+    callback: ValidateCallback<V>,
   ): void;
-  validateFields(options: ValidateFieldsOptions, callback: ValidateCallback): void;
-  validateFields(fieldNames: Array<string>, callback: ValidateCallback): void;
+  validateFields(options: ValidateFieldsOptions, callback: ValidateCallback<V>): void;
+  validateFields(fieldNames: Array<string>, callback: ValidateCallback<V>): void;
   validateFields(fieldNames: Array<string>, options: ValidateFieldsOptions): void;
   validateFields(fieldNames: Array<string>): void;
-  validateFields(callback: ValidateCallback): void;
+  validateFields(callback: ValidateCallback<V>): void;
   validateFields(options: ValidateFieldsOptions): void;
   validateFields(): void;
   /** 与 `validateFields` 相似，但校验完后，如果校验不通过的菜单域不在可见范围内，则自动滚动进可见范围 */
   validateFieldsAndScroll(
     fieldNames: Array<string>,
     options: ValidateFieldsOptions,
-    callback: ValidateCallback,
+    callback: ValidateCallback<V>,
   ): void;
-  validateFieldsAndScroll(options: ValidateFieldsOptions, callback: ValidateCallback): void;
-  validateFieldsAndScroll(fieldNames: Array<string>, callback: ValidateCallback): void;
+  validateFieldsAndScroll(options: ValidateFieldsOptions, callback: ValidateCallback<V>): void;
+  validateFieldsAndScroll(fieldNames: Array<string>, callback: ValidateCallback<V>): void;
   validateFieldsAndScroll(fieldNames: Array<string>, options: ValidateFieldsOptions): void;
   validateFieldsAndScroll(fieldNames: Array<string>): void;
-  validateFieldsAndScroll(callback: ValidateCallback): void;
+  validateFieldsAndScroll(callback: ValidateCallback<V>): void;
   validateFieldsAndScroll(options: ValidateFieldsOptions): void;
   validateFieldsAndScroll(): void;
   /** 获取某个输入控件的 Error */
@@ -177,8 +185,8 @@ export type WrappedFormUtils = {
   ): (node: React.ReactNode) => React.ReactNode;
 };
 
-export interface FormComponentProps {
-  form: WrappedFormUtils;
+export interface FormComponentProps<V = any> {
+  form: WrappedFormUtils<V>;
 }
 
 export interface RcBaseFormProps {
@@ -193,6 +201,7 @@ export interface ComponentDecorator {
 
 export default class Form extends React.Component<FormProps, any> {
   static defaultProps = {
+    colon: true,
     layout: 'horizontal' as FormLayout,
     hideRequiredMark: false,
     onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -206,6 +215,7 @@ export default class Form extends React.Component<FormProps, any> {
     children: PropTypes.any,
     onSubmit: PropTypes.func,
     hideRequiredMark: PropTypes.bool,
+    colon: PropTypes.bool,
   };
 
   static Item = FormItem;
@@ -249,15 +259,21 @@ export default class Form extends React.Component<FormProps, any> {
       'layout',
       'form',
       'hideRequiredMark',
+      'wrapperCol',
+      'labelAlign',
+      'labelCol',
+      'colon',
     ]);
 
     return <form {...formProps} className={formClassName} />;
   };
 
   render() {
-    const { wrapperCol, labelCol, layout } = this.props;
+    const { wrapperCol, labelAlign, labelCol, layout, colon } = this.props;
     return (
-      <FormContext.Provider value={{ wrapperCol, labelCol, vertical: layout === 'vertical' }}>
+      <FormContext.Provider
+        value={{ wrapperCol, labelAlign, labelCol, vertical: layout === 'vertical', colon }}
+      >
         <ConfigConsumer>{this.renderForm}</ConfigConsumer>
       </FormContext.Provider>
     );

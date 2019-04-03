@@ -37,6 +37,7 @@ Array [
   "Modal",
   "Statistic",
   "notification",
+  "PageHeader",
   "Pagination",
   "Popconfirm",
   "Popover",

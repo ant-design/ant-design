@@ -29,21 +29,23 @@ export interface ListGridType {
 
 export type ListSize = 'small' | 'default' | 'large';
 
-export interface ListProps {
+export type ListItemLayout = 'horizontal' | 'vertical';
+
+export interface ListProps<T> {
   bordered?: boolean;
   className?: string;
   children?: React.ReactNode;
-  dataSource: any;
+  dataSource: T[];
   extra?: React.ReactNode;
   grid?: ListGridType;
   id?: string;
-  itemLayout?: string;
+  itemLayout?: ListItemLayout;
   loading?: boolean | SpinProps;
   loadMore?: React.ReactNode;
   pagination?: PaginationConfig | false;
   prefixCls?: string;
   rowKey?: any;
-  renderItem: any;
+  renderItem: (item: T, index: number) => React.ReactNode;
   size?: ListSize;
   split?: boolean;
   header?: React.ReactNode;
@@ -52,14 +54,15 @@ export interface ListProps {
 }
 
 export interface ListLocale {
-  emptyText: string;
+  emptyText: React.ReactNode | (() => React.ReactNode);
 }
 
-export default class List extends React.Component<ListProps> {
+export default class List<T> extends React.Component<ListProps<T>> {
   static Item: typeof Item = Item;
 
   static childContextTypes = {
     grid: PropTypes.any,
+    itemLayout: PropTypes.string,
   };
 
   static defaultProps = {
@@ -67,7 +70,7 @@ export default class List extends React.Component<ListProps> {
     bordered: false,
     split: true,
     loading: false,
-    pagination: false as ListProps['pagination'],
+    pagination: false as ListProps<any>['pagination'],
   };
 
   state = {
@@ -94,6 +97,7 @@ export default class List extends React.Component<ListProps> {
   getChildContext() {
     return {
       grid: this.props.grid,
+      itemLayout: this.props.itemLayout,
     };
   }
 

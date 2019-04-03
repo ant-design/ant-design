@@ -6,15 +6,12 @@ title: Typography
 cols: 1
 ---
 
-文本的基本格式及常见操作。
+文本的基本格式。
 
 ## 何时使用
 
-当需要展示标题、文本内容时使用。例如：
-* 拷贝
-* 省略/展开
-* 可编辑
-* Markdown 排版样式
+- 当需要展示标题、段落、列表内容时使用，如文章/博客/日志的文本样式。
+- 当需要一列基于文本的基础操作时，如拷贝/省略/可编辑。
 
 ## API
 
@@ -51,7 +48,7 @@ cols: 1
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-
+| copyable | 是否可拷贝，为对象时可设置复制文本以回调函数 | boolean \| { text: string, onCopy: Function } | false |
 | delete | 添加删除线样式 | boolean | false |
 | disabled | 禁用文本 | boolean | false |
 | editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| { editing: boolean, onStart: Function, onChange: Function(string) } | false |
