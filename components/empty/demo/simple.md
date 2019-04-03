@@ -17,7 +17,7 @@ You can choose another style of `image` by setting image to `Empty.PRESENTED_IMA
 import { Empty } from 'antd';
 
 ReactDOM.render(
-  <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} imageStyle={{ height:40 }} />,
+  <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />,
   mountNode
 );
 ```
