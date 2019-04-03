@@ -1,23 +1,11 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import classNames from 'classnames';
-import Animate from 'rc-animate';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import Checkbox from '../checkbox';
 import { TransferItem, TransferDirection } from './index';
-import Search from './search';
-import Item from './item';
 import triggerEvent from '../_util/triggerEvent';
-
-function noop() {}
-
-function isRenderResultPlainObject(result: any) {
-  return (
-    result &&
-    !React.isValidElement(result) &&
-    Object.prototype.toString.call(result) === '[object Object]'
-  );
-}
+import ListBody from './ListBody';
 
 export interface TransferListProps {
   direction: TransferDirection;
@@ -39,6 +27,7 @@ export interface TransferListProps {
   itemUnit: string;
   itemsUnit: string;
   body?: (props: TransferListProps) => React.ReactNode;
+  renderList?: (props: TransferListProps) => React.ReactNode;
   footer?: (props: TransferListProps) => React.ReactNode;
   lazy?: boolean | {};
   onScroll: Function;
@@ -50,7 +39,6 @@ export default class TransferList extends React.Component<TransferListProps, any
     dataSource: [],
     titleText: '',
     showSearch: false,
-    render: noop,
     lazy: {},
   };
 
@@ -126,39 +114,33 @@ export default class TransferList extends React.Component<TransferListProps, any
     return text.indexOf(filter) >= 0;
   };
 
-  renderItem = (item: TransferItem) => {
-    const { render = noop } = this.props;
-    const renderResult = render(item);
-    const isRenderResultPlain = isRenderResultPlainObject(renderResult);
-    return {
-      renderedText: isRenderResultPlain ? renderResult.value : renderResult,
-      renderedEl: isRenderResultPlain ? renderResult.label : renderResult,
-    };
-  };
-
   render() {
+    const { mounted } = this.state;
     const {
       prefixCls,
       dataSource,
       titleText,
       checkedKeys,
-      lazy,
       disabled,
       body,
+      renderList,
       footer,
-      showSearch,
       style,
-      filter,
-      searchPlaceholder,
-      notFoundContent,
       itemUnit,
       itemsUnit,
-      onScroll,
     } = this.props;
 
-    // Custom Layout
+    // ================ Custom Layout ================
+    // Footer
     const footerDom = footer && footer(this.props);
-    const bodyDom = body && body(this.props);
+
+    // Body: use `renderList` first and deprecated `body` next
+    let bodyDom;
+    if (renderList) {
+      bodyDom = renderList(this.props);
+    } else if (body) {
+      bodyDom = body(this.props);
+    }
 
     const listCls = classNames(prefixCls, {
       [`${prefixCls}-with-footer`]: !!footerDom,
@@ -168,79 +150,77 @@ export default class TransferList extends React.Component<TransferListProps, any
     let totalDataSource: TransferItem[] = dataSource;
     const unit = dataSource.length > 1 ? itemsUnit : itemUnit;
 
-    let listBody: React.ReactNode = bodyDom;
-
     // Render body if not customized
     if (!bodyDom) {
-      totalDataSource = [];
+      // totalDataSource = [];
 
-      const showItems = dataSource.map(item => {
-        const { renderedText, renderedEl } = this.renderItem(item);
-        if (filter && filter.trim() && !this.matchFilter(renderedText, item)) {
-          return null;
-        }
+      // const showItems = dataSource.map(item => {
+      //   const { renderedText, renderedEl } = this.renderItem(item);
+      //   if (filter && filter.trim() && !this.matchFilter(renderedText, item)) {
+      //     return null;
+      //   }
 
-        // all show items
-        totalDataSource.push(item);
-        if (!item.disabled) {
-          // response to checkAll items
-          filteredDataSource.push(item);
-        }
+      //   // all show items
+      //   totalDataSource.push(item);
+      //   if (!item.disabled) {
+      //     // response to checkAll items
+      //     filteredDataSource.push(item);
+      //   }
 
-        const checked = checkedKeys.indexOf(item.key) >= 0;
-        return (
-          <Item
-            disabled={disabled}
-            key={item.key}
-            item={item}
-            lazy={lazy}
-            renderedText={renderedText}
-            renderedEl={renderedEl}
-            checked={checked}
-            prefixCls={prefixCls}
-            onClick={this.handleSelect}
-          />
-        );
-      });
+      //   const checked = checkedKeys.indexOf(item.key) >= 0;
+      //   return (
+      //     <Item
+      //       disabled={disabled}
+      //       key={item.key}
+      //       item={item}
+      //       lazy={lazy}
+      //       renderedText={renderedText}
+      //       renderedEl={renderedEl}
+      //       checked={checked}
+      //       prefixCls={prefixCls}
+      //       onClick={this.handleSelect}
+      //     />
+      //   );
+      // });
 
-      const search = showSearch ? (
-        <div className={`${prefixCls}-body-search-wrapper`}>
-          <Search
-            prefixCls={`${prefixCls}-search`}
-            onChange={this.handleFilter}
-            handleClear={this.handleClear}
-            placeholder={searchPlaceholder}
-            value={filter}
-            disabled={disabled}
-          />
-        </div>
-      ) : null;
+      // const search = showSearch ? (
+      //   <div className={`${prefixCls}-body-search-wrapper`}>
+      //     <Search
+      //       prefixCls={`${prefixCls}-search`}
+      //       onChange={this.handleFilter}
+      //       handleClear={this.handleClear}
+      //       placeholder={searchPlaceholder}
+      //       value={filter}
+      //       disabled={disabled}
+      //     />
+      //   </div>
+      // ) : null;
 
-      const searchNotFound = showItems.every(item => item === null) && (
-        <div className={`${prefixCls}-body-not-found`}>{notFoundContent}</div>
-      );
+      // const searchNotFound = showItems.every(item => item === null) && (
+      //   <div className={`${prefixCls}-body-not-found`}>{notFoundContent}</div>
+      // );
 
-      listBody = (
-        <div
-          className={classNames(
-            showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`,
-          )}
-        >
-          {search}
-          {!searchNotFound && (
-            <Animate
-              component="ul"
-              componentProps={{ onScroll }}
-              className={`${prefixCls}-content`}
-              transitionName={this.state.mounted ? `${prefixCls}-content-item-highlight` : ''}
-              transitionLeave={false}
-            >
-              {showItems}
-            </Animate>
-          )}
-          {searchNotFound}
-        </div>
-      );
+      // listBody = (
+      //   <div
+      //     className={classNames(
+      //       showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`,
+      //     )}
+      //   >
+      //     {search}
+      //     {!searchNotFound && (
+      //       <Animate
+      //         component="ul"
+      //         componentProps={{ onScroll }}
+      //         className={`${prefixCls}-content`}
+      //         transitionName={this.state.mounted ? `${prefixCls}-content-item-highlight` : ''}
+      //         transitionLeave={false}
+      //       >
+      //         {showItems}
+      //       </Animate>
+      //     )}
+      //     {searchNotFound}
+      //   </div>
+      // );
     }
 
     const listFooter = footerDom ? <div className={`${prefixCls}-footer`}>{footerDom}</div> : null;
@@ -268,7 +248,8 @@ export default class TransferList extends React.Component<TransferListProps, any
             <span className={`${prefixCls}-header-title`}>{titleText}</span>
           </span>
         </div>
-        {listBody}
+        {/* {listBody} */}
+        <ListBody {...this.props} onItemSelect={this.handleSelect} mounted={mounted} />
         {listFooter}
       </div>
     );

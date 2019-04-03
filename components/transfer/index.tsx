@@ -54,6 +54,7 @@ export interface TransferProps {
   onSearch?: (direction: TransferDirection, value: string) => void;
   lazy?: {} | boolean;
   onScroll?: (direction: TransferDirection, e: React.SyntheticEvent<HTMLDivElement>) => void;
+  children?: (listProps: TransferListProps) => React.ReactNode;
 }
 
 export interface TransferLocale {
@@ -349,6 +350,7 @@ class Transfer extends React.Component<TransferProps, any> {
           operations = [],
           showSearch,
           body,
+          children: renderList,
           footer,
           style,
           listStyle,
@@ -385,6 +387,7 @@ class Transfer extends React.Component<TransferProps, any> {
               render={render}
               showSearch={showSearch}
               body={body}
+              renderList={renderList}
               footer={footer}
               lazy={lazy}
               onScroll={this.handleLeftScroll}
@@ -418,6 +421,7 @@ class Transfer extends React.Component<TransferProps, any> {
               render={render}
               showSearch={showSearch}
               body={body}
+              renderList={renderList}
               footer={footer}
               lazy={lazy}
               onScroll={this.handleRightScroll}
