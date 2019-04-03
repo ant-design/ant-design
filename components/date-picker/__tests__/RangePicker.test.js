@@ -260,7 +260,7 @@ describe('RangePicker', () => {
     const wrapper = mount(<RangePicker ranges={{ 'recent two days': range }} onOk={handleOk} />);
     wrapper.find('.ant-calendar-picker-input').simulate('click');
     wrapper.find('.ant-calendar-range-quick-selector Tag').simulate('click');
-    expect(handleOk).toBeCalledWith(range);
+    expect(handleOk).toHaveBeenCalledWith(range);
   });
 
   // https://github.com/ant-design/ant-design/issues/9267
@@ -312,7 +312,7 @@ describe('RangePicker', () => {
     );
     wrapper.find('.ant-calendar-picker-input').simulate('click');
     wrapper.find('.ant-calendar-range-quick-selector Tag').simulate('click');
-    expect(handleOpenChange).toBeCalledWith(false);
+    expect(handleOpenChange).toHaveBeenCalledWith(false);
   });
 
   it('customize separator', () => {

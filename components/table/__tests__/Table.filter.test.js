@@ -223,7 +223,7 @@ describe('Table.filter', () => {
       .first()
       .simulate('click');
 
-    expect(handleChange).toBeCalledWith(true);
+    expect(handleChange).toHaveBeenCalledWith(true);
   });
 
   it('can be controlled by filteredValue', () => {
@@ -285,7 +285,7 @@ describe('Table.filter', () => {
       .simulate('click');
     dropdownWrapper.find('.confirm').simulate('click');
 
-    expect(handleChange).toBeCalledWith(
+    expect(handleChange).toHaveBeenCalledWith(
       {},
       { name: ['boy'] },
       {},
@@ -523,7 +523,7 @@ describe('Table.filter', () => {
       .first()
       .simulate('click');
 
-    expect(handleChange).toBeCalled();
+    expect(handleChange).toHaveBeenCalled();
     expect(handleChange.mock.calls[0][3].currentDataSource.length).toBe(1);
   });
 
