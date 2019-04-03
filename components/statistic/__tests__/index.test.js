@@ -18,7 +18,7 @@ describe('Statistic', () => {
   it('customize formatter', () => {
     const formatter = jest.fn(() => 93);
     const wrapper = mount(<Statistic value={1128} formatter={formatter} />);
-    expect(formatter).toBeCalledWith(1128);
+    expect(formatter).toHaveBeenCalledWith(1128);
     expect(wrapper.find('.ant-statistic-content-value').text()).toEqual('93');
   });
 
@@ -73,7 +73,7 @@ describe('Statistic', () => {
 
       wrapper.unmount();
       expect(instance.countdownId).toBe(undefined);
-      expect(onFinish).not.toBeCalled();
+      expect(onFinish).not.toHaveBeenCalled();
     });
 
     describe('time finished', () => {
@@ -86,7 +86,7 @@ describe('Statistic', () => {
 
         const instance = wrapper.instance();
         expect(instance.countdownId).toBe(undefined);
-        expect(onFinish).not.toBeCalled();
+        expect(onFinish).not.toHaveBeenCalled();
       });
 
       it('called if finished', async () => {
@@ -99,7 +99,7 @@ describe('Statistic', () => {
         MockDate.set(moment('2019-11-28 00:00:00'));
         jest.runAllTimers();
 
-        expect(onFinish).toBeCalled();
+        expect(onFinish).toHaveBeenCalled();
         jest.useFakeTimers();
       });
     });

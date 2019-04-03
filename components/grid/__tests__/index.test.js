@@ -47,7 +47,7 @@ describe('Grid', () => {
         .prop('style'),
     ).toEqual(undefined);
     wrapper.unmount();
-    expect(enquire.unregister).toBeCalledTimes(6);
+    expect(enquire.unregister).toHaveBeenCalledTimes(6);
   });
 
   it('renders wrapped Col correctly', () => {

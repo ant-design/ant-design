@@ -127,6 +127,7 @@
     "eslint-config-prettier": "^4.0.0",
     "eslint-plugin-babel": "^5.2.1",
     "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^22.4.1",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-markdown": "~1.0.0-beta.6",
     "eslint-plugin-react": "^7.11.1",

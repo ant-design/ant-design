@@ -17,7 +17,7 @@ describe('Tag', () => {
     expect(wrapper.find('.anticon-close').length).toBe(1);
     expect(wrapper.find('div.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
     wrapper.find('.anticon-close').simulate('click');
-    expect(onClose).toBeCalled();
+    expect(onClose).toHaveBeenCalled();
     jest.runAllTimers();
     wrapper.update();
     expect(wrapper.find('div.ant-tag:not(.ant-tag-hidden)').length).toBe(0);
