@@ -9,8 +9,6 @@ import TransferItem from '../item';
 import Button from '../../button';
 import Checkbox from '../../checkbox';
 
-const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
 const listCommonProps = {
   dataSource: [
     {
@@ -94,6 +92,16 @@ const searchTransferProps = {
 };
 
 describe('Transfer', () => {
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+  afterEach(() => {
+    errorSpy.mockReset();
+  });
+
+  afterAll(() => {
+    errorSpy.mockRestore();
+  });
+
   it('should render correctly', () => {
     const wrapper = render(<Transfer {...listCommonProps} />);
     expect(wrapper).toMatchSnapshot();
@@ -268,10 +276,9 @@ describe('Transfer', () => {
         .text(),
     ).toEqual('old1');
 
-    expect(consoleErrorSpy).toHaveBeenCalledWith(
+    expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Transfer] `notFoundContent` and `searchPlaceholder` will be removed, please use `locale` instead.',
     );
-    consoleErrorSpy.mockRestore();
   });
 
   it('should display the correct items unit', () => {
@@ -434,5 +441,13 @@ describe('Transfer', () => {
     expect(listSource.prop('style')).toHaveProperty('backgroundColor', 'blue');
     expect(listTarget.prop('style')).toHaveProperty('backgroundColor', 'blue');
     expect(operation.prop('style')).toHaveProperty('backgroundColor', 'yellow');
+  });
+
+  it('Should warning when use `body`', () => {
+    mount(<Transfer body={() => null} />);
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Transfer] `body` is internal prop and will be removed in future. Please use `children` instead.',
+    );
   });
 });

@@ -129,6 +129,12 @@ class Transfer extends React.Component<TransferProps, any> {
         'please use `locale` instead.',
     );
 
+    warning(
+      !('body' in props),
+      'Transfer',
+      '`body` is internal prop and will be removed in future. Please use `children` instead.',
+    );
+
     const { selectedKeys = [], targetKeys = [] } = props;
     this.state = {
       leftFilter: '',
