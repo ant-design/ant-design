@@ -206,13 +206,11 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
               </a>
             </Tooltip>
             <EditButton
-              title={<FormattedMessage id="app.content.edit" />}
+              title={<FormattedMessage id="app.content.edit-demo" />}
               filename={meta.filename}
             />
           </div>
-          <div className="code-box-description">
-            {introChildren}
-          </div>
+          <div className="code-box-description">{introChildren}</div>
           <div className="code-box-actions">
             <form action="//riddle.alibaba-inc.com/riddles/define" method="POST" target="_blank">
               <input type="hidden" name="data" value={JSON.stringify(riddlePrefillConfig)} />
@@ -264,7 +262,9 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
                 />
               </Tooltip>
             </CopyToClipboard>
-            <Tooltip title={<FormattedMessage id={`app.demo.code.${codeExpand ? 'hide' : 'show'}`} />}>
+            <Tooltip
+              title={<FormattedMessage id={`app.demo.code.${codeExpand ? 'hide' : 'show'}`} />}
+            >
               <span className="code-expand-icon">
                 <img
                   alt="expand code"
