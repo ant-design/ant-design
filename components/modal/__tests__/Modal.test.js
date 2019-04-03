@@ -48,13 +48,13 @@ describe('Modal', () => {
     const onCancel = jest.fn();
     const wrapper = mount(<Modal onCancel={onCancel} />).instance();
     wrapper.handleCancel();
-    expect(onCancel).toBeCalled();
+    expect(onCancel).toHaveBeenCalled();
   });
 
   it('onOk should be called', () => {
     const onOk = jest.fn();
     const wrapper = mount(<Modal onOk={onOk} />).instance();
     wrapper.handleOk();
-    expect(onOk).toBeCalled();
+    expect(onOk).toHaveBeenCalled();
   });
 });

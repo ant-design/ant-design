@@ -223,7 +223,7 @@ describe('Table.filter', () => {
       .first()
       .simulate('click');
 
-    expect(handleChange).toBeCalledWith(true);
+    expect(handleChange).toHaveBeenCalledWith(true);
   });
 
   it('can be controlled by filteredValue', () => {
@@ -285,7 +285,7 @@ describe('Table.filter', () => {
       .simulate('click');
     dropdownWrapper.find('.confirm').simulate('click');
 
-    expect(handleChange).toBeCalledWith(
+    expect(handleChange).toHaveBeenCalledWith(
       {},
       { name: ['boy'] },
       {},
@@ -383,6 +383,10 @@ describe('Table.filter', () => {
           .find('MenuItem')
           .first()
           .simulate('click');
+
+        // This test can be remove if refactor
+        expect(typeof wrapper.find('FilterMenu').state().selectedKeys[0]).toEqual('string');
+
         dropdownWrapper.find('.confirm').simulate('click');
         wrapper.update();
 
@@ -390,6 +394,25 @@ describe('Table.filter', () => {
         onFilter.mock.calls.forEach(([val]) => {
           expect(val).toBe(value);
         });
+
+        // This test can be remove if refactor
+        expect(typeof wrapper.find('FilterMenu').state().selectedKeys[0]).toEqual(typeof value);
+
+        // Another time of Filter show
+        // https://github.com/ant-design/ant-design/issues/15593
+        getDropdownWrapper(wrapper)
+          .find('MenuItem')
+          .first()
+          .simulate('click');
+
+        expect(
+          wrapper
+            .find('FilterMenu')
+            .find('Checkbox')
+            .at(0)
+            .props().checked,
+        ).toEqual(true);
+
         jest.useRealTimers();
       });
     });
@@ -500,7 +523,7 @@ describe('Table.filter', () => {
       .first()
       .simulate('click');
 
-    expect(handleChange).toBeCalled();
+    expect(handleChange).toHaveBeenCalled();
     expect(handleChange.mock.calls[0][3].currentDataSource.length).toBe(1);
   });
 

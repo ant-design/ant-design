@@ -34,7 +34,7 @@ describe('AutoComplete children could be focus', () => {
       .instance()
       .focus();
     jest.runAllTimers();
-    expect(handleFocus).toBeCalled();
+    expect(handleFocus).toHaveBeenCalled();
   });
 
   it('blur() and onBlur', () => {
@@ -50,6 +50,6 @@ describe('AutoComplete children could be focus', () => {
       .instance()
       .blur();
     jest.runAllTimers();
-    expect(handleBlur).toBeCalled();
+    expect(handleBlur).toHaveBeenCalled();
   });
 });

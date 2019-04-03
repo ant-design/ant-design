@@ -93,7 +93,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
           class="ant-row"
         >
           <div
-            class="ant-col-12"
+            class="ant-col ant-col-12"
           >
             <div
               class="description"
@@ -111,7 +111,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
             </div>
           </div>
           <div
-            class="ant-col-12"
+            class="ant-col ant-col-12"
           >
             <div
               class="description"
@@ -131,7 +131,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
             </div>
           </div>
           <div
-            class="ant-col-12"
+            class="ant-col ant-col-12"
           >
             <div
               class="description"
@@ -149,7 +149,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
             </div>
           </div>
           <div
-            class="ant-col-12"
+            class="ant-col ant-col-12"
           >
             <div
               class="description"
@@ -167,7 +167,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
             </div>
           </div>
           <div
-            class="ant-col-24"
+            class="ant-col ant-col-24"
           >
             <div
               class="description"
@@ -193,7 +193,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
           class="ant-row"
         >
           <div
-            class="ant-col-12"
+            class="ant-col ant-col-12"
           >
             <div
               class="ant-statistic"
@@ -215,7 +215,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
             </div>
           </div>
           <div
-            class="ant-col-12"
+            class="ant-col ant-col-12"
           >
             <div
               class="ant-statistic"

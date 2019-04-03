@@ -34,7 +34,7 @@ describe('Input.Search', () => {
     const wrapper = mount(<Search defaultValue="search text" onSearch={onSearch} />);
     wrapper.find('.anticon-search').simulate('click');
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toBeCalledWith(
+    expect(onSearch).toHaveBeenCalledWith(
       'search text',
       expect.objectContaining({
         type: 'click',
@@ -48,7 +48,7 @@ describe('Input.Search', () => {
     const wrapper = mount(<Search defaultValue="search text" enterButton onSearch={onSearch} />);
     wrapper.find('Button').simulate('click');
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toBeCalledWith(
+    expect(onSearch).toHaveBeenCalledWith(
       'search text',
       expect.objectContaining({
         type: 'click',
@@ -64,7 +64,7 @@ describe('Input.Search', () => {
     );
     wrapper.find('Button').simulate('click');
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toBeCalledWith(
+    expect(onSearch).toHaveBeenCalledWith(
       'search text',
       expect.objectContaining({
         type: 'click',
@@ -84,7 +84,7 @@ describe('Input.Search', () => {
     );
     wrapper.find('Button').simulate('click');
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toBeCalledWith(
+    expect(onSearch).toHaveBeenCalledWith(
       'search text',
       expect.objectContaining({
         type: 'click',
@@ -104,7 +104,7 @@ describe('Input.Search', () => {
     );
     wrapper.find('button').simulate('click');
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toBeCalledWith(
+    expect(onSearch).toHaveBeenCalledWith(
       'search text',
       expect.objectContaining({
         type: 'click',
@@ -118,7 +118,7 @@ describe('Input.Search', () => {
     const wrapper = mount(<Search defaultValue="search text" onSearch={onSearch} />);
     wrapper.find('input').simulate('keydown', { key: 'Enter', keyCode: 13 });
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toBeCalledWith(
+    expect(onSearch).toHaveBeenCalledWith(
       'search text',
       expect.objectContaining({
         type: 'keydown',

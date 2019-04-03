@@ -7031,7 +7031,7 @@ exports[`ConfigProvider components Form configProvider 1`] = `
     class="config-row config-form-item config-form-item-with-help"
   >
     <div
-      class="config-form-item-control-wrapper"
+      class="config-col config-form-item-control-wrapper"
     >
       <div
         class="config-form-item-control has-error"
@@ -7064,7 +7064,7 @@ exports[`ConfigProvider components Form normal 1`] = `
     class="ant-row ant-form-item ant-form-item-with-help"
   >
     <div
-      class="ant-form-item-control-wrapper"
+      class="ant-col ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control has-error"
@@ -7097,7 +7097,7 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
     class="ant-row prefix-Form-item prefix-Form-item-with-help"
   >
     <div
-      class="prefix-Form-item-control-wrapper"
+      class="ant-col prefix-Form-item-control-wrapper"
     >
       <div
         class="prefix-Form-item-control has-error"
@@ -7127,7 +7127,7 @@ exports[`ConfigProvider components Grid configProvider 1`] = `
   class="config-row"
 >
   <div
-    class="config-col-1"
+    class="config-col config-col-1"
   />
 </div>
 `;
@@ -7137,7 +7137,7 @@ exports[`ConfigProvider components Grid normal 1`] = `
   class="ant-row"
 >
   <div
-    class="ant-col-1"
+    class="ant-col ant-col-1"
   />
 </div>
 `;
@@ -7147,7 +7147,7 @@ exports[`ConfigProvider components Grid prefixCls 1`] = `
   class="prefix-row"
 >
   <div
-    class="prefix-col-1"
+    class="prefix-col prefix-col-1"
   />
 </div>
 `;

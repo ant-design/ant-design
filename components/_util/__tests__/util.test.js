@@ -19,13 +19,13 @@ describe('Test utils function', () => {
   it('throttle function should work', () => {
     const callback = jest.fn();
     const throttled = throttleByAnimationFrame(callback);
-    expect(callback).not.toBeCalled();
+    expect(callback).not.toHaveBeenCalled();
 
     throttled();
     throttled();
 
     jest.runAllTimers();
-    expect(callback).toBeCalled();
+    expect(callback).toHaveBeenCalled();
     expect(callback.mock.calls.length).toBe(1);
   });
 
@@ -37,7 +37,7 @@ describe('Test utils function', () => {
     throttled.cancel();
 
     jest.runAllTimers();
-    expect(callback).not.toBeCalled();
+    expect(callback).not.toHaveBeenCalled();
   });
 
   describe('getDataOrAriaProps', () => {

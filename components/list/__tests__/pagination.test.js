@@ -84,7 +84,7 @@ describe('List.pagination', () => {
       .last()
       .simulate('click');
 
-    expect(handlePaginationChange).toBeCalledWith(2, 2);
+    expect(handlePaginationChange).toHaveBeenCalledWith(2, 2);
   });
 
   // https://github.com/ant-design/ant-design/issues/4532

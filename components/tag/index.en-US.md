@@ -18,7 +18,7 @@ Tag for categorizing or markup.
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| afterClose | Callback executed when close animation is completed | () => void | - |
+| afterClose | Callback executed when close animation is completed, please use `onClose`, we will remove this in the next version | () => void | - |
 | closable | Whether the Tag can be closed | boolean | `false` |
 | color | Color of the Tag | string | - |
 | onClose | Callback executed when tag is closed | (e) => void | - |
