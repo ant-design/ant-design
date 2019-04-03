@@ -79,4 +79,4 @@ Any data whose entries are defined in a hierarchical manner is fit to use this c
 
 ### How to get parent node?
 
-We don't provide this since performance consideration. You can get by this way: https://codesandbox.io/s/wk080nn81k
+We don't provide this since performance consideration. You can get by this way: <https://codesandbox.io/s/wk080nn81k>

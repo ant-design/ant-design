@@ -79,4 +79,4 @@ title: TreeSelect
 
 ### 如何获得父节点信息？
 
-从性能角度考虑，我们默认不透出父节点信息。你可以这样获得：https://codesandbox.io/s/wk080nn81k
+从性能角度考虑，我们默认不透出父节点信息。你可以这样获得：<https://codesandbox.io/s/wk080nn81k>
