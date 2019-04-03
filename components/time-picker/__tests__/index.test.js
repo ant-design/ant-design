@@ -68,4 +68,12 @@ describe('TimePicker', () => {
       <div className="test-clear-icon ant-time-picker-clear">test</div>,
     );
   });
+
+  it('prop locale should works', () => {
+    const locale = {
+      placeholder: 'Избери дата',
+    };
+    const wrapper = mount(<TimePicker open locale={locale} />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });
