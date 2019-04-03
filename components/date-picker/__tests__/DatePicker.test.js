@@ -114,11 +114,11 @@ describe('DatePicker', () => {
     const wrapper = mount(<DatePicker onChange={handleChange} />);
     openPanel(wrapper);
     nextYear(wrapper);
-    expect(handleChange).not.toBeCalled();
+    expect(handleChange).not.toHaveBeenCalled();
     nextMonth(wrapper);
-    expect(handleChange).not.toBeCalled();
+    expect(handleChange).not.toHaveBeenCalled();
     selectDate(wrapper, moment('2017-12-22'));
-    expect(handleChange).toBeCalled();
+    expect(handleChange).toHaveBeenCalled();
   });
 
   it('clear input', () => {

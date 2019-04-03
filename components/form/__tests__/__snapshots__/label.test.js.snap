@@ -8,7 +8,7 @@ exports[`Form should props colon of Form.Item override the props colon of Form. 
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label"
+      class="ant-col ant-form-item-label"
     >
       <label
         class="ant-form-item-no-colon"
@@ -18,7 +18,7 @@ exports[`Form should props colon of Form.Item override the props colon of Form. 
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper"
+      class="ant-col ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -35,7 +35,7 @@ exports[`Form should props colon of Form.Item override the props colon of Form. 
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label"
+      class="ant-col ant-form-item-label"
     >
       <label
         class=""
@@ -45,7 +45,7 @@ exports[`Form should props colon of Form.Item override the props colon of Form. 
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper"
+      class="ant-col ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -62,7 +62,7 @@ exports[`Form should props colon of Form.Item override the props colon of Form. 
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label"
+      class="ant-col ant-form-item-label"
     >
       <label
         class="ant-form-item-no-colon"
@@ -72,7 +72,7 @@ exports[`Form should props colon of Form.Item override the props colon of Form. 
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper"
+      class="ant-col ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"

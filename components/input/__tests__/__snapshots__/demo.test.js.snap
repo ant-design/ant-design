@@ -249,7 +249,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       style="margin-left:-4px;margin-right:-4px"
     >
       <div
-        class="ant-col-5"
+        class="ant-col ant-col-5"
         style="padding-left:4px;padding-right:4px"
       >
         <input
@@ -259,7 +259,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         />
       </div>
       <div
-        class="ant-col-8"
+        class="ant-col ant-col-8"
         style="padding-left:4px;padding-right:4px"
       >
         <input

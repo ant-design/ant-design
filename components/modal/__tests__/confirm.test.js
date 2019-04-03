@@ -92,7 +92,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect($$('.ant-btn')[1].disabled).toBe(true);
   });
 
-  it('trigger onCancel once when click on cancel button', () => {
+  it('should close modals when click confirm button', () => {
     jest.useFakeTimers();
     ['info', 'success', 'warning', 'error'].forEach(type => {
       Modal[type]({

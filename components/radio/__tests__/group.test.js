@@ -164,11 +164,9 @@ describe('Radio', () => {
     const GROUP_NAME = 'radiogroup';
     const wrapper = mount(createRadioGroup({ name: GROUP_NAME }));
 
-    expect(
-      wrapper.find('input[type="radio"]').forEach(el => {
-        expect(el.props().name).toEqual(GROUP_NAME);
-      }),
-    );
+    wrapper.find('input[type="radio"]').forEach(el => {
+      expect(el.props().name).toEqual(GROUP_NAME);
+    });
   });
 
   it('passes prefixCls down to radio', () => {

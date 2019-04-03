@@ -268,7 +268,7 @@ describe('Transfer', () => {
         .text(),
     ).toEqual('old1');
 
-    expect(consoleErrorSpy).toBeCalledWith(
+    expect(consoleErrorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Transfer] `notFoundContent` and `searchPlaceholder` will be removed, please use `locale` instead.',
     );
     consoleErrorSpy.mockRestore();

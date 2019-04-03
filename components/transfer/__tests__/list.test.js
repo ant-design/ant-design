@@ -52,6 +52,6 @@ describe('List', () => {
     const handleFilter = jest.fn();
     const wrapper = mount(<List {...listCommonProps} handleFilter={handleFilter} />);
     expect(wrapper.instance().handleFilter({ target: 'test' })).toBe(undefined);
-    expect(handleFilter).toBeCalled();
+    expect(handleFilter).toHaveBeenCalled();
   });
 });

@@ -102,7 +102,7 @@ describe('Form', () => {
     });
 
     mount(<Form1 />);
-    expect(errorSpy).toBeCalledWith(
+    expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Form.Item] Cannot generate `validateStatus` and `help` automatically, while there are more than one `getFieldDecorator` in it.',
     );
     errorSpy.mockRestore();
