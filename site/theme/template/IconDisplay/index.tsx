@@ -34,7 +34,7 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
     return Object.keys(IconDisplay.cagetories)
       .map((category: CategoriesKeys) => ({
         category,
-        icons: IconDisplay.cagetories[category].filter(
+        icons: (IconDisplay.cagetories[category] || []).filter(
           name => manifest[IconDisplay.themeTypeMapper[this.state.theme]].indexOf(name) !== -1,
         ),
       }))
@@ -48,7 +48,13 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
   };
 
   renderCategories(list: Array<{ category: CategoriesKeys; icons: string[] }>) {
+    const otherIcons = categories.all.filter(icon => {
+      return list.filter(({ category }) => category !== 'all').every(item => !item.icons.includes(icon));
+    });
     return list.map(({ category, icons }) => {
+      if (category === 'all') {
+        return null;
+      }
       return (
         <Category
           key={category}
@@ -58,7 +64,15 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
           newIcons={IconDisplay.newIconNames}
         />
       );
-    });
+    }).concat([(
+      <Category
+        key="other"
+        title="other"
+        icons={otherIcons}
+        theme={this.state.theme}
+        newIcons={IconDisplay.newIconNames}
+      />
+    )]);
   }
 
   render() {
