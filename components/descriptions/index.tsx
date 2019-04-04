@@ -7,13 +7,11 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 export interface DescriptionsItemProps {
   prefixCls?: string;
   label: React.ReactNode;
-  children: React.ReactNode;
+  children: JSX.Element;
   span?: number;
 }
 
-const DescriptionsItem = (props: DescriptionsItemProps) => {
-  return props.children;
-};
+const DescriptionsItem: React.SFC<DescriptionsItemProps> = ({ children }) => children;
 
 export interface DescriptionsProps {
   prefixCls?: string;
@@ -31,26 +29,26 @@ export interface DescriptionsProps {
  * @param cloneChildren: DescriptionsItem
  * @param column: number
  */
-const genChildrenArray = (
+const generateChildrenRows = (
   cloneChildren: React.ReactNode,
   column: number,
 ): React.ReactElement<DescriptionsItemProps>[][] => {
   const childrenArray: React.ReactElement<DescriptionsItemProps>[][] = [];
   let columnArray: React.ReactElement<DescriptionsItemProps>[] = [];
-  let width = 0;
+  let totalRowSpan = 0;
   React.Children.forEach(cloneChildren, (node: React.ReactElement<DescriptionsItemProps>) => {
     columnArray.push(node);
     if (node.props.span) {
-      width += node.props.span;
+      totalRowSpan += node.props.span;
     } else {
-      width += 1;
+      totalRowSpan += 1;
     }
-    if (width >= column) {
+    if (totalRowSpan >= column) {
       childrenArray.push(columnArray);
       columnArray = [];
-      width = 0;
+      totalRowSpan = 0;
       warning(
-        width > column,
+        totalRowSpan > column,
         'Descriptions',
         'Sum of column `span` in a line exceeds `column` of Descriptions.',
       );
@@ -215,7 +213,7 @@ class Descriptions extends React.Component<DescriptionsProps, RowState> {
 
           const childrenArray: Array<
             React.ReactElement<DescriptionsItemProps>[]
-          > = genChildrenArray(cloneChildren, column);
+          > = generateChildrenRows(cloneChildren, column);
 
           return (
             <div
