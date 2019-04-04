@@ -1,18 +1,14 @@
 ---
 order: 99
 title:
-  zh-CN: 自定义触发器
-  en-US: Custom trigger
+  zh-CN: 自定义触发器 Debug
+  en-US: Custom trigger debug
 debug: true
 ---
 
 ## zh-CN
 
-要使用自定义触发器，可以设置 `trigger={null}` 来隐藏默认设定。
-
-## en-US
-
-If you want to use a customized trigger, you can hide the default one by setting `trigger={null}`.
+修改内容前，请尝试此 Demo 查看样式是否抖动。
 
 ````jsx
 import { Layout, Menu, Icon } from 'antd';
