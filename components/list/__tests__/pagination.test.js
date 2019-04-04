@@ -151,4 +151,27 @@ describe('List.pagination', () => {
         .find('.ant-pagination'),
     ).toHaveLength(1);
   });
+
+  it('should change page size work', () => {
+    const wrapper = mount(createList({ pagination: { showSizeChanger: true } }));
+    expect(
+      wrapper
+        .find('Pagination')
+        .first()
+        .render(),
+    ).toMatchSnapshot();
+
+    wrapper.find('.ant-select-selection-selected-value').simulate('click');
+    wrapper
+      .find('.ant-select-dropdown-menu .ant-select-dropdown-menu-item')
+      .at(2)
+      .simulate('click');
+
+    expect(
+      wrapper
+        .find('Pagination')
+        .first()
+        .render(),
+    ).toMatchSnapshot();
+  });
 });
