@@ -267,8 +267,6 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
 polyfill(InternalSider);
 
 export default class Sider extends React.Component {
-  static __ANT_LAYOUT_SIDER: any = true;
-
   render() {
     return (
       <LayoutContext.Consumer>
