@@ -33,13 +33,11 @@ const dimensionMap = {
 };
 
 export interface SiderContextProps {
-  siderCollapsed: boolean;
+  siderCollapsed?: boolean;
   collapsedWidth?: string | number;
 }
 
-export const SiderContext: Context<SiderContextProps> = createContext({
-  siderCollapsed: false,
-});
+export const SiderContext: Context<SiderContextProps> = createContext({});
 
 export type CollapseType = 'clickTrigger' | 'responsive';
 
