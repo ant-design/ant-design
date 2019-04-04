@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-自定义尺寸，适应在各种容器中展示
+自定义尺寸，适应在各种容器中展示。
 
 ## en-US
 
-Custom sizes to fit in a variety of containers
+Custom sizes to fit in a variety of containers.
 
 ```jsx
 import { Descriptions, Radio } from 'antd';

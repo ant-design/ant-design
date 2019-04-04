@@ -91,8 +91,6 @@ declare module '*.json' {
 
 declare module 'lodash/debounce';
 
-declare module 'lodash/chunk';
-
 declare module 'lodash/padStart';
 
 declare module 'lodash/padEnd';

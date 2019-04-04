@@ -19,7 +19,7 @@ export interface DescriptionsProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
-  border?: boolean;
+  bordered?: boolean;
   size?: 'middle' | 'small' | 'default';
   children?: React.ReactNode;
   title?: string;
@@ -49,7 +49,11 @@ const genChildrenArray = (
       childrenArray.push(columnArray);
       columnArray = [];
       width = 0;
-      warning(width > column, 'Descriptions', `column max is ${column}, here has width`);
+      warning(
+        width > column,
+        'Descriptions',
+        'Sum of column `span` in a line exceeds `column` of Descriptions.',
+      );
     }
   });
   if (columnArray.length > 0) {
@@ -69,7 +73,7 @@ const genChildrenArray = (
  *   <td>{DescriptionsItem.children}</td>
  * </>
  */
-const renderChildren = (child: React.ReactElement<DescriptionsItemProps>) => {
+const renderCol = (child: React.ReactElement<DescriptionsItemProps>) => {
   const { prefixCls, label, children, span = 1 } = child.props;
   return [
     <td className={`${prefixCls}-item-label`} key="label">
@@ -82,26 +86,27 @@ const renderChildren = (child: React.ReactElement<DescriptionsItemProps>) => {
 };
 
 const renderRow = (
-  child: React.ReactElement<DescriptionsItemProps>[],
+  children: React.ReactElement<DescriptionsItemProps>[],
   index: number,
   { prefixCls, column, isLast }: { prefixCls: string; column: number; isLast: boolean },
 ) => {
-  let lastChild = child.pop() as React.ReactElement<DescriptionsItemProps>;
-  if (isLast) {
-    lastChild = React.cloneElement(lastChild as React.ReactElement<DescriptionsItemProps>, {
-      span: column - child.length,
+  let lastChildren = children[children.length - 1] as React.ReactElement<DescriptionsItemProps>;
+  const span = column - children.length;
+  if (isLast && span > 0) {
+    lastChildren = React.cloneElement(lastChildren as React.ReactElement<DescriptionsItemProps>, {
+      span,
     });
   }
   const cloneChildren = React.Children.map(
-    child,
-    (children: React.ReactElement<DescriptionsItemProps>) => {
-      return renderChildren(children);
+    children,
+    (childrenItem: React.ReactElement<DescriptionsItemProps>) => {
+      return renderCol(childrenItem);
     },
   );
   return (
     <tr className={`${prefixCls}-item`} key={index}>
       {cloneChildren}
-      {renderChildren(lastChild)}
+      {renderCol(lastChildren)}
     </tr>
   );
 };
@@ -193,7 +198,7 @@ class Descriptions extends React.Component<DescriptionsProps, RowState> {
             title,
             size,
             children,
-            border,
+            bordered,
           } = this.props;
           const prefixCls = getPrefixCls('descriptions', customizePrefixCls);
 
@@ -216,7 +221,7 @@ class Descriptions extends React.Component<DescriptionsProps, RowState> {
             <div
               className={classNames(prefixCls, className, {
                 [size as string]: size !== 'default',
-                border,
+                bordered,
               })}
             >
               {title && <div className={`${prefixCls}-title`}>{title}</div>}

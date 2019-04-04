@@ -5,26 +5,26 @@ title: Description List
 cols: 1
 ---
 
-Empty state placeholder.
+Display multiple read-only fields in groups
 
 ## When To Use
 
-When there is no data provided, display for friendly tips.
+Commonly displayed on the details page.
 
 ## API
 
 ### Descriptions
 
-| 参数 | 说明 | 类型 | 默认值 |
+| Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | title | The title of the description list, placed at the top | ReactNode | - |
-| border | whether to display the border | boolean  | false |
+| bordered | whether to display the border | boolean  | false |
 | column | the number of `DescriptionItems` in a row,could be a number or a object like `{ xs: 8, sm: 16, md: 24}` | number  | 3 |
 | size | set the size of the list. Can be set to `middle`,`small`, or not filled | `default | middle | small` | false |
 
 ### DescriptionItem
 
-| 参数 | 说明 | 类型 | 默认值 |
+| Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | label | description of the content | boolean  | false |
 | span  | The number of columns included | number  | 1 |

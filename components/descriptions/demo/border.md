@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-带边框和背景颜色列表，更加易读
+带边框和背景颜色列表，更加易读。
 
 ## en-US
 
-More easy to read with a border and background color list
+Descriptions with border and background color.
 
 ```jsx
 import { Descriptions, Badge } from 'antd';
