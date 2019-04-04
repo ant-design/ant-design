@@ -68,5 +68,19 @@ describe('Descriptions', () => {
       </Descriptions>,
     );
     expect(wrapper).toMatchSnapshot();
+    wrapper.unmount();
+  });
+
+  it('when typeof column is object', () => {
+    const wrapper = mount(
+      <Descriptions column={{ xs: 8, sm: 16, md: 24 }}>
+        <DescriptionsItem label="Product">Cloud Database</DescriptionsItem>
+        <DescriptionsItem label="Billing">Prepaid</DescriptionsItem>
+        <DescriptionsItem label="time">18:00:00</DescriptionsItem>
+        <DescriptionsItem label="Amount">$80.00</DescriptionsItem>
+      </Descriptions>,
+    );
+    expect(wrapper.instance().getColumn()).toBe(8);
+    wrapper.unmount();
   });
 });

@@ -85,7 +85,7 @@ exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
 
 exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
 <div
-  class="ant-descriptions border"
+  class="ant-descriptions bordered"
 >
   <div
     class="ant-descriptions-title"
@@ -157,7 +157,7 @@ exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
             class="ant-descriptions-item-content"
             colspan="5"
           >
-            2018-04-24 18:00:00 To 2019-04-24 18:00:00
+            2019-04-24 18:00:00
           </td>
         </tr>
         <tr
@@ -258,7 +258,7 @@ exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
 exports[`renders ./components/descriptions/demo/responsive.md correctly 1`] = `
 <div>
   <div
-    class="ant-descriptions border"
+    class="ant-descriptions"
   >
     <div
       class="ant-descriptions-title"
@@ -444,7 +444,7 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
   <br />
   <br />
   <div
-    class="ant-descriptions border"
+    class="ant-descriptions"
   >
     <div
       class="ant-descriptions-title"

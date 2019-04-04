@@ -24,7 +24,6 @@ const Demo = () => {
       <Descriptions
         title="Responsive Descriptions"
         border
-        size={this.state.size}
         column={{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}
       >
         <DescriptionsItem label="Product">Cloud Database</DescriptionsItem>

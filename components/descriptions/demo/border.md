@@ -19,15 +19,13 @@ import { Descriptions, Badge } from 'antd';
 const DescriptionsItem = Descriptions.Item;
 
 ReactDOM.render(
-  <Descriptions title="User Info" border>
+  <Descriptions title="User Info" bordered>
     <DescriptionsItem label="Product">Cloud Database</DescriptionsItem>
     <DescriptionsItem label="Billing Mode">Prepaid</DescriptionsItem>
     <DescriptionsItem label="Automatic Renewal">YES</DescriptionsItem>
-    <DescriptionsItem label="Order time">
-      2018-04-24 18:00:00
-    </DescriptionsItem>
+    <DescriptionsItem label="Order time">2018-04-24 18:00:00</DescriptionsItem>
     <DescriptionsItem label="Usage Time" span={3}>
-      2018-04-24 18:00:00 To 2019-04-24 18:00:00
+      2019-04-24 18:00:00
     </DescriptionsItem>
     <DescriptionsItem label="Status" span={3}>
       <Badge status="processing" text="Running" />

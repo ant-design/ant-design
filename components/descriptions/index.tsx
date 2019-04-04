@@ -1,7 +1,11 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import warning from '../_util/warning';
-import { responsiveMap, Breakpoint, RowState, enquire, responsiveArray } from '../grid/row';
+import ResponsiveObserve, {
+  Breakpoint,
+  BreakpointMap,
+  responsiveArray,
+} from '../_util/responsiveObserve';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface DescriptionsItemProps {
@@ -88,9 +92,9 @@ const renderRow = (
   index: number,
   { prefixCls, column, isLast }: { prefixCls: string; column: number; isLast: boolean },
 ) => {
-  let lastChildren = children[children.length - 1] as React.ReactElement<DescriptionsItemProps>;
+  let lastChildren = children.pop() as React.ReactElement<DescriptionsItemProps>;
   const span = column - children.length;
-  if (isLast && span > 0) {
+  if (isLast) {
     lastChildren = React.cloneElement(lastChildren as React.ReactElement<DescriptionsItemProps>, {
       span,
     });
@@ -110,7 +114,7 @@ const renderRow = (
 };
 
 const defaultColumnMap = {
-  xxl: 4,
+  xxl: 3,
   xl: 3,
   lg: 3,
   md: 3,
@@ -118,52 +122,40 @@ const defaultColumnMap = {
   xs: 1,
 };
 
-class Descriptions extends React.Component<DescriptionsProps, RowState> {
+class Descriptions extends React.Component<
+  DescriptionsProps,
+  {
+    screens: BreakpointMap;
+  }
+> {
   static defaultProps: DescriptionsProps = {
     size: 'default',
     column: defaultColumnMap,
   };
   static Item: typeof DescriptionsItem;
-  state: RowState = {
+  state: {
+    screens: BreakpointMap;
+  } = {
     screens: {},
   };
-
+  token: string;
   componentDidMount() {
     const { column } = this.props;
-    Object.keys(responsiveMap).map((screen: Breakpoint) =>
-      enquire.register(responsiveMap[screen], {
-        match: () => {
-          if (typeof column !== 'object') {
-            return;
-          }
-          this.setState(prevState => ({
-            screens: {
-              ...prevState.screens,
-              [screen]: true,
-            },
-          }));
+    this.token = ResponsiveObserve.subscribe(screens => {
+      if (typeof column !== 'object') {
+        return;
+      }
+      this.setState(
+        {
+          screens,
         },
-        unmatch: () => {
-          if (typeof column !== 'object') {
-            return;
-          }
-          this.setState(prevState => ({
-            screens: {
-              ...prevState.screens,
-              [screen]: false,
-            },
-          }));
-        },
-        // Keep a empty destory to avoid triggering unmatch when unregister
-        destroy() {},
-      }),
-    );
+        () => this.forceUpdate(),
+      );
+    });
   }
 
   componentWillUnmount() {
-    Object.keys(responsiveMap).map((screen: Breakpoint) =>
-      enquire.unregister(responsiveMap[screen]),
-    );
+    ResponsiveObserve.unsubscribe(this.token);
   }
 
   getColumn(): number {
@@ -176,7 +168,6 @@ class Descriptions extends React.Component<DescriptionsProps, RowState> {
         }
       }
     }
-
     //If the configuration is not an object, it is a number, return number
     if (typeof column === 'number') {
       return column as number;
@@ -201,7 +192,6 @@ class Descriptions extends React.Component<DescriptionsProps, RowState> {
           const prefixCls = getPrefixCls('descriptions', customizePrefixCls);
 
           const column = this.getColumn();
-
           const cloneChildren = React.Children.map(
             children,
             (child: React.ReactElement<DescriptionsItemProps>) => {
@@ -214,7 +204,6 @@ class Descriptions extends React.Component<DescriptionsProps, RowState> {
           const childrenArray: Array<
             React.ReactElement<DescriptionsItemProps>[]
           > = generateChildrenRows(cloneChildren, column);
-
           return (
             <div
               className={classNames(prefixCls, className, {
@@ -225,13 +214,15 @@ class Descriptions extends React.Component<DescriptionsProps, RowState> {
               {title && <div className={`${prefixCls}-title`}>{title}</div>}
               <div className={`${prefixCls}-view`}>
                 <table>
-                  {childrenArray.map((child, index) =>
-                    renderRow(child, index, {
-                      prefixCls,
-                      column,
-                      isLast: index + 1 === childrenArray.length,
-                    }),
-                  )}
+                  <tbody>
+                    {childrenArray.map((child, index) =>
+                      renderRow(child, index, {
+                        prefixCls,
+                        column,
+                        isLast: index + 1 === childrenArray.length,
+                      }),
+                    )}
+                  </tbody>
                 </table>
               </div>
             </div>
