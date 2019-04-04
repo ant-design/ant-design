@@ -61,7 +61,7 @@ export interface SiderProps extends React.HTMLAttributes<HTMLDivElement> {
 type InternalSideProps = SiderProps & LayoutContextProps;
 
 export interface SiderState {
-  collapsed: boolean;
+  collapsed?: boolean;
   below: boolean;
   belowShow?: boolean;
 }
@@ -114,7 +114,7 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
       collapsed = props.defaultCollapsed;
     }
     this.state = {
-      collapsed: collapsed || false,
+      collapsed,
       below: false,
     };
   }
