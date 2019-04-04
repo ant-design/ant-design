@@ -278,7 +278,6 @@ exports[`renders ./components/layout/demo/custom-trigger-debug.md correctly 1`] 
       />
       <ul
         class="ant-menu ant-menu-dark ant-menu-inline-collapsed ant-menu-root ant-menu-vertical"
-        collapsedwidth="80"
         role="menu"
       >
         <li

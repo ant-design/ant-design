@@ -77,8 +77,6 @@ const generateId = (() => {
 })();
 
 class InternalSider extends React.Component<InternalSideProps, SiderState> {
-  static __ANT_LAYOUT_SIDER: any = true;
-
   static defaultProps = {
     collapsible: false,
     defaultCollapsed: false,
@@ -271,6 +269,8 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
 polyfill(InternalSider);
 
 export default class Sider extends React.Component {
+  static __ANT_LAYOUT_SIDER: any = true;
+
   render() {
     return (
       <LayoutContext.Consumer>

@@ -2,6 +2,7 @@ import * as React from 'react';
 import RcMenu, { Divider, ItemGroup } from 'rc-menu';
 import createContext, { Context } from 'create-react-context';
 import classNames from 'classnames';
+import omit from 'omit.js';
 import SubMenu from './SubMenu';
 import Item from './MenuItem';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -262,6 +263,7 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
 
   renderMenu = ({ getPopupContainer, getPrefixCls }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, className, theme, collapsedWidth } = this.props;
+    const passProps = omit(this.props, ['collapsedWidth']);
     const menuMode = this.getRealMenuMode();
     const menuOpenAnimation = this.getMenuOpenAnimation(menuMode!);
 
@@ -296,7 +298,7 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
     return (
       <RcMenu
         getPopupContainer={getPopupContainer}
-        {...this.props}
+        {...passProps}
         {...menuProps}
         prefixCls={prefixCls}
         onTransitionEnd={this.handleTransitionEnd}
