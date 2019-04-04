@@ -207,6 +207,7 @@ export const categories = {
     'phone',
     'filter',
     'exception',
+    'import',
     'export',
     'customer-service',
     'qrcode',

@@ -42,11 +42,6 @@
     color: @link-hover-color;
   }
 
-  &:focus {
-    text-decoration: underline;
-    text-decoration-skip-ink: auto;
-  }
-
   &:active {
     color: @link-active-color;
   }
@@ -190,6 +185,12 @@
   // Text input area
   &-edit-content {
     position: relative;
+
+    div& {
+      left: -@input-padding-horizontal - 1px;
+      margin-top: -@input-padding-vertical-base - 1px;
+      margin-bottom: calc(1em - @input-padding-vertical-base - 2px);
+    }
 
     &-confirm {
       position: absolute;

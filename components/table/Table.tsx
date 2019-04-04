@@ -884,7 +884,14 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         );
 
         sortButton = (
-          <div title={locale.sortTitle} className={`${prefixCls}-column-sorter`} key="sorter">
+          <div
+            title={locale.sortTitle}
+            className={classNames(
+              `${prefixCls}-column-sorter-inner`,
+              ascend && descend && `${prefixCls}-column-sorter-inner-full`,
+            )}
+            key="sorter"
+          >
             {ascend}
             {descend}
           </div>
@@ -919,8 +926,10 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         }),
         title: [
           <div key="title" className={sortButton ? `${prefixCls}-column-sorters` : undefined}>
-            {this.renderColumnTitle(column.title)}
-            {sortButton}
+            <span className={`${prefixCls}-column-title`}>
+              {this.renderColumnTitle(column.title)}
+            </span>
+            <span className={`${prefixCls}-column-sorter`}>{sortButton}</span>
           </div>,
           filterDropdown,
         ],
@@ -1121,7 +1130,6 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     renderEmpty: RenderEmptyHandler,
     dropdownPrefixCls: string,
     contextLocale: TableLocale,
-    loading: SpinProps,
   ) => {
     const { style, className, showHeader, locale, ...restProps } = this.props;
     const data = this.getCurrentPageData();
@@ -1164,7 +1172,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         className={classString}
         expandIconColumnIndex={expandIconColumnIndex}
         expandIconAsCell={expandIconAsCell}
-        emptyText={!loading.spinning && mergedLocale.emptyText}
+        emptyText={mergedLocale.emptyText}
       />
     );
   };
@@ -1189,7 +1197,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     const dropdownPrefixCls = getPrefixCls('dropdown', customizeDropdownPrefixCls);
     const table = (
       <LocaleReceiver componentName="Table" defaultLocale={defaultLocale.Table}>
-        {locale => this.renderTable(prefixCls, renderEmpty, dropdownPrefixCls, locale, loading)}
+        {locale => this.renderTable(prefixCls, renderEmpty, dropdownPrefixCls, locale)}
       </LocaleReceiver>
     );
 

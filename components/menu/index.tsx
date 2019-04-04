@@ -54,6 +54,7 @@ export interface MenuProps {
   focusable?: boolean;
   onMouseEnter?: (e: MouseEvent) => void;
   getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
+  overflowedIndicator?: React.ReactNode;
 }
 
 export interface MenuState {
@@ -89,6 +90,7 @@ class Menu extends React.Component<MenuProps, MenuState> {
   context: any;
   switchingModeFromInline: boolean;
   inlineOpenKeys: string[] = [];
+  contextSiderCollapsed: boolean = true;
 
   constructor(props: MenuProps) {
     super(props);
@@ -129,12 +131,20 @@ class Menu extends React.Component<MenuProps, MenuState> {
     if (prevProps.mode === 'inline' && this.props.mode !== 'inline') {
       this.switchingModeFromInline = true;
     }
-    if (this.props.inlineCollapsed && !prevProps.inlineCollapsed) {
+    if (
+      (this.props.inlineCollapsed && !prevProps.inlineCollapsed) ||
+      (this.getInlineCollapsed() && this.contextSiderCollapsed)
+    ) {
+      this.contextSiderCollapsed = false;
       this.switchingModeFromInline = true;
       this.inlineOpenKeys = this.state.openKeys;
       this.setState({ openKeys: [] });
     }
-    if (!this.props.inlineCollapsed && prevProps.inlineCollapsed) {
+    if (
+      (!this.props.inlineCollapsed && prevProps.inlineCollapsed) ||
+      (!this.getInlineCollapsed() && !this.contextSiderCollapsed)
+    ) {
+      this.contextSiderCollapsed = true;
       this.setState({ openKeys: this.inlineOpenKeys });
       this.inlineOpenKeys = [];
     }
@@ -157,18 +167,29 @@ class Menu extends React.Component<MenuProps, MenuState> {
       onMouseEnter(e);
     }
   };
+
   handleTransitionEnd = (e: TransitionEvent) => {
     // when inlineCollapsed menu width animation finished
     // https://github.com/ant-design/ant-design/issues/12864
     const widthCollapsed = e.propertyName === 'width' && e.target === e.currentTarget;
+
+    // Fix SVGElement e.target.className.indexOf is not a function
+    // https://github.com/ant-design/ant-design/issues/15699
+    const { className } = e.target as (HTMLElement | SVGElement);
+    // SVGAnimatedString.animVal should be identical to SVGAnimatedString.baseVal, unless during an animation.
+    const classNameValue =
+      Object.prototype.toString.call(className) === '[object SVGAnimatedString]'
+        ? className.animVal
+        : className;
+
     // Fix for <Menu style={{ width: '100%' }} />, the width transition won't trigger when menu is collapsed
     // https://github.com/ant-design/ant-design-pro/issues/2783
-    const iconScaled =
-      e.propertyName === 'font-size' && (e.target as HTMLElement).className.indexOf('anticon') >= 0;
+    const iconScaled = e.propertyName === 'font-size' && classNameValue.indexOf('anticon') >= 0;
     if (widthCollapsed || iconScaled) {
       this.restoreModeVerticalFromInline();
     }
   };
+
   handleClick = (e: ClickParam) => {
     this.handleOpenChange([]);
 
@@ -177,6 +198,7 @@ class Menu extends React.Component<MenuProps, MenuState> {
       onClick(e);
     }
   };
+
   handleOpenChange = (openKeys: string[]) => {
     this.setOpenKeys(openKeys);
 
@@ -185,6 +207,7 @@ class Menu extends React.Component<MenuProps, MenuState> {
       onOpenChange(openKeys);
     }
   };
+
   setOpenKeys(openKeys: string[]) {
     if (!('openKeys' in this.props)) {
       this.setState({ openKeys });
@@ -204,6 +227,9 @@ class Menu extends React.Component<MenuProps, MenuState> {
     const { inlineCollapsed } = this.props;
     if (this.context.siderCollapsed !== undefined) {
       return this.context.siderCollapsed;
+    }
+    if (this.contextSiderCollapsed) {
+      return false;
     }
     return inlineCollapsed;
   }

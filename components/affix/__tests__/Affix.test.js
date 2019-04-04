@@ -48,7 +48,7 @@ describe('Affix Render', () => {
   };
 
   const originGetBoundingClientRect = HTMLElement.prototype.getBoundingClientRect;
-  HTMLElement.prototype.getBoundingClientRect = function() {
+  HTMLElement.prototype.getBoundingClientRect = function getBoundingClientRect() {
     return (
       classRect[this.className] || {
         top: 0,
@@ -126,5 +126,15 @@ describe('Affix Render', () => {
     });
     jest.runAllTimers();
     expect(wrapper.instance().affix.state.affixStyle.top).toBe(10);
+  });
+
+  it('updatePosition when target changed', () => {
+    const container = '<div id="mounter" />';
+    const getTarget = () => container;
+    wrapper = mount(<Affix target={getTarget} />);
+    wrapper.setProps({ target: null });
+    expect(wrapper.instance().state.status).toBe(0);
+    expect(wrapper.instance().state.affixStyle).toBe(undefined);
+    expect(wrapper.instance().state.placeholderStyle).toBe(undefined);
   });
 });

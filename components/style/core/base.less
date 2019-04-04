@@ -77,7 +77,7 @@ body {
   font-variant: @font-variant-base;
   line-height: @line-height-base;
   background-color: @body-background; // 2
-  font-feature-settings: 'tnum';
+  font-feature-settings: @font-feature-settings-base;
 }
 
 // Suppress the focus outline on elements that cannot be accessed via keyboard.
@@ -230,11 +230,6 @@ a {
   cursor: pointer;
   transition: color 0.3s;
   -webkit-text-decoration-skip: objects; // remove gaps in links underline in iOS 8+ and Safari 8+.
-
-  &:focus {
-    text-decoration: underline;
-    text-decoration-skip-ink: auto;
-  }
 
   &:hover {
     color: @link-hover-color;

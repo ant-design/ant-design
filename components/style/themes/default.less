@@ -47,12 +47,14 @@
 @text-color-warning: @gold-7;
 @text-color-danger: @red-7;
 @text-color-inverse: @white;
+@icon-color: inherit;
 @icon-color-hover: fade(@black, 75%);
 @heading-color: fade(#000, 85%);
 @heading-color-dark: fade(@white, 100%);
 @text-color-dark: fade(@white, 85%);
 @text-color-secondary-dark: fade(@white, 65%);
 @font-variant-base: tabular-nums;
+@font-feature-settings-base: 'tnum';
 @font-size-base: 14px;
 @font-size-lg: @font-size-base + 2px;
 @font-size-sm: 12px;
@@ -139,6 +141,8 @@
 @btn-font-weight: 400;
 @btn-border-radius-base: @border-radius-base;
 @btn-border-radius-sm: @border-radius-base;
+@btn-border-width: @border-width-base;
+@btn-border-style: @border-style-base;
 @btn-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
 @btn-primary-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
 @btn-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
@@ -189,6 +193,7 @@
 
 // Radio buttons
 @radio-button-bg: @btn-default-bg;
+@radio-button-checked-bg: @btn-default-bg;
 @radio-button-color: @btn-default-color;
 @radio-button-hover-color: @primary-5;
 @radio-button-active-color: @primary-7;
@@ -214,7 +219,7 @@
 @screen-xl: 1200px;
 @screen-xl-min: @screen-xl;
 
-// Extra extra large screen / large descktop
+// Extra extra large screen / large desktop
 @screen-xxl: 1600px;
 @screen-xxl-min: @screen-xxl;
 
@@ -248,12 +253,12 @@
 @layout-trigger-color-light: @text-color;
 
 // z-index list, order by `z-index`
+@zindex-table-fixed: auto;
 @zindex-affix: 10;
 @zindex-back-top: 10;
 @zindex-badge: 10;
 @zindex-picker-panel: 10;
 @zindex-popup-close: 10;
-@zindex-table-fixed: 20;
 @zindex-modal: 1000;
 @zindex-modal-mask: 1000;
 @zindex-message: 1010;
@@ -302,6 +307,7 @@
 // Select
 // ---
 @select-border-color: @border-color-base;
+@select-item-selected-font-weight: 600;
 
 // Tooltip
 // ---
@@ -338,7 +344,9 @@
 
 // Modal
 // --
+@modal-body-padding: 24px;
 @modal-header-bg: @component-background;
+@modal-footer-bg: tranparent;
 @modal-mask-bg: fade(@black, 65%);
 
 // Progress
@@ -425,7 +433,6 @@
 @card-head-padding: 16px;
 @card-inner-head-padding: 12px;
 @card-padding-base: 24px;
-@card-padding-wider: 32px;
 @card-actions-background: @background-color-light;
 @card-background: #cfd8dc;
 @card-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
@@ -494,6 +501,12 @@
 @pagination-item-size-sm: 24px;
 @pagination-font-family: Arial;
 @pagination-font-weight-active: 500;
+@pagination-item-bg-active: transparent;
+
+// PageHeader
+// ---
+@page-header-padding-horizontal: 24px;
+@page-header-padding-vertical: 16px;
 
 // Breadcrumb
 // ---

@@ -1,4 +1,3 @@
-require('core-js/es6/string');
 const path = require('path');
 
 const homeTmpl = './template/Home/index';

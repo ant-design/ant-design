@@ -7,7 +7,7 @@ import omit from 'omit.js';
 import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Wave from '../_util/wave';
-import { tuple } from '../_util/type';
+import { Omit, tuple } from '../_util/type';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
@@ -67,13 +67,13 @@ export type AnchorButtonProps = {
   target?: string;
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 } & BaseButtonProps &
-  React.AnchorHTMLAttributes<HTMLAnchorElement>;
+  Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'type'>;
 
 export type NativeButtonProps = {
   htmlType?: ButtonHTMLType;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 } & BaseButtonProps &
-  React.ButtonHTMLAttributes<HTMLButtonElement>;
+  Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type'>;
 
 export type ButtonProps = AnchorButtonProps | NativeButtonProps;
 
@@ -90,6 +90,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     loading: false,
     ghost: false,
     block: false,
+    htmlType: 'button',
   };
 
   static propTypes = {
@@ -219,6 +220,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
         break;
       case 'small':
         sizeCls = 'sm';
+        break;
       default:
         break;
     }
@@ -265,7 +267,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
       <Wave>
         <button
           {...otherProps as NativeButtonProps}
-          type={htmlType || 'button'}
+          type={htmlType}
           className={classes}
           onClick={this.handleClick}
           ref={this.saveButtonRef}

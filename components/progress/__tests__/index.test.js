@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Progress from '..';
+import { handleGradient, sortGradient } from '../Line';
 
 describe('Progress', () => {
   it('successPercent should decide the progress status when it exists', () => {
@@ -48,10 +49,41 @@ describe('Progress', () => {
   it('render strokeColor', () => {
     const wrapper = mount(<Progress type="circle" percent={50} strokeColor="red" />);
     expect(wrapper.render()).toMatchSnapshot();
+    wrapper.setProps({
+      strokeColor: {
+        from: '#108ee9',
+        to: '#87d068',
+      },
+      type: 'line',
+    });
+    expect(wrapper).toMatchSnapshot();
+    wrapper.setProps({
+      strokeColor: {
+        '0%': '#108ee9',
+        '100%': '#87d068',
+      },
+    });
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('render normal progress', () => {
     const wrapper = mount(<Progress status="normal" />);
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('get correct line-gradient', () => {
+    expect(handleGradient({ from: 'test', to: 'test' }).backgroundImage).toBe(
+      'linear-gradient(to right, test, test)',
+    );
+    expect(handleGradient({}).backgroundImage).toBe('linear-gradient(to right, #1890ff, #1890ff)');
+    expect(handleGradient({ from: 'test', to: 'test', '0%': 'test' }).backgroundImage).toBe(
+      'linear-gradient(to right, test 0%)',
+    );
+  });
+
+  it('sort gradients correctly', () => {
+    expect(sortGradient({ '10%': 'test10', '30%': 'test30', '20%': 'test20' })).toBe(
+      'test10 10%, test20 20%, test30 30%',
+    );
   });
 });

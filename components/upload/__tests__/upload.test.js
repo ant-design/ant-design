@@ -37,7 +37,7 @@ describe('Upload', () => {
       data,
       onChange: ({ file }) => {
         if (file.status !== 'uploading') {
-          expect(data).toBeCalled();
+          expect(data).toHaveBeenCalled();
           done();
         }
       },
@@ -71,7 +71,7 @@ describe('Upload', () => {
       data,
       onChange: ({ file }) => {
         if (file.status !== 'uploading') {
-          expect(data).toBeCalled();
+          expect(data).toHaveBeenCalled();
           expect(file.name).toEqual('test.png');
           done();
         }
@@ -110,7 +110,7 @@ describe('Upload', () => {
       onChange: ({ file, fileList: updatedFileList }) => {
         expect(file instanceof File).toBe(true);
         expect(updatedFileList.map(f => f.name)).toEqual(['bar.png', 'foo.png']);
-        expect(data).not.toBeCalled();
+        expect(data).not.toHaveBeenCalled();
         done();
       },
     };
@@ -170,7 +170,7 @@ describe('Upload', () => {
       beforeUpload() {},
       data,
       onChange: () => {
-        expect(data).toBeCalled();
+        expect(data).toHaveBeenCalled();
         done();
       },
     };
@@ -354,7 +354,7 @@ describe('Upload', () => {
     setImmediate(() => {
       wrapper.update();
 
-      expect(mockRemove).toBeCalled();
+      expect(mockRemove).toHaveBeenCalled();
       expect(props.fileList).toHaveLength(1);
       expect(props.fileList[0].status).toBe('done');
       done();
@@ -369,5 +369,40 @@ describe('Upload', () => {
       </Upload>,
     );
     expect(typeof wrapper.instance().upload.abort).toBe('function');
+  });
+
+  it('unmount', () => {
+    const wrapper = mount(
+      <Upload>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    const clearIntervalSpy = jest.spyOn(global, 'clearInterval');
+    expect(clearIntervalSpy).not.toHaveBeenCalled();
+    wrapper.unmount();
+    expect(clearIntervalSpy).toHaveBeenCalled();
+    clearIntervalSpy.mockRestore();
+  });
+
+  it('corrent dragCls when type is drag', () => {
+    const fileList = [{ status: 'uploading', uid: 'file' }];
+    const wrapper = mount(
+      <Upload type="drag" fileList={fileList}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    expect(wrapper.find('.ant-upload-drag-uploading').length).toBe(1);
+  });
+
+  it('return when targetItem is null', () => {
+    const fileList = [{ uid: 'file' }];
+    const wrapper = mount(
+      <Upload type="drag" fileList={fileList}>
+        <button type="button">upload</button>
+      </Upload>,
+    ).instance();
+    expect(wrapper.onSuccess('', { uid: 'fileItem' })).toBe(undefined);
+    expect(wrapper.onProgress('', { uid: 'fileItem' })).toBe(undefined);
+    expect(wrapper.onError('', '', { uid: 'fileItem' })).toBe(undefined);
   });
 });

@@ -94,6 +94,18 @@
     &-warning {
       background-color: @warning-color;
     }
+
+    // mixin to iterate over colors and create CSS class for each one
+    .make-color-classes(@i: length(@preset-colors)) when (@i > 0) {
+      .make-color-classes(@i - 1);
+      @color: extract(@preset-colors, @i);
+      @darkColor: '@{color}-6';
+      &-@{color} {
+        background: @@darkColor;
+      }
+    }
+    .make-color-classes();
+
     &-text {
       margin-left: 8px;
       color: @text-color;
@@ -113,7 +125,9 @@
   }
 
   &-not-a-wrapper {
-    vertical-align: middle;
+    &:not(.@{badge-prefix-cls}-status) {
+      vertical-align: middle;
+    }
 
     .@{ant-prefix}-scroll-number {
       position: relative;
@@ -148,6 +162,10 @@
       height: @badge-height;
       margin: 0;
     }
+  }
+
+  &-symbol {
+    vertical-align: top;
   }
 }
 

@@ -144,14 +144,14 @@ export default class Header extends React.Component<HeaderProps, any> {
     const prefixCls = getPrefixCls('fullcalendar', customizePrefixCls);
     const yearSelect = this.getYearSelectElement(prefixCls, value.year());
     const monthSelect =
-      type === 'date'
+      type === 'month'
         ? this.getMonthSelectElement(prefixCls, value.month(), this.getMonthsLocale(value))
         : null;
-    const size = (fullscreen ? 'default' : 'small') as any;
+    const size = fullscreen ? 'default' : 'small';
     const typeSwitch = (
       <Group onChange={this.onTypeChange} value={type} size={size}>
-        <Button value="date">{locale.month}</Button>
-        <Button value="month">{locale.year}</Button>
+        <Button value="month">{locale.month}</Button>
+        <Button value="year">{locale.year}</Button>
       </Group>
     );
 

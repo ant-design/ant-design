@@ -83,7 +83,7 @@
       font-size: @font-size-base;
     }
 
-    &-icon {
+    .@{iconfont-css-prefix}&-icon {
       position: absolute;
       margin-left: 4px;
       font-size: 24px;
@@ -109,10 +109,6 @@
       right: 22px;
       color: @text-color-secondary;
       outline: none;
-
-      a&:focus {
-        text-decoration: none;
-      }
 
       &:hover {
         color: shade(@text-color-secondary, 40%);

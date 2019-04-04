@@ -76,12 +76,12 @@ describe('Layout', () => {
 
   it('detect ant-layout-sider-dark as default theme', async () => {
     const wrapper = mount(<Sider>Sider</Sider>);
-    expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-dark'));
+    expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-dark')).toBe(true);
   });
 
   it('detect ant-layout-sider-light when set light theme', async () => {
     const wrapper = mount(<Sider theme="light">Sider</Sider>);
-    expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-light'));
+    expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-light')).toBe(true);
   });
 
   it('renders string width correctly', () => {
@@ -94,6 +94,15 @@ describe('Layout', () => {
     expect(wrapper.instance().state.collapsed).toBe(false);
     wrapper.setProps({ collapsed: true });
     expect(wrapper.instance().state.collapsed).toBe(true);
+  });
+
+  it('should not add ant-layout-has-sider when `hasSider` is `false`', () => {
+    const wrapper = mount(
+      <Layout hasSider={false}>
+        <Sider>Sider</Sider>
+      </Layout>,
+    );
+    expect(wrapper.find('.ant-layout').hasClass('ant-layout-has-sider')).toBe(false);
   });
 });
 
@@ -116,6 +125,6 @@ describe('Sider onBreakpoint', () => {
         Sider
       </Sider>,
     );
-    expect(onBreakpoint).toBeCalledWith(true);
+    expect(onBreakpoint).toHaveBeenCalledWith(true);
   });
 });

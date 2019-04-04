@@ -35,7 +35,7 @@ Ant Design's color palette also has the ability to further extend. After careful
 `````__react
 import Palette from '../../site/theme/template/Color/Palette';
 
-ReactDOM.render(<Palette color={{ name: 'grey' }} direction="horizontal" />, mountNode);
+ReactDOM.render(<Palette color={{ name: 'gray' }} direction="horizontal" />, mountNode);
 `````
 
 ### Data Visualization  Color Palette (Coming soon)

@@ -405,7 +405,7 @@ exports[`renders ./components/checkbox/demo/layout.md correctly 1`] = `
     class="ant-row"
   >
     <div
-      class="ant-col-8"
+      class="ant-col ant-col-8"
     >
       <label
         class="ant-checkbox-wrapper"
@@ -428,7 +428,7 @@ exports[`renders ./components/checkbox/demo/layout.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-8"
+      class="ant-col ant-col-8"
     >
       <label
         class="ant-checkbox-wrapper"
@@ -451,7 +451,7 @@ exports[`renders ./components/checkbox/demo/layout.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-8"
+      class="ant-col ant-col-8"
     >
       <label
         class="ant-checkbox-wrapper"
@@ -474,7 +474,7 @@ exports[`renders ./components/checkbox/demo/layout.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-8"
+      class="ant-col ant-col-8"
     >
       <label
         class="ant-checkbox-wrapper"
@@ -497,7 +497,7 @@ exports[`renders ./components/checkbox/demo/layout.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-8"
+      class="ant-col ant-col-8"
     >
       <label
         class="ant-checkbox-wrapper"

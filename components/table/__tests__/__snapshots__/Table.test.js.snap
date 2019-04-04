@@ -36,7 +36,14 @@ exports[`Table renders JSX correctly 1`] = `
                     colspan="2"
                   >
                     <div>
-                      Name
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Name
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
@@ -44,7 +51,14 @@ exports[`Table renders JSX correctly 1`] = `
                     rowspan="2"
                   >
                     <div>
-                      Age
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Age
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                 </tr>
@@ -53,14 +67,28 @@ exports[`Table renders JSX correctly 1`] = `
                     class=""
                   >
                     <div>
-                      First Name
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        First Name
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                   <th
                     class=""
                   >
                     <div>
-                      Last Name
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Last Name
+                      </span>
+                      <span
+                        class="ant-table-column-sorter"
+                      />
                     </div>
                   </th>
                 </tr>

@@ -53,7 +53,6 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
   static defaultProps = {
     locale: {},
     fullscreen: true,
-    mode: 'month' as CalendarMode,
     onSelect: noop,
     onPanelChange: noop,
     onChange: noop,
@@ -100,7 +99,7 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
     }
     this.state = {
       value,
-      mode: props.mode,
+      mode: props.mode || 'month',
     };
   }
 
@@ -145,20 +144,13 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
     }
   };
 
-  setType = (type: string) => {
-    const mode = type === 'date' ? 'month' : 'year';
-    if (this.state.mode !== mode) {
-      this.setState({ mode });
-      this.onPanelChange(this.state.value, mode);
-    }
-  };
-
   onHeaderValueChange = (value: moment.Moment) => {
     this.setValue(value, 'changePanel');
   };
 
-  onHeaderTypeChange = (type: string) => {
-    this.setType(type);
+  onHeaderTypeChange = (mode: CalendarMode) => {
+    this.setState({ mode });
+    this.onPanelChange(this.state.value, mode);
   };
 
   onPanelChange(value: moment.Moment, mode: CalendarMode | undefined) {
@@ -216,8 +208,6 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
       dateFullCellRender,
       monthFullCellRender,
     } = props;
-    const type = mode === 'year' ? 'month' : 'date';
-
     const monthCellRender = monthFullCellRender || this.monthCellRender;
     const dateCellRender = dateFullCellRender || this.dateCellRender;
 
@@ -246,7 +236,7 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
             <div className={cls} style={style}>
               <Header
                 fullscreen={fullscreen}
-                type={type}
+                type={mode}
                 value={value}
                 locale={locale.lang}
                 prefixCls={prefixCls}
@@ -259,7 +249,7 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
                 disabledDate={disabledDate}
                 Select={noop}
                 locale={locale.lang}
-                type={type}
+                type={mode === 'year' ? 'month' : 'date'}
                 prefixCls={prefixCls}
                 showHeader={false}
                 value={value}

@@ -69,30 +69,43 @@
     }
 
     .@{table-prefix-cls}-column-sorter {
-      position: absolute;
-      top: 50%;
-      right: 6px;
-      width: 14px;
-      height: @font-size-lg + 1px;
-      margin-top: -(@font-size-lg + 1px) / 2;
-      color: @table-header-icon-color;
-      text-align: center;
-      transition: all 0.3s;
+      display: table-cell;
+      vertical-align: middle;
 
-      &-up,
-      &-down {
-        .iconfont-size-under-12px(11px);
-        display: block;
-        height: 4px;
-        line-height: 4px;
+      .@{table-prefix-cls}-column-sorter-inner {
+        height: 1em;
+        margin-top: 0.35em;
+        margin-left: 0.57142857em;
+        color: @table-header-icon-color;
+        line-height: 1em;
+        text-align: center;
         transition: all 0.3s;
-        &.on {
-          color: @primary-color;
-        }
-      }
 
-      &-down {
-        margin-top: 4px;
+        .@{table-prefix-cls}-column-sorter-up,
+        .@{table-prefix-cls}-column-sorter-down {
+          .iconfont-size-under-12px(11px);
+          display: block;
+          height: 1em;
+          line-height: 1em;
+          transition: all 0.3s;
+          &.on {
+            color: @primary-color;
+          }
+        }
+
+        &-full {
+          margin-top: -0.15em;
+
+          .@{table-prefix-cls}-column-sorter-up,
+          .@{table-prefix-cls}-column-sorter-down {
+            height: 0.5em;
+            line-height: 0.5em;
+          }
+
+          .@{table-prefix-cls}-column-sorter-down {
+            margin-top: 0.125em;
+          }
+        }
       }
     }
 
@@ -110,7 +123,7 @@
             background: @table-header-filter-active-bg;
           }
         }
-        // Very complicated styles logic but neccessary
+        // Very complicated styles logic but necessary
         &:hover {
           .@{iconfont-css-prefix}-filter,
           .@{table-prefix-cls}-filter-icon {
@@ -154,6 +167,13 @@
     }
 
     .@{table-prefix-cls}-column-sorters {
+      display: table;
+
+      > .@{table-prefix-cls}-column-title {
+        display: table-cell;
+        vertical-align: middle;
+      }
+
       > *:not(.@{table-prefix-cls}-column-sorter) {
         position: relative;
       }
@@ -170,10 +190,6 @@
       &:hover::before {
         background: rgba(0, 0, 0, 0.04);
       }
-    }
-
-    &.@{table-prefix-cls}-column-has-filters .@{table-prefix-cls}-column-sorter {
-      right: 28px + 6px;
     }
 
     &.@{table-prefix-cls}-column-has-sorters {
