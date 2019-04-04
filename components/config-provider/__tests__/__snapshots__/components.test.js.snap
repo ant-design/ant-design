@@ -15478,7 +15478,7 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
         class="config-transfer-list-body-not-found"
       >
         <div
-          class="config-empty config-empty-small"
+          class="config-empty config-empty-normal config-empty-small"
         >
           <div
             class="config-empty-image"
@@ -15588,7 +15588,7 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
         class="config-transfer-list-body-not-found"
       >
         <div
-          class="config-empty config-empty-small"
+          class="config-empty config-empty-normal config-empty-small"
         >
           <div
             class="config-empty-image"
@@ -15653,7 +15653,7 @@ exports[`ConfigProvider components Transfer normal 1`] = `
         class="ant-transfer-list-body-not-found"
       >
         <div
-          class="ant-empty ant-empty-small"
+          class="ant-empty ant-empty-normal ant-empty-small"
         >
           <div
             class="ant-empty-image"
@@ -15763,7 +15763,7 @@ exports[`ConfigProvider components Transfer normal 1`] = `
         class="ant-transfer-list-body-not-found"
       >
         <div
-          class="ant-empty ant-empty-small"
+          class="ant-empty ant-empty-normal ant-empty-small"
         >
           <div
             class="ant-empty-image"
@@ -15828,7 +15828,7 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
         class="prefix-Transfer-list-body-not-found"
       >
         <div
-          class="ant-empty ant-empty-small"
+          class="ant-empty ant-empty-normal ant-empty-small"
         >
           <div
             class="ant-empty-image"
@@ -15938,7 +15938,7 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
         class="prefix-Transfer-list-body-not-found"
       >
         <div
-          class="ant-empty ant-empty-small"
+          class="ant-empty ant-empty-normal ant-empty-small"
         >
           <div
             class="ant-empty-image"

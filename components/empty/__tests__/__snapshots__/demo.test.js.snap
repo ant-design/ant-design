@@ -214,7 +214,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
             class="ant-transfer-list-body-not-found"
           >
             <div
-              class="ant-empty ant-empty-small"
+              class="ant-empty ant-empty-normal ant-empty-small"
             >
               <div
                 class="ant-empty-image"
@@ -324,7 +324,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
             class="ant-transfer-list-body-not-found"
           >
             <div
-              class="ant-empty ant-empty-small"
+              class="ant-empty ant-empty-normal ant-empty-small"
             >
               <div
                 class="ant-empty-image"
@@ -484,7 +484,7 @@ exports[`renders ./components/empty/demo/customize.md correctly 1`] = `
 >
   <div
     class="ant-empty-image"
-    style="height:200px"
+    style="height:60px"
   >
     <img
       alt="empty"
@@ -520,11 +520,10 @@ exports[`renders ./components/empty/demo/customize.md correctly 1`] = `
 
 exports[`renders ./components/empty/demo/simple.md correctly 1`] = `
 <div
-  class="ant-empty"
+  class="ant-empty ant-empty-normal"
 >
   <div
     class="ant-empty-image"
-    style="height:40px"
   >
     <img
       alt="No Data"
