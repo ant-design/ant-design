@@ -59,10 +59,10 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 | 参数 | 说明 | 类型 |
 | --- | --- | --- |
-| mapPropsToFields | 把父组件的属性映射到表单项上（如：把 Redux store 中的值读出），需要对返回值中的表单域数据用 [`Form.createFormField`](#Form.createFormField) 标记 | (props) => ({ \[fieldName\]: FormField { value } }) |
+| mapPropsToFields | 把父组件的属性映射到表单项上（如：把 Redux store 中的值读出），需要对返回值中的表单域数据用 [`Form.createFormField`](#Form.createFormField) 标记，注意表单项将变成受控组件, error等也需要一并手动传入 | (props) => ({ \[fieldName\]: FormField { value } }) |
 | name | 设置表单域内字段 id 的前缀 | - |
 | validateMessages | 默认校验信息，可用于把默认错误信息改为中文等，格式与 [newMessages](https://github.com/yiminghe/async-validator/blob/master/src/messages.js) 返回值一致 | Object { \[nested.path]: String } |
-| onFieldsChange | 当 `Form.Item` 子节点的值发生改变时触发，可以把对应的值转存到 Redux store | Function(props, fields) |
+| onFieldsChange | 当 `Form.Item` 子节点的值（包括error）发生改变时触发，可以把对应的值转存到 Redux store | Function(props, fields) |
 | onValuesChange | 任一表单域的值发生改变时的回调 | (props, changedValues, allValues) => void |
 
 经过 `Form.create` 之后如果要拿到 `ref`，可以使用 `rc-form` 提供的 `wrappedComponentRef`，[详细内容可以查看这里](https://github.com/react-component/form#note-use-wrappedcomponentref-instead-of-withref-after-rc-form140)。
