@@ -483,6 +483,7 @@ exports[`Table.rowSelection render with default selection correctly 1`] = `
     <ul
       class="ant-dropdown-menu ant-table-selection-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical"
       role="menu"
+      tabindex="0"
     >
       <li
         class="ant-dropdown-menu-item"

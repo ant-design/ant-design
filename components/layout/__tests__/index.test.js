@@ -91,9 +91,9 @@ describe('Layout', () => {
 
   it('should be controlled by collapsed', () => {
     const wrapper = mount(<Sider>Sider</Sider>);
-    expect(wrapper.instance().state.collapsed).toBe(false);
+    expect(wrapper.find('InternalSider').instance().state.collapsed).toBe(false);
     wrapper.setProps({ collapsed: true });
-    expect(wrapper.instance().state.collapsed).toBe(true);
+    expect(wrapper.find('InternalSider').instance().state.collapsed).toBe(true);
   });
 
   it('should not add ant-layout-has-sider when `hasSider` is `false`', () => {
