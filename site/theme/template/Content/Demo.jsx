@@ -56,17 +56,25 @@ export default class Demo extends React.Component {
     return '';
   }
 
-  handleCodeExpand = () => {
+  handleCodeExpand = demo => {
     const { codeExpand } = this.state;
     this.setState({ codeExpand: !codeExpand });
+    this.track({
+      type: 'expand',
+      demo,
+    });
   };
 
   saveAnchor = anchor => {
     this.anchor = anchor;
   };
 
-  handleCodeCopied = () => {
+  handleCodeCopied = demo => {
     this.setState({ copied: true });
+    this.track({
+      type: 'copy',
+      demo,
+    });
   };
 
   onCopyTooltipVisibleChange = visible => {
@@ -81,6 +89,17 @@ export default class Demo extends React.Component {
       copyTooltipVisible: visible,
     });
   };
+
+  // eslint-disable-next-line
+  track({ type, demo }) {
+    if (!window.gtag) {
+      return;
+    }
+    window.gtag('event', 'demo', {
+      event_category: type,
+      event_label: demo,
+    });
+  }
 
   render() {
     const { state } = this;
@@ -212,7 +231,12 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
           </div>
           <div className="code-box-description">{introChildren}</div>
           <div className="code-box-actions">
-            <form action="//riddle.alibaba-inc.com/riddles/define" method="POST" target="_blank">
+            <form
+              action="//riddle.alibaba-inc.com/riddles/define"
+              method="POST"
+              target="_blank"
+              onClick={() => this.track({ type: 'riddle', demo: meta.id })}
+            >
               <input type="hidden" name="data" value={JSON.stringify(riddlePrefillConfig)} />
               <Tooltip title={<FormattedMessage id="app.demo.riddle" />}>
                 <input
@@ -222,7 +246,12 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
                 />
               </Tooltip>
             </form>
-            <form action="https://codepen.io/pen/define" method="POST" target="_blank">
+            <form
+              action="https://codepen.io/pen/define"
+              method="POST"
+              target="_blank"
+              onClick={() => this.track({ type: 'codepen', demo: meta.id })}
+            >
               <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
               <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
                 <input
@@ -236,6 +265,7 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
               action="https://codesandbox.io/api/v1/sandboxes/define"
               method="POST"
               target="_blank"
+              onClick={() => this.track({ type: 'codesandbox', demo: meta.id })}
             >
               <input
                 type="hidden"
@@ -250,7 +280,7 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
                 />
               </Tooltip>
             </form>
-            <CopyToClipboard text={sourceCode} onCopy={this.handleCodeCopied}>
+            <CopyToClipboard text={sourceCode} onCopy={() => this.handleCodeCopied(meta.id)}>
               <Tooltip
                 visible={state.copyTooltipVisible}
                 onVisibleChange={this.onCopyTooltipVisibleChange}
@@ -270,13 +300,13 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
                   alt="expand code"
                   src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg"
                   className={codeExpand ? 'code-expand-icon-hide' : 'code-expand-icon-show'}
-                  onClick={this.handleCodeExpand}
+                  onClick={() => this.handleCodeExpand(meta.id)}
                 />
                 <img
                   alt="expand code"
                   src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg"
                   className={codeExpand ? 'code-expand-icon-show' : 'code-expand-icon-hide'}
-                  onClick={this.handleCodeExpand}
+                  onClick={() => this.handleCodeExpand(meta.id)}
                 />
               </span>
             </Tooltip>
