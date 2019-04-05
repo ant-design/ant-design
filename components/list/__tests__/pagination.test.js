@@ -105,8 +105,9 @@ describe('List.pagination', () => {
     expect(wrapper.find('.ant-pagination')).toHaveLength(0);
     wrapper.setProps({ pagination: true });
     expect(wrapper.find('.ant-pagination')).toHaveLength(1);
-    expect(wrapper.find('.ant-pagination-item')).toHaveLength(1); // pageSize will be 10
-    expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+    // Legacy code will make pageSize ping with 10, here we fixed to keep sync by current one
+    expect(wrapper.find('.ant-pagination-item')).toHaveLength(2);
+    expect(renderedNames(wrapper)).toEqual(['Tom', 'Jerry']);
   });
 
   // https://github.com/ant-design/ant-design/issues/5259
