@@ -10,44 +10,48 @@ exports[`List Item Layout horizontal itemLayout List should accept extra node 1`
     <div
       class="ant-spin-container"
     >
-      <div
-        class="ant-list-item"
+      <ul
+        class="ant-list-items"
       >
-        <div
-          class="ant-list-item-meta"
+        <li
+          class="ant-list-item"
         >
           <div
-            class="ant-list-item-meta-content"
+            class="ant-list-item-meta"
           >
-            <h4
-              class="ant-list-item-meta-title"
-            >
-              <a
-                href="http://ant.design"
-              >
-                ant design
-              </a>
-            </h4>
             <div
-              class="ant-list-item-meta-description"
+              class="ant-list-item-meta-content"
             >
-              Ant Design, a design language for background applications, is refined by Ant UED Team.
+              <h4
+                class="ant-list-item-meta-title"
+              >
+                <a
+                  href="http://ant.design"
+                >
+                  ant design
+                </a>
+              </h4>
+              <div
+                class="ant-list-item-meta-description"
+              >
+                Ant Design, a design language for background applications, is refined by Ant UED Team.
+              </div>
             </div>
           </div>
-        </div>
-        <ul
-          class="ant-list-item-action"
-        >
-          <li>
-            <a>
-              Action
-            </a>
-          </li>
-        </ul>
-        <span>
-          extra
-        </span>
-      </div>
+          <ul
+            class="ant-list-item-action"
+          >
+            <li>
+              <a>
+                Action
+              </a>
+            </li>
+          </ul>
+          <span>
+            extra
+          </span>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
