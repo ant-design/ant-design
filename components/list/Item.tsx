@@ -112,9 +112,10 @@ export default class Item extends React.Component<ListItemProps, any> {
         ))}
       </ul>
     );
+    const Tag = grid ? 'div' : 'li';
     const itemChildren = (
-      <div
-        {...others}
+      <Tag
+        {...others as any} // `li` element don't have `onCopy` prop. Cast to any.
         className={classNames(`${prefixCls}-item`, className, {
           [`${prefixCls}-item-no-flex`]: !this.isFlexMode(),
         })}
@@ -134,7 +135,7 @@ export default class Item extends React.Component<ListItemProps, any> {
               actionsContent,
               extra ? React.cloneElement(extra as React.ReactElement<any>, { key: 'extra' }) : null,
             ]}
-      </div>
+      </Tag>
     );
 
     return grid ? (
