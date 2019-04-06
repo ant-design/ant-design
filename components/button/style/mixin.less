@@ -84,6 +84,42 @@
   }
   .button-disabled();
 }
+.button-variant-success(@color; @background; @border) {
+  .button-color(@color; @background; @border);
+  &:hover {
+    .button-color(
+      @btn-primary-color; ~`colorPalette('@{color}', 5) `; ~`colorPalette('@{color}', 5) `
+    );
+  }
+  &:focus {
+    .button-color(~`colorPalette('@{color}', 5) `; #fff; ~`colorPalette('@{color}', 5) `);
+  }
+  &:active,
+  &.active {
+    .button-color(
+      @btn-primary-color; ~`colorPalette('@{color}', 7) `; ~`colorPalette('@{color}', 7) `
+    );
+  }
+  .button-disabled();
+}
+.button-variant-warning(@color; @background; @border) {
+  .button-color(@color; @background; @border);
+  &:hover {
+    .button-color(
+      @btn-primary-color; ~`colorPalette('@{color}', 5) `; ~`colorPalette('@{color}', 5) `
+    );
+  }
+  &:focus {
+    .button-color(~`colorPalette('@{color}', 5) `; #fff; ~`colorPalette('@{color}', 5) `);
+  }
+  &:active,
+  &.active {
+    .button-color(
+      @btn-primary-color; ~`colorPalette('@{color}', 7) `; ~`colorPalette('@{color}', 7) `
+    );
+  }
+  .button-disabled();
+}
 .button-variant-ghost(@color) {
   .button-color(@color; transparent; @color);
   text-shadow: none;
@@ -219,6 +255,14 @@
 // danger button style
 .btn-danger() {
   .button-variant-danger(@btn-danger-color, @btn-danger-bg, @btn-danger-border);
+}
+// danger button style
+.btn-success() {
+  .button-variant-success(@btn-success-color, @btn-success-bg, @btn-success-border);
+}
+// danger button style
+.btn-warning() {
+  .button-variant-warning(@btn-warning-color, @btn-warning-bg, @btn-warning-border);
 }
 // round button
 .btn-round(@btnClassName: btn) {
