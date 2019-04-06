@@ -24,9 +24,9 @@ describe('Alert', () => {
       />,
     );
     wrapper.find('.ant-alert-close-icon').simulate('click');
-    expect(onClose).toBeCalled();
+    expect(onClose).toHaveBeenCalled();
     jest.runAllTimers();
-    expect(afterClose).toBeCalled();
+    expect(afterClose).toHaveBeenCalled();
   });
 
   describe('data and aria props', () => {

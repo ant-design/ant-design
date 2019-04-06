@@ -1189,7 +1189,7 @@ exports[`Cascader should render not found content 1`] = `
                                 componentName="Empty"
                               >
                                 <div
-                                  className="ant-empty ant-empty-small"
+                                  className="ant-empty ant-empty-normal ant-empty-small"
                                 >
                                   <div
                                     className="ant-empty-image"

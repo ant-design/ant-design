@@ -163,12 +163,12 @@ describe('Upload List', () => {
       .find('.anticon-eye-o')
       .at(0)
       .simulate('click');
-    expect(handlePreview).toBeCalledWith(fileList[0]);
+    expect(handlePreview).toHaveBeenCalledWith(fileList[0]);
     wrapper
       .find('.anticon-eye-o')
       .at(1)
       .simulate('click');
-    expect(handlePreview).toBeCalledWith(fileList[1]);
+    expect(handlePreview).toHaveBeenCalledWith(fileList[1]);
   });
 
   it('should support onRemove', async () => {
@@ -188,12 +188,12 @@ describe('Upload List', () => {
       .find('.anticon-delete')
       .at(0)
       .simulate('click');
-    expect(handleRemove).toBeCalledWith(fileList[0]);
+    expect(handleRemove).toHaveBeenCalledWith(fileList[0]);
     wrapper
       .find('.anticon-delete')
       .at(1)
       .simulate('click');
-    expect(handleRemove).toBeCalledWith(fileList[1]);
+    expect(handleRemove).toHaveBeenCalledWith(fileList[1]);
     await delay(0);
     expect(handleChange.mock.calls.length).toBe(2);
   });
@@ -364,7 +364,7 @@ describe('Upload List', () => {
       <UploadList listType="picture-card" items={items} locale={{ previewFile: '' }} />,
     ).instance();
     wrapper.previewFile(file, callback);
-    expect(callback).toBeCalled();
+    expect(callback).toHaveBeenCalled();
   });
 
   it('extname should work correctly when url not exists', () => {
@@ -396,12 +396,12 @@ describe('Upload List', () => {
       />,
     );
     wrapper.find('.ant-upload-list-item-thumbnail').simulate('click');
-    expect(onPreview).toBeCalled();
+    expect(onPreview).toHaveBeenCalled();
     wrapper.find('.ant-upload-list-item-name').simulate('click');
-    expect(onPreview).toBeCalled();
+    expect(onPreview).toHaveBeenCalled();
     wrapper.setProps({ items: [{ thumbUrl: 'thumbUrl', uid: 'upload-list-item' }] });
     wrapper.find('.ant-upload-list-item-name').simulate('click');
-    expect(onPreview).toBeCalled();
+    expect(onPreview).toHaveBeenCalled();
   });
 
   it('upload image file should be converted to the base64', done => {
@@ -431,6 +431,6 @@ describe('Upload List', () => {
     const instance = wrapper.instance();
     const callback = jest.fn();
     instance.previewFile(mockFile, callback);
-    expect(callback).toBeCalledWith('');
+    expect(callback).toHaveBeenCalledWith('');
   });
 });

@@ -37,7 +37,7 @@ describe('Upload', () => {
       data,
       onChange: ({ file }) => {
         if (file.status !== 'uploading') {
-          expect(data).toBeCalled();
+          expect(data).toHaveBeenCalled();
           done();
         }
       },
@@ -71,7 +71,7 @@ describe('Upload', () => {
       data,
       onChange: ({ file }) => {
         if (file.status !== 'uploading') {
-          expect(data).toBeCalled();
+          expect(data).toHaveBeenCalled();
           expect(file.name).toEqual('test.png');
           done();
         }
@@ -110,7 +110,7 @@ describe('Upload', () => {
       onChange: ({ file, fileList: updatedFileList }) => {
         expect(file instanceof File).toBe(true);
         expect(updatedFileList.map(f => f.name)).toEqual(['bar.png', 'foo.png']);
-        expect(data).not.toBeCalled();
+        expect(data).not.toHaveBeenCalled();
         done();
       },
     };
@@ -170,7 +170,7 @@ describe('Upload', () => {
       beforeUpload() {},
       data,
       onChange: () => {
-        expect(data).toBeCalled();
+        expect(data).toHaveBeenCalled();
         done();
       },
     };
@@ -354,7 +354,7 @@ describe('Upload', () => {
     setImmediate(() => {
       wrapper.update();
 
-      expect(mockRemove).toBeCalled();
+      expect(mockRemove).toHaveBeenCalled();
       expect(props.fileList).toHaveLength(1);
       expect(props.fileList[0].status).toBe('done');
       done();

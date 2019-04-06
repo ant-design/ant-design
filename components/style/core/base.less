@@ -8,7 +8,7 @@
 // Normalize is licensed MIT. https://github.com/necolas/normalize.css
 
 // HTML & Body reset
-html,
+@{html-selector},
 body {
   .square(100%);
 }
@@ -35,7 +35,7 @@ input::-ms-reveal {
   box-sizing: border-box; // 1
 }
 
-html {
+@{html-selector} {
   font-family: sans-serif; // 2
   line-height: 1.15; // 3
   -webkit-text-size-adjust: 100%; // 4
@@ -368,7 +368,7 @@ select {
 //    controls in Android 4.
 // 2. Correct the inability to style clickable types in iOS and Safari.
 button,
-html [type="button"], /* 1 */
+@{html-selector} [type="button"], /* 1 */
 [type="reset"],
 [type="submit"] {
   -webkit-appearance: button; // 2

@@ -556,37 +556,13 @@ describe('Menu', () => {
   it('get correct animation type when switched from inline', () => {
     const wrapper = mount(<Menu mode="inline" />);
     wrapper.setProps({ mode: 'horizontal' });
-    expect(wrapper.instance().getMenuOpenAnimation('')).toBe('');
-    expect(wrapper.instance().switchingModeFromInline).toBe(false);
-  });
-
-  it('Menu should not shake when collapsed changed', () => {
-    const wrapper = mount(
-      <Menu
-        defaultSelectedKeys={['5']}
-        defaultOpenKeys={['sub1']}
-        mode="inline"
-        inlineCollapsed={false}
-      >
-        <SubMenu
-          key="sub1"
-          title={
-            <span>
-              <span>Navigation One</span>
-            </span>
-          }
-        >
-          <Menu.Item key="5">Option 5</Menu.Item>
-          <Menu.Item key="6">Option 6</Menu.Item>
-        </SubMenu>
-      </Menu>,
-    );
-    expect(wrapper.instance().contextSiderCollapsed).toBe(true);
-    wrapper.setProps({ inlineCollapsed: true });
-    expect(wrapper.instance().contextSiderCollapsed).toBe(false);
-    jest.runAllTimers();
-    wrapper.update();
-    expect(wrapper.instance().contextSiderCollapsed).toBe(false);
+    expect(
+      wrapper
+        .find('InternalMenu')
+        .instance()
+        .getMenuOpenAnimation(''),
+    ).toBe('');
+    expect(wrapper.find('InternalMenu').state().switchingModeFromInline).toBe(false);
   });
 
   it('MenuItem should not render Tooltip when inlineCollapsed is false', () => {
@@ -614,5 +590,22 @@ describe('Menu', () => {
     jest.runAllTimers();
     wrapper.update();
     expect(wrapper.find('.ant-tooltip-inner').length).toBe(0);
+  });
+
+  it('should controlled collapse work', () => {
+    const wrapper = mount(
+      <Menu mode="inline" inlineCollapsed={false}>
+        <Menu.Item key="1">
+          <Icon type="pie-chart" />
+          <span>Option 1</span>
+        </Menu.Item>
+      </Menu>,
+    );
+
+    expect(wrapper.render()).toMatchSnapshot();
+
+    wrapper.setProps({ inlineCollapsed: true });
+
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

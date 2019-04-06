@@ -74,3 +74,9 @@ title: TreeSelect
 | key | 此项必须设置（其值在整个树范围内唯一） | string | - |
 | title | 树节点显示的内容 | string\|ReactNode | '---' |
 | value | 默认根据此属性值进行筛选（其值在整个树范围内唯一） | string | - |
+
+## FAQ
+
+### onChange 时如何获得父节点信息？
+
+从性能角度考虑，我们默认不透出父节点信息。你可以这样获得：<https://codesandbox.io/s/wk080nn81k>

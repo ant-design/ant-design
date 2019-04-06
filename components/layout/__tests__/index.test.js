@@ -76,12 +76,12 @@ describe('Layout', () => {
 
   it('detect ant-layout-sider-dark as default theme', async () => {
     const wrapper = mount(<Sider>Sider</Sider>);
-    expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-dark'));
+    expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-dark')).toBe(true);
   });
 
   it('detect ant-layout-sider-light when set light theme', async () => {
     const wrapper = mount(<Sider theme="light">Sider</Sider>);
-    expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-light'));
+    expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-light')).toBe(true);
   });
 
   it('renders string width correctly', () => {
@@ -91,9 +91,9 @@ describe('Layout', () => {
 
   it('should be controlled by collapsed', () => {
     const wrapper = mount(<Sider>Sider</Sider>);
-    expect(wrapper.instance().state.collapsed).toBe(false);
+    expect(wrapper.find('InternalSider').instance().state.collapsed).toBe(false);
     wrapper.setProps({ collapsed: true });
-    expect(wrapper.instance().state.collapsed).toBe(true);
+    expect(wrapper.find('InternalSider').instance().state.collapsed).toBe(true);
   });
 
   it('should not add ant-layout-has-sider when `hasSider` is `false`', () => {
@@ -125,6 +125,6 @@ describe('Sider onBreakpoint', () => {
         Sider
       </Sider>,
     );
-    expect(onBreakpoint).toBeCalledWith(true);
+    expect(onBreakpoint).toHaveBeenCalledWith(true);
   });
 });
