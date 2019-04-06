@@ -38,48 +38,56 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                     <th
                       class="ant-table-fixed-columns-in-body ant-table-selection-column"
                     >
-                      <div>
-                        <span
-                          class="ant-table-column-title"
-                        >
-                          <div
-                            class="ant-table-selection"
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
                           >
-                            <label
-                              class="ant-checkbox-wrapper"
+                            <div
+                              class="ant-table-selection"
                             >
-                              <span
-                                class="ant-checkbox"
+                              <label
+                                class="ant-checkbox-wrapper"
                               >
-                                <input
-                                  class="ant-checkbox-input"
-                                  type="checkbox"
-                                />
                                 <span
-                                  class="ant-checkbox-inner"
-                                />
-                              </span>
-                            </label>
-                          </div>
-                        </span>
-                        <span
-                          class="ant-table-column-sorter"
-                        />
-                      </div>
+                                  class="ant-checkbox"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                            </div>
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
                     </th>
                     <th
                       class=""
                     >
-                      <div>
-                        <span
-                          class="ant-table-column-title"
-                        >
-                          Name
-                        </span>
-                        <span
-                          class="ant-table-column-sorter"
-                        />
-                      </div>
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Name
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
                     </th>
                   </tr>
                 </thead>
@@ -255,34 +263,38 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                       <th
                         class="ant-table-selection-column"
                       >
-                        <div>
-                          <span
-                            class="ant-table-column-title"
-                          >
-                            <div
-                              class="ant-table-selection"
+                        <span
+                          class="ant-table-header-column"
+                        >
+                          <div>
+                            <span
+                              class="ant-table-column-title"
                             >
-                              <label
-                                class="ant-checkbox-wrapper"
+                              <div
+                                class="ant-table-selection"
                               >
-                                <span
-                                  class="ant-checkbox"
+                                <label
+                                  class="ant-checkbox-wrapper"
                                 >
-                                  <input
-                                    class="ant-checkbox-input"
-                                    type="checkbox"
-                                  />
                                   <span
-                                    class="ant-checkbox-inner"
-                                  />
-                                </span>
-                              </label>
-                            </div>
-                          </span>
-                          <span
-                            class="ant-table-column-sorter"
-                          />
-                        </div>
+                                    class="ant-checkbox"
+                                  >
+                                    <input
+                                      class="ant-checkbox-input"
+                                      type="checkbox"
+                                    />
+                                    <span
+                                      class="ant-checkbox-inner"
+                                    />
+                                  </span>
+                                </label>
+                              </div>
+                            </span>
+                            <span
+                              class="ant-table-column-sorter"
+                            />
+                          </div>
+                        </span>
                       </th>
                     </tr>
                   </thead>
