@@ -25,6 +25,7 @@ timeline: true
 - 📝 Site [Icon](https://ant.design/components/icon/) supports search. [#15867](https://github.com/ant-design/ant-design/pull/15867) [@DiamondYuan](https://github.com/DiamondYuan)
 - 🐞 Fix TimePicker `locale` doesn't work. [#15837](https://github.com/ant-design/ant-design/pull/15837)
 - 🐞 Fix Steps style broken when using `progressDot` and `size="small"`. [#15856](https://github.com/ant-design/ant-design/pull/15856)
+- 🐞 Fix Affix position not update when content height changed. [#15899](https://github.com/ant-design/ant-design/pull/15899)
 - Table
   - 🐞 Fix Table `align: right` not work on title when sorting is enabled. [#15895](https://github.com/ant-design/ant-design/pull/15895)
   - 🐞 Fix Table filter display issue when use non-string type. [#15817](https://github.com/ant-design/ant-design/pull/15817)
