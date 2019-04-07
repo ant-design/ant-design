@@ -925,12 +925,14 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
           [`${prefixCls}-column-sort`]: isSortColumn && sortOrder,
         }),
         title: [
-          <div key="title" className={sortButton ? `${prefixCls}-column-sorters` : undefined}>
-            <span className={`${prefixCls}-column-title`}>
-              {this.renderColumnTitle(column.title)}
-            </span>
-            <span className={`${prefixCls}-column-sorter`}>{sortButton}</span>
-          </div>,
+          <span key="title" className={`${prefixCls}-header-column`}>
+            <div className={sortButton ? `${prefixCls}-column-sorters` : undefined}>
+              <span className={`${prefixCls}-column-title`}>
+                {this.renderColumnTitle(column.title)}
+              </span>
+              <span className={`${prefixCls}-column-sorter`}>{sortButton}</span>
+            </div>
+          </span>,
           filterDropdown,
         ],
         onHeaderCell,

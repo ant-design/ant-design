@@ -116,6 +116,9 @@
       -webkit-background-clip: border-box; // For Chrome extra space: https://github.com/ant-design/ant-design/issues/14926
 
       &.@{table-prefix-cls}-column-has-filters {
+        // https://github.com/ant-design/ant-design/issues/12650
+        padding-right: 30px !important;
+
         .@{iconfont-css-prefix}-filter,
         .@{table-prefix-cls}-filter-icon {
           &.@{table-prefix-cls}-filter-open {
@@ -154,41 +157,36 @@
           }
         }
       }
-
-      // https://github.com/ant-design/ant-design/issues/12650
-      &.@{table-prefix-cls}-column-has-sorters,
-      &.@{table-prefix-cls}-column-has-filters {
-        padding-right: 30px !important;
-      }
-
-      &.@{table-prefix-cls}-column-has-sorters.@{table-prefix-cls}-column-has-filters {
-        padding-right: 54px !important;
-      }
     }
 
-    .@{table-prefix-cls}-column-sorters {
-      display: table;
+    .@{table-prefix-cls}-header-column {
+      display: inline-block;
+      vertical-align: top;
 
-      > .@{table-prefix-cls}-column-title {
-        display: table-cell;
-        vertical-align: middle;
-      }
+      .@{table-prefix-cls}-column-sorters {
+        display: table;
 
-      > *:not(.@{table-prefix-cls}-column-sorter) {
-        position: relative;
-      }
-      &::before {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: transparent;
-        transition: all 0.3s;
-        content: '';
-      }
-      &:hover::before {
-        background: rgba(0, 0, 0, 0.04);
+        > .@{table-prefix-cls}-column-title {
+          display: table-cell;
+          vertical-align: middle;
+        }
+
+        > *:not(.@{table-prefix-cls}-column-sorter) {
+          position: relative;
+        }
+        &::before {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background: transparent;
+          transition: all 0.3s;
+          content: '';
+        }
+        &:hover::before {
+          background: rgba(0, 0, 0, 0.04);
+        }
       }
     }
 
