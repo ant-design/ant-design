@@ -27,7 +27,7 @@ timeline: true
 - 🐞 修复 Steps 同时使用 `progressDot` 和 `size="small"` 时的样式错乱问题。[#15856](https://github.com/ant-design/ant-design/pull/15856)
 - 🐞 修复 Affix 的内容高度改变时，位置不更新的问题。 [#15899](https://github.com/ant-design/ant-design/pull/15899)
 - Table
-  - 🐞 修复 Table 使用排序时，表头设置 `align: right` 失效的问题。
+  - 🐞 修复 Table 使用排序时，表头设置 `align: right` 失效的问题。[#15895](https://github.com/ant-design/ant-design/pull/15895)
   - 🐞 修复 Table 筛选使用 string 以外类型的展示问题。 [#15817](https://github.com/ant-design/ant-design/pull/15817)
 - 🐞 修复 Badge `count` 为负数时的显示问题。[#15810](https://github.com/ant-design/ant-design/pull/15810)
 - 💄 优化 `Empty.PRESENTED_IMAGE_SIMPLE` 的默认样式。 [#15841](https://github.com/ant-design/ant-design/pull/15841)
