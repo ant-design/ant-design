@@ -24,7 +24,9 @@ timeline: true
 - 🐞 Fix RangePicker end time input not editable. [#15866](https://github.com/ant-design/ant-design/pull/15866)
 - 🐞 Fix TimePicker `locale` doesn't work. [#15837](https://github.com/ant-design/ant-design/pull/15837)
 - 🐞 Fix Steps style broken when using `progressDot` and `size="small"`. [#15856](https://github.com/ant-design/ant-design/pull/15856)
-- 🐞 Fix Table filter display issue when use non-string type. [#15817](https://github.com/ant-design/ant-design/pull/15817)
+- Table
+  - 🐞 Fix Table `align: right` not work on title when sorting is enabled. [#15895](https://github.com/ant-design/ant-design/pull/15895)
+  - 🐞 Fix Table filter display issue when use non-string type. [#15817](https://github.com/ant-design/ant-design/pull/15817)
 - 🐞 Fix Badge display negative count incorrect. [#15810](https://github.com/ant-design/ant-design/pull/15810)
 - 💄 Optimize Empty default UI of `Empty.PRESENTED_IMAGE_SIMPLE`. [#15841](https://github.com/ant-design/ant-design/pull/15841)
 - 🌟 Added a new less variable `@html-selector` to enable override of html selector to support theme prefix. [#15613](https://github.com/ant-design/ant-design/pull/15613) [@krokofant](https://github.com/krokofant)
