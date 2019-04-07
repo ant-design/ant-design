@@ -4,8 +4,9 @@ import Tree from '../index';
 
 const { DirectoryTree, TreeNode } = Tree;
 
+const mockDebounce = jest.mock('lodash/debounce', () => fn => fn);
+
 describe('Directory Tree', () => {
-  const mockDebounce = jest.mock('lodash/debounce', () => fn => fn);
   beforeAll(() => {
     jest.useFakeTimers();
   });
