@@ -20,7 +20,7 @@ timeline: true
 `2019-04-07`
 
 - 🐞 修复 Menu 收缩的异常闪动。[#15868](https://github.com/ant-design/ant-design/pull/15868)
-- 🐞 修复 List pagination size changer not work. [#15871](https://github.com/ant-design/ant-design/pull/15871)
+- 🐞 修复 List 分页 `showSizeChanger` 无效的问题。[#15871](https://github.com/ant-design/ant-design/pull/15871)
 - 🌟 站点支持 [Icon](https://ant.design/components/icon-cn/) 搜索。[#15867](https://github.com/ant-design/ant-design/pull/15867) [@DiamondYuan](https://github.com/DiamondYuan)
 - 🐞 修复 RangePicker 结束时间不可输入。[#15866](https://github.com/ant-design/ant-design/pull/15866)
 - 🐞 修复 TimePicker 传入 `locale` 属性无效的问题。 [#15837](https://github.com/ant-design/ant-design/pull/15837)
