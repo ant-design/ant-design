@@ -23,9 +23,9 @@ timeline: true
 - 🐞 修复 List 分页无法改变每页条数。[#15871](https://github.com/ant-design/ant-design/pull/15871)
 - 🐞 修复 RangePicker 结束时间不可输入。[#15866](https://github.com/ant-design/ant-design/pull/15866)
 - 📝 站点 [Icon](https://ant.design/components/icon-cn/) 支持图标搜索。[#15867](https://github.com/ant-design/ant-design/pull/15867) [@DiamondYuan](https://github.com/DiamondYuan)
-- 🐞 修复 TimePicker 传入 `locale` 属性无效的问题。 [#15837](https://github.com/ant-design/ant-design/pull/15837)
-- 🐞 修复 Steps 同时使用 `progressDot` 与 `size="small"` 时的样式错乱。[#15856](https://github.com/ant-design/ant-design/pull/15856)
-- 🐞 修复 Affix 的内容高度改变时位置不更新的问题。 [#15899](https://github.com/ant-design/ant-design/pull/15899)
+- 🐞 修复 TimePicker `locale` 属性无效的问题。 [#15837](https://github.com/ant-design/ant-design/pull/15837)
+- 🐞 修复 Steps 同时使用 `progressDot` 和 `size="small"` 时的样式错乱问题。[#15856](https://github.com/ant-design/ant-design/pull/15856)
+- 🐞 修复 Affix 的内容高度改变时，位置不更新的问题。 [#15899](https://github.com/ant-design/ant-design/pull/15899)
 - Table
   - 🐞 修复 Table 使用排序时，表头设置 `align: right` 失效的问题。
   - 🐞 修复 Table 筛选使用 string 以外类型的展示问题。 [#15817](https://github.com/ant-design/ant-design/pull/15817)
