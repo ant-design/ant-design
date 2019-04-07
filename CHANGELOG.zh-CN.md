@@ -22,7 +22,7 @@ timeline: true
 - 🐞 修复 Menu 收缩的异常闪动。[#15868](https://github.com/ant-design/ant-design/pull/15868)
 - 🐞 修复 List 分页无法改变每页条数。[#15871](https://github.com/ant-design/ant-design/pull/15871)
 - 🐞 修复 RangePicker 结束时间不可输入。[#15866](https://github.com/ant-design/ant-design/pull/15866)
-- 🌟 站点 [Icon](https://ant.design/components/icon-cn/) 支持图标搜索。[#15867](https://github.com/ant-design/ant-design/pull/15867) [@DiamondYuan](https://github.com/DiamondYuan)
+- 📝 站点 [Icon](https://ant.design/components/icon-cn/) 支持图标搜索。[#15867](https://github.com/ant-design/ant-design/pull/15867) [@DiamondYuan](https://github.com/DiamondYuan)
 - 🐞 修复 TimePicker 传入 `locale` 属性无效的问题。 [#15837](https://github.com/ant-design/ant-design/pull/15837)
 - 🐞 修复 Steps 同时使用 `progressDot` 与 `size="small"` 时的样式错乱。[#15856](https://github.com/ant-design/ant-design/pull/15856)
 - Table
