@@ -19,8 +19,8 @@ timeline: true
 
 `2019-04-07`
 
-- 🐞 Fix Menu shaking & collapse behavior. [#15868](https://github.com/ant-design/ant-design/pull/15868)
-- 🐞 Fix List pagination size changer not work. [#15871](https://github.com/ant-design/ant-design/pull/15871)
+- 🐞 Fix Menu shaking and collapse behavior. [#15868](https://github.com/ant-design/ant-design/pull/15868)
+- 🐞 Fix List pagination pageSize changer not work. [#15871](https://github.com/ant-design/ant-design/pull/15871)
 - 🌟 Site [Icon](https://ant.design/components/icon/) supports search. [#15867](https://github.com/ant-design/ant-design/pull/15867) [@DiamondYuan](https://github.com/DiamondYuan)
 - 🐞 Fix RangePicker endtime-input not editable. [#15866](https://github.com/ant-design/ant-design/pull/15866)
 - 🐞 Fix that prop locale doesn't work for TimePicker. [#15837](https://github.com/ant-design/ant-design/pull/15837)
