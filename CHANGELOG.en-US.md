@@ -15,6 +15,26 @@ timeline: true
 
 ---
 
+## 3.16.2
+
+`2019-04-07`
+
+- 🐞 Fix Menu shaking and collapse behavior. [#15868](https://github.com/ant-design/ant-design/pull/15868)
+- 🐞 Fix List pagination pageSize changer not work. [#15871](https://github.com/ant-design/ant-design/pull/15871)
+- 🐞 Fix RangePicker end time input not editable. [#15866](https://github.com/ant-design/ant-design/pull/15866)
+- 📝 Site [Icon](https://ant.design/components/icon/) supports search. [#15867](https://github.com/ant-design/ant-design/pull/15867) [@DiamondYuan](https://github.com/DiamondYuan)
+- 🐞 Fix TimePicker `locale` doesn't work. [#15837](https://github.com/ant-design/ant-design/pull/15837)
+- 🐞 Fix Steps style broken when using `progressDot` and `size="small"`. [#15856](https://github.com/ant-design/ant-design/pull/15856)
+- 🐞 Fix Affix position not update when content height changed. [#15899](https://github.com/ant-design/ant-design/pull/15899)
+- Table
+  - 🐞 Fix Table `align: right` not work on title when sorting is enabled. [#15895](https://github.com/ant-design/ant-design/pull/15895)
+  - 🐞 Fix Table filter display issue when use non-string type. [#15817](https://github.com/ant-design/ant-design/pull/15817)
+- 🐞 Fix Badge display negative count incorrect. [#15810](https://github.com/ant-design/ant-design/pull/15810)
+- 💄 Optimize Empty default UI of `Empty.PRESENTED_IMAGE_SIMPLE`. [#15841](https://github.com/ant-design/ant-design/pull/15841)
+- 🌟 Added a new less variable `@html-selector` to enable override of html selector to support theme prefix. [#15613](https://github.com/ant-design/ant-design/pull/15613) [@krokofant](https://github.com/krokofant)
+- TypeScript
+  - 🐞 Fix Table columnGroup definition. [fc45d](https://github.com/ant-design/ant-design/commit/fc45d7003efab225298bbc7ac740df40d34872d1)
+
 ## 3.16.1
 
 `2019-04-01`
@@ -71,7 +91,7 @@ timeline: true
 `2019-03-23`
 
 - 📖 New English translation for [Data Display](https://ant.design/docs/spec/data-display) and [Feedback](https://ant.design/docs/spec/feedback). [#15454](https://github.com/ant-design/ant-design/pull/15454) [@klouskingsley](https://github.com/klouskingsley) [#15460](https://github.com/ant-design/ant-design/pull/15460) [@klouskingsley](https://github.com/klouskingsley)
-- 🌟 Add two less variables `@font-feature-settings` and `@select-item-selected-font-weight`. [#15506](https://github.com/ant-design/ant-design/pull/15506) [@dancerphil](https://github.com/dancerphil) [#15515](https://github.com/ant-design/ant-design/pull/15515) [@willc001](https://github.com/willc001) 
+- 🌟 Add two less variables `@font-feature-settings` and `@select-item-selected-font-weight`. [#15506](https://github.com/ant-design/ant-design/pull/15506) [@dancerphil](https://github.com/dancerphil) [#15515](https://github.com/ant-design/ant-design/pull/15515) [@willc001](https://github.com/willc001)
 - 🐞 Fix the scale calculate logic when Avatar is remounted. [#15503](https://github.com/ant-design/ant-design/pull/15503)
 - 🐞 Fix inefficient custom `width` for DatePicker. [#15547](https://github.com/ant-design/ant-design/pull/15547) [@DiamondYuan](https://github.com/DiamondYuan)
 - 🐞 Fix the incorrect priority of icon style for Notification. [#15530](https://github.com/ant-design/ant-design/pull/15530)
