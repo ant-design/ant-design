@@ -22,12 +22,12 @@ timeline: true
 - 🐞 Fix Menu shaking & collapse behavior. [#15868](https://github.com/ant-design/ant-design/pull/15868)
 - 🐞 Fix List pagination size changer not work. [#15871](https://github.com/ant-design/ant-design/pull/15871)
 - 🌟 Site [Icon](https://ant.design/components/icon/) supports search. [#15867](https://github.com/ant-design/ant-design/pull/15867) [@DiamondYuan](https://github.com/DiamondYuan)
-- 🐞 Fix RangePicker time-input not editable. [#15866](https://github.com/ant-design/ant-design/pull/15866)
+- 🐞 Fix RangePicker endtime-input not editable. [#15866](https://github.com/ant-design/ant-design/pull/15866)
 - 🐞 Fix that prop locale doesn't work for TimePicker. [#15837](https://github.com/ant-design/ant-design/pull/15837)
 - 🐞 Fix Steps style broken when `progressDot` and `size="small"`. [#15856](https://github.com/ant-design/ant-design/pull/15856)
 - 🐞 Fix Table filter display issue when use non-string type. [#15817](https://github.com/ant-design/ant-design/pull/15817)
 - 🐞 Fix Badge display negative count incorrect. [#15810](https://github.com/ant-design/ant-design/pull/15810)
- 💄 Optimize default UI of `<Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />`.
+- 💄 Optimize Empty default UI of `Empty.PRESENTED_IMAGE_SIMPLE`. [#15841](https://github.com/ant-design/ant-design/pull/15841)
 - 🌟 Added a new less variable `@html-selector` to enable override of html selector to support theme prefix. [#15613](https://github.com/ant-design/ant-design/pull/15613) [@krokofant](https://github.com/krokofant)
 - TypeScript
   - 🐞 Fix Table columnGroup definition. [fc45d](https://github.com/ant-design/ant-design/commit/fc45d7003efab225298bbc7ac740df40d34872d1)
