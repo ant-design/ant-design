@@ -31,10 +31,6 @@ timeline: true
 - 🌟 新增 less 变量 `@html-selector` 用于支持主题前缀。[#15613](https://github.com/ant-design/ant-design/pull/15613) [@krokofant](https://github.com/krokofant)
 - TypeScript
   - 🐞 修复 Table `columnGroup` 定义。[fc45d](https://github.com/ant-design/ant-design/commit/fc45d7003efab225298bbc7ac740df40d34872d1)
-- 📝 更新文档
-  - [Empty](http://ant.design/components/empty/)
-  - [Form](https://ant.design/components/form)
-  - [TreeSelect](https://ant.design/components/tree-select/#FAQ)
 
 ## 3.16.1
 

@@ -31,10 +31,6 @@ timeline: true
 - 🌟 Added a new less variable `@html-selector` to enable override of html selector to support theme prefix. [#15613](https://github.com/ant-design/ant-design/pull/15613) [@krokofant](https://github.com/krokofant)
 - TypeScript
   - 🐞 Fix Table columnGroup definition. [fc45d](https://github.com/ant-design/ant-design/commit/fc45d7003efab225298bbc7ac740df40d34872d1)
-- 📝 Upgrade document
-  - [Empty](http://ant.design/components/empty/)
-  - [Form](https://ant.design/components/form)
-  - [TreeSelect](https://ant.design/components/tree-select/#FAQ)
 
 ## 3.16.1
 
