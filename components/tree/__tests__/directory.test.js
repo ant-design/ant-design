@@ -4,6 +4,8 @@ import Tree from '../index';
 
 const { DirectoryTree, TreeNode } = Tree;
 
+const mockDebounce = jest.mock('lodash/debounce', () => fn => fn);
+
 describe('Directory Tree', () => {
   beforeAll(() => {
     jest.useFakeTimers();
@@ -11,6 +13,7 @@ describe('Directory Tree', () => {
 
   afterAll(() => {
     jest.useRealTimers();
+    mockDebounce.mockRestore();
   });
 
   function createTree(props) {
