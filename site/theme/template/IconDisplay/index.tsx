@@ -18,11 +18,6 @@ interface IconDisplayState {
 }
 
 class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
-  constructor(props: IconDisplayProps) {
-    super(props);
-    this.handleSearchIcon = debounce(this.handleSearchIcon, 300);
-  }
-
   static categories: Categories = categories;
 
   static newIconNames: string[] = [];
@@ -37,6 +32,11 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
     theme: 'outlined',
     searchKey: '',
   };
+
+  constructor(props: IconDisplayProps) {
+    super(props);
+    this.handleSearchIcon = debounce(this.handleSearchIcon, 300);
+  }
 
   getComputedDisplayList() {
     return Object.keys(IconDisplay.categories)
@@ -89,8 +89,7 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
     } = this.props;
     const list = this.getComputedDisplayList();
     return (
-      <div>
-        <h3>{messages['app.docs.components.icon.pick-theme']}</h3>
+      <>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           <Radio.Group value={this.state.theme} onChange={this.handleChangeTheme} size="large">
             <Radio.Button value="outlined">
@@ -103,18 +102,17 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
               <Icon component={TwoToneIcon} /> {messages['app.docs.components.icon.two-tone']}
             </Radio.Button>
           </Radio.Group>
-
           <Input.Search
-            placeholder="icon name"
+            placeholder={messages['app.docs.components.icon.search.placeholder']}
             style={{ marginLeft: 10, flex: 1 }}
             allowClear
             onChange={e => this.handleSearchIcon(e.currentTarget.value)}
             size="large"
+            autoFocus
           />
         </div>
-
         {this.renderCategories(list)}
-      </div>
+      </>
     );
   }
 }
