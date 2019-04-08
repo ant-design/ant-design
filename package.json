@@ -18,6 +18,9 @@
   "contributors": [
     "ant"
   ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/ant-design/ant-design"
