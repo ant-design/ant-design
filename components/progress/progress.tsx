@@ -61,13 +61,17 @@ export default class Progress extends React.Component<ProgressProps> {
     default: PropTypes.oneOf(['default', 'small']),
   };
 
-  getProgressStatus() {
-    const { successPercent, percent = 0, status } = this.props;
-    const percentNumber = parseInt(
+  getPercentNumber() {
+    const { successPercent, percent = 0 } = this.props;
+    return parseInt(
       successPercent !== undefined ? successPercent.toString() : percent.toString(),
       10,
     );
-    if (percentNumber >= 100 && ProgressStatuses.indexOf(status!) < 0) {
+  }
+
+  getProgressStatus() {
+    const { status } = this.props;
+    if (ProgressStatuses.indexOf(status!) < 0 && this.getPercentNumber() >= 100) {
       return 'success';
     }
     return status || 'normal';
