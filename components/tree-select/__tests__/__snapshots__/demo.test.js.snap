@@ -96,6 +96,27 @@ exports[`renders ./components/tree-select/demo/checkable.md correctly 1`] = `
           Node1
         </span>
       </li>
+      <li
+        class="ant-select-search ant-select-search--inline"
+      >
+        <span
+          class="ant-select-search__field__wrap"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-label="filter select"
+            aria-multiline="false"
+            class="ant-select-search__field"
+            type="text"
+            value=""
+          />
+          <span
+            class="ant-select-search__field__mirror"
+          >
+             
+          </span>
+        </span>
+      </li>
     </ul>
     <span
       class="ant-select-search__field__placeholder"
