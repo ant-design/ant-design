@@ -7,30 +7,18 @@ import { Row, Col, Icon, Affix, Tooltip } from 'antd';
 import { getChildren } from 'jsonml.js/lib/utils';
 import Demo from './Demo';
 import EditButton from './EditButton';
-import { ping } from '../utils';
 
 export default class ComponentDoc extends React.Component {
   static contextTypes = {
     intl: PropTypes.object,
   };
 
-  state = {
-    expandAll: false,
-    showRiddleButton: false,
-  };
+  constructor(props) {
+    super(props);
 
-  componentDidMount() {
-    this.pingTimer = ping(status => {
-      if (status !== 'timeout' && status !== 'error') {
-        this.setState({
-          showRiddleButton: true,
-        });
-      }
-    });
-  }
-
-  componentWillUnmount() {
-    clearTimeout(this.pingTimer);
+    this.state = {
+      expandAll: false,
+    };
   }
 
   handleExpandToggle = () => {
@@ -48,7 +36,7 @@ export default class ComponentDoc extends React.Component {
       intl: { locale },
     } = this.context;
     const demos = Object.keys(props.demos).map(key => props.demos[key]);
-    const { expandAll, showRiddleButton } = this.state;
+    const { expandAll } = this.state;
 
     const isSingleCol = meta.cols === 1;
     const leftChildren = [];
@@ -90,12 +78,9 @@ export default class ComponentDoc extends React.Component {
     });
 
     const { title, subtitle, filename } = meta;
-    const articleClassName = classNames({
-      'show-riddle-button': showRiddleButton,
-    });
     return (
       <DocumentTitle title={`${subtitle || ''} ${title[locale] || title} - Ant Design`}>
-        <article className={articleClassName}>
+        <article>
           <Affix className="toc-affix" offsetTop={16}>
             <ul id="demo-toc" className="toc">
               {jumper}
@@ -132,7 +117,7 @@ export default class ComponentDoc extends React.Component {
           </section>
           <Row gutter={16}>
             <Col
-              span={isSingleCol ? 24 : 12}
+              span={isSingleCol ? '24' : '12'}
               className={isSingleCol ? 'code-boxes-col-1-1' : 'code-boxes-col-2-1'}
             >
               {leftChildren}

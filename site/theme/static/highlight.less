@@ -6,28 +6,29 @@
 
 pre code {
   display: block;
-  padding: 16px 32px;
-  color: @site-text-color;
-  font-size: @font-size-base;
-  font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  line-height: 2;
-  white-space: pre;
   background: white;
+  color: @site-text-color;
+  line-height: 2;
   border: 1px solid #e9e9e9;
+  padding: 16px 32px;
   border-radius: @border-radius-sm;
+  font-size: @font-size-base;
+  white-space: pre;
+  font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 }
 
 code[class*='language-'],
 pre[class*='language-'] {
   color: black;
+  background: none;
   font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  line-height: 1.5;
-  direction: ltr;
+  .direction();
+  .dirAlign();
   white-space: pre;
-  text-align: left;
-  word-wrap: normal;
-  word-break: normal;
   word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
 
   -moz-tab-size: 4;
   -o-tab-size: 4;
@@ -37,7 +38,6 @@ pre[class*='language-'] {
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
-  background: none;
 }
 
 pre[class*='language-']::-moz-selection,
@@ -65,8 +65,8 @@ code[class*='language-'] ::selection {
 
 /* Code blocks */
 pre[class*='language-'] {
-  margin: 16px 0;
   padding: 12px 20px;
+  margin: 16px 0;
   overflow: auto;
 }
 
@@ -78,8 +78,8 @@ pre[class*='language-'] {
 /* Inline code */
 :not(pre) > code[class*='language-'] {
   padding: 0.1em;
-  white-space: normal;
   border-radius: 0.3em;
+  white-space: normal;
 }
 
 .token.comment,

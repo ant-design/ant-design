@@ -23,6 +23,8 @@ const eslintrc = {
     'react/prop-types': 0,
     'react/forbid-prop-types': 0,
     'react/jsx-indent': 0,
+    "no-return-assign": 0,
+    "consistent-return": 0,
     'react/jsx-wrap-multilines': ['error', { declaration: false, assignment: false }],
     'import/no-extraneous-dependencies': [
       'error',

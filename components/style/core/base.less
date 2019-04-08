@@ -6,11 +6,24 @@
 // styles targeting irrelevant browsers while applying new styles.
 //
 // Normalize is licensed MIT. https://github.com/necolas/normalize.css
+@import '../mixins/direction';
+
+@font-path : "https://adm.chehre.app/static/media/";
+
+@font-face {
+  font-family: 'Vazir-Light';
+  src: local('Vazir-Light'), url(~'@{font-path}Vazir-Light.f92c929f.woff2'),
+    url(~'@{font-path}Vazir-Light.a5772df4.woff'), url(~'@{font-path}Vazir-Light.11bc0b07.ttf'),
+    url(~'@{font-path}Vazir-Light.81fd1bce.eot');
+  font-weight: lighter;
+}
 
 // HTML & Body reset
-@{html-selector},
+html,
 body {
   .square(100%);
+  .direction();
+  .dirAlign();
 }
 
 // remove the clear button of a text input control in IE10+
@@ -35,13 +48,13 @@ input::-ms-reveal {
   box-sizing: border-box; // 1
 }
 
-@{html-selector} {
+html {
   font-family: sans-serif; // 2
   line-height: 1.15; // 3
   -webkit-text-size-adjust: 100%; // 4
   -ms-text-size-adjust: 100%; // 4
   -ms-overflow-style: scrollbar; // 5
-  -webkit-tap-highlight-color: fade(@black, 0%); // 6
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); // 6
 }
 
 // IE10+ doesn't honor `<meta name="viewport">` in some cases.
@@ -71,13 +84,12 @@ section {
 
 body {
   margin: 0; // 1
-  color: @text-color;
-  font-size: @font-size-base;
   font-family: @font-family;
-  font-variant: @font-variant-base;
+  font-size: @font-size-base;
+  font-variant: tabular-nums;
   line-height: @line-height-base;
+  color: @text-color;
   background-color: @body-background; // 2
-  font-feature-settings: @font-feature-settings-base;
 }
 
 // Suppress the focus outline on elements that cannot be accessed via keyboard.
@@ -141,8 +153,8 @@ abbr[data-original-title] {
   // 4
   text-decoration: underline; // 2
   text-decoration: underline dotted; // 2
-  border-bottom: 0; // 1
   cursor: help; // 3
+  border-bottom: 0; // 1
 }
 
 address {
@@ -178,7 +190,7 @@ dt {
 
 dd {
   margin-bottom: 0.5em;
-  margin-left: 0; // Undo browser default
+  .margin-dir(0); // Undo browser default
 }
 
 blockquote {
@@ -224,12 +236,17 @@ sup {
 
 a {
   color: @link-color;
-  text-decoration: @link-decoration;
   background-color: transparent; // remove the gray background on active links in IE 10.
+  text-decoration: @link-decoration;
   outline: none;
   cursor: pointer;
   transition: color 0.3s;
   -webkit-text-decoration-skip: objects; // remove gaps in links underline in iOS 8+ and Safari 8+.
+
+  &:focus {
+    text-decoration: underline;
+    text-decoration-skip: ink;
+  }
 
   &:hover {
     color: @link-hover-color;
@@ -241,8 +258,8 @@ a {
 
   &:active,
   &:hover {
-    text-decoration: @link-hover-decoration;
     outline: 0;
+    text-decoration: @link-hover-decoration;
   }
 
   &[disabled] {
@@ -260,8 +277,8 @@ pre,
 code,
 kbd,
 samp {
-  font-size: 1em; // Correct the odd `em` font sizing in all browsers.
   font-family: @code-family;
+  font-size: 1em; // Correct the odd `em` font sizing in all browsers.
 }
 
 pre {
@@ -328,7 +345,7 @@ caption {
   padding-top: 0.75em;
   padding-bottom: 0.3em;
   color: @text-color-secondary;
-  text-align: left;
+  .dirAlign();
   caption-side: bottom;
 }
 
@@ -348,10 +365,10 @@ select,
 optgroup,
 textarea {
   margin: 0; // remove the margin in Firefox and Safari
-  color: inherit;
-  font-size: inherit;
   font-family: inherit;
+  font-size: inherit;
   line-height: inherit;
+  color: inherit;
 }
 
 button,
@@ -368,7 +385,7 @@ select {
 //    controls in Android 4.
 // 2. Correct the inability to style clickable types in iOS and Safari.
 button,
-@{html-selector} [type="button"], /* 1 */
+html [type="button"], // 1
 [type="reset"],
 [type="submit"] {
   -webkit-appearance: button; // 2
@@ -414,9 +431,9 @@ fieldset {
   // See https://github.com/twbs/bootstrap/issues/12359
   // and https://html.spec.whatwg.org/multipage/#the-fieldset-and-legend-elements
   min-width: 0;
-  margin: 0;
   // Reset the default outline behavior of fieldsets so they don't affect page layout.
   padding: 0;
+  margin: 0;
   border: 0;
 }
 
@@ -426,11 +443,11 @@ legend {
   display: block;
   width: 100%;
   max-width: 100%; // 1
-  margin-bottom: 0.5em;
   padding: 0;
-  color: inherit; // 2
+  margin-bottom: 0.5em;
   font-size: 1.5em;
   line-height: inherit;
+  color: inherit; // 2
   white-space: normal; // 1
 }
 
@@ -500,8 +517,8 @@ mark {
 }
 
 ::selection {
-  color: @text-color-inverse;
   background: @primary-color;
+  color: #fff;
 }
 
 // Utility classes

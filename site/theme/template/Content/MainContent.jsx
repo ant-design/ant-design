@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
+/* eslint-disable consistent-return */
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
-import { Row, Col, Menu, Icon, Affix } from 'antd';
+import { Row, Col, Menu, Icon } from 'antd';
 import classNames from 'classnames';
-import get from 'lodash/get';
 import MobileMenu from 'rc-drawer';
 import Article from './Article';
-import PrevAndNext from './PrevAndNext';
-import Footer from '../Layout/Footer';
 import ComponentDoc from './ComponentDoc';
 import * as utils from '../utils';
 
@@ -45,73 +43,77 @@ function fileNameToPath(filename) {
   return snippets[snippets.length - 1];
 }
 
-const getSideBarOpenKeys = nextProps => {
-  const { themeConfig } = nextProps;
-  const { pathname } = nextProps.location;
-  const locale = utils.isZhCN(pathname) ? 'zh-CN' : 'en-US';
-  const moduleData = getModuleData(nextProps);
-  const shouldOpenKeys = utils
-    .getMenuItems(moduleData, locale, themeConfig.categoryOrder, themeConfig.typeOrder)
-    .map(m => (m.title && m.title[locale]) || m.title);
-  return shouldOpenKeys;
-};
-
-export default class MainContent extends Component {
+export default class MainContent extends React.Component {
   static contextTypes = {
     intl: PropTypes.object.isRequired,
     isMobile: PropTypes.bool.isRequired,
   };
 
-  state = {
-    openKeys: undefined,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      openKeys: this.getSideBarOpenKeys(props) || [],
+    };
+  }
 
   componentDidMount() {
     this.componentDidUpdate();
   }
 
-  static getDerivedStateFromProps(props, state) {
-    if (!state.openKeys) {
-      return {
-        ...state,
-        openKeys: getSideBarOpenKeys(props),
-      };
+  componentWillReceiveProps(nextProps) {
+    const openKeys = this.getSideBarOpenKeys(nextProps);
+    if (openKeys) {
+      this.setState({ openKeys });
     }
-    return null;
   }
 
   componentDidUpdate(prevProps) {
     const { location } = this.props;
-    const { location: prevLocation = {} } = prevProps || {};
-    if (!prevProps || prevLocation.pathname !== location.pathname) {
+    if (!prevProps || prevProps.location.pathname !== location.pathname) {
       this.bindScroller();
     }
-    if (!window.location.hash && prevLocation.pathname !== location.pathname) {
+    if (
+      !prevProps ||
+      (!window.location.hash && prevProps && prevProps.location.pathname !== location.pathname)
+    ) {
+      document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
+      return;
     }
-    // when subMenu not equal
-    if (get(this.props, 'route.path') !== get(prevProps, 'route.path')) {
-      // reset menu OpenKeys
-      this.handleMenuOpenChange();
+    if (this.timer) {
+      clearTimeout(this.timer);
     }
-    setTimeout(() => {
-      if (!window.location.hash) {
-        return;
+    this.timer = setTimeout(() => {
+      if (window.location.hash) {
+        document.querySelector(window.location.hash).scrollIntoView();
       }
-      const element = document.getElementById(
-        decodeURIComponent(window.location.hash.replace('#', '')),
-      );
-      if (element && document.documentElement.scrollTop === 0) {
-        element.scrollIntoView();
-      }
-    }, 0);
+    }, 10);
   }
 
   componentWillUnmount() {
+    clearTimeout(this.timer);
     this.scroller.disable();
   }
 
-  getMenuItems(footerNavIcons = {}) {
+  getSideBarOpenKeys(nextProps) {
+    const { themeConfig } = nextProps;
+    const { pathname } = nextProps.location;
+    const prevModule = this.currentModule;
+    this.currentModule = pathname.replace(/^\//).split('/')[1] || 'components';
+    if (this.currentModule === 'react') {
+      this.currentModule = 'components';
+    }
+    const locale = utils.isZhCN(pathname) ? 'zh-CN' : 'en-US';
+    if (prevModule !== this.currentModule) {
+      const moduleData = getModuleData(nextProps);
+      const shouldOpenKeys = utils
+        .getMenuItems(moduleData, locale, themeConfig.categoryOrder, themeConfig.typeOrder)
+        .map(m => m.title[locale] || m.title);
+      return shouldOpenKeys;
+    }
+  }
+
+  getMenuItems() {
     const { themeConfig } = this.props;
     const {
       intl: { locale },
@@ -132,17 +134,19 @@ export default class MainContent extends Component {
                 return (
                   <Menu.ItemGroup title={child.title} key={child.title}>
                     {child.children
-                      .sort((a, b) => a.title.charCodeAt(0) - b.title.charCodeAt(0))
-                      .map(leaf => this.generateMenuItem(false, leaf, footerNavIcons))}
+                      .sort((a, b) => {
+                        return a.title.charCodeAt(0) - b.title.charCodeAt(0);
+                      })
+                      .map(leaf => this.generateMenuItem(false, leaf))}
                   </Menu.ItemGroup>
                 );
               }
-              return this.generateMenuItem(false, child, footerNavIcons);
+              return this.generateMenuItem(false, child);
             })}
           </SubMenu>
         );
       }
-      return this.generateMenuItem(true, menuItem, footerNavIcons);
+      return this.generateMenuItem(true, menuItem);
     });
   }
 
@@ -177,7 +181,7 @@ export default class MainContent extends Component {
       })
       .onStepEnter(({ element }) => {
         [].forEach.call(document.querySelectorAll('.toc-affix li a'), node => {
-          node.className = ''; // eslint-disable-line
+          node.className = '';
         });
         const currentNode = document.querySelectorAll(`.toc-affix li a[href="#${element.id}"]`)[0];
         if (currentNode) {
@@ -186,14 +190,11 @@ export default class MainContent extends Component {
       });
   }
 
-  generateMenuItem(isTop, item, { before = null, after = null }) {
+  generateMenuItem(isTop, item) {
     const {
       intl: { locale },
     } = this.context;
     const key = fileNameToPath(item.filename);
-    if (!item.title) {
-      return null;
-    }
     const title = item.title[locale] || item.title;
     const text = isTop
       ? title
@@ -213,9 +214,7 @@ export default class MainContent extends Component {
         )}
         disabled={disabled}
       >
-        {before}
         {text}
-        {after}
       </Link>
     ) : (
       <a
@@ -225,9 +224,7 @@ export default class MainContent extends Component {
         disabled={disabled}
         className="menu-item-link-outside"
       >
-        {before}
         {text} <Icon type="export" />
-        {after}
       </a>
     );
 
@@ -239,10 +236,7 @@ export default class MainContent extends Component {
   }
 
   flattenMenu(menu) {
-    if (!menu) {
-      return null;
-    }
-    if (menu.type && menu.type.isMenuItem) {
+    if (menu && menu.type && menu.type.isMenuItem) {
       return menu;
     }
     if (Array.isArray(menu)) {
@@ -257,11 +251,7 @@ export default class MainContent extends Component {
     const { openKeys } = this.state;
     const activeMenuItem = getActiveMenuItem(props);
     const menuItems = this.getMenuItems();
-    const menuItemsForFooterNav = this.getMenuItems({
-      before: <Icon className="footer-nav-icon-before" type="left" />,
-      after: <Icon className="footer-nav-icon-after" type="right" />,
-    });
-    const { prev, next } = this.getFooterNav(menuItemsForFooterNav, activeMenuItem);
+    const { prev, next } = this.getFooterNav(menuItems, activeMenuItem);
     const { localizedPageData } = props;
     const mainContainerClass = classNames('main-container', {
       'main-container-component': !!props.demos,
@@ -291,21 +281,39 @@ export default class MainContent extends Component {
             </MobileMenu>
           ) : (
             <Col xxl={4} xl={5} lg={6} md={24} sm={24} xs={24} className="main-menu">
-              <Affix>
-                <section className="main-menu-inner">{menuChild}</section>
-              </Affix>
+              {menuChild}
             </Col>
           )}
-          <Col xxl={20} xl={19} lg={18} md={24} sm={24} xs={24}>
-            <section className={mainContainerClass}>
-              {props.demos ? (
-                <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} />
-              ) : (
-                <Article {...props} content={localizedPageData} />
-              )}
+          <Col xxl={20} xl={19} lg={18} md={24} sm={24} xs={24} className={mainContainerClass}>
+            {props.demos ? (
+              <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} />
+            ) : (
+              <Article {...props} content={localizedPageData} />
+            )}
+          </Col>
+        </Row>
+
+        <Row>
+          <Col
+            xxl={{ span: 20, offset: 4 }}
+            xl={{ span: 19, offset: 5 }}
+            lg={{ span: 18, offset: 6 }}
+            md={24}
+            sm={24}
+            xs={24}
+          >
+            <section className="prev-next-nav">
+              {prev
+                ? React.cloneElement(prev.props.children || prev.children[0], {
+                    className: 'prev-page',
+                  })
+                : null}
+              {next
+                ? React.cloneElement(next.props.children || next.children[0], {
+                    className: 'next-page',
+                  })
+                : null}
             </section>
-            <PrevAndNext prev={prev} next={next} />
-            <Footer />
           </Col>
         </Row>
       </div>

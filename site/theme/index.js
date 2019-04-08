@@ -1,3 +1,4 @@
+require('core-js/es6/string');
 const path = require('path');
 
 const homeTmpl = './template/Home/index';
@@ -14,7 +15,6 @@ function pickerGenerator(module) {
         meta: markdownData.meta,
       };
     }
-    return null;
   };
 }
 
@@ -28,9 +28,8 @@ module.exports = {
   pick: {
     components(markdownData) {
       const { filename } = markdownData.meta;
-      if (!/^components/.test(filename) || /[/\\]demo$/.test(path.dirname(filename))) {
-        return null;
-      }
+      if (!/^components/.test(filename) || /[/\\]demo$/.test(path.dirname(filename))) return;
+
       return {
         meta: markdownData.meta,
       };
@@ -41,7 +40,6 @@ module.exports = {
           meta: markdownData.meta,
         };
       }
-      return null;
     },
     'docs/pattern': pickerGenerator('pattern'),
     'docs/react': pickerGenerator('react'),
@@ -51,7 +49,7 @@ module.exports = {
   plugins: [
     'bisheng-plugin-description',
     'bisheng-plugin-toc?maxDepth=2&keepElem',
-    'bisheng-plugin-antd?injectProvider',
+    'bisheng-plugin-antd',
     'bisheng-plugin-react?lang=__react',
   ],
   routes: {

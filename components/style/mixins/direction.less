@@ -1,0 +1,226 @@
+@import '../themes/default';
+// Paddings
+.padding-dir ( @value) when (@dir='ltr') {
+  padding-left: @value;
+}
+.padding-dir (@value) when not(@dir="ltr") {
+  padding-right: @value;
+}
+.padding-idir ( @value) when (@dir='ltr') {
+  padding-right: @value;
+}
+.padding-idir (@value) when not(@dir="ltr") {
+  padding-left: @value;
+}
+.padding (@top; @right; @bottom; @left) when (@dir='ltr') {
+  padding: @top @right @bottom @left;
+}
+.padding (@top; @right; @bottom; @left) when not(@dir="ltr") {
+  padding: @top @left @bottom @right;
+}
+
+//margins
+.margin-dir ( @value) when (@dir='ltr') {
+  margin-left: @value;
+}
+.margin-dir (@value) when not(@dir="ltr") {
+  margin-right: @value;
+}
+.margin-idir ( @value) when (@dir='ltr') {
+  margin-right: @value;
+}
+.margin-idir (@value) when not(@dir="ltr") {
+  margin-left: @value;
+}
+.margin (@top; @right; @bottom; @left) when (@dir='ltr') {
+  margin: @top @right @bottom @left;
+}
+.margin (@top; @right; @bottom; @left) when not(@dir="ltr") {
+  margin: @top @left @bottom @right;
+}
+
+//floats
+.dir () when (@dir='ltr') {
+  float: left;
+}
+.dir () when not(@dir="ltr") {
+  float: right;
+}
+.idir () when (@dir='ltr') {
+  float: right;
+}
+.idir () when not(@dir="ltr") {
+  float: left;
+}
+
+//direction
+.direction () when (@dir='ltr') {
+  direction: ltr;
+}
+.direction () when not(@dir="ltr") {
+  direction: rtl;
+}
+.iDirection () when (@dir='ltr') {
+  direction: rtl;
+}
+.iDirection () when not(@dir="ltr") {
+  direction: ltr;
+}
+
+//Text aligns
+.dirAlign () when (@dir='ltr') {
+  text-align: left;
+}
+.dirAlign () when not(@dir="ltr") {
+  text-align: right;
+}
+.idirAlign () when (@dir='ltr') {
+  text-align: right;
+}
+.idirAlign () when not(@dir="ltr") {
+  text-align: left;
+}
+
+//Borders
+.dirBorder (@value:1px solid @btn-default-border) when (@dir='ltr') {
+  border-left: @value;
+}
+.dirBorder (@value:1px solid @btn-default-border) when not(@dir="ltr") {
+  border-right: @value;
+}
+.idirBorder (@value:1px solid @btn-default-border) when (@dir='ltr') {
+  border-right: @value;
+}
+.idirBorder (@value:1px solid @btn-default-border) when not(@dir="ltr") {
+  border-left: @value;
+}
+
+//Border radius
+.dirBorderRadius (@value) when (@dir='ltr') {
+  // border-radius: @value 0 0 @value;
+  border-top-left-radius: @value;
+  border-bottom-left-radius: @value;
+}
+.dirBorderRadius (@value) when not(@dir="ltr") {
+  // border-radius: 0 @value @value 0;
+  border-top-right-radius: @value;
+  border-bottom-right-radius: @value;
+}
+.idirBorderRadius (@value) when (@dir='ltr') {
+  // border-radius: 0 @value @value 0;
+  border-top-right-radius: @value;
+  border-bottom-right-radius: @value;
+}
+.idirBorderRadius (@value) when not(@dir="ltr") {
+  // border-radius: @value 0 0 @value;
+  border-top-left-radius: @value;
+  border-bottom-left-radius: @value;
+}
+
+.border-top-dir-radius (@value) when (@dir='ltr') {
+  border-top-left-radius: @value;
+}
+.border-top-dir-radius (@value) when not (@dir='ltr') {
+  border-top-right-radius: @value;
+}
+.border-top-idir-radius (@value) when (@dir='ltr') {
+  border-top-right-radius: @value;
+}
+.border-top-idir-radius (@value) when not (@dir='ltr') {
+  border-top-left-radius: @value;
+}
+
+.border-bottom-dir-radius (@value) when (@dir='ltr') {
+  border-bottom-left-radius: @value;
+}
+.border-bottom-dir-radius (@value) when not (@dir='ltr') {
+  border-bottom-right-radius: @value;
+}
+.border-bottom-idir-radius (@value) when (@dir='ltr') {
+  border-bottom-right-radius: @value;
+}
+.border-bottom-idir-radius (@value) when not (@dir='ltr') {
+  border-bottom-left-radius: @value;
+}
+
+//Border colors
+.dirBorderColor (@value) when (@dir='ltr') {
+  border-left-color: @value;
+}
+.dirBorderColor (@value) when not (@dir='ltr') {
+  border-right-color: @value;
+}
+.idirBorderColor (@value) when (@dir='ltr') {
+  border-right-color: @value;
+}
+.idirBorderColor (@value) when not (@dir='ltr') {
+  border-left-color: @value;
+}
+
+//Border width
+.dirBorderWidth (@value) when (@dir='ltr') {
+  border-left-width: @value;
+}
+.dirBorderWidth (@value) when not (@dir='ltr') {
+  border-right-width: @value;
+}
+.idirBorderWidth (@value) when (@dir='ltr') {
+  border-right-width: @value;
+}
+.idirBorderWidth (@value) when not (@dir='ltr') {
+  border-left-width: @value;
+}
+
+//Positions
+.posDir(@value) when (@dir='ltr') {
+  left: @value;
+}
+.posDir(@value) when not(@dir="ltr") {
+  right: @value;
+}
+.posiDir(@value) when (@dir='ltr') {
+  right: @value;
+}
+.posiDir(@value) when not(@dir="ltr") {
+  left: @value;
+}
+
+//letter spacing
+.letter-spacing(@value) when (@dir='ltr') {
+  letter-spacing: @value;
+}
+.letter-spacing(@value) when not(@dir="ltr") {
+  letter-spacing: 0;
+}
+
+//Transform Translate
+.translateX (@value) when (@dir='ltr') {
+  transform: translateX(@value);
+}
+.translateX (@value) when not (@dir='ltr') {
+  transform: translateX(-(@value));
+}
+
+//Transform Translate
+.translateY (@value) when (@dir='ltr') {
+  transform: translateY(@value);
+}
+.translateY (@value) when not (@dir='ltr') {
+  transform: translateY(-(@value));
+}
+
+//Box Shadow
+.box-shadow(@dir; @restValue) when (@dir='ltr') {
+  box-shadow: @dir @restValue;
+}
+.box-shadow(@dir; @restValue) when not (@dir='ltr') {
+  box-shadow: -(@dir) @restValue;
+}
+
+//Rotates
+.rotate (@value) when (@dir='ltr') {
+  transform: rotate(@value);
+}
+.rotate (@value) when not (@dir='ltr') {
+  transform: rotate(-(@value));
+}

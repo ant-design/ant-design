@@ -1,43 +1,36 @@
 @keyframes loadingCircle {
   100% {
-    transform: rotate(360deg);
+    .rotate(360deg);
   }
 }
 
-[ant-click-animating='true'],
-[ant-click-animating-without-extra-node='true'] {
+[ant-click-animating],
+[ant-click-animating-without-extra-node] {
   position: relative;
 }
 
-[ant-click-animating-without-extra-node='true']::after,
+[ant-click-animating-without-extra-node]:after,
 .ant-click-animating-node {
+  content: '';
   position: absolute;
   top: -1px;
-  right: -1px;
+  .posDir(-1px);
   bottom: -1px;
-  left: -1px;
-  display: block;
-  border: 0 solid @primary-color;
+  .posiDir(-1px);
   border-radius: inherit;
-  opacity: 0.2;
-  animation: fadeEffect 2s @ease-out-circ, waveEffect 0.4s @ease-out-circ;
-  animation-fill-mode: forwards;
-  pointer-events: none;
-  content: '';
+  border: 0 solid @primary-color;
+  opacity: 0.4;
+  animation: waveEffect 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: block;
 }
 
 @keyframes waveEffect {
-  100% {
-    top: -@wave-animation-width;
-    right: -@wave-animation-width;
-    bottom: -@wave-animation-width;
-    left: -@wave-animation-width;
-    border-width: @wave-animation-width;
-  }
-}
-
-@keyframes fadeEffect {
-  100% {
+  to {
     opacity: 0;
+    top: -@wave-animation-width;
+    .posDir(-@wave-animation-width);
+    bottom: -@wave-animation-width;
+    .posiDir(-@wave-animation-width);
+    border-width: @wave-animation-width;
   }
 }

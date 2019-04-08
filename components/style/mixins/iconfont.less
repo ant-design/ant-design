@@ -1,30 +1,25 @@
 .iconfont-mixin() {
   display: inline-block;
-  color: @icon-color;
   font-style: normal;
-  line-height: 0;
+  vertical-align: baseline;
   text-align: center;
   text-transform: none;
-  vertical-align: -0.125em; // for SVG icon, see https://blog.prototypr.io/align-svg-icons-to-text-and-say-goodbye-to-font-icons-d44b3d7b26b4
+  line-height: 1;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  > * {
-    line-height: 1;
-  }
-
-  svg {
-    display: inline-block;
-  }
-
-  &::before {
-    display: none; // dont display old icon.
-  }
-
-  & &-icon {
+  &:before {
     display: block;
+    font-family: 'anticon' !important;
   }
+}
+
+.iconfont-font(@content) {
+  font-family: 'anticon';
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: @content;
 }
 
 // for iconfont font size
@@ -34,7 +29,7 @@
   @font-scale: unit(@size / 12px);
   font-size: 12px;
   // IE9
-  font-size: ~'@{size} \9';
+  font-size: ~'@{size} \9'; // lesshint duplicateProperty: false
   transform: scale(@font-scale) rotate(@rotate);
   :root & {
     font-size: @font-size-sm; // reset IE9 and above

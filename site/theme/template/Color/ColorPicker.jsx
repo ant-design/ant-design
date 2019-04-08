@@ -15,18 +15,17 @@ export default class ColorPicker extends Component {
     position: 'bottom',
   };
 
-  static getDerivedStateFromProps(props) {
-    if ('color' in props) {
-      return {
-        color: props.color,
-      };
-    }
-    return null;
+  constructor(props) {
+    super();
+    this.state = {
+      displayColorPicker: false,
+      color: props.color,
+    };
   }
 
-  state = {
-    displayColorPicker: false,
-  };
+  componentWillReceiveProps(nextProps) {
+    this.setState({ color: nextProps.color });
+  }
 
   handleClick = () => {
     const { displayColorPicker } = this.state;

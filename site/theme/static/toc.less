@@ -1,38 +1,38 @@
 .toc {
-  margin: 16px 0;
-  padding-left: 0;
   font-size: 12px;
+  margin: 16px 0;
+  .padding-dir(0);
+  .dirBorder(1px solid #ebedf0);
   list-style: none;
-  border-left: 1px solid @site-border-color-split;
 }
 
 ul.toc > li {
-  margin-left: 0;
-  padding-left: 0;
-  line-height: 1.5;
   list-style: none;
+  .margin-dir(0);
+  .padding-dir(0);
+  line-height: 1.5;
   &:not(:last-child) {
     margin-bottom: 4px;
   }
 }
 
 .toc li > ul {
-  display: none;
-  font-size: 12px;
   text-indent: 8px;
+  font-size: 12px;
+  display: none;
 }
 
 .toc a {
+  .padding-dir(16px);
   display: block;
-  width: 110px;
-  margin-left: -1px;
-  padding-left: 16px;
-  overflow: hidden;
-  color: @site-text-color;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  border-left: 1px solid transparent;
   transition: all 0.3s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: @site-text-color;
+  width: 110px;
+  .dirBorder(1px solid transparent);
+  .margin-dir(-1px);
 }
 
 .toc a:hover {
@@ -40,26 +40,24 @@ ul.toc > li {
 }
 
 .toc a.current {
-  color: @primary-color;
   border-color: @primary-color;
+  color: @primary-color;
 }
 
 .toc-affix {
   position: absolute;
   top: 8px;
-  right: 20px;
+  .posiDir(20px);
   .ant-affix {
-    z-index: 9;
-    max-height: ~'calc(100vh - 16px)';
-    overflow: auto;
     background: #fff;
+    overflow: auto;
+    max-height: ~'calc(100vh - 16px)';
   }
 }
-
 .toc-affix-bottom {
   position: absolute;
-  right: 20px;
   bottom: 88px;
+  .posiDir(20px);
   .ant-affix {
     background: #fff;
   }

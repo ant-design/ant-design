@@ -6,7 +6,6 @@ import ScrollParallax from 'rc-scroll-anim/lib/ScrollParallax';
 import { Link } from 'bisheng/router';
 import { FormattedMessage } from 'react-intl';
 import GitHubButton from 'react-github-button';
-import { Button } from 'antd';
 import BannerImage from './BannerImage';
 import * as utils from '../utils';
 
@@ -40,7 +39,15 @@ class Banner extends React.PureComponent {
         <div className="banner-bg-wrapper">
           <svg width="400px" height="576px" viewBox="0 0 400 576" fill="none">
             <TweenOne component="g" animation={[{ opacity: 0, type: 'from' }, { ...loop, y: 15 }]}>
-              <ellipse cx="100" cy="100" rx="6" ry="6" stroke="#2F54EB" strokeWidth="1.6" />
+              <ellipse
+                id="Oval-9-Copy-4"
+                cx="100"
+                cy="100"
+                rx="6"
+                ry="6"
+                stroke="#2F54EB"
+                strokeWidth="1.6"
+              />
             </TweenOne>
             <TweenOne component="g" animation={[{ opacity: 0, type: 'from' }, { ...loop, y: -15 }]}>
               <g transform="translate(200 450)">
@@ -68,22 +75,20 @@ class Banner extends React.PureComponent {
               <FormattedMessage id="app.home.introduce" />
             </p>
             <div className="banner-btns" key="buttons">
-              <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
-                <Button type="primary" className="banner-btn components">
-                  <FormattedMessage id="app.home.getting-started" />
-                </Button>
+              <Link
+                className="banner-btn components"
+                to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}
+              >
+                <FormattedMessage id="app.home.getting-started" />
               </Link>
               <Link
+                className="banner-btn language"
                 to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN)}
-                style={{ marginLeft: 16 }}
               >
-                <Button className="banner-btn language">
-                  <FormattedMessage id="app.home.design-language" />
-                </Button>
+                <FormattedMessage id="app.home.design-language" />
               </Link>
               {!isMobile && (
                 <GitHubButton
-                  style={{ marginLeft: 16 }}
                   key="github-button"
                   size="large"
                   type="stargazers"

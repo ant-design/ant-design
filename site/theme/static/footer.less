@@ -1,76 +1,66 @@
 @import './colors';
 
-@padding-space: 40px;
+@padding-space: 144px;
 
 footer {
-  position: relative;
-  z-index: 9;
   clear: both;
-  margin-left: -1px;
-  color: rgba(255, 255, 255, 0.4);
   font-size: 14px;
   background-color: #000;
-
-  .footer-wrap {
-    position: relative;
-    padding: 60px @padding-space;
+  position: relative;
+  z-index: 100;
+  color: rgba(255, 255, 255, 0.65);
+  box-shadow: 0 1000px 0 1000px #fff;
+  .ant-row {
     text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-
-    > .ant-row {
-      display: inline-block;
-    }
-
     .footer-center {
       display: inline-block;
-      text-align: left;
+      .dirAlign();
       > h2 {
-        position: relative;
+        font-size: 16px;
         margin: 0 auto 24px;
         font-weight: 500;
-        font-size: 16px;
+        position: relative;
 
         > .title-icon {
           width: 27px;
-          margin-right: 16px;
+          .margin-idir(16px);
         }
         > .anticon {
-          position: absolute;
-          top: 3px;
-          left: -22px;
-          color: #aaa;
           font-size: 16px;
+          position: absolute;
+          .posDir(-22px);
+          top: 3px;
+          color: #aaa;
         }
       }
       > div {
         margin: 12px 0;
-
-        > span {
-          -moz-osx-font-smoothing: grayscale;
-          -webkit-font-smoothing: antialiased;
-        }
       }
     }
   }
-
+  .footer-wrap {
+    position: relative;
+    .padding(86px; @padding-space; 93px; @padding-space);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  }
   .bottom-bar {
-    margin: 0;
-    padding: 16px @padding-space;
-    overflow: hidden;
-    font-size: 16px;
-    font-family: Avenir, @font-family, sans-serif;
-    line-height: 32px;
     text-align: center;
-
+    padding: 16px @padding-space;
+    margin: 0;
+    line-height: 32px;
+    overflow: hidden;
+    font-family: Avenir, @font-family;
+    font-size: 16px;
+    font-variant: tabular-nums;
     a {
-      margin-left: 4px;
       color: rgba(255, 255, 255, 0.65);
+      .margin-dir(4px);
       &:hover {
         color: #fff;
       }
     }
     .translate-button {
-      text-align: left;
+      .dirAlign();
     }
     .heart {
       color: #f73f51;

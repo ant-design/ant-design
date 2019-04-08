@@ -6,8 +6,6 @@ import Banner from './Banner';
 import Page1 from './Page1';
 import Page2 from './Page2';
 import Page3 from './Page3';
-import Footer from '../Layout/Footer';
-
 // To store style which is only for Home and has conflicts with others.
 function getStyle() {
   return `
@@ -29,13 +27,8 @@ function getStyle() {
     #header #logo {
       padding: 0;
     }
-    #header #nav .ant-menu-item {
-      border-color: transparent;
-    }
-    #header #nav .ant-menu-submenu {
-      border-color: transparent;
-    }
-    #header #nav .ant-menu-item.hide-in-home-page {
+    #header .ant-row > div:last-child .ant-menu,
+    #header .nav-phone-icon {
       display: none;
     }
     #header .ant-row > div:last-child .header-lang-button {
@@ -53,7 +46,7 @@ function getStyle() {
     }
     @media only screen and (max-width: 767.99px) {
       #footer .footer-wrap{
-        padding: 40px 24px;
+        padding: 40px 24px
       }
       footer .footer-wrap .ant-row {
         padding: 0;
@@ -74,14 +67,13 @@ class Home extends React.Component {
     const childProps = { ...this.props, isMobile, locale: intl.locale };
     return (
       <DocumentTitle title={`Ant Design - ${intl.formatMessage({ id: 'app.home.slogan' })}`}>
-        <>
-          <style dangerouslySetInnerHTML={{ __html: getStyle() }} /> {/* eslint-disable-line */}
+        <div className="main-wrapper">
           <Banner {...childProps} />
           <Page1 {...childProps} />
           <Page2 {...childProps} />
           <Page3 {...childProps} />
-          <Footer />
-        </>
+          <style dangerouslySetInnerHTML={{ __html: getStyle() }} />
+        </div>
       </DocumentTitle>
     );
   }
