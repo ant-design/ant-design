@@ -494,6 +494,8 @@ describe('Menu', () => {
 
     const text = wrapper.find('.ant-tooltip-inner').text();
     expect(text).toBe('bamboo lucky');
+
+    jest.useRealTimers();
   });
 
   it('render correctly when using with Layout.Sider', () => {
@@ -607,5 +609,25 @@ describe('Menu', () => {
     wrapper.setProps({ inlineCollapsed: true });
 
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('not title if not collapsed', () => {
+    jest.useFakeTimers();
+    const wrapper = mount(
+      <Menu mode="inline" inlineCollapsed={false}>
+        <Menu.Item key="1">
+          <Icon type="pie-chart" />
+          <span>Option 1</span>
+        </Menu.Item>
+      </Menu>,
+    );
+
+    wrapper.find('.ant-menu-item').simulate('mouseenter');
+    jest.runAllTimers();
+    wrapper.update();
+
+    expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
+
+    jest.useRealTimers();
   });
 });
