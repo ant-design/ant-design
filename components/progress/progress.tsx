@@ -67,7 +67,7 @@ export default class Progress extends React.Component<ProgressProps> {
       successPercent !== undefined ? successPercent.toString() : percent.toString(),
       10,
     );
-    if (percentNumber >= 100 && status === undefined) {
+    if (percentNumber >= 100 && ProgressStatuses.indexOf(status!) < 0) {
       return 'success';
     }
     return status || 'normal';
