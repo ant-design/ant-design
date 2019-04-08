@@ -86,4 +86,15 @@ describe('Progress', () => {
       'test10 10%, test20 20%, test30 30%',
     );
   });
+
+  it('should show success status when percent is 100', () => {
+    const wrapper = mount(<Progress percent={100} />);
+    expect(wrapper.find('.ant-progress-status-success')).toHaveLength(1);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/15950
+  it('should show success status when percent is 100 and status is undefined', () => {
+    const wrapper2 = mount(<Progress percent={100} status={undefined} />);
+    expect(wrapper2.find('.ant-progress-status-success')).toHaveLength(1);
+  });
 });
