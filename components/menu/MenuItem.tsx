@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Item } from 'rc-menu';
 import { ClickParam } from '.';
+import { MenuContext, MenuContextProps } from './';
 import Tooltip from '../tooltip';
 import { SiderContext, SiderContextProps } from '../layout/Sider';
 
@@ -33,19 +34,25 @@ export default class MenuItem extends React.Component<MenuItemProps> {
     const { level, children, rootPrefixCls } = this.props;
     const { title, ...rest } = this.props;
 
-    let titleNode = title || (level === 1 ? children : '');
-    if (!siderCollapsed) {
-      titleNode = null;
-    }
-
     return (
-      <Tooltip
-        title={titleNode}
-        placement="right"
-        overlayClassName={`${rootPrefixCls}-inline-collapsed-tooltip`}
-      >
-        <Item {...rest} title={title} ref={this.saveMenuItem} />
-      </Tooltip>
+      <MenuContext.Consumer>
+        {({ inlineCollapsed }: MenuContextProps) => {
+          let titleNode = title || (level === 1 ? children : '');
+          if (!siderCollapsed && !inlineCollapsed) {
+            titleNode = null;
+          }
+
+          return (
+            <Tooltip
+              title={titleNode}
+              placement="right"
+              overlayClassName={`${rootPrefixCls}-inline-collapsed-tooltip`}
+            >
+              <Item {...rest} title={title} ref={this.saveMenuItem} />
+            </Tooltip>
+          );
+        }}
+      </MenuContext.Consumer>
     );
   };
 

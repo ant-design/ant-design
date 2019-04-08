@@ -1,6 +1,8 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
 import Layout from '..';
+import Icon from '../../icon';
+import Menu from '../../menu';
 
 const { Sider, Content } = Layout;
 
@@ -103,6 +105,36 @@ describe('Layout', () => {
       </Layout>,
     );
     expect(wrapper.find('.ant-layout').hasClass('ant-layout-has-sider')).toBe(false);
+  });
+
+  it('render correct with Tooltip', () => {
+    jest.useFakeTimers();
+    const wrapper = mount(
+      <Sider collapsible collapsed={false}>
+        <Menu mode="inline">
+          <Menu.Item key="1">
+            <Icon type="user" />
+            <span>Light</span>
+          </Menu.Item>
+        </Menu>
+      </Sider>,
+    );
+
+    wrapper.find('.ant-menu-item').simulate('mouseenter');
+    jest.runAllTimers();
+    wrapper.update();
+    expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
+    wrapper.find('.ant-menu-item').simulate('mouseout');
+    jest.runAllTimers();
+    wrapper.update();
+
+    wrapper.setProps({ collapsed: true });
+    wrapper.find('.ant-menu-item').simulate('mouseenter');
+    jest.runAllTimers();
+    wrapper.update();
+    expect(wrapper.find('.ant-tooltip-inner').length).toBeTruthy();
+
+    jest.useRealTimers();
   });
 });
 
