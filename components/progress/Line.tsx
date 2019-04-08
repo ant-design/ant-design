@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { validProgress } from './utils';
-import { ProgressProps, ProgressGradient, StringGradients } from './progress';
+import { ProgressProps, ProgressGradient, StringGradients } from './Progress';
 
 interface LineProps extends ProgressProps {
   prefixCls: string;
