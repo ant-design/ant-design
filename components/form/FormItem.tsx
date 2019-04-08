@@ -304,8 +304,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
   // Resolve duplicated ids bug between different forms
   // https://github.com/ant-design/ant-design/issues/7351
-  onLabelClick = (e: any) => {
-    const { label } = this.props;
+  onLabelClick = () => {
     const id = this.props.id || this.getId();
     if (!id) {
       return;
@@ -313,17 +312,8 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
     const formItemNode = ReactDOM.findDOMNode(this) as Element;
     const control = formItemNode.querySelector(`[id="${id}"]`) as HTMLElement;
-
-    if (control) {
-      // Only prevent in default situation
-      // Avoid preventing event in `label={<a href="xx">link</a>}``
-      if (typeof label === 'string') {
-        e.preventDefault();
-      }
-
-      if (control.focus) {
-        control.focus();
-      }
+    if (control && control.focus) {
+      control.focus();
     }
   };
 
