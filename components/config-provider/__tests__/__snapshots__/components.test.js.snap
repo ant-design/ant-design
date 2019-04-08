@@ -11417,60 +11417,64 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                   <th
                     class="config-table-column-has-actions config-table-column-has-filters config-table-column-has-sorters"
                   >
-                    <div
-                      class="config-table-column-sorters"
+                    <span
+                      class="config-table-header-column"
                     >
-                      <span
-                        class="config-table-column-title"
+                      <div
+                        class="config-table-column-sorters"
                       >
-                        Name
-                      </span>
-                      <span
-                        class="config-table-column-sorter"
-                      >
-                        <div
-                          class="config-table-column-sorter-inner config-table-column-sorter-inner-full"
-                          title="Sort"
+                        <span
+                          class="config-table-column-title"
                         >
-                          <i
-                            aria-label="icon: caret-up"
-                            class="anticon anticon-caret-up config-table-column-sorter-up off"
+                          Name
+                        </span>
+                        <span
+                          class="config-table-column-sorter"
+                        >
+                          <div
+                            class="config-table-column-sorter-inner config-table-column-sorter-inner-full"
+                            title="Sort"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="caret-up"
-                              fill="currentColor"
-                              height="1em"
-                              viewBox="0 0 1024 1024"
-                              width="1em"
+                            <i
+                              aria-label="icon: caret-up"
+                              class="anticon anticon-caret-up config-table-column-sorter-up off"
                             >
-                              <path
-                                d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                              />
-                            </svg>
-                          </i>
-                          <i
-                            aria-label="icon: caret-down"
-                            class="anticon anticon-caret-down config-table-column-sorter-down off"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="caret-down"
-                              fill="currentColor"
-                              height="1em"
-                              viewBox="0 0 1024 1024"
-                              width="1em"
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="caret-up"
+                                fill="currentColor"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                />
+                              </svg>
+                            </i>
+                            <i
+                              aria-label="icon: caret-down"
+                              class="anticon anticon-caret-down config-table-column-sorter-down off"
                             >
-                              <path
-                                d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                              />
-                            </svg>
-                          </i>
-                        </div>
-                      </span>
-                    </div>
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="caret-down"
+                                fill="currentColor"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                />
+                              </svg>
+                            </i>
+                          </div>
+                        </span>
+                      </div>
+                    </span>
                     <i
                       aria-label="icon: filter"
                       class="anticon anticon-filter config-table-filter-open config-dropdown-trigger config-dropdown-open"
@@ -11628,60 +11632,64 @@ exports[`ConfigProvider components Table normal 1`] = `
                   <th
                     class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
                   >
-                    <div
-                      class="ant-table-column-sorters"
+                    <span
+                      class="ant-table-header-column"
                     >
-                      <span
-                        class="ant-table-column-title"
+                      <div
+                        class="ant-table-column-sorters"
                       >
-                        Name
-                      </span>
-                      <span
-                        class="ant-table-column-sorter"
-                      >
-                        <div
-                          class="ant-table-column-sorter-inner ant-table-column-sorter-inner-full"
-                          title="Sort"
+                        <span
+                          class="ant-table-column-title"
                         >
-                          <i
-                            aria-label="icon: caret-up"
-                            class="anticon anticon-caret-up ant-table-column-sorter-up off"
+                          Name
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        >
+                          <div
+                            class="ant-table-column-sorter-inner ant-table-column-sorter-inner-full"
+                            title="Sort"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="caret-up"
-                              fill="currentColor"
-                              height="1em"
-                              viewBox="0 0 1024 1024"
-                              width="1em"
+                            <i
+                              aria-label="icon: caret-up"
+                              class="anticon anticon-caret-up ant-table-column-sorter-up off"
                             >
-                              <path
-                                d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                              />
-                            </svg>
-                          </i>
-                          <i
-                            aria-label="icon: caret-down"
-                            class="anticon anticon-caret-down ant-table-column-sorter-down off"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="caret-down"
-                              fill="currentColor"
-                              height="1em"
-                              viewBox="0 0 1024 1024"
-                              width="1em"
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="caret-up"
+                                fill="currentColor"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                />
+                              </svg>
+                            </i>
+                            <i
+                              aria-label="icon: caret-down"
+                              class="anticon anticon-caret-down ant-table-column-sorter-down off"
                             >
-                              <path
-                                d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                              />
-                            </svg>
-                          </i>
-                        </div>
-                      </span>
-                    </div>
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="caret-down"
+                                fill="currentColor"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                />
+                              </svg>
+                            </i>
+                          </div>
+                        </span>
+                      </div>
+                    </span>
                     <i
                       aria-label="icon: filter"
                       class="anticon anticon-filter ant-table-filter-open ant-dropdown-trigger ant-dropdown-open"
@@ -11839,60 +11847,64 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                   <th
                     class="prefix-Table-column-has-actions prefix-Table-column-has-filters prefix-Table-column-has-sorters"
                   >
-                    <div
-                      class="prefix-Table-column-sorters"
+                    <span
+                      class="prefix-Table-header-column"
                     >
-                      <span
-                        class="prefix-Table-column-title"
+                      <div
+                        class="prefix-Table-column-sorters"
                       >
-                        Name
-                      </span>
-                      <span
-                        class="prefix-Table-column-sorter"
-                      >
-                        <div
-                          class="prefix-Table-column-sorter-inner prefix-Table-column-sorter-inner-full"
-                          title="Sort"
+                        <span
+                          class="prefix-Table-column-title"
                         >
-                          <i
-                            aria-label="icon: caret-up"
-                            class="anticon anticon-caret-up prefix-Table-column-sorter-up off"
+                          Name
+                        </span>
+                        <span
+                          class="prefix-Table-column-sorter"
+                        >
+                          <div
+                            class="prefix-Table-column-sorter-inner prefix-Table-column-sorter-inner-full"
+                            title="Sort"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="caret-up"
-                              fill="currentColor"
-                              height="1em"
-                              viewBox="0 0 1024 1024"
-                              width="1em"
+                            <i
+                              aria-label="icon: caret-up"
+                              class="anticon anticon-caret-up prefix-Table-column-sorter-up off"
                             >
-                              <path
-                                d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                              />
-                            </svg>
-                          </i>
-                          <i
-                            aria-label="icon: caret-down"
-                            class="anticon anticon-caret-down prefix-Table-column-sorter-down off"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class=""
-                              data-icon="caret-down"
-                              fill="currentColor"
-                              height="1em"
-                              viewBox="0 0 1024 1024"
-                              width="1em"
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="caret-up"
+                                fill="currentColor"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                />
+                              </svg>
+                            </i>
+                            <i
+                              aria-label="icon: caret-down"
+                              class="anticon anticon-caret-down prefix-Table-column-sorter-down off"
                             >
-                              <path
-                                d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                              />
-                            </svg>
-                          </i>
-                        </div>
-                      </span>
-                    </div>
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="caret-down"
+                                fill="currentColor"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                />
+                              </svg>
+                            </i>
+                          </div>
+                        </span>
+                      </div>
+                    </span>
                     <i
                       aria-label="icon: filter"
                       class="anticon anticon-filter prefix-Table-filter-open ant-dropdown-trigger ant-dropdown-open"
@@ -15478,7 +15490,7 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
         class="config-transfer-list-body-not-found"
       >
         <div
-          class="config-empty config-empty-small"
+          class="config-empty config-empty-normal config-empty-small"
         >
           <div
             class="config-empty-image"
@@ -15588,7 +15600,7 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
         class="config-transfer-list-body-not-found"
       >
         <div
-          class="config-empty config-empty-small"
+          class="config-empty config-empty-normal config-empty-small"
         >
           <div
             class="config-empty-image"
@@ -15653,7 +15665,7 @@ exports[`ConfigProvider components Transfer normal 1`] = `
         class="ant-transfer-list-body-not-found"
       >
         <div
-          class="ant-empty ant-empty-small"
+          class="ant-empty ant-empty-normal ant-empty-small"
         >
           <div
             class="ant-empty-image"
@@ -15763,7 +15775,7 @@ exports[`ConfigProvider components Transfer normal 1`] = `
         class="ant-transfer-list-body-not-found"
       >
         <div
-          class="ant-empty ant-empty-small"
+          class="ant-empty ant-empty-normal ant-empty-small"
         >
           <div
             class="ant-empty-image"
@@ -15828,7 +15840,7 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
         class="prefix-Transfer-list-body-not-found"
       >
         <div
-          class="ant-empty ant-empty-small"
+          class="ant-empty ant-empty-normal ant-empty-small"
         >
           <div
             class="ant-empty-image"
@@ -15938,7 +15950,7 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
         class="prefix-Transfer-list-body-not-found"
       >
         <div
-          class="ant-empty ant-empty-small"
+          class="ant-empty ant-empty-normal ant-empty-small"
         >
           <div
             class="ant-empty-image"

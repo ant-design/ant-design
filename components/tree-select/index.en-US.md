@@ -74,3 +74,9 @@ Any data whose entries are defined in a hierarchical manner is fit to use this c
 | key | Required property (unless using `treeDataSimpleMode`), should be unique in the tree | string | - |
 | title | Content showed on the treeNodes | string\|ReactNode | '---' |
 | value | Will be treated as `treeNodeFilterProp` by default, should be unique in the tree | string | - |
+
+## FAQ
+
+### How to get parent node in onChange?
+
+We don't provide this since performance consideration. You can get by this way: <https://codesandbox.io/s/wk080nn81k>

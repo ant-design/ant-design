@@ -27,19 +27,21 @@
   }
 
   // antd internal empty style
-  &-small {
-    margin: 8px 0;
-
-    .@{empty-prefix-cls}-image {
-      height: 35px;
-    }
-  }
-
   &-normal {
     margin: 32px 0;
+    color: @disabled-color;
 
     .@{empty-prefix-cls}-image {
       height: 40px;
+    }
+  }
+
+  &-small {
+    margin: 8px 0;
+    color: @disabled-color;
+
+    .@{empty-prefix-cls}-image {
+      height: 35px;
     }
   }
 }

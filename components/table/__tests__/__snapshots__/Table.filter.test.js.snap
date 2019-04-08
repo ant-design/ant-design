@@ -96,16 +96,20 @@ exports[`Table.filter renders filter correctly 1`] = `
                   <th
                     class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
-                    <div>
-                      <span
-                        class="ant-table-column-title"
-                      >
-                        Name
-                      </span>
-                      <span
-                        class="ant-table-column-sorter"
-                      />
-                    </div>
+                    <span
+                      class="ant-table-header-column"
+                    >
+                      <div>
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Name
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
+                      </div>
+                    </span>
                     <i
                       aria-label="icon: filter"
                       class="anticon anticon-filter ant-dropdown-trigger"

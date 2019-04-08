@@ -513,7 +513,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
               class="ant-transfer-list-body-not-found"
             >
               <div
-                class="ant-empty ant-empty-small"
+                class="ant-empty ant-empty-normal ant-empty-small"
               >
                 <div
                   class="ant-empty-image"
@@ -657,7 +657,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
               class="ant-transfer-list-body-not-found"
             >
               <div
-                class="ant-empty ant-empty-small"
+                class="ant-empty ant-empty-normal ant-empty-small"
               >
                 <div
                   class="ant-empty-image"
@@ -1756,16 +1756,20 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                         <th
                           class="ant-table-column-has-actions ant-table-column-has-filters"
                         >
-                          <div>
-                            <span
-                              class="ant-table-column-title"
-                            >
-                              Name
-                            </span>
-                            <span
-                              class="ant-table-column-sorter"
-                            />
-                          </div>
+                          <span
+                            class="ant-table-header-column"
+                          >
+                            <div>
+                              <span
+                                class="ant-table-column-title"
+                              >
+                                Name
+                              </span>
+                              <span
+                                class="ant-table-column-sorter"
+                              />
+                            </div>
+                          </span>
                           <i
                             aria-label="icon: filter"
                             class="anticon anticon-filter ant-dropdown-trigger"
@@ -1790,16 +1794,20 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                         <th
                           class=""
                         >
-                          <div>
-                            <span
-                              class="ant-table-column-title"
-                            >
-                              Age
-                            </span>
-                            <span
-                              class="ant-table-column-sorter"
-                            />
-                          </div>
+                          <span
+                            class="ant-table-header-column"
+                          >
+                            <div>
+                              <span
+                                class="ant-table-column-title"
+                              >
+                                Age
+                              </span>
+                              <span
+                                class="ant-table-column-sorter"
+                              />
+                            </div>
+                          </span>
                         </th>
                       </tr>
                     </thead>
