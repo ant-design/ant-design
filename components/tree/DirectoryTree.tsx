@@ -13,7 +13,7 @@ import Tree, {
   AntTreeNodeSelectedEvent,
   AntTreeNode,
 } from './Tree';
-import { calcRangeKeys, getFullKeyList } from './util';
+import { calcRangeKeys, getFullKeyList, convertDirectoryKeysToNodes } from './util';
 import Icon from '../icon';
 
 export type ExpandAction = false | 'click' | 'doubleClick';
@@ -141,6 +141,12 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
 
     const newState: DirectoryTreeState = {};
 
+    // We need wrap this event since some value is not same
+    const newEvent: AntTreeNodeSelectedEvent = {
+      ...event,
+      selected: true, // Directory selected always true
+    };
+
     // Windows / Mac single pick
     const ctrlPick: boolean = nativeEvent.ctrlKey || nativeEvent.metaKey;
     const shiftPick: boolean = nativeEvent.shiftKey;
@@ -152,6 +158,7 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
       newSelectedKeys = keys;
       this.lastSelectedKey = eventKey;
       this.cachedSelectedKeys = newSelectedKeys;
+      newEvent.selectedNodes = convertDirectoryKeysToNodes(children, newSelectedKeys);
     } else if (multiple && shiftPick) {
       // Shift click
       newSelectedKeys = Array.from(
@@ -160,16 +167,18 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
           ...calcRangeKeys(children, expandedKeys, eventKey, this.lastSelectedKey),
         ]),
       );
+      newEvent.selectedNodes = convertDirectoryKeysToNodes(children, newSelectedKeys);
     } else {
       // Single click
       newSelectedKeys = [eventKey];
       this.lastSelectedKey = eventKey;
       this.cachedSelectedKeys = newSelectedKeys;
+      newEvent.selectedNodes = [event.node];
     }
     newState.selectedKeys = newSelectedKeys;
 
     if (onSelect) {
-      onSelect(newSelectedKeys, event);
+      onSelect(newSelectedKeys, newEvent);
     }
 
     this.setUncontrolledState(newState);
