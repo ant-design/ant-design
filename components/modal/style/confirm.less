@@ -38,8 +38,8 @@
     }
 
     > .@{iconfont-css-prefix} {
-      float: left;
-      margin-right: 16px;
+      .dir();
+      .margin-idir(16px);
       font-size: 22px;
 
       // `content` after `icon` should set marginLeft
@@ -50,12 +50,12 @@
   }
 
   .@{confirm-prefix-cls}-btns {
-    float: right;
+    .idir();
     margin-top: 24px;
 
     button + button {
       margin-bottom: 0;
-      margin-left: 8px;
+      .margin-dir(8px);
     }
   }
 

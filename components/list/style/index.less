@@ -13,15 +13,15 @@
 
   &-pagination {
     margin-top: 24px;
-    text-align: right;
+    .idirAlign();
   }
 
   &-more {
     margin-top: 12px;
     text-align: center;
     button {
-      padding-right: 32px;
-      padding-left: 32px;
+      .padding-idir(32px);
+      .padding-dir(32px);
     }
   }
 
@@ -56,7 +56,7 @@
       align-items: flex-start;
       font-size: 0;
       &-avatar {
-        margin-right: @list-item-meta-avatar-margin-right;
+        .margin-idir(16px);
       }
       &-content {
         flex: 1 0;
@@ -82,7 +82,7 @@
     }
     &-action {
       flex: 0 0 auto;
-      margin-left: 48px;
+      .margin-dir(48px);
       padding: 0;
       font-size: 0;
       list-style: none;
@@ -97,12 +97,12 @@
         cursor: pointer;
       }
       & > li:first-child {
-        padding-left: 0;
+        .padding-dir(0);
       }
       &-split {
         position: absolute;
         top: 50%;
-        right: 0;
+        .posiDir(0);
         width: 1px;
         height: 14px;
         margin-top: -7px;
@@ -170,7 +170,7 @@
     }
 
     &-extra {
-      margin-left: 40px;
+      .margin-dir(58px);
     }
 
     &-meta {
@@ -186,12 +186,12 @@
 
     &-action {
       margin-top: @padding-md;
-      margin-left: auto;
+      .margin-dir(auto);
 
       > li {
         padding: 0 16px;
         &:first-child {
-          padding-left: 0;
+          .padding-dir(0);
         }
       }
     }

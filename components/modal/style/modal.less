@@ -14,9 +14,9 @@
   &-wrap {
     position: fixed;
     top: 0;
-    right: 0;
+    .posiDir(0);
     bottom: 0;
-    left: 0;
+    .posDir(0);
     z-index: @zindex-modal;
     overflow: auto;
     outline: 0;
@@ -43,7 +43,7 @@
   &-close {
     position: absolute;
     top: 0;
-    right: 0;
+    .posiDir(0);
     z-index: @zindex-popup-close;
     padding: 0;
     color: @text-color-secondary;
@@ -92,13 +92,13 @@
 
   &-footer {
     padding: @modal-footer-padding-vertical @modal-footer-padding-horizontal;
-    text-align: right;
+    .idirAlign();
     background: @modal-footer-bg;
     border-top: @border-width-base @border-style-base @border-color-split;
     border-radius: 0 0 @border-radius-base @border-radius-base;
     button + button {
       margin-bottom: 0;
-      margin-left: 8px;
+      .margin-dir(8px);
     }
   }
 
@@ -113,9 +113,9 @@
   &-mask {
     position: fixed;
     top: 0;
-    right: 0;
+    .posiDir(0);
     bottom: 0;
-    left: 0;
+    .posDir(0);
     z-index: @zindex-modal-mask;
     height: 100%;
     background-color: @modal-mask-bg;
@@ -143,7 +143,7 @@
   .@{dialog-prefix-cls} {
     top: 0;
     display: inline-block;
-    text-align: left;
+    .dirAlign();
     vertical-align: middle;
   }
 }
