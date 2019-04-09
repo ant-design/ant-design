@@ -8,7 +8,7 @@ import { LocaleProvider } from 'antd';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
 import OfflineRuntime from '@yesmeck/offline-plugin/runtime';
 import Header from './Header';
-import Footer from './Footer';
+// import Footer from './Footer';
 import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
 import * as utils from '../utils';
@@ -100,7 +100,7 @@ export default class Layout extends React.Component {
           <div className="page-wrapper">
             <Header {...restProps} />
             {children}
-            <Footer {...restProps} />
+            {/* <Footer {...restProps} /> */}
           </div>
         </LocaleProvider>
       </IntlProvider>
