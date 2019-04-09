@@ -1,55 +1,37 @@
-/* eslint-disable no-return-assign */
 import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import DocumentTitle from 'react-document-title';
 import { getChildren } from 'jsonml.js/lib/utils';
 import { Timeline, Alert, Affix } from 'antd';
-import delegate from 'delegate';
 import EditButton from './EditButton';
-import { ping } from '../utils';
 
 export default class Article extends React.Component {
   static contextTypes = {
     intl: PropTypes.object.isRequired,
   };
 
-  componentDidMount() {
-    // Add ga event click
-    this.delegation = delegate(
-      this.node,
-      '.resource-card',
-      'click',
-      e => {
-        if (window.ga) {
-          window.ga('send', 'event', 'Download', 'resource', e.delegateTarget.href);
-        }
-      },
-      false,
-    );
-    this.componentDidUpdate();
-  }
-
-  componentDidUpdate() {
-    const links = [...document.querySelectorAll('.outside-link.internal')];
-    if (links.length === 0) {
+  onResourceClick = e => {
+    if (!window.gtag) {
       return;
     }
-    this.pingTimer = ping(status => {
-      if (status !== 'timeout' && status !== 'error') {
-        links.forEach(link => (link.style.display = 'block'));
-      } else {
-        links.forEach(link => link.parentNode.removeChild(link));
-      }
-    });
-  }
-
-  componentWillUnmount() {
-    clearTimeout(this.pingTimer);
-    if (this.delegation) {
-      this.delegation.destroy();
+    const cardNode = e.target.closest('.resource-card');
+    if (cardNode) {
+      window.gtag('event', 'resource', {
+        event_category: 'Download',
+        event_label: cardNode.href,
+      });
     }
-  }
+    if (
+      window.location.href.indexOf('docs/react/recommendation') > 0 &&
+      e.target.matches('.markdown > table td > a[href]')
+    ) {
+      window.gtag('event', 'recommendation', {
+        event_category: 'Click',
+        event_label: e.target.href,
+      });
+    }
+  };
 
   getArticle(article) {
     const { content } = this.props;
@@ -87,12 +69,8 @@ export default class Article extends React.Component {
     const isNotTranslated = locale === 'en-US' && typeof title === 'object';
     return (
       <DocumentTitle title={`${title[locale] || title} - Ant Design`}>
-        <article
-          className="markdown"
-          ref={node => {
-            this.node = node;
-          }}
-        >
+        {/* eslint-disable-next-line */}
+        <article className="markdown" onClick={this.onResourceClick}>
           {isNotTranslated && (
             <Alert
               type="warning"

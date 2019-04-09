@@ -1,7 +1,8 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import { Modal, message, Row, Col, Badge } from 'antd';
-import { isLocalStorageNameSupported, loadScript } from '../utils';
+import { Modal, message, Row, Col, Icon } from 'antd';
+import { Link } from 'bisheng/router';
+import { isLocalStorageNameSupported, loadScript, getLocalizedPathname } from '../utils';
 import ColorPicker from '../Color/ColorPicker';
 
 class Footer extends React.Component {
@@ -42,18 +43,20 @@ class Footer extends React.Component {
           '@primary-color': color,
         })
         .then(() => {
+          Icon.setTwoToneColor({ primaryColor: color });
           message.success(messages['app.footer.primary-color-changed']);
           this.setState({ color });
         });
     };
 
-    const lessUrl = 'https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js';
+    const lessUrl = 'https://gw.alipayobjects.com/os/lib/less.js/3.8.1/less.min.js';
 
     if (this.lessLoaded) {
       changeColor();
     } else {
       window.less = {
         async: true,
+        javascriptEnabled: true,
       };
       loadScript(lessUrl).then(() => {
         this.lessLoaded = true;
@@ -96,11 +99,13 @@ class Footer extends React.Component {
   }
 
   render() {
+    const { intl = {} } = this.props;
     const { color } = this.state;
+    const isZhCN = intl.locale === 'zh-CN';
     return (
       <footer id="footer">
         <div className="footer-wrap">
-          <Row>
+          <Row gutter={16}>
             <Col md={6} sm={24} xs={24}>
               <div className="footer-center">
                 <h2>
@@ -115,26 +120,38 @@ class Footer extends React.Component {
                 <div>
                   <a href="http://ng.ant.design">NG-ZORRO</a>
                   <span> - </span>
-                  Ant Design of Angular
+                  <span>Ant Design of Angular</span>
                 </div>
                 <div>
-                  <a target="_blank " href="https://github.com/websemantics/awesome-ant-design">
-                    <FormattedMessage id="app.footer.awesome" />
+                  <a href="http://ng.mobile.ant.design">NG-ZORRO-MOBILE</a>
+                </div>
+                <div>
+                  <a href="http://vue.ant.design">Ant Design Vue</a>
+                </div>
+                <div>
+                  <a target="_blank" rel="noopener noreferrer" href="http://kitchen.alipay.com">
+                    Kitchen
                   </a>
+                  <span> - </span>
+                  <FormattedMessage id="app.footer.kitchen" />
                 </div>
                 <div>
-                  <Badge dot offset={[3, 0]}>
-                    <a target="_blank" rel="noopener noreferrer" href="http://kitchen.alipay.com">
-                      Kitchen
-                    </a>
-                    <span> - </span>
-                    <FormattedMessage id="app.footer.kitchen" />
-                  </Badge>
+                  <a target="_blank" rel="noopener noreferrer" href="http://landing.ant.design">
+                    Ant Design Landing
+                  </a>
+                  <span> - </span>
+                  <FormattedMessage id="app.footer.landing" />
                 </div>
                 <div>
                   <a href="http://scaffold.ant.design">Scaffolds</a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.scaffolds" />
+                </div>
+                <div>
+                  <a target="_blank" rel="noopener noreferrer" href="http://umijs.org/">
+                    Umi
+                  </a>{' '}
+                  - <FormattedMessage id="app.footer.umi" />
                 </div>
                 <div>
                   <a target="_blank" rel="noopener noreferrer" href="https://github.com/dvajs/dva">
@@ -150,21 +167,12 @@ class Footer extends React.Component {
                   <FormattedMessage id="app.footer.motion" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="http://library.ant.design/">
-                    Axure Library
-                  </a>
-                  <span> - </span>
-                  <FormattedMessage id="app.footer.antd-library" />
+                  <Link to={getLocalizedPathname('/docs/spec/download', isZhCN)}>
+                    <FormattedMessage id="app.footer.design-resources" />
+                  </Link>
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="http://ux.ant.design">
-                    Ant UX
-                  </a>
-                  <span> - </span>
-                  <FormattedMessage id="app.footer.antux" />
-                </div>
-                <div>
-                  <a target="_blank " href="http://ant-design.gitee.io/">
+                  <a target="_blank" rel="noopener noreferrer" href="http://ant-design.gitee.io/">
                     <FormattedMessage id="app.footer.chinamirror" />
                   </a>
                 </div>
@@ -179,14 +187,14 @@ class Footer extends React.Component {
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="http://zhuanlan.zhihu.com/antdesign"
+                    href="https://github.com/websemantics/awesome-ant-design"
                   >
-                    <FormattedMessage id="app.footer.zhihu" />
+                    <Icon type="ant-design" /> <FormattedMessage id="app.footer.awesome" />
                   </a>
                 </div>
                 <div>
                   <a target="_blank" rel="noopener noreferrer" href="http://medium.com/ant-design/">
-                    Medium
+                    <Icon type="medium" /> Medium
                   </a>
                 </div>
                 <div>
@@ -195,7 +203,17 @@ class Footer extends React.Component {
                     rel="noopener noreferrer"
                     href="http://twitter.com/antdesignui"
                   >
-                    Twitter
+                    <Icon type="twitter" style={{ color: '#1DA1F2' }} /> Twitter
+                  </a>
+                </div>
+                <div>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="http://zhuanlan.zhihu.com/antdesign"
+                  >
+                    <Icon type="zhihu" style={{ color: '#0084ff' }} />{' '}
+                    <FormattedMessage id="app.footer.zhihu" />
                   </a>
                 </div>
                 <div>
@@ -204,6 +222,7 @@ class Footer extends React.Component {
                     rel="noopener noreferrer"
                     href="http://zhuanlan.zhihu.com/xtech"
                   >
+                    <Icon type="zhihu" style={{ color: '#0084ff' }} />{' '}
                     <FormattedMessage id="app.footer.zhihu.xtech" />
                   </a>
                 </div>
@@ -214,6 +233,11 @@ class Footer extends React.Component {
                   <span> - </span>
                   <FormattedMessage id="app.footer.seeconf" />
                 </div>
+                <div>
+                  <Link to={getLocalizedPathname('/docs/spec/work-with-us', isZhCN)}>
+                    <FormattedMessage id="app.footer.work_with_us" />
+                  </Link>
+                </div>
               </div>
             </Col>
             <Col md={6} sm={24} xs={24}>
@@ -222,23 +246,32 @@ class Footer extends React.Component {
                   <FormattedMessage id="app.footer.help" />
                 </h2>
                 <div>
-                  <a target="_blank " href="https://github.com/ant-design/ant-design">
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://github.com/ant-design/ant-design"
+                  >
                     GitHub
                   </a>
                 </div>
                 <div>
-                  <a href="/changelog">
+                  <Link to={getLocalizedPathname('/changelog', isZhCN)}>
                     <FormattedMessage id="app.footer.change-log" />
-                  </a>
+                  </Link>
                 </div>
                 <div>
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="https://github.com/ant-design/ant-design/wiki/FAQ"
+                    href="https://www.yuque.com/ant-design/course"
                   >
-                    <FormattedMessage id="app.footer.faq" />
+                    <FormattedMessage id="app.footer.course" />
                   </a>
+                </div>
+                <div>
+                  <Link to={getLocalizedPathname('/docs/react/faq', isZhCN)}>
+                    <FormattedMessage id="app.footer.faq" />
+                  </Link>
                 </div>
                 <div>
                   <a
@@ -304,6 +337,7 @@ class Footer extends React.Component {
                 </h2>
                 <div>
                   <a target="_blank" rel="noopener noreferrer" href="https://yuque.com/">
+                    <Icon type="yuque" theme="filled" style={{ color: '#25b864' }} />{' '}
                     <FormattedMessage id="app.footer.yuque" />
                   </a>
                   <span> - </span>
@@ -331,8 +365,8 @@ class Footer extends React.Component {
                   <FormattedMessage id="app.footer.eggjs" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="http://xcloud.alipay.com/">
-                    <FormattedMessage id="app.footer.xcloud" />
+                  <a target="_blank" rel="noopener noreferrer" href="http://xtech.antfin.com/">
+                    <FormattedMessage id="app.footer.xtech" />
                   </a>
                 </div>
                 <div style={{ marginTop: 20 }}>
@@ -364,7 +398,7 @@ class Footer extends React.Component {
         </div>
         <div className="bottom-bar">
           Made with <span className="heart">❤</span> by
-          <a target="_blank" rel="noopener noreferrer" href="https://yuque.com/afx/blog">
+          <a target="_blank" rel="noopener noreferrer" href="https://xtech.antfin.com">
             <FormattedMessage id="app.footer.company" />
           </a>
         </div>
