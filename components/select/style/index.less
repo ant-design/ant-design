@@ -7,7 +7,7 @@
 .selection__clear() {
   position: absolute;
   top: 50%;
-  right: @control-padding-horizontal - 1px;
+  .posiDir(@control-padding-horizontal - 1px);
   z-index: 1;
   display: inline-block;
   width: 12px;
@@ -55,7 +55,7 @@
     .iconfont-mixin();
     position: absolute;
     top: 50%;
-    right: @control-padding-horizontal - 1px;
+    .posiDir(@control-padding-horizontal - 1px);
     margin-top: -@font-size-sm / 2;
     color: @disabled-color;
     font-size: @font-size-sm;
@@ -74,8 +74,6 @@
 
     background-color: @component-background;
     border: @border-width-base @border-style-base @select-border-color;
-    // strange align fix for chrome but works
-    // https://gw.alipayobjects.com/zos/rmsportal/VFTfKXJuogBAXcvfAUWJ.gif
     border-top-width: @border-width-base + 0.02px;
     border-radius: @border-radius-base;
     outline: none;
@@ -101,9 +99,9 @@
     }
 
     &-selected-value {
-      float: left;
+      .dir();
       max-width: 100%;
-      padding-right: 20px;
+      .padding-idir(20px);
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
@@ -111,7 +109,7 @@
   }
 
   &-no-arrow &-selection-selected-value {
-    padding-right: 0;
+    .padding-idir(0);
   }
 
   &-disabled {
@@ -136,7 +134,7 @@
   }
 
   &-disabled &-selection--multiple &-selection__choice {
-    padding-right: 10px;
+    .padding-idir(10px);
     color: fade(@black, 33%);
     background: @background-color-base;
     &__remove {
@@ -153,8 +151,8 @@
   &-selection__rendered {
     position: relative;
     display: block;
-    margin-right: @control-padding-horizontal - 1px;
-    margin-left: @control-padding-horizontal - 1px;
+    .margin-dir(@control-padding-horizontal - 1px);
+    .margin-idir(@control-padding-horizontal - 1px);
     line-height: @input-height-base - 2px;
     // https://github.com/ant-design/ant-design/issues/3481#issuecomment-254721026
     &::after {
@@ -212,7 +210,7 @@
     }
     .@{select-prefix-cls}-selection__clear,
     .@{select-prefix-cls}-arrow {
-      right: @control-padding-horizontal-sm;
+      .posiDir(@control-padding-horizontal-sm);
     }
   }
 
@@ -231,11 +229,10 @@
 
   &-selection__placeholder,
   &-search__field__placeholder {
-    // for TreeSelect compatibility
     position: absolute;
     top: 50%;
-    right: 9px;
-    left: 0;
+    .posiDir(9px);
+    .posDir(0);
     max-width: 100%;
     height: 20px;
     margin-top: -10px;
@@ -243,18 +240,18 @@
     color: @input-placeholder-color;
     line-height: 20px;
     white-space: nowrap;
-    text-align: left;
+    .dirAlign();
     text-overflow: ellipsis;
   }
 
   &-search__field__placeholder {
-    left: @control-padding-horizontal;
+    .posDir(@control-padding-horizontal);
   }
 
   &-search__field__mirror {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: -9999px;
+    .posDir(-9999px);
     white-space: pre;
     opacity: 0;
     pointer-events: none;
@@ -282,7 +279,7 @@
     }
 
     > i {
-      float: right;
+      .idir();
     }
   }
 
@@ -294,7 +291,7 @@
 
     .@{select-prefix-cls}-search--inline {
       position: static;
-      float: left;
+      .dir();
       width: auto;
       max-width: 100%;
       padding: 0;
@@ -307,11 +304,11 @@
     .@{select-prefix-cls}-selection__rendered {
       height: auto;
       margin-bottom: -3px;
-      margin-left: 5px;
+      .margin-dir(5px);
     }
 
     .@{select-prefix-cls}-selection__placeholder {
-      margin-left: 6px;
+      .margin-dir(6px);
     }
 
     > ul > li,
@@ -324,10 +321,10 @@
 
     .@{select-prefix-cls}-selection__choice {
       position: relative;
-      float: left;
+      .dir();
       max-width: 99%;
-      margin-right: 4px;
-      padding: 0 20px 0 10px;
+      .margin-idir(4px);
+      .padding(0; 20px; 0; 10px);
       overflow: hidden;
       color: @tag-default-color;
       background-color: @tag-default-bg;
@@ -352,7 +349,7 @@
     .@{select-prefix-cls}-selection__choice__remove {
       .iconfont-mixin();
       position: absolute;
-      right: 4px;
+      .posiDir(4px);
       display: inline-block;
       color: @text-color-secondary;
       font-weight: bold;
@@ -373,18 +370,18 @@
   }
 
   &-allow-clear &-selection--single &-selection-selected-value {
-    padding-right: 16px;
+    .padding-idir(16px);
   }
 
   &-allow-clear &-selection--multiple &-selection__rendered,
   &-show-arrow &-selection--multiple &-selection__rendered {
-    margin-right: 20px; // In case that clear button will overlap content
+    .margin-idir(20px); // In case that clear button will overlap content
   }
 
   &-open {
     .@{select-prefix-cls}-arrow {
       &-icon svg {
-        transform: rotate(180deg);
+        .rotate(180deg);
       }
     }
     .@{select-prefix-cls}-selection {
@@ -416,7 +413,7 @@
   }
   &-combobox&-allow-clear &-selection:hover &-selection__rendered,
   &-combobox&-show-arrow &-selection:hover &-selection__rendered {
-    margin-right: 20px; // In case that clear button will overlap content
+    .margin-idir(20px); // In case that clear button will overlap content
   }
 }
 
@@ -463,7 +460,7 @@
   &-menu {
     max-height: 250px;
     margin-bottom: 0;
-    padding-left: 0; // Override default ul/ol
+    .padding-dir(0); // Override default ul/ol
     overflow: auto;
     list-style: none;
     outline: none;
@@ -473,7 +470,7 @@
       padding: 0;
 
       > .@{select-prefix-cls}-dropdown-menu-item {
-        padding-left: 20px;
+        .padding-dir(20px);
       }
     }
 
@@ -551,17 +548,17 @@
 
   &&--multiple {
     .@{select-prefix-cls}-dropdown-menu-item {
-      padding-right: @control-padding-horizontal + 20;
+      .padding-idir(@control-padding-horizontal + 20);
       & .@{select-prefix-cls}-selected-icon {
         position: absolute;
         top: 50%;
-        right: @control-padding-horizontal;
+        .posiDir(@control-padding-horizontal);
         color: transparent;
         font-weight: bold;
         font-size: 12px;
         text-shadow: 0 0.1px 0, 0.1px 0 0, 0 -0.1px 0, -0.1px 0;
-        transform: translateY(-50%);
-        transition: all 0.2s;
+        .translateY(-50%);
+        transition: all 0.2s ease;
       }
 
       &:hover .@{select-prefix-cls}-selected-icon {
@@ -583,7 +580,7 @@
   // Patch for popup adjust
   // https://github.com/ant-design/ant-design/issues/14422
   &--empty&--multiple &-menu-item {
-    padding-right: @control-padding-horizontal;
+    .padding-idir(@control-padding-horizontal);
   }
 
   &-container-open,
