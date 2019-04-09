@@ -24,7 +24,7 @@
 
 .@{form-prefix-cls}-item-required::before {
   display: inline-block;
-  margin-right: 4px;
+  .margin-idir(4px);
   color: @label-required-color;
   font-size: @font-size-base;
   font-family: SimSun, sans-serif;
@@ -48,7 +48,7 @@
 
     position: relative;
     top: -0.5px;
-    margin: 0 8px 0 2px;
+    .margin(0; 8px; 0; 2px);
   }
 
   &.@{form-prefix-cls}-item-no-colon::after {
@@ -120,7 +120,7 @@ input[type='checkbox'] {
     overflow: hidden;
     line-height: @form-component-max-height - 0.0001px;
     white-space: nowrap;
-    text-align: right;
+    .idirAlign();
     vertical-align: middle;
 
     &-left {
@@ -154,7 +154,7 @@ input[type='checkbox'] {
 
 .@{form-prefix-cls}-text {
   display: inline-block;
-  padding-right: 8px;
+  .padding-idir(8px);
 }
 
 .@{form-prefix-cls}-split {
@@ -166,7 +166,7 @@ input[type='checkbox'] {
 form {
   .has-feedback {
     .@{ant-prefix}-input {
-      padding-right: 24px;
+      .padding-idir(24px);
     }
 
     // Fix overlapping between feedback icon and <Select>'s arrow.
@@ -177,28 +177,28 @@ form {
     :not(.@{ant-prefix}-input-group-addon)
       > .@{ant-prefix}-select
       .@{ant-prefix}-select-selection__clear {
-      right: 28px;
+      .posiDir(28px);
     }
     > .@{ant-prefix}-select .@{ant-prefix}-select-selection-selected-value,
     :not(.@{ant-prefix}-input-group-addon)
       > .@{ant-prefix}-select
       .@{ant-prefix}-select-selection-selected-value {
-      padding-right: 42px;
+      .padding-idir(42px);
     }
 
     .@{ant-prefix}-cascader-picker {
       &-arrow {
-        margin-right: 17px;
+        .margin-idir(17px);
       }
       &-clear {
-        right: 28px;
+        .posiDir(28px);
       }
     }
 
     // Fix issue: https://github.com/ant-design/ant-design/issues/7854
     .@{ant-prefix}-input-search:not(.@{ant-prefix}-input-search-enter-button) {
       .@{ant-prefix}-input-suffix {
-        right: 28px;
+        .posiDir(28px);
       }
     }
 
@@ -207,7 +207,7 @@ form {
     .@{ant-prefix}-time-picker {
       &-icon,
       &-clear {
-        right: 28px;
+        .posiDir(28px);
       }
     }
   }
@@ -232,13 +232,13 @@ form {
   .@{ant-prefix}-radio-inline,
   .@{ant-prefix}-checkbox-inline {
     display: inline-block;
-    margin-left: 8px;
+    .margin-dir(8px);
     font-weight: normal;
     vertical-align: middle;
     cursor: pointer;
 
     &:first-child {
-      margin-left: 0;
+      .margin-dir(0);
     }
   }
 
@@ -249,12 +249,12 @@ form {
 
   .@{ant-prefix}-checkbox-vertical + .@{ant-prefix}-checkbox-vertical,
   .@{ant-prefix}-radio-vertical + .@{ant-prefix}-radio-vertical {
-    margin-left: 0;
+    .margin-dir(0);
   }
 
   .@{ant-prefix}-input-number {
     + .@{form-prefix-cls}-text {
-      margin-left: 8px;
+      .margin-dir(8px);
     }
     &-handler-wrap {
       z-index: 2; // https://github.com/ant-design/ant-design/issues/6289
@@ -285,8 +285,7 @@ form {
 // Input combined with select
 .@{ant-prefix}-input-group-wrap {
   .@{ant-prefix}-select-selection {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    .dirBorderRadius(0);
     &:hover {
       border-color: @border-color-base;
     }
@@ -294,11 +293,11 @@ form {
 
   .@{ant-prefix}-select-selection--single {
     height: @input-height-lg;
-    margin-left: -1px;
-    background-color: fade(@black, 7%);
+    .margin-dir(-1px);
+    background-color: #eee;
     .@{ant-prefix}-select-selection__rendered {
-      padding-right: 25px;
-      padding-left: 8px;
+      .padding-dir(8px);
+      .padding-idir(25px);
       line-height: 30px;
     }
   }
@@ -317,7 +316,7 @@ form {
   padding: @form-vertical-label-padding;
   line-height: @line-height-base;
   white-space: initial;
-  text-align: left;
+  .dirAlign();
 
   label::after {
     display: none;
@@ -394,7 +393,7 @@ form {
 .@{form-prefix-cls}-inline {
   .@{form-prefix-cls}-item {
     display: inline-block;
-    margin-right: 16px;
+    .margin-idir(16px);
     margin-bottom: 0;
 
     &-with-help {
@@ -425,7 +424,7 @@ form {
   &.has-feedback .@{form-prefix-cls}-item-children-icon {
     position: absolute;
     top: 50%;
-    right: 0;
+    .posiDir(0);
     z-index: 1;
     width: @form-component-height;
     height: 20px;
@@ -436,6 +435,7 @@ form {
     visibility: visible;
     animation: zoomIn 0.3s @ease-out-back;
     pointer-events: none;
+    .iconfont-font('');
 
     & svg {
       position: absolute;
@@ -630,18 +630,18 @@ form {
 
 @keyframes antShowHelpIn {
   0% {
-    transform: translateY(-5px);
+    .translateY(-5px);
     opacity: 0;
   }
   100% {
-    transform: translateY(0);
+    .translateY(0);
     opacity: 1;
   }
 }
 
 @keyframes antShowHelpOut {
   to {
-    transform: translateY(-5px);
+    .translateY(-5px);
     opacity: 0;
   }
 }

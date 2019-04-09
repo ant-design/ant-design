@@ -36,7 +36,7 @@
 
   &-wrap-open {
     .@{iconfont-css-prefix}-down::before {
-      transform: rotate(180deg);
+      .rotate(180deg);
     }
   }
 
@@ -49,7 +49,7 @@
     position: relative;
     margin: 0;
     padding: 4px 0;
-    text-align: left;
+    text-align: @main-website-align;
     list-style-type: none;
     background-color: @component-background;
     background-clip: padding-box;
@@ -88,7 +88,7 @@
 
       > .anticon:first-child {
         min-width: 12px;
-        margin-right: 8px;
+        .margin-idir(8px);
       }
 
       > a {
@@ -129,7 +129,7 @@
       }
       .@{dropdown-prefix-cls}-menu-submenu-arrow {
         position: absolute;
-        right: @padding-xs;
+        .posiDir(@padding-xs);
         &-icon {
           color: @text-color-secondary;
           font-style: normal;
@@ -139,7 +139,7 @@
     }
 
     &-submenu-title {
-      padding-right: 26px;
+      .padding-idir(26px);
     }
 
     &-submenu-vertical {
@@ -149,9 +149,9 @@
     &-submenu-vertical > & {
       position: absolute;
       top: 0;
-      left: 100%;
+      .posDir(100%);
       min-width: 100%;
-      margin-left: 4px;
+      .margin-dir(4px);
       transform-origin: 0 0;
     }
 
@@ -207,10 +207,10 @@
   white-space: nowrap;
 
   &.@{ant-prefix}-btn-group > .@{ant-prefix}-btn:last-child:not(:first-child) {
-    padding-right: @padding-xs;
-    padding-left: @padding-xs;
+    .padding-dir(@padding-xs);
+    .padding-idir(@padding-xs);
   }
-  .@{iconfont-css-prefix}.@{iconfont-css-prefix}-down {
+  .@{iconfont-css-prefix}-down {
     .iconfont-size-under-12px(10px);
   }
 }

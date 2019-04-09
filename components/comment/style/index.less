@@ -14,7 +14,7 @@
   &-avatar {
     position: relative;
     flex-shrink: 0;
-    margin-right: 12px;
+    .margin-idir(12px);
     cursor: pointer;
     img {
       width: 32px;
@@ -38,7 +38,7 @@
       & > a,
       & > span {
         height: 18px;
-        padding-right: 8px;
+        .padding-idir(8px);
         font-size: 12px;
         line-height: 18px;
       }
@@ -69,12 +69,12 @@
 
   &-actions {
     margin-top: 12px;
-    padding-left: 0;
+    .padding-dir(0);
     > li {
       display: inline-block;
       color: @comment-action-color;
       > span {
-        padding-right: 10px;
+        .padding-idir(10px);
         color: @comment-action-color;
         font-size: 12px;
         cursor: pointer;
@@ -88,6 +88,6 @@
   }
 
   &-nested {
-    margin-left: @comment-nest-indent;
+    .margin-dir(@comment-nest-indent);
   }
 }
