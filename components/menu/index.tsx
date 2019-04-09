@@ -10,6 +10,7 @@ import animation from '../_util/openAnimation';
 import warning from '../_util/warning';
 import { polyfill } from 'react-lifecycles-compat';
 import { SiderContext, SiderContextProps } from '../layout/Sider';
+import raf from '../_util/raf';
 
 export interface SelectParam {
   key: string;
@@ -69,6 +70,7 @@ export interface MenuState {
   switchingModeFromInline: boolean;
   inlineOpenKeys: string[];
   prevProps: InternalMenuProps;
+  mounted: boolean;
 }
 
 export interface MenuContextProps {
@@ -122,6 +124,8 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
     return newState;
   }
 
+  private mountRafId: number;
+
   constructor(props: InternalMenuProps) {
     super(props);
 
@@ -150,7 +154,23 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
       switchingModeFromInline: false,
       inlineOpenKeys: [],
       prevProps: props,
+      mounted: false,
     };
+  }
+
+  // [Legacy] Origin code can render full defaultOpenKeys is caused by `rc-animate` bug.
+  // We have to workaround this to prevent animation on first render.
+  // https://github.com/ant-design/ant-design/issues/15966
+  componentDidMount() {
+    this.mountRafId = raf(() => {
+      this.setState({
+        mounted: true,
+      });
+    }, 10);
+  }
+
+  componentWillUnmount() {
+    raf.cancel(this.mountRafId);
   }
 
   restoreModeVerticalFromInline() {
@@ -262,6 +282,7 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
   }
 
   renderMenu = ({ getPopupContainer, getPrefixCls }: ConfigConsumerProps) => {
+    const { mounted } = this.state;
     const { prefixCls: customizePrefixCls, className, theme, collapsedWidth } = this.props;
     const passProps = omit(this.props, ['collapsedWidth', 'siderCollapsed']);
     const menuMode = this.getRealMenuMode();
@@ -282,9 +303,9 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
     if (menuMode !== 'inline') {
       // closing vertical popup submenu after click it
       menuProps.onClick = this.handleClick;
-      menuProps.openTransitionName = menuOpenAnimation;
+      menuProps.openTransitionName = mounted && menuOpenAnimation;
     } else {
-      menuProps.openAnimation = menuOpenAnimation;
+      menuProps.openAnimation = mounted && menuOpenAnimation;
     }
 
     // https://github.com/ant-design/ant-design/issues/8587
