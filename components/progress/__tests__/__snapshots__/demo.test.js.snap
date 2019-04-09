@@ -635,7 +635,7 @@ exports[`renders ./components/progress/demo/format.md correctly 1`] = `
 exports[`renders ./components/progress/demo/gradient-line.md correctly 1`] = `
 <div>
   <div
-    class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
     <div>
       <div
