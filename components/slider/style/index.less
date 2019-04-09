@@ -40,7 +40,7 @@
     width: 14px;
     height: 14px;
     margin-top: -5px;
-    margin-left: -7px;
+    .margin-dir(-7px);
     background-color: @component-background;
     border: solid 2px @slider-handle-color;
     border-radius: 50%;
@@ -52,7 +52,7 @@
     &:focus {
       border-color: @slider-handle-color-focus;
       outline: none;
-      box-shadow: 0 0 0 5px @slider-handle-color-focus-shadow;
+      .box-shadow(0; 0 0 5px @slider-handle-color-focus-shadow);
     }
 
     &.@{ant-prefix}-tooltip-open {
@@ -75,7 +75,7 @@
   &-mark {
     position: absolute;
     top: 14px;
-    left: 0;
+    .posDir(0);
     width: 100%;
     font-size: @font-size-base;
   }
@@ -104,16 +104,16 @@
     top: -2px;
     width: 8px;
     height: 8px;
-    margin-left: -4px;
+    .margin-dir(-4px);
     background-color: @component-background;
     border: 2px solid @slider-dot-border-color;
     border-radius: 50%;
     cursor: pointer;
     &:first-child {
-      margin-left: -4px;
+      .margin-dir(-4px);
     }
     &:last-child {
-      margin-left: -4px;
+      .margin-dir(-4px);
     }
     &-active {
       border-color: @slider-dot-border-color-active;
@@ -160,18 +160,18 @@
 
     .@{slider-prefix-cls}-handle {
       margin-bottom: -7px;
-      margin-left: -5px;
+      .margin-dir(-5px);
     }
 
     .@{slider-prefix-cls}-mark {
       top: 0;
-      left: 12px;
+      .posDir(12px);
       width: 18px;
       height: 100%;
     }
 
     .@{slider-prefix-cls}-mark-text {
-      left: 4px;
+      .posDir(4px);
       white-space: nowrap;
     }
 
@@ -182,7 +182,7 @@
 
     .@{slider-prefix-cls}-dot {
       top: auto;
-      left: 2px;
+      .posDir(2px);
       margin-bottom: -4px;
     }
   }
