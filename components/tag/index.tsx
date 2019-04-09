@@ -6,7 +6,6 @@ import Icon from '../icon';
 import CheckableTag from './CheckableTag';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { PresetColorTypes } from '../_util/colors';
-import Wave from '../_util/wave';
 import warning from '../_util/warning';
 
 export { CheckableTagProps } from './CheckableTag';
@@ -118,12 +117,10 @@ class Tag extends React.Component<TagProps, TagState> {
     const { prefixCls: customizePrefixCls, children, ...otherProps } = this.props;
     const divProps = omit(otherProps, ['onClose', 'afterClose', 'color', 'visible', 'closable']);
     return (
-      <Wave>
-        <div {...divProps} className={this.getTagClassName(configProps)} style={this.getTagStyle()}>
-          {children}
-          {this.renderCloseIcon()}
-        </div>
-      </Wave>
+      <div {...divProps} className={this.getTagClassName(configProps)} style={this.getTagStyle()}>
+        {children}
+        {this.renderCloseIcon()}
+      </div>
     );
   };
 
