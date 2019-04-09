@@ -95,7 +95,7 @@
       &-trigger {
         position: absolute;
         top: @layout-header-height;
-        right: -@layout-zero-trigger-width;
+        .posiDir(-@layout-zero-trigger-width);
         width: @layout-zero-trigger-width;
         height: @layout-zero-trigger-height;
         color: @layout-trigger-color;
@@ -103,7 +103,8 @@
         line-height: @layout-zero-trigger-height;
         text-align: center;
         background: @layout-sider-background;
-        border-radius: 0 @border-radius-base @border-radius-base 0;
+        .idirBorderRadius(@border-radius-base);
+        .dirBorderRadius(0);
         cursor: pointer;
         transition: background 0.3s ease;
 
@@ -112,7 +113,7 @@
         }
 
         &-right {
-          left: -@layout-zero-trigger-width;
+          .posDir(-@layout-zero-trigger-width);
         }
       }
     }

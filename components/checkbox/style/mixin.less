@@ -63,7 +63,7 @@
         border: 2px solid @checkbox-check-color;
         border-top: 0;
         .dirBorder(0);
-        transform: rotate(45deg) scale(0) translate(-50%, -50%);
+        transform: rotate(45deg) scale(0) translate(50%, -50%);
         opacity: 0;
         transition: all 0.1s @ease-in-back, opacity 0.1s;
         content: ' ';
@@ -91,7 +91,7 @@
     border: 2px solid @checkbox-check-color;
     border-top: 0;
     border-left: 0;
-    transform: rotate(45deg) scale(1) translate(-50%, -50%);
+    transform: rotate(45deg) scale(1) translate(50%, -50%);
     opacity: 1;
     transition: all 0.2s @ease-out-back 0.1s;
     content: ' ';
@@ -174,13 +174,13 @@
     .@{checkbox-inner-prefix-cls}::after {
       @indeterminate-width: @checkbox-size - 8px;
       @indeterminate-height: @checkbox-size - 8px;
-      top: 3px;
-      .posDir(3px);
+      top: 50%;
+      .posDir(50%);
       width: @indeterminate-width;
       height: @indeterminate-height;
       background-color: @checkbox-color;
       border: 0;
-      transform: translate(-50%, -50%) scale(1);
+      transform: translate(50%, -50%) scale(1);
       opacity: 1;
       content: ' ';
     }

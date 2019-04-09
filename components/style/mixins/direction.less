@@ -202,11 +202,8 @@
 }
 
 //Transform Translate
-.translateY (@value) when (@dir='ltr') {
+.translateY (@value) {
   transform: translateY(@value);
-}
-.translateY (@value) when not (@dir='ltr') {
-  transform: translateY(-(@value));
 }
 
 //Transform Translate
@@ -214,7 +211,7 @@
   transform: translateY(@xValue, @yValue);
 }
 .translate (@value) when not (@dir='ltr') {
-  transform: translateY(-(@xValue), -(@yValue));
+  transform: translateY(-(@xValue), @yValue);
 }
 
 //Box Shadow

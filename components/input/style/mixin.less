@@ -19,7 +19,7 @@
 // == when focus or actived
 .active(@color: @outline-color) {
   border-color: ~`colorPalette('@{color}', 5) `;
-  border-right-width: @border-width-base !important;
+  .idirBorderWidth(~'1px') !important;
   outline: 0;
   box-shadow: @input-outline-offset @outline-blur-size @outline-width fade(@color, 20%);
 }
@@ -27,7 +27,7 @@
 // == when hoverd
 .hover(@color: @input-hover-border-color) {
   border-color: ~`colorPalette('@{color}', 5) `;
-  border-right-width: @border-width-base !important;
+  .idirBorderWidth(~'1px') !important;
 }
 
 .disabled() {
@@ -103,14 +103,14 @@
   // Undo padding and float of grid classes
   &[class*='col-'] {
     float: none;
-    padding-right: 0;
-    padding-left: 0;
+    .padding-idir(0);
+    .padding-dir(0);
   }
 
   > [class*='col-'] {
-    padding-right: 8px;
+    .padding-idir(8px);
     &:last-child {
-      padding-right: 0;
+      .padding-idir(0);
     }
   }
 
@@ -136,17 +136,17 @@
   }
 
   .@{inputClass} {
-    float: left;
+    .dir();
     width: 100%;
     margin-bottom: 0;
     text-align: inherit;
     &:focus {
       z-index: 1; // Fix https://gw.alipayobjects.com/zos/rmsportal/DHNpoqfMXSfrSnlZvhsJ.png
-      border-right-width: 1px;
+      .idirBorderWidth(1px);
     }
     &:hover {
       z-index: 1;
-      border-right-width: 1px;
+      .idirBorderWidth(1px);
     }
   }
 
@@ -187,9 +187,9 @@
     > i:only-child::after {
       position: absolute;
       top: 0;
-      right: 0;
+      .posiDir(0);
       bottom: 0;
-      left: 0;
+      .posDir(0);
       content: '';
     }
   }
@@ -197,44 +197,38 @@
   // Reset rounded corners
   > .@{inputClass}:first-child,
   &-addon:first-child {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+    .idirBorderRadius(0);
 
     // Reset Select's style in addon
     .@{ant-prefix}-select .@{ant-prefix}-select-selection {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
+      .idirBorderRadius(0);
     }
   }
 
   > .@{inputClass}-affix-wrapper {
     &:not(:first-child) .@{inputClass} {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
+      .dirBorderRadius(0);
     }
 
     &:not(:last-child) .@{inputClass} {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
+      .idirBorderRadius(0);
     }
   }
 
   &-addon:first-child {
-    border-right: 0;
+    .idirBorder(0);
   }
   &-addon:last-child {
-    border-left: 0;
+    .dirBorder(0);
   }
 
   > .@{inputClass}:last-child,
   &-addon:last-child {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    .dirBorderRadius(0);
 
     // Reset Select's style in addon
     .@{ant-prefix}-select .@{ant-prefix}-select-selection {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
+      .dirBorderRadius(0);
     }
   }
 
@@ -260,7 +254,7 @@
 
   .@{inputClass}-affix-wrapper {
     display: table-cell;
-    float: left;
+    .dir();
     width: 100%;
   }
 
@@ -272,7 +266,7 @@
     &-wrap,
     > .@{inputClass} {
       &:not(:first-child):not(:last-child) {
-        border-right-width: @border-width-base;
+        .idirBorderWidth(@border-width-base);
         &:hover {
           z-index: 1;
         }
@@ -290,8 +284,8 @@
     }
 
     & > *:not(:last-child) {
-      margin-right: -@border-width-base;
-      border-right-width: @border-width-base;
+      .margin-idir(-@border-width-base);
+      .idirBorderWidth(@border-width-base);
     }
 
     // Undo float for .ant-input-group .ant-input
@@ -306,7 +300,7 @@
     & > .@{ant-prefix}-cascader-picker .@{ant-prefix}-input,
     & > .@{ant-prefix}-mention-wrapper .@{ant-prefix}-mention-editor,
     & > .@{ant-prefix}-time-picker .@{ant-prefix}-time-picker-input {
-      border-right-width: @border-width-base;
+      .idirBorderWidth(0);
       border-radius: 0;
       &:hover {
         z-index: 1;
@@ -323,8 +317,7 @@
     & > .@{ant-prefix}-cascader-picker:first-child .@{ant-prefix}-input,
     & > .@{ant-prefix}-mention-wrapper:first-child .@{ant-prefix}-mention-editor,
     & > .@{ant-prefix}-time-picker:first-child .@{ant-prefix}-time-picker-input {
-      border-top-left-radius: @border-radius-base;
-      border-bottom-left-radius: @border-radius-base;
+      .dirBorderRadius(@border-radius-base);
     }
 
     & > *:last-child,
@@ -335,14 +328,13 @@
     & > .@{ant-prefix}-cascader-picker-focused:last-child .@{ant-prefix}-input,
     & > .@{ant-prefix}-mention-wrapper:last-child .@{ant-prefix}-mention-editor,
     & > .@{ant-prefix}-time-picker:last-child .@{ant-prefix}-time-picker-input {
-      border-right-width: @border-width-base;
-      border-top-right-radius: @border-radius-base;
-      border-bottom-right-radius: @border-radius-base;
-    }
+      .idirBorderWidth(1px);
+      .idirBorderRadius(@border-radius-base);
 
-    // https://github.com/ant-design/ant-design/issues/12493
-    & > .@{ant-prefix}-select-auto-complete .@{ant-prefix}-input {
-      vertical-align: top;
+      // https://github.com/ant-design/ant-design/issues/12493
+      & > .@{ant-prefix}-select-auto-complete .@{ant-prefix}-input {
+        vertical-align: top;
+      }
     }
   }
 }
@@ -369,25 +361,25 @@
     z-index: 2;
     color: @input-color;
     line-height: 0;
-    transform: translateY(-50%);
+    .translateY(-50%);
     :not(.anticon) {
       line-height: @line-height-base;
     }
   }
 
   .@{inputClass}-prefix {
-    left: @input-padding-horizontal-base + 1px;
+    .posDir(@input-padding-horizontal-base + 1px);
   }
 
   .@{inputClass}-suffix {
-    right: @input-padding-horizontal-base + 1px;
+    .posiDir(@input-padding-horizontal-base + 1px);
   }
 
   .@{inputClass}:not(:first-child) {
-    padding-left: @input-padding-horizontal-base + @input-affix-width;
+    .padding-dir(@input-padding-horizontal-base + @input-affix-width);
   }
 
   .@{inputClass}:not(:last-child) {
-    padding-right: @input-padding-horizontal-base + @input-affix-width;
+    .padding-idir(@input-padding-horizontal-base + @input-affix-width);
   }
 }
