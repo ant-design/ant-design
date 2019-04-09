@@ -34,12 +34,12 @@
     // Fix https://github.com/ant-design/ant-design/issues/7800
     .@{select-prefix-cls}-search--inline {
       position: static;
-      float: left;
+      .dir();
     }
 
     &-allow-clear {
       .@{select-prefix-cls}-selection:hover .@{select-prefix-cls}-selection__rendered {
-        margin-right: 0 !important;
+        .margin-idir(~'0') !important;
       }
     }
 

@@ -31,8 +31,8 @@
     .btn-primary;
 
     .@{btn-prefix-cls}-group &:not(:first-child):not(:last-child) {
-      border-right-color: @btn-group-border;
-      border-left-color: @btn-group-border;
+      .idirBorderColor(@btn-group-border);
+      .dirBorderColor(@btn-group-border);
 
       &:disabled {
         border-color: @btn-default-border;
@@ -41,18 +41,18 @@
 
     .@{btn-prefix-cls}-group &:first-child {
       &:not(:last-child) {
-        border-right-color: @btn-group-border;
+        .idirBorderColor(@btn-group-border);
         &[disabled] {
-          border-right-color: @btn-default-border;
+          .idirBorderColor(@btn-default-border);
         }
       }
     }
 
     .@{btn-prefix-cls}-group &:last-child:not(:first-child),
     .@{btn-prefix-cls}-group & + & {
-      border-left-color: @btn-group-border;
+      .dirBorderColor(@btn-group-border);
       &[disabled] {
-        border-left-color: @btn-default-border;
+        .dirBorderColor(@btn-default-border);
       }
     }
   }
@@ -81,9 +81,9 @@
   &::before {
     position: absolute;
     top: -1px;
-    right: -1px;
+    .posDir(-1px);
     bottom: -1px;
-    left: -1px;
+    .posiDir(-1px);
     z-index: 1;
     display: none;
     background: @component-background;
@@ -95,7 +95,7 @@
   }
 
   .@{iconfont-css-prefix} {
-    transition: margin-left 0.3s @ease-in-out;
+    transition: @margin-dir 0.3s @ease-in-out;
 
     // Follow icon blur under windows. Change the render.
     // https://github.com/ant-design/ant-design/issues/13924
@@ -113,17 +113,17 @@
 
   &&-loading:not(&-circle):not(&-circle-outline):not(&-icon-only) {
     position: relative;
-    padding-left: 29px;
+    .padding-dir(29px);
     pointer-events: none;
     .@{iconfont-css-prefix}:not(:last-child) {
-      margin-left: -14px;
+      .margin-dir(-14px);
     }
   }
 
   &-sm&-loading:not(&-circle):not(&-circle-outline):not(&-icon-only) {
-    padding-left: 24px;
+    .padding-dir(24px);
     .@{iconfont-css-prefix} {
-      margin-left: -17px;
+      .margin-dir(-17px);
     }
   }
 
@@ -132,8 +132,8 @@
   }
 
   &:not(&-circle):not(&-circle-outline)&-icon-only {
-    padding-right: 8px;
-    padding-left: 8px;
+    .padding-dir(8px);
+    .padding-idir(8px);
   }
 
   // http://stackoverflow.com/a/21281554/3040605
@@ -145,7 +145,7 @@
   // To ensure that a space will be placed between character and `Icon`.
   > .@{iconfont-css-prefix} + span,
   > span + .@{iconfont-css-prefix} {
-    margin-left: 8px;
+    .margin-dir(8px);
   }
 
   &-background-ghost {
@@ -163,12 +163,12 @@
   }
 
   &-two-chinese-chars::first-letter {
-    letter-spacing: 0.34em;
+    .letter-spacing(0.34em);
   }
 
   &-two-chinese-chars > *:not(.@{iconfont-css-prefix}) {
-    margin-right: -0.34em;
-    letter-spacing: 0.34em;
+    .margin-idir(-0.34em);
+    .letter-spacing(0.34em);
   }
 
   &-block {

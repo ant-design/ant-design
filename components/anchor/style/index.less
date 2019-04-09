@@ -6,11 +6,11 @@
 .@{ant-prefix}-anchor {
   .reset-component;
   position: relative;
-  padding-left: @anchor-border-width;
+  .padding-dir(@anchor-border-width);
 
   &-wrapper {
-    margin-left: -4px;
-    padding-left: 4px;
+    .padding-dir(4px);
+    .margin-dir(-4px);
     overflow: auto;
     background-color: @component-background;
   }
@@ -18,7 +18,7 @@
   &-ink {
     position: absolute;
     top: 0;
-    left: 0;
+    .posDir(0);
     height: 100%;
     &::before {
       position: relative;
@@ -31,14 +31,14 @@
     }
     &-ball {
       position: absolute;
-      left: 50%;
+      .posDir(50%);
       display: none;
       width: 8px;
       height: 8px;
       background-color: @component-background;
       border: 2px solid @primary-color;
       border-radius: 8px;
-      transform: translateX(-50%);
+      .translateX(-50%);
       transition: top 0.3s ease-in-out;
       &.visible {
         display: inline-block;
@@ -51,7 +51,7 @@
   }
 
   &-link {
-    padding: 7px 0 7px 16px;
+    .padding(7px; 0; 7px; 16px);
     line-height: 1.143;
 
     &-title {

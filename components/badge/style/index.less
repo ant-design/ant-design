@@ -49,8 +49,8 @@
   .@{number-prefix-cls}-custom-component {
     position: absolute;
     top: 0;
-    right: 0;
-    transform: translate(50%, -50%);
+    .posiDir(0);
+    .translate(50%; -50%);
     transform-origin: 100% 0%;
   }
 
@@ -76,7 +76,7 @@
       &::after {
         position: absolute;
         top: 0;
-        left: 0;
+        .posDir(0);
         width: 100%;
         height: 100%;
         border: 1px solid @processing-color;
@@ -107,7 +107,7 @@
     .make-color-classes();
 
     &-text {
-      margin-left: 8px;
+      .margin-dir(8px);
       color: @text-color;
       font-size: @font-size-base;
     }

@@ -209,6 +209,14 @@
   transform: translateY(-(@value));
 }
 
+//Transform Translate
+.translate (@xValue; @yValue) when (@dir='ltr') {
+  transform: translateY(@xValue, @yValue);
+}
+.translate (@value) when not (@dir='ltr') {
+  transform: translateY(-(@xValue), -(@yValue));
+}
+
 //Box Shadow
 .box-shadow(@dir; @restValue) when (@dir='ltr') {
   box-shadow: @dir @restValue;
