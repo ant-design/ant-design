@@ -44,7 +44,7 @@
   .slick-track {
     position: relative;
     top: 0;
-    left: 0;
+    .posDir(0);
     display: block;
 
     &::before,
@@ -63,11 +63,11 @@
   }
   .slick-slide {
     display: none;
-    float: left;
+    .dir();
     height: 100%;
     min-height: 1px;
     [dir='rtl'] & {
-      float: right;
+      .idir();
     }
     img {
       display: block;
@@ -130,14 +130,14 @@
   }
 
   .slick-prev {
-    left: -25px;
+    .posDir(-25px);
     &::before {
       content: '←';
     }
   }
 
   .slick-next {
-    right: -25px;
+    .posiDir(-25px);
     &::before {
       content: '→';
     }
@@ -182,7 +182,7 @@
       }
       &.slick-active button {
         width: @carousel-dot-active-width;
-        background: @component-background;
+        background: #fff;
         opacity: 1;
         &:hover,
         &:focus {
@@ -196,11 +196,11 @@
 .@{ant-prefix}-carousel-vertical {
   .slick-dots {
     top: 50%;
-    right: 12px;
+    .posiDir(12px);
     bottom: auto;
     width: @carousel-dot-height;
     height: auto;
-    transform: translateY(-50%);
+    .translateY(-50%);
     li {
       margin: 0 2px;
       vertical-align: baseline;

@@ -32,12 +32,12 @@
         .iconfont-mixin();
         position: absolute;
         top: 50%;
-        left: @padding-md;
+        .posiDir(@padding-md);
         display: inline-block;
         margin-top: 2px;
         font-size: @font-size-sm;
         line-height: 46px;
-        transform: translateY(-50%);
+        .translateY(-50%);
 
         & svg {
           transition: transform 0.24s;
@@ -45,7 +45,7 @@
       }
 
       .@{collapse-prefix-cls}-extra {
-        float: right;
+        .idir();
       }
 
       &:focus {
@@ -55,7 +55,7 @@
 
     &.@{collapse-prefix-cls}-no-arrow {
       > .@{collapse-prefix-cls}-header {
-        padding-left: 12px;
+        .padding-dir(12px);
       }
     }
   }

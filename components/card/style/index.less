@@ -12,7 +12,7 @@
   .reset-component;
   position: relative;
   background: @component-background;
-  border-radius: @card-radius;
+  border-radius: @border-radius-sm;
   transition: all 0.3s;
 
   &-hoverable {
@@ -67,10 +67,10 @@
   }
 
   &-extra {
-    float: right;
+    .idir();
     // https://stackoverflow.com/a/22429853/3040605
-    margin-left: auto;
-    padding: @card-head-padding 0;
+    .margin-dir(auto);
+    padding: @card-head-padding + 1.5px 0;
     color: @text-color;
     font-weight: normal;
     font-size: @font-size-base;
@@ -81,13 +81,13 @@
     .clearfix;
   }
 
-  &-contain-grid:not(&-loading) &-body {
-    margin: -1px 0 0 -1px;
+  &-contain-grid:not(&-loading) {
+    .margin(-1px; 0; 0; -1px);
     padding: 0;
   }
 
   &-grid {
-    float: left;
+    .dir();
     width: 33.33%;
     padding: @card-padding-base;
     border: 0;
@@ -131,7 +131,7 @@
     .clearfix;
 
     & > li {
-      float: left;
+      .dir();
       margin: 12px 0;
       color: @text-color-secondary;
       text-align: center;
@@ -167,7 +167,7 @@
       }
 
       &:not(:last-child) {
-        border-right: @border-width-base @border-style-base @border-color-split;
+        .idirBorder(@border-width-base @border-style-base @border-color-split);
       }
     }
   }
@@ -195,8 +195,8 @@
     .clearfix;
 
     &-avatar {
-      float: left;
-      padding-right: 16px;
+      .dir();
+      .padding-idir(16px);
     }
 
     &-detail {

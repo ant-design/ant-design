@@ -54,7 +54,7 @@
     &-label {
       position: absolute;
       top: 50%;
-      left: 0;
+      .posDir(0);
       width: 100%;
       height: 20px;
       margin-top: -10px;
@@ -68,7 +68,7 @@
     &-clear {
       position: absolute;
       top: 50%;
-      right: @control-padding-horizontal;
+      .posiDir(@control-padding-horizontal);
       z-index: 2;
       width: 12px;
       height: 12px;
@@ -93,7 +93,7 @@
     &-arrow {
       position: absolute;
       top: 50%;
-      right: @control-padding-horizontal;
+      .posiDir(@control-padding-horizontal);
       z-index: 1;
       width: 12px;
       height: 12px;
@@ -103,14 +103,14 @@
       line-height: 12px;
       transition: transform 0.2s;
       &&-expand {
-        transform: rotate(180deg);
+        .rotate(180deg);
       }
     }
   }
 
   &-picker-small &-picker-clear,
   &-picker-small &-picker-arrow {
-    right: @control-padding-horizontal-sm;
+    .posiDir(@control-padding-horizontal-sm);
   }
 
   &-menus {
@@ -160,15 +160,15 @@
     overflow: auto;
     vertical-align: top;
     list-style: none;
-    border-right: @border-width-base @border-style-base @border-color-split;
+    .idirBorder(@border-width-base @border-style-base @border-color-split);
     -ms-overflow-style: -ms-autohiding-scrollbar; // https://github.com/ant-design/ant-design/issues/11857
 
     &:first-child {
       border-radius: @border-radius-base 0 0 @border-radius-base;
     }
     &:last-child {
-      margin-right: -1px;
-      border-right-color: transparent;
+      .margin-idir(-1px);
+      .idirBorderColor(transparent);
       border-radius: 0 @border-radius-base @border-radius-base 0;
     }
     &:only-child {
@@ -200,14 +200,14 @@
     }
     &-expand {
       position: relative;
-      padding-right: 24px;
+      .padding-idir(24px);
     }
 
     &-expand &-expand-icon,
     &-expand &-loading-icon {
       .iconfont-size-under-12px(10px);
       position: absolute;
-      right: @control-padding-horizontal;
+      .posiDir(@control-padding-horizontal);
       color: @text-color-secondary;
     }
 
