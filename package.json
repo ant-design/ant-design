@@ -110,7 +110,7 @@
     "antd-tools": "^7.3.0",
     "babel-eslint": "^10.0.1",
     "babel-plugin-add-react-displayname": "^0.0.5",
-    "bisheng": "^1.1.0",
+    "bisheng": "^1.2.2",
     "bisheng-plugin-antd": "^1.0.0",
     "bisheng-plugin-description": "^0.1.4",
     "bisheng-plugin-react": "^1.0.0",
