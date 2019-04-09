@@ -21,11 +21,11 @@
   &-outer {
     display: inline-block;
     width: 100%;
-    margin-right: 0;
-    padding-right: 0;
+    .margin-idir(0);
+    .padding-idir(0);
     .@{progress-prefix-cls}-show-info & {
-      margin-right: ~'calc(-2em - 8px)';
-      padding-right: ~'calc(2em + 8px)';
+      .padding-idir(~'calc(-2em - 8px)');
+      .margin-idir(~'calc(2em + 8px)');
     }
   }
 
@@ -57,19 +57,19 @@
   &-success-bg {
     position: absolute;
     top: 0;
-    left: 0;
+    .posDir(0);
     background-color: @success-color;
   }
 
   &-text {
     display: inline-block;
     width: 2em;
-    margin-left: 8px;
+    .margin-dir(8px);
     color: @text-color-secondary;
     font-size: 1em;
     line-height: 1;
     white-space: nowrap;
-    text-align: left;
+    .idirAlign();
     vertical-align: middle;
     word-break: normal;
     .@{iconfont-css-prefix} {
@@ -78,12 +78,12 @@
   }
 
   &-status-active {
-    .@{progress-prefix-cls}-bg::before {
+    .@{progress-prefix-cls}-bg:before {
       position: absolute;
       top: 0;
-      right: 0;
+      .posDir(0);
       bottom: 0;
-      left: 0;
+      .posiDir(0);
       background: @component-background;
       border-radius: 10px;
       opacity: 0;
@@ -125,7 +125,7 @@
   &-circle &-text {
     position: absolute;
     top: 50%;
-    left: 50%;
+    .posDir(0);
     width: 100%;
     margin: 0;
     padding: 0;
@@ -133,7 +133,7 @@
     line-height: 1;
     white-space: normal;
     text-align: center;
-    transform: translate(-50%, -50%);
+    .translateY(-50%);
 
     .@{iconfont-css-prefix} {
       font-size: 14 / 12em;
