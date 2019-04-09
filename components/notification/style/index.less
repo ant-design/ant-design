@@ -15,22 +15,17 @@
   z-index: @zindex-notification;
   width: @notification-width;
   max-width: ~'calc(100vw - 32px)';
-  margin-right: 24px;
+  .margin-idir(24px);
 
   &-topLeft,
   &-bottomLeft {
-    margin-right: 0;
-    margin-left: 24px;
+    .margin-idir(0);
+    .margin-dir(24px);
 
     .@{notification-prefix-cls}-fade-enter.@{notification-prefix-cls}-fade-enter-active,
     .@{notification-prefix-cls}-fade-appear.@{notification-prefix-cls}-fade-appear-active {
       animation-name: NotificationLeftFadeIn;
     }
-  }
-
-  &-close-icon {
-    font-size: @font-size-base;
-    cursor: pointer;
   }
 
   &-notice {
@@ -69,23 +64,23 @@
     }
 
     &-closable &-message {
-      padding-right: 24px;
+      .padding-idir(24px);
     }
 
     &-with-icon &-message {
       margin-bottom: 4px;
-      margin-left: 48px;
+      .margin-dir(48px);
       font-size: @font-size-lg;
     }
 
     &-with-icon &-description {
-      margin-left: 48px;
+      .margin-dir(48px);
       font-size: @font-size-base;
     }
 
     .@{iconfont-css-prefix}&-icon {
       position: absolute;
-      margin-left: 4px;
+      .margin-dir(4px);
       font-size: 24px;
       line-height: 24px;
 
@@ -106,7 +101,7 @@
     &-close {
       position: absolute;
       top: 16px;
-      right: 22px;
+      .posiDir(22px);
       color: @text-color-secondary;
       outline: none;
 
@@ -116,7 +111,7 @@
     }
 
     &-btn {
-      float: right;
+      .idir();
       margin-top: 16px;
     }
   }
@@ -154,22 +149,22 @@
 
 @keyframes NotificationFadeIn {
   0% {
-    left: @notification-width;
+    .posDir(@notification-width);
     opacity: 0;
   }
   100% {
-    left: 0;
+    .posDir(0);
     opacity: 1;
   }
 }
 
 @keyframes NotificationLeftFadeIn {
   0% {
-    right: @notification-width;
+    .posiDir(@notification-width);
     opacity: 0;
   }
   100% {
-    right: 0;
+    .posiDir(0);
     opacity: 1;
   }
 }
