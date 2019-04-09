@@ -25,7 +25,7 @@
     > div > .@{spin-prefix-cls} {
       position: absolute;
       top: 0;
-      left: 0;
+      .posDir(0);
       z-index: 4;
       display: block;
       width: 100%;
@@ -34,7 +34,7 @@
       .@{spin-prefix-cls}-dot {
         position: absolute;
         top: 50%;
-        left: 50%;
+        .posDir(50%);
         margin: -@spin-dot-size / 2;
       }
       .@{spin-prefix-cls}-text {
@@ -81,9 +81,9 @@
     &::after {
       position: absolute;
       top: 0;
-      right: 0;
+      .posiDir(0);
       bottom: 0;
-      left: 0;
+      .posDir(0);
       z-index: 10;
       display: ~'none \9';
       width: 100%;
@@ -139,27 +139,27 @@
 
       &:nth-child(1) {
         top: 0;
-        left: 0;
+        .posDir(0);
       }
       &:nth-child(2) {
         top: 0;
-        right: 0;
+        .posiDir(0);
         animation-delay: 0.4s;
       }
       &:nth-child(3) {
-        right: 0;
+        .posiDir(0);
         bottom: 0;
         animation-delay: 0.8s;
       }
       &:nth-child(4) {
         bottom: 0;
-        left: 0;
+        .posDir(0);
         animation-delay: 1.2s;
       }
     }
 
     &-spin {
-      transform: rotate(45deg);
+      .rotate(45deg);
       animation: antRotate 1.2s infinite linear;
     }
   }
@@ -210,6 +210,6 @@
 
 @keyframes antRotate {
   to {
-    transform: rotate(405deg);
+    .rotate(405deg);
   }
 }
