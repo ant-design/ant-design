@@ -33,7 +33,7 @@
       &-action {
         position: absolute;
         top: 4px;
-        right: 4px;
+        .posiDir(4px);
         bottom: 4px;
         width: 28px;
         color: @disabled-color;
@@ -55,7 +55,7 @@
     &-header {
       position: absolute;
       top: 0;
-      left: 0;
+      .posDir(0);
       width: 100%;
       padding: 6px @control-padding-horizontal;
       overflow: hidden;
@@ -66,7 +66,7 @@
 
       &-title {
         position: absolute;
-        right: 12px;
+        .posiDir(12px);
       }
     }
 
@@ -78,7 +78,7 @@
       &-search-wrapper {
         position: absolute;
         top: 0;
-        left: 0;
+        .posDir(0);
         width: 100%;
         padding: 4px;
       }
@@ -106,7 +106,7 @@
         text-overflow: ellipsis;
         transition: all 0.3s;
         > span {
-          padding-right: 0;
+          .padding-idir(0);
         }
       }
 
@@ -128,8 +128,7 @@
       padding-top: 0;
       color: @disabled-color;
       text-align: center;
-      transform: translateY(-50%);
-
+      .translateY(-50%);
       // with filter should offset the search box height
       .@{transfer-prefix-cls}-list-body-with-search & {
         margin-top: @input-height-base / 2;
@@ -139,7 +138,7 @@
     &-footer {
       position: absolute;
       bottom: 0;
-      left: 0;
+      .posDir(0);
       width: 100%;
       border-top: @border-width-base @border-style-base @border-color-split;
       border-radius: 0 0 @border-radius-base @border-radius-base;
