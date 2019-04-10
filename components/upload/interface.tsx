@@ -50,7 +50,7 @@ export interface UploadLocale {
 export type UploadType = 'drag' | 'select';
 export type UploadListType = 'text' | 'picture' | 'picture-card';
 
-type PreviewFileHandler = (file: File | Blob) => PromiseLike<any>;
+type PreviewFileHandler = (file: File | Blob) => PromiseLike<string>;
 
 export interface UploadProps {
   type?: UploadType;

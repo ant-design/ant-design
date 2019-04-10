@@ -31,7 +31,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | listType | Built-in stylesheets, support for three types: `text`, `picture` or `picture-card` | string | 'text' | |
 | multiple | Whether to support selected multiple file. `IE10+` supported. You can select multiple files with CTRL holding down while multiple is set to be true | boolean | false | |
 | name | The name of uploading file | string | 'file' | |
-| previewFile | Customize preview file logic | (file: File \| Blob, callback: Function(dataURL: string)) => void | - | 3.17.0 |
+| previewFile | Customize preview file logic | (file: File \| Blob) => Promise<dataURL: string> | - | 3.17.0 |
 | showUploadList | Whether to show default upload list, could be an object to specify `showPreviewIcon` and `showRemoveIcon` individually | Boolean or { showPreviewIcon?: boolean, showRemoveIcon?: boolean } | true | |
 | supportServerRender | Need to be turned on while the server side is rendering | boolean | false | |
 | withCredentials | ajax upload with cookie sent | boolean | false | |

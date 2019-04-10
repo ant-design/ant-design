@@ -87,7 +87,7 @@ export const isImageUrl = (file: UploadFile): boolean => {
 };
 
 const MEASURE_SIZE = 200;
-export function previewImage(file: File | Blob): PromiseLike<any> {
+export function previewImage(file: File | Blob): Promise<string> {
   return new Promise(resolve => {
     if (!isImageFileType(file.type)) {
       resolve('');
