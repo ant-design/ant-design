@@ -26,7 +26,7 @@
   &-total-text {
     display: inline-block;
     height: @pagination-item-size;
-    margin-right: 8px;
+    .margin-idir(8px);
     line-height: @pagination-item-size - 2px;
     vertical-align: middle;
   }
@@ -35,7 +35,7 @@
     display: inline-block;
     min-width: @pagination-item-size;
     height: @pagination-item-size;
-    margin-right: 8px;
+    .margin-idir(8px);
     font-family: @pagination-font-family;
     line-height: @pagination-item-size - 2px;
     text-align: center;
@@ -93,14 +93,14 @@
       .@{pagination-prefix-cls}-item-link-icon {
         .iconfont-size-under-12px(12px);
         color: @primary-color;
-        letter-spacing: -1px;
+        // letter-spacing: -1px;
         opacity: 0;
         transition: all 0.2s;
         &-svg {
           top: 0;
-          right: 0;
+          .posiDir(0);
           bottom: 0;
-          left: 0;
+          .posDir(0);
           margin: auto;
         }
       }
@@ -108,13 +108,13 @@
       .@{pagination-prefix-cls}-item-ellipsis {
         position: absolute;
         top: 0;
-        right: 0;
+        .posiDir(0);
         bottom: 0;
-        left: 0;
+        .posDir(0);
         display: block;
         margin: auto;
         color: @disabled-color;
-        letter-spacing: 2px;
+        // letter-spacing: 2px;
         text-align: center;
         text-indent: 0.13em;
         opacity: 1;
@@ -136,7 +136,7 @@
   &-prev,
   &-jump-prev,
   &-jump-next {
-    margin-right: 8px;
+    .margin-idir(8px);
   }
   &-prev,
   &-next,
@@ -203,18 +203,18 @@
   }
 
   &-slash {
-    margin: 0 10px 0 5px;
+    .margin(0; 10px; 0; 5px);
   }
 
   &-options {
     display: inline-block;
-    margin-left: 16px;
+    .margin-dir(16px);
     vertical-align: middle;
 
     &-size-changer.@{ant-prefix}-select {
       display: inline-block;
       width: auto;
-      margin-right: 8px;
+      .margin-idir(8px);
     }
 
     &-quick-jumper {
@@ -249,12 +249,12 @@
   &-simple &-simple-pager {
     display: inline-block;
     height: @pagination-item-size-sm;
-    margin-right: 8px;
+    .margin-idir(8px);
 
     input {
       box-sizing: border-box;
       height: 100%;
-      margin-right: 8px;
+      .margin-idir(8px);
       padding: 0 6px;
       text-align: center;
       background-color: @component-background;
@@ -308,12 +308,12 @@
   &.mini &-jump-prev,
   &.mini &-jump-next {
     height: @pagination-item-size-sm;
-    margin-right: 0;
+    .margin-idir(0);
     line-height: @pagination-item-size-sm;
   }
 
   &.mini &-options {
-    margin-left: 2px;
+    .margin-dir(2px);
     &-quick-jumper {
       height: @pagination-item-size-sm;
       line-height: @pagination-item-size-sm;
