@@ -57,70 +57,41 @@ export function removeFileItem(file: UploadFile, fileList: UploadFile[]) {
   return removed;
 }
 
-// ===================== Process Image Preview =====================
-const BUFFER_CHUNK_SIZE = 1024 * 500;
-const BASE64_CHUNK_SIZE = 3 * 1024 * 200; // Must be 3x
-
-function readBuffers(file: File | Blob): Promise<any> {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-
-    let offset = 0;
-    let binary: string = '';
-
-    reader.onload = function() {
-      const buffer = new Uint8Array(reader.result as ArrayBuffer);
-      const len = buffer.byteLength;
-      for (let i = 0; i < len; i++) {
-        binary += String.fromCharCode(buffer[i]);
-      }
-      offset += BUFFER_CHUNK_SIZE;
-      seek();
-    };
-    reader.onerror = function(event) {
-      reader.abort();
-      reject(event);
-    };
-    seek();
-
-    function seek() {
-      if (offset >= file.size) {
-        resolve(binary);
-        return;
-      }
-      const slice = file.slice(offset, offset + BUFFER_CHUNK_SIZE);
-      reader.readAsArrayBuffer(slice);
-    }
-  });
-}
-
 /**
- * Async convert file to base64 image.
- * We split file into chunk which is size of 3x to make base64 work.
+ * Use canvas for drawing snapshot
  */
+const MEASURE_SIZE = 200;
 export function previewImage(file: File | Blob): PromiseLike<any> {
-  return readBuffers(file).then(
-    (binary: string) =>
-      new Promise(resolve => {
-        let baseStr: string = '';
-        let offset: number = 0;
+  return new Promise(resolve => {
+    const canvas = document.createElement('canvas');
+    canvas.width = MEASURE_SIZE;
+    canvas.height = MEASURE_SIZE;
+    canvas.style.cssText = `position: fixed; left: 0; top: 0; width: ${MEASURE_SIZE}px; height: ${MEASURE_SIZE}px; z-index: 9999; display: none;`;
+    document.body.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+    const img = new Image();
+    img.onload = function() {
+      const { width, height } = img;
 
-        // Use macro task here to prevent it block UI render.
-        // TODO: Optimize this with `requestIdleCallback` after we don't support old browser.
-        let id: number;
-        function step() {
-          const subStr = binary.substr(offset, BASE64_CHUNK_SIZE);
-          baseStr += btoa(subStr);
-          offset += BASE64_CHUNK_SIZE;
+      let drawWidth = MEASURE_SIZE;
+      let drawHeight = MEASURE_SIZE;
+      let offsetX = 0;
+      let offsetY = 0;
 
-          if (offset > binary.length) {
-            window.clearInterval(id);
-            resolve(`data:image;base64, ${baseStr}`);
-          }
-        }
+      if (width < height) {
+        drawHeight = height * (MEASURE_SIZE / width);
+        offsetY = -(drawHeight - drawWidth) / 2;
+      } else {
+        drawWidth = width * (MEASURE_SIZE / height);
+        offsetX = -(drawWidth - drawHeight) / 2;
+      }
 
-        id = window.setInterval(step, 5);
-        step();
-      }),
-  );
+      ctx!.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+      const dataURL = canvas.toDataURL();
+      document.body.removeChild(canvas);
+
+      resolve(dataURL);
+    };
+    img.src = URL.createObjectURL(file);
+  });
 }

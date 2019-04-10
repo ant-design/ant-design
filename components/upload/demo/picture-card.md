@@ -3,6 +3,7 @@ order: 3
 title:
   zh-CN: 照片墙
   en-US: Pictures Wall
+only: true
 ---
 
 ## zh-CN
@@ -20,12 +21,13 @@ class PicturesWall extends React.Component {
   state = {
     previewVisible: false,
     previewImage: '',
-    fileList: [{
-      uid: '-1',
-      name: 'xxx.png',
-      status: 'done',
-      url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-    }],
+    // fileList: [{
+    //   uid: '-1',
+    //   name: 'xxx.png',
+    //   status: 'done',
+    //   url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+    // }],
+    fileList: [],
   };
 
   handleCancel = () => this.setState({ previewVisible: false })
