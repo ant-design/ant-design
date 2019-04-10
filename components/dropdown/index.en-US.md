@@ -34,7 +34,7 @@ You should use [Menu](/components/menu/) as `overlay`. The menu items and divide
 
 ### Dropdown.Button
 
-| Property | Description | Type | Default | Version|
+| Property | Description | Type | Default | Version |
 | -------- | ----------- | ---- | ------- |------- |
 | disabled | whether the dropdown menu is disabled | boolean | - ||
 | overlay | the dropdown menu | [Menu](/components/menu) | - ||
