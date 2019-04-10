@@ -5,6 +5,7 @@ import { ButtonGroupProps } from '../button/button-group';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Dropdown, { DropDownProps } from './dropdown';
 import classNames from 'classnames';
+import Icon from '../icon';
 const ButtonGroup = Button.Group;
 
 type DropdownButtonType = 'primary' | 'ghost' | 'dashed';
@@ -14,12 +15,17 @@ export interface DropdownButtonProps extends ButtonGroupProps, DropDownProps {
   htmlType?: ButtonHTMLType;
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  /**
+   * @since 3.17.0
+   */
+  icon?: React.ReactNode;
   href?: string;
   children?: any;
 }
 
 export default class DropdownButton extends React.Component<DropdownButtonProps, any> {
   static defaultProps = {
+    icon: <Icon type="ellipsis" />,
     placement: 'bottomRight' as DropDownProps['placement'],
     type: 'default' as DropdownButtonType,
   };
@@ -44,6 +50,7 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
       placement,
       getPopupContainer,
       href,
+      icon,
       ...restProps
     } = this.props;
 
@@ -67,7 +74,7 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
           {children}
         </Button>
         <Dropdown {...dropdownProps}>
-          <Button type={type} icon="ellipsis" />
+          <Button type={type}>{icon}</Button>
         </Dropdown>
       </ButtonGroup>
     );

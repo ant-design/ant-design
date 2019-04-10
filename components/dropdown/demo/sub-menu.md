@@ -16,7 +16,7 @@ The menu has multiple levels.
 ````jsx
 import { Menu, Dropdown, Icon } from 'antd';
 
-const SubMenu = Menu.SubMenu;
+const {SubMenu} = Menu;
 
 const menu = (
   <Menu>
