@@ -108,48 +108,48 @@
   }
 
   &.@{table-prefix-cls}-bordered {
-    border-right: 0;
+    .idirBorder(0);
 
     .@{table-prefix-cls}-title {
       border: 0;
-      border-right: @border-width-base @border-style-base @border-color-split;
+      .idirBorder(@border-width-base @border-style-base @border-color-split);
       border-bottom: @border-width-base @border-style-base @border-color-split;
     }
 
     .@{table-prefix-cls}-content {
-      border-right: @border-width-base @border-style-base @border-color-split;
+      .idirBorder(@border-width-base @border-style-base @border-color-split);
     }
 
     .@{table-prefix-cls}-footer {
       border: 0;
       border-top: @border-width-base @border-style-base @border-color-split;
-      border-right: @border-width-base @border-style-base @border-color-split;
+      .idirBorder(@border-width-base @border-style-base @border-color-split);
       &::before {
         display: none;
       }
     }
 
     .@{table-prefix-cls}-placeholder {
-      border-right: 0;
+      .idirBorder(0);
       border-bottom: 0;
-      border-left: 0;
+      .dirBorder(0);
     }
 
     .@{table-prefix-cls}-thead > tr > th:last-child,
     .@{table-prefix-cls}-tbody > tr > td:last-child {
-      border-right: none;
+      .idirBorder(none);
     }
 
     .@{table-prefix-cls}-fixed-left {
       .@{table-prefix-cls}-thead > tr > th:last-child,
       .@{table-prefix-cls}-tbody > tr > td:last-child {
-        border-right: @border-width-base @border-style-base @border-color-split;
+        .idirBorder(@border-width-base @border-style-base @border-color-split);
       }
     }
 
     .@{table-prefix-cls}-fixed-right {
-      border-right: @border-width-base @border-style-base @border-color-split;
-      border-left: @border-width-base @border-style-base @border-color-split;
+      .idirBorder(@border-width-base @border-style-base @border-color-split);
+      .dirBorder(@border-width-base @border-style-base @border-color-split);
     }
   }
 
