@@ -32,7 +32,7 @@
     display: table;
     width: @upload-picture-card-size;
     height: @upload-picture-card-size;
-    margin-right: 8px;
+    .margin-idir(8px);
     margin-bottom: 8px;
     text-align: center;
     vertical-align: top;
@@ -134,7 +134,7 @@
     &-name {
       display: inline-block;
       width: 100%;
-      padding-left: @font-size-base + 8px;
+      .padding-dir(@font-size-base + 8px);
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
@@ -142,7 +142,7 @@
 
     &-info {
       height: 100%;
-      padding: 0 12px 0 4px;
+      .padding(0; 12px; 0; 4px);
       transition: background-color 0.3s;
 
       > span {
@@ -162,7 +162,7 @@
       .iconfont-size-under-12px(10px);
       position: absolute;
       top: 6px;
-      right: 4px;
+      .posiDir(4px);
       color: @text-color-secondary;
       line-height: 0;
       cursor: pointer;
@@ -196,7 +196,7 @@
       position: absolute;
       bottom: -12px;
       width: 100%;
-      padding-left: @font-size-base + 12px;
+      .padding-dir(@font-size-base + 12px);
       font-size: @font-size-base;
       line-height: 0;
     }
@@ -233,7 +233,7 @@
     .@{upload-item}-thumbnail {
       position: absolute;
       top: 8px;
-      left: 8px;
+      .posDir(8px);
       width: 48px;
       height: 48px;
       font-size: 26px;
@@ -245,9 +245,9 @@
     .@{upload-item}-icon {
       position: absolute;
       top: 50%;
-      left: 50%;
-      font-size: 26px;
-      transform: translate(-50%, -50%);
+      .posDir(50%);
+      margin-top: -18px;
+      .translate(-50%; -50%);
     }
 
     .@{upload-item}-thumbnail img {
@@ -261,9 +261,9 @@
       display: inline-block;
       box-sizing: border-box;
       max-width: 100%;
-      margin: 0 0 0 8px;
-      padding-right: 8px;
-      padding-left: 48px;
+      .margin(0; 0; 0; 8px);
+      .padding-idir(8px);
+      .padding-dir(48px);
       overflow: hidden;
       line-height: 44px;
       white-space: nowrap;
@@ -279,13 +279,13 @@
       bottom: 14px;
       width: ~'calc(100% - 24px)';
       margin-top: 0;
-      padding-left: 56px;
+      .padding-dir(56px);
     }
 
     .@{iconfont-css-prefix}-close {
       position: absolute;
       top: 8px;
-      right: 8px;
+      .posiDir(8px);
       line-height: 1;
       opacity: 1;
     }
@@ -293,16 +293,15 @@
 
   &-picture-card {
     // https://github.com/ant-design/ant-design/issues/11183
-    float: left;
-
+    .dir();
     &.@{upload-prefix-cls}-list::after {
       display: none;
     }
     .@{upload-item} {
-      float: left;
+      .dir();
       width: @upload-picture-card-size;
       height: @upload-picture-card-size;
-      margin: 0 8px 8px 0;
+      .margin(0; 8px; 8px; 0);
     }
 
     .@{upload-item}-info {
@@ -329,10 +328,10 @@
     .@{upload-item}-actions {
       position: absolute;
       top: 50%;
-      left: 50%;
+      .posDir(50%);
       z-index: 10;
       white-space: nowrap;
-      transform: translate(-50%, -50%);
+      .translate(-50%; -50%);
       opacity: 0;
       transition: all 0.3s;
 
@@ -398,7 +397,7 @@
 
     .@{upload-item}-progress {
       bottom: 32px;
-      padding-left: 0;
+      .padding-dir(0);
     }
   }
 
