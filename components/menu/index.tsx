@@ -303,9 +303,9 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
     if (menuMode !== 'inline') {
       // closing vertical popup submenu after click it
       menuProps.onClick = this.handleClick;
-      menuProps.openTransitionName = mounted && menuOpenAnimation;
+      menuProps.openTransitionName = mounted ? menuOpenAnimation : '';
     } else {
-      menuProps.openAnimation = mounted && menuOpenAnimation;
+      menuProps.openAnimation = mounted ? menuOpenAnimation : '';
     }
 
     // https://github.com/ant-design/ant-design/issues/8587
