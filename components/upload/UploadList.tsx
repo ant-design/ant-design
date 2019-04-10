@@ -2,6 +2,7 @@ import * as React from 'react';
 import Animate from 'rc-animate';
 import classNames from 'classnames';
 import { UploadListProps, UploadFile, UploadListType } from './interface';
+import { previewImage } from './utils';
 import Icon from '../icon';
 import Tooltip from '../tooltip';
 import Progress from '../progress';
@@ -34,20 +35,6 @@ const isImageUrl = (file: UploadFile): boolean => {
   }
   return true;
 };
-
-// https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
-function previewImage(file: File | Blob) {
-  return new Promise((resolve: (data: string) => void) => {
-    if (!isImageFileType(file.type)) {
-      resolve('');
-      return;
-    }
-
-    const reader = new FileReader();
-    reader.onloadend = () => resolve(reader.result as string);
-    reader.readAsDataURL(file);
-  });
-}
 
 export default class UploadList extends React.Component<UploadListProps, any> {
   static defaultProps = {
@@ -96,7 +83,8 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       file.thumbUrl = '';
       if (previewFile) {
         previewFile(file.originFileObj).then((previewDataUrl: string) => {
-          file.thumbUrl = previewDataUrl;
+          // Need append '' to avoid dead loop
+          file.thumbUrl = previewDataUrl || '';
           this.forceUpdate();
         });
       }

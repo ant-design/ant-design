@@ -430,10 +430,10 @@ describe('Upload List', () => {
     });
   });
 
-  it.skip('customize previewFile support', async () => {
+  it('customize previewFile support', async () => {
     const mockThumbnail = 'mock-image';
-    const previewFile = jest.fn((_, callback) => {
-      callback(mockThumbnail);
+    const previewFile = jest.fn(() => {
+      return Promise.resolve(mockThumbnail);
     });
     const file = {
       ...fileList[0],
@@ -449,10 +449,8 @@ describe('Upload List', () => {
     wrapper.setState({});
     await delay(0);
 
-    expect(previewFile).toHaveBeenCalled();
-    expect(previewFile.mock.calls[0][0]).toBe(file.originFileObj);
-
-    console.log('>>>.', wrapper.find('.ant-upload-list-item-thumbnail').debug());
+    expect(previewFile).toHaveBeenCalledWith(file.originFileObj);
+    wrapper.update();
 
     expect(wrapper.find('.ant-upload-list-item-thumbnail img').prop('src')).toBe(mockThumbnail);
   });
