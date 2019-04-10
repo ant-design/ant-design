@@ -3,6 +3,7 @@ import { mount } from 'enzyme';
 import Upload from '..';
 import UploadList from '../UploadList';
 import Form from '../../form';
+import { spyElementPrototype, spyElementPrototypes } from '../../__tests__/util/domHook';
 import { errorRequest, successRequest } from './requests';
 import { setup, teardown } from './mock';
 
@@ -26,8 +27,36 @@ const fileList = [
 ];
 
 describe('Upload List', () => {
+  // jsdom not support `createObjectURL` yet. Let's handle this.
+  const originCreateObjectURL = window.URL.createObjectURL;
+  window.URL.createObjectURL = jest.fn(() => '');
+
+  // Mock dom
+  const imageSpy = spyElementPrototype(Image, 'src', {
+    set() {
+      if (this.onload) {
+        this.onload();
+      }
+    },
+  });
+  const canvasSpy = spyElementPrototypes(HTMLCanvasElement, {
+    getContext: () => ({
+      drawImage: () => null, // Do nothing in test
+    }),
+
+    toDataURL: () => 'data:image/png;base64,',
+  });
+
+  // HTMLCanvasElement.prototype
+
   beforeEach(() => setup());
   afterEach(() => teardown());
+
+  afterAll(() => {
+    window.URL.createObjectURL = originCreateObjectURL;
+    imageSpy.mockRestore();
+    canvasSpy.mockRestore();
+  });
 
   // https://github.com/ant-design/ant-design/issues/4653
   it('should use file.thumbUrl for <img /> in priority', () => {

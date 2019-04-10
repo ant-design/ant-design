@@ -2,39 +2,11 @@ import * as React from 'react';
 import Animate from 'rc-animate';
 import classNames from 'classnames';
 import { UploadListProps, UploadFile, UploadListType } from './interface';
-import { previewImage } from './utils';
+import { previewImage, isImageUrl } from './utils';
 import Icon from '../icon';
 import Tooltip from '../tooltip';
 import Progress from '../progress';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-
-const extname = (url: string) => {
-  if (!url) {
-    return '';
-  }
-  const temp = url.split('/');
-  const filename = temp[temp.length - 1];
-  const filenameWithoutSuffix = filename.split(/#|\?/)[0];
-  return (/\.[^./\\]*$/.exec(filenameWithoutSuffix) || [''])[0];
-};
-const isImageFileType = (type: string): boolean => !!type && type.indexOf('image/') === 0;
-const isImageUrl = (file: UploadFile): boolean => {
-  if (isImageFileType(file.type)) {
-    return true;
-  }
-  const url: string = (file.thumbUrl || file.url) as string;
-  const extension = extname(url);
-  if (/^data:image\//.test(url) || /(webp|svg|png|gif|jpg|jpeg|bmp|dpg)$/i.test(extension)) {
-    return true;
-  } else if (/^data:/.test(url)) {
-    // other file types of base64
-    return false;
-  } else if (extension) {
-    // other file types which have extension
-    return false;
-  }
-  return true;
-};
 
 export default class UploadList extends React.Component<UploadListProps, any> {
   static defaultProps = {

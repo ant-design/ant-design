@@ -57,12 +57,43 @@ export function removeFileItem(file: UploadFile, fileList: UploadFile[]) {
   return removed;
 }
 
-/**
- * Use canvas for drawing snapshot
- */
+// ==================== Default Image Preview ====================
+const extname = (url: string) => {
+  if (!url) {
+    return '';
+  }
+  const temp = url.split('/');
+  const filename = temp[temp.length - 1];
+  const filenameWithoutSuffix = filename.split(/#|\?/)[0];
+  return (/\.[^./\\]*$/.exec(filenameWithoutSuffix) || [''])[0];
+};
+const isImageFileType = (type: string): boolean => !!type && type.indexOf('image/') === 0;
+export const isImageUrl = (file: UploadFile): boolean => {
+  if (isImageFileType(file.type)) {
+    return true;
+  }
+  const url: string = (file.thumbUrl || file.url) as string;
+  const extension = extname(url);
+  if (/^data:image\//.test(url) || /(webp|svg|png|gif|jpg|jpeg|bmp|dpg)$/i.test(extension)) {
+    return true;
+  } else if (/^data:/.test(url)) {
+    // other file types of base64
+    return false;
+  } else if (extension) {
+    // other file types which have extension
+    return false;
+  }
+  return true;
+};
+
 const MEASURE_SIZE = 200;
 export function previewImage(file: File | Blob): PromiseLike<any> {
   return new Promise(resolve => {
+    if (!isImageFileType(file.type)) {
+      resolve('');
+      return;
+    }
+
     const canvas = document.createElement('canvas');
     canvas.width = MEASURE_SIZE;
     canvas.height = MEASURE_SIZE;
@@ -92,6 +123,6 @@ export function previewImage(file: File | Blob): PromiseLike<any> {
 
       resolve(dataURL);
     };
-    img.src = URL.createObjectURL(file);
+    img.src = window.URL.createObjectURL(file);
   });
 }
