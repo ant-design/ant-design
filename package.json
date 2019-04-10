@@ -96,7 +96,7 @@
     "warning": "~4.0.2"
   },
   "devDependencies": {
-    "@ant-design/colors": "^2.0.0",
+    "@ant-design/colors": "^3.0.0",
     "@sentry/browser": "^5.0.3",
     "@types/classnames": "^2.2.6",
     "@types/prop-types": "^15.5.6",
