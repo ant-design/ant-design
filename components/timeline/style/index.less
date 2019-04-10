@@ -20,9 +20,9 @@
     &-tail {
       position: absolute;
       top: 0.75em;
-      left: 4px;
+      .posDir(4px);
       height: 100%;
-      border-left: 2px solid @timeline-color;
+      .dirBorder(2px solid @timeline-color);
     }
 
     &-pending &-head {
@@ -58,7 +58,7 @@
     &-head-custom {
       position: absolute;
       top: 5.5px;
-      left: 5px;
+      .posDir(5px);
       width: auto;
       height: auto;
       margin-top: 0;
@@ -73,7 +73,7 @@
     &-content {
       position: relative;
       top: -(@font-size-base * @line-height-base - @font-size-base) + 1px;
-      margin: 0 0 0 18px;
+      .margin(0; 0; 0; 18px);
     }
 
     &-last {
@@ -92,31 +92,31 @@
       &-tail,
       &-head,
       &-head-custom {
-        left: 50%;
+        .posDir(50%);
       }
 
       &-head {
-        margin-left: -4px;
+        .margin-dir(-4px);
         &-custom {
-          margin-left: 1px;
+          .margin-dir(1px);
         }
       }
 
       &-left {
         .@{timeline-prefix-cls}-item-content {
-          left: 50%;
+          .posDir(50%);
           width: 50%;
-          text-align: left;
+          .dirAlign();
         }
       }
 
       &-right {
         .@{timeline-prefix-cls}-item-content {
-          right: 50%;
-          left: -30px;
+          .posiDir(50%);
+          .posDir(-30px);
           width: 50%;
-          margin-right: 18px;
-          text-align: right;
+          .margin-idir(18px);
+          .idirAlign();
         }
       }
     }
@@ -127,11 +127,11 @@
       .@{timeline-prefix-cls}-item-tail,
       .@{timeline-prefix-cls}-item-head,
       .@{timeline-prefix-cls}-item-head-custom {
-        left: 100%;
+        .posDir(100%);
       }
       .@{timeline-prefix-cls}-item-content {
-        right: 0;
-        left: -30px;
+        .posiDir(0);
+        .posDir(-30px);
         width: 100%;
       }
     }
@@ -139,7 +139,7 @@
 
   &&-pending &-item-last &-item-tail {
     display: block;
-    border-left: 2px dotted @timeline-color;
+    .dirBorder(2px dotted @timeline-color);
   }
 
   &&-reverse &-item-last &-item-tail {
@@ -149,7 +149,7 @@
   &&-reverse &-item-pending {
     .@{timeline-prefix-cls}-item-tail {
       display: block;
-      border-left: 2px dotted @timeline-color;
+      .dirBorder(2px dotted @timeline-color);
     }
     .@{timeline-prefix-cls}-item-content {
       min-height: 48px;
