@@ -4,8 +4,8 @@
     display: block;
     overflow: visible;
     &-icon {
-      float: left;
-      margin-right: 16px;
+      .dir();
+      .margin-idir(16px);
     }
     &-content {
       display: block;
@@ -23,7 +23,7 @@
   > .@{steps-prefix-cls}-item > .@{steps-prefix-cls}-item-tail {
     position: absolute;
     top: 0;
-    left: 16px;
+    .posDir(16px);
     width: 1px;
     height: 100%;
     padding: @steps-icon-size + 6px 0 6px;
@@ -49,7 +49,7 @@
     .@{steps-prefix-cls}-item-tail {
       position: absolute;
       top: 0;
-      left: 12px;
+      .posDir(12px);
       padding: @steps-small-icon-size + 6px 0 6px;
     }
     .@{steps-prefix-cls}-item-title {

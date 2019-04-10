@@ -59,7 +59,7 @@
   &-icon {
     width: @steps-icon-size;
     height: @steps-icon-size;
-    margin-right: 8px;
+    .margin-idir(8px);
     font-size: @font-size-lg;
     font-family: @font-family;
     line-height: @steps-icon-size;
@@ -78,7 +78,7 @@
   &-tail {
     position: absolute;
     top: 12px;
-    left: 0;
+    .posDir(0);
     width: 100%;
     padding: 0 10px;
     &::after {
@@ -94,14 +94,14 @@
   &-title {
     position: relative;
     display: inline-block;
-    padding-right: 16px;
+    .padding-idir(16px);
     color: @text-color;
     font-size: @font-size-lg;
     line-height: @steps-icon-size;
     &::after {
       position: absolute;
       top: @steps-icon-size / 2;
-      left: 100%;
+      .posDir(100%);
       display: block;
       width: 9999px;
       height: 1px;
@@ -134,13 +134,13 @@
 
 .@{steps-prefix-cls}-horizontal:not(.@{steps-prefix-cls}-label-vertical) {
   .@{steps-prefix-cls}-item {
-    margin-right: 16px;
+    .margin-idir(16px);
     white-space: nowrap;
     &:last-child {
-      margin-right: 0;
+      .margin-idir(0);
     }
     &:last-child .@{steps-prefix-cls}-item-title {
-      padding-right: 0;
+      .padding-idir(0);
     }
     &-tail {
       display: none;

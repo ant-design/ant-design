@@ -6,28 +6,28 @@
     &-tail {
       top: 2px;
       width: 100%;
-      margin: 0 0 0 @steps-desciption-max-width / 2;
+      .margin(0; 0; 0; @steps-desciption-max-width / 2);
       padding: 0;
       &::after {
         width: ~'calc(100% - 20px)';
         height: 3px;
-        margin-left: 12px;
+        .margin-dir(12px);
       }
     }
     &:first-child .@{steps-prefix-cls}-icon-dot {
-      left: 2px;
+      .posDir(2px);
     }
     &-icon {
       width: @steps-dot-size;
       height: @steps-dot-size;
-      margin-left: 67px;
-      padding-right: 0;
+      .margin-dir(67px);
+      .padding-idir(0);
       line-height: @steps-dot-size;
       background: transparent;
       border: 0;
       .@{steps-prefix-cls}-icon-dot {
         position: relative;
-        float: left;
+        .dir();
         width: 100%;
         height: 100%;
         border-radius: 100px;
@@ -36,7 +36,7 @@
         &::after {
           position: absolute;
           top: -12px;
-          left: -26px;
+          .posDir(-26px);
           width: 60px;
           height: 32px;
           background: fade(@black, 0.1%);
@@ -61,18 +61,18 @@
 .@{steps-prefix-cls}-vertical.@{steps-prefix-cls}-dot {
   .@{steps-prefix-cls}-item-icon {
     margin-top: 8px;
-    margin-left: 0;
+    .margin-dir(0);
   }
   .@{steps-prefix-cls}-item-tail {
     top: 2px;
-    left: -9px;
+    .posDir(-9px);
     margin: 0;
     padding: 22px 0 4px;
   }
   .@{steps-prefix-cls}-item:first-child .@{steps-prefix-cls}-icon-dot {
-    left: 0;
+    .posDir(0);
   }
   .@{steps-prefix-cls}-item-process .@{steps-prefix-cls}-icon-dot {
-    left: -2px;
+    .posDir(-2px);
   }
 }

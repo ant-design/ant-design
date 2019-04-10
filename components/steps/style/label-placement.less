@@ -2,7 +2,7 @@
   .@{steps-prefix-cls}-item {
     overflow: visible;
     &-tail {
-      margin-left: 51px;
+      .margin-dir(51px);
       padding: 3.5px 24px;
     }
     &-content {
@@ -14,10 +14,10 @@
     }
     &-icon {
       display: inline-block;
-      margin-left: 36px;
+      .margin-dir(36px);
     }
     &-title {
-      padding-right: 0;
+      .padding-idir(0);
       &::after {
         display: none;
       }
@@ -26,7 +26,7 @@
   &.@{steps-prefix-cls}-small:not(.@{steps-prefix-cls}-dot) {
     .@{steps-prefix-cls}-item {
       &-icon {
-        margin-left: 40px;
+        .margin-dir(40px);
       }
     }
   }
