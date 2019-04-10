@@ -14,7 +14,7 @@
   &&-card &-card-bar &-tab {
     height: @tabs-card-height;
     margin: 0;
-    margin-right: 2px;
+    .margin-idir(2px);
     padding: 0 16px;
     line-height: @tabs-card-height - 2px;
     background: @tabs-card-head-background;
@@ -39,8 +39,8 @@
     width: 16px;
     height: 16px;
     height: @font-size-base;
-    margin-right: -5px;
-    margin-left: 3px;
+    .margin-idir(-5px);
+    .margin-dir(3px);
     overflow: hidden;
     color: @text-color-secondary;
     font-size: @font-size-sm;
@@ -85,9 +85,9 @@
       svg {
         position: absolute;
         top: 0;
-        right: 0;
+        .posiDir(0);
         bottom: 0;
-        left: 0;
+        .posDir(0);
         margin: auto;
       }
     }
@@ -116,36 +116,36 @@
 
   &-vertical&-card&-left &-card-bar&-left-bar {
     .@{tab-prefix-cls}-nav-wrap {
-      margin-right: 0;
+      .margin-idir(0);
     }
     .@{tab-prefix-cls}-tab {
-      margin-right: 1px;
-      border-right: 0;
+      .margin-idir(1px);
+      .idirBorder(0);
       border-radius: @border-radius-base 0 0 @border-radius-base;
       &-active {
-        margin-right: -1px;
-        padding-right: 18px;
+        .margin-idir(-1px);
+        .padding-idir(18px);
       }
     }
   }
 
   &-vertical&-card&-right &-card-bar&-right-bar {
     .@{tab-prefix-cls}-nav-wrap {
-      margin-left: 0;
+      .margin-dir(0);
     }
     .@{tab-prefix-cls}-tab {
-      margin-left: 1px;
-      border-left: 0;
+      .margin-dir(1px);
+      .dirBorder(0);
       border-radius: 0 @border-radius-base @border-radius-base 0;
       &-active {
-        margin-left: -1px;
-        padding-left: 18px;
+        .margin-dir(-1px);
+        .padding-dir(18px);
       }
     }
   }
 
   // https://github.com/ant-design/ant-design/issues/9104
-  & &-card-bar&-bottom-bar &-tab {
+  &&-card&-bottom > &-bar &-tab {
     border-top: 0;
     border-bottom: @border-width-base @border-style-base @border-color-split;
     border-radius: 0 0 @border-radius-base @border-radius-base;
