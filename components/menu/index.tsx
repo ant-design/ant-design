@@ -305,7 +305,7 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
       menuProps.onClick = this.handleClick;
       menuProps.openTransitionName = mounted ? menuOpenAnimation : '';
     } else {
-      menuProps.openAnimation = mounted ? menuOpenAnimation : '';
+      menuProps.openAnimation = mounted && menuOpenAnimation;
     }
 
     // https://github.com/ant-design/ant-design/issues/8587
