@@ -35,6 +35,20 @@ const isImageUrl = (file: UploadFile): boolean => {
   return true;
 };
 
+// https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
+function previewImage(file: File | Blob) {
+  return new Promise((resolve: (data: string) => void) => {
+    if (!isImageFileType(file.type)) {
+      resolve('');
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onloadend = () => resolve(reader.result as string);
+    reader.readAsDataURL(file);
+  });
+}
+
 export default class UploadList extends React.Component<UploadListProps, any> {
   static defaultProps = {
     listType: 'text' as UploadListType, // or picture
@@ -44,6 +58,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     },
     showRemoveIcon: true,
     showPreviewIcon: true,
+    previewFile: previewImage,
   };
 
   handleClose = (file: UploadFile) => {
@@ -62,28 +77,12 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     return onPreview(file);
   };
 
-  // https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
-  previewFile = (file: File | Blob, callback: Function) => {
-    const { previewFile } = this.props;
-
-    if (previewFile) {
-      previewFile(file, callback);
-      return;
-    }
-
-    if (!isImageFileType(file.type)) {
-      return callback('');
-    }
-    const reader = new FileReader();
-    reader.onloadend = () => callback(reader.result);
-    reader.readAsDataURL(file);
-  };
-
   componentDidUpdate() {
-    if (this.props.listType !== 'picture' && this.props.listType !== 'picture-card') {
+    const { listType, items, previewFile } = this.props;
+    if (listType !== 'picture' && listType !== 'picture-card') {
       return;
     }
-    (this.props.items || []).forEach(file => {
+    (items || []).forEach(file => {
       if (
         typeof document === 'undefined' ||
         typeof window === 'undefined' ||
@@ -95,10 +94,12 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         return;
       }
       file.thumbUrl = '';
-      this.previewFile(file.originFileObj, (previewDataUrl: string) => {
-        file.thumbUrl = previewDataUrl;
-        this.forceUpdate();
-      });
+      if (previewFile) {
+        previewFile(file.originFileObj).then((previewDataUrl: string) => {
+          file.thumbUrl = previewDataUrl;
+          this.forceUpdate();
+        });
+      }
     });
   }
 

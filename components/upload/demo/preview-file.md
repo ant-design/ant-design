@@ -19,9 +19,10 @@ import { Upload, Button, Icon } from 'antd';
 const props = {
   action: '//jsonplaceholder.typicode.com/posts/',
   listType: 'picture',
-  previewFile(file, callback) {
+  previewFile(file) {
+    console.log('Your upload file:', file);
     // Your process logic. Here we just mock to the same file
-    callback('https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png');
+    return Promise.resolve('https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png');
   },
 };
 

@@ -356,15 +356,13 @@ describe('Upload List', () => {
     expect(wrapper.handlePreview()).toBe(undefined);
   });
 
-  it('previewFile should work correctly', () => {
-    const callback = jest.fn();
+  it('previewFile should work correctly', async () => {
     const file = new File([''], 'test.txt', { type: 'text/plain' });
     const items = [{ uid: 'upload-list-item', url: '' }];
     const wrapper = mount(
       <UploadList listType="picture-card" items={items} locale={{ previewFile: '' }} />,
     ).instance();
-    wrapper.previewFile(file, callback);
-    expect(callback).toHaveBeenCalled();
+    return wrapper.props.previewFile(file);
   });
 
   it('extname should work correctly when url not exists', () => {
@@ -404,7 +402,7 @@ describe('Upload List', () => {
     expect(onPreview).toHaveBeenCalled();
   });
 
-  it('upload image file should be converted to the base64', done => {
+  it('upload image file should be converted to the base64', async () => {
     const mockFile = new File([''], 'foo.png', {
       type: 'image/png',
     });
@@ -413,14 +411,12 @@ describe('Upload List', () => {
       <UploadList listType="picture-card" items={fileList} locale={{ uploading: 'uploading' }} />,
     );
     const instance = wrapper.instance();
-    const callback = dataUrl => {
+    return instance.props.previewFile(mockFile).then(dataUrl => {
       expect(dataUrl).toEqual('data:image/png;base64,');
-      done();
-    };
-    instance.previewFile(mockFile, callback);
+    });
   });
 
-  it("upload non image file shouldn't be converted to the base64", () => {
+  it("upload non image file shouldn't be converted to the base64", async () => {
     const mockFile = new File([''], 'foo.7z', {
       type: 'application/x-7z-compressed',
     });
@@ -429,8 +425,35 @@ describe('Upload List', () => {
       <UploadList listType="picture-card" items={fileList} locale={{ uploading: 'uploading' }} />,
     );
     const instance = wrapper.instance();
-    const callback = jest.fn();
-    instance.previewFile(mockFile, callback);
-    expect(callback).toHaveBeenCalledWith('');
+    return instance.props.previewFile(mockFile).then(dataUrl => {
+      expect(dataUrl).toBe('');
+    });
+  });
+
+  it.skip('customize previewFile support', async () => {
+    const mockThumbnail = 'mock-image';
+    const previewFile = jest.fn((_, callback) => {
+      callback(mockThumbnail);
+    });
+    const file = {
+      ...fileList[0],
+      originFileObj: new File([], 'xxx.png'),
+    };
+    delete file.thumbUrl;
+
+    const wrapper = mount(
+      <Upload listType="picture" defaultFileList={[file]} previewFile={previewFile}>
+        <button type="button" />
+      </Upload>,
+    );
+    wrapper.setState({});
+    await delay(0);
+
+    expect(previewFile).toHaveBeenCalled();
+    expect(previewFile.mock.calls[0][0]).toBe(file.originFileObj);
+
+    console.log('>>>.', wrapper.find('.ant-upload-list-item-thumbnail').debug());
+
+    expect(wrapper.find('.ant-upload-list-item-thumbnail img').prop('src')).toBe(mockThumbnail);
   });
 });
