@@ -13,9 +13,9 @@
 
   &-inner {
     position: relative;
-    left: -2px;
+    .posDir(-2px);
     font-size: @font-size-base;
-    text-align: left;
+    .dirAlign();
     list-style: none;
     background-color: @component-background;
     background-clip: padding-box;
@@ -39,7 +39,7 @@
     &-wrap {
       position: relative;
       box-sizing: border-box;
-      padding: 7px 2px 7px @control-padding-horizontal;
+      .padding(7px; 2px; 7px; @control-padding-horizontal);
       border-bottom: @border-width-base @border-style-base @border-color-split;
     }
 
@@ -54,25 +54,25 @@
 
   &-select {
     position: relative; // Fix chrome weird render bug
-    float: left;
+    .dir();
     box-sizing: border-box;
     width: @time-picker-panel-column-width;
     max-height: @timepicker-item-height * 6;
     overflow: hidden;
     font-size: @font-size-base;
-    border-left: @border-width-base @border-style-base @border-color-split;
+    .dirBorder(@border-width-base @border-style-base @border-color-split);
 
     &:hover {
       overflow-y: auto;
     }
 
     &:first-child {
-      margin-left: 0;
-      border-left: 0;
+      .margin-dir(0);
+      .dirBorder(0);
     }
 
     &:last-child {
-      border-right: 0;
+      .idirBorder(0);
     }
 
     &:only-child {
@@ -94,7 +94,7 @@
       margin: 0;
       padding: 0 0 0 @control-padding-horizontal;
       line-height: @timepicker-item-height;
-      text-align: left;
+      .dirAlign();
       list-style: none;
       cursor: pointer;
       transition: background 0.3s;
@@ -180,7 +180,7 @@
   &-clear {
     position: absolute;
     top: 50%;
-    right: @control-padding-horizontal - 1px;
+    .posiDir(@control-padding-horizontal - 1px);
     z-index: 1;
     width: 14px;
     height: 14px;
@@ -220,6 +220,6 @@
 
   &-small &-icon,
   &-small &-clear {
-    right: @control-padding-horizontal-sm - 1px;
+    .posiDir(@control-padding-horizontal-sm - 1px);
   }
 }
