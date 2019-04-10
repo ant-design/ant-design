@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import Upload from '..';
 import UploadList from '../UploadList';
 import Form from '../../form';
-import { spyElementPrototype, spyElementPrototypes } from '../../__tests__/util/domHook';
+import { spyElementPrototypes } from '../../__tests__/util/domHook';
 import { errorRequest, successRequest } from './requests';
 import { setup, teardown } from './mock';
 
@@ -32,16 +32,35 @@ describe('Upload List', () => {
   window.URL.createObjectURL = jest.fn(() => '');
 
   // Mock dom
-  const imageSpy = spyElementPrototype(Image, 'src', {
-    set() {
-      if (this.onload) {
-        this.onload();
-      }
+  let size = { width: 0, height: 0 };
+  function setSize(width, height) {
+    size = { width, height };
+  }
+  const imageSpy = spyElementPrototypes(Image, {
+    src: {
+      set() {
+        if (this.onload) {
+          this.onload();
+        }
+      },
+    },
+    width: {
+      get: () => size.width,
+    },
+    height: {
+      get: () => size.height,
     },
   });
+
+  let drawImageCallback = null;
+  function hookDrawImageCall(callback) {
+    drawImageCallback = callback;
+  }
   const canvasSpy = spyElementPrototypes(HTMLCanvasElement, {
     getContext: () => ({
-      drawImage: () => null, // Do nothing in test
+      drawImage: (...args) => {
+        if (drawImageCallback) drawImageCallback(...args);
+      },
     }),
 
     toDataURL: () => 'data:image/png;base64,',
@@ -50,7 +69,10 @@ describe('Upload List', () => {
   // HTMLCanvasElement.prototype
 
   beforeEach(() => setup());
-  afterEach(() => teardown());
+  afterEach(() => {
+    teardown();
+    drawImageCallback = null;
+  });
 
   afterAll(() => {
     window.URL.createObjectURL = originCreateObjectURL;
@@ -227,20 +249,45 @@ describe('Upload List', () => {
     expect(handleChange.mock.calls.length).toBe(2);
   });
 
-  it('should generate thumbUrl from file', async () => {
-    const handlePreview = jest.fn();
-    const newFileList = [...fileList];
-    const newFile = { ...fileList[0], uid: '-3', originFileObj: new File([], 'xxx.png') };
-    delete newFile.thumbUrl;
-    newFileList.push(newFile);
-    const wrapper = mount(
-      <Upload listType="picture-card" defaultFileList={newFileList} onPreview={handlePreview}>
-        <button type="button">upload</button>
-      </Upload>,
-    );
-    wrapper.setState({});
-    await delay(0);
-    expect(wrapper.state().fileList[2].thumbUrl).not.toBe(undefined);
+  describe('should generate thumbUrl from file', () => {
+    [
+      { width: 100, height: 200, name: 'height large than width' },
+      { width: 200, height: 100, name: 'width large than height' },
+    ].forEach(({ width, height, name }) => {
+      it(name, async () => {
+        setSize(width, height);
+        const onDrawImage = jest.fn();
+        hookDrawImageCall(onDrawImage);
+
+        const handlePreview = jest.fn();
+        const newFileList = [...fileList];
+        const newFile = {
+          ...fileList[0],
+          uid: '-3',
+          originFileObj: new File([], 'xxx.png', { type: 'image/png' }),
+        };
+        delete newFile.thumbUrl;
+        newFileList.push(newFile);
+        const wrapper = mount(
+          <Upload listType="picture-card" defaultFileList={newFileList} onPreview={handlePreview}>
+            <button type="button">upload</button>
+          </Upload>,
+        );
+        wrapper.setState({});
+        await delay(0);
+
+        expect(wrapper.state().fileList[2].thumbUrl).not.toBe(undefined);
+        expect(onDrawImage).toHaveBeenCalled();
+
+        // Offset check
+        const [, offsetX, offsetY] = onDrawImage.mock.calls[0];
+        if (width > height) {
+          expect(offsetX < 0).toBeTruthy();
+        } else {
+          expect(offsetY < 0).toBeTruthy();
+        }
+      });
+    });
   });
 
   it('should non-image format file preview', () => {
