@@ -46,12 +46,12 @@ export default class Pagination extends React.Component<PaginationProps, {}> {
   getIconsProps = (prefixCls: string) => {
     const prevIcon = (
       <a className={`${prefixCls}-item-link`}>
-        <Icon type="left" />
+        <Icon type="right" />
       </a>
     );
     const nextIcon = (
       <a className={`${prefixCls}-item-link`}>
-        <Icon type="right" />
+        <Icon type="left" />
       </a>
     );
     const jumpPrevIcon = (

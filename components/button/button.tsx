@@ -82,7 +82,7 @@ interface ButtonState {
   hasTwoCNChar: boolean;
 }
 
-class Button extends React.Component<ButtonProps, ButtonState> {
+class Button extends React.Component<any, ButtonState> {
   static Group: typeof Group;
   static __ANT_BUTTON = true;
 
