@@ -22,8 +22,8 @@
 
   &-inner {
     display: block;
-    margin-right: 6px;
-    margin-left: 24px;
+    .margin-idir(6px);
+    .margin-dir(24px);
     color: @text-color-inverse;
     font-size: @font-size-sm;
   }
@@ -32,7 +32,7 @@
   &::after {
     position: absolute;
     top: 1px;
-    left: 1px;
+    .posDir(1px);
     width: @switch-height - 4px;
     height: @switch-height - 4px;
     background-color: @component-background;
@@ -43,7 +43,7 @@
   }
 
   &::after {
-    box-shadow: 0 2px 4px 0 @switch-shadow-color;
+    .box-shadow(0; 2px 4px 0 rgba(0, 35, 11, 0.2));
   }
 
   &:active::before,
@@ -55,15 +55,13 @@
     z-index: 1;
     display: none;
     font-size: 12px;
-    // loading default use animation
-    // animation: loadingCircle 1s infinite linear;
     background: transparent;
     svg {
       position: absolute;
       top: 0;
-      right: 0;
+      .posiDir(0);
       bottom: 0;
-      left: 0;
+      .posDir(0);
       margin: auto;
     }
   }
@@ -92,8 +90,8 @@
     line-height: @switch-sm-height - 2px;
 
     .@{switch-prefix-cls}-inner {
-      margin-right: 3px;
-      margin-left: 18px;
+      .margin-idir(3px);
+      .margin-dir(18px);
       font-size: @font-size-sm;
     }
 
@@ -115,14 +113,14 @@
 
   &-small&-checked {
     .@{switch-prefix-cls}-inner {
-      margin-right: 18px;
-      margin-left: 3px;
+      .margin-idir(18px);
+      .margin-dir(3px);
     }
   }
 
   &-small&-checked &-loading-icon {
-    left: 100%;
-    margin-left: @switch-sm-checked-margin-left;
+    .posDir(100%);
+    .margin-dir(@switch-sm-checked-margin-left);
   }
 
   &-small&-loading &-loading-icon {
@@ -135,20 +133,20 @@
     background-color: @switch-color;
 
     .@{switch-prefix-cls}-inner {
-      margin-right: 24px;
-      margin-left: 6px;
+      .margin-idir(24px);
+      .margin-dir(6px);
     }
 
     &::after {
-      left: 100%;
-      margin-left: -1px;
-      transform: translateX(-100%);
+      .posDir(100%);
+      .margin-dir(-1px);
+      .translateX(-100%);
     }
   }
 
   &-checked &-loading-icon {
-    left: 100%;
-    margin-left: -19px;
+    .posDir(100%);
+    .margin-dir(-19px);
   }
 
   &-loading,
