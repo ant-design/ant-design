@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "~1.2.0",
-    "@ant-design/icons-react": "~1.1.2",
+    "@ant-design/icons-react": "~1.1.5",
     "@types/react-slick": "^0.23.3",
     "array-tree-filter": "^2.1.0",
     "babel-runtime": "6.x",
