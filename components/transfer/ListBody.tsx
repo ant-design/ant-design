@@ -38,8 +38,6 @@ class ListBody extends React.Component<TransferListBodyProps> {
     const { mounted } = this.state;
     const { prefixCls, onScroll, filteredRenderItems, lazy, checkedKeys, onItemSelect } = this.props;
 
-    console.log('Body Props:', this.props);
-
     return (
       <Animate
         component="ul"

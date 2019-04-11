@@ -174,7 +174,7 @@ export default class TransferList extends React.Component<TransferListProps, Tra
       [`${prefixCls}-with-footer`]: !!footerDom,
     });
 
-    // Get filtered, checked item list
+    // ====================== Get filtered, checked item list ======================
     const filteredItems: TransferItem[] = [];
     const filteredRenderItems: RenderedItem[] = [];
 
@@ -225,6 +225,7 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     //   );
     // });
 
+    // ================================= List Body =================================
     const unit = dataSource.length > 1 ? itemsUnit : itemUnit;
 
     const search = showSearch ? (
@@ -266,13 +267,27 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     //   </div>
     // );
 
-    const listBody = bodyDom || renderList({
-      ...omit(this.props, OmitProps),
-      filteredItems,
-      filteredRenderItems,
-      onItemSelect: this.onItemSelect,
-    });
+    let listBody: React.ReactNode = bodyDom;
+    if (!listBody) {
+      listBody = (
+        <div
+          className={classNames(
+            showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`,
+          )}
+        >
+          {search}
+          {searchNotFound ||
+            renderList({
+              ...omit(this.props, OmitProps),
+              filteredItems,
+              filteredRenderItems,
+              onItemSelect: this.onItemSelect,
+            })}
+        </div>
+      );
+    }
 
+    // ================================ List Footer ================================
     const listFooter = footerDom ? <div className={`${prefixCls}-footer`}>{footerDom}</div> : null;
 
     const checkStatus = this.getCheckStatus(filteredItems);
@@ -289,6 +304,7 @@ export default class TransferList extends React.Component<TransferListProps, Tra
       />
     );
 
+    // ================================== Render ===================================
     return (
       <div className={listCls} style={style}>
         {/* Header */}
@@ -304,14 +320,7 @@ export default class TransferList extends React.Component<TransferListProps, Tra
         </div>
 
         {/* Body */}
-        <div
-          className={classNames(
-            showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`,
-          )}
-        >
-          {searchNotFound || listBody}
-        </div>
-        
+        {listBody}
 
         {/* Footer */}
         {listFooter}

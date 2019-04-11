@@ -36,6 +36,7 @@ class App extends React.Component {
     targetKeys: oriTargetKeys,
     selectedKeys: [],
     disabled: false,
+    showSearch: false,
   }
 
   handleChange = (nextTargetKeys, direction, moveKeys) => {
@@ -62,8 +63,12 @@ class App extends React.Component {
     this.setState({ disabled });
   };
 
+  handleShowSearch = (showSearch) => {
+    this.setState({ showSearch });
+  };
+
   render() {
-    const { targetKeys, selectedKeys, disabled } = this.state;
+    const { targetKeys, selectedKeys, disabled, showSearch } = this.state;
     return (
       <div>
         <Transfer
@@ -76,6 +81,7 @@ class App extends React.Component {
           onScroll={this.handleScroll}
           render={item => item.title}
           disabled={disabled}
+          showSearch={showSearch}
         >
           {/*(listProps) => {
             return (
@@ -90,6 +96,13 @@ class App extends React.Component {
           checkedChildren="disabled"
           checked={disabled}
           onChange={this.handleDisable}
+          style={{ marginTop: 16 }}
+        />
+        <Switch
+          unCheckedChildren="showSearch"
+          checkedChildren="showSearch"
+          checked={showSearch}
+          onChange={this.handleShowSearch}
           style={{ marginTop: 16 }}
         />
       </div>
