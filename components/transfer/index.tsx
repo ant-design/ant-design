@@ -216,21 +216,26 @@ class Transfer extends React.Component<TransferProps, any> {
     checkAll: boolean,
   ) => {
     const originalSelectedKeys = this.state[this.getSelectedKeysName(direction)] || [];
-    const currentKeys = filteredDataSource.map(item => item.key);
-    // Only operate current keys from original selected keys
-    const newKeys1 = originalSelectedKeys.filter((key: string) => currentKeys.indexOf(key) === -1);
-    const newKeys2 = [...originalSelectedKeys];
-    currentKeys.forEach(key => {
-      if (newKeys2.indexOf(key) === -1) {
-        newKeys2.push(key);
-      }
-    });
-    const holder = checkAll ? newKeys1 : newKeys2;
-    this.handleSelectChange(direction, holder);
+    
+    // Get all item keys
+    const selectedKeys = filteredDataSource.map(item => item.key);
+
+    let mergedCheckedKeys = [];
+    if (checkAll) {
+      // Merge current keys with origin key
+      mergedCheckedKeys = Array.from(
+        new Set([...originalSelectedKeys, ...selectedKeys])
+      );
+    } else {
+      // Remove current keys from origin keys
+      mergedCheckedKeys = originalSelectedKeys.filter((key: string) => selectedKeys.indexOf(key) !== -1);
+    }
+
+    this.handleSelectChange(direction, mergedCheckedKeys);
 
     if (!this.props.selectedKeys) {
       this.setState({
-        [this.getSelectedKeysName(direction)]: holder,
+        [this.getSelectedKeysName(direction)]: mergedCheckedKeys,
       });
     }
   };

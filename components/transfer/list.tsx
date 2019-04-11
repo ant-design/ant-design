@@ -77,11 +77,11 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     return PureRenderMixin.shouldComponentUpdate.apply(this, args);
   }
 
-  getCheckStatus(filteredDataSource: TransferItem[]) {
+  getCheckStatus(filteredItems: TransferItem[]) {
     const { checkedKeys } = this.props;
     if (checkedKeys.length === 0) {
       return 'none';
-    } else if (filteredDataSource.every(item => checkedKeys.indexOf(item.key) >= 0)) {
+    } else if (filteredItems.every(item => checkedKeys.indexOf(item.key) >= 0 || !!item.disabled)) {
       return 'all';
     }
     return 'part';
@@ -142,7 +142,6 @@ export default class TransferList extends React.Component<TransferListProps, Tra
       dataSource,
       titleText,
       checkedKeys,
-      lazy,
       disabled,
       body,
       footer,
@@ -153,6 +152,7 @@ export default class TransferList extends React.Component<TransferListProps, Tra
       itemUnit,
       itemsUnit,
       renderList = ListBody,
+      handleSelectAll,
     } = this.props;
 
     // Custom Layout
@@ -258,22 +258,25 @@ export default class TransferList extends React.Component<TransferListProps, Tra
 
     const listFooter = footerDom ? <div className={`${prefixCls}-footer`}>{footerDom}</div> : null;
 
-    // const checkStatus = this.getCheckStatus(filteredDataSource);
-    // const checkedAll = checkStatus === 'all';
-    // const checkAllCheckbox = (
-    //   <Checkbox
-    //     disabled={disabled}
-    //     checked={checkedAll}
-    //     indeterminate={checkStatus === 'part'}
-    //     onChange={() => this.props.handleSelectAll(filteredDataSource, checkedAll)}
-    //   />
-    // );
+    const checkStatus = this.getCheckStatus(filteredItems);
+    const checkedAll = checkStatus === 'all';
+    const checkAllCheckbox = (
+      <Checkbox
+        disabled={disabled}
+        checked={checkedAll}
+        indeterminate={checkStatus === 'part'}
+        onChange={() => {
+          // Only select enabled items
+          handleSelectAll(filteredItems.filter(item => !item.disabled), !checkedAll);
+        }}
+      />
+    );
 
     return (
       <div className={listCls} style={style}>
         {/* Header */}
         <div className={`${prefixCls}-header`}>
-          {/* {checkAllCheckbox} */}
+          {checkAllCheckbox}
           <span className={`${prefixCls}-header-selected`}>
             <span>
               {(checkedKeys.length > 0 ? `${checkedKeys.length}/` : '') + filteredItems.length}{' '}
