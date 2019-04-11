@@ -145,12 +145,9 @@ class Descriptions extends React.Component<
       if (typeof column !== 'object') {
         return;
       }
-      this.setState(
-        {
-          screens,
-        },
-        () => this.forceUpdate(),
-      );
+      this.setState({
+        screens,
+      });
     });
   }
 

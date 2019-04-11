@@ -1,6 +1,6 @@
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
-export let enquire: any;
+let enquire: any;
 
 if (typeof window !== 'undefined') {
   const matchMediaPolyfill = (mediaQuery: string) => {
@@ -31,75 +31,71 @@ export const responsiveMap: BreakpointMap = {
 
 type SubscribeFunc = (screens: BreakpointMap) => void;
 
-const ResponsiveObserve = () => {
-  let subscribers: Array<{
-    token: string;
-    func: SubscribeFunc;
-  }> = [];
-  let subUid = -1;
-  return {
-    screens: {},
-    dispatch(screens: BreakpointMap) {
-      this.screens = screens;
-      if (subscribers.length < 1) {
-        return false;
-      }
+let subscribers: Array<{
+  token: string;
+  func: SubscribeFunc;
+}> = [];
+let subUid = -1;
 
-      //performance
-      let len = subscribers ? subscribers.length : 0;
+const responsiveObserve = {
+  screens: {},
+  dispatch(screens: BreakpointMap) {
+    this.screens = screens;
+    if (subscribers.length < 1) {
+      return false;
+    }
 
-      while (len--) {
-        subscribers[len].func(screens);
-      }
-      return true;
-    },
-    subscribe(func: SubscribeFunc) {
-      if (subscribers.length === 0) {
-        this.register();
-      }
-      const token = (++subUid).toString();
-      subscribers.push({
-        token: token,
-        func: func,
-      });
-      func(this.screens);
-      return token;
-    },
-    unsubscribe(token: string) {
-      subscribers = subscribers.filter(item => item.token !== token);
-      if (subscribers.length === 0) {
-        this.unregister();
-      }
-    },
-    unregister() {
-      Object.keys(responsiveMap).map((screen: Breakpoint) =>
-        enquire.unregister(responsiveMap[screen]),
-      );
-    },
-    register() {
-      Object.keys(responsiveMap).map((screen: Breakpoint) =>
-        enquire.register(responsiveMap[screen], {
-          match: () => {
-            const screens = {
-              ...this.screens,
-              [screen]: true,
-            };
-            this.dispatch(screens);
-          },
-          unmatch: () => {
-            const screens = {
-              ...this.screens,
-              [screen]: false,
-            };
-            this.dispatch(screens);
-          },
-          // Keep a empty destory to avoid triggering unmatch when unregister
-          destroy() {},
-        }),
-      );
-    },
-  };
+    subscribers.forEach(item => {
+      item.func(screens);
+    });
+
+    return true;
+  },
+  subscribe(func: SubscribeFunc) {
+    if (subscribers.length === 0) {
+      this.register();
+    }
+    const token = (++subUid).toString();
+    subscribers.push({
+      token: token,
+      func: func,
+    });
+    func(this.screens);
+    return token;
+  },
+  unsubscribe(token: string) {
+    subscribers = subscribers.filter(item => item.token !== token);
+    if (subscribers.length === 0) {
+      this.unregister();
+    }
+  },
+  unregister() {
+    Object.keys(responsiveMap).map((screen: Breakpoint) =>
+      enquire.unregister(responsiveMap[screen]),
+    );
+  },
+  register() {
+    Object.keys(responsiveMap).map((screen: Breakpoint) =>
+      enquire.register(responsiveMap[screen], {
+        match: () => {
+          const screens = {
+            ...this.screens,
+            [screen]: true,
+          };
+          this.dispatch(screens);
+        },
+        unmatch: () => {
+          const screens = {
+            ...this.screens,
+            [screen]: false,
+          };
+          this.dispatch(screens);
+        },
+        // Keep a empty destory to avoid triggering unmatch when unregister
+        destroy() {},
+      }),
+    );
+  },
 };
 
-const responsiveObserve = ResponsiveObserve();
 export default responsiveObserve;
