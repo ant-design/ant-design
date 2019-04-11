@@ -1,12 +1,12 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import omit from 'omit.js';
 import classNames from 'classnames';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import Checkbox from '../checkbox';
 import { TransferItem, TransferDirection } from './index';
 import Search from './search';
-import Item from './item';
-import ListBody from './ListBody';
+import ListBody, { TransferListBodyProps, OmitProps } from './ListBody';
 import triggerEvent from '../_util/triggerEvent';
 
 function noop() {}
@@ -19,6 +19,12 @@ function isRenderResultPlainObject(result: any) {
   );
 }
 
+export interface RenderedItem {
+  renderedText: string;
+  renderedEl: React.ReactNode;
+  item: TransferItem;
+}
+
 export interface TransferListProps {
   prefixCls: string;
   titleText: string;
@@ -28,7 +34,9 @@ export interface TransferListProps {
   checkedKeys: string[];
   handleFilter: (e: any) => void;
   handleSelect: (selectedItem: any, checked: boolean) => void;
+  /** [Legacy] Only used when `body` prop used. */
   handleSelectAll: (dataSource: any[], checkAll: boolean) => void;
+  onItemSelectAll: (dataSource: any[], checkAll: boolean) => void;
   handleClear: () => void;
   render?: (item: any) => any;
   showSearch?: boolean;
@@ -37,7 +45,7 @@ export interface TransferListProps {
   itemUnit: string;
   itemsUnit: string;
   body?: (props: TransferListProps) => React.ReactNode;
-  renderList?: (props: TransferListProps) => React.ReactNode;
+  renderList?: (props: TransferListBodyProps) => React.ReactNode;
   footer?: (props: TransferListProps) => React.ReactNode;
   lazy?: boolean | {};
   onScroll: Function;
@@ -87,10 +95,11 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     return 'part';
   }
 
-  handleSelect = (selectedItem: TransferItem) => {
-    const { checkedKeys } = this.props;
-    const result = checkedKeys.some(key => key === selectedItem.key);
-    this.props.handleSelect(selectedItem, !result);
+  onItemSelect = (selectedItem: TransferItem) => {
+    const { key } = selectedItem;
+    const { checkedKeys, handleSelect } = this.props;
+    const prevChecked = checkedKeys.indexOf(key) !== -1;
+    handleSelect(selectedItem, !prevChecked);
   };
 
   handleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -125,13 +134,14 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     return text.indexOf(filterValue) >= 0;
   };
 
-  renderItem = (item: TransferItem) => {
+  renderItem = (item: TransferItem): RenderedItem => {
     const { render = noop } = this.props;
     const renderResult = render(item);
     const isRenderResultPlain = isRenderResultPlainObject(renderResult);
     return {
       renderedText: isRenderResultPlain ? renderResult.value : renderResult,
       renderedEl: isRenderResultPlain ? renderResult.label : renderResult,
+      item,
     };
   };
 
@@ -153,6 +163,7 @@ export default class TransferList extends React.Component<TransferListProps, Tra
       itemsUnit,
       renderList = ListBody,
       handleSelectAll,
+      onItemSelectAll,
     } = this.props;
 
     // Custom Layout
@@ -165,9 +176,11 @@ export default class TransferList extends React.Component<TransferListProps, Tra
 
     // Get filtered, checked item list
     const filteredItems: TransferItem[] = [];
+    const filteredRenderItems: RenderedItem[] = [];
 
     dataSource.forEach(item => {
-      const { renderedText, renderedEl } = this.renderItem(item);
+      const renderedItem = this.renderItem(item);
+      const { renderedText, renderedEl } = renderedItem;
 
       // Filter skip
       if (filterValue && filterValue.trim() && !this.matchFilter(renderedText, item)) {
@@ -175,6 +188,7 @@ export default class TransferList extends React.Component<TransferListProps, Tra
       }
 
       filteredItems.push(item);
+      filteredRenderItems.push(renderedItem);
     });
 
 
@@ -253,7 +267,10 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     // );
 
     const listBody = bodyDom || renderList({
-      ...this.props,
+      ...omit(this.props, OmitProps),
+      filteredItems,
+      filteredRenderItems,
+      onItemSelect: this.onItemSelect,
     });
 
     const listFooter = footerDom ? <div className={`${prefixCls}-footer`}>{footerDom}</div> : null;
@@ -267,7 +284,7 @@ export default class TransferList extends React.Component<TransferListProps, Tra
         indeterminate={checkStatus === 'part'}
         onChange={() => {
           // Only select enabled items
-          handleSelectAll(filteredItems.filter(item => !item.disabled), !checkedAll);
+          onItemSelectAll(filteredItems.filter(item => !item.disabled), !checkedAll);
         }}
       />
     );
@@ -292,8 +309,7 @@ export default class TransferList extends React.Component<TransferListProps, Tra
             showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`,
           )}
         >
-          {!searchNotFound && listBody}
-          {searchNotFound}
+          {searchNotFound || listBody}
         </div>
         
 

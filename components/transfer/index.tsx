@@ -210,7 +210,7 @@ class Transfer extends React.Component<TransferProps, any> {
     }
   }
 
-  handleSelectAll = (
+  onSelectAll = (
     direction: TransferDirection,
     filteredDataSource: TransferItem[],
     checkAll: boolean,
@@ -240,10 +240,17 @@ class Transfer extends React.Component<TransferProps, any> {
     }
   };
 
+  // [Legacy] Old prop `body` pass origin check as arg. It's confusing.
+  // TODO: Remove this in next version.
   handleLeftSelectAll = (filteredDataSource: TransferItem[], checkAll: boolean) =>
-    this.handleSelectAll('left', filteredDataSource, checkAll);
+    this.onSelectAll('left', filteredDataSource, !checkAll);
   handleRightSelectAll = (filteredDataSource: TransferItem[], checkAll: boolean) =>
-    this.handleSelectAll('right', filteredDataSource, checkAll);
+    this.onSelectAll('right', filteredDataSource, !checkAll);
+
+  onLeftItemSelectAll = (filteredDataSource: TransferItem[], checkAll: boolean) =>
+    this.onSelectAll('left', filteredDataSource, checkAll);
+  onRightItemSelectAll = (filteredDataSource: TransferItem[], checkAll: boolean) =>
+    this.onSelectAll('right', filteredDataSource, checkAll);
 
   handleFilter = (direction: TransferDirection, e: React.ChangeEvent<HTMLInputElement>) => {
     const { onSearchChange, onSearch } = this.props;
@@ -377,6 +384,7 @@ class Transfer extends React.Component<TransferProps, any> {
               handleClear={this.handleLeftClear}
               handleSelect={this.handleLeftSelect}
               handleSelectAll={this.handleLeftSelectAll}
+              onItemSelectAll={this.onLeftItemSelectAll}
               render={render}
               showSearch={showSearch}
               body={body}
@@ -410,6 +418,7 @@ class Transfer extends React.Component<TransferProps, any> {
               handleClear={this.handleRightClear}
               handleSelect={this.handleRightSelect}
               handleSelectAll={this.handleRightSelectAll}
+              onItemSelectAll={this.onRightItemSelectAll}
               render={render}
               showSearch={showSearch}
               body={body}

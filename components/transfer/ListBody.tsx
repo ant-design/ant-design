@@ -2,10 +2,19 @@ import * as React from 'react';
 import classNames from 'classnames';
 import Animate from 'rc-animate';
 import raf from '../_util/raf';
-import { TransferListProps } from './list';
+import { Omit, tuple } from '../_util/type';
+import { TransferItem } from '.';
+import { TransferListProps, RenderedItem } from './list';
+import ListItem from './ListItem';
 
-export interface TransferListBodyProps extends TransferListProps {
-  
+export const OmitProps = tuple('handleFilter', 'handleSelect', 'handleSelectAll', 'handleClear');
+export type OmitProp = (typeof OmitProps)[number];
+type PartialTransferListProps = Omit<TransferListProps, OmitProp>;
+
+export interface TransferListBodyProps extends PartialTransferListProps {
+  filteredItems: TransferItem[];
+  filteredRenderItems: RenderedItem[];
+  onItemSelect: (item: TransferItem) => void;
 }
 
 class ListBody extends React.Component<TransferListBodyProps> {
@@ -27,7 +36,9 @@ class ListBody extends React.Component<TransferListBodyProps> {
 
   render() {
     const { mounted } = this.state;
-    const { prefixCls, onScroll } = this.props;
+    const { prefixCls, onScroll, filteredRenderItems, lazy, checkedKeys, onItemSelect } = this.props;
+
+    console.log('Body Props:', this.props);
 
     return (
       <Animate
@@ -37,7 +48,24 @@ class ListBody extends React.Component<TransferListBodyProps> {
         transitionName={mounted ? `${prefixCls}-content-item-highlight` : ''}
         transitionLeave={false}
       >
-        {/* {showItems} */}
+        {filteredRenderItems.map(({ renderedEl, renderedText, item }: RenderedItem) => {
+          const { disabled } = item;
+          const checked = checkedKeys.indexOf(item.key) >= 0;
+
+          return (
+            <ListItem
+              disabled={disabled}
+              key={item.key}
+              item={item}
+              lazy={lazy}
+              renderedText={renderedText}
+              renderedEl={renderedEl}
+              checked={checked}
+              prefixCls={prefixCls}
+              onClick={onItemSelect}
+            />
+          );
+        })}
       </Animate>
     );
   }
