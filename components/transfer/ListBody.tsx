@@ -1,5 +1,4 @@
 import * as React from 'react';
-import classNames from 'classnames';
 import Animate from 'rc-animate';
 import raf from '../_util/raf';
 import { Omit, tuple } from '../_util/type';
@@ -18,11 +17,11 @@ export interface TransferListBodyProps extends PartialTransferListProps {
 }
 
 class ListBody extends React.Component<TransferListBodyProps> {
-  private mountId: number;
-
   state = {
     mounted: false,
   };
+
+  private mountId: number;
 
   componentDidMount() {
     this.mountId = raf(() => {
@@ -36,7 +35,14 @@ class ListBody extends React.Component<TransferListBodyProps> {
 
   render() {
     const { mounted } = this.state;
-    const { prefixCls, onScroll, filteredRenderItems, lazy, checkedKeys, onItemSelect } = this.props;
+    const {
+      prefixCls,
+      onScroll,
+      filteredRenderItems,
+      lazy,
+      checkedKeys,
+      onItemSelect,
+    } = this.props;
 
     return (
       <Animate

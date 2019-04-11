@@ -103,7 +103,9 @@ export default class TransferList extends React.Component<TransferListProps, Tra
   };
 
   handleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { target: { value: filterValue } } = e;
+    const {
+      target: { value: filterValue },
+    } = e;
     this.setState({ filterValue });
     this.props.handleFilter(e);
     if (!filterValue) {
@@ -162,7 +164,6 @@ export default class TransferList extends React.Component<TransferListProps, Tra
       itemUnit,
       itemsUnit,
       renderList = ListBody,
-      handleSelectAll,
       onItemSelectAll,
     } = this.props;
 
@@ -180,7 +181,7 @@ export default class TransferList extends React.Component<TransferListProps, Tra
 
     dataSource.forEach(item => {
       const renderedItem = this.renderItem(item);
-      const { renderedText, renderedEl } = renderedItem;
+      const { renderedText } = renderedItem;
 
       // Filter skip
       if (filterValue && filterValue.trim() && !this.matchFilter(renderedText, item)) {
@@ -190,40 +191,6 @@ export default class TransferList extends React.Component<TransferListProps, Tra
       filteredItems.push(item);
       filteredRenderItems.push(renderedItem);
     });
-
-
-
-    // const filteredDataSource: TransferItem[] = [];
-    // const totalDataSource: TransferItem[] = [];
-
-    // const showItems = dataSource.map(item => {
-    //   const { renderedText, renderedEl } = this.renderItem(item);
-    //   if (filter && filter.trim() && !this.matchFilter(renderedText, item)) {
-    //     return null;
-    //   }
-
-    //   // all show items
-    //   totalDataSource.push(item);
-    //   if (!item.disabled) {
-    //     // response to checkAll items
-    //     filteredDataSource.push(item);
-    //   }
-
-    //   const checked = checkedKeys.indexOf(item.key) >= 0;
-    //   return (
-    //     <Item
-    //       disabled={disabled}
-    //       key={item.key}
-    //       item={item}
-    //       lazy={lazy}
-    //       renderedText={renderedText}
-    //       renderedEl={renderedEl}
-    //       checked={checked}
-    //       prefixCls={prefixCls}
-    //       onClick={this.handleSelect}
-    //     />
-    //   );
-    // });
 
     // ================================= List Body =================================
     const unit = dataSource.length > 1 ? itemsUnit : itemUnit;
@@ -244,28 +211,6 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     const searchNotFound = !filteredItems.length && (
       <div className={`${prefixCls}-body-not-found`}>{notFoundContent}</div>
     );
-
-    // const listBody = bodyDom || (
-    //   <div
-    //     className={classNames(
-    //       showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`,
-    //     )}
-    //   >
-    //     {search}
-    //     {!searchNotFound && (
-    //       <Animate
-    //         component="ul"
-    //         componentProps={{ onScroll }}
-    //         className={`${prefixCls}-content`}
-    //         transitionName={this.state.mounted ? `${prefixCls}-content-item-highlight` : ''}
-    //         transitionLeave={false}
-    //       >
-    //         {showItems}
-    //       </Animate>
-    //     )}
-    //     {searchNotFound}
-    //   </div>
-    // );
 
     let listBody: React.ReactNode = bodyDom;
     if (!listBody) {

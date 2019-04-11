@@ -9,6 +9,7 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale-provider/default';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import { polyfill } from 'react-lifecycles-compat';
+import { TransferListBodyProps } from './ListBody';
 
 export { TransferListProps } from './list';
 export { TransferOperationProps } from './operation';
@@ -53,7 +54,7 @@ export interface TransferProps {
   onSearch?: (direction: TransferDirection, value: string) => void;
   lazy?: {} | boolean;
   onScroll?: (direction: TransferDirection, e: React.SyntheticEvent<HTMLDivElement>) => void;
-  children?: (props: TransferListProps) => React.ReactNode;
+  children?: (props: TransferListBodyProps) => React.ReactNode;
 }
 
 export interface TransferLocale {
@@ -216,19 +217,19 @@ class Transfer extends React.Component<TransferProps, any> {
     checkAll: boolean,
   ) => {
     const originalSelectedKeys = this.state[this.getSelectedKeysName(direction)] || [];
-    
+
     // Get all item keys
     const selectedKeys = filteredDataSource.map(item => item.key);
 
     let mergedCheckedKeys = [];
     if (checkAll) {
       // Merge current keys with origin key
-      mergedCheckedKeys = Array.from(
-        new Set([...originalSelectedKeys, ...selectedKeys])
-      );
+      mergedCheckedKeys = Array.from(new Set([...originalSelectedKeys, ...selectedKeys]));
     } else {
       // Remove current keys from origin keys
-      mergedCheckedKeys = originalSelectedKeys.filter((key: string) => selectedKeys.indexOf(key) !== -1);
+      mergedCheckedKeys = originalSelectedKeys.filter(
+        (key: string) => selectedKeys.indexOf(key) !== -1,
+      );
     }
 
     this.handleSelectChange(direction, mergedCheckedKeys);
