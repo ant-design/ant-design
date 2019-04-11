@@ -53,6 +53,7 @@ export interface TransferProps {
   onSearch?: (direction: TransferDirection, value: string) => void;
   lazy?: {} | boolean;
   onScroll?: (direction: TransferDirection, e: React.SyntheticEvent<HTMLDivElement>) => void;
+  children?: (props: TransferListProps) => React.ReactNode;
 }
 
 export interface TransferLocale {
@@ -127,10 +128,14 @@ class Transfer extends React.Component<TransferProps, any> {
         'please use `locale` instead.',
     );
 
+    warning(
+      !('body' in props),
+      'Transfer',
+      '`body` is internal usage and will bre removed, please use `children` instead.',
+    );
+
     const { selectedKeys = [], targetKeys = [] } = props;
     this.state = {
-      leftFilter: '',
-      rightFilter: '',
       sourceSelectedKeys: selectedKeys.filter(key => targetKeys.indexOf(key) === -1),
       targetSelectedKeys: selectedKeys.filter(key => targetKeys.indexOf(key) > -1),
     };
@@ -238,10 +243,6 @@ class Transfer extends React.Component<TransferProps, any> {
   handleFilter = (direction: TransferDirection, e: React.ChangeEvent<HTMLInputElement>) => {
     const { onSearchChange, onSearch } = this.props;
     const value = e.target.value;
-    this.setState({
-      // add filter
-      [`${direction}Filter`]: value,
-    });
     if (onSearchChange) {
       warning(false, 'Transfer', '`onSearchChange` is deprecated. Please use `onSearch` instead.');
       onSearchChange(direction, e);
@@ -256,9 +257,6 @@ class Transfer extends React.Component<TransferProps, any> {
 
   handleClear = (direction: TransferDirection) => {
     const { onSearch } = this.props;
-    this.setState({
-      [`${direction}Filter`]: '',
-    });
     if (onSearch) {
       onSearch(direction, '');
     }
@@ -348,10 +346,11 @@ class Transfer extends React.Component<TransferProps, any> {
           filterOption,
           render,
           lazy,
+          children,
         } = this.props;
         const prefixCls = getPrefixCls('transfer', customizePrefixCls);
         const locale = this.getLocale(transferLocale, renderEmpty);
-        const { leftFilter, rightFilter, sourceSelectedKeys, targetSelectedKeys } = this.state;
+        const { sourceSelectedKeys, targetSelectedKeys } = this.state;
 
         const { leftDataSource, rightDataSource } = this.separateDataSource(this.props);
         const leftActive = targetSelectedKeys.length > 0;
@@ -366,7 +365,6 @@ class Transfer extends React.Component<TransferProps, any> {
               prefixCls={`${prefixCls}-list`}
               titleText={titles[0]}
               dataSource={leftDataSource}
-              filter={leftFilter}
               filterOption={filterOption}
               style={listStyle}
               checkedKeys={sourceSelectedKeys}
@@ -377,10 +375,12 @@ class Transfer extends React.Component<TransferProps, any> {
               render={render}
               showSearch={showSearch}
               body={body}
+              renderList={children}
               footer={footer}
               lazy={lazy}
               onScroll={this.handleLeftScroll}
               disabled={disabled}
+              direction="left"
               {...locale}
             />
             <Operation
@@ -398,7 +398,6 @@ class Transfer extends React.Component<TransferProps, any> {
               prefixCls={`${prefixCls}-list`}
               titleText={titles[1]}
               dataSource={rightDataSource}
-              filter={rightFilter}
               filterOption={filterOption}
               style={listStyle}
               checkedKeys={targetSelectedKeys}
@@ -409,10 +408,12 @@ class Transfer extends React.Component<TransferProps, any> {
               render={render}
               showSearch={showSearch}
               body={body}
+              renderList={children}
               footer={footer}
               lazy={lazy}
               onScroll={this.handleRightScroll}
               disabled={disabled}
+              direction="right"
               {...locale}
             />
           </div>
