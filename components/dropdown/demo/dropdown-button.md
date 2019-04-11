@@ -40,26 +40,26 @@ const menu = (
 
 ReactDOM.render(
   <div>
-    <Dropdown.Button onClick={handleButtonClick} overlay={menu}>
+    <Dropdown.Button onClick={handleButtonClick} overlay={menu} style={{ marginRight: 8, marginBottom: 9 }}>
       Dropdown
     </Dropdown.Button>
     <Dropdown.Button 
       overlay={menu}
       icon={<Icon type="user" />}
-      style={{ marginLeft: 8 }}
     >
       Dropdown
     </Dropdown.Button>
+    <br />
     <Dropdown.Button 
       onClick={handleButtonClick}
       overlay={menu}
       disabled
-      style={{ marginLeft: 8 }}
+      style={{ marginRight: 8 }}
     >
       Dropdown
     </Dropdown.Button>
     <Dropdown overlay={menu}>
-      <Button style={{ marginLeft: 8 }}>
+      <Button>
         Button <Icon type="down" />
       </Button>
     </Dropdown>
