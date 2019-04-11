@@ -5,6 +5,7 @@
 @table-header-icon-color: #bfbfbf;
 @table-header-sort-active-bg: darken(@table-header-bg, 3%);
 @table-header-filter-active-bg: darken(@table-header-sort-active-bg, 5%);
+@table-selection-column-width: 60px;
 
 .@{table-prefix-cls}-wrapper {
   .clearfix;
@@ -316,7 +317,9 @@
 
   &-thead > tr > th.@{table-prefix-cls}-selection-column,
   &-tbody > tr > td.@{table-prefix-cls}-selection-column {
+    width: @table-selection-column-width;
     text-align: center;
+
     .@{ant-prefix}-radio-wrapper {
       margin-right: 0;
     }

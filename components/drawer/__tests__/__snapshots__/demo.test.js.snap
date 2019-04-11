@@ -28,6 +28,7 @@ exports[`renders ./components/drawer/demo/form-in-drawer.md correctly 1`] = `
         class=""
         data-icon="plus"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"

@@ -59,8 +59,6 @@ const defaultPagination = {
   onShowSizeChange: noop,
 };
 
-const ROW_SELECTION_COLUMN_WIDTH = '62px';
-
 /**
  * Avoid creating new object, so that parent component's shouldComponentUpdate
  * can works appropriately。
@@ -775,7 +773,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         render: this.renderSelectionBox(rowSelection.type),
         className: selectionColumnClass,
         fixed: rowSelection.fixed,
-        width: rowSelection.columnWidth || ROW_SELECTION_COLUMN_WIDTH,
+        width: rowSelection.columnWidth,
         title: rowSelection.columnTitle,
       };
       if (rowSelection.type !== 'radio') {
