@@ -162,7 +162,7 @@ const columns = [{
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| columnWidth | 自定义列表选择框宽度 | string\|number | - |
+| columnWidth | 自定义列表选择框宽度 | string\|number | `60px` |
 | columnTitle | 自定义列表选择框标题 | string\|React.ReactNode | - |
 | fixed | 把选择框列固定在左边 | boolean | - |
 | getCheckboxProps | 选择框的默认属性配置 | Function(record) | - |
