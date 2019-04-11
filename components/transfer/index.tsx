@@ -228,7 +228,7 @@ class Transfer extends React.Component<TransferProps, any> {
     } else {
       // Remove current keys from origin keys
       mergedCheckedKeys = originalSelectedKeys.filter(
-        (key: string) => selectedKeys.indexOf(key) !== -1,
+        (key: string) => selectedKeys.indexOf(key) === -1,
       );
     }
 
