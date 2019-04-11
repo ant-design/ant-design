@@ -78,7 +78,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
         class="ant-transfer-list-body-not-found"
       >
         <div
-          class="ant-empty ant-empty-small"
+          class="ant-empty ant-empty-normal ant-empty-small"
         >
           <div
             class="ant-empty-image"
@@ -242,7 +242,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
         class="ant-transfer-list-body-not-found"
       >
         <div
-          class="ant-empty ant-empty-small"
+          class="ant-empty ant-empty-normal ant-empty-small"
         >
           <div
             class="ant-empty-image"
@@ -561,7 +561,7 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
         class="ant-transfer-list-body-not-found"
       >
         <div
-          class="ant-empty ant-empty-small"
+          class="ant-empty ant-empty-normal ant-empty-small"
         >
           <div
             class="ant-empty-image"
@@ -672,7 +672,7 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
         class="ant-transfer-list-body-not-found"
       >
         <div
-          class="ant-empty ant-empty-small"
+          class="ant-empty ant-empty-normal ant-empty-small"
         >
           <div
             class="ant-empty-image"
@@ -737,7 +737,7 @@ exports[`renders ./components/transfer/demo/large-data.md correctly 1`] = `
         class="ant-transfer-list-body-not-found"
       >
         <div
-          class="ant-empty ant-empty-small"
+          class="ant-empty ant-empty-normal ant-empty-small"
         >
           <div
             class="ant-empty-image"
@@ -847,7 +847,7 @@ exports[`renders ./components/transfer/demo/large-data.md correctly 1`] = `
         class="ant-transfer-list-body-not-found"
       >
         <div
-          class="ant-empty ant-empty-small"
+          class="ant-empty ant-empty-normal ant-empty-small"
         >
           <div
             class="ant-empty-image"
@@ -946,7 +946,7 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
         class="ant-transfer-list-body-not-found"
       >
         <div
-          class="ant-empty ant-empty-small"
+          class="ant-empty ant-empty-normal ant-empty-small"
         >
           <div
             class="ant-empty-image"
@@ -1090,7 +1090,7 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
         class="ant-transfer-list-body-not-found"
       >
         <div
-          class="ant-empty ant-empty-small"
+          class="ant-empty ant-empty-normal ant-empty-small"
         >
           <div
             class="ant-empty-image"

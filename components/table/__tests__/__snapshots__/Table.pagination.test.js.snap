@@ -32,16 +32,20 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
                   <th
                     class=""
                   >
-                    <div>
-                      <span
-                        class="ant-table-column-title"
-                      >
-                        Name
-                      </span>
-                      <span
-                        class="ant-table-column-sorter"
-                      />
-                    </div>
+                    <span
+                      class="ant-table-header-column"
+                    >
+                      <div>
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Name
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
+                      </div>
+                    </span>
                   </th>
                 </tr>
               </thead>
@@ -216,16 +220,20 @@ exports[`Table.pagination renders pagination correctly 1`] = `
                   <th
                     class=""
                   >
-                    <div>
-                      <span
-                        class="ant-table-column-title"
-                      >
-                        Name
-                      </span>
-                      <span
-                        class="ant-table-column-sorter"
-                      />
-                    </div>
+                    <span
+                      class="ant-table-header-column"
+                    >
+                      <div>
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Name
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
+                      </div>
+                    </span>
                   </th>
                 </tr>
               </thead>

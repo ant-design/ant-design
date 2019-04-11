@@ -137,4 +137,30 @@ describe('Affix Render', () => {
     expect(wrapper.instance().state.affixStyle).toBe(undefined);
     expect(wrapper.instance().state.placeholderStyle).toBe(undefined);
   });
+
+  it('updatePosition when size changed', () => {
+    document.body.innerHTML = '<div id="mounter" />';
+
+    const updateCalled = jest.fn();
+    wrapper = mount(<AffixMounter offsetBottom={0} onTestUpdatePosition={updateCalled} />, {
+      attachTo: document.getElementById('mounter'),
+    });
+
+    jest.runAllTimers();
+
+    movePlaceholder(300);
+    expect(wrapper.instance().affix.state.affixStyle).toBeTruthy();
+    jest.runAllTimers();
+    wrapper.update();
+
+    // Mock trigger resize
+    updateCalled.mockReset();
+    wrapper
+      .find('ReactResizeObserver')
+      .instance()
+      .onResize();
+    jest.runAllTimers();
+
+    expect(updateCalled).toHaveBeenCalled();
+  });
 });
