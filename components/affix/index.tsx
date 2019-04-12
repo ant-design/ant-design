@@ -2,6 +2,7 @@ import * as React from 'react';
 import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
 import omit from 'omit.js';
+import toArray from 'rc-util/lib/Children/toArray';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
 import ResizeObserver from '../_util/resizeObserver';
@@ -214,16 +215,16 @@ class Affix extends React.Component<AffixProps, AffixState> {
       ...(status === AffixStatus.None ? placeholderStyle : null),
       ...style,
     };
+
+    // bind this
+    const updatePosition = this.updatePosition.bind(this);
+
     return (
       <div {...props} style={mergedPlaceholderStyle} ref={this.savePlaceholderNode}>
         <div className={className} ref={this.saveFixedNode} style={this.state.affixStyle}>
-          {Array.isArray(children) ? (
-            children.map(child => (
-              <ResizeObserver onResize={this.updatePosition}>{child}</ResizeObserver>
-            ))
-          ) : (
-            <ResizeObserver onResize={this.updatePosition}>{children}</ResizeObserver>
-          )}
+          {toArray(children).map((child: React.ReactNode) => (
+            <ResizeObserver onResize={updatePosition}>{child}</ResizeObserver>
+          ))}
         </div>
       </div>
     );
