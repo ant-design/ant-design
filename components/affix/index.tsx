@@ -54,7 +54,9 @@ class Affix extends React.Component<AffixProps, AffixState> {
   };
 
   placeholderNode: HTMLDivElement;
+
   fixedNode: HTMLDivElement;
+
   private timeout: number;
 
   // Event handler
@@ -215,7 +217,13 @@ class Affix extends React.Component<AffixProps, AffixState> {
     return (
       <div {...props} style={mergedPlaceholderStyle} ref={this.savePlaceholderNode}>
         <div className={className} ref={this.saveFixedNode} style={this.state.affixStyle}>
-          <ResizeObserver onResize={this.updatePosition}><div>{children}</div></ResizeObserver>
+          {Array.isArray(children) ? (
+            children.map(child => (
+              <ResizeObserver onResize={this.updatePosition}>{child}</ResizeObserver>
+            ))
+          ) : (
+            <ResizeObserver onResize={this.updatePosition}>{children}</ResizeObserver>
+          )}
         </div>
       </div>
     );
