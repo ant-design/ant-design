@@ -100,6 +100,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
           class=""
           data-icon="user"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
