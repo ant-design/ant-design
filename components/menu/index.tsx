@@ -56,7 +56,7 @@ export interface MenuProps {
   subMenuOpenDelay?: number;
   focusable?: boolean;
   onMouseEnter?: (e: MouseEvent) => void;
-  getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
+  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   overflowedIndicator?: React.ReactNode;
 }
 
