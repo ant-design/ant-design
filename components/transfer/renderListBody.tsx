@@ -12,6 +12,7 @@ export const OmitProps = tuple(
   'handleSelectAll',
   'handleClear',
   'body',
+  'checkedKeys',
 );
 export type OmitProp = (typeof OmitProps)[number];
 type PartialTransferListProps = Omit<TransferListProps, OmitProp>;
@@ -19,6 +20,7 @@ type PartialTransferListProps = Omit<TransferListProps, OmitProp>;
 export interface TransferListBodyProps extends PartialTransferListProps {
   filteredItems: TransferItem[];
   filteredRenderItems: RenderedItem[];
+  selectedKeys: string[];
 }
 
 class ListBody extends React.Component<TransferListBodyProps> {
@@ -39,14 +41,14 @@ class ListBody extends React.Component<TransferListBodyProps> {
   }
 
   onItemSelect = (item: TransferItem) => {
-    const { onItemSelect, checkedKeys } = this.props;
-    const checked = checkedKeys.indexOf(item.key) >= 0;
+    const { onItemSelect, selectedKeys } = this.props;
+    const checked = selectedKeys.indexOf(item.key) >= 0;
     onItemSelect(item.key, !checked);
   };
 
   render() {
     const { mounted } = this.state;
-    const { prefixCls, onScroll, filteredRenderItems, lazy, checkedKeys } = this.props;
+    const { prefixCls, onScroll, filteredRenderItems, lazy, selectedKeys } = this.props;
 
     return (
       <Animate
@@ -58,7 +60,7 @@ class ListBody extends React.Component<TransferListBodyProps> {
       >
         {filteredRenderItems.map(({ renderedEl, renderedText, item }: RenderedItem) => {
           const { disabled } = item;
-          const checked = checkedKeys.indexOf(item.key) >= 0;
+          const checked = selectedKeys.indexOf(item.key) >= 0;
 
           return (
             <ListItem

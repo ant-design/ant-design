@@ -103,13 +103,14 @@ class App extends React.Component {
           render={item => item.title}
           disabled={disabled}
           showSearch={showSearch}
+          showSelectAll={false}
           filterOption={(inputValue, item) => (
             item.title.indexOf(inputValue) !== -1 ||
             item.tag.indexOf(inputValue) !== -1
           )}
         >
           {(listProps) => {
-            const { direction, filteredItems, onItemSelectAll, onItemSelect, checkedKeys, disabled: listDisabled } = listProps;
+            const { direction, filteredItems, onItemSelectAll, onItemSelect, selectedKeys: listSelectedKeys, disabled: listDisabled } = listProps;
             const columns = direction === 'left' ? leftColumns : rightColumns;
 
             const rowSelection = {
@@ -117,13 +118,13 @@ class App extends React.Component {
               onSelectAll(selected, selectedRows) {
                 const treeSelectedKeys = selectedRows.filter(item => !item.disabled).map(({ key }) => key);
                 const diffKeys = selected ?
-                  difference(treeSelectedKeys, checkedKeys) : difference(checkedKeys, treeSelectedKeys);
+                  difference(treeSelectedKeys, listSelectedKeys) : difference(listSelectedKeys, treeSelectedKeys);
                 onItemSelectAll(diffKeys, selected);
               },
               onSelect({ key }, selected) {
                 onItemSelect(key, selected);
               },
-              selectedRowKeys: checkedKeys,
+              selectedRowKeys: listSelectedKeys,
             };
 
             return (
@@ -131,7 +132,7 @@ class App extends React.Component {
                 rowSelection={rowSelection}
                 columns={columns}
                 dataSource={filteredItems}
-                size="middle"
+                size="small"
               />
             );
           }}

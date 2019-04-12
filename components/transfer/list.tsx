@@ -52,6 +52,7 @@ export interface TransferListProps {
   onScroll: Function;
   disabled?: boolean;
   direction: TransferDirection;
+  showSelectAll?: boolean;
 }
 
 interface TransferListState {
@@ -159,6 +160,7 @@ export default class TransferList extends React.Component<TransferListProps, Tra
       itemsUnit,
       renderList,
       onItemSelectAll,
+      showSelectAll,
     } = this.props;
 
     // Custom Layout
@@ -216,6 +218,7 @@ export default class TransferList extends React.Component<TransferListProps, Tra
           ...omit(this.props, OmitProps),
           filteredItems,
           filteredRenderItems,
+          selectedKeys: checkedKeys,
         });
 
         // We should wrap customize list body in a classNamed div to use flex layout.
@@ -243,7 +246,7 @@ export default class TransferList extends React.Component<TransferListProps, Tra
 
     const checkStatus = this.getCheckStatus(filteredItems);
     const checkedAll = checkStatus === 'all';
-    const checkAllCheckbox = (
+    const checkAllCheckbox = showSelectAll !== false && (
       <Checkbox
         disabled={disabled}
         checked={checkedAll}

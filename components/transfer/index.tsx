@@ -56,6 +56,7 @@ export interface TransferProps {
   lazy?: {} | boolean;
   onScroll?: (direction: TransferDirection, e: React.SyntheticEvent<HTMLDivElement>) => void;
   children?: (props: TransferListBodyProps) => React.ReactNode;
+  showSelectAll?: boolean;
 }
 
 export interface TransferLocale {
@@ -364,6 +365,7 @@ class Transfer extends React.Component<TransferProps, any> {
           render,
           lazy,
           children,
+          showSelectAll,
         } = this.props;
         const prefixCls = getPrefixCls('transfer', customizePrefixCls);
         const locale = this.getLocale(transferLocale, renderEmpty);
@@ -403,6 +405,7 @@ class Transfer extends React.Component<TransferProps, any> {
               onScroll={this.handleLeftScroll}
               disabled={disabled}
               direction="left"
+              showSelectAll={showSelectAll}
               {...locale}
             />
             <Operation
@@ -438,6 +441,7 @@ class Transfer extends React.Component<TransferProps, any> {
               onScroll={this.handleRightScroll}
               disabled={disabled}
               direction="right"
+              showSelectAll={showSelectAll}
               {...locale}
             />
           </div>
