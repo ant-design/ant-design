@@ -62,20 +62,23 @@ export interface BaseButtonProps {
   children?: React.ReactNode;
 }
 
+// Typescript will make optional not optional if use Pick with union.
+// Should change to `AnchorButtonProps | NativeButtonProps` and `any` to `HTMLAnchorElement | HTMLButtonElement` if it fixed.
+// ref: https://github.com/ant-design/ant-design/issues/15930
 export type AnchorButtonProps = {
   href: string;
   target?: string;
-  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
+  onClick?: React.MouseEventHandler<any>;
 } & BaseButtonProps &
-  Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'type'>;
+  Omit<React.AnchorHTMLAttributes<any>, 'type'>;
 
 export type NativeButtonProps = {
   htmlType?: ButtonHTMLType;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: React.MouseEventHandler<any>;
 } & BaseButtonProps &
-  Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type'>;
+  Omit<React.ButtonHTMLAttributes<any>, 'type'>;
 
-export type ButtonProps = AnchorButtonProps | NativeButtonProps;
+export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
 
 interface ButtonState {
   loading?: boolean | { delay?: number };

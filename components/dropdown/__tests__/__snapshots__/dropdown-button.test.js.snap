@@ -21,6 +21,7 @@ exports[`DropdownButton should support href like Button 1`] = `
         class=""
         data-icon="ellipsis"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
