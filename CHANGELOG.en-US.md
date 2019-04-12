@@ -15,6 +15,27 @@ timeline: true
 
 ---
 
+## 3.16.3
+
+`2019-04-12`
+
+
+- 🐞 **Fix Button typescripts definition with latest `@types/react`.** [#15938](https://github.com/ant-design/ant-design/pull/15938)
+- ⚠️ Add DatePicker warning when time invalidate. [#15920](https://github.com/ant-design/ant-design/pull/15920)
+- 🐞 Fix Menu arrow not display in old version of IE. [#15932](https://github.com/ant-design/ant-design/pull/15932)
+- 🐞 Fix Progress success UI when `status` is `undefined`. [#15951](https://github.com/ant-design/ant-design/pull/15951)
+- 🐞 Fix Tooltips not work when Menu collapsed. [#15948](https://github.com/ant-design/ant-design/pull/15948)
+- 🐞 Fix Switch can't be trigger by click of form label. [#15923](https://github.com/ant-design/ant-design/pull/15923)
+- 🐞 Fix Directory `onSelect` info not correct. [#15967](https://github.com/ant-design/ant-design/pull/15967)
+- 🐞 Fix Menu `defaultOpenKeys` not work as expect. [#15970](https://github.com/ant-design/ant-design/pull/15970)
+- 🐞 Fix Nested Table with `middle` `size` style not correct. [#16008](https://github.com/ant-design/ant-design/pull/16008)
+- 🐞 Fix nest Tabs ink bar style issue. [#16013](https://github.com/ant-design/ant-design/pull/16013)
+- 🐞 Fix Empty in IE not fully render. [#16016](https://github.com/ant-design/ant-design/pull/16016)
+- 🐞 Fix Switcher loading icon and checkbox should be vertical align when `@tree-title-height` is modified. [#15962](https://github.com/ant-design/ant-design/pull/15962)
+- 💄 Default selection column width can be overrided in css. [#15990](https://github.com/ant-design/ant-design/pull/15990)
+- TypeScript
+  - 🐞 Fix Pagination `showLessItems` TS definition. [#15952](https://github.com/ant-design/ant-design/pull/15952)
+
 ## 3.16.2
 
 `2019-04-07`
