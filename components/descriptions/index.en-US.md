@@ -26,5 +26,5 @@ Commonly displayed on the details page.
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| label | description of the content | boolean  | false |
+| label | description of the content | ReactNode  | - |
 | span  | The number of columns included | number  | 1 |

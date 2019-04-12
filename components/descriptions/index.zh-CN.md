@@ -27,5 +27,5 @@ cols: 1
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| label | 内容的描述 | boolean  | false |
+| label | 内容的描述 | ReactNode  | - |
 | span  | 包含列的数量 | number  | 1 |
