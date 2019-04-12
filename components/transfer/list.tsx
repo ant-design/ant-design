@@ -96,13 +96,6 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     return 'part';
   }
 
-  // onItemSelect = (selectedItem: TransferItem) => {
-  //   const { key } = selectedItem;
-  //   const { checkedKeys, handleSelect } = this.props;
-  //   const prevChecked = checkedKeys.indexOf(key) !== -1;
-  //   handleSelect(selectedItem, !prevChecked);
-  // };
-
   handleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
     const {
       target: { value: filterValue },

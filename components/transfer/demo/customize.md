@@ -15,8 +15,12 @@ only: true
 The most basic usage of `Transfer` involves providing the source data and target keys arrays, plus the rendering and some callback functions.
 
 ````jsx
-import { Transfer, Switch, Table } from 'antd';
+import { Transfer, Switch, Table, Tag } from 'antd';
 import difference from 'lodash/difference';
+
+const mockTags = [
+  'cat', 'dog', 'bird',
+];
 
 const mockData = [];
 for (let i = 0; i < 20; i++) {
@@ -25,6 +29,7 @@ for (let i = 0; i < 20; i++) {
     title: `content${i + 1}`,
     description: `description of content${i + 1}`,
     disabled: i % 3 < 1,
+    tag: mockTags[i % 3],
   });
 }
 
@@ -36,6 +41,11 @@ const leftColumns = [
   {
     dataIndex: 'title',
     title: 'Name',
+  },
+  {
+    dataIndex: 'tag',
+    title: 'Tag',
+    render: tag => <Tag>{tag}</Tag>,
   },
   {
     dataIndex: 'description',
@@ -72,11 +82,6 @@ class App extends React.Component {
     console.log('targetSelectedKeys: ', targetSelectedKeys);
   }
 
-  handleScroll = (direction, e) => {
-    console.log('direction:', direction);
-    console.log('target:', e.target);
-  }
-
   handleDisable = (disabled) => {
     this.setState({ disabled });
   };
@@ -96,15 +101,17 @@ class App extends React.Component {
           selectedKeys={selectedKeys}
           onChange={this.handleChange}
           onSelectChange={this.handleSelectChange}
-          onScroll={this.handleScroll}
           render={item => item.title}
           disabled={disabled}
           showSearch={showSearch}
+          filterOption={(inputValue, item) => (
+            item.title.indexOf(inputValue) !== -1 ||
+            item.tag.indexOf(inputValue) !== -1
+          )}
         >
           {(listProps) => {
             const { direction, filteredItems, onItemSelectAll, onItemSelect, checkedKeys, disabled: listDisabled } = listProps;
             const columns = direction === 'left' ? leftColumns : rightColumns;
-            console.log('LIST PROPS:', listProps, columns);
 
             const rowSelection = {
               getCheckboxProps: (item) => ({ disabled: listDisabled || item.disabled }),

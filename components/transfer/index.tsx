@@ -212,7 +212,7 @@ class Transfer extends React.Component<TransferProps, any> {
     }
   }
 
-  onSelectAll = (direction: TransferDirection, selectedKeys: string[], checkAll: boolean) => {
+  onItemSelectAll = (direction: TransferDirection, selectedKeys: string[], checkAll: boolean) => {
     const originalSelectedKeys = this.state[this.getSelectedKeysName(direction)] || [];
 
     let mergedCheckedKeys = [];
@@ -239,7 +239,7 @@ class Transfer extends React.Component<TransferProps, any> {
     direction: TransferDirection,
     filteredDataSource: TransferItem[],
     checkAll: boolean,
-  ) => this.onSelectAll(direction, filteredDataSource.map(({ key }) => key), !checkAll);
+  ) => this.onItemSelectAll(direction, filteredDataSource.map(({ key }) => key), !checkAll);
 
   // [Legacy] Old prop `body` pass origin check as arg. It's confusing.
   // TODO: Remove this in next version.
@@ -249,9 +249,9 @@ class Transfer extends React.Component<TransferProps, any> {
     this.handleSelectAll('right', filteredDataSource, !checkAll);
 
   onLeftItemSelectAll = (selectedKeys: string[], checkAll: boolean) =>
-    this.onSelectAll('left', selectedKeys, checkAll);
+    this.onItemSelectAll('left', selectedKeys, checkAll);
   onRightItemSelectAll = (selectedKeys: string[], checkAll: boolean) =>
-    this.onSelectAll('right', selectedKeys, checkAll);
+    this.onItemSelectAll('right', selectedKeys, checkAll);
 
   handleFilter = (direction: TransferDirection, e: React.ChangeEvent<HTMLInputElement>) => {
     const { onSearchChange, onSearch } = this.props;

@@ -46,14 +46,7 @@ class ListBody extends React.Component<TransferListBodyProps> {
 
   render() {
     const { mounted } = this.state;
-    const {
-      prefixCls,
-      onScroll,
-      filteredRenderItems,
-      lazy,
-      checkedKeys,
-      onItemSelect,
-    } = this.props;
+    const { prefixCls, onScroll, filteredRenderItems, lazy, checkedKeys } = this.props;
 
     return (
       <Animate
@@ -77,7 +70,7 @@ class ListBody extends React.Component<TransferListBodyProps> {
               renderedEl={renderedEl}
               checked={checked}
               prefixCls={prefixCls}
-              onClick={onItemSelect}
+              onClick={this.onItemSelect}
             />
           );
         })}
