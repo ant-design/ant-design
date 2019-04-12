@@ -92,15 +92,17 @@ const renderRow = (
   index: number,
   { prefixCls, column, isLast }: { prefixCls: string; column: number; isLast: boolean },
 ) => {
-  let lastChildren = children.pop() as React.ReactElement<DescriptionsItemProps>;
-  const span = column - children.length;
+  // copy children,prevent changes to incoming parameters
+  const childrenArray = [...children];
+  let lastChildren = childrenArray.pop() as React.ReactElement<DescriptionsItemProps>;
+  const span = column - childrenArray.length;
   if (isLast) {
     lastChildren = React.cloneElement(lastChildren as React.ReactElement<DescriptionsItemProps>, {
       span,
     });
   }
   const cloneChildren = React.Children.map(
-    children,
+    childrenArray,
     (childrenItem: React.ReactElement<DescriptionsItemProps>) => {
       return renderCol(childrenItem);
     },
