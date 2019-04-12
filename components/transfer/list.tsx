@@ -6,7 +6,7 @@ import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import Checkbox from '../checkbox';
 import { TransferItem, TransferDirection } from './index';
 import Search from './search';
-import ListBody, { TransferListBodyProps, OmitProps } from './ListBody';
+import defaultRenderList, { TransferListBodyProps, OmitProps } from './renderListBody';
 import triggerEvent from '../_util/triggerEvent';
 
 function noop() {}
@@ -157,7 +157,7 @@ export default class TransferList extends React.Component<TransferListProps, Tra
       notFoundContent,
       itemUnit,
       itemsUnit,
-      renderList = ListBody,
+      renderList,
       onItemSelectAll,
     } = this.props;
 
@@ -208,6 +208,24 @@ export default class TransferList extends React.Component<TransferListProps, Tra
 
     let listBody: React.ReactNode = bodyDom;
     if (!listBody) {
+      const renderListFunc = renderList || defaultRenderList;
+
+      let bodyNode: React.ReactNode = searchNotFound;
+      if (!bodyNode) {
+        const bodyContent = renderListFunc({
+          ...omit(this.props, OmitProps),
+          filteredItems,
+          filteredRenderItems,
+        });
+
+        // We should wrap customize list body in a classNamed div to use flex layout.
+        bodyNode = renderList ? (
+          <div className={`${prefixCls}-body-customize-wrapper`}>{bodyContent}</div>
+        ) : (
+          bodyContent
+        );
+      }
+
       listBody = (
         <div
           className={classNames(
@@ -215,15 +233,7 @@ export default class TransferList extends React.Component<TransferListProps, Tra
           )}
         >
           {search}
-          {searchNotFound || (
-            <div className={`${prefixCls}-body-customize-wrapper`}>
-              {renderList({
-                ...omit(this.props, OmitProps),
-                filteredItems,
-                filteredRenderItems,
-              })}
-            </div>
-          )}
+          {bodyNode}
         </div>
       );
     }

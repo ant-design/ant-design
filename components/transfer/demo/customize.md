@@ -3,7 +3,6 @@ order: 5
 title:
   zh-CN: 自定义列表
   en-US: Customize List
-only: true
 ---
 
 ## zh-CN

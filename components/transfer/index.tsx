@@ -9,7 +9,7 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale-provider/default';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import { polyfill } from 'react-lifecycles-compat';
-import { TransferListBodyProps } from './ListBody';
+import { TransferListBodyProps } from './renderListBody';
 
 export { TransferListProps } from './list';
 export { TransferOperationProps } from './operation';
