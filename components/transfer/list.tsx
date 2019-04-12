@@ -36,6 +36,7 @@ export interface TransferListProps {
   handleSelect: (selectedItem: any, checked: boolean) => void;
   /** [Legacy] Only used when `body` prop used. */
   handleSelectAll: (dataSource: any[], checkAll: boolean) => void;
+  onItemSelect: (key: any, check: boolean) => void;
   onItemSelectAll: (dataSource: any[], checkAll: boolean) => void;
   handleClear: () => void;
   render?: (item: any) => any;
@@ -95,12 +96,12 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     return 'part';
   }
 
-  onItemSelect = (selectedItem: TransferItem) => {
-    const { key } = selectedItem;
-    const { checkedKeys, handleSelect } = this.props;
-    const prevChecked = checkedKeys.indexOf(key) !== -1;
-    handleSelect(selectedItem, !prevChecked);
-  };
+  // onItemSelect = (selectedItem: TransferItem) => {
+  //   const { key } = selectedItem;
+  //   const { checkedKeys, handleSelect } = this.props;
+  //   const prevChecked = checkedKeys.indexOf(key) !== -1;
+  //   handleSelect(selectedItem, !prevChecked);
+  // };
 
   handleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
     const {
@@ -221,13 +222,15 @@ export default class TransferList extends React.Component<TransferListProps, Tra
           )}
         >
           {search}
-          {searchNotFound ||
-            renderList({
-              ...omit(this.props, OmitProps),
-              filteredItems,
-              filteredRenderItems,
-              onItemSelect: this.onItemSelect,
-            })}
+          {searchNotFound || (
+            <div className={`${prefixCls}-body-customize-wrapper`}>
+              {renderList({
+                ...omit(this.props, OmitProps),
+                filteredItems,
+                filteredRenderItems,
+              })}
+            </div>
+          )}
         </div>
       );
     }
@@ -244,7 +247,10 @@ export default class TransferList extends React.Component<TransferListProps, Tra
         indeterminate={checkStatus === 'part'}
         onChange={() => {
           // Only select enabled items
-          onItemSelectAll(filteredItems.filter(item => !item.disabled), !checkedAll);
+          onItemSelectAll(
+            filteredItems.filter(item => !item.disabled).map(({ key }) => key),
+            !checkedAll,
+          );
         }}
       />
     );

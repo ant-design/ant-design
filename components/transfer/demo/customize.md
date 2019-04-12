@@ -15,7 +15,8 @@ only: true
 The most basic usage of `Transfer` involves providing the source data and target keys arrays, plus the rendering and some callback functions.
 
 ````jsx
-import { Transfer, Switch } from 'antd';
+import { Transfer, Switch, Table } from 'antd';
+import difference from 'lodash/difference';
 
 const mockData = [];
 for (let i = 0; i < 20; i++) {
@@ -30,6 +31,23 @@ for (let i = 0; i < 20; i++) {
 const oriTargetKeys = mockData
   .filter(item => +item.key % 3 > 1)
   .map(item => item.key);
+
+const leftColumns = [
+  {
+    dataIndex: 'title',
+    title: 'Name',
+  },
+  {
+    dataIndex: 'description',
+    title: 'Description',
+  },
+];
+const rightColumns = [
+  {
+    dataIndex: 'title',
+    title: 'Name',
+  },
+];
 
 class App extends React.Component {
   state = {
@@ -83,13 +101,34 @@ class App extends React.Component {
           disabled={disabled}
           showSearch={showSearch}
         >
-          {/*(listProps) => {
+          {(listProps) => {
+            const { direction, filteredItems, onItemSelectAll, onItemSelect, checkedKeys, disabled: listDisabled } = listProps;
+            const columns = direction === 'left' ? leftColumns : rightColumns;
+            console.log('LIST PROPS:', listProps, columns);
+
+            const rowSelection = {
+              getCheckboxProps: (item) => ({ disabled: listDisabled || item.disabled }),
+              onSelectAll(selected, selectedRows) {
+                const treeSelectedKeys = selectedRows.filter(item => !item.disabled).map(({ key }) => key);
+                const diffKeys = selected ?
+                  difference(treeSelectedKeys, checkedKeys) : difference(checkedKeys, treeSelectedKeys);
+                onItemSelectAll(diffKeys, selected);
+              },
+              onSelect({ key }, selected) {
+                onItemSelect(key, selected);
+              },
+              selectedRowKeys: checkedKeys,
+            };
+
             return (
-              <div>
-                666666
-              </div>
+              <Table
+                rowSelection={rowSelection}
+                columns={columns}
+                dataSource={filteredItems}
+                size="middle"
+              />
             );
-          }*/}
+          }}
         </Transfer>
         <Switch
           unCheckedChildren="disabled"

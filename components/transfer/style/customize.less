@@ -1,0 +1,34 @@
+@import './index.less';
+
+.@{transfer-prefix-cls} {
+  &-customize-list {
+    display: flex;
+
+    .@{transfer-prefix-cls}-list {
+      flex: auto;
+      width: auto;
+      height: auto;
+
+      &-body {
+        &-with-search {
+          padding-top: 0;
+        }
+
+        // Search box in customize mode do not need fix top
+        &-search-wrapper {
+          position: relative;
+          padding-bottom: 0;
+        }
+
+        &-customize-wrapper {
+          padding: 4px;
+        }
+      }
+    }
+
+    .@{transfer-prefix-cls}-operation {
+      flex: none;
+      align-self: center;
+    }
+  }
+}

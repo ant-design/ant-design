@@ -6,14 +6,19 @@ import { TransferItem } from '.';
 import { TransferListProps, RenderedItem } from './list';
 import ListItem from './ListItem';
 
-export const OmitProps = tuple('handleFilter', 'handleSelect', 'handleSelectAll', 'handleClear');
+export const OmitProps = tuple(
+  'handleFilter',
+  'handleSelect',
+  'handleSelectAll',
+  'handleClear',
+  'body',
+);
 export type OmitProp = (typeof OmitProps)[number];
 type PartialTransferListProps = Omit<TransferListProps, OmitProp>;
 
 export interface TransferListBodyProps extends PartialTransferListProps {
   filteredItems: TransferItem[];
   filteredRenderItems: RenderedItem[];
-  onItemSelect: (item: TransferItem) => void;
 }
 
 class ListBody extends React.Component<TransferListBodyProps> {
@@ -32,6 +37,12 @@ class ListBody extends React.Component<TransferListBodyProps> {
   componentWillMount() {
     raf.cancel(this.mountId);
   }
+
+  onItemSelect = (item: TransferItem) => {
+    const { onItemSelect, checkedKeys } = this.props;
+    const checked = checkedKeys.indexOf(item.key) >= 0;
+    onItemSelect(item.key, !checked);
+  };
 
   render() {
     const { mounted } = this.state;
