@@ -141,7 +141,7 @@ export default class Header extends React.Component<HeaderProps, any> {
     this.calenderHeaderNode = node;
   };
 
-  getTypeSwitchElement = (type: string | undefined, size: 'default' | 'small', locale: any) => {
+  getModeSwitchElement = (type: string | undefined, size: 'default' | 'small', locale: any) => {
     return (
       <Group onChange={this.onTypeChange} value={type} size={size}>
         <Button value="month">{locale.month}</Button>
@@ -166,14 +166,14 @@ export default class Header extends React.Component<HeaderProps, any> {
         ? this.getMonthSelectElement(prefixCls, value.month(), this.getMonthsLocale(value))
         : null;
     const size = fullscreen ? 'default' : 'small';
-    const typeSwitch =
-      showModeSwitch === true ? this.getTypeSwitchElement(type, size, locale) : null;
+    const modeSwitch =
+      showModeSwitch === true ? this.getModeSwitchElement(type, size, locale) : null;
 
     return (
       <div className={`${prefixCls}-header`} ref={this.getCalenderHeaderNode}>
         {yearSelect}
         {monthSelect}
-        {typeSwitch}
+        {modeSwitch}
       </div>
     );
   };
