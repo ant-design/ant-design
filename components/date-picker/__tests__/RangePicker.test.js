@@ -320,7 +320,6 @@ describe('RangePicker', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-
   // https://github.com/ant-design/ant-design/issues/13302
   describe('in "month" mode, when the left and right panels select the same month', () => {
     it('left panel and right panel could be the same month', () => {
