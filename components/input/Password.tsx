@@ -5,7 +5,7 @@ import Icon from '../icon';
 
 export interface PasswordProps extends InputProps {
   readonly inputPrefixCls?: string;
-  readonly action: string;
+  readonly action?: string;
   visibilityToggle?: boolean;
 }
 
@@ -38,11 +38,11 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
 
   getIcon() {
     const { prefixCls, action } = this.props;
-    const iconTrigger = ActionMap[action] || '';
+    const iconTrigger = ActionMap[action!] || '';
     const iconProps = {
       [iconTrigger]: this.onChange,
       className: `${prefixCls}-icon`,
-      type: this.state.visible ? 'eye-invisible' : 'eye',
+      type: this.state.visible ? 'eye' : 'eye-invisible',
       key: 'passwordIcon',
       onMouseDown: (e: MouseEvent) => {
         // Prevent focused state lost

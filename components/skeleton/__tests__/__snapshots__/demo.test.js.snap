@@ -123,7 +123,7 @@ exports[`renders ./components/skeleton/demo/list.md correctly 1`] = `
         class="ant-spin-container"
       >
         <div
-          class="ant-list-item"
+          class="ant-list-item ant-list-item-no-flex"
         >
           <div
             class="ant-skeleton ant-skeleton-with-avatar ant-skeleton-active"
@@ -152,7 +152,7 @@ exports[`renders ./components/skeleton/demo/list.md correctly 1`] = `
           </div>
         </div>
         <div
-          class="ant-list-item"
+          class="ant-list-item ant-list-item-no-flex"
         >
           <div
             class="ant-skeleton ant-skeleton-with-avatar ant-skeleton-active"
@@ -181,7 +181,7 @@ exports[`renders ./components/skeleton/demo/list.md correctly 1`] = `
           </div>
         </div>
         <div
-          class="ant-list-item"
+          class="ant-list-item ant-list-item-no-flex"
         >
           <div
             class="ant-skeleton ant-skeleton-with-avatar ant-skeleton-active"

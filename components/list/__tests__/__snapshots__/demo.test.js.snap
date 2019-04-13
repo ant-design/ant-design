@@ -178,7 +178,7 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
         style="margin-left:-8px;margin-right:-8px"
       >
         <div
-          class="ant-col-6"
+          class="ant-col ant-col-6"
           style="padding-left:8px;padding-right:8px"
         >
           <div
@@ -209,7 +209,7 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
           </div>
         </div>
         <div
-          class="ant-col-6"
+          class="ant-col ant-col-6"
           style="padding-left:8px;padding-right:8px"
         >
           <div
@@ -240,7 +240,7 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
           </div>
         </div>
         <div
-          class="ant-col-6"
+          class="ant-col ant-col-6"
           style="padding-left:8px;padding-right:8px"
         >
           <div
@@ -271,7 +271,7 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
           </div>
         </div>
         <div
-          class="ant-col-6"
+          class="ant-col ant-col-6"
           style="padding-left:8px;padding-right:8px"
         >
           <div
@@ -332,7 +332,7 @@ exports[`renders ./components/list/demo/infinite-load.md correctly 1`] = `
               >
                 <img
                   alt="No Data"
-                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNDEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAxKSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDxlbGxpcHNlIGZpbGw9IiNGNUY1RjUiIGN4PSIzMiIgY3k9IjMzIiByeD0iMzIiIHJ5PSI3Ii8+CiAgICA8ZyBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0iI0Q5RDlEOSI+CiAgICAgIDxwYXRoIGQ9Ik01NSAxMi43Nkw0NC44NTQgMS4yNThDNDQuMzY3LjQ3NCA0My42NTYgMCA0Mi45MDcgMEgyMS4wOTNjLS43NDkgMC0xLjQ2LjQ3NC0xLjk0NyAxLjI1N0w5IDEyLjc2MVYyMmg0NnYtOS4yNHoiLz4KICAgICAgPHBhdGggZD0iTTQxLjYxMyAxNS45MzFjMC0xLjYwNS45OTQtMi45MyAyLjIyNy0yLjkzMUg1NXYxOC4xMzdDNTUgMzMuMjYgNTMuNjggMzUgNTIuMDUgMzVoLTQwLjFDMTAuMzIgMzUgOSAzMy4yNTkgOSAzMS4xMzdWMTNoMTEuMTZjMS4yMzMgMCAyLjIyNyAxLjMyMyAyLjIyNyAyLjkyOHYuMDIyYzAgMS42MDUgMS4wMDUgMi45MDEgMi4yMzcgMi45MDFoMTQuNzUyYzEuMjMyIDAgMi4yMzctMS4zMDggMi4yMzctMi45MTN2LS4wMDd6IiBmaWxsPSIjRkFGQUZBIi8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4K"
+                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNDEiIHZpZXdCb3g9IjAgMCA2NCA0MSIgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAxKSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDxlbGxpcHNlIGZpbGw9IiNGNUY1RjUiIGN4PSIzMiIgY3k9IjMzIiByeD0iMzIiIHJ5PSI3Ii8+CiAgICA8ZyBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0iI0Q5RDlEOSI+CiAgICAgIDxwYXRoIGQ9Ik01NSAxMi43Nkw0NC44NTQgMS4yNThDNDQuMzY3LjQ3NCA0My42NTYgMCA0Mi45MDcgMEgyMS4wOTNjLS43NDkgMC0xLjQ2LjQ3NC0xLjk0NyAxLjI1N0w5IDEyLjc2MVYyMmg0NnYtOS4yNHoiLz4KICAgICAgPHBhdGggZD0iTTQxLjYxMyAxNS45MzFjMC0xLjYwNS45OTQtMi45MyAyLjIyNy0yLjkzMUg1NXYxOC4xMzdDNTUgMzMuMjYgNTMuNjggMzUgNTIuMDUgMzVoLTQwLjFDMTAuMzIgMzUgOSAzMy4yNTkgOSAzMS4xMzdWMTNoMTEuMTZjMS4yMzMgMCAyLjIyNyAxLjMyMyAyLjIyNyAyLjkyOHYuMDIyYzAgMS42MDUgMS4wMDUgMi45MDEgMi4yMzcgMi45MDFoMTQuNzUyYzEuMjMyIDAgMi4yMzctMS4zMDggMi4yMzctMi45MTN2LS4wMDd6IiBmaWxsPSIjRkFGQUZBIi8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4K"
                 />
               </div>
               <p
@@ -377,10 +377,18 @@ exports[`renders ./components/list/demo/loadmore.md correctly 1`] = `
         <span
           class="ant-spin-dot ant-spin-dot-spin"
         >
-          <i />
-          <i />
-          <i />
-          <i />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
         </span>
       </div>
     </div>
@@ -410,7 +418,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
         style="margin-left:-8px;margin-right:-8px"
       >
         <div
-          class="ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
+          class="ant-col ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
           style="padding-left:8px;padding-right:8px"
         >
           <div
@@ -441,7 +449,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
           </div>
         </div>
         <div
-          class="ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
+          class="ant-col ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
           style="padding-left:8px;padding-right:8px"
         >
           <div
@@ -472,7 +480,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
           </div>
         </div>
         <div
-          class="ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
+          class="ant-col ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
           style="padding-left:8px;padding-right:8px"
         >
           <div
@@ -503,7 +511,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
           </div>
         </div>
         <div
-          class="ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
+          class="ant-col ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
           style="padding-left:8px;padding-right:8px"
         >
           <div
@@ -534,7 +542,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
           </div>
         </div>
         <div
-          class="ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
+          class="ant-col ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
           style="padding-left:8px;padding-right:8px"
         >
           <div
@@ -565,7 +573,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
           </div>
         </div>
         <div
-          class="ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
+          class="ant-col ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
           style="padding-left:8px;padding-right:8px"
         >
           <div
@@ -874,6 +882,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                     class=""
                     data-icon="star"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -901,6 +910,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                     class=""
                     data-icon="like"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -928,6 +938,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                     class=""
                     data-icon="message"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -1007,6 +1018,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                     class=""
                     data-icon="star"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -1034,6 +1046,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                     class=""
                     data-icon="like"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -1061,6 +1074,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                     class=""
                     data-icon="message"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -1140,6 +1154,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                     class=""
                     data-icon="star"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -1167,6 +1182,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                     class=""
                     data-icon="like"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -1194,6 +1210,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                     class=""
                     data-icon="message"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -1254,6 +1271,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               class=""
               data-icon="left"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -1355,6 +1373,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               class=""
               data-icon="right"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"

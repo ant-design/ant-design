@@ -7,12 +7,10 @@ title:
 
 ## zh-CN
 
-用数组生成一组标签，可以动态添加和删除，通过监听删除动画结束的事件 `afterClose` 实现。
-
+用数组生成一组标签，可以动态添加和删除。
 ## en-US
 
 Generating a set of Tags by array, you can add and remove dynamically.
-It's based on `afterClose` event, which will be triggered while the close animation end.
 
 ````jsx
 import {
@@ -41,9 +39,8 @@ class EditableTagGroup extends React.Component {
   }
 
   handleInputConfirm = () => {
-    const state = this.state;
-    const inputValue = state.inputValue;
-    let tags = state.tags;
+    const { inputValue } = this.state;
+    let { tags } = this.state;
     if (inputValue && tags.indexOf(inputValue) === -1) {
       tags = [...tags, inputValue];
     }
@@ -64,7 +61,7 @@ class EditableTagGroup extends React.Component {
         {tags.map((tag, index) => {
           const isLongTag = tag.length > 20;
           const tagElem = (
-            <Tag key={tag} closable={index !== 0} afterClose={() => this.handleClose(tag)}>
+            <Tag key={tag} closable={index !== 0} onClose={() => this.handleClose(tag)}>
               {isLongTag ? `${tag.slice(0, 20)}...` : tag}
             </Tag>
           );

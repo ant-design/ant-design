@@ -36,7 +36,7 @@ title: TreeSelect
 | searchValue | 搜索框的值，可以通过 `onSearch` 获取用户输入 | string | - |
 | treeIcon | 是否展示 TreeNode title 前的图标，没有默认样式，如设置为 true，需要自行定义图标相关样式 | boolean | false |
 | showCheckedStrategy | 定义选中项回填的方式。`TreeSelect.SHOW_ALL`: 显示所有选中节点(包括父节点). `TreeSelect.SHOW_PARENT`: 只显示父节点(当父节点下所有子节点都选中时). 默认只显示子节点. | enum{TreeSelect.SHOW_ALL, TreeSelect.SHOW_PARENT, TreeSelect.SHOW_CHILD } | TreeSelect.SHOW_CHILD |
-| showSearch | 在下拉中显示搜索框(仅在单选模式下生效) | boolean | false |
+| showSearch | 是否支持搜索框 | boolean | 单选：`false` \| 多选：`true` |
 | size | 选择框大小，可选 `large` `small` | string | 'default' |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |
 | treeCheckable | 显示 checkbox | boolean | false |
@@ -74,3 +74,9 @@ title: TreeSelect
 | key | 此项必须设置（其值在整个树范围内唯一） | string | - |
 | title | 树节点显示的内容 | string\|ReactNode | '---' |
 | value | 默认根据此属性值进行筛选（其值在整个树范围内唯一） | string | - |
+
+## FAQ
+
+### onChange 时如何获得父节点信息？
+
+从性能角度考虑，我们默认不透出父节点信息。你可以这样获得：<https://codesandbox.io/s/wk080nn81k>

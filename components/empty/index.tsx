@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
@@ -51,13 +51,20 @@ const OriginEmpty: React.SFC<EmptyProps> = (props: EmptyProps) => (
             }
 
             return (
-              <div className={classNames(prefixCls, className)} {...restProps}>
+              <div
+                className={classNames(
+                  prefixCls,
+                  {
+                    [`${prefixCls}-normal`]: image === simpleEmptyImg,
+                  },
+                  className,
+                )}
+                {...restProps}
+              >
                 <div className={`${prefixCls}-image`} style={imageStyle}>
                   {imageNode}
                 </div>
-
                 <p className={`${prefixCls}-description`}>{des}</p>
-
                 {children && <div className={`${prefixCls}-footer`}>{children}</div>}
               </div>
             );

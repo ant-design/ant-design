@@ -28,7 +28,7 @@ More layouts with navigation: [layout](/components/layout).
 
 | Param | Description | Type | Default value |
 | ----- | ----------- | ---- | ------------- |
-| defaultOpenKeys | array with the keys of default opened sub menus |  |  |
+| defaultOpenKeys | array with the keys of default opened sub menus | string\[] |  |
 | defaultSelectedKeys | array with the keys of default selected menu items | string\[] |  |
 | forceSubMenuRender | render submenu into DOM before it shows | boolean | false |
 | inlineCollapsed | specifies the collapsed status when menu is inline mode | boolean | - |

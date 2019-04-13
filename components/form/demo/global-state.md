@@ -17,6 +17,8 @@ We can store form data into upper component or [Redux](https://github.com/reactj
 
 **Note:** You must wrap field data with `Form.createFormField` in `mapPropsToFields`.
 
+**Note:** Here, errors are passed to higher order component in `onFieldsChange` and passed back in `mapPropsToFields`.
+
 ````jsx
 import { Form, Input } from 'antd';
 

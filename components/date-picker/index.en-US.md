@@ -77,7 +77,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| defaultValue | to set default date | [moment](http://momentjs.com/) | - |
+| defaultValue | to set default date, if start time or end time is null or undefined, the date range will be an open interval | [moment](http://momentjs.com/) | - |
 | defaultPickerValue | to set default picker date | [moment](http://momentjs.com/) | - |
 | disabledTime | to specify the time that cannot be selected | function(date) | - |
 | format | to set the date format, refer to [moment.js](http://momentjs.com/). When an array is provided, all values are used for parsing and first value is used for formatting. | string \| string[] | "YYYY-MM-DD" |

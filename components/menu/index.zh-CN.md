@@ -29,7 +29,7 @@ subtitle: 导航菜单
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| defaultOpenKeys | 初始展开的 SubMenu 菜单项 key 数组 |  |  |
+| defaultOpenKeys | 初始展开的 SubMenu 菜单项 key 数组 | string\[] |  |
 | defaultSelectedKeys | 初始选中的菜单项 key 数组 | string\[] |  |
 | forceSubMenuRender | 在子菜单展示之前就渲染进 DOM | boolean | false |
 | inlineCollapsed | inline 时菜单是否收起状态 | boolean | - |

@@ -34,7 +34,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
     accept: '',
     beforeUpload: T,
     showUploadList: true,
-    listType: 'text' as UploadListType, // or pictrue
+    listType: 'text' as UploadListType, // or picture
     className: '',
     disabled: false,
     supportServerRender: true,
@@ -238,12 +238,13 @@ class Upload extends React.Component<UploadProps, UploadState> {
   };
 
   renderUploadList = (locale: UploadLocale) => {
-    const { showUploadList, listType, onPreview } = this.props;
+    const { showUploadList, listType, onPreview, previewFile } = this.props;
     const { showRemoveIcon, showPreviewIcon } = showUploadList as any;
     return (
       <UploadList
         listType={listType}
         items={this.state.fileList}
+        previewFile={previewFile}
         onPreview={onPreview}
         onRemove={this.handleManualRemove}
         showRemoveIcon={showRemoveIcon}

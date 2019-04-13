@@ -4,6 +4,9 @@
 // The prefix to use on all css classes from ant.
 @ant-prefix: ant;
 
+// An override for the html selector for theme prefixes
+@html-selector: html;
+
 // -------- Colors -----------
 @primary-color: @blue-6;
 @info-color: @blue-6;
@@ -47,12 +50,14 @@
 @text-color-warning: @gold-7;
 @text-color-danger: @red-7;
 @text-color-inverse: @white;
+@icon-color: inherit;
 @icon-color-hover: fade(@black, 75%);
 @heading-color: fade(#000, 85%);
 @heading-color-dark: fade(@white, 100%);
 @text-color-dark: fade(@white, 85%);
 @text-color-secondary-dark: fade(@white, 65%);
 @font-variant-base: tabular-nums;
+@font-feature-settings-base: 'tnum';
 @font-size-base: 14px;
 @font-size-lg: @font-size-base + 2px;
 @font-size-sm: 12px;
@@ -191,6 +196,7 @@
 
 // Radio buttons
 @radio-button-bg: @btn-default-bg;
+@radio-button-checked-bg: @btn-default-bg;
 @radio-button-color: @btn-default-color;
 @radio-button-hover-color: @primary-5;
 @radio-button-active-color: @primary-7;
@@ -216,7 +222,7 @@
 @screen-xl: 1200px;
 @screen-xl-min: @screen-xl;
 
-// Extra extra large screen / large descktop
+// Extra extra large screen / large desktop
 @screen-xxl: 1600px;
 @screen-xxl-min: @screen-xxl;
 
@@ -250,12 +256,12 @@
 @layout-trigger-color-light: @text-color;
 
 // z-index list, order by `z-index`
+@zindex-table-fixed: auto;
 @zindex-affix: 10;
 @zindex-back-top: 10;
 @zindex-badge: 10;
 @zindex-picker-panel: 10;
 @zindex-popup-close: 10;
-@zindex-table-fixed: 20;
 @zindex-modal: 1000;
 @zindex-modal-mask: 1000;
 @zindex-message: 1010;
@@ -274,10 +280,12 @@
 // ---
 @label-required-color: @highlight-color;
 @label-color: @heading-color;
+@form-warning-input-bg: @input-bg;
 @form-item-margin-bottom: 24px;
 @form-item-trailing-colon: true;
 @form-vertical-label-padding: 0 0 8px;
 @form-vertical-label-margin: 0;
+@form-error-input-bg: @input-bg;
 
 // Input
 // ---
@@ -304,6 +312,7 @@
 // Select
 // ---
 @select-border-color: @border-color-base;
+@select-item-selected-font-weight: 600;
 
 // Tooltip
 // ---
@@ -384,6 +393,7 @@
 @table-header-sort-bg: @background-color-base;
 @table-body-sort-bg: rgba(0, 0, 0, 0.01);
 @table-row-hover-bg: @primary-1;
+@table-selected-row-color: inherit;
 @table-selected-row-bg: #fafafa;
 @table-expanded-row-bg: #fbfbfb;
 @table-padding-vertical: 16px;
@@ -429,7 +439,6 @@
 @card-head-padding: 16px;
 @card-inner-head-padding: 12px;
 @card-padding-base: 24px;
-@card-padding-wider: 32px;
 @card-actions-background: @background-color-light;
 @card-background: #cfd8dc;
 @card-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
@@ -498,6 +507,12 @@
 @pagination-item-size-sm: 24px;
 @pagination-font-family: Arial;
 @pagination-font-weight-active: 500;
+@pagination-item-bg-active: transparent;
+
+// PageHeader
+// ---
+@page-header-padding-horizontal: 24px;
+@page-header-padding-vertical: 16px;
 
 // Breadcrumb
 // ---

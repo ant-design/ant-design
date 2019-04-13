@@ -74,7 +74,7 @@ class App extends React.Component {
           <Form layout="horizontal" onSubmit={this.handleSubmit}>
             <Row>
               <Col span={span}>
-                <Item {...itemLayout} label="测试字段">
+                <Item colon={false} {...itemLayout} label="测试字段">
                   {getFieldDecorator("item1", {
                     rules: [{ required: true, message: "请必须填写此字段" }],
                   })(<Input />)}
@@ -121,7 +121,7 @@ class App extends React.Component {
         <Form>
             <Row gutter={16}>
                 <Col {...ColSpan}>
-                    <Item label="input:64.5px">
+                    <Item colon={false} label="input:64.5px">
                         <Input />
                     </Item>
                 </Col>

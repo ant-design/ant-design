@@ -131,7 +131,7 @@ describe('Table.rowSelection', () => {
     expect(checkboxs.at(1).props().checked).toBe(true);
     expect(checkboxs.at(2).props().checked).toBe(true);
 
-    expect(errorSpy).toBeCalledWith(
+    expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Table] Do not set `checked` or `defaultChecked` in `getCheckboxProps`. Please use `selectedRowKeys` instead.',
     );
   });
@@ -166,7 +166,7 @@ describe('Table.rowSelection', () => {
       .last()
       .simulate('change', { target: { checked: true } });
 
-    expect(handleChange).toBeCalledWith([3], [{ key: 3, name: 'Jerry' }]);
+    expect(handleChange).toHaveBeenCalledWith([3], [{ key: 3, name: 'Jerry' }]);
     expect(handleSelect.mock.calls.length).toBe(1);
     expect(handleSelect.mock.calls[0][0]).toEqual({ key: 3, name: 'Jerry' });
     expect(handleSelect.mock.calls[0][1]).toEqual(true);
@@ -190,7 +190,7 @@ describe('Table.rowSelection', () => {
         target: { checked: true },
         nativeEvent: { shiftKey: true },
       });
-    expect(handleSelect).toBeCalled();
+    expect(handleSelect).toHaveBeenCalled();
 
     wrapper
       .find('input')
@@ -199,7 +199,11 @@ describe('Table.rowSelection', () => {
         target: { checked: true },
         nativeEvent: { shiftKey: true },
       });
-    expect(handleSelectMulti).toBeCalledWith(true, [data[0], data[1], data[2]], [data[1], data[2]]);
+    expect(handleSelectMulti).toHaveBeenCalledWith(
+      true,
+      [data[0], data[1], data[2]],
+      [data[1], data[2]],
+    );
 
     wrapper
       .find('input')
@@ -208,7 +212,7 @@ describe('Table.rowSelection', () => {
         target: { checked: false },
         nativeEvent: { shiftKey: true },
       });
-    expect(handleSelectMulti).toBeCalledWith(false, [], [data[0], data[1], data[2]]);
+    expect(handleSelectMulti).toHaveBeenCalledWith(false, [], [data[0], data[1], data[2]]);
   });
 
   it('fires selectAll event', () => {
@@ -222,13 +226,13 @@ describe('Table.rowSelection', () => {
       .find('input')
       .first()
       .simulate('change', { target: { checked: true } });
-    expect(handleSelectAll).toBeCalledWith(true, data, data);
+    expect(handleSelectAll).toHaveBeenCalledWith(true, data, data);
 
     wrapper
       .find('input')
       .first()
       .simulate('change', { target: { checked: false } });
-    expect(handleSelectAll).toBeCalledWith(false, [], data);
+    expect(handleSelectAll).toHaveBeenCalledWith(false, [], data);
   });
 
   it('render with default selection correctly', () => {
@@ -264,7 +268,7 @@ describe('Table.rowSelection', () => {
       .first()
       .simulate('click');
 
-    expect(handleSelectAll).toBeCalledWith(true, data, data);
+    expect(handleSelectAll).toHaveBeenCalledWith(true, data, data);
   });
 
   it('fires selectInvert event', () => {
@@ -288,7 +292,7 @@ describe('Table.rowSelection', () => {
       .last()
       .simulate('click');
 
-    expect(handleSelectInvert).toBeCalledWith([1, 2, 3]);
+    expect(handleSelectInvert).toHaveBeenCalledWith([1, 2, 3]);
   });
 
   it('fires selection event', () => {
@@ -322,13 +326,13 @@ describe('Table.rowSelection', () => {
       .find('.ant-dropdown-menu-item > div')
       .at(2)
       .simulate('click');
-    expect(handleSelectOdd).toBeCalledWith([0, 1, 2, 3]);
+    expect(handleSelectOdd).toHaveBeenCalledWith([0, 1, 2, 3]);
 
     dropdownWrapper
       .find('.ant-dropdown-menu-item > div')
       .at(3)
       .simulate('click');
-    expect(handleSelectEven).toBeCalledWith([0, 1, 2, 3]);
+    expect(handleSelectEven).toHaveBeenCalledWith([0, 1, 2, 3]);
   });
 
   it('could hide default selection options', () => {
@@ -387,13 +391,13 @@ describe('Table.rowSelection', () => {
       .find('.ant-dropdown-menu-item > div')
       .at(0)
       .simulate('click');
-    expect(handleSelectOdd).toBeCalledWith([0, 1, 2, 3]);
+    expect(handleSelectOdd).toHaveBeenCalledWith([0, 1, 2, 3]);
 
     dropdownWrapper
       .find('.ant-dropdown-menu-item > div')
       .at(1)
       .simulate('click');
-    expect(handleSelectEven).toBeCalledWith([0, 1, 2, 3]);
+    expect(handleSelectEven).toHaveBeenCalledWith([0, 1, 2, 3]);
   });
 
   // https://github.com/ant-design/ant-design/issues/4245

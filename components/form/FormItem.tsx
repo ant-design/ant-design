@@ -304,8 +304,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
   // Resolve duplicated ids bug between different forms
   // https://github.com/ant-design/ant-design/issues/7351
-  onLabelClick = (e: any) => {
-    const { label } = this.props;
+  onLabelClick = () => {
     const id = this.props.id || this.getId();
     if (!id) {
       return;
@@ -313,17 +312,8 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
     const formItemNode = ReactDOM.findDOMNode(this) as Element;
     const control = formItemNode.querySelector(`[id="${id}"]`) as HTMLElement;
-
-    if (control) {
-      // Only prevent in default situation
-      // Avoid preventing event in `label={<a href="xx">link</a>}``
-      if (typeof label === 'string') {
-        e.preventDefault();
-      }
-
-      if (control.focus) {
-        control.focus();
-      }
+    if (control && control.focus) {
+      control.focus();
     }
   };
 
@@ -348,9 +338,6 @@ export default class FormItem extends React.Component<FormItemProps, any> {
             labelAlign === 'left' && `${labelClsBasic}-left`,
             mergedLabelCol.className,
           );
-          const labelClassName = classNames({
-            [`${prefixCls}-item-required`]: required,
-          });
 
           let labelChildren = label;
           // Keep label is original where there should have no colon
@@ -360,6 +347,11 @@ export default class FormItem extends React.Component<FormItemProps, any> {
           if (haveColon && typeof label === 'string' && (label as string).trim() !== '') {
             labelChildren = (label as string).replace(/[：|:]\s*$/, '');
           }
+
+          const labelClassName = classNames({
+            [`${prefixCls}-item-required`]: required,
+            [`${prefixCls}-item-no-colon`]: !computedColon,
+          });
 
           return label ? (
             <Col {...mergedLabelCol} className={labelColClassName}>
@@ -395,28 +387,19 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   }
 
   renderFormItem = ({ getPrefixCls }: ConfigConsumerProps) => {
+    const { prefixCls: customizePrefixCls, style, className } = this.props;
+    const prefixCls = getPrefixCls('form', customizePrefixCls);
+    const children = this.renderChildren(prefixCls);
+    const itemClassName = {
+      [`${prefixCls}-item`]: true,
+      [`${prefixCls}-item-with-help`]: this.helpShow,
+      [`${className}`]: !!className,
+    };
+
     return (
-      <FormContext.Consumer key="row">
-        {({ colon: contextColon }: FormContextProps) => {
-          const { prefixCls: customizePrefixCls, style, colon, className } = this.props;
-
-          const computedColon = colon === true || (contextColon !== false && colon !== false);
-
-          const prefixCls = getPrefixCls('form', customizePrefixCls);
-          const children = this.renderChildren(prefixCls);
-          const itemClassName = {
-            [`${prefixCls}-item`]: true,
-            [`${prefixCls}-item-with-help`]: this.helpShow,
-            [`${prefixCls}-item-no-colon`]: !computedColon,
-            [`${className}`]: !!className,
-          };
-          return (
-            <Row className={classNames(itemClassName)} style={style}>
-              {children}
-            </Row>
-          );
-        }}
-      </FormContext.Consumer>
+      <Row className={classNames(itemClassName)} style={style} key="row">
+        {children}
+      </Row>
     );
   };
 
