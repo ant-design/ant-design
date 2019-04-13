@@ -23,6 +23,7 @@ export default class Header extends React.Component<HeaderProps, any> {
   static defaultProps = {
     yearSelectOffset: 10,
     yearSelectTotal: 20,
+    showModeSwitch: true,
   };
 
   private calenderHeaderNode: HTMLDivElement;
