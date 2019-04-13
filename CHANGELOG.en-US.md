@@ -20,7 +20,7 @@ timeline: true
 `2019-04-12`
 
 
-- 🐞 **Fix Button typescripts definition with latest `@types/react`.** [#15938](https://github.com/ant-design/ant-design/pull/15938)
+- 🐞 **Fix Button TypeScript definition.** [#15938](https://github.com/ant-design/ant-design/pull/15938)
 - ⚠️ Add DatePicker warning when time invalidate. [#15920](https://github.com/ant-design/ant-design/pull/15920)
 - 🐞 Fix Menu arrow not display in old version of IE. [#15932](https://github.com/ant-design/ant-design/pull/15932)
 - 🐞 Fix Progress success UI when `status` is `undefined`. [#15951](https://github.com/ant-design/ant-design/pull/15951)
