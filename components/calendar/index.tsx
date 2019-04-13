@@ -30,6 +30,7 @@ export interface CalendarProps {
   value?: moment.Moment;
   defaultValue?: moment.Moment;
   mode?: CalendarMode;
+  showModeSwitch?: boolean;
   fullscreen?: boolean;
   dateCellRender?: (date: moment.Moment) => React.ReactNode;
   monthCellRender?: (date: moment.Moment) => React.ReactNode;
@@ -52,6 +53,7 @@ export interface CalendarState {
 class Calendar extends React.Component<CalendarProps, CalendarState> {
   static defaultProps = {
     locale: {},
+    showModeSwitch: true,
     fullscreen: true,
     onSelect: noop,
     onPanelChange: noop,
@@ -243,6 +245,7 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
                 onTypeChange={this.onHeaderTypeChange}
                 onValueChange={this.onHeaderValueChange}
                 validRange={props.validRange}
+                showModeSwitch={props.showModeSwitch}
               />
               <FullCalendar
                 {...props}

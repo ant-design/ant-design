@@ -38,6 +38,7 @@ When data is in the form of dates, such as schedules, timetables, prices calenda
 | fullscreen | Whether to display in full-screen | boolean | `true` |
 | locale | The calendar's locale | object | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |
 | mode | The display mode of the calendar | `month` \| `year` | `month` |
+| showModeSwitch | Whether to show the the control to switch the mode | boolean | `true` |
 | monthCellRender | Customize the display of the month cell, the returned content will be appended to the cell | function(date: moment): ReactNode | - |
 | monthFullCellRender | Customize the display of the month cell, the returned content will override the cell | function(date: moment): ReactNode | - |
 | validRange | to set valid range | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)] | - |

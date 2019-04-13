@@ -16,6 +16,7 @@ export interface HeaderProps {
   onTypeChange?: (type: string) => void;
   value: any;
   validRange?: [moment.Moment, moment.Moment];
+  showModeSwitch?: boolean;
 }
 
 export default class Header extends React.Component<HeaderProps, any> {
@@ -139,8 +140,24 @@ export default class Header extends React.Component<HeaderProps, any> {
     this.calenderHeaderNode = node;
   };
 
+  getTypeSwitchElement = (type: string | undefined, size: 'default' | 'small', locale: any) => {
+    return (
+      <Group onChange={this.onTypeChange} value={type} size={size}>
+        <Button value="month">{locale.month}</Button>
+        <Button value="year">{locale.year}</Button>
+      </Group>
+    );
+  };
+
   renderHeader = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, type, value, locale, fullscreen } = this.props;
+    const {
+      prefixCls: customizePrefixCls,
+      type,
+      value,
+      locale,
+      fullscreen,
+      showModeSwitch,
+    } = this.props;
     const prefixCls = getPrefixCls('fullcalendar', customizePrefixCls);
     const yearSelect = this.getYearSelectElement(prefixCls, value.year());
     const monthSelect =
@@ -148,12 +165,8 @@ export default class Header extends React.Component<HeaderProps, any> {
         ? this.getMonthSelectElement(prefixCls, value.month(), this.getMonthsLocale(value))
         : null;
     const size = fullscreen ? 'default' : 'small';
-    const typeSwitch = (
-      <Group onChange={this.onTypeChange} value={type} size={size}>
-        <Button value="month">{locale.month}</Button>
-        <Button value="year">{locale.year}</Button>
-      </Group>
-    );
+    const typeSwitch =
+      showModeSwitch === true ? this.getTypeSwitchElement(type, size, locale) : null;
 
     return (
       <div className={`${prefixCls}-header`} ref={this.getCalenderHeaderNode}>
