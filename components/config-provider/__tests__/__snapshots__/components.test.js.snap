@@ -12576,7 +12576,7 @@ exports[`ConfigProvider components Tags prefixCls 1`] = `
 exports[`ConfigProvider components TimePicker configProvider 1`] = `
 Array [
   <span
-    class="config-time-picker "
+    class="config-time-picker"
   >
     <input
       class="config-time-picker-input"
@@ -12614,7 +12614,7 @@ Array [
   </span>,
   <div>
     <div
-      class="config-time-picker-panel  config-time-picker-panel-column-3 config-time-picker-panel-placement-bottomLeft "
+      class="config-time-picker-panel config-time-picker-panel-column-3 config-time-picker-panel-placement-bottomLeft "
     >
       <div
         class="config-time-picker-panel-inner"
@@ -12623,7 +12623,7 @@ Array [
           class="config-time-picker-panel-input-wrap"
         >
           <input
-            class="config-time-picker-panel-input  "
+            class="config-time-picker-panel-input"
             placeholder="Select time"
             value=""
           />
@@ -13523,7 +13523,7 @@ Array [
 exports[`ConfigProvider components TimePicker normal 1`] = `
 Array [
   <span
-    class="ant-time-picker "
+    class="ant-time-picker"
   >
     <input
       class="ant-time-picker-input"
@@ -13561,7 +13561,7 @@ Array [
   </span>,
   <div>
     <div
-      class="ant-time-picker-panel  ant-time-picker-panel-column-3 ant-time-picker-panel-placement-bottomLeft "
+      class="ant-time-picker-panel ant-time-picker-panel-column-3 ant-time-picker-panel-placement-bottomLeft "
     >
       <div
         class="ant-time-picker-panel-inner"
@@ -13570,7 +13570,7 @@ Array [
           class="ant-time-picker-panel-input-wrap"
         >
           <input
-            class="ant-time-picker-panel-input  "
+            class="ant-time-picker-panel-input"
             placeholder="Select time"
             value=""
           />
@@ -14470,7 +14470,7 @@ Array [
 exports[`ConfigProvider components TimePicker prefixCls 1`] = `
 Array [
   <span
-    class="prefix-TimePicker "
+    class="prefix-TimePicker"
   >
     <input
       class="prefix-TimePicker-input"
@@ -14508,7 +14508,7 @@ Array [
   </span>,
   <div>
     <div
-      class="prefix-TimePicker-panel  prefix-TimePicker-panel-column-3 prefix-TimePicker-panel-placement-bottomLeft "
+      class="prefix-TimePicker-panel prefix-TimePicker-panel-column-3 prefix-TimePicker-panel-placement-bottomLeft "
     >
       <div
         class="prefix-TimePicker-panel-inner"
@@ -14517,7 +14517,7 @@ Array [
           class="prefix-TimePicker-panel-input-wrap"
         >
           <input
-            class="prefix-TimePicker-panel-input  "
+            class="prefix-TimePicker-panel-input"
             placeholder="Select time"
             value=""
           />
