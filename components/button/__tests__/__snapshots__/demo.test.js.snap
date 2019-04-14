@@ -606,7 +606,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
 `;
 
 exports[`renders ./components/button/demo/loading.md correctly 1`] = `
-<span>
+<div>
   <button
     class="ant-btn ant-btn-primary ant-btn-loading"
     type="button"
@@ -746,7 +746,7 @@ exports[`renders ./components/button/demo/loading.md correctly 1`] = `
       </svg>
     </i>
   </button>
-</span>
+</div>
 `;
 
 exports[`renders ./components/button/demo/multiple.md correctly 1`] = `
