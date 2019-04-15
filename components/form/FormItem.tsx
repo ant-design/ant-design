@@ -14,12 +14,14 @@ import { FormContext, FormContextProps } from './context';
 
 const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
 
+export type FormLabelAlign = 'left' | 'right';
+
 export interface FormItemProps {
   prefixCls?: string;
   className?: string;
   id?: string;
   label?: React.ReactNode;
-  labelAlign?: 'left' | 'right';
+  labelAlign?: FormLabelAlign;
   labelCol?: ColProps;
   wrapperCol?: ColProps;
   help?: React.ReactNode;
@@ -322,20 +324,23 @@ export default class FormItem extends React.Component<FormItemProps, any> {
       <FormContext.Consumer key="label">
         {({
           vertical,
-          labelAlign,
+          labelAlign: contextLabelAlign,
           labelCol: contextLabelCol,
           colon: contextColon,
         }: FormContextProps) => {
-          const { label, labelCol, colon, id } = this.props;
+          const { label, labelCol, labelAlign, colon, id } = this.props;
           const required = this.isRequired();
 
           const mergedLabelCol: ColProps =
             ('labelCol' in this.props ? labelCol : contextLabelCol) || {};
 
+          const mergedLabelAlign: FormLabelAlign | undefined =
+            'labelAlign' in this.props ? labelAlign : contextLabelAlign;
+
           const labelClsBasic = `${prefixCls}-item-label`;
           const labelColClassName = classNames(
             labelClsBasic,
-            labelAlign === 'left' && `${labelClsBasic}-left`,
+            mergedLabelAlign === 'left' && `${labelClsBasic}-left`,
             mergedLabelCol.className,
           );
 
