@@ -9,7 +9,7 @@ export interface SkeletonAvatarProps {
   shape?: 'circle' | 'square';
 }
 
-class Title extends React.Component<SkeletonAvatarProps, any> {
+class SkeletonAvatar extends React.Component<SkeletonAvatarProps, any> {
   static defaultProps: Partial<SkeletonAvatarProps> = {
     size: 'large',
   };
@@ -31,4 +31,4 @@ class Title extends React.Component<SkeletonAvatarProps, any> {
   }
 }
 
-export default Title;
+export default SkeletonAvatar;

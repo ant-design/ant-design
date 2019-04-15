@@ -4,6 +4,9 @@
 // The prefix to use on all css classes from ant.
 @ant-prefix: ant;
 
+// An override for the html selector for theme prefixes
+@html-selector: html;
+
 // -------- Colors -----------
 @primary-color: @blue-6;
 @info-color: @blue-6;
@@ -277,10 +280,12 @@
 // ---
 @label-required-color: @highlight-color;
 @label-color: @heading-color;
+@form-warning-input-bg: @input-bg;
 @form-item-margin-bottom: 24px;
 @form-item-trailing-colon: true;
 @form-vertical-label-padding: 0 0 8px;
 @form-vertical-label-margin: 0;
+@form-error-input-bg: @input-bg;
 
 // Input
 // ---
@@ -388,6 +393,7 @@
 @table-header-sort-bg: @background-color-base;
 @table-body-sort-bg: rgba(0, 0, 0, 0.01);
 @table-row-hover-bg: @primary-1;
+@table-selected-row-color: inherit;
 @table-selected-row-bg: #fafafa;
 @table-expanded-row-bg: #fbfbfb;
 @table-padding-vertical: 16px;

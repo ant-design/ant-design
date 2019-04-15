@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "3.16.1",
+  "version": "3.16.3",
   "title": "Ant Design",
   "description": "An enterprise-class UI design language and React-based implementation",
   "homepage": "http://ant.design/",
@@ -18,6 +18,9 @@
   "contributors": [
     "ant"
   ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/ant-design/ant-design"
@@ -40,7 +43,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "~1.2.0",
-    "@ant-design/icons-react": "~1.1.2",
+    "@ant-design/icons-react": "~1.1.5",
     "@types/react-slick": "^0.23.3",
     "array-tree-filter": "^2.1.0",
     "babel-runtime": "6.x",
@@ -81,7 +84,7 @@
     "rc-time-picker": "~3.6.1",
     "rc-tooltip": "~3.7.3",
     "rc-tree": "~1.15.2",
-    "rc-tree-select": "~2.6.0",
+    "rc-tree-select": "~2.7.0",
     "rc-trigger": "^2.6.2",
     "rc-upload": "~2.6.0",
     "rc-util": "^4.5.1",
@@ -93,8 +96,8 @@
     "warning": "~4.0.2"
   },
   "devDependencies": {
-    "@ant-design/colors": "^2.0.0",
-    "@sentry/browser": "^4.5.2",
+    "@ant-design/colors": "^3.0.0",
+    "@sentry/browser": "^5.0.3",
     "@types/classnames": "^2.2.6",
     "@types/prop-types": "^15.5.6",
     "@types/react": "~16.8.1",
@@ -107,8 +110,8 @@
     "antd-tools": "^7.3.0",
     "babel-eslint": "^10.0.1",
     "babel-plugin-add-react-displayname": "^0.0.5",
-    "bisheng": "^1.1.0",
-    "bisheng-plugin-antd": "^1.0.0",
+    "bisheng": "^1.2.4",
+    "bisheng-plugin-antd": "^1.0.1",
     "bisheng-plugin-description": "^0.1.4",
     "bisheng-plugin-react": "^1.0.0",
     "bisheng-plugin-toc": "^0.4.4",
@@ -126,7 +129,7 @@
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.0.0",
     "eslint-plugin-babel": "^5.2.1",
-    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-import": "~2.16.0",
     "eslint-plugin-jest": "^22.4.1",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-markdown": "~1.0.0-beta.6",
@@ -151,8 +154,8 @@
     "prettier": "^1.15.3",
     "querystring": "^0.2.0",
     "rc-queue-anim": "^1.6.6",
-    "rc-scroll-anim": "^2.5.5",
-    "rc-tween-one": "^2.2.12",
+    "rc-scroll-anim": "^2.5.7",
+    "rc-tween-one": "^2.4.0",
     "react": "^16.5.2",
     "react-color": "^2.14.1",
     "react-copy-to-clipboard": "^5.0.1",

@@ -5,6 +5,7 @@
 @table-header-icon-color: #bfbfbf;
 @table-header-sort-active-bg: darken(@table-header-bg, 3%);
 @table-header-filter-active-bg: darken(@table-header-sort-active-bg, 5%);
+@table-selection-column-width: 60px;
 
 .@{table-prefix-cls}-wrapper {
   .clearfix;
@@ -116,6 +117,9 @@
       -webkit-background-clip: border-box; // For Chrome extra space: https://github.com/ant-design/ant-design/issues/14926
 
       &.@{table-prefix-cls}-column-has-filters {
+        // https://github.com/ant-design/ant-design/issues/12650
+        padding-right: 30px !important;
+
         .@{iconfont-css-prefix}-filter,
         .@{table-prefix-cls}-filter-icon {
           &.@{table-prefix-cls}-filter-open {
@@ -154,41 +158,36 @@
           }
         }
       }
-
-      // https://github.com/ant-design/ant-design/issues/12650
-      &.@{table-prefix-cls}-column-has-sorters,
-      &.@{table-prefix-cls}-column-has-filters {
-        padding-right: 30px !important;
-      }
-
-      &.@{table-prefix-cls}-column-has-sorters.@{table-prefix-cls}-column-has-filters {
-        padding-right: 54px !important;
-      }
     }
 
-    .@{table-prefix-cls}-column-sorters {
-      display: table;
+    .@{table-prefix-cls}-header-column {
+      display: inline-block;
+      vertical-align: top;
 
-      > .@{table-prefix-cls}-column-title {
-        display: table-cell;
-        vertical-align: middle;
-      }
+      .@{table-prefix-cls}-column-sorters {
+        display: table;
 
-      > *:not(.@{table-prefix-cls}-column-sorter) {
-        position: relative;
-      }
-      &::before {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: transparent;
-        transition: all 0.3s;
-        content: '';
-      }
-      &:hover::before {
-        background: rgba(0, 0, 0, 0.04);
+        > .@{table-prefix-cls}-column-title {
+          display: table-cell;
+          vertical-align: middle;
+        }
+
+        > *:not(.@{table-prefix-cls}-column-sorter) {
+          position: relative;
+        }
+        &::before {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background: transparent;
+          transition: all 0.3s;
+          content: '';
+        }
+        &:hover::before {
+          background: rgba(0, 0, 0, 0.04);
+        }
       }
     }
 
@@ -293,6 +292,7 @@
   }
 
   &-tbody > tr.@{table-prefix-cls}-row-selected td {
+    color: @table-selected-row-color;
     background: @table-selected-row-bg;
   }
 
@@ -317,7 +317,9 @@
 
   &-thead > tr > th.@{table-prefix-cls}-selection-column,
   &-tbody > tr > td.@{table-prefix-cls}-selection-column {
+    width: @table-selection-column-width;
     text-align: center;
+
     .@{ant-prefix}-radio-wrapper {
       margin-right: 0;
     }
@@ -408,7 +410,7 @@
     position: relative;
     z-index: 1;
     padding: @table-padding-vertical @table-padding-horizontal;
-    color: @text-color-secondary;
+    color: @disabled-color;
     font-size: @font-size-base;
     text-align: center;
     background: @component-background;

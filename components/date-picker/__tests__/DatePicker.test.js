@@ -7,6 +7,8 @@ import { selectDate, openPanel, clearInput, nextYear, nextMonth, hasSelected } f
 import focusTest from '../../../tests/shared/focusTest';
 
 describe('DatePicker', () => {
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
   focusTest(DatePicker);
 
   beforeEach(() => {
@@ -15,6 +17,11 @@ describe('DatePicker', () => {
 
   afterEach(() => {
     MockDate.reset();
+    errorSpy.mockReset();
+  });
+
+  afterAll(() => {
+    errorSpy.mockRestore();
   });
 
   it('support name prop', () => {
@@ -209,5 +216,23 @@ describe('DatePicker', () => {
     openPanel(wrapper);
     wrapper.find('.ant-calendar-input').simulate('change', { target: { value: '02/07/18' } });
     expect(wrapper.find('.ant-calendar-picker-input').getDOMNode().value).toBe('02/07/2018');
+  });
+
+  describe('warning use if use invalidate moment', () => {
+    const invalidateTime = moment('I AM INVALIDATE');
+
+    it('defaultValue', () => {
+      mount(<DatePicker defaultValue={invalidateTime} />);
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: DatePicker] `defaultValue` provides invalidate moment time. If you want to set empty value, use `null` instead.',
+      );
+    });
+
+    it('value', () => {
+      mount(<DatePicker value={invalidateTime} />);
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: DatePicker] `value` provides invalidate moment time. If you want to set empty value, use `null` instead.',
+      );
+    });
   });
 });

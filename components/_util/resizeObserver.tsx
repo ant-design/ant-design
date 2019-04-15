@@ -53,7 +53,7 @@ class ReactResizeObserver extends React.Component<ResizeObserverProps, {}> {
   }
 
   render() {
-    const { children } = this.props;
+    const { children = null } = this.props;
     return children;
   }
 }
