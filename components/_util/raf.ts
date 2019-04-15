@@ -34,3 +34,5 @@ wrapperRaf.cancel = function(pid?: number) {
   raf.cancel(ids[pid]);
   delete ids[pid];
 };
+
+wrapperRaf.ids = ids; // export this for test usage

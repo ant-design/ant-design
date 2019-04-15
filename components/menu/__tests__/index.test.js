@@ -3,6 +3,7 @@ import { mount } from 'enzyme';
 import Menu from '..';
 import Icon from '../../icon';
 import Layout from '../../layout';
+import raf from '../../_util/raf';
 
 jest.mock('mutationobserver-shim', () => {
   global.MutationObserver = function MutationObserver() {
@@ -73,6 +74,10 @@ describe('Menu', () => {
         .at(0)
         .hasClass('ant-menu-hidden'),
     ).not.toBe(true);
+
+    const rafCount = Object.keys(raf.ids).length;
+    wrapper.unmount();
+    expect(Object.keys(raf.ids).length).toBe(rafCount - 1);
   });
 
   it('should accept defaultOpenKeys in mode vertical', () => {
@@ -494,6 +499,8 @@ describe('Menu', () => {
 
     const text = wrapper.find('.ant-tooltip-inner').text();
     expect(text).toBe('bamboo lucky');
+
+    jest.useRealTimers();
   });
 
   it('render correctly when using with Layout.Sider', () => {
@@ -607,5 +614,25 @@ describe('Menu', () => {
     wrapper.setProps({ inlineCollapsed: true });
 
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('not title if not collapsed', () => {
+    jest.useFakeTimers();
+    const wrapper = mount(
+      <Menu mode="inline" inlineCollapsed={false}>
+        <Menu.Item key="1">
+          <Icon type="pie-chart" />
+          <span>Option 1</span>
+        </Menu.Item>
+      </Menu>,
+    );
+
+    wrapper.find('.ant-menu-item').simulate('mouseenter');
+    jest.runAllTimers();
+    wrapper.update();
+
+    expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
+
+    jest.useRealTimers();
   });
 });
