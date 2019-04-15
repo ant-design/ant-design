@@ -219,108 +219,112 @@ exports[`renders ./components/comment/demo/list.md correctly 1`] = `
       <ul
         class="ant-list-items"
       >
-        <div
-          class="ant-comment"
-        >
+        <li>
           <div
-            class="ant-comment-inner"
+            class="ant-comment"
           >
             <div
-              class="ant-comment-avatar"
-            >
-              <img
-                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-              />
-            </div>
-            <div
-              class="ant-comment-content"
+              class="ant-comment-inner"
             >
               <div
-                class="ant-comment-content-author"
+                class="ant-comment-avatar"
               >
-                <span
-                  class="ant-comment-content-author-name"
-                >
-                  Han Solo
-                </span>
-                <span
-                  class="ant-comment-content-author-time"
-                >
-                  <span>
-                    a day ago
-                  </span>
-                </span>
+                <img
+                  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                />
               </div>
               <div
-                class="ant-comment-content-detail"
+                class="ant-comment-content"
               >
-                <p>
-                  We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
-                </p>
-              </div>
-              <ul
-                class="ant-comment-actions"
-              >
-                <li>
-                  <span>
-                    Reply to
+                <div
+                  class="ant-comment-content-author"
+                >
+                  <span
+                    class="ant-comment-content-author-name"
+                  >
+                    Han Solo
                   </span>
-                </li>
-              </ul>
+                  <span
+                    class="ant-comment-content-author-time"
+                  >
+                    <span>
+                      a day ago
+                    </span>
+                  </span>
+                </div>
+                <div
+                  class="ant-comment-content-detail"
+                >
+                  <p>
+                    We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
+                  </p>
+                </div>
+                <ul
+                  class="ant-comment-actions"
+                >
+                  <li>
+                    <span>
+                      Reply to
+                    </span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-        <div
-          class="ant-comment"
-        >
+        </li>
+        <li>
           <div
-            class="ant-comment-inner"
+            class="ant-comment"
           >
             <div
-              class="ant-comment-avatar"
-            >
-              <img
-                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-              />
-            </div>
-            <div
-              class="ant-comment-content"
+              class="ant-comment-inner"
             >
               <div
-                class="ant-comment-content-author"
+                class="ant-comment-avatar"
               >
-                <span
-                  class="ant-comment-content-author-name"
-                >
-                  Han Solo
-                </span>
-                <span
-                  class="ant-comment-content-author-time"
-                >
-                  <span>
-                    2 days ago
-                  </span>
-                </span>
+                <img
+                  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                />
               </div>
               <div
-                class="ant-comment-content-detail"
+                class="ant-comment-content"
               >
-                <p>
-                  We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
-                </p>
-              </div>
-              <ul
-                class="ant-comment-actions"
-              >
-                <li>
-                  <span>
-                    Reply to
+                <div
+                  class="ant-comment-content-author"
+                >
+                  <span
+                    class="ant-comment-content-author-name"
+                  >
+                    Han Solo
                   </span>
-                </li>
-              </ul>
+                  <span
+                    class="ant-comment-content-author-time"
+                  >
+                    <span>
+                      2 days ago
+                    </span>
+                  </span>
+                </div>
+                <div
+                  class="ant-comment-content-detail"
+                >
+                  <p>
+                    We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
+                  </p>
+                </div>
+                <ul
+                  class="ant-comment-actions"
+                >
+                  <li>
+                    <span>
+                      Reply to
+                    </span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
+        </li>
       </ul>
     </div>
   </div>
