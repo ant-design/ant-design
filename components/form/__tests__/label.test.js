@@ -224,6 +224,16 @@ describe('Form', () => {
   });
 
   it('should `labelAlign` work in FormItem', () => {
+    // Works in Form.Item
     expect(render(<Form.Item label="test" labelAlign="left" />)).toMatchSnapshot();
+
+    // Use Form.Item first
+    expect(
+      render(
+        <Form labelAlign="right">
+          <Form.Item label="test" labelAlign="left" />
+        </Form>,
+      ),
+    ).toMatchSnapshot();
   });
 });
