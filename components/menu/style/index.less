@@ -6,6 +6,7 @@
 // default theme
 .@{menu-prefix-cls} {
   .reset-component;
+
   margin-bottom: 0;
   padding-left: 0; // Override default ul/ol
   color: @menu-item-color;
@@ -225,7 +226,6 @@
           background: ~'@{menu-item-color} \9';
           background-image: linear-gradient(to right, @menu-item-color, @menu-item-color);
           background-image: ~'none \9';
-
           border-radius: 2px;
           transition: background 0.3s @ease-in-out, transform 0.3s @ease-in-out,
             top 0.3s @ease-in-out;
