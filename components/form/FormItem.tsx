@@ -14,14 +14,14 @@ import { FormContext, FormContextProps } from './context';
 
 const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
 
-export type LabelAlign = 'left' | 'right';
+export type FormLabelAlign = 'left' | 'right';
 
 export interface FormItemProps {
   prefixCls?: string;
   className?: string;
   id?: string;
   label?: React.ReactNode;
-  labelAlign?: LabelAlign;
+  labelAlign?: FormLabelAlign;
   labelCol?: ColProps;
   wrapperCol?: ColProps;
   help?: React.ReactNode;
@@ -334,7 +334,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
           const mergedLabelCol: ColProps =
             ('labelCol' in this.props ? labelCol : contextLabelCol) || {};
 
-          const mergedLabelAlign: LabelAlign | undefined =
+          const mergedLabelAlign: FormLabelAlign | undefined =
             'labelAlign' in this.props ? labelAlign : contextLabelAlign;
 
           const labelClsBasic = `${prefixCls}-item-label`;

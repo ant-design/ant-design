@@ -1,11 +1,11 @@
 import createReactContext, { Context } from 'create-react-context';
 import { ColProps } from '../grid/col';
-import { LabelAlign } from './FormItem';
+import { FormLabelAlign } from './FormItem';
 
 export interface FormContextProps {
   vertical: boolean;
   colon?: boolean;
-  labelAlign?: LabelAlign;
+  labelAlign?: FormLabelAlign;
   labelCol?: ColProps;
   wrapperCol?: ColProps;
 }
