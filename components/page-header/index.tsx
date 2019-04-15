@@ -4,6 +4,7 @@ import Icon from '../icon';
 import classnames from 'classnames';
 import { BreadcrumbProps } from '../breadcrumb';
 import Divider from '../divider';
+import Tag from '../tag';
 import Breadcrumb from '../breadcrumb';
 import Wave from '../_util/wave';
 
@@ -14,7 +15,7 @@ export interface PageHeaderProps {
   subTitle?: React.ReactNode;
   style?: React.CSSProperties;
   breadcrumb?: BreadcrumbProps;
-  tags?: React.ReactNode;
+  tags?: React.ReactElement<Tag> | React.ReactElement<Tag>[];
   footer?: React.ReactNode;
   extra?: React.ReactNode;
   onBack?: (e: React.MouseEvent<HTMLElement>) => void;
