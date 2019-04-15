@@ -216,14 +216,11 @@ class Affix extends React.Component<AffixProps, AffixState> {
       ...style,
     };
 
-    // raise updatePosition
-    const updatePosition = this.updatePosition;
-
     return (
       <div {...props} style={mergedPlaceholderStyle} ref={this.savePlaceholderNode}>
         <div className={className} ref={this.saveFixedNode} style={this.state.affixStyle}>
           {toArray(children).map((child: React.ReactNode) => (
-            <ResizeObserver onResize={updatePosition}>{child}</ResizeObserver>
+            <ResizeObserver onResize={this.updatePosition}>{child}</ResizeObserver>
           ))}
         </div>
       </div>
