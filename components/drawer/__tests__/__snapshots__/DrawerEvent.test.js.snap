@@ -46,6 +46,7 @@ exports[`Drawer render correctly 1`] = `
                     class=""
                     data-icon="close"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"

@@ -107,14 +107,17 @@
     }
   }
 
+  &&-loading {
+    position: relative;
+    pointer-events: none;
+  }
+
   &&-loading::before {
     display: block;
   }
 
   &&-loading:not(&-circle):not(&-circle-outline):not(&-icon-only) {
-    position: relative;
     padding-left: 29px;
-    pointer-events: none;
     .@{iconfont-css-prefix}:not(:last-child) {
       margin-left: -14px;
     }

@@ -34,6 +34,7 @@ export interface PaginationProps {
     originalElement: React.ReactElement<HTMLElement>,
   ) => React.ReactNode;
   role?: string;
+  showLessItems?: boolean;
 }
 
 export interface PaginationConfig extends PaginationProps {

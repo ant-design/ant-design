@@ -24,7 +24,6 @@ const Demo = () => (
         '100%': '#87d068',
       }}
       percent={99.9}
-      status="active"
     />
     <Progress
       strokeColor={{
