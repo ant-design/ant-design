@@ -326,7 +326,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
           labelCol: contextLabelCol,
           colon: contextColon,
         }: FormContextProps) => {
-          const { label, labelCol, colon, id } = this.props;
+          const { label, labelCol, colon, id, labelAlign: innerLabelAlign } = this.props;
           const required = this.isRequired();
 
           const mergedLabelCol: ColProps =
@@ -335,7 +335,9 @@ export default class FormItem extends React.Component<FormItemProps, any> {
           const labelClsBasic = `${prefixCls}-item-label`;
           const labelColClassName = classNames(
             labelClsBasic,
-            labelAlign === 'left' && `${labelClsBasic}-left`,
+            {
+              [`${labelClsBasic}-left`]: (innerLabelAlign || labelAlign) === 'left',
+            },
             mergedLabelCol.className,
           );
 
