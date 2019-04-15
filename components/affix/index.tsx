@@ -216,8 +216,8 @@ class Affix extends React.Component<AffixProps, AffixState> {
       ...style,
     };
 
-    // bind this
-    const updatePosition = this.updatePosition.bind(this);
+    // raise updatePosition
+    const updatePosition = this.updatePosition;
 
     return (
       <div {...props} style={mergedPlaceholderStyle} ref={this.savePlaceholderNode}>
