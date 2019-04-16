@@ -231,12 +231,12 @@ validateFields(['field1', 'field2'], options, (errors, values) => {
 import { Form } from 'antd';
 import { FormComponentProps } from 'antd/lib/form';
 
-interface UserFormProps extends FormComponentProps {
+interface UserFormProps {
   age: number;
   name: string;
 }
 
-class UserForm extends React.Component<UserFormProps, any> {
+class UserForm extends React.Component<UserFormProps & FormComponentProps, any> {
   // ...
 }
 

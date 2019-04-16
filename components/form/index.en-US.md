@@ -229,12 +229,12 @@ See more advanced usage at [async-validator](https://github.com/yiminghe/async-v
 import { Form } from 'antd';
 import { FormComponentProps } from 'antd/lib/form';
 
-interface UserFormProps extends FormComponentProps {
+interface UserFormProps {
   age: number;
   name: string;
 }
 
-class UserForm extends React.Component<UserFormProps, any> {
+class UserForm extends React.Component<UserFormProps & FormComponentProps, any> {
   // ...
 }
 
