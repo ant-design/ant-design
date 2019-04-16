@@ -2,7 +2,6 @@ import * as React from 'react';
 import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import toArray from 'rc-util/lib/Children/toArray';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
 import ResizeObserver from '../_util/resizeObserver';
