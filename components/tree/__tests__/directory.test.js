@@ -1,19 +1,22 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
+import debounce from 'lodash/debounce';
 import Tree from '../index';
 
 const { DirectoryTree, TreeNode } = Tree;
 
-const mockDebounce = jest.mock('lodash/debounce', () => fn => fn);
+jest.mock('lodash/debounce');
 
 describe('Directory Tree', () => {
+  debounce.mockImplementation(fn => fn);
+
   beforeAll(() => {
     jest.useFakeTimers();
   });
 
   afterAll(() => {
     jest.useRealTimers();
-    mockDebounce.mockRestore();
+    debounce.mockRestore();
   });
 
   function createTree(props) {

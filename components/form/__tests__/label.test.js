@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import Form from '..';
 
 describe('Form', () => {
@@ -221,5 +221,19 @@ describe('Form', () => {
         .at(0)
         .getDOMNode(),
     ).toBe(document.activeElement);
+  });
+
+  it('should `labelAlign` work in FormItem', () => {
+    // Works in Form.Item
+    expect(render(<Form.Item label="test" labelAlign="left" />)).toMatchSnapshot();
+
+    // Use Form.Item first
+    expect(
+      render(
+        <Form labelAlign="right">
+          <Form.Item label="test" labelAlign="left" />
+        </Form>,
+      ),
+    ).toMatchSnapshot();
   });
 });

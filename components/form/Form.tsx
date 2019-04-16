@@ -8,7 +8,7 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { ColProps } from '../grid/col';
 import { Omit, tuple } from '../_util/type';
 import warning from '../_util/warning';
-import FormItem from './FormItem';
+import FormItem, { FormLabelAlign } from './FormItem';
 import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
 import { FormContext } from './context';
 
@@ -47,7 +47,7 @@ export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
    * @since 3.15.0
    */
   colon?: boolean;
-  labelAlign?: 'left' | 'right';
+  labelAlign?: FormLabelAlign;
 }
 
 export type ValidationRule = {
