@@ -33,4 +33,4 @@ Please note that Affix should not cover other content on the page, especially wh
 
 ### Why Affix of Container not ping when window scroll?
 
-We don't listen window scroll by performance consideration. You can add listener if you still want: <https://codesandbox.io/s/2xyj5zr85p>
+We don't listen window scroll for performance consideration. You can add listener if you still want: <https://codesandbox.io/s/2xyj5zr85p>
