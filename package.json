@@ -50,7 +50,7 @@
     "classnames": "~2.2.6",
     "copy-to-clipboard": "^3.0.8",
     "create-react-class": "^15.6.3",
-    "create-react-context": "0.2.2",
+    "@ant-design/create-react-context": "^0.2.4",
     "css-animation": "^1.5.0",
     "dom-closest": "^0.2.0",
     "enquire.js": "^2.1.6",
