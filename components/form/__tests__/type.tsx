@@ -17,11 +17,11 @@ const WithoutOwnPropsForm = Form.create()(WithoutOwnProps);
 <WithoutOwnPropsForm />;
 
 // test Form.create on component with own props
-interface WithOwnPropsProps extends FormComponentProps {
+interface WithOwnPropsProps {
   name: string;
 }
 
-class WithOwnProps extends React.Component<WithOwnPropsProps, any> {
+class WithOwnProps extends React.Component<WithOwnPropsProps & FormComponentProps, any> {
   state = {
     foo: 'bar',
   };
@@ -31,16 +31,16 @@ class WithOwnProps extends React.Component<WithOwnPropsProps, any> {
   }
 }
 
-const WithOwnPropsForm = Form.create()(WithOwnProps);
+const WithOwnPropsForm = Form.create<WithOwnPropsProps>()(WithOwnProps);
 
 <WithOwnPropsForm name="foo" />;
 
 // test Form.create with options
-interface WithCreateOptionsProps extends FormComponentProps {
+interface WithCreateOptionsProps {
   username: string;
 }
 
-class WithCreateOptions extends React.Component<WithCreateOptionsProps, {}> {
+class WithCreateOptions extends React.Component<WithCreateOptionsProps & FormComponentProps, {}> {
   render() {
     return <div>foo</div>;
   }
