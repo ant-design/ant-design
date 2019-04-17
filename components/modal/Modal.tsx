@@ -173,7 +173,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
   };
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', getClickPosition);
+    window.removeEventListener('click', getClickPosition);
   }
 
   renderFooter = (locale: ModalLocale) => {
