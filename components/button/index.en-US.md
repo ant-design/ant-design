@@ -21,6 +21,8 @@ To get a customized button, just set `type`/`shape`/`size`/`loading`/`disabled`.
 | href | redirect url of link button | string | - |
 | htmlType | set the original html `type` of `button`, see: [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-type) | string | `button` |
 | icon | set the icon of button, see: Icon component | string | - |
+| iconTheme | set the icon theme of the button, icon see: Icon component | `'outlined' | 'filled' | 'twoToneColor'` | - |
+| iconTwoToneColor | set the icon two tone color of the button icon, in the case `iconTheme` is set to `'twoToneColor'`, see: Icon component | string | - |
 | loading | set the loading status of button | boolean \| { delay: number } | `false` |
 | shape | can be set to `circle`, `round` or omitted | string | - |
 | size | can be set to `small` `large` or omitted | string | `default` |
