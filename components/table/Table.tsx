@@ -110,6 +110,8 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   constructor(props: TableProps<T>) {
     super(props);
 
+    const { expandedRowRender, columns = [] } = props;
+
     warning(
       !('columnsPageRange' in props || 'columnsPageSize' in props),
       'Table',
@@ -117,11 +119,13 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         'fixed columns instead, see: https://u.ant.design/fixed-columns.',
     );
 
-    warning(
-      !('expandedRowRender' in props) || !('scroll' in props),
-      'Table',
-      '`expandedRowRender` and `scroll` are not compatible. Please use one of them at one time.',
-    );
+    if (expandedRowRender && columns.some(({ fixed }) => !!fixed)) {
+      warning(
+        false,
+        'Table',
+        '`expandedRowRender` and `Column.fixed` are not compatible. Please use one of them at one time.',
+      );
+    }
 
     this.columns = props.columns || normalizeColumns(props.children as React.ReactChildren);
 
