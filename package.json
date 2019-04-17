@@ -149,6 +149,7 @@
     "lz-string": "^1.4.4",
     "majo": "^0.7.1",
     "mockdate": "^2.0.2",
+    "node-fetch": "^2.3.0",
     "pre-commit": "^1.2.2",
     "preact": "^8.3.1",
     "preact-compat": "^3.18.4",

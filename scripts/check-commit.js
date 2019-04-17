@@ -1,18 +1,13 @@
-#!/usr/bin/env node
+/* eslint-disable import/no-dynamic-require */
 const chalk = require('chalk');
-
-// const runCmd = require('antd-tools/lib/runCmd');
-// runCmd('git', ['diff-index', '--quiet', 'HEAD', '--'], code => {
-//   console.warn(chalk.yellow('👿 You have code not commit yet!\n'));
-
-//   runCmd('git', ['status', '-bsu', '.'], () => {
-//     console.log('');
-//     process.exit(code);
-//   });
-// });
+const path = require('path');
+const fetch = require('node-fetch');
+const simpleGit = require('simple-git/promise');
 
 const cwd = process.cwd();
-const git = require('simple-git/promise')(cwd);
+const git = simpleGit(cwd);
+
+const { version } = require(path.resolve(cwd, 'package.json'));
 
 function exitProcess(code = 1) {
   console.log(''); // Keep an empty line here to make looks good~
@@ -22,6 +17,13 @@ function exitProcess(code = 1) {
 async function checkCommit() {
   const { current, files } = await git.status();
 
+  const { versions } = await fetch('http://registry.npmjs.org/antd').then(res => res.json());
+  if (version in versions) {
+    console.log(chalk.yellow('😈 Current version already exists. Forget update package.json?'));
+    console.log(chalk.cyan(' => Current:'), version);
+    exitProcess();
+  }
+
   if (current !== 'master') {
     console.log(chalk.yellow('🤔 You are not in the master branch!'));
     exitProcess();
@@ -29,8 +31,8 @@ async function checkCommit() {
 
   if (files.length) {
     console.log(chalk.yellow('🙄 You forgot something to commit.'));
-    files.forEach(({ path, working_dir: mark }) => {
-      console.log(' -', chalk.red(mark), path);
+    files.forEach(({ path: filePath, working_dir: mark }) => {
+      console.log(' -', chalk.red(mark), filePath);
     });
     exitProcess();
   }
