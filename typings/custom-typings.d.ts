@@ -101,8 +101,6 @@ declare module 'lodash/uniqBy';
 
 declare module 'lodash/findIndex';
 
-declare module 'lodash/bind';
-
 declare module 'raf';
 
 declare module 'react-lifecycles-compat';
