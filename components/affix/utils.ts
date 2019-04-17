@@ -20,6 +20,10 @@ interface ObserverEntity {
 
 let observerEntities: ObserverEntity[] = [];
 
+export function getObserverEntities() {
+  return observerEntities;
+}
+
 export function addObserveTarget(target: HTMLElement | Window | null, affix: Affix): void {
   if (!target) return;
 
