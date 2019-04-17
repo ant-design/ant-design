@@ -26,7 +26,9 @@ const getClickPosition = (e: MouseEvent) => {
 };
 
 // 只有点击事件支持从鼠标位置动画展开
-addEventListener(document.documentElement, 'click', getClickPosition);
+if (document) {
+  addEventListener(document.documentElement, 'click', getClickPosition);
+}
 
 export interface ModalProps {
   /** 对话框是否可见*/
