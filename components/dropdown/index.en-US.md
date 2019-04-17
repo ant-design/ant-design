@@ -37,6 +37,7 @@ You should use [Menu](/components/menu/) as `overlay`. The menu items and divide
 | Property | Description | Type | Default | Version |
 | -------- | ----------- | ---- | ------- |------- |
 | disabled | whether the dropdown menu is disabled | boolean | - ||
+| icon | icon of right | ReactNode | - | 3.17.0 |
 | overlay | the dropdown menu | [Menu](/components/menu) | - ||
 | placement | placement of pop menu: `bottomLeft` `bottomCenter` `bottomRight` `topLeft` `topCenter` `topRight` | String | `bottomLeft` ||
 | size | size of the button, the same as [Button](/components/button) | string | `default` ||
@@ -45,4 +46,4 @@ You should use [Menu](/components/menu/) as `overlay`. The menu items and divide
 | visible | whether the dropdown menu is visible | boolean | - ||
 | onClick | a callback function, the same as [Button](/components/button), which will be executed when you click the button on the left | Function | - ||
 | onVisibleChange | a callback function takes an argument: `visible`, is executed when the visible state is changed | Function | - ||
-| icon | icon of right | ReactNode | - | 3.17.0 |
+
