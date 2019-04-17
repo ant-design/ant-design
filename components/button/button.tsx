@@ -48,10 +48,14 @@ const ButtonSizes = tuple('large', 'default', 'small');
 export type ButtonSize = (typeof ButtonSizes)[number];
 const ButtonHTMLTypes = tuple('submit', 'button', 'reset');
 export type ButtonHTMLType = (typeof ButtonHTMLTypes)[number];
+const IconThemes = tuple('filled', 'outlined', 'twoTone');
+export type IconTheme = (typeof IconThemes)[number];
 
 export interface BaseButtonProps {
   type?: ButtonType;
   icon?: string;
+  iconTheme?: IconTheme;
+  iconTwoToneColor?: string;
   shape?: ButtonShape;
   size?: ButtonSize;
   loading?: boolean | { delay?: number };
@@ -105,6 +109,8 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     loading: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
     className: PropTypes.string,
     icon: PropTypes.string,
+    iconTheme: PropTypes.oneOf(IconThemes),
+    iconTwoToneColor: PropTypes.string,
     block: PropTypes.bool,
   };
 
@@ -204,6 +210,8 @@ class Button extends React.Component<ButtonProps, ButtonState> {
       className,
       children,
       icon,
+      iconTheme,
+      iconTwoToneColor,
       ghost,
       loading: _loadingProp,
       block,
@@ -240,7 +248,9 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     });
 
     const iconType = loading ? 'loading' : icon;
-    const iconNode = iconType ? <Icon type={iconType} /> : null;
+    const iconNode = iconType ? (
+      <Icon type={iconType} theme={iconTheme} twoToneColor={iconTwoToneColor} />
+    ) : null;
     const kids =
       children || children === 0
         ? React.Children.map(children, child =>
