@@ -44,6 +44,7 @@
   "dependencies": {
     "@ant-design/icons": "~1.2.0",
     "@ant-design/icons-react": "~1.1.5",
+    "@types/hoist-non-react-statics": "^3.3.1",
     "@types/react-slick": "^0.23.3",
     "array-tree-filter": "^2.1.0",
     "babel-runtime": "6.x",
