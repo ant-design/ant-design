@@ -11,7 +11,7 @@ import warning from '../_util/warning';
 import FormItem, { FormLabelAlign } from './FormItem';
 import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
 import { FormContext } from './context';
-import { InferableComponentEnhancerWithProps } from './interface';
+import { FormWrappedProps } from './interface';
 
 type FormCreateOptionMessagesCallback = (...args: any[]) => string;
 
@@ -217,9 +217,9 @@ export default class Form extends React.Component<FormProps, any> {
 
   static createFormField = createFormField;
 
-  static create = function<TOwnProps>(
+  static create = function<TOwnProps extends FormComponentProps>(
     options: FormCreateOption<TOwnProps> = {},
-  ): InferableComponentEnhancerWithProps<TOwnProps> {
+  ): FormWrappedProps<TOwnProps> {
     return createDOMForm({
       fieldNameProp: 'id',
       ...options,
