@@ -21,6 +21,7 @@ interface ObserverEntity {
 let observerEntities: ObserverEntity[] = [];
 
 export function getObserverEntities() {
+  // Only used in test env. Can be removed if refactor.
   return observerEntities;
 }
 
