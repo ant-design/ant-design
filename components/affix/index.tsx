@@ -2,6 +2,7 @@ import * as React from 'react';
 import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
 import omit from 'omit.js';
+import Bind from 'lodash/bind';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
 import ResizeObserver from '../_util/resizeObserver';
@@ -109,6 +110,8 @@ class Affix extends React.Component<AffixProps, AffixState> {
   };
 
   // =================== Measure ===================
+  // bind this
+  @Bind
   // Handle realign logic
   @throttleByAnimationFrameDecorator()
   // @ts-ignore TS6133
@@ -215,14 +218,11 @@ class Affix extends React.Component<AffixProps, AffixState> {
       ...style,
     };
 
-    // bind this
-    const updatePosition = this.updatePosition.bind(this);
-
     return (
       <div {...props} style={mergedPlaceholderStyle} ref={this.savePlaceholderNode}>
         <div className={className} ref={this.saveFixedNode} style={this.state.affixStyle}>
           {React.Children.map(children, (child: any) => (
-            <ResizeObserver key={child.key} onResize={updatePosition}>
+            <ResizeObserver key={child.key} onResize={this.updatePosition}>
               {child}
             </ResizeObserver>
           ))}
