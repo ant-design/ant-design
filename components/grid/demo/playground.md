@@ -89,11 +89,11 @@ ReactDOM.render(<App />, mountNode);
 ````
 
 ````css
-#components-grid-demo-playground [class^="ant-col-"] {
+#components-grid-demo-playground [class~="ant-col"] {
   background: transparent;
   border: 0;
 }
-#components-grid-demo-playground [class^="ant-col-"] > div {
+#components-grid-demo-playground [class~="ant-col"] > div {
   background: #00A0E9;
   height: 120px;
   line-height: 120px;
