@@ -26,7 +26,7 @@ const getClickPosition = (e: MouseEvent) => {
 };
 
 // 只有点击事件支持从鼠标位置动画展开
-if (document) {
+if (typeof window !== undefined) {
   addEventListener(document.documentElement, 'click', getClickPosition);
 }
 
