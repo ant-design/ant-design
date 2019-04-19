@@ -6,7 +6,7 @@ import { BreadcrumbProps } from '../breadcrumb';
 import Divider from '../divider';
 import Tag from '../tag';
 import Breadcrumb from '../breadcrumb';
-import Wave from '../_util/wave';
+import TransButtonProps from '../_util/transButton';
 
 export interface PageHeaderProps {
   backIcon?: React.ReactNode;
@@ -39,7 +39,7 @@ const renderBack = (
         }
       }}
     >
-      <Wave>{backIcon}</Wave>
+      <TransButtonProps>{backIcon}</TransButtonProps>
       <Divider type="vertical" />
     </div>
   );
