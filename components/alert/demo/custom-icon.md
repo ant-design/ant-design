@@ -12,7 +12,7 @@ title:
 
 ## en-US
 
-Decent icon make information more clear and more friendly.
+A relevant icon makes information clearer and more friendly.
 
 ````jsx
 import { Alert, Icon } from 'antd';
