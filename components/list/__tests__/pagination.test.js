@@ -175,4 +175,24 @@ describe('List.pagination', () => {
         .render(),
     ).toMatchSnapshot();
   });
+
+  it('should default work', () => {
+    const wrapper = mount(
+      createList({
+        pagination: {
+          defaultPageSize: 3,
+          defaultCurrent: 2,
+          pageSizeOptions: ['1', '3'],
+          showSizeChanger: true,
+        },
+      }),
+    );
+
+    expect(
+      wrapper
+        .find('Pagination')
+        .first()
+        .render(),
+    ).toMatchSnapshot();
+  });
 });

@@ -323,7 +323,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
         </div>
       </span>
       <span
-        class="ant-time-picker "
+        class="ant-time-picker"
       >
         <input
           class="ant-time-picker-input"

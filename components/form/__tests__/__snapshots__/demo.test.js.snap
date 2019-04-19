@@ -2836,7 +2836,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
           class="ant-form-item-children"
         >
           <span
-            class="ant-time-picker "
+            class="ant-time-picker"
           >
             <input
               class="ant-time-picker-input"
@@ -4545,7 +4545,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-form-item-children"
         >
           <span
-            class="ant-time-picker "
+            class="ant-time-picker"
             style="width:100%"
           >
             <input
