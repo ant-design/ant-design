@@ -4,13 +4,13 @@ import Descriptions from '..';
 
 const DescriptionsItem = Descriptions.Item;
 
-jest.mock('enquire.js', () => {
+const enquireMock = jest.mock('enquire.js', () => {
   let that;
   let unmatchFun;
   return {
     unregister: jest.fn(),
-    register: (meidia, options) => {
-      if (meidia === '(max-width: 575px)') {
+    register: (media, options) => {
+      if (media === '(max-width: 575px)') {
         that = this;
         options.match.call(that);
         unmatchFun = options.unmatch;
@@ -20,6 +20,10 @@ jest.mock('enquire.js', () => {
       unmatchFun.call(that);
     },
   };
+});
+
+afterAll(() => {
+  enquireMock.mockRestore();
 });
 
 describe('Descriptions', () => {
