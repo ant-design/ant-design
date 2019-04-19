@@ -1149,6 +1149,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       [`${prefixCls}-bordered`]: this.props.bordered,
       [`${prefixCls}-empty`]: !data.length,
       [`${prefixCls}-without-column-header`]: !showHeader,
+      [`${prefixCls}-with-row-selection`]: this.props.rowSelection,
     });
 
     let columns = this.renderRowSelection(prefixCls, mergedLocale);
