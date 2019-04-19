@@ -4,7 +4,7 @@ import Descriptions from '..';
 
 const DescriptionsItem = Descriptions.Item;
 
-const enquireMock = jest.mock('enquire.js', () => {
+jest.mock('enquire.js', () => {
   let that;
   let unmatchFun;
   return {
@@ -20,10 +20,6 @@ const enquireMock = jest.mock('enquire.js', () => {
       unmatchFun.call(that);
     },
   };
-});
-
-afterAll(() => {
-  enquireMock.mockRestore();
 });
 
 describe('Descriptions', () => {
