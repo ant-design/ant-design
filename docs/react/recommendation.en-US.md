@@ -34,7 +34,7 @@ Image Crop | [react-image-crop](https://github.com/DominicTobias/react-image-cro
 Trend Lines | [react-sparklines](https://github.com/borisyankov/react-sparklines)
 Formatted Input | [text-mask](https://github.com/text-mask/text-mask)
 Keywords highlight | [react-highlight-words](https://github.com/bvaughn/react-highlight-words)
-Animation | [react-move](https://github.com/react-tools/react-move) [Ant Motion](https://motion.ant.design/components/tween-one)
+Animation | [react-move](https://github.com/react-tools/react-move) [Ant Motion](https://motion.ant.design/components/tween-one) [react-spring](https://www.react-spring.io)
 
 <style>
 .markdown table td:first-child {
