@@ -2,7 +2,7 @@
 order: 3
 title:
   zh-CN: 加载中
-  en-US: Message of loading
+  en-US: Message with loading indicator
 ---
 
 ## zh-CN
