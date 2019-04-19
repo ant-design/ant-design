@@ -38,10 +38,11 @@ exports[`renders ./components/dropdown/demo/context-menu.md correctly 1`] = `
 `;
 
 exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
-<div>
+<div
+  id="components-dropdown-demo-dropdown-button"
+>
   <div
     class="ant-btn-group ant-dropdown-button"
-    style="margin:0 8px 8px 0"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -112,10 +113,8 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
       </i>
     </button>
   </div>
-  <br />
   <div
     class="ant-btn-group ant-dropdown-button"
-    style="margin-right:8px"
   >
     <button
       class="ant-btn ant-btn-default"

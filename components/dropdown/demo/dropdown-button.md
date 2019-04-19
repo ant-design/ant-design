@@ -39,22 +39,20 @@ const menu = (
 );
 
 ReactDOM.render(
-  <div>
-    <Dropdown.Button onClick={handleButtonClick} overlay={menu} style={{ margin: "0 8px 8px 0" }}>
+  <div id="components-dropdown-demo-dropdown-button">
+    <Dropdown.Button onClick={handleButtonClick} overlay={menu}>
       Dropdown
     </Dropdown.Button>
-    <Dropdown.Button 
+    <Dropdown.Button
       overlay={menu}
       icon={<Icon type="user" />}
     >
       Dropdown
     </Dropdown.Button>
-    <br />
-    <Dropdown.Button 
+    <Dropdown.Button
       onClick={handleButtonClick}
       overlay={menu}
       disabled
-      style={{ marginRight: 8 }}
     >
       Dropdown
     </Dropdown.Button>
@@ -66,4 +64,10 @@ ReactDOM.render(
   </div>,
   mountNode,
 );
+````
+
+````css
+#components-dropdown-demo-dropdown-button .ant-dropdown-button{
+  margin: 0 8px 8px 0;
+}
 ````
