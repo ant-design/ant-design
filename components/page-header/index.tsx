@@ -6,7 +6,8 @@ import { BreadcrumbProps } from '../breadcrumb';
 import Divider from '../divider';
 import Tag from '../tag';
 import Breadcrumb from '../breadcrumb';
-import TransButtonProps from '../_util/transButton';
+import TransButton from '../_util/transButton';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 
 export interface PageHeaderProps {
   backIcon?: React.ReactNode;
@@ -31,17 +32,21 @@ const renderBack = (
     return null;
   }
   return (
-    <div
-      className={`${prefixCls}-back-icon`}
-      onClick={e => {
-        if (onBack) {
-          onBack(e);
-        }
-      }}
-    >
-      <TransButtonProps>{backIcon}</TransButtonProps>
-      <Divider type="vertical" />
-    </div>
+    <LocaleReceiver componentName="PageHeader">
+      {({ back }: { back: string }) => (
+        <div
+          className={`${prefixCls}-back-icon`}
+          onClick={e => {
+            if (onBack) {
+              onBack(e);
+            }
+          }}
+        >
+          <TransButton aria-label={back}>{backIcon}</TransButton>
+          <Divider type="vertical" />
+        </div>
+      )}
+    </LocaleReceiver>
   );
 };
 
