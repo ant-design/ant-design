@@ -42,7 +42,9 @@ const renderBack = (
             }
           }}
         >
-          <TransButton aria-label={back}>{backIcon}</TransButton>
+          <TransButton className={`${prefixCls}-back-icon-button`} aria-label={back}>
+            {backIcon}
+          </TransButton>
           <Divider type="vertical" />
         </div>
       )}

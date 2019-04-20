@@ -57,7 +57,7 @@ class TransButton extends React.Component<TransButtonProps> {
     return (
       <div
         role="button"
-        tabIndex={-1}
+        tabIndex={0}
         ref={this.setRef}
         {...this.props}
         onKeyDown={this.onKeyDown}
