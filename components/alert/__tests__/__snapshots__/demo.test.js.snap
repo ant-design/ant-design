@@ -767,7 +767,7 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
     <span
       class="ant-alert-description"
     >
-      Detailed description and advices about successful copywriting.
+      Detailed description and advice about successful copywriting.
     </span>
   </div>
   <div
@@ -804,7 +804,7 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
     <span
       class="ant-alert-description"
     >
-      Additional description and informations about copywriting.
+      Additional description and information about copywriting.
     </span>
   </div>
   <div
