@@ -7,8 +7,12 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
   <div
     class="ant-page-header-back-icon"
   >
-    <button
-      style="border:0;background:transparent;padding:0;line-height:inherit"
+    <div
+      aria-label="back"
+      class="ant-page-header-back-icon-button"
+      role="button"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      tabindex="0"
     >
       <i
         aria-label="icon: arrow-left"
@@ -29,7 +33,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
           />
         </svg>
       </i>
-    </button>
+    </div>
     <div
       class="ant-divider ant-divider-vertical"
     />
@@ -412,8 +416,12 @@ exports[`renders ./components/page-header/demo/basic.md correctly 1`] = `
   <div
     class="ant-page-header-back-icon"
   >
-    <button
-      style="border:0;background:transparent;padding:0;line-height:inherit"
+    <div
+      aria-label="back"
+      class="ant-page-header-back-icon-button"
+      role="button"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      tabindex="0"
     >
       <i
         aria-label="icon: arrow-left"
@@ -434,7 +442,7 @@ exports[`renders ./components/page-header/demo/basic.md correctly 1`] = `
           />
         </svg>
       </i>
-    </button>
+    </div>
     <div
       class="ant-divider ant-divider-vertical"
     />
