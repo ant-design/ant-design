@@ -1,7 +1,7 @@
 ---
 order: 5
 title:
-  zh-CN: 响应式的栅格列表 
+  zh-CN: 响应式的栅格列表
   en-US: Responsive grid list
 ---
 
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Responsive grid list. The size property is as same as [Layout Grid](https://ant.design/components/grid/#Col).
+Responsive grid list. The size property the is as same as [Layout Grid](https://ant.design/components/grid/#Col).
 
 ````jsx
 import { List, Card } from 'antd';

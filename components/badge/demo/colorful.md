@@ -11,8 +11,8 @@ title:
 
 ## en-US
 
-New feature after 3.16.0. We preset a series of colorful Badge style for different situation usage.
-And you can always set it to a hex color string for custom color.
+New feature after 3.16.0. We preset a series of colorful Badge styles for use in different situations.
+You can also set it to a hex color string for custom color.
 
 ````jsx
 import { Badge } from 'antd';
