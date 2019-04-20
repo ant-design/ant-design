@@ -42,6 +42,8 @@ export interface CalendarProps {
   onChange?: (date?: moment.Moment) => void;
   disabledDate?: (current: moment.Moment) => boolean;
   validRange?: [moment.Moment, moment.Moment];
+  showPreviousNextButtons?: boolean;
+  showTodayButton?: boolean;
 }
 
 export interface CalendarState {
@@ -56,6 +58,8 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
     onSelect: noop,
     onPanelChange: noop,
     onChange: noop,
+    showPreviousNextButtons: false,
+    showTodayButton: false,
   };
 
   static propTypes = {
@@ -72,6 +76,8 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
     value: PropTypes.object as PropTypes.Requireable<moment.Moment>,
     onSelect: PropTypes.func,
     onChange: PropTypes.func,
+    showPreviousNextButtons: PropTypes.bool,
+    showTodayButton: PropTypes.bool,
   };
 
   static getDerivedStateFromProps(nextProps: CalendarProps) {
@@ -243,6 +249,8 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
                 onTypeChange={this.onHeaderTypeChange}
                 onValueChange={this.onHeaderValueChange}
                 validRange={props.validRange}
+                showPreviousNextButtons={props.showPreviousNextButtons}
+                showTodayButton={props.showTodayButton}
               />
               <FullCalendar
                 {...props}

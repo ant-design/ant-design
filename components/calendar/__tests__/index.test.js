@@ -256,4 +256,102 @@ describe('Calendar', () => {
       .simulate('change');
     expect(onTypeChange).toHaveBeenCalledWith('year');
   });
+
+  it('changes date to today after clicking today button', () => {
+    const value = Moment([2019, 2, 17]);
+    const onValueChange = jest.fn();
+    const today = Moment([2019, 3, 18]);
+    MockDate.set(today);
+    const wrapper = mount(
+      <Header
+        onValueChange={onValueChange}
+        value={value}
+        type="month"
+        locale={{ today: 'Today' }}
+        showTodayButton
+      />,
+    );
+    wrapper
+      .find('.ant-fullcalendar-today-button')
+      .hostNodes()
+      .simulate('click');
+    expect(onValueChange).toHaveBeenCalledWith(Moment());
+    MockDate.reset();
+  });
+
+  it('changes the month when pressing previous', () => {
+    const value = Moment([2019, 3, 19]);
+    const onValueChange = jest.fn();
+    const wrapper = mount(
+      <Header
+        onValueChange={onValueChange}
+        value={value}
+        type="month"
+        locale={{ today: 'Today' }}
+        showPreviousNextButtons
+      />,
+    );
+    wrapper
+      .find('.ant-fullcalendar-navigation-previous')
+      .hostNodes()
+      .simulate('click');
+    expect(onValueChange).toHaveBeenCalledWith(value.month(2));
+  });
+
+  it('changes the month when pressing next', () => {
+    const value = Moment([2019, 3, 19]);
+    const onValueChange = jest.fn();
+    const wrapper = mount(
+      <Header
+        onValueChange={onValueChange}
+        value={value}
+        type="month"
+        locale={{ today: 'Today' }}
+        showPreviousNextButtons
+      />,
+    );
+    wrapper
+      .find('.ant-fullcalendar-navigation-next')
+      .hostNodes()
+      .simulate('click');
+    expect(onValueChange).toHaveBeenCalledWith(value.month(4));
+  });
+
+  it('changes the year when pressing previous', () => {
+    const value = Moment([2019, 3, 19]);
+    const onValueChange = jest.fn();
+    const wrapper = mount(
+      <Header
+        onValueChange={onValueChange}
+        value={value}
+        type="year"
+        locale={{ today: 'Today' }}
+        showPreviousNextButtons
+      />,
+    );
+    wrapper
+      .find('.ant-fullcalendar-navigation-previous')
+      .hostNodes()
+      .simulate('click');
+    expect(onValueChange).toHaveBeenCalledWith(value.year(2018));
+  });
+
+  it('changes the year when pressing next', () => {
+    const value = Moment([2019, 3, 19]);
+    const onValueChange = jest.fn();
+    const wrapper = mount(
+      <Header
+        onValueChange={onValueChange}
+        value={value}
+        type="year"
+        locale={{ today: 'Today' }}
+        showPreviousNextButtons
+      />,
+    );
+    wrapper
+      .find('.ant-fullcalendar-navigation-next')
+      .hostNodes()
+      .simulate('click');
+    expect(onValueChange).toHaveBeenCalledWith(value.year(2020));
+  });
 });
