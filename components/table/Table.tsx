@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import RcTable from 'rc-table';
+import RcTable, { INTERNAL_COL_DEFINE } from 'rc-table';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
@@ -779,6 +779,9 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         fixed: rowSelection.fixed,
         width: rowSelection.columnWidth,
         title: rowSelection.columnTitle,
+        [INTERNAL_COL_DEFINE]: {
+          className: `${prefixCls}-selection-col`,
+        },
       };
       if (rowSelection.type !== 'radio') {
         const checkboxAllDisabled = data.every(
@@ -1149,7 +1152,6 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       [`${prefixCls}-bordered`]: this.props.bordered,
       [`${prefixCls}-empty`]: !data.length,
       [`${prefixCls}-without-column-header`]: !showHeader,
-      [`${prefixCls}-with-row-selection`]: this.props.rowSelection,
     });
 
     let columns = this.renderRowSelection(prefixCls, mergedLocale);
