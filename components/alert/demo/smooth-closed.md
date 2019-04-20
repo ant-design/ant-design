@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Smoothly and unaffectedly unmount Alert.
+Smoothly unmount Alert upon close.
 
 ````jsx
 import { Alert } from 'antd';

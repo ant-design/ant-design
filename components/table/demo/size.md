@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Two compacted table size: `middle` and `small`, `small` size is used in Modal only.
+There are two compacted table sizes: `middle` and `small`. The `small` size is used in Modals only.
 
 ````jsx
 import { Table } from 'antd';
