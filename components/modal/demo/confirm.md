@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-To use `confirm()` to popup a confirmation modal dialog.
+Use `confirm()` to show a confirmation modal dialog.
 
 ````jsx
 import { Modal, Button } from 'antd';

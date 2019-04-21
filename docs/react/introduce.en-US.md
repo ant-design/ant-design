@@ -96,8 +96,6 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
    }
    ```
 
-   > Note: Don't set `libraryDirectory` if you are using webpack 1.
-
    This allows you to import components from antd without having to manually import the corresponding stylesheet. The antd babel plugin will automatically import stylesheets.
 
    ```jsx

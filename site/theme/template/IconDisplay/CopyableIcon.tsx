@@ -1,8 +1,8 @@
 import * as React from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { Icon as AntdIcon, Badge } from 'antd';
+import { ThemeType, IconProps } from 'antd/lib/icon';
 import classNames from 'classnames';
-import { ThemeType, IconProps } from '../../../../components/icon';
 
 const Icon: React.SFC<IconProps> = AntdIcon;
 

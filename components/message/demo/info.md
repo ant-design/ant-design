@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Normal messages as feedbacks.
+Normal message for information.
 
 ````jsx
 import { message, Button } from 'antd';

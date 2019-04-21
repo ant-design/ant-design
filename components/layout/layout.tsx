@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import createContext, { Context } from 'create-react-context';
+import createContext, { Context } from '@ant-design/create-react-context';
 import { SiderProps } from './Sider';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
