@@ -36,11 +36,11 @@ let subscribers: Array<{
   func: SubscribeFunc;
 }> = [];
 let subUid = -1;
+let screens = {};
 
 const responsiveObserve = {
-  screens: {},
-  dispatch(screens: BreakpointMap) {
-    this.screens = screens;
+  dispatch(pointMap: BreakpointMap) {
+    screens = pointMap;
     if (subscribers.length < 1) {
       return false;
     }
@@ -60,7 +60,7 @@ const responsiveObserve = {
       token: token,
       func: func,
     });
-    func(this.screens);
+    func(screens);
     return token;
   },
   unsubscribe(token: string) {
@@ -78,18 +78,18 @@ const responsiveObserve = {
     Object.keys(responsiveMap).map((screen: Breakpoint) =>
       enquire.register(responsiveMap[screen], {
         match: () => {
-          const screens = {
-            ...this.screens,
+          const pointMap = {
+            ...screens,
             [screen]: true,
           };
-          this.dispatch(screens);
+          this.dispatch(pointMap);
         },
         unmatch: () => {
-          const screens = {
-            ...this.screens,
+          const pointMap = {
+            ...screens,
             [screen]: false,
           };
-          this.dispatch(screens);
+          this.dispatch(pointMap);
         },
         // Keep a empty destory to avoid triggering unmatch when unregister
         destroy() {},
