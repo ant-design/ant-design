@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Use form in drawer with submit button.
+Use a form in Drawer with a submit button.
 
 ```jsx
 import {

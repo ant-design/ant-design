@@ -6,11 +6,12 @@ import createFormField from 'rc-form/lib/createFormField';
 import omit from 'omit.js';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { ColProps } from '../grid/col';
-import { Omit, tuple } from '../_util/type';
+import { tuple } from '../_util/type';
 import warning from '../_util/warning';
 import FormItem, { FormLabelAlign } from './FormItem';
 import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
 import { FormContext } from './context';
+import { FormWrappedProps } from './interface';
 
 type FormCreateOptionMessagesCallback = (...args: any[]) => string;
 
@@ -193,12 +194,6 @@ export interface RcBaseFormProps {
   wrappedComponentRef?: any;
 }
 
-export interface ComponentDecorator {
-  <P extends FormComponentProps>(
-    component: React.ComponentClass<P> | React.SFC<P>,
-  ): React.ComponentClass<RcBaseFormProps & Omit<P, keyof FormComponentProps>>;
-}
-
 export default class Form extends React.Component<FormProps, any> {
   static defaultProps = {
     colon: true,
@@ -222,9 +217,9 @@ export default class Form extends React.Component<FormProps, any> {
 
   static createFormField = createFormField;
 
-  static create = function<TOwnProps>(
+  static create = function<TOwnProps extends FormComponentProps>(
     options: FormCreateOption<TOwnProps> = {},
-  ): ComponentDecorator {
+  ): FormWrappedProps<TOwnProps> {
     return createDOMForm({
       fieldNameProp: 'id',
       ...options,

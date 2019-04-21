@@ -311,22 +311,6 @@
     padding: @table-padding-vertical @table-padding-horizontal;
   }
 
-  &-thead > tr > th.@{table-prefix-cls}-selection-column-custom {
-    .@{table-prefix-cls}-selection {
-      margin-right: -15px;
-    }
-  }
-
-  &-thead > tr > th.@{table-prefix-cls}-selection-column,
-  &-tbody > tr > td.@{table-prefix-cls}-selection-column {
-    width: @table-selection-column-width;
-    text-align: center;
-
-    .@{ant-prefix}-radio-wrapper {
-      margin-right: 0;
-    }
-  }
-
   &-expand-icon-th,
   &-row-expand-icon-cell {
     width: 50px;
@@ -562,10 +546,6 @@
         content: '.';
       }
     }
-
-    &[class*='@{table-prefix-cls}-row-level-0'] .@{table-prefix-cls}-selection-column > span {
-      display: inline-block;
-    }
   }
 
   tr&-expanded-row {
@@ -685,6 +665,32 @@
 
   &&-scroll-position-right &-fixed-right {
     box-shadow: none;
+  }
+
+  // ========================== Row Selection ==========================
+  colgroup {
+    > col.@{table-prefix-cls}-selection-col {
+      width: @table-selection-column-width;
+    }
+  }
+
+  &-thead > tr > th.@{table-prefix-cls}-selection-column-custom {
+    .@{table-prefix-cls}-selection {
+      margin-right: -15px;
+    }
+  }
+
+  &-thead > tr > th.@{table-prefix-cls}-selection-column,
+  &-tbody > tr > td.@{table-prefix-cls}-selection-column {
+    text-align: center;
+
+    .@{ant-prefix}-radio-wrapper {
+      margin-right: 0;
+    }
+  }
+
+  &-row[class*='@{table-prefix-cls}-row-level-0'] .@{table-prefix-cls}-selection-column > span {
+    display: inline-block;
   }
 }
 
