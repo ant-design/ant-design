@@ -8,7 +8,7 @@ import debounce from 'lodash/debounce';
 import Category from './Category';
 import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 import { categories, Categories, CategoriesKeys } from './fields';
-import { ThemeType } from '../../../../components/icon';
+import { ThemeType } from 'antd/lib/icon';
 
 interface IconDisplayProps extends InjectedIntlProps {}
 

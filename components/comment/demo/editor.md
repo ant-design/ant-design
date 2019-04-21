@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Comment can be used as editor, user can customize the editor component.
+Comment can be used as an editor, so the user can customize the contents of the component.
 
 ````jsx
 import {

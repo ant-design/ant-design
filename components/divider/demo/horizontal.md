@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Divider default type is `horizontal`. Support inner text inside Divider.
+Divider is `horizontal` by default. You can add text within Divider.
 
 ````jsx
 import { Divider } from 'antd';
