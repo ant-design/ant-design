@@ -1,10 +1,11 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @tag-prefix-cls: ~'@{ant-prefix}-tag';
 
 .@{tag-prefix-cls} {
   .reset-component;
+
   display: inline-block;
   height: auto;
   margin-right: 8px;
@@ -15,7 +16,7 @@
   background: @tag-default-bg;
   border: @border-width-base @border-style-base @border-color-base;
   border-radius: @border-radius-base;
-  cursor: pointer;
+  cursor: default;
   opacity: 1;
   transition: all 0.3s @ease-in-out-circ;
 
@@ -37,6 +38,7 @@
 
   .@{iconfont-css-prefix}-close {
     .iconfont-size-under-12px(10px);
+
     margin-left: 3px;
     color: @text-color-secondary;
     font-weight: bold;

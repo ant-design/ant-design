@@ -29,7 +29,7 @@ Provide a placeholder at the place which need waiting for loading.
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| size | Set the size of avatar | Enum{ 'large', 'small', 'default' } | - |
+| size | Set the size of avatar | number \| Enum{ 'large', 'small', 'default' } | - |
 | shape | Set the shape of avatar | Enum{ 'circle', 'square' } | - |
 
 ### SkeletonTitleProps

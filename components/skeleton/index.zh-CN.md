@@ -31,7 +31,7 @@ cols: 1
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| size | 设置头像占位图的大小 | Enum{ 'large', 'small', 'default' } | - |
+| size | 设置头像占位图的大小 | number \| Enum{ 'large', 'small', 'default' } | - |
 | shape | 指定头像的形状 | Enum{ 'circle', 'square' } | - |
 
 ### SkeletonTitleProps
