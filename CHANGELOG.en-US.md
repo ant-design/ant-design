@@ -23,7 +23,7 @@ timeline: true
 - 🐞 Fix issue that Form.Item's `labelAlign` does not work. [#16067](https://github.com/ant-design/ant-design/issues/16067)
 - 🐞 Fix issue that tailing debounce call rasing error when Spin unmount. [#16081](https://github.com/ant-design/ant-design/pull/16081) [@raybooysen](https://github.com/raybooysen)
 - 🐞 Fix issue that List's `defaultPageSize` does not work. [#16100](https://github.com/ant-design/ant-design/issues/16100)
-- 🐞 Fix error moment call in DatePicker. [#16109])(https://github.com/ant-design/ant-design/issues/16109)
+- 🐞 Fix error moment call in DatePicker. [#16109](https://github.com/ant-design/ant-design/issues/16109)
 - 🐞 Fix Radio does not in center on Firefox. [#16039](https://github.com/ant-design/ant-design/issues/16039)
 - 🐞 Fix issue that Affix's `target` does not work after it's value changing. [#16146](https://github.com/ant-design/ant-design/pull/16146)
 - 🐞 Fix the Modal's animation issue Modal on first rendering. [#15795](https://github.com/ant-design/ant-design/issues/15795)
