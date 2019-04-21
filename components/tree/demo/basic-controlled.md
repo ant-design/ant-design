@@ -2,7 +2,7 @@
 order: 1
 title:
   zh-CN: 受控操作示例
-  en-US: basic controlled example
+  en-US: Controlled Tree
 ---
 
 ## zh-CN
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-basic controlled example
+Controlled mode lets parent nodes reflect the status of child nodes more intelligently.
 
 ````jsx
 import { Tree } from 'antd';

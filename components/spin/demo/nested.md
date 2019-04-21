@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Embedding content into `Spin` will alter it into loading state.
+Embedding content into `Spin` will set it into loading state.
 
 ````jsx
 import { Spin, Switch, Alert } from 'antd';

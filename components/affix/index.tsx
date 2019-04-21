@@ -41,6 +41,8 @@ export interface AffixState {
   placeholderStyle?: React.CSSProperties;
   status: AffixStatus;
   lastAffix: boolean;
+
+  prevTarget: Window | HTMLElement | null;
 }
 
 class Affix extends React.Component<AffixProps, AffixState> {
@@ -51,6 +53,7 @@ class Affix extends React.Component<AffixProps, AffixState> {
   state: AffixState = {
     status: AffixStatus.None,
     lastAffix: false,
+    prevTarget: null,
   };
 
   placeholderNode: HTMLDivElement;
@@ -72,14 +75,22 @@ class Affix extends React.Component<AffixProps, AffixState> {
   }
 
   componentDidUpdate(prevProps: AffixProps) {
+    const { prevTarget } = this.state;
     const { target } = this.props;
-    if (prevProps.target !== target) {
+    let newTarget = null;
+    if (target) {
+      newTarget = target() || null;
+    }
+
+    if (prevTarget !== newTarget) {
       removeObserveTarget(this);
-      if (target) {
-        addObserveTarget(target(), this);
+      if (newTarget) {
+        addObserveTarget(newTarget, this);
         // Mock Event object.
         this.updatePosition({} as Event);
       }
+
+      this.setState({ prevTarget: newTarget });
     }
 
     if (

@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Manually updateing and destroying a modal from `Modal.method`.
+Manually updating and destroying a modal from `Modal.method`.
 
 ````jsx
 import { Modal, Button } from 'antd';

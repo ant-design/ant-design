@@ -31,7 +31,7 @@ class WithOwnProps extends React.Component<WithOwnPropsProps, any> {
   }
 }
 
-const WithOwnPropsForm = Form.create()(WithOwnProps);
+const WithOwnPropsForm = Form.create<WithOwnPropsProps>()(WithOwnProps);
 
 <WithOwnPropsForm name="foo" />;
 
