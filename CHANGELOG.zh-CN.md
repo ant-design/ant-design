@@ -15,12 +15,30 @@ timeline: true
 
 ---
 
+## 3.16.4
+
+`2019-04-21`
+
+- 🐞 修复圆形 Button 在 `loading` 时还会响应鼠标事件的问题。[#16063](https://github.com/ant-design/ant-design/pull/16063) [@gxvv](https://github.com/gxvv)
+- 🐞 修复 Form.Item 的 `labelAlign` 不生效的问题。[#16067](https://github.com/ant-design/ant-design/issues/16067)
+- 🐞 修复 Spin 在 unmount 时遗留的 debounce 调用导致的报错问题。[#16081](https://github.com/ant-design/ant-design/pull/16081) [@raybooysen](https://github.com/raybooysen)
+- 🐞 修复 List 的 `defaultPageSize` 不生效的问题。[#16100](https://github.com/ant-design/ant-design/issues/16100)
+- 🐞 修复 PageHeader 的 `tags` 类型错误。[#16092](https://github.com/ant-design/ant-design/issues/16092)
+- 🐞 修复 DatePicker 中 moment 报错的问题。[#16109])(https://github.com/ant-design/ant-design/issues/16109)
+- 🐞 修复 Radio 在 Firefox 上没有垂直居中的问题。[#16039](https://github.com/ant-design/ant-design/issues/16039)
+- 🐞 修复 Affix 的 `target` 变化后不能工作的问题。[#16146](https://github.com/ant-design/ant-design/pull/16146)
+- 🐞 修复 Modal 在首次渲染时的动画问题。[#15795](https://github.com/ant-design/ant-design/issues/15795)
+- 🐞 修复 Table 的 `rowSelection.columnWidth` 不工作的问题。[#16163](https://github.com/ant-design/ant-design/issues/16163)
+- 🐞 修复 Form.create 的类型定义。[#16095](https://github.com/ant-design/ant-design/issues/16095)
+- 🐞 修复 Icon `aria-hidden` 的类型定义。[#16202](https://github.com/ant-design/ant-design/pull/16202)
+- 🐞 新增 less 变量 `@text-selection-bg;`。[#16155](https://github.com/ant-design/ant-design/pull/16155)
+
 ## 3.16.3
 
 `2019-04-12`
 
 - 🐞 **修复 Button TS 类型定义。**[#15938](https://github.com/ant-design/ant-design/pull/15938)
-- ⚠️ DatePicker 新增当日期不合法的提示。[#15920](https://github.com/ant-design/ant-design/pull/15920) 
+- ⚠️ DatePicker 新增当日期不合法的提示。[#15920](https://github.com/ant-design/ant-design/pull/15920)
 - 🐞 修复 Menu 箭头在老 IE 版本上不显示的问题。[#15932](https://github.com/ant-design/ant-design/pull/15932)
 - 🐞 修复 Progress 当 `status` 为 `undefined` 时的展示。[#15951](https://github.com/ant-design/ant-design/pull/15951)
 - 🐞 修复 Menu 折叠时 Tooltip 的问题。[#15948](https://github.com/ant-design/ant-design/pull/15948)
