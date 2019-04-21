@@ -13,6 +13,7 @@ import warning from '../_util/warning';
 import interopDefault from '../_util/interopDefault';
 import { RangePickerValue, RangePickerPresetRange } from './interface';
 import { formatDate } from './utils';
+import InputIcon from './InputIcon';
 
 export interface RangePickerState {
   value?: RangePickerValue;
@@ -368,17 +369,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
         />
       ) : null;
 
-    const inputIcon = (suffixIcon &&
-      (React.isValidElement<{ className?: string }>(suffixIcon) ? (
-        React.cloneElement(suffixIcon, {
-          className: classNames({
-            [suffixIcon.props.className!]: suffixIcon.props.className,
-            [`${prefixCls}-picker-icon`]: true,
-          }),
-        })
-      ) : (
-        <span className={`${prefixCls}-picker-icon`}>{suffixIcon}</span>
-      ))) || <Icon type="calendar" className={`${prefixCls}-picker-icon`} />;
+    const inputIcon = <InputIcon suffixIcon={suffixIcon} prefixCls={prefixCls} />;
 
     const input = ({ value: inputValue }: { value: any }) => {
       const [start, end] = inputValue;
