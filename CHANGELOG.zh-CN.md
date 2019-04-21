@@ -31,7 +31,7 @@ timeline: true
 - 🐞 修复 Table 的 `rowSelection.columnWidth` 不工作的问题。[#16163](https://github.com/ant-design/ant-design/issues/16163)
 - 🐞 修复 Form.create 的类型定义。[#16095](https://github.com/ant-design/ant-design/issues/16095)
 - 🐞 修复 Icon `aria-hidden` 的类型定义。[#16202](https://github.com/ant-design/ant-design/pull/16202)
-- 🐞 新增 less 变量 `@text-selection-bg;`。[#16155](https://github.com/ant-design/ant-design/pull/16155)
+- 🌟 新增 less 变量 `@text-selection-bg;`。[#16155](https://github.com/ant-design/ant-design/pull/16155)
 
 ## 3.16.3
 
