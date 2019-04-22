@@ -1,5 +1,5 @@
 import * as React from 'react';
-import hoistNonReactStatics from 'hoist-non-react-statics';
+import * as hoistNonReactStatics from 'hoist-non-react-statics';
 import { Omit } from '../_util/type';
 import { FormComponentProps } from './Form';
 
