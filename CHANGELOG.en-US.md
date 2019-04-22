@@ -15,10 +15,27 @@ timeline: true
 
 ---
 
+## 3.16.4
+
+`2019-04-21`
+
+- 🐞 Fix circle button responding mouse event when loading. [#16063](https://github.com/ant-design/ant-design/pull/16063) [@gxvv](https://github.com/gxvv)
+- 🐞 Fix issue that Form.Item's `labelAlign` does not work. [#16067](https://github.com/ant-design/ant-design/issues/16067)
+- 🐞 Fix issue that tailing debounce call rasing error when Spin unmount. [#16081](https://github.com/ant-design/ant-design/pull/16081) [@raybooysen](https://github.com/raybooysen)
+- 🐞 Fix issue that List's `defaultPageSize` does not work. [#16100](https://github.com/ant-design/ant-design/issues/16100)
+- 🐞 Fix error moment call in DatePicker. [#16109](https://github.com/ant-design/ant-design/issues/16109)
+- 🐞 Fix Radio does not in center on Firefox. [#16039](https://github.com/ant-design/ant-design/issues/16039)
+- 🐞 Fix issue that Affix's `target` does not work after it's value changing. [#16146](https://github.com/ant-design/ant-design/pull/16146)
+- 🐞 Fix the Modal's animation issue Modal on first rendering. [#15795](https://github.com/ant-design/ant-design/issues/15795)
+- 🐞 Fix issue that Table's `rowSelection.columnWidth` does not work. [#16163](https://github.com/ant-design/ant-design/issues/16163)
+- 🐞 Fix type definition of  Form.create. [#16095](https://github.com/ant-design/ant-design/issues/16095)
+- 🐞 Fix type definition of Icon's `aria-hidden`. [#16202](https://github.com/ant-design/ant-design/pull/16202)
+- 🐞 Fix type definition of PageHeader's `tags`. [#16092](https://github.com/ant-design/ant-design/issues/16092)
+- 🌟 Add new less variable `@text-selection-bg;`. [#16155](https://github.com/ant-design/ant-design/pull/16155)
+
 ## 3.16.3
 
 `2019-04-12`
-
 
 - 🐞 **Fix Button TypeScript definition.** [#15938](https://github.com/ant-design/ant-design/pull/15938)
 - ⚠️ Add DatePicker warning when time invalidate. [#15920](https://github.com/ant-design/ant-design/pull/15920)
