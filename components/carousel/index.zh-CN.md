@@ -24,6 +24,7 @@ subtitle: 走马灯
 | easing | 动画效果 | string | linear |
 | effect | 动画效果函数，可取 scrollx, fade | string | scrollx |
 | vertical | 垂直显示 | boolean | false |
+| dotsPlacement | 面板指示点位置，可选 `top` `bottom` `left` `right` | string | bottom |
 
 ## 方法
 
