@@ -61,9 +61,10 @@ describe('Transfer.Customize', () => {
               expect(errorSpy).toHaveBeenCalledWith(
                 'Warning: [antd: Transfer] `handleSelect` will be removed, please use `onSelect` instead.',
               );
+              errorSpy.mockReset();
               handleSelectAll([], true);
               expect(errorSpy).toHaveBeenCalledWith(
-                'Warning: [antd: Transfer] `handleSelectAll` will be removed, please use `onSelect` instead.',
+                'Warning: [antd: Transfer] `handleSelectAll` will be removed, please use `onSelectAll` instead.',
               );
             }
             init = false;
