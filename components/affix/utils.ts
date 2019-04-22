@@ -20,6 +20,11 @@ interface ObserverEntity {
 
 let observerEntities: ObserverEntity[] = [];
 
+export function getObserverEntities() {
+  // Only used in test env. Can be removed if refactor.
+  return observerEntities;
+}
+
 export function addObserveTarget(target: HTMLElement | Window | null, affix: Affix): void {
   if (!target) return;
 

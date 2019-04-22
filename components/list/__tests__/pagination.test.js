@@ -195,4 +195,12 @@ describe('List.pagination', () => {
         .render(),
     ).toMatchSnapshot();
   });
+
+  it('should not crash when pagination is null', () => {
+    mount(
+      createList({
+        pagination: null,
+      }),
+    );
+  });
 });
