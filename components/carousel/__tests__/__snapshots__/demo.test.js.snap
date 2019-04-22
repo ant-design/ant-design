@@ -180,7 +180,7 @@ exports[`renders ./components/carousel/demo/autoplay.md correctly 1`] = `
       </div>
     </div>
     <ul
-      class="slick-dots"
+      class="slick-dots slick-dots-bottom"
       style="display:block"
     >
       <li
@@ -396,7 +396,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
       </div>
     </div>
     <ul
-      class="slick-dots"
+      class="slick-dots slick-dots-bottom"
       style="display:block"
     >
       <li
@@ -522,7 +522,7 @@ exports[`renders ./components/carousel/demo/fade.md correctly 1`] = `
       </div>
     </div>
     <ul
-      class="slick-dots"
+      class="slick-dots slick-dots-bottom"
       style="display:block"
     >
       <li
@@ -738,7 +738,7 @@ exports[`renders ./components/carousel/demo/vertical.md correctly 1`] = `
       </div>
     </div>
     <ul
-      class="slick-dots"
+      class="slick-dots slick-dots-right"
       style="display:block"
     >
       <li
