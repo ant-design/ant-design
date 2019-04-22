@@ -754,7 +754,9 @@ exports[`renders ./components/transfer/demo/customize.md correctly 1`] = `
                         class=""
                       >
                         <colgroup>
-                          <col />
+                          <col
+                            class="ant-table-selection-col"
+                          />
                           <col />
                           <col />
                           <col />
@@ -1547,7 +1549,9 @@ exports[`renders ./components/transfer/demo/customize.md correctly 1`] = `
                         class=""
                       >
                         <colgroup>
-                          <col />
+                          <col
+                            class="ant-table-selection-col"
+                          />
                           <col />
                         </colgroup>
                         <thead
