@@ -7,7 +7,12 @@ title: Form
 
 Form is used to collect, validate, and submit the user input, usually contains various form items including checkbox, radio, input, select, and etc.
 
-## Form
+## When to use
+
+- When you need to create a instance or collect information.
+- When you need to validate fields in certain rules.
+
+## Form Component
 
 You can align the controls of a `form` using the `layout` prop：
 
@@ -15,7 +20,7 @@ You can align the controls of a `form` using the `layout` prop：
 - `vertical`：to vertically align the `label`s and controls of the fields.
 - `inline`：to render form fields in one line.
 
-## Form fields
+## Form Item Component
 
 A form consists of one or more form fields whose type includes input, textarea, checkbox, radio, select, tag, and more.
 A form field is defined using `<Form.Item />`.

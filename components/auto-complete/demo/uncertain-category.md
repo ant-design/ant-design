@@ -41,16 +41,20 @@ function searchResult(query) {
 function renderOption(item) {
   return (
     <Option key={item.category} text={item.category}>
-      {item.query} 在
-      <a
-        href={`https://s.taobao.com/search?q=${item.query}`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {item.category}
-      </a>
-      区块中
-      <span className="global-search-item-count">约 {item.count} 个结果</span>
+      <div className="global-search-item">
+        <span className="global-search-item-desc">
+          {item.query} 在
+          <a
+            href={`https://s.taobao.com/search?q=${item.query}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {item.category}
+          </a>
+          区块中
+        </span>
+        <span className="global-search-item-count">约 {item.count} 个结果</span>
+      </div>
     </Option>
   );
 }
@@ -122,8 +126,17 @@ ReactDOM.render(<Complete />, mountNode);
   border-bottom-left-radius: 0;
 }
 
+.global-search-item {
+  display: flex;
+}
+
+.global-search-item-desc {
+  flex: auto;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 .global-search-item-count {
-  position: absolute;
-  right: 16px;
+  flex: none;
 }
 ````

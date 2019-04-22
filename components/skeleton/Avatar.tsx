@@ -27,7 +27,20 @@ class SkeletonAvatar extends React.Component<SkeletonAvatarProps, any> {
       [`${prefixCls}-square`]: shape === 'square',
     });
 
-    return <span className={classNames(prefixCls, className, sizeCls, shapeCls)} style={style} />;
+    const sizeStyle: React.CSSProperties =
+      typeof size === 'number'
+        ? {
+            width: size,
+            height: size,
+            lineHeight: `${size}px`,
+          }
+        : {};
+    return (
+      <span
+        className={classNames(prefixCls, className, sizeCls, shapeCls)}
+        style={{ ...sizeStyle, ...style }}
+      />
+    );
   }
 }
 

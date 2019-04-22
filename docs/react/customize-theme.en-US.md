@@ -55,6 +55,8 @@ module.exports = {
 +         'primary-color': '#1DA57A',
 +         'link-color': '#1DA57A',
 +         'border-radius-base': '2px',
++         // or
++         'ant-theme-file': "~'your-less-file-path.less'", // Override with less file
 +       },
 +       javascriptEnabled: true,
 +     },

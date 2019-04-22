@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Set orientation of divider to left or right.
+Set `orientation="left/right"` to align the inner text.
 
 ````jsx
 import { Divider } from 'antd';

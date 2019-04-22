@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-A notification box can pop up from `topRight` or `bottomRight` or `bottomLeft` or `topLeft`.
+A notification box can appear from the `topRight`, `bottomRight`, `bottomLeft` or `topLeft` of the viewport.
 
 ````jsx
 import { Button, Select, notification } from 'antd';

@@ -17,6 +17,7 @@
     &:active,
     &.active {
       .button-color(@btn-disable-color; @btn-disable-bg; @btn-disable-border);
+
       text-shadow: none;
       box-shadow: none;
     }
@@ -25,6 +26,7 @@
 
 .button-variant-primary(@color; @background) {
   .button-color(@color; @background; @background);
+
   text-shadow: @btn-text-shadow;
   box-shadow: @btn-primary-shadow;
 
@@ -86,6 +88,7 @@
 }
 .button-variant-ghost(@color) {
   .button-color(@color; transparent; @color);
+
   text-shadow: none;
   &:hover,
   &:focus {
@@ -136,11 +139,13 @@
   &-lg > .@{btnClassName},
   &-lg > span > .@{btnClassName} {
     .button-size(@btn-height-lg; @btn-padding-lg; @btn-font-size-lg; 0);
+
     line-height: @btn-height-lg - 2px;
   }
   &-sm > .@{btnClassName},
   &-sm > span > .@{btnClassName} {
     .button-size(@btn-height-sm; @btn-padding-sm; @font-size-base; 0);
+
     line-height: @btn-height-sm - 2px;
     > .@{iconfont-css-prefix} {
       font-size: @font-size-base;
@@ -214,6 +219,7 @@
 // dashed button style
 .btn-dashed() {
   .button-variant-other(@btn-default-color, @btn-default-bg, @btn-default-border);
+
   border-style: dashed;
 }
 // danger button style
