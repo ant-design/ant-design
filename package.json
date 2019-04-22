@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "3.16.3",
+  "version": "3.16.4",
   "title": "Ant Design",
   "description": "An enterprise-class UI design language and React-based implementation",
   "homepage": "http://ant.design/",
@@ -153,7 +153,7 @@
     "pre-commit": "^1.2.2",
     "preact": "^8.3.1",
     "preact-compat": "^3.18.4",
-    "prettier": "^1.15.3",
+    "prettier": "^1.17.0",
     "querystring": "^0.2.0",
     "rc-queue-anim": "^1.6.6",
     "rc-scroll-anim": "^2.5.7",
