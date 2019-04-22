@@ -44,7 +44,7 @@ One or more elements can be selected from either column, one click on the proper
 
 ### Render Props
 
-[New in 3.17.0] Transfer accept `children` to customize render list, using follow props:
+New in 3.17.0. Transfer accept `children` to customize render list, using follow props:
 
 | Property | Description | Type | Version |
 | -------- | ----------- | ---- | ------- |

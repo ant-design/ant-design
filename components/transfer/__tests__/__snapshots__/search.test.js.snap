@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Search should show cross icon when input value exists 1`] = `
+exports[`Transfer.Search should show cross icon when input value exists 1`] = `
 <Search
   placeholder=""
   value=""
@@ -65,7 +65,7 @@ exports[`Search should show cross icon when input value exists 1`] = `
 </Search>
 `;
 
-exports[`Search should show cross icon when input value exists 2`] = `
+exports[`Transfer.Search should show cross icon when input value exists 2`] = `
 <Search
   placeholder=""
   value="a"

@@ -240,7 +240,14 @@ class Transfer extends React.Component<TransferProps, any> {
     direction: TransferDirection,
     filteredDataSource: TransferItem[],
     checkAll: boolean,
-  ) => this.onItemSelectAll(direction, filteredDataSource.map(({ key }) => key), !checkAll);
+  ) => {
+    warning(
+      false,
+      'Transfer',
+      '`handleSelectAll` will be removed, please use `onSelectAll` instead.',
+    );
+    this.onItemSelectAll(direction, filteredDataSource.map(({ key }) => key), !checkAll);
+  };
 
   // [Legacy] Old prop `body` pass origin check as arg. It's confusing.
   // TODO: Remove this in next version.
@@ -298,8 +305,10 @@ class Transfer extends React.Component<TransferProps, any> {
     }
   };
 
-  handleSelect = (direction: TransferDirection, selectedItem: TransferItem, checked: boolean) =>
+  handleSelect = (direction: TransferDirection, selectedItem: TransferItem, checked: boolean) => {
+    warning(false, 'Transfer', '`handleSelect` will be removed, please use `onSelect` instead.');
     this.onItemSelect(direction, selectedItem.key, checked);
+  };
   handleLeftSelect = (selectedItem: TransferItem, checked: boolean) =>
     this.handleSelect('left', selectedItem, checked);
   handleRightSelect = (selectedItem: TransferItem, checked: boolean) =>

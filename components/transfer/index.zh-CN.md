@@ -46,7 +46,7 @@ title: Transfer
 
 ### Render Props
 
-[3.17.0 新增] Transfer 支持接收 `children` 自定义渲染列表，并返回以下参数：
+3.17.0 新增。Transfer 支持接收 `children` 自定义渲染列表，并返回以下参数：
 
 | 参数 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
