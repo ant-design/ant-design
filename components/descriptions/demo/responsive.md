@@ -43,7 +43,7 @@ const Demo = () => {
           <br />
           Replication_factor:3
           <br />
-          Region: East China 1<br />
+          Region: East China 1
         </DescriptionsItem>
       </Descriptions>
     </div>
