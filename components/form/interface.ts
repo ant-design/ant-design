@@ -4,6 +4,16 @@ import { Omit } from '../_util/type';
 import { FormComponentProps } from './Form';
 
 // Copy from @types/react-redux https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react-redux/index.d.ts
+export type Matching<InjectedProps, DecorationTargetProps> = {
+  [P in keyof DecorationTargetProps]: P extends keyof InjectedProps
+      ? InjectedProps[P] extends DecorationTargetProps[P]
+          ? DecorationTargetProps[P]
+          : InjectedProps[P]
+      : DecorationTargetProps[P];
+};
+
+export type GetProps<C> = C extends React.ComponentType<infer P> ? P : never;
+
 export type ConnectedComponentClass<
   C extends React.ComponentType<any>,
   P
@@ -13,6 +23,6 @@ export type ConnectedComponentClass<
 
 export type FormWrappedProps<TOwnProps extends FormComponentProps> =
   <
-    C extends React.ComponentType
+    C extends React.ComponentType<Matching<TOwnProps, GetProps<C>>>
   >(component: C)
   => ConnectedComponentClass<C, Omit<TOwnProps, keyof FormComponentProps>>;
