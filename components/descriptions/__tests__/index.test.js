@@ -9,8 +9,8 @@ jest.mock('enquire.js', () => {
   let unmatchFun;
   return {
     unregister: jest.fn(),
-    register: (meidia, options) => {
-      if (meidia === '(max-width: 575px)') {
+    register: (media, options) => {
+      if (media === '(max-width: 575px)') {
         that = this;
         options.match.call(that);
         unmatchFun = options.unmatch;
