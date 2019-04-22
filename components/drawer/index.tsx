@@ -36,6 +36,8 @@ export interface DrawerProps {
   push?: boolean;
   placement?: placementType;
   onClose?: (e: EventType) => void;
+  onVisibleChange?: (visible: boolean) => void;
+  afterVisibleChange?: (visible: boolean) => void;
   className?: string;
   handler?: React.ReactNode;
 }
@@ -65,6 +67,8 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
     prefixCls: PropTypes.string,
     placement: PropTypes.oneOf(PlacementTypes),
     onClose: PropTypes.func,
+    onVisibleChange: PropTypes.func,
+    afterVisibleChange: PropTypes.func,
     className: PropTypes.string,
   };
 
@@ -231,6 +235,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
       wrapClassName,
       width,
       height,
+      onVisibleChange,
       ...rest
     } = this.props;
     warning(
@@ -252,6 +257,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
           handler={false}
           {...rest}
           {...offsetStyle}
+          onChange={onVisibleChange}
           prefixCls={prefixCls}
           open={this.props.visible}
           onMaskClick={this.onMaskClick}
