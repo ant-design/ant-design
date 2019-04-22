@@ -23,12 +23,15 @@ if (typeof window !== 'undefined') {
 const SlickCarousel = require('react-slick').default;
 
 export type CarouselEffect = 'scrollx' | 'fade';
+export type DotsPlacement = 'top' | 'bottom' | 'left' | 'right';
+
 // Carousel
 export interface CarouselProps extends Settings {
   effect?: CarouselEffect;
   style?: React.CSSProperties;
   prefixCls?: string;
   slickGoTo?: number;
+  dotsPlacement?: DotsPlacement;
 }
 
 export default class Carousel extends React.Component<CarouselProps, {}> {
@@ -91,7 +94,10 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
   }
 
   renderCarousel = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const props = {
+    const {
+      dotsPlacement,
+      ...props
+    } = {
       ...this.props,
     };
 
@@ -100,8 +106,12 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
     }
 
     let className = getPrefixCls('carousel', props.prefixCls);
+    const dotsClass = 'slick-dots';
     if (props.vertical) {
       className = `${className} ${className}-vertical`;
+      props.dotsClass = `${dotsClass} ${dotsClass}-${dotsPlacement === 'left' ? 'left' : 'right'}`;
+    } else {
+      props.dotsClass = `${dotsClass} ${dotsClass}-${dotsPlacement === 'top' ? 'top' : 'bottom'}`;
     }
 
     return (
