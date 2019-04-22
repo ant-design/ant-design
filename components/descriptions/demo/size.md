@@ -31,7 +31,7 @@ class Demo extends React.Component {
       size: e.target.value,
     });
   };
-  
+
   render() {
     return (
       <div>
@@ -43,9 +43,7 @@ class Demo extends React.Component {
         <br />
         <br />
         <Descriptions title="Custom Size" border size={this.state.size}>
-          <DescriptionsItem label="Product">
-            Cloud Database
-          </DescriptionsItem>
+          <DescriptionsItem label="Product">Cloud Database</DescriptionsItem>
           <DescriptionsItem label="Billing">Prepaid</DescriptionsItem>
           <DescriptionsItem label="time">18:00:00</DescriptionsItem>
           <DescriptionsItem label="Amount">$80.00</DescriptionsItem>
@@ -71,5 +69,4 @@ class Demo extends React.Component {
 }
 
 ReactDOM.render(<Demo />, mountNode);
-
 ```

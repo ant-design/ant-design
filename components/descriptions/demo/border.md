@@ -47,7 +47,6 @@ ReactDOM.render(
       Region: East China 1<br />
     </DescriptionsItem>
   </Descriptions>,
-  mountNode
+  mountNode,
 );
-
 ```

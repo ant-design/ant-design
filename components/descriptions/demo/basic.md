@@ -28,6 +28,6 @@ ReactDOM.render(
       No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
     </DescriptionsItem>
   </Descriptions>,
-  mountNode
+  mountNode,
 );
 ```
