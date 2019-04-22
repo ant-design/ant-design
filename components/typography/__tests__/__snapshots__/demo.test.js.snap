@@ -283,10 +283,12 @@ exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
     class="ant-typography"
   >
     This is an editable text.
-    <button
+    <div
       aria-label="edit"
       class="ant-typography-edit"
-      style="border:0;background:transparent;padding:0;line-height:inherit"
+      role="button"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      tabindex="0"
     >
       <i
         aria-label="icon: edit"
@@ -308,16 +310,18 @@ exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
           />
         </svg>
       </i>
-    </button>
+    </div>
   </div>
   <div
     class="ant-typography"
   >
     This is a copyable text.
-    <button
+    <div
       aria-label="copy"
       class="ant-typography-copy"
-      style="border:0;background:transparent;padding:0;line-height:inherit"
+      role="button"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      tabindex="0"
     >
       <i
         aria-label="icon: copy"
@@ -339,16 +343,18 @@ exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
           />
         </svg>
       </i>
-    </button>
+    </div>
   </div>
   <div
     class="ant-typography"
   >
     Replace copy text.
-    <button
+    <div
       aria-label="copy"
       class="ant-typography-copy"
-      style="border:0;background:transparent;padding:0;line-height:inherit"
+      role="button"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      tabindex="0"
     >
       <i
         aria-label="icon: copy"
@@ -370,7 +376,7 @@ exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
           />
         </svg>
       </i>
-    </button>
+    </div>
   </div>
 </div>
 `;
