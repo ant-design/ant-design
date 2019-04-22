@@ -34,6 +34,8 @@ title: Drawer
 | zIndex | 设置 Drawer 的 `z-index` | Number | 1000 |
 | placement | 抽屉的方向 | 'top'  \| 'right' \| 'bottom' \| 'left' | 'right'
 | onClose | 点击遮罩层或右上角叉或取消按钮的回调 | function(e) | 无 |
+| onVisibleChange | 切换抽屉的回调 | function(visible) | 无 |
+| afterVisibleChange | 切换抽屉时动画结束后的回调 | function(visible) | 无 |
 
 <style>
 #_hj_feedback_container {
