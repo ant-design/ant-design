@@ -1,8 +1,8 @@
 ---
 order: 5
 title:
-  zh-CN: 自定义列表
-  en-US: Customize List
+  zh-CN: 表格穿梭框
+  en-US: Table Transfer
 ---
 
 ## zh-CN
@@ -133,6 +133,12 @@ class App extends React.Component {
                 columns={columns}
                 dataSource={filteredItems}
                 size="small"
+                onRow={({ key, disabled: itemDisabled }) => ({
+                  onClick: () => {
+                    if (itemDisabled || listDisabled) return;
+                    onItemSelect(key, !listSelectedKeys.includes(key));
+                  },
+                })}
               />
             );
           }}
