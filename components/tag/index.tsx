@@ -7,7 +7,7 @@ import CheckableTag from './CheckableTag';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 import Wave from '../_util/wave';
-import { isPresetColor, PresetColorRegex } from './util';
+import { isPresetColor } from './util';
 
 export { CheckableTagProps } from './CheckableTag';
 
