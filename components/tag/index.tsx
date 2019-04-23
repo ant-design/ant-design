@@ -5,9 +5,9 @@ import { polyfill } from 'react-lifecycles-compat';
 import Icon from '../icon';
 import CheckableTag from './CheckableTag';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import { PresetColorTypes } from '../_util/colors';
 import warning from '../_util/warning';
 import Wave from '../_util/wave';
+import { isPresetColor, PresetColorRegex } from './util';
 
 export { CheckableTagProps } from './CheckableTag';
 
@@ -25,8 +25,6 @@ export interface TagProps extends React.HTMLAttributes<HTMLDivElement> {
 interface TagState {
   visible: boolean;
 }
-
-const PresetColorRegex = new RegExp(`^(${PresetColorTypes.join('|')})(-inverse)?$`);
 
 class Tag extends React.Component<TagProps, TagState> {
   static CheckableTag = CheckableTag;
@@ -77,18 +75,10 @@ class Tag extends React.Component<TagProps, TagState> {
     this.setVisible(false, e);
   };
 
-  isPresetColor(color?: string): boolean {
-    if (!color) {
-      return false;
-    }
-    return PresetColorRegex.test(color);
-  }
-
   getTagStyle() {
     const { color, style } = this.props;
-    const isPresetColor = this.isPresetColor(color);
     return {
-      backgroundColor: color && !isPresetColor ? color : undefined,
+      backgroundColor: color && !isPresetColor(color) ? color : undefined,
       ...style,
     };
   }
@@ -96,13 +86,13 @@ class Tag extends React.Component<TagProps, TagState> {
   getTagClassName({ getPrefixCls }: ConfigConsumerProps) {
     const { prefixCls: customizePrefixCls, className, color } = this.props;
     const { visible } = this.state;
-    const isPresetColor = this.isPresetColor(color);
+    const isPreset = isPresetColor(color);
     const prefixCls = getPrefixCls('tag', customizePrefixCls);
     return classNames(
       prefixCls,
       {
-        [`${prefixCls}-${color}`]: isPresetColor,
-        [`${prefixCls}-has-color`]: color && !isPresetColor,
+        [`${prefixCls}-${color}`]: isPreset,
+        [`${prefixCls}-has-color`]: color && !isPreset,
         [`${prefixCls}-hidden`]: !visible,
       },
       className,

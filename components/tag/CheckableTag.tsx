@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { PresetColorTypes } from '../_util/colors';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { isPresetColor } from './util';
 
 export interface CheckableTagProps {
   prefixCls?: string;
@@ -12,8 +12,6 @@ export interface CheckableTagProps {
   onChange?: (checked: boolean) => void;
   style?: React.CSSProperties;
 }
-
-const PresetColorRegex = new RegExp(`^(${PresetColorTypes.join('|')})(-inverse)?$`);
 
 export default class CheckableTag extends React.Component<CheckableTagProps> {
   handleClick = () => {
@@ -32,7 +30,7 @@ export default class CheckableTag extends React.Component<CheckableTagProps> {
         [`${prefixCls}-checkable`]: true,
         [`${prefixCls}-checkable-checked`]: checked,
         [`${prefixCls}-has-color`]: !!color,
-        [`${prefixCls}-${color}`]: color && this.isPresetColor(color) ? !!color : false,
+        [`${prefixCls}-${color}`]: color && isPresetColor(color) ? !!color : false,
       },
       className,
     );
@@ -56,17 +54,10 @@ export default class CheckableTag extends React.Component<CheckableTagProps> {
 
   getTagStyle() {
     const { color, unCheckedColor, style, checked } = this.props;
-    const isPresetColor = this.isPresetColor(color);
     return {
-      backgroundColor: color && !isPresetColor ? (checked ? color : unCheckedColor) : undefined,
+      backgroundColor:
+        color && !isPresetColor(color) ? (checked ? color : unCheckedColor) : undefined,
       ...style,
     };
-  }
-
-  isPresetColor(color?: string): boolean {
-    if (!color) {
-      return false;
-    }
-    return PresetColorRegex.test(color);
   }
 }
