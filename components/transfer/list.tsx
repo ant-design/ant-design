@@ -25,6 +25,8 @@ export interface RenderedItem {
   item: TransferItem;
 }
 
+type RenderListFunction = (props: TransferListBodyProps) => React.ReactNode;
+
 export interface TransferListProps {
   prefixCls: string;
   titleText: string;
@@ -46,7 +48,7 @@ export interface TransferListProps {
   itemUnit: string;
   itemsUnit: string;
   body?: (props: TransferListProps) => React.ReactNode;
-  renderList?: (props: TransferListBodyProps) => React.ReactNode;
+  renderList?: RenderListFunction;
   footer?: (props: TransferListProps) => React.ReactNode;
   lazy?: boolean | {};
   onScroll: Function;
@@ -58,6 +60,18 @@ export interface TransferListProps {
 interface TransferListState {
   /** Filter input value */
   filterValue: string;
+}
+
+function renderListNode(renderList: RenderListFunction | undefined, props: TransferListBodyProps) {
+  let bodyContent: React.ReactNode = renderList ? renderList(props) : null;
+  const customize: boolean = !!bodyContent;
+  if (!customize) {
+    bodyContent = defaultRenderList(props);
+  }
+  return {
+    customize,
+    bodyContent,
+  };
 }
 
 export default class TransferList extends React.Component<TransferListProps, TransferListState> {
@@ -211,11 +225,9 @@ export default class TransferList extends React.Component<TransferListProps, Tra
 
     let listBody: React.ReactNode = bodyDom;
     if (!listBody) {
-      const renderListFunc = renderList || defaultRenderList;
-
       let bodyNode: React.ReactNode = searchNotFound;
       if (!bodyNode) {
-        const bodyContent = renderListFunc({
+        const { bodyContent, customize } = renderListNode(renderList, {
           ...omit(this.props, OmitProps),
           filteredItems,
           filteredRenderItems,
@@ -223,7 +235,7 @@ export default class TransferList extends React.Component<TransferListProps, Tra
         });
 
         // We should wrap customize list body in a classNamed div to use flex layout.
-        bodyNode = renderList ? (
+        bodyNode = customize ? (
           <div className={`${prefixCls}-body-customize-wrapper`}>{bodyContent}</div>
         ) : (
           bodyContent
