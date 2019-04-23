@@ -30,15 +30,15 @@ class MyTag extends React.Component {
   }
 
   render() {
-    return <CheckableTag {...this.props} checked={this.state.checked} onChange={this.handleChange} />;
+    return <CheckableTag {...this.props} checked={this.state.checked} onChange={this.handleChange}/>;
   }
 }
 
 ReactDOM.render(
   <div>
     <MyTag>Tag1</MyTag>
-    <MyTag>Tag2</MyTag>
-    <MyTag>Tag3</MyTag>
+    <MyTag color="#f50" unCheckedColor="#f88">Tag2</MyTag>
+    <MyTag color="magenta">Tag3</MyTag>
   </div>,
   mountNode
 );
