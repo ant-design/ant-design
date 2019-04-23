@@ -29,4 +29,6 @@ title: Tag
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | checked | 设置标签的选中状态 | boolean | false |
+| color | 标签选中时的颜色，默认为蓝色 | string | - |
+| unCheckedColor | 标签未选中时的颜色，默认为透明 | string | - |
 | onChange | 点击标签时触发的回调 | (checked) => void | - |

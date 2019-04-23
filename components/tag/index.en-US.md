@@ -28,5 +28,7 @@ Tag for categorizing or markup.
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| checked | Checked status of Tag | boolean | `false` |
+| checked | Checked status of Tag | boolean | `false` | 
+| color | Color of the Tag when it is checked | string | - | 
+| unCheckedColor | Color of the Tag when it is unchecked | string | - | 
 | onChange | Callback executed when Tag is checked/unchecked | (checked) => void | - |
