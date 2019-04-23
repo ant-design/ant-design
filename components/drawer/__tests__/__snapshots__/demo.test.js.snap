@@ -167,98 +167,102 @@ exports[`renders ./components/drawer/demo/user-profile.md correctly 1`] = `
       <div
         class="ant-spin-container"
       >
-        <div
-          class="ant-list-item"
+        <ul
+          class="ant-list-items"
         >
-          <div
-            class="ant-list-item-meta"
+          <li
+            class="ant-list-item"
           >
             <div
-              class="ant-list-item-meta-avatar"
+              class="ant-list-item-meta"
             >
-              <span
-                class="ant-avatar ant-avatar-circle ant-avatar-image"
-              >
-                <img
-                  src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png"
-                />
-              </span>
-            </div>
-            <div
-              class="ant-list-item-meta-content"
-            >
-              <h4
-                class="ant-list-item-meta-title"
-              >
-                <a
-                  href="https://ant.design/index-cn"
-                >
-                  Lily
-                </a>
-              </h4>
               <div
-                class="ant-list-item-meta-description"
+                class="ant-list-item-meta-avatar"
               >
-                Progresser AFX
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                >
+                  <img
+                    src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design/index-cn"
+                  >
+                    Lily
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Progresser AFX
+                </div>
               </div>
             </div>
-          </div>
-          <ul
-            class="ant-list-item-action"
-          >
-            <li>
-              <a>
-                View Profile
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div
-          class="ant-list-item"
-        >
-          <div
-            class="ant-list-item-meta"
-          >
-            <div
-              class="ant-list-item-meta-avatar"
+            <ul
+              class="ant-list-item-action"
             >
-              <span
-                class="ant-avatar ant-avatar-circle ant-avatar-image"
-              >
-                <img
-                  src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png"
-                />
-              </span>
-            </div>
-            <div
-              class="ant-list-item-meta-content"
-            >
-              <h4
-                class="ant-list-item-meta-title"
-              >
-                <a
-                  href="https://ant.design/index-cn"
-                >
-                  Lily
+              <li>
+                <a>
+                  View Profile
                 </a>
-              </h4>
+              </li>
+            </ul>
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
               <div
-                class="ant-list-item-meta-description"
+                class="ant-list-item-meta-avatar"
               >
-                Progresser AFX
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                >
+                  <img
+                    src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design/index-cn"
+                  >
+                    Lily
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Progresser AFX
+                </div>
               </div>
             </div>
-          </div>
-          <ul
-            class="ant-list-item-action"
-          >
-            <li>
-              <a>
-                View Profile
-              </a>
-            </li>
-          </ul>
-        </div>
+            <ul
+              class="ant-list-item-action"
+            >
+              <li>
+                <a>
+                  View Profile
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
