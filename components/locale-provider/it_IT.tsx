@@ -31,7 +31,7 @@ export default {
   },
   Transfer: {
     searchPlaceholder: 'Cerca qui',
-    itemUnit: 'articolo',
+    itemUnit: 'elemento',
     itemsUnit: 'elementi',
   },
   Upload: {
