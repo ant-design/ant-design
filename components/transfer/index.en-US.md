@@ -55,6 +55,15 @@ New in 3.17.0. Transfer accept `children` to customize render list, using follow
 | onItemSelectAll | Select a group of items | (keys: string[], selected: boolean) | 3.17.0 |
 | selectedKeys | Selected items | string[] | 3.17.0 |
 
+#### example
+```jsx
+<Transfer {...props}>
+  {(listProps) => (
+    <YourComponent {...listProps} />
+  )}
+</Transfer>
+```
+
 ## Warning
 
 According the [standard](http://facebook.github.io/react/docs/lists-and-keys.html#keys) of React, the key should always be supplied directly to the elements in the array. In Transfer, the keys should be set on the elements included in `dataSource` array. By default, `key` property is used as an unique identifier.

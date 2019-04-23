@@ -57,6 +57,15 @@ title: Transfer
 | onItemSelectAll | 勾选一组条目 | (keys: string[], selected: boolean) | 3.17.0 |
 | selectedKeys | 选中的条目 | string[] | 3.17.0 |
 
+#### 参考示例
+```jsx
+<Transfer {...props}>
+  {(listProps) => (
+    <YourComponent {...listProps} />
+  )}
+</Transfer>
+```
+
 ## 注意
 
 按照 React 的[规范](http://facebook.github.io/react/docs/lists-and-keys.html#keys)，所有的组件数组必须绑定 key。在 Transfer 中，`dataSource`里的数据值需要指定 `key` 值。对于 `dataSource` 默认将每列数据的 `key` 属性作为唯一的标识。
