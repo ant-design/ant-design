@@ -53,7 +53,7 @@ const TreeTransfer = ({ dataSource, targetKeys, ...restProps }) => {
               blockNode
               checkable
               checkStrictly
-              defaultExpandedAll
+              defaultExpandAll
               checkedKeys={[...selectedKeys, ...targetKeys]}
               onCheck={(_, { checked, node: { props: { eventKey } } }) => {
                 onItemSelect(eventKey, checked);

@@ -2393,7 +2393,7 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
             unselectable="on"
           >
             <li
-              class="ant-tree-treenode-switcher-close"
+              class="ant-tree-treenode-switcher-open"
               role="treeitem"
             >
               <span
@@ -2418,11 +2418,11 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
               </span>
             </li>
             <li
-              class="ant-tree-treenode-switcher-close"
+              class="ant-tree-treenode-switcher-open"
               role="treeitem"
             >
               <span
-                class="ant-tree-switcher ant-tree-switcher_close"
+                class="ant-tree-switcher ant-tree-switcher_open"
               >
                 <i
                   aria-label="icon: caret-down"
@@ -2452,7 +2452,7 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
                 />
               </span>
               <span
-                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
+                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
                 title="0-1"
               >
                 <span
@@ -2461,9 +2461,65 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
                   0-1
                 </span>
               </span>
+              <ul
+                class="ant-tree-child-tree ant-tree-child-tree-open"
+                data-expanded="true"
+                role="group"
+              >
+                <li
+                  class="ant-tree-treenode-switcher-open"
+                  role="treeitem"
+                >
+                  <span
+                    class="ant-tree-switcher ant-tree-switcher-noop"
+                  />
+                  <span
+                    class="ant-tree-checkbox"
+                  >
+                    <span
+                      class="ant-tree-checkbox-inner"
+                    />
+                  </span>
+                  <span
+                    class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+                    title="0-1-0"
+                  >
+                    <span
+                      class="ant-tree-title"
+                    >
+                      0-1-0
+                    </span>
+                  </span>
+                </li>
+                <li
+                  class="ant-tree-treenode-switcher-open"
+                  role="treeitem"
+                >
+                  <span
+                    class="ant-tree-switcher ant-tree-switcher-noop"
+                  />
+                  <span
+                    class="ant-tree-checkbox"
+                  >
+                    <span
+                      class="ant-tree-checkbox-inner"
+                    />
+                  </span>
+                  <span
+                    class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+                    title="0-1-1"
+                  >
+                    <span
+                      class="ant-tree-title"
+                    >
+                      0-1-1
+                    </span>
+                  </span>
+                </li>
+              </ul>
             </li>
             <li
-              class="ant-tree-treenode-switcher-close"
+              class="ant-tree-treenode-switcher-open"
               role="treeitem"
             >
               <span
