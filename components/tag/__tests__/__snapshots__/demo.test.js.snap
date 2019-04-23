@@ -203,12 +203,13 @@ exports[`renders ./components/tag/demo/checkable.md correctly 1`] = `
     Tag1
   </div>
   <div
-    class="ant-tag ant-tag-checkable ant-tag-checkable-checked"
+    class="ant-tag ant-tag-checkable ant-tag-checkable-checked ant-tag-has-color"
+    style="background-color:#f50"
   >
     Tag2
   </div>
   <div
-    class="ant-tag ant-tag-checkable ant-tag-checkable-checked"
+    class="ant-tag ant-tag-checkable ant-tag-checkable-checked ant-tag-has-color ant-tag-magenta"
   >
     Tag3
   </div>
