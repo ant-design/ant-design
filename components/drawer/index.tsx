@@ -66,7 +66,6 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
     prefixCls: PropTypes.string,
     placement: PropTypes.oneOf(PlacementTypes),
     onClose: PropTypes.func,
-    onVisibleChange: PropTypes.func,
     afterVisibleChange: PropTypes.func,
     className: PropTypes.string,
   };
