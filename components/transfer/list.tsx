@@ -4,14 +4,14 @@ import omit from 'omit.js';
 import classNames from 'classnames';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import Checkbox from '../checkbox';
-import { TransferItem, TransferDirection } from './index';
+import { TransferItem, TransferDirection, RenderResult, RenderResultObject } from './index';
 import Search from './search';
 import defaultRenderList, { TransferListBodyProps, OmitProps } from './renderListBody';
 import triggerEvent from '../_util/triggerEvent';
 
-function noop() {}
+const defaultRender = () => null;
 
-function isRenderResultPlainObject(result: any) {
+function isRenderResultPlainObject(result: RenderResult) {
   return (
     result &&
     !React.isValidElement(result) &&
@@ -29,17 +29,17 @@ export interface TransferListProps {
   prefixCls: string;
   titleText: string;
   dataSource: TransferItem[];
-  filterOption?: (filterText: any, item: any) => boolean;
+  filterOption?: (filterText: string, item: TransferItem) => boolean;
   style?: React.CSSProperties;
   checkedKeys: string[];
-  handleFilter: (e: any) => void;
-  handleSelect: (selectedItem: any, checked: boolean) => void;
+  handleFilter: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleSelect: (selectedItem: TransferItem, checked: boolean) => void;
   /** [Legacy] Only used when `body` prop used. */
-  handleSelectAll: (dataSource: any[], checkAll: boolean) => void;
-  onItemSelect: (key: any, check: boolean) => void;
-  onItemSelectAll: (dataSource: any[], checkAll: boolean) => void;
+  handleSelectAll: (dataSource: TransferItem[], checkAll: boolean) => void;
+  onItemSelect: (key: string, check: boolean) => void;
+  onItemSelectAll: (dataSource: string[], checkAll: boolean) => void;
   handleClear: () => void;
-  render?: (item: any) => any;
+  render?: (item: TransferItem) => RenderResult;
   showSearch?: boolean;
   searchPlaceholder: string;
   notFoundContent: React.ReactNode;
@@ -65,7 +65,6 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     dataSource: [],
     titleText: '',
     showSearch: false,
-    render: noop,
     lazy: {},
   };
 
@@ -132,12 +131,14 @@ export default class TransferList extends React.Component<TransferListProps, Tra
   };
 
   renderItem = (item: TransferItem): RenderedItem => {
-    const { render = noop } = this.props;
-    const renderResult = render(item);
+    const { render = defaultRender } = this.props;
+    const renderResult: RenderResult = render(item);
     const isRenderResultPlain = isRenderResultPlainObject(renderResult);
     return {
-      renderedText: isRenderResultPlain ? renderResult.value : renderResult,
-      renderedEl: isRenderResultPlain ? renderResult.label : renderResult,
+      renderedText: isRenderResultPlain
+        ? (renderResult as RenderResultObject).value
+        : (renderResult as string),
+      renderedEl: isRenderResultPlain ? (renderResult as RenderResultObject).label : renderResult,
       item,
     };
   };

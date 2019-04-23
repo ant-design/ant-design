@@ -15,10 +15,16 @@ export { TransferListProps } from './list';
 export { TransferOperationProps } from './operation';
 export { TransferSearchProps } from './search';
 
-function noop() {}
-
 export type TransferDirection = 'left' | 'right';
-type TransferRender = (record: TransferItem) => React.ReactNode;
+
+export interface RenderResultObject {
+  label: React.ReactElement;
+  value: string;
+}
+
+export type RenderResult = React.ReactElement | RenderResultObject | string | null;
+
+type TransferRender = (item: TransferItem) => RenderResult;
 
 export interface TransferItem {
   key: string;
@@ -75,7 +81,6 @@ class Transfer extends React.Component<TransferProps, any> {
 
   static defaultProps = {
     dataSource: [],
-    render: noop as TransferRender,
     locale: {},
     showSearch: false,
   };
