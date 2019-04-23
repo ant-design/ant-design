@@ -17,6 +17,50 @@ Customize render list with Table component.
 import { Transfer, Switch, Table, Tag } from 'antd';
 import difference from 'lodash/difference';
 
+// Customize Table Transfer
+const TableTransfer = ({ leftColumns, rightColumns, ...restProps }) => (
+  <Transfer
+    {...restProps}
+    showSelectAll={false}
+  >
+    {({
+      direction, filteredItems, onItemSelectAll, onItemSelect, selectedKeys: listSelectedKeys, disabled: listDisabled,
+    }) => {
+      const columns = direction === 'left' ? leftColumns : rightColumns;
+
+      const rowSelection = {
+        getCheckboxProps: (item) => ({ disabled: listDisabled || item.disabled }),
+        onSelectAll(selected, selectedRows) {
+          const treeSelectedKeys = selectedRows.filter(item => !item.disabled).map(({ key }) => key);
+          const diffKeys = selected ?
+            difference(treeSelectedKeys, listSelectedKeys) : difference(listSelectedKeys, treeSelectedKeys);
+          onItemSelectAll(diffKeys, selected);
+        },
+        onSelect({ key }, selected) {
+          onItemSelect(key, selected);
+        },
+        selectedRowKeys: listSelectedKeys,
+      };
+
+      return (
+        <Table
+          rowSelection={rowSelection}
+          columns={columns}
+          dataSource={filteredItems}
+          size="small"
+          style={{ pointerEvents: listDisabled ? 'none' : null }}
+          onRow={({ key, disabled: itemDisabled }) => ({
+            onClick: () => {
+              if (itemDisabled || listDisabled) return;
+              onItemSelect(key, !listSelectedKeys.includes(key));
+            },
+          })}
+        />
+      );
+    }}
+  </Transfer>
+);
+
 const mockTags = [
   'cat', 'dog', 'bird',
 ];
@@ -27,16 +71,16 @@ for (let i = 0; i < 20; i++) {
     key: i.toString(),
     title: `content${i + 1}`,
     description: `description of content${i + 1}`,
-    disabled: i % 3 < 1,
+    disabled: i % 4 === 0,
     tag: mockTags[i % 3],
   });
 }
 
-const oriTargetKeys = mockData
+const originTargetKeys = mockData
   .filter(item => +item.key % 3 > 1)
   .map(item => item.key);
 
-const leftColumns = [
+const leftTableColumns = [
   {
     dataIndex: 'title',
     title: 'Name',
@@ -51,7 +95,7 @@ const leftColumns = [
     title: 'Description',
   },
 ];
-const rightColumns = [
+const rightTableColumns = [
   {
     dataIndex: 'title',
     title: 'Name',
@@ -60,101 +104,52 @@ const rightColumns = [
 
 class App extends React.Component {
   state = {
-    targetKeys: oriTargetKeys,
-    selectedKeys: [],
+    targetKeys: originTargetKeys,
     disabled: false,
     showSearch: false,
   }
 
-  handleChange = (nextTargetKeys, direction, moveKeys) => {
+  onChange = (nextTargetKeys) => {
     this.setState({ targetKeys: nextTargetKeys });
-
-    console.log('targetKeys: ', nextTargetKeys);
-    console.log('direction: ', direction);
-    console.log('moveKeys: ', moveKeys);
   }
 
-  handleSelectChange = (sourceSelectedKeys, targetSelectedKeys) => {
-    this.setState({ selectedKeys: [...sourceSelectedKeys, ...targetSelectedKeys] });
-
-    console.log('sourceSelectedKeys: ', sourceSelectedKeys);
-    console.log('targetSelectedKeys: ', targetSelectedKeys);
-  }
-
-  handleDisable = (disabled) => {
+  triggerDisable = (disabled) => {
     this.setState({ disabled });
   };
 
-  handleShowSearch = (showSearch) => {
+  triggerShowSearch = (showSearch) => {
     this.setState({ showSearch });
   };
 
   render() {
-    const { targetKeys, selectedKeys, disabled, showSearch } = this.state;
+    const { targetKeys, disabled, showSearch } = this.state;
     return (
       <div>
-        <Transfer
+        <TableTransfer
           dataSource={mockData}
-          titles={['Source', 'Target']}
           targetKeys={targetKeys}
-          selectedKeys={selectedKeys}
-          onChange={this.handleChange}
-          onSelectChange={this.handleSelectChange}
-          render={item => item.title}
           disabled={disabled}
           showSearch={showSearch}
-          showSelectAll={false}
+          onChange={this.onChange}
           filterOption={(inputValue, item) => (
             item.title.indexOf(inputValue) !== -1 ||
             item.tag.indexOf(inputValue) !== -1
           )}
-        >
-          {(listProps) => {
-            const { direction, filteredItems, onItemSelectAll, onItemSelect, selectedKeys: listSelectedKeys, disabled: listDisabled } = listProps;
-            const columns = direction === 'left' ? leftColumns : rightColumns;
-
-            const rowSelection = {
-              getCheckboxProps: (item) => ({ disabled: listDisabled || item.disabled }),
-              onSelectAll(selected, selectedRows) {
-                const treeSelectedKeys = selectedRows.filter(item => !item.disabled).map(({ key }) => key);
-                const diffKeys = selected ?
-                  difference(treeSelectedKeys, listSelectedKeys) : difference(listSelectedKeys, treeSelectedKeys);
-                onItemSelectAll(diffKeys, selected);
-              },
-              onSelect({ key }, selected) {
-                onItemSelect(key, selected);
-              },
-              selectedRowKeys: listSelectedKeys,
-            };
-
-            return (
-              <Table
-                rowSelection={rowSelection}
-                columns={columns}
-                dataSource={filteredItems}
-                size="small"
-                onRow={({ key, disabled: itemDisabled }) => ({
-                  onClick: () => {
-                    if (itemDisabled || listDisabled) return;
-                    onItemSelect(key, !listSelectedKeys.includes(key));
-                  },
-                })}
-              />
-            );
-          }}
-        </Transfer>
+          leftColumns={leftTableColumns}
+          rightColumns={rightTableColumns}
+        />
         <Switch
           unCheckedChildren="disabled"
           checkedChildren="disabled"
           checked={disabled}
-          onChange={this.handleDisable}
+          onChange={this.triggerDisable}
           style={{ marginTop: 16 }}
         />
         <Switch
           unCheckedChildren="showSearch"
           checkedChildren="showSearch"
           checked={showSearch}
-          onChange={this.handleShowSearch}
+          onChange={this.triggerShowSearch}
           style={{ marginTop: 16 }}
         />
       </div>
