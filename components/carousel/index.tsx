@@ -51,6 +51,14 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
     this.onWindowResized = debounce(this.onWindowResized, 500, {
       leading: false,
     });
+
+    if ('vertical' in this.props) {
+      warning(
+        !this.props.vertical,
+        'Carousel',
+        '`vertical` is deprecated, you can remove it safely or use `dotPosition` instead.',
+      );
+    }
   }
 
   componentDidMount() {
@@ -60,14 +68,6 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
     }
     // https://github.com/ant-design/ant-design/issues/7191
     this.innerSlider = this.slick && this.slick.innerSlider;
-
-    if ('vertical' in this.props) {
-      warning(
-        !this.props.vertical,
-        'Carousel',
-        '`vertical` is deprecated, you can remove it safely or use `dotPosition` instead.',
-      );
-    }
   }
 
   componentWillUnmount() {
@@ -102,11 +102,17 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
     this.slick.slickGoTo(slide, dontAnimate);
   }
 
+  getDotPosition(): DotPosition {
+    if ('dotPosition' in this.props && this.props.dotPosition) {
+      return this.props.dotPosition;
+    } else if ('vertical' in this.props) {
+      return this.props.vertical ? 'right' : 'bottom';
+    }
+    return 'bottom';
+  }
+
   renderCarousel = ({ getPrefixCls }: ConfigConsumerProps) => {
-    let {
-      dotPosition,
-      ...props
-    } = {
+    const props = {
       ...this.props,
     };
 
@@ -116,14 +122,9 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
 
     let className = getPrefixCls('carousel', props.prefixCls);
     const dotsClass = 'slick-dots';
-
-    if ('dotPosition' in this.props) {
-      props.vertical = dotPosition === 'left' || dotPosition === 'right';
-    } else if ('vertical' in this.props) {
-      dotPosition = props.vertical ? 'right' : 'bottom';
-    }
+    const dotPosition = this.getDotPosition();
+    props.vertical = dotPosition === 'left' || dotPosition === 'right';
     props.dotsClass = `${dotsClass} ${dotsClass}-${dotPosition || 'bottom'}`;
-
     if (props.vertical) {
       className = `${className} ${className}-vertical`;
     }

@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 2
 title:
   zh-CN: 位置
   en-US: Position
@@ -17,17 +17,11 @@ There are 4 position options available.
 import { Carousel, Radio } from 'antd';
 
 class PositionCarouselDemo extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      dotPosition: 'top',
-    };
-  }
+  state = {
+    dotPosition: 'top',
+  };
 
-  handlePositionChange = (e) => {
-    const dotPosition = e.target.value;
-    this.setState({ dotPosition });
-  }
+  handlePositionChange = ({ target: { value: dotPosition } }) => this.setState({ dotPosition });
 
   render() {
     const { dotPosition } = this.state;
