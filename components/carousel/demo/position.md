@@ -2,7 +2,7 @@
 order: 4
 title:
   zh-CN: 位置
-  en-US: Placement
+  en-US: Position
 ---
 
 ## zh-CN
@@ -11,37 +11,37 @@ title:
 
 ## en-US
 
-There are 12 placement options available.
+There are 4 position options available.
 
 ````jsx
 import { Carousel, Radio } from 'antd';
 
-class PlacementCarouselDemo extends React.Component {
+class PositionCarouselDemo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      dotsPlacement: 'top',
+      dotsPosition: 'top',
       vertical: false,
     };
   }
 
-  handlePlacementChange = (e) => {
-    const dotsPlacement = e.target.value;
-    const vertical = dotsPlacement === 'left' || dotsPlacement === 'right';
-    this.setState({ dotsPlacement, vertical });
+  handlePositionChange = (e) => {
+    const dotsPosition = e.target.value;
+    const vertical = dotsPosition === 'left' || dotsPosition === 'right';
+    this.setState({ dotsPosition, vertical });
   }
 
   render() {
-    const { dotsPlacement, vertical } = this.state;
+    const { dotsPosition, vertical } = this.state;
     return (
       <div>
-        <Radio.Group onChange={this.handlePlacementChange} value={dotsPlacement} style={{ marginBottom: 8 }}>
+        <Radio.Group onChange={this.handlePositionChange} value={dotsPosition} style={{ marginBottom: 8 }}>
           <Radio.Button value="top">Top</Radio.Button>
           <Radio.Button value="bottom">Bottom</Radio.Button>
           <Radio.Button value="left">Left</Radio.Button>
           <Radio.Button value="right">Right</Radio.Button>
         </Radio.Group>
-        <Carousel vertical={vertical} dotsPlacement={dotsPlacement}>
+        <Carousel vertical={vertical} dotsPosition={dotsPosition}>
           <div><h3>1</h3></div>
           <div><h3>2</h3></div>
           <div><h3>3</h3></div>
@@ -52,7 +52,7 @@ class PlacementCarouselDemo extends React.Component {
   }
 }
 
-ReactDOM.render(<PlacementCarouselDemo />, mountNode);
+ReactDOM.render(<PositionCarouselDemo />, mountNode);
 ````
 
 ````css

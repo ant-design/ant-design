@@ -23,7 +23,7 @@ A carousel component. Scales with its container.
 | easing | Transition interpolation function name | string | `linear` |
 | effect | Transition effect | `scrollx` \| `fade` | `scrollx` |
 | vertical | Whether to use a vertical display | boolean | `false` |
-| dotsPlacement | The position of the dots, which can be one of `top` `bottom` `left` `right` | string | bottom |
+| dotsPosition | The position of the dots, which can be one of `top` `bottom` `left` `right` | string | bottom |
 
 ## Methods
 
