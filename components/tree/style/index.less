@@ -11,6 +11,13 @@
 .antCheckboxFn(@checkbox-prefix-cls: ~'@{ant-prefix}-tree-checkbox');
 
 .@{tree-prefix-cls} {
+  &-checkbox-checked::after {
+    position: absolute;
+    top: 0;
+    left: -25%;
+    width: 150%;
+  }
+
   .reset-component;
 
   margin: 0;
