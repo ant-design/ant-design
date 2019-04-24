@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { ListGridType, ColumnType } from './index';
 import { Col } from '../grid';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { cloneElement } from '../_util/reactNode';
 
 export interface ListItemProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
@@ -129,11 +130,7 @@ export default class Item extends React.Component<ListItemProps, any> {
                 {extra}
               </div>,
             ]
-          : [
-              children,
-              actionsContent,
-              extra ? React.cloneElement(extra as React.ReactElement<any>, { key: 'extra' }) : null,
-            ]}
+          : [children, actionsContent, cloneElement(extra, { key: 'extra' })]}
       </div>
     );
 

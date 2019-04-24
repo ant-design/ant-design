@@ -43,10 +43,6 @@
     align-items: center;
     padding: @list-item-padding;
 
-    &-no-flex {
-      display: block;
-    }
-
     &-content {
       color: @text-color;
     }
@@ -205,6 +201,20 @@
     padding-top: 0;
     padding-bottom: 0;
     border-bottom: none;
+  }
+
+  // ============================ without flex ============================
+  &-item-no-flex {
+    display: block;
+  }
+
+  // Horizontal
+  &:not(.@{list-prefix-cls}-vertical) {
+    .@{list-prefix-cls}-item-no-flex {
+      .@{list-prefix-cls}-item-action {
+        float: right;
+      }
+    }
   }
 }
 
