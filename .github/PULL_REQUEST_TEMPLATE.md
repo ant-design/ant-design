@@ -16,6 +16,7 @@ Please makes sure that these form are filled before submitting your pull request
 - [ ] TypeScript definition update
 - [ ] Refactoring
 - [ ] Code style optimization
+- [ ] Test Case
 - [ ] Branch merge
 - [ ] Other (about what?)
 

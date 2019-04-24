@@ -186,12 +186,16 @@ export type WrappedFormUtils<V = any> = {
   ): (node: React.ReactNode) => React.ReactNode;
 };
 
-export interface FormComponentProps<V = any> {
+export interface WrappedFormInternalProps<V = any> {
   form: WrappedFormUtils<V>;
 }
 
 export interface RcBaseFormProps {
   wrappedComponentRef?: any;
+}
+
+export interface FormComponentProps<V = any> extends WrappedFormInternalProps<V>, RcBaseFormProps {
+  form: WrappedFormUtils<V>;
 }
 
 export default class Form extends React.Component<FormProps, any> {

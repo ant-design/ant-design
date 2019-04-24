@@ -93,7 +93,7 @@ export default class List<T> extends React.Component<ListProps<T>, ListState> {
     super(props);
 
     const { pagination } = props;
-    const paginationObj = typeof pagination === 'object' ? pagination : {};
+    const paginationObj = pagination && typeof pagination === 'object' ? pagination : {};
 
     this.state = {
       paginationCurrent: paginationObj.defaultCurrent || 1,
