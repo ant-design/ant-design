@@ -78,4 +78,25 @@ describe('Carousel', () => {
     expect(spy).toHaveBeenCalled();
     expect(spy2).toHaveBeenCalledWith('resize', onWindowResized);
   });
+
+  it('warning', () => {
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(
+      <Carousel vertical>
+        <div />
+      </Carousel>,
+    );
+    expect(warnSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Carousel] `vertical` is deprecated, use `dotPosition` instead.',
+    );
+    mount(
+      <Carousel vertical={false}>
+        <div />
+      </Carousel>,
+    );
+    expect(warnSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Carousel] `vertical={false}` is deprecated, you can remove it safely or use `dotPosition` instead.',
+    );
+    warnSpy.mockRestore();
+  });
 });
