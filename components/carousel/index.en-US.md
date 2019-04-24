@@ -22,7 +22,6 @@ A carousel component. Scales with its container.
 | dots | Whether to show the dots at the bottom of the gallery | boolean | `true` |
 | easing | Transition interpolation function name | string | `linear` |
 | effect | Transition effect | `scrollx` \| `fade` | `scrollx` |
-| vertical | Whether to use a vertical display | boolean | `false` |
 | dotsPosition | The position of the dots, which can be one of `top` `bottom` `left` `right` | string | bottom |
 
 ## Methods

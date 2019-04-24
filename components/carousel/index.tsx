@@ -2,6 +2,7 @@ import * as React from 'react';
 import debounce from 'lodash/debounce';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { Settings } from 'react-slick';
+import warning from '../_util/warning';
 
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
@@ -59,6 +60,14 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
     }
     // https://github.com/ant-design/ant-design/issues/7191
     this.innerSlider = this.slick && this.slick.innerSlider;
+
+    if ('vertical' in this.props) {
+      warning(
+        !this.props.vertical,
+        'Carousel',
+        '`vertical` is deprecated, you can remove it safely or use `dotsPosition` instead.',
+      );
+    }
   }
 
   componentWillUnmount() {
@@ -94,7 +103,7 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
   }
 
   renderCarousel = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const {
+    let {
       dotsPosition,
       ...props
     } = {
@@ -107,11 +116,16 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
 
     let className = getPrefixCls('carousel', props.prefixCls);
     const dotsClass = 'slick-dots';
+
+    if ('dotsPosition' in this.props) {
+      props.vertical = dotsPosition === 'left' || dotsPosition === 'right';
+    } else if ('vertical' in this.props) {
+      dotsPosition = props.vertical ? 'right' : 'bottom';
+    }
+    props.dotsClass = `${dotsClass} ${dotsClass}-${dotsPosition || 'bottom'}`;
+
     if (props.vertical) {
       className = `${className} ${className}-vertical`;
-      props.dotsClass = `${dotsClass} ${dotsClass}-${dotsPosition === 'left' ? 'left' : 'right'}`;
-    } else {
-      props.dotsClass = `${dotsClass} ${dotsClass}-${dotsPosition === 'top' ? 'top' : 'bottom'}`;
     }
 
     return (

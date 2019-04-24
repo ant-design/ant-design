@@ -21,18 +21,16 @@ class PositionCarouselDemo extends React.Component {
     super(props);
     this.state = {
       dotsPosition: 'top',
-      vertical: false,
     };
   }
 
   handlePositionChange = (e) => {
     const dotsPosition = e.target.value;
-    const vertical = dotsPosition === 'left' || dotsPosition === 'right';
-    this.setState({ dotsPosition, vertical });
+    this.setState({ dotsPosition });
   }
 
   render() {
-    const { dotsPosition, vertical } = this.state;
+    const { dotsPosition } = this.state;
     return (
       <div>
         <Radio.Group onChange={this.handlePositionChange} value={dotsPosition} style={{ marginBottom: 8 }}>
@@ -41,7 +39,7 @@ class PositionCarouselDemo extends React.Component {
           <Radio.Button value="left">Left</Radio.Button>
           <Radio.Button value="right">Right</Radio.Button>
         </Radio.Group>
-        <Carousel vertical={vertical} dotsPosition={dotsPosition}>
+        <Carousel dotsPosition={dotsPosition}>
           <div><h3>1</h3></div>
           <div><h3>2</h3></div>
           <div><h3>3</h3></div>
