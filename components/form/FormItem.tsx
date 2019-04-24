@@ -20,6 +20,7 @@ export interface FormItemProps {
   prefixCls?: string;
   className?: string;
   id?: string;
+  htmlFor?: string;
   label?: React.ReactNode;
   labelAlign?: FormLabelAlign;
   labelCol?: ColProps;
@@ -60,13 +61,19 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   helpShow = false;
 
   componentDidMount() {
-    const { children, help, validateStatus } = this.props;
+    const { children, help, validateStatus, id } = this.props;
     warning(
       this.getControls(children, true).length <= 1 ||
         (help !== undefined || validateStatus !== undefined),
       'Form.Item',
       'Cannot generate `validateStatus` and `help` automatically, ' +
         'while there are more than one `getFieldDecorator` in it.',
+    );
+
+    warning(
+      !id,
+      'Form.Item',
+      '`id` is deprecated for its label `htmlFor`. Please use `htmlFor` directly.',
     );
   }
 
@@ -328,7 +335,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
           labelCol: contextLabelCol,
           colon: contextColon,
         }: FormContextProps) => {
-          const { label, labelCol, labelAlign, colon, id } = this.props;
+          const { label, labelCol, labelAlign, colon, id, htmlFor } = this.props;
           const required = this.isRequired();
 
           const mergedLabelCol: ColProps =
@@ -361,7 +368,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
           return label ? (
             <Col {...mergedLabelCol} className={labelColClassName}>
               <label
-                htmlFor={id || this.getId()}
+                htmlFor={htmlFor || id || this.getId()}
                 className={labelClassName}
                 title={typeof label === 'string' ? label : ''}
                 onClick={this.onLabelClick}
