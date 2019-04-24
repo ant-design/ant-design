@@ -206,9 +206,14 @@
   // ============================ without flex ============================
   &-item-no-flex {
     display: block;
+  }
 
-    .@{list-prefix-cls}-item-action {
-      float: right;
+  // Horizontal
+  &:not(.@{list-prefix-cls}-vertical) {
+    .@{list-prefix-cls}-item-no-flex {
+      .@{list-prefix-cls}-item-action {
+        float: right;
+      }
     }
   }
 }
