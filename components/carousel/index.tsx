@@ -24,7 +24,7 @@ if (typeof window !== 'undefined') {
 const SlickCarousel = require('react-slick').default;
 
 export type CarouselEffect = 'scrollx' | 'fade';
-export type DotsPosition = 'top' | 'bottom' | 'left' | 'right';
+export type DotPosition = 'top' | 'bottom' | 'left' | 'right';
 
 // Carousel
 export interface CarouselProps extends Settings {
@@ -32,7 +32,7 @@ export interface CarouselProps extends Settings {
   style?: React.CSSProperties;
   prefixCls?: string;
   slickGoTo?: number;
-  dotsPosition?: DotsPosition;
+  dotPosition?: DotPosition;
 }
 
 export default class Carousel extends React.Component<CarouselProps, {}> {
@@ -65,7 +65,7 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
       warning(
         !this.props.vertical,
         'Carousel',
-        '`vertical` is deprecated, you can remove it safely or use `dotsPosition` instead.',
+        '`vertical` is deprecated, you can remove it safely or use `dotPosition` instead.',
       );
     }
   }
@@ -104,7 +104,7 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
 
   renderCarousel = ({ getPrefixCls }: ConfigConsumerProps) => {
     let {
-      dotsPosition,
+      dotPosition,
       ...props
     } = {
       ...this.props,
@@ -117,12 +117,12 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
     let className = getPrefixCls('carousel', props.prefixCls);
     const dotsClass = 'slick-dots';
 
-    if ('dotsPosition' in this.props) {
-      props.vertical = dotsPosition === 'left' || dotsPosition === 'right';
+    if ('dotPosition' in this.props) {
+      props.vertical = dotPosition === 'left' || dotPosition === 'right';
     } else if ('vertical' in this.props) {
-      dotsPosition = props.vertical ? 'right' : 'bottom';
+      dotPosition = props.vertical ? 'right' : 'bottom';
     }
-    props.dotsClass = `${dotsClass} ${dotsClass}-${dotsPosition || 'bottom'}`;
+    props.dotsClass = `${dotsClass} ${dotsClass}-${dotPosition || 'bottom'}`;
 
     if (props.vertical) {
       className = `${className} ${className}-vertical`;

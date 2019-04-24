@@ -23,7 +23,7 @@ subtitle: 走马灯
 | dots | 是否显示面板指示点 | boolean | true |
 | easing | 动画效果 | string | linear |
 | effect | 动画效果函数，可取 scrollx, fade | string | scrollx |
-| dotsPosition | 面板指示点位置，可选 `top` `bottom` `left` `right` | string | bottom |
+| dotPosition | 面板指示点位置，可选 `top` `bottom` `left` `right` | string | bottom |
 
 ## 方法
 

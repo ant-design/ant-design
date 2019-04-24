@@ -20,26 +20,26 @@ class PositionCarouselDemo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      dotsPosition: 'top',
+      dotPosition: 'top',
     };
   }
 
   handlePositionChange = (e) => {
-    const dotsPosition = e.target.value;
-    this.setState({ dotsPosition });
+    const dotPosition = e.target.value;
+    this.setState({ dotPosition });
   }
 
   render() {
-    const { dotsPosition } = this.state;
+    const { dotPosition } = this.state;
     return (
       <div>
-        <Radio.Group onChange={this.handlePositionChange} value={dotsPosition} style={{ marginBottom: 8 }}>
+        <Radio.Group onChange={this.handlePositionChange} value={dotPosition} style={{ marginBottom: 8 }}>
           <Radio.Button value="top">Top</Radio.Button>
           <Radio.Button value="bottom">Bottom</Radio.Button>
           <Radio.Button value="left">Left</Radio.Button>
           <Radio.Button value="right">Right</Radio.Button>
         </Radio.Group>
-        <Carousel dotsPosition={dotsPosition}>
+        <Carousel dotPosition={dotPosition}>
           <div><h3>1</h3></div>
           <div><h3>2</h3></div>
           <div><h3>3</h3></div>

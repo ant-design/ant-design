@@ -558,7 +558,7 @@ exports[`renders ./components/carousel/demo/fade.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/carousel/demo/placement.md correctly 1`] = `
+exports[`renders ./components/carousel/demo/position.md correctly 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline"
