@@ -43,4 +43,18 @@ describe('Modal', () => {
     const wrapper = mount(<ModalTester footer={null} />);
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  it('onCancel should be called', () => {
+    const onCancel = jest.fn();
+    const wrapper = mount(<Modal onCancel={onCancel} />).instance();
+    wrapper.handleCancel();
+    expect(onCancel).toHaveBeenCalled();
+  });
+
+  it('onOk should be called', () => {
+    const onOk = jest.fn();
+    const wrapper = mount(<Modal onOk={onOk} />).instance();
+    wrapper.handleOk();
+    expect(onOk).toHaveBeenCalled();
+  });
 });

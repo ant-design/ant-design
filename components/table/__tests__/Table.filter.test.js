@@ -5,6 +5,15 @@ import Table from '..';
 import Input from '../../input';
 import Button from '../../button';
 
+function getDropdownWrapper(wrapper) {
+  return mount(
+    wrapper
+      .find('Trigger')
+      .instance()
+      .getComponent(),
+  );
+}
+
 describe('Table.filter', () => {
   const filterFn = (value, record) => record.name.indexOf(value) !== -1;
   const column = {
@@ -214,7 +223,7 @@ describe('Table.filter', () => {
       .first()
       .simulate('click');
 
-    expect(handleChange).toBeCalledWith(true);
+    expect(handleChange).toHaveBeenCalledWith(true);
   });
 
   it('can be controlled by filteredValue', () => {
@@ -268,12 +277,7 @@ describe('Table.filter', () => {
   it('fires change event', () => {
     const handleChange = jest.fn();
     const wrapper = mount(createTable({ onChange: handleChange }));
-    const dropdownWrapper = mount(
-      wrapper
-        .find('Trigger')
-        .instance()
-        .getComponent(),
-    );
+    const dropdownWrapper = getDropdownWrapper(wrapper);
 
     dropdownWrapper
       .find('MenuItem')
@@ -281,7 +285,7 @@ describe('Table.filter', () => {
       .simulate('click');
     dropdownWrapper.find('.confirm').simulate('click');
 
-    expect(handleChange).toBeCalledWith(
+    expect(handleChange).toHaveBeenCalledWith(
       {},
       { name: ['boy'] },
       {},
@@ -294,12 +298,7 @@ describe('Table.filter', () => {
   it('should not fire change event on close filterDropdown without changing anything', () => {
     const handleChange = jest.fn();
     const wrapper = mount(createTable({ onChange: handleChange }));
-    const dropdownWrapper = mount(
-      wrapper
-        .find('Trigger')
-        .instance()
-        .getComponent(),
-    );
+    const dropdownWrapper = getDropdownWrapper(wrapper);
 
     dropdownWrapper.find('.clear').simulate('click');
 
@@ -339,12 +338,7 @@ describe('Table.filter', () => {
       }),
     );
     jest.useFakeTimers();
-    const dropdownWrapper = mount(
-      wrapper
-        .find('Trigger')
-        .instance()
-        .getComponent(),
-    );
+    const dropdownWrapper = getDropdownWrapper(wrapper);
     dropdownWrapper
       .find('.ant-dropdown-menu-submenu-title')
       .at(0)
@@ -365,6 +359,63 @@ describe('Table.filter', () => {
     wrapper.update();
     expect(renderedNames(wrapper)).toEqual(['Jack']);
     jest.useRealTimers();
+  });
+
+  describe('should support value types', () => {
+    [['Light', 93], ['Bamboo', false]].forEach(([text, value]) => {
+      it(`${typeof value} type`, () => {
+        const onFilter = jest.fn();
+        const filters = [{ text, value }];
+        const wrapper = mount(
+          createTable({
+            columns: [
+              {
+                ...column,
+                filters,
+                onFilter,
+              },
+            ],
+          }),
+        );
+        jest.useFakeTimers();
+        const dropdownWrapper = getDropdownWrapper(wrapper);
+        dropdownWrapper
+          .find('MenuItem')
+          .first()
+          .simulate('click');
+
+        // This test can be remove if refactor
+        expect(typeof wrapper.find('FilterMenu').state().selectedKeys[0]).toEqual('string');
+
+        dropdownWrapper.find('.confirm').simulate('click');
+        wrapper.update();
+
+        expect(onFilter.mock.calls.length > 0).toBeTruthy();
+        onFilter.mock.calls.forEach(([val]) => {
+          expect(val).toBe(value);
+        });
+
+        // This test can be remove if refactor
+        expect(typeof wrapper.find('FilterMenu').state().selectedKeys[0]).toEqual(typeof value);
+
+        // Another time of Filter show
+        // https://github.com/ant-design/ant-design/issues/15593
+        getDropdownWrapper(wrapper)
+          .find('MenuItem')
+          .first()
+          .simulate('click');
+
+        expect(
+          wrapper
+            .find('FilterMenu')
+            .find('Checkbox')
+            .at(0)
+            .props().checked,
+        ).toEqual(true);
+
+        jest.useRealTimers();
+      });
+    });
   });
 
   it('works with JSX in controlled mode', () => {
@@ -397,12 +448,7 @@ describe('Table.filter', () => {
     }
 
     const wrapper = mount(<App />);
-    const dropdownWrapper = mount(
-      wrapper
-        .find('Trigger')
-        .instance()
-        .getComponent(),
-    );
+    const dropdownWrapper = getDropdownWrapper(wrapper);
 
     dropdownWrapper
       .find('MenuItem')
@@ -477,7 +523,7 @@ describe('Table.filter', () => {
       .first()
       .simulate('click');
 
-    expect(handleChange).toBeCalled();
+    expect(handleChange).toHaveBeenCalled();
     expect(handleChange.mock.calls[0][3].currentDataSource.length).toBe(1);
   });
 

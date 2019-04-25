@@ -12,6 +12,7 @@ title: 社区精选组件
 拖拽 | [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd/) [react-dnd](https://github.com/gaearon/react-dnd)  [react-sortable-hoc](https://github.com/clauderic/react-sortable-hoc)
 代码编辑器 | [react-codemirror2](https://github.com/scniro/react-codemirror2) [react-monaco-editor](https://github.com/superRaytin/react-monaco-editor)
 富文本编辑器 | [react-quill](https://github.com/zenoamaro/react-quill) [braft-editor](https://github.com/margox/braft-editor)
+JSON 显示器 | [react-json-view](https://github.com/mac-s-g/react-json-view)
 拾色器 | [rc-color-picker](https://github.com/react-component/color-picker) [react-color](http://casesandberg.github.io/react-color/)
 响应式 | [react-responsive](https://github.com/contra/react-responsive) [react-media](https://github.com/ReactTraining/react-media)
 复制到剪贴板 | [react-copy-to-clipboard](https://github.com/nkbt/react-copy-to-clipboard)
@@ -33,7 +34,7 @@ Emoji | [emoji-mart](https://github.com/missive/emoji-mart)
 趋势线 | [react-sparklines](https://github.com/borisyankov/react-sparklines)
 格式化输入 | [text-mask](https://github.com/text-mask/text-mask)
 关键字高亮 | [react-highlight-words](https://github.com/bvaughn/react-highlight-words)
-动画 | [react-move](https://github.com/react-tools/react-move) [Ant Motion](https://motion.ant.design/components/tween-one)
+动画 | [react-move](https://github.com/react-tools/react-move) [Ant Motion](https://motion.ant.design/components/tween-one) [react-spring](https://www.react-spring.io)
 
 <style>
 .markdown table td:first-child {

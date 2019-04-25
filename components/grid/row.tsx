@@ -1,3 +1,5 @@
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
 let enquire: any;
@@ -113,17 +115,18 @@ export default class Row extends React.Component<RowProps, RowState> {
     }
     return gutter as number;
   }
-  render() {
+  renderRow = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
+      prefixCls: customizePrefixCls,
       type,
       justify,
       align,
       className,
       style,
       children,
-      prefixCls = 'ant-row',
       ...others
     } = this.props;
+    const prefixCls = getPrefixCls('row', customizePrefixCls);
     const gutter = this.getGutter();
     const classes = classNames(
       {
@@ -135,10 +138,10 @@ export default class Row extends React.Component<RowProps, RowState> {
       className,
     );
     const rowStyle =
-      (gutter as number) > 0
+      gutter! > 0
         ? {
-            marginLeft: (gutter as number) / -2,
-            marginRight: (gutter as number) / -2,
+            marginLeft: gutter! / -2,
+            marginRight: gutter! / -2,
             ...style,
           }
         : style;
@@ -151,5 +154,9 @@ export default class Row extends React.Component<RowProps, RowState> {
         </div>
       </RowContext.Provider>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderRow}</ConfigConsumer>;
   }
 }

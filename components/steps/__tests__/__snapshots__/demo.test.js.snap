@@ -152,6 +152,7 @@ exports[`renders ./components/steps/demo/error.md correctly 1`] = `
         class="ant-steps-icon"
       >
         <i
+          aria-label="icon: check"
           class="anticon anticon-check ant-steps-finish-icon"
         >
           <svg
@@ -159,6 +160,7 @@ exports[`renders ./components/steps/demo/error.md correctly 1`] = `
             class=""
             data-icon="check"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -198,6 +200,7 @@ exports[`renders ./components/steps/demo/error.md correctly 1`] = `
         class="ant-steps-icon"
       >
         <i
+          aria-label="icon: close"
           class="anticon anticon-close ant-steps-error-icon"
         >
           <svg
@@ -205,6 +208,7 @@ exports[`renders ./components/steps/demo/error.md correctly 1`] = `
             class=""
             data-icon="close"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -281,6 +285,7 @@ exports[`renders ./components/steps/demo/icon.md correctly 1`] = `
         class="ant-steps-icon"
       >
         <i
+          aria-label="icon: user"
           class="anticon anticon-user"
         >
           <svg
@@ -288,6 +293,7 @@ exports[`renders ./components/steps/demo/icon.md correctly 1`] = `
             class=""
             data-icon="user"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -322,6 +328,7 @@ exports[`renders ./components/steps/demo/icon.md correctly 1`] = `
         class="ant-steps-icon"
       >
         <i
+          aria-label="icon: solution"
           class="anticon anticon-solution"
         >
           <svg
@@ -329,6 +336,7 @@ exports[`renders ./components/steps/demo/icon.md correctly 1`] = `
             class=""
             data-icon="solution"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -363,6 +371,7 @@ exports[`renders ./components/steps/demo/icon.md correctly 1`] = `
         class="ant-steps-icon"
       >
         <i
+          aria-label="icon: loading"
           class="anticon anticon-loading"
         >
           <svg
@@ -370,6 +379,7 @@ exports[`renders ./components/steps/demo/icon.md correctly 1`] = `
             class="anticon-spin"
             data-icon="loading"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="0 0 1024 1024"
             width="1em"
@@ -404,6 +414,7 @@ exports[`renders ./components/steps/demo/icon.md correctly 1`] = `
         class="ant-steps-icon"
       >
         <i
+          aria-label="icon: smile-o"
           class="anticon anticon-smile-o"
         >
           <svg
@@ -411,6 +422,7 @@ exports[`renders ./components/steps/demo/icon.md correctly 1`] = `
             class=""
             data-icon="smile"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -555,6 +567,7 @@ exports[`renders ./components/steps/demo/simple.md correctly 1`] = `
         class="ant-steps-icon"
       >
         <i
+          aria-label="icon: check"
           class="anticon anticon-check ant-steps-finish-icon"
         >
           <svg
@@ -562,6 +575,7 @@ exports[`renders ./components/steps/demo/simple.md correctly 1`] = `
             class=""
             data-icon="check"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -668,6 +682,7 @@ exports[`renders ./components/steps/demo/small-size.md correctly 1`] = `
         class="ant-steps-icon"
       >
         <i
+          aria-label="icon: check"
           class="anticon anticon-check ant-steps-finish-icon"
         >
           <svg
@@ -675,6 +690,7 @@ exports[`renders ./components/steps/demo/small-size.md correctly 1`] = `
             class=""
             data-icon="check"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -867,6 +883,7 @@ exports[`renders ./components/steps/demo/vertical.md correctly 1`] = `
         class="ant-steps-icon"
       >
         <i
+          aria-label="icon: check"
           class="anticon anticon-check ant-steps-finish-icon"
         >
           <svg
@@ -874,6 +891,7 @@ exports[`renders ./components/steps/demo/vertical.md correctly 1`] = `
             class=""
             data-icon="check"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -980,6 +998,7 @@ exports[`renders ./components/steps/demo/vertical-small.md correctly 1`] = `
         class="ant-steps-icon"
       >
         <i
+          aria-label="icon: check"
           class="anticon anticon-check ant-steps-finish-icon"
         >
           <svg
@@ -987,6 +1006,7 @@ exports[`renders ./components/steps/demo/vertical-small.md correctly 1`] = `
             class=""
             data-icon="check"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"

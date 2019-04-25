@@ -13,7 +13,6 @@ export default {
     filterTitle: 'תפריט סינון',
     filterConfirm: 'אישור',
     filterReset: 'איפוס',
-    emptyText: 'אין מידע',
     selectAll: 'בחר הכל',
     selectInvert: 'הפוך בחירה',
   },
@@ -27,18 +26,17 @@ export default {
     cancelText: 'ביטול',
   },
   Transfer: {
-    notFoundContent: 'לא נמצא',
     searchPlaceholder: 'חפש כאן',
     itemUnit: 'פריט',
     itemsUnit: 'פריטים',
-  },
-  Select: {
-    notFoundContent: 'לא נמצא',
   },
   Upload: {
     uploading: 'מעלה...',
     removeFile: 'הסר קובץ',
     uploadError: 'שגיאת העלאה',
     previewFile: 'הצג קובץ',
+  },
+  Empty: {
+    description: 'אין מידע',
   },
 };

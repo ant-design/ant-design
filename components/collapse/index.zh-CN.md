@@ -21,7 +21,11 @@ cols: 1
 | --- | --- | --- | --- |
 | activeKey | 当前激活 tab 面板的 key | string\[]\|string | 默认无，accordion模式下默认第一个元素 |
 | defaultActiveKey | 初始化选中面板的 key | string | 无 |
+| bordered | 带边框风格的折叠面板 | boolean | `true` |
+| accordion | 手风琴模式 | boolean | `false` |
 | onChange | 切换面板的回调 | Function | 无 |
+| expandIcon | 自定义切换图标 | (panelProps) => ReactNode | - |
+| destroyInactivePanel | 销毁折叠隐藏的面板 | boolean | `false` |
 
 ### Collapse.Panel
 
@@ -31,6 +35,8 @@ cols: 1
 | forceRender | 被隐藏时是否渲染 DOM 结构 | boolean | false |
 | header | 面板头内容 | string\|ReactNode | 无 |
 | key | 对应 activeKey | string | 无 |
+| showArrow | 是否展示当前面板上的箭头 | boolean | `true` |
+| extra | 自定义渲染每个面板右上角的内容 | ReactNode | - |
 
 ## FAQ
 

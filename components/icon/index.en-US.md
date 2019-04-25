@@ -9,10 +9,6 @@ Semantic vector graphics.
 
 ## List of icons
 
-> Click the icon and copy the code.
-
-We are still adding two-tone icons right now.
-
 ```__react
 import IconDisplay from 'site/theme/template/IconDisplay';
 ReactDOM.render(<IconDisplay />, mountNode);
@@ -26,6 +22,7 @@ ReactDOM.render(<IconDisplay />, mountNode);
 | style | Style properties of icon, like `fontSize` and `color` | CSSProperties | - |
 | theme | Theme of the ant design icon  | 'filled' \| 'outlined' \| 'twoTone' | 'outlined' |
 | spin | Rotate icon with animation | boolean | false |
+| rotate | Rotate degrees (added in 3.13.0, not working in IE9) | number | - |
 | component | The component used for the root node. This will override the **`type`** property. | ComponentType<CustomIconComponentProps\> | - |
 | twoToneColor | Only support the two-tone icon. Specific the primary color. | string (hex color) | - |
 
@@ -41,6 +38,8 @@ We introduced SVG icons in `3.9.0` version replacing font icons which brings ben
 More discussion of SVG icon reference to [#10353](https://github.com/ant-design/ant-design/issues/10353).
 
 > ⚠️ About the extra bundle size brought by all SVG icons we imported in 3.9.0, we will provide new API to allow developers importing icons as your need, you can trace [#12011](https://github.com/ant-design/ant-design/issues/12011) for further progress.
+>
+> Before this, you can use [webpack plugin](https://github.com/Beven91/webpack-ant-icon-loader) from community to chunk the icon file.
 
 The properties `theme`, `component` and `twoToneColor` are added in `3.9.0`. The best practice is to pass the property `theme` to every `<Icon />` components.
 

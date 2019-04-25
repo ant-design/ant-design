@@ -44,6 +44,7 @@ exports[`Button renders Chinese characters correctly 2`] = `
   type="button"
 >
   <i
+    aria-label="icon: search"
     class="anticon anticon-search"
   >
     <svg
@@ -51,6 +52,7 @@ exports[`Button renders Chinese characters correctly 2`] = `
       class=""
       data-icon="search"
       fill="currentColor"
+      focusable="false"
       height="1em"
       viewBox="64 64 896 896"
       width="1em"
@@ -72,6 +74,7 @@ exports[`Button renders Chinese characters correctly 3`] = `
   type="button"
 >
   <i
+    aria-label="icon: search"
     class="anticon anticon-search"
   >
     <svg
@@ -79,6 +82,7 @@ exports[`Button renders Chinese characters correctly 3`] = `
       class=""
       data-icon="search"
       fill="currentColor"
+      focusable="false"
       height="1em"
       viewBox="64 64 896 896"
       width="1em"
@@ -100,6 +104,7 @@ exports[`Button renders Chinese characters correctly 4`] = `
   type="button"
 >
   <i
+    aria-label="icon: search"
     class="anticon anticon-search"
   >
     <svg
@@ -107,6 +112,7 @@ exports[`Button renders Chinese characters correctly 4`] = `
       class=""
       data-icon="search"
       fill="currentColor"
+      focusable="false"
       height="1em"
       viewBox="64 64 896 896"
       width="1em"
@@ -128,6 +134,7 @@ exports[`Button renders Chinese characters correctly 5`] = `
   type="button"
 >
   <i
+    aria-label="icon: loading"
     class="anticon anticon-loading"
   >
     <svg
@@ -135,6 +142,7 @@ exports[`Button renders Chinese characters correctly 5`] = `
       class="anticon-spin"
       data-icon="loading"
       fill="currentColor"
+      focusable="false"
       height="1em"
       viewBox="0 0 1024 1024"
       width="1em"
@@ -156,6 +164,7 @@ exports[`Button renders Chinese characters correctly 6`] = `
   type="button"
 >
   <i
+    aria-label="icon: loading"
     class="anticon anticon-loading"
   >
     <svg
@@ -163,6 +172,7 @@ exports[`Button renders Chinese characters correctly 6`] = `
       class="anticon-spin"
       data-icon="loading"
       fill="currentColor"
+      focusable="false"
       height="1em"
       viewBox="0 0 1024 1024"
       width="1em"

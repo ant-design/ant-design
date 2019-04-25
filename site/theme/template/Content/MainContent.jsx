@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { Row, Col, Menu, Icon, Affix } from 'antd';
 import classNames from 'classnames';
+import get from 'lodash/get';
 import MobileMenu from 'rc-drawer';
 import Article from './Article';
 import PrevAndNext from './PrevAndNext';
@@ -81,19 +82,27 @@ export default class MainContent extends Component {
 
   componentDidUpdate(prevProps) {
     const { location } = this.props;
-    if (!prevProps || prevProps.location.pathname !== location.pathname) {
+    const { location: prevLocation = {} } = prevProps || {};
+    if (!prevProps || prevLocation.pathname !== location.pathname) {
       this.bindScroller();
     }
-    if (!window.location.hash && prevProps && prevProps.location.pathname !== location.pathname) {
+    if (!window.location.hash && prevLocation.pathname !== location.pathname) {
       document.documentElement.scrollTop = 0;
     }
+    // when subMenu not equal
+    if (get(this.props, 'route.path') !== get(prevProps, 'route.path')) {
+      // reset menu OpenKeys
+      this.handleMenuOpenChange();
+    }
     setTimeout(() => {
-      if (
-        window.location.hash &&
-        document.querySelector(decodeURIComponent(window.location.hash)) &&
-        document.documentElement.scrollTop === 0
-      ) {
-        document.querySelector(decodeURIComponent(window.location.hash)).scrollIntoView();
+      if (!window.location.hash) {
+        return;
+      }
+      const element = document.getElementById(
+        decodeURIComponent(window.location.hash.replace('#', '')),
+      );
+      if (element && document.documentElement.scrollTop === 0) {
+        element.scrollIntoView();
       }
     }, 0);
   }

@@ -223,6 +223,7 @@ exports[`renders ./components/breadcrumb/demo/withIcon.md correctly 1`] = `
       href=""
     >
       <i
+        aria-label="icon: home"
         class="anticon anticon-home"
       >
         <svg
@@ -230,6 +231,7 @@ exports[`renders ./components/breadcrumb/demo/withIcon.md correctly 1`] = `
           class=""
           data-icon="home"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -252,6 +254,7 @@ exports[`renders ./components/breadcrumb/demo/withIcon.md correctly 1`] = `
       href=""
     >
       <i
+        aria-label="icon: user"
         class="anticon anticon-user"
       >
         <svg
@@ -259,6 +262,7 @@ exports[`renders ./components/breadcrumb/demo/withIcon.md correctly 1`] = `
           class=""
           data-icon="user"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"

@@ -30,14 +30,6 @@ for (let i = 0; i < 100; i++) {
 const FormItem = Form.Item;
 const EditableContext = React.createContext();
 
-const EditableRow = ({ form, index, ...props }) => (
-  <EditableContext.Provider value={form}>
-    <tr {...props} />
-  </EditableContext.Provider>
-);
-
-const EditableFormRow = Form.create()(EditableRow);
-
 class EditableCell extends React.Component {
   getInput = () => {
     if (this.props.inputType === 'number') {
@@ -108,6 +100,7 @@ class EditableTable extends React.Component {
         title: 'operation',
         dataIndex: 'operation',
         render: (text, record) => {
+          const { editingKey } = this.state;
           const editable = this.isEditing(record);
           return (
             <div>
@@ -132,7 +125,7 @@ class EditableTable extends React.Component {
                   </Popconfirm>
                 </span>
               ) : (
-                <a onClick={() => this.edit(record.key)}>Edit</a>
+                <a disabled={editingKey !== ''} onClick={() => this.edit(record.key)}>Edit</a>
               )}
             </div>
           );
@@ -175,7 +168,6 @@ class EditableTable extends React.Component {
   render() {
     const components = {
       body: {
-        row: EditableFormRow,
         cell: EditableCell,
       },
     };
@@ -197,18 +189,25 @@ class EditableTable extends React.Component {
     });
 
     return (
-      <Table
-        components={components}
-        bordered
-        dataSource={this.state.data}
-        columns={columns}
-        rowClassName="editable-row"
-      />
+      <EditableContext.Provider value={this.props.form}>
+        <Table
+          components={components}
+          bordered
+          dataSource={this.state.data}
+          columns={columns}
+          rowClassName="editable-row"
+          pagination={{
+            onChange: this.cancel,
+          }}
+        />
+      </EditableContext.Provider>
     );
   }
 }
 
-ReactDOM.render(<EditableTable />, mountNode);
+const EditableFormTable = Form.create()(EditableTable);
+
+ReactDOM.render(<EditableFormTable />, mountNode);
 ```
 
 ```css

@@ -2,15 +2,15 @@
   .@{steps-prefix-cls}-item {
     overflow: visible;
     &-tail {
-      padding: 3.5px 24px;
       margin-left: 51px;
+      padding: 3.5px 24px;
     }
     &-content {
       display: block;
-      text-align: center;
-      margin-top: 8px;
       // icon左边距离+一半icon宽度，是content一半的宽度，垂直对齐icon
       width: (@steps-icon-size / 2 + 36px) * 2;
+      margin-top: 8px;
+      text-align: center;
     }
     &-icon {
       display: inline-block;
@@ -18,8 +18,15 @@
     }
     &-title {
       padding-right: 0;
-      &:after {
+      &::after {
         display: none;
+      }
+    }
+  }
+  &.@{steps-prefix-cls}-small:not(.@{steps-prefix-cls}-dot) {
+    .@{steps-prefix-cls}-item {
+      &-icon {
+        margin-left: 40px;
       }
     }
   }

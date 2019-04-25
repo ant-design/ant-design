@@ -6,7 +6,6 @@ exports[`renders ./components/upload/demo/avatar.md correctly 1`] = `
 >
   <div
     class="ant-upload ant-upload-select ant-upload-select-picture-card"
-    style="display:"
   />
 </span>
 `;
@@ -17,7 +16,6 @@ exports[`renders ./components/upload/demo/basic.md correctly 1`] = `
 >
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
-    style="display:"
   />
   <div
     class="ant-upload-list ant-upload-list-text"
@@ -31,7 +29,6 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
 >
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
-    style="display:"
   />
   <div
     class="ant-upload-list ant-upload-list-text"
@@ -44,6 +41,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
       >
         <span>
           <i
+            aria-label="icon: paper-clip"
             class="anticon anticon-paper-clip"
           >
             <svg
@@ -51,6 +49,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
               class=""
               data-icon="paper-clip"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -72,7 +71,9 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
         </span>
       </div>
       <i
+        aria-label="icon: close"
         class="anticon anticon-close"
+        tabindex="-1"
         title="Remove file"
       >
         <svg
@@ -80,6 +81,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
           class=""
           data-icon="close"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -98,6 +100,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
       >
         <span>
           <i
+            aria-label="icon: paper-clip"
             class="anticon anticon-paper-clip"
           >
             <svg
@@ -105,6 +108,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
               class=""
               data-icon="paper-clip"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -126,7 +130,9 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
         </span>
       </div>
       <i
+        aria-label="icon: close"
         class="anticon anticon-close"
+        tabindex="-1"
         title="Remove file"
       >
         <svg
@@ -134,6 +140,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
           class=""
           data-icon="close"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -152,6 +159,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
       >
         <span>
           <i
+            aria-label="icon: paper-clip"
             class="anticon anticon-paper-clip"
           >
             <svg
@@ -159,6 +167,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
               class=""
               data-icon="paper-clip"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -180,7 +189,9 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
         </span>
       </div>
       <i
+        aria-label="icon: close"
         class="anticon anticon-close"
+        tabindex="-1"
         title="Remove file"
       >
         <svg
@@ -188,6 +199,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
           class=""
           data-icon="close"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -208,7 +220,6 @@ exports[`renders ./components/upload/demo/directory.md correctly 1`] = `
 >
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
-    style="display:"
   />
   <div
     class="ant-upload-list ant-upload-list-text"
@@ -235,7 +246,6 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
 >
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
-    style="display:"
   />
   <div
     class="ant-upload-list ant-upload-list-text"
@@ -248,6 +258,7 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
       >
         <span>
           <i
+            aria-label="icon: paper-clip"
             class="anticon anticon-paper-clip"
           >
             <svg
@@ -255,6 +266,7 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
               class=""
               data-icon="paper-clip"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -276,7 +288,9 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
         </span>
       </div>
       <i
+        aria-label="icon: close"
         class="anticon anticon-close"
+        tabindex="-1"
         title="Remove file"
       >
         <svg
@@ -284,6 +298,7 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
           class=""
           data-icon="close"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -347,6 +362,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
             title="Preview file"
           >
             <i
+              aria-label="icon: eye-o"
               class="anticon anticon-eye-o"
             >
               <svg
@@ -354,6 +370,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
                 class=""
                 data-icon="eye"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -365,7 +382,9 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
             </i>
           </a>
           <i
+            aria-label="icon: delete"
             class="anticon anticon-delete"
+            tabindex="-1"
             title="Remove file"
           >
             <svg
@@ -373,6 +392,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
               class=""
               data-icon="delete"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -387,7 +407,6 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
     </div>
     <div
       class="ant-upload ant-upload-select ant-upload-select-picture-card"
-      style="display:"
     />
   </span>
 </div>
@@ -400,7 +419,6 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
   >
     <div
       class="ant-upload ant-upload-select ant-upload-select-picture"
-      style="display:"
     />
     <div
       class="ant-upload-list ant-upload-list-picture"
@@ -435,7 +453,9 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
           </span>
         </div>
         <i
+          aria-label="icon: close"
           class="anticon anticon-close"
+          tabindex="-1"
           title="Remove file"
         >
           <svg
@@ -443,6 +463,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
             class=""
             data-icon="close"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -483,7 +504,9 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
           </span>
         </div>
         <i
+          aria-label="icon: close"
           class="anticon anticon-close"
+          tabindex="-1"
           title="Remove file"
         >
           <svg
@@ -491,6 +514,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
             class=""
             data-icon="close"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -510,7 +534,6 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
   >
     <div
       class="ant-upload ant-upload-select ant-upload-select-picture"
-      style="display:"
     />
     <div
       class="ant-upload-list ant-upload-list-picture"
@@ -545,7 +568,9 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
           </span>
         </div>
         <i
+          aria-label="icon: close"
           class="anticon anticon-close"
+          tabindex="-1"
           title="Remove file"
         >
           <svg
@@ -553,6 +578,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
             class=""
             data-icon="close"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -593,7 +619,9 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
           </span>
         </div>
         <i
+          aria-label="icon: close"
           class="anticon anticon-close"
+          tabindex="-1"
           title="Remove file"
         >
           <svg
@@ -601,6 +629,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
             class=""
             data-icon="close"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -623,7 +652,6 @@ exports[`renders ./components/upload/demo/upload-manually.md correctly 1`] = `
   >
     <div
       class="ant-upload ant-upload-select ant-upload-select-text"
-      style="display:"
     />
     <div
       class="ant-upload-list ant-upload-list-text"

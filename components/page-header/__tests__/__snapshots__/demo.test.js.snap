@@ -1,0 +1,656 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
+<div
+  class="ant-page-header ant-page-header-has-footer"
+>
+  <div
+    class="ant-page-header-back"
+  >
+    <div
+      aria-label="back"
+      class="ant-page-header-back-button"
+      role="button"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      tabindex="0"
+    >
+      <i
+        aria-label="icon: arrow-left"
+        class="anticon anticon-arrow-left"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="arrow-left"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 0 0 0 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+          />
+        </svg>
+      </i>
+    </div>
+    <div
+      class="ant-divider ant-divider-vertical"
+    />
+  </div>
+  <div
+    class="ant-page-header-title-view"
+  >
+    <span
+      class="ant-page-header-title-view-title"
+    >
+      Title
+    </span>
+    <span
+      class="ant-page-header-title-view-sub-title"
+    >
+      This is a subtitle
+    </span>
+    <span
+      class="ant-page-header-title-view-tags"
+    >
+      <div
+        class="ant-tag ant-tag-red"
+      >
+        Warning
+      </div>
+    </span>
+    <span
+      class="ant-page-header-title-view-extra"
+    >
+      <button
+        class="ant-btn"
+        type="button"
+      >
+        <span>
+          Operation
+        </span>
+      </button>
+      <button
+        class="ant-btn"
+        type="button"
+      >
+        <span>
+          Operation
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          Primary
+        </span>
+      </button>
+    </span>
+  </div>
+  <div
+    class="ant-page-header-content-view"
+  >
+    <div
+      class="wrap"
+    >
+      <div
+        class="content padding"
+      >
+        <div
+          class="ant-row"
+        >
+          <div
+            class="ant-col ant-col-12"
+          >
+            <div
+              class="description"
+            >
+              <div
+                class="term"
+              >
+                Created
+              </div>
+              <div
+                class="detail"
+              >
+                Lili Qu
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-col ant-col-12"
+          >
+            <div
+              class="description"
+            >
+              <div
+                class="term"
+              >
+                Association
+              </div>
+              <div
+                class="detail"
+              >
+                <a>
+                  421421
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-col ant-col-12"
+          >
+            <div
+              class="description"
+            >
+              <div
+                class="term"
+              >
+                Creation Time
+              </div>
+              <div
+                class="detail"
+              >
+                2017-01-10
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-col ant-col-12"
+          >
+            <div
+              class="description"
+            >
+              <div
+                class="term"
+              >
+                Effective Time
+              </div>
+              <div
+                class="detail"
+              >
+                2017-10-10
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-col ant-col-24"
+          >
+            <div
+              class="description"
+            >
+              <div
+                class="term"
+              >
+                Remarks
+              </div>
+              <div
+                class="detail"
+              >
+                Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="extraContent"
+      >
+        <div
+          class="ant-row"
+        >
+          <div
+            class="ant-col ant-col-12"
+          >
+            <div
+              class="ant-statistic"
+            >
+              <div
+                class="ant-statistic-title"
+              >
+                Status
+              </div>
+              <div
+                class="ant-statistic-content"
+              >
+                <span
+                  class="ant-statistic-content-value"
+                >
+                  Pending
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-col ant-col-12"
+          >
+            <div
+              class="ant-statistic"
+            >
+              <div
+                class="ant-statistic-title"
+              >
+                Price
+              </div>
+              <div
+                class="ant-statistic-content"
+              >
+                <span
+                  class="ant-statistic-content-prefix"
+                >
+                  $
+                </span>
+                <span
+                  class="ant-statistic-content-value"
+                >
+                  <span
+                    class="ant-statistic-content-value-int"
+                  >
+                    568
+                  </span>
+                  <span
+                    class="ant-statistic-content-value-decimal"
+                  >
+                    .08
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-page-header-footer"
+  >
+    <div
+      class="ant-tabs ant-tabs-top ant-tabs-line"
+    >
+      <div
+        class="ant-tabs-bar ant-tabs-top-bar"
+        role="tablist"
+        tabindex="0"
+      >
+        <div
+          class="ant-tabs-nav-container"
+        >
+          <span
+            class="ant-tabs-tab-prev ant-tabs-tab-btn-disabled"
+            unselectable="unselectable"
+          >
+            <span
+              class="ant-tabs-tab-prev-icon"
+            >
+              <i
+                aria-label="icon: left"
+                class="anticon anticon-left ant-tabs-tab-prev-icon-target"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="left"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  />
+                </svg>
+              </i>
+            </span>
+          </span>
+          <span
+            class="ant-tabs-tab-next ant-tabs-tab-btn-disabled"
+            unselectable="unselectable"
+          >
+            <span
+              class="ant-tabs-tab-next-icon"
+            >
+              <i
+                aria-label="icon: right"
+                class="anticon anticon-right ant-tabs-tab-next-icon-target"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  />
+                </svg>
+              </i>
+            </span>
+          </span>
+          <div
+            class="ant-tabs-nav-wrap"
+          >
+            <div
+              class="ant-tabs-nav-scroll"
+            >
+              <div
+                class="ant-tabs-nav ant-tabs-nav-animated"
+              >
+                <div>
+                  <div
+                    aria-disabled="false"
+                    aria-selected="true"
+                    class="ant-tabs-tab-active ant-tabs-tab"
+                    role="tab"
+                  >
+                    Details
+                  </div>
+                  <div
+                    aria-disabled="false"
+                    aria-selected="false"
+                    class=" ant-tabs-tab"
+                    role="tab"
+                  >
+                    Rule
+                  </div>
+                </div>
+                <div
+                  class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        role="presentation"
+        style="width:0;height:0;overflow:hidden;position:absolute"
+        tabindex="0"
+      />
+      <div
+        class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
+        style="margin-left:0%"
+      >
+        <div
+          aria-hidden="false"
+          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          role="tabpanel"
+        >
+          <div
+            role="presentation"
+            style="width:0;height:0;overflow:hidden;position:absolute"
+            tabindex="0"
+          />
+          <div
+            role="presentation"
+            style="width:0;height:0;overflow:hidden;position:absolute"
+            tabindex="0"
+          />
+        </div>
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+          role="tabpanel"
+        />
+      </div>
+      <div
+        role="presentation"
+        style="width:0;height:0;overflow:hidden;position:absolute"
+        tabindex="0"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/page-header/demo/basic.md correctly 1`] = `
+<div
+  class="ant-page-header"
+>
+  <div
+    class="ant-page-header-back"
+  >
+    <div
+      aria-label="back"
+      class="ant-page-header-back-button"
+      role="button"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      tabindex="0"
+    >
+      <i
+        aria-label="icon: arrow-left"
+        class="anticon anticon-arrow-left"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="arrow-left"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 0 0 0 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+          />
+        </svg>
+      </i>
+    </div>
+    <div
+      class="ant-divider ant-divider-vertical"
+    />
+  </div>
+  <div
+    class="ant-page-header-title-view"
+  >
+    <span
+      class="ant-page-header-title-view-title"
+    >
+      Title
+    </span>
+    <span
+      class="ant-page-header-title-view-sub-title"
+    >
+      This is a subtitle
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/page-header/demo/breadcrumb.md correctly 1`] = `
+<div
+  class="ant-page-header"
+>
+  <div
+    class="ant-breadcrumb"
+  >
+    <span>
+      <span
+        class="ant-breadcrumb-link"
+      >
+        <a
+          href="#/index"
+        >
+          First-level Menu
+        </a>
+      </span>
+      <span
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </span>
+    </span>
+    <span>
+      <span
+        class="ant-breadcrumb-link"
+      >
+        <a
+          href="#/index/first"
+        >
+          Second-level Menu
+        </a>
+      </span>
+      <span
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </span>
+    </span>
+    <span>
+      <span
+        class="ant-breadcrumb-link"
+      >
+        <span>
+          Third-level Menu
+        </span>
+      </span>
+      <span
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </span>
+    </span>
+  </div>
+  <div
+    class="ant-page-header-title-view"
+  >
+    <span
+      class="ant-page-header-title-view-title"
+    >
+      Title
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
+<div
+  class="ant-page-header"
+>
+  <div
+    class="ant-breadcrumb"
+  >
+    <span>
+      <span
+        class="ant-breadcrumb-link"
+      >
+        <a
+          href="#/index"
+        >
+          First-level Menu
+        </a>
+      </span>
+      <span
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </span>
+    </span>
+    <span>
+      <span
+        class="ant-breadcrumb-link"
+      >
+        <a
+          href="#/index/first"
+        >
+          Second-level Menu
+        </a>
+      </span>
+      <span
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </span>
+    </span>
+    <span>
+      <span
+        class="ant-breadcrumb-link"
+      >
+        <span>
+          Third-level Menu
+        </span>
+      </span>
+      <span
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </span>
+    </span>
+  </div>
+  <div
+    class="ant-page-header-title-view"
+  >
+    <span
+      class="ant-page-header-title-view-title"
+    >
+      Title
+    </span>
+  </div>
+  <div
+    class="ant-page-header-content-view"
+  >
+    <div
+      class="wrap"
+    >
+      <div
+        class="content"
+      >
+        <div
+          class="content"
+        >
+          <div
+            class="ant-typography"
+          >
+            Ant Design interprets the color system into two levels: a system-level color system and a product-level color system.
+          </div>
+          <div
+            class="ant-typography"
+          >
+            Ant Design's design team preferred to design with the HSB color model, which makes it easier for designers to have a clear psychological expectation of color when adjusting colors, as well as facilitate communication in teams.
+          </div>
+          <p
+            class="contentLink"
+          >
+            <a>
+              <img
+                alt="start"
+                src="https://gw.alipayobjects.com/zos/rmsportal/MjEImQtenlyueSmVEfUD.svg"
+              />
+              Quick Start
+            </a>
+            <a>
+              <img
+                alt="info"
+                src="https://gw.alipayobjects.com/zos/rmsportal/NbuDUAuBlIApFuDvWiND.svg"
+              />
+              Product Info
+            </a>
+            <a>
+              <img
+                alt="doc"
+                src="https://gw.alipayobjects.com/zos/rmsportal/ohOEPSYdDTNnyMbGuyLb.svg"
+              />
+              Product Doc
+            </a>
+          </p>
+        </div>
+      </div>
+      <div
+        class="extraContent"
+      >
+        <img
+          alt="content"
+          src="https://gw.alipayobjects.com/mdn/mpaas_user/afts/img/A*KsfVQbuLRlYAAAAAAAAAAABjAQAAAQ/original"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

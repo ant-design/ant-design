@@ -2,8 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { SpinProps } from '../spin';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import defaultLocale from '../locale-provider/default';
+import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 
 import Spin from '../spin';
 import Pagination, { PaginationConfig } from '../pagination';
@@ -30,85 +29,108 @@ export interface ListGridType {
 
 export type ListSize = 'small' | 'default' | 'large';
 
-export interface ListProps {
+export type ListItemLayout = 'horizontal' | 'vertical';
+
+export interface ListProps<T> {
   bordered?: boolean;
   className?: string;
   children?: React.ReactNode;
-  dataSource: any;
+  dataSource: T[];
   extra?: React.ReactNode;
   grid?: ListGridType;
   id?: string;
-  itemLayout?: string;
+  itemLayout?: ListItemLayout;
   loading?: boolean | SpinProps;
   loadMore?: React.ReactNode;
   pagination?: PaginationConfig | false;
   prefixCls?: string;
   rowKey?: any;
-  renderItem: any;
+  renderItem: (item: T, index: number) => React.ReactNode;
   size?: ListSize;
   split?: boolean;
   header?: React.ReactNode;
   footer?: React.ReactNode;
-  locale?: Object;
+  locale?: ListLocale;
 }
 
 export interface ListLocale {
-  emptyText: string;
+  emptyText: React.ReactNode | (() => React.ReactNode);
 }
 
-export default class List extends React.Component<ListProps> {
+interface ListState {
+  paginationCurrent: number;
+  paginationSize: number;
+}
+
+export default class List<T> extends React.Component<ListProps<T>, ListState> {
   static Item: typeof Item = Item;
 
   static childContextTypes = {
     grid: PropTypes.any,
+    itemLayout: PropTypes.string,
   };
 
   static defaultProps = {
     dataSource: [],
-    prefixCls: 'ant-list',
     bordered: false,
     split: true,
     loading: false,
-    pagination: false as ListProps['pagination'],
-  };
-
-  state = {
-    paginationCurrent: 1,
+    pagination: false as ListProps<any>['pagination'],
   };
 
   defaultPaginationProps = {
     current: 1,
-    pageSize: 10,
-    onChange: (page: number, pageSize: number) => {
-      const { pagination } = this.props;
-      this.setState({
-        paginationCurrent: page,
-      });
-      if (pagination && pagination.onChange) {
-        pagination.onChange(page, pageSize);
-      }
-    },
     total: 0,
   };
 
   private keys: { [key: string]: string } = {};
 
-  getChildContext() {
-    return {
-      grid: this.props.grid,
+  private onPaginationChange = this.triggerPaginationEvent('onChange');
+
+  private onPaginationShowSizeChange = this.triggerPaginationEvent('onShowSizeChange');
+
+  constructor(props: ListProps<T>) {
+    super(props);
+
+    const { pagination } = props;
+    const paginationObj = pagination && typeof pagination === 'object' ? pagination : {};
+
+    this.state = {
+      paginationCurrent: paginationObj.defaultCurrent || 1,
+      paginationSize: paginationObj.defaultPageSize || 10,
     };
   }
 
-  renderItem = (item: React.ReactElement<any>, index: number) => {
-    const { dataSource, renderItem, rowKey } = this.props;
+  getChildContext() {
+    return {
+      grid: this.props.grid,
+      itemLayout: this.props.itemLayout,
+    };
+  }
+
+  triggerPaginationEvent(eventName: string) {
+    return (page: number, pageSize: number) => {
+      const { pagination } = this.props;
+      this.setState({
+        paginationCurrent: page,
+        paginationSize: pageSize,
+      });
+      if (pagination && (pagination as any)[eventName]) {
+        (pagination as any)[eventName](page, pageSize);
+      }
+    };
+  }
+
+  renderItem = (item: any, index: number) => {
+    const { renderItem, rowKey } = this.props;
     let key;
 
     if (typeof rowKey === 'function') {
-      key = rowKey(dataSource[index]);
+      key = rowKey(item);
     } else if (typeof rowKey === 'string') {
-      key = dataSource[rowKey];
+      key = item[rowKey];
     } else {
-      key = dataSource.key;
+      key = item.key;
     }
 
     if (!key) {
@@ -125,14 +147,20 @@ export default class List extends React.Component<ListProps> {
     return !!(loadMore || pagination || footer);
   }
 
-  renderEmpty = (contextLocale: ListLocale) => {
-    const locale = { ...contextLocale, ...this.props.locale };
-    return <div className={`${this.props.prefixCls}-empty-text`}>{locale.emptyText}</div>;
+  renderEmpty = (prefixCls: string, renderEmpty: RenderEmptyHandler) => {
+    const { locale } = this.props;
+
+    return (
+      <div className={`${prefixCls}-empty-text`}>
+        {(locale && locale.emptyText) || renderEmpty('List')}
+      </div>
+    );
   };
 
-  render() {
-    const { paginationCurrent } = this.state;
+  renderList = ({ getPrefixCls, renderEmpty }: ConfigConsumerProps) => {
+    const { paginationCurrent, paginationSize } = this.state;
     const {
+      prefixCls: customizePrefixCls,
       bordered,
       split,
       className,
@@ -140,7 +168,6 @@ export default class List extends React.Component<ListProps> {
       itemLayout,
       loadMore,
       pagination,
-      prefixCls,
       grid,
       dataSource,
       size,
@@ -153,6 +180,7 @@ export default class List extends React.Component<ListProps> {
       ...rest
     } = this.props;
 
+    const prefixCls = getPrefixCls('list', customizePrefixCls);
     let loadingProp = loading;
     if (typeof loadingProp === 'boolean') {
       loadingProp = {
@@ -188,6 +216,7 @@ export default class List extends React.Component<ListProps> {
       ...this.defaultPaginationProps,
       total: dataSource.length,
       current: paginationCurrent,
+      pageSize: paginationSize,
       ...(pagination || {}),
     };
 
@@ -197,7 +226,11 @@ export default class List extends React.Component<ListProps> {
     }
     const paginationContent = pagination ? (
       <div className={`${prefixCls}-pagination`}>
-        <Pagination {...paginationProps} onChange={this.defaultPaginationProps.onChange} />
+        <Pagination
+          {...paginationProps}
+          onChange={this.onPaginationChange}
+          onShowSizeChange={this.onPaginationShowSizeChange}
+        />
       </div>
     ) : null;
 
@@ -227,11 +260,7 @@ export default class List extends React.Component<ListProps> {
 
       childrenContent = grid ? <Row gutter={grid.gutter}>{childrenList}</Row> : childrenList;
     } else if (!children && !isLoading) {
-      childrenContent = (
-        <LocaleReceiver componentName="Table" defaultLocale={defaultLocale.Table}>
-          {this.renderEmpty}
-        </LocaleReceiver>
-      );
+      childrenContent = this.renderEmpty(prefixCls, renderEmpty);
     }
 
     const paginationPosition = paginationProps.position || 'bottom';
@@ -249,5 +278,9 @@ export default class List extends React.Component<ListProps> {
           ((paginationPosition === 'bottom' || paginationPosition === 'both') && paginationContent)}
       </div>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderList}</ConfigConsumer>;
   }
 }

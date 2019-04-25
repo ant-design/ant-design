@@ -32,7 +32,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <span>
+      <div>
         <Button type="primary" loading>
           Loading
         </Button>
@@ -49,7 +49,7 @@ class App extends React.Component {
         <br />
         <Button shape="circle" loading />
         <Button type="primary" shape="circle" loading />
-      </span>
+      </div>
     );
   }
 }

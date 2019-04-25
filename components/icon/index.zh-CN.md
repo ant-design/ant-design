@@ -14,10 +14,6 @@ toc: false
 
 ## 图标列表
 
-> 点击图标即可复制代码。
-
-新版图标可能略有缺失，我们还在持续补充中。
-
 ```__react
 import IconDisplay from 'site/theme/template/IconDisplay';
 ReactDOM.render(<IconDisplay />, mountNode);
@@ -31,6 +27,7 @@ ReactDOM.render(<IconDisplay />, mountNode);
 | style | 设置图标的样式，例如 `fontSize` 和 `color` | CSSProperties | - |
 | theme | 图标主题风格。可选实心、描线、双色等主题风格，适用于官方图标 | 'filled' \| 'outlined' \| 'twoTone' | 'outlined' |
 | spin | 是否有旋转动画 | boolean | false |
+| rotate | 图标旋转角度（3.13.0 后新增，IE9 无效） | number | - |
 | component | 控制如何渲染图标，通常是一个渲染根标签为 `<svg>` 的 `React` 组件，**会使 `type` 属性失效** | ComponentType<CustomIconComponentProps\> | - |
 | twoToneColor | 仅适用双色图标。设置双色图标的主要颜色 | string (十六进制颜色) | - |
 
@@ -46,6 +43,8 @@ ReactDOM.render(<IconDisplay />, mountNode);
 更多讨论可参考：[#10353](https://github.com/ant-design/ant-design/issues/10353)。
 
 > ⚠️ 3.9.0 之后我们全量引入了所有图标，导致 antd 默认的包体积有一定增加，我们会在不远的未来增加新的 API 来实现图标的按需使用，更多相关讨论可关注：[#12011](https://github.com/ant-design/ant-design/issues/12011)。
+>
+> 在此之前，你可以通过来自社区同学的 [webpack 插件](https://github.com/Beven91/webpack-ant-icon-loader)将图标文件拆分。
 
 其中 `theme`, `component`, `twoToneColor` 是 `3.9.x` 版本新增加的属性。最佳实践是给使用的 `<Icon />` 组件传入属性 `theme` 以明确图标的主题风格。例如：
 

@@ -34,6 +34,7 @@ Any data whose entries are defined in a hierarchical manner is fit to use this c
 | placeholder | Placeholder of the select input | string | - |
 | searchPlaceholder | Placeholder of the search input | string | - |
 | searchValue | work with `onSearch` to make search value controlled. | string | - |
+| treeIcon | Shows the icon before a TreeNode's title. There is no default style; you must set a custom style for it if set to `true` | boolean | false |
 | showCheckedStrategy | The way show selected item in box. **Default:** just show child nodes. **`TreeSelect.SHOW_ALL`:** show all checked treeNodes (include parent treeNode). **`TreeSelect.SHOW_PARENT`:** show checked treeNodes (just show parent treeNode). | enum { TreeSelect.SHOW_ALL, TreeSelect.SHOW_PARENT, TreeSelect.SHOW_CHILD } | TreeSelect.SHOW_CHILD |
 | showSearch | Whether to display a search input in the dropdown menu(valid only in the single mode) | boolean | false |
 | size | To set the size of the select input, options: `large` `small` | string | 'default' |
@@ -41,7 +42,7 @@ Any data whose entries are defined in a hierarchical manner is fit to use this c
 | treeCheckable | Whether to show checkbox on the treeNodes | boolean | false |
 | treeCheckStrictly | Whether to check nodes precisely (in the `checkable` mode), means parent and child nodes are not associated, and it will make `labelInValue` be true | boolean | false |
 | treeData | Data of the treeNodes, manual construction work is no longer needed if this property has been set(ensure the Uniqueness of each value) | array\<{ value, title, children, \[disabled, disableCheckbox, selectable] }> | \[] |
-| treeDataSimpleMode | Enable simple mode of treeData. Changes the `treeData` schema to: \[{id:1, pId:0, value:'1', title:"test1",...},...] where pId is parent node's id). It is possible to replace the default `id` and `pId` keys by providing object to `treeDataSimpleMode` | false\|Array\<{ id: string, pId: string, rootPId: null }> | false |
+| treeDataSimpleMode | Enable simple mode of treeData. Changes the `treeData` schema to: \[{id:1, pId:0, value:'1', title:"test1",...},...] where pId is parent node's id). It is possible to replace the default `id` and `pId` keys by providing object to `treeDataSimpleMode` | false\|object\<{ id: string, pId: string, rootPId: string }> | false |
 | treeDefaultExpandAll | Whether to expand all treeNodes by default | boolean | false |
 | treeDefaultExpandedKeys | Default expanded treeNodes | string\[] | - |
 | treeExpandedKeys | Set expanded keys | string\[] | - |
@@ -73,3 +74,9 @@ Any data whose entries are defined in a hierarchical manner is fit to use this c
 | key | Required property (unless using `treeDataSimpleMode`), should be unique in the tree | string | - |
 | title | Content showed on the treeNodes | string\|ReactNode | '---' |
 | value | Will be treated as `treeNodeFilterProp` by default, should be unique in the tree | string | - |
+
+## FAQ
+
+### How to get parent node in onChange?
+
+We don't provide this since performance consideration. You can get by this way: <https://codesandbox.io/s/wk080nn81k>

@@ -13,8 +13,8 @@ Handling the overall layout of a page.
 
 The first level navigation is inclined left near a logo, and the secondary menu is inclined right.
 
-- Top Navigation (almost systems): the height of the first level navigation `64px`, the second level navigation `48px`.
-- Top Navigation(contents page): the height of the first level navigation `80px`, the second level navigation `56px`.
+- Top Navigation: the height of the first level navigation `64px`, the second level navigation `48px`.
+- Top Navigation (for landing pages): the height of the first level navigation `80px`, the second level navigation `56px`.
 - Calculation formula of a top navigation: `48+8n`.
 - Calculation formula of an aside navigation: `200+8n`.
 
@@ -43,7 +43,7 @@ The first level navigation is inclined left near a logo, and the secondary menu 
 
 - **Enlarge the size of the font**
 
-  `12px`、`14px` is a standard font size of navigations，`14px` is used for the first and the second level of the navigation. You can choose an appropriate font size regarding the level of your navigation.
+  `12px`, `14px` is a standard font size of navigations, `14px` is used for the first and the second level of the navigation. You can choose an appropriate font size regarding the level of your navigation.
 
 ## Component Overview
 

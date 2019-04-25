@@ -33,7 +33,7 @@ describe('Select', () => {
         .find('MenuItem')
         .at(0)
         .text(),
-    ).toBe('Not Found');
+    ).toBe('No Data');
   });
 
   it('should support set notFoundContent to null', () => {

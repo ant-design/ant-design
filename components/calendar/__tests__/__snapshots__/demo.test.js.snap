@@ -12,7 +12,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
-        aria-controls="test-uuid"
+        aria-controls=""
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -37,6 +37,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
           unselectable="on"
         >
           <i
+            aria-label="icon: down"
             class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
@@ -44,6 +45,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
               class=""
               data-icon="down"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -61,7 +63,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
-        aria-controls="test-uuid"
+        aria-controls=""
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -86,6 +88,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
           unselectable="on"
         >
           <i
+            aria-label="icon: down"
             class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
@@ -93,6 +96,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
               class=""
               data-icon="down"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -118,7 +122,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
             checked=""
             class="ant-radio-button-input"
             type="radio"
-            value="date"
+            value="month"
           />
           <span
             class="ant-radio-button-inner"
@@ -137,7 +141,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
           <input
             class="ant-radio-button-input"
             type="radio"
-            value="month"
+            value="year"
           />
           <span
             class="ant-radio-button-inner"
@@ -1055,7 +1059,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
       >
         <div
           aria-autocomplete="list"
-          aria-controls="test-uuid"
+          aria-controls=""
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-select-selection
@@ -1080,6 +1084,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
             unselectable="on"
           >
             <i
+              aria-label="icon: down"
               class="anticon anticon-down ant-select-arrow-icon"
             >
               <svg
@@ -1087,6 +1092,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
                 class=""
                 data-icon="down"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -1104,7 +1110,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
       >
         <div
           aria-autocomplete="list"
-          aria-controls="test-uuid"
+          aria-controls=""
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-select-selection
@@ -1129,6 +1135,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
             unselectable="on"
           >
             <i
+              aria-label="icon: down"
               class="anticon anticon-down ant-select-arrow-icon"
             >
               <svg
@@ -1136,6 +1143,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
                 class=""
                 data-icon="down"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -1161,7 +1169,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
               checked=""
               class="ant-radio-button-input"
               type="radio"
-              value="date"
+              value="month"
             />
             <span
               class="ant-radio-button-inner"
@@ -1180,7 +1188,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
             <input
               class="ant-radio-button-input"
               type="radio"
-              value="month"
+              value="year"
             />
             <span
               class="ant-radio-button-inner"
@@ -2096,7 +2104,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
-        aria-controls="test-uuid"
+        aria-controls=""
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -2121,6 +2129,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
           unselectable="on"
         >
           <i
+            aria-label="icon: down"
             class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
@@ -2128,6 +2137,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
               class=""
               data-icon="down"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -2145,7 +2155,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
     >
       <div
         aria-autocomplete="list"
-        aria-controls="test-uuid"
+        aria-controls=""
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
@@ -2170,6 +2180,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
           unselectable="on"
         >
           <i
+            aria-label="icon: down"
             class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
@@ -2177,6 +2188,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
               class=""
               data-icon="down"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -2202,7 +2214,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
             checked=""
             class="ant-radio-button-input"
             type="radio"
-            value="date"
+            value="month"
           />
           <span
             class="ant-radio-button-inner"
@@ -2221,7 +2233,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
           <input
             class="ant-radio-button-input"
             type="radio"
-            value="month"
+            value="year"
           />
           <span
             class="ant-radio-button-inner"
@@ -3547,7 +3559,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
       >
         <div
           aria-autocomplete="list"
-          aria-controls="test-uuid"
+          aria-controls=""
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-select-selection
@@ -3572,6 +3584,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
             unselectable="on"
           >
             <i
+              aria-label="icon: down"
               class="anticon anticon-down ant-select-arrow-icon"
             >
               <svg
@@ -3579,6 +3592,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
                 class=""
                 data-icon="down"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -3596,7 +3610,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
       >
         <div
           aria-autocomplete="list"
-          aria-controls="test-uuid"
+          aria-controls=""
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-select-selection
@@ -3621,6 +3635,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
             unselectable="on"
           >
             <i
+              aria-label="icon: down"
               class="anticon anticon-down ant-select-arrow-icon"
             >
               <svg
@@ -3628,6 +3643,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
                 class=""
                 data-icon="down"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -3653,7 +3669,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
               checked=""
               class="ant-radio-button-input"
               type="radio"
-              value="date"
+              value="month"
             />
             <span
               class="ant-radio-button-inner"
@@ -3672,7 +3688,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
             <input
               class="ant-radio-button-input"
               type="radio"
-              value="month"
+              value="year"
             />
             <span
               class="ant-radio-button-inner"

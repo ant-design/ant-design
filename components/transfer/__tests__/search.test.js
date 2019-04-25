@@ -59,7 +59,7 @@ describe('Search', () => {
       .find('.ant-input')
       .at(0)
       .simulate('change', { target: { value: 'a' } });
-    expect(onSearch).toBeCalledWith('left', 'a');
+    expect(onSearch).toHaveBeenCalledWith('left', 'a');
 
     onSearch.mockReset();
 
@@ -67,7 +67,7 @@ describe('Search', () => {
       .find('.ant-transfer-list-search-action')
       .at(0)
       .simulate('click');
-    expect(onSearch).toBeCalledWith('left', '');
+    expect(onSearch).toHaveBeenCalledWith('left', '');
   });
 
   it('legacy onSearchChange', () => {
@@ -83,7 +83,7 @@ describe('Search', () => {
       .simulate('change', { target: { value: 'a' } });
 
     expect(errorSpy.mock.calls[0][0]).toMatch(
-      'Warning: `onSearchChange` in Transfer is deprecated. Please use `onSearch` instead.',
+      'Warning: [antd: Transfer] `onSearchChange` is deprecated. Please use `onSearch` instead.',
     );
     expect(onSearchChange.mock.calls[0][0]).toEqual('left');
     expect(onSearchChange.mock.calls[0][1].target.value).toEqual('a');

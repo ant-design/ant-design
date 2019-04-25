@@ -24,7 +24,15 @@ Please note that Affix should not cover other content on the page, especially wh
 **Note:** Children of `Affix` can not be `position: absolute`, but you can set `Affix` as `position: absolute`:
 
 ```jsx
-<Affix style={{ position: 'absolute', top: y, left: x}}>
+<Affix style={{ position: 'absolute', top: y, left: x }}>
   ...
 </Affix>
 ```
+
+## FAQ
+
+### Affix bind container with `target`, sometime move out of container.
+
+We don't listen window scroll for performance consideration. You can add listener if you still want: <https://codesandbox.io/s/2xyj5zr85p>
+
+Related issue：[#3938](https://github.com/ant-design/ant-design/issues/3938) [#5642](https://github.com/ant-design/ant-design/issues/5642) [#16120](https://github.com/ant-design/ant-design/issues/16120)

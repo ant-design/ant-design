@@ -7,18 +7,30 @@ import { Row, Col, Icon, Affix, Tooltip } from 'antd';
 import { getChildren } from 'jsonml.js/lib/utils';
 import Demo from './Demo';
 import EditButton from './EditButton';
+import { ping } from '../utils';
 
 export default class ComponentDoc extends React.Component {
   static contextTypes = {
     intl: PropTypes.object,
   };
 
-  constructor(props) {
-    super(props);
+  state = {
+    expandAll: false,
+    showRiddleButton: false,
+  };
 
-    this.state = {
-      expandAll: false,
-    };
+  componentDidMount() {
+    this.pingTimer = ping(status => {
+      if (status !== 'timeout' && status !== 'error') {
+        this.setState({
+          showRiddleButton: true,
+        });
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.pingTimer);
   }
 
   handleExpandToggle = () => {
@@ -36,7 +48,7 @@ export default class ComponentDoc extends React.Component {
       intl: { locale },
     } = this.context;
     const demos = Object.keys(props.demos).map(key => props.demos[key]);
-    const { expandAll } = this.state;
+    const { expandAll, showRiddleButton } = this.state;
 
     const isSingleCol = meta.cols === 1;
     const leftChildren = [];
@@ -78,9 +90,12 @@ export default class ComponentDoc extends React.Component {
     });
 
     const { title, subtitle, filename } = meta;
+    const articleClassName = classNames({
+      'show-riddle-button': showRiddleButton,
+    });
     return (
       <DocumentTitle title={`${subtitle || ''} ${title[locale] || title} - Ant Design`}>
-        <article>
+        <article className={articleClassName}>
           <Affix className="toc-affix" offsetTop={16}>
             <ul id="demo-toc" className="toc">
               {jumper}

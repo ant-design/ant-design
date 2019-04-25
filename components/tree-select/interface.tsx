@@ -34,12 +34,12 @@ export interface TreeSelectProps extends AbstractSelectProps {
   defaultValue?: string | number | Array<any>;
   dropdownStyle?: React.CSSProperties;
   filterTreeNode?: (inputValue: string, treeNode: any) => boolean | boolean;
-  getPopupContainer?: (triggerNode: Element) => HTMLElement;
   labelInValue?: boolean;
   loadData?: (node: any) => void;
   maxTagCount?: number;
   maxTagPlaceholder?: React.ReactNode | ((omittedValues: any[]) => React.ReactNode);
   multiple?: boolean;
+  notFoundContent?: React.ReactNode;
   onChange?: (value: any, label: any, extra: any) => void;
   onSearch?: (value: any) => void;
   onSelect?: (value: any) => void;
@@ -57,6 +57,7 @@ export interface TreeSelectProps extends AbstractSelectProps {
   treeDefaultExpandAll?: boolean;
   treeDefaultExpandedKeys?: Array<string>;
   treeExpandedKeys?: Array<string>;
+  treeIcon?: boolean;
   treeNodeFilterProp?: string;
   treeNodeLabelProp?: string;
   value?: string | number | Array<any>;

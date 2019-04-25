@@ -40,9 +40,8 @@ const formItemLayout = {
 };
 
 ReactDOM.render(
-  <Form>
+  <Form {...formItemLayout}>
     <Form.Item
-      {...formItemLayout}
       label="Fail"
       validateStatus="error"
       help="Should be combination of numbers & alphabets"
@@ -51,7 +50,6 @@ ReactDOM.render(
     </Form.Item>
 
     <Form.Item
-      {...formItemLayout}
       label="Warning"
       validateStatus="warning"
     >
@@ -59,7 +57,6 @@ ReactDOM.render(
     </Form.Item>
 
     <Form.Item
-      {...formItemLayout}
       label="Validating"
       hasFeedback
       validateStatus="validating"
@@ -69,7 +66,6 @@ ReactDOM.render(
     </Form.Item>
 
     <Form.Item
-      {...formItemLayout}
       label="Success"
       hasFeedback
       validateStatus="success"
@@ -78,26 +74,23 @@ ReactDOM.render(
     </Form.Item>
 
     <Form.Item
-      {...formItemLayout}
       label="Warning"
       hasFeedback
       validateStatus="warning"
     >
-      <Input placeholder="Warning" id="warning" />
+      <Input placeholder="Warning" id="warning2" />
     </Form.Item>
 
     <Form.Item
-      {...formItemLayout}
       label="Fail"
       hasFeedback
       validateStatus="error"
       help="Should be combination of numbers & alphabets"
     >
-      <Input placeholder="unavailable choice" id="error" />
+      <Input placeholder="unavailable choice" id="error2" />
     </Form.Item>
 
     <Form.Item
-      {...formItemLayout}
       label="Success"
       hasFeedback
       validateStatus="success"
@@ -106,7 +99,6 @@ ReactDOM.render(
     </Form.Item>
 
     <Form.Item
-      {...formItemLayout}
       label="Warning"
       hasFeedback
       validateStatus="warning"
@@ -115,7 +107,6 @@ ReactDOM.render(
     </Form.Item>
 
     <Form.Item
-      {...formItemLayout}
       label="Error"
       hasFeedback
       validateStatus="error"
@@ -128,7 +119,6 @@ ReactDOM.render(
     </Form.Item>
 
     <Form.Item
-      {...formItemLayout}
       label="Validating"
       hasFeedback
       validateStatus="validating"
@@ -139,7 +129,6 @@ ReactDOM.render(
 
     <Form.Item
       label="inline"
-      {...formItemLayout}
       style={{ marginBottom: 0 }}
     >
       <Form.Item
@@ -152,13 +141,14 @@ ReactDOM.render(
       <span style={{ display: 'inline-block', width: '24px', textAlign: 'center' }}>
         -
       </span>
-      <Form.Item style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+      <Form.Item
+        style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}
+      >
         <DatePicker />
       </Form.Item>
     </Form.Item>
 
     <Form.Item
-      {...formItemLayout}
       label="Success"
       hasFeedback
       validateStatus="success"

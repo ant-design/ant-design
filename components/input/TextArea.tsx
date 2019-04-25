@@ -2,8 +2,9 @@ import * as React from 'react';
 import omit from 'omit.js';
 import classNames from 'classnames';
 import { polyfill } from 'react-lifecycles-compat';
-import ResizeObserver from 'resize-observer-polyfill';
 import calculateNodeHeight from './calculateNodeHeight';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import ResizeObserver from '../_util/resizeObserver';
 
 function onNextFrame(cb: () => void) {
   if (window.requestAnimationFrame) {
@@ -38,12 +39,7 @@ export interface TextAreaState {
 }
 
 class TextArea extends React.Component<TextAreaProps, TextAreaState> {
-  static defaultProps = {
-    prefixCls: 'ant-input',
-  };
-
   nextFrameActionId: number;
-  resizeObserver: ResizeObserver | null;
 
   state = {
     textareaStyles: {},
@@ -53,20 +49,12 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
 
   componentDidMount() {
     this.resizeTextarea();
-    this.updateResizeObserverHook();
   }
 
   componentDidUpdate(prevProps: TextAreaProps) {
     // Re-render with the new content then recalculate the height as required.
     if (prevProps.value !== this.props.value) {
       this.resizeOnNextFrame();
-    }
-    this.updateResizeObserverHook();
-  }
-
-  componentWillUnmount() {
-    if (this.resizeObserver) {
-      this.resizeObserver.disconnect();
     }
   }
 
@@ -76,19 +64,6 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     }
     this.nextFrameActionId = onNextFrame(this.resizeTextarea);
   };
-
-  // We will update hooks if `autosize` prop change
-  updateResizeObserverHook() {
-    if (!this.resizeObserver && this.props.autosize) {
-      // Add resize observer
-      this.resizeObserver = new ResizeObserver(this.resizeOnNextFrame);
-      this.resizeObserver.observe(this.textAreaRef);
-    } else if (this.resizeObserver && !this.props.autosize) {
-      // Remove resize observer
-      this.resizeObserver.disconnect();
-      this.resizeObserver = null;
-    }
-  }
 
   focus() {
     this.textAreaRef.focus();
@@ -103,18 +78,10 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     if (!autosize || !this.textAreaRef) {
       return;
     }
-    const minRows = autosize ? (autosize as AutoSizeType).minRows : null;
-    const maxRows = autosize ? (autosize as AutoSizeType).maxRows : null;
+    const { minRows, maxRows } = autosize as AutoSizeType;
     const textareaStyles = calculateNodeHeight(this.textAreaRef, false, minRows, maxRows);
     this.setState({ textareaStyles });
   };
-
-  getTextAreaClassName() {
-    const { prefixCls, className, disabled } = this.props;
-    return classNames(prefixCls, className, {
-      [`${prefixCls}-disabled`]: disabled,
-    });
-  }
 
   handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     if (!('value' in this.props)) {
@@ -140,9 +107,15 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     this.textAreaRef = textArea;
   };
 
-  render() {
-    const props = this.props;
+  renderTextArea = ({ getPrefixCls }: ConfigConsumerProps) => {
+    const { prefixCls: customizePrefixCls, className, disabled, autosize } = this.props;
+    const { ...props } = this.props;
     const otherProps = omit(props, ['prefixCls', 'onPressEnter', 'autosize']);
+    const prefixCls = getPrefixCls('input', customizePrefixCls);
+    const cls = classNames(prefixCls, className, {
+      [`${prefixCls}-disabled`]: disabled,
+    });
+
     const style = {
       ...props.style,
       ...this.state.textareaStyles,
@@ -153,15 +126,21 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
       otherProps.value = otherProps.value || '';
     }
     return (
-      <textarea
-        {...otherProps}
-        className={this.getTextAreaClassName()}
-        style={style}
-        onKeyDown={this.handleKeyDown}
-        onChange={this.handleTextareaChange}
-        ref={this.saveTextAreaRef}
-      />
+      <ResizeObserver onResize={this.resizeOnNextFrame} disabled={!autosize}>
+        <textarea
+          {...otherProps}
+          className={cls}
+          style={style}
+          onKeyDown={this.handleKeyDown}
+          onChange={this.handleTextareaChange}
+          ref={this.saveTextAreaRef}
+        />
+      </ResizeObserver>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderTextArea}</ConfigConsumer>;
   }
 }
 

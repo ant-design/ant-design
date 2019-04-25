@@ -10,6 +10,7 @@ import {
   RadioChangeEvent,
   RadioGroupButtonStyle,
 } from './interface';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 function getCheckedValue(children: React.ReactNode) {
   let value = null;
@@ -26,7 +27,6 @@ function getCheckedValue(children: React.ReactNode) {
 class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
   static defaultProps = {
     disabled: false,
-    prefixCls: 'ant-radio',
     buttonStyle: 'outline' as RadioGroupButtonStyle,
   };
 
@@ -95,9 +95,11 @@ class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
       onChange(ev);
     }
   };
-  render() {
+
+  renderGroup = ({ getPrefixCls }: ConfigConsumerProps) => {
     const props = this.props;
-    const { prefixCls, className = '', options, buttonStyle } = props;
+    const { prefixCls: customizePrefixCls, className = '', options, buttonStyle } = props;
+    const prefixCls = getPrefixCls('radio', customizePrefixCls);
     const groupPrefixCls = `${prefixCls}-group`;
     const classString = classNames(
       groupPrefixCls,
@@ -122,7 +124,6 @@ class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
               prefixCls={prefixCls}
               disabled={this.props.disabled}
               value={option}
-              onChange={this.onRadioChange}
               checked={this.state.value === option}
             >
               {option}
@@ -136,7 +137,6 @@ class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
               prefixCls={prefixCls}
               disabled={option.disabled || this.props.disabled}
               value={option.value}
-              onChange={this.onRadioChange}
               checked={this.state.value === option.value}
             >
               {option.label}
@@ -157,6 +157,10 @@ class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
         {children}
       </div>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderGroup}</ConfigConsumer>;
   }
 }
 

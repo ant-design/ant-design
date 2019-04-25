@@ -9,10 +9,6 @@ export interface SkeletonTitleProps {
 }
 
 class Title extends React.Component<SkeletonTitleProps, any> {
-  static defaultProps: Partial<SkeletonTitleProps> = {
-    prefixCls: 'ant-skeleton-title',
-  };
-
   render() {
     const { prefixCls, className, width, style } = this.props;
 

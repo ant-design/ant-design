@@ -59,6 +59,8 @@ export { default as Dropdown } from './dropdown';
 
 export { default as Drawer } from './drawer';
 
+export { default as Empty } from './empty';
+
 export { default as Form } from './form';
 
 export { default as Icon } from './icon';
@@ -79,7 +81,11 @@ export { default as Menu } from './menu';
 
 export { default as Modal } from './modal';
 
+export { default as Statistic } from './statistic';
+
 export { default as notification } from './notification';
+
+export { default as PageHeader } from './page-header';
 
 export { default as Pagination } from './pagination';
 
@@ -124,6 +130,8 @@ export { default as TimePicker } from './time-picker';
 export { default as Timeline } from './timeline';
 
 export { default as Tooltip } from './tooltip';
+
+export { default as Typography } from './typography';
 
 export { default as Mention } from './mention';
 

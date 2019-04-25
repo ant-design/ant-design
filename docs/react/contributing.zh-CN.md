@@ -28,6 +28,8 @@ toc: false
 
 如果你有改进我们的 API 或者新增功能的想法，我们同样推荐你使用我们提供的 [issue 小助手](http://new-issue.ant.design) 来新建一个添加新功能的 issue。
 
+如果你希望协助开发新的 API，请参考 [API 规范](https://github.com/ant-design/ant-design/wiki/API-Naming-rules) 进行命名。
+
 ## 第一次贡献
 
 如果你还不清楚怎么在 GitHub 上提 Pull Request ，可以阅读下面这篇文章来学习：

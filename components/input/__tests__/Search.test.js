@@ -34,7 +34,7 @@ describe('Input.Search', () => {
     const wrapper = mount(<Search defaultValue="search text" onSearch={onSearch} />);
     wrapper.find('.anticon-search').simulate('click');
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toBeCalledWith(
+    expect(onSearch).toHaveBeenCalledWith(
       'search text',
       expect.objectContaining({
         type: 'click',
@@ -48,7 +48,7 @@ describe('Input.Search', () => {
     const wrapper = mount(<Search defaultValue="search text" enterButton onSearch={onSearch} />);
     wrapper.find('Button').simulate('click');
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toBeCalledWith(
+    expect(onSearch).toHaveBeenCalledWith(
       'search text',
       expect.objectContaining({
         type: 'click',
@@ -64,7 +64,7 @@ describe('Input.Search', () => {
     );
     wrapper.find('Button').simulate('click');
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toBeCalledWith(
+    expect(onSearch).toHaveBeenCalledWith(
       'search text',
       expect.objectContaining({
         type: 'click',
@@ -84,7 +84,7 @@ describe('Input.Search', () => {
     );
     wrapper.find('Button').simulate('click');
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toBeCalledWith(
+    expect(onSearch).toHaveBeenCalledWith(
       'search text',
       expect.objectContaining({
         type: 'click',
@@ -104,7 +104,7 @@ describe('Input.Search', () => {
     );
     wrapper.find('button').simulate('click');
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toBeCalledWith(
+    expect(onSearch).toHaveBeenCalledWith(
       'search text',
       expect.objectContaining({
         type: 'click',
@@ -118,12 +118,21 @@ describe('Input.Search', () => {
     const wrapper = mount(<Search defaultValue="search text" onSearch={onSearch} />);
     wrapper.find('input').simulate('keydown', { key: 'Enter', keyCode: 13 });
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toBeCalledWith(
+    expect(onSearch).toHaveBeenCalledWith(
       'search text',
       expect.objectContaining({
         type: 'keydown',
         preventDefault: expect.any(Function),
       }),
     );
+  });
+
+  // https://github.com/ant-design/ant-design/issues/14785
+  it('should support addonAfter', () => {
+    const addonAfter = <span>Addon After</span>;
+    const wrapper = mount(<Search addonAfter={addonAfter} />);
+    const wrapperWithEnterButton = mount(<Search enterButton addonAfter={addonAfter} />);
+    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapperWithEnterButton.render()).toMatchSnapshot();
   });
 });

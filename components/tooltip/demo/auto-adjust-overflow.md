@@ -12,7 +12,7 @@ debug: true
 
 ## en-US
 
-Adjust popup placement automatically when popup is invisible
+Adjust placement automatically when tooltip is invisible.
 
 ````jsx
 import { Tooltip, Button } from 'antd';
@@ -31,7 +31,7 @@ ReactDOM.render(
     </Tooltip>
     <br />
     <Tooltip placement="left" title="Prompt Text" getPopupContainer={trigger => trigger.parentElement} autoAdjustOverflow={false}>
-      <Button>Ingore / 不处理</Button>
+      <Button>Ignore / 不处理</Button>
     </Tooltip>
   </div>,
   mountNode

@@ -3,6 +3,27 @@ import { mount } from 'enzyme';
 import Avatar from '..';
 
 describe('Avatar Render', () => {
+  let originOffsetWidth;
+  beforeAll(() => {
+    // Mock offsetHeight
+    originOffsetWidth = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetWidth').get;
+    Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
+      get() {
+        if (this.className === 'ant-avatar-string') {
+          return 100;
+        }
+        return 80;
+      },
+    });
+  });
+
+  afterAll(() => {
+    // Restore Mock offsetHeight
+    Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
+      get: originOffsetWidth,
+    });
+  });
+
   it('Render long string correctly', () => {
     const wrapper = mount(<Avatar>TestString</Avatar>);
     const children = wrapper.find('.ant-avatar-string');
@@ -14,14 +35,18 @@ describe('Avatar Render', () => {
     global.document.body.appendChild(div);
 
     const wrapper = mount(<Avatar src="http://error.url">Fallback</Avatar>, { attachTo: div });
-    wrapper.instance().setScale = jest.fn(() => wrapper.instance().setState({ scale: 0.5 }));
-
+    wrapper.instance().setScale = jest.fn(() => {
+      if (wrapper.state().scale === 0.5) {
+        return;
+      }
+      wrapper.instance().setState({ scale: 0.5 });
+    });
     wrapper.find('img').simulate('error');
 
     const children = wrapper.find('.ant-avatar-string');
     expect(children.length).toBe(1);
     expect(children.text()).toBe('Fallback');
-    expect(wrapper.instance().setScale).toBeCalled();
+    expect(wrapper.instance().setScale).toHaveBeenCalled();
     expect(div.querySelector('.ant-avatar-string').style.transform).toContain('scale(0.5)');
 
     wrapper.detach();
@@ -63,5 +88,46 @@ describe('Avatar Render', () => {
 
     wrapper.detach();
     global.document.body.removeChild(div);
+  });
+
+  it('should show image on success after a failure state', () => {
+    const LOAD_FAILURE_SRC = 'http://error.url';
+    const LOAD_SUCCESS_SRC = 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png';
+
+    const div = global.document.createElement('div');
+    global.document.body.appendChild(div);
+
+    // simulate error src url
+    const wrapper = mount(<Avatar src={LOAD_FAILURE_SRC}>Fallback</Avatar>, { attachTo: div });
+    wrapper.find('img').simulate('error');
+
+    expect(wrapper.find(Avatar).instance().state.isImgExist).toBe(false);
+    expect(wrapper.find('.ant-avatar-string').length).toBe(1);
+
+    // simulate successful src url
+    wrapper.setProps({ src: LOAD_SUCCESS_SRC });
+    wrapper.update();
+
+    expect(wrapper.find(Avatar).instance().state.isImgExist).toBe(true);
+    expect(wrapper.find('.ant-avatar-image').length).toBe(1);
+
+    // cleanup
+    wrapper.detach();
+    global.document.body.removeChild(div);
+  });
+
+  it('should calculate scale of avatar children correctly', () => {
+    const wrapper = mount(<Avatar>Avatar</Avatar>);
+    expect(wrapper.state().scale).toBe(0.72);
+    Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
+      get() {
+        if (this.className === 'ant-avatar-string') {
+          return 100;
+        }
+        return 40;
+      },
+    });
+    wrapper.setProps({ children: 'xx' });
+    expect(wrapper.state().scale).toBe(0.32);
   });
 });

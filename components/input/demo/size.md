@@ -1,8 +1,8 @@
 ---
 order: 1
 title:
-    zh-CN: 三种大小
-    en-US: Three sizes of Input
+  zh-CN: 三种大小
+  en-US: Three sizes of Input
 ---
 
 ## zh-CN
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-There are three sizes of an Input box: `large` (40px)、`default` (32px) and `small` (24px).
+There are three sizes of an Input box: `large` (40px), `default` (32px) and `small` (24px).
 
 ````jsx
 import { Input } from 'antd';

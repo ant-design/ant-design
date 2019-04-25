@@ -5,6 +5,8 @@ import { enquireScreen } from 'enquire-js';
 import { addLocaleData, IntlProvider } from 'react-intl';
 import 'moment/locale/zh-cn';
 import { LocaleProvider } from 'antd';
+import LogRocket from 'logrocket';
+import setupLogRocketReact from 'logrocket-react';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
 import Header from './Header';
 import enLocale from '../../en-US';
@@ -26,6 +28,20 @@ if (typeof window !== 'undefined') {
   window['react-dom'] = ReactDOM;
   window.antd = require('antd');
   /* eslint-enable global-require */
+
+  // Error log statistic
+  window.addEventListener('error', function onError(e) {
+    // Ignore ResizeObserver error
+    if (e.message === 'ResizeObserver loop limit exceeded') {
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+    }
+  });
+
+  if (process.env.NODE_ENV === 'production') {
+    LogRocket.init('kpuw4z/ant-design');
+    setupLogRocketReact(LogRocket);
+  }
 }
 
 let isMobile = false;
@@ -94,6 +110,7 @@ export default class Layout extends React.Component {
     const { children, ...restProps } = this.props;
     const { appLocale } = this.state;
 
+    // Temp remove SentryBoundary
     return (
       <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
         <LocaleProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null}>

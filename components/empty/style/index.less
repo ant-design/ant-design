@@ -1,0 +1,47 @@
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
+
+@empty-prefix-cls: ~'@{ant-prefix}-empty';
+
+.@{empty-prefix-cls} {
+  margin: 0 8px;
+  font-size: @empty-font-size;
+  line-height: 22px;
+  text-align: center;
+
+  &-image {
+    height: 100px;
+    margin-bottom: 8px;
+
+    img {
+      height: 100%;
+    }
+  }
+
+  &-description {
+    margin: 0;
+  }
+
+  &-footer {
+    margin-top: 16px;
+  }
+
+  // antd internal empty style
+  &-normal {
+    margin: 32px 0;
+    color: @disabled-color;
+
+    .@{empty-prefix-cls}-image {
+      height: 40px;
+    }
+  }
+
+  &-small {
+    margin: 8px 0;
+    color: @disabled-color;
+
+    .@{empty-prefix-cls}-image {
+      height: 35px;
+    }
+  }
+}

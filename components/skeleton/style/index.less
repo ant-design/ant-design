@@ -14,8 +14,8 @@
 
   &-header {
     display: table-cell;
-    vertical-align: top;
     padding-right: 16px;
+    vertical-align: top;
 
     // Avatar
     .@{skeleton-avatar-prefix-cls} {
@@ -37,14 +37,14 @@
 
   &-content {
     display: table-cell;
-    vertical-align: top;
     width: 100%;
+    vertical-align: top;
 
     // Title
     .@{skeleton-title-prefix-cls} {
-      margin-top: 16px;
-      height: 16px;
       width: 100%;
+      height: 16px;
+      margin-top: 16px;
       background: @skeleton-color;
 
       + .@{skeleton-paragraph-prefix-cls} {
@@ -54,11 +54,13 @@
 
     // paragraph
     .@{skeleton-paragraph-prefix-cls} {
+      padding: 0;
+
       > li {
-        height: 16px;
-        background: @skeleton-color;
-        list-style: none;
         width: 100%;
+        height: 16px;
+        list-style: none;
+        background: @skeleton-color;
 
         &:last-child:not(:first-child):not(:nth-child(2)) {
           width: 61%;
@@ -114,8 +116,8 @@
     @skeleton-to-color 37%,
     @skeleton-color 63%
   );
-  animation: ~'@{skeleton-prefix-cls}-loading' 1.4s ease infinite;
   background-size: 400% 100%;
+  animation: ~'@{skeleton-prefix-cls}-loading' 1.4s ease infinite;
 }
 
 @keyframes ~"@{skeleton-prefix-cls}-loading" {

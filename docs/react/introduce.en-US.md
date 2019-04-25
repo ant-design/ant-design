@@ -48,17 +48,17 @@ You can subscribe to this feed for new version notifications: https://github.com
 
 ### Using npm or yarn
 
-**We recommend using npm or yarn to install**，it not only makes development easier，but also allow you to take advantage of the rich ecosystem of Javascript packages and tooling.
+**We recommend using npm or yarn to install**, it not only makes development easier, but also allow you to take advantage of the rich ecosystem of Javascript packages and tooling.
 
 ```bash
-$ npm install antd --save
+$ npm install antd
 ```
 
 ```bash
 $ yarn add antd
 ```
 
-If you are in a bad network environment，you can try other registries and tools like [cnpm](https://github.com/cnpm/cnpm).
+If you are in a bad network environment, you can try other registries and tools like [cnpm](https://github.com/cnpm/cnpm).
 
 ### Import in Browser
 
@@ -95,8 +95,6 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
      ]
    }
    ```
-
-   > Note: Don't set `libraryDirectory` if you are using webpack 1.
 
    This allows you to import components from antd without having to manually import the corresponding stylesheet. The antd babel plugin will automatically import stylesheets.
 

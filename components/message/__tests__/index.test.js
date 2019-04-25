@@ -86,7 +86,7 @@ describe('message', () => {
     });
   });
 
-  it('should be called like promise', () => {
+  it('should be called like promise', done => {
     jest.useRealTimers();
     const defaultDuration = 3;
     const now = Date.now();
@@ -94,6 +94,7 @@ describe('message', () => {
       // calculate the approximately duration value
       const aboutDuration = parseInt((Date.now() - now) / 1000, 10);
       expect(aboutDuration).toBe(defaultDuration);
+      done();
     });
   });
 
