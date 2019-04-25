@@ -19,23 +19,23 @@ describe('PageHeader', () => {
       },
     ];
     const wrapper = mount(<PageHeader title="Page Title" breadcrumb={{ routes }} />);
-    expect(wrapper.find('.ant-page-header-back-icon')).toHaveLength(0);
+    expect(wrapper.find('.ant-page-header-back')).toHaveLength(0);
   });
-  it('pageHeader should no contain back it back', () => {
+  it('pageHeader should no contain back', () => {
     const wrapper = mount(<PageHeader title="Page Title" backIcon={false} />);
-    expect(wrapper.find('.ant-page-header-back-icon')).toHaveLength(0);
+    expect(wrapper.find('.ant-page-header-back')).toHaveLength(0);
   });
 
   it('pageHeader should contain back it back', () => {
     const callback = jest.fn(() => true);
     const wrapper = mount(<PageHeader title="Page Title" onBack={callback} />);
-    expect(wrapper.find('.ant-page-header-back-icon')).toHaveLength(1);
+    expect(wrapper.find('.ant-page-header-back')).toHaveLength(1);
   });
 
   it('pageHeader onBack transfer', () => {
     const callback = jest.fn(() => true);
     const wrapper = mount(<PageHeader title="Page Title" onBack={callback} />);
-    wrapper.find('.ant-page-header-back-icon').simulate('click');
+    wrapper.find('div.ant-page-header-back-button').simulate('click');
     expect(callback).toHaveBeenCalled();
   });
 
