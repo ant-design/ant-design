@@ -1,9 +1,19 @@
 import * as React from 'react';
-import hoistNonReactStatics from 'hoist-non-react-statics';
+import * as hoistNonReactStatics from 'hoist-non-react-statics';
 import { Omit } from '../_util/type';
-import { FormComponentProps } from './Form';
+import { WrappedFormInternalProps } from './Form';
 
 // Copy from @types/react-redux https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react-redux/index.d.ts
+export type Matching<InjectedProps, DecorationTargetProps> = {
+  [P in keyof DecorationTargetProps]: P extends keyof InjectedProps
+      ? InjectedProps[P] extends DecorationTargetProps[P]
+          ? DecorationTargetProps[P]
+          : InjectedProps[P]
+      : DecorationTargetProps[P];
+};
+
+export type GetProps<C> = C extends React.ComponentType<infer P> ? P : never;
+
 export type ConnectedComponentClass<
   C extends React.ComponentType<any>,
   P
@@ -11,8 +21,8 @@ export type ConnectedComponentClass<
   WrappedComponent: C;
 };
 
-export type FormWrappedProps<TOwnProps extends FormComponentProps> =
+export type FormWrappedProps<TOwnProps extends WrappedFormInternalProps> =
   <
-    C extends React.ComponentType
+    C extends React.ComponentType<Matching<TOwnProps, GetProps<C>>>
   >(component: C)
-  => ConnectedComponentClass<C, Omit<TOwnProps, keyof FormComponentProps>>;
+  => ConnectedComponentClass<C, Omit<TOwnProps, keyof WrappedFormInternalProps>>;

@@ -36,6 +36,7 @@ export interface DrawerProps {
   push?: boolean;
   placement?: placementType;
   onClose?: (e: EventType) => void;
+  afterVisibleChange?: (visible: boolean) => void;
   className?: string;
   handler?: React.ReactNode;
 }
@@ -65,6 +66,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
     prefixCls: PropTypes.string,
     placement: PropTypes.oneOf(PlacementTypes),
     onClose: PropTypes.func,
+    afterVisibleChange: PropTypes.func,
     className: PropTypes.string,
   };
 

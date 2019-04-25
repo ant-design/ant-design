@@ -93,7 +93,7 @@ export default class List<T> extends React.Component<ListProps<T>, ListState> {
     super(props);
 
     const { pagination } = props;
-    const paginationObj = typeof pagination === 'object' ? pagination : {};
+    const paginationObj = pagination && typeof pagination === 'object' ? pagination : {};
 
     this.state = {
       paginationCurrent: paginationObj.defaultCurrent || 1,
@@ -258,7 +258,11 @@ export default class List<T> extends React.Component<ListProps<T>, ListState> {
         );
       });
 
-      childrenContent = grid ? <Row gutter={grid.gutter}>{childrenList}</Row> : childrenList;
+      childrenContent = grid ? (
+        <Row gutter={grid.gutter}>{childrenList}</Row>
+      ) : (
+        <ul className={`${prefixCls}-items`}>{childrenList}</ul>
+      );
     } else if (!children && !isLoading) {
       childrenContent = this.renderEmpty(prefixCls, renderEmpty);
     }

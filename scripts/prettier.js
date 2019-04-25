@@ -36,7 +36,7 @@ if (program.pre) {
   ];
 
   // get all ts, js, less files
-  ['**/*.ts*', '**/*.js*', '**/*.less'].forEach(pattern => {
+  ['**/*.ts*', '**/*.js*', '**/*.less', '**/*.md', '**/*.html'].forEach(pattern => {
     const matchFiles = glob.sync(pattern, {
       ignore: ignoreFiles,
     });
