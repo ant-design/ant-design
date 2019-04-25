@@ -15,12 +15,36 @@ title: Breadcrumb
 
 ## API
 
-| 参数 | 说明 | 类型 | 可选值 | 默认值 |
-| --- | --- | --- | --- | --- |
-| itemRender | 自定义链接函数，和 react-router 配置使用 | (route, params, routes, paths) => ReactNode |  | - |
-| params | 路由的参数 | object |  | - |
-| routes | router 的路由栈信息 | object\[] |  | - |
-| separator | 分隔符自定义 | string\|ReactNode |  | '/' |
+### Breadcrumb
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| itemRender | 自定义链接函数，和 react-router 配置使用 | (route, params, routes, paths) => ReactNode | - |
+| params | 路由的参数 | object | - |
+| routes | router 的路由栈信息 | [routes\[\]](#routes) | - |
+| separator | 分隔符自定义 | string\|ReactNode | '/' |
+
+### Breadcrumb.Item
+
+| 参数      | 参数           | 类型                                   | 默认值 |
+| --------- | -------------- | -------------------------------------- | ------ |
+| href      | 链接的目的地   | string                                 | -      |
+| separator | 自定义的分隔符 | string\|ReactNode                      | '/'    |
+| overlay   | 下来菜单的内容 | [Menu](/components/menu) \| () => Menu | -      |
+| onClick   | 单击事件       | (e:MouseEventHandler)=>void            | -      |
+
+### routes
+
+```ts
+interface Route {
+  path: string;
+  breadcrumbName: string;
+  children: Array<{
+    path: string;
+    breadcrumbName: string;
+  }>;
+}
+```
 
 ### 和 browserHistory 配合
 
