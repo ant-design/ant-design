@@ -15,6 +15,15 @@ timeline: true
 
 ---
 
+## 3.16.5
+
+`2019-04-22`
+
+- 🐞 修复 Firefox 中 Table 使用 sorter 丢失线框的样式问题。[#16174](https://github.com/ant-design/ant-design/pull/16174)
+- 🐞 修复 List 中设置 `pagination` 为 `null` 时报错的问题。[#16231](https://github.com/ant-design/ant-design/pull/16231)
+- TypeScript
+  - 🐞 修复 `allowSyntheticDefaultImports: false` 下 `hoist-non-react-statics` 报错的问题。[#16224](https://github.com/ant-design/ant-design/pull/16224)
+
 ## 3.16.4
 
 `2019-04-21`

@@ -15,6 +15,15 @@ timeline: true
 
 ---
 
+## 3.16.5
+
+`2019-04-22`
+
+- 🐞 Fix Table in Firefox miss bottom line when sorter enabled. [#16174](https://github.com/ant-design/ant-design/pull/16174)
+- 🐞 Fix List crash when `pagination` is `null`. [#16231](https://github.com/ant-design/ant-design/pull/16231)
+- TypeScript
+  - 🐞 Fix typescript `hoist-non-react-statics` has no default export warning with `allowSyntheticDefaultImports: false`. [#16224](https://github.com/ant-design/ant-design/pull/16224)
+
 ## 3.16.4
 
 `2019-04-21`

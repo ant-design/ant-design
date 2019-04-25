@@ -47,8 +47,8 @@
     box-shadow: 0 2px 4px 0 @switch-shadow-color;
   }
 
-  &:active::before,
-  &:active::after {
+  &:not(&-disabled):active::before,
+  &:not(&-disabled):active::after {
     width: 24px;
   }
 
