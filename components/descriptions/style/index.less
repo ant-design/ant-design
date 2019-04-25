@@ -3,6 +3,10 @@
 
 @descriptions-prefix-cls: ~'@{ant-prefix}-descriptions';
 
+@descriptions-default-padding: 16px 24px;
+@descriptions-middle-padding: 12px 24px;
+@descriptions-small-padding: 8px 16px;
+
 .@{descriptions-prefix-cls} {
   &-title {
     margin-bottom: 20px;
@@ -21,7 +25,7 @@
     }
   }
 
-  &-item {
+  &-row {
     > td {
       padding-bottom: 16px;
     }
@@ -34,6 +38,7 @@
     color: @heading-color;
     font-size: @font-size-base;
     line-height: @line-height-base;
+    white-space: nowrap;
     &::after {
       position: relative;
       top: -0.5px;
@@ -49,12 +54,45 @@
     line-height: @line-height-base;
   }
 
+  &-item {
+    padding-bottom: 0;
+    > span {
+      display: inline-block;
+    }
+    .@{descriptions-prefix-cls}-item-label {
+      float: left;
+      padding: 0 !important;
+    }
+    .@{descriptions-prefix-cls}-item-content {
+      float: left;
+      padding: 0 !important;
+    }
+  }
+
+  // padding setting
+  .@{descriptions-prefix-cls}-item-label,
+  .@{descriptions-prefix-cls}-item-content {
+    padding: @descriptions-default-padding;
+  }
+
+  &.bordered.middle {
+    .@{descriptions-prefix-cls}-item-label,
+    .@{descriptions-prefix-cls}-item-content {
+      padding: @descriptions-middle-padding;
+    }
+  }
+  &.bordered.small {
+    .@{descriptions-prefix-cls}-item-label,
+    .@{descriptions-prefix-cls}-item-content {
+      padding: @descriptions-small-padding;
+    }
+  }
   &.bordered {
     .@{descriptions-prefix-cls}-view {
       border: 1px solid @border-color-split;
     }
 
-    .@{descriptions-prefix-cls}-item {
+    .@{descriptions-prefix-cls}-row {
       border-bottom: 1px solid @border-color-split;
       &:last-child {
         border-bottom: none;
@@ -62,27 +100,10 @@
     }
 
     .@{descriptions-prefix-cls}-item-label {
-      padding: 16px 24px;
       background-color: #fafafa;
       &::after {
         display: none;
       }
-    }
-    .@{descriptions-prefix-cls}-item-content {
-      padding: 16px 24px;
-    }
-  }
-
-  &.middle {
-    .@{descriptions-prefix-cls}-item-label,
-    .@{descriptions-prefix-cls}-item-content {
-      padding: 12px 24px;
-    }
-  }
-  &.small {
-    .@{descriptions-prefix-cls}-item-label,
-    .@{descriptions-prefix-cls}-item-content {
-      padding: 8px 16px;
     }
   }
 }

@@ -75,22 +75,35 @@ const generateChildrenRows = (
  *   <td>{DescriptionsItem.children}</td>
  * </>
  */
-const renderCol = (child: React.ReactElement<DescriptionsItemProps>) => {
+const renderCol = (child: React.ReactElement<DescriptionsItemProps>, bordered: boolean) => {
   const { prefixCls, label, children, span = 1 } = child.props;
-  return [
-    <td className={`${prefixCls}-item-label`} key="label">
-      {label}
-    </td>,
-    <td className={`${prefixCls}-item-content`} key="content" colSpan={span * 2 - 1}>
-      {children}
-    </td>,
-  ];
+  if (bordered) {
+    return [
+      <td className={`${prefixCls}-item-label`} key="label">
+        {label}
+      </td>,
+      <td className={`${prefixCls}-item-content`} key="content" colSpan={span * 2 - 1}>
+        {children}
+      </td>,
+    ];
+  }
+  return (
+    <td colSpan={span} className={`${prefixCls}-item`}>
+      <span className={`${prefixCls}-item-label`} key="label">
+        {label}
+      </span>
+      <span className={`${prefixCls}-item-content`} key="content">
+        {children}
+      </span>
+    </td>
+  );
 };
 
 const renderRow = (
   children: React.ReactElement<DescriptionsItemProps>[],
   index: number,
   { prefixCls, column, isLast }: { prefixCls: string; column: number; isLast: boolean },
+  bordered: boolean,
 ) => {
   // copy children,prevent changes to incoming parameters
   const childrenArray = [...children];
@@ -104,13 +117,13 @@ const renderRow = (
   const cloneChildren = React.Children.map(
     childrenArray,
     (childrenItem: React.ReactElement<DescriptionsItemProps>) => {
-      return renderCol(childrenItem);
+      return renderCol(childrenItem, bordered);
     },
   );
   return (
-    <tr className={`${prefixCls}-item`} key={index}>
+    <tr className={`${prefixCls}-row`} key={index}>
       {cloneChildren}
-      {renderCol(lastChildren)}
+      {renderCol(lastChildren, bordered)}
     </tr>
   );
 };
@@ -186,7 +199,7 @@ class Descriptions extends React.Component<
             title,
             size,
             children,
-            bordered,
+            bordered = false,
           } = this.props;
           const prefixCls = getPrefixCls('descriptions', customizePrefixCls);
 
@@ -215,11 +228,16 @@ class Descriptions extends React.Component<
                 <table>
                   <tbody>
                     {childrenArray.map((child, index) =>
-                      renderRow(child, index, {
-                        prefixCls,
-                        column,
-                        isLast: index + 1 === childrenArray.length,
-                      }),
+                      renderRow(
+                        child,
+                        index,
+                        {
+                          prefixCls,
+                          column,
+                          isLast: index + 1 === childrenArray.length,
+                        },
+                        bordered,
+                      ),
                     )}
                   </tbody>
                 </table>

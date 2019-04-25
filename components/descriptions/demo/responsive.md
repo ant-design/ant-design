@@ -32,7 +32,7 @@ const Demo = () => {
         <DescriptionsItem label="Amount">$80.00</DescriptionsItem>
         <DescriptionsItem label="Discount">$20.00</DescriptionsItem>
         <DescriptionsItem label="Official">$60.00</DescriptionsItem>
-        <DescriptionsItem label="Info">
+        <DescriptionsItem label="Config Info">
           Data disk type: MongoDB
           <br />
           Database version: 3.4

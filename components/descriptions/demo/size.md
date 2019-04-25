@@ -42,14 +42,14 @@ class Demo extends React.Component {
         </RadioGroup>
         <br />
         <br />
-        <Descriptions title="Custom Size" border size={this.state.size}>
+        <Descriptions bordered title="Custom Size" border size={this.state.size}>
           <DescriptionsItem label="Product">Cloud Database</DescriptionsItem>
           <DescriptionsItem label="Billing">Prepaid</DescriptionsItem>
           <DescriptionsItem label="time">18:00:00</DescriptionsItem>
           <DescriptionsItem label="Amount">$80.00</DescriptionsItem>
           <DescriptionsItem label="Discount">$20.00</DescriptionsItem>
           <DescriptionsItem label="Official">$60.00</DescriptionsItem>
-          <DescriptionsItem label="Info">
+          <DescriptionsItem label="Config Info">
             Data disk type: MongoDB
             <br />
             Database version: 3.4
