@@ -87,15 +87,7 @@ describe('Carousel', () => {
       </Carousel>,
     );
     expect(warnSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Carousel] `vertical` is deprecated, use `dotPosition` instead.',
-    );
-    mount(
-      <Carousel vertical={false}>
-        <div />
-      </Carousel>,
-    );
-    expect(warnSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Carousel] `vertical={false}` is deprecated, you can remove it safely or use `dotPosition` instead.',
+      'Warning: [antd: Carousel] `vertical` is deprecated, please use `dotPosition` instead.',
     );
     warnSpy.mockRestore();
   });

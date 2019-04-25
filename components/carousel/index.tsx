@@ -56,12 +56,7 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
       warning(
         !this.props.vertical,
         'Carousel',
-        '`vertical` is deprecated, use `dotPosition` instead.',
-      );
-      warning(
-        !!this.props.vertical,
-        'Carousel',
-        '`vertical={false}` is deprecated, you can remove it safely or use `dotPosition` instead.',
+        '`vertical` is deprecated, please use `dotPosition` instead.',
       );
     }
   }
