@@ -19,6 +19,10 @@ import { Transfer, Tree } from 'antd';
 const { TreeNode } = Tree;
 
 // Customize Table Transfer
+const isChecked = (selectedKeys, eventKey) => {
+  return selectedKeys.indexOf(eventKey) !== -1;
+}
+
 const generateTree = (treeNodes = [], checkedKeys = []) => {
   return treeNodes.map(({ children, ...props }) => (
     <TreeNode {...props} disabled={checkedKeys.includes(props.key)}>
@@ -48,22 +52,25 @@ const TreeTransfer = ({ dataSource, targetKeys, ...restProps }) => {
     >
       {({ direction, onItemSelect, selectedKeys }) => {
         if (direction === 'left') {
+          const checkedKeys = [...selectedKeys, ...targetKeys];
           return (
             <Tree
               blockNode
               checkable
               checkStrictly
               defaultExpandAll
-              checkedKeys={[...selectedKeys, ...targetKeys]}
-              onCheck={(_, { checked, node: { props: { eventKey } } }) => {
-                onItemSelect(eventKey, checked);
+              checkedKeys={checkedKeys}
+              onCheck={(_, { node: { props: { eventKey } } }) => {
+                onItemSelect(eventKey, !isChecked(checkedKeys, eventKey));
+              }}
+              onSelect={(_, { node: { props: { eventKey } } }) => {
+                onItemSelect(eventKey, !isChecked(checkedKeys, eventKey));
               }}
             >
               {generateTree(dataSource, targetKeys)}
             </Tree>
           );
         }
-        return null;
       }}
     </Transfer>
   );
