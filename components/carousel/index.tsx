@@ -103,7 +103,7 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
   }
 
   getDotPosition(): DotPosition {
-    if ('dotPosition' in this.props && this.props.dotPosition) {
+    if (this.props.dotPosition) {
       return this.props.dotPosition;
     } else if ('vertical' in this.props) {
       return this.props.vertical ? 'right' : 'bottom';
