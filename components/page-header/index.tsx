@@ -19,7 +19,7 @@ export interface PageHeaderProps {
   tags?: React.ReactElement<Tag> | React.ReactElement<Tag>[];
   footer?: React.ReactNode;
   extra?: React.ReactNode;
-  onBack?: (e: React.MouseEvent<HTMLElement>) => void;
+  onBack?: (e: React.MouseEvent<HTMLDivElement>) => void;
   className?: string;
 }
 
@@ -34,15 +34,16 @@ const renderBack = (
   return (
     <LocaleReceiver componentName="PageHeader">
       {({ back }: { back: string }) => (
-        <div
-          className={`${prefixCls}-back-icon`}
-          onClick={e => {
-            if (onBack) {
-              onBack(e);
-            }
-          }}
-        >
-          <TransButton className={`${prefixCls}-back-icon-button`} aria-label={back}>
+        <div className={`${prefixCls}-back-icon`}>
+          <TransButton
+            onClick={(e: React.MouseEvent<HTMLDivElement>) => {
+              if (onBack) {
+                onBack(e);
+              }
+            }}
+            className={`${prefixCls}-back-icon-button`}
+            aria-label={back}
+          >
             {backIcon}
           </TransButton>
           <Divider type="vertical" />
