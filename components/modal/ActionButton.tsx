@@ -16,8 +16,6 @@ export interface ActionButtonState {
 }
 
 export default class ActionButton extends React.Component<ActionButtonProps, ActionButtonState> {
-  timeoutId: number;
-
   constructor(props: ActionButtonProps) {
     super(props);
     this.state = {
@@ -27,14 +25,20 @@ export default class ActionButton extends React.Component<ActionButtonProps, Act
 
   componentDidMount() {
     if (this.props.autoFocus) {
-      const $this = ReactDOM.findDOMNode(this) as HTMLInputElement;
-      this.timeoutId = setTimeout(() => $this.focus());
+      document.addEventListener('keypress', this.focus);
     }
   }
 
   componentWillUnmount() {
-    clearTimeout(this.timeoutId);
+    document.removeEventListener('keypress', this.focus);
   }
+
+  focus = (event: KeyboardEvent) => {
+    const $this = ReactDOM.findDOMNode(this) as HTMLInputElement;
+    if (event.keyCode === 13) {
+      $this.click();
+    }
+  };
 
   onClick = () => {
     const { actionFn, closeModal } = this.props;
