@@ -5,11 +5,11 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
   class="ant-page-header ant-page-header-has-footer"
 >
   <div
-    class="ant-page-header-back-icon"
+    class="ant-page-header-back"
   >
     <div
       aria-label="back"
-      class="ant-page-header-back-icon-button"
+      class="ant-page-header-back-button"
       role="button"
       style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
       tabindex="0"
@@ -414,11 +414,11 @@ exports[`renders ./components/page-header/demo/basic.md correctly 1`] = `
   class="ant-page-header"
 >
   <div
-    class="ant-page-header-back-icon"
+    class="ant-page-header-back"
   >
     <div
       aria-label="back"
-      class="ant-page-header-back-icon-button"
+      class="ant-page-header-back-button"
       role="button"
       style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
       tabindex="0"

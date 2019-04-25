@@ -34,14 +34,14 @@ const renderBack = (
   return (
     <LocaleReceiver componentName="PageHeader">
       {({ back }: { back: string }) => (
-        <div className={`${prefixCls}-back-icon`}>
+        <div className={`${prefixCls}-back`}>
           <TransButton
             onClick={(e: React.MouseEvent<HTMLDivElement>) => {
               if (onBack) {
                 onBack(e);
               }
             }}
-            className={`${prefixCls}-back-icon-button`}
+            className={`${prefixCls}-back-button`}
             aria-label={back}
           >
             {backIcon}
