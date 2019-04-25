@@ -43,6 +43,7 @@ class ButtonSize extends React.Component {
         <Button size={size}>Normal</Button>
         <Button type="dashed" size={size}>Dashed</Button>
         <Button type="danger" size={size}>Danger</Button>
+        <Button type="link" size={size}>Link</Button>
         <br />
         <Button type="primary" shape="circle" icon="download" size={size} />
         <Button type="primary" shape="round" icon="download" size={size}>Download</Button>
