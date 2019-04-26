@@ -50,7 +50,7 @@ export default class BreadcrumbItem extends React.Component<BreadcrumbItemProps,
     }
 
     // wrap to dropDown
-    link = this.wrapToDropDown(link);
+    link = this.renderBreadcrumbNode(link, prefixCls);
     if (children) {
       return (
         <span>
@@ -66,14 +66,13 @@ export default class BreadcrumbItem extends React.Component<BreadcrumbItemProps,
    * if overlay is have
    * Wrap a DropDown
    */
-  wrapToDropDown = (breadcrumbItem: React.ReactNode) => {
+  renderBreadcrumbNode = (breadcrumbItem: React.ReactNode, prefixCls: string) => {
     const { overlay } = this.props;
     if (overlay) {
       return (
         <DropDown overlay={overlay} placement="bottomCenter">
-          <a className="ant-dropdown-link">
+          <a className={`${prefixCls}-overlay-link`}>
             {breadcrumbItem}
-            &nbsp;
             <Icon type="down" />
           </a>
         </DropDown>
