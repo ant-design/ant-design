@@ -24,13 +24,14 @@ export default class CheckableTag extends React.Component<CheckableTagProps> {
   renderCheckableTag = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, className, checked, color, ...restProps } = this.props;
     const prefixCls = getPrefixCls('tag', customizePrefixCls);
+    const isPreset = isPresetColor(color);
     const cls = classNames(
       prefixCls,
       {
         [`${prefixCls}-checkable`]: true,
         [`${prefixCls}-checkable-checked`]: checked,
-        [`${prefixCls}-has-color`]: !!color,
-        [`${prefixCls}-${color}`]: color && isPresetColor(color) ? !!color : false,
+        [`${prefixCls}-has-color`]: !!color && !isPreset,
+        [`${prefixCls}-${color}`]: color && isPreset ? !!color : false,
       },
       className,
     );
@@ -54,9 +55,11 @@ export default class CheckableTag extends React.Component<CheckableTagProps> {
 
   getTagStyle() {
     const { color, unCheckedColor, style, checked } = this.props;
+    const isPreset = isPresetColor(color);
     return {
+      color: !isPreset && !checked ? color : undefined,
       backgroundColor:
-        color && !isPresetColor(color) ? (checked ? color : unCheckedColor) : undefined,
+        color && !isPreset ? (checked ? color : unCheckedColor) : undefined,
       ...style,
     };
   }

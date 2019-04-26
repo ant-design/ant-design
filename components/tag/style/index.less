@@ -102,35 +102,44 @@
     }
   }
 
+  .make-checkable-color-classes(@j: length(@preset-colors)) when (@j > 0) {
+    .make-checkable-color-classes(@j - 1);
+    @color: extract(@preset-colors, @j);
+    @lightColor: '@{color}-1';
+    @lightBorderColor: '@{color}-3';
+    @darkColor: '@{color}-6';
+
+    &-checkable {
+      &.@{tag-prefix-cls}-@{color} {
+        color: @@lightBorderColor;
+        background: @@lightColor;
+        border-color: @@lightColor;
+
+        &-inverse {
+          color: @text-color-inverse;
+          background: @@darkColor;
+          border-color: @@darkColor;
+        }
+
+        &:hover {
+          color: @@darkColor;
+        }
+      }
+
+      &-checked.@{tag-prefix-cls}-@{color} {
+        color: @@darkColor;
+        background: @@lightColor;
+        border-color: @@lightBorderColor;
+
+        &-inverse {
+          color: @text-color-inverse;
+          background: @@darkColor;
+          border-color: @@darkColor;
+        }
+      }
+    }
+  }
+
   .make-color-classes();
+  .make-checkable-color-classes();
 }
-
-.make-checkable-color-classes(@j: length(@preset-colors)) when (@j > 0) {
-  .make-checkable-color-classes(@j - 1);
-  @color: extract(@preset-colors, @j);
-  @lightColor: '@{color}-1';
-  @lightBorderColor: '@{color}-3';
-  @darkColor: '@{color}-6';
-  .@{tag-prefix-cls}-checkable.@{tag-prefix-cls}-@{color} {
-    color: @@lightBorderColor;
-    background: @@lightColor;
-    border-color: @@lightColor;
-  }
-  .@{tag-prefix-cls}-checkable.@{tag-prefix-cls}-@{color}-inverse {
-    color: @text-color-inverse;
-    background: @@darkColor;
-    border-color: @@darkColor;
-  }
-  .@{tag-prefix-cls}-checkable.@{tag-prefix-cls}-checkable-checked.@{tag-prefix-cls}-@{color} {
-    color: @@darkColor;
-    background: @@lightColor;
-    border-color: @@lightBorderColor;
-  }
-  .@{tag-prefix-cls}-checkable.@{tag-prefix-cls}-checkable-checked.@{color}-inverse {
-    color: @text-color-inverse;
-    background: @@darkColor;
-    border-color: @@darkColor;
-  }
-}
-
-.make-checkable-color-classes();

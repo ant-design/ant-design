@@ -37,7 +37,7 @@ class MyTag extends React.Component {
 ReactDOM.render(
   <div>
     <MyTag>Tag1</MyTag>
-    <MyTag color="#f50" unCheckedColor="#f88">Tag2</MyTag>
+    <MyTag color="#f50" unCheckedColor="rgba(256, 80, 0, 0.2)">Tag2</MyTag>
     <MyTag color="magenta">Tag3</MyTag>
   </div>,
   mountNode
