@@ -4,7 +4,7 @@ import DirectoryTree from './DirectoryTree';
 import classNames from 'classnames';
 import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import animation from '../_util/openAnimation';
+import { collapseMotion } from '../_util/motion';
 
 export interface AntdTreeNodeAttribute {
   eventKey: string;
@@ -156,9 +156,9 @@ export default class Tree extends React.Component<TreeProps, any> {
   static defaultProps = {
     checkable: false,
     showIcon: false,
-    openAnimation: {
-      ...animation,
-      appear: null,
+    motion: {
+      ...collapseMotion,
+      motionAppear: false,
     },
     blockNode: false,
   };
