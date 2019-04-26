@@ -81,7 +81,7 @@ const splitObject = (obj: any, keys: string[]) => {
   return { picked, omitted };
 };
 
-class Tooltip extends React.Component<TooltipProps, any> {
+class Tooltip extends React.Component<TooltipProps & React.HTMLAttributes<HTMLElement>, any> {
   static defaultProps = {
     placement: 'top' as TooltipPlacement,
     transitionName: 'zoom-big-fast',
