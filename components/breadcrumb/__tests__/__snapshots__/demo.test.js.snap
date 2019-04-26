@@ -98,7 +98,7 @@ exports[`renders ./components/breadcrumb/demo/overlay.md correctly 1`] = `
     </span>
     <span>
       <a
-        class="ant-dropdown-link ant-dropdown-trigger"
+        class="ant-breadcrumb-overlay-link ant-dropdown-trigger"
       >
         <span
           class="ant-breadcrumb-link"
@@ -110,7 +110,6 @@ exports[`renders ./components/breadcrumb/demo/overlay.md correctly 1`] = `
         General
       </a>
     </span>
-     
     <i
       aria-label="icon: down"
       class="anticon anticon-down"
