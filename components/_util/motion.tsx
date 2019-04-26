@@ -23,8 +23,8 @@ interface Motion {
 }
 
 // ================== Collapse Motion ==================
-const getCollapsedHeight: MotionFunc = () => ({ height: 0 });
-const getRealHeight: MotionFunc = node => ({ height: node.scrollHeight });
+const getCollapsedHeight: MotionFunc = () => ({ height: 0, opacity: 0 });
+const getRealHeight: MotionFunc = node => ({ height: node.scrollHeight, opacity: 1 });
 const getCurrentHeight: MotionFunc = node => ({ height: node.offsetHeight });
 
 export const collapseMotion: Motion = {
