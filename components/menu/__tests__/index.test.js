@@ -3,7 +3,6 @@ import { mount } from 'enzyme';
 import Menu from '..';
 import Icon from '../../icon';
 import Layout from '../../layout';
-import raf from '../../_util/raf';
 
 jest.mock('mutationobserver-shim', () => {
   global.MutationObserver = function MutationObserver() {
@@ -74,10 +73,6 @@ describe('Menu', () => {
         .at(0)
         .hasClass('ant-menu-hidden'),
     ).not.toBe(true);
-
-    const rafCount = Object.keys(raf.ids).length;
-    wrapper.unmount();
-    expect(Object.keys(raf.ids).length).toBe(rafCount - 1);
   });
 
   it('should accept defaultOpenKeys in mode vertical', () => {
