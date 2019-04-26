@@ -23,6 +23,8 @@ export interface AbstractCheckboxProps<T> {
   tabIndex?: number;
   name?: string;
   children?: React.ReactNode;
+  id?: string;
+  autoFocus?: boolean;
 }
 
 export interface CheckboxProps extends AbstractCheckboxProps<CheckboxChangeEvent> {

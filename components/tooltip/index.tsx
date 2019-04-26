@@ -61,6 +61,7 @@ export interface AbstractTooltipProps {
   children?: React.ReactNode;
   // align is a more higher api
   align?: TooltipAlignConfig;
+  destroyTooltipOnHide?: boolean;
 }
 
 export type RenderFunction = () => React.ReactNode;
