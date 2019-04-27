@@ -115,8 +115,8 @@ const columns = [{
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| align | 设置列内容的对齐方式 | 'left' \| 'right' \| 'center' | 'left' |
-| className | 列的 className | string | - |
+| align | 设置列的对齐方式 | 'left' \| 'right' \| 'center' | 'left' |
+| className | 列样式类名 | string | - |
 | colSpan | 表头列合并,设置为 0 时，不渲染 | number |  |
 | dataIndex | 列数据在数据项中对应的 key，支持 `a.b.c`、`a[0].b.c[1]` 的嵌套写法 | string | - |
 | defaultSortOrder | 默认排序顺序 | 'ascend' \| 'descend' | - |
