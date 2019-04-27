@@ -55,6 +55,18 @@ export default class Timeline extends React.Component<TimelineProps, any> {
       ? [pendingItem, ...React.Children.toArray(children).reverse()]
       : [...React.Children.toArray(children), pendingItem];
 
+    const getPositionCls = (ele: React.ReactElement<any>, idx: number) => {
+      if (mode === 'alternate') {
+        if (ele.props.position === 'right') return `${prefixCls}-item-right`;
+        if (ele.props.position === 'left') return `${prefixCls}-item-left`;
+        return idx % 2 === 0 ? `${prefixCls}-item-left` : `${prefixCls}-item-right`;
+      }
+      if (mode === 'left') return `${prefixCls}-item-left`;
+      if (mode === 'right') return `${prefixCls}-item-right`;
+      if (ele.props.position === 'right') return `${prefixCls}-item-right`;
+      return '';
+    };
+
     // Remove falsy items
     const truthyItems = timeLineItems.filter(item => !!item);
     const itemsCount = React.Children.count(truthyItems);
@@ -70,13 +82,7 @@ export default class Timeline extends React.Component<TimelineProps, any> {
             : idx === itemsCount - 1
             ? lastCls
             : '',
-          mode === 'alternate'
-            ? idx % 2 === 0
-              ? `${prefixCls}-item-left`
-              : `${prefixCls}-item-right`
-            : mode === 'right'
-            ? `${prefixCls}-item-right`
-            : '',
+          getPositionCls(ele, idx),
         ]),
       }),
     );
