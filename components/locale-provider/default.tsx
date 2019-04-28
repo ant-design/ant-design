@@ -53,4 +53,7 @@ export default {
     copied: 'copy success',
     expand: 'expand',
   },
+  PageHeader: {
+    back: 'back',
+  },
 };

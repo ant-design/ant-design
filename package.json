@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "3.16.5",
+  "version": "3.16.6",
   "title": "Ant Design",
   "description": "An enterprise-class UI design language and React-based implementation",
   "homepage": "http://ant.design/",
@@ -50,7 +50,6 @@
     "babel-runtime": "6.x",
     "classnames": "~2.2.6",
     "copy-to-clipboard": "^3.0.8",
-    "create-react-class": "^15.6.3",
     "@ant-design/create-react-context": "^0.2.4",
     "css-animation": "^1.5.0",
     "dom-closest": "^0.2.0",
@@ -91,7 +90,7 @@
     "rc-util": "^4.5.1",
     "react-lazy-load": "^3.0.13",
     "react-lifecycles-compat": "^3.0.4",
-    "react-slick": "~0.23.2",
+    "react-slick": "~0.24.0",
     "resize-observer-polyfill": "^1.5.0",
     "shallowequal": "^1.1.0",
     "warning": "~4.0.2"
@@ -139,7 +138,7 @@
     "fetch-jsonp": "^1.1.3",
     "glob": "^7.1.3",
     "immutability-helper": "^3.0.0",
-    "intersection-observer": "^0.5.0",
+    "intersection-observer": "^0.6.0",
     "jest": "^24.0.0",
     "jsdom": "^15.0.0",
     "jsonml.js": "^0.1.0",

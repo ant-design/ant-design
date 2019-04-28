@@ -10,6 +10,8 @@ interface EditableProps {
   ['aria-label']?: string;
   onSave: (value: string) => void;
   onCancel: () => void;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
 interface EditableState {
@@ -106,10 +108,10 @@ class Editable extends React.Component<EditableProps, EditableState> {
 
   render() {
     const { current } = this.state;
-    const { prefixCls, ['aria-label']: ariaLabel } = this.props;
+    const { prefixCls, ['aria-label']: ariaLabel, className, style } = this.props;
 
     return (
-      <div className={`${prefixCls} ${prefixCls}-edit-content`}>
+      <div className={`${prefixCls} ${prefixCls}-edit-content ${className}`} style={style}>
         <TextArea
           ref={this.setTextarea}
           value={current}
