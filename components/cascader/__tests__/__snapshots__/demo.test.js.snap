@@ -88,10 +88,10 @@ exports[`renders ./components/cascader/demo/custom-render.md correctly 1`] = `
     class="ant-cascader-picker-label"
   >
     <span>
-      Zhejiang / 
+      Zhejiang /
     </span>
     <span>
-      Hangzhou / 
+      Hangzhou /
     </span>
     <span>
       West Lake (
