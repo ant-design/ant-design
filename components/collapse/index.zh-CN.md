@@ -38,9 +38,3 @@ cols: 1
 | key | 对应 activeKey | string | 无 |
 | showArrow | 是否展示当前面板上的箭头 | boolean | `true` |
 | extra | 自定义渲染每个面板右上角的内容 | ReactNode | - |
-
-## FAQ
-
-### 我希望箭头在右边，怎么做？
-
-通过样式调整，将箭头放到右边就行啦：<https://codesandbox.io/s/v046rx89n0>
