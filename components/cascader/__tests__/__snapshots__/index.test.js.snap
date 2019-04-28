@@ -11,7 +11,6 @@ exports[`Cascader can be selected 1`] = `
       >
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
-          role="menuitem"
           title="Zhejiang"
         >
           Zhejiang
@@ -41,7 +40,6 @@ exports[`Cascader can be selected 1`] = `
         </li>
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-          role="menuitem"
           title="Jiangsu"
         >
           Jiangsu
@@ -75,7 +73,6 @@ exports[`Cascader can be selected 1`] = `
       >
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-          role="menuitem"
           title="Hangzhou"
         >
           Hangzhou
@@ -120,7 +117,6 @@ exports[`Cascader can be selected 2`] = `
       >
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
-          role="menuitem"
           title="Zhejiang"
         >
           Zhejiang
@@ -150,7 +146,6 @@ exports[`Cascader can be selected 2`] = `
         </li>
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-          role="menuitem"
           title="Jiangsu"
         >
           Jiangsu
@@ -184,7 +179,6 @@ exports[`Cascader can be selected 2`] = `
       >
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
-          role="menuitem"
           title="Hangzhou"
         >
           Hangzhou
@@ -218,7 +212,6 @@ exports[`Cascader can be selected 2`] = `
       >
         <li
           class="ant-cascader-menu-item"
-          role="menuitem"
           title="West Lake"
         >
           West Lake
@@ -240,7 +233,6 @@ exports[`Cascader can be selected 3`] = `
       >
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
-          role="menuitem"
           title="Zhejiang"
         >
           Zhejiang
@@ -270,7 +262,6 @@ exports[`Cascader can be selected 3`] = `
         </li>
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-          role="menuitem"
           title="Jiangsu"
         >
           Jiangsu
@@ -304,7 +295,6 @@ exports[`Cascader can be selected 3`] = `
       >
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
-          role="menuitem"
           title="Hangzhou"
         >
           Hangzhou
@@ -338,7 +328,6 @@ exports[`Cascader can be selected 3`] = `
       >
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-active"
-          role="menuitem"
           title="West Lake"
         >
           West Lake
@@ -370,7 +359,6 @@ exports[`Cascader popup correctly when panel is open 1`] = `
       >
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-          role="menuitem"
           title="Zhejiang"
         >
           Zhejiang
@@ -400,7 +388,6 @@ exports[`Cascader popup correctly when panel is open 1`] = `
         </li>
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-          role="menuitem"
           title="Jiangsu"
         >
           Jiangsu
@@ -445,7 +432,6 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
       >
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
-          role="menuitem"
           title="Zhejiang"
         >
           Zhejiang
@@ -475,7 +461,6 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
         </li>
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-          role="menuitem"
           title="Jiangsu"
         >
           Jiangsu
@@ -509,7 +494,6 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
       >
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
-          role="menuitem"
           title="Hangzhou"
         >
           Hangzhou
@@ -543,7 +527,6 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
       >
         <li
           class="ant-cascader-menu-item"
-          role="menuitem"
           title="West Lake"
         >
           West Lake
@@ -913,8 +896,6 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
                         key="jiangsu,nanjing,zhonghuamen"
                         onClick={[Function]}
                         onDoubleClick={[Function]}
-                        onMouseDown={[Function]}
-                        role="menuitem"
                         title=""
                       >
                         Jiangsu
@@ -928,8 +909,6 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
                         key="zhejiang,hangzhou,xihu"
                         onClick={[Function]}
                         onDoubleClick={[Function]}
-                        onMouseDown={[Function]}
-                        role="menuitem"
                         title=""
                       >
                         Zhejiang
@@ -1212,8 +1191,6 @@ exports[`Cascader should render not found content 1`] = `
                         key="ANT_CASCADER_NOT_FOUND"
                         onClick={[Function]}
                         onDoubleClick={[Function]}
-                        onMouseDown={[Function]}
-                        role="menuitem"
                         title=""
                       >
                         <OriginEmpty
