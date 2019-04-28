@@ -17,15 +17,16 @@ cols: 1
 
 ### Collapse
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| activeKey | 当前激活 tab 面板的 key | string\[]\|string | 默认无，accordion模式下默认第一个元素 |
-| defaultActiveKey | 初始化选中面板的 key | string | 无 |
-| bordered | 带边框风格的折叠面板 | boolean | `true` |
-| accordion | 手风琴模式 | boolean | `false` |
-| onChange | 切换面板的回调 | Function | 无 |
-| expandIcon | 自定义切换图标 | (panelProps) => ReactNode | - |
-| destroyInactivePanel | 销毁折叠隐藏的面板 | boolean | `false` |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| activeKey | 当前激活 tab 面板的 key | string\[]\|string | 默认无，accordion模式下默认第一个元素 | |
+| defaultActiveKey | 初始化选中面板的 key | string | 无 | |
+| bordered | 带边框风格的折叠面板 | boolean | `true` | |
+| accordion | 手风琴模式 | boolean | `false` | |
+| onChange | 切换面板的回调 | Function | 无 | |
+| expandIcon | 自定义切换图标 | (panelProps) => ReactNode | - | |
+| expandIconPosition | 设置图标位置： `left`, `right` | `left` | - | 3.17.0 |
+| destroyInactivePanel | 销毁折叠隐藏的面板 | boolean | `false` | |
 
 ### Collapse.Panel
 
