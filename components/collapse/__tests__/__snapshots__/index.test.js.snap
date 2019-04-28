@@ -2,7 +2,7 @@
 
 exports[`Collapse should render extra node of panel 1`] = `
 <div
-  class="ant-collapse"
+  class="ant-collapse ant-collapse-icon-position-left"
 >
   <div
     class="ant-collapse-item"
@@ -89,7 +89,7 @@ exports[`Collapse should render extra node of panel 1`] = `
 
 exports[`Collapse should support remove expandIcon 1`] = `
 <div
-  class="ant-collapse"
+  class="ant-collapse ant-collapse-icon-position-left"
 >
   <div
     class="ant-collapse-item"

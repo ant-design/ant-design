@@ -5990,7 +5990,7 @@ exports[`ConfigProvider components Checkbox prefixCls 1`] = `
 
 exports[`ConfigProvider components Collapse configProvider 1`] = `
 <div
-  class="config-collapse"
+  class="config-collapse config-collapse-icon-position-left"
 >
   <div
     class="config-collapse-item"
@@ -6028,7 +6028,7 @@ exports[`ConfigProvider components Collapse configProvider 1`] = `
 
 exports[`ConfigProvider components Collapse normal 1`] = `
 <div
-  class="ant-collapse"
+  class="ant-collapse ant-collapse-icon-position-left"
 >
   <div
     class="ant-collapse-item"
@@ -6066,7 +6066,7 @@ exports[`ConfigProvider components Collapse normal 1`] = `
 
 exports[`ConfigProvider components Collapse prefixCls 1`] = `
 <div
-  class="prefix-Collapse"
+  class="prefix-Collapse prefix-Collapse-icon-position-left"
 >
   <div
     class="prefix-Collapse-item"

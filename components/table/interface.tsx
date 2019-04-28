@@ -184,7 +184,7 @@ export interface TableState<T> {
 }
 
 export type SelectionItemSelectFn = (key: string[]) => any;
-type GetPopupContainer = (triggerNode?: Element) => HTMLElement;
+type GetPopupContainer = (triggerNode?: HTMLElement) => HTMLElement;
 
 export interface SelectionItem {
   key: string;

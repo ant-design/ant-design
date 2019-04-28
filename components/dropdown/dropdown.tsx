@@ -39,7 +39,7 @@ export interface DropDownProps {
   visible?: boolean;
   disabled?: boolean;
   align?: Align;
-  getPopupContainer?: (triggerNode: Element) => HTMLElement;
+  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   prefixCls?: string;
   className?: string;
   transitionName?: string;
