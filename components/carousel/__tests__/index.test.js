@@ -79,6 +79,20 @@ describe('Carousel', () => {
     expect(spy2).toHaveBeenCalledWith('resize', onWindowResized);
   });
 
+  describe('should works for dotPosition', () => {
+    ['left', 'right', 'top', 'bottom'].forEach(dotPosition => {
+      it(dotPosition, () => {
+        const wrapper = mount(
+          <Carousel dotPosition={dotPosition}>
+            <div />
+          </Carousel>,
+        );
+        jest.runAllTimers();
+        expect(wrapper.render()).toMatchSnapshot();
+      });
+    });
+  });
+
   it('warning', () => {
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     mount(
