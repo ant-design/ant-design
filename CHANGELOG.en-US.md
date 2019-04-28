@@ -15,6 +15,27 @@ timeline: true
 
 ---
 
+## 3.16.6
+
+`2019-04-26`
+
+- ⌨️ Improve PageHeader `backIcon` keyboard accessibility. [#16038](https://github.com/ant-design/ant-design/issues/16038)
+- 🇮🇹 Optimize Italian localization. [#16093](https://github.com/ant-design/ant-design/pull/16093) [@yp](https://github.com/yp) [#16172](https://github.com/ant-design/ant-design/pull/16172) [@afelicioni](https://github.com/afelicioni)
+- 🐞 Fix Select with `showSearch` not trigger `onSearch` when blur it. [#16235](https://github.com/ant-design/ant-design/pull/16235)
+- 🐞 Fix Selecte active item's hover background color. [#16238](https://github.com/ant-design/ant-design/pull/16238) [@yociduo](https://github.com/yociduo)
+- 🐞 Fix unexpected pressed style of disabled Switch. [#16251](https://github.com/ant-design/ant-design/pull/16251) [@atomoo](https://github.com/atomoo)
+- 🐞 Fix small size Table header background. [#16266](https://github.com/ant-design/ant-design/pull/16266)
+- 🐞 Fix Tabs missing border when `tabPosition="bottom"`. [#16130](https://github.com/ant-design/ant-design/pull/16130) [@rinick](https://github.com/rinick)
+- 🐞 Fix Typography.Title not support `type`. [#16275](https://github.com/ant-design/ant-design/pull/16275)
+- 🐞 Fix Typography editable mode not support `className`. [#16307](https://github.com/ant-design/ant-design/pull/16307)
+- 🐞 Fix List `actions` misplaced. [#16239](https://github.com/ant-design/ant-design/pull/16239)
+- 🐞 Fix long word Modal title display problem. [#16267](https://github.com/ant-design/ant-design/pull/16267) [@yoyo837](https://github.com/yoyo837)
+- 🐞 Fix Pagination active item background color. [#16306](https://github.com/ant-design/ant-design/pull/16306)
+- 🐞 Fix a `core-js@<2.6.5 is no longer maintained` install warning. [#16325](https://github.com/ant-design/ant-design/issues/16325)
+- Typescript
+  - 🐞 Fix `Form.create()` don't work. [#16242](https://github.com/ant-design/ant-design/pull/16242)
+  - 🐞 Fix Tooltip `className` definition. [#16195](https://github.com/ant-design/ant-design/pull/16195) [@swillis12](https://github.com/swillis12)
+
 ## 3.16.5
 
 `2019-04-22`

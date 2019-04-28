@@ -65,7 +65,7 @@ The following `options` are available:
 | mapPropsToFields | Convert props to field value(e.g. reading the values from Redux store). And you must mark returned fields with [`Form.createFormField`](#Form.createFormField). Please note that the form fields will become controlled components. Properties like errors will not be automatically mapped and need to be manually passed in. | (props) => ({ \[fieldName\]: FormField { value } }) |
 | name | Set the id prefix of fields under form | - |
 | validateMessages | Default validate message. And its format is similar with [newMessages](https://github.com/yiminghe/async-validator/blob/master/src/messages.js)'s returned value | Object { \[nested.path]: String } |
-| onFieldsChange | Specify a function that will be called when the fields (including errors) of a `Form.Item` gets changed. Usage example: saving the field's value to Redux store. | Function(props, fields) |
+| onFieldsChange | Specify a function that will be called when the fields (including errors) of a `Form.Item` gets changed. Usage example: saving the field's value to Redux store. | Function(props, changedFields, allFields) |
 | onValuesChange | A handler while value of any field is changed | (props, changedValues, allValues) => void |
 
 If you want to get `ref` after `Form.create`, you can use `wrappedComponentRef` provided by `rc-form`, [details can be viewed here](https://github.com/react-component/form#note-use-wrappedcomponentref-instead-of-withref-after-rc-form140).

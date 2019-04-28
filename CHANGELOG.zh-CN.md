@@ -15,6 +15,27 @@ timeline: true
 
 ---
 
+## 3.16.6
+
+`2019-04-26`
+
+- ⌨️ 优化 PageHeader `backIcon` 的键盘可访问性。[#16038](https://github.com/ant-design/ant-design/issues/16038)
+- 🇮🇹 调整意大利语文案。[#16093](https://github.com/ant-design/ant-design/pull/16093) [@yp](https://github.com/yp) [#16172](https://github.com/ant-design/ant-design/pull/16172) [@afelicioni](https://github.com/afelicioni)
+- 🐞 修复 Select `showSearch` 模式下取消选择时没有触发 `onSearch` 的问题。[#16235](https://github.com/ant-design/ant-design/pull/16235)
+- 🐞 修复 Select 当前选项的 hover 样式。[#16238](https://github.com/ant-design/ant-design/pull/16238) [@yociduo](https://github.com/yociduo)
+- 🐞 修复 Switch 失效状态下依然有按下样式的问题。[#16251](https://github.com/ant-design/ant-design/pull/16251) [@atomoo](https://github.com/atomoo)
+- 🐞 修复小号 Table 表头背景样式。[#16266](https://github.com/ant-design/ant-design/pull/16266)
+- 🐞 修复 Tabs 在底部时的边框样式问题。[#16130](https://github.com/ant-design/ant-design/pull/16130) [@rinick](https://github.com/rinick)
+- 🐞 修复 Typography.Title 不支持 `type` 的问题。[#16275](https://github.com/ant-design/ant-design/pull/16275)
+- 🐞 修复 Typography.Paragraph 编辑模式 `className` 失效的问题。[#16307](https://github.com/ant-design/ant-design/pull/16307)
+- 🐞 修复一个 List `actions` 错位问题。[#16239](https://github.com/ant-design/ant-design/pull/16239)
+- 🐞 修复一个超长 Modal 标题的展现问题。[#16267](https://github.com/ant-design/ant-design/pull/16267) [@yoyo837](https://github.com/yoyo837)
+- 🐞 修正 Pagination 当前项的背景色。[#16306](https://github.com/ant-design/ant-design/pull/16306)
+- 🐞 修复 `core-js@<2.6.5 is no longer maintained` 的安装警告。[#16325](https://github.com/ant-design/ant-design/issues/16325)
+- Typescript
+  - 🐞 修复 `Form.create()` 报错。[#16242](https://github.com/ant-design/ant-design/pull/16242)
+  - 🐞 修复 Tooltip `className` 的定义。[#16195](https://github.com/ant-design/ant-design/pull/16195) [@swillis12](https://github.com/swillis12)
+
 ## 3.16.5
 
 `2019-04-22`

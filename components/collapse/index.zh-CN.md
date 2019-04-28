@@ -42,4 +42,4 @@ cols: 1
 
 ### 我希望箭头在右边，怎么做？
 
-通过样式调整，将箭头放到右边就行啦：<https://codesandbox.io/s/vpm8qwo37>
+通过样式调整，将箭头放到右边就行啦：<https://codesandbox.io/s/v046rx89n0>

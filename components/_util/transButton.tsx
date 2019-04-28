@@ -5,8 +5,8 @@
 import * as React from 'react';
 import KeyCode from 'rc-util/lib/KeyCode';
 
-interface TransButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
-  onClick?: () => void;
+interface TransButtonProps extends React.HTMLAttributes<HTMLDivElement> {
+  onClick?: (e?: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 const inlineStyle: React.CSSProperties = {
@@ -14,20 +14,21 @@ const inlineStyle: React.CSSProperties = {
   background: 'transparent',
   padding: 0,
   lineHeight: 'inherit',
+  display: 'inline-block',
 };
 
 class TransButton extends React.Component<TransButtonProps> {
-  button?: HTMLButtonElement;
+  div?: HTMLDivElement;
   lastKeyCode?: number;
 
-  onKeyDown: React.KeyboardEventHandler<HTMLButtonElement> = event => {
+  onKeyDown: React.KeyboardEventHandler<HTMLDivElement> = event => {
     const { keyCode } = event;
     if (keyCode === KeyCode.ENTER) {
       event.preventDefault();
     }
   };
 
-  onKeyUp: React.KeyboardEventHandler<HTMLButtonElement> = event => {
+  onKeyUp: React.KeyboardEventHandler<HTMLDivElement> = event => {
     const { keyCode } = event;
     const { onClick } = this.props;
     if (keyCode === KeyCode.ENTER && onClick) {
@@ -35,26 +36,28 @@ class TransButton extends React.Component<TransButtonProps> {
     }
   };
 
-  setRef = (btn: HTMLButtonElement) => {
-    this.button = btn;
+  setRef = (btn: HTMLDivElement) => {
+    this.div = btn;
   };
 
   focus() {
-    if (this.button) {
-      this.button.focus();
+    if (this.div) {
+      this.div.focus();
     }
   }
 
   blur() {
-    if (this.button) {
-      this.button.blur();
+    if (this.div) {
+      this.div.blur();
     }
   }
 
   render() {
     const { style } = this.props;
     return (
-      <button
+      <div
+        role="button"
+        tabIndex={0}
         ref={this.setRef}
         {...this.props}
         onKeyDown={this.onKeyDown}
