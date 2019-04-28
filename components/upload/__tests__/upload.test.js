@@ -108,7 +108,7 @@ describe('Upload', () => {
       beforeUpload: () => false,
       data,
       onChange: ({ file, fileList: updatedFileList }) => {
-        expect(file instanceof File).toBe(true);
+        expect(file.name).toBe('foo.png');
         expect(updatedFileList.map(f => f.name)).toEqual(['bar.png', 'foo.png']);
         expect(data).not.toHaveBeenCalled();
         done();
