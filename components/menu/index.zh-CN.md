@@ -29,7 +29,7 @@ subtitle: 导航菜单
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| defaultOpenKeys | 初始展开的 SubMenu 菜单项 key 数组 |  |  |
+| defaultOpenKeys | 初始展开的 SubMenu 菜单项 key 数组 | string\[] |  |
 | defaultSelectedKeys | 初始选中的菜单项 key 数组 | string\[] |  |
 | forceSubMenuRender | 在子菜单展示之前就渲染进 DOM | boolean | false |
 | inlineCollapsed | inline 时菜单是否收起状态 | boolean | - |
@@ -47,6 +47,7 @@ subtitle: 导航菜单
 | onDeselect | 取消选中时调用，仅在 multiple 生效 | function({ item, key, selectedKeys }) | - |
 | onOpenChange | SubMenu 展开/关闭的回调 | function(openKeys: string\[]) | noop |
 | onSelect | 被选中时调用 | function({ item, key, selectedKeys }) | 无   |
+| overflowedIndicator | 自定义Menu折叠时的图标 | ReactNode | - |
 
 > More options in [rc-menu](https://github.com/react-component/menu#api)
 

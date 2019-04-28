@@ -7,7 +7,7 @@ import omit from 'omit.js';
 import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Wave from '../_util/wave';
-import { tuple } from '../_util/type';
+import { Omit, tuple } from '../_util/type';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
@@ -62,20 +62,23 @@ export interface BaseButtonProps {
   children?: React.ReactNode;
 }
 
+// Typescript will make optional not optional if use Pick with union.
+// Should change to `AnchorButtonProps | NativeButtonProps` and `any` to `HTMLAnchorElement | HTMLButtonElement` if it fixed.
+// ref: https://github.com/ant-design/ant-design/issues/15930
 export type AnchorButtonProps = {
   href: string;
   target?: string;
-  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
+  onClick?: React.MouseEventHandler<any>;
 } & BaseButtonProps &
-  React.AnchorHTMLAttributes<HTMLAnchorElement>;
+  Omit<React.AnchorHTMLAttributes<any>, 'type'>;
 
 export type NativeButtonProps = {
   htmlType?: ButtonHTMLType;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: React.MouseEventHandler<any>;
 } & BaseButtonProps &
-  React.ButtonHTMLAttributes<HTMLButtonElement>;
+  Omit<React.ButtonHTMLAttributes<any>, 'type'>;
 
-export type ButtonProps = AnchorButtonProps | NativeButtonProps;
+export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
 
 interface ButtonState {
   loading?: boolean | { delay?: number };
@@ -90,6 +93,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     loading: false,
     ghost: false,
     block: false,
+    htmlType: 'button',
   };
 
   static propTypes = {
@@ -219,6 +223,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
         break;
       case 'small':
         sizeCls = 'sm';
+        break;
       default:
         break;
     }
@@ -265,7 +270,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
       <Wave>
         <button
           {...otherProps as NativeButtonProps}
-          type={htmlType || 'button'}
+          type={htmlType}
           className={classes}
           onClick={this.handleClick}
           ref={this.saveButtonRef}

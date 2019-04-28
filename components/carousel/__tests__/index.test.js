@@ -58,9 +58,9 @@ describe('Carousel', () => {
     );
     const spy = jest.spyOn(wrapper.instance().slick.innerSlider, 'autoPlay');
     window.resizeTo(1000);
-    expect(spy).not.toBeCalled();
+    expect(spy).not.toHaveBeenCalled();
     await new Promise(resolve => setTimeout(resolve, 500));
-    expect(spy).toBeCalled();
+    expect(spy).toHaveBeenCalled();
   });
 
   it('cancel resize listener when unmount', async () => {
@@ -75,7 +75,7 @@ describe('Carousel', () => {
     const spy = jest.spyOn(wrapper.instance().onWindowResized, 'cancel');
     const spy2 = jest.spyOn(window, 'removeEventListener');
     wrapper.unmount();
-    expect(spy).toBeCalled();
-    expect(spy2).toBeCalledWith('resize', onWindowResized);
+    expect(spy).toHaveBeenCalled();
+    expect(spy2).toHaveBeenCalledWith('resize', onWindowResized);
   });
 });

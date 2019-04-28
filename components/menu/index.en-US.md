@@ -28,7 +28,7 @@ More layouts with navigation: [layout](/components/layout).
 
 | Param | Description | Type | Default value |
 | ----- | ----------- | ---- | ------------- |
-| defaultOpenKeys | array with the keys of default opened sub menus |  |  |
+| defaultOpenKeys | array with the keys of default opened sub menus | string\[] |  |
 | defaultSelectedKeys | array with the keys of default selected menu items | string\[] |  |
 | forceSubMenuRender | render submenu into DOM before it shows | boolean | false |
 | inlineCollapsed | specifies the collapsed status when menu is inline mode | boolean | - |
@@ -46,6 +46,7 @@ More layouts with navigation: [layout](/components/layout).
 | onDeselect | callback executed when a menu item is deselected, only supported for multiple mode | function({ item, key, selectedKeys }) | - |
 | onOpenChange | called when open/close sub menu | function(openKeys: string\[]) | noop |
 | onSelect | callback executed when a menu item is selected | function({ item, key, selectedKeys }) | none |
+| overflowedIndicator | Customized icon when menu collapsed | ReactNode | - |
 
 > More options in [rc-menu](https://github.com/react-component/menu#api)
 

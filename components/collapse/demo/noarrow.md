@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-You can disable showing arrow icon by passing `showArrow={false}` to `CollapsePanel` component.
+You can hide the arrow icon by passing `showArrow={false}` to `CollapsePanel` component.
 
 ````jsx
 import { Collapse } from 'antd';

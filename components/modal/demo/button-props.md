@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Passing `okButtonProps` and `cancelButtonProps` can customize the ok button and cancel button props.
+Passing `okButtonProps` and `cancelButtonProps` will customize the OK button and cancel button props.
 
 ````jsx
 import { Modal, Button } from 'antd';

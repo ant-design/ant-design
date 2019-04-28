@@ -83,7 +83,7 @@
       font-size: @font-size-base;
     }
 
-    &-icon {
+    .@{iconfont-css-prefix}&-icon {
       position: absolute;
       margin-left: 4px;
       font-size: 24px;
@@ -110,10 +110,6 @@
       color: @text-color-secondary;
       outline: none;
 
-      a&:focus {
-        text-decoration: none;
-      }
-
       &:hover {
         color: shade(@text-color-secondary, 40%);
       }
@@ -135,11 +131,13 @@
   &-fade-appear {
     opacity: 0;
     .notification-fade-effect();
+
     animation-play-state: paused;
   }
 
   &-fade-leave {
     .notification-fade-effect();
+
     animation-duration: 0.2s;
     animation-play-state: paused;
   }

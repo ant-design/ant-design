@@ -19,7 +19,7 @@ export interface PaginationProps {
   showSizeChanger?: boolean;
   pageSizeOptions?: string[];
   onShowSizeChange?: (current: number, size: number) => void;
-  showQuickJumper?: boolean;
+  showQuickJumper?: boolean | { goButton?: React.ReactNode };
   showTotal?: (total: number, range: [number, number]) => React.ReactNode;
   size?: string;
   simple?: boolean;
@@ -31,9 +31,10 @@ export interface PaginationProps {
   itemRender?: (
     page: number,
     type: 'page' | 'prev' | 'next' | 'jump-prev' | 'jump-next',
-    originalElement: HTMLElement,
+    originalElement: React.ReactElement<HTMLElement>,
   ) => React.ReactNode;
   role?: string;
+  showLessItems?: boolean;
 }
 
 export interface PaginationConfig extends PaginationProps {

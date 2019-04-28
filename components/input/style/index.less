@@ -32,10 +32,32 @@
 }
 
 .@{ant-prefix}-input-password-icon {
+  color: @text-color-secondary;
   cursor: pointer;
   transition: all 0.3s;
+
   &:hover {
     color: #333;
+  }
+}
+
+.@{ant-prefix}-input-clear-icon {
+  color: @disabled-color;
+  font-size: @font-size-sm;
+  vertical-align: top;
+  cursor: pointer;
+  transition: color 0.3s;
+
+  &:hover {
+    color: @text-color-secondary;
+  }
+
+  &:active {
+    color: @text-color;
+  }
+
+  + i {
+    margin-left: 6px;
   }
 }
 

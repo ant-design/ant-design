@@ -34,6 +34,7 @@
 
 .@{select-prefix-cls} {
   .reset-component;
+
   position: relative;
   display: inline-block;
   outline: 0;
@@ -53,6 +54,7 @@
   // arrow
   &-arrow {
     .iconfont-mixin();
+
     position: absolute;
     top: 50%;
     right: @control-padding-horizontal - 1px;
@@ -69,9 +71,7 @@
 
   &-selection {
     display: block;
-
     box-sizing: border-box;
-
     background-color: @component-background;
     border: @border-width-base @border-style-base @select-border-color;
     // strange align fix for chrome but works
@@ -161,8 +161,8 @@
       display: inline-block;
       width: 0;
       visibility: hidden;
-      pointer-events: none;
       content: '.';
+      pointer-events: none;
     }
   }
 
@@ -182,7 +182,8 @@
           line-height: @input-height-lg - 8px;
         }
       }
-      .@{select-prefix-cls}-selection__clear {
+      .@{select-prefix-cls}-selection__clear,
+      .@{select-prefix-cls}-arrow {
         top: @input-height-lg / 2;
       }
     }
@@ -204,7 +205,8 @@
           line-height: @input-height-sm - 10px;
         }
       }
-      .@{select-prefix-cls}-selection__clear {
+      .@{select-prefix-cls}-selection__clear,
+      .@{select-prefix-cls}-arrow {
         top: @input-height-sm / 2;
       }
     }
@@ -349,6 +351,7 @@
 
     .@{select-prefix-cls}-selection__choice__remove {
       .iconfont-mixin();
+
       position: absolute;
       right: 4px;
       display: inline-block;
@@ -364,7 +367,8 @@
       }
     }
 
-    .@{select-prefix-cls}-selection__clear {
+    .@{select-prefix-cls}-selection__clear,
+    .@{select-prefix-cls}-arrow {
       top: @input-height-base / 2;
     }
   }
@@ -373,7 +377,8 @@
     padding-right: 16px;
   }
 
-  &-allow-clear &-selection--multiple &-selection__rendered {
+  &-allow-clear &-selection--multiple &-selection__rendered,
+  &-show-arrow &-selection--multiple &-selection__rendered {
     margin-right: 20px; // In case that clear button will overlap content
   }
 
@@ -410,13 +415,15 @@
       transition: all 0.3s @ease-in-out, height 0s;
     }
   }
-  &-combobox&-allow-clear &-selection:hover &-selection__rendered {
+  &-combobox&-allow-clear &-selection:hover &-selection__rendered,
+  &-combobox&-show-arrow &-selection:hover &-selection__rendered {
     margin-right: 20px; // In case that clear button will overlap content
   }
 }
 
 .@{select-prefix-cls}-dropdown {
   .reset-component;
+
   position: absolute;
   top: -9999px;
   left: -9999px;
@@ -427,7 +434,6 @@
   // https://github.com/ant-design/ant-design/issues/11456
   // https://github.com/ant-design/ant-design/issues/11843
   font-variant: initial;
-
   background-color: @component-background;
   border-radius: @border-radius-base;
   outline: none;
@@ -522,12 +528,9 @@
       }
 
       &-selected {
-        &,
-        &:hover {
-          color: @text-color;
-          font-weight: 600;
-          background-color: @background-color-light;
-        }
+        color: @text-color;
+        font-weight: @select-item-selected-font-weight;
+        background-color: @background-color-light;
       }
 
       &-active {
@@ -556,7 +559,7 @@
         font-size: 12px;
         text-shadow: 0 0.1px 0, 0.1px 0 0, 0 -0.1px 0, -0.1px 0;
         transform: translateY(-50%);
-        transition: all .2s;
+        transition: all 0.2s;
       }
 
       &:hover .@{select-prefix-cls}-selected-icon {
@@ -573,6 +576,12 @@
         color: @primary-color;
       }
     }
+  }
+
+  // Patch for popup adjust
+  // https://github.com/ant-design/ant-design/issues/14422
+  &--empty&--multiple &-menu-item {
+    padding-right: @control-padding-horizontal;
   }
 
   &-container-open,

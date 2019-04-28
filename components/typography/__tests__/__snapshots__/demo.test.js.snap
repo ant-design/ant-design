@@ -1,0 +1,647 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
+<article
+  class="ant-typography"
+>
+  <h1
+    class="ant-typography"
+  >
+    Introduction
+  </h1>
+  <div
+    class="ant-typography"
+  >
+    In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
+  </div>
+  <div
+    class="ant-typography"
+  >
+    After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to 
+    <span
+      class="ant-typography"
+    >
+      <strong>
+        uniform the user interface specs for internal background projects, lower the unnecessary cost of design differences and implementation and liberate the resources of design and front-end development
+      </strong>
+    </span>
+    .
+  </div>
+  <h2
+    class="ant-typography"
+  >
+    Guidelines and Resources
+  </h2>
+  <div
+    class="ant-typography"
+  >
+    We supply a series of design principles, practical patterns and high quality design resources (
+    <span
+      class="ant-typography"
+    >
+      <code>
+        Sketch
+      </code>
+    </span>
+     and 
+    <span
+      class="ant-typography"
+    >
+      <code>
+        Axure
+      </code>
+    </span>
+    ), to help people create their product prototypes beautifully and efficiently.
+  </div>
+  <div
+    class="ant-typography"
+  >
+    <ul>
+      <li>
+        <a
+          href="/docs/spec/proximity"
+        >
+          Principles
+        </a>
+      </li>
+      <li>
+        <a
+          href="/docs/pattern/navigation"
+        >
+          Patterns
+        </a>
+      </li>
+      <li>
+        <a
+          href="/docs/resource/download"
+        >
+          Resource Download
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div
+    class="ant-divider ant-divider-horizontal"
+  />
+  <h1
+    class="ant-typography"
+  >
+    介绍
+  </h1>
+  <div
+    class="ant-typography"
+  >
+    蚂蚁的企业级产品是一个庞大且复杂的体系。这类产品不仅量级巨大且功能复杂，而且变动和并发频繁，常常需要设计与开发能够快速的做出响应。同时这类产品中有存在很多类似的页面以及组件，可以通过抽象得到一些稳定且高复用性的内容。
+  </div>
+  <div
+    class="ant-typography"
+  >
+    随着商业化的趋势，越来越多的企业级产品对更好的用户体验有了进一步的要求。带着这样的一个终极目标，我们（蚂蚁金服体验技术部）经过大量的项目实践和总结，逐步打磨出一个服务于企业级产品的设计体系 Ant Design。基于
+    <span
+      class="ant-typography"
+    >
+      <mark>
+        『确定』和『自然』
+      </mark>
+    </span>
+    的设计价值观，通过模块化的解决方案，降低冗余的生产成本，让设计者专注于
+    <span
+      class="ant-typography"
+    >
+      <strong>
+        更好的用户体验
+      </strong>
+    </span>
+    。
+  </div>
+  <h2
+    class="ant-typography"
+  >
+    设计资源
+  </h2>
+  <div
+    class="ant-typography"
+  >
+    我们提供完善的设计原则、最佳实践和设计资源文件（
+    <span
+      class="ant-typography"
+    >
+      <code>
+        Sketch
+      </code>
+    </span>
+     和 
+    <span
+      class="ant-typography"
+    >
+      <code>
+        Axure
+      </code>
+    </span>
+    ），来帮助业务快速设计出高质量的产品原型。
+  </div>
+  <div
+    class="ant-typography"
+  >
+    <ul>
+      <li>
+        <a
+          href="/docs/spec/proximity"
+        >
+          设计原则
+        </a>
+      </li>
+      <li>
+        <a
+          href="/docs/pattern/navigation"
+        >
+          设计模式
+        </a>
+      </li>
+      <li>
+        <a
+          href="/docs/resource/download"
+        >
+          设计资源
+        </a>
+      </li>
+    </ul>
+  </div>
+</article>
+`;
+
+exports[`renders ./components/typography/demo/ellipsis.md correctly 1`] = `
+<div>
+  <div
+    class="ant-typography ant-typography-ellipsis"
+  >
+    Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
+  </div>
+  <div
+    class="ant-typography ant-typography-ellipsis"
+  >
+    Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
+  </div>
+</div>
+`;
+
+exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = `
+<div>
+  <button
+    aria-checked="true"
+    checked=""
+    class="ant-switch ant-switch-checked"
+    role="switch"
+    type="button"
+  >
+    <span
+      class="ant-switch-inner"
+    >
+      Long Text
+    </span>
+  </button>
+  <button
+    aria-checked="false"
+    class="ant-switch"
+    role="switch"
+    type="button"
+  >
+    <span
+      class="ant-switch-inner"
+    />
+  </button>
+  <button
+    aria-checked="false"
+    class="ant-switch"
+    role="switch"
+    type="button"
+  >
+    <span
+      class="ant-switch-inner"
+    />
+  </button>
+  <button
+    aria-checked="false"
+    class="ant-switch"
+    role="switch"
+    type="button"
+  >
+    <span
+      class="ant-switch-inner"
+    />
+  </button>
+  <div
+    class="ant-slider"
+  >
+    <div
+      class="ant-slider-rail"
+    />
+    <div
+      class="ant-slider-track"
+      style="left:0%;width:0%"
+    />
+    <div
+      class="ant-slider-step"
+    />
+    <div
+      aria-disabled="false"
+      aria-valuemax="10"
+      aria-valuemin="1"
+      aria-valuenow="1"
+      class="ant-slider-handle"
+      role="slider"
+      style="left:0%"
+      tabindex="0"
+    />
+    <div
+      class="ant-slider-mark"
+    />
+  </div>
+  <div
+    class="ant-typography ant-typography-ellipsis"
+  >
+    Ant Design, a design language for background applications, is refined by Ant UED Team. This is a nest sample 
+    <span
+      class="ant-typography"
+    >
+      <code>
+        <del>
+          <strong>
+            Test
+          </strong>
+        </del>
+      </code>
+    </span>
+     case.Bnt Design, a design language for background applications, is refined by Ant UED Team.Cnt Design, a design language for background applications, is refined by Ant UED Team. Dnt Design, a design language for background applications, is refined by Ant UED Team. Ent Design, a design language for background applications, is refined by Ant UED Team.
+  </div>
+</div>
+`;
+
+exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
+<div>
+  <div
+    class="ant-typography"
+  >
+    This is an editable text.
+    <div
+      aria-label="edit"
+      class="ant-typography-edit"
+      role="button"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      tabindex="0"
+    >
+      <i
+        aria-label="icon: edit"
+        class="anticon anticon-edit"
+        role="button"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="edit"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 0 0 0-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 0 0 9.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+          />
+        </svg>
+      </i>
+    </div>
+  </div>
+  <div
+    class="ant-typography"
+  >
+    This is a copyable text.
+    <div
+      aria-label="copy"
+      class="ant-typography-copy"
+      role="button"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      tabindex="0"
+    >
+      <i
+        aria-label="icon: copy"
+        class="anticon anticon-copy"
+        role="button"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="copy"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+          />
+        </svg>
+      </i>
+    </div>
+  </div>
+  <div
+    class="ant-typography"
+  >
+    Replace copy text.
+    <div
+      aria-label="copy"
+      class="ant-typography-copy"
+      role="button"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      tabindex="0"
+    >
+      <i
+        aria-label="icon: copy"
+        class="anticon anticon-copy"
+        role="button"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="copy"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+          />
+        </svg>
+      </i>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] = `
+<div>
+  <h1
+    class="ant-typography"
+  >
+    Introduction
+  </h1>
+  <div
+    class="ant-typography"
+  >
+    In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
+  </div>
+  <div
+    class="ant-typography"
+  >
+    After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to 
+    <span
+      class="ant-typography"
+    >
+      <strong>
+        uniform the user interface specs for internal background projects, lower the unnecessary cost of design differences and implementation and liberate the resources of design and front-end development
+      </strong>
+    </span>
+    .
+  </div>
+  <h2
+    class="ant-typography"
+  >
+    Guidelines and Resources
+  </h2>
+  <div
+    class="ant-typography"
+  >
+    We supply a series of design principles, practical patterns and high quality design resources (
+    <span
+      class="ant-typography"
+    >
+      <code>
+        Sketch
+      </code>
+    </span>
+     and 
+    <span
+      class="ant-typography"
+    >
+      <code>
+        Axure
+      </code>
+    </span>
+    ), to help people create their product prototypes beautifully and efficiently.
+  </div>
+  <div
+    class="ant-typography"
+  >
+    <ul>
+      <li>
+        <a
+          href="/docs/spec/proximity"
+        >
+          Principles
+        </a>
+      </li>
+      <li>
+        <a
+          href="/docs/pattern/navigation"
+        >
+          Patterns
+        </a>
+      </li>
+      <li>
+        <a
+          href="/docs/resource/download"
+        >
+          Resource Download
+        </a>
+      </li>
+    </ul>
+  </div>
+  <h1
+    class="ant-typography"
+    id="intro"
+  >
+    介绍
+  </h1>
+  <div
+    class="ant-typography"
+  >
+    蚂蚁的企业级产品是一个庞大且复杂的体系。这类产品不仅量级巨大且功能复杂，而且变动和并发频繁，常常需要设计与开发能够快速的做出响应。同时这类产品中有存在很多类似的页面以及组件，可以通过抽象得到一些稳定且高复用性的内容。
+  </div>
+  <div
+    class="ant-typography"
+  >
+    随着商业化的趋势，越来越多的企业级产品对更好的用户体验有了进一步的要求。带着这样的一个终极目标，我们（蚂蚁金服体验技术部）经过大量的项目实践和总结，逐步打磨出一个服务于企业级产品的设计体系 Ant Design。基于
+    <span
+      class="ant-typography"
+    >
+      <mark>
+        『确定』和『自然』
+      </mark>
+    </span>
+    的设计价值观，通过模块化的解决方案，降低冗余的生产成本，让设计者专注于
+    <span
+      class="ant-typography"
+    >
+      <strong>
+        更好的用户体验
+      </strong>
+    </span>
+    。
+  </div>
+  <h2
+    class="ant-typography"
+  >
+    设计资源
+  </h2>
+  <div
+    class="ant-typography"
+  >
+    我们提供完善的设计原则、最佳实践和设计资源文件（
+    <span
+      class="ant-typography"
+    >
+      <code>
+        Sketch
+      </code>
+    </span>
+     和 
+    <span
+      class="ant-typography"
+    >
+      <code>
+        Axure
+      </code>
+    </span>
+    ），来帮助业务快速设计出高质量的产品原型。
+  </div>
+  <div
+    class="ant-typography"
+  >
+    <ul>
+      <li>
+        <a
+          href="/docs/spec/proximity"
+        >
+          设计原则
+        </a>
+      </li>
+      <li>
+        <a
+          href="/docs/pattern/navigation"
+        >
+          设计模式
+        </a>
+      </li>
+      <li>
+        <a
+          href="/docs/resource/download"
+        >
+          设计资源
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/typography/demo/text.md correctly 1`] = `
+<div>
+  <span
+    class="ant-typography"
+  >
+    Ant Design
+  </span>
+  <br />
+  <span
+    class="ant-typography ant-typography-secondary"
+  >
+    Ant Design
+  </span>
+  <br />
+  <span
+    class="ant-typography ant-typography-warning"
+  >
+    Ant Design
+  </span>
+  <br />
+  <span
+    class="ant-typography ant-typography-danger"
+  >
+    Ant Design
+  </span>
+  <br />
+  <span
+    class="ant-typography ant-typography-disabled"
+  >
+    Ant Design
+  </span>
+  <br />
+  <span
+    class="ant-typography"
+  >
+    <mark>
+      Ant Design
+    </mark>
+  </span>
+  <br />
+  <span
+    class="ant-typography"
+  >
+    <code>
+      Ant Design
+    </code>
+  </span>
+  <br />
+  <span
+    class="ant-typography"
+  >
+    <u>
+      Ant Design
+    </u>
+  </span>
+  <br />
+  <span
+    class="ant-typography"
+  >
+    <del>
+      Ant Design
+    </del>
+  </span>
+  <br />
+  <span
+    class="ant-typography"
+  >
+    <strong>
+      Ant Design
+    </strong>
+  </span>
+</div>
+`;
+
+exports[`renders ./components/typography/demo/title.md correctly 1`] = `
+<div>
+  <h1
+    class="ant-typography"
+  >
+    h1. Ant Design
+  </h1>
+  <h2
+    class="ant-typography"
+  >
+    h2. Ant Design
+  </h2>
+  <h3
+    class="ant-typography"
+  >
+    h3. Ant Design
+  </h3>
+  <h4
+    class="ant-typography"
+  >
+    h4. Ant Design
+  </h4>
+</div>
+`;

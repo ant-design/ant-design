@@ -1,6 +1,5 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import omit from 'omit.js';
 import Grid from './Grid';
 import Meta from './Meta';
@@ -8,7 +7,6 @@ import Tabs from '../tabs';
 import Row from '../row';
 import Col from '../col';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
 import warning from '../_util/warning';
 import { Omit } from '../_util/type';
 
@@ -48,26 +46,11 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   defaultActiveTabKey?: string;
 }
 
-export interface CardState {
-  widerPadding: boolean;
-}
-
-export default class Card extends React.Component<CardProps, CardState> {
+export default class Card extends React.Component<CardProps, {}> {
   static Grid: typeof Grid = Grid;
   static Meta: typeof Meta = Meta;
 
-  state = {
-    widerPadding: false,
-  };
-
-  private resizeEvent: any;
-  private updateWiderPaddingCalled: boolean = false;
-  private container: HTMLDivElement;
-
   componentDidMount() {
-    this.updateWiderPadding();
-    this.resizeEvent = addEventListener(window, 'resize', this.updateWiderPadding);
-
     if ('noHovering' in this.props) {
       warning(
         !this.props.noHovering,
@@ -82,40 +65,10 @@ export default class Card extends React.Component<CardProps, CardState> {
     }
   }
 
-  componentWillUnmount() {
-    if (this.resizeEvent) {
-      this.resizeEvent.remove();
-    }
-    (this.updateWiderPadding as any).cancel();
-  }
-
-  @throttleByAnimationFrameDecorator()
-  updateWiderPadding() {
-    if (!this.container) {
-      return;
-    }
-    // 936 is a magic card width pixel number indicated by designer
-    const WIDTH_BOUNDARY_PX = 936;
-    if (this.container.offsetWidth >= WIDTH_BOUNDARY_PX && !this.state.widerPadding) {
-      this.setState({ widerPadding: true }, () => {
-        this.updateWiderPaddingCalled = true; // first render without css transition
-      });
-    }
-    if (this.container.offsetWidth < WIDTH_BOUNDARY_PX && this.state.widerPadding) {
-      this.setState({ widerPadding: false }, () => {
-        this.updateWiderPaddingCalled = true; // first render without css transition
-      });
-    }
-  }
-
   onTabChange = (key: string) => {
     if (this.props.onTabChange) {
       this.props.onTabChange(key);
     }
-  };
-
-  saveRef = (node: HTMLDivElement) => {
-    this.container = node;
   };
 
   isContainGrid() {
@@ -129,9 +82,6 @@ export default class Card extends React.Component<CardProps, CardState> {
   }
 
   getAction(actions: React.ReactNode[]) {
-    if (!actions || !actions.length) {
-      return null;
-    }
     const actionList = actions.map((action, index) => (
       <li style={{ width: `${100 / actions.length}%` }} key={`action-${index}`}>
         <span>{action}</span>
@@ -177,8 +127,6 @@ export default class Card extends React.Component<CardProps, CardState> {
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-bordered`]: bordered,
       [`${prefixCls}-hoverable`]: this.getCompatibleHoverable(),
-      [`${prefixCls}-wider-padding`]: this.state.widerPadding,
-      [`${prefixCls}-padding-transition`]: this.updateWiderPaddingCalled,
       [`${prefixCls}-contain-grid`]: this.isContainGrid(),
       [`${prefixCls}-contain-tabs`]: tabList && tabList.length,
       [`${prefixCls}-${size}`]: size !== 'default',
@@ -277,7 +225,7 @@ export default class Card extends React.Component<CardProps, CardState> {
       ) : null;
     const divProps = omit(others, ['onTabChange']);
     return (
-      <div {...divProps} className={classString} ref={this.saveRef}>
+      <div {...divProps} className={classString}>
         {head}
         {coverDom}
         {body}

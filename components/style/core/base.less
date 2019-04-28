@@ -8,7 +8,7 @@
 // Normalize is licensed MIT. https://github.com/necolas/normalize.css
 
 // HTML & Body reset
-html,
+@{html-selector},
 body {
   .square(100%);
 }
@@ -35,7 +35,7 @@ input::-ms-reveal {
   box-sizing: border-box; // 1
 }
 
-html {
+@{html-selector} {
   font-family: sans-serif; // 2
   line-height: 1.15; // 3
   -webkit-text-size-adjust: 100%; // 4
@@ -77,7 +77,7 @@ body {
   font-variant: @font-variant-base;
   line-height: @line-height-base;
   background-color: @body-background; // 2
-  font-feature-settings: 'tnum';
+  font-feature-settings: @font-feature-settings-base;
 }
 
 // Suppress the focus outline on elements that cannot be accessed via keyboard.
@@ -231,11 +231,6 @@ a {
   transition: color 0.3s;
   -webkit-text-decoration-skip: objects; // remove gaps in links underline in iOS 8+ and Safari 8+.
 
-  &:focus {
-    text-decoration: underline;
-    text-decoration-skip-ink: auto;
-  }
-
   &:hover {
     color: @link-hover-color;
   }
@@ -373,7 +368,7 @@ select {
 //    controls in Android 4.
 // 2. Correct the inability to style clickable types in iOS and Safari.
 button,
-html [type="button"], /* 1 */
+@{html-selector} [type="button"], /* 1 */
 [type="reset"],
 [type="submit"] {
   -webkit-appearance: button; // 2
@@ -506,7 +501,7 @@ mark {
 
 ::selection {
   color: @text-color-inverse;
-  background: @primary-color;
+  background: @text-selection-bg;
 }
 
 // Utility classes

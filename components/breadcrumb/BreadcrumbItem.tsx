@@ -6,6 +6,7 @@ export interface BreadcrumbItemProps {
   prefixCls?: string;
   separator?: React.ReactNode;
   href?: string;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLSpanElement>;
 }
 
 export default class BreadcrumbItem extends React.Component<BreadcrumbItemProps, any> {

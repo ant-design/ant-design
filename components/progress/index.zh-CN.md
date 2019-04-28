@@ -34,6 +34,7 @@ title: Progress
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | strokeWidth | 进度条线的宽度，单位 px | number | 10 |
+| strokeColor | 进度条的色彩，传入 object 时为渐变 | string \| { from: string; to: string; direction: string } | - |
 
 ### `type="circle"`
 

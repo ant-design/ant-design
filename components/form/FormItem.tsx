@@ -3,21 +3,25 @@ import * as ReactDOM from 'react-dom';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Animate from 'rc-animate';
-import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
 import Row from '../grid/row';
 import Col, { ColProps } from '../grid/col';
 import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 import { tuple } from '../_util/type';
+import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
+import { FormContext, FormContextProps } from './context';
 
 const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
+
+export type FormLabelAlign = 'left' | 'right';
 
 export interface FormItemProps {
   prefixCls?: string;
   className?: string;
   id?: string;
   label?: React.ReactNode;
+  labelAlign?: FormLabelAlign;
   labelCol?: ColProps;
   wrapperCol?: ColProps;
   help?: React.ReactNode;
@@ -33,19 +37,15 @@ function intersperseSpace<T>(list: Array<T>): Array<T | string> {
   return list.reduce((current, item) => [...current, ' ', item], []).slice(1);
 }
 
-export interface FormItemContext {
-  vertical: boolean;
-}
-
 export default class FormItem extends React.Component<FormItemProps, any> {
   static defaultProps = {
     hasFeedback: false,
-    colon: true,
   };
 
   static propTypes = {
     prefixCls: PropTypes.string,
     label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+    labelAlign: PropTypes.string,
     labelCol: PropTypes.object,
     help: PropTypes.oneOfType([PropTypes.node, PropTypes.bool]),
     validateStatus: PropTypes.oneOf(ValidateStatuses),
@@ -56,12 +56,6 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     children: PropTypes.node,
     colon: PropTypes.bool,
   };
-
-  static contextTypes = {
-    vertical: PropTypes.bool,
-  };
-
-  context: FormItemContext;
 
   helpShow = false;
 
@@ -79,7 +73,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   getHelpMessage() {
     const { help } = this.props;
     if (help === undefined && this.getOnlyControl()) {
-      const errors = this.getField().errors;
+      const { errors } = this.getField();
       if (errors) {
         return intersperseSpace(
           errors.map((e: any, index: number) => {
@@ -210,7 +204,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     c2: React.ReactNode,
     c3: React.ReactNode,
   ) {
-    const props = this.props;
+    const { props } = this;
     const onlyControl = this.getOnlyControl;
     const validateStatus =
       props.validateStatus === undefined && onlyControl
@@ -267,15 +261,28 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   }
 
   renderWrapper(prefixCls: string, children: React.ReactNode) {
-    const { wrapperCol } = this.props;
-    const className = classNames(
-      `${prefixCls}-item-control-wrapper`,
-      wrapperCol && wrapperCol.className,
-    );
     return (
-      <Col {...wrapperCol} className={className} key="wrapper">
-        {children}
-      </Col>
+      <FormContext.Consumer key="wrapper">
+        {({ wrapperCol: contextWrapperCol, vertical }: FormContextProps) => {
+          const { wrapperCol } = this.props;
+          const mergedWrapperCol: ColProps =
+            ('wrapperCol' in this.props ? wrapperCol : contextWrapperCol) || {};
+
+          const className = classNames(
+            `${prefixCls}-item-control-wrapper`,
+            mergedWrapperCol.className,
+          );
+
+          // No pass FormContext since it's useless
+          return (
+            <FormContext.Provider value={{ vertical }}>
+              <Col {...mergedWrapperCol} className={className}>
+                {children}
+              </Col>
+            </FormContext.Provider>
+          );
+        }}
+      </FormContext.Consumer>
     );
   }
 
@@ -299,8 +306,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
   // Resolve duplicated ids bug between different forms
   // https://github.com/ant-design/ant-design/issues/7351
-  onLabelClick = (e: any) => {
-    const { label } = this.props;
+  onLabelClick = () => {
     const id = this.props.id || this.getId();
     if (!id) {
       return;
@@ -308,50 +314,65 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
     const formItemNode = ReactDOM.findDOMNode(this) as Element;
     const control = formItemNode.querySelector(`[id="${id}"]`) as HTMLElement;
-
-    if (control) {
-      // Only prevent in default situation
-      // Avoid preventing event in `label={<a href="xx">link</a>}``
-      if (typeof label === 'string') {
-        e.preventDefault();
-      }
-
-      if (control.focus) {
-        control.focus();
-      }
+    if (control && control.focus) {
+      control.focus();
     }
   };
 
   renderLabel(prefixCls: string) {
-    const { label, labelCol, colon, id } = this.props;
-    const context = this.context;
-    const required = this.isRequired();
+    return (
+      <FormContext.Consumer key="label">
+        {({
+          vertical,
+          labelAlign: contextLabelAlign,
+          labelCol: contextLabelCol,
+          colon: contextColon,
+        }: FormContextProps) => {
+          const { label, labelCol, labelAlign, colon, id } = this.props;
+          const required = this.isRequired();
 
-    const labelColClassName = classNames(`${prefixCls}-item-label`, labelCol && labelCol.className);
-    const labelClassName = classNames({
-      [`${prefixCls}-item-required`]: required,
-    });
+          const mergedLabelCol: ColProps =
+            ('labelCol' in this.props ? labelCol : contextLabelCol) || {};
 
-    let labelChildren = label;
-    // Keep label is original where there should have no colon
-    const haveColon = colon && !context.vertical;
-    // Remove duplicated user input colon
-    if (haveColon && typeof label === 'string' && (label as string).trim() !== '') {
-      labelChildren = (label as string).replace(/[：|:]\s*$/, '');
-    }
+          const mergedLabelAlign: FormLabelAlign | undefined =
+            'labelAlign' in this.props ? labelAlign : contextLabelAlign;
 
-    return label ? (
-      <Col {...labelCol} className={labelColClassName} key="label">
-        <label
-          htmlFor={id || this.getId()}
-          className={labelClassName}
-          title={typeof label === 'string' ? label : ''}
-          onClick={this.onLabelClick}
-        >
-          {labelChildren}
-        </label>
-      </Col>
-    ) : null;
+          const labelClsBasic = `${prefixCls}-item-label`;
+          const labelColClassName = classNames(
+            labelClsBasic,
+            mergedLabelAlign === 'left' && `${labelClsBasic}-left`,
+            mergedLabelCol.className,
+          );
+
+          let labelChildren = label;
+          // Keep label is original where there should have no colon
+          const computedColon = colon === true || (contextColon !== false && colon !== false);
+          const haveColon = computedColon && !vertical;
+          // Remove duplicated user input colon
+          if (haveColon && typeof label === 'string' && (label as string).trim() !== '') {
+            labelChildren = (label as string).replace(/[：|:]\s*$/, '');
+          }
+
+          const labelClassName = classNames({
+            [`${prefixCls}-item-required`]: required,
+            [`${prefixCls}-item-no-colon`]: !computedColon,
+          });
+
+          return label ? (
+            <Col {...mergedLabelCol} className={labelColClassName}>
+              <label
+                htmlFor={id || this.getId()}
+                className={labelClassName}
+                title={typeof label === 'string' ? label : ''}
+                onClick={this.onLabelClick}
+              >
+                {labelChildren}
+              </label>
+            </Col>
+          ) : null;
+        }}
+      </FormContext.Consumer>
+    );
   }
 
   renderChildren(prefixCls: string) {
@@ -371,17 +392,17 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   }
 
   renderFormItem = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, style, colon, className } = this.props;
+    const { prefixCls: customizePrefixCls, style, className } = this.props;
     const prefixCls = getPrefixCls('form', customizePrefixCls);
     const children = this.renderChildren(prefixCls);
     const itemClassName = {
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-with-help`]: this.helpShow,
-      [`${prefixCls}-item-no-colon`]: !colon,
       [`${className}`]: !!className,
     };
+
     return (
-      <Row className={classNames(itemClassName)} style={style}>
+      <Row className={classNames(itemClassName)} style={style} key="row">
         {children}
       </Row>
     );

@@ -3,7 +3,7 @@ order: 0
 title: Ant Design of React
 ---
 
-这里是 Ant Design 的 React 实现，开发和服务于企业级后台产品。
+`antd` 是基于 Ant Design 设计体系的 React UI 组件库，主要用于研发企业级中后台产品。
 
 <div class="pic-plus">
   <img width="150" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg">
@@ -101,8 +101,6 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
      ]
    }
    ```
-
-   > 注意：webpack 1 无需设置 `libraryDirectory`。
 
    然后只需从 antd 引入模块即可，无需单独引入样式。等同于下面手动引入的方式。
 

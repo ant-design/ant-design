@@ -13,17 +13,15 @@ exports[`Search should show cross icon when input value exists 1`] = `
       type="text"
       value=""
     >
-      <Consumer>
-        <input
-          className="ant-input"
-          disabled={false}
-          onChange={[Function]}
-          onKeyDown={[Function]}
-          placeholder=""
-          type="text"
-          value=""
-        />
-      </Consumer>
+      <input
+        className="ant-input"
+        disabled={false}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        placeholder=""
+        type="text"
+        value=""
+      />
     </Input>
     <span
       className="undefined-action"
@@ -47,6 +45,7 @@ exports[`Search should show cross icon when input value exists 1`] = `
                 className=""
                 data-icon="search"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 key="svg-search"
                 viewBox="64 64 896 896"
@@ -79,17 +78,15 @@ exports[`Search should show cross icon when input value exists 2`] = `
       type="text"
       value="a"
     >
-      <Consumer>
-        <input
-          className="ant-input"
-          disabled={false}
-          onChange={[Function]}
-          onKeyDown={[Function]}
-          placeholder=""
-          type="text"
-          value="a"
-        />
-      </Consumer>
+      <input
+        className="ant-input"
+        disabled={false}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        placeholder=""
+        type="text"
+        value="a"
+      />
     </Input>
     <a
       className="undefined-action"
@@ -116,6 +113,7 @@ exports[`Search should show cross icon when input value exists 2`] = `
                 className=""
                 data-icon="close-circle"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 key="svg-close-circle"
                 viewBox="64 64 896 896"

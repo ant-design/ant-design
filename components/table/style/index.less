@@ -5,6 +5,7 @@
 @table-header-icon-color: #bfbfbf;
 @table-header-sort-active-bg: darken(@table-header-bg, 3%);
 @table-header-filter-active-bg: darken(@table-header-sort-active-bg, 5%);
+@table-selection-column-width: 60px;
 
 .@{table-prefix-cls}-wrapper {
   .clearfix;
@@ -12,6 +13,7 @@
 
 .@{table-prefix-cls} {
   .reset-component;
+
   position: relative;
   clear: both;
 
@@ -30,154 +32,174 @@
     border-collapse: collapse;
   }
 
-  &-thead > tr > th {
-    color: @table-header-color;
-    font-weight: 500;
-    text-align: left;
+  &-thead > tr {
+    // For Chrome extra space:
+    // - https://github.com/ant-design/ant-design/issues/14926
+    // - https://github.com/ant-design/ant-design/issues/16131
     background: @table-header-bg;
-    border-bottom: @border-width-base @border-style-base @border-color-split;
-    transition: background 0.3s ease;
 
-    &[colspan] {
-      text-align: center;
-    }
+    > th {
+      color: @table-header-color;
+      font-weight: 500;
+      text-align: left;
+      background: transparent;
+      border-bottom: @border-width-base @border-style-base @border-color-split;
+      transition: background 0.3s ease;
 
-    .@{iconfont-css-prefix}-filter,
-    .@{table-prefix-cls}-filter-icon {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 28px;
-      height: 100%;
-      color: @table-header-icon-color;
-      font-size: @font-size-sm;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.3s;
-
-      > svg {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-top: -@font-size-sm / 2 + 1px;
-        margin-left: -@font-size-sm / 2;
+      &[colspan] {
+        text-align: center;
       }
-    }
 
-    .@{table-prefix-cls}-filter-selected.@{iconfont-css-prefix}-filter {
-      color: @primary-color;
-    }
-
-    .@{table-prefix-cls}-column-sorter {
-      position: absolute;
-      top: 50%;
-      right: 6px;
-      width: 14px;
-      height: @font-size-lg + 1px;
-      margin-top: -(@font-size-lg + 1px) / 2;
-      color: @table-header-icon-color;
-      text-align: center;
-      transition: all 0.3s;
-
-      &-up,
-      &-down {
-        .iconfont-size-under-12px(11px);
-        display: block;
-        height: 4px;
-        line-height: 4px;
+      .@{iconfont-css-prefix}-filter,
+      .@{table-prefix-cls}-filter-icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 28px;
+        height: 100%;
+        color: @table-header-icon-color;
+        font-size: @font-size-sm;
+        text-align: center;
+        cursor: pointer;
         transition: all 0.3s;
-        &.on {
-          color: @primary-color;
+
+        > svg {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin-top: -@font-size-sm / 2 + 1px;
+          margin-left: -@font-size-sm / 2;
         }
       }
 
-      &-down {
-        margin-top: 4px;
+      .@{table-prefix-cls}-filter-selected.@{iconfont-css-prefix}-filter {
+        color: @primary-color;
       }
-    }
 
-    &.@{table-prefix-cls}-column-has-actions {
-      position: relative;
-      background-clip: padding-box; // For Firefox background bug, https://github.com/ant-design/ant-design/issues/12628
-      /* stylelint-disable-next-line */
-      -webkit-background-clip: border-box; // For Chrome extra space: https://github.com/ant-design/ant-design/issues/14926
+      .@{table-prefix-cls}-column-sorter {
+        display: table-cell;
+        vertical-align: middle;
 
-      &.@{table-prefix-cls}-column-has-filters {
-        .@{iconfont-css-prefix}-filter,
-        .@{table-prefix-cls}-filter-icon {
-          &.@{table-prefix-cls}-filter-open {
-            color: @text-color-secondary;
-            background: @table-header-filter-active-bg;
+        .@{table-prefix-cls}-column-sorter-inner {
+          height: 1em;
+          margin-top: 0.35em;
+          margin-left: 0.57142857em;
+          color: @table-header-icon-color;
+          line-height: 1em;
+          text-align: center;
+          transition: all 0.3s;
+
+          .@{table-prefix-cls}-column-sorter-up,
+          .@{table-prefix-cls}-column-sorter-down {
+            .iconfont-size-under-12px(11px);
+
+            display: block;
+            height: 1em;
+            line-height: 1em;
+            transition: all 0.3s;
+            &.on {
+              color: @primary-color;
+            }
+          }
+
+          &-full {
+            margin-top: -0.15em;
+
+            .@{table-prefix-cls}-column-sorter-up,
+            .@{table-prefix-cls}-column-sorter-down {
+              height: 0.5em;
+              line-height: 0.5em;
+            }
+
+            .@{table-prefix-cls}-column-sorter-down {
+              margin-top: 0.125em;
+            }
           }
         }
-        // Very complicated styles logic but neccessary
-        &:hover {
+      }
+
+      &.@{table-prefix-cls}-column-has-actions {
+        position: relative;
+        background-clip: padding-box; // For Firefox background bug, https://github.com/ant-design/ant-design/issues/12628
+
+        &.@{table-prefix-cls}-column-has-filters {
+          // https://github.com/ant-design/ant-design/issues/12650
+          padding-right: 30px !important;
+
           .@{iconfont-css-prefix}-filter,
           .@{table-prefix-cls}-filter-icon {
-            &:hover {
+            &.@{table-prefix-cls}-filter-open {
               color: @text-color-secondary;
               background: @table-header-filter-active-bg;
             }
-            &:active {
-              color: @text-color;
+          }
+          // Very complicated styles logic but necessary
+          &:hover {
+            .@{iconfont-css-prefix}-filter,
+            .@{table-prefix-cls}-filter-icon {
+              &:hover {
+                color: @text-color-secondary;
+                background: @table-header-filter-active-bg;
+              }
+              &:active {
+                color: @text-color;
+              }
             }
+          }
+        }
+
+        &.@{table-prefix-cls}-column-has-sorters {
+          cursor: pointer;
+          &:hover {
+            background: @table-header-sort-active-bg;
+            .@{iconfont-css-prefix}-filter,
+            .@{table-prefix-cls}-filter-icon {
+              background: @table-header-sort-active-bg;
+            }
+          }
+          &:active {
+            .@{table-prefix-cls}-column-sorter-up:not(.on),
+            .@{table-prefix-cls}-column-sorter-down:not(.on) {
+              color: @text-color-secondary;
+            }
+          }
+        }
+      }
+
+      .@{table-prefix-cls}-header-column {
+        display: inline-block;
+        vertical-align: top;
+
+        .@{table-prefix-cls}-column-sorters {
+          display: table;
+
+          > .@{table-prefix-cls}-column-title {
+            display: table-cell;
+            vertical-align: middle;
+          }
+
+          > *:not(.@{table-prefix-cls}-column-sorter) {
+            position: relative;
+          }
+          &::before {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: transparent;
+            transition: all 0.3s;
+            content: '';
+          }
+          &:hover::before {
+            background: rgba(0, 0, 0, 0.04);
           }
         }
       }
 
       &.@{table-prefix-cls}-column-has-sorters {
-        cursor: pointer;
-        &:hover {
-          background: @table-header-sort-active-bg;
-          .@{iconfont-css-prefix}-filter,
-          .@{table-prefix-cls}-filter-icon {
-            background: @table-header-sort-active-bg;
-          }
-        }
-        &:active {
-          .@{table-prefix-cls}-column-sorter-up:not(.on),
-          .@{table-prefix-cls}-column-sorter-down:not(.on) {
-            color: @text-color-secondary;
-          }
-        }
+        user-select: none;
       }
-
-      // https://github.com/ant-design/ant-design/issues/12650
-      &.@{table-prefix-cls}-column-has-sorters,
-      &.@{table-prefix-cls}-column-has-filters {
-        padding-right: 30px !important;
-      }
-
-      &.@{table-prefix-cls}-column-has-sorters.@{table-prefix-cls}-column-has-filters {
-        padding-right: 54px !important;
-      }
-    }
-
-    .@{table-prefix-cls}-column-sorters {
-      > *:not(.@{table-prefix-cls}-column-sorter) {
-        position: relative;
-      }
-      &::before {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: transparent;
-        transition: all 0.3s;
-        content: '';
-      }
-      &:hover::before {
-        background: rgba(0, 0, 0, 0.04);
-      }
-    }
-
-    &.@{table-prefix-cls}-column-has-filters .@{table-prefix-cls}-column-sorter {
-      right: 28px + 6px;
-    }
-
-    &.@{table-prefix-cls}-column-has-sorters {
-      user-select: none;
     }
   }
 
@@ -211,10 +233,6 @@
         background: @table-row-hover-bg;
       }
     }
-  }
-
-  &-thead > tr:hover {
-    background: none;
   }
 
   &-footer {
@@ -291,20 +309,6 @@
   &-thead > tr > th,
   &-tbody > tr > td {
     padding: @table-padding-vertical @table-padding-horizontal;
-  }
-
-  &-thead > tr > th.@{table-prefix-cls}-selection-column-custom {
-    .@{table-prefix-cls}-selection {
-      margin-right: -15px;
-    }
-  }
-
-  &-thead > tr > th.@{table-prefix-cls}-selection-column,
-  &-tbody > tr > td.@{table-prefix-cls}-selection-column {
-    text-align: center;
-    .@{ant-prefix}-radio-wrapper {
-      margin-right: 0;
-    }
   }
 
   &-expand-icon-th,
@@ -392,7 +396,7 @@
     position: relative;
     z-index: 1;
     padding: @table-padding-vertical @table-padding-horizontal;
-    color: @text-color-secondary;
+    color: @disabled-color;
     font-size: @font-size-base;
     text-align: center;
     background: @component-background;
@@ -542,10 +546,6 @@
         content: '.';
       }
     }
-
-    &[class*='@{table-prefix-cls}-row-level-0'] .@{table-prefix-cls}-selection-column > span {
-      display: inline-block;
-    }
   }
 
   tr&-expanded-row {
@@ -665,6 +665,32 @@
 
   &&-scroll-position-right &-fixed-right {
     box-shadow: none;
+  }
+
+  // ========================== Row Selection ==========================
+  colgroup {
+    > col.@{table-prefix-cls}-selection-col {
+      width: @table-selection-column-width;
+    }
+  }
+
+  &-thead > tr > th.@{table-prefix-cls}-selection-column-custom {
+    .@{table-prefix-cls}-selection {
+      margin-right: -15px;
+    }
+  }
+
+  &-thead > tr > th.@{table-prefix-cls}-selection-column,
+  &-tbody > tr > td.@{table-prefix-cls}-selection-column {
+    text-align: center;
+
+    .@{ant-prefix}-radio-wrapper {
+      margin-right: 0;
+    }
+  }
+
+  &-row[class*='@{table-prefix-cls}-row-level-0'] .@{table-prefix-cls}-selection-column > span {
+    display: inline-block;
   }
 }
 

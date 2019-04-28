@@ -1,5 +1,5 @@
 import Modal from '..';
-import { destroyFns } from '../Modal'
+import { destroyFns } from '../Modal';
 
 const { confirm } = Modal;
 
@@ -92,7 +92,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect($$('.ant-btn')[1].disabled).toBe(true);
   });
 
-  it('trigger onCancel once when click on cancel button', () => {
+  it('should close modals when click confirm button', () => {
     jest.useFakeTimers();
     ['info', 'success', 'warning', 'error'].forEach(type => {
       Modal[type]({
@@ -185,15 +185,15 @@ describe('Modal.confirm triggers callbacks correctly', () => {
         title: 'title',
         content: 'content',
       });
-      instances.push(instance)
+      instances.push(instance);
     });
-    const { length } = instances
+    const { length } = instances;
     instances.forEach((instance, index) => {
       expect(destroyFns.length).toBe(length - index);
       instance.destroy();
       jest.runAllTimers();
       expect(destroyFns.length).toBe(length - index - 1);
-    })
+    });
     jest.useRealTimers();
   });
 });

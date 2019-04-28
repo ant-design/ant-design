@@ -31,7 +31,7 @@ export interface AbstractSelectProps {
   dropdownMenuStyle?: React.CSSProperties;
   dropdownMatchSelectWidth?: boolean;
   onSearch?: (value: string) => any;
-  getPopupContainer?: (triggerNode?: Element) => HTMLElement;
+  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   filterOption?: boolean | ((inputValue: string, option: React.ReactElement<OptionProps>) => any);
   id?: string;
   defaultOpen?: boolean;
@@ -204,6 +204,7 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
       removeIcon,
       clearIcon,
       menuItemSelectedIcon,
+      showArrow,
       ...restProps
     } = this.props;
     const rest = omit(restProps, ['inputIcon']);
@@ -213,6 +214,7 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
       {
         [`${prefixCls}-lg`]: size === 'large',
         [`${prefixCls}-sm`]: size === 'small',
+        [`${prefixCls}-show-arrow`]: showArrow,
       },
       className,
     );
@@ -261,6 +263,7 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
         removeIcon={finalRemoveIcon}
         clearIcon={finalClearIcon}
         menuItemSelectedIcon={finalMenuItemSelectedIcon}
+        showArrow={showArrow}
         {...rest}
         {...modeConfig}
         prefixCls={prefixCls}

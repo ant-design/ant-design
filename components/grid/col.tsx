@@ -85,6 +85,7 @@ export default class Col extends React.Component<ColProps, {}> {
       };
     });
     const classes = classNames(
+      prefixCls,
       {
         [`${prefixCls}-${span}`]: span !== undefined,
         [`${prefixCls}-order-${order}`]: order,

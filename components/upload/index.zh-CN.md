@@ -30,9 +30,9 @@ title: Upload
 | fileList | 已经上传的文件列表（受控），使用此参数时，如果遇到 `onChange` 只调用一次的问题，请参考 [#2423](https://github.com/ant-design/ant-design/issues/2423) | object\[] | 无 |
 | headers | 设置上传的请求头部，IE10 以上有效 | object | 无 |
 | listType | 上传列表的内建样式，支持三种基本样式 `text`, `picture` 和 `picture-card` | string | 'text' |
-| multiple | 是否支持多选文件，`ie10+` 支持。开启后按住 ctrl 可选择多个文件。 | boolean | false |
+| multiple | 是否支持多选文件，`ie10+` 支持。开启后按住 ctrl 可选择多个文件 | boolean | false |
 | name | 发到后台的文件参数名 | string | 'file' |
-| showUploadList | 是否展示 uploadList, 可设为一个对象，用于单独设定 showPreviewIcon 和 showRemoveIcon | Boolean or { showPreviewIcon?: boolean, showRemoveIcon?: boolean } | true |
+| showUploadList | 是否展示文件列表, 可设为一个对象，用于单独设定 `showPreviewIcon` 和 `showRemoveIcon` | Boolean or { showPreviewIcon?: boolean, showRemoveIcon?: boolean } | true |
 | supportServerRender | 服务端渲染时需要打开这个 | boolean | false |
 | withCredentials | 上传请求时是否携带 cookie | boolean | false |
 | openFileDialogOnClick | 点击打开文件对话框 | boolean | true |

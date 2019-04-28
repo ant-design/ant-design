@@ -2,6 +2,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Menu from '..';
 import Icon from '../../icon';
+import Layout from '../../layout';
+import raf from '../../_util/raf';
 
 jest.mock('mutationobserver-shim', () => {
   global.MutationObserver = function MutationObserver() {
@@ -72,6 +74,10 @@ describe('Menu', () => {
         .at(0)
         .hasClass('ant-menu-hidden'),
     ).not.toBe(true);
+
+    const rafCount = Object.keys(raf.ids).length;
+    wrapper.unmount();
+    expect(Object.keys(raf.ids).length).toBe(rafCount - 1);
   });
 
   it('should accept defaultOpenKeys in mode vertical', () => {
@@ -493,5 +499,140 @@ describe('Menu', () => {
 
     const text = wrapper.find('.ant-tooltip-inner').text();
     expect(text).toBe('bamboo lucky');
+
+    jest.useRealTimers();
+  });
+
+  it('render correctly when using with Layout.Sider', () => {
+    class Demo extends React.Component {
+      state = {
+        collapsed: false,
+      };
+
+      onCollapse = collapsed => this.setState({ collapsed });
+
+      render() {
+        const { collapsed } = this.state;
+        return (
+          <Layout style={{ minHeight: '100vh' }}>
+            <Layout.Sider collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
+              <div className="logo" />
+              <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+                <SubMenu
+                  key="sub1"
+                  title={
+                    <span>
+                      <Icon type="user" />
+                      <span>User</span>
+                    </span>
+                  }
+                >
+                  <Menu.Item key="3">Tom</Menu.Item>
+                  <Menu.Item key="4">Bill</Menu.Item>
+                  <Menu.Item key="5">Alex</Menu.Item>
+                </SubMenu>
+              </Menu>
+            </Layout.Sider>
+          </Layout>
+        );
+      }
+    }
+    const wrapper = mount(<Demo />);
+    wrapper.find('.ant-menu-submenu-title').simulate('click');
+    wrapper.find('.ant-layout-sider-trigger').simulate('click');
+    jest.runAllTimers();
+    wrapper.update();
+    expect(wrapper.find('.ant-menu-submenu-popup').length).toBe(0);
+  });
+
+  it('onMouseEnter should work', () => {
+    const onMouseEnter = jest.fn();
+    const wrapper = mount(
+      <Menu onMouseEnter={onMouseEnter} defaultSelectedKeys={['test1']}>
+        <Menu.Item key="test1">Navigation One</Menu.Item>
+        <Menu.Item key="test2">Navigation Two</Menu.Item>
+      </Menu>,
+    );
+    wrapper
+      .find('Menu')
+      .at(1)
+      .simulate('mouseenter');
+    expect(onMouseEnter).toHaveBeenCalled();
+  });
+
+  it('get correct animation type when switched from inline', () => {
+    const wrapper = mount(<Menu mode="inline" />);
+    wrapper.setProps({ mode: 'horizontal' });
+    expect(
+      wrapper
+        .find('InternalMenu')
+        .instance()
+        .getMenuOpenAnimation(''),
+    ).toBe('');
+    expect(wrapper.find('InternalMenu').state().switchingModeFromInline).toBe(false);
+  });
+
+  it('MenuItem should not render Tooltip when inlineCollapsed is false', () => {
+    const wrapper = mount(
+      <Menu defaultSelectedKeys={['mail']} defaultOpenKeys={['mail']} mode="horizontal">
+        <Menu.Item key="mail">
+          <Icon type="mail" />
+          Navigation One
+        </Menu.Item>
+        <Menu.Item key="app">
+          <Icon type="appstore" />
+          Navigation Two
+        </Menu.Item>
+        <Menu.Item key="alipay">
+          <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
+            Navigation Four - Link
+          </a>
+        </Menu.Item>
+      </Menu>,
+    );
+    wrapper
+      .find('MenuItem')
+      .first()
+      .simulate('mouseenter');
+    jest.runAllTimers();
+    wrapper.update();
+    expect(wrapper.find('.ant-tooltip-inner').length).toBe(0);
+  });
+
+  it('should controlled collapse work', () => {
+    const wrapper = mount(
+      <Menu mode="inline" inlineCollapsed={false}>
+        <Menu.Item key="1">
+          <Icon type="pie-chart" />
+          <span>Option 1</span>
+        </Menu.Item>
+      </Menu>,
+    );
+
+    expect(wrapper.render()).toMatchSnapshot();
+
+    wrapper.setProps({ inlineCollapsed: true });
+
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('not title if not collapsed', () => {
+    jest.useFakeTimers();
+    const wrapper = mount(
+      <Menu mode="inline" inlineCollapsed={false}>
+        <Menu.Item key="1">
+          <Icon type="pie-chart" />
+          <span>Option 1</span>
+        </Menu.Item>
+      </Menu>,
+    );
+
+    wrapper.find('.ant-menu-item').simulate('mouseenter');
+    jest.runAllTimers();
+    wrapper.update();
+
+    expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
+
+    jest.useRealTimers();
   });
 });

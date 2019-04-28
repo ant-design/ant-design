@@ -33,6 +33,7 @@ Properties that shared by all types.
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | strokeWidth | to set the width of the progress bar, unit: `px` | number | 10 |
+| strokeColor | color of progress bar, render `linear-gradient` when passing an object | string \| { from: string; to: string; direction: string } | - |
 
 ### `type="circle"`
 

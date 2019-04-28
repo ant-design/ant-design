@@ -18,16 +18,20 @@ import { Select } from 'antd';
 
 const Option = Select.Option;
 
-function handleChange(value) {
+function onChange(value) {
   console.log(`selected ${value}`);
 }
 
-function handleBlur() {
+function onBlur() {
   console.log('blur');
 }
 
-function handleFocus() {
+function onFocus() {
   console.log('focus');
+}
+
+function onSearch(val) {
+  console.log('search:', val);
 }
 
 ReactDOM.render(
@@ -36,9 +40,10 @@ ReactDOM.render(
     style={{ width: 200 }}
     placeholder="Select a person"
     optionFilterProp="children"
-    onChange={handleChange}
-    onFocus={handleFocus}
-    onBlur={handleBlur}
+    onChange={onChange}
+    onFocus={onFocus}
+    onBlur={onBlur}
+    onSearch={onSearch}
     filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
   >
     <Option value="jack">Jack</Option>

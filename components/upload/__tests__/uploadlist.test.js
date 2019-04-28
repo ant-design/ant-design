@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Upload from '..';
+import UploadList from '../UploadList';
 import Form from '../../form';
 import { errorRequest, successRequest } from './requests';
 import { setup, teardown } from './mock';
@@ -162,12 +163,12 @@ describe('Upload List', () => {
       .find('.anticon-eye-o')
       .at(0)
       .simulate('click');
-    expect(handlePreview).toBeCalledWith(fileList[0]);
+    expect(handlePreview).toHaveBeenCalledWith(fileList[0]);
     wrapper
       .find('.anticon-eye-o')
       .at(1)
       .simulate('click');
-    expect(handlePreview).toBeCalledWith(fileList[1]);
+    expect(handlePreview).toHaveBeenCalledWith(fileList[1]);
   });
 
   it('should support onRemove', async () => {
@@ -187,12 +188,12 @@ describe('Upload List', () => {
       .find('.anticon-delete')
       .at(0)
       .simulate('click');
-    expect(handleRemove).toBeCalledWith(fileList[0]);
+    expect(handleRemove).toHaveBeenCalledWith(fileList[0]);
     wrapper
       .find('.anticon-delete')
       .at(1)
       .simulate('click');
-    expect(handleRemove).toBeCalledWith(fileList[1]);
+    expect(handleRemove).toHaveBeenCalledWith(fileList[1]);
     await delay(0);
     expect(handleChange.mock.calls.length).toBe(2);
   });
@@ -278,7 +279,7 @@ describe('Upload List', () => {
         uid: '-12',
         url:
           'https://publish-pic-cpu.baidu.com/1296beb3-50d9-4276-885f-52645cbb378e.jpeg@w_228%2ch_152',
-        type: 'image',
+        type: 'image/png',
       },
     ];
 
@@ -348,5 +349,88 @@ describe('Upload List', () => {
     });
     wrapper.find(Form).simulate('submit');
     expect(errors).toBeNull();
+  });
+
+  it('return when prop onPreview not exists', () => {
+    const wrapper = mount(<UploadList />).instance();
+    expect(wrapper.handlePreview()).toBe(undefined);
+  });
+
+  it('previewFile should work correctly', () => {
+    const callback = jest.fn();
+    const file = new File([''], 'test.txt', { type: 'text/plain' });
+    const items = [{ uid: 'upload-list-item', url: '' }];
+    const wrapper = mount(
+      <UploadList listType="picture-card" items={items} locale={{ previewFile: '' }} />,
+    ).instance();
+    wrapper.previewFile(file, callback);
+    expect(callback).toHaveBeenCalled();
+  });
+
+  it('extname should work correctly when url not exists', () => {
+    const items = [{ uid: 'upload-list-item', url: '' }];
+    const wrapper = mount(
+      <UploadList listType="picture-card" items={items} locale={{ previewFile: '' }} />,
+    );
+    expect(wrapper.find('.ant-upload-list-item-thumbnail').length).toBe(2);
+  });
+
+  it('when picture-card is loading, icon should render correctly', () => {
+    const items = [{ status: 'uploading', uid: 'upload-list-item' }];
+    const wrapper = mount(
+      <UploadList listType="picture-card" items={items} locale={{ uploading: 'uploading' }} />,
+    );
+    expect(wrapper.find('.ant-upload-list-item-uploading-text').length).toBe(1);
+    expect(wrapper.find('.ant-upload-list-item-uploading-text').text()).toBe('uploading');
+  });
+
+  it('onPreview should be called, when url exists', () => {
+    const onPreview = jest.fn();
+    const items = [{ thumbUrl: 'thumbUrl', url: 'url', uid: 'upload-list-item' }];
+    const wrapper = mount(
+      <UploadList
+        listType="picture-card"
+        items={items}
+        locale={{ uploading: 'uploading' }}
+        onPreview={onPreview}
+      />,
+    );
+    wrapper.find('.ant-upload-list-item-thumbnail').simulate('click');
+    expect(onPreview).toHaveBeenCalled();
+    wrapper.find('.ant-upload-list-item-name').simulate('click');
+    expect(onPreview).toHaveBeenCalled();
+    wrapper.setProps({ items: [{ thumbUrl: 'thumbUrl', uid: 'upload-list-item' }] });
+    wrapper.find('.ant-upload-list-item-name').simulate('click');
+    expect(onPreview).toHaveBeenCalled();
+  });
+
+  it('upload image file should be converted to the base64', done => {
+    const mockFile = new File([''], 'foo.png', {
+      type: 'image/png',
+    });
+
+    const wrapper = mount(
+      <UploadList listType="picture-card" items={fileList} locale={{ uploading: 'uploading' }} />,
+    );
+    const instance = wrapper.instance();
+    const callback = dataUrl => {
+      expect(dataUrl).toEqual('data:image/png;base64,');
+      done();
+    };
+    instance.previewFile(mockFile, callback);
+  });
+
+  it("upload non image file shouldn't be converted to the base64", () => {
+    const mockFile = new File([''], 'foo.7z', {
+      type: 'application/x-7z-compressed',
+    });
+
+    const wrapper = mount(
+      <UploadList listType="picture-card" items={fileList} locale={{ uploading: 'uploading' }} />,
+    );
+    const instance = wrapper.instance();
+    const callback = jest.fn();
+    instance.previewFile(mockFile, callback);
+    expect(callback).toHaveBeenCalledWith('');
   });
 });

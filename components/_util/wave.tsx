@@ -60,7 +60,7 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
       }
 
       extraNode.style.borderColor = waveColor;
-      styleForPesudo.innerHTML = `[ant-click-animating-without-extra-node="true"]:after { border-color: ${waveColor}; }`;
+      styleForPesudo.innerHTML = `html body { --antd-wave-shadow-color: ${waveColor}; }`;
       if (!document.body.contains(styleForPesudo)) {
         document.body.appendChild(styleForPesudo);
       }

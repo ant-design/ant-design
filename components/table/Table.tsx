@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import RcTable from 'rc-table';
+import RcTable, { INTERNAL_COL_DEFINE } from 'rc-table';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
@@ -59,8 +59,6 @@ const defaultPagination = {
   onShowSizeChange: noop,
 };
 
-const ROW_SELECTION_COLUMN_WIDTH = '62px';
-
 /**
  * Avoid creating new object, so that parent component's shouldComponentUpdate
  * can works appropriately。
@@ -112,6 +110,8 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   constructor(props: TableProps<T>) {
     super(props);
 
+    const { expandedRowRender, columns = [] } = props;
+
     warning(
       !('columnsPageRange' in props || 'columnsPageSize' in props),
       'Table',
@@ -119,11 +119,13 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         'fixed columns instead, see: https://u.ant.design/fixed-columns.',
     );
 
-    warning(
-      !('expandedRowRender' in props) || !('scroll' in props),
-      'Table',
-      '`expandedRowRender` and `scroll` are not compatible. Please use one of them at one time.',
-    );
+    if (expandedRowRender && columns.some(({ fixed }) => !!fixed)) {
+      warning(
+        false,
+        'Table',
+        '`expandedRowRender` and `Column.fixed` are not compatible. Please use one of them at one time.',
+      );
+    }
 
     this.columns = props.columns || normalizeColumns(props.children as React.ReactChildren);
 
@@ -153,7 +155,12 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     const key = this.getRecordKey(item, index);
     // Cache checkboxProps
     if (!this.CheckboxPropsCache[key]) {
-      this.CheckboxPropsCache[key] = rowSelection.getCheckboxProps(item);
+      const checkboxProps = (this.CheckboxPropsCache[key] = rowSelection.getCheckboxProps(item));
+      warning(
+        !('checked' in checkboxProps) && !('defaultChecked' in checkboxProps),
+        'Table',
+        'Do not set `checked` or `defaultChecked` in `getCheckboxProps`. Please use `selectedRowKeys` instead.',
+      );
     }
     return this.CheckboxPropsCache[key];
   };
@@ -770,8 +777,11 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         render: this.renderSelectionBox(rowSelection.type),
         className: selectionColumnClass,
         fixed: rowSelection.fixed,
-        width: rowSelection.columnWidth || ROW_SELECTION_COLUMN_WIDTH,
+        width: rowSelection.columnWidth,
         title: rowSelection.columnTitle,
+        [INTERNAL_COL_DEFINE]: {
+          className: `${prefixCls}-selection-col`,
+        },
       };
       if (rowSelection.type !== 'radio') {
         const checkboxAllDisabled = data.every(
@@ -879,7 +889,14 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         );
 
         sortButton = (
-          <div title={locale.sortTitle} className={`${prefixCls}-column-sorter`} key="sorter">
+          <div
+            title={locale.sortTitle}
+            className={classNames(
+              `${prefixCls}-column-sorter-inner`,
+              ascend && descend && `${prefixCls}-column-sorter-inner-full`,
+            )}
+            key="sorter"
+          >
             {ascend}
             {descend}
           </div>
@@ -913,10 +930,14 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
           [`${prefixCls}-column-sort`]: isSortColumn && sortOrder,
         }),
         title: [
-          <div key="title" className={sortButton ? `${prefixCls}-column-sorters` : undefined}>
-            {this.renderColumnTitle(column.title)}
-            {sortButton}
-          </div>,
+          <span key="title" className={`${prefixCls}-header-column`}>
+            <div className={sortButton ? `${prefixCls}-column-sorters` : undefined}>
+              <span className={`${prefixCls}-column-title`}>
+                {this.renderColumnTitle(column.title)}
+              </span>
+              <span className={`${prefixCls}-column-sorter`}>{sortButton}</span>
+            </div>
+          </span>,
           filterDropdown,
         ],
         onHeaderCell,
@@ -1116,7 +1137,6 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     renderEmpty: RenderEmptyHandler,
     dropdownPrefixCls: string,
     contextLocale: TableLocale,
-    loading: SpinProps,
   ) => {
     const { style, className, showHeader, locale, ...restProps } = this.props;
     const data = this.getCurrentPageData();
@@ -1159,7 +1179,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         className={classString}
         expandIconColumnIndex={expandIconColumnIndex}
         expandIconAsCell={expandIconAsCell}
-        emptyText={!loading.spinning && mergedLocale.emptyText}
+        emptyText={mergedLocale.emptyText}
       />
     );
   };
@@ -1184,7 +1204,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     const dropdownPrefixCls = getPrefixCls('dropdown', customizeDropdownPrefixCls);
     const table = (
       <LocaleReceiver componentName="Table" defaultLocale={defaultLocale.Table}>
-        {locale => this.renderTable(prefixCls, renderEmpty, dropdownPrefixCls, locale, loading)}
+        {locale => this.renderTable(prefixCls, renderEmpty, dropdownPrefixCls, locale)}
       </LocaleReceiver>
     );
 
