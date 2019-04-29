@@ -5517,7 +5517,7 @@ exports[`ConfigProvider components Carousel configProvider 1`] = `
       </div>
     </div>
     <ul
-      class="slick-dots"
+      class="slick-dots slick-dots-bottom"
       style="display:block"
     >
       <li
@@ -5647,7 +5647,7 @@ exports[`ConfigProvider components Carousel normal 1`] = `
       </div>
     </div>
     <ul
-      class="slick-dots"
+      class="slick-dots slick-dots-bottom"
       style="display:block"
     >
       <li
@@ -5777,7 +5777,7 @@ exports[`ConfigProvider components Carousel prefixCls 1`] = `
       </div>
     </div>
     <ul
-      class="slick-dots"
+      class="slick-dots slick-dots-bottom"
       style="display:block"
     >
       <li
