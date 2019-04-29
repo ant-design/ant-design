@@ -110,7 +110,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| align | specify how content is aligned | 'left' \| 'right' \| 'center' | 'left' |
+| align | specify which way that column is aligned | 'left' \| 'right' \| 'center' | 'left' |
 | className | className of this column | string | - |
 | colSpan | Span of this column's title | number |  |
 | dataIndex | Display field of the data record, could be set like `a.b.c`, `a[0].b.c[1]` | string | - |

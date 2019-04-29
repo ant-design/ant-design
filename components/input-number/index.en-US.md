@@ -23,7 +23,7 @@ When a numeric value needs to be provided.
 | parser | Specifies the value extracted from formatter | function( string): number | - |
 | precision | precision of input value | number | - |
 | decimalSeparator | decimal separator | string | - |
-| size | width of input box | string | - |
+| size | height of input box | string | - |
 | step | The number to which the current value is increased or decreased. It can be an integer or decimal. | number\|string | 1 |
 | value | current value | number |  |
 | onChange | The callback triggered when the value is changed. | function(value: number \| string) |  |

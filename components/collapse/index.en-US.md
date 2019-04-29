@@ -41,4 +41,4 @@ A content area which can be collapsed and expanded.
 
 ### How to let the arrow to be on the right?
 
-You can adjust style of the arrow: <https://codesandbox.io/s/vpm8qwo37>
+You can adjust style of the arrow: <https://codesandbox.io/s/v046rx89n0>

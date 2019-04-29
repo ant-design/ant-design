@@ -22,7 +22,6 @@ export interface PickerProps {
   open?: boolean;
   onOpenChange?: (status: boolean) => void;
   disabledDate?: (current: moment.Moment | undefined) => boolean;
-  renderExtraFooter?: () => React.ReactNode;
   dateRender?: (current: moment.Moment, today: moment.Moment) => React.ReactNode;
   autoFocus?: boolean;
 }
@@ -32,6 +31,7 @@ export interface SinglePickerProps {
   defaultValue?: moment.Moment;
   defaultPickerValue?: moment.Moment;
   placeholder?: string;
+  renderExtraFooter?: (mode: 'date' | 'month' | 'year' | 'decade') => React.ReactNode;
   onChange?: (date: moment.Moment, dateString: string) => void;
 }
 
@@ -91,6 +91,7 @@ export interface RangePickerProps extends PickerProps {
     disabledSeconds?: () => number[];
   };
   onPanelChange?: (value?: RangePickerValue, mode?: string | string[]) => void;
+  renderExtraFooter?: () => React.ReactNode;
 }
 
 export interface WeekPickerProps extends PickerProps, SinglePickerProps {
