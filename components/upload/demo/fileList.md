@@ -13,8 +13,6 @@ title:
 
 2) 读取远程路径并显示链接。
 
-3) 按照服务器返回信息筛选成功上传的文件。
-
 ## en-US
 
 You can gain full control over filelist by configuring `fileList`. You can accomplish all kinds of customed functions. The following shows three circumstances:
@@ -22,8 +20,6 @@ You can gain full control over filelist by configuring `fileList`. You can accom
 1) limit the number of uploaded files.
 
 2) read from response and show file link.
-
-3) filter successfully uploaded files according to response from server.
 
 ````jsx
 import { Upload, Button, Icon } from 'antd';
@@ -39,11 +35,13 @@ class MyUpload extends React.Component {
   }
 
   handleChange = (info) => {
+    console.log(info);
     let fileList = info.fileList;
 
     // 1. Limit the number of uploaded files
     // Only to show two recent uploaded files, and old ones will be replaced by the new
     fileList = fileList.slice(-2);
+    console.log(fileList);
 
     // 2. Read from response and show file link
     fileList = fileList.map((file) => {
@@ -52,14 +50,6 @@ class MyUpload extends React.Component {
         file.url = file.response.url;
       }
       return file;
-    });
-
-    // 3. Filter successfully uploaded files according to response from server
-    fileList = fileList.filter((file) => {
-      if (file.response) {
-        return file.response.status === 'success';
-      }
-      return false;
     });
 
     this.setState({ fileList });
