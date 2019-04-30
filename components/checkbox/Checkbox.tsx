@@ -55,13 +55,6 @@ class Checkbox extends React.Component<CheckboxProps, {}> {
 
   private rcCheckbox: any;
 
-  constructor(props: CheckboxProps) {
-    super(props);
-    this.state = {
-      prevValue: props.value,
-    };
-  }
-
   componentDidMount() {
     const { value } = this.props;
     const { checkboxGroup = {} } = this.context || {};
