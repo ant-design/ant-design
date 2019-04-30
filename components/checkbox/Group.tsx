@@ -101,6 +101,7 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
       registeredValues: [...registeredValues, value],
     }));
   };
+
   cancelValue = (value: string) => {
     this.setState(({ registeredValues }) => ({
       registeredValues: registeredValues.filter(val => val !== value),
