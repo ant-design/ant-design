@@ -22,7 +22,7 @@ timeline: true
 - ⌨️ Improve PageHeader `backIcon` keyboard accessibility. [#16038](https://github.com/ant-design/ant-design/issues/16038)
 - 🇮🇹 Optimize Italian localization. [#16093](https://github.com/ant-design/ant-design/pull/16093) [@yp](https://github.com/yp) [#16172](https://github.com/ant-design/ant-design/pull/16172) [@afelicioni](https://github.com/afelicioni)
 - 🐞 Fix Select with `showSearch` not trigger `onSearch` when blur it. [#16235](https://github.com/ant-design/ant-design/pull/16235)
-- 🐞 Fix Selecte active item's hover background color. [#16238](https://github.com/ant-design/ant-design/pull/16238) [@yociduo](https://github.com/yociduo)
+- 🐞 Fix Select active item's hover background color. [#16238](https://github.com/ant-design/ant-design/pull/16238) [@yociduo](https://github.com/yociduo)
 - 🐞 Fix unexpected pressed style of disabled Switch. [#16251](https://github.com/ant-design/ant-design/pull/16251) [@atomoo](https://github.com/atomoo)
 - 🐞 Fix small size Table header background. [#16266](https://github.com/ant-design/ant-design/pull/16266)
 - 🐞 Fix Tabs missing border when `tabPosition="bottom"`. [#16130](https://github.com/ant-design/ant-design/pull/16130) [@rinick](https://github.com/rinick)
@@ -51,7 +51,7 @@ timeline: true
 
 - 🐞 Fix circle button responding mouse event when loading. [#16063](https://github.com/ant-design/ant-design/pull/16063) [@gxvv](https://github.com/gxvv)
 - 🐞 Fix issue that Form.Item's `labelAlign` does not work. [#16067](https://github.com/ant-design/ant-design/issues/16067)
-- 🐞 Fix issue that tailing debounce call rasing error when Spin unmount. [#16081](https://github.com/ant-design/ant-design/pull/16081) [@raybooysen](https://github.com/raybooysen)
+- 🐞 Fix issue that tailing debounce call raising error when Spin unmount. [#16081](https://github.com/ant-design/ant-design/pull/16081) [@raybooysen](https://github.com/raybooysen)
 - 🐞 Fix issue that List's `defaultPageSize` does not work. [#16100](https://github.com/ant-design/ant-design/issues/16100)
 - 🐞 Fix error moment call in DatePicker. [#16109](https://github.com/ant-design/ant-design/issues/16109)
 - 🐞 Fix Radio does not in center on Firefox. [#16039](https://github.com/ant-design/ant-design/issues/16039)
@@ -79,7 +79,7 @@ timeline: true
 - 🐞 Fix nest Tabs ink bar style issue. [#16013](https://github.com/ant-design/ant-design/pull/16013)
 - 🐞 Fix Empty in IE not fully render. [#16016](https://github.com/ant-design/ant-design/pull/16016)
 - 🐞 Fix Switcher loading icon and checkbox should be vertical align when `@tree-title-height` is modified. [#15962](https://github.com/ant-design/ant-design/pull/15962)
-- 💄 Default selection column width can be overrided in css. [#15990](https://github.com/ant-design/ant-design/pull/15990)
+- 💄 Default selection column width can be overridden in css. [#15990](https://github.com/ant-design/ant-design/pull/15990)
 - TypeScript
   - 🐞 Fix Pagination `showLessItems` TS definition. [#15952](https://github.com/ant-design/ant-design/pull/15952)
 
