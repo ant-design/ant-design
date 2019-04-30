@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
+import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
 import RcCheckbox from 'rc-checkbox';
 import shallowEqual from 'shallowequal';
@@ -40,7 +41,7 @@ export interface CheckboxChangeEvent {
   nativeEvent: MouseEvent;
 }
 
-export default class Checkbox extends React.Component<CheckboxProps, {}> {
+class Checkbox extends React.Component<CheckboxProps, {}> {
   static Group: typeof CheckboxGroup;
   static defaultProps = {
     indeterminate: false,
@@ -53,6 +54,38 @@ export default class Checkbox extends React.Component<CheckboxProps, {}> {
   context: any;
 
   private rcCheckbox: any;
+
+  constructor(props: CheckboxProps) {
+    super(props);
+    this.state = {
+      prevValue: props.value,
+    };
+  }
+
+  componentDidMount() {
+    const { value } = this.props;
+    const { checkboxGroup = {} } = this.context || {};
+    if (checkboxGroup.registerValue) {
+      checkboxGroup.registerValue(value);
+    }
+  }
+
+  componentDidUpdate({ value: prevValue }: CheckboxProps) {
+    const { value } = this.props;
+    const { checkboxGroup = {} } = this.context || {};
+    if (value !== prevValue && checkboxGroup.registerValue && checkboxGroup.cancelValue) {
+      checkboxGroup.cancelValue(prevValue);
+      checkboxGroup.registerValue(value);
+    }
+  }
+
+  componentWillUnmount() {
+    const { value } = this.props;
+    const { checkboxGroup = {} } = this.context || {};
+    if (checkboxGroup.cancelValue) {
+      checkboxGroup.cancelValue(value);
+    }
+  }
 
   shouldComponentUpdate(
     nextProps: CheckboxProps,
@@ -134,3 +167,7 @@ export default class Checkbox extends React.Component<CheckboxProps, {}> {
     return <ConfigConsumer>{this.renderCheckbox}</ConfigConsumer>;
   }
 }
+
+polyfill(Checkbox);
+
+export default Checkbox;
