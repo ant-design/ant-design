@@ -35,7 +35,7 @@ export interface SinglePickerProps {
   onChange?: (date: moment.Moment, dateString: string) => void;
 }
 
-const DatePickerModes = tuple('time', 'date', 'month', 'year');
+const DatePickerModes = tuple('time', 'date', 'month', 'year', 'decade');
 export type DatePickerMode = (typeof DatePickerModes)[number];
 
 export interface DatePickerProps extends PickerProps, SinglePickerProps {
