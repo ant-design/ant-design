@@ -82,3 +82,11 @@
     }
   }
 }
+
+// https://github.com/ant-design/ant-design/issues/14156
+.@{input-prefix-cls}-group > .@{autocomplete-prefix-cls} {
+  .@{select-prefix-cls}-search__field.@{input-prefix-cls}-affix-wrapper {
+    display: inline;
+    float: none;
+  }
+}
