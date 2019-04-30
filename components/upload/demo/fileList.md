@@ -35,13 +35,11 @@ class MyUpload extends React.Component {
   }
 
   handleChange = (info) => {
-    console.log(info);
-    let fileList = info.fileList;
+    let fileList = [...info.fileList];
 
     // 1. Limit the number of uploaded files
     // Only to show two recent uploaded files, and old ones will be replaced by the new
     fileList = fileList.slice(-2);
-    console.log(fileList);
 
     // 2. Read from response and show file link
     fileList = fileList.map((file) => {
@@ -57,7 +55,7 @@ class MyUpload extends React.Component {
 
   render() {
     const props = {
-      action: '//jsonplaceholder.typicode.com/posts/',
+      action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
       onChange: this.handleChange,
       multiple: true,
     };
