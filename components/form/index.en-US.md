@@ -127,11 +127,11 @@ validateFields(['field1', 'field2'], options, (errors, values) => {
 
    ```js
    {
-     "userName": {
+     "username": {
        "errors": [
          {
            "message": "Please input your username!",
-           "field": "userName"
+           "field": "username"
          }
        ]
      },
@@ -150,7 +150,7 @@ validateFields(['field1', 'field2'], options, (errors, values) => {
 
    ```js
    {
-     "userName": "username",
+     "username": "username",
      "password": "password",
    }
    ```
