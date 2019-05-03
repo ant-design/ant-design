@@ -56,7 +56,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 | dropdownClassName | to customize the className of the popup calendar | string | - |
 | getCalendarContainer | to set the container of the floating layer, while the default is to create a `div` element in `body` | function(trigger) | - |
 | locale | localization configuration | object | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |
-| mode | picker panel mode | `time|date|month|year` | 'date' |
+| mode | picker panel mode | `time|date|month|year|decade` | 'date' |
 | open | open state of picker | boolean | - |
 | placeholder | placeholder of date input | string\|RangePicker\[] | - |
 | popupStyle | to customize the style of the popup calendar | object | {} |
