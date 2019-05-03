@@ -27,7 +27,7 @@ Select component to select value from options.
 | autoClearSearchValue | Whether the current search will be cleared on selecting an item. Only applies when `mode` is set to `multiple` or `tags`. | boolean | true |
 | autoFocus | Get focus by default | boolean | false |
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |
-| defaultValue | Initial selected option. | string\|string\[]<br />number\|number\[] | - |
+| defaultValue | Initial selected option. | string\|string\[]<br />number\|number\[]<br />LabeledValue\|LabeledValue[] | - |
 | disabled | Whether disabled select | boolean | false |
 | dropdownClassName | className of dropdown menu | string | - |
 | dropdownMatchSelectWidth | Whether dropdown's width is same with select. | boolean | true |
@@ -52,17 +52,17 @@ Select component to select value from options.
 | clearIcon | The custom clear icon | ReactNode | - |
 | menuItemSelectedIcon | The custom menuItemSelected icon | ReactNode | - |
 | tokenSeparators | Separator used to tokenize on tag/multiple mode | string\[] |  |
-| value | Current selected option. | string\|number\|string\[]\|number\[] | - |
+| value | Current selected option. | string\|string\[]\<br />number\|number\[]\<br />LabeledValue\|LabeledValue[] | - |
 | onBlur | Called when blur | function | - |
 | onChange | Called when select an option or input value change, or value of input is changed in combobox mode | function(value, option:Option/Array&lt;Option>) | - |
-| onDeselect | Called when a option is deselected, the params are option's value (or key) . only called for multiple or tags, effective in multiple or tags mode only. | function(value, option:Option) | - |
+| onDeselect | Called when a option is deselected, param is the selected option's value. Only called for multiple or tags, effective in multiple or tags mode only. | function(string\|number\|LabeledValue) | - |
 | onFocus | Called when focus | function | - |
 | onInputKeyDown | Called when key pressed | function | - |
 | onMouseEnter | Called when mouse enter | function | - |
 | onMouseLeave | Called when mouse leave | function | - |
 | onPopupScroll | Called when dropdown scrolls | function | - |
 | onSearch | Callback function that is fired when input changed. | function(value: string) |  |
-| onSelect | Called when a option is selected, the params are option's value (or key) and option instance. | function(value, option:Option) | - |
+| onSelect | Called when a option is selected, the params are option's value (or key) and option instance. | function(string\|number\|LabeledValue, option:Option) | - |
 | defaultOpen | Initial open state of dropdown | boolean | - |
 | open | Controlled open state of dropdown | boolean | - |
 | onDropdownVisibleChange | Call when dropdown open (Supported after version 3.9.0) | function(open) | - |
