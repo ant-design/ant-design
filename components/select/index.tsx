@@ -48,6 +48,7 @@ export interface LabeledValue {
 }
 
 export type SelectValue = string | string[] | number | number[] | LabeledValue | LabeledValue[];
+export type SelectedValue = string | number | LabeledValue;
 
 export interface SelectProps<T = SelectValue> extends AbstractSelectProps {
   value?: T;
@@ -56,8 +57,8 @@ export interface SelectProps<T = SelectValue> extends AbstractSelectProps {
   optionLabelProp?: string;
   firstActiveValue?: string | string[];
   onChange?: (value: T, option: React.ReactElement<any> | React.ReactElement<any>[]) => void;
-  onSelect?: (value: T, option: React.ReactElement<any>) => any;
-  onDeselect?: (value: T) => any;
+  onSelect?: (value: SelectedValue, option: React.ReactElement<any>) => any;
+  onDeselect?: (value: SelectedValue) => any;
   onBlur?: (value: T) => void;
   onFocus?: () => void;
   onPopupScroll?: React.UIEventHandler<HTMLDivElement>;
