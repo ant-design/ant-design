@@ -22,12 +22,14 @@ function apiReport(entities) {
   const apis = {};
   Object.keys(entities).forEach(component => {
     const apiList = entities[component];
-    apiList.forEach(api => {
+    for (let i = 0; i < apiList.length; i += 1) {
+      const api = apiList[i];
+
       if (typeof apis[api] === 'function') {
         apis[api] = [];
       }
       apis[api] = [...(apis[api] || []), component];
-    });
+    }
   });
 
   return apis;
