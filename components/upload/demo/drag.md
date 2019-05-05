@@ -25,7 +25,7 @@ const Dragger = Upload.Dragger;
 const props = {
   name: 'file',
   multiple: true,
-  action: '//jsonplaceholder.typicode.com/posts/',
+  action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
   onChange(info) {
     const status = info.file.status;
     if (status !== 'uploading') {
