@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @list-prefix-cls: ~'@{ant-prefix}-list';
@@ -36,6 +36,12 @@
     color: @disabled-color;
     font-size: @font-size-base;
     text-align: center;
+  }
+
+  &-items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
 
   &-item {
@@ -144,7 +150,7 @@
     min-height: 32px;
   }
 
-  &-something-after-last-item .@{ant-prefix}-spin-container > &-item:last-child {
+  &-something-after-last-item .@{ant-prefix}-spin-container > &-items > &-item:last-child {
     border-bottom: 1px solid @border-color-split;
   }
 

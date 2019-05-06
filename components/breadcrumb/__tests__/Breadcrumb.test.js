@@ -51,4 +51,37 @@ describe('Breadcrumb', () => {
     );
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('should render a menu', () => {
+    const routes = [
+      {
+        path: 'index',
+        breadcrumbName: 'home',
+      },
+      {
+        path: 'first',
+        breadcrumbName: 'first',
+        children: [
+          {
+            path: '/general',
+            breadcrumbName: 'General',
+          },
+          {
+            path: '/layout',
+            breadcrumbName: 'Layout',
+          },
+          {
+            path: '/navigation',
+            breadcrumbName: 'Navigation',
+          },
+        ],
+      },
+      {
+        path: 'second',
+        breadcrumbName: 'second',
+      },
+    ];
+    const wrapper = render(<Breadcrumb routes={routes} />);
+    expect(wrapper).toMatchSnapshot();
+  });
 });

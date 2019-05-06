@@ -51,6 +51,8 @@ export interface UploadLocale {
 export type UploadType = 'drag' | 'select';
 export type UploadListType = 'text' | 'picture' | 'picture-card';
 
+type PreviewFileHandler = (file: File | Blob) => PromiseLike<string>;
+
 export interface UploadProps {
   type?: UploadType;
   name?: string;
@@ -78,6 +80,7 @@ export interface UploadProps {
   openFileDialogOnClick?: boolean;
   locale?: UploadLocale;
   id?: string;
+  previewFile?: PreviewFileHandler;
 }
 
 export interface UploadState {
@@ -95,4 +98,5 @@ export interface UploadListProps {
   showRemoveIcon?: boolean;
   showPreviewIcon?: boolean;
   locale: UploadLocale;
+  previewFile?: PreviewFileHandler;
 }

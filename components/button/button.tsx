@@ -40,7 +40,7 @@ function insertSpace(child: React.ReactChild, needInserted: boolean) {
   return child;
 }
 
-const ButtonTypes = tuple('default', 'primary', 'ghost', 'dashed', 'danger');
+const ButtonTypes = tuple('default', 'primary', 'ghost', 'dashed', 'danger', 'link');
 export type ButtonType = (typeof ButtonTypes)[number];
 const ButtonShapes = tuple('circle', 'circle-outline', 'round');
 export type ButtonShape = (typeof ButtonShapes)[number];
@@ -266,20 +266,24 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
     const { htmlType, ...otherProps } = rest as NativeButtonProps;
 
-    return (
-      <Wave>
-        <button
-          {...otherProps as NativeButtonProps}
-          type={htmlType}
-          className={classes}
-          onClick={this.handleClick}
-          ref={this.saveButtonRef}
-        >
-          {iconNode}
-          {kids}
-        </button>
-      </Wave>
+    const buttonNode = (
+      <button
+        {...otherProps as NativeButtonProps}
+        type={htmlType}
+        className={classes}
+        onClick={this.handleClick}
+        ref={this.saveButtonRef}
+      >
+        {iconNode}
+        {kids}
+      </button>
     );
+
+    if (type === 'link') {
+      return buttonNode;
+    }
+
+    return <Wave>{buttonNode}</Wave>;
   };
 
   render() {

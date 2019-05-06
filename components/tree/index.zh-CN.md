@@ -50,15 +50,16 @@ subtitle: 树形控件
 
 ### TreeNode props
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| disableCheckbox | 禁掉 checkbox | boolean | false |
-| disabled | 禁掉响应 | boolean | false |
-| icon | 自定义图标。可接收组件，props 为当前节点 props | ReactNode/Function(props):ReactNode | - |
-| isLeaf | 设置为叶子节点(设置了`loadData`时有效) | boolean | false |
-| key | 被树的 (default)ExpandedKeys / (default)CheckedKeys / (default)SelectedKeys 属性所用。注意：整个树范围内的所有节点的 key 值不能重复！ | string | 内部计算出的节点位置 |
-| selectable | 设置节点是否可被选中 | boolean | true |
-| title | 标题 | string\|ReactNode | '---' |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| checkable | 当树为 checkable 时，设置独立节点是否展示 Checkbox | boolean | - | 3.17.0 |
+| disableCheckbox | 禁掉 checkbox | boolean | false | |
+| disabled | 禁掉响应 | boolean | false | |
+| icon | 自定义图标。可接收组件，props 为当前节点 props | ReactNode/Function(props):ReactNode | - | |
+| isLeaf | 设置为叶子节点(设置了`loadData`时有效) | boolean | false | |
+| key | 被树的 (default)ExpandedKeys / (default)CheckedKeys / (default)SelectedKeys 属性所用。注意：整个树范围内的所有节点的 key 值不能重复！ | string | 内部计算出的节点位置 | |
+| selectable | 设置节点是否可被选中 | boolean | true | |
+| title | 标题 | string\|ReactNode | '---' | |
 
 ### DirectoryTree props
 

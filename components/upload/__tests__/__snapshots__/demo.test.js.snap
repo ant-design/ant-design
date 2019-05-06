@@ -645,6 +645,21 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/upload/demo/preview-file.md correctly 1`] = `
+<div>
+  <span
+    class=""
+  >
+    <div
+      class="ant-upload ant-upload-select ant-upload-select-picture"
+    />
+    <div
+      class="ant-upload-list ant-upload-list-picture"
+    />
+  </span>
+</div>
+`;
+
 exports[`renders ./components/upload/demo/upload-manually.md correctly 1`] = `
 <div>
   <span
