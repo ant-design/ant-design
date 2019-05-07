@@ -13,7 +13,7 @@ title:
 
 Hide already selected options in the dropdown.
 
-````jsx
+```jsx
 import { Select } from 'antd';
 
 const OPTIONS = ['Apples', 'Nails', 'Bananas', 'Helicopters'];
@@ -49,4 +49,4 @@ class SelectWithHiddenSelectedOptions extends React.Component {
 }
 
 ReactDOM.render(<SelectWithHiddenSelectedOptions />, mountNode);
-````
+```

@@ -9,12 +9,10 @@ Display a notification message globally.
 
 ## When To Use
 
-To display a notification message at any of the four corners of the viewport. Typically it can be
-used in the following cases:
+To display a notification message at any of the four corners of the viewport. Typically it can be used in the following cases:
 
 - A notification with complex content.
-- A notification providing a feedback based on the user interaction. Or it may show some details
-  about upcoming steps the user may have to follow.
+- A notification providing a feedback based on the user interaction. Or it may show some details about upcoming steps the user may have to follow.
 - A notification that is pushed by the application.
 
 ## API
@@ -31,7 +29,7 @@ used in the following cases:
 The properties of config are as follows:
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | bottom | Distance from the bottom of the viewport, when `placement` is `bottomRight` or `bottomLeft` (unit: pixels). | number | 24 |
 | btn | Customized close button | ReactNode | - |
 | className | Customized CSS class | string | - |
@@ -60,7 +58,7 @@ notification.config({
 ```
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | bottom | Distance from the bottom of the viewport, when `placement` is `bottomRight` or `bottomLeft` (unit: pixels). | number | 24 |
 | duration | Time in seconds before Notification is closed. When set to 0 or null, it will never be closed automatically | number | 4.5 |
 | getContainer | Return the mount node for Notification | () => HTMLNode | () => document.body |

@@ -13,7 +13,7 @@ title:
 
 A relevant icon will make information clearer and more friendly.
 
-````jsx
+```jsx
 import { Alert } from 'antd';
 
 ReactDOM.render(
@@ -47,6 +47,6 @@ ReactDOM.render(
       showIcon
     />
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```

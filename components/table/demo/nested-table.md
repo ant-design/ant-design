@@ -13,20 +13,13 @@ title:
 
 Showing more detailed info of every row.
 
-````jsx
-
-import {
-  Table, Badge, Menu, Dropdown, Icon,
-} from 'antd';
+```jsx
+import { Table, Badge, Menu, Dropdown, Icon } from 'antd';
 
 const menu = (
   <Menu>
-    <Menu.Item>
-      Action 1
-    </Menu.Item>
-    <Menu.Item>
-      Action 2
-    </Menu.Item>
+    <Menu.Item>Action 1</Menu.Item>
+    <Menu.Item>Action 2</Menu.Item>
   </Menu>
 );
 
@@ -35,7 +28,16 @@ function NestedTable() {
     const columns = [
       { title: 'Date', dataIndex: 'date', key: 'date' },
       { title: 'Name', dataIndex: 'name', key: 'name' },
-      { title: 'Status', key: 'state', render: () => <span><Badge status="success" />Finished</span> },
+      {
+        title: 'Status',
+        key: 'state',
+        render: () => (
+          <span>
+            <Badge status="success" />
+            Finished
+          </span>
+        ),
+      },
       { title: 'Upgrade Status', dataIndex: 'upgradeNum', key: 'upgradeNum' },
       {
         title: 'Action',
@@ -64,13 +66,7 @@ function NestedTable() {
         upgradeNum: 'Upgraded: 56',
       });
     }
-    return (
-      <Table
-        columns={columns}
-        dataSource={data}
-        pagination={false}
-      />
-    );
+    return <Table columns={columns} dataSource={data} pagination={false} />;
   };
 
   const columns = [
@@ -107,4 +103,4 @@ function NestedTable() {
 }
 
 ReactDOM.render(<NestedTable />, mountNode);
-````
+```

@@ -28,7 +28,7 @@ If there are special needs (only modifying single component language), Please us
 ```jsx
 import locale from 'antd/lib/date-picker/locale/zh_CN';
 
-<DatePicker locale={locale} />
+<DatePicker locale={locale} />;
 ```
 
 **Note:** Part of locale of DatePicker, MonthPicker, RangePicker, WeekPicker is read from value. So, please set the locale of moment correctly.
@@ -38,7 +38,7 @@ import locale from 'antd/lib/date-picker/locale/zh_CN';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 
-<DatePicker defaultValue={moment('2015-01-01', 'YYYY-MM-DD')} />
+<DatePicker defaultValue={moment('2015-01-01', 'YYYY-MM-DD')} />;
 ```
 
 ### Common API
@@ -46,7 +46,7 @@ import 'moment/locale/zh-cn';
 The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicker.
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | allowClear | Whether to show clear button | boolean | true |
 | autoFocus | get focus when component mounted | boolean | false |
 | className | picker className | string | '' |
@@ -68,15 +68,15 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 
 ### Common Methods
 
-| Name | Description |
-| ---- | ----------- |
-| blur() | remove focus |
-| focus() | get focus |
+| Name    | Description  |
+| ------- | ------------ |
+| blur()  | remove focus |
+| focus() | get focus    |
 
 ### DatePicker
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | defaultValue | to set default date, if start time or end time is null or undefined, the date range will be an open interval | [moment](http://momentjs.com/) | - |
 | defaultPickerValue | to set default picker date | [moment](http://momentjs.com/) | - |
 | disabledTime | to specify the time that cannot be selected | function(date) | - |
@@ -92,7 +92,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 ### MonthPicker
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | defaultValue | to set default date | [moment](http://momentjs.com/) | - |
 | defaultPickerValue | to set default picker date | [moment](http://momentjs.com/) | - |
 | format | to set the date format, refer to [moment.js](http://momentjs.com/) | string | "YYYY-MM" |
@@ -104,7 +104,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 ### WeekPicker
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | defaultValue | to set default date | [moment](http://momentjs.com/) | - |
 | defaultPickerValue | to set default picker date | [moment](http://momentjs.com/) | - |
 | format | to set the date format, refer to [moment.js](http://momentjs.com/) | string | "YYYY-wo" |
@@ -115,20 +115,20 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 ### RangePicker
 
 | Property | Description | Type | Default | Version |
-| -------- | ----------- | ---- | ------- | --------------- |
-| defaultValue | to set default date | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)] | - | |
-| defaultPickerValue | to set default picker date | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)\] | - | |
-| disabledTime | to specify the time that cannot be selected | function(dates: \[moment, moment], partial: `'start'|'end'`) | - | |
-| format | to set the date format, refer to [moment.js](http://momentjs.com/). When an array is provided, all values are used for parsing and first value is used for formatting. | string \| string[] | "YYYY-MM-DD HH:mm:ss" | |
-| ranges | preseted ranges for quick selection | { \[range: string]: [moment](http://momentjs.com/)\[] } \| { \[range: string]: () => [moment](http://momentjs.com/)\[] } | - | |
-| renderExtraFooter | render extra footer in panel | () => React.ReactNode | - | |
+| --- | --- | --- | --- | --- |
+| defaultValue | to set default date | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)] | - |  |
+| defaultPickerValue | to set default picker date | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)\] | - |  |
+| disabledTime | to specify the time that cannot be selected | function(dates: \[moment, moment], partial: `'start'|'end'`) | - |  |
+| format | to set the date format, refer to [moment.js](http://momentjs.com/). When an array is provided, all values are used for parsing and first value is used for formatting. | string \| string[] | "YYYY-MM-DD HH:mm:ss" |  |
+| ranges | preseted ranges for quick selection | { \[range: string]: [moment](http://momentjs.com/)\[] } \| { \[range: string]: () => [moment](http://momentjs.com/)\[] } | - |  |
+| renderExtraFooter | render extra footer in panel | () => React.ReactNode | - |  |
 | separator | set separator between inputs | string | '~' | 3.14.0 |
-| showTime | to provide an additional time selection | object\|boolean | [TimePicker Options](/components/time-picker/#API) | |
-| showTime.defaultValue | to set default time of selected date, [demo](#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/)\[] | \[moment(), moment()] | |
-| value | to set date | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)] | - | |
-| onCalendarChange | a callback function, can be executed when the start time or the end time of the range is changing | function(dates: \[moment, moment], dateStrings: \[string, string]) | - | |
-| onChange | a callback function, can be executed when the selected time is changing | function(dates: \[moment, moment], dateStrings: \[string, string]) | - | |
-| onOk | callback when click ok button | function(dates: [moment](http://momentjs.com/)\[]) | - | |
+| showTime | to provide an additional time selection | object\|boolean | [TimePicker Options](/components/time-picker/#API) |  |
+| showTime.defaultValue | to set default time of selected date, [demo](#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/)\[] | \[moment(), moment()] |  |
+| value | to set date | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)] | - |  |
+| onCalendarChange | a callback function, can be executed when the start time or the end time of the range is changing | function(dates: \[moment, moment], dateStrings: \[string, string]) | - |  |
+| onChange | a callback function, can be executed when the selected time is changing | function(dates: \[moment, moment], dateStrings: \[string, string]) | - |  |
+| onOk | callback when click ok button | function(dates: [moment](http://momentjs.com/)\[]) | - |  |
 
 <style>
 .code-box-demo .ant-calendar-picker {

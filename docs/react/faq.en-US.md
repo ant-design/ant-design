@@ -13,8 +13,7 @@ No, actually, you can convert Less to Sass/Stylus(etc...) with tools (which you 
 
 ### `Select Dropdown DatePicker TimePicker Popover Popconfirm` disappear when I click another popup component inside it, How to resolve it?
 
-This has been fixed since 3.11.x.
-If you're still using old version, you can use `<Select getPopupContainer={trigger => trigger.parentNode}>` to render component inside Popover. (Or other getXxxxContainer props)
+This has been fixed since 3.11.x. If you're still using old version, you can use `<Select getPopupContainer={trigger => trigger.parentNode}>` to render component inside Popover. (Or other getXxxxContainer props)
 
 https://ant.design/components/select/#Select-props
 

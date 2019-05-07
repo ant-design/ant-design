@@ -13,7 +13,7 @@ title:
 
 Use `confirm()` to show a confirmation modal dialog.
 
-````jsx
+```jsx
 import { Modal, Button } from 'antd';
 
 const confirm = Modal.confirm;
@@ -68,9 +68,7 @@ function showPropsConfirm() {
 
 ReactDOM.render(
   <div>
-    <Button onClick={showConfirm}>
-      Confirm
-    </Button>
+    <Button onClick={showConfirm}>Confirm</Button>
     <Button onClick={showDeleteConfirm} type="dashed">
       Delete
     </Button>
@@ -78,6 +76,6 @@ ReactDOM.render(
       With extra props
     </Button>
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```

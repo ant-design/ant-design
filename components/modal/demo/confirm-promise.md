@@ -11,10 +11,9 @@ title:
 
 ## en-US
 
-Use `confirm()` to show a confirmation modal dialog. Let onCancel/onOk function return a promise object to
-delay closing the dialog.
+Use `confirm()` to show a confirmation modal dialog. Let onCancel/onOk function return a promise object to delay closing the dialog.
 
-````jsx
+```jsx
 import { Modal, Button } from 'antd';
 
 const confirm = Modal.confirm;
@@ -32,10 +31,5 @@ function showConfirm() {
   });
 }
 
-ReactDOM.render(
-  <Button onClick={showConfirm}>
-    Confirm
-  </Button>,
-  mountNode
-);
-````
+ReactDOM.render(<Button onClick={showConfirm}>Confirm</Button>, mountNode);
+```

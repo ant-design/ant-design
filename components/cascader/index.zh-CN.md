@@ -16,7 +16,7 @@ subtitle: 级联选择
 ## API
 
 ```html
-<Cascader options={options} onChange={onChange} />
+<Cascader options="{options}" onChange="{onChange}" />
 ```
 
 | 参数 | 说明 | 类型 | 默认值 |
@@ -58,9 +58,9 @@ subtitle: 级联选择
 
 ## 方法
 
-| 名称 | 描述 |
-| --- | --- |
-| blur() | 移除焦点 |
+| 名称    | 描述     |
+| ------- | -------- |
+| blur()  | 移除焦点 |
 | focus() | 获取焦点 |
 
 <style>

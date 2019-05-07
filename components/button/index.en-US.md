@@ -15,7 +15,7 @@ A button means an operation (or a series of operations). Clicking a button will 
 To get a customized button, just set `type`/`shape`/`size`/`loading`/`disabled`.
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | disabled | disabled state of button | boolean | `false` |
 | ghost | make background transparent and invert text and border colors, added in 2.7 | boolean | `false` |
 | href | redirect url of link button | string | - |

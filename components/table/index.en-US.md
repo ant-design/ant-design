@@ -17,33 +17,40 @@ A table displays rows of data.
 Specify `dataSource` of Table as an array of data.
 
 ```jsx
-const dataSource = [{
-  key: '1',
-  name: 'Mike',
-  age: 32,
-  address: '10 Downing Street'
-}, {
-  key: '2',
-  name: 'John',
-  age: 42,
-  address: '10 Downing Street'
-}];
+const dataSource = [
+  {
+    key: '1',
+    name: 'Mike',
+    age: 32,
+    address: '10 Downing Street',
+  },
+  {
+    key: '2',
+    name: 'John',
+    age: 42,
+    address: '10 Downing Street',
+  },
+];
 
-const columns = [{
-  title: 'Name',
-  dataIndex: 'name',
-  key: 'name',
-}, {
-  title: 'Age',
-  dataIndex: 'age',
-  key: 'age',
-}, {
-  title: 'Address',
-  dataIndex: 'address',
-  key: 'address',
-}];
+const columns = [
+  {
+    title: 'Name',
+    dataIndex: 'name',
+    key: 'name',
+  },
+  {
+    title: 'Age',
+    dataIndex: 'age',
+    key: 'age',
+  },
+  {
+    title: 'Address',
+    dataIndex: 'address',
+    key: 'address',
+  },
+];
 
-<Table dataSource={dataSource} columns={columns} />
+<Table dataSource={dataSource} columns={columns} />;
 ```
 
 ## API
@@ -51,7 +58,7 @@ const columns = [{
 ### Table
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | bordered | Whether to show all table borders | boolean | `false` |
 | childrenColumnName | The column contains children to display | string\[] | children |
 | columns | Columns of table | [ColumnProps](https://git.io/vMMXC)\[] | - |
@@ -89,16 +96,16 @@ Same as `onRow` `onHeaderRow` `onCell` `onHeaderCell`
 <Table
   onRow={(record, rowIndex) => {
     return {
-      onClick: (event) => {},        // click row
-      onDoubleClick: (event) => {},  // double click row
-      onContextMenu: (event) => {},  // right button click row
-      onMouseEnter: (event) => {},   // mouse enter row
-      onMouseLeave: (event) => {},   // mouse leave row
+      onClick: event => {}, // click row
+      onDoubleClick: event => {}, // double click row
+      onContextMenu: event => {}, // right button click row
+      onMouseEnter: event => {}, // mouse enter row
+      onMouseLeave: event => {}, // mouse leave row
     };
   }}
-  onHeaderRow={(column) => {
+  onHeaderRow={column => {
     return {
-      onClick: () => {},        // click header row
+      onClick: () => {}, // click header row
     };
   }}
 />
@@ -109,7 +116,7 @@ Same as `onRow` `onHeaderRow` `onCell` `onHeaderCell`
 One of the Table `columns` prop for describing the table's columns, Column has the same API.
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | align | specify which way that column is aligned | 'left' \| 'right' \| 'center' | 'left' |
 | className | className of this column | string | - |
 | colSpan | Span of this column's title | number |  |
@@ -137,16 +144,16 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 
 ### ColumnGroup
 
-| Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
-| title | Title of the column group | string\|ReactNode | - |
+| Property | Description               | Type              | Default |
+| -------- | ------------------------- | ----------------- | ------- |
+| title    | Title of the column group | string\|ReactNode | -       |
 
 ### pagination
 
 Properties for pagination.
 
-| Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| Property | Description                          | Type                        | Default  |
+| -------- | ------------------------------------ | --------------------------- | -------- |
 | position | specify the position of `Pagination` | 'top' \| 'bottom' \| 'both' | 'bottom' |
 
 More about pagination, please check [`Pagination`](/components/pagination/).
@@ -156,7 +163,7 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 Properties for row selection.
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | columnWidth | Set the width of the selection column | string\|number | `60px` |
 | columnTitle | Set the title of the selection column | string\|React.ReactNode | - |
 | fixed | Fixed selection column on the left | boolean | - |
@@ -173,7 +180,7 @@ Properties for row selection.
 ### selection
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | key | Unique key of this selection | string | - |
 | text | Display text of this selection | string\|React.ReactNode | - |
 | onSelect | Callback executed when this selection is clicked | Function(changeableRowKeys) | - |

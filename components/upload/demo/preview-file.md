@@ -13,7 +13,7 @@ title:
 
 Customize local preview. Can handle with non-image format files such as video.
 
-````jsx
+```jsx
 import { Upload, Button, Icon } from 'antd';
 
 const props = {
@@ -23,9 +23,9 @@ const props = {
     console.log('Your upload file:', file);
     // Your process logic. Here we just mock to the same file
     return fetch('https://next.json-generator.com/api/json/get/4ytyBoLK8', {
-        method: 'POST',
-        body: file,
-      })
+      method: 'POST',
+      body: file,
+    })
       .then(res => res.json())
       .then(({ thumbnail }) => thumbnail);
   },
@@ -39,6 +39,6 @@ ReactDOM.render(
       </Button>
     </Upload>
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```

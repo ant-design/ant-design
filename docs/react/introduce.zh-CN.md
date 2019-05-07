@@ -34,9 +34,9 @@ title: Ant Design of React
 
 ## 支持环境
 
-* 现代浏览器和 IE9 及以上（需要 [polyfills](https://ant.design/docs/react/getting-started-cn#兼容性)）。
-* 支持服务端渲染。
-* [Electron](http://electron.atom.io/)
+- 现代浏览器和 IE9 及以上（需要 [polyfills](https://ant.design/docs/react/getting-started-cn#兼容性)）。
+- 支持服务端渲染。
+- [Electron](http://electron.atom.io/)
 
 ## 版本
 
@@ -80,7 +80,7 @@ ReactDOM.render(<DatePicker />, mountNode);
 引入样式：
 
 ```jsx
-import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
+import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 ```
 
 ### 按需加载
@@ -89,33 +89,33 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
 - 使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import)（推荐）。
 
-   ```js
-   // .babelrc or babel-loader option
-   {
-     "plugins": [
-       ["import", {
-         "libraryName": "antd",
-         "libraryDirectory": "es",
-         "style": "css" // `style: true` 会加载 less 文件
-       }]
-     ]
-   }
-   ```
+  ```js
+  // .babelrc or babel-loader option
+  {
+    "plugins": [
+      ["import", {
+        "libraryName": "antd",
+        "libraryDirectory": "es",
+        "style": "css" // `style: true` 会加载 less 文件
+      }]
+    ]
+  }
+  ```
 
-   然后只需从 antd 引入模块即可，无需单独引入样式。等同于下面手动引入的方式。
+  然后只需从 antd 引入模块即可，无需单独引入样式。等同于下面手动引入的方式。
 
-   ```jsx
-   // babel-plugin-import 会帮助你加载 JS 和 CSS
-   import { DatePicker } from 'antd';
-   ```
+  ```jsx
+  // babel-plugin-import 会帮助你加载 JS 和 CSS
+  import { DatePicker } from 'antd';
+  ```
 
 - 手动引入
 
-   ```jsx
-   import DatePicker from 'antd/lib/date-picker';  // 加载 JS
-   import 'antd/lib/date-picker/style/css';        // 加载 CSS
-   // import 'antd/lib/date-picker/style';         // 加载 LESS
-   ```
+  ```jsx
+  import DatePicker from 'antd/lib/date-picker'; // 加载 JS
+  import 'antd/lib/date-picker/style/css'; // 加载 CSS
+  // import 'antd/lib/date-picker/style';         // 加载 LESS
+  ```
 
 ## 链接
 

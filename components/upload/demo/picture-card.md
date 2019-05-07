@@ -13,31 +13,33 @@ title:
 
 After users upload picture, the thumbnail will be shown in list. The upload button will disappear when count meets limitation.
 
-````jsx
+```jsx
 import { Upload, Icon, Modal } from 'antd';
 
 class PicturesWall extends React.Component {
   state = {
     previewVisible: false,
     previewImage: '',
-    fileList: [{
-      uid: '-1',
-      name: 'xxx.png',
-      status: 'done',
-      url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-    }],
+    fileList: [
+      {
+        uid: '-1',
+        name: 'xxx.png',
+        status: 'done',
+        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+      },
+    ],
   };
 
-  handleCancel = () => this.setState({ previewVisible: false })
+  handleCancel = () => this.setState({ previewVisible: false });
 
-  handlePreview = (file) => {
+  handlePreview = file => {
     this.setState({
       previewImage: file.url || file.thumbUrl,
       previewVisible: true,
     });
-  }
+  };
 
-  handleChange = ({ fileList }) => this.setState({ fileList })
+  handleChange = ({ fileList }) => this.setState({ fileList });
 
   render() {
     const { previewVisible, previewImage, fileList } = this.state;
@@ -67,9 +69,9 @@ class PicturesWall extends React.Component {
 }
 
 ReactDOM.render(<PicturesWall />, mountNode);
-````
+```
 
-````css
+```css
 /* you can make up upload button and sample style by using stylesheets */
 .ant-upload-select-picture-card i {
   font-size: 32px;
@@ -80,4 +82,4 @@ ReactDOM.render(<PicturesWall />, mountNode);
   margin-top: 8px;
   color: #666;
 }
-````
+```
