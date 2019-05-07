@@ -8,10 +8,12 @@ title:
 ## zh-CN
 
 左边是按钮，右边是额外的相关功能菜单。
+可设置 `icon` 属性来修改右边的图标。
 
 ## en-US
 
 A button is on the left, and a related functional menu is on the right.
+You can set the icon property to modify the icon of right.
 
 ````jsx
 import {
@@ -37,24 +39,35 @@ const menu = (
 );
 
 ReactDOM.render(
-  <div>
+  <div id="components-dropdown-demo-dropdown-button">
     <Dropdown.Button onClick={handleButtonClick} overlay={menu}>
+      Dropdown
+    </Dropdown.Button>
+    <Dropdown.Button
+      overlay={menu}
+      icon={<Icon type="user" />}
+    >
       Dropdown
     </Dropdown.Button>
     <Dropdown.Button
       onClick={handleButtonClick}
       overlay={menu}
       disabled
-      style={{ marginLeft: 8 }}
     >
       Dropdown
     </Dropdown.Button>
     <Dropdown overlay={menu}>
-      <Button style={{ marginLeft: 8 }}>
+      <Button>
         Button <Icon type="down" />
       </Button>
     </Dropdown>
   </div>,
-  mountNode
+  mountNode,
 );
+````
+
+````css
+#components-dropdown-demo-dropdown-button .ant-dropdown-button{
+  margin: 0 8px 8px 0;
+}
 ````

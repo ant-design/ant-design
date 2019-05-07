@@ -1,10 +1,11 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @full-calendar-prefix-cls: ~'@{ant-prefix}-fullcalendar';
 
 .@{full-calendar-prefix-cls} {
   .reset-component;
+
   border-top: @border-width-base @border-style-base @border-color-base;
   outline: none;
 
@@ -21,7 +22,7 @@
     margin-left: 8px;
 
     &.@{ant-prefix}-select-sm {
-      min-width: 60px;
+      min-width: 70px;
     }
   }
 

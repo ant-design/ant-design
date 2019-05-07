@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Basic drawer.
+The Drawer can appear from any edge of the screen.
 
 ```jsx
 import { Drawer, Button, Radio } from 'antd';

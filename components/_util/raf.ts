@@ -17,13 +17,13 @@ export default function wrapperRaf(callback: () => void, delayFrames: number = 1
 
     if (restFrames <= 0) {
       callback();
-      delete ids[id];
+      delete ids[myId];
     } else {
-      ids[id] = raf(internalCallback);
+      ids[myId] = raf(internalCallback);
     }
   }
 
-  ids[id] = raf(internalCallback);
+  ids[myId] = raf(internalCallback);
 
   return myId;
 }
@@ -34,3 +34,5 @@ wrapperRaf.cancel = function(pid?: number) {
   raf.cancel(ids[pid]);
   delete ids[pid];
 };
+
+wrapperRaf.ids = ids; // export this for test usage

@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @switch-prefix-cls: ~'@{ant-prefix}-switch';
@@ -6,6 +6,7 @@
 
 .@{switch-prefix-cls} {
   .reset-component;
+
   position: relative;
   display: inline-block;
   box-sizing: border-box;
@@ -46,8 +47,8 @@
     box-shadow: 0 2px 4px 0 @switch-shadow-color;
   }
 
-  &:active::before,
-  &:active::after {
+  &:not(&-disabled):active::before,
+  &:not(&-disabled):active::after {
     width: 24px;
   }
 

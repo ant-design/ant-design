@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @tooltip-prefix-cls: ~'@{ant-prefix}-tooltip';
@@ -6,6 +6,7 @@
 // Base class
 .@{tooltip-prefix-cls} {
   .reset-component;
+
   position: absolute;
   z-index: @zindex-tooltip;
   display: block;
@@ -56,8 +57,8 @@
     position: absolute;
     width: 0;
     height: 0;
-    border-style: solid;
     border-color: transparent;
+    border-style: solid;
   }
 
   &-placement-top &-arrow,

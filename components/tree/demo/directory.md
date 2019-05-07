@@ -20,8 +20,8 @@ const DirectoryTree = Tree.DirectoryTree;
 const { TreeNode } = Tree;
 
 class Demo extends React.Component {
-  onSelect = () => {
-    console.log('Trigger Select');
+  onSelect = (keys, event) => {
+    console.log('Trigger Select', keys, event);
   };
 
   onExpand = () => {

@@ -104,7 +104,7 @@ module.exports = {
     'app.publish.old-version-guide': 'If you need documentation of older version, please visit ',
     'app.publish.old-version-tips': ', or switch version with the select at header navigation.',
     'app.docs.color.pick-primary': 'Pick your primary color',
-    'app.docs.components.icon.pick-theme': 'Select the Icon Theme',
+    'app.docs.components.icon.search.placeholder': 'Search icon here, click icon to copy code',
     'app.docs.components.icon.outlined': 'Outlined',
     'app.docs.components.icon.filled': 'Filled',
     'app.docs.components.icon.two-tone': 'Two Tone',

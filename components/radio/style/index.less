@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @radio-prefix-cls: ~'@{ant-prefix}-radio';
@@ -9,6 +9,7 @@
 
 .@{radio-group-prefix-cls} {
   .reset-component;
+
   display: inline-block;
   line-height: unset;
 }
@@ -16,6 +17,7 @@
 // 一般状态
 .@{radio-prefix-cls}-wrapper {
   .reset-component;
+
   position: relative;
   display: inline-block;
   margin-right: 8px;
@@ -25,6 +27,7 @@
 
 .@{radio-prefix-cls} {
   .reset-component;
+
   position: relative;
   display: inline-block;
   line-height: 1;
@@ -65,6 +68,7 @@
   &-inner {
     &::after {
       @radio-dot-size: @radio-size - 8px;
+
       position: absolute;
       top: (@radio-size - @radio-dot-size) / 2 - 1px;
       left: (@radio-size - @radio-dot-size) / 2 - 1px;
@@ -88,9 +92,9 @@
     width: @radio-size;
     height: @radio-size;
     background-color: @radio-button-bg;
-    border-width: 1px;
-    border-style: solid;
     border-color: @border-color-base;
+    border-style: solid;
+    border-width: 1px;
     border-radius: 100px;
     transition: all @radio-duration;
   }
@@ -112,7 +116,7 @@
   .@{radio-inner-prefix-cls} {
     border-color: @radio-dot-color;
     &::after {
-      transform: scale(0.875);
+      transform: scale(1);
       opacity: 1;
       transition: all @radio-duration @ease-in-out-circ;
     }

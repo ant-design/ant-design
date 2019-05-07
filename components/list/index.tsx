@@ -57,7 +57,12 @@ export interface ListLocale {
   emptyText: React.ReactNode | (() => React.ReactNode);
 }
 
-export default class List<T> extends React.Component<ListProps<T>> {
+interface ListState {
+  paginationCurrent: number;
+  paginationSize: number;
+}
+
+export default class List<T> extends React.Component<ListProps<T>, ListState> {
   static Item: typeof Item = Item;
 
   static childContextTypes = {
@@ -73,31 +78,46 @@ export default class List<T> extends React.Component<ListProps<T>> {
     pagination: false as ListProps<any>['pagination'],
   };
 
-  state = {
-    paginationCurrent: 1,
-  };
-
   defaultPaginationProps = {
     current: 1,
-    pageSize: 10,
-    onChange: (page: number, pageSize: number) => {
-      const { pagination } = this.props;
-      this.setState({
-        paginationCurrent: page,
-      });
-      if (pagination && pagination.onChange) {
-        pagination.onChange(page, pageSize);
-      }
-    },
     total: 0,
   };
 
   private keys: { [key: string]: string } = {};
 
+  private onPaginationChange = this.triggerPaginationEvent('onChange');
+
+  private onPaginationShowSizeChange = this.triggerPaginationEvent('onShowSizeChange');
+
+  constructor(props: ListProps<T>) {
+    super(props);
+
+    const { pagination } = props;
+    const paginationObj = pagination && typeof pagination === 'object' ? pagination : {};
+
+    this.state = {
+      paginationCurrent: paginationObj.defaultCurrent || 1,
+      paginationSize: paginationObj.defaultPageSize || 10,
+    };
+  }
+
   getChildContext() {
     return {
       grid: this.props.grid,
       itemLayout: this.props.itemLayout,
+    };
+  }
+
+  triggerPaginationEvent(eventName: string) {
+    return (page: number, pageSize: number) => {
+      const { pagination } = this.props;
+      this.setState({
+        paginationCurrent: page,
+        paginationSize: pageSize,
+      });
+      if (pagination && (pagination as any)[eventName]) {
+        (pagination as any)[eventName](page, pageSize);
+      }
     };
   }
 
@@ -138,7 +158,7 @@ export default class List<T> extends React.Component<ListProps<T>> {
   };
 
   renderList = ({ getPrefixCls, renderEmpty }: ConfigConsumerProps) => {
-    const { paginationCurrent } = this.state;
+    const { paginationCurrent, paginationSize } = this.state;
     const {
       prefixCls: customizePrefixCls,
       bordered,
@@ -196,6 +216,7 @@ export default class List<T> extends React.Component<ListProps<T>> {
       ...this.defaultPaginationProps,
       total: dataSource.length,
       current: paginationCurrent,
+      pageSize: paginationSize,
       ...(pagination || {}),
     };
 
@@ -205,7 +226,11 @@ export default class List<T> extends React.Component<ListProps<T>> {
     }
     const paginationContent = pagination ? (
       <div className={`${prefixCls}-pagination`}>
-        <Pagination {...paginationProps} onChange={this.defaultPaginationProps.onChange} />
+        <Pagination
+          {...paginationProps}
+          onChange={this.onPaginationChange}
+          onShowSizeChange={this.onPaginationShowSizeChange}
+        />
       </div>
     ) : null;
 
@@ -233,7 +258,11 @@ export default class List<T> extends React.Component<ListProps<T>> {
         );
       });
 
-      childrenContent = grid ? <Row gutter={grid.gutter}>{childrenList}</Row> : childrenList;
+      childrenContent = grid ? (
+        <Row gutter={grid.gutter}>{childrenList}</Row>
+      ) : (
+        <ul className={`${prefixCls}-items`}>{childrenList}</ul>
+      );
     } else if (!children && !isLoading) {
       childrenContent = this.renderEmpty(prefixCls, renderEmpty);
     }

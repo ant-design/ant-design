@@ -28,7 +28,7 @@ title: Select
 | autoClearSearchValue | 是否在选中项后清空搜索框，只在 `mode` 为 `multiple` 或 `tags` 时有效。 | boolean | true |
 | autoFocus | 默认获取焦点 | boolean | false |
 | defaultActiveFirstOption | 是否默认高亮第一个选项。 | boolean | true |
-| defaultValue | 指定默认选中的条目 | string\|string\[]<br />number\|number\[] | - |
+| defaultValue | 指定默认选中的条目 | string\|string\[]\<br />number\|number\[]\<br />LabeledValue\|LabeledValue[] | - |
 | disabled | 是否禁用 | boolean | false |
 | dropdownClassName | 下拉菜单的 className 属性 | string | - |
 | dropdownMatchSelectWidth | 下拉菜单和选择器同宽 | boolean | true |
@@ -53,16 +53,16 @@ title: Select
 | clearIcon | 自定义的多选框清空图标 | ReactNode | - |
 | menuItemSelectedIcon | 自定义当前选中的条目图标 | ReactNode | - |
 | tokenSeparators | 在 tags 和 multiple 模式下自动分词的分隔符 | string\[] |  |
-| value | 指定当前选中的条目 | string\|string\[]\|number\|number\[] | - |
+| value | 指定当前选中的条目 | string\|string\[]\<br />number\|number\[]\<br />LabeledValue\|LabeledValue[] | - |
 | onBlur | 失去焦点的时回调 | function | - |
 | onChange | 选中 option，或 input 的 value 变化（combobox 模式下）时，调用此函数 | function(value, option:Option/Array&lt;Option>) | - |
-| onDeselect | 取消选中时调用，参数为选中项的 value (或 key) 值，仅在 multiple 或 tags 模式下生效 | function(value，option:Option) | - |
+| onDeselect | 取消选中时调用，参数为选中项的 value (或 key) 值，仅在 multiple 或 tags 模式下生效 | function(string\|number\|LabeledValue) | - |
 | onFocus | 获得焦点时回调 | function | - |
 | onMouseEnter | 鼠标移入时回调 | function | - |
 | onMouseLeave | 鼠标移出时回调 | function | - |
 | onPopupScroll | 下拉列表滚动时的回调 | function | - |
 | onSearch | 文本框值变化时回调 | function(value: string) |  |
-| onSelect | 被选中时调用，参数为选中项的 value (或 key) 值 | function(value, option:Option) | - |
+| onSelect | 被选中时调用，参数为选中项的 value (或 key) 值 | function(string\|number\|LabeledValue, option:Option) | - |
 | defaultOpen | 是否默认展开下拉菜单 | boolean | - |
 | open | 是否展开下拉菜单 | boolean | - |
 | onDropdownVisibleChange | 展开下拉菜单的回调 (3.9.0 后支持) | function(open) | - |

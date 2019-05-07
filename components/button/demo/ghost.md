@@ -22,6 +22,7 @@ ReactDOM.render(
     <Button ghost>Default</Button>
     <Button type="dashed" ghost>Dashed</Button>
     <Button type="danger" ghost>danger</Button>
+    <Button type="link" ghost>link</Button>
   </div>,
   mountNode
 );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import List from '../list';
 import Checkbox from '../../checkbox';
 
@@ -25,10 +25,21 @@ const listCommonProps = {
   lazy: false,
 };
 
-describe('List', () => {
+describe('Transfer.List', () => {
+  beforeAll(() => {
+    jest.useFakeTimers();
+  });
+
+  afterAll(() => {
+    jest.useRealTimers();
+  });
+
   it('should render correctly', () => {
-    const wrapper = render(<List {...listCommonProps} />);
-    expect(wrapper).toMatchSnapshot();
+    const wrapper = mount(<List {...listCommonProps} />);
+    jest.runAllTimers();
+    wrapper.update();
+    expect(wrapper.find('ListBody').state().mounted).toBeTruthy();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('should check top Checkbox while all available items are checked', () => {

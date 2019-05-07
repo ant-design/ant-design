@@ -1,10 +1,11 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @pageheader-prefix-cls: ~'@{ant-prefix}-page-header';
 
 .@{pageheader-prefix-cls} {
   .reset-component;
+
   position: relative;
   padding: @page-header-padding-vertical @page-header-padding-horizontal;
   background: @component-background;
@@ -13,14 +14,16 @@
     padding-bottom: 0;
   }
 
-  &-back-icon {
+  &-back {
     display: inline-block;
     padding: 4px 0;
     font-size: 16px;
     line-height: 100%;
     cursor: pointer;
-    i:hover {
-      color: @primary-color;
+    &-button {
+      .operation-unit();
+
+      color: @text-color;
     }
   }
 

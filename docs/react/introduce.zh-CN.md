@@ -102,8 +102,6 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
    }
    ```
 
-   > 注意：webpack 1 无需设置 `libraryDirectory`。
-
    然后只需从 antd 引入模块即可，无需单独引入样式。等同于下面手动引入的方式。
 
    ```jsx
