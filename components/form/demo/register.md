@@ -148,6 +148,7 @@ class RegistrationForm extends React.Component {
         </Form.Item>
         <Form.Item
           label="Password"
+          hasFeedback
         >
           {getFieldDecorator('password', {
             rules: [{
@@ -156,11 +157,12 @@ class RegistrationForm extends React.Component {
               validator: this.validateToNextPassword,
             }],
           })(
-            <Input type="password" />
+            <Input.Password />
           )}
         </Form.Item>
         <Form.Item
           label="Confirm Password"
+          hasFeedback
         >
           {getFieldDecorator('confirm', {
             rules: [{
@@ -169,7 +171,7 @@ class RegistrationForm extends React.Component {
               validator: this.compareToFirstPassword,
             }],
           })(
-            <Input type="password" onBlur={this.handleConfirmBlur} />
+            <Input.Password onBlur={this.handleConfirmBlur} />
           )}
         </Form.Item>
         <Form.Item
