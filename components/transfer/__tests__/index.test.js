@@ -5,7 +5,7 @@ import Transfer from '..';
 import TransferList from '../list';
 import TransferOperation from '../operation';
 import TransferSearch from '../search';
-import TransferItem from '../item';
+import TransferItem from '../ListItem';
 import Button from '../../button';
 import Checkbox from '../../checkbox';
 
