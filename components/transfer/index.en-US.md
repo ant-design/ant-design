@@ -33,7 +33,7 @@ One or more elements can be selected from either column, one click on the proper
 | render | The function to generate the item shown on a column. Based on an record (element of the dataSource array), this function should return a React element which is generated from that record. Also, it can return a plain object with `value` and `label`, `label` is a React element and `value` is for title | Function(record) |  | |
 | selectedKeys | A set of keys of selected items. | string\[] | \[] | |
 | showSearch | If included, a search box is shown on each column. | boolean | false | |
-| showSelectAll | Show select all checkbox on the header | boolean | true | 3.17.0 |
+| showSelectAll | Show select all checkbox on the header | boolean | true | 3.18.0 |
 | style | A custom CSS style used for rendering wrapper element. | object |  | |
 | targetKeys | A set of keys of elements that are listed on the right column. | string\[] | \[] | |
 | titles | A set of titles that are sorted from left to right. | string\[] | - | |
@@ -44,16 +44,16 @@ One or more elements can be selected from either column, one click on the proper
 
 ### Render Props
 
-New in 3.17.0. Transfer accept `children` to customize render list, using follow props:
+New in 3.18.0. Transfer accept `children` to customize render list, using follow props:
 
 | Property | Description | Type | Version |
 | -------- | ----------- | ---- | ------- |
-| direction | List render direction | 'left' \| 'right' | 3.17.0 |
-| disabled | Disable list or not | boolean | 3.17.0 |
-| filteredItems | Filtered items | TransferItem[] | 3.17.0 |
-| onItemSelect | Select item | (key: string, selected: boolean) | 3.17.0 |
-| onItemSelectAll | Select a group of items | (keys: string[], selected: boolean) | 3.17.0 |
-| selectedKeys | Selected items | string[] | 3.17.0 |
+| direction | List render direction | 'left' \| 'right' | 3.18.0 |
+| disabled | Disable list or not | boolean | 3.18.0 |
+| filteredItems | Filtered items | TransferItem[] | 3.18.0 |
+| onItemSelect | Select item | (key: string, selected: boolean) | 3.18.0 |
+| onItemSelectAll | Select a group of items | (keys: string[], selected: boolean) | 3.18.0 |
+| selectedKeys | Selected items | string[] | 3.18.0 |
 
 #### example
 ```jsx
