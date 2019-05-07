@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import Search from '../search';
 import Transfer from '../index';
 
-describe('Search', () => {
+describe('Transfer.Search', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {
