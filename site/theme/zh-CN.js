@@ -107,7 +107,7 @@ module.exports = {
     'app.docs.components.icon.two-tone': '双色风格',
     'app.docs.components.icon.category.direction': '方向性图标',
     'app.docs.components.icon.category.suggestion': '提示建议性图标',
-    'app.docs.components.icon.category.edit': '编辑类图标',
+    'app.docs.components.icon.category.editor': '编辑类图标',
     'app.docs.components.icon.category.data': '数据类图标',
     'app.docs.components.icon.category.other': '网站通用图标',
     'app.docs.components.icon.category.logo': '品牌和标识',
