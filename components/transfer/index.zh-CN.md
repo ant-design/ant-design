@@ -35,7 +35,7 @@ title: Transfer
 | render | 每行数据渲染函数，该函数的入参为 `dataSource` 中的项，返回值为 ReactElement。或者返回一个普通对象，其中 `label` 字段为 ReactElement，`value` 字段为 title | Function(record) |  |  |
 | selectedKeys | 设置哪些项应该被选中 | string\[] | \[] |  |
 | showSearch | 是否显示搜索框 | boolean | false |  |
-| showSelectAll | 是否展示全选勾选框 | boolean | true | 3.17.0 |
+| showSelectAll | 是否展示全选勾选框 | boolean | true | 3.18.0 |
 | targetKeys | 显示在右侧框数据的 key 集合 | string\[] | \[] |  |
 | titles | 标题集合，顺序从左至右 | string\[] | \['', ''] |  |
 | onChange | 选项在两栏之间转移时的回调函数 | (targetKeys, direction, moveKeys): void |  |  |
@@ -45,16 +45,16 @@ title: Transfer
 
 ### Render Props
 
-3.17.0 新增。Transfer 支持接收 `children` 自定义渲染列表，并返回以下参数：
+3.18.0 新增。Transfer 支持接收 `children` 自定义渲染列表，并返回以下参数：
 
 | 参数            | 说明           | 类型                                | 版本   |
 | --------------- | -------------- | ----------------------------------- | ------ |
-| direction       | 渲染列表的方向 | 'left' \| 'right'                   | 3.17.0 |
-| disabled        | 是否禁用列表   | boolean                             | 3.17.0 |
-| filteredItems   | 过滤后的数据   | TransferItem[]                      | 3.17.0 |
-| onItemSelect    | 勾选条目       | (key: string, selected: boolean)    | 3.17.0 |
-| onItemSelectAll | 勾选一组条目   | (keys: string[], selected: boolean) | 3.17.0 |
-| selectedKeys    | 选中的条目     | string[]                            | 3.17.0 |
+| direction       | 渲染列表的方向 | 'left' \| 'right'                   | 3.18.0 |
+| disabled        | 是否禁用列表   | boolean                             | 3.18.0 |
+| filteredItems   | 过滤后的数据   | TransferItem[]                      | 3.18.0 |
+| onItemSelect    | 勾选条目       | (key: string, selected: boolean)    | 3.18.0 |
+| onItemSelectAll | 勾选一组条目   | (keys: string[], selected: boolean) | 3.18.0 |
+| selectedKeys    | 选中的条目     | string[]                            | 3.18.0 |
 
 #### 参考示例
 
