@@ -84,7 +84,10 @@ export function calcRangeKeys(
   return keys;
 }
 
-export function convertDirectoryKeysToNodes(rootChildren: React.ReactNode | React.ReactNode[], keys: string[]) {
+export function convertDirectoryKeysToNodes(
+  rootChildren: React.ReactNode | React.ReactNode[],
+  keys: string[],
+) {
   const restKeys: string[] = [...keys];
   const nodes: AntTreeNode[] = [];
   traverseNodesKey(rootChildren, (key: string, node: AntTreeNode) => {

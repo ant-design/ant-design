@@ -13,8 +13,8 @@ title:
 
 By setting `type=dashboard`, you can get a dashboard style of progress easily.
 
-````jsx
+```jsx
 import { Progress } from 'antd';
 
 ReactDOM.render(<Progress type="dashboard" percent={75} />, mountNode);
-````
+```

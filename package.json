@@ -230,29 +230,15 @@
     "lint-staged:ts": "tsc && node node_modules/tslint/bin/tslint",
     "lint-staged:es": "eslint ./.*.js ./webpack.config.js",
     "lint-staged:demo": "cross-env RUN_ENV=DEMO eslint --ext '.md'",
-    "prettier": "node ./scripts/prettier.js"
+    "prettier": "prettier -c --write '**/*'"
   },
   "pre-commit": [
     "lint-staged"
   ],
   "lint-staged": {
-    "components/**/*.tsx": [
-      "npm run lint-staged:ts",
-      "node ./scripts/prettier.js --pre",
+    "**/*.{js,jsx,tsx,ts,less,md,json}": [
+      "prettier --write",
       "git add"
-    ],
-    "{tests,site,scripts,components}/**/*.{js,jsx}": [
-      "npm run lint-staged:es",
-      "node ./scripts/prettier.js --pre",
-      "git add"
-    ],
-    "{site,components}/**/*.less": [
-      "stylelint --syntax less",
-      "node ./scripts/prettier.js --pre",
-      "git add"
-    ],
-    "components/*/demo/*.md": [
-      "npm run lint-staged:demo"
     ]
   },
   "sideEffects": [

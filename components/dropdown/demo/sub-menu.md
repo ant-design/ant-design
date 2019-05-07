@@ -13,7 +13,7 @@ title:
 
 The menu has multiple levels.
 
-````jsx
+```jsx
 import { Menu, Dropdown, Icon } from 'antd';
 
 const { SubMenu } = Menu;
@@ -39,6 +39,6 @@ ReactDOM.render(
       Cascading menu <Icon type="down" />
     </a>
   </Dropdown>,
-  mountNode
+  mountNode,
 );
-````
+```

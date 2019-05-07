@@ -9,17 +9,17 @@ title: TimePicker
 
 ## 何时使用
 
-* * *
+---
 
 当用户需要输入一个时间，可以点击标准输入框，弹出时间面板进行选择。
 
 ## API
 
-* * *
+---
 
 ```jsx
 import moment from 'moment';
-<TimePicker defaultValue={moment('13:30:56', 'HH:mm:ss')} />
+<TimePicker defaultValue={moment('13:30:56', 'HH:mm:ss')} />;
 ```
 
 | 参数 | 说明 | 类型 | 默认值 |
@@ -55,9 +55,9 @@ import moment from 'moment';
 
 ## 方法
 
-| 名称 | 描述 |
-| --- | --- |
-| blur() | 移除焦点 |
+| 名称    | 描述     |
+| ------- | -------- |
+| blur()  | 移除焦点 |
 | focus() | 获取焦点 |
 
 <style>.code-box-demo .ant-time-picker { margin: 0 8px 12px 0; }</style>

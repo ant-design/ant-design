@@ -34,9 +34,9 @@ Following the Ant Design specification, we developed a React UI library `antd` t
 
 ## Environment Support
 
-* Modern browsers and Internet Explorer 9+ (with [polyfills](https://ant.design/docs/react/getting-started#Compatibility))
-* Server-side Rendering
-* [Electron](http://electron.atom.io/)
+- Modern browsers and Internet Explorer 9+ (with [polyfills](https://ant.design/docs/react/getting-started#Compatibility))
+- Server-side Rendering
+- [Electron](http://electron.atom.io/)
 
 ## Version
 
@@ -80,36 +80,36 @@ ReactDOM.render(<DatePicker />, mountNode);
 And import stylesheets manually:
 
 ```jsx
-import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
+import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 ```
 
 ### Use modularized antd
 
 - Use [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) (Recommended)
 
-   ```js
-   // .babelrc or babel-loader option
-   {
-     "plugins": [
-       ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }] // `style: true` for less
-     ]
-   }
-   ```
+  ```js
+  // .babelrc or babel-loader option
+  {
+    "plugins": [
+      ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }] // `style: true` for less
+    ]
+  }
+  ```
 
-   This allows you to import components from antd without having to manually import the corresponding stylesheet. The antd babel plugin will automatically import stylesheets.
+  This allows you to import components from antd without having to manually import the corresponding stylesheet. The antd babel plugin will automatically import stylesheets.
 
-   ```jsx
-   // import js and css modularly, parsed by babel-plugin-import
-   import { DatePicker } from 'antd';
-   ```
+  ```jsx
+  // import js and css modularly, parsed by babel-plugin-import
+  import { DatePicker } from 'antd';
+  ```
 
 - Manually import
 
-   ```jsx
-   import DatePicker from 'antd/lib/date-picker';  // for js
-   import 'antd/lib/date-picker/style/css';        // for css
-   // import 'antd/lib/date-picker/style';         // that will import less
-   ```
+  ```jsx
+  import DatePicker from 'antd/lib/date-picker'; // for js
+  import 'antd/lib/date-picker/style/css'; // for css
+  // import 'antd/lib/date-picker/style';         // that will import less
+  ```
 
 ### TypeScript
 
@@ -151,7 +151,7 @@ Please read our [CONTRIBUTING.md](https://github.com/ant-design/ant-design/blob/
 
 If you'd like to help us improve antd, just create a [Pull Request](https://github.com/ant-design/ant-design/pulls). Feel free to report bugs and issues [here](http://new-issue.ant.design/).
 
-> If you're new to posting issues, we ask that you read [*How To Ask Questions The Smart Way*](http://www.catb.org/~esr/faqs/smart-questions.html) and [How to Ask a Question in Open Source Community](https://github.com/seajs/seajs/issues/545) and [How to Report Bugs Effectively](http://www.chiark.greenend.org.uk/~sgtatham/bugs.html) prior to posting. Well written bug reports help us help you!
+> If you're new to posting issues, we ask that you read [_How To Ask Questions The Smart Way_](http://www.catb.org/~esr/faqs/smart-questions.html) and [How to Ask a Question in Open Source Community](https://github.com/seajs/seajs/issues/545) and [How to Report Bugs Effectively](http://www.chiark.greenend.org.uk/~sgtatham/bugs.html) prior to posting. Well written bug reports help us help you!
 
 ## Need Help?
 

@@ -14,7 +14,7 @@ debug: true
 
 Text inside Avatar should be set a proper font size when toggle it's visibility.
 
-````jsx
+```jsx
 import { Avatar, Button } from 'antd';
 
 class App extends React.Component {
@@ -28,7 +28,7 @@ class App extends React.Component {
     this.setState({
       hide: !this.state.hide,
     });
-  }
+  };
 
   toggleSize = () => {
     const sizes = ['small', 'default', 'large'];
@@ -39,13 +39,13 @@ class App extends React.Component {
     this.setState({
       size: sizes[current],
     });
-  }
+  };
 
   changeScale = () => {
     this.setState({
       scale: this.state.scale === 1 ? 2 : 1,
     });
-  }
+  };
 
   render() {
     const { hide, size, scale } = this.state;
@@ -60,7 +60,11 @@ class App extends React.Component {
           <Avatar size={size} style={{ background: '#7265e6', display: hide ? 'none' : '' }}>
             Avatar
           </Avatar>
-          <Avatar size={size} src="invalid" style={{ background: '#00a2ae', display: hide ? 'none' : '' }}>
+          <Avatar
+            size={size}
+            src="invalid"
+            style={{ background: '#00a2ae', display: hide ? 'none' : '' }}
+          >
             Invalid
           </Avatar>
           <div style={{ display: hide ? 'none' : '' }}>
@@ -78,3 +82,4 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, mountNode);
+```

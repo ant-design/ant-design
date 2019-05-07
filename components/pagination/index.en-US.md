@@ -15,11 +15,11 @@ A long list can be divided into several pages by `Pagination`, and only one page
 ## API
 
 ```html
-<Pagination onChange={onChange} total={50} />
+<Pagination onChange="{onChange}" total="{50}" />
 ```
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | current | current page number | number | - |
 | defaultCurrent | default initial page number | number | 1 |
 | defaultPageSize | default number of data items per page | number | 10 |

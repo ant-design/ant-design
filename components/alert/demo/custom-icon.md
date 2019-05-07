@@ -14,7 +14,7 @@ title:
 
 A relevant icon makes information clearer and more friendly.
 
-````jsx
+```jsx
 import { Alert, Icon } from 'antd';
 
 const icon = <Icon type="smile" />;
@@ -55,6 +55,6 @@ ReactDOM.render(
       showIcon
     />
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```

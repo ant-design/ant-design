@@ -13,7 +13,7 @@ title:
 
 Controlled mode.
 
-````jsx
+```jsx
 import { Mention } from 'antd';
 
 const { toContentState } = Mention;
@@ -21,22 +21,22 @@ const { toContentState } = Mention;
 class App extends React.Component {
   state = {
     value: toContentState('@afc163'),
-  }
+  };
 
   componentDidMount() {
     this.mention.focus();
   }
 
-  handleChange = (editorState) => {
+  handleChange = editorState => {
     this.setState({
       value: editorState,
     });
-  }
+  };
 
   render() {
     return (
       <Mention
-        ref={ele => this.mention = ele}
+        ref={ele => (this.mention = ele)}
         defaultSuggestions={['afc163', 'benjycui', 'yiminghe', 'RaoHai', '中文', 'にほんご']}
         value={this.state.value}
         onChange={this.handleChange}
@@ -46,4 +46,4 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, mountNode);
-````
+```

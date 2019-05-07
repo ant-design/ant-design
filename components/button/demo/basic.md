@@ -13,7 +13,7 @@ title:
 
 There are `primary` button, `default` button, `dashed` button and `danger` button in antd.
 
-````jsx
+```jsx
 import { Button } from 'antd';
 
 ReactDOM.render(
@@ -24,6 +24,6 @@ ReactDOM.render(
     <Button type="danger">Danger</Button>
     <Button type="link">Link</Button>
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```

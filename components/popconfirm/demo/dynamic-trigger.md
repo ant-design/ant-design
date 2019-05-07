@@ -13,30 +13,30 @@ title:
 
 Make it pop up under some conditions.
 
-````jsx
+```jsx
 import { Popconfirm, Switch, message } from 'antd';
 
 class App extends React.Component {
   state = {
     visible: false,
     condition: true, // Whether meet the condition, if not show popconfirm.
-  }
+  };
 
-  changeCondition = (value) => {
+  changeCondition = value => {
     this.setState({ condition: value });
-  }
+  };
 
   confirm = () => {
     this.setState({ visible: false });
     message.success('Next step.');
-  }
+  };
 
   cancel = () => {
     this.setState({ visible: false });
     message.error('Click on cancel.');
-  }
+  };
 
-  handleVisibleChange = (visible) => {
+  handleVisibleChange = visible => {
     if (!visible) {
       this.setState({ visible });
       return;
@@ -48,7 +48,7 @@ class App extends React.Component {
     } else {
       this.setState({ visible }); // show the popconfirm
     }
-  }
+  };
 
   render() {
     return (
@@ -66,11 +66,12 @@ class App extends React.Component {
         </Popconfirm>
         <br />
         <br />
-        Whether directly execute：<Switch defaultChecked onChange={this.changeCondition} />
+        Whether directly execute：
+        <Switch defaultChecked onChange={this.changeCondition} />
       </div>
     );
   }
 }
 
 ReactDOM.render(<App />, mountNode);
-````
+```

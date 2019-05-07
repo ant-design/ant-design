@@ -16,12 +16,12 @@ title: Radio
 
 ### Radio
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| autoFocus | 自动获取焦点 | boolean | false |
-| checked | 指定当前是否选中 | boolean | false |
-| defaultChecked | 初始是否选中 | boolean | false |
-| value | 根据 value 进行比较，判断是否选中 | any | - |
+| 参数           | 说明                              | 类型    | 默认值 |
+| -------------- | --------------------------------- | ------- | ------ |
+| autoFocus      | 自动获取焦点                      | boolean | false  |
+| checked        | 指定当前是否选中                  | boolean | false  |
+| defaultChecked | 初始是否选中                      | boolean | false  |
+| value          | 根据 value 进行比较，判断是否选中 | any     | -      |
 
 ### RadioGroup
 
@@ -42,7 +42,7 @@ title: Radio
 
 ### Radio
 
-| 名称 | 描述 |
-| --- | --- |
-| blur() | 移除焦点 |
+| 名称    | 描述     |
+| ------- | -------- |
+| blur()  | 移除焦点 |
 | focus() | 获取焦点 |

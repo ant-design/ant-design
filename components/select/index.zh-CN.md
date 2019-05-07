@@ -15,9 +15,9 @@ title: Select
 ## API
 
 ```html
-<Select>
-  <Option value="lucy">lucy</Option>
-</Select>
+<select>
+  <option value="lucy">lucy</option>
+</select>
 ```
 
 ### Select props
@@ -72,9 +72,9 @@ title: Select
 
 ### Select Methods
 
-| 名称 | 说明 |
-| --- | --- |
-| blur() | 取消焦点 |
+| 名称    | 说明     |
+| ------- | -------- |
+| blur()  | 取消焦点 |
 | focus() | 获取焦点 |
 
 ### Option props
@@ -89,7 +89,7 @@ title: Select
 
 ### OptGroup props
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| key |  | string | - |
-| label | 组名 | string\|React.Element | 无 |
+| 参数  | 说明 | 类型                  | 默认值 |
+| ----- | ---- | --------------------- | ------ |
+| key   |      | string                | -      |
+| label | 组名 | string\|React.Element | 无     |
