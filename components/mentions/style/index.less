@@ -1,0 +1,107 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+@import '../../input/style/mixin';
+
+@mention-prefix-cls: ~'@{ant-prefix}-mentions';
+
+.@{mention-prefix-cls} {
+  .reset-component;
+  .input;
+
+  display: inline-block;
+  position: relative;
+  white-space: pre-wrap;
+
+  // ================= Input Area =================
+  > textarea, &-measure {
+    font-size: inherit;
+    font-size-adjust: inherit;
+    font-style: inherit;
+    font-variant: inherit;
+    font-stretch: inherit;
+    font-weight: inherit;
+    font-family: inherit;
+
+    padding: 0;
+    margin: 0;
+    line-height: inherit;
+    vertical-align: top;
+    overflow: inherit;
+    word-break: inherit;
+    white-space: inherit;
+    word-wrap: break-word;
+    overflow-x: initial;
+    overflow-y: auto;
+    text-align: inherit;
+    letter-spacing: inherit;
+    white-space: inherit;
+    tab-size: inherit;
+    direction: inherit;
+  }
+
+  > textarea {
+    border: none;
+    width: 100%;
+    outline: none;
+  }
+
+  &-measure {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    pointer-events: none;
+    color: transparent;
+    z-index: -1;
+  }
+
+  // ================== Dropdown ==================
+  &-dropdown {
+    position: absolute;
+
+    &-menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      &-item {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+// Customize style
+.@{mention-prefix-cls} {
+  // padding: @input-padding-vertical-base @input-padding-horizontal-base;
+  height: auto;
+}
+
+// Customize style
+// .@{mention-prefix-cls} {
+//   font-size: 20px;
+//   border: 1px solid #999;
+//   border-radius: 3px;
+//   overflow: hidden;
+
+//   &-dropdown {
+//     border: 1px solid #999;
+//     border-radius: 3px;
+//     background: #FFF;
+
+//     &-menu {
+//       &-item {
+//         padding: 4px 8px;
+
+//         &-active {
+//           background: #e6f7ff;
+//         }
+
+//         &-disabled {
+//           opacity: 0.5;
+//         }
+//       }
+//     }
+//   }
+// }
