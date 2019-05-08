@@ -37,7 +37,7 @@ timeline: true
 - 🌟 🇭🇷 新增克罗地亚语言包。[#15641](https://github.com/ant-design/ant-design/pull/15641) [@fpintaric](https://github.com/fpintaric)
 - 🐞 修复 Drawer 组件的弹出动画闪烁的问题。[#16358](https://github.com/ant-design/ant-design/pull/16358)
 - 🐞 修复 Slider 的文字会换行的问题。[#15128](https://github.com/ant-design/ant-design/pull/15128)
-- 🐞 修复 Checkbox.Group `onChange` 会包含移除值得问题。[#16392](https://github.com/ant-design/ant-design/pull/16392)
+- 🐞 修复 Checkbox.Group `onChange` 会包含已移除的值的问题。[#16392](https://github.com/ant-design/ant-design/pull/16392)
 - 🐞 修正了多处 Typescript 的类型错误。[#16043](https://github.com/ant-design/ant-design/pull/16043) [#16341](https://github.com/ant-design/ant-design/pull/16341) [#16343](https://github.com/ant-design/ant-design/pull/16343) [#16360](https://github.com/ant-design/ant-design/pull/16360) [#16344](https://github.com/ant-design/ant-design/pull/16344)
 
 ## 3.16.6
