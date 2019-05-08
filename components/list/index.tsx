@@ -34,6 +34,7 @@ export type ListItemLayout = 'horizontal' | 'vertical';
 export interface ListProps<T> {
   bordered?: boolean;
   className?: string;
+  style?: React.CSSProperties;
   children?: React.ReactNode;
   dataSource: T[];
   extra?: React.ReactNode;
