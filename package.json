@@ -2,7 +2,7 @@
   "name": "antd",
   "version": "3.17.0",
   "title": "Ant Design",
-  "description": "An enterprise-class UI design language and React-based implementation",
+  "description": "An enterprise-class UI design language and React components implementation",
   "homepage": "http://ant.design/",
   "keywords": [
     "ant",
