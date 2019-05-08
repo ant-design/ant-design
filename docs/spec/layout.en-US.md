@@ -20,7 +20,7 @@ In order to minimize communication cost, it is necessary to unify the size of th
 
 ## Adaptation
 
-In the design process, the designer also needs to establish the concept of adaptation. Decision needs to made for things like whether a system needs to be adapted depends on the specific situation, and/or what are the blocks that needs dynamic layout. According to statistics, mainstream screen resolution includes  1920, 1440, and 1366. Some devices still have resolution of 1280.
+In the design process, the designer also needs to establish the concept of adaptation. Decision needs to made for things like whether a system needs to be adapted depends on the specific situation, and/or what are the blocks that needs dynamic layout. According to statistics, mainstream screen resolution includes 1920, 1440, and 1366. Some devices still have resolution of 1280.
 
 Ant Design's two typical adaptation type:
 
@@ -67,5 +67,4 @@ AntFin's projects cover a large number of products of different types and even d
 
 ## Inspiration, But Not Limitation
 
-The result of Ant Design in layout space is not to limit design output, but to guide designers to do it better. The two 8-fold array can be made into a myriad of possibilities by permutations and combinations, but there is a difference between "simply applying a permutation" and "really well designed". We need to consider availability in the pursuit of beauty, and we're still on our way to achieve a design system that is both reasonable and elegant. There are still plenty of things to explore for enterprise-level application interface layout.
-translate-layout
+The result of Ant Design in layout space is not to limit design output, but to guide designers to do it better. The two 8-fold array can be made into a myriad of possibilities by permutations and combinations, but there is a difference between "simply applying a permutation" and "really well designed". We need to consider availability in the pursuit of beauty, and we're still on our way to achieve a design system that is both reasonable and elegant. There are still plenty of things to explore for enterprise-level application interface layout. translate-layout

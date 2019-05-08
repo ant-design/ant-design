@@ -10,18 +10,23 @@ export function getTargetRect(target: BindElement): ClientRect {
     : ({ top: 0, bottom: window.innerHeight } as ClientRect);
 }
 
-export function getFixedTop(placeholderReact: Rect, targetRect: Rect, offsetTop: number | undefined) {
+export function getFixedTop(
+  placeholderReact: Rect,
+  targetRect: Rect,
+  offsetTop: number | undefined,
+) {
   if (offsetTop !== undefined && targetRect.top > placeholderReact.top - offsetTop) {
     return offsetTop + targetRect.top;
   }
   return undefined;
 }
 
-export function getFixedBottom(placeholderReact: Rect, targetRect: Rect, offsetBottom: number | undefined) {
-  if (
-    offsetBottom !== undefined &&
-    targetRect.bottom < placeholderReact.bottom + offsetBottom
-  ) {
+export function getFixedBottom(
+  placeholderReact: Rect,
+  targetRect: Rect,
+  offsetBottom: number | undefined,
+) {
+  if (offsetBottom !== undefined && targetRect.bottom < placeholderReact.bottom + offsetBottom) {
     const targetBottomOffset = window.innerHeight - targetRect.bottom;
     return offsetBottom + targetBottomOffset;
   }

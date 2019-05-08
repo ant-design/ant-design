@@ -13,7 +13,7 @@ title:
 
 There are 4 position options available.
 
-````jsx
+```jsx
 import { Carousel, Radio } from 'antd';
 
 class PositionCarouselDemo extends React.Component {
@@ -27,17 +27,29 @@ class PositionCarouselDemo extends React.Component {
     const { dotPosition } = this.state;
     return (
       <div>
-        <Radio.Group onChange={this.handlePositionChange} value={dotPosition} style={{ marginBottom: 8 }}>
+        <Radio.Group
+          onChange={this.handlePositionChange}
+          value={dotPosition}
+          style={{ marginBottom: 8 }}
+        >
           <Radio.Button value="top">Top</Radio.Button>
           <Radio.Button value="bottom">Bottom</Radio.Button>
           <Radio.Button value="left">Left</Radio.Button>
           <Radio.Button value="right">Right</Radio.Button>
         </Radio.Group>
         <Carousel dotPosition={dotPosition}>
-          <div><h3>1</h3></div>
-          <div><h3>2</h3></div>
-          <div><h3>3</h3></div>
-          <div><h3>4</h3></div>
+          <div>
+            <h3>1</h3>
+          </div>
+          <div>
+            <h3>2</h3>
+          </div>
+          <div>
+            <h3>3</h3>
+          </div>
+          <div>
+            <h3>4</h3>
+          </div>
         </Carousel>
       </div>
     );
@@ -45,9 +57,9 @@ class PositionCarouselDemo extends React.Component {
 }
 
 ReactDOM.render(<PositionCarouselDemo />, mountNode);
-````
+```
 
-````css
+```css
 /* For demo */
 .ant-carousel .slick-slide {
   text-align: center;
@@ -60,4 +72,4 @@ ReactDOM.render(<PositionCarouselDemo />, mountNode);
 .ant-carousel .slick-slide h3 {
   color: #fff;
 }
-````
+```

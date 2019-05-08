@@ -13,6 +13,16 @@ export type ColumnFilterItem = {
   children?: ColumnFilterItem[];
 };
 
+export interface FilterDropdownProps {
+  prefixCls?: string;
+  setSelectedKeys?: (selectedKeys: string[]) => void;
+  selectedKeys?: string[];
+  confirm?: () => void;
+  clearFilters?: (selectedKeys: string[]) => void;
+  filters?: ColumnFilterItem[];
+  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
+}
+
 export interface ColumnProps<T> {
   title?:
     | React.ReactNode
@@ -24,7 +34,7 @@ export interface ColumnProps<T> {
   filters?: ColumnFilterItem[];
   onFilter?: (value: any, record: T) => boolean;
   filterMultiple?: boolean;
-  filterDropdown?: React.ReactNode | ((props: Object) => React.ReactNode);
+  filterDropdown?: React.ReactNode | ((props: FilterDropdownProps) => React.ReactNode);
   filterDropdownVisible?: boolean;
   onFilterDropdownVisibleChange?: (visible: boolean) => void;
   sorter?: boolean | CompareFn<T>;

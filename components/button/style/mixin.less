@@ -88,7 +88,6 @@
 }
 .button-variant-ghost(@color; @border: @color) {
   .button-color(@color; transparent; @border);
-
   text-shadow: none;
   &:hover,
   &:focus {
@@ -149,13 +148,11 @@
   &-lg > .@{btnClassName},
   &-lg > span > .@{btnClassName} {
     .button-size(@btn-height-lg; @btn-padding-lg; @btn-font-size-lg; 0);
-
     line-height: @btn-height-lg - 2px;
   }
   &-sm > .@{btnClassName},
   &-sm > span > .@{btnClassName} {
     .button-size(@btn-height-sm; @btn-padding-sm; @font-size-base; 0);
-
     line-height: @btn-height-sm - 2px;
     > .@{iconfont-css-prefix} {
       font-size: @font-size-base;
@@ -229,7 +226,6 @@
 // dashed button style
 .btn-dashed() {
   .button-variant-other(@btn-default-color, @btn-default-bg, @btn-default-border);
-
   border-style: dashed;
 }
 // danger button style
@@ -239,7 +235,6 @@
 // link button style
 .btn-link() {
   .button-variant-other(@link-color, transparent, transparent);
-
   box-shadow: none;
   &:hover,
   &:focus,

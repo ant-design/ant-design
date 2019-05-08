@@ -17,7 +17,7 @@ Basic text writing, including headings, body text, lists, and more.
 ### Typography.Text
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | code | code style | boolean | false |
 | copyable | Config copy. Can set copy text and callback when is an object | boolean \| { text: string, onCopy: Function } | false |
 | delete | delete line style | boolean | false |
@@ -33,7 +33,7 @@ Basic text writing, including headings, body text, lists, and more.
 ### Typography.Title
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | code | code style | boolean | false |
 | copyable | Config copy. Can set copy text and callback when is an object | boolean \| { text: string, onCopy: Function } | false |
 | delete | delete line style | boolean | false |
@@ -49,7 +49,7 @@ Basic text writing, including headings, body text, lists, and more.
 ### Typography.Paragraph
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | code | code style | boolean | false |
 | copyable | Config copy. Can set copy text and callback when is an object | boolean \| { text: string, onCopy: Function } | false |
 | delete | delete line style | boolean | false |

@@ -13,7 +13,7 @@ title:
 
 Customize render list with Tree component.
 
-````jsx
+```jsx
 import { Transfer, Tree } from 'antd';
 
 const { TreeNode } = Tree;
@@ -21,7 +21,7 @@ const { TreeNode } = Tree;
 // Customize Table Transfer
 const isChecked = (selectedKeys, eventKey) => {
   return selectedKeys.indexOf(eventKey) !== -1;
-}
+};
 
 const generateTree = (treeNodes = [], checkedKeys = []) => {
   return treeNodes.map(({ children, ...props }) => (
@@ -34,7 +34,7 @@ const generateTree = (treeNodes = [], checkedKeys = []) => {
 const TreeTransfer = ({ dataSource, targetKeys, ...restProps }) => {
   const transferDataSource = [];
   function flatten(list = []) {
-    list.forEach((item) => {
+    list.forEach(item => {
       transferDataSource.push(item);
       flatten(item.children);
     });
@@ -60,10 +60,24 @@ const TreeTransfer = ({ dataSource, targetKeys, ...restProps }) => {
               checkStrictly
               defaultExpandAll
               checkedKeys={checkedKeys}
-              onCheck={(_, { node: { props: { eventKey } } }) => {
+              onCheck={(
+                _,
+                {
+                  node: {
+                    props: { eventKey },
+                  },
+                },
+              ) => {
                 onItemSelect(eventKey, !isChecked(checkedKeys, eventKey));
               }}
-              onSelect={(_, { node: { props: { eventKey } } }) => {
+              onSelect={(
+                _,
+                {
+                  node: {
+                    props: { eventKey },
+                  },
+                },
+              ) => {
                 onItemSelect(eventKey, !isChecked(checkedKeys, eventKey));
               }}
             >
@@ -78,39 +92,36 @@ const TreeTransfer = ({ dataSource, targetKeys, ...restProps }) => {
 
 const treeData = [
   { key: '0-0', title: '0-0' },
-  { key: '0-1', title: '0-1', children: [
-    { key: '0-1-0', title: '0-1-0' },
-    { key: '0-1-1', title: '0-1-1' },
-  ] },
+  {
+    key: '0-1',
+    title: '0-1',
+    children: [{ key: '0-1-0', title: '0-1-0' }, { key: '0-1-1', title: '0-1-1' }],
+  },
   { key: '0-2', title: '0-3' },
 ];
 
 class App extends React.Component {
   state = {
     targetKeys: [],
-  }
+  };
 
-  onChange = (targetKeys) => {
+  onChange = targetKeys => {
     console.log('Target Keys:', targetKeys);
     this.setState({ targetKeys });
-  }
+  };
 
   render() {
     const { targetKeys } = this.state;
     return (
       <div>
-        <TreeTransfer
-          dataSource={treeData}
-          targetKeys={targetKeys}
-          onChange={this.onChange}
-        />
+        <TreeTransfer dataSource={treeData} targetKeys={targetKeys} onChange={this.onChange} />
       </div>
     );
   }
 }
 
 ReactDOM.render(<App />, mountNode);
-````
+```
 
 <style>
 .tree-transfer .ant-transfer-list:first-child {

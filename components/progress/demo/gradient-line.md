@@ -13,7 +13,7 @@ title:
 
 A package of `linear-gradient`. It is recommended to only pass two colors.
 
-````jsx
+```jsx
 import { Progress } from 'antd';
 
 const Demo = () => (
@@ -37,4 +37,4 @@ const Demo = () => (
 );
 
 ReactDOM.render(<Demo />, mountNode);
-````
+```

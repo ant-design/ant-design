@@ -13,24 +13,31 @@ title:
 
 Separate trigger button and result.
 
-````jsx
+```jsx
 import { Cascader } from 'antd';
 
-const options = [{
-  value: 'zhejiang',
-  label: 'Zhejiang',
-  children: [{
-    value: 'hangzhou',
-    label: 'Hangzhou',
-  }],
-}, {
-  value: 'jiangsu',
-  label: 'Jiangsu',
-  children: [{
-    value: 'nanjing',
-    label: 'Nanjing',
-  }],
-}];
+const options = [
+  {
+    value: 'zhejiang',
+    label: 'Zhejiang',
+    children: [
+      {
+        value: 'hangzhou',
+        label: 'Hangzhou',
+      },
+    ],
+  },
+  {
+    value: 'jiangsu',
+    label: 'Jiangsu',
+    children: [
+      {
+        value: 'nanjing',
+        label: 'Nanjing',
+      },
+    ],
+  },
+];
 
 class CitySwitcher extends React.Component {
   state = {
@@ -41,7 +48,7 @@ class CitySwitcher extends React.Component {
     this.setState({
       text: selectedOptions.map(o => o.label).join(', '),
     });
-  }
+  };
 
   render() {
     return (
@@ -57,4 +64,4 @@ class CitySwitcher extends React.Component {
 }
 
 ReactDOM.render(<CitySwitcher />, mountNode);
-````
+```

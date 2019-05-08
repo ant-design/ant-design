@@ -175,8 +175,7 @@ module.exports = override(
 );
 ```
 
-这里利用了 [less-loader](https://github.com/webpack/less-loader#less-options) 的 `modifyVars` 来进行主题配置，
-变量和其他配置方式可以参考 [配置主题](/docs/react/customize-theme) 文档。
+这里利用了 [less-loader](https://github.com/webpack/less-loader#less-options) 的 `modifyVars` 来进行主题配置，变量和其他配置方式可以参考 [配置主题](/docs/react/customize-theme) 文档。
 
 修改后重启 `yarn start`，如果看到一个绿色的按钮就说明配置成功了。
 

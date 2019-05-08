@@ -14,7 +14,6 @@ Invitations are the prompts and cues that lead users through an interaction. The
 
 ---
 
-
 ## Static Invitations
 
 By providing cues for interaction directly on the page we can statically indicate to the user the expected interface behavior. Static Invitations provide cues directly on the page.
@@ -35,7 +34,7 @@ Call to Action Invitations are generally provided as static instructions on the 
 
 Tour invitation can be a nice way to explain design changes to a web application, especially for a well-designed interface. But providing tours will not solve the real problems an interface may have during interaction.
 
->Note that make Tour Invitations short and simple, easy to exit, and clear to restart.
+> Note that make Tour Invitations short and simple, easy to exit, and clear to restart.
 
 <br>
 
@@ -53,7 +52,6 @@ Dynamic Invitations engage users at the point of the interaction and guide them 
 
 Hover Invitation: Provide an invitation during mouse hover.
 
-
 <br>
 
 <img class="preview-img" align="right" alt="example of Inference Invitation" description="The system predicts that the user's interest in an article extends to a type of articles, and it provides an invitation after the user click &quot;like&quot;." src="https://gw.alipayobjects.com/zos/rmsportal/iuLdCuNQWCvYuTxxQUuL.png">
@@ -65,6 +63,5 @@ Inference Invitation: Use visual inferences during interaction to cue users as t
 <img class="preview-img" align="right" alt="example of More Content Invitation" description="Use the left or right arrows to switch more content around Modal." src="https://os.alipayobjects.com/rmsportal/sOqYOydwQjLHqph.png">
 
 More Content Invitation: Indicate that there is more content on the page.
-
 
 <br>

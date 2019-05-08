@@ -31,12 +31,5 @@ const routes = [
   },
 ];
 
-ReactDOM.render(
-  <PageHeader
-    title="Title"
-    breadcrumb={{ routes }}
-  />,
-  mountNode
-);
-
+ReactDOM.render(<PageHeader title="Title" breadcrumb={{ routes }} />, mountNode);
 ```
