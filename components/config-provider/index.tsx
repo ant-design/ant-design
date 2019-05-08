@@ -35,6 +35,7 @@ export interface ConfigProviderProps {
   autoInsertSpaceInButton?: boolean;
 }
 
+const Context;
 const ConfigContext: Context<ConfigConsumerProps | null> = React.createContext({
   // We provide a default function for Context without provider
   getPrefixCls: (suffixCls: string, customizePrefixCls?: string) => {
