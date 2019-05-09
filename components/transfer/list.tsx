@@ -134,17 +134,17 @@ export default class TransferList extends React.Component<TransferListProps, Tra
   }
 
   getListBody(
-    showSearch: boolean,
     prefixCls: string,
     searchPlaceholder: string,
     filterValue: string,
-    disabled: boolean,
     filteredItems: TransferItem[],
     notFoundContent: React.ReactNode,
     bodyDom: React.ReactNode,
-    renderList: RenderListFunction,
     filteredRenderItems: RenderedItem[],
     checkedKeys: string[],
+    renderList?: RenderListFunction,
+    showSearch?: boolean,
+    disabled?: boolean,
   ): React.ReactNode {
     const search = showSearch ? (
       <div className={`${prefixCls}-body-search-wrapper`}>
@@ -198,10 +198,10 @@ export default class TransferList extends React.Component<TransferListProps, Tra
 
   getCheckBox(
     filteredItems: TransferItem[],
-    showSelectAll: boolean,
-    disabled: boolean,
     onItemSelectAll: (dataSource: string[], checkAll: boolean) => void,
-  ) {
+    showSelectAll?: boolean,
+    disabled?: boolean,
+  ): false | JSX.Element {
     const checkStatus = this.getCheckStatus(filteredItems);
     const checkedAll = checkStatus === 'all';
     const checkAllCheckbox = showSelectAll !== false && (
@@ -218,6 +218,8 @@ export default class TransferList extends React.Component<TransferListProps, Tra
         }}
       />
     );
+
+    return checkAllCheckbox;
   }
 
   handleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -304,17 +306,17 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     const unit = dataSource.length > 1 ? itemsUnit : itemUnit;
 
     const listBody = this.getListBody(
-      showSearch,
       prefixCls,
       searchPlaceholder,
       filterValue,
-      disabled,
       filteredItems,
       notFoundContent,
       bodyDom,
-      renderList,
       filteredRenderItems,
       checkedKeys,
+      renderList,
+      showSearch,
+      disabled,
     );
 
     // ================================ List Footer ================================
@@ -322,9 +324,9 @@ export default class TransferList extends React.Component<TransferListProps, Tra
 
     const checkAllCheckbox = this.getCheckBox(
       filteredItems,
+      onItemSelectAll,
       showSelectAll,
       disabled,
-      onItemSelectAll,
     );
 
     // ================================== Render ===================================
