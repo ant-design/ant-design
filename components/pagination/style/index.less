@@ -190,6 +190,20 @@
     }
   }
 
+  &-disabled {
+    &,
+    &:hover,
+    &:focus {
+      cursor: not-allowed;
+      a,
+      .@{pagination-prefix-cls}-item-link {
+        color: @disabled-color;
+        border-color: @border-color-base;
+        cursor: not-allowed;
+      }
+    }
+  }
+
   &-slash {
     margin: 0 10px 0 5px;
   }
@@ -316,7 +330,7 @@
   }
 
   // ============================ Disabled ============================
-  &-disabled {
+  &&-disabled {
     cursor: not-allowed;
 
     .@{pagination-prefix-cls}-item {
