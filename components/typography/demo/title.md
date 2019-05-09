@@ -25,6 +25,6 @@ ReactDOM.render(
     <Title level={3}>h3. Ant Design</Title>
     <Title level={4}>h4. Ant Design</Title>
   </div>,
-  mountNode
+  mountNode,
 );
 ```

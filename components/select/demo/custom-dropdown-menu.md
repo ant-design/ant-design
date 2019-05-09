@@ -13,7 +13,7 @@ title:
 
 Customize the dropdown menu via `dropdownRender`.
 
-````jsx
+```jsx
 import { Select, Icon, Divider } from 'antd';
 
 const Option = Select.Option;
@@ -37,4 +37,4 @@ ReactDOM.render(
   </Select>,
   mountNode,
 );
-````
+```

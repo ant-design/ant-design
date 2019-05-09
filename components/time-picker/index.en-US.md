@@ -8,21 +8,21 @@ To select/input a time.
 
 ## When To Use
 
-* * *
+---
 
 By clicking the input box, you can select a time from a popup panel.
 
 ## API
 
-* * *
+---
 
 ```jsx
 import moment from 'moment';
-<TimePicker defaultValue={moment('13:30:56', 'HH:mm:ss')} />
+<TimePicker defaultValue={moment('13:30:56', 'HH:mm:ss')} />;
 ```
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | addon | called from timepicker panel to render some addon to its bottom | function | - |
 | allowClear | allow clearing text | boolean | true |
 | autoFocus | get focus when component mounted | boolean | false |
@@ -54,9 +54,9 @@ import moment from 'moment';
 
 ## Methods
 
-| Name | Description |
-| ---- | ----------- |
-| blur() | remove focus |
-| focus() | get focus |
+| Name    | Description  |
+| ------- | ------------ |
+| blur()  | remove focus |
+| focus() | get focus    |
 
 <style>.code-box-demo .ant-time-picker { margin: 0 8px 12px 0; }</style>

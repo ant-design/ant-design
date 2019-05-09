@@ -24,7 +24,7 @@ antd 中的 [Form](https://github.com/ant-design/ant-design/blob/master/componen
 
 FieldsStore 实例又以 fieldsMeta 属性存储字段的元数据。元数据作为配置项，通常是指定后不再变更的数据，用于操控表单数据转换等行为。元数据通过下文中 getFieldProps, getFieldDecorator 方法的次参 fieldOption 配置。以下是 fieldsMeta\[name\] 中部分成员属性的意义（如不作特殊说明，该成员属性即 fieldOption 中的同名属性）。
 
-- validate 校验规则和触发事件，用于约定在何种事件下以何种方式校验字段的值，\[{ rules, trigger }\] 形式。通过fieldOption.validate, fieldOption.rules, fieldOption.validateTrigger 配置。
+- validate 校验规则和触发事件，用于约定在何种事件下以何种方式校验字段的值，\[{ rules, trigger }\] 形式。通过 fieldOption.validate, fieldOption.rules, fieldOption.validateTrigger 配置。
 - hidden 设置为 true 时，validateFields 将不会校验该字段，需要开发者手动校验，并且，getFieldsValue, getFieldsError 等方法也将无法获取该字段的数据及校验信息等实时数据。适用场景如勾选协议复选框，当其已勾选时，提交按钮才可点击，该复选框的值不会出现在全量表单数据中。本文假定配置了 hidden 为 true 的字段为虚拟隐藏项。
 - getValueFromEvent(event) 用于从 event 对象中获取字段的值，适用场景如处理 input, radio 等原生组件。特别的，当字段组件输出的首参不是 event 对象时，getValueFromEvent 将对首参进行数据转化，以满足特定的场景，比如由开发者指定具体首参内容的自定义字段组件。
 - initialValue 字段的初始值。当字段的值未作收集时，初始值用于作为字段的值。
@@ -36,7 +36,7 @@ FieldsStore 实例又以 fieldsMeta 属性存储字段的元数据。元数据�
 
 #### BaseForm
 
-与业务 model 不同的是，FieldsStore 仅作为表单实时数据和元数据的存储器，校验数据等方法由 BaseForm 提供。BaseForm既作为 HOC 容器，能为开发者自定义表单组件（下文用自定义表单替代）注入表单操作函数集，通常是 props.form；又用于装饰字段组件或其 props，以收集字段的元数据、通过绑定函数收集或校验字段的实时数据。因此，可以部分认为，BaseForm 即 FieldsStore 和视图层桥接的控制器。其机制为：
+与业务 model 不同的是，FieldsStore 仅作为表单实时数据和元数据的存储器，校验数据等方法由 BaseForm 提供。BaseForm 既作为 HOC 容器，能为开发者自定义表单组件（下文用自定义表单替代）注入表单操作函数集，通常是 props.form；又用于装饰字段组件或其 props，以收集字段的元数据、通过绑定函数收集或校验字段的实时数据。因此，可以部分认为，BaseForm 即 FieldsStore 和视图层桥接的控制器。其机制为：
 
 首先，通过 createBaseForm(option, mixins) 创建装饰函数。装饰函数可以为自定义表单包裹上 BaseForm 容器。参数 option 用于配置表单层面的绑定函数、校验文案以及部分字段组件的 props 属性名；mixins 将作为实例方法混入 BaseForm，特别的，createDOMForm 函数即通过这一机制混入了 validateFieldsAndScroll 方法。
 
@@ -51,8 +51,7 @@ FieldsStore 实例又以 fieldsMeta 属性存储字段的元数据。元数据�
 
 其次，当用户行为促使字段的值发生变更时，将执行 BaseForm 实例的 onCollect, onCollectValidate 方法，以收集或校验该字段的实时数据，并重绘表单。其中，rc-form 中的数据校验通过 [async-validate](https://github.com/yiminghe/async-validator) 库实现，具体实现为 BaseForm 实例的 validateFieldsInternal 方法。校验字段时，默认将沿用上一次的校验信息；当设置 force 为 true 时，将强制重新校验。
 
-详细的工作流程参见下方的时序图：
-<img class="preview-img no-padding" src="http://xzfyu.com/2018/11/04/ant%20design/antd-Form%20%E7%BB%84%E4%BB%B6/rc-form%E6%97%B6%E5%BA%8F%E5%9B%BE.png">
+详细的工作流程参见下方的时序图： <img class="preview-img no-padding" src="http://xzfyu.com/2018/11/04/ant%20design/antd-Form%20%E7%BB%84%E4%BB%B6/rc-form%E6%97%B6%E5%BA%8F%E5%9B%BE.png">
 
 ### Form 表单
 
@@ -88,7 +87,7 @@ FormItem 组件用于设定表单项的布局。如同受控组件和非受控�
 
 如上文所说，getFieldProps, getFieldDecorator 方法即用于自动为字段组件绑定监听函数，这样就可以在指定事件触发时，收集和校验字段的值。同时，可以通过这两个方法将视图中未加显示的字段存入 FieldsStore 中（这时，可以将 FieldsStore 视为一个内置于表单组件的状态管理器）。比如在包含其他选项的单选框场景中，就可以使用 getFieldDecorator 创建虚拟字段，通过绑定函数将单选框和输入框的值赋值到该虚拟字段中，并使用该虚拟字段的校验信息绘制 FormItem。参考案例 —— 动态增减表单项。
 
-上述单选框场景，也可以使用自定义字段组件 CustomizedField 实现。参考案例 —— 自定义字段组件。当使用自定义字段组件时，通过 getFieldInstance 获取 CustomizedField 的实例可能是必不可少的，这样可以把略显复杂的数据校验方法集成在 CustomizedField 中。此外，在字段组件中，既可以通过 props.value 属性获得字段的值，也可以通过 props\['data-__meta'\], props\['data-__field'\] 获得字段的全量元数据和实时数据。
+上述单选框场景，也可以使用自定义字段组件 CustomizedField 实现。参考案例 —— 自定义字段组件。当使用自定义字段组件时，通过 getFieldInstance 获取 CustomizedField 的实例可能是必不可少的，这样可以把略显复杂的数据校验方法集成在 CustomizedField 中。此外，在字段组件中，既可以通过 props.value 属性获得字段的值，也可以通过 props\['data-**meta'\], props\['data-**field'\] 获得字段的全量元数据和实时数据。
 
 在 CustomizedForm 中，使用 getFieldValue 可以取得字段的实时更新值，这样就能根据指定字段的值控制另一个字段的显隐。此外，通过在字段组件的 onChange 绑定函数中调用 setFieldValue，也能对另一个字段组件加以赋值，这样就可以实现表单的联动效果，参考案例 —— 表单联动。若在字段组件的 onChange 绑定函数中调用 validateFields 方法，就可以实现关联字段的校验，比如表单中存在设置最大最小值的两个输入框，参考案例 —— 动态校验规则。
 

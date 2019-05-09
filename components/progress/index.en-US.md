@@ -18,7 +18,7 @@ If it will take a long time to complete an operation, you can use `Progress` to 
 Properties that shared by all types.
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | type | to set the type, options: `line` `circle` `dashboard` | string | `line` |
 | format | template function of the content | function(percent, successPercent) | `percent => percent + '%'` |
 | percent | to set the completion percentage | number | 0 |
@@ -31,21 +31,21 @@ Properties that shared by all types.
 ### `type="line"`
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | strokeWidth | to set the width of the progress bar, unit: `px` | number | 10 |
 | strokeColor | color of progress bar, render `linear-gradient` when passing an object | string \| { from: string; to: string; direction: string } | - |
 
 ### `type="circle"`
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | width | to set the canvas width of the circular progress, unit: `px` | number | 132 |
 | strokeWidth | to set the width of the circular progress, unit: percentage of the canvas width | number | 6 |
 
 ### `type="dashboard"`
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | width | to set the canvas width of the dashboard progress, unit: `px` | number | 132 |
 | strokeWidth | to set the width of the dashboard progress, unit: percentage of the canvas width | number | 6 |
 | gapDegree | the gap degree of half circle, 0 ~ 360 | number | 0 |

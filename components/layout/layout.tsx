@@ -1,6 +1,6 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
+import createContext, { Context } from '@ant-design/create-react-context';
 import { SiderProps } from './Sider';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
@@ -12,6 +12,19 @@ export interface BasicProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   hasSider?: boolean;
 }
+
+export interface LayoutContextProps {
+  siderHook: {
+    addSider: (id: string) => void;
+    removeSider: (id: string) => void;
+  };
+}
+export const LayoutContext: Context<LayoutContextProps> = createContext({
+  siderHook: {
+    addSider: () => null,
+    removeSider: () => null,
+  },
+});
 
 interface BasicPropsWithTagName extends BasicProps {
   tagName: 'header' | 'footer' | 'main' | 'section';
@@ -52,35 +65,37 @@ interface BasicLayoutState {
 }
 
 class BasicLayout extends React.Component<BasicPropsWithTagName, BasicLayoutState> {
-  static childContextTypes = {
-    siderHook: PropTypes.object,
-  };
   state = { siders: [] };
 
-  getChildContext() {
+  getSiderHook() {
     return {
-      siderHook: {
-        addSider: (id: string) => {
-          this.setState(state => ({
-            siders: [...state.siders, id],
-          }));
-        },
-        removeSider: (id: string) => {
-          this.setState(state => ({
-            siders: state.siders.filter(currentId => currentId !== id),
-          }));
-        },
+      addSider: (id: string) => {
+        this.setState(state => ({
+          siders: [...state.siders, id],
+        }));
+      },
+      removeSider: (id: string) => {
+        this.setState(state => ({
+          siders: state.siders.filter(currentId => currentId !== id),
+        }));
       },
     };
   }
 
   render() {
-    const { prefixCls, className, children, hasSider, tagName, ...others } = this.props;
+    const { prefixCls, className, children, hasSider, tagName: Tag, ...others } = this.props;
     const classString = classNames(className, prefixCls, {
       [`${prefixCls}-has-sider`]:
         typeof hasSider === 'boolean' ? hasSider : this.state.siders.length > 0,
     });
-    return React.createElement(tagName, { className: classString, ...others }, children);
+
+    return (
+      <LayoutContext.Provider value={{ siderHook: this.getSiderHook() }}>
+        <Tag className={classString} {...others}>
+          {children}
+        </Tag>
+      </LayoutContext.Provider>
+    );
   }
 }
 

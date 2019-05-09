@@ -14,9 +14,7 @@ title:
 Table with editable rows.
 
 ```jsx
-import {
-  Table, Input, InputNumber, Popconfirm, Form,
-} from 'antd';
+import { Table, Input, InputNumber, Popconfirm, Form } from 'antd';
 
 const data = [];
 for (let i = 0; i < 100; i++) {
@@ -39,32 +37,28 @@ class EditableCell extends React.Component {
   };
 
   render() {
-    const {
-      editing,
-      dataIndex,
-      title,
-      inputType,
-      record,
-      index,
-      ...restProps
-    } = this.props;
+    const { editing, dataIndex, title, inputType, record, index, ...restProps } = this.props;
     return (
       <EditableContext.Consumer>
-        {(form) => {
+        {form => {
           const { getFieldDecorator } = form;
           return (
             <td {...restProps}>
               {editing ? (
                 <FormItem style={{ margin: 0 }}>
                   {getFieldDecorator(dataIndex, {
-                    rules: [{
-                      required: true,
-                      message: `Please Input ${title}!`,
-                    }],
+                    rules: [
+                      {
+                        required: true,
+                        message: `Please Input ${title}!`,
+                      },
+                    ],
                     initialValue: record[dataIndex],
                   })(this.getInput())}
                 </FormItem>
-              ) : restProps.children}
+              ) : (
+                restProps.children
+              )}
             </td>
           );
         }}
@@ -117,15 +111,14 @@ class EditableTable extends React.Component {
                       </a>
                     )}
                   </EditableContext.Consumer>
-                  <Popconfirm
-                    title="Sure to cancel?"
-                    onConfirm={() => this.cancel(record.key)}
-                  >
+                  <Popconfirm title="Sure to cancel?" onConfirm={() => this.cancel(record.key)}>
                     <a>Cancel</a>
                   </Popconfirm>
                 </span>
               ) : (
-                <a disabled={editingKey !== ''} onClick={() => this.edit(record.key)}>Edit</a>
+                <a disabled={editingKey !== ''} onClick={() => this.edit(record.key)}>
+                  Edit
+                </a>
               )}
             </div>
           );
@@ -172,7 +165,7 @@ class EditableTable extends React.Component {
       },
     };
 
-    const columns = this.columns.map((col) => {
+    const columns = this.columns.map(col => {
       if (!col.editable) {
         return col;
       }

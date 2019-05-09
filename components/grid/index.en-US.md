@@ -89,7 +89,7 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 ### Row
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | align | the vertical alignment of the flex layout: `top` `middle` `bottom` | string | `top` |
 | gutter | spacing between grids, could be a number or a object like `{ xs: 8, sm: 16, md: 24}` | number/object | 0 |
 | justify | horizontal arrangement of the flex layout: `start` `end` `center` `space-around` `space-between` | string | `start` |
@@ -98,7 +98,7 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 ### Col
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | offset | the number of cells to offset Col from the left | number | 0 |
 | order | raster order, used in `flex` layout mode | number | 0 |
 | pull | the number of cells that raster is moved to the left | number | 0 |
@@ -112,3 +112,9 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 | xxl | `≥1600px`, could be a `span` value or an object containing above props | number\|object | - |
 
 The breakpoints of responsive grid follow [BootStrap 4 media queries rules](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints)(not including `occasionally part`).
+
+## FAQ
+
+### How to support IE9 when using responsive?
+
+You can use [matchMedia polyfill](https://github.com/paulirish/matchMedia.js/) to handle this.

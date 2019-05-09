@@ -13,7 +13,7 @@ title:
 
 A standard progress bar.
 
-````jsx
+```jsx
 import { Tooltip, Progress } from 'antd';
 
 ReactDOM.render(
@@ -30,6 +30,6 @@ ReactDOM.render(
       <Progress percent={60} successPercent={30} type="dashboard" />
     </Tooltip>
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```

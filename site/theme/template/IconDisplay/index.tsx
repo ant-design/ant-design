@@ -1,22 +1,24 @@
 import * as React from 'react';
-import { ThemeType } from '../../../../components/icon';
 import manifest from '@ant-design/icons/lib/manifest';
 import { ThemeType as ThemeFolderType } from '@ant-design/icons/lib/types';
-import Category from './Category';
-import { Radio, Icon } from 'antd';
+import { Radio, Icon, Input } from 'antd';
 import { RadioChangeEvent } from 'antd/lib/radio/interface';
+import { injectIntl, InjectedIntlProps } from 'react-intl';
+import debounce from 'lodash/debounce';
+import Category from './Category';
 import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 import { categories, Categories, CategoriesKeys } from './fields';
-import { injectIntl, InjectedIntlProps } from 'react-intl';
+import { ThemeType } from 'antd/lib/icon';
 
 interface IconDisplayProps extends InjectedIntlProps {}
 
 interface IconDisplayState {
   theme: ThemeType;
+  searchKey: string;
 }
 
 class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
-  static cagetories: Categories = categories;
+  static categories: Categories = categories;
 
   static newIconNames: string[] = [];
 
@@ -28,13 +30,19 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
 
   state: IconDisplayState = {
     theme: 'outlined',
+    searchKey: '',
   };
 
+  constructor(props: IconDisplayProps) {
+    super(props);
+    this.handleSearchIcon = debounce(this.handleSearchIcon, 300);
+  }
+
   getComputedDisplayList() {
-    return Object.keys(IconDisplay.cagetories)
+    return Object.keys(IconDisplay.categories)
       .map((category: CategoriesKeys) => ({
         category,
-        icons: IconDisplay.cagetories[category].filter(
+        icons: IconDisplay.categories[category].filter(
           name => manifest[IconDisplay.themeTypeMapper[this.state.theme]].indexOf(name) !== -1,
         ),
       }))
@@ -47,18 +55,32 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
     });
   };
 
+  handleSearchIcon = (searchKey: string) => {
+    this.setState(prevState => ({
+      ...prevState,
+      searchKey,
+    }));
+  };
+
   renderCategories(list: Array<{ category: CategoriesKeys; icons: string[] }>) {
-    return list.map(({ category, icons }) => {
-      return (
-        <Category
-          key={category}
-          title={category}
-          icons={icons}
-          theme={this.state.theme}
-          newIcons={IconDisplay.newIconNames}
-        />
-      );
-    });
+    const { searchKey } = this.state;
+    return list
+      .map(({ category, icons }) => {
+        const iconResult = icons.filter(name => name.includes(searchKey));
+        if (iconResult.length === 0) {
+          return null;
+        }
+        return (
+          <Category
+            key={category}
+            title={category}
+            icons={iconResult}
+            theme={this.state.theme}
+            newIcons={IconDisplay.newIconNames}
+          />
+        );
+      })
+      .filter(category => !!category);
   }
 
   render() {
@@ -67,21 +89,30 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
     } = this.props;
     const list = this.getComputedDisplayList();
     return (
-      <div>
-        <h3>{messages['app.docs.components.icon.pick-theme']}</h3>
-        <Radio.Group value={this.state.theme} onChange={this.handleChangeTheme}>
-          <Radio.Button value="outlined">
-            <Icon component={OutlinedIcon} /> {messages['app.docs.components.icon.outlined']}
-          </Radio.Button>
-          <Radio.Button value="filled">
-            <Icon component={FilledIcon} /> {messages['app.docs.components.icon.filled']}
-          </Radio.Button>
-          <Radio.Button value="twoTone">
-            <Icon component={TwoToneIcon} /> {messages['app.docs.components.icon.two-tone']}
-          </Radio.Button>
-        </Radio.Group>
+      <>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Radio.Group value={this.state.theme} onChange={this.handleChangeTheme} size="large">
+            <Radio.Button value="outlined">
+              <Icon component={OutlinedIcon} /> {messages['app.docs.components.icon.outlined']}
+            </Radio.Button>
+            <Radio.Button value="filled">
+              <Icon component={FilledIcon} /> {messages['app.docs.components.icon.filled']}
+            </Radio.Button>
+            <Radio.Button value="twoTone">
+              <Icon component={TwoToneIcon} /> {messages['app.docs.components.icon.two-tone']}
+            </Radio.Button>
+          </Radio.Group>
+          <Input.Search
+            placeholder={messages['app.docs.components.icon.search.placeholder']}
+            style={{ marginLeft: 10, flex: 1 }}
+            allowClear
+            onChange={e => this.handleSearchIcon(e.currentTarget.value)}
+            size="large"
+            autoFocus
+          />
+        </div>
         {this.renderCategories(list)}
-      </div>
+      </>
     );
   }
 }

@@ -13,7 +13,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 ### Tree props
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | autoExpandParent | Whether to automatically expand a parent treeNode | boolean | true |
 | blockNode | Whether treeNode fill remaining horizontal space | boolean | false |
 | checkable | Adds a `Checkbox` before the treeNodes | boolean | false |
@@ -37,7 +37,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 | showLine | Shows a connecting line | boolean | false |
 | onCheck | Callback function for when the onCheck event occurs | function(checkedKeys, e:{checked: bool, checkedNodes, node, event}) | - |
 | onDragEnd | Callback function for when the onDragEnd event occurs | function({event, node}) | - |
-| onDragEnter | Callback function for when the onDragEnter event occurs | function({event, node,  expandedKeys}) | - |
+| onDragEnter | Callback function for when the onDragEnter event occurs | function({event, node, expandedKeys}) | - |
 | onDragLeave | Callback function for when the onDragLeave event occurs | function({event, node}) | - |
 | onDragOver | Callback function for when the onDragOver event occurs | function({event, node}) | - |
 | onDragStart | Callback function for when the onDragStart event occurs | function({event, node}) | - |
@@ -49,15 +49,16 @@ Almost anything can be represented in a tree structure. Examples include directo
 
 ### TreeNode props
 
-| Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
-| disableCheckbox | Disables the checkbox of the treeNode | boolean | false |
-| disabled | Disables the treeNode | boolean | false |
-| icon | customize icon. When you pass component, whose render will receive full TreeNode props as component props | ReactNode/Function(props):ReactNode | - |
-| isLeaf | Determines if this is a leaf node(effective when `loadData` is specified) | boolean | false |
-| key | Used with (default)ExpandedKeys / (default)CheckedKeys / (default)SelectedKeys. P.S.: It must be unique in all of treeNodes of the tree! | string | internal calculated position of treeNode |
-| selectable | Set whether the treeNode can be selected | boolean | true |
-| title | Title | string\|ReactNode | '---' |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| checkable | When Tree is checkable, set TreeNode display Checkbox or not | boolean | - | 3.17.0 |
+| disableCheckbox | Disables the checkbox of the treeNode | boolean | false |  |
+| disabled | Disables the treeNode | boolean | false |  |
+| icon | customize icon. When you pass component, whose render will receive full TreeNode props as component props | ReactNode/Function(props):ReactNode | - |  |
+| isLeaf | Determines if this is a leaf node(effective when `loadData` is specified) | boolean | false |  |
+| key | Used with (default)ExpandedKeys / (default)CheckedKeys / (default)SelectedKeys. P.S.: It must be unique in all of treeNodes of the tree! | string | internal calculated position of treeNode |  |
+| selectable | Set whether the treeNode can be selected | boolean | true |  |
+| title | Title | string\|ReactNode | '---' |  |
 
 ### DirectoryTree props
 
@@ -65,19 +66,22 @@ Almost anything can be represented in a tree structure. Examples include directo
 | --- | --- | --- | --- |
 | expandAction | Directory open logic, optional `false` `'click'` `'doubleClick'` | string | click |
 
-
 ## Note
 
-Before `3.4.0`:
-The number of treeNodes can be very large, but when `checkable=true`,
-it will increase the compute time. So, we cache some calculations (e.g. `this.treeNodesStates`)
-to avoid double computing. But, this brings some restrictions.
-**When you load treeNodes asynchronously, you should render tree like this**:
+Before `3.4.0`: The number of treeNodes can be very large, but when `checkable=true`, it will increase the compute time. So, we cache some calculations (e.g. `this.treeNodesStates`) to avoid double computing. But, this brings some restrictions. **When you load treeNodes asynchronously, you should render tree like this**:
 
 ```jsx
-{this.state.treeData.length
-  ? <Tree>{this.state.treeData.map(data => <TreeNode />)}</Tree>
-  : 'loading tree'}
+{
+  this.state.treeData.length ? (
+    <Tree>
+      {this.state.treeData.map(data => (
+        <TreeNode />
+      ))}
+    </Tree>
+  ) : (
+    'loading tree'
+  );
+}
 ```
 
 ## FAQ

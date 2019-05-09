@@ -5,13 +5,14 @@ title: Skeleton
 cols: 1
 ---
 
-Provide a placeholder at the place which need waiting for loading.
+Provide a placeholder while you wait for content to load, or to visualise content that doesn't exist yet.
+
 ## When To Use
 
-- When resource needs long time to load, like low network speed.
-- The component contains much information. Such as List or Card.
-- Only works when loading data at first time.
-- Could be replaced by Spin in all situation, but provide better user experience than spin if it works.
+- When a resource needs long time to load.
+- When the component contains lots of information, such as List or Card.
+- Only works when loading data for the first time.
+- Could be replaced by Spin in any situation, but can provide a better user experience.
 
 ## API
 
@@ -27,16 +28,16 @@ Provide a placeholder at the place which need waiting for loading.
 
 ### SkeletonAvatarProps
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| size | Set the size of avatar | Enum{ 'large', 'small', 'default' } | - |
-| shape | Set the shape of avatar | Enum{ 'circle', 'square' } | - |
+| Property | Description             | Type                                          | Default |
+| -------- | ----------------------- | --------------------------------------------- | ------- |
+| size     | Set the size of avatar  | number \| Enum{ 'large', 'small', 'default' } | -       |
+| shape    | Set the shape of avatar | Enum{ 'circle', 'square' }                    | -       |
 
 ### SkeletonTitleProps
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| width | Set the width of title | number \| string | - |
+| Property | Description            | Type             | Default |
+| -------- | ---------------------- | ---------------- | ------- |
+| width    | Set the width of title | number \| string | -       |
 
 ### SkeletonParagraphProps
 

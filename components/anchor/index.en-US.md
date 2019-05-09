@@ -16,7 +16,7 @@ For displaying anchor hyperlinks on page and jumping between them.
 ### Anchor Props
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | affix | Fixed mode of Anchor | boolean | true |
 | bounds | Bounding distance of anchor area | number | 5(px) |
 | getContainer | Scrolling container | () => HTMLElement | () => window |
@@ -27,7 +27,7 @@ For displaying anchor hyperlinks on page and jumping between them.
 
 ### Link Props
 
-| Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
-| href | target of hyperlink | string |  |
-| title | content of  hyperlink | string\|ReactNode |  |
+| Property | Description          | Type              | Default |
+| -------- | -------------------- | ----------------- | ------- |
+| href     | target of hyperlink  | string            |         |
+| title    | content of hyperlink | string\|ReactNode |         |

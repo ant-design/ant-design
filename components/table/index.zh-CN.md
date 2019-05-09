@@ -22,33 +22,40 @@ subtitle: 表格
 指定表格的数据源 `dataSource` 为一个数组。
 
 ```jsx
-const dataSource = [{
-  key: '1',
-  name: '胡彦斌',
-  age: 32,
-  address: '西湖区湖底公园1号'
-}, {
-  key: '2',
-  name: '胡彦祖',
-  age: 42,
-  address: '西湖区湖底公园1号'
-}];
+const dataSource = [
+  {
+    key: '1',
+    name: '胡彦斌',
+    age: 32,
+    address: '西湖区湖底公园1号',
+  },
+  {
+    key: '2',
+    name: '胡彦祖',
+    age: 42,
+    address: '西湖区湖底公园1号',
+  },
+];
 
-const columns = [{
-  title: '姓名',
-  dataIndex: 'name',
-  key: 'name',
-}, {
-  title: '年龄',
-  dataIndex: 'age',
-  key: 'age',
-}, {
-  title: '住址',
-  dataIndex: 'address',
-  key: 'address',
-}];
+const columns = [
+  {
+    title: '姓名',
+    dataIndex: 'name',
+    key: 'name',
+  },
+  {
+    title: '年龄',
+    dataIndex: 'age',
+    key: 'age',
+  },
+  {
+    title: '住址',
+    dataIndex: 'address',
+    key: 'address',
+  },
+];
 
-<Table dataSource={dataSource} columns={columns} />
+<Table dataSource={dataSource} columns={columns} />;
 ```
 
 ## API
@@ -76,7 +83,7 @@ const columns = [{
 | rowClassName | 表格行的类名 | Function(record, index):string | - |
 | rowKey | 表格行 key 的取值，可以是字符串或一个函数 | string\|Function(record):string | 'key' |
 | rowSelection | 表格行是否可选择，[配置项](#rowSelection) | object | null |
-| scroll | 设置横向或纵向滚动，也可用于指定滚动区域的宽和高，建议为 `x` 设置一个数字，如果要设置为 `true`，需要配合样式 `.ant-table td { white-space: nowrap; }` | { x: number \| true, y: number } | - |
+| scroll | 设置横向或纵向滚动，也可用于指定滚动区域的宽和高，可以设置为像素值，百分比，`true` 和 ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | { x: number \| true, y: number } | - |
 | showHeader | 是否显示表头 | boolean | true |
 | size | 表格大小 | default \| middle \| small | default |
 | title | 表格标题 | Function(currentPageData) |  |
@@ -92,18 +99,18 @@ const columns = [{
 
 ```jsx
 <Table
-  onRow={(record) => {
+  onRow={record => {
     return {
-      onClick: (event) => {},       // 点击行
-      onDoubleClick: (event) => {},
-      onContextMenu: (event) => {},
-      onMouseEnter: (event) => {},  // 鼠标移入行
-      onMouseLeave: (event) => {}
+      onClick: event => {}, // 点击行
+      onDoubleClick: event => {},
+      onContextMenu: event => {},
+      onMouseEnter: event => {}, // 鼠标移入行
+      onMouseLeave: event => {},
     };
   }}
-  onHeaderRow={(column) => {
+  onHeaderRow={column => {
     return {
-      onClick: () => {},        // 点击表头行
+      onClick: () => {}, // 点击表头行
     };
   }}
 />
@@ -115,8 +122,8 @@ const columns = [{
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| align | 设置列内容的对齐方式 | 'left' \| 'right' \| 'center' | 'left' |
-| className | 列的 className | string | - |
+| align | 设置列的对齐方式 | 'left' \| 'right' \| 'center' | 'left' |
+| className | 列样式类名 | string | - |
 | colSpan | 表头列合并,设置为 0 时，不渲染 | number |  |
 | dataIndex | 列数据在数据项中对应的 key，支持 `a.b.c`、`a[0].b.c[1]` 的嵌套写法 | string | - |
 | defaultSortOrder | 默认排序顺序 | 'ascend' \| 'descend' | - |
@@ -129,12 +136,12 @@ const columns = [{
 | filters | 表头的筛选菜单项 | object\[] | - |
 | fixed | 列是否固定，可选 `true`(等效于 left) `'left'` `'right'` | boolean\|string | false |
 | key | React 需要的 key，如果已经设置了唯一的 `dataIndex`，可以忽略这个属性 | string | - |
-| render | 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引，@return里面可以设置表格[行/列合并](#components-table-demo-colspan-rowspan) | Function(text, record, index) {} | - |
+| render | 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引，@return 里面可以设置表格[行/列合并](#components-table-demo-colspan-rowspan) | Function(text, record, index) {} | - |
 | sorter | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)，需要服务端排序可设为 true | Function\|boolean | - |
 | sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `'ascend'` `'descend'` `false` | boolean\|string | - |
 | sortDirections | 支持的排序方式，取值为 `'ascend'` `'descend'` | Array | `['ascend', 'descend']` |
 | title | 列头显示文字 | ReactNode\|({ sortOrder, filters }) => ReactNode | - |
-| width | 列宽度 | string\|number | - |
+| width | 列宽度（[指定了也不生效？](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)） | string\|number | - |
 | onCell | 设置单元格属性 | Function(record, rowIndex) | - |
 | onFilter | 本地模式下，确定筛选的运行函数 | Function | - |
 | onFilterDropdownVisibleChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - |
@@ -142,16 +149,16 @@ const columns = [{
 
 ### ColumnGroup
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| title | 列头显示文字 | string\|ReactNode | - |
+| 参数  | 说明         | 类型              | 默认值 |
+| ----- | ------------ | ----------------- | ------ |
+| title | 列头显示文字 | string\|ReactNode | -      |
 
 ### pagination
 
 分页的配置项。
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
+| 参数     | 说明               | 类型                        | 默认值   |
+| -------- | ------------------ | --------------------------- | -------- |
 | position | 指定分页显示的位置 | 'top' \| 'bottom' \| 'both' | 'bottom' |
 
 更多配置项，请查看 [`Pagination`](/components/pagination/)。
@@ -162,7 +169,7 @@ const columns = [{
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| columnWidth | 自定义列表选择框宽度 | string\|number | - |
+| columnWidth | 自定义列表选择框宽度 | string\|number | `60px` |
 | columnTitle | 自定义列表选择框标题 | string\|React.ReactNode | - |
 | fixed | 把选择框列固定在左边 | boolean | - |
 | getCheckboxProps | 选择框的默认属性配置 | Function(record) | - |
@@ -177,11 +184,11 @@ const columns = [{
 
 ### selection
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| key | React 需要的 key，建议设置 | string | - |
-| text | 选择项显示的文字 | string\|React.ReactNode | - |
-| onSelect | 选择项点击回调 | Function(changeableRowKeys) | - |
+| 参数     | 说明                       | 类型                        | 默认值 |
+| -------- | -------------------------- | --------------------------- | ------ |
+| key      | React 需要的 key，建议设置 | string                      | -      |
+| text     | 选择项显示的文字           | string\|React.ReactNode     | -      |
+| onSelect | 选择项点击回调             | Function(changeableRowKeys) | -      |
 
 ## 在 TypeScript 中使用
 

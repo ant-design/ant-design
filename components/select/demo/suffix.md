@@ -14,7 +14,7 @@ title:
 
 Basic Usage.
 
-````jsx
+```jsx
 import { Select, Icon } from 'antd';
 
 const smileIcon = <Icon type="smile" />;
@@ -27,16 +27,23 @@ function handleChange(value) {
 
 ReactDOM.render(
   <div>
-    <Select suffixIcon={smileIcon} defaultValue="lucy" style={{ width: 120 }} onChange={handleChange}>
+    <Select
+      suffixIcon={smileIcon}
+      defaultValue="lucy"
+      style={{ width: 120 }}
+      onChange={handleChange}
+    >
       <Option value="jack">Jack</Option>
       <Option value="lucy">Lucy</Option>
-      <Option value="disabled" disabled>Disabled</Option>
+      <Option value="disabled" disabled>
+        Disabled
+      </Option>
       <Option value="Yiminghe">yiminghe</Option>
     </Select>
     <Select suffixIcon={mehIcon} defaultValue="lucy" style={{ width: 120 }} disabled>
       <Option value="lucy">Lucy</Option>
     </Select>
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```

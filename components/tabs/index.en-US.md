@@ -20,7 +20,7 @@ Ant Design has 3 types of Tabs for different situations.
 ### Tabs
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | activeKey | Current TabPane's key | string | - |
 | animated | Whether to change tabs with animation. Only works while `tabPosition="top"\|"bottom"` | boolean \| {inkBar:boolean, tabPane:boolean} | `true`, `false` when `type="card"` |
 | renderTabBar | replace the TabBar | (props: DefaultTabBarProps, DefaultTabBar: React.ReactNode) => React.ReactNode | - |
@@ -43,7 +43,7 @@ More option at [rc-tabs option](https://github.com/react-component/tabs#tabs)
 ### Tabs.TabPane
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | forceRender | Forced render of content in tabs, not lazy render after clicking on tabs | boolean | false |
 | key | TabPane's key | string | - |
 | tab | Show text in TabPane's head | string\|ReactNode | - |

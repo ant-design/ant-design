@@ -13,7 +13,7 @@ title:
 
 You can set a custom text by setting the `format` prop.
 
-````jsx
+```jsx
 import { Progress } from 'antd';
 
 ReactDOM.render(
@@ -21,9 +21,9 @@ ReactDOM.render(
     <Progress type="circle" percent={75} format={percent => `${percent} Days`} />
     <Progress type="circle" percent={100} format={() => 'Done'} />
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```
 
 <style>
 div.ant-progress-circle,

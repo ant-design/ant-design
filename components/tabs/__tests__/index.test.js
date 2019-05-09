@@ -30,7 +30,7 @@ describe('Tabs', () => {
 
     it('remove card', () => {
       wrapper.find('.anticon-close').simulate('click');
-      expect(handleEdit).toBeCalledWith('1', 'remove');
+      expect(handleEdit).toHaveBeenCalledWith('1', 'remove');
     });
   });
 
