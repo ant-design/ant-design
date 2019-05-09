@@ -2,7 +2,7 @@
 
 exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
 <ul
-  class="ant-pagination "
+  class="ant-pagination"
   unselectable="unselectable"
 >
   <li
@@ -114,7 +114,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
 
 exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
 <ul
-  class="ant-pagination "
+  class="ant-pagination"
   unselectable="unselectable"
 >
   <li
@@ -329,7 +329,7 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
 
 exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
 <ul
-  class="ant-pagination "
+  class="ant-pagination"
   unselectable="unselectable"
 >
   <li
@@ -442,7 +442,7 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
 
 exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
 <ul
-  class="ant-pagination "
+  class="ant-pagination"
   unselectable="unselectable"
 >
   <li
@@ -561,7 +561,7 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
 
 exports[`renders ./components/pagination/demo/jump.md correctly 1`] = `
 <ul
-  class="ant-pagination "
+  class="ant-pagination"
   unselectable="unselectable"
 >
   <li
@@ -1135,7 +1135,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
 
 exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
 <ul
-  class="ant-pagination "
+  class="ant-pagination"
   unselectable="unselectable"
 >
   <li
@@ -1426,7 +1426,7 @@ exports[`renders ./components/pagination/demo/simple.md correctly 1`] = `
 exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
 <div>
   <ul
-    class="ant-pagination "
+    class="ant-pagination"
     unselectable="unselectable"
   >
     <li
@@ -1541,7 +1541,7 @@ exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
   </ul>
   <br />
   <ul
-    class="ant-pagination "
+    class="ant-pagination"
     unselectable="unselectable"
   >
     <li

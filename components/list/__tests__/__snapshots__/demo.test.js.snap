@@ -1271,7 +1271,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
     class="ant-list-pagination"
   >
     <ul
-      class="ant-pagination "
+      class="ant-pagination"
       unselectable="unselectable"
     >
       <li
