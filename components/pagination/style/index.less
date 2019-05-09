@@ -190,20 +190,6 @@
     }
   }
 
-  &-disabled {
-    &,
-    &:hover,
-    &:focus {
-      cursor: not-allowed;
-      a,
-      .@{pagination-prefix-cls}-item-link {
-        color: @disabled-color;
-        border-color: @border-color-base;
-        cursor: not-allowed;
-      }
-    }
-  }
-
   &-slash {
     margin: 0 10px 0 5px;
   }
@@ -325,6 +311,55 @@
         .input-sm;
 
         width: 44px;
+      }
+    }
+  }
+
+  // ============================ Disabled ============================
+  &-disabled {
+    cursor: not-allowed;
+
+    .@{pagination-prefix-cls}-item {
+      cursor: not-allowed;
+      border-color: @border-color-base;
+      background: @disabled-bg;
+
+      a {
+        cursor: not-allowed;
+        color: @text-color-secondary;
+        background: transparent;
+        border: none;
+      }
+
+      &-active {
+        border-color: darken(@border-color-base, 10%);
+        a {
+          color: @text-color;
+        }
+      }
+    }
+
+    .@{pagination-prefix-cls}-item-link {
+      &,
+      &:hover,
+      &:focus {
+        border-color: @border-color-base;
+        color: @text-color-secondary;
+        cursor: not-allowed;
+        background: @disabled-bg;
+      }
+    }
+
+    .@{pagination-prefix-cls}-jump-prev,
+    .@{pagination-prefix-cls}-jump-next {
+      &:focus,
+      &:hover {
+        .@{pagination-prefix-cls}-item-link-icon {
+          opacity: 0;
+        }
+        .@{pagination-prefix-cls}-item-ellipsis {
+          opacity: 1;
+        }
       }
     }
   }
