@@ -72,6 +72,7 @@ exports[`RangePicker extra sidebar works 1`] = `
         class=""
         data-icon="calendar"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
