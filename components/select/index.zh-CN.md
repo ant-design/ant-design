@@ -39,6 +39,7 @@ title: Select
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codesandbox.io/s/4j168r7jw0) | Function(triggerNode) | () => document.body |
 | labelInValue | 是否把每个选项的 label 包装到 value 中，会把 Select 的 value 类型从 `string` 变为 `{key: string, label: ReactNode}` 的格式 | boolean | false |
 | maxTagCount | 最多显示多少个 tag | number | - |
+| maxTagTextLength | 最大显示的 tag 文本长度 | number | - |
 | maxTagPlaceholder | 隐藏 tag 时显示的内容 | ReactNode/function(omittedValues) | - |
 | mode | 设置 Select 的模式为多选或标签 | 'multiple' \| 'tags' | - |
 | notFoundContent | 当下拉列表为空时显示的内容 | string | 'Not Found' |
