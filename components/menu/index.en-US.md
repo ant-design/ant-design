@@ -16,18 +16,18 @@ More layouts with navigation: [layout](/components/layout).
 ## API
 
 ```html
-<Menu>
+<menu>
   <Menu.Item>Menu</Menu.Item>
   <SubMenu title="SubMenu">
     <Menu.Item>SubMenuItem</Menu.Item>
   </SubMenu>
-</Menu>
+</menu>
 ```
 
 ### Menu
 
 | Param | Description | Type | Default value |
-| ----- | ----------- | ---- | ------------- |
+| --- | --- | --- | --- |
 | defaultOpenKeys | array with the keys of default opened sub menus | string\[] |  |
 | defaultSelectedKeys | array with the keys of default selected menu items | string\[] |  |
 | forceSubMenuRender | render submenu into DOM before it shows | boolean | false |
@@ -52,16 +52,16 @@ More layouts with navigation: [layout](/components/layout).
 
 ### Menu.Item
 
-| Param | Description | Type | Default value |
-| ----- | ----------- | ---- | ------------- |
-| disabled | whether menu item is disabled or not | boolean | false |
-| key | unique id of the menu item | string |  |
-| title | set display title for collapsed item | string |  |
+| Param    | Description                          | Type    | Default value |
+| -------- | ------------------------------------ | ------- | ------------- |
+| disabled | whether menu item is disabled or not | boolean | false         |
+| key      | unique id of the menu item           | string  |               |
+| title    | set display title for collapsed item | string  |               |
 
 ### Menu.SubMenu
 
 | Param | Description | Type | Default value |
-| ----- | ----------- | ---- | ------------- |
+| --- | --- | --- | --- |
 | children | sub menus or sub menu items | Array&lt;MenuItem\|SubMenu> |  |
 | disabled | whether sub menu is disabled or not | boolean | false |
 | key | unique id of the sub menu | string |  |
@@ -70,10 +70,10 @@ More layouts with navigation: [layout](/components/layout).
 
 ### Menu.ItemGroup
 
-| Param | Description | Type | Default value |
-| ----- | ----------- | ---- | ------------- |
-| children | sub menu items | MenuItem\[] |  |
-| title | title of the group | string\|ReactNode |  |
+| Param    | Description        | Type              | Default value |
+| -------- | ------------------ | ----------------- | ------------- |
+| children | sub menu items     | MenuItem\[]       |               |
+| title    | title of the group | string\|ReactNode |               |
 
 ### Menu.Divider
 

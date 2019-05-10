@@ -74,8 +74,7 @@ Ok, reboot with `yarn start`, you should now see a blue primary button displayed
 
 ## Advanced Guides
 
-We are successfully running antd components now but in the real world, there are still lots of problems about antd-demo-ts.
-For instance, we actually import all styles of components in the project which may be a network performance issue.
+We are successfully running antd components now but in the real world, there are still lots of problems about antd-demo-ts. For instance, we actually import all styles of components in the project which may be a network performance issue.
 
 Now we need to customize the default webpack config. We can achieve that by using [react-app-rewired](https://github.com/timarney/react-app-rewired) which is one of create-react-app's custom config solutions.
 
@@ -186,7 +185,7 @@ We use `modifyVars` option of [less-loader](https://github.com/webpack/less-load
 
 ## Alternative ways
 
-You can also follow instructions in [Use in create-react-app](/docs/react/use-with-create-react-app.en-US.md), then use  to setup the TypeScript development environment by yourself.
+You can also follow instructions in [Use in create-react-app](/docs/react/use-with-create-react-app.en-US.md), then use to setup the TypeScript development environment by yourself.
 
 And you can use [react-scripts-ts-antd](https://www.npmjs.com/package/react-scripts-ts-antd) which includes ts-import-plugin, react-app-rewired, scss, less and etc. You can create a new project that without any configurations by running just one command.
 

@@ -227,7 +227,9 @@ describe('DatePicker', () => {
   });
 
   describe('warning use if use invalidate moment', () => {
+    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
     const invalidateTime = moment('I AM INVALIDATE');
+    warnSpy.mockReset();
 
     it('defaultValue', () => {
       mount(<DatePicker defaultValue={invalidateTime} />);

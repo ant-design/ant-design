@@ -22,23 +22,24 @@ export interface PickerProps {
   open?: boolean;
   onOpenChange?: (status: boolean) => void;
   disabledDate?: (current: moment.Moment | undefined) => boolean;
-  renderExtraFooter?: () => React.ReactNode;
-  renderSidebar?: () => React.ReactNode;
   dateRender?: (current: moment.Moment, today: moment.Moment) => React.ReactNode;
+  autoFocus?: boolean;
 }
 
 export interface SinglePickerProps {
   value?: moment.Moment;
   defaultValue?: moment.Moment;
   defaultPickerValue?: moment.Moment;
+  placeholder?: string;
+  renderExtraFooter?: (mode: DatePickerMode) => React.ReactNode;
+  renderSidebar?: () => React.ReactNode;
   onChange?: (date: moment.Moment, dateString: string) => void;
 }
 
-const DatePickerModes = tuple('time', 'date', 'month', 'year');
+const DatePickerModes = tuple('time', 'date', 'month', 'year', 'decade');
 export type DatePickerMode = (typeof DatePickerModes)[number];
 
 export interface DatePickerProps extends PickerProps, SinglePickerProps {
-  className?: string;
   showTime?: TimePickerProps | boolean;
   showToday?: boolean;
   open?: boolean;
@@ -52,13 +53,11 @@ export interface DatePickerProps extends PickerProps, SinglePickerProps {
   onOpenChange?: (status: boolean) => void;
   onPanelChange?: (value: moment.Moment | undefined, mode: DatePickerMode) => void;
   onOk?: (selectedTime: moment.Moment) => void;
-  placeholder?: string;
   mode?: DatePickerMode;
 }
 
 export interface MonthPickerProps extends PickerProps, SinglePickerProps {
-  className?: string;
-  placeholder?: string;
+  // - currently no own props -
 }
 
 export type RangePickerValue =
@@ -77,6 +76,7 @@ export interface RangePickerProps extends PickerProps {
   onCalendarChange?: (dates: RangePickerValue, dateStrings: [string, string]) => void;
   onOk?: (selectedTime: RangePickerPresetRange) => void;
   showTime?: TimePickerProps | boolean;
+  showToday?: boolean;
   ranges?: {
     [range: string]: RangePickerPresetRange;
   };
@@ -92,11 +92,12 @@ export interface RangePickerProps extends PickerProps {
     disabledSeconds?: () => number[];
   };
   onPanelChange?: (value?: RangePickerValue, mode?: string | string[]) => void;
+  renderExtraFooter?: () => React.ReactNode;
+  renderSidebar?: () => React.ReactNode;
 }
 
 export interface WeekPickerProps extends PickerProps, SinglePickerProps {
-  className?: string;
-  placeholder?: string;
+  // - currently no own props -
 }
 
 export interface DatePickerDecorator extends React.ClassicComponentClass<DatePickerProps> {

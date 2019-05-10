@@ -11,19 +11,32 @@ title:
 
 ## en-US
 
-New feature after 3.16.0. We preset a series of colorful Badge style for different situation usage.
-And you can always set it to a hex color string for custom color.
+New feature after 3.16.0. We preset a series of colorful Badge styles for use in different situations. You can also set it to a hex color string for custom color.
 
-````jsx
+```jsx
 import { Badge } from 'antd';
 
-const colors = ['pink', 'red', 'yellow', 'orange',	'cyan',	'green',	'blue',	'purple',	'geekblue',	'magenta', 'volcano', 'gold', 'lime'];
+const colors = [
+  'pink',
+  'red',
+  'yellow',
+  'orange',
+  'cyan',
+  'green',
+  'blue',
+  'purple',
+  'geekblue',
+  'magenta',
+  'volcano',
+  'gold',
+  'lime',
+];
 
 ReactDOM.render(
   <div>
     <h4 style={{ marginBottom: 16 }}>Presets:</h4>
     <div>
-      {colors.map((color) => (
+      {colors.map(color => (
         <div key={color}>
           <Badge color={color} text={color} />
         </div>
@@ -40,12 +53,12 @@ ReactDOM.render(
       <Badge color="#108ee9" text="#108ee9" />
     </div>
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```
 
-````css
+```css
 .ant-tag {
   margin-bottom: 8px;
 }
-````
+```

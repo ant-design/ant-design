@@ -13,7 +13,7 @@ title:
 
 Grid style card content.
 
-````jsx
+```jsx
 import { Card } from 'antd';
 
 const gridStyle = {
@@ -31,6 +31,6 @@ ReactDOM.render(
     <Card.Grid style={gridStyle}>Content</Card.Grid>
     <Card.Grid style={gridStyle}>Content</Card.Grid>
   </Card>,
-  mountNode
+  mountNode,
 );
-````
+```

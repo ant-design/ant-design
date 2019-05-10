@@ -17,7 +17,7 @@ As a default behavior, the onChange callback can only get the value of the selec
 
 The label of the selected item will be packed as an object for passing to the onChange callback.
 
-````jsx
+```jsx
 import { Select } from 'antd';
 
 const Option = Select.Option;
@@ -27,10 +27,15 @@ function handleChange(value) {
 }
 
 ReactDOM.render(
-  <Select labelInValue defaultValue={{ key: 'lucy' }} style={{ width: 120 }} onChange={handleChange}>
+  <Select
+    labelInValue
+    defaultValue={{ key: 'lucy' }}
+    style={{ width: 120 }}
+    onChange={handleChange}
+  >
     <Option value="jack">Jack (100)</Option>
     <Option value="lucy">Lucy (101)</Option>
   </Select>,
-  mountNode
+  mountNode,
 );
-````
+```

@@ -35,6 +35,6 @@ ReactDOM.render(
       <Countdown title="Day Level" value={deadline} format="D 天 H 时 m 分 s 秒" />
     </Col>
   </Row>,
-  mountNode
+  mountNode,
 );
 ```

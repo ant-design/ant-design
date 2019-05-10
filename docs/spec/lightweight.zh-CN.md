@@ -22,7 +22,6 @@ title: 简化交互
 
 ## 悬停即现工具
 
-
 <img class="preview-img" align="right" alt="悬停即现工具示例" description="鼠标悬停时，出现操作项。" src="https://gw.alipayobjects.com/zos/rmsportal/XzKWrNfqIMNnIrwWNJYg.png">
 
 如果某个操作不那么重要，或者使用『实时可见工具』过于啰嗦会影响用户阅读时，可以在悬停在该对象上时展示操作项。

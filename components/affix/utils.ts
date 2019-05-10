@@ -1,6 +1,38 @@
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import Affix from './';
 
+export type BindElement = HTMLElement | Window | null | undefined;
+export type Rect = ClientRect | DOMRect;
+
+export function getTargetRect(target: BindElement): ClientRect {
+  return target !== window
+    ? (target as HTMLElement).getBoundingClientRect()
+    : ({ top: 0, bottom: window.innerHeight } as ClientRect);
+}
+
+export function getFixedTop(
+  placeholderReact: Rect,
+  targetRect: Rect,
+  offsetTop: number | undefined,
+) {
+  if (offsetTop !== undefined && targetRect.top > placeholderReact.top - offsetTop) {
+    return offsetTop + targetRect.top;
+  }
+  return undefined;
+}
+
+export function getFixedBottom(
+  placeholderReact: Rect,
+  targetRect: Rect,
+  offsetBottom: number | undefined,
+) {
+  if (offsetBottom !== undefined && targetRect.bottom < placeholderReact.bottom + offsetBottom) {
+    const targetBottomOffset = window.innerHeight - targetRect.bottom;
+    return offsetBottom + targetBottomOffset;
+  }
+  return undefined;
+}
+
 // ======================== Observer ========================
 const TRIGGER_EVENTS = [
   'resize',
@@ -19,6 +51,11 @@ interface ObserverEntity {
 }
 
 let observerEntities: ObserverEntity[] = [];
+
+export function getObserverEntities() {
+  // Only used in test env. Can be removed if refactor.
+  return observerEntities;
+}
 
 export function addObserveTarget(target: HTMLElement | Window | null, affix: Affix): void {
   if (!target) return;
@@ -39,7 +76,7 @@ export function addObserveTarget(target: HTMLElement | Window | null, affix: Aff
     TRIGGER_EVENTS.forEach(eventName => {
       entity!.eventHandlers[eventName] = addEventListener(target, eventName, (event: Event) => {
         entity!.affixList.forEach(affix => {
-          affix.updatePosition(event);
+          affix.lazyUpdatePosition(event);
         });
       });
     });
@@ -66,10 +103,4 @@ export function removeObserveTarget(affix: Affix): void {
       }
     });
   }
-}
-
-export function getTargetRect(target: HTMLElement | Window | null): ClientRect {
-  return target !== window
-    ? (target as HTMLElement).getBoundingClientRect()
-    : ({ top: 0, bottom: window.innerHeight } as ClientRect);
 }

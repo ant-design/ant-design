@@ -14,7 +14,7 @@ title:
 
 Basic use case. Users can select or input a date in panel.
 
-````jsx
+```jsx
 import { DatePicker, Icon } from 'antd';
 
 const smileIcon = <Icon type="smile" />;
@@ -42,6 +42,6 @@ ReactDOM.render(
     <br />
     <WeekPicker suffixIcon="ab" onChange={onChange} placeholder="Select week" />
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```

@@ -13,8 +13,7 @@ title: FAQ
 
 ### 当我点击 `Select Dropdown DatePicker TimePicker Popover Popconfirm` 内的另一个 popup 组件时它会消失，如何解决？
 
-该问题在 3.11.0 后已经解决。
-如果你仍在使用旧版本，你可以通过 `<Select getPopupContainer={trigger => trigger.parentNode}>` 来在 Popover 中渲染组件，或者使用其他的 getXxxxContainer 参数。
+该问题在 3.11.0 后已经解决。如果你仍在使用旧版本，你可以通过 `<Select getPopupContainer={trigger => trigger.parentNode}>` 来在 Popover 中渲染组件，或者使用其他的 getXxxxContainer 参数。
 
 https://ant.design/components/select/#Select-props
 
@@ -100,6 +99,12 @@ import { Menu, Breadcrumb, Icon } from 'antd';
 ### 如何拓展 antd 的组件？
 
 如果你需要一些 antd 没有包含的功能，你可以尝试通过 [HOC](https://gist.github.com/sebmarkbage/ef0bf1f338a7182b6775) 拓展 antd 的组件。 [更多](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.eeu8q01s1)
+
+### 我的组件默认语言是英文的？如何切回中文的。
+
+请尝试使用 [LocaleProvider](https://ant.design/components/locale-provider-cn/) 组件来包裹你的应用。
+
+如果日期组件的国际化仍未生效，请配置 `moment.locale('zh-cn')` 并**检查你本地的 `moment` 版本和 `antd` 依赖的 `moment` 版本是否一致**。
 
 ### 开启了 Content Security Policy (CSP) 如何处理动态样式？
 

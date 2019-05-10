@@ -13,7 +13,7 @@ title:
 
 Use tag `<Icon />` to create an icon and set its type in the `type` prop. Specific the `spin` property to show spinning animation and the `theme` property to switch different themes.
 
-````jsx
+```jsx
 import { Icon } from 'antd';
 
 ReactDOM.render(
@@ -25,9 +25,9 @@ ReactDOM.render(
     <Icon type="smile" rotate={180} />
     <Icon type="loading" />
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```
 
 <style>
 .icons-list > .anticon {

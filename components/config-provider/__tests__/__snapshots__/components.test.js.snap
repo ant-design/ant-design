@@ -5517,7 +5517,7 @@ exports[`ConfigProvider components Carousel configProvider 1`] = `
       </div>
     </div>
     <ul
-      class="slick-dots"
+      class="slick-dots slick-dots-bottom"
       style="display:block"
     >
       <li
@@ -5647,7 +5647,7 @@ exports[`ConfigProvider components Carousel normal 1`] = `
       </div>
     </div>
     <ul
-      class="slick-dots"
+      class="slick-dots slick-dots-bottom"
       style="display:block"
     >
       <li
@@ -5777,7 +5777,7 @@ exports[`ConfigProvider components Carousel prefixCls 1`] = `
       </div>
     </div>
     <ul
-      class="slick-dots"
+      class="slick-dots slick-dots-bottom"
       style="display:block"
     >
       <li
@@ -5990,7 +5990,7 @@ exports[`ConfigProvider components Checkbox prefixCls 1`] = `
 
 exports[`ConfigProvider components Collapse configProvider 1`] = `
 <div
-  class="config-collapse"
+  class="config-collapse config-collapse-icon-position-left"
 >
   <div
     class="config-collapse-item"
@@ -6028,7 +6028,7 @@ exports[`ConfigProvider components Collapse configProvider 1`] = `
 
 exports[`ConfigProvider components Collapse normal 1`] = `
 <div
-  class="ant-collapse"
+  class="ant-collapse ant-collapse-icon-position-left"
 >
   <div
     class="ant-collapse-item"
@@ -6066,7 +6066,7 @@ exports[`ConfigProvider components Collapse normal 1`] = `
 
 exports[`ConfigProvider components Collapse prefixCls 1`] = `
 <div
-  class="prefix-Collapse"
+  class="prefix-Collapse prefix-Collapse-icon-position-left"
 >
   <div
     class="prefix-Collapse-item"
@@ -6955,7 +6955,7 @@ exports[`ConfigProvider components Dropdown configProvider 1`] = `
     </span>
   </button>
   <button
-    class="config-btn config-dropdown-trigger config-btn-default config-btn-icon-only"
+    class="config-btn config-dropdown-trigger config-btn-default"
     type="button"
   >
     <i
@@ -6994,7 +6994,7 @@ exports[`ConfigProvider components Dropdown normal 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-dropdown-trigger ant-btn-default ant-btn-icon-only"
+    class="ant-btn ant-dropdown-trigger ant-btn-default"
     type="button"
   >
     <i
@@ -7033,7 +7033,7 @@ exports[`ConfigProvider components Dropdown prefixCls 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-dropdown-trigger ant-btn-default ant-btn-icon-only"
+    class="ant-btn ant-dropdown-trigger ant-btn-default"
     type="button"
   >
     <i
@@ -7666,39 +7666,43 @@ exports[`ConfigProvider components List configProvider 1`] = `
     <div
       class="config-spin-container"
     >
-      <div
-        class="config-list-item"
+      <ul
+        class="config-list-items"
       >
-        <div
-          class="config-list-item-meta"
+        <li
+          class="config-list-item"
         >
           <div
-            class="config-list-item-meta-avatar"
+            class="config-list-item-meta"
           >
-            <span
-              class="config-avatar config-avatar-circle config-avatar-image"
-            >
-              <img
-                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-              />
-            </span>
-          </div>
-          <div
-            class="config-list-item-meta-content"
-          >
-            <h4
-              class="config-list-item-meta-title"
-            >
-              Ant Design
-            </h4>
             <div
-              class="config-list-item-meta-description"
+              class="config-list-item-meta-avatar"
             >
-              Ant Design, a design language for background applications, is refined by Ant UED Team
+              <span
+                class="config-avatar config-avatar-circle config-avatar-image"
+              >
+                <img
+                  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                />
+              </span>
+            </div>
+            <div
+              class="config-list-item-meta-content"
+            >
+              <h4
+                class="config-list-item-meta-title"
+              >
+                Ant Design
+              </h4>
+              <div
+                class="config-list-item-meta-description"
+              >
+                Ant Design, a design language for background applications, is refined by Ant UED Team
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
@@ -7714,39 +7718,43 @@ exports[`ConfigProvider components List normal 1`] = `
     <div
       class="ant-spin-container"
     >
-      <div
-        class="ant-list-item"
+      <ul
+        class="ant-list-items"
       >
-        <div
-          class="ant-list-item-meta"
+        <li
+          class="ant-list-item"
         >
           <div
-            class="ant-list-item-meta-avatar"
+            class="ant-list-item-meta"
           >
-            <span
-              class="ant-avatar ant-avatar-circle ant-avatar-image"
-            >
-              <img
-                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-              />
-            </span>
-          </div>
-          <div
-            class="ant-list-item-meta-content"
-          >
-            <h4
-              class="ant-list-item-meta-title"
-            >
-              Ant Design
-            </h4>
             <div
-              class="ant-list-item-meta-description"
+              class="ant-list-item-meta-avatar"
             >
-              Ant Design, a design language for background applications, is refined by Ant UED Team
+              <span
+                class="ant-avatar ant-avatar-circle ant-avatar-image"
+              >
+                <img
+                  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                />
+              </span>
+            </div>
+            <div
+              class="ant-list-item-meta-content"
+            >
+              <h4
+                class="ant-list-item-meta-title"
+              >
+                Ant Design
+              </h4>
+              <div
+                class="ant-list-item-meta-description"
+              >
+                Ant Design, a design language for background applications, is refined by Ant UED Team
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
@@ -7762,39 +7770,43 @@ exports[`ConfigProvider components List prefixCls 1`] = `
     <div
       class="ant-spin-container"
     >
-      <div
-        class="prefix-List-item"
+      <ul
+        class="prefix-List-items"
       >
-        <div
-          class="prefix-List-item-meta"
+        <li
+          class="prefix-List-item"
         >
           <div
-            class="prefix-List-item-meta-avatar"
+            class="prefix-List-item-meta"
           >
-            <span
-              class="ant-avatar ant-avatar-circle ant-avatar-image"
-            >
-              <img
-                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-              />
-            </span>
-          </div>
-          <div
-            class="prefix-List-item-meta-content"
-          >
-            <h4
-              class="prefix-List-item-meta-title"
-            >
-              Ant Design
-            </h4>
             <div
-              class="prefix-List-item-meta-description"
+              class="prefix-List-item-meta-avatar"
             >
-              Ant Design, a design language for background applications, is refined by Ant UED Team
+              <span
+                class="ant-avatar ant-avatar-circle ant-avatar-image"
+              >
+                <img
+                  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                />
+              </span>
+            </div>
+            <div
+              class="prefix-List-item-meta-content"
+            >
+              <h4
+                class="prefix-List-item-meta-title"
+              >
+                Ant Design
+              </h4>
+              <div
+                class="prefix-List-item-meta-description"
+              >
+                Ant Design, a design language for background applications, is refined by Ant UED Team
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        </li>
+      </ul>
     </div>
   </div>
 </div>

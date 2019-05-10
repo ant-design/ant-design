@@ -15,7 +15,7 @@ A button means an operation (or a series of operations). Clicking a button will 
 To get a customized button, just set `type`/`shape`/`size`/`loading`/`disabled`.
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | disabled | disabled state of button | boolean | `false` |
 | ghost | make background transparent and invert text and border colors, added in 2.7 | boolean | `false` |
 | href | redirect url of link button | string | - |
@@ -25,7 +25,7 @@ To get a customized button, just set `type`/`shape`/`size`/`loading`/`disabled`.
 | shape | can be set to `circle`, `round` or omitted | string | - |
 | size | can be set to `small` `large` or omitted | string | `default` |
 | target | same as target attribute of a, works when href is specified | string | - |
-| type | can be set to `primary` `ghost` `dashed` `danger`(added in 2.7) or omitted (meaning `default`) | string | `default` |
+| type | can be set to `primary` `ghost` `dashed` `danger` `link`(added in 3.17) or omitted (meaning `default`) | string | `default` |
 | onClick | set the handler to handle `click` event | (event) => void | - |
 | block | option to fit button width to its parent width | boolean | `false` |
 

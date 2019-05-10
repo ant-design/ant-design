@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Basic drawer.
+The Drawer can appear from any edge of the screen.
 
 ```jsx
 import { Drawer, Button, Radio } from 'antd';
@@ -33,11 +33,11 @@ class App extends React.Component {
     });
   };
 
-  onChange = (e) => {
+  onChange = e => {
     this.setState({
       placement: e.target.value,
     });
-  }
+  };
 
   render() {
     return (

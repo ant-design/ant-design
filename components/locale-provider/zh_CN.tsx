@@ -53,4 +53,7 @@ export default {
     copied: '复制成功',
     expand: '展开',
   },
+  PageHeader: {
+    back: '返回',
+  },
 };

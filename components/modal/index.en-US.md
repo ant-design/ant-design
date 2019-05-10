@@ -8,16 +8,12 @@ Modal dialogs.
 
 ## When To Use
 
-When requiring users to interact with the application, but without jumping to a new page and interrupting
-the user's workflow, you can use `Modal` to create a new floating layer over the current page to get user
-feedback or display information.
-Additionally, if you need show a simple confirmation dialog, you can use `antd.Modal.confirm()`,
-and so on.
+When requiring users to interact with the application, but without jumping to a new page and interrupting the user's workflow, you can use `Modal` to create a new floating layer over the current page to get user feedback or display information. Additionally, if you need show a simple confirmation dialog, you can use `antd.Modal.confirm()`, and so on.
 
 ## API
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | afterClose | Specify a function that will be called when modal is closed completely. | function | - |
 | bodyStyle | Body style for modal body element. Such as height, padding etc. | object | {} |
 | cancelText | Text of the Cancel button | string\|ReactNode | `Cancel` |
@@ -58,11 +54,10 @@ There are five ways to display the information based on the content's nature:
 - `Modal.warning`
 - `Modal.confirm`
 
-The items listed above are all functions, expecting a settings object as parameter.
-The properties of the object are follows:
+The items listed above are all functions, expecting a settings object as parameter. The properties of the object are follows:
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | autoFocusButton | Specify which button to autofocus | null\|string: `ok` `cancel` | `ok` |
 | cancelText | Text of the Cancel button | string | `Cancel` |
 | centered | Centered Modal | Boolean | `false` |

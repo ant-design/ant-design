@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Affix from '..';
+import { getObserverEntities } from '../utils';
 import Button from '../../button';
 
 const events = {};
@@ -128,14 +129,37 @@ describe('Affix Render', () => {
     expect(wrapper.instance().affix.state.affixStyle.top).toBe(10);
   });
 
-  it('updatePosition when target changed', () => {
-    const container = '<div id="mounter" />';
-    const getTarget = () => container;
-    wrapper = mount(<Affix target={getTarget} />);
-    wrapper.setProps({ target: null });
-    expect(wrapper.instance().state.status).toBe(0);
-    expect(wrapper.instance().state.affixStyle).toBe(undefined);
-    expect(wrapper.instance().state.placeholderStyle).toBe(undefined);
+  describe('updatePosition when target changed', () => {
+    it('function change', () => {
+      document.body.innerHTML = '<div id="mounter" />';
+      const container = document.querySelector('#id');
+      const getTarget = () => container;
+      wrapper = mount(<Affix target={getTarget} />);
+      wrapper.setProps({ target: null });
+      expect(wrapper.instance().state.status).toBe(0);
+      expect(wrapper.instance().state.affixStyle).toBe(undefined);
+      expect(wrapper.instance().state.placeholderStyle).toBe(undefined);
+    });
+
+    it('instance change', () => {
+      const getObserverLength = () => Object.keys(getObserverEntities()).length;
+
+      const container = document.createElement('div');
+      document.body.appendChild(container);
+      let target = container;
+
+      const originLength = getObserverLength();
+      const getTarget = () => target;
+      wrapper = mount(<Affix target={getTarget} />);
+      jest.runAllTimers();
+
+      expect(getObserverLength()).toBe(originLength + 1);
+      target = null;
+      wrapper.setProps({});
+      wrapper.update();
+      jest.runAllTimers();
+      expect(getObserverLength()).toBe(originLength);
+    });
   });
 
   it('updatePosition when size changed', () => {
