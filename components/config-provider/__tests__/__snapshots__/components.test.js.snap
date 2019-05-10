@@ -8427,7 +8427,7 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
 exports[`ConfigProvider components Pagination configProvider 1`] = `
 <div>
   <ul
-    class="config-pagination "
+    class="config-pagination"
     unselectable="unselectable"
   >
     <li
@@ -8704,7 +8704,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
 exports[`ConfigProvider components Pagination normal 1`] = `
 <div>
   <ul
-    class="ant-pagination "
+    class="ant-pagination"
     unselectable="unselectable"
   >
     <li
@@ -8981,7 +8981,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
 exports[`ConfigProvider components Pagination prefixCls 1`] = `
 <div>
   <ul
-    class="prefix-Pagination "
+    class="prefix-Pagination"
     unselectable="unselectable"
   >
     <li
