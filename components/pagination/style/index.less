@@ -346,9 +346,10 @@
       }
 
       &-active {
-        border-color: darken(@border-color-base, 20%);
+        border-color: transparent;
+        background: darken(@disabled-bg, 10%);
         a {
-          color: @text-color;
+          color: #fff;
         }
       }
     }
