@@ -15,7 +15,7 @@ Customize render list with Table component.
 
 ```jsx
 import { Transfer, Switch, Table, Tag } from 'antd';
-import { difference } from 'lodash';
+import difference from 'lodash/difference';
 
 // Customize Table Transfer
 const TableTransfer = ({ leftColumns, rightColumns, ...restProps }) => (
