@@ -174,7 +174,9 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
       }
       if (props.renderSidebar) {
         calendarProps.renderSidebar = () => (
-          <div className={`${prefixCls}-sidebar`}>{props.renderSidebar()}</div>
+          <div key="sidebar" className={`${prefixCls}-sidebar`}>
+            {props.renderSidebar()}
+          </div>
         );
       }
 
