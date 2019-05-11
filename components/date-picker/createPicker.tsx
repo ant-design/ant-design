@@ -16,12 +16,14 @@ import { formatDate } from './utils';
 export interface PickerProps {
   value?: moment.Moment;
   open?: boolean;
+  mode?: string;
   prefixCls: string;
 }
 
 export interface PickerState {
   open: boolean;
   value: moment.Moment | null;
+  mode: string;
   showDate: moment.Moment | null;
 }
 
@@ -49,6 +51,9 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
           state.showDate = nextProps.value;
         }
       }
+      if ('mode' in nextProps) {
+        state.mode = nextProps.mode;
+      }
       return Object.keys(state).length > 0 ? state : null;
     }
 
@@ -59,6 +64,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
     constructor(props: any) {
       super(props);
       const value = props.value || props.defaultValue;
+      const { mode } = props;
       if (value && !interopDefault(moment).isMoment(value)) {
         throw new Error(
           'The value/defaultValue of DatePicker or MonthPicker must be ' +
@@ -69,6 +75,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
         value,
         showDate: value,
         open: false,
+        mode,
       };
     }
 
