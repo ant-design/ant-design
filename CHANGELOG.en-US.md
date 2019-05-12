@@ -25,7 +25,7 @@ timeline: true
 - 🐞 Fix `hoist-non-react-statics` compilation error. [#16397](https://github.com/ant-design/ant-design/pull/16397) [@ztplz](https://github.com/ztplz)
 - 🐞 Fix customize icon style in Notification size not correct. [#16507](https://github.com/ant-design/ant-design/pull/16507)
 - 🐞 Fix PageHeader should not render blank dom when `title` is undefined. [#16510](https://github.com/ant-design/ant-design/pull/16510) [@yociduo](https://github.com/yociduo)
-- ⚡️ Print reject error when Modal's onOk callback return an promise rejects. [#16437](https://github.com/ant-design/ant-design/pull/16437) [@jas0ncn](https://github.com/jas0ncn)
+- ⚡️ Print reject error when Modal's `onOk` callback return an promise rejects. [#16437](https://github.com/ant-design/ant-design/pull/16437) [@jas0ncn](https://github.com/jas0ncn)
 - TypeScript
   - ⚡️ Improve Table column.filterDropdown type. [#16446](https://github.com/ant-design/ant-design/pull/16446)
   - ⚡️ Add Select missing type definition `maxTagTextLength`. [#16504](https://github.com/ant-design/ant-design/pull/16504) [@SylvanasGone](https://github.com/SylvanasGone)

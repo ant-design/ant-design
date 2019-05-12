@@ -25,7 +25,7 @@ timeline: true
 - 🐞 修复 `hoist-non-react-statics` 导致的编译错误问题。[#16397](https://github.com/ant-design/ant-design/pull/16397) [@ztplz](https://github.com/ztplz)
 - 🐞 修复自定义图标在 Notification 组件中的大小不对的问题。[#16507](https://github.com/ant-design/ant-design/pull/16507)
 - 🐞 修复 PageHeader 组件当 `title` 为空时不应该渲染空白元素的问题。[#16510](https://github.com/ant-design/ant-design/pull/16510) [@yociduo](https://github.com/yociduo)
-- ⚡️ 当 Modal 组件 onOk 回调返回的 Promise 被 Reject 的时候，打印错误。[#16437](https://github.com/ant-design/ant-design/pull/16437) [@jas0ncn](https://github.com/jas0ncn)
+- ⚡️ 当 Modal 组件 `onOk` 回调返回的 Promise 被 Reject 的时候，打印错误。[#16437](https://github.com/ant-design/ant-design/pull/16437) [@jas0ncn](https://github.com/jas0ncn)
 - TypeScript
   - ⚡️ 完善 Table 中 `column.filterDropdown` 的定义。[#16446](https://github.com/ant-design/ant-design/pull/16446)
   - ⚡️ 添加 Select 中 `maxTagTextLength` 的定义。[#16504](https://github.com/ant-design/ant-design/pull/16504) [@SylvanasGone](https://github.com/SylvanasGone)
