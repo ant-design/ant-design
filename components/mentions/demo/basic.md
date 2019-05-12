@@ -14,7 +14,9 @@ title:
 Basic usage.
 
 ````jsx
-import { Mentions, Row, Col, Input } from 'antd';
+import { Mentions } from 'antd';
+
+const { Option } = Mentions;
 
 function onChange(value) {
   console.log('Change:', value);
@@ -25,19 +27,15 @@ function onSelect(option) {
 }
 
 ReactDOM.render(
-  <Row>
-    <Col span={12}>
-      <Mentions
-        style={{ width: '100%' }}
-        onChange={onChange}
-        onSelect={onSelect}
-        defaultValue="@afc163"
-      />
-    </Col>
-    <Col span={12}>
-      <Input />
-    </Col>
-  </Row>,
+  <Mentions
+    style={{ width: '100%' }}
+    onChange={onChange}
+    onSelect={onSelect}
+    defaultValue="@afc163"
+  >
+    <Option value="afc163">afc163</Option>
+    <Option value="zombieJ">zombieJ</Option>
+  </Mentions>,
   mountNode
 );
 ````

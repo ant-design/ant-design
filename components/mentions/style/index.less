@@ -8,75 +8,138 @@
   .reset-component;
   .input;
 
-  display: inline-block;
   position: relative;
+  display: inline-block;
+  height: auto;
   white-space: pre-wrap;
 
   // ================= Input Area =================
-  > textarea, &-measure {
-    font-size: inherit;
-    font-size-adjust: inherit;
-    font-style: inherit;
-    font-variant: inherit;
-    font-stretch: inherit;
-    font-weight: inherit;
-    font-family: inherit;
-
-    padding: 0;
+  > textarea,
+  &-measure {
     margin: 0;
-    line-height: inherit;
-    vertical-align: top;
+    padding: 0;
     overflow: inherit;
-    word-break: inherit;
-    white-space: inherit;
-    word-wrap: break-word;
     overflow-x: initial;
     overflow-y: auto;
-    text-align: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    font-style: inherit;
+    font-variant: inherit;
+    font-size-adjust: inherit;
+    font-stretch: inherit;
+    line-height: inherit;
+    direction: inherit;
     letter-spacing: inherit;
     white-space: inherit;
+    text-align: inherit;
+    vertical-align: top;
+    word-wrap: break-word;
+    word-break: inherit;
     tab-size: inherit;
-    direction: inherit;
   }
 
   > textarea {
-    border: none;
     width: 100%;
+    border: none;
     outline: none;
+    resize: none;
   }
 
   &-measure {
     position: absolute;
-    left: 0;
-    right: 0;
     top: 0;
+    right: 0;
     bottom: 0;
-    pointer-events: none;
-    color: transparent;
+    left: 0;
     z-index: -1;
+    color: transparent;
+    pointer-events: none;
   }
 
   // ================== Dropdown ==================
   &-dropdown {
+    // Ref select dropdown style
+    .reset-component;
+
     position: absolute;
+    top: -9999px;
+    left: -9999px;
+    z-index: @zindex-dropdown;
+    box-sizing: border-box;
+    font-size: @font-size-base;
+    font-variant: initial;
+    background-color: @component-background;
+    border-radius: @border-radius-base;
+    outline: none;
+    box-shadow: @box-shadow-base;
+
+    &-hidden {
+      display: none;
+    }
 
     &-menu {
+      max-height: 250px;
+      margin-bottom: 0;
+      padding-left: 0; // Override default ul/ol
+      overflow: auto;
       list-style: none;
-      margin: 0;
-      padding: 0;
+      outline: none;
 
       &-item {
+        position: relative;
+        display: block;
+        padding: 5px @control-padding-horizontal;
+        overflow: hidden;
+        color: @text-color;
+        font-weight: normal;
+        line-height: 22px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
         cursor: pointer;
+        transition: background 0.3s ease;
+
+        &:hover {
+          background-color: @item-hover-bg;
+        }
+
+        &:first-child {
+          border-radius: @border-radius-base @border-radius-base 0 0;
+        }
+
+        &:last-child {
+          border-radius: 0 0 @border-radius-base @border-radius-base;
+        }
+
+        &-disabled {
+          color: @disabled-color;
+          cursor: not-allowed;
+
+          &:hover {
+            color: @disabled-color;
+            background-color: @component-background;
+            cursor: not-allowed;
+          }
+        }
+
+        &-selected {
+          color: @text-color;
+          font-weight: @select-item-selected-font-weight;
+          background-color: @background-color-light;
+        }
+
+        &-active {
+          background-color: @item-active-bg;
+        }
       }
     }
   }
 }
 
 // Customize style
-.@{mention-prefix-cls} {
-  // padding: @input-padding-vertical-base @input-padding-horizontal-base;
-  height: auto;
-}
+// .@{mention-prefix-cls} {
+//   height: auto;
+// }
 
 // Customize style
 // .@{mention-prefix-cls} {

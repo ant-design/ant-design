@@ -1,7 +1,7 @@
 ---
 category: Components
 type: Data Entry
-title: Mention
+title: Mentions
 ---
 
 Mention component.
@@ -13,44 +13,29 @@ When need to mention someone or something.
 ## API
 
 ```jsx
-<Mention
-  onChange={onChange}
-  suggestions={['afc163', 'benjycui', 'yiminghe', 'jljsj33', 'dqaria', 'RaoHai']}
-/>
+<Mentions onChange={onChange}>
+  <Mentions.Option value="sample">Sample</Mentions.Option>
+</Mentions>
 ```
-
-### Mention API
-
-| API | Description | Type |
-| --- | ----------- | ---- |
-| getMentions | get mentioned people in current contentState | Function(ContentState: contentState): string\[] |
-| toContentState | convert string to ContentState | Function(value: string): ContentState |
-| toString | convert ContentState to string | Function(contentState: ContentState): string |
 
 ### Mention
 
-| Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
-| autoFocus | get focus when component mounted | boolean | false |
-| defaultValue | default value | ContentState, you can use `Mention.toContentState` to convert text to `ContentState` | null |
-| defaultSuggestions | default suggestion content | Array&lt;string\|Mention.Nav> | \[] |
-| disabled | Tell if the input is disabled. | boolean | false |
-| getSuggestionContainer | rendered to the root of the menu. Default rendered to the body dom. If gets any problem of the menu while scrolling. Try to make the root the dom scrolled, and make it position relative. | function | () => document.body |
-| loading | loading mode | boolean | false |
-| multiLines | multilines mode | boolean | false |
-| notFoundContent | suggestion when suggestions empty | string | 'No matches found' |
-| placeholder | placeholder of input | string | null |
-| placement | The position of the suggestion relative to the target, which can be one of `top` and `bottom` | string | 'bottom'. |
-| prefix | character which will trigger Mention to show mention list | string or Array&lt;string> | '@' |
-| readOnly | Tell if the input is readonly. | boolean | false |
-| suggestions | suggestion content | Array&lt;string\|Mention.Nav> | \[] |
-| suggestionStyle | style of suggestion container | object | {} |
-| value | core state of mention | ContentState | null |
-| onBlur | Callback function called when mention component blur | function(e) | null |
-| onChange | Callback function called when content of input changes | function(contentState: ContentState) | null |
-| onFocus | Callback function called when mention component get focus | function | null |
-| onSearchChange | Callback function called when search content changes | function(value:string, trigger: string) | \[] |
-| onSelect | Callback function called when select from suggestions | function(suggestion: string, data?: any) | null |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| autoFocus | Auto get focus when component mounted | boolean | `false` |
+| defaultValue | Default value | string | - |
+| filterOption | Customize filter option logic | false \| (input: string, option: OptionProps) => boolean | - |
+| notFoundContent | Set mentions content when not match | ReactNode | 'Not Found' |
+| prefix | Set trigger prefix keyword | string \| string[] | '@' |
+| rows | Set row count | number | 1 |
+| split | Set split string before and after selected mention | string | ' ' |
+| validateSearch | Customize trigger search logic | (text: string, props: MentionsProps) => void | - |
+| value | Set value of mentions | string | - |
+| onChange | Trigger when value changed |(text: string) => void | - |
+| onSelect | Trigger when user select the option | (option: OptionProps, prefix: string) => void | - |
+| onSearch | Trigger when prefix hit | (text: string, prefix: string) => void | - |
+| onFocus | Trigger when mentions get focus | React.FocusEventHandler<HTMLTextAreaElement> | - |
+| onBlur | Trigger when mentions lose focus | React.FocusEventHandler<HTMLTextAreaElement> | - |
 
 ### Mention methods
 
@@ -59,9 +44,9 @@ When need to mention someone or something.
 | blur() | remove focus |
 | focus() | get focus |
 
-### Nav
+### Option
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| children | suggestion content | object | {} |
+| children | suggestion content | ReactNode | - |
 | value | value of suggestion, the value will insert into input filed while selected | string | "" |

@@ -2,7 +2,7 @@
 category: Components
 subtitle: 提及
 type: 数据录入
-title: Mention
+title: Mentions
 ---
 
 提及组件。
