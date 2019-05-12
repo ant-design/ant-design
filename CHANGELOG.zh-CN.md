@@ -15,10 +15,13 @@ timeline: true
 
 ---
 
-## 3.17.1
+## 3.18.0
 
 `2019-05-12`
 
+- 🌟 Transfer 支持 `children` 来自定义渲染列表。[#16026](https://github.com/ant-design/ant-design/pull/16026)
+- 🌟 Pagination 支持 `disabled` 属性。[#16493](https://github.com/ant-design/ant-design/pull/16493)
+- 🌟 升级 `@ant-design/icons` 和 `@ant-design/icons-react` 到 2.0 修复一些图标缺失的问题。[#15874](https://github.com/ant-design/ant-design/pull/15874)
 - 🐞 修复 Form `hasFeedback` 和 Input.Password 一起使用时互相重叠的问题。[#16445](https://github.com/ant-design/ant-design/pull/16445)
 - 🐞 修复 Select 当前选中的失效项的样式问题。[#16477](https://github.com/ant-design/ant-design/pull/16477)
 - 🐞 修复 Upload disabled 状态下会被 label 激活的问题。[#16483](https://github.com/ant-design/ant-design/pull/16483)
