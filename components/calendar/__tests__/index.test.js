@@ -12,12 +12,12 @@ describe('Calendar', () => {
 
   beforeEach(() => {
     // eslint-disable-next-line
-    console.error = jest.fn();
+    console.warn = jest.fn();
   });
 
   afterEach(() => {
     // eslint-disable-next-line
-    console.error = original;
+    console.warn = original;
   });
   it('Calendar should be selectable', () => {
     const onSelect = jest.fn();
@@ -307,6 +307,6 @@ describe('Calendar', () => {
   it('Testing calendar with renderHeader other type', () => {
     mount(<Calendar size="small" renderHeader={3} />);
     // eslint-disable-next-line
-    expect(console.error).toHaveBeenCalledWith('Calendar renderHeader props must be function');
+    expect(console.warn).toHaveBeenCalledWith('Calendar renderHeader props must be function');
   });
 });

@@ -200,22 +200,21 @@ export default class Header extends React.Component<HeaderProps, any> {
       </Group>
     );
     if (this.props.renderHeader) {
-      if (typeof this.props.renderHeader !== 'function') {
-        console.error('Calendar renderHeader props must be function');
-        return;
+      if (typeof this.props.renderHeader === 'function') {
+        return this.props.renderHeader({
+          yearSelect,
+          monthSelect,
+          typeSwitch,
+          type,
+          typeChange: this.onTypeChange,
+          monthChange: this.onMonthChange,
+          yearChange: this.onYearChange,
+          months: this.months,
+          years: this.years,
+          ref: this.getCalenderHeaderNode,
+        });
       }
-      return this.props.renderHeader({
-        yearSelect,
-        monthSelect,
-        typeSwitch,
-        type,
-        typeChange: this.onTypeChange,
-        monthChange: this.onMonthChange,
-        yearChange: this.onYearChange,
-        months: this.months,
-        years: this.years,
-        ref: this.getCalenderHeaderNode,
-      });
+      console.warn('Calendar renderHeader props must be function');
     }
     return (
       <div className={`${prefixCls}-header`} ref={this.getCalenderHeaderNode}>
