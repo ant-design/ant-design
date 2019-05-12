@@ -7,6 +7,18 @@ import Header from '../Header';
 import Select from '../../select';
 
 describe('Calendar', () => {
+  // eslint-disable-next-line
+  const original = console.error;
+
+  beforeEach(() => {
+    // eslint-disable-next-line
+    console.error = jest.fn();
+  });
+
+  afterEach(() => {
+    // eslint-disable-next-line
+    console.error = original;
+  });
   it('Calendar should be selectable', () => {
     const onSelect = jest.fn();
     const wrapper = mount(<Calendar onSelect={onSelect} />);
@@ -285,5 +297,16 @@ describe('Calendar', () => {
       .last()
       .simulate('click');
     expect(onSelect).toHaveBeenCalled();
+  });
+
+  it('Testing small calendar', () => {
+    const wrapper = mount(<Calendar size="small" />);
+    expect(wrapper.exists('.ant-fullcalendar-small')).toEqual(true);
+  });
+
+  it('Testing calendar with renderHeader other type', () => {
+    mount(<Calendar size="small" renderHeader={3} />);
+    // eslint-disable-next-line
+    expect(console.error).toHaveBeenCalledWith('Calendar renderHeader props must be function');
   });
 });
