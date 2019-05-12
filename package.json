@@ -1,8 +1,8 @@
 {
   "name": "antd",
-  "version": "3.17.0",
+  "version": "3.17.1",
   "title": "Ant Design",
-  "description": "An enterprise-class UI design language and React-based implementation",
+  "description": "An enterprise-class UI design language and React components implementation",
   "homepage": "http://ant.design/",
   "keywords": [
     "ant",
@@ -44,7 +44,6 @@
   "dependencies": {
     "@ant-design/icons": "~2.0.0",
     "@ant-design/icons-react": "~2.0.0",
-    "@types/hoist-non-react-statics": "^3.3.1",
     "@types/react-slick": "^0.23.3",
     "array-tree-filter": "^2.1.0",
     "babel-runtime": "6.x",
@@ -64,7 +63,7 @@
     "rc-cascader": "~0.17.0",
     "rc-checkbox": "~2.1.5",
     "rc-collapse": "~1.11.1",
-    "rc-dialog": "~7.3.0",
+    "rc-dialog": "~7.4.0",
     "rc-drawer": "~1.8.0",
     "rc-dropdown": "~2.4.1",
     "rc-editor-mention": "^1.1.7",
