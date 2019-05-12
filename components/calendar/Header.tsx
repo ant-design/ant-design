@@ -200,6 +200,10 @@ export default class Header extends React.Component<HeaderProps, any> {
       </Group>
     );
     if (this.props.renderHeader) {
+      if (typeof this.props.renderHeader !== 'function') {
+        console.error('Calendar renderHeader props must be function');
+        return;
+      }
       return this.props.renderHeader({
         yearSelect,
         monthSelect,
