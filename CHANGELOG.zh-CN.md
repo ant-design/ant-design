@@ -15,29 +15,46 @@ timeline: true
 
 ---
 
+## 3.17.1
+
+`2019-05-12`
+
+- 🐞 修复 Form `hasFeedback` 和 Input.Password 一起使用时互相重叠的问题。[#16445](https://github.com/ant-design/ant-design/pull/16445)
+- 🐞 修复 Select 当前选中的失效项的样式问题。[#16477](https://github.com/ant-design/ant-design/pull/16477)
+- 🐞 修复 Upload disabled 状态下会被 label 激活的问题。[#16483](https://github.com/ant-design/ant-design/pull/16483)
+- 🐞 修复 `hoist-non-react-statics` 导致的编译错误问题。[#16397](https://github.com/ant-design/ant-design/pull/16397) [@ztplz](https://github.com/ztplz)
+- 🐞 修复自定义图标在 Notification 组件中的大小不对的问题。[#16507](https://github.com/ant-design/ant-design/pull/16507)
+- 🐞 修复 PageHeader 组件当 `title` 为空时不应该渲染空白元素的问题。[#16510](https://github.com/ant-design/ant-design/pull/16510) [@yociduo](https://github.com/yociduo)
+- ⚡️ 当 Modal 组件 `onOk` 回调返回的 Promise 被 Reject 的时候，打印错误。[#16437](https://github.com/ant-design/ant-design/pull/16437) [@jas0ncn](https://github.com/jas0ncn)
+- TypeScript
+  - ⚡️ 完善 Table 中 `column.filterDropdown` 的定义。[#16446](https://github.com/ant-design/ant-design/pull/16446)
+  - ⚡️ 添加 Select 中 `maxTagTextLength` 的定义。[#16504](https://github.com/ant-design/ant-design/pull/16504) [@SylvanasGone](https://github.com/SylvanasGone)
+  - ⚡️ 完善 Form 中 `getFieldError` 的返回值的定义。[#16524](https://github.com/ant-design/ant-design/pull/16524) [@vicrep](https://github.com/vicrep)
+  - 🐞 修复 List 组件缺少 `style` 定义的问题。[#16485](https://github.com/ant-design/ant-design/pull/16485)
+
 ## 3.17.0
 
 `2019-05-05`
 
-- 🎉 Breadcrumb.Item 支持 `overlay` props 来定义下拉菜单。[#16315](https://github.com/ant-design/ant-design/pull/16315)
+- 🎉 Breadcrumb.Item 支持 `overlay` 属性来定义下拉菜单。[#16315](https://github.com/ant-design/ant-design/pull/16315)
 - 🎉 Button 的增加了新的类型 `link`。[#16289](https://github.com/ant-design/ant-design/pull/16289)
 - ⌨️ 用`ul`包裹 List.Item，以增加可访问性。[#15890](https://github.com/ant-design/ant-design/pull/15890)
 - 🌟 TreeSelect 的 `showSearch` 支持多选模式。[#15933](https://github.com/ant-design/ant-design/pull/15933)
-- 🌟 Upload 提供 `previewFile` props 以自定义预览逻辑。[#15984](https://github.com/ant-design/ant-design/pull/15984)
+- 🌟 Upload 提供 `previewFile` 属性以自定义预览逻辑。[#15984](https://github.com/ant-design/ant-design/pull/15984)
 - 🌟 添加了 `@table-selected-row-color` 变量来自定义表格选中的颜色。[#15971](https://github.com/ant-design/ant-design/pull/15971) [@hextion](https://github.com/hextion)
 - 🌟 添加了 `@form-warning-input-bg` 和 `@form-error-input-bg` 变量来自定义表单错误状态时的背景颜色。[#15954](https://github.com/ant-design/ant-design/pull/15954) [@hextion](https://github.com/hextion)
-- 🌟 Dropdown.Button 支持 `icon` props 来自定义图标。[#15996](https://github.com/ant-design/ant-design/pull/15996) [@DiamondYuan](https://github.com/DiamondYuan)
-- 🌟 SkeletonAvatarProps 的 `size` props 支持传入数字。[#16128](https://github.com/ant-design/ant-design/pull/16128) [@MrHeer](https://github.com/MrHeer)
+- 🌟 Dropdown.Button 支持 `icon` 属性来自定义图标。[#15996](https://github.com/ant-design/ant-design/pull/15996) [@DiamondYuan](https://github.com/DiamondYuan)
+- 🌟 SkeletonAvatarProps 的 `size` 属性支持传入数字。[#16128](https://github.com/ant-design/ant-design/pull/16128) [@MrHeer](https://github.com/MrHeer)
 - 🌟 notification.config 现在支持 `getContainer` 来进行自定义 dom 渲染位置。[#16123](https://github.com/ant-design/ant-design/pull/16123) [@Nouzbe](https://github.com/Nouzbe)
-- 🌟 Drawer 支持 `afterVisibleChange` props，在抽屉动画完成后触发。[#16228](https://github.com/ant-design/ant-design/pull/16228)
-- 🌟 Form.Item 支持了 `htmlFor` props. [#16278](https://github.com/ant-design/ant-design/pull/16278)
-- 🌟 Collapse 支持 `expandIconPosition` props。[#16365](https://github.com/ant-design/ant-design/pull/16365)
+- 🌟 Drawer 支持 `afterVisibleChange` 属性，在抽屉动画完成后触发。[#16228](https://github.com/ant-design/ant-design/pull/16228)
+- 🌟 Form.Item 支持了 `htmlFor` 属性. [#16278](https://github.com/ant-design/ant-design/pull/16278)
+- 🌟 Collapse 支持 `expandIconPosition` 属性。[#16365](https://github.com/ant-design/ant-design/pull/16365)
 - 🌟 Carousel 支持自定义面板指示点的位置。[#16225](https://github.com/ant-design/ant-design/pull/16225) [@yociduo](https://github.com/yociduo)
-- 🌟 TreeNode 支持 `checkable` 的属性。[#16369](https://github.com/ant-design/ant-design/pull/16369)
+- 🌟 TreeNode 支持 `checkable` 属性。[#16369](https://github.com/ant-design/ant-design/pull/16369)
 - 🌟 🇭🇷 新增克罗地亚语言包。[#15641](https://github.com/ant-design/ant-design/pull/15641) [@fpintaric](https://github.com/fpintaric)
 - 🐞 修复 Drawer 组件的弹出动画闪烁的问题。[#16358](https://github.com/ant-design/ant-design/pull/16358)
 - 🐞 修复 Slider 的文字会换行的问题。[#15128](https://github.com/ant-design/ant-design/pull/15128)
-- 🐞 修复 Checkbox.Group `onChange` 会包含移除值得问题。[#16392](https://github.com/ant-design/ant-design/pull/16392)
+- 🐞 修复 Checkbox.Group `onChange` 会包含已移除的值的问题。[#16392](https://github.com/ant-design/ant-design/pull/16392)
 - 🐞 修正了多处 Typescript 的类型错误。[#16043](https://github.com/ant-design/ant-design/pull/16043) [#16341](https://github.com/ant-design/ant-design/pull/16341) [#16343](https://github.com/ant-design/ant-design/pull/16343) [#16360](https://github.com/ant-design/ant-design/pull/16360) [#16344](https://github.com/ant-design/ant-design/pull/16344)
 
 ## 3.16.6

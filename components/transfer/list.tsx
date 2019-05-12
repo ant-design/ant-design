@@ -110,6 +110,118 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     return 'part';
   }
 
+  getFilteredItems(
+    dataSource: TransferItem[],
+    filterValue: string,
+  ): { filteredItems: TransferItem[]; filteredRenderItems: RenderedItem[] } {
+    const filteredItems: TransferItem[] = [];
+    const filteredRenderItems: RenderedItem[] = [];
+
+    dataSource.forEach(item => {
+      const renderedItem = this.renderItem(item);
+      const { renderedText } = renderedItem;
+
+      // Filter skip
+      if (filterValue && filterValue.trim() && !this.matchFilter(renderedText, item)) {
+        return null;
+      }
+
+      filteredItems.push(item);
+      filteredRenderItems.push(renderedItem);
+    });
+
+    return { filteredItems, filteredRenderItems };
+  }
+
+  getListBody(
+    prefixCls: string,
+    searchPlaceholder: string,
+    filterValue: string,
+    filteredItems: TransferItem[],
+    notFoundContent: React.ReactNode,
+    bodyDom: React.ReactNode,
+    filteredRenderItems: RenderedItem[],
+    checkedKeys: string[],
+    renderList?: RenderListFunction,
+    showSearch?: boolean,
+    disabled?: boolean,
+  ): React.ReactNode {
+    const search = showSearch ? (
+      <div className={`${prefixCls}-body-search-wrapper`}>
+        <Search
+          prefixCls={`${prefixCls}-search`}
+          onChange={this.handleFilter}
+          handleClear={this.handleClear}
+          placeholder={searchPlaceholder}
+          value={filterValue}
+          disabled={disabled}
+        />
+      </div>
+    ) : null;
+
+    const searchNotFound = !filteredItems.length && (
+      <div className={`${prefixCls}-body-not-found`}>{notFoundContent}</div>
+    );
+
+    let listBody: React.ReactNode = bodyDom;
+    if (!listBody) {
+      let bodyNode: React.ReactNode = searchNotFound;
+      if (!bodyNode) {
+        const { bodyContent, customize } = renderListNode(renderList, {
+          ...omit(this.props, OmitProps),
+          filteredItems,
+          filteredRenderItems,
+          selectedKeys: checkedKeys,
+        });
+
+        // We should wrap customize list body in a classNamed div to use flex layout.
+        bodyNode = customize ? (
+          <div className={`${prefixCls}-body-customize-wrapper`}>{bodyContent}</div>
+        ) : (
+          bodyContent
+        );
+      }
+
+      listBody = (
+        <div
+          className={classNames(
+            showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`,
+          )}
+        >
+          {search}
+          {bodyNode}
+        </div>
+      );
+    }
+    return listBody;
+  }
+
+  getCheckBox(
+    filteredItems: TransferItem[],
+    onItemSelectAll: (dataSource: string[], checkAll: boolean) => void,
+    showSelectAll?: boolean,
+    disabled?: boolean,
+  ): false | JSX.Element {
+    const checkStatus = this.getCheckStatus(filteredItems);
+    const checkedAll = checkStatus === 'all';
+    const checkAllCheckbox = showSelectAll !== false && (
+      <Checkbox
+        disabled={disabled}
+        checked={checkedAll}
+        indeterminate={checkStatus === 'part'}
+        onChange={() => {
+          // Only select enabled items
+          onItemSelectAll(
+            filteredItems.filter(item => !item.disabled).map(({ key }) => key),
+            !checkedAll,
+          );
+        }}
+      />
+    );
+
+    return checkAllCheckbox;
+  }
+
   handleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
     const {
       target: { value: filterValue },
@@ -187,91 +299,34 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     });
 
     // ====================== Get filtered, checked item list ======================
-    const filteredItems: TransferItem[] = [];
-    const filteredRenderItems: RenderedItem[] = [];
 
-    dataSource.forEach(item => {
-      const renderedItem = this.renderItem(item);
-      const { renderedText } = renderedItem;
-
-      // Filter skip
-      if (filterValue && filterValue.trim() && !this.matchFilter(renderedText, item)) {
-        return null;
-      }
-
-      filteredItems.push(item);
-      filteredRenderItems.push(renderedItem);
-    });
+    const { filteredItems, filteredRenderItems } = this.getFilteredItems(dataSource, filterValue);
 
     // ================================= List Body =================================
     const unit = dataSource.length > 1 ? itemsUnit : itemUnit;
 
-    const search = showSearch ? (
-      <div className={`${prefixCls}-body-search-wrapper`}>
-        <Search
-          prefixCls={`${prefixCls}-search`}
-          onChange={this.handleFilter}
-          handleClear={this.handleClear}
-          placeholder={searchPlaceholder}
-          value={filterValue}
-          disabled={disabled}
-        />
-      </div>
-    ) : null;
-
-    const searchNotFound = !filteredItems.length && (
-      <div className={`${prefixCls}-body-not-found`}>{notFoundContent}</div>
+    const listBody = this.getListBody(
+      prefixCls,
+      searchPlaceholder,
+      filterValue,
+      filteredItems,
+      notFoundContent,
+      bodyDom,
+      filteredRenderItems,
+      checkedKeys,
+      renderList,
+      showSearch,
+      disabled,
     );
-
-    let listBody: React.ReactNode = bodyDom;
-    if (!listBody) {
-      let bodyNode: React.ReactNode = searchNotFound;
-      if (!bodyNode) {
-        const { bodyContent, customize } = renderListNode(renderList, {
-          ...omit(this.props, OmitProps),
-          filteredItems,
-          filteredRenderItems,
-          selectedKeys: checkedKeys,
-        });
-
-        // We should wrap customize list body in a classNamed div to use flex layout.
-        bodyNode = customize ? (
-          <div className={`${prefixCls}-body-customize-wrapper`}>{bodyContent}</div>
-        ) : (
-          bodyContent
-        );
-      }
-
-      listBody = (
-        <div
-          className={classNames(
-            showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`,
-          )}
-        >
-          {search}
-          {bodyNode}
-        </div>
-      );
-    }
 
     // ================================ List Footer ================================
     const listFooter = footerDom ? <div className={`${prefixCls}-footer`}>{footerDom}</div> : null;
 
-    const checkStatus = this.getCheckStatus(filteredItems);
-    const checkedAll = checkStatus === 'all';
-    const checkAllCheckbox = showSelectAll !== false && (
-      <Checkbox
-        disabled={disabled}
-        checked={checkedAll}
-        indeterminate={checkStatus === 'part'}
-        onChange={() => {
-          // Only select enabled items
-          onItemSelectAll(
-            filteredItems.filter(item => !item.disabled).map(({ key }) => key),
-            !checkedAll,
-          );
-        }}
-      />
+    const checkAllCheckbox = this.getCheckBox(
+      filteredItems,
+      onItemSelectAll,
+      showSelectAll,
+      disabled,
     );
 
     // ================================== Render ===================================

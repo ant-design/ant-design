@@ -66,6 +66,7 @@ export interface SelectProps<T = SelectValue> extends AbstractSelectProps {
   onMouseEnter?: (e: React.MouseEvent<HTMLInputElement>) => any;
   onMouseLeave?: (e: React.MouseEvent<HTMLInputElement>) => any;
   maxTagCount?: number;
+  maxTagTextLength?: number;
   maxTagPlaceholder?: React.ReactNode | ((omittedValues: T[]) => React.ReactNode);
   optionFilterProp?: string;
   labelInValue?: boolean;
