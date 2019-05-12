@@ -5,6 +5,29 @@ import { Group, Button, RadioChangeEvent } from '../radio';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 const Option = Select.Option;
 
+type yearType = {
+  index: number;
+  suffix: string;
+};
+
+type monthType = {
+  month: number;
+  index: number;
+};
+
+type RenderHeader = {
+  yearSelect: React.ReactNode;
+  monthSelect: React.ReactNode;
+  typeSwitch: React.ReactNode;
+  typeChange: (e: RadioChangeEvent) => void;
+  monthChange: (month: string) => void;
+  yearChange: (year: string) => void;
+  months: monthType[];
+  years: yearType[];
+  ref: (node: HTMLDivElement) => void;
+  type?: string;
+};
+
 export interface HeaderProps {
   prefixCls?: string;
   locale?: any;
@@ -16,6 +39,7 @@ export interface HeaderProps {
   onTypeChange?: (type: string) => void;
   value: any;
   validRange?: [moment.Moment, moment.Moment];
+  renderHeader?: (returnData: RenderHeader) => React.ReactNode;
 }
 
 export default class Header extends React.Component<HeaderProps, any> {
@@ -25,6 +49,15 @@ export default class Header extends React.Component<HeaderProps, any> {
   };
 
   private calenderHeaderNode: HTMLDivElement;
+
+  private years: yearType[] = [];
+
+  private months: monthType[] = [];
+
+  clearMonthsYears() {
+    this.months = [];
+    this.years = [];
+  }
 
   getYearSelectElement(prefixCls: string, year: number) {
     const { yearSelectOffset, yearSelectTotal, locale, fullscreen, validRange } = this.props;
@@ -37,6 +70,10 @@ export default class Header extends React.Component<HeaderProps, any> {
     const suffix = locale.year === '年' ? '年' : '';
     const options: React.ReactElement<any>[] = [];
     for (let index = start; index < end; index++) {
+      this.years.push({
+        index,
+        suffix,
+      });
       options.push(<Option key={`${index}`}>{index + suffix}</Option>);
     }
     return (
@@ -79,7 +116,12 @@ export default class Header extends React.Component<HeaderProps, any> {
         start = rangeStart.get('month');
       }
     }
+
     for (let index = start; index < end; index++) {
+      this.months.push({
+        month: months[index],
+        index,
+      });
       options.push(<Option key={`${index}`}>{months[index]}</Option>);
     }
     return (
@@ -97,6 +139,7 @@ export default class Header extends React.Component<HeaderProps, any> {
   }
 
   onYearChange = (year: string) => {
+    this.clearMonthsYears();
     const { value, validRange } = this.props;
     const newValue = value.clone();
     newValue.year(parseInt(year, 10));
@@ -120,6 +163,7 @@ export default class Header extends React.Component<HeaderProps, any> {
   };
 
   onMonthChange = (month: string) => {
+    this.clearMonthsYears();
     const newValue = this.props.value.clone();
     newValue.month(parseInt(month, 10));
     const onValueChange = this.props.onValueChange;
@@ -129,6 +173,7 @@ export default class Header extends React.Component<HeaderProps, any> {
   };
 
   onTypeChange = (e: RadioChangeEvent) => {
+    this.clearMonthsYears();
     const onTypeChange = this.props.onTypeChange;
     if (onTypeChange) {
       onTypeChange(e.target.value);
@@ -154,7 +199,20 @@ export default class Header extends React.Component<HeaderProps, any> {
         <Button value="year">{locale.year}</Button>
       </Group>
     );
-
+    if (this.props.renderHeader) {
+      return this.props.renderHeader({
+        yearSelect,
+        monthSelect,
+        typeSwitch,
+        type,
+        typeChange: this.onTypeChange,
+        monthChange: this.onMonthChange,
+        yearChange: this.onYearChange,
+        months: this.months,
+        years: this.years,
+        ref: this.getCalenderHeaderNode,
+      });
+    }
     return (
       <div className={`${prefixCls}-header`} ref={this.getCalenderHeaderNode}>
         {yearSelect}

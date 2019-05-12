@@ -4,6 +4,7 @@ import { mount } from 'enzyme';
 import MockDate from 'mockdate';
 import Calendar from '..';
 import Header from '../Header';
+import Select from '../../select';
 
 describe('Calendar', () => {
   it('Calendar should be selectable', () => {
@@ -255,5 +256,40 @@ describe('Calendar', () => {
       .at(1)
       .simulate('change');
     expect(onTypeChange).toHaveBeenCalledWith('year');
+  });
+
+  it('Calendar with custom header', () => {
+    const onSelect = jest.fn();
+    const wrapper = mount(
+      <Calendar
+        headerRender={returnData => (
+          <div style={{ padding: 10, border: '1px solid #d9d9d9' }}>
+            <Select defaultValue="Mar" onChange={onSelect} style={{ width: '100px' }}>
+              {returnData.month.map(item => (
+                <Select.Option key={item.index}>{item.month}</Select.Option>
+              ))}
+            </Select>
+          </div>
+        )}
+      />,
+    );
+    wrapper
+      .find('.ant-select')
+      .at(0)
+      .simulate('click');
+    wrapper.update();
+    const dropdownWrapper = mount(
+      wrapper
+        .find('Trigger')
+        .first()
+        .getComponent(),
+    );
+
+    expect(dropdownWrapper.find('MenuItem').length).toBe(12);
+    wrapper
+      .find('.ant-select-dropdown-menu-item')
+      .last()
+      .simulate('click');
+    expect(onSelect).toHaveBeenCalled();
   });
 });

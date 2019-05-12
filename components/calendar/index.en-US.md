@@ -45,3 +45,5 @@ When data is in the form of dates, such as schedules, timetables, prices calenda
 | onPanelChange | Callback for when panel changes | function(date: moment, mode: string) | - |
 | onSelect | Callback for when a date is selected | function(date: moment） | - |
 | onChange | Callback for when date changes | function(date: moment） | - |
+| renderHeader | render custom header in panel | function(object:{months:[], monthChange:ƒ(month),monthSelect: ReactNode,ref: ƒ(node),type: string "month\|year", typeChange: ƒ(e),typeSwitch: ReactNode,yearChange: ƒ(year),yearSelect: ReactNode,years:[]}) | - |
+| size | null | change spacing and font size to smaller | - |
