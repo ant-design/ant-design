@@ -262,10 +262,10 @@ describe('Calendar', () => {
     const onSelect = jest.fn();
     const wrapper = mount(
       <Calendar
-        headerRender={returnData => (
+        renderHeader={returnData => (
           <div style={{ padding: 10, border: '1px solid #d9d9d9' }}>
             <Select defaultValue="Mar" onChange={onSelect} style={{ width: '100px' }}>
-              {returnData.month.map(item => (
+              {returnData.months.map(item => (
                 <Select.Option key={item.index}>{item.month}</Select.Option>
               ))}
             </Select>
@@ -273,19 +273,13 @@ describe('Calendar', () => {
         )}
       />,
     );
+
     wrapper
       .find('.ant-select')
-      .at(0)
+      .first()
       .simulate('click');
     wrapper.update();
-    const dropdownWrapper = mount(
-      wrapper
-        .find('Trigger')
-        .first()
-        .getComponent(),
-    );
-
-    expect(dropdownWrapper.find('MenuItem').length).toBe(12);
+    expect(wrapper.find('MenuItem').length).toBe(12);
     wrapper
       .find('.ant-select-dropdown-menu-item')
       .last()
