@@ -15,6 +15,12 @@ timeline: true
 
 ---
 
+## 3.18.1
+
+`2019-05-13`
+
+- 🐞 移除打包后多余的 `module.export`。[#antd-tools](https://github.com/ant-design/antd-tools/commit/b9e230c91551af5b4555f672130b14304ff58357)
+
 ## 3.18.0
 
 `2019-05-12`
