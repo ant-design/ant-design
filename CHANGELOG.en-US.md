@@ -19,8 +19,8 @@ timeline: true
 
 `2019-05-12`
 
-- 🌟 Transfer support children prop to customize render list. [#16026](https://github.com/ant-design/ant-design/pull/16026)
-- 🌟 Pagination support disabled prop. [#16493](https://github.com/ant-design/ant-design/pull/16493)
+- 🌟 Transfer support `children` prop to customize render list. [#16026](https://github.com/ant-design/ant-design/pull/16026)
+- 🌟 Pagination support `disabled` prop. [#16493](https://github.com/ant-design/ant-design/pull/16493)
 - 🌟 Upgrade `@ant-design/icons` and `@ant-design/icons-react` to 2.0 for fix lots of missing icons. [#15874](https://github.com/ant-design/ant-design/pull/15874)
 - 🐞 Fix Form `hasFeedback` overlap issue with Input.Password. [#16445](https://github.com/ant-design/ant-design/pull/16445)
 - 🐞 Fix Select selected and disabled item wrong hover color. [#16477](https://github.com/ant-design/ant-design/pull/16477)
