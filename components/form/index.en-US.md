@@ -22,13 +22,10 @@ You can align the controls of a `form` using the `layout` prop：
 
 ## Form Item Component
 
-A form consists of one or more form fields whose type includes input, textarea, checkbox, radio, select, tag, and more.
-A form field is defined using `<Form.Item />`.
+A form consists of one or more form fields whose type includes input, textarea, checkbox, radio, select, tag, and more. A form field is defined using `<Form.Item />`.
 
 ```jsx
-<Form.Item {...props}>
-  {children}
-</Form.Item>
+<Form.Item {...props}>{children}</Form.Item>
 ```
 
 ## API
@@ -38,7 +35,7 @@ A form field is defined using `<Form.Item />`.
 **more example [rc-form](http://react-component.github.io/form/)**。
 
 | Property | Description | Type | Default Value |
-| -------- | ----------- | ---- | ------------- |
+| --- | --- | --- | --- |
 | form | Decorated by `Form.create()` will be automatically set `this.props.form` property | object | n/a |
 | hideRequiredMark | Hide required mark of all form items | Boolean | false |
 | labelAlign | Label text align | 'left' \| 'right' | 'right' |
@@ -61,7 +58,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 The following `options` are available:
 
 | Property | Description | Type |
-| -------- | ----------- | ---- |
+| --- | --- | --- |
 | mapPropsToFields | Convert props to field value(e.g. reading the values from Redux store). And you must mark returned fields with [`Form.createFormField`](#Form.createFormField). Please note that the form fields will become controlled components. Properties like errors will not be automatically mapped and need to be manually passed in. | (props) => ({ \[fieldName\]: FormField { value } }) |
 | name | Set the id prefix of fields under form | - |
 | validateMessages | Default validate message. And its format is similar with [newMessages](https://github.com/yiminghe/async-validator/blob/master/src/messages.js)'s returned value | Object { \[nested.path]: String } |
@@ -84,7 +81,7 @@ If the form has been decorated by `Form.create` then it has `this.props.form` pr
 > Note: Before using `getFieldsValue` `getFieldValue` `setFieldsValue` and so on, please make sure that corresponding field had been registered with `getFieldDecorator`.
 
 | Method | Description | Type |
-| ------ | ----------- | ---- |
+| --- | --- | --- |
 | getFieldDecorator | Two-way binding for form, please read below for details. |  |
 | getFieldError | Get the error of a field. | Function(name) |
 | getFieldsError | Get the specified fields' error. If you don't specify a parameter, you will get all fields' error. | Function(\[names: string\[]]) |
@@ -102,7 +99,9 @@ If the form has been decorated by `Form.create` then it has `this.props.form` pr
 ### validateFields/validateFieldsAndScroll
 
 ```jsx
-const { form: { validateFields } } = this.props;
+const {
+  form: { validateFields },
+} = this.props;
 validateFields((errors, values) => {
   // ...
 });
@@ -115,7 +114,7 @@ validateFields(['field1', 'field2'], options, (errors, values) => {
 ```
 
 | Method | Description | Type | Default |
-| ------ | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | options.first | If `true`, every field will stop validation at first failed rule | boolean | false |
 | options.firstFields | Those fields will stop validation at first failed rule | String\[] | \[] |
 | options.force | Should validate validated field again when `validateTrigger` is been triggered again | boolean | false |
@@ -125,35 +124,35 @@ validateFields(['field1', 'field2'], options, (errors, values) => {
 
 - `errors`:
 
-   ```js
-   {
-     "username": {
-       "errors": [
-         {
-           "message": "Please input your username!",
-           "field": "username"
-         }
-       ]
-     },
-     "password": {
-       "errors": [
-         {
-           "message": "Please input your Password!",
-           "field": "password"
-         }
-       ]
-     }
-   }
-   ```
+  ```js
+  {
+    "username": {
+      "errors": [
+        {
+          "message": "Please input your username!",
+          "field": "username"
+        }
+      ]
+    },
+    "password": {
+      "errors": [
+        {
+          "message": "Please input your Password!",
+          "field": "password"
+        }
+      ]
+    }
+  }
+  ```
 
 - `values`:
 
-   ```js
-   {
-     "username": "username",
-     "password": "password",
-   }
-   ```
+  ```js
+  {
+    "username": "username",
+    "password": "password",
+  }
+  ```
 
 ### Form.createFormField
 
@@ -174,10 +173,10 @@ If you use `react@<15.3.0`, then, you can't use `getFieldDecorator` in stateless
 #### getFieldDecorator(id, options) parameters
 
 | Property | Description | Type | Default Value |
-| -------- | ----------- | ---- | ------------- |
+| --- | --- | --- | --- |
 | id | The unique identifier is required. support [nested fields format](https://github.com/react-component/form/pull/48). | string |  |
 | options.getValueFromEvent | Specify how to get value from event or other onChange arguments | function(..args) | [reference](https://github.com/react-component/form#option-object) |
-| options.getValueProps | Get the component props according to field value. | function(value): any | [reference](https://github.com/react-component/form#option-object)
+| options.getValueProps | Get the component props according to field value. | function(value): any | [reference](https://github.com/react-component/form#option-object) |
 | options.initialValue | You can specify initial value, type, optional value of children node. (Note: Because `Form` will test equality with `===` internally, we recommend to use variable as `initialValue`, instead of literal) |  | n/a |
 | options.normalize | Normalize value to form component, [a select-all example](https://codepen.io/afc163/pen/JJVXzG?editors=001) | function(value, prevValue, allValues): any | - |
 | options.preserve | Keep the field even if field removed | boolean | - |
@@ -194,22 +193,22 @@ More option at [rc-form option](https://github.com/react-component/form#option-o
 Note: if Form.Item has multiple children that had been decorated by `getFieldDecorator`, `help` and `required` and `validateStatus` can't be generated automatically.
 
 | Property | Description | Type | Default Value | Version |
-| -------- | ----------- | ---- | ------------- | ------- |
-| colon | Used with `label`, whether to display `:` after label text. | boolean | true | |
-| extra | The extra prompt message. It is similar to help. Usage example: to display error message and prompt message at the same time. | string\|ReactNode | | |
-| hasFeedback | Used with `validateStatus`, this option specifies the validation status icon. Recommended to be used only with `Input`. | boolean | false | |
-| help | The prompt message. If not provided, the prompt message will be generated by the validation rule. | string\|ReactNode | | |
-| htmlFor | Set sub label `htmlFor`. | string | | 3.17.0 |
-| label | Label text | string\|ReactNode | | |
-| labelCol | The layout of label. You can set `span` `offset` to something like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` same as with `<Col>`. You can set on Form one time after 3.14.0. Will take FormItem's prop when both set with Form. | [object](https://ant.design/components/grid/#Col) | | |
-| required | Whether provided or not, it will be generated by the validation rule. | boolean | false | |
-| validateStatus | The validation status. If not provided, it will be generated by validation rule. options: 'success' 'warning' 'error' 'validating' | string | | |
-| wrapperCol | The layout for input controls, same as `labelCol`. You can set on Form one time after 3.14.0. Will take FormItem's prop when both set with Form. | [object](https://ant.design/components/grid/#Col) | | |
+| --- | --- | --- | --- | --- |
+| colon | Used with `label`, whether to display `:` after label text. | boolean | true |  |
+| extra | The extra prompt message. It is similar to help. Usage example: to display error message and prompt message at the same time. | string\|ReactNode |  |  |
+| hasFeedback | Used with `validateStatus`, this option specifies the validation status icon. Recommended to be used only with `Input`. | boolean | false |  |
+| help | The prompt message. If not provided, the prompt message will be generated by the validation rule. | string\|ReactNode |  |  |
+| htmlFor | Set sub label `htmlFor`. | string |  | 3.17.0 |
+| label | Label text | string\|ReactNode |  |  |
+| labelCol | The layout of label. You can set `span` `offset` to something like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` same as with `<Col>`. You can set on Form one time after 3.14.0. Will take FormItem's prop when both set with Form. | [object](https://ant.design/components/grid/#Col) |  |  |
+| required | Whether provided or not, it will be generated by the validation rule. | boolean | false |  |
+| validateStatus | The validation status. If not provided, it will be generated by validation rule. options: 'success' 'warning' 'error' 'validating' | string |  |  |
+| wrapperCol | The layout for input controls, same as `labelCol`. You can set on Form one time after 3.14.0. Will take FormItem's prop when both set with Form. | [object](https://ant.design/components/grid/#Col) |  |  |
 
 ### Validation Rules
 
 | Property | Description | Type | Default Value |
-| -------- | ----------- | ---- | ------------- |
+| --- | --- | --- | --- |
 | enum | validate a value from a list of possible values | string | - |
 | len | validate an exact length of a field | number | - |
 | max | validate a max length of a field | number | - |
@@ -239,9 +238,12 @@ class UserForm extends React.Component<UserFormProps, any> {
   // ...
 }
 
-const App = Form.create<UserFormProps>({
-  // ...
-})(UserForm);
+const App =
+  Form.create <
+  UserFormProps >
+  {
+    // ...
+  }(UserForm);
 ```
 
 <style>

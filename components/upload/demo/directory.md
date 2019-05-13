@@ -13,7 +13,7 @@ title:
 
 You can select and upload a whole directory.
 
-````jsx
+```jsx
 import { Upload, Button, Icon } from 'antd';
 
 ReactDOM.render(
@@ -22,6 +22,6 @@ ReactDOM.render(
       <Icon type="upload" /> Upload Directory
     </Button>
   </Upload>,
-  mountNode
+  mountNode,
 );
-````
+```

@@ -13,7 +13,7 @@ When a numeric value needs to be provided.
 ## API
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | autoFocus | get focus when component mounted | boolean | false |
 | defaultValue | initial value | number |  |
 | disabled | disable the input | boolean | false |
@@ -30,7 +30,7 @@ When a numeric value needs to be provided.
 
 ## Methods
 
-| Name | Description |
-| ---- | ----------- |
-| blur() | remove focus |
-| focus() | get focus |
+| Name    | Description  |
+| ------- | ------------ |
+| blur()  | remove focus |
+| focus() | get focus    |

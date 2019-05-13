@@ -13,7 +13,7 @@ title:
 
 With text and icon.
 
-````jsx
+```jsx
 import { Switch, Icon } from 'antd';
 
 ReactDOM.render(
@@ -22,8 +22,12 @@ ReactDOM.render(
     <br />
     <Switch checkedChildren="1" unCheckedChildren="0" />
     <br />
-    <Switch checkedChildren={<Icon type="check" />} unCheckedChildren={<Icon type="close" />} defaultChecked />
+    <Switch
+      checkedChildren={<Icon type="check" />}
+      unCheckedChildren={<Icon type="close" />}
+      defaultChecked
+    />
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```

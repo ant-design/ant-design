@@ -6,7 +6,6 @@ title: Data Display
 
 The suitable way to display data helps users quickly locate and browse data, and work together more efficiently. There are the following points to note when designing:
 
-
 - Organize the order of presentations according to the importance level of the information, the frequency of operation, and the degree of association.
 - Pay attention to the guidance in extreme situations. For example, the data information is too long, and the initial state when content is empty.
 
@@ -19,6 +18,7 @@ The suitable way to display data helps users quickly locate and browse data, and
 The table is recognized as one of the clearest and most efficient forms of presentation data. It is often used in conjunction with other interface elements such as sorting, searching, filtering, and paging, and is suitable for information collection and display, data analysis and induction, and manipulation of structured data. It's structure is simple, it's separation and induction are clear, the information is easier to compare, and the user's receiving efficiency and understanding of the information is greatly improved.
 
 > Note:
+>
 > 1. The time, status, and action bar in the table need to keep the words intact without occupying multiple lines.
 > 2. When the data is empty, use "- -" to indicate that there is no data.
 
@@ -30,8 +30,7 @@ Collapse guides the user to obtain information in a progressive manner by foldin
 
 These components are used extensively in navigation and are also suitable for lengthy, irregular content management.
 
-> Note:
-> If the collapsed content has little conjunction to each other, you can use the more space-saving "accordion" mode - "accordion" is a special collapse that allows only a single content area to be unfolded.
+> Note: If the collapsed content has little conjunction to each other, you can use the more space-saving "accordion" mode - "accordion" is a special collapse that allows only a single content area to be unfolded.
 
 ---
 
@@ -42,6 +41,7 @@ These components are used extensively in navigation and are also suitable for le
 A card is a container for carrying information. There is not too much limit to the types of content that can be carried. It makes a type of information centralized, enhances the sense of block and is easier to operate. Cards are usually arranged in a grid or matrix to convey the hierarchical relationship between each other. Cards are suitable for lighter and more personalized information block display.
 
 > Note:
+>
 > 1. Cards are usually arranged according to the grid, and a maximum of four lines is recommended.
 > 2. In the limited card space, you need to pay attention to the spacing between the information. If the information is too long, you can cut off the information. For example, "Ant Design is suitable for the middle station..."
 
@@ -54,6 +54,7 @@ A card is a container for carrying information. There is not too much limit to t
 As a set of same hierarchy content parallel display mode, often used for picture or card carousel, can be triggered by the user or the system automatically rotates. It is suitable for display blocks such as the official website home page and product introduction page.
 
 > Note:
+>
 > 1. The number of carousels should not be too much to avoid user boredom, it is best to control between 3 and 5.
 > 2. It is recommended to provide hints on the design to allow users to maintain a clear understanding of the number and direction of the carousel.
 

@@ -13,27 +13,32 @@ title:
 
 Customize render list with Table component.
 
-````jsx
+```jsx
 import { Transfer, Switch, Table, Tag } from 'antd';
 import difference from 'lodash/difference';
 
 // Customize Table Transfer
 const TableTransfer = ({ leftColumns, rightColumns, ...restProps }) => (
-  <Transfer
-    {...restProps}
-    showSelectAll={false}
-  >
+  <Transfer {...restProps} showSelectAll={false}>
     {({
-      direction, filteredItems, onItemSelectAll, onItemSelect, selectedKeys: listSelectedKeys, disabled: listDisabled,
+      direction,
+      filteredItems,
+      onItemSelectAll,
+      onItemSelect,
+      selectedKeys: listSelectedKeys,
+      disabled: listDisabled,
     }) => {
       const columns = direction === 'left' ? leftColumns : rightColumns;
 
       const rowSelection = {
-        getCheckboxProps: (item) => ({ disabled: listDisabled || item.disabled }),
+        getCheckboxProps: item => ({ disabled: listDisabled || item.disabled }),
         onSelectAll(selected, selectedRows) {
-          const treeSelectedKeys = selectedRows.filter(item => !item.disabled).map(({ key }) => key);
-          const diffKeys = selected ?
-            difference(treeSelectedKeys, listSelectedKeys) : difference(listSelectedKeys, treeSelectedKeys);
+          const treeSelectedKeys = selectedRows
+            .filter(item => !item.disabled)
+            .map(({ key }) => key);
+          const diffKeys = selected
+            ? difference(treeSelectedKeys, listSelectedKeys)
+            : difference(listSelectedKeys, treeSelectedKeys);
           onItemSelectAll(diffKeys, selected);
         },
         onSelect({ key }, selected) {
@@ -61,9 +66,7 @@ const TableTransfer = ({ leftColumns, rightColumns, ...restProps }) => (
   </Transfer>
 );
 
-const mockTags = [
-  'cat', 'dog', 'bird',
-];
+const mockTags = ['cat', 'dog', 'bird'];
 
 const mockData = [];
 for (let i = 0; i < 20; i++) {
@@ -76,9 +79,7 @@ for (let i = 0; i < 20; i++) {
   });
 }
 
-const originTargetKeys = mockData
-  .filter(item => +item.key % 3 > 1)
-  .map(item => item.key);
+const originTargetKeys = mockData.filter(item => +item.key % 3 > 1).map(item => item.key);
 
 const leftTableColumns = [
   {
@@ -107,17 +108,17 @@ class App extends React.Component {
     targetKeys: originTargetKeys,
     disabled: false,
     showSearch: false,
-  }
+  };
 
-  onChange = (nextTargetKeys) => {
+  onChange = nextTargetKeys => {
     this.setState({ targetKeys: nextTargetKeys });
-  }
+  };
 
-  triggerDisable = (disabled) => {
+  triggerDisable = disabled => {
     this.setState({ disabled });
   };
 
-  triggerShowSearch = (showSearch) => {
+  triggerShowSearch = showSearch => {
     this.setState({ showSearch });
   };
 
@@ -131,10 +132,9 @@ class App extends React.Component {
           disabled={disabled}
           showSearch={showSearch}
           onChange={this.onChange}
-          filterOption={(inputValue, item) => (
-            item.title.indexOf(inputValue) !== -1 ||
-            item.tag.indexOf(inputValue) !== -1
-          )}
+          filterOption={(inputValue, item) =>
+            item.title.indexOf(inputValue) !== -1 || item.tag.indexOf(inputValue) !== -1
+          }
           leftColumns={leftTableColumns}
           rightColumns={rightTableColumns}
         />
@@ -158,4 +158,4 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, mountNode);
-````
+```

@@ -13,7 +13,7 @@ title:
 
 More than one panel can be expanded at a time, the first panel is initialized to be active in this case.
 
-````jsx
+```jsx
 import { Collapse, Icon, Select } from 'antd';
 
 const { Panel } = Collapse;
@@ -32,7 +32,7 @@ const text = `
 const genExtra = () => (
   <Icon
     type="setting"
-    onClick={(event) => {
+    onClick={event => {
       // If you don't want click extra trigger collapse, you can prevent this:
       event.stopPropagation();
     }}
@@ -44,7 +44,7 @@ class Demo extends React.Component {
     expandIconPosition: 'left',
   };
 
-  onPositionChange = (expandIconPosition) => {
+  onPositionChange = expandIconPosition => {
     this.setState({ expandIconPosition });
   };
 
@@ -52,7 +52,11 @@ class Demo extends React.Component {
     const { expandIconPosition } = this.state;
     return (
       <div>
-        <Collapse defaultActiveKey={['1']} onChange={callback} expandIconPosition={expandIconPosition}>
+        <Collapse
+          defaultActiveKey={['1']}
+          onChange={callback}
+          expandIconPosition={expandIconPosition}
+        >
           <Panel header="This is panel header 1" key="1" extra={genExtra()}>
             <div>{text}</div>
           </Panel>
@@ -63,10 +67,8 @@ class Demo extends React.Component {
             <div>{text}</div>
           </Panel>
         </Collapse>
-
         <br />
-        Expand Icon Position:
-        {' '}
+        Expand Icon Position:{' '}
         <Select value={expandIconPosition} onChange={this.onPositionChange}>
           <Option value="left">left</Option>
           <Option value="right">right</Option>
@@ -77,4 +79,4 @@ class Demo extends React.Component {
 }
 
 ReactDOM.render(<Demo />, mountNode);
-````
+```

@@ -18,7 +18,7 @@ Checkbox component.
 #### Checkbox
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | autoFocus | get focus when component mounted | boolean | false |
 | checked | Specifies whether the checkbox is selected. | boolean | false |
 | defaultChecked | Specifies the initial state: whether or not the checkbox is selected. | boolean | false |
@@ -29,7 +29,7 @@ Checkbox component.
 #### Checkbox Group
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | defaultValue | Default selected value | string\[] | \[] |
 | disabled | Disable all checkboxes | boolean | false |
 | name | The `name` property of all `input[type="checkbox"]` children | string | - |
@@ -41,7 +41,7 @@ Checkbox component.
 
 #### Checkbox
 
-| Name | Description |
-| ---- | ----------- |
-| blur() | remove focus |
-| focus() | get focus |
+| Name    | Description  |
+| ------- | ------------ |
+| blur()  | remove focus |
+| focus() | get focus    |

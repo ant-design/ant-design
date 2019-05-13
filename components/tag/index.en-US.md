@@ -17,7 +17,7 @@ Tag for categorizing or markup.
 ### Tag
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | afterClose | Callback executed when close animation is completed, please use `onClose`, we will remove this in the next version | () => void | - |
 | closable | Whether the Tag can be closed | boolean | `false` |
 | color | Color of the Tag | string | - |
@@ -26,7 +26,7 @@ Tag for categorizing or markup.
 
 ### Tag.CheckableTag
 
-| Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
-| checked | Checked status of Tag | boolean | `false` |
-| onChange | Callback executed when Tag is checked/unchecked | (checked) => void | - |
+| Property | Description                                     | Type              | Default |
+| -------- | ----------------------------------------------- | ----------------- | ------- |
+| checked  | Checked status of Tag                           | boolean           | `false` |
+| onChange | Callback executed when Tag is checked/unchecked | (checked) => void | -       |

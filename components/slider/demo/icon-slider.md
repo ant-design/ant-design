@@ -13,17 +13,17 @@ title:
 
 You can add an icon beside the slider to make it meaningful.
 
-````jsx
+```jsx
 import { Slider, Icon } from 'antd';
 
 class IconSlider extends React.Component {
   state = {
     value: 0,
-  }
+  };
 
-  handleChange = (value) => {
+  handleChange = value => {
     this.setState({ value });
-  }
+  };
 
   render() {
     const { max, min } = this.props;
@@ -42,9 +42,9 @@ class IconSlider extends React.Component {
 }
 
 ReactDOM.render(<IconSlider min={0} max={20} />, mountNode);
-````
+```
 
-````css
+```css
 .icon-wrapper {
   position: relative;
   padding: 0px 30px;
@@ -57,7 +57,7 @@ ReactDOM.render(<IconSlider min={0} max={20} />, mountNode);
   height: 16px;
   line-height: 1;
   font-size: 16px;
-  color: rgba(0, 0, 0, .25);
+  color: rgba(0, 0, 0, 0.25);
 }
 
 .icon-wrapper .anticon:first-child {
@@ -67,4 +67,4 @@ ReactDOM.render(<IconSlider min={0} max={20} />, mountNode);
 .icon-wrapper .anticon:last-child {
   right: 0;
 }
-````
+```

@@ -13,7 +13,7 @@ title:
 
 Search the options while expanded.
 
-````jsx
+```jsx
 import { Select } from 'antd';
 
 const Option = Select.Option;
@@ -44,12 +44,14 @@ ReactDOM.render(
     onFocus={onFocus}
     onBlur={onBlur}
     onSearch={onSearch}
-    filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
+    filterOption={(input, option) =>
+      option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+    }
   >
     <Option value="jack">Jack</Option>
     <Option value="lucy">Lucy</Option>
     <Option value="tom">Tom</Option>
   </Select>,
-  mountNode
+  mountNode,
 );
-````
+```

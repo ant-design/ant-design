@@ -16,7 +16,7 @@ title: AutoComplete
 
 ```jsx
 const dataSource = ['12345', '23456', '34567'];
-<AutoComplete dataSource={dataSource} />
+<AutoComplete dataSource={dataSource} />;
 ```
 
 | 参数 | 说明 | 类型 | 默认值 |
@@ -45,7 +45,7 @@ const dataSource = ['12345', '23456', '34567'];
 
 ## 方法
 
-| 名称 | 描述 |
-| --- | --- |
-| blur() | 移除焦点 |
+| 名称    | 描述     |
+| ------- | -------- |
+| blur()  | 移除焦点 |
 | focus() | 获取焦点 |

@@ -24,7 +24,7 @@ This components provides some static methods, with usage and arguments as follow
 - `message.loading(content, [duration], onClose)`
 
 | Argument | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | content | content of the message | string\|ReactNode | - |
 | duration | time(seconds) before auto-dismiss, don't dismiss if set to 0 | number | 1.5 |
 | onClose | Specify a function that will be called when the message is closed | Function | - |
@@ -41,7 +41,7 @@ where `level` refers one static methods of `message`. The result of `then` metho
 The properties of config are as follows:
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | content | content of the message | ReactNode | - |
 | duration | time(seconds) before auto-dismiss, don't dismiss if set to 0 | number | 3 |
 | onClose | Specify a function that will be called when the message is closed | function | - |
@@ -65,7 +65,7 @@ message.config({
 ```
 
 | Argument | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | duration | time before auto-dismiss, in seconds | number | 1.5 |
 | getContainer | Return the mount node for Message | () => HTMLElement | () => document.body |
 | maxCount | max message show, drop oldest if exceed limit | number | - |

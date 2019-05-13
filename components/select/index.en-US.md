@@ -14,15 +14,15 @@ Select component to select value from options.
 ## API
 
 ```html
-<Select>
-  <Option value="lucy">lucy</Option>
-</Select>
+<select>
+  <option value="lucy">lucy</option>
+</select>
 ```
 
 ### Select props
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | allowClear | Show clear button. | boolean | false |
 | autoClearSearchValue | Whether the current search will be cleared on selecting an item. Only applies when `mode` is set to `multiple` or `tags`. | boolean | true |
 | autoFocus | Get focus by default | boolean | false |
@@ -38,6 +38,7 @@ Select component to select value from options.
 | getPopupContainer | Parent Node which the selector should be rendered to. Default to `body`. When position issues happen, try to modify it into scrollable content and position it relative. [Example](https://codesandbox.io/s/4j168r7jw0) | function(triggerNode) | () => document.body |
 | labelInValue | whether to embed label in value, turn the format of value from `string` to `{key: string, label: ReactNode}` | boolean | false |
 | maxTagCount | Max tag count to show | number | - |
+| maxTagTextLength | Max tag count to show | number | - |
 | maxTagPlaceholder | Placeholder for not showing tags | ReactNode/function(omittedValues) | - |
 | mode | Set mode of Select | 'default' \| 'multiple' \| 'tags' | 'default' |
 | notFoundContent | Specify content to show when no result matches.. | string | 'Not Found' |
@@ -70,15 +71,15 @@ Select component to select value from options.
 
 ### Select Methods
 
-| Name | Description |
-| ---- | ----------- |
-| blur() | Remove focus |
-| focus() | Get focus |
+| Name    | Description  |
+| ------- | ------------ |
+| blur()  | Remove focus |
+| focus() | Get focus    |
 
 ### Option props
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | disabled | Disable this option | boolean | false |
 | key | Same usage as `value`. If React request you to set this property, you can set it to value of option, and then omit value property. | string |  |
 | title | `title` of Select after select this Option | string | - |
@@ -87,7 +88,7 @@ Select component to select value from options.
 
 ### OptGroup props
 
-| Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
-| key |  | string | - |
-| label | Group label | string\|React.Element | - |
+| Property | Description | Type                  | Default |
+| -------- | ----------- | --------------------- | ------- |
+| key      |             | string                | -       |
+| label    | Group label | string\|React.Element | -       |

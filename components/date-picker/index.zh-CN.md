@@ -22,14 +22,14 @@ subtitle: 日期选择框
 
 ### 国际化配置
 
-默认配置为 en-US，如果你需要设置其他语言，推荐在入口处使用我们提供的国际化组件，详见：[LocaleProvider国际化](http://ant.design/components/locale-provider-cn/)。
+默认配置为 en-US，如果你需要设置其他语言，推荐在入口处使用我们提供的国际化组件，详见：[LocaleProvider 国际化](http://ant.design/components/locale-provider-cn/)。
 
 如有特殊需求（仅修改单一组件的语言），请使用 locale 参数，参考：[默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json)。
 
 ```jsx
 import locale from 'antd/lib/date-picker/locale/zh_CN';
 
-<DatePicker locale={locale} />
+<DatePicker locale={locale} />;
 ```
 
 **注意：**DatePicker、MonthPicker、RangePicker、WeekPicker 部分 locale 是从 value 中读取，所以请先正确设置 moment 的 locale。
@@ -40,7 +40,7 @@ import moment from 'moment';
 import 'moment/locale/zh-cn';
 moment.locale('zh-cn');
 
-<DatePicker defaultValue={moment('2015-01-01', 'YYYY-MM-DD')} />
+<DatePicker defaultValue={moment('2015-01-01', 'YYYY-MM-DD')} />;
 ```
 
 ### 共同的 API
@@ -69,9 +69,9 @@ moment.locale('zh-cn');
 
 ### 共同的方法
 
-| 名称 | 描述 |
-| --- | --- |
-| blur() | 移除焦点 |
+| 名称    | 描述     |
+| ------- | -------- |
+| blur()  | 移除焦点 |
 | focus() | 获取焦点 |
 
 ### DatePicker
@@ -119,19 +119,19 @@ moment.locale('zh-cn');
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| defaultValue | 默认日期 | [moment](http://momentjs.com/)\[] | 无 | |
-| defaultPickerValue | 默认面板日期 | [moment](http://momentjs.com/)\[] | 无 | |
-| disabledTime | 不可选择的时间 | function(dates: \[moment, moment\], partial: `'start'|'end'`) | 无 | |
-| format | 展示的日期格式 | string | "YYYY-MM-DD HH:mm:ss" | |
-| ranges | 预设时间范围快捷选择 | { \[range: string]: [moment](http://momentjs.com/)\[] } \| { \[range: string]: () => [moment](http://momentjs.com/)\[] } | 无 | |
-| renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - | |
+| defaultValue | 默认日期 | [moment](http://momentjs.com/)\[] | 无 |  |
+| defaultPickerValue | 默认面板日期 | [moment](http://momentjs.com/)\[] | 无 |  |
+| disabledTime | 不可选择的时间 | function(dates: \[moment, moment\], partial: `'start'|'end'`) | 无 |  |
+| format | 展示的日期格式 | string | "YYYY-MM-DD HH:mm:ss" |  |
+| ranges | 预设时间范围快捷选择 | { \[range: string]: [moment](http://momentjs.com/)\[] } \| { \[range: string]: () => [moment](http://momentjs.com/)\[] } | 无 |  |
+| renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |  |
 | separator | 设置分隔符 | string | '~' | 3.14.0 |
-| showTime | 增加时间选择功能 | Object\|boolean | [TimePicker Options](/components/time-picker/#API) | |
-| showTime.defaultValue | 设置用户选择日期时默认的时分秒，[例子](#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/)\[] | \[moment(), moment()] | |
-| value | 日期 | [moment](http://momentjs.com/)\[] | 无 | |
-| onCalendarChange | 待选日期发生变化的回调 | function(dates: \[moment, moment\], dateStrings: \[string, string\]) | 无 | |
-| onChange | 日期范围发生变化的回调 | function(dates: \[moment, moment\], dateStrings: \[string, string\]) | 无 | |
-| onOk | 点击确定按钮的回调 | function(dates: [moment](http://momentjs.com/)\[]) | - | |
+| showTime | 增加时间选择功能 | Object\|boolean | [TimePicker Options](/components/time-picker/#API) |  |
+| showTime.defaultValue | 设置用户选择日期时默认的时分秒，[例子](#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/)\[] | \[moment(), moment()] |  |
+| value | 日期 | [moment](http://momentjs.com/)\[] | 无 |  |
+| onCalendarChange | 待选日期发生变化的回调 | function(dates: \[moment, moment\], dateStrings: \[string, string\]) | 无 |  |
+| onChange | 日期范围发生变化的回调 | function(dates: \[moment, moment\], dateStrings: \[string, string\]) | 无 |  |
+| onOk | 点击确定按钮的回调 | function(dates: [moment](http://momentjs.com/)\[]) | - |  |
 
 <style>
 .code-box-demo .ant-calendar-picker {

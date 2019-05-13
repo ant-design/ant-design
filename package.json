@@ -1,8 +1,8 @@
 {
   "name": "antd",
-  "version": "3.16.6",
+  "version": "3.18.1",
   "title": "Ant Design",
-  "description": "An enterprise-class UI design language and React-based implementation",
+  "description": "An enterprise-class UI design language and React components implementation",
   "homepage": "http://ant.design/",
   "keywords": [
     "ant",
@@ -45,7 +45,6 @@
     "@ant-design/create-react-context": "^0.2.4",
     "@ant-design/icons": "~2.0.0",
     "@ant-design/icons-react": "~2.0.0",
-    "@types/hoist-non-react-statics": "^3.3.1",
     "@types/react-slick": "^0.23.3",
     "array-tree-filter": "^2.1.0",
     "babel-runtime": "6.x",
@@ -64,7 +63,7 @@
     "rc-cascader": "~0.17.0",
     "rc-checkbox": "~2.1.5",
     "rc-collapse": "~1.11.1",
-    "rc-dialog": "~7.3.0",
+    "rc-dialog": "~7.4.0",
     "rc-drawer": "~1.8.0",
     "rc-dropdown": "~2.4.1",
     "rc-editor-mention": "^1.1.7",
@@ -73,7 +72,7 @@
     "rc-mentions": "~0.2.0",
     "rc-menu": "~7.4.12",
     "rc-notification": "~3.3.0",
-    "rc-pagination": "~1.17.7",
+    "rc-pagination": "~1.18.0",
     "rc-progress": "~2.3.0",
     "rc-rate": "~2.5.0",
     "rc-select": "~9.1.0",
@@ -108,7 +107,7 @@
     "@yesmeck/offline-plugin": "^5.0.5",
     "ansi-styles": "^3.2.1",
     "antd-theme-generator": "^1.1.4",
-    "antd-tools": "^7.3.0",
+    "antd-tools": "^7.3.5",
     "babel-eslint": "^10.0.1",
     "babel-plugin-add-react-displayname": "^0.0.5",
     "bisheng": "^1.2.4",
@@ -139,7 +138,7 @@
     "fetch-jsonp": "^1.1.3",
     "glob": "^7.1.3",
     "immutability-helper": "^3.0.0",
-    "intersection-observer": "^0.6.0",
+    "intersection-observer": "^0.7.0",
     "jest": "^24.0.0",
     "jsdom": "^15.0.0",
     "jsonml.js": "^0.1.0",
@@ -169,7 +168,7 @@
     "react-highlight-words": "^0.16.0",
     "react-infinite-scroller": "^1.2.1",
     "react-intl": "^2.7.0",
-    "react-resizable": "^1.7.5",
+    "react-resizable": "^1.8.0",
     "react-router-dom": "^5.0.0",
     "react-sticky": "^6.0.3",
     "react-test-renderer": "^16.6.3",
@@ -231,29 +230,15 @@
     "lint-staged:ts": "tsc && node node_modules/tslint/bin/tslint",
     "lint-staged:es": "eslint ./.*.js ./webpack.config.js",
     "lint-staged:demo": "cross-env RUN_ENV=DEMO eslint --ext '.md'",
-    "prettier": "node ./scripts/prettier.js"
+    "prettier": "prettier -c --write '**/*'"
   },
   "pre-commit": [
     "lint-staged"
   ],
   "lint-staged": {
-    "components/**/*.tsx": [
-      "npm run lint-staged:ts",
-      "node ./scripts/prettier.js --pre",
+    "**/*.{js,jsx,tsx,ts,less,md,json}": [
+      "prettier --write",
       "git add"
-    ],
-    "{tests,site,scripts,components}/**/*.{js,jsx}": [
-      "npm run lint-staged:es",
-      "node ./scripts/prettier.js --pre",
-      "git add"
-    ],
-    "{site,components}/**/*.less": [
-      "stylelint --syntax less",
-      "node ./scripts/prettier.js --pre",
-      "git add"
-    ],
-    "components/*/demo/*.md": [
-      "npm run lint-staged:demo"
     ]
   },
   "sideEffects": [

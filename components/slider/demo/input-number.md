@@ -13,21 +13,19 @@ title:
 
 Synchronize with [InputNumber](/components/input-number/) component.
 
-````jsx
-import {
-  Slider, InputNumber, Row, Col,
-} from 'antd';
+```jsx
+import { Slider, InputNumber, Row, Col } from 'antd';
 
 class IntegerStep extends React.Component {
   state = {
     inputValue: 1,
-  }
+  };
 
-  onChange = (value) => {
+  onChange = value => {
     this.setState({
       inputValue: value,
     });
-  }
+  };
 
   render() {
     const { inputValue } = this.state;
@@ -58,16 +56,16 @@ class IntegerStep extends React.Component {
 class DecimalStep extends React.Component {
   state = {
     inputValue: 0,
-  }
+  };
 
-  onChange = (value) => {
+  onChange = value => {
     if (Number.isNaN(value)) {
       return;
     }
     this.setState({
       inputValue: value,
     });
-  }
+  };
 
   render() {
     const { inputValue } = this.state;
@@ -102,6 +100,6 @@ ReactDOM.render(
     <IntegerStep />
     <DecimalStep />
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```

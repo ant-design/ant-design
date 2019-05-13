@@ -22,33 +22,40 @@ subtitle: 表格
 指定表格的数据源 `dataSource` 为一个数组。
 
 ```jsx
-const dataSource = [{
-  key: '1',
-  name: '胡彦斌',
-  age: 32,
-  address: '西湖区湖底公园1号'
-}, {
-  key: '2',
-  name: '胡彦祖',
-  age: 42,
-  address: '西湖区湖底公园1号'
-}];
+const dataSource = [
+  {
+    key: '1',
+    name: '胡彦斌',
+    age: 32,
+    address: '西湖区湖底公园1号',
+  },
+  {
+    key: '2',
+    name: '胡彦祖',
+    age: 42,
+    address: '西湖区湖底公园1号',
+  },
+];
 
-const columns = [{
-  title: '姓名',
-  dataIndex: 'name',
-  key: 'name',
-}, {
-  title: '年龄',
-  dataIndex: 'age',
-  key: 'age',
-}, {
-  title: '住址',
-  dataIndex: 'address',
-  key: 'address',
-}];
+const columns = [
+  {
+    title: '姓名',
+    dataIndex: 'name',
+    key: 'name',
+  },
+  {
+    title: '年龄',
+    dataIndex: 'age',
+    key: 'age',
+  },
+  {
+    title: '住址',
+    dataIndex: 'address',
+    key: 'address',
+  },
+];
 
-<Table dataSource={dataSource} columns={columns} />
+<Table dataSource={dataSource} columns={columns} />;
 ```
 
 ## API
@@ -92,18 +99,18 @@ const columns = [{
 
 ```jsx
 <Table
-  onRow={(record) => {
+  onRow={record => {
     return {
-      onClick: (event) => {},       // 点击行
-      onDoubleClick: (event) => {},
-      onContextMenu: (event) => {},
-      onMouseEnter: (event) => {},  // 鼠标移入行
-      onMouseLeave: (event) => {}
+      onClick: event => {}, // 点击行
+      onDoubleClick: event => {},
+      onContextMenu: event => {},
+      onMouseEnter: event => {}, // 鼠标移入行
+      onMouseLeave: event => {},
     };
   }}
-  onHeaderRow={(column) => {
+  onHeaderRow={column => {
     return {
-      onClick: () => {},        // 点击表头行
+      onClick: () => {}, // 点击表头行
     };
   }}
 />
@@ -129,7 +136,7 @@ const columns = [{
 | filters | 表头的筛选菜单项 | object\[] | - |
 | fixed | 列是否固定，可选 `true`(等效于 left) `'left'` `'right'` | boolean\|string | false |
 | key | React 需要的 key，如果已经设置了唯一的 `dataIndex`，可以忽略这个属性 | string | - |
-| render | 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引，@return里面可以设置表格[行/列合并](#components-table-demo-colspan-rowspan) | Function(text, record, index) {} | - |
+| render | 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引，@return 里面可以设置表格[行/列合并](#components-table-demo-colspan-rowspan) | Function(text, record, index) {} | - |
 | sorter | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)，需要服务端排序可设为 true | Function\|boolean | - |
 | sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `'ascend'` `'descend'` `false` | boolean\|string | - |
 | sortDirections | 支持的排序方式，取值为 `'ascend'` `'descend'` | Array | `['ascend', 'descend']` |
@@ -142,16 +149,16 @@ const columns = [{
 
 ### ColumnGroup
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| title | 列头显示文字 | string\|ReactNode | - |
+| 参数  | 说明         | 类型              | 默认值 |
+| ----- | ------------ | ----------------- | ------ |
+| title | 列头显示文字 | string\|ReactNode | -      |
 
 ### pagination
 
 分页的配置项。
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
+| 参数     | 说明               | 类型                        | 默认值   |
+| -------- | ------------------ | --------------------------- | -------- |
 | position | 指定分页显示的位置 | 'top' \| 'bottom' \| 'both' | 'bottom' |
 
 更多配置项，请查看 [`Pagination`](/components/pagination/)。
@@ -177,11 +184,11 @@ const columns = [{
 
 ### selection
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| key | React 需要的 key，建议设置 | string | - |
-| text | 选择项显示的文字 | string\|React.ReactNode | - |
-| onSelect | 选择项点击回调 | Function(changeableRowKeys) | - |
+| 参数     | 说明                       | 类型                        | 默认值 |
+| -------- | -------------------------- | --------------------------- | ------ |
+| key      | React 需要的 key，建议设置 | string                      | -      |
+| text     | 选择项显示的文字           | string\|React.ReactNode     | -      |
+| onSelect | 选择项点击回调             | Function(changeableRowKeys) | -      |
 
 ## 在 TypeScript 中使用
 

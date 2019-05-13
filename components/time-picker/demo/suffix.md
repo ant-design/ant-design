@@ -14,7 +14,7 @@ title:
 
 Click `TimePicker`, and then we could select or input a time in panel.
 
-````jsx
+```jsx
 import { TimePicker, Icon } from 'antd';
 import moment from 'moment';
 
@@ -25,7 +25,11 @@ function onChange(time, timeString) {
 const icon = <Icon type="smile" />;
 
 ReactDOM.render(
-  <TimePicker suffixIcon={icon} onChange={onChange} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} />,
-  mountNode
+  <TimePicker
+    suffixIcon={icon}
+    onChange={onChange}
+    defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
+  />,
+  mountNode,
 );
-````
+```
