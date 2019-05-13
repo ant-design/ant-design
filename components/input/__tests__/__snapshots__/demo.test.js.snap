@@ -1198,10 +1198,7 @@ exports[`renders ./components/input/demo/textarea-resize.md correctly 1`] = `
     type="button"
   >
     <span>
-      Auto Resize: 
-    </span>
-    <span>
-      false
+      Auto Resize: false
     </span>
   </button>
   <textarea
