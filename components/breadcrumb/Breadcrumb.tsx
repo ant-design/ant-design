@@ -11,7 +11,7 @@ import { Omit } from '../_util/type';
 export interface Route {
   path: string;
   breadcrumbName: string;
-  children: Omit<Route, 'children'>[];
+  children?: Omit<Route, 'children'>[];
 }
 
 export interface BreadcrumbProps {
