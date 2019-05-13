@@ -15,10 +15,19 @@ timeline: true
 
 ---
 
-## 3.17.1
+## 3.18.1
+
+`2019-05-13`
+
+- 🐞 Remove useless `module.export` of package. [#antd-tools](https://github.com/ant-design/antd-tools/commit/b9e230c91551af5b4555f672130b14304ff58357)
+
+## 3.18.0
 
 `2019-05-12`
 
+- 🌟 Transfer support `children` prop to customize render list. [#16026](https://github.com/ant-design/ant-design/pull/16026)
+- 🌟 Pagination support `disabled` prop. [#16493](https://github.com/ant-design/ant-design/pull/16493)
+- 🌟 Upgrade `@ant-design/icons` and `@ant-design/icons-react` to 2.0 for fix lots of missing icons. [#15874](https://github.com/ant-design/ant-design/pull/15874)
 - 🐞 Fix Form `hasFeedback` overlap issue with Input.Password. [#16445](https://github.com/ant-design/ant-design/pull/16445)
 - 🐞 Fix Select selected and disabled item wrong hover color. [#16477](https://github.com/ant-design/ant-design/pull/16477)
 - 🐞 Fix disabled Upload being triggered by label. [#16483](https://github.com/ant-design/ant-design/pull/16483)
