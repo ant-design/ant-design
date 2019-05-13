@@ -31,22 +31,22 @@ When need to mention someone or something.
 | split | Set split string before and after selected mention | string | ' ' |
 | validateSearch | Customize trigger search logic | (text: string, props: MentionsProps) => void | - |
 | value | Set value of mentions | string | - |
-| onChange | Trigger when value changed |(text: string) => void | - |
+| onChange | Trigger when value changed | (text: string) => void | - |
 | onSelect | Trigger when user select the option | (option: OptionProps, prefix: string) => void | - |
 | onSearch | Trigger when prefix hit | (text: string, prefix: string) => void | - |
-| onFocus | Trigger when mentions get focus | React.FocusEventHandler<HTMLTextAreaElement> | - |
-| onBlur | Trigger when mentions lose focus | React.FocusEventHandler<HTMLTextAreaElement> | - |
+| onFocus | Trigger when mentions get focus | () => void | - |
+| onBlur | Trigger when mentions lose focus | () => void | - |
 
 ### Mention methods
 
-| Name | Description |
-| ---- | ----------- |
-| blur() | remove focus |
-| focus() | get focus |
+| Name    | Description  |
+| ------- | ------------ |
+| blur()  | remove focus |
+| focus() | get focus    |
 
 ### Option
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | children | suggestion content | ReactNode | - |
 | value | value of suggestion, the value will insert into input filed while selected | string | "" |
