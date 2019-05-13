@@ -11,6 +11,7 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 export interface PaginationProps {
   total?: number;
   defaultCurrent?: number;
+  disabled?: boolean;
   current?: number;
   defaultPageSize?: number;
   pageSize?: number;

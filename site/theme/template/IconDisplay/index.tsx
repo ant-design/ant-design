@@ -42,7 +42,7 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
     return Object.keys(IconDisplay.categories)
       .map((category: CategoriesKeys) => ({
         category,
-        icons: IconDisplay.categories[category].filter(
+        icons: (IconDisplay.categories[category] || []).filter(
           name => manifest[IconDisplay.themeTypeMapper[this.state.theme]].indexOf(name) !== -1,
         ),
       }))
@@ -64,23 +64,27 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
 
   renderCategories(list: Array<{ category: CategoriesKeys; icons: string[] }>) {
     const { searchKey } = this.state;
+    const otherIcons = categories.all.filter(icon => {
+      return list.filter(({ category }) => category !== 'all').every(item => !item.icons.includes(icon));
+    });
+
     return list
-      .map(({ category, icons }) => {
-        const iconResult = icons.filter(name => name.includes(searchKey));
-        if (iconResult.length === 0) {
-          return null;
-        }
-        return (
-          <Category
-            key={category}
-            title={category}
-            icons={iconResult}
-            theme={this.state.theme}
-            newIcons={IconDisplay.newIconNames}
-          />
-        );
-      })
-      .filter(category => !!category);
+    .filter(({ category }) => category !== 'all')
+    .concat({ category: 'other', icons: otherIcons })
+    .map(({ category, icons }) => ({
+      category,
+      icons: icons.filter(name => name.includes(searchKey)),
+    }))
+    .filter(({ icons }) => !!icons.length)
+    .map(({ category, icons }) => (
+      <Category
+        key={category}
+        title={category}
+        icons={icons}
+        theme={this.state.theme}
+        newIcons={IconDisplay.newIconNames}
+      />
+    ));
   }
 
   render() {
