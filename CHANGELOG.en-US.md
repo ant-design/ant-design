@@ -15,6 +15,12 @@ timeline: true
 
 ---
 
+## 3.18.1
+
+`2019-05-13`
+
+- 🐞 Remove useless `module.export` of package. [#antd-tools](https://github.com/ant-design/antd-tools/commit/b9e230c91551af5b4555f672130b14304ff58357)
+
 ## 3.18.0
 
 `2019-05-12`
