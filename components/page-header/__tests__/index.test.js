@@ -45,4 +45,9 @@ describe('PageHeader', () => {
     );
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('pageHeader should not render blank dom', () => {
+    const wrapper = render(<PageHeader title={false} />);
+    expect(wrapper).toMatchSnapshot();
+  });
 });

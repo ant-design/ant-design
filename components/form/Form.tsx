@@ -171,8 +171,8 @@ export type WrappedFormUtils<V = any> = {
   validateFieldsAndScroll(options: ValidateFieldsOptions): void;
   validateFieldsAndScroll(): void;
   /** 获取某个输入控件的 Error */
-  getFieldError(name: string): Object[];
-  getFieldsError(names?: Array<string>): Object;
+  getFieldError(name: string): string[] | undefined;
+  getFieldsError(names?: Array<string>): Record<string, string[] | undefined>;
   /** 判断一个输入控件是否在校验状态 */
   isFieldValidating(name: string): boolean;
   isFieldTouched(name: string): boolean;
