@@ -4,7 +4,9 @@ type: Data Entry
 title: Mentions
 ---
 
-Added in 3.19.0. Mention component. If you want to check deprecated Mention component api, click [here](/components/mention).
+Mention component.
+
+> Mention component is deprecated. Please click [here](/components/mention) to view old document.
 
 ## When To Use
 
