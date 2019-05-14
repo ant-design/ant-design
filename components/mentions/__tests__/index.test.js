@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Mentions from '..';
 
-const { Option, getMentions } = Mentions;
+const { getMentions } = Mentions;
 
 function simulateInput(wrapper, text = '', keyEvent) {
   const lastChar = text[text.length - 1];
