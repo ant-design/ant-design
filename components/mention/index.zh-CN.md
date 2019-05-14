@@ -1,14 +1,15 @@
 ---
 category: Components
-subtitle: 提及
+type: 废弃
+subtitle: 提及（废弃）
 title: Mention
 ---
 
-提及组件。
+提及组件。已废弃，请使用 [Mentions](/components/mentions) 代替。
 
-## 何时使用
+## 为何废弃？
 
-用于在输入中提及某人或某事，常用于发布、聊天或评论功能。
+Mention 组件使用了 [Draft.js](https://www.npmjs.com/package/draft-js) 进行提示定位，占用了约 11.6% 的包大小。因而我们决定使用更轻量级的解决方案以便于在未来降低整个包的大小。
 
 ## API
 

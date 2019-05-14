@@ -5,7 +5,7 @@ type: 数据录入
 title: Mentions
 ---
 
-提及组件。
+3.19.0 中新增，提及组件。如果想查阅废弃 Mention 组件 api，请点击[这里](/components/mention)。
 
 ## 何时使用
 

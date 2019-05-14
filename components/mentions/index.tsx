@@ -25,7 +25,9 @@ export interface MentionProps extends RcMentionsProps {
   loading?: boolean;
 }
 
-export interface MentionState {}
+export interface MentionState {
+  focused: boolean;
+}
 
 interface MentionsConfig {
   prefix?: string | string[];
@@ -71,6 +73,30 @@ class Mentions extends React.Component<MentionProps, MentionState> {
       .filter((entity): entity is MentionsEntity => !!entity);
   };
 
+  state = {
+    focused: false,
+  };
+
+  onFocus: React.FocusEventHandler<HTMLTextAreaElement> = (...args) => {
+    const { onFocus } = this.props;
+    if (onFocus) {
+      onFocus(...args);
+    }
+    this.setState({
+      focused: true,
+    });
+  };
+
+  onBlur: React.FocusEventHandler<HTMLTextAreaElement> = (...args) => {
+    const { onBlur } = this.props;
+    if (onBlur) {
+      onBlur(...args);
+    }
+    this.setState({
+      focused: false,
+    });
+  };
+
   getNotFoundContent(renderEmpty: RenderEmptyHandler) {
     const { notFoundContent } = this.props;
     if (notFoundContent !== undefined) {
@@ -102,12 +128,14 @@ class Mentions extends React.Component<MentionProps, MentionState> {
   };
 
   renderMentions = ({ getPrefixCls, renderEmpty }: ConfigConsumerProps) => {
+    const { focused } = this.state;
     const { prefixCls: customizePrefixCls, className, disabled, ...restProps } = this.props;
     const prefixCls = getPrefixCls('mentions', customizePrefixCls);
     const mentionsProps = omit(restProps, ['loading']);
 
     const mergedClassName = classNames(className, {
       [`${prefixCls}-disabled`]: disabled,
+      [`${prefixCls}-focused`]: focused,
     });
 
     return (
@@ -118,6 +146,8 @@ class Mentions extends React.Component<MentionProps, MentionState> {
         disabled={disabled}
         {...mentionsProps}
         filterOption={this.getFilterOption()}
+        onFocus={this.onFocus}
+        onBlur={this.onBlur}
       >
         {this.getOptions()}
       </RcMentions>

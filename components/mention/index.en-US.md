@@ -1,13 +1,14 @@
 ---
 category: Components
-title: Mention
+type: Deprecated
+title: Mention (Deprecated)
 ---
 
-Mention component.
+Mention component. Deprecated, please use [Mentions](/components/mentions) instead.
 
-## When To Use
+## Why deprecated?
 
-When need to mention someone or something.
+Mention use [Draft.js](https://www.npmjs.com/package/draft-js) to measure tips position, which use nearly 11.6% package size. We hope to reduce bundle size by using lightweight solution to handle this.
 
 ## API
 
