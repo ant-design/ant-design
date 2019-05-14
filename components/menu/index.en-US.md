@@ -42,10 +42,10 @@ More layouts with navigation: [layout](/components/layout).
 | subMenuCloseDelay | delay time to hide submenu when mouse leave, unit: second | number | 0.1 |
 | subMenuOpenDelay | delay time to show submenu when mouse enter, unit: second | number | 0 |
 | theme | color theme of the menu | string: `light` `dark` | `light` |
-| onClick | callback executed when a menu item is clicked | function({ item, key, keyPath }) | - |
-| onDeselect | callback executed when a menu item is deselected, only supported for multiple mode | function({ item, key, selectedKeys }) | - |
+| onClick | callback executed when a menu item is clicked | function({ item, key, keyPath, domEvent }) | - |
+| onDeselect | callback executed when a menu item is deselected, only supported for multiple mode | function({ item, key, keyPath, selectedKeys, domEvent }) | - |
 | onOpenChange | called when open/close sub menu | function(openKeys: string\[]) | noop |
-| onSelect | callback executed when a menu item is selected | function({ item, key, selectedKeys }) | none |
+| onSelect | callback executed when a menu item is selected | function({ item, key, keyPath, selectedKeys, domEvent }) | none |
 | overflowedIndicator | Customized icon when menu collapsed | ReactNode | - |
 
 > More options in [rc-menu](https://github.com/react-component/menu#api)

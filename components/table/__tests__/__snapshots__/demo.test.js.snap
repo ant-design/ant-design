@@ -12107,7 +12107,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                       </div>
                     </span>
                     <span
-                      class="react-resizable-handle"
+                      class="react-resizable-handle react-resizable-handle-se"
                       style="touch-action:none"
                     />
                   </th>
@@ -12129,7 +12129,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                       </div>
                     </span>
                     <span
-                      class="react-resizable-handle"
+                      class="react-resizable-handle react-resizable-handle-se"
                       style="touch-action:none"
                     />
                   </th>
@@ -12151,7 +12151,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                       </div>
                     </span>
                     <span
-                      class="react-resizable-handle"
+                      class="react-resizable-handle react-resizable-handle-se"
                       style="touch-action:none"
                     />
                   </th>
@@ -12173,7 +12173,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                       </div>
                     </span>
                     <span
-                      class="react-resizable-handle"
+                      class="react-resizable-handle react-resizable-handle-se"
                       style="touch-action:none"
                     />
                   </th>
