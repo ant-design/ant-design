@@ -12,12 +12,21 @@
   display: inline-block;
   height: auto;
   white-space: pre-wrap;
+  padding: 0;
+  overflow: hidden;
+
+  // =================== Status ===================
+  &-disabled {
+    > textarea {
+      .disabled();
+    }
+  }
 
   // ================= Input Area =================
   > textarea,
   &-measure {
     margin: 0;
-    padding: 0;
+    padding: @input-padding-vertical-base @input-padding-horizontal-base;
     overflow: inherit;
     overflow-x: initial;
     overflow-y: auto;
@@ -44,6 +53,10 @@
     border: none;
     outline: none;
     resize: none;
+
+    &:read-only {
+      cursor: default;
+    }
   }
 
   &-measure {

@@ -55,6 +55,9 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
             class="ant-mentions"
           >
             <textarea
+              data-__field="[object Object]"
+              data-__meta="[object Object]"
+              id="mention"
               rows="3"
             />
           </div>
@@ -96,4 +99,45 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
     </div>
   </div>
 </form>
+`;
+
+exports[`renders ./components/mentions/demo/prefix.md correctly 1`] = `
+<div
+  class="ant-mentions"
+  style="width:100%"
+>
+  <textarea
+    placeholder="input @ to mention people, # to mention tag"
+    rows="1"
+  />
+</div>
+`;
+
+exports[`renders ./components/mentions/demo/readonly.md correctly 1`] = `
+<div>
+  <div
+    style="margin-bottom:10px"
+  >
+    <div
+      class="ant-mentions ant-mentions-disabled"
+      style="width:100%"
+    >
+      <textarea
+        disabled=""
+        placeholder="this is disabled Mentions"
+        rows="1"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-mentions"
+    style="width:100%"
+  >
+    <textarea
+      placeholder="this is readOnly Mentions"
+      readonly=""
+      rows="1"
+    />
+  </div>
+</div>
 `;

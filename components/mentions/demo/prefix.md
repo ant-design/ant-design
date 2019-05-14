@@ -1,70 +1,56 @@
 ---
 order: 3
 title:
-  zh-CN: 自定义建议
-  en-US: Customize Suggestion
+  zh-CN: 自定义触发字符
+  en-US: Customize Trigger Token
 ---
 
 ## zh-CN
 
-自定义建议
-
-注意，自定义建议时，onSearchChange 必须不能为空。
+通过 `prefix` 属性自定义触发字符。默认为 `@`, 可以定义为数组。
 
 ## en-US
 
-Customize suggestions.
+Customize Trigger Token by `prefix` props. Default to `@`, `Array<string>` also supported.
 
 ```jsx
-import { Mention } from 'antd';
+import { Mentions } from 'antd';
 
-const Nav = Mention.Nav;
+const { Option } = Mentions;
 
-const webFrameworks = [
-  { name: 'React', type: 'JavaScript' },
-  { name: 'Angular', type: 'JavaScript' },
-  { name: 'Laravel', type: 'PHP', disabled: true },
-  { name: 'Flask', type: 'Python' },
-  { name: 'Django', type: 'Python' },
-];
+const MOCK_DATA = {
+  '@': ['afc163', 'zombiej', 'yesmeck'],
+  '#': ['1.0', '2.0', '3.0'],
+};
 
-function onSelect(suggestion, data) {
-  console.log('onSelect', suggestion, data);
-}
-
-class CustomNavMention extends React.Component {
+class App extends React.Component {
   state = {
-    suggestions: [],
+    prefix: '@',
   };
 
-  onSearchChange = value => {
-    const searchValue = value.toLowerCase();
-    const filtered = webFrameworks.filter(
-      item => item.name.toLowerCase().indexOf(searchValue) !== -1,
-    );
-    const suggestions = filtered.map(suggestion => (
-      <Nav value={suggestion.name} data={suggestion}>
-        <span>
-          {suggestion.name} - {suggestion.type}
-        </span>
-      </Nav>
-    ));
-    this.setState({ suggestions });
+  onSearch = (_, prefix) => {
+    this.setState({ prefix });
   };
 
   render() {
-    const { suggestions } = this.state;
+    const { prefix } = this.state;
+
     return (
-      <Mention
-        placeholder="@someone"
+      <Mentions
         style={{ width: '100%' }}
-        suggestions={suggestions}
-        onSearchChange={this.onSearchChange}
-        onSelect={onSelect}
-      />
+        placeholder="input @ to mention people, # to mention tag"
+        prefix={['@', '#']}
+        onSearch={this.onSearch}
+      >
+        {(MOCK_DATA[prefix] || []).map(value => (
+          <Option key={value} value={value}>
+            {value}
+          </Option>
+        ))}
+      </Mentions>
     );
   }
 }
 
-ReactDOM.render(<CustomNavMention />, mountNode);
+ReactDOM.render(<App />, mountNode);
 ```

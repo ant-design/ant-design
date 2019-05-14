@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+import omit from 'omit.js';
 import * as React from 'react';
 import { polyfill } from 'react-lifecycles-compat';
 import RcMentions from 'rc-mentions';
@@ -100,13 +102,21 @@ class Mentions extends React.Component<MentionProps, MentionState> {
   };
 
   renderMentions = ({ getPrefixCls, renderEmpty }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, ...restProps } = this.props;
+    const { prefixCls: customizePrefixCls, className, disabled, ...restProps } = this.props;
     const prefixCls = getPrefixCls('mentions', customizePrefixCls);
+    const mentionsProps = omit(restProps, ['loading']);
+
+    const mergedClassName = classNames(className, {
+      [`${prefixCls}-disabled`]: disabled,
+    });
+
     return (
       <RcMentions
         prefixCls={prefixCls}
         notFoundContent={this.getNotFoundContent(renderEmpty)}
-        {...restProps}
+        className={mergedClassName}
+        disabled={disabled}
+        {...mentionsProps}
         filterOption={this.getFilterOption()}
       >
         {this.getOptions()}
