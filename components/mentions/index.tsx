@@ -53,7 +53,7 @@ class Mentions extends React.Component<MentionProps, MentionState> {
           let hitPrefix: string | null = null;
 
           prefixList.some(prefixStr => {
-            const startStr = str.slice(0, prefix.length);
+            const startStr = str.slice(0, prefixStr.length);
             if (startStr === prefixStr) {
               hitPrefix = prefixStr;
               return true;
