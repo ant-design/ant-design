@@ -105,4 +105,13 @@ describe('Carousel', () => {
     );
     warnSpy.mockRestore();
   });
+
+  it('should active when children change', () => {
+    const wrapper = mount(<Carousel />);
+    wrapper.setProps({
+      children: <div />,
+    });
+    wrapper.update();
+    expect(wrapper.find('.slick-active').length).toBeTruthy();
+  });
 });
