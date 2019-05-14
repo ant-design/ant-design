@@ -19,8 +19,6 @@ import debounce from 'lodash/debounce';
 
 const { Option } = Mentions;
 
-const MOCK_USERS = ['afc163', 'zombiej', 'yesmeck'];
-
 class AsyncMention extends React.Component {
   constructor() {
     super();

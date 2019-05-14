@@ -37,7 +37,6 @@ class App extends React.Component {
   };
 
   checkMention = (rule, value, callback) => {
-    const { getFieldValue } = this.props.form;
     const mentions = getMentions(value);
     if (mentions.length < 2) {
       callback(new Error('More than one must be selected!'));

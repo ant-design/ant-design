@@ -34,6 +34,7 @@ Array [
   "LocaleProvider",
   "message",
   "Menu",
+  "Mentions",
   "Modal",
   "Statistic",
   "notification",
