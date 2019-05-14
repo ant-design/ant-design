@@ -24,7 +24,7 @@ ReactDOM.render(
   <div style={{ width: 300, border: '1px solid #d9d9d9', borderRadius: 4 }}>
     <Calendar
       fullscreen={false}
-      renderHeader={returnData => (
+      headerRender={returnData => (
         <div style={{ padding: 10, border: '1px solid #d9d9d9' }} ref={returnData.ref}>
           <Select defaultValue="Mar" onChange={returnData.monthChange} style={{ width: '100px' }}>
             {returnData.months.map(item => (

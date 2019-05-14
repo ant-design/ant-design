@@ -274,7 +274,7 @@ describe('Calendar', () => {
     const onSelect = jest.fn();
     const wrapper = mount(
       <Calendar
-        renderHeader={returnData => (
+        headerRender={returnData => (
           <div style={{ padding: 10, border: '1px solid #d9d9d9' }}>
             <Select defaultValue="Mar" onChange={onSelect} style={{ width: '100px' }}>
               {returnData.months.map(item => (
@@ -297,16 +297,5 @@ describe('Calendar', () => {
       .last()
       .simulate('click');
     expect(onSelect).toHaveBeenCalled();
-  });
-
-  it('Testing small calendar', () => {
-    const wrapper = mount(<Calendar size="small" />);
-    expect(wrapper.exists('.ant-fullcalendar-small')).toEqual(true);
-  });
-
-  it('Testing calendar with renderHeader other type', () => {
-    mount(<Calendar size="small" renderHeader={3} />);
-    // eslint-disable-next-line
-    expect(console.warn).toHaveBeenCalledWith('Calendar renderHeader props must be function');
   });
 });

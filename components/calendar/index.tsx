@@ -36,13 +36,12 @@ export interface CalendarProps {
   monthFullCellRender?: (date: moment.Moment) => React.ReactNode;
   locale?: any;
   style?: React.CSSProperties;
-  size?: string;
   onPanelChange?: (date?: moment.Moment, mode?: CalendarMode) => void;
   onSelect?: (date?: moment.Moment) => void;
   onChange?: (date?: moment.Moment) => void;
   disabledDate?: (current: moment.Moment) => boolean;
   validRange?: [moment.Moment, moment.Moment];
-  renderHeader?: () => React.ReactNode;
+  headerRender: () => React.ReactNode;
 }
 
 export interface CalendarState {
@@ -57,7 +56,7 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
     onSelect: noop,
     onPanelChange: noop,
     onChange: noop,
-    renderHeader: null,
+    headerRender: null,
   };
 
   static propTypes = {
@@ -207,8 +206,7 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
       style,
       className,
       fullscreen,
-      size,
-      renderHeader,
+      headerRender,
       dateFullCellRender,
       monthFullCellRender,
     } = props;
@@ -236,16 +234,12 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
             cls += ` ${prefixCls}-fullscreen`;
           }
 
-          if (size === 'small') {
-            cls += ` ${prefixCls}-small`;
-          }
-
           return (
             <div className={cls} style={style}>
               <Header
                 fullscreen={fullscreen}
                 type={mode}
-                renderHeader={renderHeader}
+                headerRender={headerRender}
                 value={value}
                 locale={locale.lang}
                 prefixCls={prefixCls}
