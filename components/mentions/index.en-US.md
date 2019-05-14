@@ -20,14 +20,14 @@ When need to mention someone or something.
 
 ### Mention
 
-| 参数 | 说明 | 类型 | 默认值 |
+| Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | autoFocus | Auto get focus when component mounted | boolean | `false` |
 | defaultValue | Default value | string | - |
 | filterOption | Customize filter option logic | false \| (input: string, option: OptionProps) => boolean | - |
 | notFoundContent | Set mentions content when not match | ReactNode | 'Not Found' |
+| placement | Set popup placement | 'top' \| 'bottom' | 'bottom' |
 | prefix | Set trigger prefix keyword | string \| string[] | '@' |
-| rows | Set row count | number | 1 |
 | split | Set split string before and after selected mention | string | ' ' |
 | validateSearch | Customize trigger search logic | (text: string, props: MentionsProps) => void | - |
 | value | Set value of mentions | string | - |
@@ -49,4 +49,4 @@ When need to mention someone or something.
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | children | suggestion content | ReactNode | - |
-| value | value of suggestion, the value will insert into input filed while selected | string | "" |
+| value | value of suggestion, the value will insert into input filed while selected | string | '' |

@@ -20,49 +20,43 @@ title: Mentions
 />
 ```
 
-### Mention API
+## API
 
-| API | 说明 | 类型 |
-| --- | --- | --- |
-| getMentions | 获取当前 contentState 中提到的人的列表 | Function(contentState: ContentState): string\[] |
-| toContentState | 把字符串转成 ContentState | Function(value: string): ContentState |
-| toString | 把 ContentState 转成字符串 | Function(contentState: ContentState): string |
+```jsx
+<Mentions onChange={onChange}>
+  <Mentions.Option value="sample">Sample</Mentions.Option>
+</Mentions>
+```
 
 ### Mention
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| autoFocus | 自动获取焦点 | boolean | false |
-| defaultValue | 默认值 | ContentState, 可以用 `Mention.toContentState(text)` 把文字转换成 ContentState | null |
-| defaultSuggestions | 默认建议内容 | Array&lt;string\|Mention.Nav> | \[] |
-| disabled | 是否禁用状态. | boolean | false |
-| getSuggestionContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位 | function() | () => document.body |
-| loading | 加载中 | boolean | false |
-| multiLines | 多行模式 | boolean | false |
-| notFoundContent | 未找到时的内容 | string | '无匹配结果，轻敲空格完成输入' |
-| placeholder | 输入框默认文字 | string | null |
-| placement | 建议框位置，可选 `top` `bottom` | string | 'bottom' |
-| prefix | 触发弹出下拉框的字符 | string or Array&lt;string> | '@' |
-| readOnly | 是否只读. | boolean | false |
-| suggestions | 建议内容 | Array&lt;string\|Mention.Nav> | \[] |
-| suggestionStyle | 弹出下拉框样式 | object | {} |
-| value | 值 | ContentState | null |
-| onBlur | 失去焦点时回调 | function(e) | null |
-| onChange | 输入框内容变化时回调 | function(contentState: ContentState) | null |
-| onFocus | 获得焦点时回调 | function(e) | null |
-| onSearchChange | 输入框中 @ 变化时回调 | function(value:string, trigger: string) | \[] |
-| onSelect | 下拉框选择建议时回调 | function(suggestion: string, data?: any) | null |
+| autoFocus | 自动获得焦点 | boolean | `false` |
+| defaultValue | 默认值 | string | - |
+| filterOption | 自定义过滤逻辑 | false \| (input: string, option: OptionProps) => boolean | - |
+| notFoundContent | 当下拉列表为空时显示的内容 | ReactNode | 'Not Found' |
+| placement | 弹出层展示位置 | 'top' \| 'bottom' | 'bottom' |
+| prefix | 设置触发关键字 | string \| string[] | '@' |
+| split | 设置选中项前后分隔符 | string | ' ' |
+| validateSearch | 自定义触发验证逻辑 | (text: string, props: MentionsProps) => void | - |
+| value | 设置值 | string | - |
+| onChange | 值改变时触发 | (text: string) => void | - |
+| onSelect | 选择选项时触发 | (option: OptionProps, prefix: string) => void | - |
+| onSearch | 搜索时触发 | (text: string, prefix: string) => void | - |
+| onFocus | 获得焦点时触发 | () => void | - |
+| onBlur | 失去焦点时触发 | () => void | - |
 
 ### Mention 方法
 
-| 名称 | 描述 |
-| --- | --- |
-| blur() | 移除焦点 |
+| 名称    | 描述     |
+| ------- | -------- |
+| blur()  | 移除焦点 |
 | focus() | 获取焦点 |
 
-### Nav
+### Option
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| children | 建议内容 | object | {} |
-| value | 建议值，选择建议时，用此值插入到输入框中 | string | "" |
+| 参数     | 说明           | 类型      | 默认值 |
+| -------- | -------------- | --------- | ------ |
+| children | 选项内容       | ReactNode | -      |
+| value    | 选择时填充的值 | string    | ''     |
