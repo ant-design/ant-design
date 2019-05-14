@@ -17,7 +17,7 @@ Controlled mode, for example, to work with `Form`.
 ```jsx
 import { Mentions, Form, Button } from 'antd';
 
-const { Option } = Mentions;
+const { Option, getMentions } = Mentions;
 
 class App extends React.Component {
   handleReset = e => {
@@ -39,7 +39,7 @@ class App extends React.Component {
 
   checkMention = (rule, value, callback) => {
     const { getFieldValue } = this.props.form;
-    const mentions = getMentions(getFieldValue('mention'));
+    const mentions = getMentions(value);
     if (mentions.length < 2) {
       callback(new Error('More than one must be selected!'));
     } else {

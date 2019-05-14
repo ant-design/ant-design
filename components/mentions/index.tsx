@@ -25,8 +25,49 @@ export interface MentionProps extends RcMentionsProps {
 
 export interface MentionState {}
 
+interface MentionsConfig {
+  prefix?: string | string[];
+  split?: string;
+}
+
+interface MentionsEntity {
+  prefix: string;
+  value: string;
+}
+
 class Mentions extends React.Component<MentionProps, MentionState> {
   static Option = Option;
+
+  static getMentions = (value: string = '', config?: MentionsConfig): MentionsEntity[] => {
+    const { prefix = '@', split = ' ' } = config || {};
+    const prefixList: string[] = Array.isArray(prefix) ? prefix : [prefix];
+
+    return value
+      .split(split)
+      .map(
+        (str = ''): MentionsEntity | null => {
+          let hitPrefix: string | null = null;
+
+          prefixList.some(prefixStr => {
+            const startStr = str.slice(0, prefix.length);
+            if (startStr === prefixStr) {
+              hitPrefix = prefixStr;
+              return true;
+            }
+            return false;
+          });
+
+          if (hitPrefix !== null) {
+            return {
+              prefix: hitPrefix,
+              value: str.slice(hitPrefix!.length),
+            };
+          }
+          return null;
+        },
+      )
+      .filter((entity): entity is MentionsEntity => !!entity);
+  };
 
   getNotFoundContent(renderEmpty: RenderEmptyHandler) {
     const { notFoundContent } = this.props;
