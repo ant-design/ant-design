@@ -60,9 +60,16 @@
       margin-bottom: @form-item-margin-bottom - @form-explain-height;
     }
 
-    &-item-extra-holder {
+    &-item-info-holder {
       line-height: @line-height-base;
       min-height: @form-explain-height + @form-explain-precision;
+
+      .@{form-prefix-cls}-explain,
+      .@{form-prefix-cls}-extra {
+        color: @text-color-secondary;
+        font-size: @form-explain-font-size;
+        transition: color 0.3s @ease-out; // sync input color transition
+      }
     }
 
     .show-help-motion(@className, @keyframeName, @duration: @animation-duration-slow) {
