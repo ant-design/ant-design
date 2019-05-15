@@ -35,7 +35,7 @@ export interface FormItemProps {
 }
 
 function intersperseSpace<T>(list: Array<T>): Array<T | string> {
-  return list.reduce((current, item) => [...current, ' ', item], []).slice(1);
+  return list.reduce((current, item) => [ ...current, ' ', item ], []).slice(1);
 }
 
 export default class FormItem extends React.Component<FormItemProps, any> {
@@ -45,10 +45,10 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
   static propTypes = {
     prefixCls: PropTypes.string,
-    label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+    label: PropTypes.oneOfType([ PropTypes.string, PropTypes.node ]),
     labelAlign: PropTypes.string,
     labelCol: PropTypes.object,
-    help: PropTypes.oneOfType([PropTypes.node, PropTypes.bool]),
+    help: PropTypes.oneOfType([ PropTypes.node, PropTypes.bool ]),
     validateStatus: PropTypes.oneOf(ValidateStatuses),
     hasFeedback: PropTypes.bool,
     wrapperCol: PropTypes.object,
@@ -153,6 +153,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
   onHelpAnimEnd = (_key: string, helpShow: boolean) => {
     this.helpShow = helpShow;
+    console.log('????', this.helpShow);
     if (!helpShow) {
       this.setState({});
     }
@@ -168,6 +169,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     if (children) {
       this.helpShow = !!children;
     }
+    console.log('!!!!!!', this.helpShow);
     return (
       <Animate
         transitionName="show-help"
@@ -205,12 +207,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     return '';
   }
 
-  renderValidateWrapper(
-    prefixCls: string,
-    c1: React.ReactNode,
-    c2: React.ReactNode,
-    c3: React.ReactNode,
-  ) {
+  renderValidateWrapper(prefixCls: string, c1: React.ReactNode) {
     const { props } = this;
     const onlyControl = this.getOnlyControl;
     const validateStatus =
@@ -261,8 +258,6 @@ export default class FormItem extends React.Component<FormItemProps, any> {
           {c1}
           {icon}
         </span>
-        {c2}
-        {c3}
       </div>
     );
   }
@@ -302,11 +297,9 @@ export default class FormItem extends React.Component<FormItemProps, any> {
       const meta = this.getMeta() || {};
       const validate = meta.validate || [];
 
-      return validate
-        .filter((item: any) => !!item.rules)
-        .some((item: any) => {
-          return item.rules.some((rule: any) => rule.required);
-        });
+      return validate.filter((item: any) => !!item.rules).some((item: any) => {
+        return item.rules.some((rule: any) => rule.required);
+      });
     }
     return false;
   }
@@ -386,19 +379,13 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     const { children } = this.props;
     return [
       this.renderLabel(prefixCls),
-      this.renderWrapper(
-        prefixCls,
-        this.renderValidateWrapper(
-          prefixCls,
-          children,
-          this.renderHelp(prefixCls),
-          this.renderExtra(prefixCls),
-        ),
-      ),
+      this.renderWrapper(prefixCls, this.renderValidateWrapper(prefixCls, children)),
     ];
   }
 
   renderFormItem = ({ getPrefixCls }: ConfigConsumerProps) => {
+    console.log('==== Render ====>', this.helpShow);
+
     const { prefixCls: customizePrefixCls, style, className } = this.props;
     const prefixCls = getPrefixCls('form', customizePrefixCls);
     const children = this.renderChildren(prefixCls);
@@ -409,9 +396,16 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     };
 
     return (
-      <Row className={classNames(itemClassName)} style={style} key="row">
-        {children}
-      </Row>
+      <div className={classNames(itemClassName)} style={style} key="row">
+        <Row>{children}</Row>
+        <Row>
+          <Col />
+          <Col className={`${prefixCls}-item-extra-holder`}>
+            {this.renderHelp(prefixCls)}
+            {this.renderExtra(prefixCls)}
+          </Col>
+        </Row>
+      </div>
     );
   };
 

@@ -1,0 +1,339 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+@import '../../input/style/mixin';
+@import './index';
+
+@form-component-height: @input-height-base;
+@form-feedback-icon-size: @font-size-base;
+
+.form-control-validation(@text-color: @input-color; @border-color: @input-border-color; @background-color: @input-bg) {
+  .@{ant-prefix}-form-explain,
+  .@{ant-prefix}-form-split {
+    color: @text-color;
+  }
+  // 输入框的不同校验状态
+  .@{ant-prefix}-input {
+    &,
+    &:hover {
+      border-color: @border-color;
+    }
+
+    &:focus {
+      .active(@border-color);
+    }
+
+    &:not([disabled]):hover {
+      border-color: @border-color;
+    }
+  }
+
+  .@{ant-prefix}-calendar-picker-open .@{ant-prefix}-calendar-picker-input {
+    .active(@border-color);
+  }
+
+  // Input prefix
+  .@{ant-prefix}-input-affix-wrapper {
+    .@{ant-prefix}-input {
+      &,
+      &:hover {
+        background-color: @background-color;
+        border-color: @border-color;
+      }
+
+      &:focus {
+        .active(@border-color);
+      }
+    }
+
+    &:hover .@{ant-prefix}-input:not(.@{ant-prefix}-input-disabled) {
+      border-color: @border-color;
+    }
+  }
+
+  .@{ant-prefix}-input-prefix {
+    color: @text-color;
+  }
+
+  .@{ant-prefix}-input-group-addon {
+    color: @text-color;
+    background-color: @background-color;
+    border-color: @border-color;
+  }
+
+  .has-feedback {
+    color: @text-color;
+  }
+}
+
+.form-item-status() {
+  // ================= Normalize =================
+  .has-success,
+  .has-warning,
+  .has-error,
+  .is-validating {
+    &.has-feedback .@{form-prefix-cls}-item-children-icon {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      z-index: 1;
+      width: @form-component-height;
+      height: 20px;
+      margin-top: -10px;
+      font-size: @form-feedback-icon-size;
+      line-height: 20px;
+      text-align: center;
+      visibility: visible;
+      animation: zoomIn 0.3s @ease-out-back;
+      pointer-events: none;
+
+      & svg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+      }
+    }
+  }
+
+  // ============== Hook Components ==============
+  .has-feedback {
+    .@{ant-prefix}-input {
+      padding-right: 24px;
+    }
+
+    .@{ant-prefix}-input-password-icon {
+      margin-right: 18px;
+    }
+
+    // Fix overlapping between feedback icon and <Select>'s arrow.
+    // https://github.com/ant-design/ant-design/issues/4431
+    > .@{ant-prefix}-select .@{ant-prefix}-select-arrow,
+    > .@{ant-prefix}-select .@{ant-prefix}-select-selection__clear,
+    :not(.@{ant-prefix}-input-group-addon) > .@{ant-prefix}-select .@{ant-prefix}-select-arrow,
+    :not(.@{ant-prefix}-input-group-addon)
+      > .@{ant-prefix}-select
+      .@{ant-prefix}-select-selection__clear {
+      right: 28px;
+    }
+    > .@{ant-prefix}-select .@{ant-prefix}-select-selection-selected-value,
+    :not(.@{ant-prefix}-input-group-addon)
+      > .@{ant-prefix}-select
+      .@{ant-prefix}-select-selection-selected-value {
+      padding-right: 42px;
+    }
+
+    .@{ant-prefix}-cascader-picker {
+      &-arrow {
+        margin-right: 17px;
+      }
+      &-clear {
+        right: 28px;
+      }
+    }
+
+    // Fix issue: https://github.com/ant-design/ant-design/issues/7854
+    .@{ant-prefix}-input-search:not(.@{ant-prefix}-input-search-enter-button) {
+      .@{ant-prefix}-input-suffix {
+        right: 28px;
+      }
+    }
+
+    // Fix issue: https://github.com/ant-design/ant-design/issues/4783
+    .@{ant-prefix}-calendar-picker,
+    .@{ant-prefix}-time-picker {
+      &-icon,
+      &-clear {
+        right: 28px;
+      }
+    }
+  }
+
+  // =========== Hook Status Components ===========
+  .has-success {
+    &.has-feedback .@{form-prefix-cls}-item-children-icon {
+      color: @success-color;
+      animation-name: diffZoomIn1 !important;
+    }
+  }
+
+  .has-warning {
+    .form-control-validation(@warning-color; @warning-color; @form-warning-input-bg;);
+
+    &.has-feedback .@{form-prefix-cls}-item-children-icon {
+      color: @warning-color;
+      animation-name: diffZoomIn3 !important;
+    }
+
+    //select
+    .@{ant-prefix}-select {
+      &-selection {
+        border-color: @warning-color;
+        &:hover {
+          border-color: @warning-color;
+        }
+      }
+      &-open .@{ant-prefix}-select-selection,
+      &-focused .@{ant-prefix}-select-selection {
+        .active(@warning-color);
+      }
+    }
+
+    // arrow and icon
+    .@{ant-prefix}-calendar-picker-icon::after,
+    .@{ant-prefix}-time-picker-icon::after,
+    .@{ant-prefix}-picker-icon::after,
+    .@{ant-prefix}-select-arrow,
+    .@{ant-prefix}-cascader-picker-arrow {
+      color: @warning-color;
+    }
+
+    //input-number, timepicker
+    .@{ant-prefix}-input-number,
+    .@{ant-prefix}-time-picker-input {
+      border-color: @warning-color;
+      &-focused,
+      &:focus {
+        .active(@warning-color);
+      }
+      &:not([disabled]):hover {
+        border-color: @warning-color;
+      }
+    }
+
+    .@{ant-prefix}-cascader-picker:focus .@{ant-prefix}-cascader-input {
+      .active(@warning-color);
+    }
+  }
+
+  .has-error {
+    .form-control-validation(@error-color; @error-color; @form-error-input-bg;);
+
+    &.has-feedback .@{form-prefix-cls}-item-children-icon {
+      color: @error-color;
+      animation-name: diffZoomIn2 !important;
+    }
+
+    //select
+    .@{ant-prefix}-select {
+      &-selection {
+        border-color: @error-color;
+        &:hover {
+          border-color: @error-color;
+        }
+      }
+      &-open .@{ant-prefix}-select-selection,
+      &-focused .@{ant-prefix}-select-selection {
+        .active(@error-color);
+      }
+    }
+
+    .@{ant-prefix}-select.@{ant-prefix}-select-auto-complete {
+      .@{ant-prefix}-input:focus {
+        border-color: @error-color;
+      }
+    }
+
+    .@{ant-prefix}-input-group-addon .@{ant-prefix}-select {
+      &-selection {
+        border-color: transparent;
+        box-shadow: none;
+      }
+    }
+
+    // arrow and icon
+    .@{ant-prefix}-calendar-picker-icon::after,
+    .@{ant-prefix}-time-picker-icon::after,
+    .@{ant-prefix}-picker-icon::after,
+    .@{ant-prefix}-select-arrow,
+    .@{ant-prefix}-cascader-picker-arrow {
+      color: @error-color;
+    }
+
+    //input-number, timepicker
+    .@{ant-prefix}-input-number,
+    .@{ant-prefix}-time-picker-input {
+      border-color: @error-color;
+      &-focused,
+      &:focus {
+        .active(@error-color);
+      }
+      &:not([disabled]):hover {
+        border-color: @error-color;
+      }
+    }
+    .@{ant-prefix}-mention-wrapper {
+      .@{ant-prefix}-mention-editor {
+        &,
+        &:not([disabled]):hover {
+          border-color: @error-color;
+        }
+      }
+      &.@{ant-prefix}-mention-active:not([disabled]) .@{ant-prefix}-mention-editor,
+      .@{ant-prefix}-mention-editor:not([disabled]):focus {
+        .active(@error-color);
+      }
+    }
+
+    .@{ant-prefix}-cascader-picker:focus .@{ant-prefix}-cascader-input {
+      .active(@error-color);
+    }
+
+    // transfer
+    .@{ant-prefix}-transfer {
+      &-list {
+        border-color: @error-color;
+
+        &-search:not([disabled]) {
+          border-color: @input-border-color;
+
+          &:hover {
+            .hover();
+          }
+
+          &:focus {
+            .active();
+          }
+        }
+      }
+    }
+  }
+
+  .is-validating {
+    &.has-feedback .@{form-prefix-cls}-item-children-icon {
+      display: inline-block;
+      color: @primary-color;
+    }
+  }
+}
+
+// ================= Animation =================
+// need there different zoom animation
+// otherwise won't trigger anim
+@keyframes diffZoomIn1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes diffZoomIn2 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes diffZoomIn3 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
