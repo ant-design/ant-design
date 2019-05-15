@@ -214,11 +214,10 @@ export default class FormItem extends React.Component<FormItemProps, FormItemSta
     return '';
   }
 
-  getStatusClassName(prefixCls: string, validateStatus: ValidateStatus) {
+  getStatusClassName(validateStatus: ValidateStatus) {
     const { hasFeedback } = this.props;
-    let classes = `${prefixCls}-item-control`;
     if (validateStatus) {
-      classes = classNames(`${prefixCls}-item-control`, {
+      return classNames({
         'has-feedback': hasFeedback || validateStatus === 'validating',
         'has-success': validateStatus === 'success',
         'has-warning': validateStatus === 'warning',
@@ -226,7 +225,7 @@ export default class FormItem extends React.Component<FormItemProps, FormItemSta
         'is-validating': validateStatus === 'validating',
       });
     }
-    return classes;
+    return '';
   }
 
   renderValidateWrapper(prefixCls: string, c1: React.ReactNode, validateStatus: ValidateStatus) {
@@ -259,7 +258,9 @@ export default class FormItem extends React.Component<FormItemProps, FormItemSta
       ) : null;
 
     return (
-      <div className={this.getStatusClassName(prefixCls, validateStatus)}>
+      <div
+        className={classNames(`${prefixCls}-item-control`, this.getStatusClassName(validateStatus))}
+      >
         <span className={`${prefixCls}-item-children`}>
           {c1}
           {icon}
@@ -395,13 +396,18 @@ export default class FormItem extends React.Component<FormItemProps, FormItemSta
   }
 
   renderInfo = (prefixCls: string, showHelp: boolean, validateStatus: ValidateStatus) => {
-    const { extra } = this.props;
+    const { extra, label } = this.props;
 
     if (showHelp || extra) {
       return (
-        <Row className={this.getStatusClassName(prefixCls, validateStatus)}>
-          <Col />
-          <Col className={`${prefixCls}-item-info-holder`}>
+        <Row className={`${prefixCls}-item-info-row`}>
+          {!!label && <Col />}
+          <Col
+            className={classNames(
+              `${prefixCls}-item-info-holder`,
+              this.getStatusClassName(validateStatus),
+            )}
+          >
             {this.renderHelp(prefixCls)}
             {this.renderExtra(prefixCls)}
           </Col>
@@ -414,7 +420,7 @@ export default class FormItem extends React.Component<FormItemProps, FormItemSta
 
   renderFormItem = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { showHelp } = this.state;
-    const { prefixCls: customizePrefixCls, style, className, validateStatus } = this.props;
+    const { prefixCls: customizePrefixCls, style, className, validateStatus, label } = this.props;
     const prefixCls = getPrefixCls('form', customizePrefixCls);
     const mergedValidateStatus =
       validateStatus === undefined ? this.getValidateStatus() : validateStatus;
@@ -423,11 +429,10 @@ export default class FormItem extends React.Component<FormItemProps, FormItemSta
 
     const mergedShowHelp = showHelp || !!this.getHelpMessage();
 
-    console.log('=>', showHelp, mergedShowHelp);
-
     const itemClassName = {
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-with-help`]: mergedShowHelp,
+      [`${prefixCls}-item-with-label`]: label,
       [`${className}`]: !!className,
     };
 

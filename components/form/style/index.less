@@ -3,12 +3,16 @@
 @import '../../input/style/mixin';
 @import '../../button/style/mixin';
 @import '../../grid/style/mixin';
+@import './vertical';
+@import './horizontal';
+@import './inline';
 @import './status';
 
 @form-prefix-cls: ~'@{ant-prefix}-form';
 @row-prefix-cls: ~'@{ant-prefix}-row';
 @col-prefix-cls: ~'@{ant-prefix}-col';
 
+@form-component-base-height: @input-height-base;
 @form-explain-font-size: @font-size-base;
 // Extends additional 1px to fix precision issue.
 // https://github.com/ant-design/ant-design/issues/12803
@@ -23,18 +27,62 @@
     width: 100%;
     margin-bottom: @form-item-margin-bottom;
 
-    > .@{row-prefix-cls} {
-      display: table-row;
-      &::before,
-      &::after {
-        display: none;
+    &&-with-label {
+      > .@{row-prefix-cls} {
+        display: table-row;
+        &::before,
+        &::after {
+          display: none;
+        }
+
+        > .@{col-prefix-cls} {
+          display: table-cell;
+          flex: none;
+          float: none;
+        }
+      }
+    }
+
+    // >>> Label
+    &-label {
+      display: inline-block;
+      overflow: hidden;
+      line-height: @form-component-base-height;
+      white-space: nowrap;
+      text-align: right;
+      vertical-align: middle;
+
+      &-left {
+        text-align: left;
       }
 
-      > .@{col-prefix-cls} {
-        display: table-cell;
-        flex: none;
-        float: none;
+      > label {
+        color: @label-color;
+
+        &::after {
+          & when(@form-item-trailing-colon=true) {
+            content: ':';
+          }
+          & when not(@form-item-trailing-colon=true) {
+            content: ' ';
+          }
+
+          position: relative;
+          top: -0.5px;
+          margin: 0 8px 0 2px;
+        }
+
+        &.@{form-prefix-cls}-item-no-colon::after {
+          content: ' ';
+        }
       }
+    }
+
+    // >>> Control
+    &-control {
+      position: relative;
+      line-height: @form-component-base-height;
+      .clearfix;
     }
 
     // ================== Required ==================
@@ -88,6 +136,17 @@
     // .show-help-motion(show-help, antShowHelp, 10s);
   }
 }
+
+// [Legacy] Keep this in case others are using
+// .@{ant-prefix}-advanced-search-form {
+//   .@{form-prefix-cls}-item {
+//     margin-bottom: @form-item-margin-bottom;
+
+//     &-with-help {
+//       margin-bottom: @form-item-margin-bottom - @form-explain-height - @form-help-margin-top;
+//     }
+//   }
+// }
 
 @keyframes antShowHelpIn {
   0% {

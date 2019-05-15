@@ -1,0 +1,41 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+@import '../../input/style/mixin';
+@import './index';
+
+.@{form-prefix-cls}-inline {
+  .@{form-prefix-cls}-item {
+    display: inline-block;
+    margin-right: 16px;
+    margin-bottom: 0;
+    width: auto;
+    vertical-align: top;
+
+    > .@{row-prefix-cls} {
+      display: inline-block;
+
+      &.@{form-prefix-cls}-item-info-row,
+      > .@{col-prefix-cls} {
+        display: block;
+      }
+    }
+
+    &-with-help {
+      margin-bottom: @form-item-margin-bottom;
+    }
+
+    > .@{form-prefix-cls}-item-control-wrapper,
+    > .@{form-prefix-cls}-item-label {
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+
+  .@{form-prefix-cls}-text {
+    display: inline-block;
+  }
+
+  .has-feedback {
+    display: inline-block;
+  }
+}

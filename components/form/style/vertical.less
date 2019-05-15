@@ -1,0 +1,111 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+@import '../../input/style/mixin';
+@import './index';
+
+.make-vertical-layout-label() {
+  display: block;
+  margin: @form-vertical-label-margin;
+  padding: @form-vertical-label-padding;
+  line-height: @line-height-base;
+  white-space: initial;
+  text-align: left;
+
+  label::after {
+    display: none;
+  }
+}
+
+.make-vertical-layout() {
+  .@{form-prefix-cls}-item-label,
+  .@{form-prefix-cls}-item-control-wrapper {
+    display: block;
+    width: 100%;
+  }
+  .@{form-prefix-cls}-item-label {
+    .make-vertical-layout-label();
+  }
+}
+
+// .@{form-prefix-cls}-vertical .@{form-prefix-cls}-item-label,
+//   // when labelCol is 24, it is a vertical form
+// .@{ant-prefix}-col-24.@{form-prefix-cls}-item-label,
+// .@{ant-prefix}-col-xl-24.@{form-prefix-cls}-item-label {
+//   .make-vertical-layout-label();
+// }
+
+// .@{form-prefix-cls}-vertical {
+// .@{form-prefix-cls}-item {
+//   padding-bottom: 8px;
+// }
+// .@{form-prefix-cls}-item-control {
+//   line-height: @line-height-base;
+// }
+// .@{form-prefix-cls}-explain {
+//   margin-top: 2px;
+//   margin-bottom: -4px - @form-explain-precision;
+// }
+// .@{form-prefix-cls}-extra {
+//   margin-top: 2px;
+//   margin-bottom: -4px;
+// }
+// }
+
+.@{form-prefix-cls} {
+  &-vertical {
+    .@{form-prefix-cls}-item.@{form-prefix-cls}-item-with-label {
+      > .@{row-prefix-cls} > .@{col-prefix-cls} {
+        display: block;
+
+        &.@{form-prefix-cls}-item-label {
+          .make-vertical-layout-label();
+        }
+      }
+    }
+  }
+
+  // TODO: Need 24 additional code
+  .@{form-prefix-cls}-item.@{form-prefix-cls}-item-with-label {
+    > .@{row-prefix-cls} > .@{col-prefix-cls} {
+      &.@{col-prefix-cls}-24.@{form-prefix-cls}-item-label {
+        display: block;
+        .make-vertical-layout-label();
+
+        & + .@{form-prefix-cls}-item-control-wrapper {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: @screen-xs-max) {
+  .make-vertical-layout();
+  .@{ant-prefix}-col-xs-24.@{form-prefix-cls}-item-label {
+    .make-vertical-layout-label();
+  }
+}
+
+@media (max-width: @screen-sm-max) {
+  .@{ant-prefix}-col-sm-24.@{form-prefix-cls}-item-label {
+    .make-vertical-layout-label();
+  }
+}
+
+@media (max-width: @screen-md-max) {
+  .@{ant-prefix}-col-md-24.@{form-prefix-cls}-item-label {
+    .make-vertical-layout-label();
+  }
+}
+
+@media (max-width: @screen-lg-max) {
+  .@{ant-prefix}-col-lg-24.@{form-prefix-cls}-item-label {
+    .make-vertical-layout-label();
+  }
+}
+
+@media (max-width: @screen-xl-max) {
+  .@{ant-prefix}-col-xl-24.@{form-prefix-cls}-item-label {
+    .make-vertical-layout-label();
+  }
+}
