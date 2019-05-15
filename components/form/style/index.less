@@ -9,7 +9,7 @@
 @form-component-height: @input-height-base;
 @form-component-max-height: @input-height-lg;
 @form-feedback-icon-size: @font-size-base;
-@form-help-margin-top: (@form-component-height - @form-component-max-height) / 2 + 2px;
+@form-help-margin-top: (@form-component-height - @form-component-max-height) / 2 - 1px;
 @form-explain-font-size: @font-size-base;
 // Extends additional 1px to fix precision issue.
 // https://github.com/ant-design/ant-design/issues/12803
@@ -355,11 +355,11 @@ form {
   }
   .@{form-prefix-cls}-explain {
     margin-top: 2px;
-    margin-bottom: -4px - @form-explain-precision;
+    margin-bottom: -7px - @form-explain-precision;
   }
   .@{form-prefix-cls}-extra {
     margin-top: 2px;
-    margin-bottom: -4px;
+    margin-bottom: -7px;
   }
 }
 
