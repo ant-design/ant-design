@@ -6,7 +6,7 @@ title: Descriptions
 cols: 1
 ---
 
-成组展示多个只读字段
+成组展示多个只读字段。
 
 ## 何时使用
 

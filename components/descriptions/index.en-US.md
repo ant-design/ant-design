@@ -5,7 +5,7 @@ title: Description List
 cols: 1
 ---
 
-Display multiple read-only fields in groups
+Display multiple read-only fields in groups.
 
 ## When To Use
 
