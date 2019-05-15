@@ -14,19 +14,23 @@ title:
 
 Display Alert as a banner at top of page.
 
-````jsx
+```jsx
 import { Alert } from 'antd';
 
 ReactDOM.render(
   <div>
     <Alert message="Warning text" banner />
     <br />
-    <Alert message="Very long warning text warning text text text text text text text" banner closable />
+    <Alert
+      message="Very long warning text warning text text text text text text text"
+      banner
+      closable
+    />
     <br />
     <Alert showIcon={false} message="Warning text without icon" banner />
     <br />
     <Alert type="error" message="Error text" banner />
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```

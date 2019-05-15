@@ -29,8 +29,9 @@ export interface UploadFile {
   type: string;
 }
 
-export interface UploadChangeParam {
-  file: UploadFile;
+export interface UploadChangeParam<T extends object = UploadFile> {
+  // https://github.com/ant-design/ant-design/issues/14420
+  file: T;
   fileList: Array<UploadFile>;
   event?: { percent: number };
 }

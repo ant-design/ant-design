@@ -319,7 +319,8 @@ class Upload extends React.Component<UploadProps, UploadState> {
 
     // Remove id to avoid open by label when trigger is hidden
     // https://github.com/ant-design/ant-design/issues/14298
-    if (!children) {
+    // https://github.com/ant-design/ant-design/issues/16478
+    if (!children || disabled) {
       delete rcUploadProps.id;
     }
 

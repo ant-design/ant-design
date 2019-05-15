@@ -61,6 +61,7 @@ exports[`renders ./components/tree-select/demo/checkable.md correctly 1`] = `
   >
     <ul
       class="ant-select-selection__rendered"
+      role="menubar"
     >
       <li
         class="ant-select-selection__choice"
@@ -143,6 +144,7 @@ exports[`renders ./components/tree-select/demo/multiple.md correctly 1`] = `
   >
     <ul
       class="ant-select-selection__rendered"
+      role="menubar"
     >
       <li
         class="ant-select-search ant-select-search--inline"

@@ -14,7 +14,7 @@ Comments can be used to enable discussions on an entity such as a page, blog pos
 ## API
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | actions | List of action items rendered below the comment content | Array<ReactNode> | - |
 | author | The element to display as the comment author | string\|ReactNode | - |
 | avatar | The element to display as the comment avatar - generally an antd `Avatar` or src | string\|ReactNode | - |

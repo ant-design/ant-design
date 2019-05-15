@@ -15,7 +15,7 @@ Please note that Affix should not cover other content on the page, especially wh
 ## API
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | offsetBottom | Pixels to offset from bottom when calculating position of scroll | number | - |
 | offsetTop | Pixels to offset from top when calculating position of scroll | number | 0 |
 | target | specifies the scrollable area dom node | () => HTMLElement | () => window |
@@ -24,9 +24,7 @@ Please note that Affix should not cover other content on the page, especially wh
 **Note:** Children of `Affix` can not be `position: absolute`, but you can set `Affix` as `position: absolute`:
 
 ```jsx
-<Affix style={{ position: 'absolute', top: y, left: x }}>
-  ...
-</Affix>
+<Affix style={{ position: 'absolute', top: y, left: x }}>...</Affix>
 ```
 
 ## FAQ

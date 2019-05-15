@@ -8,15 +8,14 @@ Tree selection control.
 
 ## When To Use
 
-`TreeSelect` is similar to `Select`, but the values are provided in a tree like structure.
-Any data whose entries are defined in a hierarchical manner is fit to use this control. Examples of such case may include a corporate hierarchy, a directory structure, and so on.
+`TreeSelect` is similar to `Select`, but the values are provided in a tree like structure. Any data whose entries are defined in a hierarchical manner is fit to use this control. Examples of such case may include a corporate hierarchy, a directory structure, and so on.
 
 ## API
 
 ### Tree props
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | allowClear | Whether allow clear | boolean | false |
 | autoClearSearchValue | auto clear search input value when multiple select is selected/deselected | boolean | true |
 | defaultValue | To set the initial selected treeNode(s). | string\|string\[] | - |
@@ -56,17 +55,17 @@ Any data whose entries are defined in a hierarchical manner is fit to use this c
 
 ### Tree Methods
 
-| Name | Description |
-| ---- | ----------- |
-| blur() | remove focus |
-| focus() | get focus |
+| Name    | Description  |
+| ------- | ------------ |
+| blur()  | remove focus |
+| focus() | get focus    |
 
 ### TreeNode props
 
 > We recommend you to use `treeData` rather than `TreeNode`, to avoid the trouble of manual construction.
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | selectable | can be selected | boolean | true |
 | disableCheckbox | Disables the checkbox of the treeNode | boolean | false |
 | disabled | Disabled or not | boolean | false |

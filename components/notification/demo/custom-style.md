@@ -13,13 +13,14 @@ title:
 
 The style and className are available to customize Notification.
 
-````jsx
+```jsx
 import { Button, notification } from 'antd';
 
 const openNotification = () => {
   notification.open({
     message: 'Notification Title',
-    description: 'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
+    description:
+      'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
     style: {
       width: 600,
       marginLeft: 335 - 600,
@@ -28,7 +29,9 @@ const openNotification = () => {
 };
 
 ReactDOM.render(
-  <Button type="primary" onClick={openNotification}>Open the notification box</Button>,
-  mountNode
+  <Button type="primary" onClick={openNotification}>
+    Open the notification box
+  </Button>,
+  mountNode,
 );
-````
+```

@@ -13,20 +13,23 @@ title:
 
 To perform operations and clear selections after selecting some rows, use `rowSelection.selectedRowKeys` to control selected rows.
 
-
-````jsx
+```jsx
 import { Table, Button } from 'antd';
 
-const columns = [{
-  title: 'Name',
-  dataIndex: 'name',
-}, {
-  title: 'Age',
-  dataIndex: 'age',
-}, {
-  title: 'Address',
-  dataIndex: 'address',
-}];
+const columns = [
+  {
+    title: 'Name',
+    dataIndex: 'name',
+  },
+  {
+    title: 'Age',
+    dataIndex: 'age',
+  },
+  {
+    title: 'Address',
+    dataIndex: 'address',
+  },
+];
 
 const data = [];
 for (let i = 0; i < 46; i++) {
@@ -53,12 +56,12 @@ class App extends React.Component {
         loading: false,
       });
     }, 1000);
-  }
+  };
 
-  onSelectChange = (selectedRowKeys) => {
+  onSelectChange = selectedRowKeys => {
     console.log('selectedRowKeys changed: ', selectedRowKeys);
     this.setState({ selectedRowKeys });
-  }
+  };
 
   render() {
     const { loading, selectedRowKeys } = this.state;
@@ -70,12 +73,7 @@ class App extends React.Component {
     return (
       <div>
         <div style={{ marginBottom: 16 }}>
-          <Button
-            type="primary"
-            onClick={this.start}
-            disabled={!hasSelected}
-            loading={loading}
-          >
+          <Button type="primary" onClick={this.start} disabled={!hasSelected} loading={loading}>
             Reload
           </Button>
           <span style={{ marginLeft: 8 }}>
@@ -89,4 +87,4 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, mountNode);
-````
+```

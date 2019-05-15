@@ -117,7 +117,7 @@ exports[`List.pagination renders pagination correctly 1`] = `
 
 exports[`List.pagination should change page size work 1`] = `
 <ul
-  class="ant-pagination "
+  class="ant-pagination"
   unselectable="unselectable"
 >
   <li
@@ -247,7 +247,7 @@ exports[`List.pagination should change page size work 1`] = `
 
 exports[`List.pagination should change page size work 2`] = `
 <ul
-  class="ant-pagination "
+  class="ant-pagination"
   unselectable="unselectable"
 >
   <li
@@ -432,7 +432,7 @@ exports[`List.pagination should change page size work 2`] = `
 
 exports[`List.pagination should default work 1`] = `
 <ul
-  class="ant-pagination "
+  class="ant-pagination"
   unselectable="unselectable"
 >
   <li

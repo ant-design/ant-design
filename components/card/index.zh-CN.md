@@ -40,17 +40,17 @@ cols: 1
 
 ### Card.Grid
 
-| Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
-| className | 网格容器类名 | string | - |
-| style | 定义网格容器类名的样式 | object | - |
+| Property  | Description            | Type   | Default |
+| --------- | ---------------------- | ------ | ------- |
+| className | 网格容器类名           | string | -       |
+| style     | 定义网格容器类名的样式 | object | -       |
 
 ### Card.Meta
 
-| Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
-| avatar | 头像/图标 | ReactNode | - |
-| className | 容器类名 | string | - |
-| description | 描述内容 | ReactNode | - |
-| style | 定义容器类名的样式 | object | - |
-| title | 标题内容 | ReactNode | - |
+| Property    | Description        | Type      | Default |
+| ----------- | ------------------ | --------- | ------- |
+| avatar      | 头像/图标          | ReactNode | -       |
+| className   | 容器类名           | string    | -       |
+| description | 描述内容           | ReactNode | -       |
+| style       | 定义容器类名的样式 | object    | -       |
+| title       | 标题内容           | ReactNode | -       |

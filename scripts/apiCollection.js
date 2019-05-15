@@ -39,9 +39,12 @@ function printReport(apis) {
     componentList: apis[api],
   }));
   apiList.sort((a, b) => b.componentList.length - a.componentList.length);
+  // eslint-disable-next-line no-console
   console.log('| name | components | comments |');
+  // eslint-disable-next-line no-console
   console.log('| ---- | ---------- | -------- |');
   apiList.forEach(({ name, componentList }) => {
+    // eslint-disable-next-line no-console
     console.log('|', name, '|', componentList.join(', '), '| |');
   });
 }

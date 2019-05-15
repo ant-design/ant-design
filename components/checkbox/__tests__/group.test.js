@@ -111,4 +111,26 @@ describe('CheckboxGroup', () => {
     expect(onChange).toHaveBeenCalled();
     expect(onChange.mock.calls[0][0].target.value).toEqual('my');
   });
+
+  // https://github.com/ant-design/ant-design/issues/16376
+  it('onChange should filter removed value', () => {
+    const onChange = jest.fn();
+    const wrapper = mount(
+      <Checkbox.Group defaultValue={[1]} onChange={onChange}>
+        <Checkbox key={1} value={1} />
+        <Checkbox key={2} value={2} />
+      </Checkbox.Group>,
+    );
+
+    wrapper.setProps({
+      children: [<Checkbox key={2} value={2} />],
+    });
+
+    wrapper
+      .find('.ant-checkbox-input')
+      .at(0)
+      .simulate('change');
+
+    expect(onChange).toHaveBeenCalledWith([2]);
+  });
 });

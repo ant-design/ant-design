@@ -13,16 +13,16 @@ A simple text popup tip.
 
 ## API
 
-| Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
-| title | The text shown in the tooltip | string\|ReactNode\|() => ReactNode | - |
+| Property | Description                   | Type                               | Default |
+| -------- | ----------------------------- | ---------------------------------- | ------- |
+| title    | The text shown in the tooltip | string\|ReactNode\|() => ReactNode | -       |
 
 ### Common API
 
 The following APIs are shared by Tooltip, Popconfirm, Popover.
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | arrowPointAtCenter | Whether the arrow is pointed at the center of target, supported after `antd@1.11+` | boolean | `false` |
 | autoAdjustOverflow | Whether to adjust popup placement automatically when popup is off screen | boolean | `true` |
 | defaultVisible | Whether the floating tooltip card is visible by default | boolean | `false` |

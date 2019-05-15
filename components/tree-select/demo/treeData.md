@@ -13,37 +13,43 @@ title:
 
 The tree structure can be populated using `treeData` property. This is a quick and easy way to provide the tree content.
 
-````jsx
+```jsx
 import { TreeSelect } from 'antd';
 
-const treeData = [{
-  title: 'Node1',
-  value: '0-0',
-  key: '0-0',
-  children: [{
-    title: 'Child Node1',
-    value: '0-0-1',
-    key: '0-0-1',
-  }, {
-    title: 'Child Node2',
-    value: '0-0-2',
-    key: '0-0-2',
-  }],
-}, {
-  title: 'Node2',
-  value: '0-1',
-  key: '0-1',
-}];
+const treeData = [
+  {
+    title: 'Node1',
+    value: '0-0',
+    key: '0-0',
+    children: [
+      {
+        title: 'Child Node1',
+        value: '0-0-1',
+        key: '0-0-1',
+      },
+      {
+        title: 'Child Node2',
+        value: '0-0-2',
+        key: '0-0-2',
+      },
+    ],
+  },
+  {
+    title: 'Node2',
+    value: '0-1',
+    key: '0-1',
+  },
+];
 
 class Demo extends React.Component {
   state = {
     value: undefined,
-  }
+  };
 
-  onChange = (value) => {
+  onChange = value => {
     console.log(value);
     this.setState({ value });
-  }
+  };
 
   render() {
     return (
@@ -61,4 +67,4 @@ class Demo extends React.Component {
 }
 
 ReactDOM.render(<Demo />, mountNode);
-````
+```
