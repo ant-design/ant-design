@@ -36,7 +36,7 @@ export interface ListProps<T> {
   className?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
-  dataSource: T[];
+  dataSource?: T[];
   extra?: React.ReactNode;
   grid?: ListGridType;
   id?: string;
@@ -46,7 +46,7 @@ export interface ListProps<T> {
   pagination?: PaginationConfig | false;
   prefixCls?: string;
   rowKey?: any;
-  renderItem: (item: T, index: number) => React.ReactNode;
+  renderItem?: (item: T, index: number) => React.ReactNode;
   size?: ListSize;
   split?: boolean;
   header?: React.ReactNode;
@@ -124,6 +124,8 @@ export default class List<T> extends React.Component<ListProps<T>, ListState> {
 
   renderItem = (item: any, index: number) => {
     const { renderItem, rowKey } = this.props;
+    if (!renderItem) return null;
+
     let key;
 
     if (typeof rowKey === 'function') {
@@ -170,7 +172,7 @@ export default class List<T> extends React.Component<ListProps<T>, ListState> {
       loadMore,
       pagination,
       grid,
-      dataSource,
+      dataSource = [],
       size,
       rowKey,
       renderItem,
