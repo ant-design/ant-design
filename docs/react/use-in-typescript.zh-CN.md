@@ -183,6 +183,10 @@ module.exports = override(
 
 ## 其他方案
 
+先按照 [在 create-react-app 中使用](/docs/react/use-with-create-react-app.en-US.md) 中的说明操作，再配置 TypeScript 开发环境。
+
+你也可以使用 [react-scripts-ts-antd](https://www.npmjs.com/package/react-scripts-ts-antd)，其中包括了 ts-import-plugin，react-app-rewired，scss，less 等插件。你可以通过只运行一个命令来创建一个没有任何配置的新项目。
+
 - [Create React apps (with Typescript and antd) with no build configuration](https://github.com/SZzzzz/react-scripts-ts-antd)
 - [react-app-rewire-typescript][https://github.com/lwd-technology/react-app-rewire-typescript]
 - [ts-import-plugin](https://github.com/Brooooooklyn/ts-import-plugin)
