@@ -40,7 +40,11 @@ ReactDOM.render(
         }
 
         for (let index = start; index < end; index++) {
-          monthOptions.push(<Select.Option key={`${index}`}>{months[index]}</Select.Option>);
+          monthOptions.push(
+            <Select.Option className="month-item" key={`${index}`}>
+              {months[index]}
+            </Select.Option>,
+          );
         }
         const month = value.month();
 
@@ -48,7 +52,7 @@ ReactDOM.render(
         const options = [];
         for (let i = year - 10; i < year + 10; i += 1) {
           options.push(
-            <Select.Option key={i} value={i}>
+            <Select.Option key={i} value={i} className="year-item">
               {i}
             </Select.Option>,
           );
