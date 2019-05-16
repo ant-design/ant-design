@@ -99,6 +99,7 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| flex | flex layout style | string \| number | - | 3.19.0 |
 | offset | the number of cells to offset Col from the left | number | 0 |  |
 | order | raster order, used in `flex` layout mode | number | 0 |  |
 | pull | the number of cells that raster is moved to the left | number | 0 |  |
