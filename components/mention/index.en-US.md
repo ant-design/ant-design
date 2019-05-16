@@ -8,7 +8,11 @@ Mention component. Deprecated, please use [Mentions](/components/mentions) inste
 
 ## Why deprecated?
 
-Mention use [Draft.js](https://www.npmjs.com/package/draft-js) to measure tips position, which use nearly 11.6% package size. We hope to reduce bundle size by using lightweight solution to handle this.
+<div class="ant-alert ant-alert-error ant-alert-no-icon">
+Mention use
+<a href="https://www.npmjs.com/package/draft-js" target="_blank" rel="noopener noreferrer">Draft.js</a>
+to measure tips position, which use nearly 11.6% package size. We hope to reduce bundle size by using lightweight solution to handle this.
+</div>
 
 ## API
 

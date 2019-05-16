@@ -9,7 +9,11 @@ title: Mention
 
 ## 为何废弃？
 
-Mention 组件使用了 [Draft.js](https://www.npmjs.com/package/draft-js) 进行提示定位，占用了约 11.6% 的包大小。因而我们决定使用更轻量级的解决方案以便于在未来降低整个包的大小。
+<div class="ant-alert ant-alert-error ant-alert-no-icon">
+Mention 组件使用了
+<a href="https://www.npmjs.com/package/draft-js" target="_blank" rel="noopener noreferrer">Draft.js</a>
+进行提示定位，占用了约 11.6% 的包大小。因而我们决定使用更轻量级的解决方案以便于在未来降低整个包的大小。
+</div>
 
 ## API
 
