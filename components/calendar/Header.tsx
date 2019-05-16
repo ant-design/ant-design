@@ -39,7 +39,7 @@ export default class Header extends React.Component<HeaderProps, any> {
 
   private calenderHeaderNode: HTMLDivElement;
 
-  getYears(prefixCls: string, year: number) {
+  getYearSelectElement(prefixCls: string, year: number) {
     const { yearSelectOffset, yearSelectTotal, locale, fullscreen, validRange } = this.props;
     let start = year - (yearSelectOffset as number);
     let end = start + (yearSelectTotal as number);
@@ -77,7 +77,7 @@ export default class Header extends React.Component<HeaderProps, any> {
     return months;
   }
 
-  getMonths(prefixCls: string, month: number, months: number[]) {
+  getMonthSelectElement(prefixCls: string, month: number, months: number[]) {
     const { fullscreen, validRange, value } = this.props;
     const options: React.ReactElement<any>[] = [];
     let start = 0;
@@ -157,10 +157,10 @@ export default class Header extends React.Component<HeaderProps, any> {
     const { prefixCls: customizePrefixCls, type, value } = this.props;
 
     const prefixCls = getPrefixCls('fullcalendar', customizePrefixCls);
-    const yearReactNode = this.getYears(prefixCls, value.year());
+    const yearReactNode = this.getYearSelectElement(prefixCls, value.year());
     const monthReactNode =
       type === 'month'
-        ? this.getMonths(prefixCls, value.month(), this.getMonthsLocale(value))
+        ? this.getMonthSelectElement(prefixCls, value.month(), this.getMonthsLocale(value))
         : null;
     return {
       yearReactNode,

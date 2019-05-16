@@ -9,18 +9,6 @@ import Group from '../../radio/group';
 import Button from '../../radio/radioButton';
 
 describe('Calendar', () => {
-  // eslint-disable-next-line
-  const original = console.error;
-
-  beforeEach(() => {
-    // eslint-disable-next-line
-    console.warn = jest.fn();
-  });
-
-  afterEach(() => {
-    // eslint-disable-next-line
-    console.warn = original;
-  });
   it('Calendar should be selectable', () => {
     const onSelect = jest.fn();
     const wrapper = mount(<Calendar onSelect={onSelect} />);
