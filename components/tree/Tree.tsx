@@ -25,6 +25,7 @@ export interface AntdTreeNodeAttribute {
   disabled: boolean;
   disableCheckbox: boolean;
 }
+
 export interface AntTreeNodeProps {
   className?: string;
   checkable?: boolean;
