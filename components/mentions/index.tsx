@@ -70,7 +70,7 @@ class Mentions extends React.Component<MentionProps, MentionState> {
           return null;
         },
       )
-      .filter((entity): entity is MentionsEntity => !!entity);
+      .filter((entity): entity is MentionsEntity => !!entity && !!entity.value);
   };
 
   state = {
