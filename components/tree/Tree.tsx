@@ -72,6 +72,10 @@ export interface AntTreeNodeMouseEvent {
   event: React.MouseEventHandler<any>;
 }
 
+export interface AntTreeNodeDragEnterEvent extends AntTreeNodeMouseEvent {
+  expandedKeys: string[];
+}
+
 export interface AntTreeNodeDropEvent {
   node: AntTreeNode;
   dragNode: AntTreeNode;
@@ -135,7 +139,7 @@ export interface TreeProps {
   /** 设置节点可拖拽（IE>8）*/
   draggable?: boolean;
   onDragStart?: (options: AntTreeNodeMouseEvent) => void;
-  onDragEnter?: (options: AntTreeNodeMouseEvent) => void;
+  onDragEnter?: (options: AntTreeNodeDragEnterEvent) => void;
   onDragOver?: (options: AntTreeNodeMouseEvent) => void;
   onDragLeave?: (options: AntTreeNodeMouseEvent) => void;
   onDragEnd?: (options: AntTreeNodeMouseEvent) => void;
