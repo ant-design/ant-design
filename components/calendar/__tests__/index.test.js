@@ -337,7 +337,7 @@ describe('Calendar', () => {
     wrapper.update();
     wrapper
       .find('.year-item')
-      .last()
+      .at(5)
       .simulate('click');
     expect(onYearChange).toHaveBeenCalled();
     wrapper
@@ -346,8 +346,8 @@ describe('Calendar', () => {
       .simulate('click');
     wrapper.update();
     wrapper
-      .find('.ant-select-dropdown-menu-item')
-      .last()
+      .find('.month-item')
+      .at(5)
       .simulate('click');
     expect(onMonthChange).toHaveBeenCalled();
     wrapper
