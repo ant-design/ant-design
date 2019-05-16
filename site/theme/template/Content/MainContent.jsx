@@ -102,20 +102,6 @@ export default class MainContent extends Component {
     window.removeEventListener('load', this.handleInitialHashOnLoad);
   }
 
-  handleInitialHashOnLoad() {
-    setTimeout(() => {
-      if (!window.location.hash) {
-        return;
-      }
-      const element = document.getElementById(
-        decodeURIComponent(window.location.hash.replace('#', '')),
-      );
-      if (element && document.documentElement.scrollTop === 0) {
-        element.scrollIntoView();
-      }
-    }, 0);
-  }
-
   getMenuItems(footerNavIcons = {}) {
     const { themeConfig } = this.props;
     const {
@@ -166,6 +152,20 @@ export default class MainContent extends Component {
 
   handleMenuOpenChange = openKeys => {
     this.setState({ openKeys });
+  };
+
+  handleInitialHashOnLoad = () => {
+    setTimeout(() => {
+      if (!window.location.hash) {
+        return;
+      }
+      const element = document.getElementById(
+        decodeURIComponent(window.location.hash.replace('#', '')),
+      );
+      if (element && document.documentElement.scrollTop === 0) {
+        element.scrollIntoView();
+      }
+    }, 0);
   };
 
   bindScroller() {
