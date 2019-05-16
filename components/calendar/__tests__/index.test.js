@@ -5,6 +5,8 @@ import MockDate from 'mockdate';
 import Calendar from '..';
 import Header from '../Header';
 import Select from '../../select';
+import Group from '../../radio/group';
+import Button from '../../radio/radioButton';
 
 describe('Calendar', () => {
   // eslint-disable-next-line
@@ -270,32 +272,100 @@ describe('Calendar', () => {
     expect(onTypeChange).toHaveBeenCalledWith('year');
   });
 
-  it('Calendar with custom header', () => {
-    const onSelect = jest.fn();
+  it('headerRender should work correctly', () => {
+    const onMonthChange = jest.fn();
+    const onYearChange = jest.fn();
+    const onTypeChange = jest.fn();
     const wrapper = mount(
       <Calendar
-        headerRender={returnData => (
-          <div style={{ padding: 10, border: '1px solid #d9d9d9' }}>
-            <Select defaultValue="Mar" onChange={onSelect} style={{ width: '100px' }}>
-              {returnData.months.map(item => (
-                <Select.Option key={item.index}>{item.month}</Select.Option>
-              ))}
-            </Select>
-          </div>
-        )}
+        fullscreen={false}
+        headerRender={(value, type) => {
+          const start = 0;
+          const end = 12;
+          const monthOptions = [];
+
+          const current = value.clone();
+          const localeData = value.localeData();
+          const months = [];
+          for (let i = 0; i < 12; i += 1) {
+            current.month(i);
+            months.push(localeData.monthsShort(current));
+          }
+
+          for (let index = start; index < end; index += 1) {
+            monthOptions.push(
+              <Select.Option className="month-item" key={`${index}`}>
+                {months[index]}
+              </Select.Option>,
+            );
+          }
+          const month = value.month();
+
+          const year = value.year();
+          const options = [];
+          for (let i = year - 10; i < year + 10; i += 1) {
+            options.push(
+              <Select.Option className="year-item" key={i} value={i}>
+                {i}
+              </Select.Option>,
+            );
+          }
+
+          return (
+            <div>
+              <Select
+                size="small"
+                dropdownMatchSelectWidth={false}
+                className="my-year-select"
+                onChange={onYearChange}
+                value={String(year)}
+              >
+                {options}
+              </Select>
+              <Select
+                size="small"
+                dropdownMatchSelectWidth={false}
+                value={String(month)}
+                className="my-mont-select"
+                onChange={onMonthChange}
+              >
+                {monthOptions}
+              </Select>
+
+              <Group size="small" onChange={onTypeChange} value={type}>
+                <Button value="month">Month</Button>
+                <Button value="year">Year</Button>
+              </Group>
+            </div>
+          );
+        }}
       />,
     );
 
     wrapper
-      .find('.ant-select')
+      .find('.my-year-select')
       .first()
       .simulate('click');
     wrapper.update();
-    expect(wrapper.find('MenuItem').length).toBe(12);
+    wrapper
+      .find('.year-item')
+      .last()
+      .simulate('click');
+    expect(onYearChange).toHaveBeenCalled();
+    wrapper
+      .find('.my-mont-select')
+      .last()
+      .simulate('click');
+    wrapper.update();
     wrapper
       .find('.ant-select-dropdown-menu-item')
       .last()
       .simulate('click');
-    expect(onSelect).toHaveBeenCalled();
+    expect(onMonthChange).toHaveBeenCalled();
+    wrapper
+      .find('.ant-radio-button-input')
+      .last()
+      .simulate('change');
+    expect(onTypeChange).toHaveBeenCalled();
   });
 });

@@ -44,5 +44,4 @@ When data is in the form of dates, such as schedules, timetables, prices calenda
 | value | The current selected date | [moment](http://momentjs.com/) | current date |
 | onPanelChange | Callback for when panel changes | function(date: moment, mode: string) | - |  |
 | onSelect | Callback for when a date is selected | function(date: moment） | - |  |
-| onChange | Callback for when date changes | function(date: moment） | - |  |
-| headerRender | render custom header in panel | function(object:{months:[], monthChange:ƒ(month),monthSelect: ReactNode,ref: ƒ(node),type: string "month\|year", typeChange: ƒ(e),typeSwitch: ReactNode,yearChange: ƒ(year),yearSelect: ReactNode,years:[]}) | - | 3.19.0 |
+| onChange | Callback for when date changes | function(value: moment, type: string, onChange: f(), onTypeChange: f(month\|year)) | - | 3.19.0 |
