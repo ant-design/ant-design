@@ -365,6 +365,68 @@ exports[`renders ./components/grid/demo/flex-order.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/grid/demo/flex-stretch.md correctly 1`] = `
+<div>
+  <p>
+    Percentage columns
+  </p>
+  <div
+    class="ant-row-flex"
+  >
+    <div
+      class="ant-col"
+      style="flex:2 2 auto"
+    >
+      2 / 5
+    </div>
+    <div
+      class="ant-col"
+      style="flex:3 3 auto"
+    >
+      3 / 5
+    </div>
+  </div>
+  <p>
+    Fill rest
+  </p>
+  <div
+    class="ant-row-flex"
+  >
+    <div
+      class="ant-col"
+      style="flex:0 0 100px"
+    >
+      100px
+    </div>
+    <div
+      class="ant-col"
+      style="flex:auto"
+    >
+      Fill Rest
+    </div>
+  </div>
+  <p>
+    Raw flex style
+  </p>
+  <div
+    class="ant-row-flex"
+  >
+    <div
+      class="ant-col"
+      style="flex:1 1 200px"
+    >
+      1 1 200px
+    </div>
+    <div
+      class="ant-col"
+      style="flex:0 1 300px"
+    >
+      0 1 300px
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/grid/demo/gutter.md correctly 1`] = `
 <div
   class="gutter-example"

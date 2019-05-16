@@ -12,7 +12,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
     >
       <div
         class="ant-col ant-col-8"
-        style="padding-left:12px;padding-right:12px"
+        style="display:block;padding-left:12px;padding-right:12px"
       >
         <div
           class="ant-row-flex ant-form-item"
@@ -47,7 +47,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
       </div>
       <div
         class="ant-col ant-col-8"
-        style="padding-left:12px;padding-right:12px"
+        style="display:block;padding-left:12px;padding-right:12px"
       >
         <div
           class="ant-row-flex ant-form-item"
@@ -82,7 +82,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
       </div>
       <div
         class="ant-col ant-col-8"
-        style="padding-left:12px;padding-right:12px"
+        style="display:block;padding-left:12px;padding-right:12px"
       >
         <div
           class="ant-row-flex ant-form-item"
@@ -117,7 +117,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
       </div>
       <div
         class="ant-col ant-col-8"
-        style="padding-left:12px;padding-right:12px"
+        style="display:block;padding-left:12px;padding-right:12px"
       >
         <div
           class="ant-row-flex ant-form-item"
@@ -152,7 +152,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
       </div>
       <div
         class="ant-col ant-col-8"
-        style="padding-left:12px;padding-right:12px"
+        style="display:block;padding-left:12px;padding-right:12px"
       >
         <div
           class="ant-row-flex ant-form-item"
@@ -187,7 +187,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
       </div>
       <div
         class="ant-col ant-col-8"
-        style="padding-left:12px;padding-right:12px"
+        style="display:block;padding-left:12px;padding-right:12px"
       >
         <div
           class="ant-row-flex ant-form-item"
@@ -204,7 +204,171 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-col ant-form-item-control"
+            class="ant-col ant-form-item-control-wrapper"
+          >
+            <div
+              class="ant-form-item-control"
+            >
+              <span
+                class="ant-form-item-children"
+              >
+                <input
+                  class="ant-input"
+                  data-__field="[object Object]"
+                  data-__meta="[object Object]"
+                  id="advanced_search_field-5"
+                  placeholder="placeholder"
+                  type="text"
+                  value=""
+                />
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-col ant-col-8"
+        style="display:none;padding-left:12px;padding-right:12px"
+      >
+        <div
+          class="ant-row ant-form-item"
+        >
+          <div
+            class="ant-col ant-form-item-label"
+          >
+            <label
+              class="ant-form-item-required"
+              for="advanced_search_field-6"
+              title="Field 6"
+            >
+              Field 6
+            </label>
+          </div>
+          <div
+            class="ant-col ant-form-item-control-wrapper"
+          >
+            <div
+              class="ant-form-item-control"
+            >
+              <span
+                class="ant-form-item-children"
+              >
+                <input
+                  class="ant-input"
+                  data-__field="[object Object]"
+                  data-__meta="[object Object]"
+                  id="advanced_search_field-6"
+                  placeholder="placeholder"
+                  type="text"
+                  value=""
+                />
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-col ant-col-8"
+        style="display:none;padding-left:12px;padding-right:12px"
+      >
+        <div
+          class="ant-row ant-form-item"
+        >
+          <div
+            class="ant-col ant-form-item-label"
+          >
+            <label
+              class="ant-form-item-required"
+              for="advanced_search_field-7"
+              title="Field 7"
+            >
+              Field 7
+            </label>
+          </div>
+          <div
+            class="ant-col ant-form-item-control-wrapper"
+          >
+            <div
+              class="ant-form-item-control"
+            >
+              <span
+                class="ant-form-item-children"
+              >
+                <input
+                  class="ant-input"
+                  data-__field="[object Object]"
+                  data-__meta="[object Object]"
+                  id="advanced_search_field-7"
+                  placeholder="placeholder"
+                  type="text"
+                  value=""
+                />
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-col ant-col-8"
+        style="display:none;padding-left:12px;padding-right:12px"
+      >
+        <div
+          class="ant-row ant-form-item"
+        >
+          <div
+            class="ant-col ant-form-item-label"
+          >
+            <label
+              class="ant-form-item-required"
+              for="advanced_search_field-8"
+              title="Field 8"
+            >
+              Field 8
+            </label>
+          </div>
+          <div
+            class="ant-col ant-form-item-control-wrapper"
+          >
+            <div
+              class="ant-form-item-control"
+            >
+              <span
+                class="ant-form-item-children"
+              >
+                <input
+                  class="ant-input"
+                  data-__field="[object Object]"
+                  data-__meta="[object Object]"
+                  id="advanced_search_field-8"
+                  placeholder="placeholder"
+                  type="text"
+                  value=""
+                />
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-col ant-col-8"
+        style="display:none;padding-left:12px;padding-right:12px"
+      >
+        <div
+          class="ant-row ant-form-item"
+        >
+          <div
+            class="ant-col ant-form-item-label"
+          >
+            <label
+              class="ant-form-item-required"
+              for="advanced_search_field-9"
+              title="Field 9"
+            >
+              Field 9
+            </label>
+          </div>
+          <div
+            class="ant-col ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control-input"
@@ -248,7 +412,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
         <a
           style="margin-left:8px;font-size:12px"
         >
-          Collapse 
+          Collapse
           <span
             aria-label="down"
             class="anticon anticon-down"
@@ -1105,7 +1269,7 @@ exports[`renders ./components/form/demo/form-context.md correctly 1`] = `
           <span
             class="ant-typography ant-form-text ant-typography-secondary"
           >
-            ( 
+            (
             <span
               aria-label="smile"
               class="anticon anticon-smile"
@@ -1920,7 +2084,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
             Log in
           </span>
         </button>
-        Or 
+        Or
         <a
           href=""
         >
@@ -2462,7 +2626,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             />
           </span>
           <span>
-            I have read the 
+            I have read the
             <a
               href=""
             >
@@ -2708,7 +2872,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
             <span
               class="ant-calendar-range-picker-separator"
             >
-               ~ 
+               ~
             </span>
             <input
               class="ant-calendar-range-picker-input"
@@ -2781,7 +2945,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
             <span
               class="ant-calendar-range-picker-separator"
             >
-               ~ 
+               ~
             </span>
             <input
               class="ant-calendar-range-picker-input"
