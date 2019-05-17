@@ -1,14 +1,14 @@
 import * as React from 'react';
 import * as moment from 'moment';
 import Select from '../select';
-import { Group, Button } from '../radio';
+import { Group, Button, RadioChangeEvent } from '../radio';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 const Option = Select.Option;
 
 interface RenderHeader {
   value: moment.Moment;
   onChange?: (value: moment.Moment) => void;
-  type?: string;
+  type: string;
   onTypeChange: (type: string) => void;
 }
 
@@ -18,17 +18,12 @@ export interface HeaderProps {
   fullscreen?: boolean;
   yearSelectOffset?: number;
   yearSelectTotal?: number;
-  type?: RenderHeader['type'];
-  onValueChange?: RenderHeader['onChange'];
-  onTypeChange?: RenderHeader['onTypeChange'];
-  value: RenderHeader['value'];
+  type: string;
+  onValueChange?: (value: moment.Moment) => void;
+  onTypeChange?: (type: string) => void;
+  value: moment.Moment;
   validRange?: [moment.Moment, moment.Moment];
-  headerRender: (
-    value: RenderHeader['value'],
-    type?: RenderHeader['type'],
-    onChange?: RenderHeader['onChange'],
-    onTypeChange?: RenderHeader['onTypeChange'],
-  ) => React.ReactNode;
+  headerRender: (header: RenderHeader) => React.ReactNode;
 }
 
 export default class Header extends React.Component<HeaderProps, any> {
@@ -142,6 +137,10 @@ export default class Header extends React.Component<HeaderProps, any> {
     }
   };
 
+  onInternalTypeChange = (e: RadioChangeEvent) => {
+    this.onTypeChange(e.target.value);
+  };
+
   onTypeChange = (type: string) => {
     const onTypeChange = this.props.onTypeChange;
     if (onTypeChange) {
@@ -172,7 +171,7 @@ export default class Header extends React.Component<HeaderProps, any> {
     const { locale, type, fullscreen } = this.props;
     const size = fullscreen ? 'default' : 'small';
     return (
-      <Group onChange={e => this.onTypeChange(e.target.value)} value={type} size={size}>
+      <Group onChange={this.onInternalTypeChange} value={type} size={size}>
         <Button value="month">{locale.month}</Button>
         <Button value="year">{locale.year}</Button>
       </Group>
@@ -181,11 +180,12 @@ export default class Header extends React.Component<HeaderProps, any> {
 
   headerRenderCustom = (): React.ReactNode => {
     const { headerRender, type, onValueChange, value } = this.props;
-    return (
-      <div ref={this.getCalenderHeaderNode}>
-        {headerRender(value, type, onValueChange, this.onTypeChange)}
-      </div>
-    );
+    return headerRender({
+      value,
+      type,
+      onChange: onValueChange,
+      onTypeChange: this.onTypeChange,
+    });
   };
 
   renderHeader = ({ getPrefixCls }: ConfigConsumerProps) => {

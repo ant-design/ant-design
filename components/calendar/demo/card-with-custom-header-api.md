@@ -26,7 +26,7 @@ ReactDOM.render(
   <div style={{ width: 300, border: '1px solid #d9d9d9', borderRadius: 4 }}>
     <Calendar
       fullscreen={false}
-      headerRender={(value, type, onChange, onTypeChange) => {
+      headerRender={({ value, type, onChange, onTypeChange }) => {
         const start = 0;
         const end = 12;
         const monthOptions = [];

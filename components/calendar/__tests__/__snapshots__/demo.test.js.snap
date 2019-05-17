@@ -2099,158 +2099,156 @@ exports[`renders ./components/calendar/demo/card-with-custom-header-api.md corre
   <div
     class=""
   >
-    <div>
+    <div
+      style="padding:5px"
+    >
+      <div>
+        Custom header 
+      </div>
       <div
-        style="padding:5px"
+        class="ant-select-sm my-year-select ant-select ant-select-enabled"
       >
-        <div>
-          Custom header 
-        </div>
         <div
-          class="ant-select-sm my-year-select ant-select ant-select-enabled"
+          aria-autocomplete="list"
+          aria-controls=""
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="ant-select-selection
+            ant-select-selection--single"
+          role="combobox"
+          tabindex="0"
         >
           <div
-            aria-autocomplete="list"
-            aria-controls=""
-            aria-expanded="false"
-            aria-haspopup="true"
-            class="ant-select-selection
-            ant-select-selection--single"
-            role="combobox"
-            tabindex="0"
+            class="ant-select-selection__rendered"
           >
             <div
-              class="ant-select-selection__rendered"
+              class="ant-select-selection-selected-value"
+              style="display:block;opacity:1"
+              title="2016"
             >
-              <div
-                class="ant-select-selection-selected-value"
-                style="display:block;opacity:1"
-                title="2016"
-              >
-                2016
-              </div>
+              2016
             </div>
-            <span
-              class="ant-select-arrow"
-              style="user-select:none;-webkit-user-select:none"
-              unselectable="on"
-            >
-              <i
-                aria-label="icon: down"
-                class="anticon anticon-down ant-select-arrow-icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  class=""
-                  data-icon="down"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                  />
-                </svg>
-              </i>
-            </span>
           </div>
+          <span
+            class="ant-select-arrow"
+            style="user-select:none;-webkit-user-select:none"
+            unselectable="on"
+          >
+            <i
+              aria-label="icon: down"
+              class="anticon anticon-down ant-select-arrow-icon"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="down"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                />
+              </svg>
+            </i>
+          </span>
         </div>
+      </div>
+      <div
+        class="ant-select-sm ant-select ant-select-enabled"
+      >
         <div
-          class="ant-select-sm ant-select ant-select-enabled"
+          aria-autocomplete="list"
+          aria-controls=""
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="ant-select-selection
+            ant-select-selection--single"
+          role="combobox"
+          tabindex="0"
         >
           <div
-            aria-autocomplete="list"
-            aria-controls=""
-            aria-expanded="false"
-            aria-haspopup="true"
-            class="ant-select-selection
-            ant-select-selection--single"
-            role="combobox"
-            tabindex="0"
+            class="ant-select-selection__rendered"
           >
             <div
-              class="ant-select-selection__rendered"
+              class="ant-select-selection-selected-value"
+              style="display:block;opacity:1"
+              title="Nov"
             >
-              <div
-                class="ant-select-selection-selected-value"
-                style="display:block;opacity:1"
-                title="Nov"
-              >
-                Nov
-              </div>
+              Nov
             </div>
-            <span
-              class="ant-select-arrow"
-              style="user-select:none;-webkit-user-select:none"
-              unselectable="on"
-            >
-              <i
-                aria-label="icon: down"
-                class="anticon anticon-down ant-select-arrow-icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  class=""
-                  data-icon="down"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                  />
-                </svg>
-              </i>
-            </span>
           </div>
+          <span
+            class="ant-select-arrow"
+            style="user-select:none;-webkit-user-select:none"
+            unselectable="on"
+          >
+            <i
+              aria-label="icon: down"
+              class="anticon anticon-down ant-select-arrow-icon"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="down"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                />
+              </svg>
+            </i>
+          </span>
         </div>
-        <div
-          class="ant-radio-group ant-radio-group-outline ant-radio-group-small"
+      </div>
+      <div
+        class="ant-radio-group ant-radio-group-outline ant-radio-group-small"
+      >
+        <label
+          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
         >
-          <label
-            class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+          <span
+            class="ant-radio-button ant-radio-button-checked"
           >
+            <input
+              checked=""
+              class="ant-radio-button-input"
+              type="radio"
+              value="month"
+            />
             <span
-              class="ant-radio-button ant-radio-button-checked"
-            >
-              <input
-                checked=""
-                class="ant-radio-button-input"
-                type="radio"
-                value="month"
-              />
-              <span
-                class="ant-radio-button-inner"
-              />
-            </span>
-            <span>
-              Month
-            </span>
-          </label>
-          <label
-            class="ant-radio-button-wrapper"
+              class="ant-radio-button-inner"
+            />
+          </span>
+          <span>
+            Month
+          </span>
+        </label>
+        <label
+          class="ant-radio-button-wrapper"
+        >
+          <span
+            class="ant-radio-button"
           >
+            <input
+              class="ant-radio-button-input"
+              type="radio"
+              value="year"
+            />
             <span
-              class="ant-radio-button"
-            >
-              <input
-                class="ant-radio-button-input"
-                type="radio"
-                value="year"
-              />
-              <span
-                class="ant-radio-button-inner"
-              />
-            </span>
-            <span>
-              Year
-            </span>
-          </label>
-        </div>
+              class="ant-radio-button-inner"
+            />
+          </span>
+          <span>
+            Year
+          </span>
+        </label>
       </div>
     </div>
     <div

@@ -267,7 +267,7 @@ describe('Calendar', () => {
     const wrapper = mount(
       <Calendar
         fullscreen={false}
-        headerRender={(value, type) => {
+        headerRender={({ value, type }) => {
           const start = 0;
           const end = 12;
           const monthOptions = [];
