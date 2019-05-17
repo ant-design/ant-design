@@ -1,5 +1,11 @@
+import raf from 'raf';
+import React from 'react';
+import { mount } from 'enzyme';
+import delayRaf from '../raf';
 import throttleByAnimationFrame from '../throttleByAnimationFrame';
 import getDataOrAriaProps from '../getDataOrAriaProps';
+import triggerEvent from '../triggerEvent';
+import Wave from '../wave';
 
 describe('Test utils function', () => {
   beforeAll(() => {
@@ -13,13 +19,13 @@ describe('Test utils function', () => {
   it('throttle function should work', () => {
     const callback = jest.fn();
     const throttled = throttleByAnimationFrame(callback);
-    expect(callback).not.toBeCalled();
+    expect(callback).not.toHaveBeenCalled();
 
     throttled();
     throttled();
 
     jest.runAllTimers();
-    expect(callback).toBeCalled();
+    expect(callback).toHaveBeenCalled();
     expect(callback.mock.calls.length).toBe(1);
   });
 
@@ -31,7 +37,7 @@ describe('Test utils function', () => {
     throttled.cancel();
 
     jest.runAllTimers();
-    expect(callback).not.toBeCalled();
+    expect(callback).not.toHaveBeenCalled();
   });
 
   describe('getDataOrAriaProps', () => {
@@ -82,6 +88,80 @@ describe('Test utils function', () => {
       };
       const results = getDataOrAriaProps(props);
       expect(results).toEqual({ role: 'search' });
+    });
+  });
+
+  it('delayRaf', done => {
+    jest.useRealTimers();
+
+    let bamboo = false;
+    delayRaf(() => {
+      bamboo = true;
+    }, 3);
+
+    // Do nothing, but insert in the frame
+    // https://github.com/ant-design/ant-design/issues/16290
+    delayRaf(() => {}, 3);
+
+    // Variable bamboo should be false in frame 2 but true in frame 4
+    raf(() => {
+      expect(bamboo).toBe(false);
+
+      // Frame 2
+      raf(() => {
+        expect(bamboo).toBe(false);
+
+        // Frame 3
+        raf(() => {
+          // Frame 4
+          raf(() => {
+            expect(bamboo).toBe(true);
+            done();
+          });
+        });
+      });
+    });
+  });
+
+  it('triggerEvent', () => {
+    const button = document.createElement('button');
+    button.addEventListener(
+      'click',
+      () => {
+        button.style.width = '100px';
+      },
+      true,
+    );
+    triggerEvent(button, 'click');
+    expect(button.style.width).toBe('100px');
+  });
+
+  describe('wave', () => {
+    it('bindAnimationEvent should return when node is null', () => {
+      const wrapper = mount(
+        <Wave>
+          <button type="button" disabled />
+        </Wave>,
+      ).instance();
+      expect(wrapper.bindAnimationEvent()).toBe(undefined);
+    });
+
+    it('bindAnimationEvent.onClick should return when children is hidden', () => {
+      const wrapper = mount(
+        <Wave>
+          <button type="button" style={{ display: 'none' }} />
+        </Wave>,
+      ).instance();
+      expect(wrapper.bindAnimationEvent()).toBe(undefined);
+    });
+
+    it('bindAnimationEvent.onClick should return when children is input', () => {
+      const wrapper = mount(
+        <Wave>
+          <input />
+        </Wave>,
+      ).instance();
+      expect(wrapper.bindAnimationEvent()).toBe(undefined);
     });
   });
 });

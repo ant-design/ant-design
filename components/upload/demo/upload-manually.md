@@ -13,7 +13,7 @@ title:
 
 Upload files manually after `beforeUpload` returns `false`.
 
-````jsx
+```jsx
 import { Upload, Button, Icon, message } from 'antd';
 import reqwest from 'reqwest';
 
@@ -21,12 +21,12 @@ class Demo extends React.Component {
   state = {
     fileList: [],
     uploading: false,
-  }
+  };
 
   handleUpload = () => {
     const { fileList } = this.state;
     const formData = new FormData();
-    fileList.forEach((file) => {
+    fileList.forEach(file => {
       formData.append('files[]', file);
     });
 
@@ -36,7 +36,7 @@ class Demo extends React.Component {
 
     // You can use any AJAX library you like
     reqwest({
-      url: '//jsonplaceholder.typicode.com/posts/',
+      url: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
       method: 'post',
       processData: false,
       data: formData,
@@ -54,29 +54,28 @@ class Demo extends React.Component {
         message.error('upload failed.');
       },
     });
-  }
+  };
 
   render() {
-    const { uploading } = this.state;
+    const { uploading, fileList } = this.state;
     const props = {
-      action: '//jsonplaceholder.typicode.com/posts/',
-      onRemove: (file) => {
-        this.setState(({ fileList }) => {
-          const index = fileList.indexOf(file);
-          const newFileList = fileList.slice();
+      onRemove: file => {
+        this.setState(state => {
+          const index = state.fileList.indexOf(file);
+          const newFileList = state.fileList.slice();
           newFileList.splice(index, 1);
           return {
             fileList: newFileList,
           };
         });
       },
-      beforeUpload: (file) => {
-        this.setState(({ fileList }) => ({
-          fileList: [...fileList, file],
+      beforeUpload: file => {
+        this.setState(state => ({
+          fileList: [...state.fileList, file],
         }));
         return false;
       },
-      fileList: this.state.fileList,
+      fileList,
     };
 
     return (
@@ -87,13 +86,13 @@ class Demo extends React.Component {
           </Button>
         </Upload>
         <Button
-          className="upload-demo-start"
           type="primary"
           onClick={this.handleUpload}
-          disabled={this.state.fileList.length === 0}
+          disabled={fileList.length === 0}
           loading={uploading}
+          style={{ marginTop: 16 }}
         >
-          {uploading ? 'Uploading' : 'Start Upload' }
+          {uploading ? 'Uploading' : 'Start Upload'}
         </Button>
       </div>
     );
@@ -101,10 +100,4 @@ class Demo extends React.Component {
 }
 
 ReactDOM.render(<Demo />, mountNode);
-````
-
-````css
-.upload-demo-start {
-  margin-top: 16px;
-}
-````
+```

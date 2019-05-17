@@ -1,8 +1,8 @@
 ---
 order: 4
 title:
-    zh-CN: 全选
-    en-US: Check all
+  zh-CN: 全选
+  en-US: Check all
 ---
 
 ## zh-CN
@@ -13,7 +13,7 @@ title:
 
 The `indeterminate` property can help you to achieve a 'check all' effect.
 
-````jsx
+```jsx
 import { Checkbox } from 'antd';
 
 const CheckboxGroup = Checkbox.Group;
@@ -26,6 +26,22 @@ class App extends React.Component {
     checkedList: defaultCheckedList,
     indeterminate: true,
     checkAll: false,
+  };
+
+  onChange = checkedList => {
+    this.setState({
+      checkedList,
+      indeterminate: !!checkedList.length && checkedList.length < plainOptions.length,
+      checkAll: checkedList.length === plainOptions.length,
+    });
+  };
+
+  onCheckAllChange = e => {
+    this.setState({
+      checkedList: e.target.checked ? plainOptions : [],
+      indeterminate: false,
+      checkAll: e.target.checked,
+    });
   };
 
   render() {
@@ -41,27 +57,15 @@ class App extends React.Component {
           </Checkbox>
         </div>
         <br />
-        <CheckboxGroup options={plainOptions} value={this.state.checkedList} onChange={this.onChange} />
+        <CheckboxGroup
+          options={plainOptions}
+          value={this.state.checkedList}
+          onChange={this.onChange}
+        />
       </div>
     );
-  }
-
-  onChange = (checkedList) => {
-    this.setState({
-      checkedList,
-      indeterminate: !!checkedList.length && (checkedList.length < plainOptions.length),
-      checkAll: checkedList.length === plainOptions.length,
-    });
-  }
-
-  onCheckAllChange = (e) => {
-    this.setState({
-      checkedList: e.target.checked ? plainOptions : [],
-      indeterminate: false,
-      checkAll: e.target.checked,
-    });
   }
 }
 
 ReactDOM.render(<App />, mountNode);
-````
+```

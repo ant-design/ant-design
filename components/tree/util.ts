@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { getNodeChildren, convertTreeToEntities } from 'rc-tree/lib/util';
-import { AntTreeNodeProps } from './Tree';
+import { AntTreeNodeProps, AntTreeNode } from './Tree';
 
 enum Record {
   None,
@@ -9,12 +9,18 @@ enum Record {
 }
 
 // TODO: Move this logic into `rc-tree`
-function traverseNodesKey(rootChildren: React.ReactNode | React.ReactNode[], callback: (key: string | number | null) => boolean) {
-  const nodeList:React.ReactNode[] = getNodeChildren(rootChildren) || [];
+function traverseNodesKey(
+  rootChildren: React.ReactNode | React.ReactNode[],
+  callback: (key: string | number | null, node: AntTreeNode) => boolean,
+) {
+  const nodeList: React.ReactNode[] = getNodeChildren(rootChildren) || [];
 
   function processNode(node: React.ReactElement<AntTreeNodeProps>) {
-    const { key, props: { children } } = node;
-    if (callback(key) !== false) {
+    const {
+      key,
+      props: { children },
+    } = node;
+    if (callback(key, node as any) !== false) {
       traverseNodesKey(children, callback);
     }
   }
@@ -28,7 +34,12 @@ export function getFullKeyList(children: React.ReactNode | React.ReactNode[]) {
 }
 
 /** 计算选中范围，只考虑expanded情况以优化性能 */
-export function calcRangeKeys(rootChildren: React.ReactNode | React.ReactNode[], expandedKeys: string[], startKey?: string, endKey?: string): string[] {
+export function calcRangeKeys(
+  rootChildren: React.ReactNode | React.ReactNode[],
+  expandedKeys: string[],
+  startKey?: string,
+  endKey?: string,
+): string[] {
   const keys: string[] = [];
   let record: Record = Record.None;
 
@@ -71,4 +82,22 @@ export function calcRangeKeys(rootChildren: React.ReactNode | React.ReactNode[],
   });
 
   return keys;
+}
+
+export function convertDirectoryKeysToNodes(
+  rootChildren: React.ReactNode | React.ReactNode[],
+  keys: string[],
+) {
+  const restKeys: string[] = [...keys];
+  const nodes: AntTreeNode[] = [];
+  traverseNodesKey(rootChildren, (key: string, node: AntTreeNode) => {
+    const index = restKeys.indexOf(key);
+    if (index !== -1) {
+      nodes.push(node);
+      restKeys.splice(index, 1);
+    }
+
+    return !!restKeys.length;
+  });
+  return nodes;
 }

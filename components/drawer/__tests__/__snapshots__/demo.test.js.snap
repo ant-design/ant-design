@@ -1,0 +1,270 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/drawer/demo/basic-right.md correctly 1`] = `
+<div>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Open
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders ./components/drawer/demo/form-in-drawer.md correctly 1`] = `
+<div>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <i
+      aria-label="icon: plus"
+      class="anticon anticon-plus"
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="plus"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+        />
+        <path
+          d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+        />
+      </svg>
+    </i>
+    <span>
+       New account
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders ./components/drawer/demo/multi-level-drawer.md correctly 1`] = `
+<div>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Open drawer
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders ./components/drawer/demo/placement.md correctly 1`] = `
+<div>
+  <div
+    class="ant-radio-group ant-radio-group-outline"
+    style="margin-right:8px"
+  >
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="top"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        top
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="right"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        right
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="bottom"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        bottom
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper ant-radio-wrapper-checked"
+    >
+      <span
+        class="ant-radio ant-radio-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-input"
+          type="radio"
+          value="left"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        left
+      </span>
+    </label>
+  </div>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Open
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders ./components/drawer/demo/user-profile.md correctly 1`] = `
+<div>
+  <div
+    class="ant-list ant-list-split ant-list-bordered"
+  >
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <ul
+          class="ant-list-items"
+        >
+          <li
+            class="ant-list-item"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                >
+                  <img
+                    src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design/index-cn"
+                  >
+                    Lily
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Progresser AFX
+                </div>
+              </div>
+            </div>
+            <ul
+              class="ant-list-item-action"
+            >
+              <li>
+                <a>
+                  View Profile
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                >
+                  <img
+                    src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design/index-cn"
+                  >
+                    Lily
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Progresser AFX
+                </div>
+              </div>
+            </div>
+            <ul
+              class="ant-list-item-action"
+            >
+              <li>
+                <a>
+                  View Profile
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;

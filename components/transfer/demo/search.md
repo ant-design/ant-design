@@ -13,14 +13,14 @@ title:
 
 Transfer with a search box.
 
-````jsx
+```jsx
 import { Transfer } from 'antd';
 
 class App extends React.Component {
   state = {
     mockData: [],
     targetKeys: [],
-  }
+  };
 
   componentDidMount() {
     this.getMock();
@@ -42,15 +42,17 @@ class App extends React.Component {
       mockData.push(data);
     }
     this.setState({ mockData, targetKeys });
-  }
+  };
 
-  filterOption = (inputValue, option) => {
-    return option.description.indexOf(inputValue) > -1;
-  }
+  filterOption = (inputValue, option) => option.description.indexOf(inputValue) > -1;
 
-  handleChange = (targetKeys) => {
+  handleChange = targetKeys => {
     this.setState({ targetKeys });
-  }
+  };
+
+  handleSearch = (dir, value) => {
+    console.log('search:', dir, value);
+  };
 
   render() {
     return (
@@ -60,6 +62,7 @@ class App extends React.Component {
         filterOption={this.filterOption}
         targetKeys={this.state.targetKeys}
         onChange={this.handleChange}
+        onSearch={this.handleSearch}
         render={item => item.title}
       />
     );
@@ -67,4 +70,4 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, mountNode);
-````
+```

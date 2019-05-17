@@ -13,7 +13,7 @@ title:
 
 `Collapse` is nested inside the `Collapse`.
 
-````jsx
+```jsx
 import { Collapse } from 'antd';
 
 const Panel = Collapse.Panel;
@@ -44,5 +44,6 @@ ReactDOM.render(
       <p>{text}</p>
     </Panel>
   </Collapse>,
-  mountNode);
-````
+  mountNode,
+);
+```

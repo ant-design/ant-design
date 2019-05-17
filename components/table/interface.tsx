@@ -6,47 +6,69 @@ import { CheckboxChangeEvent } from '../checkbox';
 import { PaginationConfig } from '../pagination';
 export { PaginationConfig } from '../pagination';
 
-export type CompareFn<T> = ((a: T, b: T, sortOrder?: 'ascend' | 'descend') => number);
-export type ColumnFilterItem = { text: string; value: string, children?: ColumnFilterItem[] };
+export type CompareFn<T> = (a: T, b: T, sortOrder?: SortOrder) => number;
+export type ColumnFilterItem = {
+  text: React.ReactNode;
+  value: string;
+  children?: ColumnFilterItem[];
+};
+
+export interface FilterDropdownProps {
+  prefixCls?: string;
+  setSelectedKeys?: (selectedKeys: string[]) => void;
+  selectedKeys?: string[];
+  confirm?: () => void;
+  clearFilters?: (selectedKeys: string[]) => void;
+  filters?: ColumnFilterItem[];
+  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
+}
 
 export interface ColumnProps<T> {
-  title?: React.ReactNode;
+  title?:
+    | React.ReactNode
+    | ((options: { filters: TableStateFilters; sortOrder?: SortOrder }) => React.ReactNode);
   key?: React.Key;
-  dataIndex?: string;
+  dataIndex?: string; // Note: We can not use generic type here, since we need to support nested key, see #9393
   render?: (text: any, record: T, index: number) => React.ReactNode;
   align?: 'left' | 'right' | 'center';
   filters?: ColumnFilterItem[];
   onFilter?: (value: any, record: T) => boolean;
   filterMultiple?: boolean;
-  filterDropdown?: React.ReactNode | ((props: Object) => React.ReactNode);
+  filterDropdown?: React.ReactNode | ((props: FilterDropdownProps) => React.ReactNode);
   filterDropdownVisible?: boolean;
   onFilterDropdownVisibleChange?: (visible: boolean) => void;
   sorter?: boolean | CompareFn<T>;
-  defaultSortOrder?: 'ascend' | 'descend';
+  defaultSortOrder?: SortOrder;
   colSpan?: number;
   width?: string | number;
   className?: string;
   fixed?: boolean | ('left' | 'right');
-  filterIcon?: React.ReactNode;
+  filterIcon?: React.ReactNode | ((filtered: boolean) => React.ReactNode);
   filteredValue?: any[];
-  sortOrder?: 'ascend' | 'descend';
+  sortOrder?: SortOrder | boolean;
   children?: ColumnProps<T>[];
   onCellClick?: (record: T, event: any) => void;
-  onCell?: (record: T) => any;
+  onCell?: (record: T, rowIndex: number) => any;
   onHeaderCell?: (props: ColumnProps<T>) => any;
+  sortDirections?: SortOrder[];
+}
+
+export interface AdditionalCellProps {
+  onClick?: React.MouseEventHandler<HTMLElement>;
+  [name: string]: any;
 }
 
 export interface TableComponents {
-  table?: any;
+  table?: React.ReactType;
   header?: {
-    wrapper?: any;
-    row?: any;
-    cell?: any;
+    wrapper?: React.ReactType;
+    row?: React.ReactType;
+    cell?: React.ReactType;
   };
   body?: {
-    wrapper?: any;
-    row?: any;
-    cell?: any;
+    wrapper?: React.ReactType;
+    row?: React.ReactType;
+    cell?: React.ReactType;
   };
 }
 
@@ -57,22 +79,28 @@ export interface TableLocale {
   emptyText?: React.ReactNode | (() => React.ReactNode);
   selectAll?: React.ReactNode;
   selectInvert?: React.ReactNode;
+  sortTitle?: string;
 }
 
 export type RowSelectionType = 'checkbox' | 'radio';
-export type SelectionSelectFn<T> = (record: T, selected: boolean, selectedRows: Object[], nativeEvent: Event) => any;
+export type SelectionSelectFn<T> = (
+  record: T,
+  selected: boolean,
+  selectedRows: Object[],
+  nativeEvent: Event,
+) => any;
 
 export type TableSelectWay = 'onSelect' | 'onSelectMultiple' | 'onSelectAll' | 'onSelectInvert';
 
 export interface TableRowSelection<T> {
   type?: RowSelectionType;
   selectedRowKeys?: string[] | number[];
-  onChange?: (selectedRowKeys: string[] | number[], selectedRows: Object[]) => void;
+  onChange?: (selectedRowKeys: string[] | number[], selectedRows: T[]) => void;
   getCheckboxProps?: (record: T) => Object;
   onSelect?: SelectionSelectFn<T>;
-  onSelectMultiple?: (selected: boolean, selectedRows: Object[], changeRows: Object[]) => void;
-  onSelectAll?: (selected: boolean, selectedRows: Object[], changeRows: Object[]) => void;
-  onSelectInvert?: (selectedRows: Object[]) => void;
+  onSelectMultiple?: (selected: boolean, selectedRows: T[], changeRows: T[]) => void;
+  onSelectAll?: (selected: boolean, selectedRows: T[], changeRows: T[]) => void;
+  onSelectInvert?: (selectedRowKeys: string[] | number[]) => void;
   selections?: SelectionItem[] | boolean;
   hideDefaultSelections?: boolean;
   fixed?: boolean;
@@ -88,6 +116,19 @@ export interface SorterResult<T> {
   columnKey: string;
 }
 export type TableSize = 'default' | 'middle' | 'small';
+export interface ExpandIconProps<T> {
+  prefixCls: string;
+  expanded: boolean;
+  record: T;
+  needIndentSpaced: boolean;
+  expandable: boolean;
+  onExpand: (record: T, event: MouseEvent) => void;
+}
+
+export interface TableCurrentDataSource<T> {
+  currentDataSource: T[];
+}
+
 export interface TableProps<T> {
   prefixCls?: string;
   dropdownPrefixCls?: string;
@@ -99,10 +140,16 @@ export interface TableProps<T> {
   columns?: ColumnProps<T>[];
   rowKey?: string | ((record: T, index: number) => string);
   rowClassName?: (record: T, index: number) => string;
-  expandedRowRender?: (record: T, index: number, indent: number, expanded: boolean) => React.ReactNode;
+  expandedRowRender?: (
+    record: T,
+    index: number,
+    indent: number,
+    expanded: boolean,
+  ) => React.ReactNode;
   defaultExpandAllRows?: boolean;
   defaultExpandedRowKeys?: string[] | number[];
   expandedRowKeys?: string[] | number[];
+  expandIcon?: (props: ExpandIconProps<T>) => React.ReactNode;
   expandIconAsCell?: boolean;
   expandIconColumnIndex?: number;
   expandRowByClick?: boolean;
@@ -112,9 +159,10 @@ export interface TableProps<T> {
     pagination: PaginationConfig,
     filters: Record<keyof T, string[]>,
     sorter: SorterResult<T>,
+    extra: TableCurrentDataSource<T>,
   ) => void;
   loading?: boolean | SpinProps;
-  locale?: Object;
+  locale?: TableLocale;
   indentSize?: number;
   onRowClick?: (record: T, index: number, event: Event) => void;
   onRow?: (record: T, index: number) => any;
@@ -124,12 +172,13 @@ export interface TableProps<T> {
   showHeader?: boolean;
   footer?: (currentPageData: Object[]) => React.ReactNode;
   title?: (currentPageData: Object[]) => React.ReactNode;
-  scroll?: { x?: boolean | number | string, y?: boolean | number | string };
+  scroll?: { x?: boolean | number | string; y?: boolean | number | string };
   childrenColumnName?: string;
   bodyStyle?: React.CSSProperties;
   className?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
+  sortDirections?: SortOrder[];
 }
 
 export interface TableStateFilters {
@@ -145,6 +194,7 @@ export interface TableState<T> {
 }
 
 export type SelectionItemSelectFn = (key: string[]) => any;
+type GetPopupContainer = (triggerNode?: HTMLElement) => HTMLElement;
 
 export interface SelectionItem {
   key: string;
@@ -163,7 +213,7 @@ export interface SelectionCheckboxAllProps<T> {
   onSelect: (key: string, index: number, selectFunc: any) => void;
   hideDefaultSelections?: boolean;
   selections?: SelectionItem[] | boolean;
-  getPopupContainer: (triggerNode?: Element) => HTMLElement;
+  getPopupContainer?: GetPopupContainer;
 }
 
 export interface SelectionCheckboxAllState {
@@ -200,11 +250,22 @@ export interface FilterMenuProps<T> {
   confirmFilter: (column: ColumnProps<T>, selectedKeys: string[]) => any;
   prefixCls: string;
   dropdownPrefixCls: string;
-  getPopupContainer: (triggerNode?: Element) => HTMLElement;
+  getPopupContainer?: GetPopupContainer;
 }
 
-export interface FilterMenuState {
+export interface FilterMenuState<T> {
   selectedKeys: string[];
+  valueKeys: { [name: string]: any };
   keyPathOfSelectedItem: { [key: string]: string };
   visible?: boolean;
+  prevProps: FilterMenuProps<T>;
 }
+
+export type PrepareParamsArgumentsReturn<T> = [
+  any,
+  string[],
+  Object,
+  {
+    currentDataSource: T[];
+  }
+];

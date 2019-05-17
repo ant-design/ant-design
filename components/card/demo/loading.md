@@ -13,7 +13,7 @@ title:
 
 Shows a loading indicator while the contents of the card is being fetched.
 
-````jsx
+```jsx
 import { Skeleton, Switch, Card, Icon, Avatar } from 'antd';
 
 const { Meta } = Card;
@@ -21,11 +21,11 @@ const { Meta } = Card;
 class App extends React.Component {
   state = {
     loading: true,
-  }
+  };
 
-  onChange = (checked) => {
+  onChange = checked => {
     this.setState({ loading: !checked });
-  }
+  };
 
   render() {
     const { loading } = this.state;
@@ -36,7 +36,9 @@ class App extends React.Component {
 
         <Card style={{ width: 300, marginTop: 16 }} loading={loading}>
           <Meta
-            avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+            avatar={
+              <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+            }
             title="Card title"
             description="This is the description"
           />
@@ -48,7 +50,9 @@ class App extends React.Component {
         >
           <Skeleton loading={loading} avatar active>
             <Meta
-              avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+              avatar={
+                <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+              }
               title="Card title"
               description="This is the description"
             />
@@ -60,4 +64,4 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, mountNode);
-````
+```

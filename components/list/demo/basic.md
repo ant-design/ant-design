@@ -13,7 +13,7 @@ title:
 
 Basic list.
 
-````jsx
+```jsx
 import { List, Avatar } from 'antd';
 
 const data = [
@@ -45,5 +45,6 @@ ReactDOM.render(
       </List.Item>
     )}
   />,
-  mountNode);
-````
+  mountNode,
+);
+```

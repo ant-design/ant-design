@@ -10,7 +10,7 @@ title: Introduction
 
 In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development. After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to uniform the user interface specs for internal background projects, lower the unnecessary cost of design differences and implementation and liberate the resources of design and front-end development.
 
-Ant Design which is specially created for internal desktop applications, is committed to improving the experience of users and product designers. User interface designers and user experience designers, collectively, are considered as product designers, and the boundaries of product managers, interaction designers, visual designers, front-end developers and develop engineers are blurred. Taking advantage of unitary specifications, Ant Design makes design and prototype more simple and accessible for all project members, which comprehensively  promotes experience and development efficiency of background applications and products.
+Ant Design which is specially created for internal desktop applications, is committed to improving the experience of users and product designers. User interface designers and user experience designers, collectively, are considered as product designers, and the boundaries of product managers, interaction designers, visual designers, front-end developers and develop engineers are blurred. Taking advantage of unitary specifications, Ant Design makes design and prototype more simple and accessible for all project members, which comprehensively promotes experience and development efficiency of background applications and products.
 
 ---
 
@@ -45,6 +45,14 @@ const LinksList = () => (
       </a>
     </li>
     <li>
+      <a href="http://ng.mobile.ant.design" target="_blank">
+        NG-ZORRO-MOBILE - Ant Design Mobile of Angular<LinkIcon />
+      </a>
+    </li>
+    <li>
+      <a href="http://vue.ant.design" target="_blank">Ant Design of Vue<LinkIcon /></a>
+    </li>
+    <li>
       <a href="https://github.com/FE-Driver/vue-beauty" target="_blank">
         vue-beauty (vue)<LinkIcon />
       </a>
@@ -64,11 +72,6 @@ const LinksList = () => (
         antue (vue)<LinkIcon />
       </a>
     </li>
-    <li>
-      <a href="https://github.com/vueComponent/ant-design" target="_blank">
-        vue-antd-ui - Ant Design of Vue.js 2.5.0+<LinkIcon />
-      </a>
-    </li>
   </ul>
 );
 
@@ -85,8 +88,15 @@ ReactDOM.render(<LinksList />, mountNode);
 - [Meituan](http://www.meituan.com)
 - [Didi](http://www.xiaojukeji.com/)
 - [Eleme](https://www.ele.me/)
+- [Other Users](https://github.com/ant-design/ant-design/issues/477)
 
 > If your company or products use Ant Design, and you'd like to be added to this growing list, click [here](https://github.com/ant-design/ant-design/issues/477) to leave us a message.
+
+## Words From Community
+
+- Hacknews: [Show HN: Antd – A set of high-quality React components](https://news.ycombinator.com/item?id=13053137)
+- Alligator: [Crafting Beautiful UIs in React Using Ant Design](https://alligator.io/react/beautiful-uis-ant-design/)
+- Hackernoon: [Interesting JavaScript Libraries born in China](https://hackernoon.com/interesting-javascript-libraries-born-in-china-d50d1bb81355)
 
 ## How to Contribute
 

@@ -7,21 +7,19 @@ title:
 
 ## zh-CN
 
-`antd@2.0` 之后，时间类组件的 `value` 改为 `moment` 类型，所以在提交前需要预处理。
+时间类组件的 `value` 类型为 `moment` 对象，所以在提交服务器前需要预处理。
 
 ## en-US
 
-After `antd@2.0`, the `value` of time-related components had been changed to `moment`. So, we need to pre-process those values.
+The `value` of time-related components is a `moment` object, which we need to pre-process it before we submit to server.
 
-````jsx
+```jsx
 import { Form, DatePicker, TimePicker, Button } from 'antd';
 
-const FormItem = Form.Item;
-const MonthPicker = DatePicker.MonthPicker;
-const RangePicker = DatePicker.RangePicker;
+const { MonthPicker, RangePicker } = DatePicker;
 
 class TimeRelatedForm extends React.Component {
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
 
     this.props.form.validateFields((err, fieldsValue) => {
@@ -46,7 +44,7 @@ class TimeRelatedForm extends React.Component {
       };
       console.log('Received values of form: ', values);
     });
-  }
+  };
 
   render() {
     const { getFieldDecorator } = this.props.form;
@@ -67,69 +65,45 @@ class TimeRelatedForm extends React.Component {
       rules: [{ type: 'array', required: true, message: 'Please select time!' }],
     };
     return (
-      <Form onSubmit={this.handleSubmit}>
-        <FormItem
-          {...formItemLayout}
-          label="DatePicker"
-        >
-          {getFieldDecorator('date-picker', config)(
-            <DatePicker />
-          )}
-        </FormItem>
-        <FormItem
-          {...formItemLayout}
-          label="DatePicker[showTime]"
-        >
+      <Form {...formItemLayout} onSubmit={this.handleSubmit}>
+        <Form.Item label="DatePicker">
+          {getFieldDecorator('date-picker', config)(<DatePicker />)}
+        </Form.Item>
+        <Form.Item label="DatePicker[showTime]">
           {getFieldDecorator('date-time-picker', config)(
-            <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />
+            <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />,
           )}
-        </FormItem>
-        <FormItem
-          {...formItemLayout}
-          label="MonthPicker"
-        >
-          {getFieldDecorator('month-picker', config)(
-            <MonthPicker />
-          )}
-        </FormItem>
-        <FormItem
-          {...formItemLayout}
-          label="RangePicker"
-        >
-          {getFieldDecorator('range-picker', rangeConfig)(
-            <RangePicker />
-          )}
-        </FormItem>
-        <FormItem
-          {...formItemLayout}
-          label="RangePicker[showTime]"
-        >
+        </Form.Item>
+        <Form.Item label="MonthPicker">
+          {getFieldDecorator('month-picker', config)(<MonthPicker />)}
+        </Form.Item>
+        <Form.Item label="RangePicker">
+          {getFieldDecorator('range-picker', rangeConfig)(<RangePicker />)}
+        </Form.Item>
+        <Form.Item label="RangePicker[showTime]">
           {getFieldDecorator('range-time-picker', rangeConfig)(
-            <RangePicker showTime format="YYYY-MM-DD HH:mm:ss" />
+            <RangePicker showTime format="YYYY-MM-DD HH:mm:ss" />,
           )}
-        </FormItem>
-        <FormItem
-          {...formItemLayout}
-          label="TimePicker"
-        >
-          {getFieldDecorator('time-picker', config)(
-            <TimePicker />
-          )}
-        </FormItem>
-        <FormItem
+        </Form.Item>
+        <Form.Item label="TimePicker">
+          {getFieldDecorator('time-picker', config)(<TimePicker />)}
+        </Form.Item>
+        <Form.Item
           wrapperCol={{
             xs: { span: 24, offset: 0 },
             sm: { span: 16, offset: 8 },
           }}
         >
-          <Button type="primary" htmlType="submit">Submit</Button>
-        </FormItem>
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
+        </Form.Item>
       </Form>
     );
   }
 }
 
-const WrappedTimeRelatedForm = Form.create()(TimeRelatedForm);
+const WrappedTimeRelatedForm = Form.create({ name: 'time_related_controls' })(TimeRelatedForm);
 
 ReactDOM.render(<WrappedTimeRelatedForm />, mountNode);
-````
+```

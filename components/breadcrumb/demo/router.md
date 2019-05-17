@@ -15,7 +15,7 @@ title:
 
 Used together with `react-router@2` `react-router@3`.
 
-````jsx
+```jsx
 import { Router, Route, Link, hashHistory } from 'react-router';
 import { Breadcrumb, Alert } from 'antd';
 
@@ -52,10 +52,11 @@ ReactDOM.render(
       </Route>
     </Route>
   </Router>,
-  mountNode);
-````
+  mountNode,
+);
+```
 
-````css
+```css
 .demo {
   margin: 16px;
 }
@@ -72,4 +73,4 @@ ReactDOM.render(
 .app-list {
   margin-top: 16px;
 }
-````
+```

@@ -13,10 +13,10 @@ title:
 
 An event will be triggered when you click menu items, in which you can make different operations according to item's key.
 
-````jsx
+```jsx
 import { Menu, Dropdown, Icon, message } from 'antd';
 
-const onClick = function ({ key }) {
+const onClick = ({ key }) => {
   message.info(`Click on item ${key}`);
 };
 
@@ -34,5 +34,6 @@ ReactDOM.render(
       Hover me, Click menu item <Icon type="down" />
     </a>
   </Dropdown>,
-  mountNode);
-````
+  mountNode,
+);
+```

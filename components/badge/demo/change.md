@@ -13,7 +13,7 @@ title:
 
 The count will be animated as it changes.
 
-````jsx
+```jsx
 import { Badge, Button, Icon, Switch } from 'antd';
 
 const ButtonGroup = Button.Group;
@@ -22,12 +22,12 @@ class Demo extends React.Component {
   state = {
     count: 5,
     show: true,
-  }
+  };
 
   increase = () => {
     const count = this.state.count + 1;
     this.setState({ count });
-  }
+  };
 
   decline = () => {
     let count = this.state.count - 1;
@@ -35,11 +35,11 @@ class Demo extends React.Component {
       count = 0;
     }
     this.setState({ count });
-  }
+  };
 
-  onChange = (show) => {
+  onChange = show => {
     this.setState({ show });
-  }
+  };
 
   render() {
     return (
@@ -69,4 +69,4 @@ class Demo extends React.Component {
 }
 
 ReactDOM.render(<Demo />, mountNode);
-````
+```

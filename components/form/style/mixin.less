@@ -1,4 +1,4 @@
-@import "../../input/style/mixin";
+@import '../../input/style/mixin';
 
 .form-control-validation(@text-color: @input-color; @border-color: @input-border-color; @background-color: @input-bg) {
   .@{ant-prefix}-form-explain,
@@ -25,14 +25,33 @@
     .active(@border-color);
   }
 
+  // Input prefix
+  .@{ant-prefix}-input-affix-wrapper {
+    .@{ant-prefix}-input {
+      &,
+      &:hover {
+        background-color: @background-color;
+        border-color: @border-color;
+      }
+
+      &:focus {
+        .active(@border-color);
+      }
+    }
+
+    &:hover .@{ant-prefix}-input:not(.@{ant-prefix}-input-disabled) {
+      border-color: @border-color;
+    }
+  }
+
   .@{ant-prefix}-input-prefix {
     color: @text-color;
   }
 
   .@{ant-prefix}-input-group-addon {
     color: @text-color;
-    border-color: @border-color;
     background-color: @background-color;
+    border-color: @border-color;
   }
 
   .has-feedback {
@@ -47,11 +66,11 @@
   legend {
     display: block;
     width: 100%;
-    padding: 0;
     margin-bottom: 20px;
+    padding: 0;
+    color: @text-color-secondary;
     font-size: @font-size-lg;
     line-height: inherit;
-    color: @text-color-secondary;
     border: 0;
     border-bottom: @border-width-base @border-style-base @border-color-base;
   }
@@ -60,22 +79,22 @@
     font-size: @font-size-base;
   }
 
-  input[type="search"] {
+  input[type='search'] {
     box-sizing: border-box;
   }
 
   // Position radios and checkboxes better
-  input[type="radio"],
-  input[type="checkbox"] {
+  input[type='radio'],
+  input[type='checkbox'] {
     line-height: normal;
   }
 
-  input[type="file"] {
+  input[type='file'] {
     display: block;
   }
 
   // Make range inputs behave like textual form controls
-  input[type="range"] {
+  input[type='range'] {
     display: block;
     width: 100%;
   }
@@ -87,11 +106,11 @@
   }
 
   // Focus for file, radio, and checkbox
-  input[type="file"]:focus,
-  input[type="radio"]:focus,
-  input[type="checkbox"]:focus {
+  input[type='file']:focus,
+  input[type='radio']:focus,
+  input[type='checkbox']:focus {
     outline: thin dotted;
-    outline: 5px auto -webkit-focus-ring-color; // lesshint duplicateProperty: false
+    outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px;
   }
 
@@ -99,8 +118,8 @@
   output {
     display: block;
     padding-top: 15px;
+    color: @input-color;
     font-size: @font-size-base;
     line-height: @line-height-base;
-    color: @input-color;
   }
 }

@@ -13,7 +13,7 @@ title:
 
 A simple playground for column count and gutter.
 
-````jsx
+```jsx
 import { Row, Col, Slider } from 'antd';
 
 class App extends React.Component {
@@ -27,17 +27,21 @@ class App extends React.Component {
       gutterKey: 1,
       colCountKey: 2,
     };
-    [8, 16, 24, 32, 40, 48].forEach((value, i) => { this.gutters[i] = value; });
-    [2, 3, 4, 6, 8, 12].forEach((value, i) => { this.colCounts[i] = value; });
+    [8, 16, 24, 32, 40, 48].forEach((value, i) => {
+      this.gutters[i] = value;
+    });
+    [2, 3, 4, 6, 8, 12].forEach((value, i) => {
+      this.colCounts[i] = value;
+    });
   }
 
-  onGutterChange = (gutterKey) => {
+  onGutterChange = gutterKey => {
     this.setState({ gutterKey });
-  }
+  };
 
-  onColCountChange = (colCountKey) => {
+  onColCountChange = colCountKey => {
     this.setState({ colCountKey });
-  }
+  };
 
   render() {
     const { gutterKey, colCountKey } = this.state;
@@ -48,7 +52,7 @@ class App extends React.Component {
       cols.push(
         <Col key={i.toString()} span={24 / colCount}>
           <div>Column</div>
-        </Col>
+        </Col>,
       );
       colCode += `  <Col span={${24 / colCount}} />\n`;
     }
@@ -86,15 +90,15 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, mountNode);
-````
+```
 
-````css
-#components-grid-demo-playground [class^="ant-col-"] {
+```css
+#components-grid-demo-playground [class~='ant-col'] {
   background: transparent;
   border: 0;
 }
-#components-grid-demo-playground [class^="ant-col-"] > div {
-  background: #00A0E9;
+#components-grid-demo-playground [class~='ant-col'] > div {
+  background: #00a0e9;
   height: 120px;
   line-height: 120px;
   font-size: 13px;
@@ -105,4 +109,4 @@ ReactDOM.render(<App />, mountNode);
   font-size: 13px;
   padding: 8px 16px;
 }
-````
+```

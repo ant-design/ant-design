@@ -13,7 +13,6 @@ export default {
     filterTitle: 'Фильтр',
     filterConfirm: 'OK',
     filterReset: 'Сбросить',
-    emptyText: 'Нет данных',
     selectAll: 'Выбрать всё',
     selectInvert: 'Инвертировать выбор',
   },
@@ -27,18 +26,17 @@ export default {
     cancelText: 'Отмена',
   },
   Transfer: {
-    notFoundContent: 'Ничего не найдено',
-    searchPlaceholder: 'Введите название для поиска',
+    searchPlaceholder: 'Поиск',
     itemUnit: 'элем.',
     itemsUnit: 'элем.',
   },
-  Select: {
-    notFoundContent: 'Ничего не найдено',
-  },
   Upload: {
-    uploading: 'Закачиваю...',
+    uploading: 'Загрузка...',
     removeFile: 'Удалить файл',
-    uploadError: 'Ошибка при закачке',
+    uploadError: 'При загрузке произошла ошибка',
     previewFile: 'Предпросмотр файла',
+  },
+  Empty: {
+    description: 'Нет данных',
   },
 };

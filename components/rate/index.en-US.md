@@ -14,7 +14,7 @@ Rate component.
 ## API
 
 | Property | Description | type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | allowClear | whether to allow clear when click again | boolean | true |
 | allowHalf | whether to allow semi selection | boolean | false |
 | autoFocus | get focus when component mounted | boolean | false |
@@ -24,6 +24,7 @@ Rate component.
 | defaultValue | default value | number | 0 |
 | disabled | read only, unable to interact | boolean | false |
 | style | custom style object of rate | object | - |
+| tooltips | Customize tooltip by each character | string\[] | - |
 | value | current value | number | - |
 | onBlur | callback when component lose focus | Function() | - |
 | onChange | callback when select value | Function(value: number) | - |
@@ -33,7 +34,7 @@ Rate component.
 
 ## Methods
 
-| Name | Description |
-| ---- | ----------- |
-| blur() | remove focus |
-| focus() | get focus |
+| Name    | Description  |
+| ------- | ------------ |
+| blur()  | remove focus |
+| focus() | get focus    |

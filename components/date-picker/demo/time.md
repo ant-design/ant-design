@@ -13,7 +13,7 @@ title:
 
 This property provide an additional time selection. When `showTime` is an Object, its properties will be passed on to built-in `TimePicker`.
 
-````jsx
+```jsx
 import { DatePicker } from 'antd';
 
 const { RangePicker } = DatePicker;
@@ -29,13 +29,7 @@ function onOk(value) {
 
 ReactDOM.render(
   <div>
-    <DatePicker
-      showTime
-      format="YYYY-MM-DD HH:mm:ss"
-      placeholder="Select Time"
-      onChange={onChange}
-      onOk={onOk}
-    />
+    <DatePicker showTime placeholder="Select Time" onChange={onChange} onOk={onOk} />
     <br />
     <RangePicker
       showTime={{ format: 'HH:mm' }}
@@ -45,5 +39,6 @@ ReactDOM.render(
       onOk={onOk}
     />
   </div>,
-  mountNode);
-````
+  mountNode,
+);
+```

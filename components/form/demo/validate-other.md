@@ -11,36 +11,44 @@ title:
 
 ## en-US
 
-Demostration for validataion configuration for form controls which are not show in the above demos.
+Demonstration of validation configuration for form controls which are not shown in the demos above.
 
-````jsx
+```jsx
 import {
-  Form, Select, InputNumber, Switch, Radio,
-  Slider, Button, Upload, Icon, Rate,
+  Form,
+  Select,
+  InputNumber,
+  Switch,
+  Radio,
+  Slider,
+  Button,
+  Upload,
+  Icon,
+  Rate,
+  Checkbox,
+  Row,
+  Col,
 } from 'antd';
 
-const FormItem = Form.Item;
-const Option = Select.Option;
-const RadioButton = Radio.Button;
-const RadioGroup = Radio.Group;
+const { Option } = Select;
 
 class Demo extends React.Component {
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
       }
     });
-  }
+  };
 
-  normFile = (e) => {
+  normFile = e => {
     console.log('Upload event:', e);
     if (Array.isArray(e)) {
       return e;
     }
     return e && e.fileList;
-  }
+  };
 
   render() {
     const { getFieldDecorator } = this.props.form;
@@ -49,34 +57,22 @@ class Demo extends React.Component {
       wrapperCol: { span: 14 },
     };
     return (
-      <Form onSubmit={this.handleSubmit}>
-        <FormItem
-          {...formItemLayout}
-          label="Plain Text"
-        >
+      <Form {...formItemLayout} onSubmit={this.handleSubmit}>
+        <Form.Item label="Plain Text">
           <span className="ant-form-text">China</span>
-        </FormItem>
-        <FormItem
-          {...formItemLayout}
-          label="Select"
-          hasFeedback
-        >
+        </Form.Item>
+        <Form.Item label="Select" hasFeedback>
           {getFieldDecorator('select', {
-            rules: [
-              { required: true, message: 'Please select your country!' },
-            ],
+            rules: [{ required: true, message: 'Please select your country!' }],
           })(
             <Select placeholder="Please select a country">
               <Option value="china">China</Option>
-              <Option value="use">U.S.A</Option>
-            </Select>
+              <Option value="usa">U.S.A</Option>
+            </Select>,
           )}
-        </FormItem>
+        </Form.Item>
 
-        <FormItem
-          {...formItemLayout}
-          label="Select[multiple]"
-        >
+        <Form.Item label="Select[multiple]">
           {getFieldDecorator('select-multiple', {
             rules: [
               { required: true, message: 'Please select your favourite colors!', type: 'array' },
@@ -86,80 +82,89 @@ class Demo extends React.Component {
               <Option value="red">Red</Option>
               <Option value="green">Green</Option>
               <Option value="blue">Blue</Option>
-            </Select>
+            </Select>,
           )}
-        </FormItem>
+        </Form.Item>
 
-        <FormItem
-          {...formItemLayout}
-          label="InputNumber"
-        >
-          {getFieldDecorator('input-number', { initialValue: 3 })(
-            <InputNumber min={1} max={10} />
-          )}
+        <Form.Item label="InputNumber">
+          {getFieldDecorator('input-number', { initialValue: 3 })(<InputNumber min={1} max={10} />)}
           <span className="ant-form-text"> machines</span>
-        </FormItem>
+        </Form.Item>
 
-        <FormItem
-          {...formItemLayout}
-          label="Switch"
-        >
-          {getFieldDecorator('switch', { valuePropName: 'checked' })(
-            <Switch />
-          )}
-        </FormItem>
+        <Form.Item label="Switch">
+          {getFieldDecorator('switch', { valuePropName: 'checked' })(<Switch />)}
+        </Form.Item>
 
-        <FormItem
-          {...formItemLayout}
-          label="Slider"
-        >
+        <Form.Item label="Slider">
           {getFieldDecorator('slider')(
-            <Slider marks={{ 0: 'A', 20: 'B', 40: 'C', 60: 'D', 80: 'E', 100: 'F' }} />
+            <Slider
+              marks={{
+                0: 'A',
+                20: 'B',
+                40: 'C',
+                60: 'D',
+                80: 'E',
+                100: 'F',
+              }}
+            />,
           )}
-        </FormItem>
+        </Form.Item>
 
-        <FormItem
-          {...formItemLayout}
-          label="Radio.Group"
-        >
+        <Form.Item label="Radio.Group">
           {getFieldDecorator('radio-group')(
-            <RadioGroup>
+            <Radio.Group>
               <Radio value="a">item 1</Radio>
               <Radio value="b">item 2</Radio>
               <Radio value="c">item 3</Radio>
-            </RadioGroup>
+            </Radio.Group>,
           )}
-        </FormItem>
+        </Form.Item>
 
-        <FormItem
-          {...formItemLayout}
-          label="Radio.Button"
-        >
+        <Form.Item label="Radio.Button">
           {getFieldDecorator('radio-button')(
-            <RadioGroup>
-              <RadioButton value="a">item 1</RadioButton>
-              <RadioButton value="b">item 2</RadioButton>
-              <RadioButton value="c">item 3</RadioButton>
-            </RadioGroup>
+            <Radio.Group>
+              <Radio.Button value="a">item 1</Radio.Button>
+              <Radio.Button value="b">item 2</Radio.Button>
+              <Radio.Button value="c">item 3</Radio.Button>
+            </Radio.Group>,
           )}
-        </FormItem>
+        </Form.Item>
 
-        <FormItem
-          {...formItemLayout}
-          label="Rate"
-        >
+        <Form.Item label="Checkbox.Group">
+          {getFieldDecorator('checkbox-group', {
+            initialValue: ['A', 'B'],
+          })(
+            <Checkbox.Group style={{ width: '100%' }}>
+              <Row>
+                <Col span={8}>
+                  <Checkbox value="A">A</Checkbox>
+                </Col>
+                <Col span={8}>
+                  <Checkbox disabled value="B">
+                    B
+                  </Checkbox>
+                </Col>
+                <Col span={8}>
+                  <Checkbox value="C">C</Checkbox>
+                </Col>
+                <Col span={8}>
+                  <Checkbox value="D">D</Checkbox>
+                </Col>
+                <Col span={8}>
+                  <Checkbox value="E">E</Checkbox>
+                </Col>
+              </Row>
+            </Checkbox.Group>,
+          )}
+        </Form.Item>
+
+        <Form.Item label="Rate">
           {getFieldDecorator('rate', {
             initialValue: 3.5,
-          })(
-            <Rate />
-          )}
-        </FormItem>
+          })(<Rate />)}
+        </Form.Item>
 
-        <FormItem
-          {...formItemLayout}
-          label="Upload"
-          extra="longgggggggggggggggggggggggggggggggggg"
-        >
+        <Form.Item label="Upload" extra="longgggggggggggggggggggggggggggggggggg">
           {getFieldDecorator('upload', {
             valuePropName: 'fileList',
             getValueFromEvent: this.normFile,
@@ -168,14 +173,11 @@ class Demo extends React.Component {
               <Button>
                 <Icon type="upload" /> Click to upload
               </Button>
-            </Upload>
+            </Upload>,
           )}
-        </FormItem>
+        </Form.Item>
 
-        <FormItem
-          {...formItemLayout}
-          label="Dragger"
-        >
+        <Form.Item label="Dragger">
           <div className="dropbox">
             {getFieldDecorator('dragger', {
               valuePropName: 'fileList',
@@ -187,29 +189,29 @@ class Demo extends React.Component {
                 </p>
                 <p className="ant-upload-text">Click or drag file to this area to upload</p>
                 <p className="ant-upload-hint">Support for a single or bulk upload.</p>
-              </Upload.Dragger>
+              </Upload.Dragger>,
             )}
           </div>
-        </FormItem>
+        </Form.Item>
 
-        <FormItem
-          wrapperCol={{ span: 12, offset: 6 }}
-        >
-          <Button type="primary" htmlType="submit">Submit</Button>
-        </FormItem>
+        <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
+        </Form.Item>
       </Form>
     );
   }
 }
 
-const WrappedDemo = Form.create()(Demo);
+const WrappedDemo = Form.create({ name: 'validate_other' })(Demo);
 
 ReactDOM.render(<WrappedDemo />, mountNode);
-````
+```
 
-````css
+```css
 #components-form-demo-validate-other .dropbox {
   height: 180px;
   line-height: 1.5;
 }
-````
+```

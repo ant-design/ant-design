@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Data Entry
+type: 数据录入
 title: Cascader
 subtitle: 级联选择
 ---
@@ -16,7 +16,7 @@ subtitle: 级联选择
 ## API
 
 ```html
-<Cascader options={options} onChange={onChange} />
+<Cascader options="{options}" onChange="{onChange}" />
 ```
 
 | 参数 | 说明 | 类型 | 默认值 |
@@ -41,6 +41,7 @@ subtitle: 级联选择
 | showSearch | 在选择框中显示搜索框 | boolean | false |
 | size | 输入框大小，可选 `large` `default` `small` | string | `default` |
 | style | 自定义样式 | string | - |
+| suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |
 | value | 指定选中项 | string\[] | - |
 | onChange | 选择完成后的回调 | `(value, selectedOptions) => void` | - |
 | onPopupVisibleChange | 显示/隐藏浮层的回调 | `(value) => void` | - |
@@ -50,15 +51,16 @@ subtitle: 级联选择
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | filter | 接收 `inputValue` `path` 两个参数，当 `path` 符合筛选条件时，应返回 true，反之则返回 false。 | `function(inputValue, path): boolean` |  |
+| limit | 搜索结果展示数量 | number \| false | 50 |
 | matchInputWidth | 搜索结果列表是否与输入框同宽 | boolean |  |
 | render | 用于渲染 filter 后的选项 | `function(inputValue, path): ReactNode` |  |
 | sort | 用于排序 filter 后的选项 | `function(a, b, inputValue)` |  |
 
 ## 方法
 
-| 名称 | 描述 |
-| --- | --- |
-| blur() | 移除焦点 |
+| 名称    | 描述     |
+| ------- | -------- |
+| blur()  | 移除焦点 |
 | focus() | 获取焦点 |
 
 <style>

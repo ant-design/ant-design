@@ -12,7 +12,11 @@ describe('Carousel', () => {
   });
 
   it('should has innerSlider', () => {
-    const wrapper = mount(<Carousel><div /></Carousel>);
+    const wrapper = mount(
+      <Carousel>
+        <div />
+      </Carousel>,
+    );
     const { innerSlider } = wrapper.instance();
     const innerSliderFromRefs = wrapper.instance().slick.innerSlider;
     expect(innerSlider).toBe(innerSliderFromRefs);
@@ -20,7 +24,13 @@ describe('Carousel', () => {
   });
 
   it('should has prev, next and go function', () => {
-    const wrapper = mount(<Carousel><div>1</div><div>2</div><div>3</div></Carousel>);
+    const wrapper = mount(
+      <Carousel>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+      </Carousel>,
+    );
     const { prev, next, goTo } = wrapper.instance();
     expect(typeof prev).toBe('function');
     expect(typeof next).toBe('function');
@@ -39,21 +49,69 @@ describe('Carousel', () => {
 
   it('should trigger autoPlay after window resize', async () => {
     jest.useRealTimers();
-    const wrapper = mount(<Carousel autoplay><div>1</div><div>2</div><div>3</div></Carousel>);
+    const wrapper = mount(
+      <Carousel autoplay>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+      </Carousel>,
+    );
     const spy = jest.spyOn(wrapper.instance().slick.innerSlider, 'autoPlay');
     window.resizeTo(1000);
-    expect(spy).not.toBeCalled();
+    expect(spy).not.toHaveBeenCalled();
     await new Promise(resolve => setTimeout(resolve, 500));
-    expect(spy).toBeCalled();
+    expect(spy).toHaveBeenCalled();
   });
 
   it('cancel resize listener when unmount', async () => {
-    const wrapper = mount(<Carousel autoplay><div>1</div><div>2</div><div>3</div></Carousel>);
-    const onWindowResized = wrapper.instance().onWindowResized;
+    const wrapper = mount(
+      <Carousel autoplay>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+      </Carousel>,
+    );
+    const { onWindowResized } = wrapper.instance();
     const spy = jest.spyOn(wrapper.instance().onWindowResized, 'cancel');
     const spy2 = jest.spyOn(window, 'removeEventListener');
     wrapper.unmount();
-    expect(spy).toBeCalled();
-    expect(spy2).toBeCalledWith('resize', onWindowResized);
+    expect(spy).toHaveBeenCalled();
+    expect(spy2).toHaveBeenCalledWith('resize', onWindowResized);
+  });
+
+  describe('should works for dotPosition', () => {
+    ['left', 'right', 'top', 'bottom'].forEach(dotPosition => {
+      it(dotPosition, () => {
+        const wrapper = mount(
+          <Carousel dotPosition={dotPosition}>
+            <div />
+          </Carousel>,
+        );
+        jest.runAllTimers();
+        expect(wrapper.render()).toMatchSnapshot();
+      });
+    });
+  });
+
+  it('warning', () => {
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(
+      <Carousel vertical>
+        <div />
+      </Carousel>,
+    );
+    expect(warnSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Carousel] `vertical` is deprecated, please use `dotPosition` instead.',
+    );
+    warnSpy.mockRestore();
+  });
+
+  it('should active when children change', () => {
+    const wrapper = mount(<Carousel />);
+    wrapper.setProps({
+      children: <div />,
+    });
+    wrapper.update();
+    expect(wrapper.find('.slick-active').length).toBeTruthy();
   });
 });

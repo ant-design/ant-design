@@ -4,7 +4,7 @@ import { AbstractSelectProps } from '../select';
 export type TreeNode = TreeNodeNormal | TreeNodeSimpleMode;
 
 export interface TreeNodeNormal {
-  value: string;
+  value: string | number;
   /**
    * @deprecated Please use `title` instead.
    */
@@ -30,25 +30,35 @@ export interface TreeDataSimpleMode {
 }
 
 export interface TreeSelectProps extends AbstractSelectProps {
-  value?: string | Array<any>;
-  defaultValue?: string | Array<any>;
-  multiple?: boolean;
-  onSelect?: (value: any) => void;
-  onChange?: (value: any, label: any) => void;
-  onSearch?: (value: any) => void;
-  searchPlaceholder?: string;
+  autoFocus?: boolean;
+  defaultValue?: string | number | Array<any>;
   dropdownStyle?: React.CSSProperties;
-  treeDefaultExpandAll?: boolean;
-  treeCheckable?: boolean | React.ReactNode;
-  treeDefaultExpandedKeys?: Array<string>;
   filterTreeNode?: (inputValue: string, treeNode: any) => boolean | boolean;
-  treeNodeFilterProp?: string;
-  treeNodeLabelProp?: string;
+  labelInValue?: boolean;
+  loadData?: (node: any) => void;
+  maxTagCount?: number;
+  maxTagPlaceholder?: React.ReactNode | ((omittedValues: any[]) => React.ReactNode);
+  multiple?: boolean;
+  notFoundContent?: React.ReactNode;
+  onChange?: (value: any, label: any, extra: any) => void;
+  onSearch?: (value: any) => void;
+  onSelect?: (value: any) => void;
+  onTreeExpand?: (keys: Array<string>) => void;
+  onFocus?: React.FocusEventHandler<HTMLInputElement>;
+  onBlur?: React.FocusEventHandler<HTMLInputElement>;
+  searchPlaceholder?: string;
+  searchValue?: string;
+  showCheckedStrategy?: 'SHOW_ALL' | 'SHOW_PARENT' | 'SHOW_CHILD';
+  suffixIcon?: React.ReactNode;
+  treeCheckable?: boolean | React.ReactNode;
+  treeCheckStrictly?: boolean;
   treeData?: Array<TreeNode>;
   treeDataSimpleMode?: boolean | TreeDataSimpleMode;
-  loadData?: (node: any) => void;
-  showCheckedStrategy?: 'SHOW_ALL' | 'SHOW_PARENT' | 'SHOW_CHILD';
-  labelInValue?: boolean;
-  treeCheckStrictly?: boolean;
-  getPopupContainer?: (triggerNode: Element) => HTMLElement;
+  treeDefaultExpandAll?: boolean;
+  treeDefaultExpandedKeys?: Array<string>;
+  treeExpandedKeys?: Array<string>;
+  treeIcon?: boolean;
+  treeNodeFilterProp?: string;
+  treeNodeLabelProp?: string;
+  value?: string | number | Array<any>;
 }

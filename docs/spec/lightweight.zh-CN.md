@@ -1,6 +1,6 @@
 ---
 category: 原则
-order: 6
+order: 7
 title: 简化交互
 ---
 
@@ -22,7 +22,6 @@ title: 简化交互
 
 ## 悬停即现工具
 
-
 <img class="preview-img" align="right" alt="悬停即现工具示例" description="鼠标悬停时，出现操作项。" src="https://gw.alipayobjects.com/zos/rmsportal/XzKWrNfqIMNnIrwWNJYg.png">
 
 如果某个操作不那么重要，或者使用『实时可见工具』过于啰嗦会影响用户阅读时，可以在悬停在该对象上时展示操作项。
@@ -36,22 +35,6 @@ title: 简化交互
 <img class="preview-img" align="right" alt="开关显示工具示例" description="用户点击『修改』后，Table 中『文本』变成『输入框』，开启编辑功能。" src="https://gw.alipayobjects.com/zos/rmsportal/iLilpTYKqogBNlwpmVGw.png">
 
 如果某些操作只需要在特定模式时显示，可以通过开关来实现。
-
-<br>
-
----
-
-## 交互中的工具
-
-<img class="preview-img" align="right" alt="推荐示例" description="鼠标悬停时，出现 Tooltips 进行提示，用户点击内容直接复制。" src="https://gw.alipayobjects.com/zos/rmsportal/qdBJSanANPKpqeMyRUPX.png" good>
-
-<img class="preview-img" align="right" alt="推荐示例" description="鼠标滑选/双击时，系统自动复制该部分内容。通过大胆猜测用户的行为，并帮助完成，给用户小惊喜。" src="https://gw.alipayobjects.com/zos/rmsportal/FDuQKkLcQdzdTUTgAeQM.png" good>
-
-<img class="preview-img" align="right" alt="不推荐示例" description="在可复制内容的附近出现『图标』，点击后复制。" src="https://gw.alipayobjects.com/zos/rmsportal/XHWinYiDxwwgwYnOxRkS.png" bad>
-
-如果操作不重要或者可以通过其他途径完成时，可以将工具放置在用户的操作流程中，减少界面元素，降低认知负担，给用户小惊喜。
-
-此处也可以运用[『提供邀请』](/docs/spec/invitation) 相关的知识点。
 
 <br>
 

@@ -13,19 +13,24 @@ describe('Tabs', () => {
       handleEdit = jest.fn();
       wrapper = mount(
         <Tabs type="editable-card" onEdit={handleEdit}>
-          <TabPane tab="foo" key="1">foo</TabPane>
-        </Tabs>
+          <TabPane tab="foo" key="1">
+            foo
+          </TabPane>
+        </Tabs>,
       );
     });
 
     it('add card', () => {
-      wrapper.find('.ant-tabs-new-tab').hostNodes().simulate('click');
+      wrapper
+        .find('.ant-tabs-new-tab')
+        .hostNodes()
+        .simulate('click');
       expect(handleEdit.mock.calls[0][1]).toBe('add');
     });
 
     it('remove card', () => {
       wrapper.find('.anticon-close').simulate('click');
-      expect(handleEdit).toBeCalledWith('1', 'remove');
+      expect(handleEdit).toHaveBeenCalledWith('1', 'remove');
     });
   });
 
@@ -33,8 +38,10 @@ describe('Tabs', () => {
     it('remove card', () => {
       const wrapper = render(
         <Tabs tabPosition="left" tabBarExtraContent="xxx">
-          <TabPane tab="foo" key="1">foo</TabPane>
-        </Tabs>
+          <TabPane tab="foo" key="1">
+            foo
+          </TabPane>
+        </Tabs>,
       );
       expect(wrapper).toMatchSnapshot();
     });
@@ -44,8 +51,10 @@ describe('Tabs', () => {
     it('custom-tab-bar', () => {
       const wrapper = render(
         <Tabs renderTabBar={() => <div>custom-tab-bar</div>}>
-          <TabPane tab="foo" key="1">foo</TabPane>
-        </Tabs>
+          <TabPane tab="foo" key="1">
+            foo
+          </TabPane>
+        </Tabs>,
       );
       expect(wrapper).toMatchSnapshot();
     });

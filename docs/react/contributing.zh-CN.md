@@ -1,5 +1,5 @@
 ---
-order: 9
+order: 10
 title: 贡献指南
 toc: false
 ---
@@ -16,17 +16,19 @@ toc: false
 
 ## 分支管理
 
-基于我们的 [发布周期](/changelog)，我们每个月都会从 `master` 分支切一个 `feature` 分支出来（比如 `features-3.1` 分支用来发布 3.1 版本）。 如果你要修一个 bug，那么请发 pull request 到 `master`；如果你要提一个增加新功能的 pull request，那么请基于 `feature` 分支来做。
+基于我们的 [发布周期](/changelog)，我们长期维护两个分支 `master` 和 `feature`。如果你要修一个 bug，那么请发 pull request 到 `master`；如果你要提一个增加新功能的 pull request，那么请基于 `feature` 分支来做。
 
 ## Bugs
 
 我们使用 [GitHub Issues](https://github.com/ant-design/ant-design/issues) 来做 bug 追踪。 如果你想要你发现的 bug 被快速解决，最好的办法就是通过我们提供的 [issue 小助手](http://new-issue.ant.design) 来提 issue。并且能使用这个 [模板](https://u.ant.design/codesandbox-repro) 来提供重现。
 
-在你报告一个 bug 之前，请先确保已经搜索过已有的 issue 和阅读了我们的 [常见问题](https://github.com/ant-design/ant-design/wiki/FAQ)。
+在你报告一个 bug 之前，请先确保已经搜索过已有的 issue 和阅读了我们的 [常见问题](/docs/react/faq)。
 
 ## 新增功能
 
 如果你有改进我们的 API 或者新增功能的想法，我们同样推荐你使用我们提供的 [issue 小助手](http://new-issue.ant.design) 来新建一个添加新功能的 issue。
+
+如果你希望协助开发新的 API，请参考 [API 规范](https://github.com/ant-design/ant-design/wiki/API-Naming-rules) 进行命名。
 
 ## 第一次贡献
 
@@ -59,7 +61,7 @@ Ant Design 团队会关注所有的 pull request，我们会 review 以及合并
 
 ## 开发流程
 
-在你 clone 了 antd  的代码并且使用 `npm install` 安装完依赖后，你还可以运行下面几个常用的命令：
+在你 clone 了 antd 的代码并且使用 `npm install` 安装完依赖后，你还可以运行下面几个常用的命令：
 
 1. `npm start` 在本地运行 Ant Design 的网站。
 2. `npm run lint` 检查代码风格。

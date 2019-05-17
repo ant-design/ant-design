@@ -17,7 +17,7 @@ Buttons can be grouped by placing multiple `Button` components into a `Button.Gr
 
 The `size` can be set to `large`, `small` or left unset resulting in a default size.
 
-````jsx
+```jsx
 import { Button, Icon } from 'antd';
 
 const ButtonGroup = Button.Group;
@@ -43,10 +43,12 @@ ReactDOM.render(
     <h4>With Icon</h4>
     <ButtonGroup>
       <Button type="primary">
-        <Icon type="left" />Go back
+        <Icon type="left" />
+        Go back
       </Button>
       <Button type="primary">
-        Go forward<Icon type="right" />
+        Go forward
+        <Icon type="right" />
       </Button>
     </ButtonGroup>
     <ButtonGroup>
@@ -54,9 +56,9 @@ ReactDOM.render(
       <Button type="primary" icon="cloud-download" />
     </ButtonGroup>
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```
 
 <style>
 #components-button-demo-button-group h4 {

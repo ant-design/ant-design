@@ -6,6 +6,8 @@ import Banner from './Banner';
 import Page1 from './Page1';
 import Page2 from './Page2';
 import Page3 from './Page3';
+import Footer from '../Layout/Footer';
+
 // To store style which is only for Home and has conflicts with others.
 function getStyle() {
   return `
@@ -27,8 +29,13 @@ function getStyle() {
     #header #logo {
       padding: 0;
     }
-    #header .ant-row > div:last-child .ant-menu,
-    #header .nav-phone-icon {
+    #header #nav .ant-menu-item {
+      border-color: transparent;
+    }
+    #header #nav .ant-menu-submenu {
+      border-color: transparent;
+    }
+    #header #nav .ant-menu-item.hide-in-home-page {
       display: none;
     }
     #header .ant-row > div:last-child .header-lang-button {
@@ -36,17 +43,13 @@ function getStyle() {
     }
     footer .footer-wrap {
       width: 100%;
-      padding: 0;
-    }
-    footer .footer-wrap .ant-row {
-      width: 100%;
       max-width: 1200px;
       padding: 86px 24px 93px 24px;
       margin: auto;
     }
     @media only screen and (max-width: 767.99px) {
-      #footer .footer-wrap{
-        padding: 40px 24px
+      #footer .footer-wrap {
+        padding: 40px 24px;
       }
       footer .footer-wrap .ant-row {
         padding: 0;
@@ -60,20 +63,21 @@ class Home extends React.Component {
   static contextTypes = {
     intl: PropTypes.object.isRequired,
     isMobile: PropTypes.bool.isRequired,
-  }
+  };
 
   render() {
     const { isMobile, intl } = this.context;
     const childProps = { ...this.props, isMobile, locale: intl.locale };
     return (
       <DocumentTitle title={`Ant Design - ${intl.formatMessage({ id: 'app.home.slogan' })}`}>
-        <div className="main-wrapper">
-          <style dangerouslySetInnerHTML={{ __html: getStyle() }} />
+        <>
+          <style dangerouslySetInnerHTML={{ __html: getStyle() }} /> {/* eslint-disable-line */}
           <Banner {...childProps} />
           <Page1 {...childProps} />
           <Page2 {...childProps} />
           <Page3 {...childProps} />
-        </div>
+          <Footer />
+        </>
       </DocumentTitle>
     );
   }

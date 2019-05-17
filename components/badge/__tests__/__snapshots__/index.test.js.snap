@@ -1,5 +1,729 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Badge badge should support float number 1`] = `
+<span
+  class="ant-badge ant-badge-not-a-wrapper"
+>
+  <sup
+    class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+    data-show="true"
+    title="3.5"
+  >
+    3.5
+  </sup>
+</span>
+`;
+
+exports[`Badge badge should support float number 2`] = `
+<Badge
+  count="3.5"
+  dot={false}
+  overflowCount={99}
+  showZero={false}
+>
+  <span
+    className="ant-badge ant-badge-not-a-wrapper"
+  >
+    <Animate
+      animation={Object {}}
+      component=""
+      componentProps={Object {}}
+      onAppear={[Function]}
+      onEnd={[Function]}
+      onEnter={[Function]}
+      onLeave={[Function]}
+      showProp="data-show"
+      transitionAppear={true}
+      transitionEnter={true}
+      transitionLeave={true}
+      transitionName=""
+    >
+      <AnimateChild
+        animation={Object {}}
+        key="scrollNumber"
+        transitionAppear={true}
+        transitionEnter={true}
+        transitionLeave={true}
+        transitionName=""
+      >
+        <ScrollNumber
+          className="ant-badge-count ant-badge-multiple-words"
+          count="3.5"
+          data-show={true}
+          key="scrollNumber"
+          onAnimated={[Function]}
+          prefixCls="ant-scroll-number"
+          title="3.5"
+        >
+          <sup
+            className="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+            data-show={true}
+            title="3.5"
+          >
+            3.5
+          </sup>
+        </ScrollNumber>
+      </AnimateChild>
+    </Animate>
+  </span>
+</Badge>
+`;
+
+exports[`Badge render correct with negative number 1`] = `
+<div>
+  <span
+    class="ant-badge ant-badge-not-a-wrapper"
+  >
+    <sup
+      class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+      data-show="true"
+      title="-10"
+    >
+      <span
+        class="ant-scroll-number-symbol"
+      >
+        -
+      </span>
+      <span
+        class="ant-scroll-number-only"
+        style="transition:none;-ms-transform:translateY(-1100%);-webkit-transform:translateY(-1100%);transform:translateY(-1100%)"
+      >
+        <p
+          class=""
+        >
+          0
+        </p>
+        <p
+          class=""
+        >
+          1
+        </p>
+        <p
+          class=""
+        >
+          2
+        </p>
+        <p
+          class=""
+        >
+          3
+        </p>
+        <p
+          class=""
+        >
+          4
+        </p>
+        <p
+          class=""
+        >
+          5
+        </p>
+        <p
+          class=""
+        >
+          6
+        </p>
+        <p
+          class=""
+        >
+          7
+        </p>
+        <p
+          class=""
+        >
+          8
+        </p>
+        <p
+          class=""
+        >
+          9
+        </p>
+        <p
+          class=""
+        >
+          0
+        </p>
+        <p
+          class="current"
+        >
+          1
+        </p>
+        <p
+          class=""
+        >
+          2
+        </p>
+        <p
+          class=""
+        >
+          3
+        </p>
+        <p
+          class=""
+        >
+          4
+        </p>
+        <p
+          class=""
+        >
+          5
+        </p>
+        <p
+          class=""
+        >
+          6
+        </p>
+        <p
+          class=""
+        >
+          7
+        </p>
+        <p
+          class=""
+        >
+          8
+        </p>
+        <p
+          class=""
+        >
+          9
+        </p>
+        <p
+          class=""
+        >
+          0
+        </p>
+        <p
+          class=""
+        >
+          1
+        </p>
+        <p
+          class=""
+        >
+          2
+        </p>
+        <p
+          class=""
+        >
+          3
+        </p>
+        <p
+          class=""
+        >
+          4
+        </p>
+        <p
+          class=""
+        >
+          5
+        </p>
+        <p
+          class=""
+        >
+          6
+        </p>
+        <p
+          class=""
+        >
+          7
+        </p>
+        <p
+          class=""
+        >
+          8
+        </p>
+        <p
+          class=""
+        >
+          9
+        </p>
+      </span>
+      <span
+        class="ant-scroll-number-only"
+        style="transition:none;-ms-transform:translateY(-1000%);-webkit-transform:translateY(-1000%);transform:translateY(-1000%)"
+      >
+        <p
+          class=""
+        >
+          0
+        </p>
+        <p
+          class=""
+        >
+          1
+        </p>
+        <p
+          class=""
+        >
+          2
+        </p>
+        <p
+          class=""
+        >
+          3
+        </p>
+        <p
+          class=""
+        >
+          4
+        </p>
+        <p
+          class=""
+        >
+          5
+        </p>
+        <p
+          class=""
+        >
+          6
+        </p>
+        <p
+          class=""
+        >
+          7
+        </p>
+        <p
+          class=""
+        >
+          8
+        </p>
+        <p
+          class=""
+        >
+          9
+        </p>
+        <p
+          class="current"
+        >
+          0
+        </p>
+        <p
+          class=""
+        >
+          1
+        </p>
+        <p
+          class=""
+        >
+          2
+        </p>
+        <p
+          class=""
+        >
+          3
+        </p>
+        <p
+          class=""
+        >
+          4
+        </p>
+        <p
+          class=""
+        >
+          5
+        </p>
+        <p
+          class=""
+        >
+          6
+        </p>
+        <p
+          class=""
+        >
+          7
+        </p>
+        <p
+          class=""
+        >
+          8
+        </p>
+        <p
+          class=""
+        >
+          9
+        </p>
+        <p
+          class=""
+        >
+          0
+        </p>
+        <p
+          class=""
+        >
+          1
+        </p>
+        <p
+          class=""
+        >
+          2
+        </p>
+        <p
+          class=""
+        >
+          3
+        </p>
+        <p
+          class=""
+        >
+          4
+        </p>
+        <p
+          class=""
+        >
+          5
+        </p>
+        <p
+          class=""
+        >
+          6
+        </p>
+        <p
+          class=""
+        >
+          7
+        </p>
+        <p
+          class=""
+        >
+          8
+        </p>
+        <p
+          class=""
+        >
+          9
+        </p>
+      </span>
+    </sup>
+  </span>
+  <span
+    class="ant-badge ant-badge-not-a-wrapper"
+  >
+    <sup
+      class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+      data-show="true"
+      title="-10"
+    >
+      <span
+        class="ant-scroll-number-symbol"
+      >
+        -
+      </span>
+      <span
+        class="ant-scroll-number-only"
+        style="transition:none;-ms-transform:translateY(-1100%);-webkit-transform:translateY(-1100%);transform:translateY(-1100%)"
+      >
+        <p
+          class=""
+        >
+          0
+        </p>
+        <p
+          class=""
+        >
+          1
+        </p>
+        <p
+          class=""
+        >
+          2
+        </p>
+        <p
+          class=""
+        >
+          3
+        </p>
+        <p
+          class=""
+        >
+          4
+        </p>
+        <p
+          class=""
+        >
+          5
+        </p>
+        <p
+          class=""
+        >
+          6
+        </p>
+        <p
+          class=""
+        >
+          7
+        </p>
+        <p
+          class=""
+        >
+          8
+        </p>
+        <p
+          class=""
+        >
+          9
+        </p>
+        <p
+          class=""
+        >
+          0
+        </p>
+        <p
+          class="current"
+        >
+          1
+        </p>
+        <p
+          class=""
+        >
+          2
+        </p>
+        <p
+          class=""
+        >
+          3
+        </p>
+        <p
+          class=""
+        >
+          4
+        </p>
+        <p
+          class=""
+        >
+          5
+        </p>
+        <p
+          class=""
+        >
+          6
+        </p>
+        <p
+          class=""
+        >
+          7
+        </p>
+        <p
+          class=""
+        >
+          8
+        </p>
+        <p
+          class=""
+        >
+          9
+        </p>
+        <p
+          class=""
+        >
+          0
+        </p>
+        <p
+          class=""
+        >
+          1
+        </p>
+        <p
+          class=""
+        >
+          2
+        </p>
+        <p
+          class=""
+        >
+          3
+        </p>
+        <p
+          class=""
+        >
+          4
+        </p>
+        <p
+          class=""
+        >
+          5
+        </p>
+        <p
+          class=""
+        >
+          6
+        </p>
+        <p
+          class=""
+        >
+          7
+        </p>
+        <p
+          class=""
+        >
+          8
+        </p>
+        <p
+          class=""
+        >
+          9
+        </p>
+      </span>
+      <span
+        class="ant-scroll-number-only"
+        style="transition:none;-ms-transform:translateY(-1000%);-webkit-transform:translateY(-1000%);transform:translateY(-1000%)"
+      >
+        <p
+          class=""
+        >
+          0
+        </p>
+        <p
+          class=""
+        >
+          1
+        </p>
+        <p
+          class=""
+        >
+          2
+        </p>
+        <p
+          class=""
+        >
+          3
+        </p>
+        <p
+          class=""
+        >
+          4
+        </p>
+        <p
+          class=""
+        >
+          5
+        </p>
+        <p
+          class=""
+        >
+          6
+        </p>
+        <p
+          class=""
+        >
+          7
+        </p>
+        <p
+          class=""
+        >
+          8
+        </p>
+        <p
+          class=""
+        >
+          9
+        </p>
+        <p
+          class="current"
+        >
+          0
+        </p>
+        <p
+          class=""
+        >
+          1
+        </p>
+        <p
+          class=""
+        >
+          2
+        </p>
+        <p
+          class=""
+        >
+          3
+        </p>
+        <p
+          class=""
+        >
+          4
+        </p>
+        <p
+          class=""
+        >
+          5
+        </p>
+        <p
+          class=""
+        >
+          6
+        </p>
+        <p
+          class=""
+        >
+          7
+        </p>
+        <p
+          class=""
+        >
+          8
+        </p>
+        <p
+          class=""
+        >
+          9
+        </p>
+        <p
+          class=""
+        >
+          0
+        </p>
+        <p
+          class=""
+        >
+          1
+        </p>
+        <p
+          class=""
+        >
+          2
+        </p>
+        <p
+          class=""
+        >
+          3
+        </p>
+        <p
+          class=""
+        >
+          4
+        </p>
+        <p
+          class=""
+        >
+          5
+        </p>
+        <p
+          class=""
+        >
+          6
+        </p>
+        <p
+          class=""
+        >
+          7
+        </p>
+        <p
+          class=""
+        >
+          8
+        </p>
+        <p
+          class=""
+        >
+          9
+        </p>
+      </span>
+    </sup>
+  </span>
+</div>
+`;
+
 exports[`Badge should be compatible with borderColor style 1`] = `
 <span
   class="ant-badge ant-badge-not-a-wrapper"
@@ -174,8 +898,6 @@ exports[`Badge should render when count is changed 1`] = `
   count={10}
   dot={false}
   overflowCount={99}
-  prefixCls="ant-badge"
-  scrollNumberPrefixCls="ant-scroll-number"
   showZero={false}
 >
   <span
@@ -423,8 +1145,6 @@ exports[`Badge should render when count is changed 2`] = `
   count={11}
   dot={false}
   overflowCount={99}
-  prefixCls="ant-badge"
-  scrollNumberPrefixCls="ant-scroll-number"
   showZero={false}
 >
   <span
@@ -865,8 +1585,6 @@ exports[`Badge should render when count is changed 3`] = `
   count={11}
   dot={false}
   overflowCount={99}
-  prefixCls="ant-badge"
-  scrollNumberPrefixCls="ant-scroll-number"
   showZero={false}
 >
   <span
@@ -1307,8 +2025,6 @@ exports[`Badge should render when count is changed 4`] = `
   count={10}
   dot={false}
   overflowCount={99}
-  prefixCls="ant-badge"
-  scrollNumberPrefixCls="ant-scroll-number"
   showZero={false}
 >
   <span
@@ -1749,8 +2465,6 @@ exports[`Badge should render when count is changed 5`] = `
   count={9}
   dot={false}
   overflowCount={99}
-  prefixCls="ant-badge"
-  scrollNumberPrefixCls="ant-scroll-number"
   showZero={false}
 >
   <span
@@ -2184,4 +2898,19 @@ exports[`Badge should render when count is changed 5`] = `
     </Animate>
   </span>
 </Badge>
+`;
+
+exports[`Badge should support offset when count is a ReactNode 1`] = `
+<span
+  class="ant-badge"
+>
+  <a
+    class="head-example"
+    href="#"
+  />
+  <span
+    class="ant-scroll-number-custom-component custom"
+    style="right:-10px;margin-top:20px;color:#f5222d"
+  />
+</span>
 `;

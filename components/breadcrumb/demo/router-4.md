@@ -15,7 +15,7 @@ title:
 
 Used together with `react-router@4` or other router.
 
-````jsx
+```jsx
 import { HashRouter as Router, Route, Switch, Link, withRouter } from 'react-router-dom';
 import { Breadcrumb, Alert } from 'antd';
 
@@ -37,24 +37,22 @@ const breadcrumbNameMap = {
   '/apps/1/detail': 'Detail',
   '/apps/2/detail': 'Detail',
 };
-const Home = withRouter((props) => {
+const Home = withRouter(props => {
   const { location } = props;
   const pathSnippets = location.pathname.split('/').filter(i => i);
   const extraBreadcrumbItems = pathSnippets.map((_, index) => {
     const url = `/${pathSnippets.slice(0, index + 1).join('/')}`;
     return (
       <Breadcrumb.Item key={url}>
-        <Link to={url}>
-          {breadcrumbNameMap[url]}
-        </Link>
+        <Link to={url}>{breadcrumbNameMap[url]}</Link>
       </Breadcrumb.Item>
     );
   });
-  const breadcrumbItems = [(
+  const breadcrumbItems = [
     <Breadcrumb.Item key="home">
       <Link to="/">Home</Link>
-    </Breadcrumb.Item>
-  )].concat(extraBreadcrumbItems);
+    </Breadcrumb.Item>,
+  ].concat(extraBreadcrumbItems);
   return (
     <div className="demo">
       <div className="demo-nav">
@@ -66,9 +64,7 @@ const Home = withRouter((props) => {
         <Route render={() => <span>Home Page</span>} />
       </Switch>
       <Alert style={{ margin: '16px 0' }} message="Click the navigation above to switch:" />
-      <Breadcrumb>
-        {breadcrumbItems}
-      </Breadcrumb>
+      <Breadcrumb>{breadcrumbItems}</Breadcrumb>
     </div>
   );
 });
@@ -77,10 +73,11 @@ ReactDOM.render(
   <Router>
     <Home />
   </Router>,
-  mountNode);
-````
+  mountNode,
+);
+```
 
-````css
+```css
 .demo {
   margin: 16px;
 }
@@ -97,4 +94,4 @@ ReactDOM.render(
 .app-list {
   margin-top: 16px;
 }
-````
+```

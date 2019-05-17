@@ -1,5 +1,5 @@
 ---
-order: 9
+order: 10
 title: Contributing
 toc: false
 ---
@@ -16,17 +16,19 @@ All work on Ant Design happens directly on [GitHub](https://github.com/ant-desig
 
 ## Branch Organization
 
-According to our [release schedule](changelog#Release-Schedule), we'll cut a `feature` branch (e.g. `feature-3.1` for 3.1 release) from `master` every month. If you send a bugfix pull request, please do it against the `master` branch, if it's a feature pull request, please do it against the `feature` branch.
+According to our [release schedule](changelog#Release-Schedule), we maintain two branches, `master` and `feature`. If you send a bugfix pull request, please do it against the `master` branch, if it's a feature pull request, please do it against the `feature` branch.
 
 ## Bugs
 
-We are using [GitHub Issues](https://github.com/ant-design/ant-design/issues) for bug tracing. The best way to get your bug fixed is using our [issue helper](http://new-issue.ant.design) and provide a reprduction with this [template](https://u.ant.design/codesandbox-repro).
+We are using [GitHub Issues](https://github.com/ant-design/ant-design/issues) for bug tracing. The best way to get your bug fixed is using our [issue helper](http://new-issue.ant.design) and provide a reproduction with this [template](https://u.ant.design/codesandbox-repro).
 
-Before you reporting a bug, please make sure you've searched exists issues, and read our [FAQ](https://github.com/ant-design/ant-design/wiki/FAQ).
+Before you reporting a bug, please make sure you've searched exists issues, and read our [FAQ](/docs/react/faq).
 
 ## Proposing a Change
 
 If you intend to change the public API or introduce new feature, we also recommend use our [issue helper](http://new-issue.ant.design) to create a feature request issue.
+
+If you want to help on new API, please ref [API Naming Rules](https://github.com/ant-design/ant-design/wiki/API-Naming-rules) to name it.
 
 ## Your First Pull Request
 
@@ -36,9 +38,9 @@ Working on your first Pull Request? You can learn how from this free video serie
 
 To help you get your feet wet and get you familiar with our contribution process, we have a list of [good first issues](https://github.com/ant-design/ant-design/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) that contain bugs or small features that have a relatively limited scope. This is a great place to get started.
 
-If you decide to fix an issue, please be sure to check the comment thread in case somebody is already working on a fix. If nobody is working on it at the moment, please leave a comment stating that you intend to work on it so other people don’t accidentally duplicate your effort.
+If you decide to fix an issue, please be sure to check the comment thread in case somebody is already working on a fix. If nobody is working on it at the moment, please leave a comment stating that you intend to work on it so other people don't accidentally duplicate your effort.
 
-If somebody claims an issue but doesn’t follow up for more than two weeks, it’s fine to take over it but you should still leave a comment.
+If somebody claims an issue but doesn't follow up for more than two weeks, it's fine to take over it but you should still leave a comment.
 
 ## Sending a Pull Request
 
@@ -48,7 +50,7 @@ The core team is monitoring for pull requests. We will review your pull request 
 
 1. Fork the repository and create your branch from [proper branch](#Branch-Organization).
 1. Run `npm install` in the repository root.
-1. If you’ve fixed a bug or added code that should be tested, add tests!
+1. If you've fixed a bug or added code that should be tested, add tests!
 1. Ensure the test suite passes (npm run test). Tip: `npm test -- --watch TestName` is helpful in development.
 1. Run `npm test -- -u` to update [jest snapshot](http://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest) and commit these changes as well (if has).
 1. Make sure your code lints (npm run lint). Tip: Lint runs automatically when you `git commit`.

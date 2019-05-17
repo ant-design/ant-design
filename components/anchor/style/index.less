@@ -1,45 +1,46 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
 
 @anchor-border-width: 2px;
 
 .@{ant-prefix}-anchor {
   .reset-component;
+
   position: relative;
   padding-left: @anchor-border-width;
 
   &-wrapper {
-    background-color: @component-background;
-    overflow: auto;
-    padding-left: 4px;
     margin-left: -4px;
+    padding-left: 4px;
+    overflow: auto;
+    background-color: @component-background;
   }
 
   &-ink {
     position: absolute;
-    height: 100%;
-    left: 0;
     top: 0;
-    &:before {
-      content: ' ';
+    left: 0;
+    height: 100%;
+    &::before {
       position: relative;
+      display: block;
       width: @anchor-border-width;
       height: 100%;
-      display: block;
-      background-color: @border-color-split;
       margin: 0 auto;
+      background-color: @border-color-split;
+      content: ' ';
     }
     &-ball {
-      display: none;
       position: absolute;
+      left: 50%;
+      display: none;
       width: 8px;
       height: 8px;
-      border-radius: 8px;
-      border: 2px solid @primary-color;
       background-color: @component-background;
-      left: 50%;
-      transition: top .3s ease-in-out;
+      border: 2px solid @primary-color;
+      border-radius: 8px;
       transform: translateX(-50%);
+      transition: top 0.3s ease-in-out;
       &.visible {
         display: inline-block;
       }
@@ -51,18 +52,18 @@
   }
 
   &-link {
-    padding: 8px 0 8px 16px;
-    line-height: 1;
+    padding: 7px 0 7px 16px;
+    line-height: 1.143;
 
     &-title {
-      display: block;
       position: relative;
-      transition: all .3s;
+      display: block;
+      margin-bottom: 6px;
+      overflow: hidden;
       color: @text-color;
       white-space: nowrap;
-      overflow: hidden;
       text-overflow: ellipsis;
-      margin-bottom: 8px;
+      transition: all 0.3s;
 
       &:only-child {
         margin-bottom: 0;
@@ -75,7 +76,7 @@
   }
 
   &-link &-link {
-    padding-top: 6px;
-    padding-bottom: 6px;
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
 }

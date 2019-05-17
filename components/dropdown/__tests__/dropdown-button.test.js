@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import Dropdown from '..';
 import Menu from '../../menu';
 
@@ -20,18 +20,33 @@ describe('DropdownButton', () => {
       onVisibleChange: () => {},
     };
 
-    const wrapper = shallow(<Dropdown.Button {...props} />);
+    const wrapper = mount(<Dropdown.Button {...props} />);
     const dropdownProps = wrapper.find(Dropdown).props();
 
-    Object.keys(props).forEach((key) => {
+    Object.keys(props).forEach(key => {
       expect(dropdownProps[key]).toBe(props[key]); // eslint-disable-line
     });
   });
 
-  it('don\'t pass visible to Dropdown if it\'s not exits', () => {
-    const wrapper = shallow(<Dropdown.Button />);
+  it("don't pass visible to Dropdown if it's not exits", () => {
+    const menu = (
+      <Menu>
+        <Menu.Item>foo</Menu.Item>
+      </Menu>
+    );
+    const wrapper = mount(<Dropdown.Button overlay={menu} />);
     const dropdownProps = wrapper.find(Dropdown).props();
 
     expect('visible' in dropdownProps).toBe(false);
+  });
+
+  it('should support href like Button', () => {
+    const menu = (
+      <Menu>
+        <Menu.Item>foo</Menu.Item>
+      </Menu>
+    );
+    const wrapper = mount(<Dropdown.Button overlay={menu} href="https://ant.design" />);
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

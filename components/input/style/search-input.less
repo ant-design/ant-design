@@ -1,37 +1,35 @@
-@import "../../style/themes/default";
-@import "../../style/mixins/index";
-@import "../../button/style/mixin";
-@import "./mixin";
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+@import '../../button/style/mixin';
+@import './mixin';
 
-@search-prefix: ~"@{ant-prefix}-input-search";
+@search-prefix: ~'@{ant-prefix}-input-search';
 
 .@{search-prefix} {
   &-icon {
     color: @text-color-secondary;
     cursor: pointer;
-    transition: all .3s;
+    transition: all 0.3s;
     &:hover {
-      color: #333;
+      color: fade(@black, 80%);
     }
   }
 
-  &:not(&-small) > .@{ant-prefix}-input-suffix {
-    right: @control-padding-horizontal;
-  }
-
-  > .@{ant-prefix}-input-suffix > .@{search-prefix}-button {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    > .@{iconfont-css-prefix}-search {
-      font-size: @font-size-lg;
+  &-enter-button {
+    input {
+      border-right: 0;
     }
-  }
 
-  &.@{search-prefix}-enter-button > .@{ant-prefix}-input {
-    padding-right: 46px;
-  }
+    & + .@{ant-prefix}-input-group-addon,
+    input + .@{ant-prefix}-input-group-addon {
+      padding: 0;
+      border: 0;
 
-  &.@{search-prefix}-enter-button > .@{ant-prefix}-input-suffix {
-    right: 0;
+      .@{search-prefix}-button {
+        width: 100%;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
   }
 }

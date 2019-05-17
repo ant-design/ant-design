@@ -3,11 +3,12 @@ import { mount } from 'enzyme';
 import Skeleton from '..';
 
 describe('Skeleton', () => {
-  const genSkeleton = props => mount(
-    <Skeleton loading {...props}>
-      Bamboo
-    </Skeleton>
-  );
+  const genSkeleton = props =>
+    mount(
+      <Skeleton loading {...props}>
+        Bamboo
+      </Skeleton>,
+    );
 
   describe('avatar', () => {
     it('size', () => {
@@ -17,6 +18,8 @@ describe('Skeleton', () => {
       expect(wrapperDefault.render()).toMatchSnapshot();
       const wrapperLarge = genSkeleton({ avatar: { size: 'large' } });
       expect(wrapperLarge.render()).toMatchSnapshot();
+      const wrapperNumber = genSkeleton({ avatar: { size: 20 } });
+      expect(wrapperNumber.render()).toMatchSnapshot();
     });
 
     it('shape', () => {

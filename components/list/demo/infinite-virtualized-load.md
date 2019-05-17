@@ -13,11 +13,11 @@ title:
 
 ## en-US
 
-An example of infinite list & virtualized loading using [react-virtualized](https://github.com/bvaughn/react-virtualized). [Learn more](https://blog.jscrambler.com/optimizing-react-rendering-through-virtualization/)
+An example of infinite list & virtualized loading using [react-virtualized](https://github.com/bvaughn/react-virtualized). [Learn more](https://blog.jscrambler.com/optimizing-react-rendering-through-virtualization/).
 
 `Virtualized` rendering is a technique to mount big sets of data. It reduces the amount of rendered DOM nodes by tracking and hiding whatever isn't currently visible.
 
-````jsx
+```jsx
 import { List, message, Avatar, Spin } from 'antd';
 
 import reqwest from 'reqwest';
@@ -33,29 +33,29 @@ class VirtualizedExample extends React.Component {
   state = {
     data: [],
     loading: false,
-  }
+  };
 
-  loadedRowsMap = {}
-
-  getData = (callback) => {
-    reqwest({
-      url: fakeDataUrl,
-      type: 'json',
-      method: 'get',
-      contentType: 'application/json',
-      success: (res) => {
-        callback(res);
-      },
-    });
-  }
+  loadedRowsMap = {};
 
   componentDidMount() {
-    this.getData((res) => {
+    this.fetchData(res => {
       this.setState({
         data: res.results,
       });
     });
   }
+
+  fetchData = callback => {
+    reqwest({
+      url: fakeDataUrl,
+      type: 'json',
+      method: 'get',
+      contentType: 'application/json',
+      success: res => {
+        callback(res);
+      },
+    });
+  };
 
   handleInfiniteOnLoad = ({ startIndex, stopIndex }) => {
     let data = this.state.data;
@@ -73,18 +73,16 @@ class VirtualizedExample extends React.Component {
       });
       return;
     }
-    this.getData((res) => {
+    this.fetchData(res => {
       data = data.concat(res.results);
       this.setState({
         data,
         loading: false,
       });
     });
-  }
+  };
 
-  isRowLoaded = ({ index }) => {
-    return !!this.loadedRowsMap[index];
-  }
+  isRowLoaded = ({ index }) => !!this.loadedRowsMap[index];
 
   renderItem = ({ index, key, style }) => {
     const { data } = this.state;
@@ -99,7 +97,7 @@ class VirtualizedExample extends React.Component {
         <div>Content</div>
       </List.Item>
     );
-  }
+  };
 
   render() {
     const { data } = this.state;
@@ -120,7 +118,16 @@ class VirtualizedExample extends React.Component {
     );
     const autoSize = ({ height, isScrolling, onChildScroll, scrollTop, onRowsRendered }) => (
       <AutoSizer disableHeight>
-        {({ width }) => vlist({ height, isScrolling, onChildScroll, scrollTop, onRowsRendered, width })}
+        {({ width }) =>
+          vlist({
+            height,
+            isScrolling,
+            onChildScroll,
+            scrollTop,
+            onRowsRendered,
+            width,
+          })
+        }
       </AutoSizer>
     );
     const infiniteLoader = ({ height, isScrolling, onChildScroll, scrollTop }) => (
@@ -129,18 +136,20 @@ class VirtualizedExample extends React.Component {
         loadMoreRows={this.handleInfiniteOnLoad}
         rowCount={data.length}
       >
-        {({ onRowsRendered }) => autoSize({ height, isScrolling, onChildScroll, scrollTop, onRowsRendered })}
+        {({ onRowsRendered }) =>
+          autoSize({
+            height,
+            isScrolling,
+            onChildScroll,
+            scrollTop,
+            onRowsRendered,
+          })
+        }
       </InfiniteLoader>
     );
     return (
       <List>
-        {
-          data.length > 0 && (
-            <WindowScroller>
-              {infiniteLoader}
-            </WindowScroller>
-          )
-        }
+        {data.length > 0 && <WindowScroller>{infiniteLoader}</WindowScroller>}
         {this.state.loading && <Spin className="demo-loading" />}
       </List>
     );
@@ -148,12 +157,12 @@ class VirtualizedExample extends React.Component {
 }
 
 ReactDOM.render(<VirtualizedExample />, mountNode);
-````
+```
 
-````css
+```css
 .demo-loading {
   position: absolute;
   bottom: -40px;
   left: 50%;
 }
-````
+```

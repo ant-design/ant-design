@@ -7,7 +7,8 @@ export const svgBaseProps = {
   width: '1em',
   height: '1em',
   fill: 'currentColor',
-  ['aria-hidden']: 'true',
+  ['aria-hidden']: true,
+  focusable: 'false',
 };
 
 const fillTester = /-fill$/;
@@ -27,7 +28,10 @@ export function getThemeFromTypeName(type: string): ThemeType | null {
 }
 
 export function removeTypeTheme(type: string) {
-  return type.replace(fillTester, '').replace(outlineTester, '').replace(twoToneTester, '');
+  return type
+    .replace(fillTester, '')
+    .replace(outlineTester, '')
+    .replace(twoToneTester, '');
 }
 
 export function withThemeSuffix(type: string, theme: ThemeType) {
@@ -39,7 +43,17 @@ export function withThemeSuffix(type: string, theme: ThemeType) {
   } else if (theme === 'twoTone') {
     result += '-twotone';
   } else {
-    warning(false, `This icon '${type}' has unknown theme '${theme}'`);
+    warning(false, 'Icon', `This icon '${type}' has unknown theme '${theme}'`);
   }
   return result;
+}
+
+// For alias or compatibility
+export function alias(type: string) {
+  switch (type) {
+    case 'cross':
+      return 'close';
+    default:
+  }
+  return type;
 }

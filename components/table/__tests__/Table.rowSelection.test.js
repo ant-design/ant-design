@@ -4,10 +4,22 @@ import Table from '..';
 import Checkbox from '../../checkbox';
 
 describe('Table.rowSelection', () => {
-  const columns = [{
-    title: 'Name',
-    dataIndex: 'name',
-  }];
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+  afterEach(() => {
+    errorSpy.mockReset();
+  });
+
+  afterAll(() => {
+    errorSpy.mockRestore();
+  });
+
+  const columns = [
+    {
+      title: 'Name',
+      dataIndex: 'name',
+    },
+  ];
 
   const data = [
     { key: 0, name: 'Jack' },
@@ -17,14 +29,7 @@ describe('Table.rowSelection', () => {
   ];
 
   function createTable(props = {}) {
-    return (
-      <Table
-        columns={columns}
-        dataSource={data}
-        rowSelection={{}}
-        {...props}
-      />
-    );
+    return <Table columns={columns} dataSource={data} rowSelection={{}} {...props} />;
   }
 
   function renderedNames(wrapper) {
@@ -125,6 +130,10 @@ describe('Table.rowSelection', () => {
     checkboxs = wrapper.find('input');
     expect(checkboxs.at(1).props().checked).toBe(true);
     expect(checkboxs.at(2).props().checked).toBe(true);
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Table] Do not set `checked` or `defaultChecked` in `getCheckboxProps`. Please use `selectedRowKeys` instead.',
+    );
   });
 
   it('can be controlled', () => {
@@ -152,9 +161,12 @@ describe('Table.rowSelection', () => {
     };
     const wrapper = mount(createTable({ rowSelection }));
 
-    wrapper.find('input').last().simulate('change', { target: { checked: true } });
+    wrapper
+      .find('input')
+      .last()
+      .simulate('change', { target: { checked: true } });
 
-    expect(handleChange).toBeCalledWith([3], [{ key: 3, name: 'Jerry' }]);
+    expect(handleChange).toHaveBeenCalledWith([3], [{ key: 3, name: 'Jerry' }]);
     expect(handleSelect.mock.calls.length).toBe(1);
     expect(handleSelect.mock.calls[0][0]).toEqual({ key: 3, name: 'Jerry' });
     expect(handleSelect.mock.calls[0][1]).toEqual(true);
@@ -171,25 +183,36 @@ describe('Table.rowSelection', () => {
     };
     const wrapper = mount(createTable({ rowSelection }));
 
-    wrapper.find('input').at(1).simulate('change', {
-      target: { checked: true },
-      nativeEvent: { shiftKey: true },
-    });
-    expect(handleSelect).toBeCalled();
+    wrapper
+      .find('input')
+      .at(1)
+      .simulate('change', {
+        target: { checked: true },
+        nativeEvent: { shiftKey: true },
+      });
+    expect(handleSelect).toHaveBeenCalled();
 
-    wrapper.find('input').at(3).simulate('change', {
-      target: { checked: true },
-      nativeEvent: { shiftKey: true },
-    });
-    expect(handleSelectMulti).toBeCalledWith(true,
-      [data[0], data[1], data[2]], [data[1], data[2]]);
+    wrapper
+      .find('input')
+      .at(3)
+      .simulate('change', {
+        target: { checked: true },
+        nativeEvent: { shiftKey: true },
+      });
+    expect(handleSelectMulti).toHaveBeenCalledWith(
+      true,
+      [data[0], data[1], data[2]],
+      [data[1], data[2]],
+    );
 
-    wrapper.find('input').at(1).simulate('change', {
-      target: { checked: false },
-      nativeEvent: { shiftKey: true },
-    });
-    expect(handleSelectMulti).toBeCalledWith(false,
-      [], [data[0], data[1], data[2]]);
+    wrapper
+      .find('input')
+      .at(1)
+      .simulate('change', {
+        target: { checked: false },
+        nativeEvent: { shiftKey: true },
+      });
+    expect(handleSelectMulti).toHaveBeenCalledWith(false, [], [data[0], data[1], data[2]]);
   });
 
   it('fires selectAll event', () => {
@@ -199,11 +222,17 @@ describe('Table.rowSelection', () => {
     };
     const wrapper = mount(createTable({ rowSelection }));
 
-    wrapper.find('input').first().simulate('change', { target: { checked: true } });
-    expect(handleSelectAll).toBeCalledWith(true, data, data);
+    wrapper
+      .find('input')
+      .first()
+      .simulate('change', { target: { checked: true } });
+    expect(handleSelectAll).toHaveBeenCalledWith(true, data, data);
 
-    wrapper.find('input').first().simulate('change', { target: { checked: false } });
-    expect(handleSelectAll).toBeCalledWith(false, [], data);
+    wrapper
+      .find('input')
+      .first()
+      .simulate('change', { target: { checked: false } });
+    expect(handleSelectAll).toHaveBeenCalledWith(false, [], data);
   });
 
   it('render with default selection correctly', () => {
@@ -211,7 +240,12 @@ describe('Table.rowSelection', () => {
       selections: true,
     };
     const wrapper = mount(createTable({ rowSelection }));
-    const dropdownWrapper = render(wrapper.find('Trigger').instance().getComponent());
+    const dropdownWrapper = render(
+      wrapper
+        .find('Trigger')
+        .instance()
+        .getComponent(),
+    );
     expect(dropdownWrapper).toMatchSnapshot();
   });
 
@@ -223,10 +257,18 @@ describe('Table.rowSelection', () => {
     };
     const wrapper = mount(createTable({ rowSelection }));
 
-    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-    dropdownWrapper.find('.ant-dropdown-menu-item > div').first().simulate('click');
+    const dropdownWrapper = mount(
+      wrapper
+        .find('Trigger')
+        .instance()
+        .getComponent(),
+    );
+    dropdownWrapper
+      .find('.ant-dropdown-menu-item > div')
+      .first()
+      .simulate('click');
 
-    expect(handleSelectAll).toBeCalledWith(true, data, data);
+    expect(handleSelectAll).toHaveBeenCalledWith(true, data, data);
   });
 
   it('fires selectInvert event', () => {
@@ -239,51 +281,81 @@ describe('Table.rowSelection', () => {
     const checkboxes = wrapper.find('input');
 
     checkboxes.at(1).simulate('change', { target: { checked: true } });
-    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-    dropdownWrapper.find('.ant-dropdown-menu-item > div').last().simulate('click');
+    const dropdownWrapper = mount(
+      wrapper
+        .find('Trigger')
+        .instance()
+        .getComponent(),
+    );
+    dropdownWrapper
+      .find('.ant-dropdown-menu-item > div')
+      .last()
+      .simulate('click');
 
-    expect(handleSelectInvert).toBeCalledWith([1, 2, 3]);
+    expect(handleSelectInvert).toHaveBeenCalledWith([1, 2, 3]);
   });
 
   it('fires selection event', () => {
     const handleSelectOdd = jest.fn();
     const handleSelectEven = jest.fn();
     const rowSelection = {
-      selections: [{
-        key: 'odd',
-        text: '奇数项',
-        onSelect: handleSelectOdd,
-      }, {
-        key: 'even',
-        text: '偶数项',
-        onSelect: handleSelectEven,
-      }],
+      selections: [
+        {
+          key: 'odd',
+          text: '奇数项',
+          onSelect: handleSelectOdd,
+        },
+        {
+          key: 'even',
+          text: '偶数项',
+          onSelect: handleSelectEven,
+        },
+      ],
     };
     const wrapper = mount(createTable({ rowSelection }));
 
-    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
+    const dropdownWrapper = mount(
+      wrapper
+        .find('Trigger')
+        .instance()
+        .getComponent(),
+    );
     expect(dropdownWrapper.find('.ant-dropdown-menu-item').length).toBe(4);
 
-    dropdownWrapper.find('.ant-dropdown-menu-item > div').at(2).simulate('click');
-    expect(handleSelectOdd).toBeCalledWith([0, 1, 2, 3]);
+    dropdownWrapper
+      .find('.ant-dropdown-menu-item > div')
+      .at(2)
+      .simulate('click');
+    expect(handleSelectOdd).toHaveBeenCalledWith([0, 1, 2, 3]);
 
-    dropdownWrapper.find('.ant-dropdown-menu-item > div').at(3).simulate('click');
-    expect(handleSelectEven).toBeCalledWith([0, 1, 2, 3]);
+    dropdownWrapper
+      .find('.ant-dropdown-menu-item > div')
+      .at(3)
+      .simulate('click');
+    expect(handleSelectEven).toHaveBeenCalledWith([0, 1, 2, 3]);
   });
 
   it('could hide default selection options', () => {
     const rowSelection = {
       hideDefaultSelections: true,
-      selections: [{
-        key: 'odd',
-        text: '奇数项',
-      }, {
-        key: 'even',
-        text: '偶数项',
-      }],
+      selections: [
+        {
+          key: 'odd',
+          text: '奇数项',
+        },
+        {
+          key: 'even',
+          text: '偶数项',
+        },
+      ],
     };
     const wrapper = mount(createTable({ rowSelection }));
-    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
+    const dropdownWrapper = mount(
+      wrapper
+        .find('Trigger')
+        .instance()
+        .getComponent(),
+    );
     expect(dropdownWrapper.find('.ant-dropdown-menu-item').length).toBe(2);
   });
 
@@ -292,26 +364,40 @@ describe('Table.rowSelection', () => {
     const handleSelectEven = jest.fn();
     const rowSelection = {
       hideDefaultSelections: true,
-      selections: [{
-        key: 'odd',
-        text: '奇数项',
-        onSelect: handleSelectOdd,
-      }, {
-        key: 'even',
-        text: '偶数项',
-        onSelect: handleSelectEven,
-      }],
+      selections: [
+        {
+          key: 'odd',
+          text: '奇数项',
+          onSelect: handleSelectOdd,
+        },
+        {
+          key: 'even',
+          text: '偶数项',
+          onSelect: handleSelectEven,
+        },
+      ],
     };
     const wrapper = mount(createTable({ rowSelection }));
 
-    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
+    const dropdownWrapper = mount(
+      wrapper
+        .find('Trigger')
+        .instance()
+        .getComponent(),
+    );
     expect(dropdownWrapper.find('.ant-dropdown-menu-item').length).toBe(2);
 
-    dropdownWrapper.find('.ant-dropdown-menu-item > div').at(0).simulate('click');
-    expect(handleSelectOdd).toBeCalledWith([0, 1, 2, 3]);
+    dropdownWrapper
+      .find('.ant-dropdown-menu-item > div')
+      .at(0)
+      .simulate('click');
+    expect(handleSelectOdd).toHaveBeenCalledWith([0, 1, 2, 3]);
 
-    dropdownWrapper.find('.ant-dropdown-menu-item > div').at(1).simulate('click');
-    expect(handleSelectEven).toBeCalledWith([0, 1, 2, 3]);
+    dropdownWrapper
+      .find('.ant-dropdown-menu-item > div')
+      .at(1)
+      .simulate('click');
+    expect(handleSelectEven).toHaveBeenCalledWith([0, 1, 2, 3]);
   });
 
   // https://github.com/ant-design/ant-design/issues/4245
@@ -325,7 +411,7 @@ describe('Table.rowSelection', () => {
       { key: 1, name: 'Lucy', disabled: true },
     ];
     wrapper.setProps({ dataSource: newData });
-    wrapper.find('input').forEach((checkbox) => {
+    wrapper.find('input').forEach(checkbox => {
       expect(checkbox.props().disabled).toBe(true);
     });
   });
@@ -369,26 +455,55 @@ describe('Table.rowSelection', () => {
         name: i.toString(),
       });
     }
-    const wrapper = mount(createTable({
-      rowSelection: {},
-      dataSource: newData,
-    }));
-    wrapper.find('Pager').last().simulate('click'); // switch to second page
-    wrapper.find('input').first().simulate('change', { target: { checked: true } });
+    const wrapper = mount(
+      createTable({
+        rowSelection: {},
+        dataSource: newData,
+      }),
+    );
+    wrapper
+      .find('Pager')
+      .last()
+      .simulate('click'); // switch to second page
+    wrapper
+      .find('input')
+      .first()
+      .simulate('change', { target: { checked: true } });
     wrapper.update();
-    expect(renderedNames(wrapper)).toEqual(['10', '11', '12', '13', '14', '15', '16', '17', '18', '19']);
+    expect(renderedNames(wrapper)).toEqual([
+      '10',
+      '11',
+      '12',
+      '13',
+      '14',
+      '15',
+      '16',
+      '17',
+      '18',
+      '19',
+    ]);
   });
 
   it('highlight selected row', () => {
     const wrapper = mount(createTable());
-    wrapper.find('input').at(1).simulate('change', { target: { checked: true } });
-    expect(wrapper.find('tbody tr').at(0).hasClass('ant-table-row-selected')).toBe(true);
+    wrapper
+      .find('input')
+      .at(1)
+      .simulate('change', { target: { checked: true } });
+    expect(
+      wrapper
+        .find('tbody tr')
+        .at(0)
+        .hasClass('ant-table-row-selected'),
+    ).toBe(true);
   });
 
   it('fix selection column on the left', () => {
-    const wrapper = render(createTable({
-      rowSelection: { fixed: true },
-    }));
+    const wrapper = render(
+      createTable({
+        rowSelection: { fixed: true },
+      }),
+    );
 
     expect(wrapper).toMatchSnapshot();
   });
@@ -402,10 +517,10 @@ describe('Table.rowSelection', () => {
         }}
         columns={columns}
         dataSource={data}
-      />
+      />,
     );
     expect(wrapper.find(Checkbox).length).toBe(5);
-    wrapper.find(Checkbox).forEach((checkbox) => {
+    wrapper.find(Checkbox).forEach(checkbox => {
       expect(checkbox.props().checked).toBe(true);
       expect(checkbox.props().indeterminate).toBe(false);
     });
@@ -416,7 +531,7 @@ describe('Table.rowSelection', () => {
       },
     });
     expect(wrapper.find(Checkbox).length).toBe(4);
-    wrapper.find(Checkbox).forEach((checkbox) => {
+    wrapper.find(Checkbox).forEach(checkbox => {
       expect(checkbox.props().checked).toBe(true);
       expect(checkbox.props().indeterminate).toBe(false);
     });
@@ -431,15 +546,172 @@ describe('Table.rowSelection', () => {
         rowSelection={{
           columnTitle: '多选',
         }}
-      />
+      />,
     );
-    expect(wrapper.find('thead tr span').at(0).text()).toBe('多选');
+    expect(
+      wrapper
+        .find('thead tr div')
+        .at(0)
+        .text(),
+    ).toBe('多选');
     wrapper.setProps({
       rowSelection: {
         type: 'radio',
         columnTitle: '单选',
       },
     });
-    expect(wrapper.find('thead tr span').at(0).text()).toBe('单选');
+    expect(
+      wrapper
+        .find('thead tr div')
+        .at(0)
+        .text(),
+    ).toBe('单选');
+  });
+
+  // https://github.com/ant-design/ant-design/issues/11384
+  it('should keep item even if in filter', () => {
+    const filterColumns = [
+      {
+        title: 'Name',
+        dataIndex: 'name',
+        filters: [
+          {
+            text: 'Jack',
+            value: 'Jack',
+          },
+          {
+            text: 'Lucy',
+            value: 'Lucy',
+          },
+        ],
+        filterDropdownVisible: true,
+        onFilter: (value, record) => record.name.indexOf(value) === 0,
+      },
+    ];
+
+    const onChange = jest.fn();
+    const rowSelection = {
+      onChange,
+    };
+
+    const wrapper = mount(
+      <Table columns={filterColumns} dataSource={data} rowSelection={rowSelection} />,
+    );
+
+    function clickFilter(indexList) {
+      indexList.forEach(index => {
+        wrapper
+          .find('.ant-dropdown-menu-item .ant-checkbox-wrapper')
+          .at(index)
+          .simulate('click');
+      });
+      wrapper
+        .find('.ant-table-filter-dropdown-btns .ant-table-filter-dropdown-link.confirm')
+        .simulate('click');
+    }
+
+    function clickItem() {
+      wrapper
+        .find('tbody .ant-table-selection-column .ant-checkbox-input')
+        .at(0)
+        .simulate('change', {
+          target: { checked: true },
+        });
+    }
+
+    // Check Jack
+    clickFilter([0]);
+    expect(wrapper.find('tbody tr').length).toBe(1);
+    clickItem();
+    expect(onChange.mock.calls[0][0].length).toBe(1);
+    expect(onChange.mock.calls[0][1].length).toBe(1);
+
+    // Check Lucy
+    clickFilter([0, 1]);
+    expect(wrapper.find('tbody tr').length).toBe(1);
+    clickItem();
+    expect(onChange.mock.calls[1][0].length).toBe(2);
+    expect(onChange.mock.calls[1][1].length).toBe(2);
+  });
+
+  it('render correctly when set childrenColumnName', () => {
+    const newDatas = [
+      {
+        key: 1,
+        name: 'Jack',
+        children: [
+          {
+            key: 11,
+            name: 'John Brown',
+          },
+        ],
+      },
+      {
+        key: 2,
+        name: 'Lucy',
+        children: [
+          {
+            key: 21,
+            name: 'Lucy Brown',
+          },
+        ],
+      },
+    ];
+    const wrapper = mount(
+      <Table columns={columns} dataSource={newDatas} childrenColumnName="test" rowSelection={{}} />,
+    );
+    const checkboxes = wrapper.find('input');
+    const checkboxAll = wrapper.find('SelectionCheckboxAll');
+
+    checkboxes.at(1).simulate('change', { target: { checked: true } });
+    expect(checkboxAll.instance().state).toEqual({ indeterminate: true, checked: false });
+
+    checkboxes.at(2).simulate('change', { target: { checked: true } });
+    expect(checkboxAll.instance().state).toEqual({ indeterminate: false, checked: true });
+  });
+
+  // https://github.com/ant-design/ant-design/issues/16614
+  it('should get selectedRows correctly when set childrenColumnName', () => {
+    const onChange = jest.fn();
+    const newDatas = [
+      {
+        key: 1,
+        name: 'Jack',
+        list: [
+          {
+            key: 11,
+            name: 'John Brown',
+          },
+        ],
+      },
+    ];
+    const wrapper = mount(
+      <Table
+        columns={columns}
+        dataSource={newDatas}
+        childrenColumnName="list"
+        rowSelection={{ onChange }}
+        expandedRowKeys={[1]}
+      />,
+    );
+    const checkboxes = wrapper.find('input');
+    checkboxes.at(2).simulate('change', { target: { checked: true } });
+    expect(onChange).toHaveBeenLastCalledWith([11], [newDatas[0].list[0]]);
+    checkboxes.at(1).simulate('change', { target: { checked: true } });
+    const item0 = { ...newDatas[0], list: undefined };
+    expect(onChange).toHaveBeenLastCalledWith([11, 1], [item0, newDatas[0].list[0]]);
+  });
+
+  it('clear selection className when remove `rowSelection`', () => {
+    const dataSource = [{ id: 1, name: 'Hello', age: 10 }, { id: 2, name: 'World', age: 30 }];
+
+    const wrapper = mount(<Table columns={columns} dataSource={dataSource} rowSelection={{}} />);
+    const checkboxes = wrapper.find('input');
+    checkboxes.at(1).simulate('change', { target: { checked: true } });
+
+    expect(wrapper.find('.ant-table-row-selected').length).toBe(1);
+
+    wrapper.setProps({ rowSelection: null });
+    expect(wrapper.find('.ant-table-row-selected').length).toBe(0);
   });
 });

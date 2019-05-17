@@ -13,26 +13,31 @@ title:
 
 Synchronize with [InputNumber](/components/input-number/) component.
 
-````jsx
+```jsx
 import { Slider, InputNumber, Row, Col } from 'antd';
 
 class IntegerStep extends React.Component {
   state = {
     inputValue: 1,
-  }
+  };
 
-  onChange = (value) => {
+  onChange = value => {
     this.setState({
       inputValue: value,
     });
-  }
+  };
 
   render() {
     const { inputValue } = this.state;
     return (
       <Row>
         <Col span={12}>
-          <Slider min={1} max={20} onChange={this.onChange} value={inputValue} />
+          <Slider
+            min={1}
+            max={20}
+            onChange={this.onChange}
+            value={typeof inputValue === 'number' ? inputValue : 0}
+          />
         </Col>
         <Col span={4}>
           <InputNumber
@@ -51,16 +56,16 @@ class IntegerStep extends React.Component {
 class DecimalStep extends React.Component {
   state = {
     inputValue: 0,
-  }
+  };
 
-  onChange = (value) => {
-    if (isNaN(value)) {
+  onChange = value => {
+    if (Number.isNaN(value)) {
       return;
     }
     this.setState({
       inputValue: value,
     });
-  }
+  };
 
   render() {
     const { inputValue } = this.state;
@@ -71,7 +76,7 @@ class DecimalStep extends React.Component {
             min={0}
             max={1}
             onChange={this.onChange}
-            value={inputValue}
+            value={typeof inputValue === 'number' ? inputValue : 0}
             step={0.01}
           />
         </Col>
@@ -95,5 +100,6 @@ ReactDOM.render(
     <IntegerStep />
     <DecimalStep />
   </div>,
-  mountNode);
-````
+  mountNode,
+);
+```

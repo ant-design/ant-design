@@ -1,8 +1,8 @@
 ---
 order: 7
 title:
-    zh-CN: 输入时格式化展示
-    en-US: Format Tooltip Input
+  zh-CN: 输入时格式化展示
+  en-US: Format Tooltip Input
 ---
 
 ## zh-CN
@@ -13,7 +13,7 @@ title:
 
 You can use the Input in conjunction with [Tooltip](/components/tooltip) component to create a Numeric Input, which can provide a good experience for extra-long content display.
 
-````jsx
+```jsx
 import { Input, Tooltip } from 'antd';
 
 function formatNumber(value) {
@@ -33,32 +33,32 @@ function formatNumber(value) {
 }
 
 class NumericInput extends React.Component {
-  onChange = (e) => {
+  onChange = e => {
     const { value } = e.target;
     const reg = /^-?(0|[1-9][0-9]*)(\.[0-9]*)?$/;
-    if ((!isNaN(value) && reg.test(value)) || value === '' || value === '-') {
+    if ((!Number.isNaN(value) && reg.test(value)) || value === '' || value === '-') {
       this.props.onChange(value);
     }
-  }
+  };
 
   // '.' at the end or only '-' in the input box.
   onBlur = () => {
     const { value, onBlur, onChange } = this.props;
     if (value.charAt(value.length - 1) === '.' || value === '-') {
-      onChange({ value: value.slice(0, -1) });
+      onChange(value.slice(0, -1));
     }
     if (onBlur) {
       onBlur();
     }
-  }
+  };
 
   render() {
     const { value } = this.props;
     const title = value ? (
-      <span className="numeric-input-title">
-        {value !== '-' ? formatNumber(value) : '-'}
-      </span>
-    ) : 'Input a number';
+      <span className="numeric-input-title">{value !== '-' ? formatNumber(value) : '-'}</span>
+    ) : (
+      'Input a number'
+    );
     return (
       <Tooltip
         trigger={['focus']}
@@ -71,7 +71,7 @@ class NumericInput extends React.Component {
           onChange={this.onChange}
           onBlur={this.onBlur}
           placeholder="Input a number"
-          maxLength="25"
+          maxLength={25}
         />
       </Tooltip>
     );
@@ -84,19 +84,21 @@ class NumericInputDemo extends React.Component {
     this.state = { value: '' };
   }
 
-  onChange = (value) => {
+  onChange = value => {
     this.setState({ value });
-  }
+  };
 
   render() {
-    return <NumericInput style={{ width: 120 }} value={this.state.value} onChange={this.onChange} />;
+    return (
+      <NumericInput style={{ width: 120 }} value={this.state.value} onChange={this.onChange} />
+    );
   }
 }
 
 ReactDOM.render(<NumericInputDemo />, mountNode);
-````
+```
 
-````css
+```css
 /* to prevent the arrow overflow the popup container,
 or the height is not enough when content is empty */
 .numeric-input .ant-tooltip-inner {
@@ -107,4 +109,4 @@ or the height is not enough when content is empty */
 .numeric-input .numeric-input-title {
   font-size: 14px;
 }
-````
+```

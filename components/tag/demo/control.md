@@ -7,14 +7,13 @@ title:
 
 ## zh-CN
 
-用数组生成一组标签，可以动态添加和删除，通过监听删除动画结束的事件 `afterClose` 实现。
+用数组生成一组标签，可以动态添加和删除。
 
 ## en-US
 
 Generating a set of Tags by array, you can add and remove dynamically.
-It's based on `afterClose` event, which will be triggered while the close animation end.
 
-````jsx
+```jsx
 import { Tag, Input, Tooltip, Icon } from 'antd';
 
 class EditableTagGroup extends React.Component {
@@ -24,24 +23,23 @@ class EditableTagGroup extends React.Component {
     inputValue: '',
   };
 
-  handleClose = (removedTag) => {
+  handleClose = removedTag => {
     const tags = this.state.tags.filter(tag => tag !== removedTag);
     console.log(tags);
     this.setState({ tags });
-  }
+  };
 
   showInput = () => {
     this.setState({ inputVisible: true }, () => this.input.focus());
-  }
+  };
 
-  handleInputChange = (e) => {
+  handleInputChange = e => {
     this.setState({ inputValue: e.target.value });
-  }
+  };
 
   handleInputConfirm = () => {
-    const state = this.state;
-    const inputValue = state.inputValue;
-    let tags = state.tags;
+    const { inputValue } = this.state;
+    let { tags } = this.state;
     if (inputValue && tags.indexOf(inputValue) === -1) {
       tags = [...tags, inputValue];
     }
@@ -51,9 +49,9 @@ class EditableTagGroup extends React.Component {
       inputVisible: false,
       inputValue: '',
     });
-  }
+  };
 
-  saveInputRef = input => this.input = input
+  saveInputRef = input => (this.input = input);
 
   render() {
     const { tags, inputVisible, inputValue } = this.state;
@@ -62,11 +60,17 @@ class EditableTagGroup extends React.Component {
         {tags.map((tag, index) => {
           const isLongTag = tag.length > 20;
           const tagElem = (
-            <Tag key={tag} closable={index !== 0} afterClose={() => this.handleClose(tag)}>
+            <Tag key={tag} closable={index !== 0} onClose={() => this.handleClose(tag)}>
               {isLongTag ? `${tag.slice(0, 20)}...` : tag}
             </Tag>
           );
-          return isLongTag ? <Tooltip title={tag} key={tag}>{tagElem}</Tooltip> : tagElem;
+          return isLongTag ? (
+            <Tooltip title={tag} key={tag}>
+              {tagElem}
+            </Tooltip>
+          ) : (
+            tagElem
+          );
         })}
         {inputVisible && (
           <Input
@@ -81,10 +85,7 @@ class EditableTagGroup extends React.Component {
           />
         )}
         {!inputVisible && (
-          <Tag
-            onClick={this.showInput}
-            style={{ background: '#fff', borderStyle: 'dashed' }}
-          >
+          <Tag onClick={this.showInput} style={{ background: '#fff', borderStyle: 'dashed' }}>
             <Icon type="plus" /> New Tag
           </Tag>
         )}
@@ -94,4 +95,4 @@ class EditableTagGroup extends React.Component {
 }
 
 ReactDOM.render(<EditableTagGroup />, mountNode);
-````
+```

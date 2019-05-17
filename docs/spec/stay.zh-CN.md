@@ -6,7 +6,7 @@ title: 足不出户
 
 能在这个页面解决的问题，就不要去其它页面解决，因为任何页面刷新和跳转都会引起变化盲视（Change Blindness），导致用户心流（Flow）被打断。频繁的页面刷新和跳转，就像在看戏时，演员说完一行台词就安排一次谢幕一样。
 
-> ** 变换盲视（Change Blindness）** ：指视觉场景中的某些变化并未被观察者注意到的心理现象。产生这种现象的原因包括场景中的障碍物，眼球运动、地点的变化，或者是缺乏注意力等。——摘自《维基百科》
+> ** 变化盲视（Change Blindness）** ：指视觉场景中的某些变化并未被观察者注意到的心理现象。产生这种现象的原因包括场景中的障碍物，眼球运动、地点的变化，或者是缺乏注意力等。——摘自《维基百科》
 
 > ** 心流（Flow）** ：也有别名以化境 (Zone) 表示，亦有人翻译为神驰状态，定义是一种将个人精神力完全投注在某种活动上的感觉；心流产生时同时会有高度的兴奋及充实感。——摘自《维基百科》
 
@@ -14,13 +14,13 @@ title: 足不出户
 
 ## 覆盖层
 
-<img class="preview-img" align="right" alt="推荐示例" description="用户点击『删除』后，直接操作；出现 Message 告知用户操作成功，并提供用户『撤消』的按钮；用户进行下一个操作或者 1 分钟内不进行任何操作， Message 消失，用户无法再『撤消』。" src="https://gw.alipayobjects.com/zos/rmsportal/YfhMlEIayfwnxiILcebI.png" good>
+<img class="preview-img" align="right" alt="推荐示例" description="用户点击『删除』后，直接操作；出现 Message 告知用户操作成功，并提供用户『撤销』的按钮；用户进行下一个操作或者 1 分钟内不进行任何操作， Message 消失，用户无法再『撤销』。" src="https://gw.alipayobjects.com/zos/rmsportal/YfhMlEIayfwnxiILcebI.png" good>
 
-<img class="preview-img" align="right" alt="推荐示例" description="特例：在执行某些无法『撤消』的操作时，可以点击『删除』后，出现 Popconfirm 进行二次确认，在当前页面完成任务。" src="https://gw.alipayobjects.com/zos/rmsportal/AKtiXJTTQEjKFOCQGZMa.png" good>
+<img class="preview-img" align="right" alt="推荐示例" description="特例：在执行某些无法『撤销』的操作时，可以点击『删除』后，出现 Popconfirm 进行二次确认，在当前页面完成任务。" src="https://gw.alipayobjects.com/zos/rmsportal/AKtiXJTTQEjKFOCQGZMa.png" good>
 
 <img class="preview-img" align="right" alt="不推荐示例" description="滥用 Modal 进行二次确认，就像『狼来了』一样，既打断用户心流（无法将上下文带到弹出框中），也无法避免失误的发生。" src="https://gw.alipayobjects.com/zos/rmsportal/cGqkngXLMBlmMyoHtgFs.png" bad>
 
-二次确认覆盖层：避免滥用 Modal 进行二次确认，应该勇敢的让用户去尝试，给用户机会『撤消』即可。
+二次确认覆盖层：避免滥用 Modal 进行二次确认，应该勇敢的让用户去尝试，给用户机会『撤销』即可。
 
 <br>
 
@@ -64,7 +64,7 @@ title: 足不出户
 
 ---
 
-##  流程处理
+## 流程处理
 
 长期以来，Web 实现流程的方式就是把每个步骤放在一个单独的页面上。虽然这种做法是分解问题最简单的方式，但并不是最佳解决方案。对于某些『流程处理』而言，让用户始终待在同一个页面上则更有必要。
 

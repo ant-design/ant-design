@@ -13,7 +13,6 @@ export default {
     filterTitle: 'Филтриране',
     filterConfirm: 'Добре',
     filterReset: 'Нулриане',
-    emptyText: 'Няма данни',
     selectAll: 'Избор на текуща страница',
     selectInvert: 'Обръщане',
   },
@@ -27,18 +26,17 @@ export default {
     cancelText: 'Отказ',
   },
   Transfer: {
-    notFoundContent: 'Няма намерени',
     searchPlaceholder: 'Търсене',
     itemUnit: 'избор',
     itemsUnit: 'избори',
-  },
-  Select: {
-    notFoundContent: 'Няма намерени',
   },
   Upload: {
     uploading: 'Качване...',
     removeFile: 'Премахване',
     uploadError: 'Грешка при качването',
     previewFile: 'Преглед',
+  },
+  Empty: {
+    description: 'Няма данни',
   },
 };

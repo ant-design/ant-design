@@ -1,17 +1,19 @@
 ---
 category: Components
-subtitle: 加载占位图
-type: Data Entry
+subtitle: 骨架屏
+type: 反馈
 title: Skeleton
 cols: 1
 ---
 
-在需要等待加载内容的位置提供一个占位图。
+在需要等待加载内容的位置提供一个占位图形组合。
 
 ## 何时使用
 
 - 网络较慢，需要长时间等待加载处理的情况下。
 - 图文信息内容较多的列表/卡片中。
+- 只适合用在第一次加载数据的场景。
+- 可以被 Spin 完全代替，但是在可用的场景下可以比 Spin 提供更好的视觉效果和用户体验。
 
 ## API
 
@@ -27,16 +29,16 @@ cols: 1
 
 ### SkeletonAvatarProps
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| size | 设置头像占位图的大小 | Enum{ 'large', 'small', 'default' } | - |
-| shape | 指定头像的形状 | Enum{ 'circle', 'square' } | - |
+| 属性  | 说明                 | 类型                                          | 默认值 |
+| ----- | -------------------- | --------------------------------------------- | ------ |
+| size  | 设置头像占位图的大小 | number \| Enum{ 'large', 'small', 'default' } | -      |
+| shape | 指定头像的形状       | Enum{ 'circle', 'square' }                    | -      |
 
 ### SkeletonTitleProps
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| width | 设置标题占位图的宽度 | number \| string | - |
+| 属性  | 说明                 | 类型             | 默认值 |
+| ----- | -------------------- | ---------------- | ------ |
+| width | 设置标题占位图的宽度 | number \| string | -      |
 
 ### SkeletonParagraphProps
 

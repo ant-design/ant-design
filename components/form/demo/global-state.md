@@ -17,12 +17,13 @@ We can store form data into upper component or [Redux](https://github.com/reactj
 
 **Note:** You must wrap field data with `Form.createFormField` in `mapPropsToFields`.
 
-````jsx
+**Note:** Here, errors are passed to higher order component in `onFieldsChange` and passed back in `mapPropsToFields`.
+
+```jsx
 import { Form, Input } from 'antd';
 
-const FormItem = Form.Item;
-
 const CustomizedForm = Form.create({
+  name: 'global_state',
   onFieldsChange(props, changedFields) {
     props.onChange(changedFields);
   },
@@ -37,15 +38,15 @@ const CustomizedForm = Form.create({
   onValuesChange(_, values) {
     console.log(values);
   },
-})((props) => {
+})(props => {
   const { getFieldDecorator } = props.form;
   return (
     <Form layout="inline">
-      <FormItem label="Username">
+      <Form.Item label="Username">
         {getFieldDecorator('username', {
           rules: [{ required: true, message: 'Username is required!' }],
         })(<Input />)}
-      </FormItem>
+      </Form.Item>
     </Form>
   );
 });
@@ -59,27 +60,25 @@ class Demo extends React.Component {
     },
   };
 
-  handleFormChange = (changedFields) => {
+  handleFormChange = changedFields => {
     this.setState(({ fields }) => ({
       fields: { ...fields, ...changedFields },
     }));
-  }
+  };
 
   render() {
     const fields = this.state.fields;
     return (
       <div>
         <CustomizedForm {...fields} onChange={this.handleFormChange} />
-        <pre className="language-bash">
-          {JSON.stringify(fields, null, 2)}
-        </pre>
+        <pre className="language-bash">{JSON.stringify(fields, null, 2)}</pre>
       </div>
     );
   }
 }
 
 ReactDOM.render(<Demo />, mountNode);
-````
+```
 
 <style>
 #components-form-demo-global-state .language-bash {

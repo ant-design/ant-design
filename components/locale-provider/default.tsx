@@ -9,13 +9,16 @@ export default {
   DatePicker,
   TimePicker,
   Calendar,
+  global: {
+    placeholder: 'Please select',
+  },
   Table: {
     filterTitle: 'Filter menu',
     filterConfirm: 'OK',
     filterReset: 'Reset',
-    emptyText: 'No data',
     selectAll: 'Select current page',
     selectInvert: 'Invert current page',
+    sortTitle: 'Sort',
   },
   Modal: {
     okText: 'OK',
@@ -28,18 +31,29 @@ export default {
   },
   Transfer: {
     titles: ['', ''],
-    notFoundContent: 'Not Found',
     searchPlaceholder: 'Search here',
     itemUnit: 'item',
     itemsUnit: 'items',
-  },
-  Select: {
-    notFoundContent: 'Not Found',
   },
   Upload: {
     uploading: 'Uploading...',
     removeFile: 'Remove file',
     uploadError: 'Upload error',
     previewFile: 'Preview file',
+  },
+  Empty: {
+    description: 'No Data',
+  },
+  Icon: {
+    icon: 'icon',
+  },
+  Text: {
+    edit: 'edit',
+    copy: 'copy',
+    copied: 'copy success',
+    expand: 'expand',
+  },
+  PageHeader: {
+    back: 'back',
   },
 };

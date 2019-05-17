@@ -6,58 +6,65 @@ exports[`Table.sorter renders sorter icon correctly 1`] = `
 >
   <tr>
     <th
-      class="ant-table-column-has-filters"
+      class="ant-table-column-has-actions ant-table-column-has-sorters"
     >
-      <span>
-        Name
+      <span
+        class="ant-table-header-column"
+      >
         <div
-          class="ant-table-column-sorter"
+          class="ant-table-column-sorters"
         >
           <span
-            class="ant-table-column-sorter-up off"
-            title="↑"
+            class="ant-table-column-title"
           >
-            <i
-              class="anticon anticon-caret-up"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="caret-up"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 1024 1024"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M76.3 632.8l405.1-489.1c16.9-18.9 46.5-18.9 63.4 0l403.1 489.1c24.4 27.4 5 70.8-31.7 70.8H107.9c-36.6 0-56.1-43.4-31.6-70.8z"
-                />
-              </svg>
-            </i>
+            Name
           </span>
           <span
-            class="ant-table-column-sorter-down off"
-            title="↓"
+            class="ant-table-column-sorter"
           >
-            <i
-              class="anticon anticon-caret-down"
+            <div
+              class="ant-table-column-sorter-inner ant-table-column-sorter-inner-full"
+              title="Sort"
             >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="caret-down"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 1024 1024"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
+              <i
+                aria-label="icon: caret-up"
+                class="anticon anticon-caret-up ant-table-column-sorter-up off"
               >
-                <path
-                  d="M76.3 392.3l403.1 489.1c16.9 18.9 46.5 18.9 63.4 0l405.1-489.1c24.4-27.4 5-70.8-31.7-70.8H108.1c-36.8 0-56.3 43.4-31.8 70.8z"
-                />
-              </svg>
-            </i>
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="caret-up"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                >
+                  <path
+                    d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                  />
+                </svg>
+              </i>
+              <i
+                aria-label="icon: caret-down"
+                class="anticon anticon-caret-down ant-table-column-sorter-down off"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="caret-down"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                >
+                  <path
+                    d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                  />
+                </svg>
+              </i>
+            </div>
           </span>
         </div>
       </span>
