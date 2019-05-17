@@ -91,6 +91,15 @@
     .@{descriptions-prefix-cls}-view {
       border: 1px solid @border-color-split;
     }
+    .@{descriptions-prefix-cls}-item-label,
+    .@{descriptions-prefix-cls}-item-content {
+      border-right: 1px solid @border-color-split;
+    }
+
+    .@{descriptions-prefix-cls}-item-label:last-child,
+    .@{descriptions-prefix-cls}-item-content:last-child {
+      border-right: none;
+    }
 
     .@{descriptions-prefix-cls}-row {
       border-bottom: 1px solid @border-color-split;
