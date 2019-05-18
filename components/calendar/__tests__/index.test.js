@@ -337,7 +337,7 @@ describe('Calendar', () => {
     wrapper.update();
     wrapper
       .find('.year-item')
-      .at(5)
+      .last()
       .simulate('click');
     expect(onYearChange).toHaveBeenCalled();
     wrapper
@@ -347,7 +347,7 @@ describe('Calendar', () => {
     wrapper.update();
     wrapper
       .find('.month-item')
-      .at(5)
+      .last()
       .simulate('click');
     expect(onMonthChange).toHaveBeenCalled();
     wrapper
