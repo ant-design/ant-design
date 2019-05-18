@@ -291,7 +291,7 @@ describe('Calendar', () => {
 
           const year = value.year();
           const options = [];
-          for (let i = year - 10; i < year + 10; i += 1) {
+          for (let i = year - 100; i < year + 100; i += 1) {
             options.push(
               <Select.Option className="year-item" key={i} value={i}>
                 {i}
@@ -329,7 +329,6 @@ describe('Calendar', () => {
         }}
       />,
     );
-
     wrapper
       .find('.my-year-select')
       .first()
@@ -342,7 +341,7 @@ describe('Calendar', () => {
     expect(onYearChange).toHaveBeenCalled();
     wrapper
       .find('.my-mont-select')
-      .last()
+      .first()
       .simulate('click');
     wrapper.update();
     wrapper
