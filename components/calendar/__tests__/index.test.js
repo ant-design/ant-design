@@ -301,25 +301,28 @@ describe('Calendar', () => {
 
           return (
             <div>
-              <Select
-                size="small"
-                dropdownMatchSelectWidth={false}
-                className="my-year-select"
-                onChange={onYearChange}
-                value={String(year)}
-              >
-                {options}
-              </Select>
-              <Select
-                size="small"
-                dropdownMatchSelectWidth={false}
-                value={String(month)}
-                className="my-mont-select"
-                onChange={onMonthChange}
-              >
-                {monthOptions}
-              </Select>
-
+              <div className="year-select-area">
+                <Select
+                  size="small"
+                  dropdownMatchSelectWidth={false}
+                  className="my-year-select"
+                  onChange={onYearChange}
+                  value={String(year)}
+                >
+                  {options}
+                </Select>
+              </div>
+              <div className="month-select-area">
+                <Select
+                  size="small"
+                  dropdownMatchSelectWidth={false}
+                  value={String(month)}
+                  className="my-mont-select"
+                  onChange={onMonthChange}
+                >
+                  {monthOptions}
+                </Select>
+              </div>
               <Group size="small" onChange={onTypeChange} value={type}>
                 <Button value="month">Month</Button>
                 <Button value="year">Year</Button>
@@ -330,8 +333,8 @@ describe('Calendar', () => {
       />,
     );
     wrapper
-      .find('.my-year-select')
-      .first()
+      .find('.year-select-area')
+      .childAt(0)
       .simulate('click');
     wrapper.update();
     wrapper
@@ -340,8 +343,8 @@ describe('Calendar', () => {
       .simulate('click');
     expect(onYearChange).toHaveBeenCalled();
     wrapper
-      .find('.my-mont-select')
-      .first()
+      .find('.month-select-area')
+      .childAt(0)
       .simulate('click');
     wrapper.update();
     wrapper
