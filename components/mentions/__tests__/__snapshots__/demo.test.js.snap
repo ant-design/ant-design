@@ -1,0 +1,154 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/mentions/demo/async.md correctly 1`] = `
+<div
+  class="ant-mentions"
+  style="width:100%"
+>
+  <textarea
+    rows="1"
+  />
+</div>
+`;
+
+exports[`renders ./components/mentions/demo/basic.md correctly 1`] = `
+<div
+  class="ant-mentions"
+  style="width:100%"
+>
+  <textarea
+    rows="1"
+  >
+    @afc163
+  </textarea>
+</div>
+`;
+
+exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-col-6 ant-form-item-label"
+    >
+      <label
+        class=""
+        for="mention"
+        title="Top coders"
+      >
+        Top coders
+      </label>
+    </div>
+    <div
+      class="ant-col ant-col-16 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control"
+      >
+        <span
+          class="ant-form-item-children"
+        >
+          <div
+            class="ant-mentions"
+          >
+            <textarea
+              data-__field="[object Object]"
+              data-__meta="[object Object]"
+              id="mention"
+              rows="3"
+            />
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-col-14 ant-col-offset-6 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control"
+      >
+        <span
+          class="ant-form-item-children"
+        >
+          <button
+            class="ant-btn ant-btn-primary"
+            type="button"
+          >
+            <span>
+              Submit
+            </span>
+          </button>
+             
+          <button
+            class="ant-btn"
+            type="button"
+          >
+            <span>
+              Reset
+            </span>
+          </button>
+        </span>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`renders ./components/mentions/demo/placement.md correctly 1`] = `
+<div
+  class="ant-mentions"
+  style="width:100%"
+>
+  <textarea
+    rows="1"
+  />
+</div>
+`;
+
+exports[`renders ./components/mentions/demo/prefix.md correctly 1`] = `
+<div
+  class="ant-mentions"
+  style="width:100%"
+>
+  <textarea
+    placeholder="input @ to mention people, # to mention tag"
+    rows="1"
+  />
+</div>
+`;
+
+exports[`renders ./components/mentions/demo/readonly.md correctly 1`] = `
+<div>
+  <div
+    style="margin-bottom:10px"
+  >
+    <div
+      class="ant-mentions ant-mentions-disabled"
+      style="width:100%"
+    >
+      <textarea
+        disabled=""
+        placeholder="this is disabled Mentions"
+        rows="1"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-mentions"
+    style="width:100%"
+  >
+    <textarea
+      placeholder="this is readOnly Mentions"
+      readonly=""
+      rows="1"
+    />
+  </div>
+</div>
+`;

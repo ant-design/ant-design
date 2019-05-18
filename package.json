@@ -42,6 +42,7 @@
     "react-dom": ">=16.0.0"
   },
   "dependencies": {
+    "@ant-design/create-react-context": "^0.2.4",
     "@ant-design/icons": "~2.0.0",
     "@ant-design/icons-react": "~2.0.0",
     "@types/react-slick": "^0.23.3",
@@ -49,7 +50,6 @@
     "babel-runtime": "6.x",
     "classnames": "~2.2.6",
     "copy-to-clipboard": "^3.0.8",
-    "@ant-design/create-react-context": "^0.2.4",
     "css-animation": "^1.5.0",
     "dom-closest": "^0.2.0",
     "enquire.js": "^2.1.6",
@@ -69,6 +69,7 @@
     "rc-editor-mention": "^1.1.7",
     "rc-form": "^2.4.0",
     "rc-input-number": "~4.4.0",
+    "rc-mentions": "~0.3.1",
     "rc-menu": "~7.4.12",
     "rc-notification": "~3.3.0",
     "rc-pagination": "~1.18.0",
