@@ -334,20 +334,20 @@
     cursor: not-allowed;
 
     .@{pagination-prefix-cls}-item {
-      cursor: not-allowed;
-      border-color: @border-color-base;
       background: @disabled-bg;
+      border-color: @border-color-base;
+      cursor: not-allowed;
 
       a {
-        cursor: not-allowed;
         color: @disabled-color;
         background: transparent;
         border: none;
+        cursor: not-allowed;
       }
 
       &-active {
-        border-color: transparent;
         background: darken(@disabled-bg, 10%);
+        border-color: transparent;
         a {
           color: #fff;
         }
@@ -358,10 +358,10 @@
       &,
       &:hover,
       &:focus {
-        border-color: @border-color-base;
         color: @text-color-secondary;
-        cursor: not-allowed;
         background: @disabled-bg;
+        border-color: @border-color-base;
+        cursor: not-allowed;
       }
     }
 
