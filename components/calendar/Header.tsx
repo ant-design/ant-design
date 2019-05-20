@@ -18,7 +18,7 @@ export interface HeaderProps {
   fullscreen?: boolean;
   yearSelectOffset?: number;
   yearSelectTotal?: number;
-  type: string;
+  type?: string;
   onValueChange?: (value: moment.Moment) => void;
   onTypeChange?: (type: string) => void;
   value: moment.Moment;
