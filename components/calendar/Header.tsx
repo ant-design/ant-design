@@ -180,9 +180,10 @@ export default class Header extends React.Component<HeaderProps, any> {
 
   headerRenderCustom = (): React.ReactNode => {
     const { headerRender, type, onValueChange, value } = this.props;
+
     return headerRender({
       value,
-      type,
+      type: type || 'month',
       onChange: onValueChange,
       onTypeChange: this.onTypeChange,
     });
@@ -190,14 +191,11 @@ export default class Header extends React.Component<HeaderProps, any> {
 
   renderHeader = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { prefixCls, headerRender } = this.props;
-
-    if (headerRender) {
-      return this.headerRenderCustom();
-    }
-
     const typeSwitch = this.getTypeSwitch();
     const { yearReactNode, monthReactNode } = this.getMonthYearSelections(getPrefixCls);
-    return (
+    return headerRender ? (
+      this.headerRenderCustom()
+    ) : (
       <div className={`${prefixCls}-header`} ref={this.getCalenderHeaderNode}>
         {yearReactNode}
         {monthReactNode}

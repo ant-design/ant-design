@@ -28,7 +28,7 @@ export interface CalendarProps {
   className?: string;
   value?: moment.Moment;
   defaultValue?: moment.Moment;
-  mode: CalendarMode;
+  mode?: CalendarMode;
   fullscreen?: boolean;
   dateCellRender?: (date: moment.Moment) => React.ReactNode;
   monthCellRender?: (date: moment.Moment) => React.ReactNode;
@@ -46,7 +46,7 @@ export interface CalendarProps {
 
 export interface CalendarState {
   value: moment.Moment;
-  mode: CalendarMode;
+  mode?: CalendarMode;
 }
 
 class Calendar extends React.Component<CalendarProps, CalendarState> {
