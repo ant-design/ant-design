@@ -20,7 +20,7 @@ interface FormCreateOptionMessages {
 }
 
 export interface FormCreateOption<T> {
-  onFieldsChange?: (props: T, fields: object, allFields: any) => void;
+  onFieldsChange?: (props: T, fields: any, allFields: any) => void;
   onValuesChange?: (props: T, changedValues: any, allValues: any) => void;
   mapPropsToFields?: (props: T) => void;
   validateMessages?: FormCreateOptionMessages;

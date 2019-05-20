@@ -31,7 +31,7 @@ title: Breadcrumb
 | href      | 链接的目的地   | string                                 | -      |
 | separator | 自定义的分隔符 | string\|ReactNode                      | '/'    |
 | overlay   | 下来菜单的内容 | [Menu](/components/menu) \| () => Menu | -      |
-| onClick   | 单击事件       | (e:MouseEventHandler)=>void            | -      |
+| onClick   | 单击事件       | (e:MouseEvent)=>void                   | -      |
 
 ### routes
 
