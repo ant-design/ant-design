@@ -88,8 +88,9 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
   destroyClose: boolean;
 
   public componentDidUpdate(preProps: DrawerProps) {
-    if (preProps.visible !== this.props.visible && this.parentDrawer) {
-      if (this.props.visible) {
+    const { visible } = this.props;
+    if (preProps.visible !== visible && this.parentDrawer) {
+      if (visible) {
         this.parentDrawer.push();
       } else {
         this.parentDrawer.pull();
@@ -98,11 +99,9 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
   }
 
   close = (e: EventType) => {
-    if (this.props.visible !== undefined) {
-      if (this.props.onClose) {
-        this.props.onClose(e);
-      }
-      return;
+    const { visible, onClose } = this.props;
+    if (visible !== undefined && onClose) {
+      onClose(e);
     }
   };
 
