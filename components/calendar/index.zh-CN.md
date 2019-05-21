@@ -46,3 +46,4 @@ title: Calendar
 | onPanelChange | 日期面板变化回调 | function(date: moment, mode: string) | 无 |
 | onSelect | 点击选择日期回调 | function(date: moment） | 无 |
 | onChange | 日期变化回调 | function(date: moment） | 无 |
+| headerRender | 自定义头部内容 | function(object:{value: moment, type: string, onChange: f(), onTypeChange: f()}) | 无 | 3.19.0 |
