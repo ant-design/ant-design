@@ -33,7 +33,7 @@ export interface CustomIconComponentProps {
   style?: React.CSSProperties;
   spin?: boolean;
   rotate?: number;
-  ['aria-hidden']?: string;
+  ['aria-hidden']?: React.AriaAttributes['aria-hidden'];
 }
 
 export type ThemeType = 'filled' | 'outlined' | 'twoTone';

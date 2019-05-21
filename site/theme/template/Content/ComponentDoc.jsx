@@ -29,6 +29,16 @@ export default class ComponentDoc extends React.Component {
     });
   }
 
+  shouldComponentUpdate(nextProps) {
+    const { location } = this.props;
+    const { location: nextLocation } = nextProps;
+
+    if (nextLocation.pathname === location.pathname) {
+      return false;
+    }
+    return true;
+  }
+
   componentWillUnmount() {
     clearTimeout(this.pingTimer);
   }

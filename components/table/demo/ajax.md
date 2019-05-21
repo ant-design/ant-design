@@ -19,28 +19,29 @@ This example shows how to fetch and present data from a remote server, and how t
 
 **Note, this example use [Mock API](https://randomuser.me) that you can look up in Network Console.**
 
-````jsx
+```jsx
 import { Table } from 'antd';
 import reqwest from 'reqwest';
 
-const columns = [{
-  title: 'Name',
-  dataIndex: 'name',
-  sorter: true,
-  render: name => `${name.first} ${name.last}`,
-  width: '20%',
-}, {
-  title: 'Gender',
-  dataIndex: 'gender',
-  filters: [
-    { text: 'Male', value: 'male' },
-    { text: 'Female', value: 'female' },
-  ],
-  width: '20%',
-}, {
-  title: 'Email',
-  dataIndex: 'email',
-}];
+const columns = [
+  {
+    title: 'Name',
+    dataIndex: 'name',
+    sorter: true,
+    render: name => `${name.first} ${name.last}`,
+    width: '20%',
+  },
+  {
+    title: 'Gender',
+    dataIndex: 'gender',
+    filters: [{ text: 'Male', value: 'male' }, { text: 'Female', value: 'female' }],
+    width: '20%',
+  },
+  {
+    title: 'Email',
+    dataIndex: 'email',
+  },
+];
 
 class App extends React.Component {
   state = {
@@ -66,7 +67,7 @@ class App extends React.Component {
       sortOrder: sorter.order,
       ...filters,
     });
-  }
+  };
 
   fetch = (params = {}) => {
     console.log('params:', params);
@@ -79,7 +80,7 @@ class App extends React.Component {
         ...params,
       },
       type: 'json',
-    }).then((data) => {
+    }).then(data => {
       const pagination = { ...this.state.pagination };
       // Read total count from server
       // pagination.total = data.totalCount;
@@ -90,7 +91,7 @@ class App extends React.Component {
         pagination,
       });
     });
-  }
+  };
 
   render() {
     return (
@@ -107,4 +108,4 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, mountNode);
-````
+```

@@ -7,6 +7,8 @@ import { selectDate, openPanel, clearInput, nextYear, nextMonth, hasSelected } f
 import focusTest from '../../../tests/shared/focusTest';
 
 describe('DatePicker', () => {
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
   focusTest(DatePicker);
 
   beforeEach(() => {
@@ -15,6 +17,11 @@ describe('DatePicker', () => {
 
   afterEach(() => {
     MockDate.reset();
+    errorSpy.mockReset();
+  });
+
+  afterAll(() => {
+    errorSpy.mockRestore();
   });
 
   it('support name prop', () => {
@@ -114,11 +121,11 @@ describe('DatePicker', () => {
     const wrapper = mount(<DatePicker onChange={handleChange} />);
     openPanel(wrapper);
     nextYear(wrapper);
-    expect(handleChange).not.toBeCalled();
+    expect(handleChange).not.toHaveBeenCalled();
     nextMonth(wrapper);
-    expect(handleChange).not.toBeCalled();
+    expect(handleChange).not.toHaveBeenCalled();
     selectDate(wrapper, moment('2017-12-22'));
-    expect(handleChange).toBeCalled();
+    expect(handleChange).toHaveBeenCalled();
   });
 
   it('clear input', () => {
@@ -209,5 +216,25 @@ describe('DatePicker', () => {
     openPanel(wrapper);
     wrapper.find('.ant-calendar-input').simulate('change', { target: { value: '02/07/18' } });
     expect(wrapper.find('.ant-calendar-picker-input').getDOMNode().value).toBe('02/07/2018');
+  });
+
+  describe('warning use if use invalidate moment', () => {
+    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+    const invalidateTime = moment('I AM INVALIDATE');
+    warnSpy.mockReset();
+
+    it('defaultValue', () => {
+      mount(<DatePicker defaultValue={invalidateTime} />);
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: DatePicker] `defaultValue` provides invalidate moment time. If you want to set empty value, use `null` instead.',
+      );
+    });
+
+    it('value', () => {
+      mount(<DatePicker value={invalidateTime} />);
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: DatePicker] `value` provides invalidate moment time. If you want to set empty value, use `null` instead.',
+      );
+    });
   });
 });

@@ -19,13 +19,13 @@ describe('Test utils function', () => {
   it('throttle function should work', () => {
     const callback = jest.fn();
     const throttled = throttleByAnimationFrame(callback);
-    expect(callback).not.toBeCalled();
+    expect(callback).not.toHaveBeenCalled();
 
     throttled();
     throttled();
 
     jest.runAllTimers();
-    expect(callback).toBeCalled();
+    expect(callback).toHaveBeenCalled();
     expect(callback.mock.calls.length).toBe(1);
   });
 
@@ -37,7 +37,7 @@ describe('Test utils function', () => {
     throttled.cancel();
 
     jest.runAllTimers();
-    expect(callback).not.toBeCalled();
+    expect(callback).not.toHaveBeenCalled();
   });
 
   describe('getDataOrAriaProps', () => {
@@ -98,6 +98,10 @@ describe('Test utils function', () => {
     delayRaf(() => {
       bamboo = true;
     }, 3);
+
+    // Do nothing, but insert in the frame
+    // https://github.com/ant-design/ant-design/issues/16290
+    delayRaf(() => {}, 3);
 
     // Variable bamboo should be false in frame 2 but true in frame 4
     raf(() => {

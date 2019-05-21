@@ -41,7 +41,7 @@ describe('Input', () => {
       wrapper.setProps({
         suffix: 'light',
       });
-      expect(errorSpy).not.toBeCalled();
+      expect(errorSpy).not.toHaveBeenCalled();
     });
     it('trigger warning', () => {
       const wrapper = mount(<Input />);
@@ -52,7 +52,7 @@ describe('Input', () => {
       wrapper.setProps({
         suffix: 'light',
       });
-      expect(errorSpy).toBeCalledWith(
+      expect(errorSpy).toHaveBeenCalledWith(
         'Warning: [antd: Input] When Input is focused, dynamic add or remove prefix / suffix will make it lose focus caused by dom structure change. Read more: https://ant.design/components/input/#FAQ',
       );
     });
@@ -168,8 +168,8 @@ describe('TextArea', () => {
       <TextArea onPressEnter={onPressEnter} onKeyDown={onKeyDown} aria-label="textarea" />,
     );
     wrapper.instance().handleKeyDown({ keyCode: 13 });
-    expect(onPressEnter).toBeCalled();
-    expect(onKeyDown).toBeCalled();
+    expect(onPressEnter).toHaveBeenCalled();
+    expect(onKeyDown).toHaveBeenCalled();
   });
 });
 

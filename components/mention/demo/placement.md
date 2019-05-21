@@ -13,7 +13,7 @@ title:
 
 Change the suggestions placement.
 
-````jsx
+```jsx
 import { Mention } from 'antd';
 
 const { toString } = Mention;
@@ -34,6 +34,6 @@ ReactDOM.render(
     onSelect={onSelect}
     placement="top"
   />,
-  mountNode
+  mountNode,
 );
-````
+```

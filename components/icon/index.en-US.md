@@ -9,10 +9,6 @@ Semantic vector graphics.
 
 ## List of icons
 
-> Click the icon and copy the code.
-
-We are still adding two-tone icons right now.
-
 ```__react
 import IconDisplay from 'site/theme/template/IconDisplay';
 ReactDOM.render(<IconDisplay />, mountNode);
@@ -24,7 +20,7 @@ ReactDOM.render(<IconDisplay />, mountNode);
 | --- | --- | --- | --- |
 | type | Type of the ant design icon | string | - |
 | style | Style properties of icon, like `fontSize` and `color` | CSSProperties | - |
-| theme | Theme of the ant design icon  | 'filled' \| 'outlined' \| 'twoTone' | 'outlined' |
+| theme | Theme of the ant design icon | 'filled' \| 'outlined' \| 'twoTone' | 'outlined' |
 | spin | Rotate icon with animation | boolean | false |
 | rotate | Rotate degrees (added in 3.13.0, not working in IE9) | number | - |
 | component | The component used for the root node. This will override the **`type`** property. | ComponentType<CustomIconComponentProps\> | - |
@@ -120,18 +116,15 @@ You can import SVG icon as an react component by using `webpack` and [`@svgr/web
 import { Icon } from 'antd';
 import MessageSvg from 'path/to/message.svg'; // path to your '*.svg' file.
 
-ReactDOM.render(
-  <Icon component={MessageSvg} />,
-  mountNode
-);
+ReactDOM.render(<Icon component={MessageSvg} />, mountNode);
 ```
 
 The following properties are available for the component:
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| width | The width of the `svg` element | string \| number | '1em' |
-| height | The height of the `svg` element | string \| number | '1em' |
-| fill | Define the color used to paint the `svg` element | string | 'currentColor' |
-| className | The computed class name of the `svg` element | string | - |
-| style | The computed style of the `svg` element | CSSProperties | - |
+| Property  | Description                                      | Type             | Default        |
+| --------- | ------------------------------------------------ | ---------------- | -------------- |
+| width     | The width of the `svg` element                   | string \| number | '1em'          |
+| height    | The height of the `svg` element                  | string \| number | '1em'          |
+| fill      | Define the color used to paint the `svg` element | string           | 'currentColor' |
+| className | The computed class name of the `svg` element     | string           | -              |
+| style     | The computed style of the `svg` element          | CSSProperties    | -              |

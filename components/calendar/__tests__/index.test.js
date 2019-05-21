@@ -13,7 +13,7 @@ describe('Calendar', () => {
       .find('.ant-fullcalendar-cell')
       .at(0)
       .simulate('click');
-    expect(onSelect).toBeCalledWith(expect.anything());
+    expect(onSelect).toHaveBeenCalledWith(expect.anything());
     const value = onSelect.mock.calls[0][0];
     expect(Moment.isMoment(value)).toBe(true);
   });
@@ -159,7 +159,7 @@ describe('Calendar', () => {
       .at(0)
       .simulate('click');
 
-    expect(onPanelChange).toBeCalled();
+    expect(onPanelChange).toHaveBeenCalled();
     expect(onPanelChange.mock.calls[0][0].month()).toEqual(date.month() - 1);
   });
 
@@ -173,7 +173,7 @@ describe('Calendar', () => {
     wrapper.find('.ant-radio-button-input[value="year"]').simulate('change');
     expect(wrapper.find('.ant-fullcalendar-table').length).toBe(0);
     expect(wrapper.find('.ant-fullcalendar-month-panel-table').length).toBe(1);
-    expect(onPanelChange).toBeCalled();
+    expect(onPanelChange).toHaveBeenCalled();
     expect(onPanelChange.mock.calls[0][1]).toEqual('year');
   });
 
@@ -254,6 +254,6 @@ describe('Calendar', () => {
       .find('input')
       .at(1)
       .simulate('change');
-    expect(onTypeChange).toBeCalledWith('year');
+    expect(onTypeChange).toHaveBeenCalledWith('year');
   });
 });

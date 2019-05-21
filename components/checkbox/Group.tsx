@@ -25,13 +25,15 @@ export interface AbstractCheckboxGroupProps {
 }
 
 export interface CheckboxGroupProps extends AbstractCheckboxGroupProps {
+  name?: string;
   defaultValue?: Array<CheckboxValueType>;
   value?: Array<CheckboxValueType>;
   onChange?: (checkedValue: Array<CheckboxValueType>) => void;
 }
 
 export interface CheckboxGroupState {
-  value: any;
+  value: CheckboxValueType[];
+  registeredValues: CheckboxValueType[];
 }
 
 export interface CheckboxGroupContext {
@@ -71,6 +73,7 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
     super(props);
     this.state = {
       value: props.value || props.defaultValue || [],
+      registeredValues: [],
     };
   }
 
@@ -80,6 +83,11 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
         toggleOption: this.toggleOption,
         value: this.state.value,
         disabled: this.props.disabled,
+        name: this.props.name,
+
+        // https://github.com/ant-design/ant-design/issues/16376
+        registerValue: this.registerValue,
+        cancelValue: this.cancelValue,
       },
     };
   }
@@ -87,6 +95,18 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
   shouldComponentUpdate(nextProps: CheckboxGroupProps, nextState: CheckboxGroupState) {
     return !shallowEqual(this.props, nextProps) || !shallowEqual(this.state, nextState);
   }
+
+  registerValue = (value: string) => {
+    this.setState(({ registeredValues }) => ({
+      registeredValues: [...registeredValues, value],
+    }));
+  };
+
+  cancelValue = (value: string) => {
+    this.setState(({ registeredValues }) => ({
+      registeredValues: registeredValues.filter(val => val !== value),
+    }));
+  };
 
   getOptions() {
     const { options } = this.props;
@@ -103,6 +123,7 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
   }
 
   toggleOption = (option: CheckboxOptionType) => {
+    const { registeredValues } = this.state;
     const optionIndex = this.state.value.indexOf(option.value);
     const value = [...this.state.value];
     if (optionIndex === -1) {
@@ -115,7 +136,7 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
     }
     const onChange = this.props.onChange;
     if (onChange) {
-      onChange(value);
+      onChange(value.filter(val => registeredValues.indexOf(val) !== -1));
     }
   };
 

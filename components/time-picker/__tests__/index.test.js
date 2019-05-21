@@ -29,7 +29,7 @@ describe('TimePicker', () => {
 
   it('allowEmpty deprecated', () => {
     mount(<TimePicker allowEmpty />);
-    expect(errorSpy).toBeCalledWith(
+    expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: TimePicker] `allowEmpty` is deprecated. Please use `allowClear` instead.',
     );
   });
@@ -67,5 +67,13 @@ describe('TimePicker', () => {
     expect(wrapper.find('Picker').prop('clearIcon')).toEqual(
       <div className="test-clear-icon ant-time-picker-clear">test</div>,
     );
+  });
+
+  it('prop locale should works', () => {
+    const locale = {
+      placeholder: 'Избери дата',
+    };
+    const wrapper = mount(<TimePicker open locale={locale} />);
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

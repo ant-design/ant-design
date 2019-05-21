@@ -236,7 +236,7 @@ exports[`renders ./components/card/demo/in-column.md correctly 1`] = `
     style="margin-left:-8px;margin-right:-8px"
   >
     <div
-      class="ant-col-8"
+      class="ant-col ant-col-8"
       style="padding-left:8px;padding-right:8px"
     >
       <div
@@ -263,7 +263,7 @@ exports[`renders ./components/card/demo/in-column.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-col-8"
+      class="ant-col ant-col-8"
       style="padding-left:8px;padding-right:8px"
     >
       <div
@@ -290,7 +290,7 @@ exports[`renders ./components/card/demo/in-column.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-col-8"
+      class="ant-col ant-col-8"
       style="padding-left:8px;padding-right:8px"
     >
       <div
@@ -439,7 +439,7 @@ exports[`renders ./components/card/demo/loading.md correctly 1`] = `
           style="margin-left:-4px;margin-right:-4px"
         >
           <div
-            class="ant-col-22"
+            class="ant-col ant-col-22"
             style="padding-left:4px;padding-right:4px"
           >
             <div
@@ -452,7 +452,7 @@ exports[`renders ./components/card/demo/loading.md correctly 1`] = `
           style="margin-left:-4px;margin-right:-4px"
         >
           <div
-            class="ant-col-8"
+            class="ant-col ant-col-8"
             style="padding-left:4px;padding-right:4px"
           >
             <div
@@ -460,28 +460,7 @@ exports[`renders ./components/card/demo/loading.md correctly 1`] = `
             />
           </div>
           <div
-            class="ant-col-15"
-            style="padding-left:4px;padding-right:4px"
-          >
-            <div
-              class="ant-card-loading-block"
-            />
-          </div>
-        </div>
-        <div
-          class="ant-row"
-          style="margin-left:-4px;margin-right:-4px"
-        >
-          <div
-            class="ant-col-6"
-            style="padding-left:4px;padding-right:4px"
-          >
-            <div
-              class="ant-card-loading-block"
-            />
-          </div>
-          <div
-            class="ant-col-18"
+            class="ant-col ant-col-15"
             style="padding-left:4px;padding-right:4px"
           >
             <div
@@ -494,7 +473,7 @@ exports[`renders ./components/card/demo/loading.md correctly 1`] = `
           style="margin-left:-4px;margin-right:-4px"
         >
           <div
-            class="ant-col-13"
+            class="ant-col ant-col-6"
             style="padding-left:4px;padding-right:4px"
           >
             <div
@@ -502,7 +481,7 @@ exports[`renders ./components/card/demo/loading.md correctly 1`] = `
             />
           </div>
           <div
-            class="ant-col-9"
+            class="ant-col ant-col-18"
             style="padding-left:4px;padding-right:4px"
           >
             <div
@@ -515,7 +494,7 @@ exports[`renders ./components/card/demo/loading.md correctly 1`] = `
           style="margin-left:-4px;margin-right:-4px"
         >
           <div
-            class="ant-col-4"
+            class="ant-col ant-col-13"
             style="padding-left:4px;padding-right:4px"
           >
             <div
@@ -523,7 +502,20 @@ exports[`renders ./components/card/demo/loading.md correctly 1`] = `
             />
           </div>
           <div
-            class="ant-col-3"
+            class="ant-col ant-col-9"
+            style="padding-left:4px;padding-right:4px"
+          >
+            <div
+              class="ant-card-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="margin-left:-4px;margin-right:-4px"
+        >
+          <div
+            class="ant-col ant-col-4"
             style="padding-left:4px;padding-right:4px"
           >
             <div
@@ -531,7 +523,15 @@ exports[`renders ./components/card/demo/loading.md correctly 1`] = `
             />
           </div>
           <div
-            class="ant-col-16"
+            class="ant-col ant-col-3"
+            style="padding-left:4px;padding-right:4px"
+          >
+            <div
+              class="ant-card-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-16"
             style="padding-left:4px;padding-right:4px"
           >
             <div
@@ -591,6 +591,7 @@ exports[`renders ./components/card/demo/loading.md correctly 1`] = `
               class=""
               data-icon="setting"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -615,6 +616,7 @@ exports[`renders ./components/card/demo/loading.md correctly 1`] = `
               class=""
               data-icon="edit"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -639,6 +641,7 @@ exports[`renders ./components/card/demo/loading.md correctly 1`] = `
               class=""
               data-icon="ellipsis"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -717,6 +720,7 @@ exports[`renders ./components/card/demo/meta.md correctly 1`] = `
             class=""
             data-icon="setting"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -741,6 +745,7 @@ exports[`renders ./components/card/demo/meta.md correctly 1`] = `
             class=""
             data-icon="edit"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -765,6 +770,7 @@ exports[`renders ./components/card/demo/meta.md correctly 1`] = `
             class=""
             data-icon="ellipsis"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -855,6 +861,7 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
                     class=""
                     data-icon="left"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -882,6 +889,7 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
                     class=""
                     data-icon="right"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -1013,6 +1021,7 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
                     class=""
                     data-icon="left"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -1040,6 +1049,7 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
                     class=""
                     data-icon="right"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"

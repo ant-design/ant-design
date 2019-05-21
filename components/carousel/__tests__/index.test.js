@@ -58,9 +58,9 @@ describe('Carousel', () => {
     );
     const spy = jest.spyOn(wrapper.instance().slick.innerSlider, 'autoPlay');
     window.resizeTo(1000);
-    expect(spy).not.toBeCalled();
+    expect(spy).not.toHaveBeenCalled();
     await new Promise(resolve => setTimeout(resolve, 500));
-    expect(spy).toBeCalled();
+    expect(spy).toHaveBeenCalled();
   });
 
   it('cancel resize listener when unmount', async () => {
@@ -75,7 +75,43 @@ describe('Carousel', () => {
     const spy = jest.spyOn(wrapper.instance().onWindowResized, 'cancel');
     const spy2 = jest.spyOn(window, 'removeEventListener');
     wrapper.unmount();
-    expect(spy).toBeCalled();
-    expect(spy2).toBeCalledWith('resize', onWindowResized);
+    expect(spy).toHaveBeenCalled();
+    expect(spy2).toHaveBeenCalledWith('resize', onWindowResized);
+  });
+
+  describe('should works for dotPosition', () => {
+    ['left', 'right', 'top', 'bottom'].forEach(dotPosition => {
+      it(dotPosition, () => {
+        const wrapper = mount(
+          <Carousel dotPosition={dotPosition}>
+            <div />
+          </Carousel>,
+        );
+        jest.runAllTimers();
+        expect(wrapper.render()).toMatchSnapshot();
+      });
+    });
+  });
+
+  it('warning', () => {
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(
+      <Carousel vertical>
+        <div />
+      </Carousel>,
+    );
+    expect(warnSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Carousel] `vertical` is deprecated, please use `dotPosition` instead.',
+    );
+    warnSpy.mockRestore();
+  });
+
+  it('should active when children change', () => {
+    const wrapper = mount(<Carousel />);
+    wrapper.setProps({
+      children: <div />,
+    });
+    wrapper.update();
+    expect(wrapper.find('.slick-active').length).toBeTruthy();
   });
 });

@@ -11,12 +11,10 @@ title:
 
 ## en-US
 
-Use when you need to quickly preview the outline of the object. Such as list item preview.
+Use Drawer to quickly preview details of an object, such as those in a list.
 
 ```jsx
-import {
-  Drawer, List, Avatar, Divider, Col, Row,
-} from 'antd';
+import { Drawer, List, Avatar, Divider, Col, Row } from 'antd';
 
 const pStyle = {
   fontSize: 16,
@@ -169,11 +167,11 @@ class App extends React.Component {
             <Col span={24}>
               <DescriptionItem
                 title="Github"
-                content={(
+                content={
                   <a href="http://github.com/ant-design/ant-design/">
                     github.com/ant-design/ant-design/
                   </a>
-                )}
+                }
               />
             </Col>
           </Row>

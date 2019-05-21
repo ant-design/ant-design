@@ -6,9 +6,8 @@ title: Keep it Lightweight
 
 Fitts's Law is an ergonomic principle that ties the size of a target and its contextual proximity to ease of use.In other words, if a tool is close at hand and large enough to target, then we can improve the user's interaction. Putting tools in context makes for lightweight interaction.
 
-
 > <img src="https://os.alipayobjects.com/rmsportal/wAcbQmeqTWDqsnu.png" width="150" />
->** Fitts's Law **: The time to acquire a target is a function of the distance to and size of the target. It is proportional to the distance to the target and inversely proportional to the width of the target.
+> ** Fitts's Law **: The time to acquire a target is a function of the distance to and size of the target. It is proportional to the distance to the target and inversely proportional to the width of the target.
 
 ---
 
@@ -23,7 +22,6 @@ If an action is critical, expose it directly in the interface and keep it always
 ---
 
 ## Hover-Reveal Tools
-
 
 <img class="preview-img" align="right" alt="example of Hover-Reveal Tools" description="On mouse hover, the tools are revealed." src="https://gw.alipayobjects.com/zos/rmsportal/XzKWrNfqIMNnIrwWNJYg.png">
 

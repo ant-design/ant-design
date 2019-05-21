@@ -69,11 +69,11 @@ describe('Tooltip', () => {
     expect(wrapper.find('span')).toHaveLength(1);
     const button = wrapper.find('span').at(0);
     button.simulate('mouseenter');
-    expect(onVisibleChange).toBeCalledWith(true);
+    expect(onVisibleChange).toHaveBeenCalledWith(true);
     expect(wrapper.instance().tooltip.props.visible).toBe(true);
 
     button.simulate('mouseleave');
-    expect(onVisibleChange).toBeCalledWith(false);
+    expect(onVisibleChange).toHaveBeenCalledWith(false);
     expect(wrapper.instance().tooltip.props.visible).toBe(false);
   });
 
@@ -93,11 +93,11 @@ describe('Tooltip', () => {
     expect(wrapper.render()).toMatchSnapshot();
     const button = wrapper.find('span').at(0);
     button.simulate('mouseenter');
-    expect(onVisibleChange).toBeCalledWith(true);
+    expect(onVisibleChange).toHaveBeenCalledWith(true);
     expect(wrapper.instance().tooltip.props.visible).toBe(true);
 
     button.simulate('mouseleave');
-    expect(onVisibleChange).toBeCalledWith(false);
+    expect(onVisibleChange).toHaveBeenCalledWith(false);
     expect(wrapper.instance().tooltip.props.visible).toBe(false);
   });
 
@@ -196,12 +196,12 @@ describe('Tooltip', () => {
     const picker = wrapper.find('span.ant-calendar-picker').at(0);
     picker.simulate('mouseenter');
     await delay(100);
-    expect(onVisibleChange).toBeCalledWith(true);
+    expect(onVisibleChange).toHaveBeenCalledWith(true);
     expect(wrapper.instance().tooltip.props.visible).toBe(true);
 
     picker.simulate('mouseleave');
     await delay(100);
-    expect(onVisibleChange).toBeCalledWith(false);
+    expect(onVisibleChange).toHaveBeenCalledWith(false);
     expect(wrapper.instance().tooltip.props.visible).toBe(false);
   });
 
@@ -221,12 +221,12 @@ describe('Tooltip', () => {
     const picker = wrapper.find('Group').at(0);
     picker.simulate('mouseenter');
     await delay(100);
-    expect(onVisibleChange).toBeCalledWith(true);
+    expect(onVisibleChange).toHaveBeenCalledWith(true);
     expect(wrapper.instance().tooltip.props.visible).toBe(true);
 
     picker.simulate('mouseleave');
     await delay(100);
-    expect(onVisibleChange).toBeCalledWith(false);
+    expect(onVisibleChange).toHaveBeenCalledWith(false);
     expect(wrapper.instance().tooltip.props.visible).toBe(false);
   });
 });

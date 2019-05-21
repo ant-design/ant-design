@@ -35,33 +35,77 @@ exports[`Table renders JSX correctly 1`] = `
                     class=""
                     colspan="2"
                   >
-                    <div>
-                      Name
-                    </div>
+                    <span
+                      class="ant-table-header-column"
+                    >
+                      <div>
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Name
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
+                      </div>
+                    </span>
                   </th>
                   <th
                     class=""
                     rowspan="2"
                   >
-                    <div>
-                      Age
-                    </div>
+                    <span
+                      class="ant-table-header-column"
+                    >
+                      <div>
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Age
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
+                      </div>
+                    </span>
                   </th>
                 </tr>
                 <tr>
                   <th
                     class=""
                   >
-                    <div>
-                      First Name
-                    </div>
+                    <span
+                      class="ant-table-header-column"
+                    >
+                      <div>
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          First Name
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
+                      </div>
+                    </span>
                   </th>
                   <th
                     class=""
                   >
-                    <div>
-                      Last Name
-                    </div>
+                    <span
+                      class="ant-table-header-column"
+                    >
+                      <div>
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Last Name
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
+                      </div>
+                    </span>
                   </th>
                 </tr>
               </thead>

@@ -41,6 +41,7 @@ export interface AbstractTooltipProps {
   prefixCls?: string;
   overlayClassName?: string;
   style?: React.CSSProperties;
+  className?: string;
   overlayStyle?: React.CSSProperties;
   placement?: TooltipPlacement;
   builtinPlacements?: Object;
@@ -55,11 +56,12 @@ export interface AbstractTooltipProps {
   arrowPointAtCenter?: boolean;
   autoAdjustOverflow?: boolean | AdjustOverflow;
   // getTooltipContainer had been rename to getPopupContainer
-  getTooltipContainer?: (triggerNode: Element) => HTMLElement;
-  getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
+  getTooltipContainer?: (triggerNode: HTMLElement) => HTMLElement;
+  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   children?: React.ReactNode;
   // align is a more higher api
   align?: TooltipAlignConfig;
+  destroyTooltipOnHide?: boolean;
 }
 
 export type RenderFunction = () => React.ReactNode;

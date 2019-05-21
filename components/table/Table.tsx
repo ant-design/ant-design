@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import RcTable from 'rc-table';
+import RcTable, { INTERNAL_COL_DEFINE } from 'rc-table';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
@@ -59,8 +59,6 @@ const defaultPagination = {
   onShowSizeChange: noop,
 };
 
-const ROW_SELECTION_COLUMN_WIDTH = '62px';
-
 /**
  * Avoid creating new object, so that parent component's shouldComponentUpdate
  * can works appropriately。
@@ -99,6 +97,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     rowKey: 'key',
     showHeader: true,
     sortDirections: ['ascend', 'descend'],
+    childrenColumnName: 'children',
   };
 
   CheckboxPropsCache: {
@@ -112,6 +111,8 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   constructor(props: TableProps<T>) {
     super(props);
 
+    const { expandedRowRender, columns = [] } = props;
+
     warning(
       !('columnsPageRange' in props || 'columnsPageSize' in props),
       'Table',
@@ -119,11 +120,13 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         'fixed columns instead, see: https://u.ant.design/fixed-columns.',
     );
 
-    warning(
-      !('expandedRowRender' in props) || !('scroll' in props),
-      'Table',
-      '`expandedRowRender` and `scroll` are not compatible. Please use one of them at one time.',
-    );
+    if (expandedRowRender && columns.some(({ fixed }) => !!fixed)) {
+      warning(
+        false,
+        'Table',
+        '`expandedRowRender` and `Column.fixed` are not compatible. Please use one of them at one time.',
+      );
+    }
 
     this.columns = props.columns || normalizeColumns(props.children as React.ReactChildren);
 
@@ -522,7 +525,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     let selectedRowKeys = this.store.getState().selectedRowKeys.concat(defaultSelection);
     const key = this.getRecordKey(record, rowIndex);
     const { pivot } = this.state;
-    const rows = this.getFlatCurrentPageData(this.props.childrenColumnName);
+    const rows = this.getFlatCurrentPageData();
     let realIndex = rowIndex;
     if (this.props.expandedRowRender) {
       realIndex = rows.findIndex(row => this.getRecordKey(row, rowIndex) === key);
@@ -602,7 +605,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   };
 
   handleSelectRow = (selectionKey: string, index: number, onSelectFunc: SelectionItemSelectFn) => {
-    const data = this.getFlatCurrentPageData(this.props.childrenColumnName);
+    const data = this.getFlatCurrentPageData();
     const defaultSelection = this.store.getState().selectionDirty ? [] : this.getDefaultSelection();
     const selectedRowKeys = this.store.getState().selectedRowKeys.concat(defaultSelection);
     const changeableRowKeys = data
@@ -758,10 +761,10 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   };
 
   renderRowSelection(prefixCls: string, locale: TableLocale) {
-    const { rowSelection, childrenColumnName } = this.props;
+    const { rowSelection } = this.props;
     const columns = this.columns.concat();
     if (rowSelection) {
-      const data = this.getFlatCurrentPageData(childrenColumnName).filter((item, index) => {
+      const data = this.getFlatCurrentPageData().filter((item, index) => {
         if (rowSelection.getCheckboxProps) {
           return !this.getCheckboxPropsByItem(item, index).disabled;
         }
@@ -775,8 +778,11 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         render: this.renderSelectionBox(rowSelection.type),
         className: selectionColumnClass,
         fixed: rowSelection.fixed,
-        width: rowSelection.columnWidth || ROW_SELECTION_COLUMN_WIDTH,
+        width: rowSelection.columnWidth,
         title: rowSelection.columnTitle,
+        [INTERNAL_COL_DEFINE]: {
+          className: `${prefixCls}-selection-col`,
+        },
       };
       if (rowSelection.type !== 'radio') {
         const checkboxAllDisabled = data.every(
@@ -884,7 +890,14 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         );
 
         sortButton = (
-          <div title={locale.sortTitle} className={`${prefixCls}-column-sorter`} key="sorter">
+          <div
+            title={locale.sortTitle}
+            className={classNames(
+              `${prefixCls}-column-sorter-inner`,
+              ascend && descend && `${prefixCls}-column-sorter-inner-full`,
+            )}
+            key="sorter"
+          >
             {ascend}
             {descend}
           </div>
@@ -918,10 +931,14 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
           [`${prefixCls}-column-sort`]: isSortColumn && sortOrder,
         }),
         title: [
-          <div key="title" className={sortButton ? `${prefixCls}-column-sorters` : undefined}>
-            {this.renderColumnTitle(column.title)}
-            {sortButton}
-          </div>,
+          <span key="title" className={`${prefixCls}-header-column`}>
+            <div className={sortButton ? `${prefixCls}-column-sorters` : undefined}>
+              <span className={`${prefixCls}-column-title`}>
+                {this.renderColumnTitle(column.title)}
+              </span>
+              <span className={`${prefixCls}-column-sorter`}>{sortButton}</span>
+            </div>
+          </span>,
           filterDropdown,
         ],
         onHeaderCell,
@@ -1050,10 +1067,12 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   }
 
   getFlatData() {
-    return flatArray(this.getLocalData(null, false));
+    const { childrenColumnName } = this.props;
+    return flatArray(this.getLocalData(null, false), childrenColumnName);
   }
 
-  getFlatCurrentPageData(childrenColumnName: string | undefined) {
+  getFlatCurrentPageData() {
+    const { childrenColumnName } = this.props;
     return flatArray(this.getCurrentPageData(), childrenColumnName);
   }
 

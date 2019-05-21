@@ -1,10 +1,14 @@
 import * as React from 'react';
+import { polyfill } from 'react-lifecycles-compat';
 import TimePickerPanel from 'rc-time-picker/lib/Panel';
 import classNames from 'classnames';
+import * as moment from 'moment';
 import enUS from './locale/en_US';
+import interopDefault from '../_util/interopDefault';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { generateShowHourMinuteSecond } from '../time-picker';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import warning from '../_util/warning';
 
 type PickerType = 'date' | 'week' | 'month';
 
@@ -43,8 +47,21 @@ function getColumns({ showHour, showMinute, showSecond, use12Hours }: any) {
   return column;
 }
 
+function checkValidate(value: any, propName: string) {
+  const values: any[] = Array.isArray(value) ? value : [value];
+  values.forEach(val => {
+    if (!val) return;
+
+    warning(
+      !interopDefault(moment).isMoment(val) || val.isValid(),
+      'DatePicker',
+      `\`${propName}\` provides invalidate moment time. If you want to set empty value, use \`null\` instead.`,
+    );
+  });
+}
+
 export default function wrapPicker(Picker: React.ComponentClass<any>, pickerType: PickerType): any {
-  return class PickerWrapper extends React.Component<any, any> {
+  class PickerWrapper extends React.Component<any, any> {
     static defaultProps = {
       transitionName: 'slide-up',
       popupStyle: {},
@@ -53,6 +70,15 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, pickerType
       onOpenChange() {},
       locale: {},
     };
+
+    static getDerivedStateFromProps({ value, defaultValue }: any) {
+      checkValidate(defaultValue, 'defaultValue');
+      checkValidate(value, 'value');
+      return {};
+    }
+
+    // Since we need call `getDerivedStateFromProps` for check. Need leave an empty `state` here.
+    state = {};
 
     private picker: any;
 
@@ -199,5 +225,8 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, pickerType
         </LocaleReceiver>
       );
     }
-  };
+  }
+
+  polyfill(PickerWrapper);
+  return PickerWrapper;
 }

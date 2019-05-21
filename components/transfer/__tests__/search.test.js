@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import Search from '../search';
 import Transfer from '../index';
 
-describe('Search', () => {
+describe('Transfer.Search', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {
@@ -59,7 +59,7 @@ describe('Search', () => {
       .find('.ant-input')
       .at(0)
       .simulate('change', { target: { value: 'a' } });
-    expect(onSearch).toBeCalledWith('left', 'a');
+    expect(onSearch).toHaveBeenCalledWith('left', 'a');
 
     onSearch.mockReset();
 
@@ -67,7 +67,7 @@ describe('Search', () => {
       .find('.ant-transfer-list-search-action')
       .at(0)
       .simulate('click');
-    expect(onSearch).toBeCalledWith('left', '');
+    expect(onSearch).toHaveBeenCalledWith('left', '');
   });
 
   it('legacy onSearchChange', () => {

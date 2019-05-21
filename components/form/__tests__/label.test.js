@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import Form from '..';
 
 describe('Form', () => {
@@ -221,5 +221,45 @@ describe('Form', () => {
         .at(0)
         .getDOMNode(),
     ).toBe(document.activeElement);
+  });
+
+  it('should `labelAlign` work in FormItem', () => {
+    // Works in Form.Item
+    expect(render(<Form.Item label="test" labelAlign="left" />)).toMatchSnapshot();
+
+    // Use Form.Item first
+    expect(
+      render(
+        <Form labelAlign="right">
+          <Form.Item label="test" labelAlign="left" />
+        </Form>,
+      ),
+    ).toMatchSnapshot();
+  });
+
+  describe('should `htmlFor` work', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    afterEach(() => {
+      errorSpy.mockReset();
+    });
+
+    afterAll(() => {
+      errorSpy.mockRestore();
+    });
+
+    it('should warning when use `id`', () => {
+      mount(<Form.Item id="bamboo" label="bamboo" />);
+
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Form.Item] `id` is deprecated for its label `htmlFor`. Please use `htmlFor` directly.',
+      );
+    });
+
+    it('use `htmlFor`', () => {
+      const wrapper = mount(<Form.Item htmlFor="bamboo" label="bamboo" />);
+
+      expect(wrapper.find('label').props().htmlFor).toBe('bamboo');
+    });
   });
 });

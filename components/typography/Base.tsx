@@ -363,13 +363,15 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
   }
 
   renderEditInput() {
-    const { children, prefixCls } = this.props;
+    const { children, prefixCls, className, style } = this.props;
     return (
       <Editable
         value={typeof children === 'string' ? children : ''}
         onSave={this.onEditChange}
         onCancel={this.onEditCancel}
         prefixCls={prefixCls}
+        className={className}
+        style={style}
       />
     );
   }

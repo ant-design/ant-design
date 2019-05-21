@@ -1,8 +1,8 @@
 ---
 order: 3
 title:
-    zh-CN: Checkbox 组
-    en-US: Checkbox Group
+  zh-CN: Checkbox 组
+  en-US: Checkbox Group
 ---
 
 ## zh-CN
@@ -13,7 +13,7 @@ title:
 
 Generate a group of checkboxes from an array.
 
-````jsx
+```jsx
 import { Checkbox } from 'antd';
 
 const CheckboxGroup = Checkbox.Group;
@@ -37,11 +37,18 @@ const optionsWithDisabled = [
 ReactDOM.render(
   <div>
     <CheckboxGroup options={plainOptions} defaultValue={['Apple']} onChange={onChange} />
-    <br /><br />
+    <br />
+    <br />
     <CheckboxGroup options={options} defaultValue={['Pear']} onChange={onChange} />
-    <br /><br />
-    <CheckboxGroup options={optionsWithDisabled} disabled defaultValue={['Apple']} onChange={onChange} />
+    <br />
+    <br />
+    <CheckboxGroup
+      options={optionsWithDisabled}
+      disabled
+      defaultValue={['Apple']}
+      onChange={onChange}
+    />
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```

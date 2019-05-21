@@ -13,26 +13,26 @@ title:
 
 A loading indicator can be added to a button by setting the `loading` property on the `Button`.
 
-````jsx
+```jsx
 import { Button } from 'antd';
 
 class App extends React.Component {
   state = {
     loading: false,
     iconLoading: false,
-  }
+  };
 
   enterLoading = () => {
     this.setState({ loading: true });
-  }
+  };
 
   enterIconLoading = () => {
     this.setState({ iconLoading: true });
-  }
+  };
 
   render() {
     return (
-      <span>
+      <div>
         <Button type="primary" loading>
           Loading
         </Button>
@@ -43,16 +43,21 @@ class App extends React.Component {
         <Button type="primary" loading={this.state.loading} onClick={this.enterLoading}>
           Click me!
         </Button>
-        <Button type="primary" icon="poweroff" loading={this.state.iconLoading} onClick={this.enterIconLoading}>
+        <Button
+          type="primary"
+          icon="poweroff"
+          loading={this.state.iconLoading}
+          onClick={this.enterIconLoading}
+        >
           Click me!
         </Button>
         <br />
         <Button shape="circle" loading />
         <Button type="primary" shape="circle" loading />
-      </span>
+      </div>
     );
   }
 }
 
 ReactDOM.render(<App />, mountNode);
-````
+```

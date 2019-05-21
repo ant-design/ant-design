@@ -88,6 +88,7 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
             class=""
             data-icon="close"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -145,6 +146,7 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
             class=""
             data-icon="check"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -219,6 +221,7 @@ exports[`renders ./components/progress/demo/circle-dynamic.md correctly 1`] = `
           class=""
           data-icon="minus"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -242,6 +245,7 @@ exports[`renders ./components/progress/demo/circle-dynamic.md correctly 1`] = `
           class=""
           data-icon="plus"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -347,6 +351,7 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
             class=""
             data-icon="close"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -404,6 +409,7 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
             class=""
             data-icon="check"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -505,6 +511,7 @@ exports[`renders ./components/progress/demo/dynamic.md correctly 1`] = `
           class=""
           data-icon="minus"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -528,6 +535,7 @@ exports[`renders ./components/progress/demo/dynamic.md correctly 1`] = `
           class=""
           data-icon="plus"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -632,6 +640,59 @@ exports[`renders ./components/progress/demo/format.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/progress/demo/gradient-line.md correctly 1`] = `
+<div>
+  <div
+    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+  >
+    <div>
+      <div
+        class="ant-progress-outer"
+      >
+        <div
+          class="ant-progress-inner"
+        >
+          <div
+            class="ant-progress-bg"
+            style="width:99.9%;height:8px;border-radius:100px;background-image:linear-gradient(to right, #108ee9 0%, #87d068 100%)"
+          />
+        </div>
+      </div>
+      <span
+        class="ant-progress-text"
+        title="99.9%"
+      >
+        99.9%
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-default"
+  >
+    <div>
+      <div
+        class="ant-progress-outer"
+      >
+        <div
+          class="ant-progress-inner"
+        >
+          <div
+            class="ant-progress-bg"
+            style="width:99.9%;height:8px;border-radius:100px;background-image:linear-gradient(to right, #108ee9, #87d068)"
+          />
+        </div>
+      </div>
+      <span
+        class="ant-progress-text"
+        title="99.9%"
+      >
+        99.9%
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/progress/demo/line.md correctly 1`] = `
 <div>
   <div
@@ -710,6 +771,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
             class=""
             data-icon="close-circle"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -750,6 +812,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
             class=""
             data-icon="check-circle"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -863,6 +926,7 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
             class=""
             data-icon="close-circle"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -903,6 +967,7 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
             class=""
             data-icon="check-circle"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"

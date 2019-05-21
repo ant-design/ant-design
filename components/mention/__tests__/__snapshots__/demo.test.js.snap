@@ -257,7 +257,7 @@ exports[`renders ./components/mention/demo/controlled.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-6 ant-form-item-label"
+      class="ant-col ant-col-6 ant-form-item-label"
     >
       <label
         class=""
@@ -268,7 +268,7 @@ exports[`renders ./components/mention/demo/controlled.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-16 ant-form-item-control-wrapper"
+      class="ant-col ant-col-16 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control has-success"
@@ -343,7 +343,7 @@ exports[`renders ./components/mention/demo/controlled.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-14 ant-col-offset-6 ant-form-item-control-wrapper"
+      class="ant-col ant-col-14 ant-col-offset-6 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"

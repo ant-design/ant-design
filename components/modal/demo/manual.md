@@ -11,9 +11,9 @@ title:
 
 ## en-US
 
-Manually updateing and destroying a modal from `Modal.method`.
+Manually updating and destroying a modal from `Modal.method`.
 
-````jsx
+```jsx
 import { Modal, Button } from 'antd';
 
 function countDown() {
@@ -34,8 +34,5 @@ function countDown() {
   }, secondsToGo * 1000);
 }
 
-ReactDOM.render(
-  <Button onClick={countDown}>Open modal to close in 5s</Button>,
-  mountNode
-);
-````
+ReactDOM.render(<Button onClick={countDown}>Open modal to close in 5s</Button>, mountNode);
+```

@@ -5,7 +5,7 @@ import Transfer from '..';
 import TransferList from '../list';
 import TransferOperation from '../operation';
 import TransferSearch from '../search';
-import TransferItem from '../item';
+import TransferItem from '../ListItem';
 import Button from '../../button';
 import Checkbox from '../../checkbox';
 
@@ -268,7 +268,7 @@ describe('Transfer', () => {
         .text(),
     ).toEqual('old1');
 
-    expect(consoleErrorSpy).toBeCalledWith(
+    expect(consoleErrorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Transfer] `notFoundContent` and `searchPlaceholder` will be removed, please use `locale` instead.',
     );
     consoleErrorSpy.mockRestore();
