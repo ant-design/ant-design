@@ -66,6 +66,7 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
 
   constructor(props: SliderProps) {
     super(props);
+    // React >= 16.3
     this.tooltipRef = React.createRef();
     this.state = {
       visibles: {},
@@ -101,7 +102,6 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
         <RcHandle
           {...restProps}
           value={value}
-          // @ts-ignore
           ref={this.tooltipRef}
           onMouseEnter={() => this.toggleTooltipVisible(index, true)}
           onMouseLeave={() => this.toggleTooltipVisible(index, false)}
