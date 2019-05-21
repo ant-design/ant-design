@@ -58,7 +58,7 @@ export interface UploadProps {
   name?: string;
   defaultFileList?: Array<UploadFile>;
   fileList?: Array<UploadFile>;
-  action?: string | ((file: UploadFile) => PromiseLike<any>);
+  action?: string | ((file: UploadFile) => string) | ((file: UploadFile) => PromiseLike<string>);
   directory?: boolean;
   data?: Object | ((file: UploadFile) => any);
   headers?: HttpRequestHeader;
