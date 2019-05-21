@@ -62,9 +62,11 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
   };
 
   private rcSlider: any;
+  private tooltipRef: typeof RcHandle;
 
   constructor(props: SliderProps) {
     super(props);
+    this.tooltipRef = React.createRef();
     this.state = {
       visibles: {},
     };
@@ -94,10 +96,13 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
         placement="top"
         transitionName="zoom-down"
         key={index}
+        getPopupContainer={() => (this.tooltipRef ? this.tooltipRef.current.handle : document.body)}
       >
         <RcHandle
           {...restProps}
           value={value}
+          // @ts-ignore
+          ref={this.tooltipRef}
           onMouseEnter={() => this.toggleTooltipVisible(index, true)}
           onMouseLeave={() => this.toggleTooltipVisible(index, false)}
         />
