@@ -57,7 +57,6 @@ ReactDOM.render(
             </Select.Option>,
           );
         }
-
         return (
           <div style={{ padding: 10 }}>
             <div style={{ marginBottom: '10px' }}>Custom header </div>
