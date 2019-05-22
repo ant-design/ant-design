@@ -32,16 +32,28 @@ ReactDOM.render(
     optionLabelProp="label"
   >
     <Option value="china" label="China">
-      🇨🇳 China (中国)
+      <span role="img" aria-label="China">
+        🇨🇳{' '}
+      </span>
+      China (中国)
     </Option>
     <Option value="usa" label="USA">
-      🇺🇸 USA (美国)
+      <span role="img" aria-label="USA">
+        🇺🇸{' '}
+      </span>
+      USA (美国)
     </Option>
     <Option value="japan" label="Japan">
-      🇯🇵 Japan (日本)
+      <span role="img" aria-label="USA">
+        🇯🇵{' '}
+      </span>
+      Japan (日本)
     </Option>
     <Option value="koean" label="Koean">
-      🇰🇷 Koean (韩国)
+      <span role="img" aria-label="USA">
+        🇰🇷{' '}
+      </span>
+      Koean (韩国)
     </Option>
   </Select>,
   mountNode,
