@@ -142,7 +142,7 @@
     "jsdom": "^15.0.0",
     "jsonml.js": "^0.1.0",
     "lint-staged": "^8.0.2",
-    "logrocket": "^0.6.19",
+    "logrocket": "^1.0.0",
     "logrocket-react": "^3.0.0",
     "lz-string": "^1.4.4",
     "majo": "^0.7.1",
