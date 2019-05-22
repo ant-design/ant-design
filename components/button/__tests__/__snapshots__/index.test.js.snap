@@ -211,6 +211,17 @@ exports[`Button should has click wave effect 1`] = `
 </button>
 `;
 
+exports[`Button should merge text if children using variable 1`] = `
+<button
+  class="ant-btn"
+  type="button"
+>
+  <span>
+    This is a test 1
+  </span>
+</button>
+`;
+
 exports[`Button should not render as link button when href is undefined 1`] = `
 <button
   class="ant-btn ant-btn-primary"

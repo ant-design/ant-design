@@ -33,6 +33,7 @@ export interface CarouselProps extends Settings {
   prefixCls?: string;
   slickGoTo?: number;
   dotPosition?: DotPosition;
+  children?: React.ReactNode;
 }
 
 export default class Carousel extends React.Component<CarouselProps, {}> {
@@ -68,6 +69,12 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
     }
     // https://github.com/ant-design/ant-design/issues/7191
     this.innerSlider = this.slick && this.slick.innerSlider;
+  }
+
+  componentDidUpdate(prevProps: CarouselProps) {
+    if (React.Children.count(this.props.children) !== React.Children.count(prevProps.children)) {
+      this.goTo(0, false);
+    }
   }
 
   componentWillUnmount() {

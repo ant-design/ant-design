@@ -53,6 +53,8 @@ export { default as ConfigProvider } from './config-provider';
 
 export { default as DatePicker } from './date-picker';
 
+export { default as Descriptions } from './descriptions';
+
 export { default as Divider } from './divider';
 
 export { default as Dropdown } from './dropdown';

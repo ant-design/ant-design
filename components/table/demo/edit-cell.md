@@ -16,7 +16,6 @@ Table with editable cells.
 ```jsx
 import { Table, Input, Button, Popconfirm, Form } from 'antd';
 
-const FormItem = Form.Item;
 const EditableContext = React.createContext();
 
 const EditableRow = ({ form, index, ...props }) => (
@@ -52,46 +51,50 @@ class EditableCell extends React.Component {
     });
   };
 
-  render() {
+  renderCell = form => {
+    this.form = form;
+    const { children, dataIndex, record, title } = this.props;
     const { editing } = this.state;
-    const { editable, dataIndex, title, record, index, handleSave, ...restProps } = this.props;
+    return editing ? (
+      <Form.Item style={{ margin: 0 }}>
+        {form.getFieldDecorator(dataIndex, {
+          rules: [
+            {
+              required: true,
+              message: `${title} is required.`,
+            },
+          ],
+          initialValue: record[dataIndex],
+        })(<Input ref={node => (this.input = node)} onPressEnter={this.save} onBlur={this.save} />)}
+      </Form.Item>
+    ) : (
+      <div
+        className="editable-cell-value-wrap"
+        style={{ paddingRight: 24 }}
+        onClick={this.toggleEdit}
+      >
+        {children}
+      </div>
+    );
+  };
+
+  render() {
+    const {
+      editable,
+      dataIndex,
+      title,
+      record,
+      index,
+      handleSave,
+      children,
+      ...restProps
+    } = this.props;
     return (
       <td {...restProps}>
         {editable ? (
-          <EditableContext.Consumer>
-            {form => {
-              this.form = form;
-              return editing ? (
-                <FormItem style={{ margin: 0 }}>
-                  {form.getFieldDecorator(dataIndex, {
-                    rules: [
-                      {
-                        required: true,
-                        message: `${title} is required.`,
-                      },
-                    ],
-                    initialValue: record[dataIndex],
-                  })(
-                    <Input
-                      ref={node => (this.input = node)}
-                      onPressEnter={this.save}
-                      onBlur={this.save}
-                    />,
-                  )}
-                </FormItem>
-              ) : (
-                <div
-                  className="editable-cell-value-wrap"
-                  style={{ paddingRight: 24 }}
-                  onClick={this.toggleEdit}
-                >
-                  {restProps.children}
-                </div>
-              );
-            }}
-          </EditableContext.Consumer>
+          <EditableContext.Consumer>{this.renderCell}</EditableContext.Consumer>
         ) : (
-          restProps.children
+          children
         )}
       </td>
     );

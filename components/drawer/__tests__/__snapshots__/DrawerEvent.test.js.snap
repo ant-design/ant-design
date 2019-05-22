@@ -15,6 +15,7 @@ exports[`Drawer render correctly 1`] = `
   >
     <div
       class="ant-drawer ant-drawer-right ant-drawer-open"
+      tabindex="-1"
     >
       <div
         class="ant-drawer-mask"

@@ -97,6 +97,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     rowKey: 'key',
     showHeader: true,
     sortDirections: ['ascend', 'descend'],
+    childrenColumnName: 'children',
   };
 
   CheckboxPropsCache: {
@@ -524,7 +525,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     let selectedRowKeys = this.store.getState().selectedRowKeys.concat(defaultSelection);
     const key = this.getRecordKey(record, rowIndex);
     const { pivot } = this.state;
-    const rows = this.getFlatCurrentPageData(this.props.childrenColumnName);
+    const rows = this.getFlatCurrentPageData();
     let realIndex = rowIndex;
     if (this.props.expandedRowRender) {
       realIndex = rows.findIndex(row => this.getRecordKey(row, rowIndex) === key);
@@ -604,7 +605,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   };
 
   handleSelectRow = (selectionKey: string, index: number, onSelectFunc: SelectionItemSelectFn) => {
-    const data = this.getFlatCurrentPageData(this.props.childrenColumnName);
+    const data = this.getFlatCurrentPageData();
     const defaultSelection = this.store.getState().selectionDirty ? [] : this.getDefaultSelection();
     const selectedRowKeys = this.store.getState().selectedRowKeys.concat(defaultSelection);
     const changeableRowKeys = data
@@ -760,10 +761,10 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   };
 
   renderRowSelection(prefixCls: string, locale: TableLocale) {
-    const { rowSelection, childrenColumnName } = this.props;
+    const { rowSelection } = this.props;
     const columns = this.columns.concat();
     if (rowSelection) {
-      const data = this.getFlatCurrentPageData(childrenColumnName).filter((item, index) => {
+      const data = this.getFlatCurrentPageData().filter((item, index) => {
         if (rowSelection.getCheckboxProps) {
           return !this.getCheckboxPropsByItem(item, index).disabled;
         }
@@ -1066,10 +1067,12 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   }
 
   getFlatData() {
-    return flatArray(this.getLocalData(null, false));
+    const { childrenColumnName } = this.props;
+    return flatArray(this.getLocalData(null, false), childrenColumnName);
   }
 
-  getFlatCurrentPageData(childrenColumnName: string | undefined) {
+  getFlatCurrentPageData() {
+    const { childrenColumnName } = this.props;
     return flatArray(this.getCurrentPageData(), childrenColumnName);
   }
 

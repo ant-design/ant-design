@@ -227,7 +227,7 @@ validateFields(['field1', 'field2'], options, (errors, values) => {
 
 ## 在 TypeScript 中使用
 
-```jsx
+```tsx
 import { Form } from 'antd';
 import { FormComponentProps } from 'antd/lib/form';
 
@@ -240,12 +240,9 @@ class UserForm extends React.Component<UserFormProps, any> {
   // ...
 }
 
-const App =
-  Form.create <
-  UserFormProps >
-  {
-    // ...
-  }(UserForm);
+const App = Form.create<UserFormProps>({
+  // ...
+})(UserForm);
 ```
 
 <style>

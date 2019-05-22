@@ -11,6 +11,16 @@ export default class Article extends React.Component {
     intl: PropTypes.object.isRequired,
   };
 
+  shouldComponentUpdate(nextProps) {
+    const { location } = this.props;
+    const { location: nextLocation } = nextProps;
+
+    if (nextLocation.pathname === location.pathname) {
+      return false;
+    }
+    return true;
+  }
+
   onResourceClick = e => {
     if (!window.gtag) {
       return;
