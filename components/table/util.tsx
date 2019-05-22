@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ColumnFilterItem } from './interface';
+import { ColumnFilterItem, SelectionBoxBaseProps } from './interface';
 
 export function flatArray(data: any[] = [], childrenName = 'children') {
   const result: any[] = [];
@@ -78,3 +78,16 @@ export function generateValueMaps(items?: ColumnFilterItem[], maps: { [name: str
   });
   return maps;
 }
+
+export const getSelectionBoxCheckState = (props: SelectionBoxBaseProps) => {
+  const { store, defaultSelection, rowIndex } = props;
+  let checked = false;
+  if (store.getState().selectionDirty) {
+    checked = store.getState().selectedRowKeys.indexOf(rowIndex) >= 0;
+  } else {
+    checked =
+      store.getState().selectedRowKeys.indexOf(rowIndex) >= 0 ||
+      defaultSelection.indexOf(rowIndex) >= 0;
+  }
+  return checked;
+};

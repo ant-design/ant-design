@@ -2,6 +2,7 @@ import * as React from 'react';
 import Checkbox from '../checkbox';
 import Radio from '../radio';
 import { SelectionBoxProps, SelectionBoxState } from './interface';
+import { getSelectionBoxCheckState } from './util';
 
 export default class SelectionBox extends React.Component<SelectionBoxProps, SelectionBoxState> {
   unsubscribe: () => void;
@@ -10,7 +11,7 @@ export default class SelectionBox extends React.Component<SelectionBoxProps, Sel
     super(props);
 
     this.state = {
-      checked: this.getCheckState(props),
+      checked: getSelectionBoxCheckState(props),
     };
   }
 
@@ -27,22 +28,9 @@ export default class SelectionBox extends React.Component<SelectionBoxProps, Sel
   subscribe() {
     const { store } = this.props;
     this.unsubscribe = store.subscribe(() => {
-      const checked = this.getCheckState(this.props);
+      const checked = getSelectionBoxCheckState(this.props);
       this.setState({ checked });
     });
-  }
-
-  getCheckState(props: SelectionBoxProps) {
-    const { store, defaultSelection, rowIndex } = props;
-    let checked = false;
-    if (store.getState().selectionDirty) {
-      checked = store.getState().selectedRowKeys.indexOf(rowIndex) >= 0;
-    } else {
-      checked =
-        store.getState().selectedRowKeys.indexOf(rowIndex) >= 0 ||
-        defaultSelection.indexOf(rowIndex) >= 0;
-    }
-    return checked;
   }
 
   render() {

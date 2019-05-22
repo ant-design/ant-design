@@ -96,6 +96,21 @@ describe('Table.rowSelection', () => {
     expect(checkboxes.at(2).props().name).toEqual(data[1].name);
   });
 
+  it('maxSelection', () => {
+    const wrapper = mount(createTable({ maxSelection: 1 }));
+    const checkboxes = wrapper.find('input');
+
+    expect(checkboxes.at(0).props().disabled).toBe(true);
+
+    checkboxes.at(2).simulate('change', { target: { checked: true } });
+    checkboxes.at(1).simulate('change', { target: { checked: true } });
+
+    expect(wrapper.instance().store.getState()).toEqual({
+      selectedRowKeys: [1],
+      selectionDirty: true,
+    });
+  });
+
   it('works with pagination', () => {
     const wrapper = mount(createTable({ pagination: { pageSize: 2 } }));
 

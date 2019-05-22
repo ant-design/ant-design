@@ -11,7 +11,13 @@ import SelectionCheckboxAll from './SelectionCheckboxAll';
 import Column from './Column';
 import ColumnGroup from './ColumnGroup';
 import createBodyRow from './createBodyRow';
-import { flatArray, treeMap, flatFilter, normalizeColumns } from './util';
+import {
+  flatArray,
+  treeMap,
+  flatFilter,
+  normalizeColumns,
+  getSelectionBoxCheckState,
+} from './util';
 import {
   TableProps,
   TableSize,
@@ -25,6 +31,7 @@ import {
   SortOrder,
   TableStateFilters,
   SelectionItemSelectFn,
+  SelectionBoxBaseProps,
   SelectionInfo,
   TableSelectWay,
   TableRowSelection,
@@ -721,15 +728,39 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     }
   };
 
+  getSelectionBoxExceedState = (
+    maxSelection: number | undefined,
+    props: SelectionBoxBaseProps,
+  ): boolean => {
+    const selectedRowKeys = props.store.getState().selectedRowKeys;
+    if (maxSelection !== undefined && selectedRowKeys && selectedRowKeys.length >= maxSelection) {
+      return !getSelectionBoxCheckState(props);
+    }
+
+    return false;
+  };
+
   renderSelectionBox = (type: RowSelectionType | undefined) => {
     return (_: any, record: T, index: number) => {
       const rowKey = this.getRecordKey(record, index);
+      const maxSelection = this.props.maxSelection;
+      const defaultSelection = this.getDefaultSelection();
       const props = this.getCheckboxPropsByItem(record, index);
       const handleChange = (e: RadioChangeEvent | CheckboxChangeEvent) => {
         type === 'radio'
           ? this.handleRadioSelect(record, index, e)
           : this.handleSelect(record, index, e);
       };
+
+      const exceedMaxSelection = this.getSelectionBoxExceedState(maxSelection, {
+        defaultSelection,
+        rowIndex: rowKey,
+        store: this.store,
+      });
+      // disable all unchecked rows while the checked exceeds maxSelection
+      const selectionProps = exceedMaxSelection
+        ? Object.assign({}, props, { disabled: true })
+        : props;
 
       return (
         <span onClick={stopPropagation}>
@@ -738,8 +769,8 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
             store={this.store}
             rowIndex={rowKey}
             onChange={handleChange}
-            defaultSelection={this.getDefaultSelection()}
-            {...props}
+            defaultSelection={defaultSelection}
+            {...selectionProps}
           />
         </span>
       );
@@ -772,7 +803,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   };
 
   renderRowSelection(prefixCls: string, locale: TableLocale) {
-    const { rowSelection } = this.props;
+    const { rowSelection, maxSelection } = this.props;
     const columns = this.columns.concat();
     if (rowSelection) {
       const data = this.getFlatCurrentPageData().filter((item, index) => {
@@ -796,9 +827,9 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         },
       };
       if (rowSelection.type !== 'radio') {
-        const checkboxAllDisabled = data.every(
-          (item, index) => this.getCheckboxPropsByItem(item, index).disabled,
-        );
+        const checkboxAllDisabled =
+          !!maxSelection ||
+          data.every((item, index) => this.getCheckboxPropsByItem(item, index).disabled);
         selectionColumn.title = selectionColumn.title || (
           <SelectionCheckboxAll
             store={this.store}

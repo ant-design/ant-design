@@ -133,6 +133,7 @@ export interface TableProps<T> {
   prefixCls?: string;
   dropdownPrefixCls?: string;
   rowSelection?: TableRowSelection<T>;
+  maxSelection?: number;
   pagination?: PaginationConfig | false;
   size?: TableSize;
   dataSource?: T[];
@@ -221,11 +222,14 @@ export interface SelectionCheckboxAllState {
   indeterminate?: boolean;
 }
 
-export interface SelectionBoxProps {
+export interface SelectionBoxBaseProps {
   store: Store;
-  type?: RowSelectionType;
   defaultSelection: string[];
   rowIndex: string;
+}
+
+export interface SelectionBoxProps extends SelectionBoxBaseProps {
+  type?: RowSelectionType;
   name?: string;
   disabled?: boolean;
   onChange: (e: RadioChangeEvent | CheckboxChangeEvent) => void;
