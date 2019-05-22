@@ -25,7 +25,6 @@ for (let i = 0; i < 100; i++) {
     address: `London Park no. ${i}`,
   });
 }
-const FormItem = Form.Item;
 const EditableContext = React.createContext();
 
 class EditableCell extends React.Component {
@@ -36,34 +35,40 @@ class EditableCell extends React.Component {
     return <Input />;
   };
 
-  render() {
-    const { editing, dataIndex, title, inputType, record, index, ...restProps } = this.props;
+  renderCell = ({ getFieldDecorator }) => {
+    const {
+      editing,
+      dataIndex,
+      title,
+      inputType,
+      record,
+      index,
+      children,
+      ...restProps
+    } = this.props;
     return (
-      <EditableContext.Consumer>
-        {form => {
-          const { getFieldDecorator } = form;
-          return (
-            <td {...restProps}>
-              {editing ? (
-                <FormItem style={{ margin: 0 }}>
-                  {getFieldDecorator(dataIndex, {
-                    rules: [
-                      {
-                        required: true,
-                        message: `Please Input ${title}!`,
-                      },
-                    ],
-                    initialValue: record[dataIndex],
-                  })(this.getInput())}
-                </FormItem>
-              ) : (
-                restProps.children
-              )}
-            </td>
-          );
-        }}
-      </EditableContext.Consumer>
+      <td {...restProps}>
+        {editing ? (
+          <Form.Item style={{ margin: 0 }}>
+            {getFieldDecorator(dataIndex, {
+              rules: [
+                {
+                  required: true,
+                  message: `Please Input ${title}!`,
+                },
+              ],
+              initialValue: record[dataIndex],
+            })(this.getInput())}
+          </Form.Item>
+        ) : (
+          children
+        )}
+      </td>
     );
+  };
+
+  render() {
+    return <EditableContext.Consumer>{this.renderCell}</EditableContext.Consumer>;
   }
 }
 
@@ -96,31 +101,27 @@ class EditableTable extends React.Component {
         render: (text, record) => {
           const { editingKey } = this.state;
           const editable = this.isEditing(record);
-          return (
-            <div>
-              {editable ? (
-                <span>
-                  <EditableContext.Consumer>
-                    {form => (
-                      <a
-                        href="javascript:;"
-                        onClick={() => this.save(form, record.key)}
-                        style={{ marginRight: 8 }}
-                      >
-                        Save
-                      </a>
-                    )}
-                  </EditableContext.Consumer>
-                  <Popconfirm title="Sure to cancel?" onConfirm={() => this.cancel(record.key)}>
-                    <a>Cancel</a>
-                  </Popconfirm>
-                </span>
-              ) : (
-                <a disabled={editingKey !== ''} onClick={() => this.edit(record.key)}>
-                  Edit
-                </a>
-              )}
-            </div>
+          return editable ? (
+            <span>
+              <EditableContext.Consumer>
+                {form => (
+                  <a
+                    href="javascript:;"
+                    onClick={() => this.save(form, record.key)}
+                    style={{ marginRight: 8 }}
+                  >
+                    Save
+                  </a>
+                )}
+              </EditableContext.Consumer>
+              <Popconfirm title="Sure to cancel?" onConfirm={() => this.cancel(record.key)}>
+                <a>Cancel</a>
+              </Popconfirm>
+            </span>
+          ) : (
+            <a disabled={editingKey !== ''} onClick={() => this.edit(record.key)}>
+              Edit
+            </a>
           );
         },
       },

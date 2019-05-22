@@ -225,7 +225,7 @@ See more advanced usage at [async-validator](https://github.com/yiminghe/async-v
 
 ## Using in TypeScript
 
-```jsx
+```tsx
 import { Form } from 'antd';
 import { FormComponentProps } from 'antd/lib/form';
 
@@ -238,12 +238,9 @@ class UserForm extends React.Component<UserFormProps, any> {
   // ...
 }
 
-const App =
-  Form.create <
-  UserFormProps >
-  {
-    // ...
-  }(UserForm);
+const App = Form.create<UserFormProps>({
+  // ...
+})(UserForm);
 ```
 
 <style>

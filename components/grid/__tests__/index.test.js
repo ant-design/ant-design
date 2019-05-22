@@ -7,8 +7,8 @@ jest.mock('enquire.js', () => {
   let unmatchFun;
   return {
     unregister: jest.fn(),
-    register: (meidia, options) => {
-      if (meidia === '(max-width: 575px)') {
+    register: (media, options) => {
+      if (media === '(max-width: 575px)') {
         that = this;
         options.match.call(that);
         unmatchFun = options.unmatch;
@@ -31,23 +31,10 @@ describe('Grid', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should work correct when gutter is object', () => {
-    // eslint-disable-next-line global-require
-    const enquire = require('enquire.js');
-    const wrapper = mount(<Row gutter={{ xs: 20 }} />);
-    expect(wrapper.find('div').prop('style')).toEqual({
-      marginLeft: -10,
-      marginRight: -10,
-    });
-    enquire.callunmatch();
-    expect(
-      wrapper
-        .update()
-        .find('div')
-        .prop('style'),
-    ).toEqual(undefined);
+  it('when typeof getGutter is object', () => {
+    const wrapper = mount(<Row gutter={{ xs: 8, sm: 16, md: 24 }} />);
+    expect(wrapper.instance().getGutter()).toBe(8);
     wrapper.unmount();
-    expect(enquire.unregister).toHaveBeenCalledTimes(6);
   });
 
   it('renders wrapped Col correctly', () => {
@@ -70,8 +57,22 @@ describe('Grid', () => {
     expect(willUnmount).toHaveBeenCalled();
   });
 
-  it('when typeof getGutter is object', () => {
-    const wrapper = mount(<Row gutter={{ xs: 8, sm: 16, md: 24 }} />).instance();
-    expect(wrapper.getGutter()).toBe(8);
+  it('should work correct when gutter is object', () => {
+    // eslint-disable-next-line global-require
+    const enquire = require('enquire.js');
+    const wrapper = mount(<Row gutter={{ xs: 20 }} />);
+    expect(wrapper.find('div').prop('style')).toEqual({
+      marginLeft: -10,
+      marginRight: -10,
+    });
+    enquire.callunmatch();
+    expect(
+      wrapper
+        .update()
+        .find('div')
+        .prop('style'),
+    ).toEqual(undefined);
+    wrapper.unmount();
+    expect(enquire.unregister).toHaveBeenCalled();
   });
 });

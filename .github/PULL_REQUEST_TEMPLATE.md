@@ -43,8 +43,10 @@ Please makes sure that these form are filled before submitting your pull request
 Describe changes from userside, and list all potential break changes or other risks.
 --->
 
-- English Changelog:
-- Chinese Changelog (optional):
+| Language   | Changelog |
+| ---------- | --------- |
+| 🇺🇸 English |           |
+| 🇨🇳 Chinese |           |
 
 ### ☑️ Self Check before Merge
 

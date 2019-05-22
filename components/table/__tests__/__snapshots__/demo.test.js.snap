@@ -4062,11 +4062,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <div>
-                      <a>
-                        Edit
-                      </a>
-                    </div>
+                    <a>
+                      Edit
+                    </a>
                   </td>
                 </tr>
                 <tr
@@ -4095,11 +4093,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <div>
-                      <a>
-                        Edit
-                      </a>
-                    </div>
+                    <a>
+                      Edit
+                    </a>
                   </td>
                 </tr>
                 <tr
@@ -4128,11 +4124,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <div>
-                      <a>
-                        Edit
-                      </a>
-                    </div>
+                    <a>
+                      Edit
+                    </a>
                   </td>
                 </tr>
                 <tr
@@ -4161,11 +4155,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <div>
-                      <a>
-                        Edit
-                      </a>
-                    </div>
+                    <a>
+                      Edit
+                    </a>
                   </td>
                 </tr>
                 <tr
@@ -4194,11 +4186,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <div>
-                      <a>
-                        Edit
-                      </a>
-                    </div>
+                    <a>
+                      Edit
+                    </a>
                   </td>
                 </tr>
                 <tr
@@ -4227,11 +4217,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <div>
-                      <a>
-                        Edit
-                      </a>
-                    </div>
+                    <a>
+                      Edit
+                    </a>
                   </td>
                 </tr>
                 <tr
@@ -4260,11 +4248,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <div>
-                      <a>
-                        Edit
-                      </a>
-                    </div>
+                    <a>
+                      Edit
+                    </a>
                   </td>
                 </tr>
                 <tr
@@ -4293,11 +4279,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <div>
-                      <a>
-                        Edit
-                      </a>
-                    </div>
+                    <a>
+                      Edit
+                    </a>
                   </td>
                 </tr>
                 <tr
@@ -4326,11 +4310,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <div>
-                      <a>
-                        Edit
-                      </a>
-                    </div>
+                    <a>
+                      Edit
+                    </a>
                   </td>
                 </tr>
                 <tr
@@ -4359,11 +4341,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <div>
-                      <a>
-                        Edit
-                      </a>
-                    </div>
+                    <a>
+                      Edit
+                    </a>
                   </td>
                 </tr>
               </tbody>

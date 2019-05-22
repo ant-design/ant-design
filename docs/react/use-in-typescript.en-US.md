@@ -189,8 +189,6 @@ You can also follow instructions in [Use in create-react-app](/docs/react/use-wi
 
 And you can use [react-scripts-ts-antd](https://www.npmjs.com/package/react-scripts-ts-antd) which includes ts-import-plugin, react-app-rewired, scss, less and etc. You can create a new project that without any configurations by running just one command.
 
-## Alternative ways
-
 - [Create React apps (with Typescript and antd) with no build configuration](https://github.com/SZzzzz/react-scripts-ts-antd)
 - [react-app-rewire-typescript][https://github.com/lwd-technology/react-app-rewire-typescript]
 - [ts-import-plugin](https://github.com/Brooooooklyn/ts-import-plugin)
