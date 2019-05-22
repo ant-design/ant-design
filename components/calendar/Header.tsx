@@ -5,7 +5,7 @@ import { Group, Button, RadioChangeEvent } from '../radio';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 const Option = Select.Option;
 
-interface RenderHeader {
+export interface RenderHeader {
   value: moment.Moment;
   onChange?: (value: moment.Moment) => void;
   type: string;

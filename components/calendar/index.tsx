@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import * as moment from 'moment';
 import FullCalendar from 'rc-calendar/lib/FullCalendar';
-import Header from './Header';
+import Header, { RenderHeader } from './Header';
 import enUS from './locale/en_US';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -41,7 +41,7 @@ export interface CalendarProps {
   onChange?: (date?: moment.Moment) => void;
   disabledDate?: (current: moment.Moment) => boolean;
   validRange?: [moment.Moment, moment.Moment];
-  headerRender: () => React.ReactNode;
+  headerRender: (header: RenderHeader) => React.ReactNode;
 }
 
 export interface CalendarState {
