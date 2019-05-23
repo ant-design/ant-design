@@ -48,6 +48,7 @@ export interface SliderProps {
   id?: string;
   style?: React.CSSProperties;
   tooltipVisible?: boolean;
+  getTooltipPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
 }
 
 export interface SliderState {
@@ -61,13 +62,10 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
     },
   };
 
-  private rcSlider: any;
-  private tooltipRef: typeof RcHandle;
+  private rcSlider: typeof RcSlider;
 
   constructor(props: SliderProps) {
     super(props);
-    // React >= 16.3
-    this.tooltipRef = React.createRef();
     this.state = {
       visibles: {},
     };
@@ -85,7 +83,7 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
     tooltipPrefixCls: string,
     { value, dragging, index, ...restProps },
   ) => {
-    const { tipFormatter, tooltipVisible } = this.props;
+    const { tipFormatter, tooltipVisible, getTooltipPopupContainer } = this.props;
     const { visibles } = this.state;
     const isTipFormatter = tipFormatter ? visibles[index] || dragging : false;
     const visible = tooltipVisible || (tooltipVisible === undefined && isTipFormatter);
@@ -97,12 +95,13 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
         placement="top"
         transitionName="zoom-down"
         key={index}
-        getPopupContainer={this.tooltipRef ? this.tooltipRef.current.handle : document.body}
+        getPopupContainer={
+          getTooltipPopupContainer ? getTooltipPopupContainer : () => document.body
+        }
       >
         <RcHandle
           {...restProps}
           value={value}
-          ref={this.tooltipRef}
           onMouseEnter={() => this.toggleTooltipVisible(index, true)}
           onMouseLeave={() => this.toggleTooltipVisible(index, false)}
         />
