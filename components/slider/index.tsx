@@ -62,7 +62,7 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
     },
   };
 
-  private rcSlider: typeof RcSlider;
+  rcSlider: typeof RcSlider;
 
   constructor(props: SliderProps) {
     super(props);
