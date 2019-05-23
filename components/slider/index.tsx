@@ -97,7 +97,7 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
         placement="top"
         transitionName="zoom-down"
         key={index}
-        getPopupContainer={this.tooltipRef.current.handle || document.body}
+        getPopupContainer={this.tooltipRef ? this.tooltipRef.current.handle : document.body}
       >
         <RcHandle
           {...restProps}
