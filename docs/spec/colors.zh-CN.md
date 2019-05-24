@@ -60,6 +60,37 @@ import ColorPaletteTool from '../../site/theme/template/Color/ColorPaletteTool';
 ReactDOM.render(<ColorPaletteTool />, mountNode);
 ```
 
+### 在代码中使用色板
+
+我们为程序员提供了色板的 Less 和 JavaScript 的使用方式。
+
+- **Less**
+
+  ```less
+  @import '~antd/lib/style/themes/default.less', .selector {
+    color: @blue-5;
+    background-color: @gold-2;
+  }
+  ```
+
+  所有色板变量列表：[color.less](https://github.com/ant-design/ant-design/blob/5ab2783ff00d4b1da04bb213c6b12de43e7649eb/components/style/color/colors.less)。
+
+  <br />
+
+- **JavaScript**
+
+  ```
+  npm install @ant-design/colors
+  ```
+
+  ```js
+  import { blue } from '@ant-design/colors';
+  console.log(blue); // ['#E6F7FF', '#BAE7FF', '#91D5FF', ''#69C0FF', '#40A9FF', '#1890FF', '#096DD9', '#0050B3', '#003A8C', '#002766']
+  console.log(blue.primary); // '#1890FF'
+  ```
+
+  更多使用方式：[@ant-design/colors](https://www.npmjs.com/package/@ant-design/colors)
+
 ---
 
 ## 产品级色彩体系
