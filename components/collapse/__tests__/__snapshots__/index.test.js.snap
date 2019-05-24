@@ -100,9 +100,6 @@ exports[`Collapse should support remove expandIcon 1`] = `
       role="button"
       tabindex="0"
     >
-      <i
-        class="arrow"
-      />
       header
     </div>
   </div>

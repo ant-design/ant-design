@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-可点击切换的步骤条。
+设置 `onChange` 后，Steps 变为可点击状态。
 
 ## en-US
 
-Clickable switch steps.
+Setting `onChange` makes Steps clickable.
 
 ```jsx
 import { Steps, Divider } from 'antd';
