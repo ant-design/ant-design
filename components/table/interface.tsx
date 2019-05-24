@@ -29,7 +29,7 @@ export interface ColumnProps<T> {
     | ((options: { filters: TableStateFilters; sortOrder?: SortOrder }) => React.ReactNode);
   key?: React.Key;
   dataIndex?: string; // Note: We can not use generic type here, since we need to support nested key, see #9393
-  render?: (text: T[keyof T], record: T, index: number) => React.ReactNode;
+  render?: (text: any, record: T, index: number) => React.ReactNode;
   align?: 'left' | 'right' | 'center';
   filters?: ColumnFilterItem[];
   onFilter?: (value: T[keyof T], record: T) => boolean;
