@@ -16,6 +16,15 @@ After users upload picture, the thumbnail will be shown in list. The upload butt
 ```jsx
 import { Upload, Icon, Modal } from 'antd';
 
+function getBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+  });
+}
+
 class PicturesWall extends React.Component {
   state = {
     previewVisible: false,
@@ -32,9 +41,13 @@ class PicturesWall extends React.Component {
 
   handleCancel = () => this.setState({ previewVisible: false });
 
-  handlePreview = file => {
+  handlePreview = async file => {
+    if (!file.url && !file.preview) {
+      file.preview = await getBase64(file.originFileObj);
+    }
+
     this.setState({
-      previewImage: file.url || file.thumbUrl,
+      previewImage: file.url || file.preview,
       previewVisible: true,
     });
   };
