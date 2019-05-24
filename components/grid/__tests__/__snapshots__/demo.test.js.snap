@@ -6,12 +6,12 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
     class="ant-row"
   >
     <div
-      class="ant-col-12"
+      class="ant-col ant-col-12"
     >
       col-12
     </div>
     <div
-      class="ant-col-12"
+      class="ant-col ant-col-12"
     >
       col-12
     </div>
@@ -20,17 +20,17 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
     class="ant-row"
   >
     <div
-      class="ant-col-8"
+      class="ant-col ant-col-8"
     >
       col-8
     </div>
     <div
-      class="ant-col-8"
+      class="ant-col ant-col-8"
     >
       col-8
     </div>
     <div
-      class="ant-col-8"
+      class="ant-col ant-col-8"
     >
       col-8
     </div>
@@ -39,22 +39,22 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
     class="ant-row"
   >
     <div
-      class="ant-col-6"
+      class="ant-col ant-col-6"
     >
       col-6
     </div>
     <div
-      class="ant-col-6"
+      class="ant-col ant-col-6"
     >
       col-6
     </div>
     <div
-      class="ant-col-6"
+      class="ant-col ant-col-6"
     >
       col-6
     </div>
     <div
-      class="ant-col-6"
+      class="ant-col ant-col-6"
     >
       col-6
     </div>
@@ -71,22 +71,22 @@ exports[`renders ./components/grid/demo/flex.md correctly 1`] = `
     class="ant-row-flex ant-row-flex-start"
   >
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       col-4
     </div>
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       col-4
     </div>
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       col-4
     </div>
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       col-4
     </div>
@@ -98,22 +98,22 @@ exports[`renders ./components/grid/demo/flex.md correctly 1`] = `
     class="ant-row-flex ant-row-flex-center"
   >
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       col-4
     </div>
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       col-4
     </div>
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       col-4
     </div>
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       col-4
     </div>
@@ -125,22 +125,22 @@ exports[`renders ./components/grid/demo/flex.md correctly 1`] = `
     class="ant-row-flex ant-row-flex-end"
   >
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       col-4
     </div>
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       col-4
     </div>
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       col-4
     </div>
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       col-4
     </div>
@@ -152,22 +152,22 @@ exports[`renders ./components/grid/demo/flex.md correctly 1`] = `
     class="ant-row-flex ant-row-flex-space-between"
   >
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       col-4
     </div>
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       col-4
     </div>
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       col-4
     </div>
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       col-4
     </div>
@@ -179,22 +179,22 @@ exports[`renders ./components/grid/demo/flex.md correctly 1`] = `
     class="ant-row-flex ant-row-flex-space-around"
   >
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       col-4
     </div>
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       col-4
     </div>
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       col-4
     </div>
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       col-4
     </div>
@@ -211,7 +211,7 @@ exports[`renders ./components/grid/demo/flex-align.md correctly 1`] = `
     class="ant-row-flex ant-row-flex-center ant-row-flex-top"
   >
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       <p
         class="height-100"
@@ -220,7 +220,7 @@ exports[`renders ./components/grid/demo/flex-align.md correctly 1`] = `
       </p>
     </div>
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       <p
         class="height-50"
@@ -229,7 +229,7 @@ exports[`renders ./components/grid/demo/flex-align.md correctly 1`] = `
       </p>
     </div>
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       <p
         class="height-120"
@@ -238,7 +238,7 @@ exports[`renders ./components/grid/demo/flex-align.md correctly 1`] = `
       </p>
     </div>
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       <p
         class="height-80"
@@ -254,7 +254,7 @@ exports[`renders ./components/grid/demo/flex-align.md correctly 1`] = `
     class="ant-row-flex ant-row-flex-space-around ant-row-flex-middle"
   >
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       <p
         class="height-100"
@@ -263,7 +263,7 @@ exports[`renders ./components/grid/demo/flex-align.md correctly 1`] = `
       </p>
     </div>
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       <p
         class="height-50"
@@ -272,7 +272,7 @@ exports[`renders ./components/grid/demo/flex-align.md correctly 1`] = `
       </p>
     </div>
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       <p
         class="height-120"
@@ -281,7 +281,7 @@ exports[`renders ./components/grid/demo/flex-align.md correctly 1`] = `
       </p>
     </div>
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       <p
         class="height-80"
@@ -297,7 +297,7 @@ exports[`renders ./components/grid/demo/flex-align.md correctly 1`] = `
     class="ant-row-flex ant-row-flex-space-between ant-row-flex-bottom"
   >
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       <p
         class="height-100"
@@ -306,7 +306,7 @@ exports[`renders ./components/grid/demo/flex-align.md correctly 1`] = `
       </p>
     </div>
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       <p
         class="height-50"
@@ -315,7 +315,7 @@ exports[`renders ./components/grid/demo/flex-align.md correctly 1`] = `
       </p>
     </div>
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       <p
         class="height-120"
@@ -324,7 +324,7 @@ exports[`renders ./components/grid/demo/flex-align.md correctly 1`] = `
       </p>
     </div>
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       <p
         class="height-80"
@@ -342,22 +342,22 @@ exports[`renders ./components/grid/demo/flex-order.md correctly 1`] = `
     class="ant-row-flex"
   >
     <div
-      class="ant-col-6 ant-col-order-4"
+      class="ant-col ant-col-6 ant-col-order-4"
     >
       1 col-order-4
     </div>
     <div
-      class="ant-col-6 ant-col-order-3"
+      class="ant-col ant-col-6 ant-col-order-3"
     >
       2 col-order-3
     </div>
     <div
-      class="ant-col-6 ant-col-order-2"
+      class="ant-col ant-col-6 ant-col-order-2"
     >
       3 col-order-2
     </div>
     <div
-      class="ant-col-6 ant-col-order-1"
+      class="ant-col ant-col-6 ant-col-order-1"
     >
       4 col-order-1
     </div>
@@ -374,7 +374,7 @@ exports[`renders ./components/grid/demo/gutter.md correctly 1`] = `
     style="margin-left:-8px;margin-right:-8px"
   >
     <div
-      class="ant-col-6 gutter-row"
+      class="ant-col ant-col-6 gutter-row"
       style="padding-left:8px;padding-right:8px"
     >
       <div
@@ -384,7 +384,7 @@ exports[`renders ./components/grid/demo/gutter.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-col-6 gutter-row"
+      class="ant-col ant-col-6 gutter-row"
       style="padding-left:8px;padding-right:8px"
     >
       <div
@@ -394,7 +394,7 @@ exports[`renders ./components/grid/demo/gutter.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-col-6 gutter-row"
+      class="ant-col ant-col-6 gutter-row"
       style="padding-left:8px;padding-right:8px"
     >
       <div
@@ -404,7 +404,7 @@ exports[`renders ./components/grid/demo/gutter.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-col-6 gutter-row"
+      class="ant-col ant-col-6 gutter-row"
       style="padding-left:8px;padding-right:8px"
     >
       <div
@@ -423,12 +423,12 @@ exports[`renders ./components/grid/demo/offset.md correctly 1`] = `
     class="ant-row"
   >
     <div
-      class="ant-col-8"
+      class="ant-col ant-col-8"
     >
       col-8
     </div>
     <div
-      class="ant-col-8 ant-col-offset-8"
+      class="ant-col ant-col-8 ant-col-offset-8"
     >
       col-8
     </div>
@@ -437,12 +437,12 @@ exports[`renders ./components/grid/demo/offset.md correctly 1`] = `
     class="ant-row"
   >
     <div
-      class="ant-col-6 ant-col-offset-6"
+      class="ant-col ant-col-6 ant-col-offset-6"
     >
       col-6 col-offset-6
     </div>
     <div
-      class="ant-col-6 ant-col-offset-6"
+      class="ant-col ant-col-6 ant-col-offset-6"
     >
       col-6 col-offset-6
     </div>
@@ -451,7 +451,7 @@ exports[`renders ./components/grid/demo/offset.md correctly 1`] = `
     class="ant-row"
   >
     <div
-      class="ant-col-12 ant-col-offset-6"
+      class="ant-col ant-col-12 ant-col-offset-6"
     >
       col-12 col-offset-6
     </div>
@@ -525,37 +525,37 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
         >
           <span
             class="ant-slider-mark-text ant-slider-mark-text-active"
-            style="width:18%;margin-left:-9%;left:0%"
+            style="left:0%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
           >
             8
           </span>
           <span
             class="ant-slider-mark-text ant-slider-mark-text-active"
-            style="width:18%;margin-left:-9%;left:20%"
+            style="left:20%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
           >
             16
           </span>
           <span
             class="ant-slider-mark-text"
-            style="width:18%;margin-left:-9%;left:40%"
+            style="left:40%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
           >
             24
           </span>
           <span
             class="ant-slider-mark-text"
-            style="width:18%;margin-left:-9%;left:60%"
+            style="left:60%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
           >
             32
           </span>
           <span
             class="ant-slider-mark-text"
-            style="width:18%;margin-left:-9%;left:80%"
+            style="left:80%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
           >
             40
           </span>
           <span
             class="ant-slider-mark-text"
-            style="width:18%;margin-left:-9%;left:100%"
+            style="left:100%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
           >
             48
           </span>
@@ -623,37 +623,37 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
         >
           <span
             class="ant-slider-mark-text ant-slider-mark-text-active"
-            style="width:18%;margin-left:-9%;left:0%"
+            style="left:0%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
           >
             2
           </span>
           <span
             class="ant-slider-mark-text ant-slider-mark-text-active"
-            style="width:18%;margin-left:-9%;left:20%"
+            style="left:20%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
           >
             3
           </span>
           <span
             class="ant-slider-mark-text ant-slider-mark-text-active"
-            style="width:18%;margin-left:-9%;left:40%"
+            style="left:40%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
           >
             4
           </span>
           <span
             class="ant-slider-mark-text"
-            style="width:18%;margin-left:-9%;left:60%"
+            style="left:60%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
           >
             6
           </span>
           <span
             class="ant-slider-mark-text"
-            style="width:18%;margin-left:-9%;left:80%"
+            style="left:80%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
           >
             8
           </span>
           <span
             class="ant-slider-mark-text"
-            style="width:18%;margin-left:-9%;left:100%"
+            style="left:100%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
           >
             12
           </span>
@@ -666,7 +666,7 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
     style="margin-left:-8px;margin-right:-8px"
   >
     <div
-      class="ant-col-6"
+      class="ant-col ant-col-6"
       style="padding-left:8px;padding-right:8px"
     >
       <div>
@@ -674,7 +674,7 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-col-6"
+      class="ant-col ant-col-6"
       style="padding-left:8px;padding-right:8px"
     >
       <div>
@@ -682,7 +682,7 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-col-6"
+      class="ant-col ant-col-6"
       style="padding-left:8px;padding-right:8px"
     >
       <div>
@@ -690,7 +690,7 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-col-6"
+      class="ant-col ant-col-6"
       style="padding-left:8px;padding-right:8px"
     >
       <div>
@@ -714,17 +714,17 @@ exports[`renders ./components/grid/demo/responsive.md correctly 1`] = `
   class="ant-row"
 >
   <div
-    class="ant-col-xs-2 ant-col-sm-4 ant-col-md-6 ant-col-lg-8 ant-col-xl-10"
+    class="ant-col ant-col-xs-2 ant-col-sm-4 ant-col-md-6 ant-col-lg-8 ant-col-xl-10"
   >
     Col
   </div>
   <div
-    class="ant-col-xs-20 ant-col-sm-16 ant-col-md-12 ant-col-lg-8 ant-col-xl-4"
+    class="ant-col ant-col-xs-20 ant-col-sm-16 ant-col-md-12 ant-col-lg-8 ant-col-xl-4"
   >
     Col
   </div>
   <div
-    class="ant-col-xs-2 ant-col-sm-4 ant-col-md-6 ant-col-lg-8 ant-col-xl-10"
+    class="ant-col ant-col-xs-2 ant-col-sm-4 ant-col-md-6 ant-col-lg-8 ant-col-xl-10"
   >
     Col
   </div>
@@ -736,17 +736,17 @@ exports[`renders ./components/grid/demo/responsive-more.md correctly 1`] = `
   class="ant-row"
 >
   <div
-    class="ant-col-xs-5 ant-col-xs-offset-1 ant-col-lg-6 ant-col-lg-offset-2"
+    class="ant-col ant-col-xs-5 ant-col-xs-offset-1 ant-col-lg-6 ant-col-lg-offset-2"
   >
     Col
   </div>
   <div
-    class="ant-col-xs-11 ant-col-xs-offset-1 ant-col-lg-6 ant-col-lg-offset-2"
+    class="ant-col ant-col-xs-11 ant-col-xs-offset-1 ant-col-lg-6 ant-col-lg-offset-2"
   >
     Col
   </div>
   <div
-    class="ant-col-xs-5 ant-col-xs-offset-1 ant-col-lg-6 ant-col-lg-offset-2"
+    class="ant-col ant-col-xs-5 ant-col-xs-offset-1 ant-col-lg-6 ant-col-lg-offset-2"
   >
     Col
   </div>
@@ -759,12 +759,12 @@ exports[`renders ./components/grid/demo/sort.md correctly 1`] = `
     class="ant-row"
   >
     <div
-      class="ant-col-18 ant-col-push-6"
+      class="ant-col ant-col-18 ant-col-push-6"
     >
       col-18 col-push-6
     </div>
     <div
-      class="ant-col-6 ant-col-pull-18"
+      class="ant-col ant-col-6 ant-col-pull-18"
     >
       col-6 col-pull-18
     </div>

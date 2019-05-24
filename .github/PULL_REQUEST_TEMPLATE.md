@@ -1,22 +1,56 @@
-First of all, thank you for your contribution! :-)
+<!--
+First of all, thank you for your contribution! 😄
 
-Please makes sure that these checkboxes are checked before submitting your pull request, thank you!
+New feature please send pull request to feature branch, and rest to master branch.
+Pull request will be merged after one of collaborators approve.
+Please makes sure that these form are filled before submitting your pull request, thank you!
 
-* [ ] Make sure that you propose pull request to right branch: bugfix for `master`, feature for branch `feature`.
-* [ ] Make sure that you follow antd's [code convention](https://github.com/ant-design/ant-design/wiki/Code-convention-for-antd).
-* [ ] Run `npm run lint` and fix those errors before submitting in order to keep consistent code style.
-* [ ] Rebase before creating a pull request to keep commit history clear.
-* [ ] Add some descriptions and refer relative issues for you pull request.
+[[中文版模板 / Chinese template](https://github.com/ant-design/ant-design/blob/master/.github/PULL_REQUEST_TEMPLATE/pr_cn.md)]
+-->
 
-Extra checklist:
+### 🤔 This is a ...
 
-**if** *isBugFix* **:**
+- [ ] New feature
+- [ ] Bug fix
+- [ ] Site / document update
+- [ ] Component style update
+- [ ] TypeScript definition update
+- [ ] Refactoring
+- [ ] Code style optimization
+- [ ] Test Case
+- [ ] Branch merge
+- [ ] Other (about what?)
 
-  * [ ] Make sure that you add at least one unit test for the bug which you had fixed.
+### 👻 What's the background?
 
-**elif** *isNewFeature* **:**
+<!--
+1. Describe the source of requirement, like related issue link.
 
-  * [ ] Update API docs for the component.
-  * [ ] Update/Add demo to demonstrate new feature.
-  * [ ] Update TypeScript definition for the component.
-  * [ ] Add unit tests for the feature.
+2. Describe the problem and the scenario.
+-->
+
+### 💡 Solution
+
+<!--
+1. How to fix the problem, and list final API implementation and usage sample if that is an new feature.
+
+2. GIF or snapshot should be provided if includes UI/interactive modification.
+-->
+
+### 📝 Changelog
+
+<!--
+Describe changes from userside, and list all potential break changes or other risks.
+--->
+
+| Language   | Changelog |
+| ---------- | --------- |
+| 🇺🇸 English |           |
+| 🇨🇳 Chinese |           |
+
+### ☑️ Self Check before Merge
+
+- [ ] Doc is updated/provided or not needed
+- [ ] Demo is updated/provided or not needed
+- [ ] TypeScript definition is updated/provided or not needed
+- [ ] Changelog is provided or not needed

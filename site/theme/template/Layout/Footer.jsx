@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import { Modal, message, Row, Col, Badge, Icon } from 'antd';
+import { Modal, message, Row, Col, Icon } from 'antd';
 import { Link } from 'bisheng/router';
 import { isLocalStorageNameSupported, loadScript, getLocalizedPathname } from '../utils';
 import ColorPicker from '../Color/ColorPicker';
@@ -105,7 +105,7 @@ class Footer extends React.Component {
     return (
       <footer id="footer">
         <div className="footer-wrap">
-          <Row>
+          <Row gutter={16}>
             <Col md={6} sm={24} xs={24}>
               <div className="footer-center">
                 <h2>
@@ -120,10 +120,13 @@ class Footer extends React.Component {
                 <div>
                   <a href="http://ng.ant.design">NG-ZORRO</a>
                   <span> - </span>
-                  Ant Design of Angular
+                  <span>Ant Design of Angular</span>
                 </div>
                 <div>
                   <a href="http://ng.mobile.ant.design">NG-ZORRO-MOBILE</a>
+                </div>
+                <div>
+                  <a href="http://vue.ant.design">Ant Design Vue</a>
                 </div>
                 <div>
                   <a target="_blank" rel="noopener noreferrer" href="http://kitchen.alipay.com">
@@ -133,13 +136,11 @@ class Footer extends React.Component {
                   <FormattedMessage id="app.footer.kitchen" />
                 </div>
                 <div>
-                  <Badge dot offset={[3, 0]}>
-                    <a target="_blank" rel="noopener noreferrer" href="http://landing.ant.design">
-                      Ant Design Landing
-                    </a>
-                    <span> - </span>
-                    <FormattedMessage id="app.footer.landing" />
-                  </Badge>
+                  <a target="_blank" rel="noopener noreferrer" href="http://landing.ant.design">
+                    Ant Design Landing
+                  </a>
+                  <span> - </span>
+                  <FormattedMessage id="app.footer.landing" />
                 </div>
                 <div>
                   <a href="http://scaffold.ant.design">Scaffolds</a>

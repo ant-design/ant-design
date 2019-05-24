@@ -23,7 +23,7 @@ describe('Breadcrumb', () => {
     );
     expect(errorSpy.mock.calls).toHaveLength(1);
     expect(errorSpy.mock.calls[0][0]).toMatch(
-      "Breadcrumb only accepts Breadcrumb.Item as it's children",
+      "Warning: [antd: Breadcrumb] Only accepts Breadcrumb.Item as it's children",
     );
   });
 
@@ -49,6 +49,39 @@ describe('Breadcrumb', () => {
         <Breadcrumb.Item>yyy</Breadcrumb.Item>
       </Breadcrumb>,
     );
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should render a menu', () => {
+    const routes = [
+      {
+        path: 'index',
+        breadcrumbName: 'home',
+      },
+      {
+        path: 'first',
+        breadcrumbName: 'first',
+        children: [
+          {
+            path: '/general',
+            breadcrumbName: 'General',
+          },
+          {
+            path: '/layout',
+            breadcrumbName: 'Layout',
+          },
+          {
+            path: '/navigation',
+            breadcrumbName: 'Navigation',
+          },
+        ],
+      },
+      {
+        path: 'second',
+        breadcrumbName: 'second',
+      },
+    ];
+    const wrapper = render(<Breadcrumb routes={routes} />);
     expect(wrapper).toMatchSnapshot();
   });
 });

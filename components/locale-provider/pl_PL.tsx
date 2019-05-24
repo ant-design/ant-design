@@ -13,7 +13,6 @@ export default {
     filterTitle: 'Menu filtra',
     filterConfirm: 'OK',
     filterReset: 'Wyczyść',
-    emptyText: 'Brak danych',
     selectAll: 'Zaznacz bieżącą stronę',
     selectInvert: 'Odwróć zaznaczenie',
   },
@@ -27,18 +26,17 @@ export default {
     cancelText: 'Anuluj',
   },
   Transfer: {
-    notFoundContent: 'Nie znaleziono',
     searchPlaceholder: 'Szukaj',
     itemUnit: 'obiekt',
     itemsUnit: 'obiekty',
-  },
-  Select: {
-    notFoundContent: 'Nie znaleziono',
   },
   Upload: {
     uploading: 'Wysyłanie...',
     removeFile: 'Usuń plik',
     uploadError: 'Błąd wysyłania',
     previewFile: 'Podejrzyj plik',
+  },
+  Empty: {
+    description: 'Brak danych',
   },
 };

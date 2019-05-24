@@ -1,3 +1,5 @@
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
 let enquire: any;
@@ -18,15 +20,17 @@ import * as React from 'react';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import RowContext from './RowContext';
+import { tuple } from '../_util/type';
 
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type BreakpointMap = Partial<Record<Breakpoint, string>>;
-
+const RowAligns = tuple('top', 'middle', 'bottom');
+const RowJustify = tuple('start', 'end', 'center', 'space-around', 'space-between');
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   gutter?: number | Partial<Record<Breakpoint, number>>;
   type?: 'flex';
-  align?: 'top' | 'middle' | 'bottom';
-  justify?: 'start' | 'end' | 'center' | 'space-around' | 'space-between';
+  align?: (typeof RowAligns)[number];
+  justify?: (typeof RowJustify)[number];
   prefixCls?: string;
 }
 
@@ -51,9 +55,9 @@ export default class Row extends React.Component<RowProps, RowState> {
   };
 
   static propTypes = {
-    type: PropTypes.string,
-    align: PropTypes.string,
-    justify: PropTypes.string,
+    type: PropTypes.oneOf<'flex'>(['flex']),
+    align: PropTypes.oneOf(RowAligns),
+    justify: PropTypes.oneOf(RowJustify),
     className: PropTypes.string,
     children: PropTypes.node,
     gutter: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
@@ -111,17 +115,18 @@ export default class Row extends React.Component<RowProps, RowState> {
     }
     return gutter as number;
   }
-  render() {
+  renderRow = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
+      prefixCls: customizePrefixCls,
       type,
       justify,
       align,
       className,
       style,
       children,
-      prefixCls = 'ant-row',
       ...others
     } = this.props;
+    const prefixCls = getPrefixCls('row', customizePrefixCls);
     const gutter = this.getGutter();
     const classes = classNames(
       {
@@ -133,10 +138,10 @@ export default class Row extends React.Component<RowProps, RowState> {
       className,
     );
     const rowStyle =
-      (gutter as number) > 0
+      gutter! > 0
         ? {
-            marginLeft: (gutter as number) / -2,
-            marginRight: (gutter as number) / -2,
+            marginLeft: gutter! / -2,
+            marginRight: gutter! / -2,
             ...style,
           }
         : style;
@@ -149,5 +154,9 @@ export default class Row extends React.Component<RowProps, RowState> {
         </div>
       </RowContext.Provider>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderRow}</ConfigConsumer>;
   }
 }

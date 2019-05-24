@@ -47,6 +47,11 @@ describe('Table.pagination', () => {
     expect(wrapper.find('.ant-pagination')).toHaveLength(1);
   });
 
+  it('should use pageSize when defaultPageSize and pageSize are both specified', () => {
+    const wrapper = mount(createTable({ pagination: { pageSize: 3, defaultPageSize: 4 } }));
+    expect(wrapper.find('.ant-pagination-item')).toHaveLength(2);
+  });
+
   it('paginate data', () => {
     const wrapper = mount(createTable());
 
@@ -81,7 +86,7 @@ describe('Table.pagination', () => {
       .last()
       .simulate('click');
 
-    expect(handleChange).toBeCalledWith(
+    expect(handleChange).toHaveBeenCalledWith(
       {
         className: 'my-page',
         current: 2,
@@ -99,7 +104,7 @@ describe('Table.pagination', () => {
       },
     );
 
-    expect(handlePaginationChange).toBeCalledWith(2, 2);
+    expect(handlePaginationChange).toHaveBeenCalledWith(2, 2);
   });
 
   // https://github.com/ant-design/ant-design/issues/4532
@@ -175,5 +180,35 @@ describe('Table.pagination', () => {
         .childAt(2)
         .find('.ant-pagination'),
     ).toHaveLength(1);
+  });
+
+  /**
+   * `pagination` is not designed to accept `true` value,
+   * but in practice, many people assign `true` to `pagination`,
+   * since they misunderstand that `pagination` can accept a boolean value.
+   */
+  it('Accepts pagination as true', () => {
+    const wrapper = render(createTable({ pagination: true }));
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('ajax render should keep display by the dataSource', () => {
+    const onChange = jest.fn();
+
+    const wrapper = mount(
+      createTable({
+        onChange,
+        pagination: {
+          total: 200,
+        },
+      }),
+    );
+
+    expect(wrapper.find('.ant-table-tbody tr.ant-table-row')).toHaveLength(data.length);
+
+    wrapper.find('.ant-pagination .ant-pagination-item-2').simulate('click');
+    expect(onChange.mock.calls[0][0].current).toBe(2);
+
+    expect(wrapper.find('.ant-table-tbody tr.ant-table-row')).toHaveLength(data.length);
   });
 });

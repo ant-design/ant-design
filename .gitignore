@@ -35,8 +35,8 @@ yarn.lock
 package-lock.json
 components/**/*.js
 components/**/*.jsx
-!components/**/__tests__/*.js
-!components/**/__tests__/*.js.snap
+!components/**/__tests__/**/*.js
+!components/**/__tests__/**/*.js.snap
 /.history
 # Docs templates
 site/theme/template/IconDisplay/*.js

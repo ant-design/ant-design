@@ -1,6 +1,8 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
 import Layout from '..';
+import Icon from '../../icon';
+import Menu from '../../menu';
 
 const { Sider, Content } = Layout;
 
@@ -76,12 +78,12 @@ describe('Layout', () => {
 
   it('detect ant-layout-sider-dark as default theme', async () => {
     const wrapper = mount(<Sider>Sider</Sider>);
-    expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-dark'));
+    expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-dark')).toBe(true);
   });
 
   it('detect ant-layout-sider-light when set light theme', async () => {
     const wrapper = mount(<Sider theme="light">Sider</Sider>);
-    expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-light'));
+    expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-light')).toBe(true);
   });
 
   it('renders string width correctly', () => {
@@ -91,9 +93,48 @@ describe('Layout', () => {
 
   it('should be controlled by collapsed', () => {
     const wrapper = mount(<Sider>Sider</Sider>);
-    expect(wrapper.instance().state.collapsed).toBe(false);
+    expect(wrapper.find('InternalSider').instance().state.collapsed).toBe(false);
     wrapper.setProps({ collapsed: true });
-    expect(wrapper.instance().state.collapsed).toBe(true);
+    expect(wrapper.find('InternalSider').instance().state.collapsed).toBe(true);
+  });
+
+  it('should not add ant-layout-has-sider when `hasSider` is `false`', () => {
+    const wrapper = mount(
+      <Layout hasSider={false}>
+        <Sider>Sider</Sider>
+      </Layout>,
+    );
+    expect(wrapper.find('.ant-layout').hasClass('ant-layout-has-sider')).toBe(false);
+  });
+
+  it('render correct with Tooltip', () => {
+    jest.useFakeTimers();
+    const wrapper = mount(
+      <Sider collapsible collapsed={false}>
+        <Menu mode="inline">
+          <Menu.Item key="1">
+            <Icon type="user" />
+            <span>Light</span>
+          </Menu.Item>
+        </Menu>
+      </Sider>,
+    );
+
+    wrapper.find('.ant-menu-item').simulate('mouseenter');
+    jest.runAllTimers();
+    wrapper.update();
+    expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
+    wrapper.find('.ant-menu-item').simulate('mouseout');
+    jest.runAllTimers();
+    wrapper.update();
+
+    wrapper.setProps({ collapsed: true });
+    wrapper.find('.ant-menu-item').simulate('mouseenter');
+    jest.runAllTimers();
+    wrapper.update();
+    expect(wrapper.find('.ant-tooltip-inner').length).toBeTruthy();
+
+    jest.useRealTimers();
   });
 });
 
@@ -116,6 +157,6 @@ describe('Sider onBreakpoint', () => {
         Sider
       </Sider>,
     );
-    expect(onBreakpoint).toBeCalledWith(true);
+    expect(onBreakpoint).toHaveBeenCalledWith(true);
   });
 });

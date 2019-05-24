@@ -99,41 +99,30 @@ describe('RangePicker with showTime', () => {
       <RangePicker showTime open onChange={onChangeFn} onOpenChange={onOpenChangeFn} />,
     );
 
-    const calendarWrapper = mount(
-      wrapper
-        .find('Trigger')
-        .instance()
-        .getComponent(),
-    );
+    function findNode(selector) {
+      return wrapper.find('Trigger').find(selector);
+    }
+
     expect(
-      calendarWrapper
-        .find('.ant-calendar-time-picker-btn')
-        .hasClass('ant-calendar-time-picker-btn-disabled'),
+      findNode('.ant-calendar-time-picker-btn').hasClass('ant-calendar-time-picker-btn-disabled'),
     ).toBe(true);
-    expect(
-      calendarWrapper.find('.ant-calendar-ok-btn').hasClass('ant-calendar-ok-btn-disabled'),
-    ).toBe(true);
-    calendarWrapper
-      .find('.ant-calendar-date')
+    expect(findNode('.ant-calendar-ok-btn').hasClass('ant-calendar-ok-btn-disabled')).toBe(true);
+    findNode('.ant-calendar-date')
       .at(10)
       .simulate('click');
-    calendarWrapper
-      .find('.ant-calendar-date')
+    findNode('.ant-calendar-date')
       .at(11)
       .simulate('click');
+
     expect(
-      calendarWrapper
-        .find('.ant-calendar-time-picker-btn')
-        .hasClass('ant-calendar-time-picker-btn-disabled'),
+      findNode('.ant-calendar-time-picker-btn').hasClass('ant-calendar-time-picker-btn-disabled'),
     ).toBe(false);
-    expect(
-      calendarWrapper.find('.ant-calendar-ok-btn').hasClass('ant-calendar-ok-btn-disabled'),
-    ).toBe(false);
+    expect(findNode('.ant-calendar-ok-btn').hasClass('ant-calendar-ok-btn-disabled')).toBe(false);
     expect(onChangeFn).toHaveBeenCalled();
     expect(onOpenChangeFn).not.toHaveBeenCalled();
   });
 
-  it('hould trigger onOk when press ok button', () => {
+  it('should trigger onOk when press ok button', () => {
     const onOkFn = jest.fn();
     const onChangeFn = jest.fn();
     const onOpenChangeFn = jest.fn();
@@ -147,22 +136,18 @@ describe('RangePicker with showTime', () => {
       />,
     );
 
-    const calendarWrapper = mount(
-      wrapper
-        .find('Trigger')
-        .instance()
-        .getComponent(),
-    );
-    calendarWrapper
-      .find('.ant-calendar-date')
+    function findNode(selector) {
+      return wrapper.find('Trigger').find(selector);
+    }
+
+    findNode('.ant-calendar-date')
       .at(10)
       .simulate('click');
-    calendarWrapper
-      .find('.ant-calendar-date')
+    findNode('.ant-calendar-date')
       .at(11)
       .simulate('click');
     onChangeFn.mockClear();
-    calendarWrapper.find('.ant-calendar-ok-btn').simulate('click');
+    findNode('.ant-calendar-ok-btn').simulate('click');
     expect(onOkFn).toHaveBeenCalled();
     expect(onOpenChangeFn).toHaveBeenCalledWith(false);
     expect(onChangeFn).not.toHaveBeenCalled();

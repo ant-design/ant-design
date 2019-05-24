@@ -44,6 +44,7 @@ exports[`renders ./components/timeline/demo/alternate.md correctly 1`] = `
       class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-blue"
     >
       <i
+        aria-label="icon: clock-circle-o"
         class="anticon anticon-clock-circle-o"
         style="font-size:16px"
       >
@@ -52,6 +53,7 @@ exports[`renders ./components/timeline/demo/alternate.md correctly 1`] = `
           class=""
           data-icon="clock-circle"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -111,6 +113,7 @@ exports[`renders ./components/timeline/demo/alternate.md correctly 1`] = `
       class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-blue"
     >
       <i
+        aria-label="icon: clock-circle-o"
         class="anticon anticon-clock-circle-o"
         style="font-size:16px"
       >
@@ -119,6 +122,7 @@ exports[`renders ./components/timeline/demo/alternate.md correctly 1`] = `
           class=""
           data-icon="clock-circle"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -335,6 +339,7 @@ exports[`renders ./components/timeline/demo/custom.md correctly 1`] = `
       class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-red"
     >
       <i
+        aria-label="icon: clock-circle-o"
         class="anticon anticon-clock-circle-o"
         style="font-size:16px"
       >
@@ -343,6 +348,7 @@ exports[`renders ./components/timeline/demo/custom.md correctly 1`] = `
           class=""
           data-icon="clock-circle"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -440,6 +446,7 @@ exports[`renders ./components/timeline/demo/pending.md correctly 1`] = `
         class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-blue"
       >
         <i
+          aria-label="icon: loading"
           class="anticon anticon-loading"
         >
           <svg
@@ -447,6 +454,7 @@ exports[`renders ./components/timeline/demo/pending.md correctly 1`] = `
             class="anticon-spin"
             data-icon="loading"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="0 0 1024 1024"
             width="1em"
@@ -520,6 +528,7 @@ exports[`renders ./components/timeline/demo/right.md correctly 1`] = `
       class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-red"
     >
       <i
+        aria-label="icon: clock-circle-o"
         class="anticon anticon-clock-circle-o"
         style="font-size:16px"
       >
@@ -528,6 +537,7 @@ exports[`renders ./components/timeline/demo/right.md correctly 1`] = `
           class=""
           data-icon="clock-circle"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"

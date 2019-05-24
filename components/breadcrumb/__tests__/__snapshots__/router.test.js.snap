@@ -7,7 +7,6 @@ exports[`react router react router 3 1`] = `
       "id": 1,
     }
   }
-  prefixCls="ant-breadcrumb"
   routes={
     Array [
       Object {
@@ -81,7 +80,7 @@ exports[`react router react router 3 1`] = `
   >
     <BreadcrumbItem
       key="Home"
-      prefixCls="ant-breadcrumb"
+      overlay={null}
       separator="/"
     >
       <span>
@@ -103,7 +102,7 @@ exports[`react router react router 3 1`] = `
     </BreadcrumbItem>
     <BreadcrumbItem
       key="Application List"
-      prefixCls="ant-breadcrumb"
+      overlay={null}
       separator="/"
     >
       <span>
@@ -125,7 +124,7 @@ exports[`react router react router 3 1`] = `
     </BreadcrumbItem>
     <BreadcrumbItem
       key="Application:id"
-      prefixCls="ant-breadcrumb"
+      overlay={null}
       separator="/"
     >
       <span>
@@ -147,7 +146,7 @@ exports[`react router react router 3 1`] = `
     </BreadcrumbItem>
     <BreadcrumbItem
       key="Detail"
-      prefixCls="ant-breadcrumb"
+      overlay={null}
       separator="/"
     >
       <span>

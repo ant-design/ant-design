@@ -15,16 +15,16 @@ When there is a need for autocomplete functionality.
 
 ```jsx
 const dataSource = ['12345', '23456', '34567'];
-<AutoComplete dataSource={dataSource} />
+<AutoComplete dataSource={dataSource} />;
 ```
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | allowClear | Show clear button, effective in multiple mode only. | boolean | false |
 | autoFocus | get focus when component mounted | boolean | false |
 | backfill | backfill selected item the input when using keyboard | boolean | false |
 | children (for customize input element) | customize input element | HTMLInputElement / HTMLTextAreaElement / React.ReactElement<InputProps> | `<Input />` |
-| children (for dataSource) | Data source for autocomplet | React.ReactElement<OptionProps> /  Array&lt;React.ReactElement<OptionProps>> | - |
+| children (for dataSource) | Data source for autocomplet | React.ReactElement<OptionProps> / Array&lt;React.ReactElement<OptionProps>> | - |
 | dataSource | Data source for autocomplete | [DataSourceItemType](https://git.io/vMMKF)\[] |  |
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |
 | defaultValue | Initial selected option. | string\|string\[]\| - |
@@ -44,7 +44,7 @@ const dataSource = ['12345', '23456', '34567'];
 
 ## Methods
 
-| Name | Description |
-| ---- | ----------- |
-| blur() | remove focus |
-| focus() | get focus |
+| Name    | Description  |
+| ------- | ------------ |
+| blur()  | remove focus |
+| focus() | get focus    |

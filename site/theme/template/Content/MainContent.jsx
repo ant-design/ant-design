@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
-import { Row, Col, Menu, Icon } from 'antd';
+import { Row, Col, Menu, Icon, Affix } from 'antd';
 import classNames from 'classnames';
+import get from 'lodash/get';
 import MobileMenu from 'rc-drawer';
 import Article from './Article';
+import PrevAndNext from './PrevAndNext';
+import Footer from '../Layout/Footer';
 import ComponentDoc from './ComponentDoc';
 import * as utils from '../utils';
 
@@ -53,7 +56,7 @@ const getSideBarOpenKeys = nextProps => {
   return shouldOpenKeys;
 };
 
-export default class MainContent extends React.PureComponent {
+export default class MainContent extends Component {
   static contextTypes = {
     intl: PropTypes.object.isRequired,
     isMobile: PropTypes.bool.isRequired,
@@ -65,36 +68,38 @@ export default class MainContent extends React.PureComponent {
 
   componentDidMount() {
     this.componentDidUpdate();
+    window.addEventListener('load', this.handleInitialHashOnLoad);
   }
 
   static getDerivedStateFromProps(props, state) {
-    return {
-      ...state,
-      openKeys: getSideBarOpenKeys(props),
-    };
+    if (!state.openKeys) {
+      return {
+        ...state,
+        openKeys: getSideBarOpenKeys(props),
+      };
+    }
+    return null;
   }
 
   componentDidUpdate(prevProps) {
     const { location } = this.props;
-    if (!prevProps || prevProps.location.pathname !== location.pathname) {
+    const { location: prevLocation = {} } = prevProps || {};
+    if (!prevProps || prevLocation.pathname !== location.pathname) {
       this.bindScroller();
     }
-    if (!window.location.hash && prevProps && prevProps.location.pathname !== location.pathname) {
-      document.documentElement.scrollTop = 0;
+    if (!window.location.hash && prevLocation.pathname !== location.pathname) {
+      window.scrollTo(0, 0);
     }
-    setTimeout(() => {
-      if (
-        window.location.hash &&
-        document.querySelector(decodeURIComponent(window.location.hash)) &&
-        document.documentElement.scrollTop === 0
-      ) {
-        document.querySelector(decodeURIComponent(window.location.hash)).scrollIntoView();
-      }
-    }, 0);
+    // when subMenu not equal
+    if (get(this.props, 'route.path') !== get(prevProps, 'route.path')) {
+      // reset menu OpenKeys
+      this.handleMenuOpenChange();
+    }
   }
 
   componentWillUnmount() {
-    this.scroller.disable();
+    this.scroller.destroy();
+    window.removeEventListener('load', this.handleInitialHashOnLoad);
   }
 
   getMenuItems(footerNavIcons = {}) {
@@ -149,9 +154,23 @@ export default class MainContent extends React.PureComponent {
     this.setState({ openKeys });
   };
 
+  handleInitialHashOnLoad = () => {
+    setTimeout(() => {
+      if (!window.location.hash) {
+        return;
+      }
+      const element = document.getElementById(
+        decodeURIComponent(window.location.hash.replace('#', '')),
+      );
+      if (element && document.documentElement.scrollTop === 0) {
+        element.scrollIntoView();
+      }
+    }, 0);
+  };
+
   bindScroller() {
     if (this.scroller) {
-      this.scroller.disable();
+      this.scroller.destroy();
     }
     require('intersection-observer'); // eslint-disable-line
     const scrollama = require('scrollama'); // eslint-disable-line
@@ -277,39 +296,21 @@ export default class MainContent extends React.PureComponent {
             </MobileMenu>
           ) : (
             <Col xxl={4} xl={5} lg={6} md={24} sm={24} xs={24} className="main-menu">
-              {menuChild}
+              <Affix>
+                <section className="main-menu-inner">{menuChild}</section>
+              </Affix>
             </Col>
           )}
-          <Col xxl={20} xl={19} lg={18} md={24} sm={24} xs={24} className={mainContainerClass}>
-            {props.demos ? (
-              <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} />
-            ) : (
-              <Article {...props} content={localizedPageData} />
-            )}
-          </Col>
-        </Row>
-
-        <Row>
-          <Col
-            xxl={{ span: 20, offset: 4 }}
-            xl={{ span: 19, offset: 5 }}
-            lg={{ span: 18, offset: 6 }}
-            md={24}
-            sm={24}
-            xs={24}
-          >
-            <section className="prev-next-nav">
-              {prev
-                ? React.cloneElement(prev.props.children || prev.children[0], {
-                    className: 'prev-page',
-                  })
-                : null}
-              {next
-                ? React.cloneElement(next.props.children || next.children[0], {
-                    className: 'next-page',
-                  })
-                : null}
+          <Col xxl={20} xl={19} lg={18} md={24} sm={24} xs={24}>
+            <section className={mainContainerClass}>
+              {props.demos ? (
+                <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} />
+              ) : (
+                <Article {...props} content={localizedPageData} />
+              )}
             </section>
+            <PrevAndNext prev={prev} next={next} />
+            <Footer />
           </Col>
         </Row>
       </div>

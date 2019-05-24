@@ -7,7 +7,7 @@ import KeyCode from 'rc-util/lib/KeyCode';
 import { polyfill } from 'react-lifecycles-compat';
 import Input from '../input';
 import Icon from '../icon';
-import { ConfigConsumer, ConfigProviderProps } from '../config-provider';
+import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import warning from '../_util/warning';
 
@@ -89,7 +89,7 @@ export interface CascaderProps {
   onPopupVisibleChange?: (popupVisible: boolean) => void;
   prefixCls?: string;
   inputPrefixCls?: string;
-  getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
+  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   popupVisible?: boolean;
   /** use this after antd@3.7.0 */
   fieldNames?: FieldNamesType;
@@ -188,7 +188,7 @@ function flattenTree(
   ancestor: CascaderOptionType[] = [],
 ) {
   const names: FilledFieldNamesType = getFilledFieldNames(props);
-  let flattenOptions = [] as CascaderOptionType[][];
+  let flattenOptions: CascaderOptionType[][] = [];
   const childrenName = names.children;
   options.forEach(option => {
     const path = ancestor.concat(option);
@@ -206,14 +206,12 @@ const defaultDisplayRender = (label: string[]) => label.join(' / ');
 
 class Cascader extends React.Component<CascaderProps, CascaderState> {
   static defaultProps = {
-    prefixCls: 'ant-cascader',
-    inputPrefixCls: 'ant-input',
+    placeholder: 'Please select',
     transitionName: 'slide-up',
     popupPlacement: 'bottomLeft',
     options: [],
     disabled: false,
     allowClear: true,
-    notFoundContent: 'Not Found',
   };
 
   static getDerivedStateFromProps(nextProps: CascaderProps, { prevProps }: CascaderState) {
@@ -234,7 +232,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     return newState;
   }
 
-  cachedOptions: CascaderOptionType[];
+  cachedOptions: CascaderOptionType[] = [];
 
   private input: Input;
 
@@ -339,7 +337,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     }
   };
 
-  generateFilteredOptions(prefixCls: string | undefined) {
+  generateFilteredOptions(prefixCls: string | undefined, renderEmpty: RenderEmptyHandler) {
     const { showSearch, notFoundContent } = this.props;
     const names: FilledFieldNamesType = getFilledFieldNames(this.props);
     const {
@@ -368,7 +366,8 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     } else {
       warning(
         typeof limit !== 'number',
-        "'limit' of showSearch in Cascader should be positive number or false.",
+        'Cascader',
+        "'limit' of showSearch should be positive number or false.",
       );
       filtered = flattenOptions.filter(path => filter(this.state.inputValue, path, names));
     }
@@ -387,7 +386,11 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       });
     }
     return [
-      { [names.label]: notFoundContent, [names.value]: 'ANT_CASCADER_NOT_FOUND', disabled: true },
+      {
+        [names.label]: notFoundContent || renderEmpty('Cascader'),
+        [names.value]: 'ANT_CASCADER_NOT_FOUND',
+        disabled: true,
+      },
     ];
   }
 
@@ -404,13 +407,13 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
   };
 
   renderCascader = (
-    { getPopupContainer: getContextPopupContainer }: ConfigProviderProps,
+    { getPopupContainer: getContextPopupContainer, getPrefixCls, renderEmpty }: ConfigConsumerProps,
     locale: CascaderLocale,
   ) => {
     const { props, state } = this;
     const {
-      prefixCls,
-      inputPrefixCls,
+      prefixCls: customizePrefixCls,
+      inputPrefixCls: customizeInputPrefixCls,
       children,
       placeholder = locale.placeholder,
       size,
@@ -424,6 +427,9 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     } = props;
 
     const { value, inputFocused } = state;
+
+    const prefixCls = getPrefixCls('cascader', customizePrefixCls);
+    const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
 
     const sizeCls = classNames({
       [`${inputPrefixCls}-lg`]: size === 'large',
@@ -475,7 +481,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
 
     let options = props.options;
     if (state.inputValue) {
-      options = this.generateFilteredOptions(prefixCls);
+      options = this.generateFilteredOptions(prefixCls, renderEmpty);
     }
     // Dropdown menu should keep previous status until it is fully closed.
     if (!state.popupVisible) {
@@ -514,6 +520,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
         <span className={`${prefixCls}-picker-label`}>{this.getLabel()}</span>
         <Input
           {...inputProps}
+          tabIndex="-1"
           ref={this.saveInput}
           prefixCls={inputPrefixCls}
           placeholder={value && value.length > 0 ? undefined : placeholder}
@@ -546,6 +553,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     return (
       <RcCascader
         {...rest}
+        prefixCls={prefixCls}
         getPopupContainer={getPopupContainer}
         options={options}
         value={value}
@@ -564,7 +572,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
   render() {
     return (
       <ConfigConsumer>
-        {(configArgument: ConfigProviderProps) => (
+        {(configArgument: ConfigConsumerProps) => (
           <LocaleReceiver>{locale => this.renderCascader(configArgument, locale)}</LocaleReceiver>
         )}
       </ConfigConsumer>

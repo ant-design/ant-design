@@ -1,35 +1,46 @@
 import * as React from 'react';
+import classNames from 'classnames';
 import Button from '../button';
 import { ButtonHTMLType } from '../button/button';
 import { ButtonGroupProps } from '../button/button-group';
-import { ConfigConsumer, ConfigProviderProps } from '../config-provider';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Dropdown, { DropDownProps } from './dropdown';
-import classNames from 'classnames';
+import Icon from '../icon';
+
 const ButtonGroup = Button.Group;
 
+type DropdownButtonType = 'primary' | 'ghost' | 'dashed';
+
 export interface DropdownButtonProps extends ButtonGroupProps, DropDownProps {
-  type?: 'primary' | 'ghost' | 'dashed';
+  type?: DropdownButtonType;
   htmlType?: ButtonHTMLType;
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  /**
+   * @since 3.17.0
+   */
+  icon?: React.ReactNode;
+  href?: string;
   children?: any;
 }
 
 export default class DropdownButton extends React.Component<DropdownButtonProps, any> {
   static defaultProps = {
-    placement: 'bottomRight',
-    type: 'default',
-    prefixCls: 'ant-dropdown-button',
+    placement: 'bottomRight' as DropDownProps['placement'],
+    type: 'default' as DropdownButtonType,
   };
 
-  renderButton = ({ getPopupContainer: getContextPopupContainer }: ConfigProviderProps) => {
+  renderButton = ({
+    getPopupContainer: getContextPopupContainer,
+    getPrefixCls,
+  }: ConfigConsumerProps) => {
     const {
+      prefixCls: customizePrefixCls,
       type,
       disabled,
       onClick,
       htmlType,
       children,
-      prefixCls,
       className,
       overlay,
       trigger,
@@ -38,9 +49,12 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
       onVisibleChange,
       placement,
       getPopupContainer,
+      href,
+      icon = <Icon type="ellipsis" />,
       ...restProps
     } = this.props;
 
+    const prefixCls = getPrefixCls('dropdown-button', customizePrefixCls);
     const dropdownProps = {
       align,
       overlay,
@@ -56,11 +70,11 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
 
     return (
       <ButtonGroup {...restProps} className={classNames(prefixCls, className)}>
-        <Button type={type} disabled={disabled} onClick={onClick} htmlType={htmlType}>
+        <Button type={type} disabled={disabled} onClick={onClick} htmlType={htmlType} href={href}>
           {children}
         </Button>
         <Dropdown {...dropdownProps}>
-          <Button type={type} icon="ellipsis" />
+          <Button type={type}>{icon}</Button>
         </Dropdown>
       </ButtonGroup>
     );

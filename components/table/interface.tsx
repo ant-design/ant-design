@@ -6,26 +6,35 @@ import { CheckboxChangeEvent } from '../checkbox';
 import { PaginationConfig } from '../pagination';
 export { PaginationConfig } from '../pagination';
 
-export type CompareFn<T> = ((a: T, b: T, sortOrder?: SortOrder) => number);
-export type ColumnFilterItem = { text: string; value: string; children?: ColumnFilterItem[] };
+export type CompareFn<T> = (a: T, b: T, sortOrder?: SortOrder) => number;
+export type ColumnFilterItem = {
+  text: React.ReactNode;
+  value: string;
+  children?: ColumnFilterItem[];
+};
+
+export interface FilterDropdownProps {
+  prefixCls?: string;
+  setSelectedKeys?: (selectedKeys: string[]) => void;
+  selectedKeys?: string[];
+  confirm?: () => void;
+  clearFilters?: (selectedKeys: string[]) => void;
+  filters?: ColumnFilterItem[];
+  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
+}
 
 export interface ColumnProps<T> {
   title?:
     | React.ReactNode
-    | ((
-        options: {
-          filters: TableStateFilters;
-          sortOrder?: SortOrder;
-        },
-      ) => React.ReactNode);
+    | ((options: { filters: TableStateFilters; sortOrder?: SortOrder }) => React.ReactNode);
   key?: React.Key;
-  dataIndex?: keyof T;
+  dataIndex?: string; // Note: We can not use generic type here, since we need to support nested key, see #9393
   render?: (text: any, record: T, index: number) => React.ReactNode;
   align?: 'left' | 'right' | 'center';
   filters?: ColumnFilterItem[];
   onFilter?: (value: any, record: T) => boolean;
   filterMultiple?: boolean;
-  filterDropdown?: React.ReactNode | ((props: Object) => React.ReactNode);
+  filterDropdown?: React.ReactNode | ((props: FilterDropdownProps) => React.ReactNode);
   filterDropdownVisible?: boolean;
   onFilterDropdownVisibleChange?: (visible: boolean) => void;
   sorter?: boolean | CompareFn<T>;
@@ -36,11 +45,12 @@ export interface ColumnProps<T> {
   fixed?: boolean | ('left' | 'right');
   filterIcon?: React.ReactNode | ((filtered: boolean) => React.ReactNode);
   filteredValue?: any[];
-  sortOrder?: SortOrder;
+  sortOrder?: SortOrder | boolean;
   children?: ColumnProps<T>[];
   onCellClick?: (record: T, event: any) => void;
   onCell?: (record: T, rowIndex: number) => any;
   onHeaderCell?: (props: ColumnProps<T>) => any;
+  sortDirections?: SortOrder[];
 }
 
 export interface AdditionalCellProps {
@@ -114,6 +124,11 @@ export interface ExpandIconProps<T> {
   expandable: boolean;
   onExpand: (record: T, event: MouseEvent) => void;
 }
+
+export interface TableCurrentDataSource<T> {
+  currentDataSource: T[];
+}
+
 export interface TableProps<T> {
   prefixCls?: string;
   dropdownPrefixCls?: string;
@@ -144,9 +159,10 @@ export interface TableProps<T> {
     pagination: PaginationConfig,
     filters: Record<keyof T, string[]>,
     sorter: SorterResult<T>,
+    extra: TableCurrentDataSource<T>,
   ) => void;
   loading?: boolean | SpinProps;
-  locale?: Object;
+  locale?: TableLocale;
   indentSize?: number;
   onRowClick?: (record: T, index: number, event: Event) => void;
   onRow?: (record: T, index: number) => any;
@@ -162,6 +178,7 @@ export interface TableProps<T> {
   className?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
+  sortDirections?: SortOrder[];
 }
 
 export interface TableStateFilters {
@@ -177,6 +194,7 @@ export interface TableState<T> {
 }
 
 export type SelectionItemSelectFn = (key: string[]) => any;
+type GetPopupContainer = (triggerNode?: HTMLElement) => HTMLElement;
 
 export interface SelectionItem {
   key: string;
@@ -195,7 +213,7 @@ export interface SelectionCheckboxAllProps<T> {
   onSelect: (key: string, index: number, selectFunc: any) => void;
   hideDefaultSelections?: boolean;
   selections?: SelectionItem[] | boolean;
-  getPopupContainer: (triggerNode?: Element) => HTMLElement;
+  getPopupContainer?: GetPopupContainer;
 }
 
 export interface SelectionCheckboxAllState {
@@ -232,13 +250,15 @@ export interface FilterMenuProps<T> {
   confirmFilter: (column: ColumnProps<T>, selectedKeys: string[]) => any;
   prefixCls: string;
   dropdownPrefixCls: string;
-  getPopupContainer: (triggerNode?: Element) => HTMLElement;
+  getPopupContainer?: GetPopupContainer;
 }
 
-export interface FilterMenuState {
+export interface FilterMenuState<T> {
   selectedKeys: string[];
+  valueKeys: { [name: string]: any };
   keyPathOfSelectedItem: { [key: string]: string };
   visible?: boolean;
+  prevProps: FilterMenuProps<T>;
 }
 
 export type PrepareParamsArgumentsReturn<T> = [

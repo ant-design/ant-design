@@ -6,9 +6,12 @@ import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import Icon from '../icon';
+
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 import interopDefault from '../_util/interopDefault';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
+import { formatDate } from './utils';
 
 export interface PickerProps {
   value?: moment.Moment;
@@ -25,14 +28,13 @@ export interface PickerState {
 export default function createPicker(TheCalendar: React.ComponentClass): any {
   class CalenderWrapper extends React.Component<any, PickerState> {
     static defaultProps = {
-      prefixCls: 'ant-calendar',
       allowClear: true,
       showToday: true,
     };
 
     static getDerivedStateFromProps(nextProps: PickerProps, prevState: PickerState) {
       const state: Partial<PickerState> = {};
-      let open: boolean = prevState.open;
+      let { open } = prevState;
 
       if ('open' in nextProps) {
         state.open = nextProps.open;
@@ -52,6 +54,8 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
 
     private input: any;
 
+    private prefixCls?: string;
+
     constructor(props: any) {
       super(props);
       const value = props.value || props.defaultValue;
@@ -68,8 +72,15 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
       };
     }
 
+    componentDidUpdate(_: PickerProps, prevState: PickerState) {
+      if (!('open' in this.props) && prevState.open && !this.state.open) {
+        this.focus();
+      }
+    }
+
     renderFooter = (...args: any[]) => {
-      const { prefixCls, renderExtraFooter } = this.props;
+      const { renderExtraFooter } = this.props;
+      const { prefixCls } = this;
       return renderExtraFooter ? (
         <div className={`${prefixCls}-footer-extra`}>{renderExtraFooter(...args)}</div>
       ) : null;
@@ -82,14 +93,14 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
     };
 
     handleChange = (value: moment.Moment | null) => {
-      const props = this.props;
+      const { props } = this;
       if (!('value' in props)) {
         this.setState({
           value,
           showDate: value,
         });
       }
-      props.onChange(value, (value && value.format(props.format)) || '');
+      props.onChange(value, formatDate(value, props.format));
     };
 
     handleCalendarChange = (value: moment.Moment) => {
@@ -105,10 +116,6 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
       if (onOpenChange) {
         onOpenChange(open);
       }
-
-      if (!open) {
-        this.focus();
-      }
     };
 
     focus() {
@@ -123,10 +130,16 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
       this.input = node;
     };
 
-    render() {
+    renderPicker = ({ getPrefixCls }: ConfigConsumerProps) => {
       const { value, showDate, open } = this.state;
       const props = omit(this.props, ['onChange']);
-      const { prefixCls, locale, localeCode, suffixIcon } = props;
+      const { prefixCls: customizePrefixCls, locale, localeCode, suffixIcon } = props;
+
+      const prefixCls = getPrefixCls('calendar', customizePrefixCls);
+      // To support old version react.
+      // Have to add prefixCls on the instance.
+      // https://github.com/facebook/react/issues/12397
+      this.prefixCls = prefixCls;
 
       const placeholder = 'placeholder' in props ? props.placeholder : locale.lang.placeholder;
 
@@ -143,13 +156,13 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
 
       let pickerProps: Object = {};
       let calendarProps: any = {};
-      const pickerStyle: { width?: number } = {};
+      const pickerStyle: { minWidth?: number } = {};
       if (props.showTime) {
         calendarProps = {
           // fix https://github.com/ant-design/ant-design/issues/1902
           onSelect: this.handleChange,
         };
-        pickerStyle.width = 195;
+        pickerStyle.minWidth = 195;
       } else {
         pickerProps = {
           onChange: this.handleChange,
@@ -161,6 +174,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
 
       warning(
         !('onOK' in props),
+        'DatePicker',
         'It should be `DatePicker[onOk]` or `MonthPicker[onOk]`, instead of `onOK`!',
       );
       const calendar = (
@@ -215,10 +229,11 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
             ref={this.saveInput}
             disabled={props.disabled}
             readOnly
-            value={(inputValue && inputValue.format(props.format)) || ''}
+            value={formatDate(inputValue, props.format)}
             placeholder={placeholder}
             className={props.pickerInputClass}
             tabIndex={props.tabIndex}
+            name={props.name}
             {...dataOrAriaProps}
           />
           {clearIcon}
@@ -250,6 +265,10 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
           </RcDatePicker>
         </span>
       );
+    };
+
+    render() {
+      return <ConfigConsumer>{this.renderPicker}</ConfigConsumer>;
     }
   }
   polyfill(CalenderWrapper);

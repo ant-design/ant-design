@@ -7,13 +7,13 @@ title:
 
 ## zh-CN
 
-多选，从已有条目中选择（scroll the menu）
+多选，从已有条目中选择。
 
 ## en-US
 
-Multiple selection, selecting from existing items (scroll the menu).
+Multiple selection, selecting from existing items.
 
-````jsx
+```jsx
 import { Select } from 'antd';
 
 const Option = Select.Option;
@@ -37,6 +37,6 @@ ReactDOM.render(
   >
     {children}
   </Select>,
-  mountNode
+  mountNode,
 );
-````
+```

@@ -14,6 +14,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
       class="ant-tree-switcher ant-tree-switcher_open"
     >
       <i
+        aria-label="icon: caret-down"
         class="anticon anticon-caret-down ant-tree-switcher-icon"
       >
         <svg
@@ -21,6 +22,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
           class=""
           data-icon="caret-down"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="0 0 1024 1024"
           width="1em"
@@ -61,6 +63,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
           class="ant-tree-switcher ant-tree-switcher_open"
         >
           <i
+            aria-label="icon: caret-down"
             class="anticon anticon-caret-down ant-tree-switcher-icon"
           >
             <svg
@@ -68,6 +71,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
               class=""
               data-icon="caret-down"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="0 0 1024 1024"
               width="1em"
@@ -160,6 +164,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
           class="ant-tree-switcher ant-tree-switcher_open"
         >
           <i
+            aria-label="icon: caret-down"
             class="anticon anticon-caret-down ant-tree-switcher-icon"
           >
             <svg
@@ -167,6 +172,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
               class=""
               data-icon="caret-down"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="0 0 1024 1024"
               width="1em"
@@ -249,6 +255,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
       class="ant-tree-switcher ant-tree-switcher_open"
     >
       <i
+        aria-label="icon: caret-down"
         class="anticon anticon-caret-down ant-tree-switcher-icon"
       >
         <svg
@@ -256,6 +263,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
           class=""
           data-icon="caret-down"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="0 0 1024 1024"
           width="1em"
@@ -296,6 +304,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
           class="ant-tree-switcher ant-tree-switcher_open"
         >
           <i
+            aria-label="icon: caret-down"
             class="anticon anticon-caret-down ant-tree-switcher-icon"
           >
             <svg
@@ -303,6 +312,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
               class=""
               data-icon="caret-down"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="0 0 1024 1024"
               width="1em"
@@ -420,6 +430,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
           class="ant-tree-switcher ant-tree-switcher_open"
         >
           <i
+            aria-label="icon: caret-down"
             class="anticon anticon-caret-down ant-tree-switcher-icon"
           >
             <svg
@@ -427,6 +438,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
               class=""
               data-icon="caret-down"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="0 0 1024 1024"
               width="1em"
@@ -571,6 +583,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
       class="ant-tree-switcher ant-tree-switcher_close"
     >
       <i
+        aria-label="icon: caret-down"
         class="anticon anticon-caret-down ant-tree-switcher-icon"
       >
         <svg
@@ -578,6 +591,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
           class=""
           data-icon="caret-down"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="0 0 1024 1024"
           width="1em"
@@ -648,19 +662,21 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
       class="ant-tree-switcher ant-tree-switcher_open"
     >
       <i
-        class="anticon anticon-caret-down ant-tree-switcher-icon"
+        aria-label="icon: down"
+        class="anticon anticon-down ant-tree-switcher-icon"
       >
         <svg
           aria-hidden="true"
           class=""
-          data-icon="caret-down"
+          data-icon="down"
           fill="currentColor"
+          focusable="false"
           height="1em"
-          viewBox="0 0 1024 1024"
+          viewBox="64 64 896 896"
           width="1em"
         >
           <path
-            d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
           />
         </svg>
       </i>
@@ -673,6 +689,7 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
         class="ant-tree-iconEle ant-tree-icon__customize"
       >
         <i
+          aria-label="icon: smile-o"
           class="anticon anticon-smile-o"
         >
           <svg
@@ -680,6 +697,7 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
             class=""
             data-icon="smile"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -716,6 +734,7 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
             <i
+              aria-label="icon: meh-o"
               class="anticon anticon-meh-o"
             >
               <svg
@@ -723,6 +742,7 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
                 class=""
                 data-icon="meh"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -755,6 +775,7 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
             <i
+              aria-label="icon: frown-o"
               class="anticon anticon-frown-o"
             >
               <svg
@@ -762,6 +783,7 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
                 class=""
                 data-icon="frown"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -798,6 +820,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
       class="ant-tree-switcher ant-tree-switcher_open"
     >
       <i
+        aria-label="icon: caret-down"
         class="anticon anticon-caret-down ant-tree-switcher-icon"
       >
         <svg
@@ -805,6 +828,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
           class=""
           data-icon="caret-down"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="0 0 1024 1024"
           width="1em"
@@ -823,6 +847,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
         class="ant-tree-iconEle ant-tree-icon__customize"
       >
         <i
+          aria-label="icon: folder-open"
           class="anticon anticon-folder-open"
         >
           <svg
@@ -830,6 +855,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
             class=""
             data-icon="folder-open"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -866,6 +892,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
             <i
+              aria-label="icon: file"
               class="anticon anticon-file"
             >
               <svg
@@ -873,6 +900,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
                 class=""
                 data-icon="file"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -905,6 +933,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
             <i
+              aria-label="icon: file"
               class="anticon anticon-file"
             >
               <svg
@@ -912,6 +941,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
                 class=""
                 data-icon="file"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -939,6 +969,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
       class="ant-tree-switcher ant-tree-switcher_open"
     >
       <i
+        aria-label="icon: caret-down"
         class="anticon anticon-caret-down ant-tree-switcher-icon"
       >
         <svg
@@ -946,6 +977,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
           class=""
           data-icon="caret-down"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="0 0 1024 1024"
           width="1em"
@@ -964,6 +996,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
         class="ant-tree-iconEle ant-tree-icon__customize"
       >
         <i
+          aria-label="icon: folder-open"
           class="anticon anticon-folder-open"
         >
           <svg
@@ -971,6 +1004,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
             class=""
             data-icon="folder-open"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -1007,6 +1041,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
             <i
+              aria-label="icon: file"
               class="anticon anticon-file"
             >
               <svg
@@ -1014,6 +1049,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
                 class=""
                 data-icon="file"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -1046,6 +1082,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
             <i
+              aria-label="icon: file"
               class="anticon anticon-file"
             >
               <svg
@@ -1053,6 +1090,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
                 class=""
                 data-icon="file"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -1077,7 +1115,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
 
 exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
 <ul
-  class="ant-tree ant-tree-icon-hide draggable-tree"
+  class="ant-tree draggable-tree ant-tree-icon-hide ant-tree-block-node"
   role="tree"
   unselectable="on"
 >
@@ -1089,6 +1127,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
       class="ant-tree-switcher ant-tree-switcher_open"
     >
       <i
+        aria-label="icon: caret-down"
         class="anticon anticon-caret-down ant-tree-switcher-icon"
       >
         <svg
@@ -1096,6 +1135,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
           class=""
           data-icon="caret-down"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="0 0 1024 1024"
           width="1em"
@@ -1131,6 +1171,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
           class="ant-tree-switcher ant-tree-switcher_open"
         >
           <i
+            aria-label="icon: caret-down"
             class="anticon anticon-caret-down ant-tree-switcher-icon"
           >
             <svg
@@ -1138,6 +1179,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
               class=""
               data-icon="caret-down"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="0 0 1024 1024"
               width="1em"
@@ -1235,6 +1277,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
           class="ant-tree-switcher ant-tree-switcher_close"
         >
           <i
+            aria-label="icon: caret-down"
             class="anticon anticon-caret-down ant-tree-switcher-icon"
           >
             <svg
@@ -1242,6 +1285,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
               class=""
               data-icon="caret-down"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="0 0 1024 1024"
               width="1em"
@@ -1295,6 +1339,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
       class="ant-tree-switcher ant-tree-switcher_close"
     >
       <i
+        aria-label="icon: caret-down"
         class="anticon anticon-caret-down ant-tree-switcher-icon"
       >
         <svg
@@ -1302,6 +1347,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
           class=""
           data-icon="caret-down"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="0 0 1024 1024"
           width="1em"
@@ -1362,6 +1408,7 @@ exports[`renders ./components/tree/demo/dynamic.md correctly 1`] = `
       class="ant-tree-switcher ant-tree-switcher_close"
     >
       <i
+        aria-label="icon: caret-down"
         class="anticon anticon-caret-down ant-tree-switcher-icon"
       >
         <svg
@@ -1369,6 +1416,7 @@ exports[`renders ./components/tree/demo/dynamic.md correctly 1`] = `
           class=""
           data-icon="caret-down"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="0 0 1024 1024"
           width="1em"
@@ -1398,6 +1446,7 @@ exports[`renders ./components/tree/demo/dynamic.md correctly 1`] = `
       class="ant-tree-switcher ant-tree-switcher_close"
     >
       <i
+        aria-label="icon: caret-down"
         class="anticon anticon-caret-down ant-tree-switcher-icon"
       >
         <svg
@@ -1405,6 +1454,7 @@ exports[`renders ./components/tree/demo/dynamic.md correctly 1`] = `
           class=""
           data-icon="caret-down"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="0 0 1024 1024"
           width="1em"
@@ -1461,6 +1511,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
       class="ant-tree-switcher ant-tree-switcher_open"
     >
       <i
+        aria-label="icon: minus-square"
         class="anticon anticon-minus-square ant-tree-switcher-line-icon"
       >
         <svg
@@ -1468,6 +1519,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
           class=""
           data-icon="minus-square"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -1504,6 +1556,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
           class="ant-tree-switcher ant-tree-switcher_open"
         >
           <i
+            aria-label="icon: minus-square"
             class="anticon anticon-minus-square ant-tree-switcher-line-icon"
           >
             <svg
@@ -1511,6 +1564,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
               class=""
               data-icon="minus-square"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -1547,6 +1601,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
               class="ant-tree-switcher ant-tree-switcher-noop"
             >
               <i
+                aria-label="icon: file"
                 class="anticon anticon-file ant-tree-switcher-line-icon"
               >
                 <svg
@@ -1554,6 +1609,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
                   class=""
                   data-icon="file"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -1583,6 +1639,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
               class="ant-tree-switcher ant-tree-switcher-noop"
             >
               <i
+                aria-label="icon: file"
                 class="anticon anticon-file ant-tree-switcher-line-icon"
               >
                 <svg
@@ -1590,6 +1647,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
                   class=""
                   data-icon="file"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -1619,6 +1677,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
               class="ant-tree-switcher ant-tree-switcher-noop"
             >
               <i
+                aria-label="icon: file"
                 class="anticon anticon-file ant-tree-switcher-line-icon"
               >
                 <svg
@@ -1626,6 +1685,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
                   class=""
                   data-icon="file"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -1657,6 +1717,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
           class="ant-tree-switcher ant-tree-switcher_close"
         >
           <i
+            aria-label="icon: plus-square"
             class="anticon anticon-plus-square ant-tree-switcher-line-icon"
           >
             <svg
@@ -1664,6 +1725,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
               class=""
               data-icon="plus-square"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -1696,6 +1758,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
           class="ant-tree-switcher ant-tree-switcher_close"
         >
           <i
+            aria-label="icon: plus-square"
             class="anticon anticon-plus-square ant-tree-switcher-line-icon"
           >
             <svg
@@ -1703,6 +1766,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
               class=""
               data-icon="plus-square"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -1742,18 +1806,22 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
       class="ant-input"
       placeholder="Search"
       type="text"
+      value=""
     />
     <span
       class="ant-input-suffix"
     >
       <i
+        aria-label="icon: search"
         class="anticon anticon-search ant-input-search-icon"
+        tabindex="-1"
       >
         <svg
           aria-hidden="true"
           class=""
           data-icon="search"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -1778,6 +1846,7 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
         class="ant-tree-switcher ant-tree-switcher_close"
       >
         <i
+          aria-label="icon: caret-down"
           class="anticon anticon-caret-down ant-tree-switcher-icon"
         >
           <svg
@@ -1785,6 +1854,7 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
             class=""
             data-icon="caret-down"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="0 0 1024 1024"
             width="1em"
@@ -1819,6 +1889,7 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
         class="ant-tree-switcher ant-tree-switcher_close"
       >
         <i
+          aria-label="icon: caret-down"
           class="anticon anticon-caret-down ant-tree-switcher-icon"
         >
           <svg
@@ -1826,6 +1897,7 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
             class=""
             data-icon="caret-down"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="0 0 1024 1024"
             width="1em"

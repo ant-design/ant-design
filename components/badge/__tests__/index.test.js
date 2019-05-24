@@ -17,6 +17,13 @@ describe('Badge', () => {
     expect(badge.find('.ant-card-multiple-words').length).toBe(0);
   });
 
+  it('badge should support float number', () => {
+    let wrapper = render(<Badge count={3.5} />);
+    expect(wrapper).toMatchSnapshot();
+    wrapper = mount(<Badge count="3.5" />);
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('badge dot not showing count == 0', () => {
     const badge = mount(<Badge count={0} dot />);
     expect(badge.find('.ant-badge-dot').length).toBe(0);
@@ -79,6 +86,23 @@ describe('Badge', () => {
       <Badge count={<span className="custom" style={{ color: '#f5222d' }} />} offset={[10, 20]}>
         <a href="#" className="head-example" />
       </Badge>,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/15349
+  it('should color style  works on Badge', () => {
+    const wrapper = mount(<Badge style={{ color: 'red' }} status="success" text="Success" />);
+    expect(wrapper.find('.ant-badge-status-text').props().style.color).toBe('red');
+  });
+
+  // https://github.com/ant-design/ant-design/issues/15799
+  it('render correct with negative number', () => {
+    const wrapper = render(
+      <div>
+        <Badge count="-10" />
+        <Badge count={-10} />
+      </div>,
     );
     expect(wrapper).toMatchSnapshot();
   });

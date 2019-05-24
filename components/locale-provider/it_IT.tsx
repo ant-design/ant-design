@@ -9,11 +9,13 @@ export default {
   DatePicker,
   TimePicker,
   Calendar,
+  global: {
+    placeholder: 'Selezionare',
+  },
   Table: {
     filterTitle: 'Menù Filtro',
     filterConfirm: 'OK',
     filterReset: 'Reset',
-    emptyText: 'Nessun dato',
     selectAll: 'Seleziona pagina corrente',
     selectInvert: 'Inverti selezione nella pagina corrente',
     sortTitle: 'Ordina',
@@ -28,18 +30,26 @@ export default {
     cancelText: 'Annulla',
   },
   Transfer: {
-    notFoundContent: 'Non trovato',
     searchPlaceholder: 'Cerca qui',
-    itemUnit: 'articolo',
+    itemUnit: 'elemento',
     itemsUnit: 'elementi',
-  },
-  Select: {
-    notFoundContent: 'Non trovato',
   },
   Upload: {
     uploading: 'Caricamento...',
     removeFile: 'Rimuovi il file',
     uploadError: 'Errore di caricamento',
     previewFile: 'Anteprima file',
+  },
+  Empty: {
+    description: 'Nessun dato',
+  },
+  Icon: {
+    icon: 'icona',
+  },
+  Text: {
+    edit: 'modifica',
+    copy: 'copia',
+    copied: 'copia effettuata',
+    expand: 'espandi',
   },
 };

@@ -17,7 +17,7 @@ exports[`Card should still have padding when card which set padding to 0 is load
         style="margin-left: -4px; margin-right: -4px;"
       >
         <div
-          class="ant-col-22"
+          class="ant-col ant-col-22"
           style="padding-left: 4px; padding-right: 4px;"
         >
           <div
@@ -30,7 +30,7 @@ exports[`Card should still have padding when card which set padding to 0 is load
         style="margin-left: -4px; margin-right: -4px;"
       >
         <div
-          class="ant-col-8"
+          class="ant-col ant-col-8"
           style="padding-left: 4px; padding-right: 4px;"
         >
           <div
@@ -38,28 +38,7 @@ exports[`Card should still have padding when card which set padding to 0 is load
           />
         </div>
         <div
-          class="ant-col-15"
-          style="padding-left: 4px; padding-right: 4px;"
-        >
-          <div
-            class="ant-card-loading-block"
-          />
-        </div>
-      </div>
-      <div
-        class="ant-row"
-        style="margin-left: -4px; margin-right: -4px;"
-      >
-        <div
-          class="ant-col-6"
-          style="padding-left: 4px; padding-right: 4px;"
-        >
-          <div
-            class="ant-card-loading-block"
-          />
-        </div>
-        <div
-          class="ant-col-18"
+          class="ant-col ant-col-15"
           style="padding-left: 4px; padding-right: 4px;"
         >
           <div
@@ -72,7 +51,7 @@ exports[`Card should still have padding when card which set padding to 0 is load
         style="margin-left: -4px; margin-right: -4px;"
       >
         <div
-          class="ant-col-13"
+          class="ant-col ant-col-6"
           style="padding-left: 4px; padding-right: 4px;"
         >
           <div
@@ -80,36 +59,7 @@ exports[`Card should still have padding when card which set padding to 0 is load
           />
         </div>
         <div
-          class="ant-col-9"
-          style="padding-left: 4px; padding-right: 4px;"
-        >
-          <div
-            class="ant-card-loading-block"
-          />
-        </div>
-      </div>
-      <div
-        class="ant-row"
-        style="margin-left: -4px; margin-right: -4px;"
-      >
-        <div
-          class="ant-col-4"
-          style="padding-left: 4px; padding-right: 4px;"
-        >
-          <div
-            class="ant-card-loading-block"
-          />
-        </div>
-        <div
-          class="ant-col-3"
-          style="padding-left: 4px; padding-right: 4px;"
-        >
-          <div
-            class="ant-card-loading-block"
-          />
-        </div>
-        <div
-          class="ant-col-16"
+          class="ant-col ant-col-18"
           style="padding-left: 4px; padding-right: 4px;"
         >
           <div
@@ -122,7 +72,7 @@ exports[`Card should still have padding when card which set padding to 0 is load
         style="margin-left: -4px; margin-right: -4px;"
       >
         <div
-          class="ant-col-8"
+          class="ant-col ant-col-13"
           style="padding-left: 4px; padding-right: 4px;"
         >
           <div
@@ -130,7 +80,20 @@ exports[`Card should still have padding when card which set padding to 0 is load
           />
         </div>
         <div
-          class="ant-col-6"
+          class="ant-col ant-col-9"
+          style="padding-left: 4px; padding-right: 4px;"
+        >
+          <div
+            class="ant-card-loading-block"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-row"
+        style="margin-left: -4px; margin-right: -4px;"
+      >
+        <div
+          class="ant-col ant-col-4"
           style="padding-left: 4px; padding-right: 4px;"
         >
           <div
@@ -138,7 +101,15 @@ exports[`Card should still have padding when card which set padding to 0 is load
           />
         </div>
         <div
-          class="ant-col-8"
+          class="ant-col ant-col-3"
+          style="padding-left: 4px; padding-right: 4px;"
+        >
+          <div
+            class="ant-card-loading-block"
+          />
+        </div>
+        <div
+          class="ant-col ant-col-16"
           style="padding-left: 4px; padding-right: 4px;"
         >
           <div

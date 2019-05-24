@@ -13,7 +13,7 @@ title:
 
 Basic Usage, set datasource of autocomplete with `dataSource` property.
 
-````jsx
+```jsx
 import { AutoComplete } from 'antd';
 
 function onSelect(value) {
@@ -23,17 +23,13 @@ function onSelect(value) {
 class Complete extends React.Component {
   state = {
     dataSource: [],
-  }
+  };
 
-  handleSearch = (value) => {
+  handleSearch = value => {
     this.setState({
-      dataSource: !value ? [] : [
-        value,
-        value + value,
-        value + value + value,
-      ],
+      dataSource: !value ? [] : [value, value + value, value + value + value],
     });
-  }
+  };
 
   render() {
     const { dataSource } = this.state;
@@ -50,4 +46,4 @@ class Complete extends React.Component {
 }
 
 ReactDOM.render(<Complete />, mountNode);
-````
+```

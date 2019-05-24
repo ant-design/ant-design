@@ -21,37 +21,41 @@
 
   &-body {
     .@{confirm-prefix-cls}-title {
-      color: @heading-color;
-      font-weight: 500;
-      font-size: @font-size-lg;
-      line-height: 1.4;
       display: block;
       // create BFC to avoid
       // https://user-images.githubusercontent.com/507615/37702510-ba844e06-2d2d-11e8-9b67-8e19be57f445.png
       overflow: hidden;
+      color: @heading-color;
+      font-weight: 500;
+      font-size: @font-size-lg;
+      line-height: 1.4;
     }
 
     .@{confirm-prefix-cls}-content {
-      margin-left: 38px;
-      font-size: @font-size-base;
-      color: @text-color;
       margin-top: 8px;
+      color: @text-color;
+      font-size: @font-size-base;
     }
 
     > .@{iconfont-css-prefix} {
-      font-size: 22px;
-      margin-right: 16px;
       float: left;
+      margin-right: 16px;
+      font-size: 22px;
+
+      // `content` after `icon` should set marginLeft
+      + .@{confirm-prefix-cls}-title + .@{confirm-prefix-cls}-content {
+        margin-left: 38px;
+      }
     }
   }
 
   .@{confirm-prefix-cls}-btns {
-    margin-top: 24px;
     float: right;
+    margin-top: 24px;
 
     button + button {
-      margin-left: 8px;
       margin-bottom: 0;
+      margin-left: 8px;
     }
   }
 

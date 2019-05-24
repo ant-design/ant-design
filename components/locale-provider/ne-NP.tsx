@@ -13,7 +13,6 @@ export default {
     filterTitle: 'फिल्टर मेनु',
     filterConfirm: 'हो',
     filterReset: 'रीसेट',
-    emptyText: 'डाटा छैन',
     selectAll: 'सबै छान्नुुहोस्',
     selectInvert: 'छनौट उल्टाउनुहोस',
   },
@@ -28,18 +27,17 @@ export default {
   },
   Transfer: {
     titles: ['', ''],
-    notFoundContent: 'भेट्टिएन',
     searchPlaceholder: 'यहाँ खोज्नुहोस्',
     itemUnit: 'वस्तु',
     itemsUnit: 'वस्तुहरू',
-  },
-  Select: {
-    notFoundContent: 'भेट्टिएन',
   },
   Upload: {
     uploading: 'अपलोड गर्दै...',
     removeFile: 'फाइल हटाउनुहोस्',
     uploadError: 'अप्लोडमा समस्या भयो',
     previewFile: 'फाइल पूर्वावलोकन गर्नुहोस्',
+  },
+  Empty: {
+    description: 'डाटा छैन',
   },
 };

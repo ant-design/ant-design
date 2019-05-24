@@ -13,21 +13,21 @@ A simple text popup tip.
 
 ## API
 
-| Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
-| title | The text shown in the tooltip | string\|ReactNode\|() => ReactNode | - |
+| Property | Description                   | Type                               | Default |
+| -------- | ----------------------------- | ---------------------------------- | ------- |
+| title    | The text shown in the tooltip | string\|ReactNode\|() => ReactNode | -       |
 
 ### Common API
 
 The following APIs are shared by Tooltip, Popconfirm, Popover.
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | arrowPointAtCenter | Whether the arrow is pointed at the center of target, supported after `antd@1.11+` | boolean | `false` |
 | autoAdjustOverflow | Whether to adjust popup placement automatically when popup is off screen | boolean | `true` |
 | defaultVisible | Whether the floating tooltip card is visible by default | boolean | `false` |
 | getPopupContainer | The DOM container of the tip, the default behavior is to create a `div` element in `body` | Function(triggerNode) | () => document.body |
-| mouseEnterDelay | Delay in seconds, before tooltip is shown on mouse enter | number | 0 |
+| mouseEnterDelay | Delay in seconds, before tooltip is shown on mouse enter | number | 0.1 |
 | mouseLeaveDelay | Delay in seconds, before tooltip is hidden on mouse leave | number | 0.1 |
 | overlayClassName | Class name of the tooltip card | string | - |
 | overlayStyle | Style of the tooltip card | object | - |

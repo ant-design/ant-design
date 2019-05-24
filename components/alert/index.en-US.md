@@ -14,7 +14,7 @@ Alert component for feedback.
 ## API
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | afterClose | Called when close animation is finished | () => void | - |
 | banner | Whether to show as banner | boolean | false |
 | closable | Whether Alert can be closed | boolean | - |

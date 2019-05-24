@@ -2,37 +2,37 @@
 
 exports[`renders ./components/layout/demo/basic.md correctly 1`] = `
 <div>
-  <div
+  <section
     class="ant-layout"
   >
-    <div
+    <header
       class="ant-layout-header"
     >
       Header
-    </div>
-    <div
+    </header>
+    <main
       class="ant-layout-content"
     >
       Content
-    </div>
-    <div
+    </main>
+    <footer
       class="ant-layout-footer"
     >
       Footer
-    </div>
-  </div>
-  <div
+    </footer>
+  </section>
+  <section
     class="ant-layout"
   >
-    <div
+    <header
       class="ant-layout-header"
     >
       Header
-    </div>
-    <div
+    </header>
+    <section
       class="ant-layout"
     >
-      <div
+      <aside
         class="ant-layout-sider ant-layout-sider-dark"
         style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
       >
@@ -41,36 +41,36 @@ exports[`renders ./components/layout/demo/basic.md correctly 1`] = `
         >
           Sider
         </div>
-      </div>
-      <div
+      </aside>
+      <main
         class="ant-layout-content"
       >
         Content
-      </div>
-    </div>
-    <div
+      </main>
+    </section>
+    <footer
       class="ant-layout-footer"
     >
       Footer
-    </div>
-  </div>
-  <div
+    </footer>
+  </section>
+  <section
     class="ant-layout"
   >
-    <div
+    <header
       class="ant-layout-header"
     >
       Header
-    </div>
-    <div
+    </header>
+    <section
       class="ant-layout"
     >
-      <div
+      <main
         class="ant-layout-content"
       >
         Content
-      </div>
-      <div
+      </main>
+      <aside
         class="ant-layout-sider ant-layout-sider-dark"
         style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
       >
@@ -79,18 +79,18 @@ exports[`renders ./components/layout/demo/basic.md correctly 1`] = `
         >
           Sider
         </div>
-      </div>
-    </div>
-    <div
+      </aside>
+    </section>
+    <footer
       class="ant-layout-footer"
     >
       Footer
-    </div>
-  </div>
-  <div
+    </footer>
+  </section>
+  <section
     class="ant-layout"
   >
-    <div
+    <aside
       class="ant-layout-sider ant-layout-sider-dark"
       style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
     >
@@ -99,35 +99,35 @@ exports[`renders ./components/layout/demo/basic.md correctly 1`] = `
       >
         Sider
       </div>
-    </div>
-    <div
+    </aside>
+    <section
       class="ant-layout"
     >
-      <div
+      <header
         class="ant-layout-header"
       >
         Header
-      </div>
-      <div
+      </header>
+      <main
         class="ant-layout-content"
       >
         Content
-      </div>
-      <div
+      </main>
+      <footer
         class="ant-layout-footer"
       >
         Footer
-      </div>
-    </div>
-  </div>
+      </footer>
+    </section>
+  </section>
 </div>
 `;
 
 exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
-<div
+<section
   class="ant-layout"
 >
-  <div
+  <aside
     class="ant-layout-sider ant-layout-sider-dark"
     style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
   >
@@ -147,6 +147,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="icon: user"
             class="anticon anticon-user"
           >
             <svg
@@ -154,6 +155,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
               class=""
               data-icon="user"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -173,6 +175,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="icon: video-camera"
             class="anticon anticon-video-camera"
           >
             <svg
@@ -180,6 +183,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
               class=""
               data-icon="video-camera"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -199,6 +203,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="icon: upload"
             class="anticon anticon-upload"
           >
             <svg
@@ -206,6 +211,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
               class=""
               data-icon="upload"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -221,22 +227,25 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
         </li>
       </ul>
     </div>
-  </div>
-  <div
+  </aside>
+  <section
     class="ant-layout"
   >
-    <div
+    <header
       class="ant-layout-header"
       style="background:#fff;padding:0"
     >
       <i
+        aria-label="icon: menu-fold"
         class="anticon anticon-menu-fold trigger"
+        tabindex="-1"
       >
         <svg
           aria-hidden="true"
           class=""
           data-icon="menu-fold"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -246,22 +255,22 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
           />
         </svg>
       </i>
-    </div>
-    <div
+    </header>
+    <main
       class="ant-layout-content"
       style="margin:24px 16px;padding:24px;background:#fff;min-height:280px"
     >
       Content
-    </div>
-  </div>
-</div>
+    </main>
+  </section>
+</section>
 `;
 
 exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
-<div
+<section
   class="ant-layout"
 >
-  <div
+  <header
     class="ant-layout-header"
     style="position:fixed;z-index:1;width:100%"
   >
@@ -364,8 +373,8 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
         </div>
       </li>
     </ul>
-  </div>
-  <div
+  </header>
+  <main
     class="ant-layout-content"
     style="padding:0 50px;margin-top:64px"
   >
@@ -415,21 +424,21 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
     >
       Content
     </div>
-  </div>
-  <div
+  </main>
+  <footer
     class="ant-layout-footer"
     style="text-align:center"
   >
     Ant Design ©2018 Created by Ant UED
-  </div>
-</div>
+  </footer>
+</section>
 `;
 
 exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
-<div
+<section
   class="ant-layout"
 >
-  <div
+  <aside
     class="ant-layout-sider ant-layout-sider-dark"
     style="overflow:auto;height:100vh;position:fixed;left:0;flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
   >
@@ -449,6 +458,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="icon: user"
             class="anticon anticon-user"
           >
             <svg
@@ -456,6 +466,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
               class=""
               data-icon="user"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -477,6 +488,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="icon: video-camera"
             class="anticon anticon-video-camera"
           >
             <svg
@@ -484,6 +496,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
               class=""
               data-icon="video-camera"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -505,6 +518,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="icon: upload"
             class="anticon anticon-upload"
           >
             <svg
@@ -512,6 +526,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
               class=""
               data-icon="upload"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -533,6 +548,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="icon: bar-chart"
             class="anticon anticon-bar-chart"
           >
             <svg
@@ -540,6 +556,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
               class=""
               data-icon="bar-chart"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -561,6 +578,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="icon: cloud-o"
             class="anticon anticon-cloud-o"
           >
             <svg
@@ -568,6 +586,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
               class=""
               data-icon="cloud"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -589,6 +608,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="icon: appstore-o"
             class="anticon anticon-appstore-o"
           >
             <svg
@@ -596,6 +616,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
               class=""
               data-icon="appstore"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -617,6 +638,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="icon: team"
             class="anticon anticon-team"
           >
             <svg
@@ -624,6 +646,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
               class=""
               data-icon="team"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -645,6 +668,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="icon: shop"
             class="anticon anticon-shop"
           >
             <svg
@@ -652,6 +676,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
               class=""
               data-icon="shop"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -669,16 +694,16 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
         </li>
       </ul>
     </div>
-  </div>
-  <div
+  </aside>
+  <section
     class="ant-layout"
     style="margin-left:200px"
   >
-    <div
+    <header
       class="ant-layout-header"
       style="background:#fff;padding:0"
     />
-    <div
+    <main
       class="ant-layout-content"
       style="margin:24px 16px 0;overflow:initial"
     >
@@ -781,22 +806,22 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
         <br />
         content
       </div>
-    </div>
-    <div
+    </main>
+    <footer
       class="ant-layout-footer"
       style="text-align:center"
     >
       Ant Design ©2018 Created by Ant UED
-    </div>
-  </div>
-</div>
+    </footer>
+  </section>
+</section>
 `;
 
 exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
-<div
+<section
   class="ant-layout"
 >
-  <div
+  <aside
     class="ant-layout-sider ant-layout-sider-dark"
     style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
   >
@@ -816,6 +841,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="icon: user"
             class="anticon anticon-user"
           >
             <svg
@@ -823,6 +849,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
               class=""
               data-icon="user"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -844,6 +871,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="icon: video-camera"
             class="anticon anticon-video-camera"
           >
             <svg
@@ -851,6 +879,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
               class=""
               data-icon="video-camera"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -872,6 +901,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="icon: upload"
             class="anticon anticon-upload"
           >
             <svg
@@ -879,6 +909,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
               class=""
               data-icon="upload"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -900,6 +931,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="icon: user"
             class="anticon anticon-user"
           >
             <svg
@@ -907,6 +939,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
               class=""
               data-icon="user"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -924,15 +957,15 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
         </li>
       </ul>
     </div>
-  </div>
-  <div
+  </aside>
+  <section
     class="ant-layout"
   >
-    <div
+    <header
       class="ant-layout-header"
       style="background:#fff;padding:0"
     />
-    <div
+    <main
       class="ant-layout-content"
       style="margin:24px 16px 0"
     >
@@ -941,23 +974,23 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
       >
         content
       </div>
-    </div>
-    <div
+    </main>
+    <footer
       class="ant-layout-footer"
       style="text-align:center"
     >
       Ant Design ©2018 Created by Ant UED
-    </div>
-  </div>
-</div>
+    </footer>
+  </section>
+</section>
 `;
 
 exports[`renders ./components/layout/demo/side.md correctly 1`] = `
-<div
+<section
   class="ant-layout"
   style="min-height:100vh"
 >
-  <div
+  <aside
     class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-has-trigger"
     style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
   >
@@ -977,6 +1010,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="icon: pie-chart"
             class="anticon anticon-pie-chart"
           >
             <svg
@@ -984,6 +1018,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
               class=""
               data-icon="pie-chart"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -1003,6 +1038,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="icon: desktop"
             class="anticon anticon-desktop"
           >
             <svg
@@ -1010,6 +1046,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
               class=""
               data-icon="desktop"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -1035,6 +1072,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           >
             <span>
               <i
+                aria-label="icon: user"
                 class="anticon anticon-user"
               >
                 <svg
@@ -1042,6 +1080,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
                   class=""
                   data-icon="user"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -1073,6 +1112,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           >
             <span>
               <i
+                aria-label="icon: team"
                 class="anticon anticon-team"
               >
                 <svg
@@ -1080,6 +1120,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
                   class=""
                   data-icon="team"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -1105,6 +1146,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
+            aria-label="icon: file"
             class="anticon anticon-file"
           >
             <svg
@@ -1112,6 +1154,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
               class=""
               data-icon="file"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -1132,6 +1175,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
       style="width:200px"
     >
       <i
+        aria-label="icon: left"
         class="anticon anticon-left"
       >
         <svg
@@ -1139,6 +1183,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           class=""
           data-icon="left"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -1149,15 +1194,15 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
         </svg>
       </i>
     </div>
-  </div>
-  <div
+  </aside>
+  <section
     class="ant-layout"
   >
-    <div
+    <header
       class="ant-layout-header"
       style="background:#fff;padding:0"
     />
-    <div
+    <main
       class="ant-layout-content"
       style="margin:0 16px"
     >
@@ -1195,22 +1240,22 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
       >
         Bill is a cat.
       </div>
-    </div>
-    <div
+    </main>
+    <footer
       class="ant-layout-footer"
       style="text-align:center"
     >
       Ant Design ©2018 Created by Ant UED
-    </div>
-  </div>
-</div>
+    </footer>
+  </section>
+</section>
 `;
 
 exports[`renders ./components/layout/demo/top.md correctly 1`] = `
-<div
+<section
   class="layout ant-layout"
 >
-  <div
+  <header
     class="ant-layout-header"
   >
     <div
@@ -1312,8 +1357,8 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
         </div>
       </li>
     </ul>
-  </div>
-  <div
+  </header>
+  <main
     class="ant-layout-content"
     style="padding:0 50px"
   >
@@ -1363,21 +1408,21 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
     >
       Content
     </div>
-  </div>
-  <div
+  </main>
+  <footer
     class="ant-layout-footer"
     style="text-align:center"
   >
     Ant Design ©2018 Created by Ant UED
-  </div>
-</div>
+  </footer>
+</section>
 `;
 
 exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
-<div
+<section
   class="ant-layout"
 >
-  <div
+  <header
     class="header ant-layout-header"
   >
     <div
@@ -1479,8 +1524,8 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
         </div>
       </li>
     </ul>
-  </div>
-  <div
+  </header>
+  <main
     class="ant-layout-content"
     style="padding:0 50px"
   >
@@ -1525,11 +1570,11 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
         </span>
       </span>
     </div>
-    <div
+    <section
       class="ant-layout"
       style="padding:24px 0;background:#fff"
     >
-      <div
+      <aside
         class="ant-layout-sider ant-layout-sider-dark"
         style="background:#fff;flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
       >
@@ -1554,6 +1599,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
               >
                 <span>
                   <i
+                    aria-label="icon: user"
                     class="anticon anticon-user"
                   >
                     <svg
@@ -1561,6 +1607,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                       class=""
                       data-icon="user"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -1623,6 +1670,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
               >
                 <span>
                   <i
+                    aria-label="icon: laptop"
                     class="anticon anticon-laptop"
                   >
                     <svg
@@ -1630,6 +1678,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                       class=""
                       data-icon="laptop"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -1659,6 +1708,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
               >
                 <span>
                   <i
+                    aria-label="icon: notification"
                     class="anticon anticon-notification"
                   >
                     <svg
@@ -1666,6 +1716,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                       class=""
                       data-icon="notification"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -1685,29 +1736,29 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
             </li>
           </ul>
         </div>
-      </div>
-      <div
+      </aside>
+      <main
         class="ant-layout-content"
         style="padding:0 24px;min-height:280px"
       >
         Content
-      </div>
-    </div>
-  </div>
-  <div
+      </main>
+    </section>
+  </main>
+  <footer
     class="ant-layout-footer"
     style="text-align:center"
   >
     Ant Design ©2018 Created by Ant UED
-  </div>
-</div>
+  </footer>
+</section>
 `;
 
 exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
-<div
+<section
   class="ant-layout"
 >
-  <div
+  <header
     class="header ant-layout-header"
   >
     <div
@@ -1809,11 +1860,11 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
         </div>
       </li>
     </ul>
-  </div>
-  <div
+  </header>
+  <section
     class="ant-layout"
   >
-    <div
+    <aside
       class="ant-layout-sider ant-layout-sider-dark"
       style="background:#fff;flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
     >
@@ -1838,6 +1889,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
             >
               <span>
                 <i
+                  aria-label="icon: user"
                   class="anticon anticon-user"
                 >
                   <svg
@@ -1845,6 +1897,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
                     class=""
                     data-icon="user"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -1907,6 +1960,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
             >
               <span>
                 <i
+                  aria-label="icon: laptop"
                   class="anticon anticon-laptop"
                 >
                   <svg
@@ -1914,6 +1968,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
                     class=""
                     data-icon="laptop"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -1943,6 +1998,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
             >
               <span>
                 <i
+                  aria-label="icon: notification"
                   class="anticon anticon-notification"
                 >
                   <svg
@@ -1950,6 +2006,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
                     class=""
                     data-icon="notification"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -1969,8 +2026,8 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
           </li>
         </ul>
       </div>
-    </div>
-    <div
+    </aside>
+    <section
       class="ant-layout"
       style="padding:0 24px 24px"
     >
@@ -2015,13 +2072,13 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
           </span>
         </span>
       </div>
-      <div
+      <main
         class="ant-layout-content"
         style="background:#fff;padding:24px;margin:0;min-height:280px"
       >
         Content
-      </div>
-    </div>
-  </div>
-</div>
+      </main>
+    </section>
+  </section>
+</section>
 `;

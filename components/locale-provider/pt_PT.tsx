@@ -13,9 +13,9 @@ export default {
     filterTitle: 'Filtro',
     filterConfirm: 'Aplicar',
     filterReset: 'Reiniciar',
-    emptyText: 'Sem resultados',
     selectAll: 'Selecionar página atual',
     selectInvert: 'Inverter seleção',
+    sortTitle: 'Ordenação',
   },
   Modal: {
     okText: 'OK',
@@ -27,18 +27,17 @@ export default {
     cancelText: 'Cancelar',
   },
   Transfer: {
-    notFoundContent: 'Sem resultados',
     searchPlaceholder: 'Procurar...',
     itemUnit: 'item',
     itemsUnit: 'itens',
-  },
-  Select: {
-    notFoundContent: 'Sem resultados',
   },
   Upload: {
     uploading: 'A carregar...',
     removeFile: 'Remover',
     uploadError: 'Erro ao carregar',
     previewFile: 'Pré-visualizar',
+  },
+  Empty: {
+    description: 'Sem resultados',
   },
 };

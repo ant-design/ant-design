@@ -4,7 +4,9 @@
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 10;
+  z-index: @zindex-picker-panel;
+  display: flex;
+  flex-direction: column;
   background: @component-background;
   border-radius: @border-radius-base;
   outline: none;
@@ -19,30 +21,37 @@
 }
 
 .@{calendar-prefix-cls}-decade-panel-body {
-  height: ~'calc(100% - 40px)';
+  flex: 1;
+}
+
+.@{calendar-prefix-cls}-decade-panel-footer {
+  border-top: @border-width-base @border-style-base @border-color-split;
+  .@{calendar-prefix-cls}-footer-extra {
+    padding: 0 12px;
+  }
 }
 
 .@{calendar-prefix-cls}-decade-panel-table {
-  table-layout: fixed;
   width: 100%;
   height: 100%;
+  table-layout: fixed;
   border-collapse: separate;
 }
 
 .@{calendar-prefix-cls}-decade-panel-cell {
-  text-align: center;
   white-space: nowrap;
+  text-align: center;
 }
 
 .@{calendar-prefix-cls}-decade-panel-decade {
   display: inline-block;
-  margin: 0 auto;
-  color: @text-color;
-  background: transparent;
-  text-align: center;
   height: 24px;
-  line-height: 24px;
+  margin: 0 auto;
   padding: 0 6px;
+  color: @text-color;
+  line-height: 24px;
+  text-align: center;
+  background: transparent;
   border-radius: @border-radius-sm;
   transition: background 0.3s ease;
 
@@ -53,19 +62,19 @@
 }
 
 .@{calendar-prefix-cls}-decade-panel-selected-cell .@{calendar-prefix-cls}-decade-panel-decade {
+  color: @text-color-inverse;
   background: @primary-color;
-  color: #fff;
 
   &:hover {
+    color: @text-color-inverse;
     background: @primary-color;
-    color: #fff;
   }
 }
 
 .@{calendar-prefix-cls}-decade-panel-last-century-cell,
 .@{calendar-prefix-cls}-decade-panel-next-century-cell {
   .@{calendar-prefix-cls}-decade-panel-decade {
-    user-select: none;
     color: @disabled-color;
+    user-select: none;
   }
 }

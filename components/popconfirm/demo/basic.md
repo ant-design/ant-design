@@ -13,7 +13,7 @@ title:
 
 The basic example.
 
-````jsx
+```jsx
 import { Popconfirm, message } from 'antd';
 
 function confirm(e) {
@@ -27,9 +27,15 @@ function cancel(e) {
 }
 
 ReactDOM.render(
-  <Popconfirm title="Are you sure delete this task?" onConfirm={confirm} onCancel={cancel} okText="Yes" cancelText="No">
+  <Popconfirm
+    title="Are you sure delete this task?"
+    onConfirm={confirm}
+    onCancel={cancel}
+    okText="Yes"
+    cancelText="No"
+  >
     <a href="#">Delete</a>
   </Popconfirm>,
-  mountNode
+  mountNode,
 );
-````
+```

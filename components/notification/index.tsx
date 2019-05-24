@@ -20,6 +20,7 @@ export interface ConfigProps {
   placement?: NotificationPlacement;
   getContainer?: () => HTMLElement;
 }
+
 function setNotificationConfig(options: ConfigProps) {
   const { duration, placement, bottom, top, getContainer } = options;
   if (duration !== undefined) {
@@ -39,20 +40,24 @@ function setNotificationConfig(options: ConfigProps) {
   }
 }
 
-function getPlacementStyle(placement: NotificationPlacement) {
+function getPlacementStyle(
+  placement: NotificationPlacement,
+  top: number = defaultTop,
+  bottom: number = defaultBottom,
+) {
   let style;
   switch (placement) {
     case 'topLeft':
       style = {
         left: 0,
-        top: defaultTop,
+        top,
         bottom: 'auto',
       };
       break;
     case 'topRight':
       style = {
         right: 0,
-        top: defaultTop,
+        top,
         bottom: 'auto',
       };
       break;
@@ -60,23 +65,36 @@ function getPlacementStyle(placement: NotificationPlacement) {
       style = {
         left: 0,
         top: 'auto',
-        bottom: defaultBottom,
+        bottom,
       };
       break;
     default:
       style = {
         right: 0,
         top: 'auto',
-        bottom: defaultBottom,
+        bottom,
       };
       break;
   }
   return style;
 }
 
+type NotificationInstanceProps = {
+  prefixCls: string;
+  placement?: NotificationPlacement;
+  getContainer?: () => HTMLElement;
+  top?: number;
+  bottom?: number;
+};
+
 function getNotificationInstance(
-  prefixCls: string,
-  placement: NotificationPlacement,
+  {
+    prefixCls,
+    placement = defaultPlacement,
+    getContainer = defaultGetContainer,
+    top,
+    bottom,
+  }: NotificationInstanceProps,
   callback: (n: any) => void,
 ) {
   const cacheKey = `${prefixCls}-${placement}`;
@@ -88,8 +106,8 @@ function getNotificationInstance(
     {
       prefixCls,
       className: `${prefixCls}-${placement}`,
-      style: getPlacementStyle(placement),
-      getContainer: defaultGetContainer,
+      style: getPlacementStyle(placement, top, bottom),
+      getContainer,
       closeIcon: <Icon className={`${prefixCls}-close-icon`} type={'close'} />,
     },
     (notification: any) => {
@@ -120,7 +138,11 @@ export interface ArgsProps {
   className?: string;
   readonly type?: IconType;
   onClick?: () => void;
+  top?: number;
+  bottom?: number;
+  getContainer?: () => HTMLElement;
 }
+
 function notice(args: ArgsProps) {
   const outerPrefixCls = args.prefixCls || 'ant-notification';
   const prefixCls = `${outerPrefixCls}-notice`;
@@ -141,9 +163,16 @@ function notice(args: ArgsProps) {
       <span className={`${prefixCls}-message-single-line-auto-margin`} />
     ) : null;
 
+  const { placement, top, bottom, getContainer } = args;
+
   getNotificationInstance(
-    outerPrefixCls,
-    args.placement || defaultPlacement,
+    {
+      prefixCls: outerPrefixCls,
+      placement,
+      top,
+      bottom,
+      getContainer,
+    },
     (notification: any) => {
       notification.notice({
         content: (
@@ -206,4 +235,5 @@ export interface NotificationApi {
   config(options: ConfigProps): void;
   destroy(): void;
 }
+
 export default api as NotificationApi;

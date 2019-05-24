@@ -5,38 +5,23 @@ import DocumentTitle from 'react-document-title';
 import { getChildren } from 'jsonml.js/lib/utils';
 import { Timeline, Alert, Affix } from 'antd';
 import EditButton from './EditButton';
-import { ping } from '../utils';
 
 export default class Article extends React.Component {
   static contextTypes = {
     intl: PropTypes.object.isRequired,
   };
 
-  componentDidMount() {
-    this.componentDidUpdate();
-  }
+  shouldComponentUpdate(nextProps) {
+    const { location } = this.props;
+    const { location: nextLocation } = nextProps;
 
-  componentDidUpdate() {
-    const links = [...document.querySelectorAll('.outside-link.internal')];
-    if (links.length === 0) {
-      return;
+    if (nextLocation.pathname === location.pathname) {
+      return false;
     }
-    this.pingTimer = ping(status => {
-      if (status !== 'timeout' && status !== 'error') {
-        links.forEach(link => {
-          link.style.display = 'block'; // eslint-disable-line
-        });
-      } else {
-        links.forEach(link => link.parentNode.removeChild(link));
-      }
-    });
+    return true;
   }
 
-  componentWillUnmount() {
-    clearTimeout(this.pingTimer);
-  }
-
-  onArticleClick = e => {
+  onResourceClick = e => {
     if (!window.gtag) {
       return;
     }
@@ -95,7 +80,7 @@ export default class Article extends React.Component {
     return (
       <DocumentTitle title={`${title[locale] || title} - Ant Design`}>
         {/* eslint-disable-next-line */}
-        <article className="markdown" onClick={this.onArticleClick}>
+        <article className="markdown" onClick={this.onResourceClick}>
           {isNotTranslated && (
             <Alert
               type="warning"

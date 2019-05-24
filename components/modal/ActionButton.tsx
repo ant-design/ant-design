@@ -24,15 +24,18 @@ export default class ActionButton extends React.Component<ActionButtonProps, Act
       loading: false,
     };
   }
+
   componentDidMount() {
     if (this.props.autoFocus) {
       const $this = ReactDOM.findDOMNode(this) as HTMLInputElement;
       this.timeoutId = setTimeout(() => $this.focus());
     }
   }
+
   componentWillUnmount() {
     clearTimeout(this.timeoutId);
   }
+
   onClick = () => {
     const { actionFn, closeModal } = this.props;
     if (actionFn) {
@@ -53,7 +56,9 @@ export default class ActionButton extends React.Component<ActionButtonProps, Act
             // this.setState({ loading: false });
             closeModal(...args);
           },
-          () => {
+          (e: Error) => {
+            // Emit error when catch promise reject
+            console.error(e);
             // See: https://github.com/ant-design/ant-design/issues/6183
             this.setState({ loading: false });
           },

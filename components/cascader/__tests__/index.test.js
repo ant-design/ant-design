@@ -424,8 +424,8 @@ describe('Cascader', () => {
       wrapper.find('input').simulate('click');
       wrapper.find('input').simulate('change', { target: { value: 'a' } });
       expect(wrapper.find('.ant-cascader-menu-item').length).toBe(2);
-      expect(errorSpy).toBeCalledWith(
-        "Warning: 'limit' of showSearch in Cascader should be positive number or false.",
+      expect(errorSpy).toHaveBeenCalledWith(
+        "Warning: [antd: Cascader] 'limit' of showSearch should be positive number or false.",
       );
     });
   });

@@ -11,40 +11,51 @@ title:
 
 ## en-US
 
-Demonstration of [Lookup Patterns: Certain Category](https://ant.design/docs/spec/reaction#Lookup-Patterns).
-Basic Usage, set datasource of autocomplete with `dataSource` property.
+Demonstration of [Lookup Patterns: Certain Category](https://ant.design/docs/spec/reaction#Lookup-Patterns). Basic Usage, set datasource of autocomplete with `dataSource` property.
 
-````jsx
+```jsx
 import { Icon, Input, AutoComplete } from 'antd';
 
 const Option = AutoComplete.Option;
 const OptGroup = AutoComplete.OptGroup;
 
-const dataSource = [{
-  title: '话题',
-  children: [{
-    title: 'AntDesign',
-    count: 10000,
-  }, {
-    title: 'AntDesign UI',
-    count: 10600,
-  }],
-}, {
-  title: '问题',
-  children: [{
-    title: 'AntDesign UI 有多好',
-    count: 60100,
-  }, {
-    title: 'AntDesign 是啥',
-    count: 30010,
-  }],
-}, {
-  title: '文章',
-  children: [{
-    title: 'AntDesign 是一个设计语言',
-    count: 100000,
-  }],
-}];
+const dataSource = [
+  {
+    title: '话题',
+    children: [
+      {
+        title: 'AntDesign',
+        count: 10000,
+      },
+      {
+        title: 'AntDesign UI',
+        count: 10600,
+      },
+    ],
+  },
+  {
+    title: '问题',
+    children: [
+      {
+        title: 'AntDesign UI 有多好',
+        count: 60100,
+      },
+      {
+        title: 'AntDesign 是啥',
+        count: 30010,
+      },
+    ],
+  },
+  {
+    title: '文章',
+    children: [
+      {
+        title: 'AntDesign 是一个设计语言',
+        count: 100000,
+      },
+    ],
+  },
+];
 
 function renderTitle(title) {
   return (
@@ -55,35 +66,31 @@ function renderTitle(title) {
         href="https://www.google.com/search?q=antd"
         target="_blank"
         rel="noopener noreferrer"
-      >更多
+      >
+        更多
       </a>
     </span>
   );
 }
 
-const options = dataSource.map(group => (
-  <OptGroup
-    key={group.title}
-    label={renderTitle(group.title)}
-  >
-    {group.children.map(opt => (
-      <Option key={opt.title} value={opt.title}>
-        {opt.title}
-        <span className="certain-search-item-count">{opt.count} 人 关注</span>
-      </Option>
-    ))}
-  </OptGroup>
-)).concat([
-  <Option disabled key="all" className="show-all">
-    <a
-      href="https://www.google.com/search?q=antd"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      查看所有结果
-    </a>
-  </Option>,
-]);
+const options = dataSource
+  .map(group => (
+    <OptGroup key={group.title} label={renderTitle(group.title)}>
+      {group.children.map(opt => (
+        <Option key={opt.title} value={opt.title}>
+          {opt.title}
+          <span className="certain-search-item-count">{opt.count} 人 关注</span>
+        </Option>
+      ))}
+    </OptGroup>
+  ))
+  .concat([
+    <Option disabled key="all" className="show-all">
+      <a href="https://www.google.com/search?q=antd" target="_blank" rel="noopener noreferrer">
+        查看所有结果
+      </a>
+    </Option>,
+  ]);
 
 function Complete() {
   return (
@@ -106,9 +113,9 @@ function Complete() {
 }
 
 ReactDOM.render(<Complete />, mountNode);
-````
+```
 
-````css
+```css
 .certain-category-search.ant-select-auto-complete .ant-input-affix-wrapper .ant-input-suffix {
   right: 12px;
 }
@@ -119,7 +126,7 @@ ReactDOM.render(<Complete />, mountNode);
 }
 
 .certain-category-search-dropdown .ant-select-dropdown-menu-item-group {
-  border-bottom: 1px solid #F6F6F6;
+  border-bottom: 1px solid #f6f6f6;
 }
 
 .certain-category-search-dropdown .ant-select-dropdown-menu-item {
@@ -136,9 +143,9 @@ ReactDOM.render(<Complete />, mountNode);
 }
 
 .certain-search-item-count {
- position: absolute;
- color: #999;
- right: 16px;
+  position: absolute;
+  color: #999;
+  right: 16px;
 }
 
 .certain-category-search.ant-select-focused .certain-category-icon {
@@ -146,8 +153,8 @@ ReactDOM.render(<Complete />, mountNode);
 }
 
 .certain-category-icon {
-  color: #6E6E6E;
+  color: #6e6e6e;
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   font-size: 16px;
 }
-````
+```

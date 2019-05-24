@@ -13,10 +13,12 @@ exports[`renders ./components/cascader/demo/basic.md correctly 1`] = `
     class="ant-input ant-cascader-input "
     placeholder="Please select"
     readonly=""
+    tabindex="-1"
     type="text"
     value=""
   />
   <i
+    aria-label="icon: down"
     class="anticon anticon-down ant-cascader-picker-arrow"
   >
     <svg
@@ -24,6 +26,7 @@ exports[`renders ./components/cascader/demo/basic.md correctly 1`] = `
       class=""
       data-icon="down"
       fill="currentColor"
+      focusable="false"
       height="1em"
       viewBox="64 64 896 896"
       width="1em"
@@ -49,10 +52,12 @@ exports[`renders ./components/cascader/demo/change-on-select.md correctly 1`] = 
     class="ant-input ant-cascader-input "
     placeholder="Please select"
     readonly=""
+    tabindex="-1"
     type="text"
     value=""
   />
   <i
+    aria-label="icon: down"
     class="anticon anticon-down ant-cascader-picker-arrow"
   >
     <svg
@@ -60,6 +65,7 @@ exports[`renders ./components/cascader/demo/change-on-select.md correctly 1`] = 
       class=""
       data-icon="down"
       fill="currentColor"
+      focusable="false"
       height="1em"
       viewBox="64 64 896 896"
       width="1em"
@@ -99,17 +105,21 @@ exports[`renders ./components/cascader/demo/custom-render.md correctly 1`] = `
     autocomplete="off"
     class="ant-input ant-cascader-input "
     readonly=""
+    tabindex="-1"
     type="text"
     value=""
   />
   <i
+    aria-label="icon: close-circle"
     class="anticon anticon-close-circle ant-cascader-picker-clear"
+    tabindex="-1"
   >
     <svg
       aria-hidden="true"
       class=""
       data-icon="close-circle"
       fill="currentColor"
+      focusable="false"
       height="1em"
       viewBox="64 64 896 896"
       width="1em"
@@ -120,6 +130,7 @@ exports[`renders ./components/cascader/demo/custom-render.md correctly 1`] = `
     </svg>
   </i>
   <i
+    aria-label="icon: down"
     class="anticon anticon-down ant-cascader-picker-arrow"
   >
     <svg
@@ -127,6 +138,7 @@ exports[`renders ./components/cascader/demo/custom-render.md correctly 1`] = `
       class=""
       data-icon="down"
       fill="currentColor"
+      focusable="false"
       height="1em"
       viewBox="64 64 896 896"
       width="1em"
@@ -165,17 +177,21 @@ exports[`renders ./components/cascader/demo/default-value.md correctly 1`] = `
     autocomplete="off"
     class="ant-input ant-cascader-input "
     readonly=""
+    tabindex="-1"
     type="text"
     value=""
   />
   <i
+    aria-label="icon: close-circle"
     class="anticon anticon-close-circle ant-cascader-picker-clear"
+    tabindex="-1"
   >
     <svg
       aria-hidden="true"
       class=""
       data-icon="close-circle"
       fill="currentColor"
+      focusable="false"
       height="1em"
       viewBox="64 64 896 896"
       width="1em"
@@ -186,6 +202,7 @@ exports[`renders ./components/cascader/demo/default-value.md correctly 1`] = `
     </svg>
   </i>
   <i
+    aria-label="icon: down"
     class="anticon anticon-down ant-cascader-picker-arrow"
   >
     <svg
@@ -193,6 +210,7 @@ exports[`renders ./components/cascader/demo/default-value.md correctly 1`] = `
       class=""
       data-icon="down"
       fill="currentColor"
+      focusable="false"
       height="1em"
       viewBox="64 64 896 896"
       width="1em"
@@ -218,10 +236,12 @@ exports[`renders ./components/cascader/demo/disabled-option.md correctly 1`] = `
     class="ant-input ant-cascader-input "
     placeholder="Please select"
     readonly=""
+    tabindex="-1"
     type="text"
     value=""
   />
   <i
+    aria-label="icon: down"
     class="anticon anticon-down ant-cascader-picker-arrow"
   >
     <svg
@@ -229,6 +249,7 @@ exports[`renders ./components/cascader/demo/disabled-option.md correctly 1`] = `
       class=""
       data-icon="down"
       fill="currentColor"
+      focusable="false"
       height="1em"
       viewBox="64 64 896 896"
       width="1em"
@@ -254,10 +275,12 @@ exports[`renders ./components/cascader/demo/fields-name.md correctly 1`] = `
     class="ant-input ant-cascader-input "
     placeholder="Please select"
     readonly=""
+    tabindex="-1"
     type="text"
     value=""
   />
   <i
+    aria-label="icon: down"
     class="anticon anticon-down ant-cascader-picker-arrow"
   >
     <svg
@@ -265,6 +288,7 @@ exports[`renders ./components/cascader/demo/fields-name.md correctly 1`] = `
       class=""
       data-icon="down"
       fill="currentColor"
+      focusable="false"
       height="1em"
       viewBox="64 64 896 896"
       width="1em"
@@ -290,10 +314,12 @@ exports[`renders ./components/cascader/demo/hover.md correctly 1`] = `
     class="ant-input ant-cascader-input "
     placeholder="Please select"
     readonly=""
+    tabindex="-1"
     type="text"
     value=""
   />
   <i
+    aria-label="icon: down"
     class="anticon anticon-down ant-cascader-picker-arrow"
   >
     <svg
@@ -301,6 +327,7 @@ exports[`renders ./components/cascader/demo/hover.md correctly 1`] = `
       class=""
       data-icon="down"
       fill="currentColor"
+      focusable="false"
       height="1em"
       viewBox="64 64 896 896"
       width="1em"
@@ -326,10 +353,12 @@ exports[`renders ./components/cascader/demo/lazy.md correctly 1`] = `
     class="ant-input ant-cascader-input "
     placeholder="Please select"
     readonly=""
+    tabindex="-1"
     type="text"
     value=""
   />
   <i
+    aria-label="icon: down"
     class="anticon anticon-down ant-cascader-picker-arrow"
   >
     <svg
@@ -337,6 +366,7 @@ exports[`renders ./components/cascader/demo/lazy.md correctly 1`] = `
       class=""
       data-icon="down"
       fill="currentColor"
+      focusable="false"
       height="1em"
       viewBox="64 64 896 896"
       width="1em"
@@ -361,10 +391,12 @@ exports[`renders ./components/cascader/demo/search.md correctly 1`] = `
     autocomplete="off"
     class="ant-input ant-cascader-input "
     placeholder="Please select"
+    tabindex="-1"
     type="text"
     value=""
   />
   <i
+    aria-label="icon: down"
     class="anticon anticon-down ant-cascader-picker-arrow"
   >
     <svg
@@ -372,6 +404,7 @@ exports[`renders ./components/cascader/demo/search.md correctly 1`] = `
       class=""
       data-icon="down"
       fill="currentColor"
+      focusable="false"
       height="1em"
       viewBox="64 64 896 896"
       width="1em"
@@ -398,10 +431,12 @@ exports[`renders ./components/cascader/demo/size.md correctly 1`] = `
       class="ant-input ant-cascader-input ant-input-lg"
       placeholder="Please select"
       readonly=""
+      tabindex="-1"
       type="text"
       value=""
     />
     <i
+      aria-label="icon: down"
       class="anticon anticon-down ant-cascader-picker-arrow"
     >
       <svg
@@ -409,6 +444,7 @@ exports[`renders ./components/cascader/demo/size.md correctly 1`] = `
         class=""
         data-icon="down"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -433,10 +469,12 @@ exports[`renders ./components/cascader/demo/size.md correctly 1`] = `
       class="ant-input ant-cascader-input "
       placeholder="Please select"
       readonly=""
+      tabindex="-1"
       type="text"
       value=""
     />
     <i
+      aria-label="icon: down"
       class="anticon anticon-down ant-cascader-picker-arrow"
     >
       <svg
@@ -444,6 +482,7 @@ exports[`renders ./components/cascader/demo/size.md correctly 1`] = `
         class=""
         data-icon="down"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -468,10 +507,12 @@ exports[`renders ./components/cascader/demo/size.md correctly 1`] = `
       class="ant-input ant-cascader-input ant-input-sm"
       placeholder="Please select"
       readonly=""
+      tabindex="-1"
       type="text"
       value=""
     />
     <i
+      aria-label="icon: down"
       class="anticon anticon-down ant-cascader-picker-arrow"
     >
       <svg
@@ -479,6 +520,7 @@ exports[`renders ./components/cascader/demo/size.md correctly 1`] = `
         class=""
         data-icon="down"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -508,10 +550,12 @@ exports[`renders ./components/cascader/demo/suffix.md correctly 1`] = `
       class="ant-input ant-cascader-input "
       placeholder="Please select"
       readonly=""
+      tabindex="-1"
       type="text"
       value=""
     />
     <i
+      aria-label="icon: smile"
       class="anticon anticon-smile ant-cascader-picker-arrow"
     >
       <svg
@@ -519,6 +563,7 @@ exports[`renders ./components/cascader/demo/suffix.md correctly 1`] = `
         class=""
         data-icon="smile"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -542,6 +587,7 @@ exports[`renders ./components/cascader/demo/suffix.md correctly 1`] = `
       class="ant-input ant-cascader-input "
       placeholder="Please select"
       readonly=""
+      tabindex="-1"
       type="text"
       value=""
     />

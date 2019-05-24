@@ -23,7 +23,6 @@ title: 介绍
 - [设计资源](/docs/spec/download)
 - [Sketch 工具集](http://kitchen.alipay.com/)
 
-
 ## 前端实现
 
 我们采用 [React](http://facebook.github.io/react/) 封装了一套 Ant Design 的组件库，也欢迎社区其他框架的实现版本。
@@ -52,6 +51,9 @@ const LinksList = () => (
       </a>
     </li>
     <li>
+      <a href="http://vue.ant.design" target="_blank">Ant Design of Vue<LinkIcon /></a>
+    </li>
+    <li>
       <a href="https://github.com/FE-Driver/vue-beauty" target="_blank">
         vue-beauty (vue)<LinkIcon />
       </a>
@@ -69,11 +71,6 @@ const LinksList = () => (
     <li>
       <a href="https://github.com/zzuu666/antue" target="_blank">
         antue (vue)<LinkIcon />
-      </a>
-    </li>
-    <li>
-      <a href="https://github.com/vueComponent/ant-design" target="_blank">
-        vue-antd-ui - Ant Design of Vue.js 2.5.0+<LinkIcon />
       </a>
     </li>
   </ul>

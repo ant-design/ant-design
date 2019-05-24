@@ -2,8 +2,12 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import omit from 'omit.js';
+import debounce from 'lodash/debounce';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { tuple } from '../_util/type';
 
-export type SpinSize = 'small' | 'default' | 'large';
+const SpinSizes = tuple('small', 'default', 'large');
+export type SpinSize = (typeof SpinSizes)[number];
 export type SpinIndicator = React.ReactElement<any>;
 
 export interface SpinProps {
@@ -26,8 +30,8 @@ export interface SpinState {
 // Render indicator
 let defaultIndicator: React.ReactNode = null;
 
-function renderIndicator(props: SpinProps): React.ReactNode {
-  const { prefixCls, indicator } = props;
+function renderIndicator(prefixCls: string, props: SpinProps): React.ReactNode {
+  const { indicator } = props;
   const dotClassName = `${prefixCls}-dot`;
   if (React.isValidElement(indicator)) {
     return React.cloneElement(indicator as SpinIndicator, {
@@ -43,10 +47,10 @@ function renderIndicator(props: SpinProps): React.ReactNode {
 
   return (
     <span className={classNames(dotClassName, `${prefixCls}-dot-spin`)}>
-      <i />
-      <i />
-      <i />
-      <i />
+      <i className={`${prefixCls}-dot-item`} />
+      <i className={`${prefixCls}-dot-item`} />
+      <i className={`${prefixCls}-dot-item`} />
+      <i className={`${prefixCls}-dot-item`} />
     </span>
   );
 }
@@ -57,7 +61,6 @@ function shouldDelay(spinning?: boolean, delay?: number): boolean {
 
 class Spin extends React.Component<SpinProps, SpinState> {
   static defaultProps = {
-    prefixCls: 'ant-spin',
     spinning: true,
     size: 'default' as SpinSize,
     wrapperClassName: '',
@@ -67,25 +70,27 @@ class Spin extends React.Component<SpinProps, SpinState> {
     prefixCls: PropTypes.string,
     className: PropTypes.string,
     spinning: PropTypes.bool,
-    size: PropTypes.oneOf(['small', 'default', 'large']),
+    size: PropTypes.oneOf(SpinSizes),
     wrapperClassName: PropTypes.string,
-    indicator: PropTypes.node,
+    indicator: PropTypes.element,
   };
 
   static setDefaultIndicator(indicator: React.ReactNode) {
     defaultIndicator = indicator;
   }
 
-  debounceTimeout: number;
-  delayTimeout: number;
+  originalUpdateSpinning: () => void;
 
   constructor(props: SpinProps) {
     super(props);
 
     const { spinning, delay } = props;
+    const shouldBeDelayed = shouldDelay(spinning, delay);
     this.state = {
-      spinning: spinning && !shouldDelay(spinning, delay),
+      spinning: spinning && !shouldBeDelayed,
     };
+    this.originalUpdateSpinning = this.updateSpinning;
+    this.debouncifyUpdateSpinning(props);
   }
 
   isNestedPattern() {
@@ -93,53 +98,54 @@ class Spin extends React.Component<SpinProps, SpinState> {
   }
 
   componentWillUnmount() {
-    if (this.debounceTimeout) {
-      clearTimeout(this.debounceTimeout);
+    this.cancelExistingSpin();
+  }
+
+  cancelExistingSpin() {
+    const updateSpinning: any = this.updateSpinning;
+    if (updateSpinning && updateSpinning.cancel) {
+      updateSpinning.cancel();
     }
-    if (this.delayTimeout) {
-      clearTimeout(this.delayTimeout);
-    }
+  }
+
+  componentDidMount() {
+    this.updateSpinning();
   }
 
   componentDidUpdate() {
-    const currentSpinning = this.state.spinning;
-    const spinning = this.props.spinning;
-    if (currentSpinning === spinning) {
-      return;
-    }
-    const { delay } = this.props;
-
-    if (this.debounceTimeout) {
-      clearTimeout(this.debounceTimeout);
-    }
-    if (currentSpinning && !spinning) {
-      this.debounceTimeout = window.setTimeout(() => this.setState({ spinning }), 200);
-      if (this.delayTimeout) {
-        clearTimeout(this.delayTimeout);
-      }
-    } else {
-      if (shouldDelay(spinning, delay)) {
-        if (this.delayTimeout) {
-          clearTimeout(this.delayTimeout);
-        }
-        this.delayTimeout = window.setTimeout(this.delayUpdateSpinning, delay);
-      } else {
-        this.setState({ spinning });
-      }
-    }
+    this.debouncifyUpdateSpinning();
+    this.updateSpinning();
   }
 
-  delayUpdateSpinning = () => {
+  debouncifyUpdateSpinning = (props?: SpinProps) => {
+    const { delay } = props || this.props;
+    if (delay) {
+      this.cancelExistingSpin();
+      this.updateSpinning = debounce(this.originalUpdateSpinning, delay);
+    }
+  };
+
+  updateSpinning = () => {
     const { spinning } = this.props;
-    if (this.state.spinning !== spinning) {
+    const { spinning: currentSpinning } = this.state;
+    if (currentSpinning !== spinning) {
       this.setState({ spinning });
     }
   };
 
-  render() {
-    const { className, size, prefixCls, tip, wrapperClassName, style, ...restProps } = this.props;
+  renderSpin = ({ getPrefixCls }: ConfigConsumerProps) => {
+    const {
+      prefixCls: customizePrefixCls,
+      className,
+      size,
+      tip,
+      wrapperClassName,
+      style,
+      ...restProps
+    } = this.props;
     const { spinning } = this.state;
 
+    const prefixCls = getPrefixCls('spin', customizePrefixCls);
     const spinClassName = classNames(
       prefixCls,
       {
@@ -156,7 +162,7 @@ class Spin extends React.Component<SpinProps, SpinState> {
 
     const spinElement = (
       <div {...divProps} style={style} className={spinClassName}>
-        {renderIndicator(this.props)}
+        {renderIndicator(prefixCls, this.props)}
         {tip ? <div className={`${prefixCls}-text`}>{tip}</div> : null}
       </div>
     );
@@ -174,6 +180,10 @@ class Spin extends React.Component<SpinProps, SpinState> {
       );
     }
     return spinElement;
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderSpin}</ConfigConsumer>;
   }
 }
 
