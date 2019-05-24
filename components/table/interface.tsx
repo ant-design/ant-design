@@ -29,10 +29,10 @@ export interface ColumnProps<T> {
     | ((options: { filters: TableStateFilters; sortOrder?: SortOrder }) => React.ReactNode);
   key?: React.Key;
   dataIndex?: string; // Note: We can not use generic type here, since we need to support nested key, see #9393
-  render?: (text: any, record: T, index: number) => React.ReactNode;
+  render?: (text: T[keyof T], record: T, index: number) => React.ReactNode;
   align?: 'left' | 'right' | 'center';
   filters?: ColumnFilterItem[];
-  onFilter?: (value: any, record: T) => boolean;
+  onFilter?: (value: T[keyof T], record: T) => boolean;
   filterMultiple?: boolean;
   filterDropdown?: React.ReactNode | ((props: FilterDropdownProps) => React.ReactNode);
   filterDropdownVisible?: boolean;
@@ -44,8 +44,8 @@ export interface ColumnProps<T> {
   className?: string;
   fixed?: boolean | ('left' | 'right');
   filterIcon?: React.ReactNode | ((filtered: boolean) => React.ReactNode);
-  filteredValue?: any[];
-  sortOrder?: SortOrder | boolean;
+  filteredValue?: Array<T[keyof T]>;
+  sortOrder?: SortOrder | false;
   children?: ColumnProps<T>[];
   onCellClick?: (record: T, event: any) => void;
   onCell?: (record: T, rowIndex: number) => any;
@@ -157,7 +157,7 @@ export interface TableProps<T> {
   onExpand?: (expanded: boolean, record: T) => void;
   onChange?: (
     pagination: PaginationConfig,
-    filters: Record<keyof T, string[]>,
+    filters: { [K in keyof T]: Array<T[K]> },
     sorter: SorterResult<T>,
     extra: TableCurrentDataSource<T>,
   ) => void;
