@@ -274,12 +274,6 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     }
   };
 
-  handleInputBlur = () => {
-    this.setState({
-      inputFocused: false,
-    });
-  };
-
   handleInputClick = (e: React.MouseEvent<HTMLInputElement>) => {
     const { inputFocused, popupVisible } = this.state;
     // Prevent `Trigger` behaviour.
@@ -530,7 +524,6 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
           readOnly={!showSearch}
           autoComplete="off"
           onClick={showSearch ? this.handleInputClick : undefined}
-          onBlur={showSearch ? this.handleInputBlur : undefined}
           onKeyDown={this.handleKeyDown}
           onChange={showSearch ? this.handleInputChange : undefined}
         />

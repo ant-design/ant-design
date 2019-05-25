@@ -258,7 +258,7 @@ describe('Cascader', () => {
     expect(wrapper.state('inputValue')).toBe('');
   });
 
-  it('should not trigger visible change when click search input', () => {
+  it('should trigger visible change when click search input', () => {
     const onPopupVisibleChange = jest.fn();
     const wrapper = mount(
       <Cascader options={options} showSearch onPopupVisibleChange={onPopupVisibleChange} />,
@@ -272,7 +272,7 @@ describe('Cascader', () => {
     wrapper.find('input').simulate('blur');
     wrapper.setState({ popupVisible: false });
     wrapper.find('input').simulate('click');
-    expect(onPopupVisibleChange).toHaveBeenCalledTimes(2);
+    expect(onPopupVisibleChange).toHaveBeenCalledTimes(1);
   });
 
   it('should change filtered item when options are changed', () => {
