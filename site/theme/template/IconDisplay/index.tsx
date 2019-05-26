@@ -99,7 +99,7 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
     return (
       <>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Radio.Group value={this.state.theme} onChange={this.handleChangeTheme} size="large">
+          <Radio.Group value={this.state.theme} onChange={this.handleChangeTheme} size="large" buttonStyle="solid">
             <Radio.Button value="outlined">
               <Icon component={OutlinedIcon} /> {messages['app.docs.components.icon.outlined']}
             </Radio.Button>

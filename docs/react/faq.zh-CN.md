@@ -128,11 +128,7 @@ import { Menu, Breadcrumb, Icon } from 'antd';
 
 ### 你们有接受捐助的渠道吗，比如支付宝或者微信支付？
 
-还没有。
-
-### 为什么？
-
-马爸爸会付给我们钱。
+[https://opencollective.com/ant-design](https://opencollective.com/ant-design)
 
 ---
 

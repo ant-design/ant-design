@@ -43,7 +43,7 @@ title: Select
 | maxTagPlaceholder | 隐藏 tag 时显示的内容 | ReactNode/function(omittedValues) | - |
 | mode | 设置 Select 的模式为多选或标签 | 'multiple' \| 'tags' | - |
 | notFoundContent | 当下拉列表为空时显示的内容 | string | 'Not Found' |
-| optionFilterProp | 搜索时过滤对应的 option 属性，如设置为 children 表示对内嵌内容进行搜索 | string | value |
+| optionFilterProp | 搜索时过滤对应的 option 属性，如设置为 children 表示对内嵌内容进行搜索。[示例](https://codesandbox.io/s/antd-reproduction-template-tk678) | string | value |
 | optionLabelProp | 回填到选择框的 Option 的属性值，默认是 Option 的子元素。比如在子元素需要高亮效果时，此值可以设为 `value`。 | string | `children` （combobox 模式下为 `value`） |
 | placeholder | 选择框默认文字 | string | - |
 | showArrow | 是否显示下拉小箭头 | boolean | true |
@@ -69,7 +69,7 @@ title: Select
 | onDropdownVisibleChange | 展开下拉菜单的回调 (3.9.0 后支持) | function(open) | - |
 | loading | 加载中状态 | Boolean | false |
 
-> 注意，如果发现下拉菜单跟随页面滚动，或者需要在其他弹层中触发 Select，请尝试使用 `getPopupContainer={triggerNode => triggerNode.parentNode}` 将下拉弹层渲染节点固定在触发器的父元素中。
+> 注意，如果发现下拉菜单跟随页面滚动，或者需要在其他弹层中触发 Select，请尝试使用 `getPopupContainer={triggerNode => triggerNode.parentElement}` 将下拉弹层渲染节点固定在触发器的父元素中。
 
 ### Select Methods
 

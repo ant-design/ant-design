@@ -124,11 +124,7 @@ Here are some typical wrong examples:
 
 ### Do you guys have any channel for donation, like PayPal or Alipay?
 
-Not yet.
-
-### Why not?
-
-Alibaba pays us.
+[https://opencollective.com/ant-design](https://opencollective.com/ant-design)
 
 ---
 

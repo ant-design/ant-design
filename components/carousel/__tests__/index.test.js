@@ -106,12 +106,28 @@ describe('Carousel', () => {
     warnSpy.mockRestore();
   });
 
-  it('should active when children change', () => {
-    const wrapper = mount(<Carousel />);
-    wrapper.setProps({
-      children: <div />,
+  describe('should active when children change', () => {
+    it('should active', () => {
+      const wrapper = mount(<Carousel />);
+      wrapper.setProps({
+        children: <div />,
+      });
+      wrapper.update();
+      expect(wrapper.find('.slick-active').length).toBeTruthy();
     });
-    wrapper.update();
-    expect(wrapper.find('.slick-active').length).toBeTruthy();
+
+    it('should keep initialSlide', () => {
+      const wrapper = mount(<Carousel initialSlide={1} />);
+      wrapper.setProps({
+        children: [<div key="1" />, <div key="2" />, <div key="3" />],
+      });
+      wrapper.update();
+      expect(
+        wrapper
+          .find('.slick-dots li')
+          .at(1)
+          .hasClass('slick-active'),
+      ).toBeTruthy();
+    });
   });
 });

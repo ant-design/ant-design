@@ -59,8 +59,6 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
     separator: PropTypes.node,
     routes: PropTypes.array,
     params: PropTypes.object,
-    linkRender: PropTypes.func,
-    nameRender: PropTypes.func,
   };
 
   componentDidMount() {

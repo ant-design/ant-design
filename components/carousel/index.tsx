@@ -73,7 +73,7 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
 
   componentDidUpdate(prevProps: CarouselProps) {
     if (React.Children.count(this.props.children) !== React.Children.count(prevProps.children)) {
-      this.goTo(0, false);
+      this.goTo(this.props.initialSlide || 0, false);
     }
   }
 
