@@ -1,13 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/upload/demo/avatar.md correctly 1`] = `
-<span
-  class="avatar-uploader"
+<div
+  class="clearfix"
 >
-  <div
-    class="ant-upload ant-upload-select ant-upload-select-picture-card"
-  />
-</span>
+  <span
+    class="avatar-uploader"
+  >
+    <div
+      class="ant-upload ant-upload-select ant-upload-select-picture-card"
+    />
+  </span>
+</div>
 `;
 
 exports[`renders ./components/upload/demo/basic.md correctly 1`] = `
