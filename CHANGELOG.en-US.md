@@ -15,6 +15,26 @@ timeline: true
 
 ---
 
+## 3.19.0
+
+`2019-05-26`
+
+- New Components:
+  - 🔥🔥🔥 [Mentions](https://ant.design/components/mentions-cn/) Provides Mentions component to replace origin Mention.
+  - 🔥🔥🔥 [Descriptions](https://ant.design/components/descriptions-cn/) Display multiple read-only fields in groups.
+- 🌟 Drawer support close by press `ESC`. [#16694](https://github.com/ant-design/ant-design/pull/16694)
+- 🌟 Steps support click to switch. [#16773](https://github.com/ant-design/ant-design/pull/16773)
+- 🌟 Add Latvian localization support. [#16780](https://github.com/ant-design/ant-design/pull/16780) [@kirbo](https://github.com/kirbo)
+- 🐞 Fix PageHeader horizontal divider style. [#16684](https://github.com/ant-design/ant-design/pull/16684)
+- 🐞 Fix Carousel `initialSlide` not work when `children` count change. [#16756](https://github.com/ant-design/ant-design/pull/16756)
+- 🐞 Fix Cascader `displayRender` not interactive. [#16782](https://github.com/ant-design/ant-design/pull/16782)
+- 🐞 Fix Upload list still can be removed when `disabled`. [#16786](https://github.com/ant-design/ant-design/pull/16786)
+- TypeScript
+  - ⚡️ Update Upload `action` prop definition. [#16716](https://github.com/ant-design/ant-design/pull/16716) [@christophehurpeau](https://github.com/christophehurpeau)
+  - ⚡️ Update Upload `onRemove` prop definition. [#16570](https://github.com/ant-design/ant-design/pull/16570) [@christophehurpeau](https://github.com/christophehurpeau)
+  - ⚡️ Update Select `getPopupContainer` prop definition. [#16778](https://github.com/ant-design/ant-design/pull/16778) [@chj-damon](https://github.com/chj-damon)
+  - ⚡️ Remove useless props definition. [#16705](https://github.com/ant-design/ant-design/pull/16705) [@sirlantis](https://github.com/sirlantis)
+
 ## 3.18.2
 
 `2019-05-20`

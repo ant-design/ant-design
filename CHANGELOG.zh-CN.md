@@ -15,6 +15,26 @@ timeline: true
 
 ---
 
+## 3.19.0
+
+`2019-05-26`
+
+- 本月新增组件：
+  - 🔥🔥🔥 [Mentions](https://ant.design/components/mentions-cn/) 新增提及组件以替换原有 Mention 组件。
+  - 🔥🔥🔥 [Descriptions](https://ant.design/components/descriptions-cn/) 成组展示多个只读字段。
+- 🌟 Drawer 支持 `ESC` 关闭。[#16694](https://github.com/ant-design/ant-design/pull/16694)
+- 🌟 Steps 支持点击切换功能。[#16773](https://github.com/ant-design/ant-design/pull/16773)
+- 🌟 新增拉脱维亚语支持。[#16780](https://github.com/ant-design/ant-design/pull/16780) [@kirbo](https://github.com/kirbo)
+- 🐞 修复 PageHeader 中水平分割线样式问题。[#16684](https://github.com/ant-design/ant-design/pull/16684)
+- 🐞 修复 Carousel `initialSlide` 在 `children` 数量变化时无效的问题。[#16756](https://github.com/ant-design/ant-design/pull/16756)
+- 🐞 修复 Cascader 自定义渲染时元素无法交互的问题。[#16782](https://github.com/ant-design/ant-design/pull/16782)
+- 🐞 修复 Upload 列表在 `disabled` 时仍然可以移除的问题。[#16786](https://github.com/ant-design/ant-design/pull/16786)
+- TypeScript
+  - ⚡️ 完善 Upload 中 `action` 属性的定义。[#16716](https://github.com/ant-design/ant-design/pull/16716) [@christophehurpeau](https://github.com/christophehurpeau)
+  - ⚡️ 完善 Upload 中 `onRemove` 属性的定义。[#16570](https://github.com/ant-design/ant-design/pull/16570) [@christophehurpeau](https://github.com/christophehurpeau)
+  - ⚡️ 完善 Select 中 `getPopupContainer` 属性的定义。[#16778](https://github.com/ant-design/ant-design/pull/16778) [@chj-damon](https://github.com/chj-damon)
+  - ⚡️ 移除已经失效的属性定义。[#16705](https://github.com/ant-design/ant-design/pull/16705) [@sirlantis](https://github.com/sirlantis)
+
 ## 3.18.2
 
 `2019-05-20`
