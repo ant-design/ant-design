@@ -20,7 +20,7 @@ timeline: true
 `2019-05-26`
 
 - 本月新增组件：
-  - 🔥🔥🔥 [Mentions](https://ant.design/components/mentions-cn/) 新增提及组件以替换原有 Mention 组件。
+  - 🔥🔥🔥 [Mentions](https://ant.design/components/mentions-cn/) 新增提及组件并废弃原有 Mention 组件。
   - 🔥🔥🔥 [Descriptions](https://ant.design/components/descriptions-cn/) 成组展示多个只读字段。
 - 🌟 Drawer 支持 `ESC` 关闭。[#16694](https://github.com/ant-design/ant-design/pull/16694)
 - 🌟 Steps 支持点击切换功能。[#16773](https://github.com/ant-design/ant-design/pull/16773)

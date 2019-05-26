@@ -20,7 +20,7 @@ timeline: true
 `2019-05-26`
 
 - New Components:
-  - 🔥🔥🔥 [Mentions](https://ant.design/components/mentions-cn/) Provides Mentions component to replace origin Mention.
+  - 🔥🔥🔥 [Mentions](https://ant.design/components/mentions-cn/) Provides Mentions component and origin Mention marked as deprecated.
   - 🔥🔥🔥 [Descriptions](https://ant.design/components/descriptions-cn/) Display multiple read-only fields in groups.
 - 🌟 Drawer support close by press `ESC`. [#16694](https://github.com/ant-design/ant-design/pull/16694)
 - 🌟 Steps support click to switch. [#16773](https://github.com/ant-design/ant-design/pull/16773)
