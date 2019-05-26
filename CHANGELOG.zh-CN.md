@@ -32,10 +32,12 @@ timeline: true
 - 🐞 修复 Carousel `initialSlide` 在 `children` 数量变化时无效的问题。[#16756](https://github.com/ant-design/ant-design/pull/16756)
 - 🐞 修复 Cascader 自定义渲染时元素无法交互的问题。[#16782](https://github.com/ant-design/ant-design/pull/16782)
 - 🐞 修复 Upload 列表在 `disabled` 时仍然可以移除的问题。[#16786](https://github.com/ant-design/ant-design/pull/16786)
+- 💄 增加 Upload `disabled` 状态下鼠标样式。[#16799](https://github.com/ant-design/ant-design/pull/16799) [@attacking](https://github.com/attacking)
 - TypeScript
   - ⚡️ 完善 Upload 中 `action` 属性的定义。[#16716](https://github.com/ant-design/ant-design/pull/16716) [@christophehurpeau](https://github.com/christophehurpeau)
   - ⚡️ 完善 Upload 中 `onRemove` 属性的定义。[#16570](https://github.com/ant-design/ant-design/pull/16570) [@christophehurpeau](https://github.com/christophehurpeau)
   - ⚡️ 完善 Select 中 `getPopupContainer` 属性的定义。[#16778](https://github.com/ant-design/ant-design/pull/16778) [@chj-damon](https://github.com/chj-damon)
+  - ⚡️ 完善 InputNumber 中 `parser` 属性的定义。[#16797](https://github.com/ant-design/ant-design/pull/16797)
   - ⚡️ 移除已经失效的属性定义。[#16705](https://github.com/ant-design/ant-design/pull/16705) [@sirlantis](https://github.com/sirlantis)
 
 ## 3.18.2

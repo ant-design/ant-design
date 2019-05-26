@@ -32,10 +32,12 @@ timeline: true
 - 🐞 Fix Carousel `initialSlide` not work when `children` count change. [#16756](https://github.com/ant-design/ant-design/pull/16756)
 - 🐞 Fix Cascader `displayRender` not interactive. [#16782](https://github.com/ant-design/ant-design/pull/16782)
 - 🐞 Fix Upload list still can be removed when `disabled`. [#16786](https://github.com/ant-design/ant-design/pull/16786)
+- 💄 Update Upload `disabled` cursor style. [#16799](https://github.com/ant-design/ant-design/pull/16799) [@attacking](https://github.com/attacking)
 - TypeScript
   - ⚡️ Update Upload `action` prop definition. [#16716](https://github.com/ant-design/ant-design/pull/16716) [@christophehurpeau](https://github.com/christophehurpeau)
   - ⚡️ Update Upload `onRemove` prop definition. [#16570](https://github.com/ant-design/ant-design/pull/16570) [@christophehurpeau](https://github.com/christophehurpeau)
   - ⚡️ Update Select `getPopupContainer` prop definition. [#16778](https://github.com/ant-design/ant-design/pull/16778) [@chj-damon](https://github.com/chj-damon)
+  - ⚡️ Update InputNumber `parse` prop definition. [#16797](https://github.com/ant-design/ant-design/pull/16797)
   - ⚡️ Remove useless props definition. [#16705](https://github.com/ant-design/ant-design/pull/16705) [@sirlantis](https://github.com/sirlantis)
 
 ## 3.18.2
