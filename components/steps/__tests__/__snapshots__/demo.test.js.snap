@@ -1,5 +1,213 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renders ./components/steps/demo/clickable.md correctly 1`] = `
+<div>
+  <div
+    class="ant-steps ant-steps-horizontal ant-steps-label-horizontal"
+  >
+    <div
+      class="ant-steps-item ant-steps-item-process"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-tail"
+      />
+      <div
+        class="ant-steps-item-icon"
+      >
+        <span
+          class="ant-steps-icon"
+        >
+          1
+        </span>
+      </div>
+      <div
+        class="ant-steps-item-content"
+      >
+        <div
+          class="ant-steps-item-title"
+        >
+          Step 1
+        </div>
+        <div
+          class="ant-steps-item-description"
+        >
+          This is a description.
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-steps-item ant-steps-item-wait"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-tail"
+      />
+      <div
+        class="ant-steps-item-icon"
+      >
+        <span
+          class="ant-steps-icon"
+        >
+          2
+        </span>
+      </div>
+      <div
+        class="ant-steps-item-content"
+      >
+        <div
+          class="ant-steps-item-title"
+        >
+          Step 2
+        </div>
+        <div
+          class="ant-steps-item-description"
+        >
+          This is a description.
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-steps-item ant-steps-item-wait"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-tail"
+      />
+      <div
+        class="ant-steps-item-icon"
+      >
+        <span
+          class="ant-steps-icon"
+        >
+          3
+        </span>
+      </div>
+      <div
+        class="ant-steps-item-content"
+      >
+        <div
+          class="ant-steps-item-title"
+        >
+          Step 3
+        </div>
+        <div
+          class="ant-steps-item-description"
+        >
+          This is a description.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-divider ant-divider-horizontal"
+  />
+  <div
+    class="ant-steps ant-steps-vertical"
+  >
+    <div
+      class="ant-steps-item ant-steps-item-process"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-tail"
+      />
+      <div
+        class="ant-steps-item-icon"
+      >
+        <span
+          class="ant-steps-icon"
+        >
+          1
+        </span>
+      </div>
+      <div
+        class="ant-steps-item-content"
+      >
+        <div
+          class="ant-steps-item-title"
+        >
+          Step 1
+        </div>
+        <div
+          class="ant-steps-item-description"
+        >
+          This is a description.
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-steps-item ant-steps-item-wait"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-tail"
+      />
+      <div
+        class="ant-steps-item-icon"
+      >
+        <span
+          class="ant-steps-icon"
+        >
+          2
+        </span>
+      </div>
+      <div
+        class="ant-steps-item-content"
+      >
+        <div
+          class="ant-steps-item-title"
+        >
+          Step 2
+        </div>
+        <div
+          class="ant-steps-item-description"
+        >
+          This is a description.
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-steps-item ant-steps-item-wait"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-tail"
+      />
+      <div
+        class="ant-steps-item-icon"
+      >
+        <span
+          class="ant-steps-icon"
+        >
+          3
+        </span>
+      </div>
+      <div
+        class="ant-steps-item-content"
+      >
+        <div
+          class="ant-steps-item-title"
+        >
+          Step 3
+        </div>
+        <div
+          class="ant-steps-item-description"
+        >
+          This is a description.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/steps/demo/customized-progress-dot.md correctly 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-label-vertical ant-steps-dot"

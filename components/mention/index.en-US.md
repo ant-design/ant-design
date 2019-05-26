@@ -1,14 +1,18 @@
 ---
 category: Components
-type: Data Entry
-title: Mention
+type: Deprecated
+title: Mention (Deprecated)
 ---
 
-Mention component.
+Mention component. Deprecated, please use [Mentions](/components/mentions) instead.
 
-## When To Use
+## Why deprecated?
 
-When need to mention someone or something.
+<div class="ant-alert ant-alert-error ant-alert-no-icon">
+Mention use
+<a href="https://www.npmjs.com/package/draft-js" target="_blank" rel="noopener noreferrer">Draft.js</a>
+to measure tips position, which use nearly 11.6% package size. We hope to reduce bundle size by using lightweight solution to handle this.
+</div>
 
 ## API
 
