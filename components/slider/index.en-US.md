@@ -30,6 +30,7 @@ To input a value in a range.
 | onAfterChange | Fire when `onmouseup` is fired. | Function(value) | NOOP |
 | onChange | Callback function that is fired when the user changes the slider's value. | Function(value) | NOOP |
 | tooltipVisible | If true, Tooltip will show always, or it will not show anyway, even if dragging or hovering. | Boolean |  |
+| getTooltipPopupContainer | The DOM container of the Tooltip, the default behavior is to create a div element in body. | Function | () => document.body |
 
 ## Methods
 
