@@ -27,7 +27,7 @@ timeline: true
 - 🌟 新增拉脱维亚语支持。[#16780](https://github.com/ant-design/ant-design/pull/16780) [@kirbo](https://github.com/kirbo)
 - 🌟 Calendar 支持 `headerRender`。[#16535](https://github.com/ant-design/ant-design/pull/16535) [@abgaryanharutyun](https://github.com/abgaryanharutyun)
 - 🌟 Slider 支持 `tooltipPlacement`。[#16641](https://github.com/ant-design/ant-design/pull/16641) [@cmaster11](https://github.com/cmaster11)
-- 🌟 Slider 支持 `getTooltipPopupContainer`。[#16717](https://github.com/ant-design/ant-design/pull/16717)
+- 🌟 Slider 支持 `getTooltipPopupContainer` 以允许自定义提示所在容器。[#16717](https://github.com/ant-design/ant-design/pull/16717)
 - 🐞 修复 PageHeader 中水平分割线样式问题。[#16684](https://github.com/ant-design/ant-design/pull/16684)
 - 🐞 修复 Carousel `initialSlide` 在 `children` 数量变化时无效的问题。[#16756](https://github.com/ant-design/ant-design/pull/16756)
 - 🐞 修复 Cascader 自定义渲染时元素无法交互的问题。[#16782](https://github.com/ant-design/ant-design/pull/16782)
