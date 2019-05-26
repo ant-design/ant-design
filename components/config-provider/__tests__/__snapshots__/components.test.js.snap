@@ -6771,6 +6771,7 @@ exports[`ConfigProvider components Drawer configProvider 1`] = `
 >
   <div
     class="config-drawer config-drawer-right"
+    tabindex="-1"
   >
     <div
       class="config-drawer-mask"
@@ -6830,6 +6831,7 @@ exports[`ConfigProvider components Drawer normal 1`] = `
 >
   <div
     class="ant-drawer ant-drawer-right"
+    tabindex="-1"
   >
     <div
       class="ant-drawer-mask"
@@ -6889,6 +6891,7 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
 >
   <div
     class="prefix-Drawer prefix-Drawer-right"
+    tabindex="-1"
   >
     <div
       class="prefix-Drawer-mask"

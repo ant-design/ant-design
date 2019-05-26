@@ -3,6 +3,7 @@ import RcMention, { Nav, toString, toEditorState, getMentions } from 'rc-editor-
 import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
 import Icon from '../icon';
+import warning from '../_util/warning';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export type MentionPlacement = 'top' | 'bottom';
@@ -56,6 +57,12 @@ class Mention extends React.Component<MentionProps, MentionState> {
       filteredSuggestions: props.defaultSuggestions,
       focus: false,
     };
+
+    warning(
+      false,
+      'Mention',
+      'Mention component is deprecated. Please use Mentions component instead.',
+    );
   }
 
   onSearchChange = (value: string, prefix: string) => {

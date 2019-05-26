@@ -131,6 +131,40 @@
   &.@{steps-prefix-cls}-next-error .@{steps-prefix-cls}-item-title::after {
     background: @error-icon-color;
   }
+
+  // ===================== Clickable =====================
+  &[role='button'] {
+    outline: none;
+
+    &:not(.@{steps-prefix-cls}-item-process) {
+      cursor: pointer;
+
+      .@{steps-prefix-cls}-item {
+        &-title,
+        &-description,
+        &-icon .@{steps-prefix-cls}-icon {
+          transition: color 0.3s;
+        }
+      }
+
+      &:hover {
+        .@{steps-prefix-cls}-item {
+          &-title,
+          &-description {
+            color: @primary-color;
+          }
+
+          &-icon {
+            border-color: @primary-color;
+
+            .@{steps-prefix-cls}-icon {
+              color: @primary-color;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .@{steps-prefix-cls}-horizontal:not(.@{steps-prefix-cls}-label-vertical) {
