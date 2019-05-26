@@ -2,7 +2,7 @@ import * as React from 'react';
 import RcSlider from 'rc-slider/lib/Slider';
 import RcRange from 'rc-slider/lib/Range';
 import RcHandle from 'rc-slider/lib/Handle';
-import Tooltip from '../tooltip';
+import Tooltip, { TooltipPlacement } from '../tooltip';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface SliderMarks {
@@ -48,6 +48,7 @@ export interface SliderProps {
   id?: string;
   style?: React.CSSProperties;
   tooltipVisible?: boolean;
+  tooltipPlacement?: TooltipPlacement;
   getTooltipPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
 }
 
@@ -83,7 +84,7 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
     tooltipPrefixCls: string,
     { value, dragging, index, ...restProps },
   ) => {
-    const { tipFormatter, tooltipVisible, getTooltipPopupContainer } = this.props;
+    const { tipFormatter, tooltipVisible, tooltipPlacement, getTooltipPopupContainer } = this.props;
     const { visibles } = this.state;
     const isTipFormatter = tipFormatter ? visibles[index] || dragging : false;
     const visible = tooltipVisible || (tooltipVisible === undefined && isTipFormatter);
@@ -92,7 +93,7 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
         prefixCls={tooltipPrefixCls}
         title={tipFormatter ? tipFormatter(value) : ''}
         visible={visible}
-        placement="top"
+        placement={tooltipPlacement || 'top'}
         transitionName="zoom-down"
         key={index}
         getPopupContainer={
