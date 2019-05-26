@@ -49,6 +49,7 @@ export interface SliderProps {
   style?: React.CSSProperties;
   tooltipVisible?: boolean;
   tooltipPlacement?: TooltipPlacement;
+  getTooltipPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
 }
 
 export interface SliderState {
@@ -62,7 +63,7 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
     },
   };
 
-  private rcSlider: any;
+  rcSlider: typeof RcSlider;
 
   constructor(props: SliderProps) {
     super(props);
@@ -83,7 +84,7 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
     tooltipPrefixCls: string,
     { value, dragging, index, ...restProps },
   ) => {
-    const { tipFormatter, tooltipVisible, tooltipPlacement } = this.props;
+    const { tipFormatter, tooltipVisible, tooltipPlacement, getTooltipPopupContainer } = this.props;
     const { visibles } = this.state;
     const isTipFormatter = tipFormatter ? visibles[index] || dragging : false;
     const visible = tooltipVisible || (tooltipVisible === undefined && isTipFormatter);
@@ -95,6 +96,9 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
         placement={tooltipPlacement || 'top'}
         transitionName="zoom-down"
         key={index}
+        getPopupContainer={
+          getTooltipPopupContainer ? getTooltipPopupContainer : () => document.body
+        }
       >
         <RcHandle
           {...restProps}
