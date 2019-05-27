@@ -15,6 +15,17 @@ timeline: true
 
 ---
 
+## 3.19.1
+
+`2019-05-27`
+
+- 🐞 修复 Menu 在受控模式下收起 Tooltip 不消失的问题。[#16812](https://github.com/ant-design/ant-design/pull/16812)
+- 🐞 修复 Descriptions 排列警告信息逻辑错误的问题。[#16819](https://github.com/ant-design/ant-design/pull/16819)
+- 🐞 修复图标 `canlendar` 和 `interation` 为正确的拼写 `calendar` 和 `interaction`。[#16818](https://github.com/ant-design/ant-design/pull/16818)
+- TypeScript
+  - ⚡️ 修复 Mentions 定义。[#16814](https://github.com/ant-design/ant-design/pull/16814)
+  - ⚡️ 完善 Select 中 `onSelect` 和 `onDeselect` 属性的定义。[#16817](https://github.com/ant-design/ant-design/pull/16817)
+
 ## 3.19.0
 
 `2019-05-26`

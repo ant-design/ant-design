@@ -15,6 +15,17 @@ timeline: true
 
 ---
 
+## 3.19.1
+
+`2019-05-27`
+
+- 🐞 Fix Tooltip not hidden when Menu collapsed in control mode. [#16812](https://github.com/ant-design/ant-design/pull/16812)
+- 🐞 Fix Description warning with column count not correct. [#16819](https://github.com/ant-design/ant-design/pull/16819)
+- 🐞 Correct typo icon names `canlendar` / `interation` to `calendar` / `interaction`. [#16818](https://github.com/ant-design/ant-design/pull/16818)
+- TypeScript
+  - ⚡️ Fix Mentions definition. [#16814](https://github.com/ant-design/ant-design/pull/16814)
+  - ⚡️ Update Select `onSelect` & `onDeselect` prop definition. [#16817](https://github.com/ant-design/ant-design/pull/16817)
+
 ## 3.19.0
 
 `2019-05-26`
