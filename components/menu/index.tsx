@@ -58,6 +58,7 @@ export interface MenuProps {
   onMouseEnter?: (e: MouseEvent) => void;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   overflowedIndicator?: React.ReactNode;
+  forceSubMenuRender?: boolean;
 }
 
 type InternalMenuProps = MenuProps & SiderContextProps;
