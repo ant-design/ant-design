@@ -5,6 +5,9 @@ Object.keys(manifest).forEach(theme => {
   allIcons = [...allIcons, ...(manifest as any)[theme]];
 });
 
+// Hide typo-name icons
+allIcons = allIcons.filter((name: string) => !['interation', 'canlendar'].includes(name));
+
 export const categories = {
   all: [...new Set(allIcons)],
   direction: [
