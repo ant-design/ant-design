@@ -48,14 +48,15 @@ const generateChildrenRows = (
       totalRowSpan += 1;
     }
     if (totalRowSpan >= column) {
-      childrenArray.push(columnArray);
-      columnArray = [];
-      totalRowSpan = 0;
       warning(
-        totalRowSpan > column,
+        totalRowSpan <= column,
         'Descriptions',
         'Sum of column `span` in a line exceeds `column` of Descriptions.',
       );
+
+      childrenArray.push(columnArray);
+      columnArray = [];
+      totalRowSpan = 0;
     }
   });
   if (columnArray.length > 0) {
