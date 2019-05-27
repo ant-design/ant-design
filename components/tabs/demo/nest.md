@@ -2,7 +2,7 @@
 order: 99
 debug: true
 title:
-  zh-CN: 基本
+  zh-CN: 嵌套
   en-US: Nest
 ---
 
