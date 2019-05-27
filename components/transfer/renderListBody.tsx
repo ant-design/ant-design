@@ -36,7 +36,7 @@ class ListBody extends React.Component<TransferListBodyProps> {
     });
   }
 
-  componentWillMount() {
+  componentWillUnmount() {
     raf.cancel(this.mountId);
   }
 
