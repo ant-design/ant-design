@@ -142,6 +142,12 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
       '`inlineCollapsed` should only be used when `mode` is inline.',
     );
 
+    warning(
+      !(props.siderCollapsed !== undefined && 'inlineCollapsed' in props),
+      'Menu',
+      '`inlineCollapsed` not control Menu under Sider. Should set `collapsed` on Sider instead.',
+    );
+
     let openKeys;
     if ('openKeys' in props) {
       openKeys = props.openKeys;
