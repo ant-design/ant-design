@@ -1,4 +1,5 @@
 import React from 'react';
+import MockDate from 'mockdate';
 import { mount } from 'enzyme';
 import Descriptions from '..';
 
