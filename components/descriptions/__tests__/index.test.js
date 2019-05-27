@@ -1,4 +1,5 @@
 import React from 'react';
+import MockDate from 'mockdate';
 import { mount } from 'enzyme';
 import Descriptions from '..';
 
@@ -23,6 +24,17 @@ jest.mock('enquire.js', () => {
 });
 
 describe('Descriptions', () => {
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+  afterEach(() => {
+    MockDate.reset();
+    errorSpy.mockReset();
+  });
+
+  afterAll(() => {
+    errorSpy.mockRestore();
+  });
+
   it('when max-width: 575px，column=1', () => {
     // eslint-disable-next-line global-require
     const enquire = require('enquire.js');
@@ -82,5 +94,21 @@ describe('Descriptions', () => {
     );
     expect(wrapper.instance().getColumn()).toBe(8);
     wrapper.unmount();
+  });
+
+  it('warning if ecceed the row span', () => {
+    mount(
+      <Descriptions column={3}>
+        <DescriptionsItem label="Product" span={2}>
+          Cloud Database
+        </DescriptionsItem>
+        <DescriptionsItem label="Billing" span={2}>
+          Prepaid
+        </DescriptionsItem>
+      </Descriptions>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Descriptions] Sum of column `span` in a line exceeds `column` of Descriptions.',
+    );
   });
 });
