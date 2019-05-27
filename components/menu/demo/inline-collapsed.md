@@ -20,7 +20,7 @@ Here is [a complete demo](/components/layout/#components-layout-demo-side) with 
 ```jsx
 import { Menu, Icon, Button } from 'antd';
 
-const SubMenu = Menu.SubMenu;
+const { SubMenu }  = Menu;
 
 class App extends React.Component {
   state = {

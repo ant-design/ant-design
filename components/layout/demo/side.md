@@ -24,7 +24,7 @@ The level of the aside navigation is scalable. The first, second, and third leve
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 
 const { Header, Content, Footer, Sider } = Layout;
-const SubMenu = Menu.SubMenu;
+const { SubMenu } = Menu;
 
 class SiderDemo extends React.Component {
   state = {

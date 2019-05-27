@@ -16,8 +16,7 @@ Horizontal top navigation menu.
 ```jsx
 import { Menu, Icon } from 'antd';
 
-const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
+const { SubMenu }  = Menu;
 
 class App extends React.Component {
   state = {
@@ -50,14 +49,14 @@ class App extends React.Component {
             </span>
           }
         >
-          <MenuItemGroup title="Item 1">
+          <Menu.ItemGroup title="Item 1">
             <Menu.Item key="setting:1">Option 1</Menu.Item>
             <Menu.Item key="setting:2">Option 2</Menu.Item>
-          </MenuItemGroup>
-          <MenuItemGroup title="Item 2">
+          </Menu.ItemGroup>
+          <Menu.ItemGroup title="Item 2">
             <Menu.Item key="setting:3">Option 3</Menu.Item>
             <Menu.Item key="setting:4">Option 4</Menu.Item>
-          </MenuItemGroup>
+          </Menu.ItemGroup>
         </SubMenu>
         <Menu.Item key="alipay">
           <a href="https://ant.design" target="_blank" rel="noopener noreferrer">

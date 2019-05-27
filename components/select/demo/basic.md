@@ -16,7 +16,7 @@ Basic Usage.
 ```jsx
 import { Select } from 'antd';
 
-const Option = Select.Option;
+const { Option } = Select;
 
 function handleChange(value) {
   console.log(`selected ${value}`);

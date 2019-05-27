@@ -16,7 +16,7 @@ Hide default plus icon, and bind event for customized trigger.
 ```jsx
 import { Tabs, Button } from 'antd';
 
-const TabPane = Tabs.TabPane;
+const { TabPane } = Tabs;
 
 class Demo extends React.Component {
   constructor(props) {

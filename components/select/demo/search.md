@@ -16,7 +16,7 @@ Search the options while expanded.
 ```jsx
 import { Select } from 'antd';
 
-const Option = Select.Option;
+const { Option } = Select;
 
 function onChange(value) {
   console.log(`selected ${value}`);

@@ -16,10 +16,6 @@ Custom sizes to fit in a variety of containers.
 ```jsx
 import { Descriptions, Radio } from 'antd';
 
-const RadioGroup = Radio.Group;
-
-const DescriptionsItem = Descriptions.Item;
-
 class Demo extends React.Component {
   state = {
     size: 'default',
@@ -35,21 +31,21 @@ class Demo extends React.Component {
   render() {
     return (
       <div>
-        <RadioGroup onChange={this.onChange} value={this.state.size}>
+        <Radio.Group onChange={this.onChange} value={this.state.size}>
           <Radio value="default">default</Radio>
           <Radio value="middle">middle</Radio>
           <Radio value="small">small</Radio>
-        </RadioGroup>
+        </Radio.Group>
         <br />
         <br />
         <Descriptions bordered title="Custom Size" border size={this.state.size}>
-          <DescriptionsItem label="Product">Cloud Database</DescriptionsItem>
-          <DescriptionsItem label="Billing">Prepaid</DescriptionsItem>
-          <DescriptionsItem label="time">18:00:00</DescriptionsItem>
-          <DescriptionsItem label="Amount">$80.00</DescriptionsItem>
-          <DescriptionsItem label="Discount">$20.00</DescriptionsItem>
-          <DescriptionsItem label="Official">$60.00</DescriptionsItem>
-          <DescriptionsItem label="Config Info">
+          <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
+          <Descriptions.Item label="Billing">Prepaid</Descriptions.Item>
+          <Descriptions.Item label="time">18:00:00</Descriptions.Item>
+          <Descriptions.Item label="Amount">$80.00</Descriptions.Item>
+          <Descriptions.Item label="Discount">$20.00</Descriptions.Item>
+          <Descriptions.Item label="Official">$60.00</Descriptions.Item>
+          <Descriptions.Item label="Config Info">
             Data disk type: MongoDB
             <br />
             Database version: 3.4
@@ -61,7 +57,7 @@ class Demo extends React.Component {
             Replication_factor:3
             <br />
             Region: East China 1<br />
-          </DescriptionsItem>
+          </Descriptions.Item>
         </Descriptions>
       </div>
     );

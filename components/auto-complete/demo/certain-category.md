@@ -16,8 +16,7 @@ Demonstration of [Lookup Patterns: Certain Category](https://ant.design/docs/spe
 ```jsx
 import { Icon, Input, AutoComplete } from 'antd';
 
-const Option = AutoComplete.Option;
-const OptGroup = AutoComplete.OptGroup;
+const { Option, OptGroup } = AutoComplete;
 
 const dataSource = [
   {

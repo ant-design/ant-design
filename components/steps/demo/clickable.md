@@ -16,7 +16,7 @@ Setting `onChange` makes Steps clickable.
 ```jsx
 import { Steps, Divider } from 'antd';
 
-const Step = Steps.Step;
+const { Step } = Steps;
 
 class Demo extends React.Component {
   state = {

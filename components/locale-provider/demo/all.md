@@ -34,8 +34,8 @@ import 'moment/locale/zh-cn';
 
 moment.locale('en');
 
-const Option = Select.Option;
-const RangePicker = DatePicker.RangePicker;
+const { Option } = Select;
+const { RangePicker } = DatePicker;
 
 const columns = [
   {

@@ -16,7 +16,7 @@ You can customize the display for Steps with progress dot style.
 ```jsx
 import { Steps, Popover } from 'antd';
 
-const Step = Steps.Step;
+const { Step } = Steps;
 
 const customDot = (dot, { status, index }) => (
   <Popover

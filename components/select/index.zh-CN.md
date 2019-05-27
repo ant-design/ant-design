@@ -15,9 +15,9 @@ title: Select
 ## API
 
 ```html
-<select>
-  <option value="lucy">lucy</option>
-</select>
+<Select>
+  <Option value="lucy">lucy</Option>
+</Select>
 ```
 
 ### Select props
