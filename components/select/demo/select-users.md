@@ -17,7 +17,7 @@ A complete multiple select sample with remote search, debounce fetch, ajax callb
 import { Select, Spin } from 'antd';
 import debounce from 'lodash/debounce';
 
-const Option = Select.Option;
+const { Option } = Select;
 
 class UserRemoteSelect extends React.Component {
   constructor(props) {

@@ -1,8 +1,8 @@
 ---
 order: 2
 title:
-  zh-CN: RadioGroup 组合 - 配置方式
-  en-US: RadioGroup group - optional
+  zh-CN: Radio.Group 组合 - 配置方式
+  en-US: Radio.Group group - optional
 ---
 
 ## zh-CN
@@ -15,8 +15,6 @@ Render radios by configuring `options`.
 
 ```jsx
 import { Radio } from 'antd';
-
-const RadioGroup = Radio.Group;
 
 const plainOptions = ['Apple', 'Pear', 'Orange'];
 const options = [
@@ -61,9 +59,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <RadioGroup options={plainOptions} onChange={this.onChange1} value={this.state.value1} />
-        <RadioGroup options={options} onChange={this.onChange2} value={this.state.value2} />
-        <RadioGroup
+        <Radio.Group options={plainOptions} onChange={this.onChange1} value={this.state.value1} />
+        <Radio.Group options={options} onChange={this.onChange2} value={this.state.value2} />
+        <Radio.Group
           options={optionsWithDisabled}
           onChange={this.onChange3}
           value={this.state.value3}

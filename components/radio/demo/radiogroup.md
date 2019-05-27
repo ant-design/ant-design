@@ -16,8 +16,6 @@ A group of radio components.
 ```jsx
 import { Radio } from 'antd';
 
-const RadioGroup = Radio.Group;
-
 class App extends React.Component {
   state = {
     value: 1,
@@ -32,12 +30,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <RadioGroup onChange={this.onChange} value={this.state.value}>
+      <Radio.Group onChange={this.onChange} value={this.state.value}>
         <Radio value={1}>A</Radio>
         <Radio value={2}>B</Radio>
         <Radio value={3}>C</Radio>
         <Radio value={4}>D</Radio>
-      </RadioGroup>
+      </Radio.Group>
     );
   }
 }

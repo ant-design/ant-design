@@ -16,7 +16,7 @@ Multiple selection, selecting from existing items.
 ```jsx
 import { Select } from 'antd';
 
-const Option = Select.Option;
+const { Option } = Select;
 
 const children = [];
 for (let i = 10; i < 36; i++) {

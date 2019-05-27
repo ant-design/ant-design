@@ -3,7 +3,7 @@ import * as moment from 'moment';
 import Select from '../select';
 import { Group, Button, RadioChangeEvent } from '../radio';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-const Option = Select.Option;
+const { Option } = Select;
 
 export interface RenderHeader {
   value: moment.Moment;

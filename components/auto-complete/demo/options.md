@@ -16,7 +16,7 @@ You could pass `AutoComplete.Option` as children of `AutoComplete`, instead of u
 ```jsx
 import { AutoComplete } from 'antd';
 
-const Option = AutoComplete.Option;
+const { Option } = AutoComplete;
 
 class Complete extends React.Component {
   state = {

@@ -16,7 +16,7 @@ The most basic step bar.
 ```jsx
 import { Steps } from 'antd';
 
-const Step = Steps.Step;
+const { Step } = Steps;
 
 ReactDOM.render(
   <Steps current={1}>

@@ -16,8 +16,6 @@ Responsive configuration enables perfect presentation on small screen devices.
 ```jsx
 import { Descriptions } from 'antd';
 
-const DescriptionsItem = Descriptions.Item;
-
 const Demo = () => {
   return (
     <div>
@@ -26,13 +24,13 @@ const Demo = () => {
         border
         column={{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}
       >
-        <DescriptionsItem label="Product">Cloud Database</DescriptionsItem>
-        <DescriptionsItem label="Billing">Prepaid</DescriptionsItem>
-        <DescriptionsItem label="time">18:00:00</DescriptionsItem>
-        <DescriptionsItem label="Amount">$80.00</DescriptionsItem>
-        <DescriptionsItem label="Discount">$20.00</DescriptionsItem>
-        <DescriptionsItem label="Official">$60.00</DescriptionsItem>
-        <DescriptionsItem label="Config Info">
+        <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
+        <Descriptions.Item label="Billing">Prepaid</Descriptions.Item>
+        <Descriptions.Item label="time">18:00:00</Descriptions.Item>
+        <Descriptions.Item label="Amount">$80.00</Descriptions.Item>
+        <Descriptions.Item label="Discount">$20.00</Descriptions.Item>
+        <Descriptions.Item label="Official">$60.00</Descriptions.Item>
+        <Descriptions.Item label="Config Info">
           Data disk type: MongoDB
           <br />
           Database version: 3.4
@@ -44,7 +42,7 @@ const Demo = () => {
           Replication_factor:3
           <br />
           Region: East China 1
-        </DescriptionsItem>
+        </Descriptions.Item>
       </Descriptions>
     </div>
   );

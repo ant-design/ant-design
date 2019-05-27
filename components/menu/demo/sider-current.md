@@ -16,7 +16,7 @@ Click the menu and you will see that all the other menus gets collapsed to keep 
 ```jsx
 import { Menu, Icon } from 'antd';
 
-const SubMenu = Menu.SubMenu;
+const { SubMenu }  = Menu;
 
 class Sider extends React.Component {
   // submenu keys of first level

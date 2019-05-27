@@ -16,7 +16,7 @@ The Tab with Icon.
 ```jsx
 import { Tabs, Icon } from 'antd';
 
-const TabPane = Tabs.TabPane;
+const { TabPane } = Tabs;
 
 ReactDOM.render(
   <Tabs defaultActiveKey="2">

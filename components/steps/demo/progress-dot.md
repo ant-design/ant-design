@@ -16,7 +16,7 @@ Steps with progress dot style.
 ```jsx
 import { Steps } from 'antd';
 
-const Step = Steps.Step;
+const { Step } = Steps;
 
 ReactDOM.render(
   <Steps progressDot current={1}>

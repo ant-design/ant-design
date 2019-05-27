@@ -16,7 +16,7 @@ Customize the dropdown menu via `dropdownRender`.
 ```jsx
 import { Select, Icon, Divider } from 'antd';
 
-const Option = Select.Option;
+const { Option } = Select;
 
 ReactDOM.render(
   <Select

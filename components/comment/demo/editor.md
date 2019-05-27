@@ -17,7 +17,7 @@ Comment can be used as an editor, so the user can customize the contents of the 
 import { Comment, Avatar, Form, Button, List, Input } from 'antd';
 import moment from 'moment';
 
-const TextArea = Input.TextArea;
+const { TextArea } = Input;
 
 const CommentList = ({ comments }) => (
   <List

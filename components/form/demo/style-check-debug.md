@@ -17,7 +17,6 @@ Please check this before commit.
 ```jsx
 import { Button, Modal, Form, Row, Col, Input, Select, InputNumber, Radio, DatePicker } from 'antd';
 
-const RadioGroup = Radio.Group;
 const ColSpan = { lg: 12, md: 24 };
 
 class App extends React.Component {
@@ -140,10 +139,10 @@ class App extends React.Component {
             </Col>
             <Col {...ColSpan}>
               <Item label="RadioGroup: 64px">
-                <RadioGroup>
+                <Radio.Group>
                   <Radio value={0}>男</Radio>
                   <Radio value={1}>女</Radio>
-                </RadioGroup>
+                </Radio.Group>
               </Item>
             </Col>
           </Row>
