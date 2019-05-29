@@ -8,7 +8,12 @@ export interface HttpRequestHeader {
 
 export interface RcFile extends File {
   uid: string;
-  lastModifiedDate: Date;
+  readonly name: string;
+  readonly type: string;
+  readonly lastModified: number;
+  readonly lastModifiedDate: Date;
+  readonly size: number;
+  readonly webkitRelativePath: string;
 }
 
 export interface UploadFile {
