@@ -27,6 +27,7 @@ export interface UploadFile {
   error?: any;
   linkProps?: any;
   type: string;
+  webkitRelativePath?: string;
 }
 
 export interface UploadChangeParam<T extends object = UploadFile> {
