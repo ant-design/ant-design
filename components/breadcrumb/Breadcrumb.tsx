@@ -70,6 +70,15 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
         'see: https://u.ant.design/item-render.',
     );
   }
+
+  getPath = (path, params) => {
+     path = (path || '').replace(/^\//, '');
+     Object.keys(params).forEach(key => {
+         path = path.replace(`:${key}`, params[key]);
+     });
+     return path;
+  }
+
   genForRoutes = ({
     routes = [],
     params = {},
@@ -78,11 +87,7 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
   }: BreadcrumbProps) => {
     const paths: string[] = [];
     return routes.map(route => {
-      route.path = route.path || '';
-      let path = route.path.replace(/^\//, '');
-      Object.keys(params).forEach(key => {
-        path = path.replace(`:${key}`, params[key]);
-      });
+      let path = this.getPath(route.path, params);
 
       if (path) {
         paths.push(path);
@@ -94,7 +99,7 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
           <Menu>
             {route.children.map(child => (
               <Menu.Item key={child.breadcrumbName || child.path}>
-                {itemRender(child, params, routes, paths)}
+                {itemRender(child, params, routes, [...paths, this.getPath(child.path, params)])}
               </Menu.Item>
             ))}
           </Menu>
