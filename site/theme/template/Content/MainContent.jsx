@@ -68,6 +68,7 @@ export default class MainContent extends Component {
 
   componentDidMount() {
     this.componentDidUpdate();
+    window.addEventListener('load', this.handleInitialHashOnLoad);
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -87,28 +88,18 @@ export default class MainContent extends Component {
       this.bindScroller();
     }
     if (!window.location.hash && prevLocation.pathname !== location.pathname) {
-      document.documentElement.scrollTop = 0;
+      window.scrollTo(0, 0);
     }
     // when subMenu not equal
     if (get(this.props, 'route.path') !== get(prevProps, 'route.path')) {
       // reset menu OpenKeys
       this.handleMenuOpenChange();
     }
-    setTimeout(() => {
-      if (!window.location.hash) {
-        return;
-      }
-      const element = document.getElementById(
-        decodeURIComponent(window.location.hash.replace('#', '')),
-      );
-      if (element && document.documentElement.scrollTop === 0) {
-        element.scrollIntoView();
-      }
-    }, 0);
   }
 
   componentWillUnmount() {
-    this.scroller.disable();
+    this.scroller.destroy();
+    window.removeEventListener('load', this.handleInitialHashOnLoad);
   }
 
   getMenuItems(footerNavIcons = {}) {
@@ -163,9 +154,23 @@ export default class MainContent extends Component {
     this.setState({ openKeys });
   };
 
+  handleInitialHashOnLoad = () => {
+    setTimeout(() => {
+      if (!window.location.hash) {
+        return;
+      }
+      const element = document.getElementById(
+        decodeURIComponent(window.location.hash.replace('#', '')),
+      );
+      if (element && document.documentElement.scrollTop === 0) {
+        element.scrollIntoView();
+      }
+    }, 0);
+  };
+
   bindScroller() {
     if (this.scroller) {
-      this.scroller.disable();
+      this.scroller.destroy();
     }
     require('intersection-observer'); // eslint-disable-line
     const scrollama = require('scrollama'); // eslint-disable-line

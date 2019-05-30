@@ -58,7 +58,6 @@ export default class Progress extends React.Component<ProgressProps> {
     trailColor: PropTypes.string,
     format: PropTypes.func,
     gapDegree: PropTypes.number,
-    default: PropTypes.oneOf(['default', 'small']),
   };
 
   getPercentNumber() {

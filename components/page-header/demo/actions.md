@@ -10,12 +10,13 @@ title:
 使用操作区，并自定义子节点，适合使用在需要展示一些复杂的信息，帮助用户快速了解这个页面的信息和操作。
 
 ## en-US
+
 Use the operating area and customize the sub-nodes, suitable for use in the need to display some complex information to help users quickly understand the information and operations of this page.
 
 ```jsx
 import { PageHeader, Tag, Tabs, Button, Statistic, Row, Col } from 'antd';
 
-const TabPane = Tabs.TabPane;
+const { TabPane } = Tabs;
 
 const Description = ({ term, children, span = 12 }) => (
   <Col span={span}>
@@ -25,7 +26,6 @@ const Description = ({ term, children, span = 12 }) => (
     </div>
   </Col>
 );
-
 
 const content = (
   <Row>
@@ -77,9 +77,8 @@ ReactDOM.render(
       <div className="extraContent">{extraContent}</div>
     </div>
   </PageHeader>,
-  mountNode
+  mountNode,
 );
-
 ```
 
 <style>

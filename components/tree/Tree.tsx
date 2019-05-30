@@ -4,7 +4,7 @@ import DirectoryTree from './DirectoryTree';
 import classNames from 'classnames';
 import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import animation from '../_util/openAnimation';
+import { collapseMotion } from '../_util/motion';
 
 export interface AntdTreeNodeAttribute {
   eventKey: string;
@@ -25,8 +25,10 @@ export interface AntdTreeNodeAttribute {
   disabled: boolean;
   disableCheckbox: boolean;
 }
+
 export interface AntTreeNodeProps {
   className?: string;
+  checkable?: boolean;
   disabled?: boolean;
   disableCheckbox?: boolean;
   title?: string | React.ReactNode;
@@ -68,7 +70,11 @@ export interface AntTreeNodeExpandedEvent extends AntTreeNodeBaseEvent {
 
 export interface AntTreeNodeMouseEvent {
   node: AntTreeNode;
-  event: React.MouseEventHandler<any>;
+  event: React.MouseEvent<any>;
+}
+
+export interface AntTreeNodeDragEnterEvent extends AntTreeNodeMouseEvent {
+  expandedKeys: string[];
 }
 
 export interface AntTreeNodeDropEvent {
@@ -77,7 +83,7 @@ export interface AntTreeNodeDropEvent {
   dragNodesKeys: string[];
   dropPosition: number;
   dropToGap?: boolean;
-  event: React.MouseEventHandler<any>;
+  event: React.MouseEvent<any>;
 }
 
 export interface TreeProps {
@@ -134,7 +140,7 @@ export interface TreeProps {
   /** 设置节点可拖拽（IE>8）*/
   draggable?: boolean;
   onDragStart?: (options: AntTreeNodeMouseEvent) => void;
-  onDragEnter?: (options: AntTreeNodeMouseEvent) => void;
+  onDragEnter?: (options: AntTreeNodeDragEnterEvent) => void;
   onDragOver?: (options: AntTreeNodeMouseEvent) => void;
   onDragLeave?: (options: AntTreeNodeMouseEvent) => void;
   onDragEnd?: (options: AntTreeNodeMouseEvent) => void;
@@ -156,9 +162,9 @@ export default class Tree extends React.Component<TreeProps, any> {
   static defaultProps = {
     checkable: false,
     showIcon: false,
-    openAnimation: {
-      ...animation,
-      appear: null,
+    motion: {
+      ...collapseMotion,
+      motionAppear: false,
     },
     blockNode: false,
   };

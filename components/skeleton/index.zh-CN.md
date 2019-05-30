@@ -29,16 +29,16 @@ cols: 1
 
 ### SkeletonAvatarProps
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| size | 设置头像占位图的大小 | Enum{ 'large', 'small', 'default' } | - |
-| shape | 指定头像的形状 | Enum{ 'circle', 'square' } | - |
+| 属性  | 说明                 | 类型                                          | 默认值 |
+| ----- | -------------------- | --------------------------------------------- | ------ |
+| size  | 设置头像占位图的大小 | number \| Enum{ 'large', 'small', 'default' } | -      |
+| shape | 指定头像的形状       | Enum{ 'circle', 'square' }                    | -      |
 
 ### SkeletonTitleProps
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| width | 设置标题占位图的宽度 | number \| string | - |
+| 属性  | 说明                 | 类型             | 默认值 |
+| ----- | -------------------- | ---------------- | ------ |
+| width | 设置标题占位图的宽度 | number \| string | -      |
 
 ### SkeletonParagraphProps
 

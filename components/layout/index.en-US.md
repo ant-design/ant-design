@@ -27,7 +27,7 @@ The first level navigation is inclined left near a logo, and the secondary menu 
 
 ## Visualization rules
 
- Style of a navigation should conform to its level.
+Style of a navigation should conform to its level.
 
 - **Emphasis by colorblock**
 
@@ -74,7 +74,7 @@ The first level navigation is inclined left near a logo, and the secondary menu 
 The wrapper.
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | className | container className | string | - |
 | hasSider | whether contain Sider in children, don't have to assign it normally. Useful in ssr avoid style flickering | boolean | - |
 | style | to customize the styles | object | - |
@@ -86,7 +86,7 @@ The wrapper.
 The sidebar.
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | breakpoint | [breakpoints](/components/grid#api) of the responsive layout | Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' } | - |
 | className | container className | string | - |
 | collapsed | to set the current status | boolean | - |

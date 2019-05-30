@@ -140,8 +140,6 @@ export default class Modal extends React.Component<ModalProps, {}> {
     confirmLoading: false,
     visible: false,
     okType: 'primary' as ButtonType,
-    okButtonDisabled: false,
-    cancelButtonDisabled: false,
   };
 
   static propTypes = {
@@ -154,7 +152,6 @@ export default class Modal extends React.Component<ModalProps, {}> {
     width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     confirmLoading: PropTypes.bool,
     visible: PropTypes.bool,
-    align: PropTypes.object,
     footer: PropTypes.node,
     title: PropTypes.node,
     closable: PropTypes.bool,

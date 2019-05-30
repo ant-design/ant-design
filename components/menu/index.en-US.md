@@ -16,18 +16,18 @@ More layouts with navigation: [layout](/components/layout).
 ## API
 
 ```html
-<Menu>
+<menu>
   <Menu.Item>Menu</Menu.Item>
   <SubMenu title="SubMenu">
     <Menu.Item>SubMenuItem</Menu.Item>
   </SubMenu>
-</Menu>
+</menu>
 ```
 
 ### Menu
 
 | Param | Description | Type | Default value |
-| ----- | ----------- | ---- | ------------- |
+| --- | --- | --- | --- |
 | defaultOpenKeys | array with the keys of default opened sub menus | string\[] |  |
 | defaultSelectedKeys | array with the keys of default selected menu items | string\[] |  |
 | forceSubMenuRender | render submenu into DOM before it shows | boolean | false |
@@ -42,26 +42,26 @@ More layouts with navigation: [layout](/components/layout).
 | subMenuCloseDelay | delay time to hide submenu when mouse leave, unit: second | number | 0.1 |
 | subMenuOpenDelay | delay time to show submenu when mouse enter, unit: second | number | 0 |
 | theme | color theme of the menu | string: `light` `dark` | `light` |
-| onClick | callback executed when a menu item is clicked | function({ item, key, keyPath }) | - |
-| onDeselect | callback executed when a menu item is deselected, only supported for multiple mode | function({ item, key, selectedKeys }) | - |
+| onClick | callback executed when a menu item is clicked | function({ item, key, keyPath, domEvent }) | - |
+| onDeselect | callback executed when a menu item is deselected, only supported for multiple mode | function({ item, key, keyPath, selectedKeys, domEvent }) | - |
 | onOpenChange | called when open/close sub menu | function(openKeys: string\[]) | noop |
-| onSelect | callback executed when a menu item is selected | function({ item, key, selectedKeys }) | none |
+| onSelect | callback executed when a menu item is selected | function({ item, key, keyPath, selectedKeys, domEvent }) | none |
 | overflowedIndicator | Customized icon when menu collapsed | ReactNode | - |
 
 > More options in [rc-menu](https://github.com/react-component/menu#api)
 
 ### Menu.Item
 
-| Param | Description | Type | Default value |
-| ----- | ----------- | ---- | ------------- |
-| disabled | whether menu item is disabled or not | boolean | false |
-| key | unique id of the menu item | string |  |
-| title | set display title for collapsed item | string |  |
+| Param    | Description                          | Type    | Default value |
+| -------- | ------------------------------------ | ------- | ------------- |
+| disabled | whether menu item is disabled or not | boolean | false         |
+| key      | unique id of the menu item           | string  |               |
+| title    | set display title for collapsed item | string  |               |
 
 ### Menu.SubMenu
 
 | Param | Description | Type | Default value |
-| ----- | ----------- | ---- | ------------- |
+| --- | --- | --- | --- |
 | children | sub menus or sub menu items | Array&lt;MenuItem\|SubMenu> |  |
 | disabled | whether sub menu is disabled or not | boolean | false |
 | key | unique id of the sub menu | string |  |
@@ -70,10 +70,10 @@ More layouts with navigation: [layout](/components/layout).
 
 ### Menu.ItemGroup
 
-| Param | Description | Type | Default value |
-| ----- | ----------- | ---- | ------------- |
-| children | sub menu items | MenuItem\[] |  |
-| title | title of the group | string\|ReactNode |  |
+| Param    | Description        | Type              | Default value |
+| -------- | ------------------ | ----------------- | ------------- |
+| children | sub menu items     | MenuItem\[]       |               |
+| title    | title of the group | string\|ReactNode |               |
 
 ### Menu.Divider
 

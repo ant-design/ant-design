@@ -14,14 +14,14 @@ title:
 
 2000 items.
 
-````jsx
+```jsx
 import { Transfer } from 'antd';
 
 class App extends React.Component {
   state = {
     mockData: [],
     targetKeys: [],
-  }
+  };
 
   componentDidMount() {
     this.getMock();
@@ -43,12 +43,12 @@ class App extends React.Component {
       mockData.push(data);
     }
     this.setState({ mockData, targetKeys });
-  }
+  };
 
   handleChange = (targetKeys, direction, moveKeys) => {
     console.log(targetKeys, direction, moveKeys);
     this.setState({ targetKeys });
-  }
+  };
 
   render() {
     return (
@@ -63,4 +63,4 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, mountNode);
-````
+```

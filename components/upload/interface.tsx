@@ -27,10 +27,12 @@ export interface UploadFile {
   error?: any;
   linkProps?: any;
   type: string;
+  webkitRelativePath?: string;
 }
 
-export interface UploadChangeParam {
-  file: UploadFile;
+export interface UploadChangeParam<T extends object = UploadFile> {
+  // https://github.com/ant-design/ant-design/issues/14420
+  file: T;
   fileList: Array<UploadFile>;
   event?: { percent: number };
 }
@@ -50,12 +52,14 @@ export interface UploadLocale {
 export type UploadType = 'drag' | 'select';
 export type UploadListType = 'text' | 'picture' | 'picture-card';
 
+type PreviewFileHandler = (file: File | Blob) => PromiseLike<string>;
+
 export interface UploadProps {
   type?: UploadType;
   name?: string;
   defaultFileList?: Array<UploadFile>;
   fileList?: Array<UploadFile>;
-  action?: string | ((file: UploadFile) => PromiseLike<any>);
+  action?: string | ((file: UploadFile) => string) | ((file: UploadFile) => PromiseLike<string>);
   directory?: boolean;
   data?: Object | ((file: UploadFile) => any);
   headers?: HttpRequestHeader;
@@ -67,7 +71,7 @@ export interface UploadProps {
   listType?: UploadListType;
   className?: string;
   onPreview?: (file: UploadFile) => void;
-  onRemove?: (file: UploadFile) => void | boolean;
+  onRemove?: (file: UploadFile) => void | boolean | Promise<void | boolean>;
   supportServerRender?: boolean;
   style?: React.CSSProperties;
   disabled?: boolean;
@@ -77,6 +81,7 @@ export interface UploadProps {
   openFileDialogOnClick?: boolean;
   locale?: UploadLocale;
   id?: string;
+  previewFile?: PreviewFileHandler;
 }
 
 export interface UploadState {
@@ -94,4 +99,5 @@ export interface UploadListProps {
   showRemoveIcon?: boolean;
   showPreviewIcon?: boolean;
   locale: UploadLocale;
+  previewFile?: PreviewFileHandler;
 }

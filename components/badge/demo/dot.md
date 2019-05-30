@@ -11,10 +11,9 @@ title:
 
 ## en-US
 
-This will simply display a red badge, without a specific count.
-If count equals 0, it won't display the dot.
+This will simply display a red badge, without a specific count. If count equals 0, it won't display the dot.
 
-````jsx
+```jsx
 import { Badge, Icon } from 'antd';
 
 ReactDOM.render(
@@ -29,9 +28,9 @@ ReactDOM.render(
       <a href="#">Link something</a>
     </Badge>
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```
 
 <style>
 .anticon-notification {

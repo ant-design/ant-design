@@ -94,7 +94,7 @@ ReactDOM.render(<MyIcon type="icon-example" />, mountedNode);
 
 ### 自定义 SVG 图标
 
-如果使用 `webpack`，可以通过配置 [@svgr/webpack](https://www.npmjs.com/package/@svgr/webpack) 来将 `svg` 图标作为 `React` 组件导入。`@svgr/webpack` 的 `options` 选项请参阅 [svgr文档](https://github.com/smooth-code/svgr#options)。
+如果使用 `webpack`，可以通过配置 [@svgr/webpack](https://www.npmjs.com/package/@svgr/webpack) 来将 `svg` 图标作为 `React` 组件导入。`@svgr/webpack` 的 `options` 选项请参阅 [svgr 文档](https://github.com/smooth-code/svgr#options)。
 
 ```js
 // webpack.config.js
@@ -119,18 +119,15 @@ ReactDOM.render(<MyIcon type="icon-example" />, mountedNode);
 import { Icon } from 'antd';
 import MessageSvg from 'path/to/message.svg'; // path to your '*.svg' file.
 
-ReactDOM.render(
-  <Icon component={MessageSvg} />,
-  mountNode
-);
+ReactDOM.render(<Icon component={MessageSvg} />, mountNode);
 ```
 
 `Icon` 中的 `component` 组件的接受的属性如下：
 
-| 字段 | 说明 | 类型 | 只读值 |
-| --- | --- | --- | --- |
-| width | `svg` 元素宽度 | string \| number | '1em' |
-| height | `svg` 元素高度 | string \| number | '1em' |
-| fill | `svg` 元素填充的颜色 | string | 'currentColor' |
-| className | 计算后的 `svg` 类名 | string | - |
-| style | 计算后的 `svg` 元素样式 | CSSProperties | - |
+| 字段      | 说明                    | 类型             | 只读值         |
+| --------- | ----------------------- | ---------------- | -------------- |
+| width     | `svg` 元素宽度          | string \| number | '1em'          |
+| height    | `svg` 元素高度          | string \| number | '1em'          |
+| fill      | `svg` 元素填充的颜色    | string           | 'currentColor' |
+| className | 计算后的 `svg` 类名     | string           | -              |
+| style     | 计算后的 `svg` 元素样式 | CSSProperties    | -              |

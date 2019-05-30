@@ -6,6 +6,7 @@ cols: 1
 ---
 
 Provide a placeholder while you wait for content to load, or to visualise content that doesn't exist yet.
+
 ## When To Use
 
 - When a resource needs long time to load.
@@ -27,16 +28,16 @@ Provide a placeholder while you wait for content to load, or to visualise conten
 
 ### SkeletonAvatarProps
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| size | Set the size of avatar | Enum{ 'large', 'small', 'default' } | - |
-| shape | Set the shape of avatar | Enum{ 'circle', 'square' } | - |
+| Property | Description             | Type                                          | Default |
+| -------- | ----------------------- | --------------------------------------------- | ------- |
+| size     | Set the size of avatar  | number \| Enum{ 'large', 'small', 'default' } | -       |
+| shape    | Set the shape of avatar | Enum{ 'circle', 'square' }                    | -       |
 
 ### SkeletonTitleProps
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| width | Set the width of title | number \| string | - |
+| Property | Description            | Type             | Default |
+| -------- | ---------------------- | ---------------- | ------- |
+| width    | Set the width of title | number \| string | -       |
 
 ### SkeletonParagraphProps
 

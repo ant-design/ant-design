@@ -13,8 +13,7 @@ title: FAQ
 
 ### 当我点击 `Select Dropdown DatePicker TimePicker Popover Popconfirm` 内的另一个 popup 组件时它会消失，如何解决？
 
-该问题在 3.11.0 后已经解决。
-如果你仍在使用旧版本，你可以通过 `<Select getPopupContainer={trigger => trigger.parentNode}>` 来在 Popover 中渲染组件，或者使用其他的 getXxxxContainer 参数。
+该问题在 3.11.0 后已经解决。如果你仍在使用旧版本，你可以通过 `<Select getPopupContainer={trigger => trigger.parentNode}>` 来在 Popover 中渲染组件，或者使用其他的 getXxxxContainer 参数。
 
 https://ant.design/components/select/#Select-props
 
@@ -129,11 +128,7 @@ import { Menu, Breadcrumb, Icon } from 'antd';
 
 ### 你们有接受捐助的渠道吗，比如支付宝或者微信支付？
 
-还没有。
-
-### 为什么？
-
-马爸爸会付给我们钱。
+[https://opencollective.com/ant-design](https://opencollective.com/ant-design)
 
 ---
 

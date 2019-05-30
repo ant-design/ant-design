@@ -2,6 +2,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Upload from '..';
+import Form from '../../form';
 import { T, fileToObject, genPercentAdd, getFileItem, removeFileItem } from '../utils';
 import { setup, teardown } from './mock';
 
@@ -199,6 +200,64 @@ describe('Upload', () => {
     expect(wrapper.find('input[type="file"]').length).toBe(1);
     wrapper.setProps({ children: null });
     expect(wrapper.find('input[type="file"]').length).toBe(1);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/14298
+  it('should not have id if upload children is null, avoid being triggered by label', () => {
+    // eslint-disable-next-line
+    class Demo extends React.Component {
+      render() {
+        const {
+          form: { getFieldDecorator },
+          children,
+        } = this.props;
+        return (
+          <Form>
+            <Form.Item label="Upload">
+              {getFieldDecorator('upload')(<Upload>{children}</Upload>)}
+            </Form.Item>
+          </Form>
+        );
+      }
+    }
+    const WrappedDemo = Form.create()(Demo);
+    const wrapper = mount(
+      <WrappedDemo>
+        <div>upload</div>
+      </WrappedDemo>,
+    );
+    expect(wrapper.find('input#upload').length).toBe(1);
+    wrapper.setProps({ children: null });
+    expect(wrapper.find('input#upload').length).toBe(0);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/16478
+  it('should not have id if upload is disabled, avoid being triggered by label', () => {
+    // eslint-disable-next-line
+    class Demo extends React.Component {
+      render() {
+        const {
+          form: { getFieldDecorator },
+          disabled,
+        } = this.props;
+        return (
+          <Form>
+            <Form.Item label="Upload">
+              {getFieldDecorator('upload')(
+                <Upload disabled={disabled}>
+                  <div>upload</div>
+                </Upload>,
+              )}
+            </Form.Item>
+          </Form>
+        );
+      }
+    }
+    const WrappedDemo = Form.create()(Demo);
+    const wrapper = mount(<WrappedDemo />);
+    expect(wrapper.find('input#upload').length).toBe(1);
+    wrapper.setProps({ disabled: true });
+    expect(wrapper.find('input#upload').length).toBe(0);
   });
 
   it('should be controlled by fileList', () => {

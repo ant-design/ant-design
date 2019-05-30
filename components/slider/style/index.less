@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @slider-prefix-cls: ~'@{ant-prefix}-slider';
@@ -86,6 +86,7 @@
     display: inline-block;
     color: @text-color-secondary;
     text-align: center;
+    word-break: keep-all;
     cursor: pointer;
 
     &-active {

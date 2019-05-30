@@ -16,6 +16,7 @@ export interface StepsProps {
   size?: 'default' | 'small';
   status?: 'wait' | 'process' | 'finish' | 'error';
   style?: React.CSSProperties;
+  onChange?: (current: number) => void;
 }
 
 export interface StepProps {

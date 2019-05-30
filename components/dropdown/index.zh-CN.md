@@ -35,14 +35,15 @@ title: Dropdown
 
 ### Dropdown.Button
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| disabled | 菜单是否禁用 | boolean | - |
-| overlay | 菜单 | [Menu](/components/menu/) | - |
-| placement | 菜单弹出位置：`bottomLeft` `bottomCenter` `bottomRight` `topLeft` `topCenter` `topRight` | String | `bottomLeft` |
-| size | 按钮大小，和 [Button](/components/button/) 一致 | string | 'default' |
-| trigger | 触发下拉的行为 | Array&lt;`click`\|`hover`\|`contextMenu`> | `['hover']` |
-| type | 按钮类型，和 [Button](/components/button/) 一致 | string | 'default' |
-| visible | 菜单是否显示 | boolean | - |
-| onClick | 点击左侧按钮的回调，和 [Button](/components/button/) 一致 | Function | - |
-| onVisibleChange | 菜单显示状态改变时调用，参数为 visible | Function | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| disabled | 菜单是否禁用 | boolean | - |  |  |
+| icon | 右侧的 icon | ReactNode | - | 3.17.0 |
+| overlay | 菜单 | [Menu](/components/menu/) | - |  |
+| placement | 菜单弹出位置：`bottomLeft` `bottomCenter` `bottomRight` `topLeft` `topCenter` `topRight` | String | `bottomLeft` |  |
+| size | 按钮大小，和 [Button](/components/button/) 一致 | string | 'default' |  |
+| trigger | 触发下拉的行为 | Array&lt;`click`\|`hover`\|`contextMenu`> | `['hover']` |  |
+| type | 按钮类型，和 [Button](/components/button/) 一致 | string | 'default' |  |
+| visible | 菜单是否显示 | boolean | - |  |
+| onClick | 点击左侧按钮的回调，和 [Button](/components/button/) 一致 | Function | - |  |
+| onVisibleChange | 菜单显示状态改变时调用，参数为 visible | Function | - |  |

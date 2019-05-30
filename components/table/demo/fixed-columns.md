@@ -21,15 +21,23 @@ To fix some columns and scroll inside other columns, and you must set `scroll.x`
 >
 > A fixed value which is greater than table width for `scroll.x` is recommended. The sum of unfixed columns should not greater than `scroll.x`.
 
-````jsx
+```jsx
 import { Table } from 'antd';
 
 const columns = [
   {
-    title: 'Full Name', width: 100, dataIndex: 'name', key: 'name', fixed: 'left',
+    title: 'Full Name',
+    width: 100,
+    dataIndex: 'name',
+    key: 'name',
+    fixed: 'left',
   },
   {
-    title: 'Age', width: 100, dataIndex: 'age', key: 'age', fixed: 'left',
+    title: 'Age',
+    width: 100,
+    dataIndex: 'age',
+    key: 'age',
+    fixed: 'left',
   },
   { title: 'Column 1', dataIndex: 'address', key: '1' },
   { title: 'Column 2', dataIndex: 'address', key: '2' },
@@ -48,17 +56,20 @@ const columns = [
   },
 ];
 
-const data = [{
-  key: '1',
-  name: 'John Brown',
-  age: 32,
-  address: 'New York Park',
-}, {
-  key: '2',
-  name: 'Jim Green',
-  age: 40,
-  address: 'London Park',
-}];
+const data = [
+  {
+    key: '1',
+    name: 'John Brown',
+    age: 32,
+    address: 'New York Park',
+  },
+  {
+    key: '2',
+    name: 'Jim Green',
+    age: 40,
+    address: 'London Park',
+  },
+];
 
 ReactDOM.render(<Table columns={columns} dataSource={data} scroll={{ x: 1300 }} />, mountNode);
-````
+```

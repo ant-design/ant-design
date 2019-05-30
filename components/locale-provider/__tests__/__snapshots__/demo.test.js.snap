@@ -60,7 +60,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
       class="example"
     >
       <ul
-        class="ant-pagination "
+        class="ant-pagination"
         unselectable="unselectable"
       >
         <li
@@ -1864,7 +1864,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
 exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
 <div>
   <ul
-    class="ant-pagination "
+    class="ant-pagination"
     unselectable="unselectable"
   >
     <li

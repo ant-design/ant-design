@@ -27,17 +27,18 @@ Vertical display timeline.
 Timeline
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | pending | Set the last ghost node's existence or its content | boolean\|string\|ReactNode | `false` |
-| pendingDot | Set the dot of the last ghost node when pending is true | \|string\|ReactNode | `<Icon type="loading" />` |
+| pendingDot | Set the dot of the last ghost node when pending is true | string\|ReactNode | `<Icon type="loading" />` |
 | reverse | reverse nodes or not | boolean | false |
-| mode | By sending `alternate` the timeline will distribute the nodes to the left and right. | `left` \| `alternate` \| `right` | `left` |
+| mode | By sending `alternate` the timeline will distribute the nodes to the left and right. | `left` \| `alternate` \| `right` | - |
 
 ### Timeline.Item
 
 Node of timeline
 
-| Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
-| color | Set the circle's color to `blue`, `red`, `green` or other custom colors | string | `blue` |
-| dot | Customize timeline dot | string\|ReactNode | - |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| color | Set the circle's color to `blue`, `red`, `green` or other custom colors | string | `blue` |  |
+| dot | Customize timeline dot | string\|ReactNode | - |  |
+| position | Customize node position | `left` \| `right` | - | 3.17.0 |

@@ -13,7 +13,7 @@ title:
 
 Simplest Usage. Badge will be hidden when `count` is `0`, but we can use `showZero` to show it.
 
-````jsx
+```jsx
 import { Badge, Icon } from 'antd';
 
 ReactDOM.render(
@@ -28,9 +28,9 @@ ReactDOM.render(
       <a href="#" className="head-example" />
     </Badge>
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```
 
 <style>
 .ant-badge:not(.ant-badge-not-a-wrapper) {

@@ -11,9 +11,9 @@ A panel which slides in from the edge of the screen.
 
 A Drawer is a panel that is typically overlaid on top of a page and slides in from the side. It contains a set of information or actions. Since the user can interact with the Drawer without leaving the current page, tasks can be achieved more efficiently within the same context.
 
-* Use a Form to create or edit a set of information.
-* Processing subtasks. When subtasks are too heavy for a Popover and we still want to keep the subtasks in the context of the main task, Drawer comes very handy.
-* When the same Form is needed in multiple places.
+- Use a Form to create or edit a set of information.
+- Processing subtasks. When subtasks are too heavy for a Popover and we still want to keep the subtasks in the context of the main task, Drawer comes very handy.
+- When the same Form is needed in multiple places.
 
 ## API
 
@@ -33,8 +33,9 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 | height | placement is `top` or `bottom`, height of the Drawer dialog. | string\|number | - |
 | className | The class name of the container of the Drawer dialog. | string | - |
 | zIndex | The `z-index` of the Drawer. | Number | 1000 |
-| placement | The placement of the Drawer. | 'top'  \| 'right' \| 'bottom' \| 'left' | 'right' |
+| placement | The placement of the Drawer. | 'top' \| 'right' \| 'bottom' \| 'left' | 'right' |
 | onClose | Specify a callback that will be called when a user clicks mask, close button or Cancel button. | function(e) | - |
+| afterVisibleChange | Callback after the animation ends when switching drawers. | function(visible) | - |
 
 <style>
 #_hj_feedback_container {
