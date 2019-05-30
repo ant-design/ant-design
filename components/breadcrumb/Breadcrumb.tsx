@@ -71,8 +71,8 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
     );
   }
 
-  getPath = (path, params) => {
-     path = (path || '').replace(/^\//, '');
+  getPath = (path = '', params = {}) => {
+     path = path.replace(/^\//, '');
      Object.keys(params).forEach(key => {
          path = path.replace(`:${key}`, params[key]);
      });
