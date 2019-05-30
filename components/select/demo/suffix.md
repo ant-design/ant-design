@@ -19,7 +19,7 @@ import { Select, Icon } from 'antd';
 
 const smileIcon = <Icon type="smile" />;
 const mehIcon = <Icon type="meh" />;
-const Option = Select.Option;
+const { Option } = Select;
 
 function handleChange(value) {
   console.log(`selected ${value}`);

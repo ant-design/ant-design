@@ -16,7 +16,7 @@ There are two built-in themes: 'light' and 'dark'. The default value is 'light'.
 ```jsx
 import { Menu, Icon, Switch } from 'antd';
 
-const SubMenu = Menu.SubMenu;
+const { SubMenu }  = Menu;
 
 class Sider extends React.Component {
   state = {

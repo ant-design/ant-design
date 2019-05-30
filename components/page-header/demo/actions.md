@@ -16,7 +16,7 @@ Use the operating area and customize the sub-nodes, suitable for use in the need
 ```jsx
 import { PageHeader, Tag, Tabs, Button, Statistic, Row, Col } from 'antd';
 
-const TabPane = Tabs.TabPane;
+const { TabPane } = Tabs;
 
 const Description = ({ term, children, span = 12 }) => (
   <Col span={span}>

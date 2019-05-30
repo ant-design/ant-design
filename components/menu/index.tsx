@@ -58,6 +58,7 @@ export interface MenuProps {
   onMouseEnter?: (e: MouseEvent) => void;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   overflowedIndicator?: React.ReactNode;
+  forceSubMenuRender?: boolean;
 }
 
 type InternalMenuProps = MenuProps & SiderContextProps;
@@ -140,6 +141,12 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
       !('inlineCollapsed' in props && props.mode !== 'inline'),
       'Menu',
       '`inlineCollapsed` should only be used when `mode` is inline.',
+    );
+
+    warning(
+      !(props.siderCollapsed !== undefined && 'inlineCollapsed' in props),
+      'Menu',
+      '`inlineCollapsed` not control Menu under Sider. Should set `collapsed` on Sider instead.',
     );
 
     let openKeys;

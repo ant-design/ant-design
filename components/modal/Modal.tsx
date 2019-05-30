@@ -140,8 +140,6 @@ export default class Modal extends React.Component<ModalProps, {}> {
     confirmLoading: false,
     visible: false,
     okType: 'primary' as ButtonType,
-    okButtonDisabled: false,
-    cancelButtonDisabled: false,
   };
 
   static propTypes = {

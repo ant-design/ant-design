@@ -16,7 +16,7 @@ Demonstration of [Lookup Patterns: Uncertain Category](https://ant.design/docs/s
 ```jsx
 import { Icon, Button, Input, AutoComplete } from 'antd';
 
-const Option = AutoComplete.Option;
+const { Option } = AutoComplete;
 
 function onSelect(value) {
   console.log('onSelect', value);

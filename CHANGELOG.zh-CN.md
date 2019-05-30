@@ -15,6 +15,43 @@ timeline: true
 
 ---
 
+## 3.19.1
+
+`2019-05-27`
+
+- 🐞 修复 Menu 在受控模式下收起 Tooltip 不消失的问题。[#16812](https://github.com/ant-design/ant-design/pull/16812)
+- 🐞 修复 Descriptions 排列警告信息逻辑错误的问题。[#16819](https://github.com/ant-design/ant-design/pull/16819)
+- 🐞 修复图标 `canlendar` 和 `interation` 为正确的拼写 `calendar` 和 `interaction`。[#16818](https://github.com/ant-design/ant-design/pull/16818)
+- TypeScript
+  - ⚡️ 修复 Mentions 定义。[#16814](https://github.com/ant-design/ant-design/pull/16814)
+  - ⚡️ 完善 Select 中 `onSelect` 和 `onDeselect` 属性的定义。[#16817](https://github.com/ant-design/ant-design/pull/16817)
+
+## 3.19.0
+
+`2019-05-26`
+
+- 本月新增组件：
+  - 🔥🔥🔥 [Mentions](https://ant.design/components/mentions-cn/) 新增提及组件并废弃原有 Mention 组件。
+  - 🔥🔥🔥 [Descriptions](https://ant.design/components/descriptions-cn/) 成组展示多个只读字段。
+- 🇱🇻 新增拉脱维亚语支持。[#16780](https://github.com/ant-design/ant-design/pull/16780) [@kirbo](https://github.com/kirbo)
+- 🌟 Drawer 支持 `ESC` 关闭。[#16694](https://github.com/ant-design/ant-design/pull/16694)
+- 🌟 Steps 支持点击切换功能。[#16773](https://github.com/ant-design/ant-design/pull/16773)
+- 🌟 Calendar 支持 `headerRender` 以自定义头部。[#16535](https://github.com/ant-design/ant-design/pull/16535) [@abgaryanharutyun](https://github.com/abgaryanharutyun)
+- 🌟 Slider 支持 `tooltipPlacement` 以定义提示所在位置。[#16641](https://github.com/ant-design/ant-design/pull/16641) [@cmaster11](https://github.com/cmaster11)
+- 🌟 Slider 支持 `getTooltipPopupContainer` 以允许自定义提示所在容器。[#16717](https://github.com/ant-design/ant-design/pull/16717)
+- 🐞 修复 PageHeader 中水平分割线样式问题。[#16684](https://github.com/ant-design/ant-design/pull/16684)
+- 🐞 修复 Carousel `initialSlide` 在 `children` 数量变化时无效的问题。[#16756](https://github.com/ant-design/ant-design/pull/16756)
+- 🐞 修复 Cascader 自定义渲染时元素无法交互的问题。[#16782](https://github.com/ant-design/ant-design/pull/16782)
+- 🐞 修复 Upload 列表在 `disabled` 时仍然可以移除的问题。[#16786](https://github.com/ant-design/ant-design/pull/16786)
+- 💄 增加 Upload `disabled` 状态下鼠标样式。[#16799](https://github.com/ant-design/ant-design/pull/16799) [@attacking](https://github.com/attacking)
+- 💄 修正 Statistic 的字体颜色。[#16801](https://github.com/ant-design/ant-design/pull/16801)
+- TypeScript
+  - ⚡️ 完善 Upload 中 `action` 属性的定义。[#16716](https://github.com/ant-design/ant-design/pull/16716) [@christophehurpeau](https://github.com/christophehurpeau)
+  - ⚡️ 完善 Upload 中 `onRemove` 属性的定义。[#16570](https://github.com/ant-design/ant-design/pull/16570) [@christophehurpeau](https://github.com/christophehurpeau)
+  - ⚡️ 完善 Select 中 `getPopupContainer` 属性的定义。[#16778](https://github.com/ant-design/ant-design/pull/16778) [@chj-damon](https://github.com/chj-damon)
+  - ⚡️ 完善 InputNumber 中 `parser` 属性的定义。[#16797](https://github.com/ant-design/ant-design/pull/16797)
+  - ⚡️ 移除已经失效的属性定义。[#16705](https://github.com/ant-design/ant-design/pull/16705) [@sirlantis](https://github.com/sirlantis)
+
 ## 3.18.2
 
 `2019-05-20`
@@ -1185,7 +1222,6 @@ timeline: true
 - Tree 组件升级 `rc-tree` 到 `1.12.0`
   - 🌟 新增 `loadedKeys` 属性，用于设置已经加载的节点，需要配合 `loadData` 使用。[#10666](https://github.com/ant-design/ant-design/issues/10666)
   - 🌟 新增 `onLoad` 属性，作为节点加载完毕时的回调函数。[c488aca](https://github.com/ant-design/ant-design/commit/c488aca05e11d942d77c1b6bff45d12bbb1a2bd6)
-- 🌟 增加 `okButtonDisabled` and `cancelButtonDisabled` 属性用于禁用确定和取消按钮。[#10955](https://github.com/ant-design/ant-design/pull/10955)
 - 🌟 Cascader 新增 fieldNames 并废弃拼写错误的 filedNames。[#10896](https://github.com/ant-design/ant-design/issues/10896)
 - 🐞 修复时间轴不能与`Tooltip`一起使用的问题。[0e3b67e](https://github.com/ant-design/ant-design/commit/0e3b67e9999d867cc304f3be61a8a042a2ab92ee)
 - 🐞 修复当 Avatar 自定义大小时，圆角不改变的问题。[e1e6523](https://github.com/ant-design/ant-design/commit/e1e6523452286ba56f20b73abad762a58ea7d7bc)

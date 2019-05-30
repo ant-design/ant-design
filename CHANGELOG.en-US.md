@@ -15,6 +15,43 @@ timeline: true
 
 ---
 
+## 3.19.1
+
+`2019-05-27`
+
+- 🐞 Fix Tooltip not hidden when Menu collapsed in control mode. [#16812](https://github.com/ant-design/ant-design/pull/16812)
+- 🐞 Fix Description warning with column count not correct. [#16819](https://github.com/ant-design/ant-design/pull/16819)
+- 🐞 Correct typo icon names `canlendar` / `interation` to `calendar` / `interaction`. [#16818](https://github.com/ant-design/ant-design/pull/16818)
+- TypeScript
+  - ⚡️ Fix Mentions definition. [#16814](https://github.com/ant-design/ant-design/pull/16814)
+  - ⚡️ Update Select `onSelect` & `onDeselect` prop definition. [#16817](https://github.com/ant-design/ant-design/pull/16817)
+
+## 3.19.0
+
+`2019-05-26`
+
+- New Components:
+  - 🔥🔥🔥 [Mentions](https://ant.design/components/mentions-cn/) Provides Mentions component and origin Mention marked as deprecated.
+  - 🔥🔥🔥 [Descriptions](https://ant.design/components/descriptions-cn/) Display multiple read-only fields in groups.
+- 🇱🇻 Add Latvian localization support. [#16780](https://github.com/ant-design/ant-design/pull/16780) [@kirbo](https://github.com/kirbo)
+- 🌟 Drawer support close by press `ESC`. [#16694](https://github.com/ant-design/ant-design/pull/16694)
+- 🌟 Steps support click to switch. [#16773](https://github.com/ant-design/ant-design/pull/16773)
+- 🌟 Calendar support `headerRender` to customize header。[#16535](https://github.com/ant-design/ant-design/pull/16535) [@abgaryanharutyun](https://github.com/abgaryanharutyun)
+- 🌟 Slider support `tooltipPlacement` to set tooltip position. [#16641](https://github.com/ant-design/ant-design/pull/16641) [@cmaster11](https://github.com/cmaster11)
+- 🌟 Slider support `getTooltipPopupContainer` to customize tooltip container. [#16717](https://github.com/ant-design/ant-design/pull/16717)
+- 🐞 Fix PageHeader horizontal divider style. [#16684](https://github.com/ant-design/ant-design/pull/16684)
+- 🐞 Fix Carousel `initialSlide` not work when `children` count change. [#16756](https://github.com/ant-design/ant-design/pull/16756)
+- 🐞 Fix Cascader `displayRender` not interactive. [#16782](https://github.com/ant-design/ant-design/pull/16782)
+- 🐞 Fix Upload list still can be removed when `disabled`. [#16786](https://github.com/ant-design/ant-design/pull/16786)
+- 💄 Update Upload `disabled` cursor style. [#16799](https://github.com/ant-design/ant-design/pull/16799) [@attacking](https://github.com/attacking)
+- 💄 Correct Statistic font color. [#16801](https://github.com/ant-design/ant-design/pull/16801)
+- TypeScript
+  - ⚡️ Update Upload `action` prop definition. [#16716](https://github.com/ant-design/ant-design/pull/16716) [@christophehurpeau](https://github.com/christophehurpeau)
+  - ⚡️ Update Upload `onRemove` prop definition. [#16570](https://github.com/ant-design/ant-design/pull/16570) [@christophehurpeau](https://github.com/christophehurpeau)
+  - ⚡️ Update Select `getPopupContainer` prop definition. [#16778](https://github.com/ant-design/ant-design/pull/16778) [@chj-damon](https://github.com/chj-damon)
+  - ⚡️ Update InputNumber `parse` prop definition. [#16797](https://github.com/ant-design/ant-design/pull/16797)
+  - ⚡️ Remove useless props definition. [#16705](https://github.com/ant-design/ant-design/pull/16705) [@sirlantis](https://github.com/sirlantis)
+
 ## 3.18.2
 
 `2019-05-20`
@@ -1186,7 +1223,6 @@ Component Fixes / Enhancements:
 - 🐞 Cascader adds `fieldNames` and discards the misspelled `filedNames`. [#10896](https://github.com/ant-design/ant-design/issues/10896)
 - 🐞 Fix Timeline dot not working with Tooltip. [0e3b67e](https://github.com/ant-design/ant-design/commit/0e3b67e9999d867cc304f3be61a8a042a2ab92ee)
 - 🐞 Fix border radius when avatar has custom size. [e1e6523](https://github.com/ant-design/ant-design/commit/e1e6523452286ba56f20b73abad762a58ea7d7bc)
-- 🌟 Add `okButtonDisabled` and `cancelButtonDisabled` props to disable ok button and cancel button. [#10955](https://github.com/ant-design/ant-design/pull/10955)
 
 ## 3.6.6
 

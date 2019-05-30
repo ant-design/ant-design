@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "3.18.2",
+  "version": "3.19.1",
   "title": "Ant Design",
   "description": "An enterprise-class UI design language and React components implementation",
   "homepage": "http://ant.design/",
@@ -193,7 +193,7 @@
     "typescript": "~3.4.1",
     "unified": "^7.0.0",
     "xhr-mock": "^2.4.1",
-    "xhr2": "^0.1.4"
+    "xhr2": "^0.2.0"
   },
   "scripts": {
     "test": "jest --config .jest.js --no-cache",

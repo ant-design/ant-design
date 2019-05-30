@@ -14,7 +14,7 @@ debug: true
 import { Layout, Menu, Icon } from 'antd';
 
 const { Header, Sider, Content } = Layout;
-const SubMenu = Menu.SubMenu;
+const { SubMenu } = Menu;
 
 class SiderDemo extends React.Component {
   state = {

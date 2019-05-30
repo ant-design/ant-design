@@ -14,9 +14,9 @@ Select component to select value from options.
 ## API
 
 ```html
-<select>
-  <option value="lucy">lucy</option>
-</select>
+<Select>
+  <Option value="lucy">lucy</Option>
+</Select>
 ```
 
 ### Select props

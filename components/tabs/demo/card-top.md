@@ -16,7 +16,7 @@ Should be used at the top of container, needs to override styles.
 ```jsx
 import { Tabs } from 'antd';
 
-const TabPane = Tabs.TabPane;
+const { TabPane } = Tabs;
 
 ReactDOM.render(
   <div className="card-container">

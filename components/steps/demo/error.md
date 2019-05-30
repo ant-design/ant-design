@@ -16,7 +16,7 @@ By using `status` of `Steps`, you can specify the state for current step.
 ```jsx
 import { Steps } from 'antd';
 
-const Step = Steps.Step;
+const { Step } = Steps;
 
 ReactDOM.render(
   <Steps current={1} status="error">

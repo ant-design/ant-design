@@ -16,7 +16,7 @@ A simple mini version step bar in the vertical direction.
 ```jsx
 import { Steps } from 'antd';
 
-const Step = Steps.Step;
+const { Step } = Steps;
 
 ReactDOM.render(
   <Steps direction="vertical" size="small" current={1}>
