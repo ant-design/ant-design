@@ -1222,7 +1222,6 @@ timeline: true
 - Tree 组件升级 `rc-tree` 到 `1.12.0`
   - 🌟 新增 `loadedKeys` 属性，用于设置已经加载的节点，需要配合 `loadData` 使用。[#10666](https://github.com/ant-design/ant-design/issues/10666)
   - 🌟 新增 `onLoad` 属性，作为节点加载完毕时的回调函数。[c488aca](https://github.com/ant-design/ant-design/commit/c488aca05e11d942d77c1b6bff45d12bbb1a2bd6)
-- 🌟 增加 `okButtonDisabled` and `cancelButtonDisabled` 属性用于禁用确定和取消按钮。[#10955](https://github.com/ant-design/ant-design/pull/10955)
 - 🌟 Cascader 新增 fieldNames 并废弃拼写错误的 filedNames。[#10896](https://github.com/ant-design/ant-design/issues/10896)
 - 🐞 修复时间轴不能与`Tooltip`一起使用的问题。[0e3b67e](https://github.com/ant-design/ant-design/commit/0e3b67e9999d867cc304f3be61a8a042a2ab92ee)
 - 🐞 修复当 Avatar 自定义大小时，圆角不改变的问题。[e1e6523](https://github.com/ant-design/ant-design/commit/e1e6523452286ba56f20b73abad762a58ea7d7bc)
