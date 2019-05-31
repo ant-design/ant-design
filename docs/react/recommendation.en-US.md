@@ -35,7 +35,7 @@ title: Third-Party Libraries
 | Formatted Input | [text-mask](https://github.com/text-mask/text-mask) |
 | Keywords highlight | [react-highlight-words](https://github.com/bvaughn/react-highlight-words) |
 | Animation | [react-move](https://github.com/react-tools/react-move) [Ant Motion](https://motion.ant.design/components/tween-one) [react-spring](https://www.react-spring.io) |
-
+| High performance and JSON Schema Form solution | [uform](https://github.com/alibaba/uform) |
 <style>
 .markdown table td:first-child {
   font-weight: 500;
