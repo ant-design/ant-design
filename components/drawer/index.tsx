@@ -105,8 +105,8 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
     }
   };
 
-  onMaskClick = (e: EventType) => {
-    if (!this.props.maskClosable) {
+  onMaskClick = (e: any) => {
+    if (!this.props.maskClosable && !e.keyCode) {
       return;
     }
     this.close(e);
