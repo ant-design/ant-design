@@ -15,6 +15,20 @@ timeline: true
 
 ---
 
+## 3.19.2
+
+`2019-06-01`
+
+- 🐞 修复 Tabs 在垂直卡片模式下标签不能滚动的问题。[#16825](https://github.com/ant-design/ant-design/pull/16825)
+- 🐞 修复 Transfer 组件在 unmount 时 `setState` 警告。[#16822](https://github.com/ant-design/ant-design/pull/16822) [@shiningjason](https://github.com/shiningjason)
+- 💄 使用 Less 变量 `@error-color`、`@warning-color` 代替 `@text-color-danger`、`@text-color-warning`。[#16890](https://github.com/ant-design/ant-design/pull/16890) [@MrHeer](https://github.com/MrHeer)
+- 💄 增加在 Sider 内 Menu 使用 `inlineCollapsed` 时的提示信息。[#16826](https://github.com/ant-design/ant-design/pull/16826)
+- TypeScript
+  - ⚡️ 增加 Menu 中 `forceSubMenuRender` 类型定义。[#16827](https://github.com/ant-design/ant-design/pull/16827)
+  - ⚡️ 导出 Typography 类型定义。[#16835](https://github.com/ant-design/ant-design/pull/16835)
+  - ⚡️ 增加 Steps 中的 `onChange` 类型定义。[#16845](https://github.com/ant-design/ant-design/pull/16845) [@JonathanLee-LX](https://github.com/JonathanLee-LX)
+  - ⚡️ 增加 Upload 中 `webkitRelativePath` 类型定义。[#16850](https://github.com/ant-design/ant-design/pull/16850) [@DiamondYuan](https://github.com/DiamondYuan)
+
 ## 3.19.1
 
 `2019-05-27`
