@@ -21,7 +21,7 @@ timeline: true
 
 - 🐞 Fix Tabs vertical card mode not scrollable. [#16825](https://github.com/ant-design/ant-design/pull/16825)
 - 🐞 Fix transfer warn state update on an unmounted component. [#16822](https://github.com/ant-design/ant-design/pull/16822) [@shiningjason](https://github.com/shiningjason)
-- 🐞 Fix Less var, using `@error-color`, `@warning-color` instead of `@text-color-danger`, `@text-color-warning`. [#16890](https://github.com/ant-design/ant-design/pull/16890) [@MrHeer](https://github.com/MrHeer)
+- 🐞 Fix Less var using `@error-color`, `@warning-color` instead of `@text-color-danger`, `@text-color-warning`. [#16890](https://github.com/ant-design/ant-design/pull/16890) [@MrHeer](https://github.com/MrHeer)
 - 💄 Add warning if Menu use `inlineCollapsed` under Sider. [#16826](https://github.com/ant-design/ant-design/pull/16826)
 - 💄 Remove useless Modal default props `okButtonDisabled`, `cancelButtonDisabled`. [#16869](https://github.com/ant-design/ant-design/pull/16869) [@aiham](https://github.com/aiham)
 - TypeScript
