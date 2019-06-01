@@ -23,7 +23,6 @@ timeline: true
 - 🐞 修复 Transfer 组件在 unmount 时 setState 警告。[#16822](https://github.com/ant-design/ant-design/pull/16822) [@shiningjason](https://github.com/shiningjason)
 - 🐞 修复 Less 变量，使用 `@error-color`、`@warning-color` 分别代替 `@text-color-danger`、`@text-color-warning`。[#16890](https://github.com/ant-design/ant-design/pull/16890) [@MrHeer](https://github.com/MrHeer)
 - 💄 增加在 Sider 内 Menu 使用 `inlineCollapsed` 时的提示信息。[#16826](https://github.com/ant-design/ant-design/pull/16826)
-- 💄 去掉 Modal 中 `okButtonDisabled` 、`cancelButtonDisabled` 的默认值。[#16869](https://github.com/ant-design/ant-design/pull/16869) [@aiham](https://github.com/aiham)
 - TypeScript
   - ⚡️ 增加 Menu 中 `forceSubMenuRender` 类型定义。[#16827](https://github.com/ant-design/ant-design/pull/16827)
   - ⚡️ 导出 Typography 类型定义。[#16835](https://github.com/ant-design/ant-design/pull/16835)
