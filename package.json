@@ -97,6 +97,7 @@
   },
   "devDependencies": {
     "@ant-design/colors": "^3.0.0",
+    "@packtracker/webpack-plugin": "^2.0.1",
     "@sentry/browser": "^5.0.3",
     "@types/classnames": "^2.2.6",
     "@types/prop-types": "^15.5.6",
