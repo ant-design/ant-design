@@ -96,7 +96,7 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
   }: BreadcrumbProps) => {
     const paths: string[] = [];
     return routes.map(route => {
-      let path = this.getPath(route.path, params);
+      const path = this.getPath(route.path, params);
 
       if (path) {
         paths.push(path);
