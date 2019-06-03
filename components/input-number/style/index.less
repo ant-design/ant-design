@@ -79,6 +79,12 @@
     transition: all 0.3s linear;
     -moz-appearance: textfield;
     .placeholder();
+
+    &[type='number']::-webkit-inner-spin-button,
+    &[type='number']::-webkit-outer-spin-button {
+      margin: 0;
+      -webkit-appearance: none;
+    }
   }
 
   &-lg {
