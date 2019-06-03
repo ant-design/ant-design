@@ -159,26 +159,25 @@ export default class TransferList extends React.Component<TransferListProps, Tra
       </div>
     ) : null;
 
-    const searchNotFound = !filteredItems.length && (
-      <div className={`${prefixCls}-body-not-found`}>{notFoundContent}</div>
-    );
-
     let listBody: React.ReactNode = bodyDom;
     if (!listBody) {
-      let bodyNode: React.ReactNode = searchNotFound;
-      if (!bodyNode) {
-        const { bodyContent, customize } = renderListNode(renderList, {
-          ...omit(this.props, OmitProps),
-          filteredItems,
-          filteredRenderItems,
-          selectedKeys: checkedKeys,
-        });
+      let bodyNode: React.ReactNode;
 
-        // We should wrap customize list body in a classNamed div to use flex layout.
-        bodyNode = customize ? (
-          <div className={`${prefixCls}-body-customize-wrapper`}>{bodyContent}</div>
-        ) : (
+      const { bodyContent, customize } = renderListNode(renderList, {
+        ...omit(this.props, OmitProps),
+        filteredItems,
+        filteredRenderItems,
+        selectedKeys: checkedKeys,
+      });
+
+      // We should wrap customize list body in a classNamed div to use flex layout.
+      if (customize) {
+        bodyNode = <div className={`${prefixCls}-body-customize-wrapper`}>{bodyContent}</div>;
+      } else {
+        bodyNode = filteredItems.length ? (
           bodyContent
+        ) : (
+          <div className={`${prefixCls}-body-not-found`}>{notFoundContent}</div>
         );
       }
 
