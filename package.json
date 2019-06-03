@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "@ant-design/create-react-context": "^0.2.4",
-    "@ant-design/icons": "~2.0.0",
+    "@ant-design/icons": "~2.1.0",
     "@ant-design/icons-react": "~2.0.0",
     "@types/react-slick": "^0.23.3",
     "array-tree-filter": "^2.1.0",
