@@ -28,9 +28,9 @@ title: Input
 | suffix | 带有后缀图标的 input | string\|ReactNode |  |
 | type | 声明 input 类型，同原生 input 标签的 type 属性，见：[MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input#属性)(请直接使用 `Input.TextArea` 代替 `type="textarea"`)。 | string | `text` |
 | value | 输入框内容 | string |  |
-| onChange | 输入框内容变化时的回调 | function(e) | |
+| onChange | 输入框内容变化时的回调 | function(e) |  |
 | onPressEnter | 按下回车的回调 | function(e) |  |
-| allowClear | 可以点击清除图标删除内容 | boolean | |
+| allowClear | 可以点击清除图标删除内容 | boolean |  |
 
 > 如果 `Input` 在 `Form.Item` 内，并且 `Form.Item` 设置了 `id` 和 `options` 属性，则 `value` `defaultValue` 和 `id` 属性会被自动设置。
 
@@ -67,26 +67,25 @@ Input 的其他属性和 React 自带的 [input](https://facebook.github.io/reac
 
 ```html
 <Input.Group>
-  <Input />
-  <Input />
+  <input />
+  <input />
 </Input.Group>
 ```
 
 #### Input.Password (3.12.0 中新增)
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| visibilityToggle | 是否显示切换按钮 | boolean | true |
+| 参数             | 说明             | 类型    | 默认值 |
+| ---------------- | ---------------- | ------- | ------ |
+| visibilityToggle | 是否显示切换按钮 | boolean | true   |
 
 ## FAQ
 
 ### 为什么我动态改变 `prefix/suffix` 时，Input 会失去焦点？
 
-当 Input 动态添加或者删除 `prefix/suffix` 时，React 会重新创建 DOM 结构而新的 input 是没有焦点的。
-你可以预设一个空的 `<span />` 来保持 DOM 结构不变：
+当 Input 动态添加或者删除 `prefix/suffix` 时，React 会重新创建 DOM 结构而新的 input 是没有焦点的。你可以预设一个空的 `<span />` 来保持 DOM 结构不变：
 
 ```jsx
 const suffix = condition ? <Icon type="smile" /> : <span />;
 
-<Input suffix={suffix} />
+<Input suffix={suffix} />;
 ```

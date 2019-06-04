@@ -53,7 +53,7 @@ describe('Typography', () => {
     it('warning if `level` not correct', () => {
       mount(<Title level={false} />);
 
-      expect(errorSpy).toBeCalledWith(
+      expect(errorSpy).toHaveBeenCalledWith(
         'Warning: Title only accept `1 | 2 | 3 | 4` as `level` value.',
       );
     });
@@ -116,7 +116,7 @@ describe('Typography', () => {
         wrapper.update();
 
         wrapper.find('.ant-typography-expand').simulate('click');
-        expect(onExpand).toBeCalled();
+        expect(onExpand).toHaveBeenCalled();
         jest.runAllTimers();
         wrapper.update();
 
@@ -146,7 +146,7 @@ describe('Typography', () => {
           expect(copy.lastStr).toEqual(target);
 
           wrapper.update();
-          expect(onCopy).toBeCalled();
+          expect(onCopy).toHaveBeenCalled();
 
           expect(wrapper.find('.anticon-check').length).toBeTruthy();
 
@@ -168,14 +168,26 @@ describe('Typography', () => {
           const onStart = jest.fn();
           const onChange = jest.fn();
 
-          const wrapper = mount(<Paragraph editable={{ onChange, onStart }}>Bamboo</Paragraph>);
+          const className = 'test';
+          const style = {};
+
+          const wrapper = mount(
+            <Paragraph editable={{ onChange, onStart }} className={className} style={style}>
+              Bamboo
+            </Paragraph>,
+          );
 
           wrapper
             .find('.ant-typography-edit')
             .first()
             .simulate('click');
 
-          expect(onStart).toBeCalled();
+          expect(onStart).toHaveBeenCalled();
+
+          // Should have className
+          const props = wrapper.find('div').props();
+          expect(props.style).toEqual(style);
+          expect(props.className.includes(className)).toBeTruthy();
 
           wrapper.find('TextArea').simulate('change', {
             target: { value: 'Bamboo' },
@@ -186,7 +198,7 @@ describe('Typography', () => {
           if (expectFunc) {
             expectFunc(onChange);
           } else {
-            expect(onChange).toBeCalledWith('Bamboo');
+            expect(onChange).toHaveBeenCalledWith('Bamboo');
             expect(onChange).toHaveBeenCalledTimes(1);
           }
         });
@@ -211,7 +223,7 @@ describe('Typography', () => {
           wrapper.find('TextArea').simulate('keyUp', { keyCode: KeyCode.ESC });
         },
         onChange => {
-          expect(onChange).not.toBeCalled();
+          expect(onChange).not.toHaveBeenCalled();
         },
       );
 

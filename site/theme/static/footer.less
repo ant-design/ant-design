@@ -1,21 +1,26 @@
 @import './colors';
 
-@padding-space: 24px;
+@padding-space: 40px;
 
 footer {
   position: relative;
   z-index: 9;
   clear: both;
   margin-left: -1px;
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(255, 255, 255, 0.4);
   font-size: 14px;
   background-color: #000;
 
-  .ant-row {
+  .footer-wrap {
+    position: relative;
+    padding: 60px @padding-space;
     text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+
     .footer-center {
       display: inline-block;
       text-align: left;
+
       > h2 {
         position: relative;
         margin: 0 auto 24px;
@@ -36,14 +41,15 @@ footer {
       }
       > div {
         margin: 12px 0;
+
+        > span {
+          -moz-osx-font-smoothing: grayscale;
+          -webkit-font-smoothing: antialiased;
+        }
       }
     }
   }
-  .footer-wrap {
-    position: relative;
-    padding: 86px @padding-space 93px @padding-space;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-  }
+
   .bottom-bar {
     margin: 0;
     padding: 16px @padding-space;

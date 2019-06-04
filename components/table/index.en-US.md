@@ -17,33 +17,40 @@ A table displays rows of data.
 Specify `dataSource` of Table as an array of data.
 
 ```jsx
-const dataSource = [{
-  key: '1',
-  name: 'Mike',
-  age: 32,
-  address: '10 Downing Street'
-}, {
-  key: '2',
-  name: 'John',
-  age: 42,
-  address: '10 Downing Street'
-}];
+const dataSource = [
+  {
+    key: '1',
+    name: 'Mike',
+    age: 32,
+    address: '10 Downing Street',
+  },
+  {
+    key: '2',
+    name: 'John',
+    age: 42,
+    address: '10 Downing Street',
+  },
+];
 
-const columns = [{
-  title: 'Name',
-  dataIndex: 'name',
-  key: 'name',
-}, {
-  title: 'Age',
-  dataIndex: 'age',
-  key: 'age',
-}, {
-  title: 'Address',
-  dataIndex: 'address',
-  key: 'address',
-}];
+const columns = [
+  {
+    title: 'Name',
+    dataIndex: 'name',
+    key: 'name',
+  },
+  {
+    title: 'Age',
+    dataIndex: 'age',
+    key: 'age',
+  },
+  {
+    title: 'Address',
+    dataIndex: 'address',
+    key: 'address',
+  },
+];
 
-<Table dataSource={dataSource} columns={columns} />
+<Table dataSource={dataSource} columns={columns} />;
 ```
 
 ## API
@@ -51,7 +58,7 @@ const columns = [{
 ### Table
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | bordered | Whether to show all table borders | boolean | `false` |
 | childrenColumnName | The column contains children to display | string\[] | children |
 | columns | Columns of table | [ColumnProps](https://git.io/vMMXC)\[] | - |
@@ -71,7 +78,7 @@ const columns = [{
 | rowClassName | Row's className | Function(record, index):string | - |
 | rowKey | Row's unique key, could be a string or function that returns a string | string\|Function(record):string | `key` |
 | rowSelection | Row selection [config](#rowSelection) | object | null |
-| scroll | Set horizontal or vertical scrolling, can also be used to specify the width and height of the scroll area. It is recommended to set a number for `x`, if you want to set it to `true`, you need to add style `.ant-table td { white-space: nowrap; }`. | { x: number \| true, y: number } | - |
+| scroll | Set horizontal or vertical scrolling, can also be used to specify the width and height of the scroll area, could be number, percent value, `true` and ['max-content'](https://developer.mozilla.org/en-US/docs/Web/CSS/width) | { x: number \| true, y: number } | - |
 | showHeader | Whether to show table header | boolean | `true` |
 | size | Size of table | `default` \| `middle` \| `small` | `default` |
 | title | Table title renderer | Function(currentPageData) |  |
@@ -89,16 +96,16 @@ Same as `onRow` `onHeaderRow` `onCell` `onHeaderCell`
 <Table
   onRow={(record, rowIndex) => {
     return {
-      onClick: (event) => {},       // click row
-      onDoubleClick: (event) => {}, // double click row
-      onContextMenu: (event) => {}  // right button click row
-      onMouseEnter: (event) => {}   // mouse enter row
-      onMouseLeave: (event) => {}   // mouse leave row
+      onClick: event => {}, // click row
+      onDoubleClick: event => {}, // double click row
+      onContextMenu: event => {}, // right button click row
+      onMouseEnter: event => {}, // mouse enter row
+      onMouseLeave: event => {}, // mouse leave row
     };
   }}
-  onHeaderRow={(column) => {
+  onHeaderRow={column => {
     return {
-      onClick: () => {},        // click header row
+      onClick: () => {}, // click header row
     };
   }}
 />
@@ -109,8 +116,8 @@ Same as `onRow` `onHeaderRow` `onCell` `onHeaderCell`
 One of the Table `columns` prop for describing the table's columns, Column has the same API.
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
-| align | specify how content is aligned | 'left' \| 'right' \| 'center' | 'left' |
+| --- | --- | --- | --- |
+| align | specify which way that column is aligned | 'left' \| 'right' \| 'center' | 'left' |
 | className | className of this column | string | - |
 | colSpan | Span of this column's title | number |  |
 | dataIndex | Display field of the data record, could be set like `a.b.c`, `a[0].b.c[1]` | string | - |
@@ -127,8 +134,9 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | render | Renderer of the table cell. The return value should be a ReactNode, or an object for [colSpan/rowSpan config](#components-table-demo-colspan-rowspan) | Function(text, record, index) {} | - |
 | sorter | Sort function for local sort, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction. If you need sort buttons only, set to `true` | Function\|boolean | - |
 | sortOrder | Order of sorted values: `'ascend'` `'descend'` `false` | boolean\|string | - |
+| sortDirections | supported sort way, could be `'ascend'`, `'descend'` | Array | `['ascend', 'descend']` |
 | title | Title of this column | ReactNode\|({ sortOrder, filters }) => ReactNode | - |
-| width | Width of this column | string\|number | - |
+| width | Width of this column ([width not working?](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)) | string\|number | - |
 | onCell | Set props on per cell | Function(record, rowIndex) | - |
 | onFilter | Callback executed when the confirm filter button is clicked | Function | - |
 | onFilterDropdownVisibleChange | Callback executed when `filterDropdownVisible` is changed | function(visible) {} | - |
@@ -136,16 +144,16 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 
 ### ColumnGroup
 
-| Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
-| title | Title of the column group | string\|ReactNode | - |
+| Property | Description               | Type              | Default |
+| -------- | ------------------------- | ----------------- | ------- |
+| title    | Title of the column group | string\|ReactNode | -       |
 
 ### pagination
 
 Properties for pagination.
 
-| Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| Property | Description                          | Type                        | Default  |
+| -------- | ------------------------------------ | --------------------------- | -------- |
 | position | specify the position of `Pagination` | 'top' \| 'bottom' \| 'both' | 'bottom' |
 
 More about pagination, please check [`Pagination`](/components/pagination/).
@@ -155,8 +163,8 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 Properties for row selection.
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
-| columnWidth | Set the width of the selection column | string\|number | - |
+| --- | --- | --- | --- |
+| columnWidth | Set the width of the selection column | string\|number | `60px` |
 | columnTitle | Set the title of the selection column | string\|React.ReactNode | - |
 | fixed | Fixed selection column on the left | boolean | - |
 | getCheckboxProps | Get Checkbox or Radio props | Function(record) | - |
@@ -172,7 +180,7 @@ Properties for row selection.
 ### selection
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | key | Unique key of this selection | string | - |
 | text | Display text of this selection | string\|React.ReactNode | - |
 | onSelect | Callback executed when this selection is clicked | Function(changeableRowKeys) | - |

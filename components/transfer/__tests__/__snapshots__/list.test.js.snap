@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`List should render correctly 1`] = `
+exports[`Transfer.List should render correctly 1`] = `
 <div
   class="ant-transfer-list"
 >
@@ -16,6 +16,7 @@ exports[`List should render correctly 1`] = `
         <input
           class="ant-checkbox-input"
           type="checkbox"
+          value=""
         />
         <span
           class="ant-checkbox-inner"
@@ -52,6 +53,7 @@ exports[`List should render correctly 1`] = `
               checked=""
               class="ant-checkbox-input"
               type="checkbox"
+              value=""
             />
             <span
               class="ant-checkbox-inner"
@@ -72,6 +74,7 @@ exports[`List should render correctly 1`] = `
             <input
               class="ant-checkbox-input"
               type="checkbox"
+              value=""
             />
             <span
               class="ant-checkbox-inner"
@@ -93,6 +96,7 @@ exports[`List should render correctly 1`] = `
               class="ant-checkbox-input"
               disabled=""
               type="checkbox"
+              value=""
             />
             <span
               class="ant-checkbox-inner"

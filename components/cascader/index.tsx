@@ -89,7 +89,7 @@ export interface CascaderProps {
   onPopupVisibleChange?: (popupVisible: boolean) => void;
   prefixCls?: string;
   inputPrefixCls?: string;
-  getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
+  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   popupVisible?: boolean;
   /** use this after antd@3.7.0 */
   fieldNames?: FieldNamesType;
@@ -292,7 +292,8 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
   };
 
   handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.keyCode === KeyCode.BACKSPACE) {
+    // SPACE => https://github.com/ant-design/ant-design/issues/16871
+    if (e.keyCode === KeyCode.BACKSPACE || e.keyCode === KeyCode.SPACE) {
       e.stopPropagation();
     }
   };

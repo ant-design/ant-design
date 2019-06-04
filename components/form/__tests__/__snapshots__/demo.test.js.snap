@@ -10,14 +10,14 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
       style="margin-left:-12px;margin-right:-12px"
     >
       <div
-        class="ant-col-8"
+        class="ant-col ant-col-8"
         style="padding-left:12px;padding-right:12px;display:block"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-form-item-label"
+            class="ant-col ant-form-item-label"
           >
             <label
               class="ant-form-item-required"
@@ -28,7 +28,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-form-item-control-wrapper"
+            class="ant-col ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control"
@@ -51,14 +51,14 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-col-8"
+        class="ant-col ant-col-8"
         style="padding-left:12px;padding-right:12px;display:block"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-form-item-label"
+            class="ant-col ant-form-item-label"
           >
             <label
               class="ant-form-item-required"
@@ -69,7 +69,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-form-item-control-wrapper"
+            class="ant-col ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control"
@@ -92,14 +92,14 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-col-8"
+        class="ant-col ant-col-8"
         style="padding-left:12px;padding-right:12px;display:block"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-form-item-label"
+            class="ant-col ant-form-item-label"
           >
             <label
               class="ant-form-item-required"
@@ -110,7 +110,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-form-item-control-wrapper"
+            class="ant-col ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control"
@@ -133,14 +133,14 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-col-8"
+        class="ant-col ant-col-8"
         style="padding-left:12px;padding-right:12px;display:block"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-form-item-label"
+            class="ant-col ant-form-item-label"
           >
             <label
               class="ant-form-item-required"
@@ -151,7 +151,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-form-item-control-wrapper"
+            class="ant-col ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control"
@@ -174,14 +174,14 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-col-8"
+        class="ant-col ant-col-8"
         style="padding-left:12px;padding-right:12px;display:block"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-form-item-label"
+            class="ant-col ant-form-item-label"
           >
             <label
               class="ant-form-item-required"
@@ -192,7 +192,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-form-item-control-wrapper"
+            class="ant-col ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control"
@@ -215,14 +215,14 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-col-8"
+        class="ant-col ant-col-8"
         style="padding-left:12px;padding-right:12px;display:block"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-form-item-label"
+            class="ant-col ant-form-item-label"
           >
             <label
               class="ant-form-item-required"
@@ -233,7 +233,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-form-item-control-wrapper"
+            class="ant-col ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control"
@@ -256,14 +256,14 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-col-8"
+        class="ant-col ant-col-8"
         style="padding-left:12px;padding-right:12px;display:none"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-form-item-label"
+            class="ant-col ant-form-item-label"
           >
             <label
               class="ant-form-item-required"
@@ -274,7 +274,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-form-item-control-wrapper"
+            class="ant-col ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control"
@@ -297,14 +297,14 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-col-8"
+        class="ant-col ant-col-8"
         style="padding-left:12px;padding-right:12px;display:none"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-form-item-label"
+            class="ant-col ant-form-item-label"
           >
             <label
               class="ant-form-item-required"
@@ -315,7 +315,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-form-item-control-wrapper"
+            class="ant-col ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control"
@@ -338,14 +338,14 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-col-8"
+        class="ant-col ant-col-8"
         style="padding-left:12px;padding-right:12px;display:none"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-form-item-label"
+            class="ant-col ant-form-item-label"
           >
             <label
               class="ant-form-item-required"
@@ -356,7 +356,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-form-item-control-wrapper"
+            class="ant-col ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control"
@@ -379,14 +379,14 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-col-8"
+        class="ant-col ant-col-8"
         style="padding-left:12px;padding-right:12px;display:none"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-form-item-label"
+            class="ant-col ant-form-item-label"
           >
             <label
               class="ant-form-item-required"
@@ -397,7 +397,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-form-item-control-wrapper"
+            class="ant-col ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control"
@@ -424,7 +424,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
       class="ant-row"
     >
       <div
-        class="ant-col-24"
+        class="ant-col ant-col-24"
         style="text-align:right"
       >
         <button
@@ -457,6 +457,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
               class=""
               data-icon="down"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -486,7 +487,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-5 ant-form-item-label"
+      class="ant-col ant-col-5 ant-form-item-label"
     >
       <label
         class="ant-form-item-required"
@@ -497,7 +498,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-12 ant-form-item-control-wrapper"
+      class="ant-col ant-col-12 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -521,7 +522,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-5 ant-form-item-label"
+      class="ant-col ant-col-5 ant-form-item-label"
     >
       <label
         class="ant-form-item-required"
@@ -532,7 +533,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-12 ant-form-item-control-wrapper"
+      class="ant-col ant-col-12 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -581,6 +582,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
                     class=""
                     data-icon="down"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -601,7 +603,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-12 ant-col-offset-5 ant-form-item-control-wrapper"
+      class="ant-col ant-col-12 ant-col-offset-5 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -632,7 +634,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label"
+      class="ant-col ant-form-item-label"
     >
       <label
         class=""
@@ -643,7 +645,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper"
+      class="ant-col ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control has-success"
@@ -697,6 +699,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
                       class=""
                       data-icon="down"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -718,7 +721,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-control-wrapper"
+      class="ant-col ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -749,7 +752,7 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-20 ant-col-sm-offset-4"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-20 ant-col-sm-offset-4"
     >
       <div
         class="ant-form-item-control"
@@ -771,6 +774,7 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
                 class=""
                 data-icon="plus"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -795,7 +799,7 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-20 ant-col-sm-offset-4"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-20 ant-col-sm-offset-4"
     >
       <div
         class="ant-form-item-control"
@@ -824,7 +828,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-4 ant-form-item-label"
+      class="ant-col ant-col-4 ant-form-item-label"
     >
       <label
         class="ant-form-item-required"
@@ -835,7 +839,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-8 ant-form-item-control-wrapper"
+      class="ant-col ant-col-8 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -860,7 +864,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-4 ant-form-item-label"
+      class="ant-col ant-col-4 ant-form-item-label"
     >
       <label
         class=""
@@ -871,7 +875,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-8 ant-form-item-control-wrapper"
+      class="ant-col ant-col-8 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -896,7 +900,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-8 ant-col-offset-4 ant-form-item-control-wrapper"
+      class="ant-col ant-col-8 ant-col-offset-4 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -930,7 +934,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-8 ant-col-offset-4 ant-form-item-control-wrapper"
+      class="ant-col ant-col-8 ant-col-offset-4 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -975,7 +979,7 @@ exports[`renders ./components/form/demo/global-state.md correctly 1`] = `
       class="ant-row ant-form-item"
     >
       <div
-        class="ant-form-item-label"
+        class="ant-col ant-form-item-label"
       >
         <label
           class="ant-form-item-required"
@@ -986,7 +990,7 @@ exports[`renders ./components/form/demo/global-state.md correctly 1`] = `
         </label>
       </div>
       <div
-        class="ant-form-item-control-wrapper"
+        class="ant-col ant-form-item-control-wrapper"
       >
         <div
           class="ant-form-item-control has-success"
@@ -1027,7 +1031,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-control-wrapper"
+      class="ant-col ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -1051,6 +1055,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
                   class=""
                   data-icon="user"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -1065,7 +1070,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
               class="ant-input"
               data-__field="[object Object]"
               data-__meta="[object Object]"
-              id="horizontal_login_userName"
+              id="horizontal_login_username"
               placeholder="Username"
               type="text"
               value=""
@@ -1079,7 +1084,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-control-wrapper"
+      class="ant-col ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -1103,6 +1108,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
                   class=""
                   data-icon="lock"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -1131,7 +1137,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-control-wrapper"
+      class="ant-col ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -1163,7 +1169,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
       class="ant-row ant-form-item"
     >
       <div
-        class="ant-col-4 ant-form-item-label"
+        class="ant-col ant-col-4 ant-form-item-label"
       >
         <label
           class=""
@@ -1173,7 +1179,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
         </label>
       </div>
       <div
-        class="ant-col-14 ant-form-item-control-wrapper"
+        class="ant-col ant-col-14 ant-form-item-control-wrapper"
       >
         <div
           class="ant-form-item-control"
@@ -1251,7 +1257,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
       class="ant-row ant-form-item"
     >
       <div
-        class="ant-col-4 ant-form-item-label"
+        class="ant-col ant-col-4 ant-form-item-label"
       >
         <label
           class=""
@@ -1261,7 +1267,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
         </label>
       </div>
       <div
-        class="ant-col-14 ant-form-item-control-wrapper"
+        class="ant-col ant-col-14 ant-form-item-control-wrapper"
       >
         <div
           class="ant-form-item-control"
@@ -1283,7 +1289,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
       class="ant-row ant-form-item"
     >
       <div
-        class="ant-col-4 ant-form-item-label"
+        class="ant-col ant-col-4 ant-form-item-label"
       >
         <label
           class=""
@@ -1293,7 +1299,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
         </label>
       </div>
       <div
-        class="ant-col-14 ant-form-item-control-wrapper"
+        class="ant-col ant-col-14 ant-form-item-control-wrapper"
       >
         <div
           class="ant-form-item-control"
@@ -1315,7 +1321,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
       class="ant-row ant-form-item"
     >
       <div
-        class="ant-col-14 ant-col-offset-4 ant-form-item-control-wrapper"
+        class="ant-col ant-col-14 ant-col-offset-4 ant-form-item-control-wrapper"
       >
         <div
           class="ant-form-item-control"
@@ -1347,7 +1353,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-control-wrapper"
+      class="ant-col ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -1371,6 +1377,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
                   class=""
                   data-icon="user"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -1385,7 +1392,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
               class="ant-input"
               data-__field="[object Object]"
               data-__meta="[object Object]"
-              id="normal_login_userName"
+              id="normal_login_username"
               placeholder="Username"
               type="text"
               value=""
@@ -1399,7 +1406,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-control-wrapper"
+      class="ant-col ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -1423,6 +1430,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
                   class=""
                   data-icon="lock"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -1451,7 +1459,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-control-wrapper"
+      class="ant-col ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control has-success"
@@ -1516,7 +1524,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
     >
       <label
         class="ant-form-item-required"
@@ -1527,7 +1535,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
     >
       <div
         class="ant-form-item-control"
@@ -1551,7 +1559,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
     >
       <label
         class="ant-form-item-required"
@@ -1562,7 +1570,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
     >
       <div
         class="ant-form-item-control"
@@ -1570,14 +1578,46 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         <span
           class="ant-form-item-children"
         >
-          <input
-            class="ant-input"
-            data-__field="[object Object]"
-            data-__meta="[object Object]"
-            id="register_password"
-            type="password"
-            value=""
-          />
+          <span
+            class="ant-input-password ant-input-affix-wrapper"
+          >
+            <input
+              action="click"
+              class="ant-input"
+              data-__field="[object Object]"
+              data-__meta="[object Object]"
+              id="register_password"
+              type="password"
+              value=""
+            />
+            <span
+              class="ant-input-suffix"
+            >
+              <i
+                aria-label="icon: eye-invisible"
+                class="anticon anticon-eye-invisible ant-input-password-icon"
+                tabindex="-1"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="eye-invisible"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 0 0 0-51.5zm-63.57-320.64L836 122.88a8 8 0 0 0-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 0 0 0 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 0 0 0 11.31L155.17 889a8 8 0 0 0 11.31 0l712.15-712.12a8 8 0 0 0 0-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 0 0-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 0 1 146.2-106.69L401.31 546.2A112 112 0 0 1 396 512z"
+                  />
+                  <path
+                    d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 0 0 227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 0 1-112 112z"
+                  />
+                </svg>
+              </i>
+            </span>
+          </span>
         </span>
       </div>
     </div>
@@ -1586,7 +1626,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
     >
       <label
         class="ant-form-item-required"
@@ -1597,7 +1637,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
     >
       <div
         class="ant-form-item-control"
@@ -1605,14 +1645,46 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         <span
           class="ant-form-item-children"
         >
-          <input
-            class="ant-input"
-            data-__field="[object Object]"
-            data-__meta="[object Object]"
-            id="register_confirm"
-            type="password"
-            value=""
-          />
+          <span
+            class="ant-input-password ant-input-affix-wrapper"
+          >
+            <input
+              action="click"
+              class="ant-input"
+              data-__field="[object Object]"
+              data-__meta="[object Object]"
+              id="register_confirm"
+              type="password"
+              value=""
+            />
+            <span
+              class="ant-input-suffix"
+            >
+              <i
+                aria-label="icon: eye-invisible"
+                class="anticon anticon-eye-invisible ant-input-password-icon"
+                tabindex="-1"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="eye-invisible"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 0 0 0-51.5zm-63.57-320.64L836 122.88a8 8 0 0 0-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 0 0 0 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 0 0 0 11.31L155.17 889a8 8 0 0 0 11.31 0l712.15-712.12a8 8 0 0 0 0-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 0 0-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 0 1 146.2-106.69L401.31 546.2A112 112 0 0 1 396 512z"
+                  />
+                  <path
+                    d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 0 0 227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 0 1-112 112z"
+                  />
+                </svg>
+              </i>
+            </span>
+          </span>
         </span>
       </div>
     </div>
@@ -1621,7 +1693,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
     >
       <label
         class="ant-form-item-required"
@@ -1639,6 +1711,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               class=""
               data-icon="question-circle"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -1655,7 +1728,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
     >
       <div
         class="ant-form-item-control"
@@ -1679,7 +1752,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
     >
       <label
         class="ant-form-item-required"
@@ -1690,7 +1763,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
     >
       <div
         class="ant-form-item-control has-success"
@@ -1728,6 +1801,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                 class=""
                 data-icon="close-circle"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -1746,6 +1820,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                 class=""
                 data-icon="down"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -1764,7 +1839,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
     >
       <label
         class="ant-form-item-required"
@@ -1775,7 +1850,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
     >
       <div
         class="ant-form-item-control"
@@ -1835,6 +1910,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                           class=""
                           data-icon="down"
                           fill="currentColor"
+                          focusable="false"
                           height="1em"
                           viewBox="64 64 896 896"
                           width="1em"
@@ -1866,7 +1942,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
     >
       <label
         class="ant-form-item-required"
@@ -1877,7 +1953,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
     >
       <div
         class="ant-form-item-control"
@@ -1945,6 +2021,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                     class=""
                     data-icon="down"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -1965,7 +2042,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
     >
       <label
         class="ant-form-item-required"
@@ -1976,7 +2053,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
     >
       <div
         class="ant-form-item-control"
@@ -1989,7 +2066,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             style="margin-left:-4px;margin-right:-4px"
           >
             <div
-              class="ant-col-12"
+              class="ant-col ant-col-12"
               style="padding-left:4px;padding-right:4px"
             >
               <input
@@ -2002,7 +2079,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               />
             </div>
             <div
-              class="ant-col-12"
+              class="ant-col ant-col-12"
               style="padding-left:4px;padding-right:4px"
             >
               <button
@@ -2028,7 +2105,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-16 ant-col-sm-offset-8"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-16 ant-col-sm-offset-8"
     >
       <div
         class="ant-form-item-control"
@@ -2070,7 +2147,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-16 ant-col-sm-offset-8"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-16 ant-col-sm-offset-8"
     >
       <div
         class="ant-form-item-control"
@@ -2111,24 +2188,24 @@ exports[`renders ./components/form/demo/style-check-debug.md correctly 1`] = `
       style="margin-left:-8px;margin-right:-8px"
     >
       <div
-        class="ant-col-md-24 ant-col-lg-12"
+        class="ant-col ant-col-md-24 ant-col-lg-12"
         style="padding-left:8px;padding-right:8px"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-form-item-label"
+            class="ant-col ant-form-item-label"
           >
             <label
-              class=""
+              class="ant-form-item-no-colon"
               title="input:64.5px"
             >
               input:64.5px
             </label>
           </div>
           <div
-            class="ant-form-item-control-wrapper"
+            class="ant-col ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control"
@@ -2147,14 +2224,14 @@ exports[`renders ./components/form/demo/style-check-debug.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-col-md-24 ant-col-lg-12"
+        class="ant-col ant-col-md-24 ant-col-lg-12"
         style="padding-left:8px;padding-right:8px"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-form-item-label"
+            class="ant-col ant-form-item-label"
           >
             <label
               class=""
@@ -2164,7 +2241,7 @@ exports[`renders ./components/form/demo/style-check-debug.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-form-item-control-wrapper"
+            class="ant-col ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control"
@@ -2202,6 +2279,7 @@ exports[`renders ./components/form/demo/style-check-debug.md correctly 1`] = `
                           class=""
                           data-icon="down"
                           fill="currentColor"
+                          focusable="false"
                           height="1em"
                           viewBox="64 64 896 896"
                           width="1em"
@@ -2220,14 +2298,14 @@ exports[`renders ./components/form/demo/style-check-debug.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-col-md-24 ant-col-lg-12"
+        class="ant-col ant-col-md-24 ant-col-lg-12"
         style="padding-left:8px;padding-right:8px"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-form-item-label"
+            class="ant-col ant-form-item-label"
           >
             <label
               class=""
@@ -2237,7 +2315,7 @@ exports[`renders ./components/form/demo/style-check-debug.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-form-item-control-wrapper"
+            class="ant-col ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control"
@@ -2267,6 +2345,7 @@ exports[`renders ./components/form/demo/style-check-debug.md correctly 1`] = `
                           class=""
                           data-icon="up"
                           fill="currentColor"
+                          focusable="false"
                           height="1em"
                           viewBox="64 64 896 896"
                           width="1em"
@@ -2293,6 +2372,7 @@ exports[`renders ./components/form/demo/style-check-debug.md correctly 1`] = `
                           class=""
                           data-icon="down"
                           fill="currentColor"
+                          focusable="false"
                           height="1em"
                           viewBox="64 64 896 896"
                           width="1em"
@@ -2324,14 +2404,14 @@ exports[`renders ./components/form/demo/style-check-debug.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-col-md-24 ant-col-lg-12"
+        class="ant-col ant-col-md-24 ant-col-lg-12"
         style="padding-left:8px;padding-right:8px"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-form-item-label"
+            class="ant-col ant-form-item-label"
           >
             <label
               class=""
@@ -2341,7 +2421,7 @@ exports[`renders ./components/form/demo/style-check-debug.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-form-item-control-wrapper"
+            class="ant-col ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control"
@@ -2368,6 +2448,7 @@ exports[`renders ./components/form/demo/style-check-debug.md correctly 1`] = `
                         class=""
                         data-icon="calendar"
                         fill="currentColor"
+                        focusable="false"
                         height="1em"
                         viewBox="64 64 896 896"
                         width="1em"
@@ -2385,14 +2466,14 @@ exports[`renders ./components/form/demo/style-check-debug.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-col-md-24 ant-col-lg-12"
+        class="ant-col ant-col-md-24 ant-col-lg-12"
         style="padding-left:8px;padding-right:8px"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-form-item-label"
+            class="ant-col ant-form-item-label"
           >
             <label
               class=""
@@ -2402,7 +2483,7 @@ exports[`renders ./components/form/demo/style-check-debug.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-form-item-control-wrapper"
+            class="ant-col ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control"
@@ -2470,7 +2551,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
     >
       <label
         class="ant-form-item-required"
@@ -2481,7 +2562,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
     >
       <div
         class="ant-form-item-control"
@@ -2509,6 +2590,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                   class=""
                   data-icon="calendar"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -2528,7 +2610,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
     >
       <label
         class="ant-form-item-required"
@@ -2539,7 +2621,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
     >
       <div
         class="ant-form-item-control"
@@ -2550,7 +2632,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
           <span
             class="ant-calendar-picker"
             id="time_related_controls_date-time-picker"
-            style="width:195px"
+            style="min-width:195px"
           >
             <div>
               <input
@@ -2568,6 +2650,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                   class=""
                   data-icon="calendar"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -2587,7 +2670,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
     >
       <label
         class="ant-form-item-required"
@@ -2598,7 +2681,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
     >
       <div
         class="ant-form-item-control"
@@ -2626,6 +2709,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                   class=""
                   data-icon="calendar"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -2645,7 +2729,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
     >
       <label
         class="ant-form-item-required"
@@ -2656,7 +2740,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
     >
       <div
         class="ant-form-item-control"
@@ -2700,6 +2784,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                   class=""
                   data-icon="calendar"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -2719,7 +2804,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
     >
       <label
         class="ant-form-item-required"
@@ -2730,7 +2815,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
     >
       <div
         class="ant-form-item-control"
@@ -2775,6 +2860,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                   class=""
                   data-icon="calendar"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -2794,7 +2880,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
     >
       <label
         class="ant-form-item-required"
@@ -2805,7 +2891,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
     >
       <div
         class="ant-form-item-control"
@@ -2814,7 +2900,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
           class="ant-form-item-children"
         >
           <span
-            class="ant-time-picker "
+            class="ant-time-picker"
           >
             <input
               class="ant-time-picker-input"
@@ -2835,6 +2921,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                   class=""
                   data-icon="clock-circle"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -2857,7 +2944,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-16 ant-col-sm-offset-8"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-16 ant-col-sm-offset-8"
     >
       <div
         class="ant-form-item-control"
@@ -2888,7 +2975,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-6 ant-form-item-label"
+      class="ant-col ant-col-6 ant-form-item-label"
     >
       <label
         class=""
@@ -2898,7 +2985,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14 ant-form-item-control-wrapper"
+      class="ant-col ant-col-14 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -2919,7 +3006,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-6 ant-form-item-label"
+      class="ant-col ant-col-6 ant-form-item-label"
     >
       <label
         class="ant-form-item-required"
@@ -2930,7 +3017,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14 ant-form-item-control-wrapper"
+      class="ant-col ant-col-14 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -2979,6 +3066,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     class=""
                     data-icon="down"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -2999,7 +3087,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-6 ant-form-item-label"
+      class="ant-col ant-col-6 ant-form-item-label"
     >
       <label
         class="ant-form-item-required"
@@ -3010,7 +3098,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14 ant-form-item-control-wrapper"
+      class="ant-col ant-col-14 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -3075,7 +3163,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-6 ant-form-item-label"
+      class="ant-col ant-col-6 ant-form-item-label"
     >
       <label
         class=""
@@ -3086,7 +3174,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14 ant-form-item-control-wrapper"
+      class="ant-col ant-col-14 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control has-success"
@@ -3116,6 +3204,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     class=""
                     data-icon="up"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -3142,6 +3231,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     class=""
                     data-icon="down"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -3186,7 +3276,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-6 ant-form-item-label"
+      class="ant-col ant-col-6 ant-form-item-label"
     >
       <label
         class=""
@@ -3197,7 +3287,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14 ant-form-item-control-wrapper"
+      class="ant-col ant-col-14 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -3226,7 +3316,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-6 ant-form-item-label"
+      class="ant-col ant-col-6 ant-form-item-label"
     >
       <label
         class=""
@@ -3237,7 +3327,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14 ant-form-item-control-wrapper"
+      class="ant-col ant-col-14 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -3342,7 +3432,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-6 ant-form-item-label"
+      class="ant-col ant-col-6 ant-form-item-label"
     >
       <label
         class=""
@@ -3353,7 +3443,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14 ant-form-item-control-wrapper"
+      class="ant-col ant-col-14 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -3431,7 +3521,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-6 ant-form-item-label"
+      class="ant-col ant-col-6 ant-form-item-label"
     >
       <label
         class=""
@@ -3442,7 +3532,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14 ant-form-item-control-wrapper"
+      class="ant-col ant-col-14 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -3520,7 +3610,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-6 ant-form-item-label"
+      class="ant-col ant-col-6 ant-form-item-label"
     >
       <label
         class=""
@@ -3531,7 +3621,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14 ant-form-item-control-wrapper"
+      class="ant-col ant-col-14 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control has-success"
@@ -3550,7 +3640,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               class="ant-row"
             >
               <div
-                class="ant-col-8"
+                class="ant-col ant-col-8"
               >
                 <label
                   class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
@@ -3574,7 +3664,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 </label>
               </div>
               <div
-                class="ant-col-8"
+                class="ant-col ant-col-8"
               >
                 <label
                   class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled"
@@ -3599,7 +3689,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 </label>
               </div>
               <div
-                class="ant-col-8"
+                class="ant-col ant-col-8"
               >
                 <label
                   class="ant-checkbox-wrapper"
@@ -3622,7 +3712,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 </label>
               </div>
               <div
-                class="ant-col-8"
+                class="ant-col ant-col-8"
               >
                 <label
                   class="ant-checkbox-wrapper"
@@ -3645,7 +3735,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 </label>
               </div>
               <div
-                class="ant-col-8"
+                class="ant-col ant-col-8"
               >
                 <label
                   class="ant-checkbox-wrapper"
@@ -3677,7 +3767,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-6 ant-form-item-label"
+      class="ant-col ant-col-6 ant-form-item-label"
     >
       <label
         class=""
@@ -3688,7 +3778,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14 ant-form-item-control-wrapper"
+      class="ant-col ant-col-14 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control has-success"
@@ -3723,6 +3813,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                       class=""
                       data-icon="star"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -3745,6 +3836,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                       class=""
                       data-icon="star"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -3779,6 +3871,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                       class=""
                       data-icon="star"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -3801,6 +3894,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                       class=""
                       data-icon="star"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -3835,6 +3929,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                       class=""
                       data-icon="star"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -3857,6 +3952,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                       class=""
                       data-icon="star"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -3891,6 +3987,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                       class=""
                       data-icon="star"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -3913,6 +4010,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                       class=""
                       data-icon="star"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -3947,6 +4045,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                       class=""
                       data-icon="star"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -3969,6 +4068,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                       class=""
                       data-icon="star"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -3990,7 +4090,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-6 ant-form-item-label"
+      class="ant-col ant-col-6 ant-form-item-label"
     >
       <label
         class=""
@@ -4001,7 +4101,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14 ant-form-item-control-wrapper"
+      class="ant-col ant-col-14 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -4032,7 +4132,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-6 ant-form-item-label"
+      class="ant-col ant-col-6 ant-form-item-label"
     >
       <label
         class=""
@@ -4043,7 +4143,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14 ant-form-item-control-wrapper"
+      class="ant-col ant-col-14 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -4073,7 +4173,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-12 ant-col-offset-6 ant-form-item-control-wrapper"
+      class="ant-col ant-col-12 ant-col-offset-6 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -4104,7 +4204,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-with-help"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
     >
       <label
         class=""
@@ -4114,7 +4214,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
     >
       <div
         class="ant-form-item-control has-error"
@@ -4142,7 +4242,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
     >
       <label
         class=""
@@ -4152,7 +4252,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
     >
       <div
         class="ant-form-item-control has-warning"
@@ -4175,7 +4275,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-with-help"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
     >
       <label
         class=""
@@ -4185,7 +4285,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
     >
       <div
         class="ant-form-item-control has-feedback is-validating"
@@ -4212,6 +4312,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 class="anticon-spin"
                 data-icon="loading"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="0 0 1024 1024"
                 width="1em"
@@ -4235,7 +4336,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
     >
       <label
         class=""
@@ -4245,7 +4346,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
     >
       <div
         class="ant-form-item-control has-feedback has-success"
@@ -4272,6 +4373,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 class=""
                 data-icon="check-circle"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -4290,7 +4392,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
     >
       <label
         class=""
@@ -4300,7 +4402,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
     >
       <div
         class="ant-form-item-control has-feedback has-warning"
@@ -4327,6 +4429,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 class=""
                 data-icon="exclamation-circle"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -4345,7 +4448,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-with-help"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
     >
       <label
         class=""
@@ -4355,7 +4458,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
     >
       <div
         class="ant-form-item-control has-feedback has-error"
@@ -4382,6 +4485,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 class=""
                 data-icon="close-circle"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -4405,7 +4509,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
     >
       <label
         class=""
@@ -4415,7 +4519,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
     >
       <div
         class="ant-form-item-control has-feedback has-success"
@@ -4443,6 +4547,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                   class=""
                   data-icon="calendar"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -4466,6 +4571,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 class=""
                 data-icon="check-circle"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -4484,7 +4590,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
     >
       <label
         class=""
@@ -4494,7 +4600,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
     >
       <div
         class="ant-form-item-control has-feedback has-warning"
@@ -4503,7 +4609,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-form-item-children"
         >
           <span
-            class="ant-time-picker "
+            class="ant-time-picker"
             style="width:100%"
           >
             <input
@@ -4525,6 +4631,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                   class=""
                   data-icon="clock-circle"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -4551,6 +4658,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 class=""
                 data-icon="exclamation-circle"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -4569,7 +4677,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
     >
       <label
         class=""
@@ -4579,7 +4687,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
     >
       <div
         class="ant-form-item-control has-feedback has-error"
@@ -4625,6 +4733,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                     class=""
                     data-icon="down"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -4649,6 +4758,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 class=""
                 data-icon="close-circle"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -4667,7 +4777,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-with-help"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
     >
       <label
         class=""
@@ -4677,7 +4787,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
     >
       <div
         class="ant-form-item-control has-feedback is-validating"
@@ -4710,6 +4820,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 class=""
                 data-icon="close-circle"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -4728,6 +4839,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 class=""
                 data-icon="down"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -4750,6 +4862,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 class="anticon-spin"
                 data-icon="loading"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="0 0 1024 1024"
                 width="1em"
@@ -4774,7 +4887,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     style="margin-bottom:0"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
     >
       <label
         class=""
@@ -4784,7 +4897,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
     >
       <div
         class="ant-form-item-control"
@@ -4797,7 +4910,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             style="display:inline-block;width:calc(50% - 12px)"
           >
             <div
-              class="ant-form-item-control-wrapper"
+              class="ant-col ant-form-item-control-wrapper"
             >
               <div
                 class="ant-form-item-control has-error"
@@ -4824,6 +4937,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                           class=""
                           data-icon="calendar"
                           fill="currentColor"
+                          focusable="false"
                           height="1em"
                           viewBox="64 64 896 896"
                           width="1em"
@@ -4854,7 +4968,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             style="display:inline-block;width:calc(50% - 12px)"
           >
             <div
-              class="ant-form-item-control-wrapper"
+              class="ant-col ant-form-item-control-wrapper"
             >
               <div
                 class="ant-form-item-control"
@@ -4881,6 +4995,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                           class=""
                           data-icon="calendar"
                           fill="currentColor"
+                          focusable="false"
                           height="1em"
                           viewBox="64 64 896 896"
                           width="1em"
@@ -4904,7 +5019,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
     >
       <label
         class=""
@@ -4914,7 +5029,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
     >
       <div
         class="ant-form-item-control has-feedback has-success"
@@ -4945,6 +5060,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                     class=""
                     data-icon="up"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -4971,6 +5087,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                     class=""
                     data-icon="down"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -5008,6 +5125,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 class=""
                 data-icon="check-circle"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -5033,7 +5151,7 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-with-help"
   >
     <div
-      class="ant-col-7 ant-form-item-label"
+      class="ant-col ant-col-7 ant-form-item-label"
     >
       <label
         class=""
@@ -5043,7 +5161,7 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-12 ant-form-item-control-wrapper"
+      class="ant-col ant-col-12 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -5073,6 +5191,7 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
                     class=""
                     data-icon="up"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -5099,6 +5218,7 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
                     class=""
                     data-icon="down"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"

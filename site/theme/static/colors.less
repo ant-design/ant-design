@@ -1,21 +1,22 @@
 .make-palette(@color, @index: 1) when (@index <= 10) {
   .palette-@{color}-@{index} {
     @background: '@{color}-@{index}';
+
     background: @@background;
   }
   .make-palette(@color, (@index + 1)); // next iteration
 }
 
-@grey-1: #fff;
-@grey-2: #fafafa;
-@grey-3: #f5f5f5;
-@grey-4: #e8e8e8;
-@grey-5: #d9d9d9;
-@grey-6: #bfbfbf;
-@grey-7: #8c8c8c;
-@grey-8: #595959;
-@grey-9: #262626;
-@grey-10: #000;
+@gray-1: #fff;
+@gray-2: #fafafa;
+@gray-3: #f5f5f5;
+@gray-4: #e8e8e8;
+@gray-5: #d9d9d9;
+@gray-6: #bfbfbf;
+@gray-7: #8c8c8c;
+@gray-8: #595959;
+@gray-9: #262626;
+@gray-10: #000;
 @border-color: rgba(229, 231, 235, 100);
 
 .color-palettes {
@@ -62,7 +63,8 @@
   .make-palette(yellow);
   .make-palette(lime);
   .make-palette(geekblue);
-  .make-palette(grey);
+  .make-palette(gray);
+
   text-align: left;
 
   &-item {

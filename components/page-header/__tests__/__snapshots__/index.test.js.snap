@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`PageHeader pageHeader should not render blank dom 1`] = `
+<div
+  class="ant-page-header"
+/>
+`;
+
 exports[`PageHeader pageHeader should support className 1`] = `
 <div
   class="ant-page-header not-works"

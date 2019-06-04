@@ -1,11 +1,7 @@
 ---
-category:
-  zh-CN: 模式
-  en-US: Patterns
+category: 模式
 order: 11
-title:
-  zh-CN: 反馈
-  en-US: Feedback
+title: 反馈
 ---
 
 为了帮助用户了解应用当前要做什么，也给用户的下一步行为做参考，以及了解操作后所产生的结果 ，当用户和系统需要交互时，使用不同的模式来反馈信息或结果。当设计者使用反馈或者自定义一些反馈时，请注意：
@@ -71,7 +67,7 @@ title:
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/cHaaqZTvzgCZiYUnfNom.png" description="当用户不必等待较长时间的加载时使用。">
 
-在操作需要一段时间（一般为超过2秒）完成时系统应即时给予提醒，明确告知加载的状态或加载进度条，保持与用户的沟通。
+在操作需要一段时间（一般为超过 2 秒）完成时系统应即时给予提醒，明确告知加载的状态或加载进度条，保持与用户的沟通。
 
 <br />
 

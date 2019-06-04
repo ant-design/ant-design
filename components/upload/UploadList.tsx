@@ -2,48 +2,11 @@ import * as React from 'react';
 import Animate from 'rc-animate';
 import classNames from 'classnames';
 import { UploadListProps, UploadFile, UploadListType } from './interface';
+import { previewImage, isImageUrl } from './utils';
 import Icon from '../icon';
 import Tooltip from '../tooltip';
 import Progress from '../progress';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-
-const imageTypes: string[] = ['image', 'webp', 'png', 'svg', 'gif', 'jpg', 'jpeg', 'bmp', 'dpg'];
-// https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
-const previewFile = (file: File | Blob, callback: Function) => {
-  if (file.type && !imageTypes.includes(file.type)) {
-    callback('');
-  }
-  const reader = new FileReader();
-  reader.onloadend = () => callback(reader.result);
-  reader.readAsDataURL(file);
-};
-
-const extname = (url: string) => {
-  if (!url) {
-    return '';
-  }
-  const temp = url.split('/');
-  const filename = temp[temp.length - 1];
-  const filenameWithoutSuffix = filename.split(/#|\?/)[0];
-  return (/\.[^./\\]*$/.exec(filenameWithoutSuffix) || [''])[0];
-};
-const isImageUrl = (file: UploadFile): boolean => {
-  if (imageTypes.includes(file.type)) {
-    return true;
-  }
-  const url: string = (file.thumbUrl || file.url) as string;
-  const extension = extname(url);
-  if (/^data:image\//.test(url) || /(webp|svg|png|gif|jpg|jpeg|bmp|dpg)$/i.test(extension)) {
-    return true;
-  } else if (/^data:/.test(url)) {
-    // other file types of base64
-    return false;
-  } else if (extension) {
-    // other file types which have extension
-    return false;
-  }
-  return true;
-};
 
 export default class UploadList extends React.Component<UploadListProps, any> {
   static defaultProps = {
@@ -54,6 +17,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     },
     showRemoveIcon: true,
     showPreviewIcon: true,
+    previewFile: previewImage,
   };
 
   handleClose = (file: UploadFile) => {
@@ -73,10 +37,11 @@ export default class UploadList extends React.Component<UploadListProps, any> {
   };
 
   componentDidUpdate() {
-    if (this.props.listType !== 'picture' && this.props.listType !== 'picture-card') {
+    const { listType, items, previewFile } = this.props;
+    if (listType !== 'picture' && listType !== 'picture-card') {
       return;
     }
-    (this.props.items || []).forEach(file => {
+    (items || []).forEach(file => {
       if (
         typeof document === 'undefined' ||
         typeof window === 'undefined' ||
@@ -87,15 +52,14 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       ) {
         return;
       }
-      /*eslint-disable */
       file.thumbUrl = '';
-      /*eslint-enable */
-      previewFile(file.originFileObj, (previewDataUrl: string) => {
-        /*eslint-disable */
-        file.thumbUrl = previewDataUrl;
-        /*eslint-enable */
-        this.forceUpdate();
-      });
+      if (previewFile) {
+        previewFile(file.originFileObj).then((previewDataUrl: string) => {
+          // Need append '' to avoid dead loop
+          file.thumbUrl = previewDataUrl || '';
+          this.forceUpdate();
+        });
+      }
     });
   }
 

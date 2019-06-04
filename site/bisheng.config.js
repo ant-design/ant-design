@@ -25,6 +25,7 @@ function alertBabelConfig(rules) {
 
 module.exports = {
   port: 8001,
+  hash: true,
   source: {
     components: './components',
     docs: './docs',
@@ -53,6 +54,7 @@ module.exports = {
       'Data Display': 4,
       Feedback: 5,
       Other: 6,
+      Deprecated: 7,
       通用: 0,
       布局: 1,
       导航: 2,
@@ -60,6 +62,7 @@ module.exports = {
       数据展示: 4,
       反馈: 5,
       其他: 6,
+      废弃: 7,
     },
     docVersions: {
       '0.9.x': 'http://09x.ant.design',

@@ -13,46 +13,38 @@ title:
 
 Use `setFieldsValue` to set other control's value programmaticly.
 
-````jsx
-import {
-  Form, Select, Input, Button,
-} from 'antd';
+```jsx
+import { Form, Select, Input, Button } from 'antd';
 
 const { Option } = Select;
 
 class App extends React.Component {
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
       }
     });
-  }
+  };
 
-  handleSelectChange = (value) => {
+  handleSelectChange = value => {
     console.log(value);
     this.props.form.setFieldsValue({
       note: `Hi, ${value === 'male' ? 'man' : 'lady'}!`,
     });
-  }
+  };
 
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
       <Form labelCol={{ span: 5 }} wrapperCol={{ span: 12 }} onSubmit={this.handleSubmit}>
-        <Form.Item
-          label="Note"
-        >
+        <Form.Item label="Note">
           {getFieldDecorator('note', {
             rules: [{ required: true, message: 'Please input your note!' }],
-          })(
-            <Input />
-          )}
+          })(<Input />)}
         </Form.Item>
-        <Form.Item
-          label="Gender"
-        >
+        <Form.Item label="Gender">
           {getFieldDecorator('gender', {
             rules: [{ required: true, message: 'Please select your gender!' }],
           })(
@@ -62,12 +54,10 @@ class App extends React.Component {
             >
               <Option value="male">male</Option>
               <Option value="female">female</Option>
-            </Select>
+            </Select>,
           )}
         </Form.Item>
-        <Form.Item
-          wrapperCol={{ span: 12, offset: 5 }}
-        >
+        <Form.Item wrapperCol={{ span: 12, offset: 5 }}>
           <Button type="primary" htmlType="submit">
             Submit
           </Button>
@@ -80,4 +70,4 @@ class App extends React.Component {
 const WrappedApp = Form.create({ name: 'coordinated' })(App);
 
 ReactDOM.render(<WrappedApp />, mountNode);
-````
+```

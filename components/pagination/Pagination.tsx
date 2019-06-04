@@ -11,6 +11,7 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 export interface PaginationProps {
   total?: number;
   defaultCurrent?: number;
+  disabled?: boolean;
   current?: number;
   defaultPageSize?: number;
   pageSize?: number;
@@ -31,9 +32,10 @@ export interface PaginationProps {
   itemRender?: (
     page: number,
     type: 'page' | 'prev' | 'next' | 'jump-prev' | 'jump-next',
-    originalElement: HTMLElement,
+    originalElement: React.ReactElement<HTMLElement>,
   ) => React.ReactNode;
   role?: string;
+  showLessItems?: boolean;
 }
 
 export interface PaginationConfig extends PaginationProps {

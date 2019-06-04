@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @typography-prefix-cls: ~'@{ant-prefix}-typography';
@@ -30,45 +30,23 @@
   .typography-title(@heading-4-size, 1.4);
 }
 
-.operation-unit() {
-  color: @link-color;
-  text-decoration: none;
-  outline: none;
-  cursor: pointer;
-  transition: color 0.3s;
-
-  &:focus,
-  &:hover {
-    color: @link-hover-color;
-  }
-
-  &:focus {
-    text-decoration: underline;
-    text-decoration-skip-ink: auto;
-  }
-
-  &:active {
-    color: @link-active-color;
-  }
-}
-
 // =============== Basic ===============
 .@{typography-prefix-cls} {
   color: @text-color;
 
-  &-secondary {
+  &&-secondary {
     color: @text-color-secondary;
   }
 
-  &-warning {
-    color: @text-color-warning;
+  &&-warning {
+    color: @warning-color;
   }
 
-  &-danger {
-    color: @text-color-danger;
+  &&-danger {
+    color: @error-color;
   }
 
-  &-disabled {
+  &&-disabled {
     color: @disabled-color;
     cursor: not-allowed;
     user-select: none;
@@ -190,6 +168,12 @@
   // Text input area
   &-edit-content {
     position: relative;
+
+    div& {
+      left: -@input-padding-horizontal - 1px;
+      margin-top: -@input-padding-vertical-base - 1px;
+      margin-bottom: calc(1em - @input-padding-vertical-base - 2px);
+    }
 
     &-confirm {
       position: absolute;

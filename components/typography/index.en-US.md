@@ -5,22 +5,20 @@ title: Typography
 cols: 1
 ---
 
-Basic format and regular operation on text.
+Basic text writing, including headings, body text, lists, and more.
 
 ## When To Use
 
-When need to display title or text content. Like:
-* Copy
-* Ellipsis / expand
-* Edit
-* Markdown Typography
+- When need to display title or paragraph contents in Articles/Blogs/Notes.
+- When you need copyable/editable/ellipsis texts.
 
 ## API
 
 ### Typography.Text
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
+| code | code style | boolean | false |
 | copyable | Config copy. Can set copy text and callback when is an object | boolean \| { text: string, onCopy: Function } | false |
 | delete | delete line style | boolean | false |
 | disabled | Disable content | boolean | false |
@@ -35,7 +33,8 @@ When need to display title or text content. Like:
 ### Typography.Title
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
+| code | code style | boolean | false |
 | copyable | Config copy. Can set copy text and callback when is an object | boolean \| { text: string, onCopy: Function } | false |
 | delete | delete line style | boolean | false |
 | disabled | Disable content | boolean | false |
@@ -50,7 +49,8 @@ When need to display title or text content. Like:
 ### Typography.Paragraph
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
+| code | code style | boolean | false |
 | copyable | Config copy. Can set copy text and callback when is an object | boolean \| { text: string, onCopy: Function } | false |
 | delete | delete line style | boolean | false |
 | disabled | Disable content | boolean | false |

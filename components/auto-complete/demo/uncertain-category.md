@@ -11,15 +11,12 @@ title:
 
 ## en-US
 
-Demonstration of [Lookup Patterns: Uncertain Category](https://ant.design/docs/spec/reaction#Lookup-Patterns).
-Basic Usage, set datasource of autocomplete with `dataSource` property.
+Demonstration of [Lookup Patterns: Uncertain Category](https://ant.design/docs/spec/reaction#Lookup-Patterns). Basic Usage, set datasource of autocomplete with `dataSource` property.
 
-````jsx
-import {
-  Icon, Button, Input, AutoComplete,
-} from 'antd';
+```jsx
+import { Icon, Button, Input, AutoComplete } from 'antd';
 
-const Option = AutoComplete.Option;
+const { Option } = AutoComplete;
 
 function onSelect(value) {
   console.log('onSelect', value);
@@ -30,7 +27,9 @@ function getRandomInt(max, min = 0) {
 }
 
 function searchResult(query) {
-  return (new Array(getRandomInt(5))).join('.').split('.')
+  return new Array(getRandomInt(5))
+    .join('.')
+    .split('.')
     .map((item, idx) => ({
       query,
       category: `${query}${idx}`,
@@ -41,16 +40,20 @@ function searchResult(query) {
 function renderOption(item) {
   return (
     <Option key={item.category} text={item.category}>
-      {item.query} 在
-      <a
-        href={`https://s.taobao.com/search?q=${item.query}`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {item.category}
-      </a>
-      区块中
-      <span className="global-search-item-count">约 {item.count} 个结果</span>
+      <div className="global-search-item">
+        <span className="global-search-item-desc">
+          {item.query} 在
+          <a
+            href={`https://s.taobao.com/search?q=${item.query}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {item.category}
+          </a>
+          区块中
+        </span>
+        <span className="global-search-item-count">约 {item.count} 个结果</span>
+      </div>
     </Option>
   );
 }
@@ -58,13 +61,13 @@ function renderOption(item) {
 class Complete extends React.Component {
   state = {
     dataSource: [],
-  }
+  };
 
-  handleSearch = (value) => {
+  handleSearch = value => {
     this.setState({
       dataSource: value ? searchResult(value) : [],
     });
-  }
+  };
 
   render() {
     const { dataSource } = this.state;
@@ -81,11 +84,11 @@ class Complete extends React.Component {
           optionLabelProp="text"
         >
           <Input
-            suffix={(
+            suffix={
               <Button className="search-btn" size="large" type="primary">
                 <Icon type="search" />
               </Button>
-            )}
+            }
           />
         </AutoComplete>
       </div>
@@ -94,9 +97,9 @@ class Complete extends React.Component {
 }
 
 ReactDOM.render(<Complete />, mountNode);
-````
+```
 
-````css
+```css
 .global-search-wrapper {
   padding-right: 50px;
 }
@@ -122,8 +125,17 @@ ReactDOM.render(<Complete />, mountNode);
   border-bottom-left-radius: 0;
 }
 
-.global-search-item-count {
-  position: absolute;
-  right: 16px;
+.global-search-item {
+  display: flex;
 }
-````
+
+.global-search-item-desc {
+  flex: auto;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.global-search-item-count {
+  flex: none;
+}
+```

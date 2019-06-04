@@ -14,10 +14,6 @@ toc: false
 
 ## 图标列表
 
-> 点击图标即可复制代码。
-
-新版图标可能略有缺失，我们还在持续补充中。
-
 ```__react
 import IconDisplay from 'site/theme/template/IconDisplay';
 ReactDOM.render(<IconDisplay />, mountNode);
@@ -47,6 +43,8 @@ ReactDOM.render(<IconDisplay />, mountNode);
 更多讨论可参考：[#10353](https://github.com/ant-design/ant-design/issues/10353)。
 
 > ⚠️ 3.9.0 之后我们全量引入了所有图标，导致 antd 默认的包体积有一定增加，我们会在不远的未来增加新的 API 来实现图标的按需使用，更多相关讨论可关注：[#12011](https://github.com/ant-design/ant-design/issues/12011)。
+>
+> 在此之前，你可以通过来自社区同学的 [webpack 插件](https://github.com/Beven91/webpack-ant-icon-loader)将图标文件拆分。
 
 其中 `theme`, `component`, `twoToneColor` 是 `3.9.x` 版本新增加的属性。最佳实践是给使用的 `<Icon />` 组件传入属性 `theme` 以明确图标的主题风格。例如：
 
@@ -96,7 +94,7 @@ ReactDOM.render(<MyIcon type="icon-example" />, mountedNode);
 
 ### 自定义 SVG 图标
 
-如果使用 `webpack`，可以通过配置 [@svgr/webpack](https://www.npmjs.com/package/@svgr/webpack) 来将 `svg` 图标作为 `React` 组件导入。`@svgr/webpack` 的 `options` 选项请参阅 [svgr文档](https://github.com/smooth-code/svgr#options)。
+如果使用 `webpack`，可以通过配置 [@svgr/webpack](https://www.npmjs.com/package/@svgr/webpack) 来将 `svg` 图标作为 `React` 组件导入。`@svgr/webpack` 的 `options` 选项请参阅 [svgr 文档](https://github.com/smooth-code/svgr#options)。
 
 ```js
 // webpack.config.js
@@ -121,18 +119,15 @@ ReactDOM.render(<MyIcon type="icon-example" />, mountedNode);
 import { Icon } from 'antd';
 import MessageSvg from 'path/to/message.svg'; // path to your '*.svg' file.
 
-ReactDOM.render(
-  <Icon component={MessageSvg} />,
-  mountNode
-);
+ReactDOM.render(<Icon component={MessageSvg} />, mountNode);
 ```
 
 `Icon` 中的 `component` 组件的接受的属性如下：
 
-| 字段 | 说明 | 类型 | 只读值 |
-| --- | --- | --- | --- |
-| width | `svg` 元素宽度 | string \| number | '1em' |
-| height | `svg` 元素高度 | string \| number | '1em' |
-| fill | `svg` 元素填充的颜色 | string | 'currentColor' |
-| className | 计算后的 `svg` 类名 | string | - |
-| style | 计算后的 `svg` 元素样式 | CSSProperties | - |
+| 字段      | 说明                    | 类型             | 只读值         |
+| --------- | ----------------------- | ---------------- | -------------- |
+| width     | `svg` 元素宽度          | string \| number | '1em'          |
+| height    | `svg` 元素高度          | string \| number | '1em'          |
+| fill      | `svg` 元素填充的颜色    | string           | 'currentColor' |
+| className | 计算后的 `svg` 类名     | string           | -              |
+| style     | 计算后的 `svg` 元素样式 | CSSProperties    | -              |

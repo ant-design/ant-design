@@ -83,6 +83,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
             class=""
             data-icon="down"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -134,6 +135,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
             class=""
             data-icon="down"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -185,6 +187,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
             class="anticon-spin"
             data-icon="loading"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="0 0 1024 1024"
             width="1em"
@@ -241,6 +244,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
             class=""
             data-icon="down"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -292,6 +296,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
             class=""
             data-icon="down"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -347,6 +352,7 @@ exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] 
           class=""
           data-icon="down"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -450,6 +456,7 @@ exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
           class=""
           data-icon="down"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -513,6 +520,7 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
                 class=""
                 data-icon="close"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -548,6 +556,7 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
                 class=""
                 data-icon="close"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -623,6 +632,7 @@ exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
           class=""
           data-icon="down"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -633,6 +643,91 @@ exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
         </svg>
       </i>
     </span>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/select/demo/option-label-prop.md correctly 1`] = `
+<div
+  class="ant-select ant-select-enabled"
+  style="width:100%"
+>
+  <div
+    aria-autocomplete="list"
+    aria-controls=""
+    aria-expanded="false"
+    aria-haspopup="true"
+    class="ant-select-selection
+            ant-select-selection--multiple"
+    role="combobox"
+  >
+    <div
+      class="ant-select-selection__rendered"
+    >
+      <div
+        class="ant-select-selection__placeholder"
+        style="display:none;user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        select one country
+      </div>
+      <ul>
+        <li
+          class="ant-select-selection__choice"
+          role="presentation"
+          style="user-select:none;-webkit-user-select:none"
+          title="China"
+          unselectable="on"
+        >
+          <div
+            class="ant-select-selection__choice__content"
+          >
+            China
+          </div>
+          <span
+            class="ant-select-selection__choice__remove"
+          >
+            <i
+              aria-label="icon: close"
+              class="anticon anticon-close ant-select-remove-icon"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="close"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 0 0 203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                />
+              </svg>
+            </i>
+          </span>
+        </li>
+        <li
+          class="ant-select-search ant-select-search--inline"
+        >
+          <div
+            class="ant-select-search__field__wrap"
+          >
+            <input
+              autocomplete="off"
+              class="ant-select-search__field"
+              value=""
+            />
+            <span
+              class="ant-select-search__field__mirror"
+            >
+               
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 `;
@@ -696,6 +791,7 @@ exports[`renders ./components/select/demo/search.md correctly 1`] = `
           class=""
           data-icon="down"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -913,6 +1009,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
             class=""
             data-icon="down"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -974,6 +1071,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
                   class=""
                   data-icon="close"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -1009,6 +1107,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
                   class=""
                   data-icon="close"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -1091,6 +1190,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
                   class=""
                   data-icon="close"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -1126,6 +1226,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
                   class=""
                   data-icon="close"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -1203,6 +1304,7 @@ exports[`renders ./components/select/demo/suffix.md correctly 1`] = `
             class=""
             data-icon="smile"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -1254,6 +1356,7 @@ exports[`renders ./components/select/demo/suffix.md correctly 1`] = `
             class=""
             data-icon="meh"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"

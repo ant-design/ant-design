@@ -13,7 +13,7 @@ title:
 
 Customize the background, border, margin styles and icon for each panel.
 
-````jsx
+```jsx
 import { Collapse, Icon } from 'antd';
 
 const Panel = Collapse.Panel;
@@ -48,6 +48,6 @@ ReactDOM.render(
       <p>{text}</p>
     </Panel>
   </Collapse>,
-  mountNode
+  mountNode,
 );
-````
+```

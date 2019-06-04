@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
-import { Select, Menu, Row, Col, Icon, Popover, Input, Button } from 'antd';
+import { Select, Menu, Row, Col, Icon, Popover, Input, Button, Badge } from 'antd';
 import Santa from './Santa';
 import * as utils from '../utils';
 import { version as antdVersion } from '../../../../package.json';
@@ -176,28 +176,60 @@ export default class Header extends React.Component {
             <FormattedMessage id="app.header.menu.components" />
           </Link>
         </Menu.Item>
-        <Menu.Item key="pro" className="hide-in-home-page">
-          <a
-            href="http://pro.ant.design"
-            className="header-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FormattedMessage id="app.header.menu.pro" />
-          </a>
-        </Menu.Item>
-        {isZhCN ? (
-          <Menu.Item key="course" className="hide-in-home-page">
+        <Menu.SubMenu
+          key="ecosystem"
+          className="hide-in-home-page"
+          title={
+            <Badge dot>
+              <FormattedMessage id="app.header.menu.ecosystem" />
+            </Badge>
+          }
+        >
+          <Menu.Item key="pro">
             <a
-              href="https://www.yuque.com/ant-design/course"
+              href="http://pro.ant.design"
               className="header-link"
               target="_blank"
               rel="noopener noreferrer"
             >
-              教程
+              <Badge dot>
+                <FormattedMessage id="app.header.menu.pro.v4" />
+              </Badge>
             </a>
           </Menu.Item>
-        ) : null}
+          <Menu.Item key="ng">
+            <a
+              href="http://ng.ant.design"
+              className="header-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ant Design of Angular
+            </a>
+          </Menu.Item>
+          <Menu.Item key="vue">
+            <a
+              href="http://vue.ant.design"
+              className="header-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ant Design of Vue
+            </a>
+          </Menu.Item>
+          {isZhCN ? (
+            <Menu.Item key="course" className="hide-in-home-page">
+              <a
+                href="https://www.yuque.com/ant-design/course"
+                className="header-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ant Design 实战教程
+              </a>
+            </Menu.Item>
+          ) : null}
+        </Menu.SubMenu>
       </Menu>,
     ];
 

@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import warning from '../_util/warning';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import defaultLocale from './locale/en_US';
+import enUS from './locale/en_US';
 import interopDefault from '../_util/interopDefault';
 import Icon from '../icon';
 
@@ -38,7 +38,7 @@ export interface TimePickerProps {
   disabledMinutes?: (selectedHour: number) => number[];
   disabledSeconds?: (selectedHour: number, selectedMinute: number) => number[];
   style?: React.CSSProperties;
-  getPopupContainer?: (triggerNode: Element) => HTMLElement;
+  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   addon?: Function;
   use12Hours?: boolean;
   focusOnOpen?: boolean;
@@ -54,6 +54,7 @@ export interface TimePickerProps {
   popupStyle?: React.CSSProperties;
   suffixIcon?: React.ReactNode;
   clearIcon?: React.ReactNode;
+  locale?: TimePickerLocale;
 }
 
 export interface TimePickerLocale {
@@ -154,13 +155,10 @@ class TimePicker extends React.Component<TimePickerProps, any> {
   renderInputIcon(prefixCls: string) {
     const { suffixIcon } = this.props;
     const clockIcon = (suffixIcon &&
-      (React.isValidElement<{ className?: string }>(suffixIcon) ? (
+      (React.isValidElement<{ className?: string }>(suffixIcon) &&
         React.cloneElement(suffixIcon, {
           className: classNames(suffixIcon.props.className, `${prefixCls}-clock-icon`),
-        })
-      ) : (
-        <span className={`${prefixCls}-clock-icon`}>{suffixIcon}</span>
-      ))) || <Icon type="clock-circle" className={`${prefixCls}-clock-icon`} />;
+        }))) || <Icon type="clock-circle" className={`${prefixCls}-clock-icon`} />;
 
     return <span className={`${prefixCls}-icon`}>{clockIcon}</span>;
   }
@@ -178,6 +176,14 @@ class TimePicker extends React.Component<TimePickerProps, any> {
 
     return <Icon type="close-circle" className={clearIconPrefixCls} theme="filled" />;
   }
+
+  getDefaultLocale = () => {
+    const defaultLocale = {
+      ...enUS,
+      ...this.props.locale,
+    };
+    return defaultLocale;
+  };
 
   renderTimePicker = (locale: TimePickerLocale) => (
     <ConfigConsumer>
@@ -228,7 +234,7 @@ class TimePicker extends React.Component<TimePickerProps, any> {
 
   render() {
     return (
-      <LocaleReceiver componentName="TimePicker" defaultLocale={defaultLocale}>
+      <LocaleReceiver componentName="TimePicker" defaultLocale={this.getDefaultLocale()}>
         {this.renderTimePicker}
       </LocaleReceiver>
     );

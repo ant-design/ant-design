@@ -36,7 +36,7 @@ ReactDOM.render(
 
 ## 前端工程师
 
-简历请投递：xingmin.zhu#alipay.com
+简历请投递：afc163+antd@gmail.com
 
 > 注明简历来自 ant.design 官网
 

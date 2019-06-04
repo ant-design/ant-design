@@ -1,14 +1,18 @@
 ---
 category: Components
-type: Data Entry
-title: Mention
+type: Deprecated
+title: Mention (Deprecated)
 ---
 
-Mention component.
+Mention component. Deprecated, please use [Mentions](/components/mentions) instead.
 
-## When To Use
+## Why deprecated?
 
-When need to mention someone or something.
+<div class="ant-alert ant-alert-error ant-alert-no-icon">
+Mention use
+<a href="https://www.npmjs.com/package/draft-js" target="_blank" rel="noopener noreferrer">Draft.js</a>
+to measure tips position, which use nearly 11.6% package size. We hope to reduce bundle size by using lightweight solution to handle this.
+</div>
 
 ## API
 
@@ -22,7 +26,7 @@ When need to mention someone or something.
 ### Mention API
 
 | API | Description | Type |
-| --- | ----------- | ---- |
+| --- | --- | --- |
 | getMentions | get mentioned people in current contentState | Function(ContentState: contentState): string\[] |
 | toContentState | convert string to ContentState | Function(value: string): ContentState |
 | toString | convert ContentState to string | Function(contentState: ContentState): string |
@@ -30,7 +34,7 @@ When need to mention someone or something.
 ### Mention
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | autoFocus | get focus when component mounted | boolean | false |
 | defaultValue | default value | ContentState, you can use `Mention.toContentState` to convert text to `ContentState` | null |
 | defaultSuggestions | default suggestion content | Array&lt;string\|Mention.Nav> | \[] |
@@ -38,7 +42,7 @@ When need to mention someone or something.
 | getSuggestionContainer | rendered to the root of the menu. Default rendered to the body dom. If gets any problem of the menu while scrolling. Try to make the root the dom scrolled, and make it position relative. | function | () => document.body |
 | loading | loading mode | boolean | false |
 | multiLines | multilines mode | boolean | false |
-| notFoundContent | suggestion when suggestions empty | string | '无匹配结果，轻敲空格完成输入' |
+| notFoundContent | suggestion when suggestions empty | string | 'No matches found' |
 | placeholder | placeholder of input | string | null |
 | placement | The position of the suggestion relative to the target, which can be one of `top` and `bottom` | string | 'bottom'. |
 | prefix | character which will trigger Mention to show mention list | string or Array&lt;string> | '@' |
@@ -54,14 +58,14 @@ When need to mention someone or something.
 
 ### Mention methods
 
-| Name | Description |
-| ---- | ----------- |
-| blur() | remove focus |
-| focus() | get focus |
+| Name    | Description  |
+| ------- | ------------ |
+| blur()  | remove focus |
+| focus() | get focus    |
 
 ### Nav
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | children | suggestion content | object | {} |
 | value | value of suggestion, the value will insert into input filed while selected | string | "" |

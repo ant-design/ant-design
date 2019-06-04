@@ -60,7 +60,7 @@ jest.mock('rc-util/lib/Portal');
 describe('ConfigProvider', () => {
   describe('components', () => {
     function testPair(name, renderComponent) {
-      describe(name, () => {
+      describe(`${name}`, () => {
         // normal
         it('normal', () => {
           expect(render(renderComponent({}))).toMatchSnapshot();

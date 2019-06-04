@@ -8,6 +8,7 @@ export interface TimeLineItemProps {
   color?: string;
   dot?: React.ReactNode;
   pending?: boolean;
+  position?: string;
   style?: React.CSSProperties;
 }
 
@@ -20,6 +21,7 @@ const TimelineItem: React.SFC<TimeLineItemProps> = props => (
         color = '',
         children,
         pending,
+        position,
         dot,
         ...restProps
       } = props;
@@ -58,6 +60,7 @@ const TimelineItem: React.SFC<TimeLineItemProps> = props => (
 TimelineItem.defaultProps = {
   color: 'blue',
   pending: false,
+  position: '',
 };
 
 export default TimelineItem;

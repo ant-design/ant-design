@@ -2,6 +2,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Upload from '..';
+import Form from '../../form';
 import { T, fileToObject, genPercentAdd, getFileItem, removeFileItem } from '../utils';
 import { setup, teardown } from './mock';
 
@@ -37,7 +38,7 @@ describe('Upload', () => {
       data,
       onChange: ({ file }) => {
         if (file.status !== 'uploading') {
-          expect(data).toBeCalled();
+          expect(data).toHaveBeenCalled();
           done();
         }
       },
@@ -71,7 +72,7 @@ describe('Upload', () => {
       data,
       onChange: ({ file }) => {
         if (file.status !== 'uploading') {
-          expect(data).toBeCalled();
+          expect(data).toHaveBeenCalled();
           expect(file.name).toEqual('test.png');
           done();
         }
@@ -110,7 +111,7 @@ describe('Upload', () => {
       onChange: ({ file, fileList: updatedFileList }) => {
         expect(file instanceof File).toBe(true);
         expect(updatedFileList.map(f => f.name)).toEqual(['bar.png', 'foo.png']);
-        expect(data).not.toBeCalled();
+        expect(data).not.toHaveBeenCalled();
         done();
       },
     };
@@ -170,7 +171,7 @@ describe('Upload', () => {
       beforeUpload() {},
       data,
       onChange: () => {
-        expect(data).toBeCalled();
+        expect(data).toHaveBeenCalled();
         done();
       },
     };
@@ -199,6 +200,64 @@ describe('Upload', () => {
     expect(wrapper.find('input[type="file"]').length).toBe(1);
     wrapper.setProps({ children: null });
     expect(wrapper.find('input[type="file"]').length).toBe(1);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/14298
+  it('should not have id if upload children is null, avoid being triggered by label', () => {
+    // eslint-disable-next-line
+    class Demo extends React.Component {
+      render() {
+        const {
+          form: { getFieldDecorator },
+          children,
+        } = this.props;
+        return (
+          <Form>
+            <Form.Item label="Upload">
+              {getFieldDecorator('upload')(<Upload>{children}</Upload>)}
+            </Form.Item>
+          </Form>
+        );
+      }
+    }
+    const WrappedDemo = Form.create()(Demo);
+    const wrapper = mount(
+      <WrappedDemo>
+        <div>upload</div>
+      </WrappedDemo>,
+    );
+    expect(wrapper.find('input#upload').length).toBe(1);
+    wrapper.setProps({ children: null });
+    expect(wrapper.find('input#upload').length).toBe(0);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/16478
+  it('should not have id if upload is disabled, avoid being triggered by label', () => {
+    // eslint-disable-next-line
+    class Demo extends React.Component {
+      render() {
+        const {
+          form: { getFieldDecorator },
+          disabled,
+        } = this.props;
+        return (
+          <Form>
+            <Form.Item label="Upload">
+              {getFieldDecorator('upload')(
+                <Upload disabled={disabled}>
+                  <div>upload</div>
+                </Upload>,
+              )}
+            </Form.Item>
+          </Form>
+        );
+      }
+    }
+    const WrappedDemo = Form.create()(Demo);
+    const wrapper = mount(<WrappedDemo />);
+    expect(wrapper.find('input#upload').length).toBe(1);
+    wrapper.setProps({ disabled: true });
+    expect(wrapper.find('input#upload').length).toBe(0);
   });
 
   it('should be controlled by fileList', () => {
@@ -354,7 +413,7 @@ describe('Upload', () => {
     setImmediate(() => {
       wrapper.update();
 
-      expect(mockRemove).toBeCalled();
+      expect(mockRemove).toHaveBeenCalled();
       expect(props.fileList).toHaveLength(1);
       expect(props.fileList[0].status).toBe('done');
       done();
@@ -369,5 +428,40 @@ describe('Upload', () => {
       </Upload>,
     );
     expect(typeof wrapper.instance().upload.abort).toBe('function');
+  });
+
+  it('unmount', () => {
+    const wrapper = mount(
+      <Upload>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    const clearIntervalSpy = jest.spyOn(global, 'clearInterval');
+    expect(clearIntervalSpy).not.toHaveBeenCalled();
+    wrapper.unmount();
+    expect(clearIntervalSpy).toHaveBeenCalled();
+    clearIntervalSpy.mockRestore();
+  });
+
+  it('corrent dragCls when type is drag', () => {
+    const fileList = [{ status: 'uploading', uid: 'file' }];
+    const wrapper = mount(
+      <Upload type="drag" fileList={fileList}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    expect(wrapper.find('.ant-upload-drag-uploading').length).toBe(1);
+  });
+
+  it('return when targetItem is null', () => {
+    const fileList = [{ uid: 'file' }];
+    const wrapper = mount(
+      <Upload type="drag" fileList={fileList}>
+        <button type="button">upload</button>
+      </Upload>,
+    ).instance();
+    expect(wrapper.onSuccess('', { uid: 'fileItem' })).toBe(undefined);
+    expect(wrapper.onProgress('', { uid: 'fileItem' })).toBe(undefined);
+    expect(wrapper.onError('', '', { uid: 'fileItem' })).toBe(undefined);
   });
 });

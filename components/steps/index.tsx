@@ -16,6 +16,7 @@ export interface StepsProps {
   size?: 'default' | 'small';
   status?: 'wait' | 'process' | 'finish' | 'error';
   style?: React.CSSProperties;
+  onChange?: (current: number) => void;
 }
 
 export interface StepProps {
@@ -25,6 +26,7 @@ export interface StepProps {
   onClick?: React.MouseEventHandler<any>;
   status?: 'wait' | 'process' | 'finish' | 'error';
   title?: React.ReactNode;
+  style?: React.CSSProperties;
 }
 
 export default class Steps extends React.Component<StepsProps, any> {

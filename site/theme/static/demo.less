@@ -33,7 +33,7 @@
   &-title {
     position: absolute;
     top: -14px;
-    margin-left: -8px;
+    margin-left: 16px;
     padding: 1px 8px;
     color: #777;
     background: #fff;
@@ -46,6 +46,10 @@
       font-weight: 500;
       font-size: @font-size-base;
     }
+  }
+
+  &-description {
+    padding: 18px 24px 12px;
   }
 
   a.edit-button {
@@ -74,7 +78,6 @@
     &.markdown {
       position: relative;
       width: 100%;
-      padding: 18px 32px;
       font-size: @font-size-base;
       border-radius: 0 0 @border-radius-sm @border-radius-sm;
       transition: background-color 0.4s;
@@ -105,13 +108,6 @@
   }
 
   .code-expand-icon {
-    position: absolute;
-    right: 16px;
-    bottom: 23px;
-    width: 16px;
-    height: 16px;
-    line-height: 16px;
-    text-align: center;
     cursor: pointer;
   }
 
@@ -168,14 +164,33 @@
   }
 
   &-actions {
-    position: absolute;
-    top: 10px;
-    right: 12px;
-    text-align: right;
+    padding-top: 12px;
+    text-align: center;
+    border-top: 1px dashed @site-border-color-split;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 1;
+    }
+
     > i,
-    > form {
+    > form,
+    > span {
+      position: relative;
       display: inline-block;
-      margin-left: 8px;
+      width: 16px;
+      height: 16px;
+      margin-left: 16px;
+      vertical-align: top;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    > form {
+      top: -2px;
     }
   }
 
@@ -189,7 +204,6 @@
     background: #fff;
     border-radius: 20px;
     cursor: pointer;
-    opacity: 0;
     transition: all 0.24s;
 
     &:hover {
@@ -212,11 +226,11 @@
       no-repeat;
     border: 0;
     cursor: pointer;
-    opacity: 0;
     transition: all 0.3s;
   }
 
   &-riddle {
+    display: none;
     width: 20px;
     height: 20px;
     overflow: hidden;
@@ -226,7 +240,6 @@
       no-repeat;
     border: 0;
     cursor: pointer;
-    opacity: 0;
     transition: all 0.3s;
   }
 
@@ -240,7 +253,6 @@
       no-repeat;
     border: 0;
     cursor: pointer;
-    opacity: 0;
     transition: all 0.3s;
   }
 
@@ -259,4 +271,16 @@
       border: none;
     }
   }
+
+  &-debug {
+    border-color: @purple-3;
+  }
+
+  &-debug &-title a {
+    color: @purple-6;
+  }
+}
+
+.show-riddle-button .code-box-riddle {
+  display: block;
 }

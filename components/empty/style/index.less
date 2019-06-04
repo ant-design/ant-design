@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @empty-prefix-cls: ~'@{ant-prefix}-empty';
@@ -27,25 +27,21 @@
   }
 
   // antd internal empty style
-  &-small {
-    margin: 8px 0;
-
-    .@{empty-prefix-cls}-image {
-      height: 35px;
-    }
-  }
-
   &-normal {
     margin: 32px 0;
+    color: @disabled-color;
 
     .@{empty-prefix-cls}-image {
       height: 40px;
     }
   }
-}
 
-// Patch for popup adjust
-.@{ant-prefix}-select-dropdown--empty .@{ant-prefix}-select-dropdown-menu-item {
-  padding-right: 0;
-  padding-left: 0;
+  &-small {
+    margin: 8px 0;
+    color: @disabled-color;
+
+    .@{empty-prefix-cls}-image {
+      height: 35px;
+    }
+  }
 }

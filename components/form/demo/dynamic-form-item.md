@@ -13,15 +13,13 @@ title:
 
 Add or remove form items dynamically.
 
-````jsx
-import {
-  Form, Input, Icon, Button,
-} from 'antd';
+```jsx
+import { Form, Input, Icon, Button } from 'antd';
 
 let id = 0;
 
 class DynamicFieldSet extends React.Component {
-  remove = (k) => {
+  remove = k => {
     const { form } = this.props;
     // can use data-binding to get
     const keys = form.getFieldValue('keys');
@@ -34,7 +32,7 @@ class DynamicFieldSet extends React.Component {
     form.setFieldsValue({
       keys: keys.filter(key => key !== k),
     });
-  }
+  };
 
   add = () => {
     const { form } = this.props;
@@ -46,16 +44,18 @@ class DynamicFieldSet extends React.Component {
     form.setFieldsValue({
       keys: nextKeys,
     });
-  }
+  };
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
+        const { keys, names } = values;
         console.log('Received values of form: ', values);
+        console.log('Merged values:', keys.map(key => names[key]));
       }
     });
-  }
+  };
 
   render() {
     const { getFieldDecorator, getFieldValue } = this.props.form;
@@ -86,19 +86,18 @@ class DynamicFieldSet extends React.Component {
       >
         {getFieldDecorator(`names[${k}]`, {
           validateTrigger: ['onChange', 'onBlur'],
-          rules: [{
-            required: true,
-            whitespace: true,
-            message: "Please input passenger's name or delete this field.",
-          }],
-        })(
-          <Input placeholder="passenger name" style={{ width: '60%', marginRight: 8 }} />
-        )}
+          rules: [
+            {
+              required: true,
+              whitespace: true,
+              message: "Please input passenger's name or delete this field.",
+            },
+          ],
+        })(<Input placeholder="passenger name" style={{ width: '60%', marginRight: 8 }} />)}
         {keys.length > 1 ? (
           <Icon
             className="dynamic-delete-button"
             type="minus-circle-o"
-            disabled={keys.length === 1}
             onClick={() => this.remove(k)}
           />
         ) : null}
@@ -113,7 +112,9 @@ class DynamicFieldSet extends React.Component {
           </Button>
         </Form.Item>
         <Form.Item {...formItemLayoutWithOutLabel}>
-          <Button type="primary" htmlType="submit">Submit</Button>
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
         </Form.Item>
       </Form>
     );
@@ -122,16 +123,16 @@ class DynamicFieldSet extends React.Component {
 
 const WrappedDynamicFieldSet = Form.create({ name: 'dynamic_form_item' })(DynamicFieldSet);
 ReactDOM.render(<WrappedDynamicFieldSet />, mountNode);
-````
+```
 
-````css
+```css
 .dynamic-delete-button {
   cursor: pointer;
   position: relative;
   top: 4px;
   font-size: 24px;
   color: #999;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 .dynamic-delete-button:hover {
   color: #777;
@@ -140,4 +141,4 @@ ReactDOM.render(<WrappedDynamicFieldSet />, mountNode);
   cursor: not-allowed;
   opacity: 0.5;
 }
-````
+```

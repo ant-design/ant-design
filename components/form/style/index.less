@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 @import '../../input/style/mixin';
 @import '../../button/style/mixin';
@@ -10,11 +10,12 @@
 @form-component-max-height: @input-height-lg;
 @form-feedback-icon-size: @font-size-base;
 @form-help-margin-top: (@form-component-height - @form-component-max-height) / 2 + 2px;
+@form-explain-font-size: @font-size-base;
 // Extends additional 1px to fix precision issue.
 // https://github.com/ant-design/ant-design/issues/12803
 // https://github.com/ant-design/ant-design/issues/8220
 @form-explain-precision: 1px;
-@form-explain-height: floor(@font-size-base * @line-height-base);
+@form-explain-height: floor(@form-explain-font-size * @line-height-base);
 
 .@{form-prefix-cls} {
   .reset-component;
@@ -31,6 +32,27 @@
   content: '*';
   .@{form-prefix-cls}-hide-required-mark & {
     display: none;
+  }
+}
+
+.@{form-prefix-cls}-item-label > label {
+  color: @label-color;
+
+  &::after {
+    & when (@form-item-trailing-colon=true) {
+      content: ':';
+    }
+    & when not (@form-item-trailing-colon=true) {
+      content: ' ';
+    }
+
+    position: relative;
+    top: -0.5px;
+    margin: 0 8px 0 2px;
+  }
+
+  &.@{form-prefix-cls}-item-no-colon::after {
+    content: ' ';
   }
 }
 
@@ -76,6 +98,7 @@ input[type='checkbox'] {
   }
 
   .reset-component;
+
   margin-bottom: @form-item-margin-bottom;
   vertical-align: top;
 
@@ -90,7 +113,7 @@ input[type='checkbox'] {
   }
 
   &-with-help {
-    margin-bottom: @form-item-margin-bottom - @form-explain-height - @form-help-margin-top;
+    margin-bottom: max(0, @form-item-margin-bottom - @form-explain-height - @form-help-margin-top);
   }
 
   &-label {
@@ -101,29 +124,13 @@ input[type='checkbox'] {
     text-align: right;
     vertical-align: middle;
 
-    label {
-      color: @label-color;
-
-      &::after {
-        & when (@form-item-trailing-colon=true) {
-          content: ':';
-        }
-        & when not (@form-item-trailing-colon=true) {
-          content: ' ';
-        }
-        position: relative;
-        top: -0.5px;
-        margin: 0 8px 0 2px;
-      }
+    &-left {
+      text-align: left;
     }
   }
 
   .@{ant-prefix}-switch {
     margin: 2px 0 4px;
-  }
-
-  &-no-colon &-label label::after {
-    content: ' ';
   }
 }
 
@@ -133,6 +140,7 @@ input[type='checkbox'] {
   min-height: @form-explain-height + @form-explain-precision;
   margin-top: @form-help-margin-top;
   color: @text-color-secondary;
+  font-size: @form-explain-font-size;
   line-height: @line-height-base;
   transition: color 0.3s @ease-out; // sync input color transition
 }
@@ -155,11 +163,14 @@ input[type='checkbox'] {
   text-align: center;
 }
 
-// 表单下的输入框尺寸唯一: 大尺寸
 form {
   .has-feedback {
     .@{ant-prefix}-input {
       padding-right: 24px;
+    }
+
+    .@{ant-prefix}-input-password-icon {
+      margin-right: 18px;
     }
 
     // Fix overlapping between feedback icon and <Select>'s arrow.
@@ -205,6 +216,7 @@ form {
     }
   }
 
+  .@{ant-prefix}-mentions,
   textarea.@{ant-prefix}-input {
     height: auto;
     margin-bottom: 4px;
@@ -449,7 +461,7 @@ form {
 }
 
 .has-warning {
-  .form-control-validation(@warning-color; @warning-color;);
+  .form-control-validation(@warning-color; @warning-color; @form-warning-input-bg;);
 
   &.has-feedback .@{form-prefix-cls}-item-children-icon {
     color: @warning-color;
@@ -498,7 +510,7 @@ form {
 }
 
 .has-error {
-  .form-control-validation(@error-color; @error-color;);
+  .form-control-validation(@error-color; @error-color; @form-error-input-bg;);
 
   &.has-feedback .@{form-prefix-cls}-item-children-icon {
     color: @error-color;

@@ -7,6 +7,7 @@ import classNames from 'classnames';
 import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import interopDefault from '../_util/interopDefault';
+import InputIcon from './InputIcon';
 
 function formatValue(value: moment.Moment | null, format: string): string {
   return (value && value.format(format)) || '';
@@ -180,17 +181,7 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
         />
       ) : null;
 
-    const inputIcon = (suffixIcon &&
-      (React.isValidElement<{ className?: string }>(suffixIcon) ? (
-        React.cloneElement(suffixIcon, {
-          className: classNames({
-            [suffixIcon.props.className!]: suffixIcon.props.className,
-            [`${prefixCls}-picker-icon`]: true,
-          }),
-        })
-      ) : (
-        <span className={`${prefixCls}-picker-icon`}>{suffixIcon}</span>
-      ))) || <Icon type="calendar" className={`${prefixCls}-picker-icon`} />;
+    const inputIcon = <InputIcon suffixIcon={suffixIcon} prefixCls={prefixCls} />;
 
     const input = ({ value }: { value: moment.Moment | undefined }) => (
       <span style={{ display: 'inline-block', width: '100%' }}>

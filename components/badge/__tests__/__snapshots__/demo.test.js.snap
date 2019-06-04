@@ -203,6 +203,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
         class=""
         data-icon="clock-circle"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -407,6 +408,7 @@ exports[`renders ./components/badge/demo/change.md correctly 1`] = `
             class=""
             data-icon="minus"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -430,6 +432,7 @@ exports[`renders ./components/badge/demo/change.md correctly 1`] = `
             class=""
             data-icon="plus"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -475,6 +478,262 @@ exports[`renders ./components/badge/demo/change.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/badge/demo/colorful.md correctly 1`] = `
+<div>
+  <h4
+    style="margin-bottom:16px"
+  >
+    Presets:
+  </h4>
+  <div>
+    <div>
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+      >
+        <span
+          class="ant-badge-status-dot ant-badge-status-pink"
+        />
+        <span
+          class="ant-badge-status-text"
+        >
+          pink
+        </span>
+      </span>
+    </div>
+    <div>
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+      >
+        <span
+          class="ant-badge-status-dot ant-badge-status-red"
+        />
+        <span
+          class="ant-badge-status-text"
+        >
+          red
+        </span>
+      </span>
+    </div>
+    <div>
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+      >
+        <span
+          class="ant-badge-status-dot ant-badge-status-yellow"
+        />
+        <span
+          class="ant-badge-status-text"
+        >
+          yellow
+        </span>
+      </span>
+    </div>
+    <div>
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+      >
+        <span
+          class="ant-badge-status-dot ant-badge-status-orange"
+        />
+        <span
+          class="ant-badge-status-text"
+        >
+          orange
+        </span>
+      </span>
+    </div>
+    <div>
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+      >
+        <span
+          class="ant-badge-status-dot ant-badge-status-cyan"
+        />
+        <span
+          class="ant-badge-status-text"
+        >
+          cyan
+        </span>
+      </span>
+    </div>
+    <div>
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+      >
+        <span
+          class="ant-badge-status-dot ant-badge-status-green"
+        />
+        <span
+          class="ant-badge-status-text"
+        >
+          green
+        </span>
+      </span>
+    </div>
+    <div>
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+      >
+        <span
+          class="ant-badge-status-dot ant-badge-status-blue"
+        />
+        <span
+          class="ant-badge-status-text"
+        >
+          blue
+        </span>
+      </span>
+    </div>
+    <div>
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+      >
+        <span
+          class="ant-badge-status-dot ant-badge-status-purple"
+        />
+        <span
+          class="ant-badge-status-text"
+        >
+          purple
+        </span>
+      </span>
+    </div>
+    <div>
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+      >
+        <span
+          class="ant-badge-status-dot ant-badge-status-geekblue"
+        />
+        <span
+          class="ant-badge-status-text"
+        >
+          geekblue
+        </span>
+      </span>
+    </div>
+    <div>
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+      >
+        <span
+          class="ant-badge-status-dot ant-badge-status-magenta"
+        />
+        <span
+          class="ant-badge-status-text"
+        >
+          magenta
+        </span>
+      </span>
+    </div>
+    <div>
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+      >
+        <span
+          class="ant-badge-status-dot ant-badge-status-volcano"
+        />
+        <span
+          class="ant-badge-status-text"
+        >
+          volcano
+        </span>
+      </span>
+    </div>
+    <div>
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+      >
+        <span
+          class="ant-badge-status-dot ant-badge-status-gold"
+        />
+        <span
+          class="ant-badge-status-text"
+        >
+          gold
+        </span>
+      </span>
+    </div>
+    <div>
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+      >
+        <span
+          class="ant-badge-status-dot ant-badge-status-lime"
+        />
+        <span
+          class="ant-badge-status-text"
+        >
+          lime
+        </span>
+      </span>
+    </div>
+  </div>
+  <h4
+    style="margin:16px 0"
+  >
+    Custom:
+  </h4>
+  <div>
+    <span
+      class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+    >
+      <span
+        class="ant-badge-status-dot"
+        style="background:#f50"
+      />
+      <span
+        class="ant-badge-status-text"
+      >
+        #f50
+      </span>
+    </span>
+    <br />
+    <span
+      class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+    >
+      <span
+        class="ant-badge-status-dot"
+        style="background:#2db7f5"
+      />
+      <span
+        class="ant-badge-status-text"
+      >
+        #2db7f5
+      </span>
+    </span>
+    <br />
+    <span
+      class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+    >
+      <span
+        class="ant-badge-status-dot"
+        style="background:#87d068"
+      />
+      <span
+        class="ant-badge-status-text"
+      >
+        #87d068
+      </span>
+    </span>
+    <br />
+    <span
+      class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+    >
+      <span
+        class="ant-badge-status-dot"
+        style="background:#108ee9"
+      />
+      <span
+        class="ant-badge-status-text"
+      >
+        #108ee9
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/badge/demo/dot.md correctly 1`] = `
 <div>
   <span
@@ -489,6 +748,7 @@ exports[`renders ./components/badge/demo/dot.md correctly 1`] = `
         class=""
         data-icon="notification"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -515,6 +775,7 @@ exports[`renders ./components/badge/demo/dot.md correctly 1`] = `
         class=""
         data-icon="notification"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"

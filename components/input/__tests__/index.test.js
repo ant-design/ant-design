@@ -9,6 +9,16 @@ import calculateNodeHeight, { calculateNodeStyling } from '../calculateNodeHeigh
 const { TextArea } = Input;
 
 describe('Input', () => {
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+  afterEach(() => {
+    errorSpy.mockReset();
+  });
+
+  afterAll(() => {
+    errorSpy.mockRestore();
+  });
+
   focusTest(Input);
 
   it('should support maxLength', () => {
@@ -19,6 +29,33 @@ describe('Input', () => {
   it('select()', () => {
     const wrapper = mount(<Input />);
     wrapper.instance().select();
+  });
+
+  describe('focus trigger warning', () => {
+    it('not trigger', () => {
+      const wrapper = mount(<Input suffix="bamboo" />);
+      wrapper
+        .find('input')
+        .instance()
+        .focus();
+      wrapper.setProps({
+        suffix: 'light',
+      });
+      expect(errorSpy).not.toHaveBeenCalled();
+    });
+    it('trigger warning', () => {
+      const wrapper = mount(<Input />);
+      wrapper
+        .find('input')
+        .instance()
+        .focus();
+      wrapper.setProps({
+        suffix: 'light',
+      });
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Input] When Input is focused, dynamic add or remove prefix / suffix will make it lose focus caused by dom structure change. Read more: https://ant.design/components/input/#FAQ',
+      );
+    });
   });
 });
 
@@ -131,8 +168,8 @@ describe('TextArea', () => {
       <TextArea onPressEnter={onPressEnter} onKeyDown={onKeyDown} aria-label="textarea" />,
     );
     wrapper.instance().handleKeyDown({ keyCode: 13 });
-    expect(onPressEnter).toBeCalled();
-    expect(onKeyDown).toBeCalled();
+    expect(onPressEnter).toHaveBeenCalled();
+    expect(onKeyDown).toHaveBeenCalled();
   });
 });
 
@@ -199,7 +236,7 @@ describe('Input.Password', () => {
     const wrapper = mount(<Input.Password visibilityToggle={false} />);
     expect(wrapper.find('.anticon-eye').length).toBe(0);
     wrapper.setProps({ visibilityToggle: true });
-    expect(wrapper.find('.anticon-eye').length).toBe(1);
+    expect(wrapper.find('.anticon-eye-invisible').length).toBe(1);
   });
 
   it('should keep focus state', () => {

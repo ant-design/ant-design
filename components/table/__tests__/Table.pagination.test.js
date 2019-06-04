@@ -86,7 +86,7 @@ describe('Table.pagination', () => {
       .last()
       .simulate('click');
 
-    expect(handleChange).toBeCalledWith(
+    expect(handleChange).toHaveBeenCalledWith(
       {
         className: 'my-page',
         current: 2,
@@ -104,7 +104,7 @@ describe('Table.pagination', () => {
       },
     );
 
-    expect(handlePaginationChange).toBeCalledWith(2, 2);
+    expect(handlePaginationChange).toHaveBeenCalledWith(2, 2);
   });
 
   // https://github.com/ant-design/ant-design/issues/4532

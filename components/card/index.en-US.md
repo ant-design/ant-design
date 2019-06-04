@@ -20,7 +20,7 @@ A card can be used to display content related to a single subject. The content c
 ### Card
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | actions | The action list, shows at the bottom of the Card. | Array&lt;ReactNode> | - |
 | activeTabKey | Current TabPane's key | string | - |
 | headStyle | Inline style to apply to the card head | object | - |
@@ -39,17 +39,17 @@ A card can be used to display content related to a single subject. The content c
 
 ### Card.Grid
 
-| Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
-| className | className of container | string | - |
-| style | style object of container | object | - |
+| Property  | Description               | Type   | Default |
+| --------- | ------------------------- | ------ | ------- |
+| className | className of container    | string | -       |
+| style     | style object of container | object | -       |
 
 ### Card.Meta
 
-| Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
-| avatar | avatar or icon | ReactNode | - |
-| className | className of container | string | - |
-| description | description content | ReactNode | - |
-| style | style object of container | object | - |
-| title | title content | ReactNode | - |
+| Property    | Description               | Type      | Default |
+| ----------- | ------------------------- | --------- | ------- |
+| avatar      | avatar or icon            | ReactNode | -       |
+| className   | className of container    | string    | -       |
+| description | description content       | ReactNode | -       |
+| style       | style object of container | object    | -       |
+| title       | title content             | ReactNode | -       |

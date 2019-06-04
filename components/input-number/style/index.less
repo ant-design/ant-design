@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 @import '../../input/style/mixin';
 
@@ -7,6 +7,7 @@
 .@{input-number-prefix-cls} {
   .reset-component;
   .input;
+
   display: inline-block;
   width: 90px;
   margin: 0;
@@ -37,6 +38,7 @@
   &-handler-up-inner,
   &-handler-down-inner {
     .iconfont-mixin();
+
     position: absolute;
     right: 4px;
     width: 12px;
@@ -75,8 +77,14 @@
     border-radius: @border-radius-base;
     outline: 0;
     transition: all 0.3s linear;
-    -moz-appearance: textfield;
+    -moz-appearance: textfield !important;
     .placeholder();
+
+    &[type='number']::-webkit-inner-spin-button,
+    &[type='number']::-webkit-outer-spin-button {
+      margin: 0;
+      -webkit-appearance: none;
+    }
   }
 
   &-lg {
@@ -116,6 +124,7 @@
       .@{input-number-prefix-cls}-handler-up-inner,
       .@{input-number-prefix-cls}-handler-down-inner {
         .iconfont-size-under-12px(7px);
+
         min-width: auto;
         margin-right: 0;
       }

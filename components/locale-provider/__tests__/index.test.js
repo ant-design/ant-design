@@ -32,6 +32,7 @@ import frBE from '../fr_BE';
 import frFR from '../fr_FR';
 import heIL from '../he_IL';
 import hiIN from '../hi_IN';
+import hrHR from '../hr_HR';
 import huHU from '../hu_HU';
 import isIS from '../is_IS';
 import itIT from '../it_IT';
@@ -78,6 +79,7 @@ const locales = [
   frFR,
   heIL,
   hiIN,
+  hrHR,
   huHU,
   isIS,
   itIT,

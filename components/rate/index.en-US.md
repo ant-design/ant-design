@@ -14,7 +14,7 @@ Rate component.
 ## API
 
 | Property | Description | type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | allowClear | whether to allow clear when click again | boolean | true |
 | allowHalf | whether to allow semi selection | boolean | false |
 | autoFocus | get focus when component mounted | boolean | false |
@@ -34,7 +34,7 @@ Rate component.
 
 ## Methods
 
-| Name | Description |
-| ---- | ----------- |
-| blur() | remove focus |
-| focus() | get focus |
+| Name    | Description  |
+| ------- | ------------ |
+| blur()  | remove focus |
+| focus() | get focus    |

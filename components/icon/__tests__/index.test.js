@@ -80,11 +80,11 @@ describe('Icon', () => {
     expect(wrapper.find('i')).toHaveLength(1);
     const icon = wrapper.find('i').at(0);
     icon.simulate('mouseenter');
-    expect(onVisibleChange).toBeCalledWith(true);
+    expect(onVisibleChange).toHaveBeenCalledWith(true);
     expect(wrapper.instance().tooltip.props.visible).toBe(true);
 
     icon.simulate('mouseleave');
-    expect(onVisibleChange).toBeCalledWith(false);
+    expect(onVisibleChange).toHaveBeenCalledWith(false);
     expect(wrapper.instance().tooltip.props.visible).toBe(false);
   });
 
@@ -115,12 +115,12 @@ describe('Icon', () => {
 
     it('does not warn', () => {
       mount(<Icon type="clock-circle-o" theme="outlined" />);
-      expect(errorSpy).not.toBeCalled();
+      expect(errorSpy).not.toHaveBeenCalled();
     });
 
     it('warns', () => {
       mount(<Icon type="clock-circle-o" theme="filled" />);
-      expect(errorSpy).toBeCalledWith(
+      expect(errorSpy).toHaveBeenCalledWith(
         "Warning: [antd: Icon] The icon name 'clock-circle-o' already specify a theme 'outlined', the 'theme' prop 'filled' will be ignored.",
       );
     });
@@ -225,5 +225,23 @@ describe('utils', () => {
       'home-o-twotone',
       'home-o',
     ]);
+  });
+
+  it('should depracate typo icon name', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<Icon type="interation" />);
+    expect(errorSpy).toHaveBeenLastCalledWith(
+      "Warning: [antd: Icon] Icon 'interation' is typo and depracated, please use 'interaction' instead.",
+    );
+    render(<Icon type="cross" />);
+    expect(errorSpy).toHaveBeenLastCalledWith(
+      "Warning: [antd: Icon] Icon 'cross' is typo and depracated, please use 'close' instead.",
+    );
+    render(<Icon type="canlendar" theme="twoTone" />);
+    expect(errorSpy).toHaveBeenLastCalledWith(
+      "Warning: [antd: Icon] Icon 'canlendar' is typo and depracated, please use 'calendar' instead.",
+    );
+    expect(errorSpy).toHaveBeenCalledTimes(3);
+    errorSpy.mockRestore();
   });
 });

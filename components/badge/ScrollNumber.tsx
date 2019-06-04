@@ -3,6 +3,7 @@ import { createElement, Component } from 'react';
 import omit from 'omit.js';
 import classNames from 'classnames';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { polyfill } from 'react-lifecycles-compat';
 
 function getNumberArray(num: string | number | undefined | null) {
   return num
@@ -10,7 +11,10 @@ function getNumberArray(num: string | number | undefined | null) {
         .toString()
         .split('')
         .reverse()
-        .map(i => Number(i))
+        .map(i => {
+          const current = Number(i);
+          return isNaN(current) ? i : current;
+        })
     : [];
 }
 
@@ -30,13 +34,25 @@ export interface ScrollNumberState {
   count?: string | number | null;
 }
 
-export default class ScrollNumber extends Component<ScrollNumberProps, ScrollNumberState> {
+class ScrollNumber extends Component<ScrollNumberProps, ScrollNumberState> {
   static defaultProps = {
     count: null,
     onAnimated() {},
   };
 
-  lastCount: any;
+  static getDerivedStateFromProps(nextProps: ScrollNumberProps, nextState: ScrollNumberState) {
+    if ('count' in nextProps) {
+      if (nextState.count === nextProps.count) {
+        return null;
+      }
+      return {
+        animateStarted: true,
+      };
+    }
+    return null;
+  }
+
+  lastCount?: string | number | null;
 
   constructor(props: ScrollNumberProps) {
     super(props);
@@ -47,13 +63,18 @@ export default class ScrollNumber extends Component<ScrollNumberProps, ScrollNum
   }
 
   getPositionByNum(num: number, i: number) {
+    const { count } = this.state;
+    const currentCount = Math.abs(Number(count));
+    const lastCount = Math.abs(Number(this.lastCount));
+    const currentDigit = Math.abs(getNumberArray(this.state.count)[i] as number);
+    const lastDigit = Math.abs(getNumberArray(this.lastCount)[i] as number);
+
     if (this.state.animateStarted) {
       return 10 + num;
     }
-    const currentDigit = getNumberArray(this.state.count)[i];
-    const lastDigit = getNumberArray(this.lastCount)[i];
+
     // 同方向则在同一侧切换数字
-    if (this.state.count! > this.lastCount) {
+    if (currentCount > lastCount) {
       if (currentDigit >= lastDigit) {
         return 10 + num;
       }
@@ -65,34 +86,20 @@ export default class ScrollNumber extends Component<ScrollNumberProps, ScrollNum
     return num;
   }
 
-  componentWillReceiveProps(nextProps: ScrollNumberProps) {
-    if ('count' in nextProps) {
-      if (this.state.count === nextProps.count) {
-        return;
-      }
-      this.lastCount = this.state.count;
-      // 复原数字初始位置
+  componentDidUpdate(_: any, prevState: ScrollNumberState) {
+    this.lastCount = prevState.count;
+    const { animateStarted } = this.state;
+    const { onAnimated } = this.props;
+    if (animateStarted) {
       this.setState(
         {
-          animateStarted: true,
+          animateStarted: false,
+          count: this.props.count,
         },
         () => {
-          // 等待数字位置复原完毕
-          // 开始设置完整的数字
-          setTimeout(() => {
-            this.setState(
-              {
-                animateStarted: false,
-                count: nextProps.count,
-              },
-              () => {
-                const onAnimated = this.props.onAnimated;
-                if (onAnimated) {
-                  onAnimated();
-                }
-              },
-            );
-          }, 5);
+          if (onAnimated) {
+            onAnimated();
+          }
         },
       );
     }
@@ -108,26 +115,35 @@ export default class ScrollNumber extends Component<ScrollNumberProps, ScrollNum
         </p>,
       );
     }
+
     return childrenToReturn;
   }
 
-  renderCurrentNumber(prefixCls: string, num: number, i: number) {
-    const position = this.getPositionByNum(num, i);
-    const removeTransition =
-      this.state.animateStarted || getNumberArray(this.lastCount)[i] === undefined;
-    return createElement(
-      'span',
-      {
-        className: `${prefixCls}-only`,
-        style: {
-          transition: removeTransition ? 'none' : undefined,
-          msTransform: `translateY(${-position * 100}%)`,
-          WebkitTransform: `translateY(${-position * 100}%)`,
-          transform: `translateY(${-position * 100}%)`,
+  renderCurrentNumber(prefixCls: string, num: number | string, i: number) {
+    if (typeof num === 'number') {
+      const position = this.getPositionByNum(num, i);
+      const removeTransition =
+        this.state.animateStarted || getNumberArray(this.lastCount)[i] === undefined;
+      return createElement(
+        'span',
+        {
+          className: `${prefixCls}-only`,
+          style: {
+            transition: removeTransition ? 'none' : undefined,
+            msTransform: `translateY(${-position * 100}%)`,
+            WebkitTransform: `translateY(${-position * 100}%)`,
+            transform: `translateY(${-position * 100}%)`,
+          },
+          key: i,
         },
-        key: i,
-      },
-      this.renderNumberList(position),
+        this.renderNumberList(position),
+      );
+    }
+
+    return (
+      <span key="symbol" className={`${prefixCls}-symbol`}>
+        {num}
+      </span>
     );
   }
 
@@ -189,3 +205,7 @@ export default class ScrollNumber extends Component<ScrollNumberProps, ScrollNum
     return <ConfigConsumer>{this.renderScrollNumber}</ConfigConsumer>;
   }
 }
+
+polyfill(ScrollNumber);
+
+export default ScrollNumber;

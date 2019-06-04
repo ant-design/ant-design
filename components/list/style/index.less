@@ -1,18 +1,22 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @list-prefix-cls: ~'@{ant-prefix}-list';
 
 .@{list-prefix-cls} {
   .reset-component;
+
   position: relative;
+
   * {
     outline: none;
   }
+
   &-pagination {
     margin-top: 24px;
     text-align: right;
   }
+
   &-more {
     margin-top: 12px;
     text-align: center;
@@ -21,20 +25,34 @@
       padding-left: 32px;
     }
   }
+
   &-spin {
     min-height: 40px;
     text-align: center;
   }
+
   &-empty-text {
     padding: @list-empty-text-padding;
-    color: @text-color-secondary;
+    color: @disabled-color;
     font-size: @font-size-base;
     text-align: center;
   }
+
+  &-items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
   &-item {
     display: flex;
     align-items: center;
     padding: @list-item-padding;
+
+    &-content {
+      color: @text-color;
+    }
+
     &-meta {
       display: flex;
       flex: 1;
@@ -65,14 +83,6 @@
         line-height: 22px;
       }
     }
-    &-content {
-      display: flex;
-      flex: 1;
-      justify-content: flex-end;
-    }
-    &-content-single {
-      justify-content: flex-start;
-    }
     &-action {
       flex: 0 0 auto;
       margin-left: 48px;
@@ -101,10 +111,6 @@
         margin-top: -7px;
         background-color: @border-color-split;
       }
-    }
-    &-main {
-      display: flex;
-      flex: 1;
     }
   }
 
@@ -144,7 +150,7 @@
     min-height: 32px;
   }
 
-  &-something-after-last-item .@{ant-prefix}-spin-container > &-item:last-child {
+  &-something-after-last-item .@{ant-prefix}-spin-container > &-items > &-item:last-child {
     border-bottom: 1px solid @border-color-split;
   }
 
@@ -159,19 +165,20 @@
   }
 
   &-vertical &-item {
-    display: block;
-    &-extra-wrap {
-      display: flex;
-    }
+    align-items: initial;
+
     &-main {
       display: block;
       flex: 1;
     }
+
     &-extra {
-      margin-left: 58px;
+      margin-left: 40px;
     }
+
     &-meta {
       margin-bottom: @list-item-meta-margin-bottom;
+
       &-title {
         margin-bottom: @list-item-meta-title-margin-bottom;
         color: @heading-color;
@@ -179,14 +186,11 @@
         line-height: 24px;
       }
     }
-    &-content {
-      display: block;
-      margin: @list-item-content-margin;
-      color: @text-color;
-      font-size: @font-size-base;
-    }
+
     &-action {
+      margin-top: @padding-md;
       margin-left: auto;
+
       > li {
         padding: 0 16px;
         &:first-child {
@@ -197,13 +201,25 @@
   }
 
   &-grid &-item {
+    display: block;
+    max-width: 100%;
     margin-bottom: 16px;
     padding-top: 0;
     padding-bottom: 0;
     border-bottom: none;
-    &-content {
-      display: block;
-      max-width: 100%;
+  }
+
+  // ============================ without flex ============================
+  &-item-no-flex {
+    display: block;
+  }
+
+  // Horizontal
+  &:not(.@{list-prefix-cls}-vertical) {
+    .@{list-prefix-cls}-item-no-flex {
+      .@{list-prefix-cls}-item-action {
+        float: right;
+      }
     }
   }
 }
