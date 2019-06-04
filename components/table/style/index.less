@@ -598,6 +598,10 @@
     // Workaround for additional scroll bar on the table header
     // https://github.com/ant-design/ant-design/issues/6515#issuecomment-419634369
     opacity: 0.9999;
+
+    &::-webkit-scrollbar {
+      border-bottom: 1px solid @border-color-split;
+    }
   }
 
   &-hide-scrollbar {
