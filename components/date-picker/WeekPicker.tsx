@@ -169,6 +169,8 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
         showToday={false}
         disabledDate={disabledDate}
         renderFooter={this.renderFooter}
+        value={pickerValue}
+        onChange={this.handleChange}
       />
     );
     const clearIcon =
