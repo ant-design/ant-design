@@ -708,4 +708,11 @@
   }
 }
 
+// Another fix of Firefox: https://github.com/ant-design/ant-design/issues/12628
+@supports (-moz-appearance: meterbar) {
+  .@{table-prefix-cls}-thead > tr > th.@{table-prefix-cls}-column-has-actions {
+    background-clip: padding-box;
+  }
+}
+
 @import './size';
