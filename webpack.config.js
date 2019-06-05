@@ -42,7 +42,7 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
         project_token: '8adbb892-ee4a-4d6f-93bb-a03219fb6778',
         upload: process.env.CI === 'true',
         fail_build: true,
-        exclude_assets: name => ['antd.min.js', 'antd.min.css'].includes(name),
+        exclude_assets: name => !['antd.min.js', 'antd.min.css'].includes(name),
       }),
     );
   });
