@@ -106,6 +106,19 @@ If you need some features which should not be included in antd, try to extend an
 
 You can config `nonce` by [ConfigProvider](/components/config-provider/#Content-Security-Policy).
 
+### When set `mode` to DatePicker/RangePicker, cannot select year or month anymore?
+
+In real world development, you may need a YearPicker, MonthRangePicker or WeekRangePicker. You are trying to add `mode` to DatePicker/RangePicker expected to implement those pickers. However, the DatePicker/RangePicker cannot be selected and the panels won't close now!
+
+- Reproduce link: https://codesandbox.io/s/dank-brook-v1csy
+- Same issues：[#15572](https://github.com/ant-design/ant-design/issues/15572), [#16436](https://github.com/ant-design/ant-design/issues/16436), [#11938](https://github.com/ant-design/ant-design/issues/11938), [#11735](https://github.com/ant-design/ant-design/issues/11735), [#11586](https://github.com/ant-design/ant-design/issues/11586), [#10425](https://github.com/ant-design/ant-design/issues/10425), [#11053](https://github.com/ant-design/ant-design/issues/11053)
+
+Like [the explaination](https://github.com/ant-design/ant-design/issues/11586#issuecomment-429189877) here, that is because `<DatePicker mode="year" />` do not equal to `YearPicker`, `<RangePicker mode="month" />` do not equal to `MonthRangePicker` either. The `mode` property was added to support [showing time picker panel in DatePicker](https://github.com/ant-design/ant-design/issues/5190) in antd 3.0, which simply control the displayed panel and won't change the original date picking behavior of `DatePicker/RangePicker` (for instance you still need to click date cell to finish selection in a DatePicker, whatever the `mode` is).
+
+##### Workaround
+
+You can refer to [this article](https://juejin.im/post/5cf65c366fb9a07eca6968f9) or [this article](https://www.cnblogs.com/zyl-Tara/p/10197177.html), using  `mode` and `onPanelChange` to encapsulate a `YearPicker` or `MonthRangePicker` for your needs. Or you can wait for our [antd@4.0](https://github.com/ant-design/ant-design/issues/16911), in which we are planing to [add more XxxPickers](https://github.com/ant-design/ant-design/issues/4524#issuecomment-480576884) for those requirments.
+
 ### How to spell Ant Design correctly?
 
 - ✅ **Ant Design**: Capitalized with space, for the design language.
