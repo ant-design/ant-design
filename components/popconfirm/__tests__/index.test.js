@@ -138,10 +138,10 @@ describe('Popconfirm', () => {
   it('should not open in disabled', () => {
     const popconfirm = mount(
       <Popconfirm title="code" disabled>
-        <button>click me</button>
+        <span>click me</span>
       </Popconfirm>,
     );
-    const triggerNode = popconfirm.find('button').at(0);
+    const triggerNode = popconfirm.find('span').at(0);
     triggerNode.simulate('click');
     expect(popconfirm.instance().getPopupDomNode()).toBeFalsy();
   });
