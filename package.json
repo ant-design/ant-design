@@ -59,7 +59,7 @@
     "prop-types": "^15.7.2",
     "raf": "^3.4.1",
     "rc-animate": "^2.8.3",
-    "rc-calendar": "~9.14.5",
+    "rc-calendar": "~9.15.0",
     "rc-cascader": "~0.17.4",
     "rc-checkbox": "~2.1.6",
     "rc-collapse": "~1.11.3",
