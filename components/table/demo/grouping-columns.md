@@ -82,6 +82,7 @@ const columns = [
         title: 'Company Address',
         dataIndex: 'companyAddress',
         key: 'companyAddress',
+        width: 200,
       },
       {
         title: 'Company Name',
