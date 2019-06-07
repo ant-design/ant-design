@@ -8877,7 +8877,9 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   <col
                     style="width:100px;min-width:100px"
                   />
-                  <col />
+                  <col
+                    style="width:200px;min-width:200px"
+                  />
                   <col />
                   <col
                     style="width:80px;min-width:80px"
@@ -9214,7 +9216,9 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   <col
                     style="width:100px;min-width:100px"
                   />
-                  <col />
+                  <col
+                    style="width:200px;min-width:200px"
+                  />
                   <col />
                   <col
                     style="width:80px;min-width:80px"
