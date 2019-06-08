@@ -76,7 +76,7 @@ export type ValidationRule = {
   validator?: (rule: any, value: any, callback: any, source?: any, options?: any) => any;
 };
 
-export type ValidateCallback<V> = (errors: any, values: V) => void;
+export type ValidateCallback<V> = (errors: any, values: Partial<V>) => void;
 
 export type GetFieldDecoratorOptions = {
   /** 子节点的值的属性，如 Checkbox 的是 'checked' */
@@ -180,8 +180,8 @@ export type WrappedFormUtils<V = any> = {
   /** 重置一组输入控件的值与状态，如不传入参数，则重置所有组件 */
   resetFields(names?: Array<string>): void;
   // tslint:disable-next-line:max-line-length
-  getFieldDecorator<T extends Object = {}>(
-    id: keyof T,
+  getFieldDecorator(
+    id: keyof V,
     options?: GetFieldDecoratorOptions,
   ): (node: React.ReactNode) => React.ReactNode;
 };
