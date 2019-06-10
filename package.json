@@ -147,7 +147,7 @@
     "logrocket": "^1.0.0",
     "logrocket-react": "^3.0.0",
     "lz-string": "^1.4.4",
-    "majo": "^0.7.1",
+    "majo": "^0.8.0",
     "mockdate": "^2.0.2",
     "node-fetch": "^2.6.0",
     "pre-commit": "^1.2.2",
