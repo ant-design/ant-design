@@ -1,11 +1,11 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Input, { InputProps } from './Input';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Icon from '../icon';
 
 export interface PasswordProps extends InputProps {
-  readonly inputPrefixCls?: string;
-  readonly action?: string;
+  inputPrefixCls?: string;
   visibilityToggle?: boolean;
 }
 
@@ -13,16 +13,8 @@ export interface PasswordState {
   visible: boolean;
 }
 
-const ActionMap: Record<string, string> = {
-  click: 'onClick',
-  hover: 'onMouseOver',
-};
-
 export default class Password extends React.Component<PasswordProps, PasswordState> {
   static defaultProps = {
-    inputPrefixCls: 'ant-input',
-    prefixCls: 'ant-input-password',
-    action: 'click',
     visibilityToggle: true,
   };
 
@@ -36,37 +28,38 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
     });
   };
 
-  getIcon() {
-    const { prefixCls, action } = this.props;
-    const iconTrigger = ActionMap[action!] || '';
-    const iconProps = {
-      [iconTrigger]: this.onChange,
-      className: `${prefixCls}-icon`,
-      type: this.state.visible ? 'eye' : 'eye-invisible',
-      key: 'passwordIcon',
-      onMouseDown: (e: MouseEvent) => {
-        // Prevent focused state lost
-        // https://github.com/ant-design/ant-design/issues/15173
-        e.preventDefault();
-      },
-    };
-    return <Icon {...iconProps} />;
-  }
-
-  render() {
+  renderPassword = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
       className,
-      prefixCls,
-      inputPrefixCls,
+      prefixCls: customizePrefixCls,
+      inputPrefixCls: customizeInputPrefixCls,
       size,
       suffix,
       visibilityToggle,
       ...restProps
     } = this.props;
-    const suffixIcon = visibilityToggle && this.getIcon();
+    const prefixCls = getPrefixCls('input-password', customizePrefixCls);
+    const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
     const inputClassName = classNames(prefixCls, className, {
       [`${prefixCls}-${size}`]: !!size,
     });
+    let suffixIcon;
+
+    if (visibilityToggle) {
+      const iconProps = {
+        onClick: this.onChange,
+        className: `${prefixCls}-icon`,
+        type: this.state.visible ? 'eye' : 'eye-invisible',
+        key: 'passwordIcon',
+        onMouseDown: (e: MouseEvent) => {
+          // Prevent focused state lost
+          // https://github.com/ant-design/ant-design/issues/15173
+          e.preventDefault();
+        },
+      };
+      suffixIcon = <Icon {...iconProps} />;
+    }
+
     return (
       <Input
         {...restProps}
@@ -77,5 +70,9 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
         suffix={suffixIcon}
       />
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderPassword}</ConfigConsumer>;
   }
 }

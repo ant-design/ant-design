@@ -266,13 +266,9 @@ exports[`Input should support maxLength 1`] = `
 
 exports[`Input.Password should change type when click 1`] = `
 <Password
-  action="click"
-  inputPrefixCls="ant-input"
-  prefixCls="ant-input-password"
   visibilityToggle={true}
 >
   <Input
-    action="click"
     className="ant-input-password"
     disabled={false}
     prefixCls="ant-input"
@@ -290,7 +286,6 @@ exports[`Input.Password should change type when click 1`] = `
       className="ant-input-password ant-input-affix-wrapper"
     >
       <input
-        action="click"
         className="ant-input"
         disabled={false}
         onChange={[Function]}
@@ -355,13 +350,9 @@ exports[`Input.Password should change type when click 1`] = `
 
 exports[`Input.Password should change type when click 2`] = `
 <Password
-  action="click"
-  inputPrefixCls="ant-input"
-  prefixCls="ant-input-password"
   visibilityToggle={true}
 >
   <Input
-    action="click"
     className="ant-input-password"
     disabled={false}
     prefixCls="ant-input"
@@ -379,7 +370,6 @@ exports[`Input.Password should change type when click 2`] = `
       className="ant-input-password ant-input-affix-wrapper"
     >
       <input
-        action="click"
         className="ant-input"
         disabled={false}
         onChange={[Function]}
@@ -440,13 +430,9 @@ exports[`Input.Password should change type when click 2`] = `
 
 exports[`Input.Password should change type when click 3`] = `
 <Password
-  action="click"
-  inputPrefixCls="ant-input"
-  prefixCls="ant-input-password"
   visibilityToggle={true}
 >
   <Input
-    action="click"
     className="ant-input-password"
     disabled={false}
     prefixCls="ant-input"
@@ -464,7 +450,6 @@ exports[`Input.Password should change type when click 3`] = `
       className="ant-input-password ant-input-affix-wrapper"
     >
       <input
-        action="click"
         className="ant-input"
         disabled={false}
         onChange={[Function]}

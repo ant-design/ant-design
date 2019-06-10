@@ -946,7 +946,6 @@ exports[`renders ./components/input/demo/password-input.md correctly 1`] = `
   class="ant-input-password ant-input-affix-wrapper"
 >
   <input
-    action="click"
     class="ant-input"
     placeholder="input password"
     type="password"
