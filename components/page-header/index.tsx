@@ -70,7 +70,7 @@ const renderTitle = (prefixCls: string, props: PageHeaderProps) => {
   const titlePrefixCls = `${prefixCls}-title-view`;
   if (title || subTitle || tags || extra) {
     return (
-      <div className={`${prefixCls}-title-view`}>
+      <div className={titlePrefixCls}>
         {title && <span className={`${titlePrefixCls}-title`}>{title}</span>}
         {subTitle && <span className={`${titlePrefixCls}-sub-title`}>{subTitle}</span>}
         {tags && <span className={`${titlePrefixCls}-tags`}>{tags}</span>}
