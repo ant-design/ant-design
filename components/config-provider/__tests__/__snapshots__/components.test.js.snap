@@ -8175,6 +8175,7 @@ exports[`ConfigProvider components Modal configProvider 1`] = `
           <button
             aria-label="Close"
             class="config-modal-close"
+            type="button"
           >
             <span
               class="config-modal-close-x"
@@ -8266,6 +8267,7 @@ exports[`ConfigProvider components Modal normal 1`] = `
           <button
             aria-label="Close"
             class="ant-modal-close"
+            type="button"
           >
             <span
               class="ant-modal-close-x"
@@ -8357,6 +8359,7 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
           <button
             aria-label="Close"
             class="prefix-Modal-close"
+            type="button"
           >
             <span
               class="prefix-Modal-close-x"
