@@ -10,11 +10,12 @@
 @form-component-max-height: @input-height-lg;
 @form-feedback-icon-size: @font-size-base;
 @form-help-margin-top: (@form-component-height - @form-component-max-height) / 2 + 2px;
+@form-explain-font-size: @font-size-base;
 // Extends additional 1px to fix precision issue.
 // https://github.com/ant-design/ant-design/issues/12803
 // https://github.com/ant-design/ant-design/issues/8220
 @form-explain-precision: 1px;
-@form-explain-height: floor(@font-size-base * @line-height-base);
+@form-explain-height: floor(@form-explain-font-size * @line-height-base);
 
 .@{form-prefix-cls} {
   .reset-component;
@@ -31,6 +32,27 @@
   content: '*';
   .@{form-prefix-cls}-hide-required-mark & {
     display: none;
+  }
+}
+
+.@{form-prefix-cls}-item-label > label {
+  color: @label-color;
+
+  &::after {
+    & when (@form-item-trailing-colon=true) {
+      content: ':';
+    }
+    & when not (@form-item-trailing-colon=true) {
+      content: ' ';
+    }
+
+    position: relative;
+    top: -0.5px;
+    margin: 0 8px 0 2px;
+  }
+
+  &.@{form-prefix-cls}-item-no-colon::after {
+    content: ' ';
   }
 }
 
@@ -76,6 +98,7 @@ input[type='checkbox'] {
   }
 
   .reset-component;
+
   margin-bottom: @form-item-margin-bottom;
   vertical-align: top;
 
@@ -104,30 +127,10 @@ input[type='checkbox'] {
     &-left {
       text-align: left;
     }
-
-    > label {
-      color: @label-color;
-
-      &::after {
-        & when (@form-item-trailing-colon=true) {
-          content: ':';
-        }
-        & when not (@form-item-trailing-colon=true) {
-          content: ' ';
-        }
-        position: relative;
-        top: -0.5px;
-        margin: 0 8px 0 2px;
-      }
-    }
   }
 
   .@{ant-prefix}-switch {
     margin: 2px 0 4px;
-  }
-
-  &-no-colon &-label label::after {
-    content: ' ';
   }
 }
 
@@ -137,6 +140,7 @@ input[type='checkbox'] {
   min-height: @form-explain-height + @form-explain-precision;
   margin-top: @form-help-margin-top;
   color: @text-color-secondary;
+  font-size: @form-explain-font-size;
   line-height: @line-height-base;
   transition: color 0.3s @ease-out; // sync input color transition
 }

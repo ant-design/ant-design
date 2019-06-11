@@ -59,8 +59,6 @@ const defaultPagination = {
   onShowSizeChange: noop,
 };
 
-const ROW_SELECTION_COLUMN_WIDTH = '62px';
-
 /**
  * Avoid creating new object, so that parent component's shouldComponentUpdate
  * can works appropriately。
@@ -775,7 +773,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         render: this.renderSelectionBox(rowSelection.type),
         className: selectionColumnClass,
         fixed: rowSelection.fixed,
-        width: rowSelection.columnWidth || ROW_SELECTION_COLUMN_WIDTH,
+        width: rowSelection.columnWidth,
         title: rowSelection.columnTitle,
       };
       if (rowSelection.type !== 'radio') {
@@ -884,7 +882,14 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         );
 
         sortButton = (
-          <div title={locale.sortTitle} className={`${prefixCls}-column-sorter`} key="sorter">
+          <div
+            title={locale.sortTitle}
+            className={classNames(
+              `${prefixCls}-column-sorter-inner`,
+              ascend && descend && `${prefixCls}-column-sorter-inner-full`,
+            )}
+            key="sorter"
+          >
             {ascend}
             {descend}
           </div>
@@ -918,10 +923,14 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
           [`${prefixCls}-column-sort`]: isSortColumn && sortOrder,
         }),
         title: [
-          <div key="title" className={sortButton ? `${prefixCls}-column-sorters` : undefined}>
-            {this.renderColumnTitle(column.title)}
-            {sortButton}
-          </div>,
+          <span key="title" className={`${prefixCls}-header-column`}>
+            <div className={sortButton ? `${prefixCls}-column-sorters` : undefined}>
+              <span className={`${prefixCls}-column-title`}>
+                {this.renderColumnTitle(column.title)}
+              </span>
+              <span className={`${prefixCls}-column-sorter`}>{sortButton}</span>
+            </div>
+          </span>,
           filterDropdown,
         ],
         onHeaderCell,
@@ -1121,7 +1130,6 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     renderEmpty: RenderEmptyHandler,
     dropdownPrefixCls: string,
     contextLocale: TableLocale,
-    loading: SpinProps,
   ) => {
     const { style, className, showHeader, locale, ...restProps } = this.props;
     const data = this.getCurrentPageData();
@@ -1164,7 +1172,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         className={classString}
         expandIconColumnIndex={expandIconColumnIndex}
         expandIconAsCell={expandIconAsCell}
-        emptyText={!loading.spinning && mergedLocale.emptyText}
+        emptyText={mergedLocale.emptyText}
       />
     );
   };
@@ -1189,7 +1197,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     const dropdownPrefixCls = getPrefixCls('dropdown', customizeDropdownPrefixCls);
     const table = (
       <LocaleReceiver componentName="Table" defaultLocale={defaultLocale.Table}>
-        {locale => this.renderTable(prefixCls, renderEmpty, dropdownPrefixCls, locale, loading)}
+        {locale => this.renderTable(prefixCls, renderEmpty, dropdownPrefixCls, locale)}
       </LocaleReceiver>
     );
 

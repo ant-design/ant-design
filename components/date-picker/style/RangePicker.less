@@ -22,6 +22,7 @@
   white-space: nowrap;
   text-align: center;
   vertical-align: top;
+  pointer-events: none;
 }
 
 .@{calendar-prefix-cls}-range {
@@ -71,6 +72,7 @@
     line-height: @input-box-height;
     text-align: center;
     transform: translateX(-50%);
+    pointer-events: none;
   }
 
   &-right .@{calendar-prefix-cls}-date-input-wrap {
@@ -94,6 +96,7 @@
   .@{calendar-prefix-cls}-input,
   .@{calendar-timepicker-prefix-cls}-input {
     .input;
+
     height: @input-height-sm;
     padding-right: 0;
     padding-left: 0;

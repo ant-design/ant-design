@@ -5,12 +5,12 @@
 
 .@{pageheader-prefix-cls} {
   .reset-component;
+
   position: relative;
-  padding: 16px 32px;
+  padding: @page-header-padding-vertical @page-header-padding-horizontal;
   background: @component-background;
 
   &.@{pageheader-prefix-cls}-has-footer {
-    padding: 20px 32px;
     padding-bottom: 0;
   }
 
@@ -61,7 +61,7 @@
     &-extra {
       position: absolute;
       top: 16px;
-      right: 32px;
+      right: @page-header-padding-horizontal;
       > * {
         margin-right: 8px;
       }

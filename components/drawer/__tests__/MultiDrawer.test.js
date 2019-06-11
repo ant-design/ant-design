@@ -113,7 +113,7 @@ describe('Drawer', () => {
     expect(wrapper.state().childrenDrawer).toBe(false);
   });
 
-  it('render left MultiDrawer', () => {
+  it('render top MultiDrawer', () => {
     const wrapper = mount(<MultiDrawer placement="top" />);
     wrapper.find('button#open_drawer').simulate('click');
     wrapper.find('button#open_two_drawer').simulate('click');

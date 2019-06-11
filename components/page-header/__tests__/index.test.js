@@ -36,7 +36,7 @@ describe('PageHeader', () => {
     const callback = jest.fn(() => true);
     const wrapper = mount(<PageHeader title="Page Title" onBack={callback} />);
     wrapper.find('.ant-page-header-back-icon').simulate('click');
-    expect(callback).toBeCalled();
+    expect(callback).toHaveBeenCalled();
   });
 
   it('pageHeader should support className', () => {

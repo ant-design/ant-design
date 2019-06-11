@@ -5,6 +5,7 @@
 
 .@{dialog-prefix-cls} {
   .reset-component;
+
   position: relative;
   top: 100px;
   width: auto;
@@ -84,7 +85,7 @@
   }
 
   &-body {
-    padding: 24px;
+    padding: @modal-body-padding;
     font-size: @font-size-base;
     line-height: @line-height-base;
     word-wrap: break-word;
@@ -93,6 +94,7 @@
   &-footer {
     padding: @modal-footer-padding-vertical @modal-footer-padding-horizontal;
     text-align: right;
+    background: @modal-footer-bg;
     border-top: @border-width-base @border-style-base @border-color-split;
     border-radius: 0 0 @border-radius-base @border-radius-base;
     button + button {

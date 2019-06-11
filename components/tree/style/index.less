@@ -12,6 +12,7 @@
 
 .@{tree-prefix-cls} {
   .reset-component;
+
   margin: 0;
   padding: 0;
 
@@ -73,7 +74,7 @@
               left: 0;
               display: inline-block;
               width: 24px;
-              height: 24px;
+              height: @tree-title-height;
               color: @primary-color;
               font-size: 14px;
               transform: none;
@@ -120,13 +121,16 @@
     }
     span {
       &.@{tree-prefix-cls}-checkbox {
-        margin: 4px 4px 0 2px;
+        top: initial;
+        height: @tree-title-height;
+        margin: 0 4px 0 2px;
+        padding: ((@tree-title-height - 16px) / 2) 0;
       }
       &.@{tree-prefix-cls}-switcher,
       &.@{tree-prefix-cls}-iconEle {
         display: inline-block;
         width: 24px;
-        height: 24px;
+        height: @tree-title-height;
         margin: 0;
         line-height: @tree-title-height;
         text-align: center;

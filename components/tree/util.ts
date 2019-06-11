@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { getNodeChildren, convertTreeToEntities } from 'rc-tree/lib/util';
-import { AntTreeNodeProps } from './Tree';
+import { AntTreeNodeProps, AntTreeNode } from './Tree';
 
 enum Record {
   None,
@@ -11,7 +11,7 @@ enum Record {
 // TODO: Move this logic into `rc-tree`
 function traverseNodesKey(
   rootChildren: React.ReactNode | React.ReactNode[],
-  callback: (key: string | number | null) => boolean,
+  callback: (key: string | number | null, node: AntTreeNode) => boolean,
 ) {
   const nodeList: React.ReactNode[] = getNodeChildren(rootChildren) || [];
 
@@ -20,7 +20,7 @@ function traverseNodesKey(
       key,
       props: { children },
     } = node;
-    if (callback(key) !== false) {
+    if (callback(key, node as any) !== false) {
       traverseNodesKey(children, callback);
     }
   }
@@ -82,4 +82,19 @@ export function calcRangeKeys(
   });
 
   return keys;
+}
+
+export function convertDirectoryKeysToNodes(rootChildren: React.ReactNode | React.ReactNode[], keys: string[]) {
+  const restKeys: string[] = [...keys];
+  const nodes: AntTreeNode[] = [];
+  traverseNodesKey(rootChildren, (key: string, node: AntTreeNode) => {
+    const index = restKeys.indexOf(key);
+    if (index !== -1) {
+      nodes.push(node);
+      restKeys.splice(index, 1);
+    }
+
+    return !!restKeys.length;
+  });
+  return nodes;
 }

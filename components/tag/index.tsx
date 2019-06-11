@@ -1,11 +1,12 @@
 import * as React from 'react';
-import Animate from 'rc-animate';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import { polyfill } from 'react-lifecycles-compat';
 import Icon from '../icon';
 import CheckableTag from './CheckableTag';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { PresetColorTypes } from '../_util/colors';
+import warning from '../_util/warning';
 import Wave from '../_util/wave';
 
 export { CheckableTagProps } from './CheckableTag';
@@ -25,14 +26,7 @@ interface TagState {
   visible: boolean;
 }
 
-interface InnterTagProps extends TagProps {
-  show: boolean;
-}
-
-const InnerTag = ({ show, ...restProps }: InnterTagProps) => {
-  const divProps = omit(restProps, ['onClose', 'afterClose', 'color', 'visible', 'closable']);
-  return <div {...divProps} />;
-};
+const PresetColorRegex = new RegExp(`^(${PresetColorTypes.join('|')})(-inverse)?$`);
 
 class Tag extends React.Component<TagProps, TagState> {
   static CheckableTag = CheckableTag;
@@ -53,10 +47,23 @@ class Tag extends React.Component<TagProps, TagState> {
     visible: true,
   };
 
+  constructor(props: TagProps) {
+    super(props);
+    warning(
+      !('afterClose' in props),
+      'Tag',
+      "'afterClose' will be deprecated, please use 'onClose', we will remove this in the next version.",
+    );
+  }
+
   setVisible(visible: boolean, e: React.MouseEvent<HTMLElement>) {
-    const { onClose } = this.props;
+    const { onClose, afterClose } = this.props;
     if (onClose) {
       onClose(e);
+    }
+    if (afterClose && !onClose) {
+      // next version remove.
+      afterClose();
     }
     if (e.defaultPrevented) {
       return;
@@ -70,22 +77,11 @@ class Tag extends React.Component<TagProps, TagState> {
     this.setVisible(false, e);
   };
 
-  animationEnd = (_: string, existed: boolean) => {
-    if (!existed) {
-      const { afterClose } = this.props;
-      if (afterClose) {
-        afterClose();
-      }
-    }
-  };
-
   isPresetColor(color?: string): boolean {
     if (!color) {
       return false;
     }
-    return /^(pink|red|yellow|orange|cyan|green|blue|purple|geekblue|magenta|volcano|gold|lime)(-inverse)?$/.test(
-      color,
-    );
+    return PresetColorRegex.test(color);
   }
 
   getTagStyle() {
@@ -119,29 +115,22 @@ class Tag extends React.Component<TagProps, TagState> {
   }
 
   renderTag = (configProps: ConfigConsumerProps) => {
-    const { getPrefixCls } = configProps;
     const { prefixCls: customizePrefixCls, children, ...otherProps } = this.props;
-    const { visible } = this.state;
-    const prefixCls = getPrefixCls('tag', customizePrefixCls);
-    return (
+    const isNeedWave =
+      'onClick' in otherProps || (children && (children as React.ReactElement<any>).type === 'a');
+    const divProps = omit(otherProps, ['onClose', 'afterClose', 'color', 'visible', 'closable']);
+    return isNeedWave ? (
       <Wave>
-        <Animate
-          component=""
-          showProp="show"
-          transitionName={`${prefixCls}-zoom`}
-          onEnd={this.animationEnd}
-        >
-          <InnerTag
-            show={visible}
-            {...otherProps}
-            className={this.getTagClassName(configProps)}
-            style={this.getTagStyle()}
-          >
-            {children}
-            {this.renderCloseIcon()}
-          </InnerTag>
-        </Animate>
+        <div {...divProps} className={this.getTagClassName(configProps)} style={this.getTagStyle()}>
+          {children}
+          {this.renderCloseIcon()}
+        </div>
       </Wave>
+    ) : (
+      <div {...divProps} className={this.getTagClassName(configProps)} style={this.getTagStyle()}>
+        {children}
+        {this.renderCloseIcon()}
+      </div>
     );
   };
 

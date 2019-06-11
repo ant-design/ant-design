@@ -1,6 +1,3 @@
-html {
-  scroll-behavior: smooth;
-}
 html,
 body {
   height: 100%;
@@ -18,10 +15,6 @@ body {
 
 a {
   transition: color 0.3s ease;
-  &:focus {
-    text-decoration: underline;
-    text-decoration-skip-ink: auto;
-  }
 }
 
 .main-wrapper {
@@ -106,10 +99,6 @@ a {
   font-size: 12px;
 }
 
-.outside-link.internal {
-  display: none;
-}
-
 // reset menu text color
 .menu-site .ant-menu-item > a {
   color: @site-text-color;
@@ -128,9 +117,6 @@ a {
   width: 100%;
   padding: 0;
   overflow: hidden;
-  a {
-    text-decoration: none;
-  }
 }
 
 .drawer-content {
@@ -141,6 +127,11 @@ a {
   z-index: 1029;
 }
 
-#_hj_feedback_container .path1::before {
-  color: @primary-color !important;
+#_hj_feedback_container {
+  .path1::before {
+    color: @primary-color !important;
+  }
+  .path2::before {
+    color: #fff !important;
+  }
 }

@@ -80,6 +80,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
                     class=""
                     data-icon="down"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -140,6 +141,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
                     class=""
                     data-icon="down"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -182,6 +184,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
               class=""
               data-icon="setting"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -249,7 +252,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       style="margin-left:-4px;margin-right:-4px"
     >
       <div
-        class="ant-col-5"
+        class="ant-col ant-col-5"
         style="padding-left:4px;padding-right:4px"
       >
         <input
@@ -259,7 +262,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         />
       </div>
       <div
-        class="ant-col-8"
+        class="ant-col ant-col-8"
         style="padding-left:4px;padding-right:4px"
       >
         <input
@@ -329,6 +332,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
               class=""
               data-icon="down"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -390,6 +394,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
               class=""
               data-icon="down"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -430,6 +435,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
               class=""
               data-icon="up"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -456,6 +462,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
               class=""
               data-icon="down"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -512,6 +519,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
             class=""
             data-icon="calendar"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -566,6 +574,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
               class=""
               data-icon="down"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -616,6 +625,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
               class=""
               data-icon="down"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -671,6 +681,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
               class=""
               data-icon="down"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -748,6 +759,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
               class=""
               data-icon="down"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -818,6 +830,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
               class=""
               data-icon="down"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -874,6 +887,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
               class=""
               data-icon="down"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -912,6 +926,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           class=""
           data-icon="down"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -950,6 +965,7 @@ exports[`renders ./components/input/demo/password-input.md correctly 1`] = `
         class=""
         data-icon="eye-invisible"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -983,6 +999,7 @@ exports[`renders ./components/input/demo/presuffix.md correctly 1`] = `
         class=""
         data-icon="user"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -999,6 +1016,33 @@ exports[`renders ./components/input/demo/presuffix.md correctly 1`] = `
     type="text"
     value=""
   />
+  <span
+    class="ant-input-suffix"
+  >
+    <i
+      aria-label="icon: info-circle"
+      class="anticon anticon-info-circle"
+      style="color:rgba(0,0,0,.45)"
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="info-circle"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+        />
+        <path
+          d="M464 336a48 48 0 1 0 96 0 48 48 0 1 0-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+        />
+      </svg>
+    </i>
+  </span>
 </span>
 `;
 
@@ -1027,6 +1071,7 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
           class=""
           data-icon="search"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -1068,6 +1113,7 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
               class=""
               data-icon="search"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"

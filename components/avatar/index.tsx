@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
 import Icon from '../icon';
 import classNames from 'classnames';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -31,7 +30,6 @@ export interface AvatarProps {
 export interface AvatarState {
   scale: number;
   isImgExist: boolean;
-  avatarDisplay: boolean;
 }
 
 export default class Avatar extends React.Component<AvatarProps, AvatarState> {
@@ -43,59 +41,44 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
   state = {
     scale: 1,
     isImgExist: true,
-    avatarDisplay: true,
   };
 
-  private avatarChildren: any;
+  private avatarNode: HTMLElement;
+  private avatarChildren: HTMLElement;
+  private lastChildrenWidth: number;
+  private lastNodeWidth: number;
 
   componentDidMount() {
     this.setScale();
   }
 
-  componentDidUpdate(prevProps: AvatarProps, prevState: AvatarState) {
-    if (
-      prevProps.children !== this.props.children ||
-      (prevState.scale !== this.state.scale && this.state.scale === 1) ||
-      prevState.isImgExist !== this.state.isImgExist ||
-      !this.state.avatarDisplay
-    ) {
-      this.setScale();
-      if (this.avatarChildren && this.avatarChildren.offsetWidth !== 0) {
-        this.setState({
-          avatarDisplay: true,
-        });
-      }
-    } else {
-      if (this.avatarChildren && this.avatarChildren.offsetWidth === 0 && this.state.scale === 1) {
-        this.setState({
-          avatarDisplay: false,
-        });
-      }
-    }
-
+  componentDidUpdate(prevProps: AvatarProps) {
+    this.setScale();
     if (prevProps.src !== this.props.src) {
       this.setState({ isImgExist: true, scale: 1 });
     }
   }
 
   setScale = () => {
-    const childrenNode = this.avatarChildren;
-    // denominator is 0 is no meaning
-    if (childrenNode && childrenNode.offsetWidth !== 0) {
-      const childrenWidth = childrenNode.offsetWidth;
-      const avatarNode = ReactDOM.findDOMNode(this) as Element;
-      const avatarWidth = avatarNode.getBoundingClientRect().width;
-      // add 4px gap for each side to get better performance
-      if (avatarWidth - 8 < childrenWidth) {
-        this.setState({
-          scale: (avatarWidth - 8) / childrenWidth,
-        });
-      } else {
-        this.setState({
-          scale: 1,
-        });
-      }
+    if (!this.avatarChildren || !this.avatarNode) {
+      return;
     }
+    const childrenWidth = this.avatarChildren.offsetWidth; // offsetWidth avoid affecting be transform scale
+    const nodeWidth = this.avatarNode.offsetWidth;
+    // denominator is 0 is no meaning
+    if (
+      childrenWidth === 0 ||
+      nodeWidth === 0 ||
+      (this.lastChildrenWidth === childrenWidth && this.lastNodeWidth === nodeWidth)
+    ) {
+      return;
+    }
+    this.lastChildrenWidth = childrenWidth;
+    this.lastNodeWidth = nodeWidth;
+    // add 4px gap for each side to get better performance
+    this.setState({
+      scale: nodeWidth - 8 < childrenWidth ? (nodeWidth - 8) / childrenWidth : 1,
+    });
   };
 
   handleImgLoadError = () => {
@@ -167,7 +150,7 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
         children = (
           <span
             className={`${prefixCls}-string`}
-            ref={span => (this.avatarChildren = span)}
+            ref={(node: HTMLElement) => (this.avatarChildren = node)}
             style={{ ...sizeChildrenStyle, ...childrenStyle }}
           >
             {children}
@@ -175,14 +158,22 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
         );
       } else {
         children = (
-          <span className={`${prefixCls}-string`} ref={span => (this.avatarChildren = span)}>
+          <span
+            className={`${prefixCls}-string`}
+            ref={(node: HTMLElement) => (this.avatarChildren = node)}
+          >
             {children}
           </span>
         );
       }
     }
     return (
-      <span {...others} style={{ ...sizeStyle, ...others.style }} className={classString}>
+      <span
+        {...others}
+        style={{ ...sizeStyle, ...others.style }}
+        className={classString}
+        ref={(node: HTMLElement) => (this.avatarNode = node)}
+      >
         {children}
       </span>
     );

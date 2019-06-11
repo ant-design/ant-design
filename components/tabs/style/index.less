@@ -4,8 +4,21 @@
 
 @tab-prefix-cls: ~'@{ant-prefix}-tabs';
 
+// Hidden content
+.tabs-hidden-content() {
+  height: 0;
+  padding: 0 !important;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  input {
+    visibility: hidden;
+  }
+}
+
 .@{tab-prefix-cls} {
   .reset-component;
+
   position: relative;
   overflow: hidden;
   .clearfix;
@@ -166,7 +179,6 @@
       padding: @tabs-horizontal-padding;
       text-decoration: none;
       cursor: pointer;
-
       transition: color 0.3s @ease-in-out;
 
       &:last-child {
@@ -231,13 +243,7 @@
     }
 
     > .@{tab-prefix-cls}-tabpane-inactive {
-      height: 0;
-      padding: 0 !important;
-      opacity: 0;
-      pointer-events: none;
-      input {
-        visibility: hidden;
-      }
+      .tabs-hidden-content();
     }
 
     &.@{tab-prefix-cls}-content-animated {
@@ -397,7 +403,7 @@
     transform: none !important;
   }
   > .@{tab-prefix-cls}-tabpane-inactive {
-    display: none;
+    .tabs-hidden-content();
   }
 }
 

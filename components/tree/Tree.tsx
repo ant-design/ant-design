@@ -128,7 +128,7 @@ export interface TreeProps {
   /** 异步加载数据 */
   loadData?: (node: AntTreeNode) => PromiseLike<any>;
   loadedKeys?: string[];
-  onLoaded?: (loadedKeys: string[], info: { event: 'load'; node: AntTreeNode }) => void;
+  onLoad?: (loadedKeys: string[], info: { event: 'load'; node: AntTreeNode }) => void;
   /** 响应右键点击 */
   onRightClick?: (options: AntTreeNodeMouseEvent) => void;
   /** 设置节点可拖拽（IE>8）*/

@@ -12,22 +12,22 @@ describe('CheckboxGroup', () => {
       .find('.ant-checkbox-input')
       .at(0)
       .simulate('change');
-    expect(onChange).toBeCalledWith(['Apple']);
+    expect(onChange).toHaveBeenCalledWith(['Apple']);
     wrapper
       .find('.ant-checkbox-input')
       .at(1)
       .simulate('change');
-    expect(onChange).toBeCalledWith(['Apple', 'Pear']);
+    expect(onChange).toHaveBeenCalledWith(['Apple', 'Pear']);
     wrapper
       .find('.ant-checkbox-input')
       .at(2)
       .simulate('change');
-    expect(onChange).toBeCalledWith(['Apple', 'Pear', 'Orange']);
+    expect(onChange).toHaveBeenCalledWith(['Apple', 'Pear', 'Orange']);
     wrapper
       .find('.ant-checkbox-input')
       .at(1)
       .simulate('change');
-    expect(onChange).toBeCalledWith(['Apple', 'Orange']);
+    expect(onChange).toHaveBeenCalledWith(['Apple', 'Orange']);
   });
 
   it('does not trigger onChange callback of both Checkbox and CheckboxGroup when CheckboxGroup is disabled', () => {
@@ -42,12 +42,12 @@ describe('CheckboxGroup', () => {
       .find('.ant-checkbox-input')
       .at(0)
       .simulate('change');
-    expect(onChangeGroup).not.toBeCalled();
+    expect(onChangeGroup).not.toHaveBeenCalled();
     groupWrapper
       .find('.ant-checkbox-input')
       .at(1)
       .simulate('change');
-    expect(onChangeGroup).not.toBeCalled();
+    expect(onChangeGroup).not.toHaveBeenCalled();
   });
 
   it('does not prevent onChange callback from Checkbox when CheckboxGroup is not disabled', () => {
@@ -63,12 +63,19 @@ describe('CheckboxGroup', () => {
       .find('.ant-checkbox-input')
       .at(0)
       .simulate('change');
-    expect(onChangeGroup).toBeCalledWith(['Apple']);
+    expect(onChangeGroup).toHaveBeenCalledWith(['Apple']);
     groupWrapper
       .find('.ant-checkbox-input')
       .at(1)
       .simulate('change');
-    expect(onChangeGroup).toBeCalledWith(['Apple']);
+    expect(onChangeGroup).toHaveBeenCalledWith(['Apple']);
+  });
+
+  it('all children should have a name property', () => {
+    const wrapper = mount(<Checkbox.Group name="checkboxgroup" options={['Yes', 'No']} />);
+    wrapper.find('input[type="checkbox"]').forEach(el => {
+      expect(el.props().name).toEqual('checkboxgroup');
+    });
   });
 
   it('passes prefixCls down to checkbox', () => {
@@ -101,7 +108,7 @@ describe('CheckboxGroup', () => {
       .find('.ant-checkbox-input')
       .at(0)
       .simulate('change');
-    expect(onChange).toBeCalled();
+    expect(onChange).toHaveBeenCalled();
     expect(onChange.mock.calls[0][0].target.value).toEqual('my');
   });
 });

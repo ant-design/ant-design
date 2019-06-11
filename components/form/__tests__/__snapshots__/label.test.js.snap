@@ -1,24 +1,84 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Form should \`labelAlign\` work in FormItem 1`] = `
+<div
+  class="ant-row ant-form-item"
+>
+  <div
+    class="ant-col ant-form-item-label ant-form-item-label-left"
+  >
+    <label
+      class=""
+      title="test"
+    >
+      test
+    </label>
+  </div>
+  <div
+    class="ant-col ant-form-item-control-wrapper"
+  >
+    <div
+      class="ant-form-item-control"
+    >
+      <span
+        class="ant-form-item-children"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Form should \`labelAlign\` work in FormItem 2`] = `
+<form
+  class="ant-form ant-form-horizontal"
+>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label ant-form-item-label-left"
+    >
+      <label
+        class=""
+        title="test"
+      >
+        test
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control"
+      >
+        <span
+          class="ant-form-item-children"
+        />
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`Form should props colon of Form.Item override the props colon of Form. 1`] = `
 <form
   class="ant-form ant-form-horizontal"
 >
   <div
-    class="ant-row ant-form-item ant-form-item-no-colon"
+    class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label"
+      class="ant-col ant-form-item-label"
     >
       <label
-        class=""
+        class="ant-form-item-no-colon"
         title="label"
       >
         label
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper"
+      class="ant-col ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -35,7 +95,7 @@ exports[`Form should props colon of Form.Item override the props colon of Form. 
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label"
+      class="ant-col ant-form-item-label"
     >
       <label
         class=""
@@ -45,7 +105,7 @@ exports[`Form should props colon of Form.Item override the props colon of Form. 
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper"
+      class="ant-col ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -59,20 +119,20 @@ exports[`Form should props colon of Form.Item override the props colon of Form. 
     </div>
   </div>
   <div
-    class="ant-row ant-form-item ant-form-item-no-colon"
+    class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label"
+      class="ant-col ant-form-item-label"
     >
       <label
-        class=""
+        class="ant-form-item-no-colon"
         title="label"
       >
         label
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper"
+      class="ant-col ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"

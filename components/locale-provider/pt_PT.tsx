@@ -15,6 +15,7 @@ export default {
     filterReset: 'Reiniciar',
     selectAll: 'Selecionar página atual',
     selectInvert: 'Inverter seleção',
+    sortTitle: 'Ordenação',
   },
   Modal: {
     okText: 'OK',

@@ -35,7 +35,7 @@ Ant Design's color palette also has the ability to further extend. After careful
 `````__react
 import Palette from '../../site/theme/template/Color/Palette';
 
-ReactDOM.render(<Palette color={{ name: 'grey' }} direction="horizontal" />, mountNode);
+ReactDOM.render(<Palette color={{ name: 'gray' }} direction="horizontal" />, mountNode);
 `````
 
 ### Data Visualization  Color Palette (Coming soon)
@@ -70,7 +70,7 @@ Functional color represents a clear message as well as status, such as success, 
 
 ### Neutral Color
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/mkaVzBvUUEcTKeUxhgpN.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/WAlfDnpYniUjaLzmnIqf.png">
 
 Neutral color is mainly used in a large part of the text interface, in addition to the background, borders, dividing lines, and other scenes are also very common. Neutral color definition needs to consider the difference between dark background and light background, while incorporating the WCAG 2.0 standard. The neutral color of Ant Design is based on transparency, as shown on the right:
 

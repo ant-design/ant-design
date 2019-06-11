@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import Form from '..';
 
 describe('Form', () => {
@@ -31,6 +31,7 @@ describe('Form', () => {
         <Form.Item label="label：">input</Form.Item>
       </Form>,
     );
+
     expect(
       wrapper
         .find('.ant-form-item-label label')
@@ -48,12 +49,12 @@ describe('Form', () => {
   it('should disable colon when props colon Form is false', () => {
     const wrapper = mount(
       <Form colon={false}>
-        <Form.Item>input</Form.Item>
+        <Form.Item label="label">input</Form.Item>
       </Form>,
     );
     expect(
       wrapper
-        .find('.ant-form-item')
+        .find('.ant-form-item-label label')
         .at(0)
         .hasClass('ant-form-item-no-colon'),
     ).toBe(true);
@@ -220,5 +221,19 @@ describe('Form', () => {
         .at(0)
         .getDOMNode(),
     ).toBe(document.activeElement);
+  });
+
+  it('should `labelAlign` work in FormItem', () => {
+    // Works in Form.Item
+    expect(render(<Form.Item label="test" labelAlign="left" />)).toMatchSnapshot();
+
+    // Use Form.Item first
+    expect(
+      render(
+        <Form labelAlign="right">
+          <Form.Item label="test" labelAlign="left" />
+        </Form>,
+      ),
+    ).toMatchSnapshot();
   });
 });

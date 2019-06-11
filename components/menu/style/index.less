@@ -6,6 +6,7 @@
 // default theme
 .@{menu-prefix-cls} {
   .reset-component;
+
   margin-bottom: 0;
   padding-left: 0; // Override default ul/ol
   color: @menu-item-color;
@@ -57,9 +58,6 @@
     color: @menu-item-color;
     &:hover {
       color: @menu-highlight-color;
-    }
-    &:focus {
-      text-decoration: none;
     }
     &::before {
       position: absolute;
@@ -221,8 +219,13 @@
           position: absolute;
           width: 6px;
           height: 1.5px;
+          // background + background-image to makes before & after cross have same color.
+          // Since `linear-gradient` not work on IE9, we should hack it.
+          // ref: https://github.com/ant-design/ant-design/issues/15910
           background: @menu-bg;
+          background: ~'@{menu-item-color} \9';
           background-image: linear-gradient(to right, @menu-item-color, @menu-item-color);
+          background-image: ~'none \9';
           border-radius: 2px;
           transition: background 0.3s @ease-in-out, transform 0.3s @ease-in-out,
             top 0.3s @ease-in-out;

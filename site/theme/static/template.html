@@ -7,13 +7,13 @@
     <meta name="description" content="An enterprise-class UI design language and React-based implementation with a set of high-quality React components, one of best React UI library for enterprises">
     <title>Ant Design - A UI Design Language</title>
     <link rel="icon" href="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="{{ root }}index-1.css"/>
-    <link rel="stylesheet" type="text/css" href="{{ root }}index-2.css"/>
+    {% for cssFile in manifest["css"] %}<link rel="stylesheet" type="text/css" href="{{ root }}{{ cssFile }}"/>
+    {% endfor %}
     <style id="nprogress-style">
       #nprogress { display: none }
     </style>
     <link rel="stylesheet/less" type="text/css" href="{{ root }}color.less"/>
-    <script src="https://gw.alipayobjects.com/os/lib/??es6-shim/0.35.3/es6-sham.min.js,es6-shim/0.35.3/es6-shim.min.js"></script>
+    <script src="https://gw.alipayobjects.com/os/lib/es6-shim/0.35.5/??es6-sham.min.js,es6-shim.min.js"></script>
     <!--[if lte IE 10]>
     <script src="https://as.alipayobjects.com/g/component/??console-polyfill/0.2.2/index.js,media-match/2.0.2/media.match.min.js"></script>
     <![endif]-->
@@ -74,7 +74,8 @@
     <div id="react-content">
       {{ content | safe }}
     </div>
-    <script src="{{ root }}index.js"></script>
+    {% for jsFile in manifest["js"] %}<script src="{{ root }}{{ jsFile }}"></script>
+    {% endfor %}
     <!-- Global Site Tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-72788897-1"></script>
     <script>

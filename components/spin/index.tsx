@@ -47,10 +47,10 @@ function renderIndicator(prefixCls: string, props: SpinProps): React.ReactNode {
 
   return (
     <span className={classNames(dotClassName, `${prefixCls}-dot-spin`)}>
-      <i />
-      <i />
-      <i />
-      <i />
+      <i className={`${prefixCls}-dot-item`} />
+      <i className={`${prefixCls}-dot-item`} />
+      <i className={`${prefixCls}-dot-item`} />
+      <i className={`${prefixCls}-dot-item`} />
     </span>
   );
 }
@@ -98,6 +98,10 @@ class Spin extends React.Component<SpinProps, SpinState> {
   }
 
   componentWillUnmount() {
+    this.cancelExistingSpin();
+  }
+
+  cancelExistingSpin() {
     const updateSpinning: any = this.updateSpinning;
     if (updateSpinning && updateSpinning.cancel) {
       updateSpinning.cancel();
@@ -116,6 +120,7 @@ class Spin extends React.Component<SpinProps, SpinState> {
   debouncifyUpdateSpinning = (props?: SpinProps) => {
     const { delay } = props || this.props;
     if (delay) {
+      this.cancelExistingSpin();
       this.updateSpinning = debounce(this.originalUpdateSpinning, delay);
     }
   };

@@ -35,7 +35,7 @@ class Category extends React.Component<CategoryProps, CategoryState> {
       }, 2000);
     });
   };
-  
+
   componentWillUnmount() {
     window.clearTimeout(this.copyId);
   }

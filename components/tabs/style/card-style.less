@@ -12,23 +12,22 @@
     visibility: hidden;
   }
   &&-card &-card-bar &-tab {
-    height: @tabs-card-height - 1px;
+    height: @tabs-card-height;
     margin: 0;
     margin-right: 2px;
     padding: 0 16px;
     line-height: @tabs-card-height - 2px;
     background: @tabs-card-head-background;
     border: @border-width-base @border-style-base @border-color-split;
-    border-bottom: 0;
     border-radius: @border-radius-base @border-radius-base 0 0;
     transition: all 0.3s @ease-in-out;
   }
   &&-card &-card-bar &-tab-active {
     height: @tabs-card-height;
-    padding-bottom: 1px;
     color: @tabs-card-active-color;
     background: @component-background;
     border-color: @border-color-split;
+    border-bottom: @border-width-base solid @component-background;
   }
   &&-card &-card-bar &-tab-inactive {
     padding: 0;
