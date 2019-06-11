@@ -1,29 +1,15 @@
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-
-// matchMedia polyfill for
-// https://github.com/WickyNilliams/enquire.js/issues/82
-let enquire: any;
-if (typeof window !== 'undefined') {
-  const matchMediaPolyfill = (mediaQuery: string) => {
-    return {
-      media: mediaQuery,
-      matches: false,
-      addListener() {},
-      removeListener() {},
-    };
-  };
-  window.matchMedia = window.matchMedia || matchMediaPolyfill;
-  enquire = require('enquire.js');
-}
-
 import * as React from 'react';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import RowContext from './RowContext';
 import { tuple } from '../_util/type';
+import ResponsiveObserve, {
+  Breakpoint,
+  BreakpointMap,
+  responsiveArray,
+} from '../_util/responsiveObserve';
 
-export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
-export type BreakpointMap = Partial<Record<Breakpoint, string>>;
 const RowAligns = tuple('top', 'middle', 'bottom');
 const RowJustify = tuple('start', 'end', 'center', 'space-around', 'space-between');
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -37,17 +23,6 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
 export interface RowState {
   screens: BreakpointMap;
 }
-
-const responsiveArray: Breakpoint[] = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
-
-const responsiveMap: BreakpointMap = {
-  xs: '(max-width: 575px)',
-  sm: '(min-width: 576px)',
-  md: '(min-width: 768px)',
-  lg: '(min-width: 992px)',
-  xl: '(min-width: 1200px)',
-  xxl: '(min-width: 1600px)',
-};
 
 export default class Row extends React.Component<RowProps, RowState> {
   static defaultProps = {
@@ -67,41 +42,16 @@ export default class Row extends React.Component<RowProps, RowState> {
   state: RowState = {
     screens: {},
   };
-
+  token: string;
   componentDidMount() {
-    Object.keys(responsiveMap).map((screen: Breakpoint) =>
-      enquire.register(responsiveMap[screen], {
-        match: () => {
-          if (typeof this.props.gutter !== 'object') {
-            return;
-          }
-          this.setState(prevState => ({
-            screens: {
-              ...prevState.screens,
-              [screen]: true,
-            },
-          }));
-        },
-        unmatch: () => {
-          if (typeof this.props.gutter !== 'object') {
-            return;
-          }
-          this.setState(prevState => ({
-            screens: {
-              ...prevState.screens,
-              [screen]: false,
-            },
-          }));
-        },
-        // Keep a empty destory to avoid triggering unmatch when unregister
-        destroy() {},
-      }),
-    );
+    this.token = ResponsiveObserve.subscribe(screens => {
+      if (typeof this.props.gutter === 'object') {
+        this.setState({ screens });
+      }
+    });
   }
   componentWillUnmount() {
-    Object.keys(responsiveMap).map((screen: Breakpoint) =>
-      enquire.unregister(responsiveMap[screen]),
-    );
+    ResponsiveObserve.unsubscribe(this.token);
   }
   getGutter(): number | undefined {
     const { gutter } = this.props;

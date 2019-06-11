@@ -28,7 +28,7 @@ title: Anchor
 
 ### Link Props
 
-| 成员 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| href | 锚点链接 | string |  |
-| title | 文字内容 | string\|ReactNode |  |
+| 成员  | 说明     | 类型              | 默认值 |
+| ----- | -------- | ----------------- | ------ |
+| href  | 锚点链接 | string            |        |
+| title | 文字内容 | string\|ReactNode |        |

@@ -23,7 +23,6 @@ title: 介绍
 - [设计资源](/docs/spec/download)
 - [Sketch 工具集](http://kitchen.alipay.com/)
 
-
 ## 前端实现
 
 我们采用 [React](http://facebook.github.io/react/) 封装了一套 Ant Design 的组件库，也欢迎社区其他框架的实现版本。

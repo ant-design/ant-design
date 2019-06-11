@@ -13,7 +13,7 @@ title:
 
 Basic timeline.
 
-````jsx
+```jsx
 import { Timeline } from 'antd';
 
 ReactDOM.render(
@@ -23,6 +23,6 @@ ReactDOM.render(
     <Timeline.Item>Technical testing 2015-09-01</Timeline.Item>
     <Timeline.Item>Network problems being solved 2015-09-01</Timeline.Item>
   </Timeline>,
-  mountNode
+  mountNode,
 );
-````
+```

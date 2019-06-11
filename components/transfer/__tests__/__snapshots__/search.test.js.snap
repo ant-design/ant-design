@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Search should show cross icon when input value exists 1`] = `
+exports[`Transfer.Search should show cross icon when input value exists 1`] = `
 <Search
   placeholder=""
   value=""
@@ -13,17 +13,15 @@ exports[`Search should show cross icon when input value exists 1`] = `
       type="text"
       value=""
     >
-      <Consumer>
-        <input
-          className="ant-input"
-          disabled={false}
-          onChange={[Function]}
-          onKeyDown={[Function]}
-          placeholder=""
-          type="text"
-          value=""
-        />
-      </Consumer>
+      <input
+        className="ant-input"
+        disabled={false}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        placeholder=""
+        type="text"
+        value=""
+      />
     </Input>
     <span
       className="undefined-action"
@@ -67,7 +65,7 @@ exports[`Search should show cross icon when input value exists 1`] = `
 </Search>
 `;
 
-exports[`Search should show cross icon when input value exists 2`] = `
+exports[`Transfer.Search should show cross icon when input value exists 2`] = `
 <Search
   placeholder=""
   value="a"
@@ -80,17 +78,15 @@ exports[`Search should show cross icon when input value exists 2`] = `
       type="text"
       value="a"
     >
-      <Consumer>
-        <input
-          className="ant-input"
-          disabled={false}
-          onChange={[Function]}
-          onKeyDown={[Function]}
-          placeholder=""
-          type="text"
-          value="a"
-        />
-      </Consumer>
+      <input
+        className="ant-input"
+        disabled={false}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        placeholder=""
+        type="text"
+        value="a"
+      />
     </Input>
     <a
       className="undefined-action"

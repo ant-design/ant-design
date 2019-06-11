@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import createContext, { Context } from 'create-react-context';
+import createContext from '@ant-design/create-react-context';
 import { SiderProps } from './Sider';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
@@ -19,7 +19,7 @@ export interface LayoutContextProps {
     removeSider: (id: string) => void;
   };
 }
-export const LayoutContext: Context<LayoutContextProps> = createContext({
+export const LayoutContext = createContext<LayoutContextProps>({
   siderHook: {
     addSider: () => null,
     removeSider: () => null,

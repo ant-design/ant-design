@@ -7,6 +7,7 @@ Please makes sure that these form are filled before submitting your pull request
 
 [[中文版模板 / Chinese template](https://github.com/ant-design/ant-design/blob/master/.github/PULL_REQUEST_TEMPLATE/pr_cn.md)]
 -->
+
 ### 🤔 This is a ...
 
 - [ ] New feature
@@ -16,6 +17,7 @@ Please makes sure that these form are filled before submitting your pull request
 - [ ] TypeScript definition update
 - [ ] Refactoring
 - [ ] Code style optimization
+- [ ] Test Case
 - [ ] Branch merge
 - [ ] Other (about what?)
 
@@ -41,8 +43,10 @@ Please makes sure that these form are filled before submitting your pull request
 Describe changes from userside, and list all potential break changes or other risks.
 --->
 
-- English Changelog:
-- Chinese Changelog (optional):
+| Language   | Changelog |
+| ---------- | --------- |
+| 🇺🇸 English |           |
+| 🇨🇳 Chinese |           |
 
 ### ☑️ Self Check before Merge
 

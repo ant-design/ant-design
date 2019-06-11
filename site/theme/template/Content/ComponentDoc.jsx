@@ -29,6 +29,22 @@ export default class ComponentDoc extends React.Component {
     });
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    const { location } = this.props;
+    const { location: nextLocation } = nextProps;
+    const { expandAll, showRiddleButton } = this.state;
+    const { expandAll: nextExpandAll, showRiddleButton: nextShowRiddleButton } = nextState;
+
+    if (
+      nextLocation.pathname === location.pathname &&
+      expandAll === nextExpandAll &&
+      showRiddleButton === nextShowRiddleButton
+    ) {
+      return false;
+    }
+    return true;
+  }
+
   componentWillUnmount() {
     clearTimeout(this.pingTimer);
   }

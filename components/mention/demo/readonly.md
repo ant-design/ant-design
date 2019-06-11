@@ -13,7 +13,7 @@ title:
 
 Configurate `disabled` and `readOnly`.
 
-````jsx
+```jsx
 import { Mention } from 'antd';
 
 const { toString } = Mention;
@@ -47,9 +47,5 @@ function App() {
   );
 }
 
-
-ReactDOM.render(
-  <App />,
-  mountNode
-);
-````
+ReactDOM.render(<App />, mountNode);
+```

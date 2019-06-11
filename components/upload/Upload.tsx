@@ -238,15 +238,16 @@ class Upload extends React.Component<UploadProps, UploadState> {
   };
 
   renderUploadList = (locale: UploadLocale) => {
-    const { showUploadList, listType, onPreview } = this.props;
+    const { showUploadList, listType, onPreview, previewFile, disabled } = this.props;
     const { showRemoveIcon, showPreviewIcon } = showUploadList as any;
     return (
       <UploadList
         listType={listType}
         items={this.state.fileList}
+        previewFile={previewFile}
         onPreview={onPreview}
         onRemove={this.handleManualRemove}
-        showRemoveIcon={showRemoveIcon}
+        showRemoveIcon={!disabled && showRemoveIcon}
         showPreviewIcon={showPreviewIcon}
         locale={{ ...locale, ...this.props.locale }}
       />
@@ -318,7 +319,8 @@ class Upload extends React.Component<UploadProps, UploadState> {
 
     // Remove id to avoid open by label when trigger is hidden
     // https://github.com/ant-design/ant-design/issues/14298
-    if (!children) {
+    // https://github.com/ant-design/ant-design/issues/16478
+    if (!children || disabled) {
       delete rcUploadProps.id;
     }
 

@@ -670,6 +670,38 @@ describe('Table.rowSelection', () => {
     expect(checkboxAll.instance().state).toEqual({ indeterminate: false, checked: true });
   });
 
+  // https://github.com/ant-design/ant-design/issues/16614
+  it('should get selectedRows correctly when set childrenColumnName', () => {
+    const onChange = jest.fn();
+    const newDatas = [
+      {
+        key: 1,
+        name: 'Jack',
+        list: [
+          {
+            key: 11,
+            name: 'John Brown',
+          },
+        ],
+      },
+    ];
+    const wrapper = mount(
+      <Table
+        columns={columns}
+        dataSource={newDatas}
+        childrenColumnName="list"
+        rowSelection={{ onChange }}
+        expandedRowKeys={[1]}
+      />,
+    );
+    const checkboxes = wrapper.find('input');
+    checkboxes.at(2).simulate('change', { target: { checked: true } });
+    expect(onChange).toHaveBeenLastCalledWith([11], [newDatas[0].list[0]]);
+    checkboxes.at(1).simulate('change', { target: { checked: true } });
+    const item0 = { ...newDatas[0], list: undefined };
+    expect(onChange).toHaveBeenLastCalledWith([11, 1], [item0, newDatas[0].list[0]]);
+  });
+
   it('clear selection className when remove `rowSelection`', () => {
     const dataSource = [{ id: 1, name: 'Hello', age: 10 }, { id: 2, name: 'World', age: 30 }];
 

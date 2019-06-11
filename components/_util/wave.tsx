@@ -158,7 +158,7 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
 
   componentDidMount() {
     const node = findDOMNode(this) as HTMLElement;
-    if (node.nodeType !== 1) {
+    if (!node || node.nodeType !== 1) {
       return;
     }
     this.instance = this.bindAnimationEvent(node);

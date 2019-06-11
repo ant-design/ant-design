@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import RcTable from 'rc-table';
+import RcTable, { INTERNAL_COL_DEFINE } from 'rc-table';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
@@ -97,6 +97,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     rowKey: 'key',
     showHeader: true,
     sortDirections: ['ascend', 'descend'],
+    childrenColumnName: 'children',
   };
 
   CheckboxPropsCache: {
@@ -110,6 +111,8 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   constructor(props: TableProps<T>) {
     super(props);
 
+    const { expandedRowRender, columns = [] } = props;
+
     warning(
       !('columnsPageRange' in props || 'columnsPageSize' in props),
       'Table',
@@ -117,11 +120,13 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         'fixed columns instead, see: https://u.ant.design/fixed-columns.',
     );
 
-    warning(
-      !('expandedRowRender' in props) || !('scroll' in props),
-      'Table',
-      '`expandedRowRender` and `scroll` are not compatible. Please use one of them at one time.',
-    );
+    if (expandedRowRender && columns.some(({ fixed }) => !!fixed)) {
+      warning(
+        false,
+        'Table',
+        '`expandedRowRender` and `Column.fixed` are not compatible. Please use one of them at one time.',
+      );
+    }
 
     this.columns = props.columns || normalizeColumns(props.children as React.ReactChildren);
 
@@ -151,7 +156,8 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     const key = this.getRecordKey(item, index);
     // Cache checkboxProps
     if (!this.CheckboxPropsCache[key]) {
-      const checkboxProps = (this.CheckboxPropsCache[key] = rowSelection.getCheckboxProps(item));
+      this.CheckboxPropsCache[key] = rowSelection.getCheckboxProps(item) || {};
+      const checkboxProps = this.CheckboxPropsCache[key];
       warning(
         !('checked' in checkboxProps) && !('defaultChecked' in checkboxProps),
         'Table',
@@ -408,6 +414,9 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     if (!column.sorter) {
       return;
     }
+
+    const pagination = { ...this.state.pagination };
+
     const sortDirections = column.sortDirections || (this.props.sortDirections as SortOrder[]);
     const { sortOrder, sortColumn } = this.state;
     // 只同时允许一列进行排序，否则会导致排序顺序的逻辑问题
@@ -422,7 +431,14 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       newSortOrder = sortDirections[0];
     }
 
+    if (this.props.pagination) {
+      // Reset current prop
+      pagination.current = 1;
+      pagination.onChange!(pagination.current);
+    }
+
     const newState = {
+      pagination,
       sortOrder: newSortOrder,
       sortColumn: newSortOrder ? column : null,
     };
@@ -520,7 +536,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     let selectedRowKeys = this.store.getState().selectedRowKeys.concat(defaultSelection);
     const key = this.getRecordKey(record, rowIndex);
     const { pivot } = this.state;
-    const rows = this.getFlatCurrentPageData(this.props.childrenColumnName);
+    const rows = this.getFlatCurrentPageData();
     let realIndex = rowIndex;
     if (this.props.expandedRowRender) {
       realIndex = rows.findIndex(row => this.getRecordKey(row, rowIndex) === key);
@@ -600,7 +616,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   };
 
   handleSelectRow = (selectionKey: string, index: number, onSelectFunc: SelectionItemSelectFn) => {
-    const data = this.getFlatCurrentPageData(this.props.childrenColumnName);
+    const data = this.getFlatCurrentPageData();
     const defaultSelection = this.store.getState().selectionDirty ? [] : this.getDefaultSelection();
     const selectedRowKeys = this.store.getState().selectedRowKeys.concat(defaultSelection);
     const changeableRowKeys = data
@@ -756,10 +772,10 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   };
 
   renderRowSelection(prefixCls: string, locale: TableLocale) {
-    const { rowSelection, childrenColumnName } = this.props;
+    const { rowSelection } = this.props;
     const columns = this.columns.concat();
     if (rowSelection) {
-      const data = this.getFlatCurrentPageData(childrenColumnName).filter((item, index) => {
+      const data = this.getFlatCurrentPageData().filter((item, index) => {
         if (rowSelection.getCheckboxProps) {
           return !this.getCheckboxPropsByItem(item, index).disabled;
         }
@@ -775,6 +791,9 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         fixed: rowSelection.fixed,
         width: rowSelection.columnWidth,
         title: rowSelection.columnTitle,
+        [INTERNAL_COL_DEFINE]: {
+          className: `${prefixCls}-selection-col`,
+        },
       };
       if (rowSelection.type !== 'radio') {
         const checkboxAllDisabled = data.every(
@@ -1059,10 +1078,12 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   }
 
   getFlatData() {
-    return flatArray(this.getLocalData(null, false));
+    const { childrenColumnName } = this.props;
+    return flatArray(this.getLocalData(null, false), childrenColumnName);
   }
 
-  getFlatCurrentPageData(childrenColumnName: string | undefined) {
+  getFlatCurrentPageData() {
+    const { childrenColumnName } = this.props;
     return flatArray(this.getCurrentPageData(), childrenColumnName);
   }
 

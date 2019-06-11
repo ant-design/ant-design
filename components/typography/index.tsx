@@ -3,7 +3,7 @@ import Text from './Text';
 import Title from './Title';
 import Paragraph from './Paragraph';
 
-type TypographyProps = typeof OriginTypography & {
+export type TypographyProps = typeof OriginTypography & {
   Text: typeof Text;
   Title: typeof Title;
   Paragraph: typeof Paragraph;

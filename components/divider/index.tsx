@@ -5,7 +5,7 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 export interface DividerProps {
   prefixCls?: string;
   type?: 'horizontal' | 'vertical';
-  orientation?: 'left' | 'right' | '';
+  orientation?: 'left' | 'right' | 'center';
   className?: string;
   children?: React.ReactNode;
   dashed?: boolean;
@@ -18,7 +18,7 @@ const Divider: React.SFC<DividerProps> = props => (
       const {
         prefixCls: customizePrefixCls,
         type = 'horizontal',
-        orientation = '',
+        orientation = 'center',
         className,
         children,
         dashed,

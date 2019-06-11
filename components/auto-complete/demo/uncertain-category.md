@@ -11,15 +11,12 @@ title:
 
 ## en-US
 
-Demonstration of [Lookup Patterns: Uncertain Category](https://ant.design/docs/spec/reaction#Lookup-Patterns).
-Basic Usage, set datasource of autocomplete with `dataSource` property.
+Demonstration of [Lookup Patterns: Uncertain Category](https://ant.design/docs/spec/reaction#Lookup-Patterns). Basic Usage, set datasource of autocomplete with `dataSource` property.
 
-````jsx
-import {
-  Icon, Button, Input, AutoComplete,
-} from 'antd';
+```jsx
+import { Icon, Button, Input, AutoComplete } from 'antd';
 
-const Option = AutoComplete.Option;
+const { Option } = AutoComplete;
 
 function onSelect(value) {
   console.log('onSelect', value);
@@ -30,7 +27,9 @@ function getRandomInt(max, min = 0) {
 }
 
 function searchResult(query) {
-  return (new Array(getRandomInt(5))).join('.').split('.')
+  return new Array(getRandomInt(5))
+    .join('.')
+    .split('.')
     .map((item, idx) => ({
       query,
       category: `${query}${idx}`,
@@ -62,13 +61,13 @@ function renderOption(item) {
 class Complete extends React.Component {
   state = {
     dataSource: [],
-  }
+  };
 
-  handleSearch = (value) => {
+  handleSearch = value => {
     this.setState({
       dataSource: value ? searchResult(value) : [],
     });
-  }
+  };
 
   render() {
     const { dataSource } = this.state;
@@ -85,11 +84,16 @@ class Complete extends React.Component {
           optionLabelProp="text"
         >
           <Input
-            suffix={(
-              <Button className="search-btn" size="large" type="primary">
+            suffix={
+              <Button
+                className="search-btn"
+                style={{ marginRight: -12 }}
+                size="large"
+                type="primary"
+              >
                 <Icon type="search" />
               </Button>
-            )}
+            }
           />
         </AutoComplete>
       </div>
@@ -98,9 +102,9 @@ class Complete extends React.Component {
 }
 
 ReactDOM.render(<Complete />, mountNode);
-````
+```
 
-````css
+```css
 .global-search-wrapper {
   padding-right: 50px;
 }
@@ -115,10 +119,6 @@ ReactDOM.render(<Complete />, mountNode);
 
 .global-search.ant-select-auto-complete .ant-input-affix-wrapper .ant-input:not(:last-child) {
   padding-right: 62px;
-}
-
-.global-search.ant-select-auto-complete .ant-input-affix-wrapper .ant-input-suffix {
-  right: 0;
 }
 
 .global-search.ant-select-auto-complete .ant-input-affix-wrapper .ant-input-suffix button {
@@ -139,4 +139,4 @@ ReactDOM.render(<Complete />, mountNode);
 .global-search-item-count {
   flex: none;
 }
-````
+```

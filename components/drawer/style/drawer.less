@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 
 // Preserve the typo for compatibility
 // https://github.com/ant-design/ant-design/issues/14628
@@ -8,7 +8,6 @@
 
 .@{drawer-prefix-cls} {
   position: fixed;
-  top: 0;
   z-index: @zindex-modal;
   width: 0%;
   height: 100%;
@@ -25,8 +24,10 @@
     width: 100%;
     height: 100%;
   }
+
   &-left,
   &-right {
+    top: 0;
     width: 0%;
     height: 100%;
     .@{drawer-prefix-cls}-content-wrapper {
@@ -39,6 +40,7 @@
       width: 0%;
     }
   }
+
   &-left {
     &.@{drawer-prefix-cls}-open {
       .@{drawer-prefix-cls}-content-wrapper {
@@ -46,7 +48,10 @@
       }
     }
   }
+
   &-right {
+    right: 0;
+
     .@{drawer-prefix-cls} {
       &-content-wrapper {
         right: 0;
@@ -61,8 +66,10 @@
 
   &-top,
   &-bottom {
+    left: 0;
     width: 100%;
     height: 0%;
+
     .@{drawer-prefix-cls}-content-wrapper {
       width: 100%;
     }
@@ -73,14 +80,20 @@
       height: 0%;
     }
   }
+
   &-top {
+    top: 0;
+
     &.@{drawer-prefix-cls}-open {
       .@{drawer-prefix-cls}-content-wrapper {
         box-shadow: @shadow-1-down;
       }
     }
   }
+
   &-bottom {
+    bottom: 0;
+
     .@{drawer-prefix-cls} {
       &-content-wrapper {
         bottom: 0;
@@ -92,6 +105,7 @@
       }
     }
   }
+
   &.@{drawer-prefix-cls}-open {
     .@{drawer-prefix-cls} {
       &-mask {
@@ -173,6 +187,8 @@
 
   &-mask {
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 0;
     background-color: @modal-mask-bg;

@@ -13,14 +13,14 @@ title:
 
 The simplest usage.
 
-````jsx
+```jsx
 import { Affix, Button } from 'antd';
 
 class Demo extends React.Component {
   state = {
     top: 10,
     bottom: 10,
-  }
+  };
 
   render() {
     return (
@@ -56,4 +56,4 @@ class Demo extends React.Component {
 }
 
 ReactDOM.render(<Demo />, mountNode);
-````
+```

@@ -11,8 +11,8 @@ title: Drawer
 
 抽屉从父窗体边缘滑入，覆盖住部分父窗体内容。用户在抽屉内操作时不必离开当前任务，操作完成后，可以平滑地回到到原任务。
 
-* 当需要一个附加的面板来控制父窗体内容，这个面板在需要时呼出。比如，控制界面展示样式，往界面中添加内容。
-* 当需要在当前任务流中插入临时任务，创建或预览附加内容。比如展示协议条款，创建子对象。
+- 当需要一个附加的面板来控制父窗体内容，这个面板在需要时呼出。比如，控制界面展示样式，往界面中添加内容。
+- 当需要在当前任务流中插入临时任务，创建或预览附加内容。比如展示协议条款，创建子对象。
 
 ## API
 
@@ -32,8 +32,9 @@ title: Drawer
 | height | 高度, 在 `placement` 为 `top` 或 `bottom` 时使用 | string \| number | 256 |
 | className | 对话框外层容器的类名 | string | - |
 | zIndex | 设置 Drawer 的 `z-index` | Number | 1000 |
-| placement | 抽屉的方向 | 'top'  \| 'right' \| 'bottom' \| 'left' | 'right'
+| placement | 抽屉的方向 | 'top' \| 'right' \| 'bottom' \| 'left' | 'right' |
 | onClose | 点击遮罩层或右上角叉或取消按钮的回调 | function(e) | 无 |
+| afterVisibleChange | 切换抽屉时动画结束后的回调 | function(visible) | 无 |
 
 <style>
 #_hj_feedback_container {

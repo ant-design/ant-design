@@ -1,5 +1,5 @@
 import * as React from 'react';
-import createReactContext, { Context } from 'create-react-context';
+import createReactContext from '@ant-design/create-react-context';
 
 import defaultRenderEmpty, { RenderEmptyHandler } from './renderEmpty';
 
@@ -10,7 +10,7 @@ export interface CSPConfig {
 }
 
 export interface ConfigConsumerProps {
-  getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
+  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   rootPrefixCls?: string;
   getPrefixCls: (suffixCls: string, customizePrefixCls?: string) => string;
   renderEmpty: RenderEmptyHandler;
@@ -28,7 +28,7 @@ export const configConsumerProps = [
 ];
 
 export interface ConfigProviderProps {
-  getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
+  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   prefixCls?: string;
   children?: React.ReactNode;
   renderEmpty?: RenderEmptyHandler;
@@ -36,7 +36,7 @@ export interface ConfigProviderProps {
   autoInsertSpaceInButton?: boolean;
 }
 
-const ConfigContext: Context<ConfigConsumerProps | null> = createReactContext({
+const ConfigContext = createReactContext<ConfigConsumerProps>({
   // We provide a default function for Context without provider
   getPrefixCls: (suffixCls: string, customizePrefixCls?: string) => {
     if (customizePrefixCls) return customizePrefixCls;

@@ -1,14 +1,18 @@
 ---
 category: Components
-type: Data Entry
-title: Mention
+type: Deprecated
+title: Mention (Deprecated)
 ---
 
-Mention component.
+Mention component. Deprecated, please use [Mentions](/components/mentions) instead.
 
-## When To Use
+## Why deprecated?
 
-When need to mention someone or something.
+<div class="ant-alert ant-alert-error ant-alert-no-icon">
+Mention use
+<a href="https://www.npmjs.com/package/draft-js" target="_blank" rel="noopener noreferrer">Draft.js</a>
+to measure tips position, which use nearly 11.6% package size. We hope to reduce bundle size by using lightweight solution to handle this.
+</div>
 
 ## API
 
@@ -22,7 +26,7 @@ When need to mention someone or something.
 ### Mention API
 
 | API | Description | Type |
-| --- | ----------- | ---- |
+| --- | --- | --- |
 | getMentions | get mentioned people in current contentState | Function(ContentState: contentState): string\[] |
 | toContentState | convert string to ContentState | Function(value: string): ContentState |
 | toString | convert ContentState to string | Function(contentState: ContentState): string |
@@ -30,7 +34,7 @@ When need to mention someone or something.
 ### Mention
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | autoFocus | get focus when component mounted | boolean | false |
 | defaultValue | default value | ContentState, you can use `Mention.toContentState` to convert text to `ContentState` | null |
 | defaultSuggestions | default suggestion content | Array&lt;string\|Mention.Nav> | \[] |
@@ -54,14 +58,14 @@ When need to mention someone or something.
 
 ### Mention methods
 
-| Name | Description |
-| ---- | ----------- |
-| blur() | remove focus |
-| focus() | get focus |
+| Name    | Description  |
+| ------- | ------------ |
+| blur()  | remove focus |
+| focus() | get focus    |
 
 ### Nav
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | children | suggestion content | object | {} |
 | value | value of suggestion, the value will insert into input filed while selected | string | "" |

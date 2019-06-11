@@ -6,7 +6,8 @@ import { BreadcrumbProps } from '../breadcrumb';
 import Divider from '../divider';
 import Tag from '../tag';
 import Breadcrumb from '../breadcrumb';
-import Wave from '../_util/wave';
+import TransButton from '../_util/transButton';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 
 export interface PageHeaderProps {
   backIcon?: React.ReactNode;
@@ -18,7 +19,7 @@ export interface PageHeaderProps {
   tags?: React.ReactElement<Tag> | React.ReactElement<Tag>[];
   footer?: React.ReactNode;
   extra?: React.ReactNode;
-  onBack?: (e: React.MouseEvent<HTMLElement>) => void;
+  onBack?: (e: React.MouseEvent<HTMLDivElement>) => void;
   className?: string;
 }
 
@@ -31,17 +32,24 @@ const renderBack = (
     return null;
   }
   return (
-    <div
-      className={`${prefixCls}-back-icon`}
-      onClick={e => {
-        if (onBack) {
-          onBack(e);
-        }
-      }}
-    >
-      <Wave>{backIcon}</Wave>
-      <Divider type="vertical" />
-    </div>
+    <LocaleReceiver componentName="PageHeader">
+      {({ back }: { back: string }) => (
+        <div className={`${prefixCls}-back`}>
+          <TransButton
+            onClick={(e: React.MouseEvent<HTMLDivElement>) => {
+              if (onBack) {
+                onBack(e);
+              }
+            }}
+            className={`${prefixCls}-back-button`}
+            aria-label={back}
+          >
+            {backIcon}
+          </TransButton>
+          <Divider type="vertical" />
+        </div>
+      )}
+    </LocaleReceiver>
   );
 };
 
@@ -60,14 +68,17 @@ const renderHeader = (prefixCls: string, props: PageHeaderProps) => {
 const renderTitle = (prefixCls: string, props: PageHeaderProps) => {
   const { title, subTitle, tags, extra } = props;
   const titlePrefixCls = `${prefixCls}-title-view`;
-  return (
-    <div className={`${prefixCls}-title-view`}>
-      <span className={`${titlePrefixCls}-title`}>{title}</span>
-      {subTitle && <span className={`${titlePrefixCls}-sub-title`}>{subTitle}</span>}
-      {tags && <span className={`${titlePrefixCls}-tags`}>{tags}</span>}
-      {extra && <span className={`${titlePrefixCls}-extra`}>{extra}</span>}
-    </div>
-  );
+  if (title || subTitle || tags || extra) {
+    return (
+      <div className={titlePrefixCls}>
+        {title && <span className={`${titlePrefixCls}-title`}>{title}</span>}
+        {subTitle && <span className={`${titlePrefixCls}-sub-title`}>{subTitle}</span>}
+        {tags && <span className={`${titlePrefixCls}-tags`}>{tags}</span>}
+        {extra && <span className={`${titlePrefixCls}-extra`}>{extra}</span>}
+      </div>
+    );
+  }
+  return null;
 };
 
 const renderFooter = (prefixCls: string, footer: React.ReactNode) => {

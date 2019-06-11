@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @table-prefix-cls: ~'@{ant-prefix}-table';
@@ -270,8 +270,8 @@
 
   &-title + &-content {
     position: relative;
-    overflow: hidden;
     border-radius: @table-border-radius-base @table-border-radius-base 0 0;
+
     .@{table-prefix-cls}-bordered & {
       &,
       table,
@@ -294,6 +294,7 @@
   }
 
   &-tbody > tr.@{table-prefix-cls}-row-selected td {
+    color: @table-selected-row-color;
     background: @table-selected-row-bg;
   }
 
@@ -308,22 +309,6 @@
   &-thead > tr > th,
   &-tbody > tr > td {
     padding: @table-padding-vertical @table-padding-horizontal;
-  }
-
-  &-thead > tr > th.@{table-prefix-cls}-selection-column-custom {
-    .@{table-prefix-cls}-selection {
-      margin-right: -15px;
-    }
-  }
-
-  &-thead > tr > th.@{table-prefix-cls}-selection-column,
-  &-tbody > tr > td.@{table-prefix-cls}-selection-column {
-    width: @table-selection-column-width;
-    text-align: center;
-
-    .@{ant-prefix}-radio-wrapper {
-      margin-right: 0;
-    }
   }
 
   &-expand-icon-th,
@@ -561,10 +546,6 @@
         content: '.';
       }
     }
-
-    &[class*='@{table-prefix-cls}-row-level-0'] .@{table-prefix-cls}-selection-column > span {
-      display: inline-block;
-    }
   }
 
   tr&-expanded-row {
@@ -616,6 +597,20 @@
     // Workaround for additional scroll bar on the table header
     // https://github.com/ant-design/ant-design/issues/6515#issuecomment-419634369
     opacity: 0.9999;
+
+    &::-webkit-scrollbar {
+      border-bottom: 1px solid @border-color-split;
+    }
+  }
+
+  &-hide-scrollbar {
+    // https://github.com/ant-design/ant-design/issues/4637
+    // https://stackoverflow.com/a/54101063
+    // https://github.com/react-component/table/pull/333
+    scrollbar-color: transparent transparent;
+    &::-webkit-scrollbar {
+      background-color: transparent;
+    }
   }
 
   &-fixed-left,
@@ -684,6 +679,43 @@
 
   &&-scroll-position-right &-fixed-right {
     box-shadow: none;
+  }
+
+  // ========================== Row Selection ==========================
+  colgroup {
+    > col.@{table-prefix-cls}-selection-col {
+      width: @table-selection-column-width;
+    }
+  }
+
+  &-thead > tr > th.@{table-prefix-cls}-selection-column-custom {
+    .@{table-prefix-cls}-selection {
+      margin-right: -15px;
+    }
+  }
+
+  &-thead > tr > th.@{table-prefix-cls}-selection-column,
+  &-tbody > tr > td.@{table-prefix-cls}-selection-column {
+    text-align: center;
+
+    .@{ant-prefix}-radio-wrapper {
+      margin-right: 0;
+    }
+  }
+
+  &-row[class*='@{table-prefix-cls}-row-level-0'] .@{table-prefix-cls}-selection-column > span {
+    display: inline-block;
+  }
+}
+
+/**
+* Another fix of Firefox:
+* - https://github.com/ant-design/ant-design/issues/12628
+* - https://github.com/ant-design/ant-design/issues/12628
+*/
+@supports (-moz-appearance: meterbar) {
+  .@{table-prefix-cls}-thead > tr > th.@{table-prefix-cls}-column-has-actions {
+    background-clip: padding-box;
   }
 }
 

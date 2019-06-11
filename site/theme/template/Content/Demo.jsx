@@ -179,7 +179,10 @@ export default class Demo extends React.Component {
       (acc, line) => {
         const matches = line.match(/import .+? from '(.+)';$/);
         if (matches && matches[1] && !line.includes('antd')) {
-          acc[matches[1]] = 'latest';
+          const [dep] = matches[1].split('/');
+          if (dep) {
+            acc[dep] = 'latest';
+          }
         }
         return acc;
       },

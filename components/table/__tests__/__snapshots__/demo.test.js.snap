@@ -2427,7 +2427,9 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                   <col
                     class="ant-table-expand-icon-col"
                   />
-                  <col />
+                  <col
+                    class="ant-table-selection-col"
+                  />
                   <col
                     style="width:150px;min-width:150px"
                   />
@@ -4060,11 +4062,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <div>
-                      <a>
-                        Edit
-                      </a>
-                    </div>
+                    <a>
+                      Edit
+                    </a>
                   </td>
                 </tr>
                 <tr
@@ -4093,11 +4093,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <div>
-                      <a>
-                        Edit
-                      </a>
-                    </div>
+                    <a>
+                      Edit
+                    </a>
                   </td>
                 </tr>
                 <tr
@@ -4126,11 +4124,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <div>
-                      <a>
-                        Edit
-                      </a>
-                    </div>
+                    <a>
+                      Edit
+                    </a>
                   </td>
                 </tr>
                 <tr
@@ -4159,11 +4155,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <div>
-                      <a>
-                        Edit
-                      </a>
-                    </div>
+                    <a>
+                      Edit
+                    </a>
                   </td>
                 </tr>
                 <tr
@@ -4192,11 +4186,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <div>
-                      <a>
-                        Edit
-                      </a>
-                    </div>
+                    <a>
+                      Edit
+                    </a>
                   </td>
                 </tr>
                 <tr
@@ -4225,11 +4217,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <div>
-                      <a>
-                        Edit
-                      </a>
-                    </div>
+                    <a>
+                      Edit
+                    </a>
                   </td>
                 </tr>
                 <tr
@@ -4258,11 +4248,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <div>
-                      <a>
-                        Edit
-                      </a>
-                    </div>
+                    <a>
+                      Edit
+                    </a>
                   </td>
                 </tr>
                 <tr
@@ -4291,11 +4279,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <div>
-                      <a>
-                        Edit
-                      </a>
-                    </div>
+                    <a>
+                      Edit
+                    </a>
                   </td>
                 </tr>
                 <tr
@@ -4324,11 +4310,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <div>
-                      <a>
-                        Edit
-                      </a>
-                    </div>
+                    <a>
+                      Edit
+                    </a>
                   </td>
                 </tr>
                 <tr
@@ -4357,11 +4341,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <div>
-                      <a>
-                        Edit
-                      </a>
-                    </div>
+                    <a>
+                      Edit
+                    </a>
                   </td>
                 </tr>
               </tbody>
@@ -4860,7 +4842,9 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
               class=""
             >
               <colgroup>
-                <col />
+                <col
+                  class="ant-table-selection-col"
+                />
                 <col />
                 <col
                   style="width:12%;min-width:12%"
@@ -5825,7 +5809,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
             class="ant-table-scroll"
           >
             <div
-              class="ant-table-header"
+              class="ant-table-header ant-table-hide-scrollbar"
             >
               <table
                 class="ant-table-fixed"
@@ -6802,7 +6786,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
             class="ant-table-fixed-left"
           >
             <div
-              class="ant-table-header"
+              class="ant-table-header ant-table-hide-scrollbar"
             >
               <table
                 class="ant-table-fixed"
@@ -7080,7 +7064,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
             class="ant-table-fixed-right"
           >
             <div
-              class="ant-table-header"
+              class="ant-table-header ant-table-hide-scrollbar"
             >
               <table
                 class="ant-table-fixed"
@@ -7463,7 +7447,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
             class="ant-table-scroll"
           >
             <div
-              class="ant-table-header"
+              class="ant-table-header ant-table-hide-scrollbar"
             >
               <table
                 class=""
@@ -8871,7 +8855,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             class="ant-table-scroll"
           >
             <div
-              class="ant-table-header"
+              class="ant-table-header ant-table-hide-scrollbar"
             >
               <table
                 class="ant-table-fixed"
@@ -8893,7 +8877,9 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   <col
                     style="width:100px;min-width:100px"
                   />
-                  <col />
+                  <col
+                    style="width:200px;min-width:200px"
+                  />
                   <col />
                   <col
                     style="width:80px;min-width:80px"
@@ -9230,7 +9216,9 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   <col
                     style="width:100px;min-width:100px"
                   />
-                  <col />
+                  <col
+                    style="width:200px;min-width:200px"
+                  />
                   <col />
                   <col
                     style="width:80px;min-width:80px"
@@ -9737,7 +9725,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             class="ant-table-fixed-left"
           >
             <div
-              class="ant-table-header"
+              class="ant-table-header ant-table-hide-scrollbar"
             >
               <table
                 class="ant-table-fixed"
@@ -9963,7 +9951,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             class="ant-table-fixed-right"
           >
             <div
-              class="ant-table-header"
+              class="ant-table-header ant-table-hide-scrollbar"
             >
               <table
                 class="ant-table-fixed"
@@ -12103,7 +12091,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                       </div>
                     </span>
                     <span
-                      class="react-resizable-handle"
+                      class="react-resizable-handle react-resizable-handle-se"
                       style="touch-action:none"
                     />
                   </th>
@@ -12125,7 +12113,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                       </div>
                     </span>
                     <span
-                      class="react-resizable-handle"
+                      class="react-resizable-handle react-resizable-handle-se"
                       style="touch-action:none"
                     />
                   </th>
@@ -12147,7 +12135,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                       </div>
                     </span>
                     <span
-                      class="react-resizable-handle"
+                      class="react-resizable-handle react-resizable-handle-se"
                       style="touch-action:none"
                     />
                   </th>
@@ -12169,7 +12157,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                       </div>
                     </span>
                     <span
-                      class="react-resizable-handle"
+                      class="react-resizable-handle react-resizable-handle-se"
                       style="touch-action:none"
                     />
                   </th>
@@ -12415,7 +12403,9 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
               class=""
             >
               <colgroup>
-                <col />
+                <col
+                  class="ant-table-selection-col"
+                />
                 <col />
                 <col />
                 <col />
@@ -12842,7 +12832,9 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                 class=""
               >
                 <colgroup>
-                  <col />
+                  <col
+                    class="ant-table-selection-col"
+                  />
                   <col />
                   <col />
                   <col />
@@ -13539,7 +13531,9 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
               class=""
             >
               <colgroup>
-                <col />
+                <col
+                  class="ant-table-selection-col"
+                />
                 <col />
                 <col />
                 <col />

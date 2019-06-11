@@ -36,7 +36,7 @@ Some component use dynamic style to support wave effect. You can config `csp` pr
 ## API
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | autoInsertSpaceInButton | Set `false` to remove space between 2 chinese characters on Button | boolean | true |
 | csp | Set [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) config | { nonce: string } | - |
 | renderEmpty | set empty content of components. Ref [Empty](/components/empty/) | Function(componentName: string): ReactNode | - |

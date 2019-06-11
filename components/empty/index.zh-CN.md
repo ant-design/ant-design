@@ -29,10 +29,10 @@ cols: 1
 
 ## 内置图片 (3.16.0 以上版本)
 
-+ Empty.PRESENTED_IMAGE_SIMPLE
+- Empty.PRESENTED_IMAGE_SIMPLE
 
   <img src="https://user-images.githubusercontent.com/507615/54591679-b0ceb580-4a65-11e9-925c-ad15b4eae93d.png" height="35px">
 
-+ Empty.PRESENTED_IMAGE_DEFAULT
+- Empty.PRESENTED_IMAGE_DEFAULT
 
   <img src="https://user-images.githubusercontent.com/507615/54591670-ac0a0180-4a65-11e9-846c-e55ffce0fe7b.png" height="100px">
