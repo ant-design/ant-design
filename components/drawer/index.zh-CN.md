@@ -33,6 +33,7 @@ title: Drawer
 | className | 对话框外层容器的类名 | string | - |
 | zIndex | 设置 Drawer 的 `z-index` | Number | 1000 |
 | placement | 抽屉的方向 | 'top' \| 'right' \| 'bottom' \| 'left' | 'right' |
+| extra | 遮罩层卡片右上角的操作区域 | string \| ReactNode | - |
 | onClose | 点击遮罩层或右上角叉或取消按钮的回调 | function(e) | 无 |
 | afterVisibleChange | 切换抽屉时动画结束后的回调 | function(visible) | 无 |
 
