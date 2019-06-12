@@ -5809,7 +5809,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
             class="ant-table-scroll"
           >
             <div
-              class="ant-table-header ant-table-hide-scrollbar"
+              class="ant-table-header"
             >
               <table
                 class="ant-table-fixed"
@@ -6786,7 +6786,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
             class="ant-table-fixed-left"
           >
             <div
-              class="ant-table-header ant-table-hide-scrollbar"
+              class="ant-table-header"
             >
               <table
                 class="ant-table-fixed"
@@ -7064,7 +7064,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
             class="ant-table-fixed-right"
           >
             <div
-              class="ant-table-header ant-table-hide-scrollbar"
+              class="ant-table-header"
             >
               <table
                 class="ant-table-fixed"
@@ -7447,7 +7447,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
             class="ant-table-scroll"
           >
             <div
-              class="ant-table-header ant-table-hide-scrollbar"
+              class="ant-table-header"
             >
               <table
                 class=""
@@ -8855,7 +8855,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             class="ant-table-scroll"
           >
             <div
-              class="ant-table-header ant-table-hide-scrollbar"
+              class="ant-table-header"
             >
               <table
                 class="ant-table-fixed"
@@ -9725,7 +9725,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             class="ant-table-fixed-left"
           >
             <div
-              class="ant-table-header ant-table-hide-scrollbar"
+              class="ant-table-header"
             >
               <table
                 class="ant-table-fixed"
@@ -9951,7 +9951,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             class="ant-table-fixed-right"
           >
             <div
-              class="ant-table-header ant-table-hide-scrollbar"
+              class="ant-table-header"
             >
               <table
                 class="ant-table-fixed"
