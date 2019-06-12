@@ -604,11 +604,6 @@
     }
   }
 
-  &-bordered&-fixed-header &-scroll &-header::-webkit-scrollbar {
-    border: 1px solid @border-color-split;
-    border-width: 1px 1px 0 0;
-  }
-
   &-hide-scrollbar {
     // https://github.com/ant-design/ant-design/issues/4637
     // https://stackoverflow.com/a/54101063
@@ -616,6 +611,17 @@
     scrollbar-color: transparent transparent;
     &::-webkit-scrollbar {
       background-color: transparent;
+    }
+  }
+
+  // optimize header style of borderd table after hide extra scrollbar
+  &-bordered&-fixed-header &-scroll &-header {
+    &::-webkit-scrollbar {
+      border: 1px solid @border-color-split;
+      border-width: 1px 1px 1px 0;
+    }
+    &.@{table-prefix-cls}-hide-scrollbar .@{table-prefix-cls}-thead > tr > th:last-child {
+      border-right-color: transparent;
     }
   }
 
