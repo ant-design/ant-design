@@ -599,8 +599,14 @@
     opacity: 0.9999;
 
     &::-webkit-scrollbar {
-      border-bottom: 1px solid @border-color-split;
+      border: 1px solid @border-color-split;
+      border-width: 0 0 1px 0;
     }
+  }
+
+  &-bordered&-fixed-header &-scroll &-header::-webkit-scrollbar {
+    border: 1px solid @border-color-split;
+    border-width: 1px 1px 0 0;
   }
 
   &-hide-scrollbar {
