@@ -11,7 +11,7 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 export interface DescriptionsItemProps {
   prefixCls?: string;
   label: React.ReactNode;
-  children: JSX.Element;
+  children: React.ReactNode;
   span?: number;
 }
 
