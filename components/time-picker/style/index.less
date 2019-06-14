@@ -225,3 +225,14 @@
     right: @control-padding-horizontal-sm - 1px;
   }
 }
+
+// Fix cursor height in safari
+// https://stackoverflow.com/q/3843408/3040605
+// https://browserstrangeness.github.io/css_hacks.html#safari
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) and (stroke-color: transparent) {
+    .@{ant-prefix}-input {
+      line-height: @line-height-base;
+    }
+  }
+}

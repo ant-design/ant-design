@@ -70,6 +70,24 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
         'see: https://u.ant.design/item-render.',
     );
   }
+
+  getPath = (path: string, params: any) => {
+     path = (path || '').replace(/^\//, '');
+     Object.keys(params).forEach(key => {
+         path = path.replace(`:${key}`, params[key]);
+     });
+     return path;
+  }
+
+  addChildPath = (paths: string[], childPath: string = '', params: any) => {
+    const originalPaths = [...paths];
+    const path = this.getPath(childPath, params);
+    if (path) {
+       originalPaths.push(path);
+    }
+    return originalPaths;
+ }
+
   genForRoutes = ({
     routes = [],
     params = {},
@@ -78,11 +96,7 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
   }: BreadcrumbProps) => {
     const paths: string[] = [];
     return routes.map(route => {
-      route.path = route.path || '';
-      let path = route.path.replace(/^\//, '');
-      Object.keys(params).forEach(key => {
-        path = path.replace(`:${key}`, params[key]);
-      });
+      const path = this.getPath(route.path, params);
 
       if (path) {
         paths.push(path);
@@ -93,10 +107,12 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
         overlay = (
           <Menu>
             {route.children.map(child => (
-              <Menu.Item key={child.breadcrumbName || child.path}>
-                {itemRender(child, params, routes, paths)}
-              </Menu.Item>
-            ))}
+                <Menu.Item key={child.breadcrumbName || child.path}>
+                  {
+                    itemRender(child, params, routes, this.addChildPath(paths, child.path, params))
+                  }
+                </Menu.Item>
+             ))}
           </Menu>
         );
       }

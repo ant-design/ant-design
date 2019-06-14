@@ -15,6 +15,41 @@ timeline: true
 
 ---
 
+## 3.19.3
+
+`2019-06-06`
+
+- 📝 Add FAQ for DatePicker/RangePicker with `mode` cannot be selected. [#16984](https://github.com/ant-design/ant-design/pull/16984)
+- 🐞 Fix Breadcrumb validateDOMNesting warning. [#16929](https://github.com/ant-design/ant-design/pull/16929)
+- 🐞 Fix Breadcrumb path error when `children` is selected. [#16885](https://github.com/ant-design/ant-design/pull/16885) [@haianweifeng](https://github.com/haianweifeng)
+- 🐞 Fix InputNumber with `number` type display native spinner. [#16926](https://github.com/ant-design/ant-design/pull/16926)
+- 🐞 Fix Transfer render Empty when customize without data. [#16925](https://github.com/ant-design/ant-design/pull/16925)
+- 🐞 **Fix Table header extra vertical scrollbar problem.** [#16950](https://github.com/ant-design/ant-design/pull/16950)
+- 🐞 Fix Table miss `border-radius` in Firefox. [#16957](https://github.com/ant-design/ant-design/pull/16957)
+- 🐞 Fix Table error when `rowSelection.getCheckboxProps()` has no return value. [#15224](https://github.com/ant-design/ant-design/pull/15224)
+- 🐞 Fix Table abnormal scrollbar in Chrome when using `title` and `rowSelection`.
+ [#16934](https://github.com/ant-design/ant-design/pull/16934)
+- 🐞 Fix Divider `orientation="center"` style. [#16988](https://github.com/ant-design/ant-design/pull/16988)
+- 🐞 Fix Cascader error when type space. [#16918](https://github.com/ant-design/ant-design/pull/16918) [@Durisvk](https://github.com/Durisvk)
+- 🐞 Fix missing spanish translations. [#17002](https://github.com/ant-design/ant-design/pull/17002) [@morellan](https://github.com/morellan)
+- TypeScript
+  - 🐞 Fix Upload `RcFile` definition. [#16851](https://github.com/ant-design/ant-design/pull/16851)
+  - ⚡️ Export `TextProps` type in Typography. [#17003](https://github.com/ant-design/ant-design/pull/17003) [@Jarvis1010](https://github.com/Jarvis1010)
+
+## 3.19.2
+
+`2019-06-01`
+
+- 🐞 Fix Tabs vertical card mode not scrollable. [#16825](https://github.com/ant-design/ant-design/pull/16825)
+- 🐞 Fix Transfer warn `setStart` on an unmounted component. [#16822](https://github.com/ant-design/ant-design/pull/16822) [@shiningjason](https://github.com/shiningjason)
+- 💄 Using less variables `@error-color`, `@warning-color` instead of `@text-color-danger`, `@text-color-warning`. [#16890](https://github.com/ant-design/ant-design/pull/16890) [@MrHeer](https://github.com/MrHeer)
+- 💄 Add warning if Menu use `inlineCollapsed` under Sider. [#16826](https://github.com/ant-design/ant-design/pull/16826)
+- TypeScript
+  - ⚡️ Add `forceSubmenuRender` into MenuProps. [#16827](https://github.com/ant-design/ant-design/pull/16827)
+  - ⚡️ Export `TypographyProps` type. [#16835](https://github.com/ant-design/ant-design/pull/16835)
+  - ⚡️ Add `onChange` prop type definition to Steps. [#16845](https://github.com/ant-design/ant-design/pull/16845) [@JonathanLee-LX](https://github.com/JonathanLee-LX)
+  - ⚡️ Add `webkitRelativePath` prop type definition to Upload. [#16850](https://github.com/ant-design/ant-design/pull/16850) [@DiamondYuan](https://github.com/DiamondYuan)
+
 ## 3.19.1
 
 `2019-05-27`

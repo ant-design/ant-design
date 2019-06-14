@@ -71,10 +71,10 @@ export default class BreadcrumbItem extends React.Component<BreadcrumbItemProps,
     if (overlay) {
       return (
         <DropDown overlay={overlay} placement="bottomCenter">
-          <a className={`${prefixCls}-overlay-link`}>
+          <span className={`${prefixCls}-overlay-link`}>
             {breadcrumbItem}
             <Icon type="down" />
-          </a>
+          </span>
         </DropDown>
       );
     }

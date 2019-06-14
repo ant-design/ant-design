@@ -1,6 +1,7 @@
 /* eslint no-param-reassign: 0 */
 // This config is for building dist files
 const getWebpackConfig = require('antd-tools/lib/getWebpackConfig');
+const PacktrackerPlugin = require('@packtracker/webpack-plugin');
 
 const { webpack } = getWebpackConfig;
 
@@ -35,6 +36,15 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
     ignoreMomentLocale(config);
     externalMoment(config);
     addLocales(config);
+    // https://docs.packtracker.io/uploading-your-webpack-stats/webpack-plugin
+    config.plugins.push(
+      new PacktrackerPlugin({
+        project_token: '8adbb892-ee4a-4d6f-93bb-a03219fb6778',
+        upload: process.env.CI === 'true',
+        fail_build: true,
+        exclude_assets: name => !['antd.min.js', 'antd.min.css'].includes(name),
+      }),
+    );
   });
 }
 
