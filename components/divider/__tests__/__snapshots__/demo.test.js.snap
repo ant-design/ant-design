@@ -12,7 +12,7 @@ exports[`renders ./components/divider/demo/horizontal.md correctly 1`] = `
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text-center"
   >
     <span
       class="ant-divider-inner-text"

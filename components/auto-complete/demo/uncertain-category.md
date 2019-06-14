@@ -42,7 +42,7 @@ function renderOption(item) {
     <Option key={item.category} text={item.category}>
       <div className="global-search-item">
         <span className="global-search-item-desc">
-          {item.query} 在
+          Found {item.query} on
           <a
             href={`https://s.taobao.com/search?q=${item.query}`}
             target="_blank"
@@ -50,9 +50,8 @@ function renderOption(item) {
           >
             {item.category}
           </a>
-          区块中
         </span>
-        <span className="global-search-item-count">约 {item.count} 个结果</span>
+        <span className="global-search-item-count">{item.count} results</span>
       </div>
     </Option>
   );
@@ -85,7 +84,12 @@ class Complete extends React.Component {
         >
           <Input
             suffix={
-              <Button className="search-btn" size="large" type="primary">
+              <Button
+                className="search-btn"
+                style={{ marginRight: -12 }}
+                size="large"
+                type="primary"
+              >
                 <Icon type="search" />
               </Button>
             }
@@ -114,10 +118,6 @@ ReactDOM.render(<Complete />, mountNode);
 
 .global-search.ant-select-auto-complete .ant-input-affix-wrapper .ant-input:not(:last-child) {
   padding-right: 62px;
-}
-
-.global-search.ant-select-auto-complete .ant-input-affix-wrapper .ant-input-suffix {
-  right: 0;
 }
 
 .global-search.ant-select-auto-complete .ant-input-affix-wrapper .ant-input-suffix button {

@@ -8,7 +8,8 @@ export interface HttpRequestHeader {
 
 export interface RcFile extends File {
   uid: string;
-  lastModifiedDate: Date;
+  readonly lastModifiedDate: Date;
+  readonly webkitRelativePath: string;
 }
 
 export interface UploadFile {
@@ -27,7 +28,6 @@ export interface UploadFile {
   error?: any;
   linkProps?: any;
   type: string;
-  webkitRelativePath?: string;
 }
 
 export interface UploadChangeParam<T extends object = UploadFile> {
@@ -59,7 +59,7 @@ export interface UploadProps {
   name?: string;
   defaultFileList?: Array<UploadFile>;
   fileList?: Array<UploadFile>;
-  action?: string | ((file: UploadFile) => string) | ((file: UploadFile) => PromiseLike<string>);
+  action?: string | ((file: RcFile) => string) | ((file: RcFile) => PromiseLike<string>);
   directory?: boolean;
   data?: Object | ((file: UploadFile) => any);
   headers?: HttpRequestHeader;

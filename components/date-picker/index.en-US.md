@@ -135,3 +135,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
   margin: 0 8px 12px 0;
 }
 </style>
+
+## FAQ
+
+- [When set mode to DatePicker/RangePicker, cannot select year or month anymore?](/docs/react/faq#When-set-mode-to-DatePicker/RangePicker,-cannot-select-year-or-month-anymore?)
