@@ -20,7 +20,7 @@ const { Option, OptGroup } = AutoComplete;
 
 const dataSource = [
   {
-    title: '话题',
+    title: 'Libraries',
     children: [
       {
         title: 'AntDesign',
@@ -33,23 +33,23 @@ const dataSource = [
     ],
   },
   {
-    title: '问题',
+    title: 'Solutions',
     children: [
       {
-        title: 'AntDesign UI 有多好',
+        title: 'AntDesign UI',
         count: 60100,
       },
       {
-        title: 'AntDesign 是啥',
+        title: 'AntDesign',
         count: 30010,
       },
     ],
   },
   {
-    title: '文章',
+    title: 'Articles',
     children: [
       {
-        title: 'AntDesign 是一个设计语言',
+        title: 'AntDesign design language',
         count: 100000,
       },
     ],
@@ -66,7 +66,7 @@ function renderTitle(title) {
         target="_blank"
         rel="noopener noreferrer"
       >
-        更多
+        more
       </a>
     </span>
   );
@@ -78,7 +78,7 @@ const options = dataSource
       {group.children.map(opt => (
         <Option key={opt.title} value={opt.title}>
           {opt.title}
-          <span className="certain-search-item-count">{opt.count} 人 关注</span>
+          <span className="certain-search-item-count">{opt.count} people</span>
         </Option>
       ))}
     </OptGroup>
@@ -86,7 +86,7 @@ const options = dataSource
   .concat([
     <Option disabled key="all" className="show-all">
       <a href="https://www.google.com/search?q=antd" target="_blank" rel="noopener noreferrer">
-        查看所有结果
+        View all results
       </a>
     </Option>,
   ]);

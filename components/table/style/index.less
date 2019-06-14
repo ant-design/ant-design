@@ -32,174 +32,169 @@
     border-collapse: collapse;
   }
 
-  &-thead > tr {
-    // For Chrome extra space:
-    // - https://github.com/ant-design/ant-design/issues/14926
-    // - https://github.com/ant-design/ant-design/issues/16131
+  &-thead > tr > th {
+    color: @table-header-color;
+    font-weight: 500;
+    text-align: left;
     background: @table-header-bg;
+    border-bottom: @border-width-base @border-style-base @border-color-split;
+    transition: background 0.3s ease;
 
-    > th {
-      color: @table-header-color;
-      font-weight: 500;
-      text-align: left;
-      background: transparent;
-      border-bottom: @border-width-base @border-style-base @border-color-split;
-      transition: background 0.3s ease;
+    &[colspan] {
+      text-align: center;
+    }
 
-      &[colspan] {
-        text-align: center;
-      }
+    .@{iconfont-css-prefix}-filter,
+    .@{table-prefix-cls}-filter-icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 28px;
+      height: 100%;
+      color: @table-header-icon-color;
+      font-size: @font-size-sm;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
 
-      .@{iconfont-css-prefix}-filter,
-      .@{table-prefix-cls}-filter-icon {
+      > svg {
         position: absolute;
-        top: 0;
-        right: 0;
-        width: 28px;
-        height: 100%;
+        top: 50%;
+        left: 50%;
+        margin-top: -@font-size-sm / 2 + 1px;
+        margin-left: -@font-size-sm / 2;
+      }
+    }
+
+    .@{table-prefix-cls}-filter-selected.@{iconfont-css-prefix}-filter {
+      color: @primary-color;
+    }
+
+    .@{table-prefix-cls}-column-sorter {
+      display: table-cell;
+      vertical-align: middle;
+
+      .@{table-prefix-cls}-column-sorter-inner {
+        height: 1em;
+        margin-top: 0.35em;
+        margin-left: 0.57142857em;
         color: @table-header-icon-color;
-        font-size: @font-size-sm;
+        line-height: 1em;
         text-align: center;
-        cursor: pointer;
         transition: all 0.3s;
 
-        > svg {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          margin-top: -@font-size-sm / 2 + 1px;
-          margin-left: -@font-size-sm / 2;
-        }
-      }
+        .@{table-prefix-cls}-column-sorter-up,
+        .@{table-prefix-cls}-column-sorter-down {
+          .iconfont-size-under-12px(11px);
 
-      .@{table-prefix-cls}-filter-selected.@{iconfont-css-prefix}-filter {
-        color: @primary-color;
-      }
-
-      .@{table-prefix-cls}-column-sorter {
-        display: table-cell;
-        vertical-align: middle;
-
-        .@{table-prefix-cls}-column-sorter-inner {
+          display: block;
           height: 1em;
-          margin-top: 0.35em;
-          margin-left: 0.57142857em;
-          color: @table-header-icon-color;
           line-height: 1em;
-          text-align: center;
           transition: all 0.3s;
+          &.on {
+            color: @primary-color;
+          }
+        }
+
+        &-full {
+          margin-top: -0.15em;
 
           .@{table-prefix-cls}-column-sorter-up,
           .@{table-prefix-cls}-column-sorter-down {
-            .iconfont-size-under-12px(11px);
-
-            display: block;
-            height: 1em;
-            line-height: 1em;
-            transition: all 0.3s;
-            &.on {
-              color: @primary-color;
-            }
+            height: 0.5em;
+            line-height: 0.5em;
           }
 
-          &-full {
-            margin-top: -0.15em;
-
-            .@{table-prefix-cls}-column-sorter-up,
-            .@{table-prefix-cls}-column-sorter-down {
-              height: 0.5em;
-              line-height: 0.5em;
-            }
-
-            .@{table-prefix-cls}-column-sorter-down {
-              margin-top: 0.125em;
-            }
+          .@{table-prefix-cls}-column-sorter-down {
+            margin-top: 0.125em;
           }
         }
       }
+    }
 
-      &.@{table-prefix-cls}-column-has-actions {
-        position: relative;
-        background-clip: padding-box; // For Firefox background bug, https://github.com/ant-design/ant-design/issues/12628
+    &.@{table-prefix-cls}-column-has-actions {
+      position: relative;
+      background-clip: padding-box; // For Firefox background bug, https://github.com/ant-design/ant-design/issues/12628
+      /* stylelint-disable-next-line */
+      -webkit-background-clip: border-box; // For Chrome extra space: https://github.com/ant-design/ant-design/issues/14926
 
-        &.@{table-prefix-cls}-column-has-filters {
-          // https://github.com/ant-design/ant-design/issues/12650
-          padding-right: 30px !important;
+      &.@{table-prefix-cls}-column-has-filters {
+        // https://github.com/ant-design/ant-design/issues/12650
+        padding-right: 30px !important;
 
+        .@{iconfont-css-prefix}-filter,
+        .@{table-prefix-cls}-filter-icon {
+          &.@{table-prefix-cls}-filter-open {
+            color: @text-color-secondary;
+            background: @table-header-filter-active-bg;
+          }
+        }
+        // Very complicated styles logic but necessary
+        &:hover {
           .@{iconfont-css-prefix}-filter,
           .@{table-prefix-cls}-filter-icon {
-            &.@{table-prefix-cls}-filter-open {
+            &:hover {
               color: @text-color-secondary;
               background: @table-header-filter-active-bg;
             }
-          }
-          // Very complicated styles logic but necessary
-          &:hover {
-            .@{iconfont-css-prefix}-filter,
-            .@{table-prefix-cls}-filter-icon {
-              &:hover {
-                color: @text-color-secondary;
-                background: @table-header-filter-active-bg;
-              }
-              &:active {
-                color: @text-color;
-              }
+            &:active {
+              color: @text-color;
             }
-          }
-        }
-
-        &.@{table-prefix-cls}-column-has-sorters {
-          cursor: pointer;
-          &:hover {
-            background: @table-header-sort-active-bg;
-            .@{iconfont-css-prefix}-filter,
-            .@{table-prefix-cls}-filter-icon {
-              background: @table-header-sort-active-bg;
-            }
-          }
-          &:active {
-            .@{table-prefix-cls}-column-sorter-up:not(.on),
-            .@{table-prefix-cls}-column-sorter-down:not(.on) {
-              color: @text-color-secondary;
-            }
-          }
-        }
-      }
-
-      .@{table-prefix-cls}-header-column {
-        display: inline-block;
-        vertical-align: top;
-
-        .@{table-prefix-cls}-column-sorters {
-          display: table;
-
-          > .@{table-prefix-cls}-column-title {
-            display: table-cell;
-            vertical-align: middle;
-          }
-
-          > *:not(.@{table-prefix-cls}-column-sorter) {
-            position: relative;
-          }
-          &::before {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background: transparent;
-            transition: all 0.3s;
-            content: '';
-          }
-          &:hover::before {
-            background: rgba(0, 0, 0, 0.04);
           }
         }
       }
 
       &.@{table-prefix-cls}-column-has-sorters {
-        user-select: none;
+        cursor: pointer;
+        &:hover {
+          background: @table-header-sort-active-bg;
+          .@{iconfont-css-prefix}-filter,
+          .@{table-prefix-cls}-filter-icon {
+            background: @table-header-sort-active-bg;
+          }
+        }
+        &:active {
+          .@{table-prefix-cls}-column-sorter-up:not(.on),
+          .@{table-prefix-cls}-column-sorter-down:not(.on) {
+            color: @text-color-secondary;
+          }
+        }
       }
+    }
+
+    .@{table-prefix-cls}-header-column {
+      display: inline-block;
+      vertical-align: top;
+
+      .@{table-prefix-cls}-column-sorters {
+        display: table;
+
+        > .@{table-prefix-cls}-column-title {
+          display: table-cell;
+          vertical-align: middle;
+        }
+
+        > *:not(.@{table-prefix-cls}-column-sorter) {
+          position: relative;
+        }
+        &::before {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background: transparent;
+          transition: all 0.3s;
+          content: '';
+        }
+        &:hover::before {
+          background: rgba(0, 0, 0, 0.04);
+        }
+      }
+    }
+
+    &.@{table-prefix-cls}-column-has-sorters {
+      user-select: none;
     }
   }
 
@@ -248,6 +243,10 @@
     }
   }
 
+  &-thead > tr:hover {
+    background: none;
+  }
+
   &-footer {
     position: relative;
     padding: @table-padding-vertical @table-padding-horizontal;
@@ -284,8 +283,8 @@
 
   &-title + &-content {
     position: relative;
-    overflow: hidden;
     border-radius: @table-border-radius-base @table-border-radius-base 0 0;
+
     .@{table-prefix-cls}-bordered & {
       &,
       table,
@@ -611,6 +610,32 @@
     // Workaround for additional scroll bar on the table header
     // https://github.com/ant-design/ant-design/issues/6515#issuecomment-419634369
     opacity: 0.9999;
+
+    &::-webkit-scrollbar {
+      border: 1px solid @border-color-split;
+      border-width: 0 0 1px 0;
+    }
+  }
+
+  &-hide-scrollbar {
+    // https://github.com/ant-design/ant-design/issues/4637
+    // https://stackoverflow.com/a/54101063
+    // https://github.com/react-component/table/pull/333
+    scrollbar-color: transparent transparent;
+    &::-webkit-scrollbar {
+      background-color: transparent;
+    }
+  }
+
+  // optimize header style of borderd table after hide extra scrollbar
+  &-bordered&-fixed-header &-scroll &-header {
+    &::-webkit-scrollbar {
+      border: 1px solid @border-color-split;
+      border-width: 1px 1px 1px 0;
+    }
+    &.@{table-prefix-cls}-hide-scrollbar .@{table-prefix-cls}-thead > tr > th:last-child {
+      border-right-color: transparent;
+    }
   }
 
   &-fixed-left,
@@ -705,6 +730,17 @@
 
   &-row[class*='@{table-prefix-cls}-row-level-0'] .@{table-prefix-cls}-selection-column > span {
     display: inline-block;
+  }
+}
+
+/**
+* Another fix of Firefox:
+* - https://github.com/ant-design/ant-design/issues/12628
+* - https://github.com/ant-design/ant-design/issues/12628
+*/
+@supports (-moz-appearance: meterbar) {
+  .@{table-prefix-cls}-thead > tr > th.@{table-prefix-cls}-column-has-actions {
+    background-clip: padding-box;
   }
 }
 

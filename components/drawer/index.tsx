@@ -1,14 +1,14 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import RcDrawer from 'rc-drawer';
-import createReactContext, { Context } from '@ant-design/create-react-context';
+import createReactContext from '@ant-design/create-react-context';
 import warning from '../_util/warning';
 import classNames from 'classnames';
 import Icon from '../icon';
 import { withConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { tuple } from '../_util/type';
 
-const DrawerContext: Context<Drawer | null> = createReactContext(null);
+const DrawerContext = createReactContext<Drawer | null>(null);
 
 type EventType = React.MouseEvent<HTMLDivElement> | React.MouseEvent<HTMLButtonElement>;
 
