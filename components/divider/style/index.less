@@ -88,8 +88,11 @@
 
   &-dashed {
     background: none;
-    border-top: 1px dashed @border-color-split;
+    border-color: @border-color-split;
+    border-style: dashed;
+    border-width: 1px 0 0;
   }
+
   &-horizontal&-with-text-center&-dashed,
   &-horizontal&-with-text-left&-dashed,
   &-horizontal&-with-text-right&-dashed {
@@ -98,5 +101,9 @@
     &::after {
       border-style: dashed none none;
     }
+  }
+
+  &-vertical&-dashed {
+    border-width: 0 0 0 1px;
   }
 }
