@@ -10,12 +10,13 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface DescriptionsItemProps {
   prefixCls?: string;
-  label: React.ReactNode;
-  children: JSX.Element;
+  label?: React.ReactNode;
+  children: React.ReactNode;
   span?: number;
 }
 
-const DescriptionsItem: React.SFC<DescriptionsItemProps> = ({ children }) => children;
+const DescriptionsItem: React.SFC<DescriptionsItemProps> = ({ children }) =>
+  children as JSX.Element;
 
 export interface DescriptionsProps {
   prefixCls?: string;
