@@ -5,7 +5,7 @@ const customCache = new Set<string>();
 
 export interface CustomIconOptions {
   scriptUrl?: string;
-  extraCommonProps?: { [key: string]: any };
+  extraCommonProps?: { [key: string]: unknown };
 }
 
 export default function create(options: CustomIconOptions = {}): React.SFC<IconProps> {

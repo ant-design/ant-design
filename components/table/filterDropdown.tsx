@@ -13,7 +13,7 @@ import FilterDropdownMenuWrapper from './FilterDropdownMenuWrapper';
 import { FilterMenuProps, FilterMenuState, ColumnProps, ColumnFilterItem } from './interface';
 import { generateValueMaps } from './util';
 
-function stopPropagation(e: React.SyntheticEvent<any>) {
+function stopPropagation(e: React.SyntheticEvent<unknown>) {
   e.stopPropagation();
   if (e.nativeEvent.stopImmediatePropagation) {
     e.nativeEvent.stopImmediatePropagation();

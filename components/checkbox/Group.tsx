@@ -39,7 +39,7 @@ export interface CheckboxGroupState {
 export interface CheckboxGroupContext {
   checkboxGroup: {
     toggleOption: (option: CheckboxOptionType) => void;
-    value: any;
+    value: unknown;
     disabled: boolean;
   };
 }

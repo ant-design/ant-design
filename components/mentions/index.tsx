@@ -19,7 +19,7 @@ export type MentionPlacement = 'top' | 'bottom';
 export interface OptionProps {
   value: string;
   children: React.ReactNode;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export interface MentionProps extends RcMentionsProps {
@@ -49,28 +49,26 @@ class Mentions extends React.Component<MentionProps, MentionState> {
 
     return value
       .split(split)
-      .map(
-        (str = ''): MentionsEntity | null => {
-          let hitPrefix: string | null = null;
+      .map((str = ''): MentionsEntity | null => {
+        let hitPrefix: string | null = null;
 
-          prefixList.some(prefixStr => {
-            const startStr = str.slice(0, prefixStr.length);
-            if (startStr === prefixStr) {
-              hitPrefix = prefixStr;
-              return true;
-            }
-            return false;
-          });
-
-          if (hitPrefix !== null) {
-            return {
-              prefix: hitPrefix,
-              value: str.slice(hitPrefix!.length),
-            };
+        prefixList.some(prefixStr => {
+          const startStr = str.slice(0, prefixStr.length);
+          if (startStr === prefixStr) {
+            hitPrefix = prefixStr;
+            return true;
           }
-          return null;
-        },
-      )
+          return false;
+        });
+
+        if (hitPrefix !== null) {
+          return {
+            prefix: hitPrefix,
+            value: str.slice(hitPrefix!.length),
+          };
+        }
+        return null;
+      })
       .filter((entity): entity is MentionsEntity => !!entity && !!entity.value);
   };
 

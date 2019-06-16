@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
 export interface InputElementProps {
-  children: React.ReactElement<any>;
+  children: React.ReactElement<unknown>;
 }
 
 export default class InputElement extends React.Component<InputElementProps, any> {
