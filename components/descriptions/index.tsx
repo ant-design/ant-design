@@ -148,7 +148,7 @@ class Descriptions extends React.Component<
     size: 'default',
     column: defaultColumnMap,
   };
-  static Item: typeof DescriptionsItem;
+  static Item: typeof DescriptionsItem = DescriptionsItem;
   state: {
     screens: BreakpointMap;
   } = {
@@ -250,7 +250,5 @@ class Descriptions extends React.Component<
     );
   }
 }
-
-Descriptions.Item = DescriptionsItem;
 
 export default Descriptions;
