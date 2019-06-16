@@ -15,6 +15,26 @@ timeline: true
 
 ---
 
+## 3.19.4
+
+`2019-06-16`
+
+- PageHeader
+  - 🐞 Fix abnormal margin issue of PageHeader `extra`. [#17025](https://github.com/ant-design/ant-design/issues/17025)
+  - 🐞 Fix the `onBack` button displays a pointer that is not always clickable. [#17114](https://github.com/ant-design/ant-design/pull/17114)
+- 🐞 Fix Table with sort not back to first page. [#16978](https://github.com/ant-design/ant-design/issues/16978)
+- 🐞 Fix Menu.SubMenu with selected item should have active style. [#17039](https://github.com/ant-design/ant-design/pull/17039)
+- 🐞 Fix Tree with showLine animation shake. [#17055](https://github.com/ant-design/ant-design/pull/17055)
+- 🐞 Fix Collapse's redundant scrollbar. [#17009](https://github.com/ant-design/ant-design/pull/17009) [#mtadams007](https://github.com/mtadams007)
+- 🐞 Fixing date formats for Arabic-Egypt locale. [#17092](https://github.com/ant-design/ant-design/pull/17092) [#3b3ziz](https://github.com/3b3ziz)
+- 🐞 Fix Input not align with other components in Chrome. [#17082](https://github.com/ant-design/ant-design/issues/17082)
+- 💄 Adjust bordered table header scrollbar style. [#17065](https://github.com/ant-design/ant-design/pull/17065)
+- 🌟 Make Divider style customization easier. [#17113](https://github.com/ant-design/ant-design/pull/17113)
+- 🇷🇺 Add missing Russian translations. [#17108](https://github.com/ant-design/ant-design/pull/17108) [#Enfield1](https://github.com/Enfield1)
+- 🌟 Add new less variables [#17041](https://github.com/ant-design/ant-design/pull/17041) [#SamKirkland](https://github.com/SamKirkland)：
+  - `@comment-font-size-base`
+  - `@comment-font-size-sm`
+
 ## 3.19.3
 
 `2019-06-06`
@@ -27,8 +47,7 @@ timeline: true
 - 🐞 **Fix Table header extra vertical scrollbar problem.** [#16950](https://github.com/ant-design/ant-design/pull/16950)
 - 🐞 Fix Table miss `border-radius` in Firefox. [#16957](https://github.com/ant-design/ant-design/pull/16957)
 - 🐞 Fix Table error when `rowSelection.getCheckboxProps()` has no return value. [#15224](https://github.com/ant-design/ant-design/pull/15224)
-- 🐞 Fix Table abnormal scrollbar in Chrome when using `title` and `rowSelection`.
- [#16934](https://github.com/ant-design/ant-design/pull/16934)
+- 🐞 Fix Table abnormal scrollbar in Chrome when using `title` and `rowSelection`. [#16934](https://github.com/ant-design/ant-design/pull/16934)
 - 🐞 Fix Divider `orientation="center"` style. [#16988](https://github.com/ant-design/ant-design/pull/16988)
 - 🐞 Fix Cascader error when type space. [#16918](https://github.com/ant-design/ant-design/pull/16918) [@Durisvk](https://github.com/Durisvk)
 - 🐞 Fix missing spanish translations. [#17002](https://github.com/ant-design/ant-design/pull/17002) [@morellan](https://github.com/morellan)
