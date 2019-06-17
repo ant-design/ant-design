@@ -15,6 +15,15 @@ timeline: true
 
 ---
 
+## 3.19.5
+
+`2019-06-17`
+
+- 🐞 修复 RangerPicker 输入框内容没有对齐的问题。[#17126](https://github.com/ant-design/ant-design/issues/17126)
+- 🐞 修复 ConfigProvider 的 `getPopupContainer` 对 Modal 无效的问题。[#17132](https://github.com/ant-design/ant-design/issues/17132)
+- TypeScript
+  - 🐞 修复 Descriptions.Item 的类型定义。[#17049](https://github.com/ant-design/ant-design/pull/17049)
+
 ## 3.19.4
 
 `2019-06-16`
