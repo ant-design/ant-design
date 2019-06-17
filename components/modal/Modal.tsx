@@ -190,13 +190,17 @@ export default class Modal extends React.Component<ModalProps, {}> {
     );
   };
 
-  renderModal = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderModal = ({
+    getPopupContainer: getContextPopupContainer,
+    getPrefixCls,
+  }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       footer,
       visible,
       wrapClassName,
       centered,
+      getContainer,
       ...restProps
     } = this.props;
 
@@ -216,6 +220,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
     return (
       <Dialog
         {...restProps}
+        getContainer={getContainer || getContextPopupContainer}
         prefixCls={prefixCls}
         wrapClassName={classNames({ [`${prefixCls}-centered`]: !!centered }, wrapClassName)}
         footer={footer === undefined ? defaultFooter : footer}
