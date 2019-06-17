@@ -620,4 +620,70 @@ describe('Table.filter', () => {
       .simulate('click');
     expect(wrapper.find('.ant-input').instance().value).toBe('');
   });
+
+  // https://github.com/ant-design/ant-design/issues/17089
+  it('not crash when dynamic change filter', () => {
+    const onChange = jest.fn();
+
+    const Test = ({ filters }) => (
+      <Table
+        onChange={onChange}
+        columns={[
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            filters,
+            onFilter: (value, record) => {
+              return record.name.indexOf(value) === 0;
+            },
+            sorter: (a, b) => a.name.length - b.name.length,
+            sortDirections: ['descend'],
+          },
+        ]}
+        dataSource={[
+          {
+            name: 'Jack',
+          },
+        ]}
+      />
+    );
+
+    const wrapper = mount(
+      <Test
+        filters={[
+          {
+            text: 'Bill',
+            value: 'Bill',
+          },
+        ]}
+      />,
+    );
+
+    const dropdownWrapper = getDropdownWrapper(wrapper);
+    dropdownWrapper
+      .find('MenuItem')
+      .first()
+      .simulate('click');
+    dropdownWrapper.find('.confirm').simulate('click');
+    expect(onChange).toHaveBeenCalled();
+    onChange.mockReset();
+    expect(onChange).not.toHaveBeenCalled();
+
+    wrapper.setProps({
+      filters: [
+        {
+          text: 'Jim',
+          value: 'Jim',
+        },
+      ],
+    });
+
+    const dropdownWrapper2 = getDropdownWrapper(wrapper);
+    dropdownWrapper2
+      .find('MenuItem')
+      .first()
+      .simulate('click');
+    dropdownWrapper2.find('.confirm').simulate('click');
+    expect(onChange).toHaveBeenCalled();
+  });
 });
