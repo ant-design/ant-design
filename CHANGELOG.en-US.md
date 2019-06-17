@@ -15,6 +15,15 @@ timeline: true
 
 ---
 
+## 3.19.5
+
+`2019-06-17`
+
+- 🐞 Fix RangerPicker input style not align. [#17126](https://github.com/ant-design/ant-design/issues/17126)
+- 🐞 Fix `getPopupContainer` of ConfigProvider not works on Modal. [#17132](https://github.com/ant-design/ant-design/issues/17132)
+- TypeScript
+  - 🐞 Fix Descriptions.Item definition. [#17049](https://github.com/ant-design/ant-design/pull/17049)
+
 ## 3.19.4
 
 `2019-06-16`
