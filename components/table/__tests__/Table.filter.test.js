@@ -361,7 +361,7 @@ describe('Table.filter', () => {
     jest.useRealTimers();
   });
 
-  describe.only('should support value types', () => {
+  describe('should support value types', () => {
     [['Light', 93], ['Bamboo', false]].forEach(([text, value]) => {
       it(`${typeof value} type`, () => {
         const onFilter = jest.fn();
