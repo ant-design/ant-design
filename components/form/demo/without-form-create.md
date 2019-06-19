@@ -50,7 +50,7 @@ class RawForm extends React.Component {
       labelCol: { span: 7 },
       wrapperCol: { span: 12 },
     };
-    const number = this.state.number;
+    const { number } = this.state;
     const tips =
       'A prime is a natural number greater than 1 that has no positive divisors other than 1 and itself.';
     return (

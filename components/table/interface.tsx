@@ -267,5 +267,5 @@ export type PrepareParamsArgumentsReturn<T> = [
   Object,
   {
     currentDataSource: T[];
-  }
+  },
 ];

@@ -67,7 +67,7 @@ class Demo extends React.Component {
   };
 
   render() {
-    const fields = this.state.fields;
+    const { fields } = this.state;
     return (
       <div>
         <CustomizedForm {...fields} onChange={this.handleFormChange} />

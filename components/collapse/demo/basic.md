@@ -16,7 +16,7 @@ By default, any number of panels can be expanded at a time. The first panel is e
 ```jsx
 import { Collapse } from 'antd';
 
-const Panel = Collapse.Panel;
+const { Panel } = Collapse;
 
 function callback(key) {
   console.log(key);

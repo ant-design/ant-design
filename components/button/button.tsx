@@ -289,7 +289,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
 
     const buttonNode = (
       <button
-        {...otherProps as NativeButtonProps}
+        {...(otherProps as NativeButtonProps)}
         type={htmlType}
         className={classes}
         onClick={this.handleClick}

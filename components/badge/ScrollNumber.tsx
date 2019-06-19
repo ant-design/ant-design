@@ -105,7 +105,7 @@ class ScrollNumber extends Component<ScrollNumberProps, ScrollNumberState> {
     if (onAnimated) {
       onAnimated();
     }
-  }
+  };
 
   renderNumberList(position: number) {
     const childrenToReturn: React.ReactElement<any>[] = [];
