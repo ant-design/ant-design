@@ -17,7 +17,9 @@ const statusColorMap: Record<string, string> = {
 
 function getPercentage({ percent, successPercent }: CircleProps) {
   const ptg = validProgress(percent);
-  if (!successPercent) return ptg;
+  if (!successPercent) {
+    return ptg;
+  }
 
   const successPtg = validProgress(successPercent);
   return [successPercent, validProgress(ptg - successPtg)];
@@ -25,7 +27,9 @@ function getPercentage({ percent, successPercent }: CircleProps) {
 
 function getStrokeColor({ progressStatus, successPercent, strokeColor }: CircleProps) {
   const color = strokeColor || statusColorMap[progressStatus];
-  if (!successPercent) return color;
+  if (!successPercent) {
+    return color;
+  }
   return [statusColorMap.success, color];
 }
 
@@ -49,7 +53,7 @@ const Circle: React.SFC<CircleProps> = props => {
   };
   const circleWidth = strokeWidth || 6;
   const gapPos = gapPosition || (type === 'dashboard' && 'bottom') || 'top';
-  const gapDeg = gapDegree || (type === 'dashboard' && 75);
+  const gapDeg = gapDegree ? gapDegree : (type === 'dashboard' ? 75 : 0);
 
   return (
     <div className={`${prefixCls}-inner`} style={circleStyle}>
@@ -57,7 +61,7 @@ const Circle: React.SFC<CircleProps> = props => {
         percent={getPercentage(props)}
         strokeWidth={circleWidth}
         trailWidth={circleWidth}
-        strokeColor={getStrokeColor(props)}
+        strokeColor={getStrokeColor(props) as string}
         strokeLinecap={strokeLinecap}
         trailColor={trailColor}
         prefixCls={prefixCls}

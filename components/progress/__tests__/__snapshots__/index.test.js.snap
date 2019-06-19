@@ -219,8 +219,8 @@ exports[`Progress render strokeColor 1`] = `
       <path
         class="ant-progress-circle-trail"
         d="M 50,50 m 0,-47
-     a 47,47 0 1 1 0,94
-     a 47,47 0 1 1 0,-94"
+   a 47,47 0 1 1 0,94
+   a 47,47 0 1 1 0,-94"
         fill-opacity="0"
         stroke="#f3f3f3"
         stroke-linecap="round"
@@ -230,8 +230,8 @@ exports[`Progress render strokeColor 1`] = `
       <path
         class="ant-progress-circle-path"
         d="M 50,50 m 0,-47
-     a 47,47 0 1 1 0,94
-     a 47,47 0 1 1 0,-94"
+   a 47,47 0 1 1 0,94
+   a 47,47 0 1 1 0,-94"
         fill-opacity="0"
         stroke-linecap="round"
         stroke-width="6"
