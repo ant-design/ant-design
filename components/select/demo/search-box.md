@@ -39,7 +39,7 @@ function fetch(value, callback) {
       .then(response => response.json())
       .then(d => {
         if (currentValue === value) {
-          const result = d.result;
+          const { result } = d;
           const data = [];
           result.forEach(r => {
             data.push({

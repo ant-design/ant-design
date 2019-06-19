@@ -18,7 +18,7 @@ Customize suggestions.
 ```jsx
 import { Mention } from 'antd';
 
-const Nav = Mention.Nav;
+const { Nav } = Mention;
 
 const webFrameworks = [
   { name: 'React', type: 'JavaScript' },
