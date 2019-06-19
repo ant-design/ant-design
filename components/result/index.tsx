@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import classnames from 'classnames';
+
+import { ConfigConsumerProps, ConfigConsumer } from '../config-provider';
 import Icon from '../icon';
 
 type ResultStatus = 'success' | 'error' | 'info' | 'warning';
@@ -33,36 +34,29 @@ const IconMap = {
   warning: 'warning',
 };
 
-const renderIcon = (prefixCls: string, status: ResultStatus, icon: React.ReactNode) => {
-  let iconNode = icon;
-  let className = `${prefixCls}-icon-view`;
+const renderIcon = (prefixCls: string, { status, icon }: ResultProps) => {
   const iconString: string = IconMap[status];
-
-  className = classnames(className, {
-    [status]: true,
-  });
-  if (!icon) {
-    iconNode = <Icon type={iconString} theme="filled" />;
-  }
+  const className = classnames(`${prefixCls}-icon-view`, `${prefixCls}-${status}`);
+  const iconNode = icon || <Icon type={iconString} theme="filled" />;
 
   return <div className={className}>{iconNode}</div>;
 };
 
-const renderExtra = (prefixCls: string, extra: React.ReactNode) => {
-  return <div className={`${prefixCls}-extra-view`}>{extra}</div>;
-};
+const renderExtra = (prefixCls: string, { extra }: ResultProps) => (
+  <div className={`${prefixCls}-extra-view`}>{extra}</div>
+);
 
 const Result: React.SFC<ResultProps> = props => (
   <ConfigConsumer>
     {({ getPrefixCls }: ConfigConsumerProps) => {
-      const { prefixCls: customizePrefixCls, icon, status, extra, style, children } = props;
+      const { prefixCls: customizePrefixCls, style, children } = props;
       const prefixCls = getPrefixCls('result', customizePrefixCls);
       return (
         <div className={prefixCls} style={style}>
-          {renderIcon(prefixCls, status, icon)}
+          {renderIcon(prefixCls, props)}
           {renderTitle(prefixCls, props)}
           {children && <div className={`${prefixCls}-content`}>{children}</div>}
-          {renderExtra(prefixCls, extra)}
+          {renderExtra(prefixCls, props)}
         </div>
       );
     }}
