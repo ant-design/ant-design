@@ -15,6 +15,14 @@ timeline: true
 
 ---
 
+## 3.19.6
+
+`2019-06-19`
+
+- 🐞 修复嵌套 Card `extra` 位置不正确的问题。[#17140](https://github.com/ant-design/ant-design/pull/17140)
+- 🐞 修复 Table 动态改变 `filter` 时报错的问题。[#17141](https://github.com/ant-design/ant-design/pull/17141)
+- 🐞 修复 TextArea 和 RangePicker 分隔符位置偏下和对齐的问题。[#17165](https://github.com/ant-design/ant-design/pull/17165)
+
 ## 3.19.5
 
 `2019-06-17`

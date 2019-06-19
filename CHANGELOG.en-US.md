@@ -15,6 +15,14 @@ timeline: true
 
 ---
 
+## 3.19.6
+
+`2019-06-19`
+
+- 🐞 Fix nest Card `extra` position not correct. [#17140](https://github.com/ant-design/ant-design/pull/17140)
+- 🐞 Fix Table crash while `filter` dynamic change. [#17141](https://github.com/ant-design/ant-design/pull/17141)
+- 🐞 Fix TextArea & DatePicker separator position too low and align issue. [#17165](https://github.com/ant-design/ant-design/pull/17165)
+
 ## 3.19.5
 
 `2019-06-17`
