@@ -96,7 +96,6 @@ class App extends React.Component {
           },
         },
       ],
-      onSelection: this.onSelection,
     };
     return <Table rowSelection={rowSelection} columns={columns} dataSource={data} />;
   }
