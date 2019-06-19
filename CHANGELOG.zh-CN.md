@@ -15,6 +15,43 @@ timeline: true
 
 ---
 
+## 3.19.6
+
+`2019-06-19`
+
+- 🐞 修复嵌套 Card `extra` 位置不正确的问题。[#17140](https://github.com/ant-design/ant-design/pull/17140)
+- 🐞 修复 Table 动态改变 `filter` 时报错的问题。[#17141](https://github.com/ant-design/ant-design/pull/17141)
+- 🐞 修复 TextArea 和 RangePicker 分隔符位置偏下和对齐的问题。[#17165](https://github.com/ant-design/ant-design/pull/17165)
+
+## 3.19.5
+
+`2019-06-17`
+
+- 🐞 修复 RangerPicker 输入框内容没有对齐的问题。[#17126](https://github.com/ant-design/ant-design/issues/17126)
+- 🐞 修复 ConfigProvider 的 `getPopupContainer` 对 Modal 无效的问题。[#17132](https://github.com/ant-design/ant-design/issues/17132)
+- TypeScript
+  - 🐞 修复 Descriptions.Item 的类型定义。[#17049](https://github.com/ant-design/ant-design/pull/17049)
+
+## 3.19.4
+
+`2019-06-16`
+
+- PageHeader
+  - 🐞 修复 `extra` 的一个元素边距问题。[#17025](https://github.com/ant-design/ant-design/issues/17025)
+  - 🐞 修复手型鼠标指针并不总是可点击的问题。[#17114](https://github.com/ant-design/ant-design/pull/17114)
+- 🐞 修复 Table 数据排序后不会回到第一页的问题。[#16978](https://github.com/ant-design/ant-design/issues/16978)
+- 🐞 修复 Menu 选项的子菜单选中并收起时没有高亮的问题。[#17039](https://github.com/ant-design/ant-design/pull/17039)
+- 🐞 修复 Tree 使用 `showLine` 时动画抖动的问题。[#17055](https://github.com/ant-design/ant-design/pull/17055)
+- 🐞 修复 Collapse 会出现多余滚动条的问题。[#17009](https://github.com/ant-design/ant-design/pull/17009) [#mtadams007](https://github.com/mtadams007)
+- 🐞 修复 DatePicker 阿拉伯语的时间格式。[#17092](https://github.com/ant-design/ant-design/pull/17092) [#3b3ziz](https://github.com/3b3ziz)
+- 🐞 修复 Input 与其他组件不对齐的问题。[#17082](https://github.com/ant-design/ant-design/issues/17082)
+- 💄 优化带边框 Table 的滚动条样式细节。[#17065](https://github.com/ant-design/ant-design/pull/17065)
+- 🌟 优化 Divider 实现方式以方便样式定制。[#17113](https://github.com/ant-design/ant-design/pull/17113)
+- 🇷🇺 新增部分俄语翻译。[#17108](https://github.com/ant-design/ant-design/pull/17108) [#Enfield1](https://github.com/Enfield1)
+- 🌟 新增 less 变量 [#17041](https://github.com/ant-design/ant-design/pull/17041) [#SamKirkland](https://github.com/SamKirkland)：
+  - `@comment-font-size-base`
+  - `@comment-font-size-sm`
+
 ## 3.19.3
 
 `2019-06-06`
