@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import classnames from 'classnames';
-import { Icon } from '../';
+import Icon from '../icon';
 
 type ResultStatus = 'success' | 'error' | 'info' | 'warning';
 
