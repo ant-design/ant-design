@@ -147,10 +147,6 @@ ReactDOM.render(<Complete />, mountNode);
   right: 16px;
 }
 
-.certain-category-search.ant-select-focused .certain-category-icon {
-  color: #108ee9;
-}
-
 .certain-category-icon {
   color: #6e6e6e;
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
