@@ -31,6 +31,7 @@ module.exports = {
     docs: './docs',
     changelog: ['CHANGELOG.zh-CN.md', 'CHANGELOG.en-US.md'],
   },
+  output: './buildFile',
   theme: './site/theme',
   htmlTemplate: './site/theme/static/template.html',
   themeConfig: {

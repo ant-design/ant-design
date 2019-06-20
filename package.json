@@ -231,7 +231,9 @@
     "lint-staged:ts": "tsc && node node_modules/tslint/bin/tslint",
     "lint-staged:es": "eslint ./.*.js ./webpack.config.js",
     "lint-staged:demo": "cross-env RUN_ENV=DEMO eslint --ext '.md'",
-    "prettier": "prettier -c --write '**/*'"
+    "prettier": "prettier -c --write '**/*'",
+    "build": "bisheng build --ssr -c ./site/bisheng.config.js",
+    "firebase:deploy": "rimraf ./buildFile && npm run build && firebase deploy"
   },
   "pre-commit": [
     "lint-staged"
