@@ -33,6 +33,7 @@
   }
 
   &-thead > tr {
+    // https://github.com/ant-design/ant-design/pull/17192
     background: @table-header-bg;
   }
 
@@ -42,7 +43,8 @@
     text-align: left;
     border-bottom: @border-width-base @border-style-base @border-color-split;
     transition: background 0.3s ease;
-
+    // background: @table-header-bg;
+    // https://github.com/ant-design/ant-design/pull/17192
     &[colspan] {
       text-align: center;
     }
