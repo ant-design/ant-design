@@ -122,6 +122,7 @@ ReactDOM.render(<Demo />, mountNode);
 ```css
 #components-table-demo-resizable-column .react-resizable {
   position: relative;
+  background-clip: padding-box;
 }
 
 #components-table-demo-resizable-column .react-resizable-handle {
