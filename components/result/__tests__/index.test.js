@@ -4,7 +4,7 @@ import Result from '..';
 import Button from '../../button';
 
 describe('Progress', () => {
-  it('successPercent should decide the progress status when it exists', () => {
+  it('🙂 successPercent should decide the progress status when it exists', () => {
     const wrapper = mount(
       <Result
         status="success"
@@ -19,5 +19,27 @@ describe('Progress', () => {
       />,
     );
     expect(wrapper.find('.anticon-check-circle')).toHaveLength(1);
+  });
+
+  it('🙂 different status, different class', () => {
+    const wrapper = mount(<Result status="warning" />);
+    expect(wrapper.find('.ant-result-warning')).toHaveLength(1);
+
+    wrapper.setProps({
+      status: 'error',
+    });
+
+    expect(wrapper.find('.ant-result-error')).toHaveLength(1);
+
+    wrapper.setProps({
+      status: '500',
+    });
+
+    expect(wrapper.find('.ant-result-500')).toHaveLength(1);
+  });
+
+  it('🙂 When status = 404, the icon is an image', () => {
+    const wrapper = mount(<Result status="404" />);
+    expect(wrapper.find('.ant-result-404 .ant-result-image')).toHaveLength(1);
   });
 });
