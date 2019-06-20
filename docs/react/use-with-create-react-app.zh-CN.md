@@ -56,7 +56,7 @@ $ yarn add antd
 
 ```jsx
 import React, { Component } from 'react';
-import Button from 'antd/lib/button';
+import Button from 'antd/es/button';
 import './App.css';
 
 class App extends Component {
@@ -121,6 +121,8 @@ module.exports = function override(config, env) {
 
 ### 使用 babel-plugin-import
 
+> 注意：antd 默认支持基于 ES module 的 tree shaking，js 代码部分不使用这个插件也会有按需加载的效果。
+
 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 是一个用于按需加载组件代码和样式的 babel 插件（[原理](/docs/react/getting-started#按需加载)），现在我们尝试安装它并修改 `config-overrides.js` 文件。
 
 ```bash
@@ -148,7 +150,7 @@ $ yarn add babel-plugin-import
 ```diff
   // src/App.js
   import React, { Component } from 'react';
-- import Button from 'antd/lib/button';
+- import Button from 'antd/es/button';
 + import { Button } from 'antd';
   import './App.css';
 
