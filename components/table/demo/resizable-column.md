@@ -131,5 +131,6 @@ ReactDOM.render(<Demo />, mountNode);
   bottom: 0;
   right: -5px;
   cursor: col-resize;
+  z-index: 1;
 }
 ```
