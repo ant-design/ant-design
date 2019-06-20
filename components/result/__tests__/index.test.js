@@ -42,4 +42,11 @@ describe('Progress', () => {
     const wrapper = mount(<Result status="404" />);
     expect(wrapper.find('.ant-result-404 .ant-result-image')).toHaveLength(1);
   });
+
+  it('🙂 When extra is undefined, the extra dom is undefined', () => {
+    const wrapper = mount(
+      <Result status="success" title="Successfully Purchased Cloud Server ECS!" />,
+    );
+    expect(wrapper.find('.ant-result-extra-view')).toHaveLength(0);
+  });
 });
