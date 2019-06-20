@@ -1,5 +1,5 @@
 ---
-order: 0
+order: 2
 title:
   zh-CN: 复杂的例子
   en-US: Complex example
@@ -40,7 +40,7 @@ ReactDOM.render(
       </span>
     </div>
   </Result>,
-  mountNode
+  mountNode,
 );
 ```
 

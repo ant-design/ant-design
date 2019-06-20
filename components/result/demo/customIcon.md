@@ -1,5 +1,5 @@
 ---
-order: 0
+order: 3
 title:
   zh-CN: 自定义 icon
   en-US: Custom icon
@@ -14,7 +14,7 @@ title:
 Custom icon
 
 ```jsx
-import { Result,Icon, Button } from 'antd';
+import { Result, Icon, Button } from 'antd';
 
 ReactDOM.render(
   <Result
@@ -22,7 +22,6 @@ ReactDOM.render(
     title="Great, we have done all the operations!"
     extra={<Button type="primary">Next</Button>}
   />,
-  mountNode
+  mountNode,
 );
-
 ```
