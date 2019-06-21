@@ -15,6 +15,19 @@ timeline: true
 
 ---
 
+## 3.19.7
+
+`2019-06-21`
+
+- 🐞 修复 Descriptions 内无法嵌套空值的问题。[#17207](https://github.com/ant-design/ant-design/pull/17207) [@superandrew213](http://github.com/superandrew213)
+- 🐞 修复 Table 空数据表格在 IE 下的一个滚动条样式问题。[#17223](https://github.com/ant-design/ant-design/pull/17223)
+- 🐞 修复单个 Breadcrumb 未在 PageHeader 上显示的问题。[#17209](https://github.com/ant-design/ant-design/pull/17209)
+- 🐞 修复 Modal 底部 24px 像素遮罩区域无法触发关闭弹窗行为。[#17229](https://github.com/ant-design/ant-design/pull/17229)
+- 🐞 修复 Layout Sider 的展开按钮 `z-index` 太低的问题。[#17228](https://github.com/ant-design/ant-design/pull/17228)
+- TypeScript
+  - ⚡️ 使用 `unknown` 代替 `any` 优化 TypeScript 定义。[#14044](https://github.com/ant-design/ant-design/issues/14044) [@Zzzen](http://github.com/Zzzen)
+  - 🐞 修复 Calendar `headerRender` 属性为可选。[#17063](https://github.com/ant-design/ant-design/pull/17063) [@wonderjar](http://github.com/wonderjar)
+
 ## 3.19.6
 
 `2019-06-19`
