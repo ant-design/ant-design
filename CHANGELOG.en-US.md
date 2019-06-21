@@ -15,6 +15,19 @@ timeline: true
 
 ---
 
+## 3.19.7
+
+`2019-06-21`
+
+- 🐞 Fix Descriptions throw error when contains falsy child. [#17207](https://github.com/ant-design/ant-design/pull/17207) [@superandrew213](http://github.com/superandrew213)
+- 🐞 Fix a scrollbar style problem of empty Table in IE. [#17223](https://github.com/ant-design/ant-design/pull/17223)
+- 🐞 Fix single Breadcrumb not showing on PageHeader. [#17209](https://github.com/ant-design/ant-design/pull/17209)
+- 🐞 Fix Modal that 24px botton area cannot trigger mask click event. [#17229](https://github.com/ant-design/ant-design/pull/17229)
+- 🐞 Fix Layout Sider‘s zero-width trigger `z-index` bug. [#17228](https://github.com/ant-design/ant-design/pull/17228)
+- TypeScript
+  - ⚡️ Use the `unknown` type in typescript 3.0 to improve defintions. [#14044](https://github.com/ant-design/ant-design/issues/14044) [@Zzzen](http://github.com/Zzzen)
+  - 🐞 Fix Calendar `headerRender` should be optional. [#17063](https://github.com/ant-design/ant-design/pull/17063) [@wonderjar](http://github.com/wonderjar)
+
 ## 3.19.6
 
 `2019-06-19`
