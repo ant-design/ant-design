@@ -24,7 +24,7 @@ $ cd myapp
 
 推荐使用 yarn 创建应用，执行以下命令，
 
-> 如果你坚持用 npm，可执行 `npm install -g create-umi && create-umi`，效果一致。
+> 如果你使用 npm，可执行 `npm create umi`，效果一致。
 
 ```bash
 $ yarn create umi
