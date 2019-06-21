@@ -13,15 +13,15 @@ import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
 import { FormContext } from './context';
 import { FormWrappedProps } from './interface';
 
-type FormCreateOptionMessagesCallback = (...args: any[]) => string;
+type FormCreateOptionMessagesCallback = (...args: unknown[]) => string;
 
 interface FormCreateOptionMessages {
   [messageId: string]: string | FormCreateOptionMessagesCallback | FormCreateOptionMessages;
 }
 
 export interface FormCreateOption<T> {
-  onFieldsChange?: (props: T, fields: any, allFields: any) => void;
-  onValuesChange?: (props: T, changedValues: any, allValues: any) => void;
+  onFieldsChange?: (props: T, fields: unknown, allFields: unknown) => void;
+  onValuesChange?: (props: T, changedValues: unknown, allValues: unknown) => void;
   mapPropsToFields?: (props: T) => void;
   validateMessages?: FormCreateOptionMessages;
   withRef?: boolean;
@@ -34,7 +34,7 @@ export type FormLayout = (typeof FormLayouts)[number];
 export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   layout?: FormLayout;
   form?: WrappedFormUtils;
-  onSubmit?: React.FormEventHandler<any>;
+  onSubmit?: React.FormEventHandler<HTMLElement>;
   style?: React.CSSProperties;
   className?: string;
   prefixCls?: string;
@@ -71,24 +71,30 @@ export type ValidationRule = {
   /** validate from a regular expression */
   pattern?: RegExp;
   /** transform a value before validation */
-  transform?: (value: any) => any;
+  transform?: (value: unknown) => unknown;
   /** custom validate function (Note: callback must be called) */
-  validator?: (rule: any, value: any, callback: any, source?: any, options?: any) => any;
+  validator?: (
+    rule: unknown,
+    value: unknown,
+    callback: unknown,
+    source?: unknown,
+    options?: unknown,
+  ) => unknown;
 };
 
-export type ValidateCallback<V> = (errors: any, values: V) => void;
+export type ValidateCallback<V> = (errors: unknown, values: V) => void;
 
 export type GetFieldDecoratorOptions = {
   /** 子节点的值的属性，如 Checkbox 的是 'checked' */
   valuePropName?: string;
   /** 子节点的初始值，类型、可选值均由子节点决定 */
-  initialValue?: any;
+  initialValue?: unknown;
   /** 收集子节点的值的时机 */
   trigger?: string;
   /** 可以把 onChange 的参数转化为控件的值，例如 DatePicker 可设为：(date, dateString) => dateString */
-  getValueFromEvent?: (...args: any[]) => any;
+  getValueFromEvent?: (...args: unknown[]) => unknown;
   /** Get the component props according to field value. */
-  getValueProps?: (value: any) => any;
+  getValueProps?: (value: unknown) => unknown;
   /** 校验子节点值的时机 */
   validateTrigger?: string | string[];
   /** 校验规则，参见 [async-validator](https://github.com/yiminghe/async-validator) */
@@ -96,7 +102,7 @@ export type GetFieldDecoratorOptions = {
   /** 是否和其他控件互斥，特别用于 Radio 单选控件 */
   exclusive?: boolean;
   /** Normalize value to form component */
-  normalize?: (value: any, prevValue: any, allValues: any) => any;
+  normalize?: (value: unknown, prevValue: unknown, allValues: unknown) => unknown;
   /** Whether stop validate on first rule of error for this field.  */
   validateFirst?: boolean;
   /** 是否一直保留子节点的信息 */
@@ -135,11 +141,11 @@ export type ValidateFieldsOptions = {
 };
 
 // function create
-export type WrappedFormUtils<V = any> = {
+export type WrappedFormUtils<V = unknown> = {
   /** 获取一组输入控件的值，如不传入参数，则获取全部组件的值 */
-  getFieldsValue(fieldNames?: Array<string>): { [field: string]: any };
+  getFieldsValue(fieldNames?: Array<string>): { [field: string]: unknown };
   /** 获取一个输入控件的值 */
-  getFieldValue(fieldName: string): any;
+  getFieldValue(fieldName: string): unknown;
   /** 设置一组输入控件的值 */
   setFieldsValue(obj: Object): void;
   /** 设置一组输入控件的值 */
@@ -186,15 +192,17 @@ export type WrappedFormUtils<V = any> = {
   ): (node: React.ReactNode) => React.ReactNode;
 };
 
-export interface WrappedFormInternalProps<V = any> {
+export interface WrappedFormInternalProps<V = unknown> {
   form: WrappedFormUtils<V>;
 }
 
 export interface RcBaseFormProps {
-  wrappedComponentRef?: any;
+  wrappedComponentRef?: unknown;
 }
 
-export interface FormComponentProps<V = any> extends WrappedFormInternalProps<V>, RcBaseFormProps {
+export interface FormComponentProps<V = unknown>
+  extends WrappedFormInternalProps<V>,
+    RcBaseFormProps {
   form: WrappedFormUtils<V>;
 }
 

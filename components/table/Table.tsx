@@ -43,7 +43,7 @@ import warning from '../_util/warning';
 
 function noop() {}
 
-function stopPropagation(e: React.SyntheticEvent<any>) {
+function stopPropagation(e: React.SyntheticEvent<unknown>) {
   e.stopPropagation();
   if (e.nativeEvent.stopImmediatePropagation) {
     e.nativeEvent.stopImmediatePropagation();

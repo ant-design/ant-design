@@ -138,7 +138,7 @@ export default class Header extends React.Component<HeaderProps, any> {
   };
 
   onInternalTypeChange = (e: RadioChangeEvent) => {
-    this.onTypeChange(e.target.value);
+    this.onTypeChange(e.target.value as string);
   };
 
   onTypeChange = (type: string) => {

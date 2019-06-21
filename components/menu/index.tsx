@@ -15,16 +15,16 @@ import raf from '../_util/raf';
 export interface SelectParam {
   key: string;
   keyPath: Array<string>;
-  item: any;
-  domEvent: any;
+  item: unknown;
+  domEvent: Event;
   selectedKeys: Array<string>;
 }
 
 export interface ClickParam {
   key: string;
   keyPath: Array<string>;
-  item: any;
-  domEvent: any;
+  item: unknown;
+  domEvent: Event;
 }
 
 export type MenuMode = 'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';
