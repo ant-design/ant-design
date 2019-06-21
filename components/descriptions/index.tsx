@@ -209,9 +209,12 @@ class Descriptions extends React.Component<
           const cloneChildren = React.Children.map(
             children,
             (child: React.ReactElement<DescriptionsItemProps>) => {
-              return React.cloneElement(child, {
-                prefixCls,
-              });
+              if (React.isValidElement(child)) {
+                return React.cloneElement(child, {
+                  prefixCls,
+                });
+              }
+              return child;
             },
           );
 
