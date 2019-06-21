@@ -31,15 +31,13 @@ To get a customized button, just set `type`/`shape`/`size`/`loading`/`disabled`.
 
 It accepts all props which native button support.
 
-`<Button>Hello world!</Button>` will be rendered into `<button><span>Hello world!</span></button>`, and all the properties which are not listed above will be transferred to the `<button>` tag.
-
-`<Button href="http://example.com">Hello world!</Button>` will be rendered into `<a href="http://example.com"><span>Hello world!</span></a>`.
-
 ## FAQ
 
-### How to remove space between 2 chinese characters
+### How to remove space between 2 chinese characters?
 
-Use [ConfigProvider](/components/config-provider/#API) to set `autoInsertSpaceInButton` as `false`.
+Following Ant Design specification, we will add one space between if Button contains two chinese characters only. If you don't need that, you can use [ConfigProvider](/components/config-provider/#API) to set `autoInsertSpaceInButton` as `false`.
+
+![](https://gw.alipayobjects.com/zos/antfincdn/Hz5HL9gsT4/f29f170d-b78d-4d2b-aa71-0da6a9ead4d9.png)
 
 <style>
 [id^=components-button-demo-] .ant-btn {

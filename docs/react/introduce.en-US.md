@@ -85,6 +85,8 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 ### Use modularized antd
 
+> Note: antd support ES6 tree shaking by default even without the below plugin.
+
 - Use [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) (Recommended)
 
   ```js
@@ -106,9 +108,9 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 - Manually import
 
   ```jsx
-  import DatePicker from 'antd/lib/date-picker'; // for js
-  import 'antd/lib/date-picker/style/css'; // for css
-  // import 'antd/lib/date-picker/style';         // that will import less
+  import DatePicker from 'antd/es/date-picker'; // for js
+  import 'antd/es/date-picker/style/css'; // for css
+  // import 'antd/es/date-picker/style';         // that will import less
   ```
 
 ### TypeScript
