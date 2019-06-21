@@ -70,7 +70,8 @@ const renderIcon = (prefixCls: string, { status, icon }: ResultProps) => {
         <img
           className={`${prefixCls}-image`}
           src={ExceptionImageMap[status as ExceptionStatusType]}
-        ></img>
+          alt={status}
+        />
       </div>
     );
   }

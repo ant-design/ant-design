@@ -44,9 +44,7 @@ describe('Progress', () => {
   });
 
   it('🙂 When extra is undefined, the extra dom is undefined', () => {
-    const wrapper = mount(
-      <Result status="success" title="Successfully Purchased Cloud Server ECS!" />,
-    );
+    const wrapper = mount();
     expect(wrapper.find('.ant-result-extra-view')).toHaveLength(0);
   });
 });
