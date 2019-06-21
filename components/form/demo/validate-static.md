@@ -21,10 +21,8 @@ We provide properties like `validateStatus` `help` `hasFeedback` to customize yo
 2. `hasFeedback`: display feed icon of input control
 3. `help`: display validate message.
 
-````jsx
-import {
-  Form, Input, DatePicker, TimePicker, Select, Cascader, InputNumber,
-} from 'antd';
+```jsx
+import { Form, Input, DatePicker, TimePicker, Select, Cascader, InputNumber } from 'antd';
 
 const { Option } = Select;
 
@@ -40,9 +38,8 @@ const formItemLayout = {
 };
 
 ReactDOM.render(
-  <Form>
+  <Form {...formItemLayout}>
     <Form.Item
-      {...formItemLayout}
       label="Fail"
       validateStatus="error"
       help="Should be combination of numbers & alphabets"
@@ -50,16 +47,11 @@ ReactDOM.render(
       <Input placeholder="unavailable choice" id="error" />
     </Form.Item>
 
-    <Form.Item
-      {...formItemLayout}
-      label="Warning"
-      validateStatus="warning"
-    >
+    <Form.Item label="Warning" validateStatus="warning">
       <Input placeholder="Warning" id="warning" />
     </Form.Item>
 
     <Form.Item
-      {...formItemLayout}
       label="Validating"
       hasFeedback
       validateStatus="validating"
@@ -68,26 +60,15 @@ ReactDOM.render(
       <Input placeholder="I'm the content is being validated" id="validating" />
     </Form.Item>
 
-    <Form.Item
-      {...formItemLayout}
-      label="Success"
-      hasFeedback
-      validateStatus="success"
-    >
+    <Form.Item label="Success" hasFeedback validateStatus="success">
       <Input placeholder="I'm the content" id="success" />
     </Form.Item>
 
-    <Form.Item
-      {...formItemLayout}
-      label="Warning"
-      hasFeedback
-      validateStatus="warning"
-    >
+    <Form.Item label="Warning" hasFeedback validateStatus="warning">
       <Input placeholder="Warning" id="warning2" />
     </Form.Item>
 
     <Form.Item
-      {...formItemLayout}
       label="Fail"
       hasFeedback
       validateStatus="error"
@@ -96,30 +77,15 @@ ReactDOM.render(
       <Input placeholder="unavailable choice" id="error2" />
     </Form.Item>
 
-    <Form.Item
-      {...formItemLayout}
-      label="Success"
-      hasFeedback
-      validateStatus="success"
-    >
+    <Form.Item label="Success" hasFeedback validateStatus="success">
       <DatePicker style={{ width: '100%' }} />
     </Form.Item>
 
-    <Form.Item
-      {...formItemLayout}
-      label="Warning"
-      hasFeedback
-      validateStatus="warning"
-    >
+    <Form.Item label="Warning" hasFeedback validateStatus="warning">
       <TimePicker style={{ width: '100%' }} />
     </Form.Item>
 
-    <Form.Item
-      {...formItemLayout}
-      label="Error"
-      hasFeedback
-      validateStatus="error"
-    >
+    <Form.Item label="Error" hasFeedback validateStatus="error">
       <Select defaultValue="1">
         <Option value="1">Option 1</Option>
         <Option value="2">Option 2</Option>
@@ -128,7 +94,6 @@ ReactDOM.render(
     </Form.Item>
 
     <Form.Item
-      {...formItemLayout}
       label="Validating"
       hasFeedback
       validateStatus="validating"
@@ -137,11 +102,7 @@ ReactDOM.render(
       <Cascader defaultValue={['1']} options={[]} />
     </Form.Item>
 
-    <Form.Item
-      label="inline"
-      {...formItemLayout}
-      style={{ marginBottom: 0 }}
-    >
+    <Form.Item label="inline" style={{ marginBottom: 0 }}>
       <Form.Item
         validateStatus="error"
         help="Please select the correct date"
@@ -149,23 +110,16 @@ ReactDOM.render(
       >
         <DatePicker />
       </Form.Item>
-      <span style={{ display: 'inline-block', width: '24px', textAlign: 'center' }}>
-        -
-      </span>
+      <span style={{ display: 'inline-block', width: '24px', textAlign: 'center' }}>-</span>
       <Form.Item style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
         <DatePicker />
       </Form.Item>
     </Form.Item>
 
-    <Form.Item
-      {...formItemLayout}
-      label="Success"
-      hasFeedback
-      validateStatus="success"
-    >
+    <Form.Item label="Success" hasFeedback validateStatus="success">
       <InputNumber style={{ width: '100%' }} />
     </Form.Item>
   </Form>,
-  mountNode
+  mountNode,
 );
-````
+```

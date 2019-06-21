@@ -29,8 +29,7 @@ If the priority is given to 『readability』 and the 『editability』 of opera
 
 Multi-Field Inline Edit
 
->Note：In『Multi-Field Inline Edit』, there are huge different between the content and required field, So it is more needed to use the [『Explain What Just Happened』](../docs/spec/transition#解释刚刚发生了什么) in 『Use Transition』to eliminate this visual effects.
-
+> Note：In『Multi-Field Inline Edit』, there are huge different between the content and required field, So it is more needed to use the [『Explain What Just Happened』](../docs/spec/transition#解释刚刚发生了什么) in 『Use Transition』to eliminate this visual effects.
 
 <br>
 

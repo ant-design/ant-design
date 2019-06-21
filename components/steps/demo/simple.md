@@ -13,10 +13,10 @@ title:
 
 The most basic step bar.
 
-````jsx
+```jsx
 import { Steps } from 'antd';
 
-const Step = Steps.Step;
+const { Step } = Steps;
 
 ReactDOM.render(
   <Steps current={1}>
@@ -24,6 +24,6 @@ ReactDOM.render(
     <Step title="In Progress" description="This is a description." />
     <Step title="Waiting" description="This is a description." />
   </Steps>,
-  mountNode
+  mountNode,
 );
-````
+```

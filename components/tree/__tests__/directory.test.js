@@ -1,16 +1,22 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
+import debounce from 'lodash/debounce';
 import Tree from '../index';
 
 const { DirectoryTree, TreeNode } = Tree;
 
+jest.mock('lodash/debounce');
+
 describe('Directory Tree', () => {
+  debounce.mockImplementation(fn => fn);
+
   beforeAll(() => {
     jest.useFakeTimers();
   });
 
   afterAll(() => {
     jest.useRealTimers();
+    debounce.mockRestore();
   });
 
   function createTree(props) {
@@ -128,6 +134,7 @@ describe('Directory Tree', () => {
 
   it('group select', () => {
     let nativeEventProto = null;
+    const onSelect = jest.fn();
     const wrapper = mount(
       createTree({
         defaultExpandAll: true,
@@ -136,6 +143,7 @@ describe('Directory Tree', () => {
         onClick: e => {
           nativeEventProto = Object.getPrototypeOf(e.nativeEvent);
         },
+        onSelect,
       }),
     );
 
@@ -144,6 +152,18 @@ describe('Directory Tree', () => {
       .find('.ant-tree-node-content-wrapper')
       .at(0)
       .simulate('click');
+    expect(onSelect.mock.calls[0][1].selected).toBeTruthy();
+    expect(onSelect.mock.calls[0][1].selectedNodes.length).toBe(1);
+
+    // Click twice should keep selected
+    wrapper
+      .find(TreeNode)
+      .find('.ant-tree-node-content-wrapper')
+      .at(0)
+      .simulate('click');
+    expect(onSelect.mock.calls[1][1].selected).toBeTruthy();
+    expect(onSelect.mock.calls[0][0]).toEqual(onSelect.mock.calls[1][0]);
+    expect(onSelect.mock.calls[1][1].selectedNodes.length).toBe(1);
 
     // React not simulate full of NativeEvent. Hook it.
     // Ref: https://github.com/facebook/react/blob/master/packages/react-dom/src/test-utils/ReactTestUtils.js#L360
@@ -155,6 +175,9 @@ describe('Directory Tree', () => {
       .at(1)
       .simulate('click');
     expect(wrapper.render()).toMatchSnapshot();
+    expect(onSelect.mock.calls[2][0].length).toBe(2);
+    expect(onSelect.mock.calls[2][1].selected).toBeTruthy();
+    expect(onSelect.mock.calls[2][1].selectedNodes.length).toBe(2);
 
     delete nativeEventProto.ctrlKey;
     nativeEventProto.shiftKey = true;
@@ -165,6 +188,9 @@ describe('Directory Tree', () => {
       .at(4)
       .simulate('click');
     expect(wrapper.render()).toMatchSnapshot();
+    expect(onSelect.mock.calls[3][0].length).toBe(5);
+    expect(onSelect.mock.calls[3][1].selected).toBeTruthy();
+    expect(onSelect.mock.calls[3][1].selectedNodes.length).toBe(5);
 
     delete nativeEventProto.shiftKey;
   });

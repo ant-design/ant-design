@@ -13,8 +13,8 @@ Handling the overall layout of a page.
 
 The first level navigation is inclined left near a logo, and the secondary menu is inclined right.
 
-- Top Navigation (almost systems): the height of the first level navigation `64px`, the second level navigation `48px`.
-- Top Navigation(contents page): the height of the first level navigation `80px`, the second level navigation `56px`.
+- Top Navigation: the height of the first level navigation `64px`, the second level navigation `48px`.
+- Top Navigation (for landing pages): the height of the first level navigation `80px`, the second level navigation `56px`.
 - Calculation formula of a top navigation: `48+8n`.
 - Calculation formula of an aside navigation: `200+8n`.
 
@@ -27,7 +27,7 @@ The first level navigation is inclined left near a logo, and the secondary menu 
 
 ## Visualization rules
 
- Style of a navigation should conform to its level.
+Style of a navigation should conform to its level.
 
 - **Emphasis by colorblock**
 
@@ -74,7 +74,7 @@ The first level navigation is inclined left near a logo, and the secondary menu 
 The wrapper.
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | className | container className | string | - |
 | hasSider | whether contain Sider in children, don't have to assign it normally. Useful in ssr avoid style flickering | boolean | - |
 | style | to customize the styles | object | - |
@@ -86,7 +86,7 @@ The wrapper.
 The sidebar.
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | breakpoint | [breakpoints](/components/grid#api) of the responsive layout | Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' } | - |
 | className | container className | string | - |
 | collapsed | to set the current status | boolean | - |

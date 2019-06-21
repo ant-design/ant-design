@@ -1,3 +1,5 @@
+const { transformIgnorePatterns } = require('./.jest');
+
 // jest config for server render environment
 module.exports = {
   setupFiles: ['./tests/setup.js'],
@@ -10,6 +12,7 @@ module.exports = {
   },
   testRegex: 'demo\\.test\\.js$',
   testEnvironment: 'node',
+  transformIgnorePatterns,
   snapshotSerializers: ['enzyme-to-json/serializer'],
   globals: {
     'ts-jest': {

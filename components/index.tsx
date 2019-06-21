@@ -53,6 +53,8 @@ export { default as ConfigProvider } from './config-provider';
 
 export { default as DatePicker } from './date-picker';
 
+export { default as Descriptions } from './descriptions';
+
 export { default as Divider } from './divider';
 
 export { default as Dropdown } from './dropdown';
@@ -79,11 +81,15 @@ export { default as message } from './message';
 
 export { default as Menu } from './menu';
 
+export { default as Mentions } from './mentions';
+
 export { default as Modal } from './modal';
 
 export { default as Statistic } from './statistic';
 
 export { default as notification } from './notification';
+
+export { default as PageHeader } from './page-header';
 
 export { default as Pagination } from './pagination';
 
@@ -128,6 +134,8 @@ export { default as TimePicker } from './time-picker';
 export { default as Timeline } from './timeline';
 
 export { default as Tooltip } from './tooltip';
+
+export { default as Typography } from './typography';
 
 export { default as Mention } from './mention';
 

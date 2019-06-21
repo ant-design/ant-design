@@ -7,7 +7,21 @@ import { PaginationConfig } from '../pagination';
 export { PaginationConfig } from '../pagination';
 
 export type CompareFn<T> = (a: T, b: T, sortOrder?: SortOrder) => number;
-export type ColumnFilterItem = { text: string; value: string; children?: ColumnFilterItem[] };
+export type ColumnFilterItem = {
+  text: React.ReactNode;
+  value: string;
+  children?: ColumnFilterItem[];
+};
+
+export interface FilterDropdownProps {
+  prefixCls?: string;
+  setSelectedKeys?: (selectedKeys: string[]) => void;
+  selectedKeys?: string[];
+  confirm?: () => void;
+  clearFilters?: (selectedKeys: string[]) => void;
+  filters?: ColumnFilterItem[];
+  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
+}
 
 export interface ColumnProps<T> {
   title?:
@@ -15,12 +29,12 @@ export interface ColumnProps<T> {
     | ((options: { filters: TableStateFilters; sortOrder?: SortOrder }) => React.ReactNode);
   key?: React.Key;
   dataIndex?: string; // Note: We can not use generic type here, since we need to support nested key, see #9393
-  render?: (text: any, record: T, index: number) => React.ReactNode;
+  render?: (text: unknown, record: T, index: number) => React.ReactNode;
   align?: 'left' | 'right' | 'center';
   filters?: ColumnFilterItem[];
-  onFilter?: (value: any, record: T) => boolean;
+  onFilter?: (value: unknown, record: T) => boolean;
   filterMultiple?: boolean;
-  filterDropdown?: React.ReactNode | ((props: Object) => React.ReactNode);
+  filterDropdown?: React.ReactNode | ((props: FilterDropdownProps) => React.ReactNode);
   filterDropdownVisible?: boolean;
   onFilterDropdownVisibleChange?: (visible: boolean) => void;
   sorter?: boolean | CompareFn<T>;
@@ -30,12 +44,12 @@ export interface ColumnProps<T> {
   className?: string;
   fixed?: boolean | ('left' | 'right');
   filterIcon?: React.ReactNode | ((filtered: boolean) => React.ReactNode);
-  filteredValue?: any[];
+  filteredValue?: unknown[];
   sortOrder?: SortOrder | boolean;
   children?: ColumnProps<T>[];
-  onCellClick?: (record: T, event: any) => void;
-  onCell?: (record: T, rowIndex: number) => any;
-  onHeaderCell?: (props: ColumnProps<T>) => any;
+  onCellClick?: (record: T, event: Event) => void;
+  onCell?: (record: T, rowIndex: number) => TableEventListeners;
+  onHeaderCell?: (props: ColumnProps<T>) => TableEventListeners;
   sortDirections?: SortOrder[];
 }
 
@@ -74,7 +88,7 @@ export type SelectionSelectFn<T> = (
   selected: boolean,
   selectedRows: Object[],
   nativeEvent: Event,
-) => any;
+) => void;
 
 export type TableSelectWay = 'onSelect' | 'onSelectMultiple' | 'onSelectAll' | 'onSelectInvert';
 
@@ -115,6 +129,14 @@ export interface TableCurrentDataSource<T> {
   currentDataSource: T[];
 }
 
+export interface TableEventListeners {
+  onClick?: (arg: React.SyntheticEvent) => void;
+  onDoubleClick?: (arg: React.SyntheticEvent) => void;
+  onContextMenu?: (arg: React.SyntheticEvent) => void;
+  onMouseEnter?: (arg: React.SyntheticEvent) => void;
+  onMouseLeave?: (arg: React.SyntheticEvent) => void;
+}
+
 export interface TableProps<T> {
   prefixCls?: string;
   dropdownPrefixCls?: string;
@@ -151,8 +173,8 @@ export interface TableProps<T> {
   locale?: TableLocale;
   indentSize?: number;
   onRowClick?: (record: T, index: number, event: Event) => void;
-  onRow?: (record: T, index: number) => any;
-  onHeaderRow?: (columns: ColumnProps<T>[], index: number) => any;
+  onRow?: (record: T, index: number) => TableEventListeners;
+  onHeaderRow?: (columns: ColumnProps<T>[]) => TableEventListeners;
   useFixedHeader?: boolean;
   bordered?: boolean;
   showHeader?: boolean;
@@ -179,8 +201,8 @@ export interface TableState<T> {
   pivot?: number;
 }
 
-export type SelectionItemSelectFn = (key: string[]) => any;
-type GetPopupContainer = (triggerNode?: Element) => HTMLElement;
+export type SelectionItemSelectFn = (key: string[]) => void;
+type GetPopupContainer = (triggerNode?: HTMLElement) => HTMLElement;
 
 export interface SelectionItem {
   key: string;
@@ -190,13 +212,13 @@ export interface SelectionItem {
 
 export interface SelectionCheckboxAllProps<T> {
   store: Store;
-  locale: any;
+  locale: TableLocale;
   disabled: boolean;
-  getCheckboxPropsByItem: (item: any, index: number) => any;
-  getRecordKey: (record: any, index?: number) => string;
+  getCheckboxPropsByItem: (item: T, index: number) => { defaultChecked: boolean };
+  getRecordKey: (record: T, index?: number) => string;
   data: T[];
   prefixCls: string | undefined;
-  onSelect: (key: string, index: number, selectFunc: any) => void;
+  onSelect: (key: string, index: number, selectFunc: unknown) => void;
   hideDefaultSelections?: boolean;
   selections?: SelectionItem[] | boolean;
   getPopupContainer?: GetPopupContainer;
@@ -233,7 +255,7 @@ export interface FilterMenuProps<T> {
   locale: TableLocale;
   selectedKeys: string[];
   column: ColumnProps<T>;
-  confirmFilter: (column: ColumnProps<T>, selectedKeys: string[]) => any;
+  confirmFilter: (column: ColumnProps<T>, selectedKeys: string[]) => unknown;
   prefixCls: string;
   dropdownPrefixCls: string;
   getPopupContainer?: GetPopupContainer;
@@ -241,7 +263,7 @@ export interface FilterMenuProps<T> {
 
 export interface FilterMenuState<T> {
   selectedKeys: string[];
-  valueKeys: { [name: string]: any };
+  valueKeys: { [name: string]: string };
   keyPathOfSelectedItem: { [key: string]: string };
   visible?: boolean;
   prevProps: FilterMenuProps<T>;
@@ -253,5 +275,5 @@ export type PrepareParamsArgumentsReturn<T> = [
   Object,
   {
     currentDataSource: T[];
-  }
+  },
 ];

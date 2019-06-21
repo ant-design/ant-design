@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Layout renders string width correctly 1`] = `
-<div
+<aside
   class="ant-layout-sider ant-layout-sider-dark"
   style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
 >
@@ -10,5 +10,5 @@ exports[`Layout renders string width correctly 1`] = `
   >
     Sider
   </div>
-</div>
+</aside>
 `;

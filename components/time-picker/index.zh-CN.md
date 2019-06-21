@@ -9,17 +9,17 @@ title: TimePicker
 
 ## 何时使用
 
-* * *
+---
 
 当用户需要输入一个时间，可以点击标准输入框，弹出时间面板进行选择。
 
 ## API
 
-* * *
+---
 
 ```jsx
 import moment from 'moment';
-<TimePicker defaultValue={moment('13:30:56', 'HH:mm:ss')} />
+<TimePicker defaultValue={moment('13:30:56', 'HH:mm:ss')} />;
 ```
 
 | 参数 | 说明 | 类型 | 默认值 |
@@ -47,6 +47,7 @@ import moment from 'moment';
 | popupStyle | 弹出层样式对象 | object | - |
 | secondStep | 秒选项间隔 | number | 1 |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |
+| clearIcon | 自定义的清除图标 | ReactNode | - |
 | use12Hours | 使用 12 小时制，为 true 时 `format` 默认为 `h:mm:ss a` | boolean | false |
 | value | 当前时间 | [moment](http://momentjs.com/) | 无 |
 | onChange | 时间发生变化的回调 | function(time: moment, timeString: string): void | 无 |
@@ -54,9 +55,9 @@ import moment from 'moment';
 
 ## 方法
 
-| 名称 | 描述 |
-| --- | --- |
-| blur() | 移除焦点 |
+| 名称    | 描述     |
+| ------- | -------- |
+| blur()  | 移除焦点 |
 | focus() | 获取焦点 |
 
 <style>.code-box-demo .ant-time-picker { margin: 0 8px 12px 0; }</style>

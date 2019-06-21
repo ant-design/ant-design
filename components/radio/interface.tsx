@@ -5,8 +5,8 @@ import { AbstractCheckboxProps } from '../checkbox/Checkbox';
 export type RadioGroupButtonStyle = 'outline' | 'solid';
 
 export interface RadioGroupProps extends AbstractCheckboxGroupProps {
-  defaultValue?: any;
-  value?: any;
+  defaultValue?: unknown;
+  value?: unknown;
   onChange?: (e: RadioChangeEvent) => void;
   size?: 'large' | 'default' | 'small';
   onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
@@ -18,13 +18,13 @@ export interface RadioGroupProps extends AbstractCheckboxGroupProps {
 }
 
 export interface RadioGroupState {
-  value: any;
+  value: unknown;
 }
 
 export interface RadioGroupContext {
   radioGroup: {
     onChange: React.ChangeEventHandler<HTMLInputElement>;
-    value: any;
+    value: unknown;
     disabled: boolean;
     name: string;
   };

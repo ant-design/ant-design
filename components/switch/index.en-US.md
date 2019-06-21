@@ -14,7 +14,7 @@ Switching Selector.
 ## API
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | autoFocus | get focus when component mounted | boolean | false |
 | checked | determine whether the `Switch` is checked | boolean | false |
 | checkedChildren | content to be shown when the state is checked | string\|ReactNode |  |
@@ -29,7 +29,7 @@ Switching Selector.
 
 ## Methods
 
-| Name | Description |
-| ---- | ----------- |
-| blur() | remove focus |
-| focus() | get focus |
+| Name    | Description  |
+| ------- | ------------ |
+| blur()  | remove focus |
+| focus() | get focus    |

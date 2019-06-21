@@ -15,8 +15,7 @@ Before all start, you may need install [yarn](https://github.com/yarnpkg/yarn/).
 $ yarn create react-app antd-demo
 ```
 
-The tool will create and initialize environment and dependencies automatically,
-please try config your proxy setting or use another npm registry if any network errors happen during it.
+The tool will create and initialize environment and dependencies automatically, please try config your proxy setting or use another npm registry if any network errors happen during it.
 
 Then we go inside `antd-demo` and start it.
 
@@ -57,7 +56,7 @@ Modify `src/App.js`, import Button component from `antd`.
 
 ```jsx
 import React, { Component } from 'react';
-import Button from 'antd/lib/button';
+import Button from 'antd/es/button';
 import './App.css';
 
 class App extends Component {
@@ -87,11 +86,9 @@ Add `antd/dist/antd.css` at the top of `src/App.css`.
 
 Ok, you should now see a blue primary button displayed on the page. Next you can choose any components of `antd` to develop your application. Visit other workflows of `create-react-app` at its [User Guide ](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
-
 ## Advanced Guides
 
-We are successfully running antd components now but in the real world, there are still lots of problems about antd-demo.
-For instance, we actually import all styles of components in the project which may be a network performance issue.
+We are successfully running antd components now but in the real world, there are still lots of problems about antd-demo. For instance, we actually import all styles of components in the project which may be a network performance issue.
 
 Now we need to customize the default webpack config. We can achieve that by using [react-app-rewired](https://github.com/timarney/react-app-rewired) which is one of create-react-app's custom config solutions.
 
@@ -124,6 +121,8 @@ module.exports = function override(config, env) {
 
 ### Use babel-plugin-import
 
+> Note: antd support ES6 tree shaking by default even without this babel plugin for js part.
+
 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) is a babel plugin for importing components on demand ([How does it work?](/docs/react/getting-started#Import-on-Demand)). We are now trying to install it and modify `config-overrides.js`.
 
 ```bash
@@ -151,7 +150,7 @@ Remove the `@import '~antd/dist/antd.css';` statement added before because `babe
 ```diff
   // src/App.js
   import React, { Component } from 'react';
-- import Button from 'antd/lib/button';
+- import Button from 'antd/es/button';
 + import { Button } from 'antd';
   import './App.css';
 
@@ -202,7 +201,7 @@ We use `modifyVars` option of [less-loader](https://github.com/webpack/less-load
 
 ## eject
 
-You can also could try [yarn run eject](https://github.com/facebookincubator/create-react-app#converting-to-a-custom-setup)  for a custom setup of create-react-app, although you should dig into it by yourself.
+You can also could try [yarn run eject](https://github.com/facebookincubator/create-react-app#converting-to-a-custom-setup) for a custom setup of create-react-app, although you should dig into it by yourself.
 
 ## Source code and other boilerplates
 

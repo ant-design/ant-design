@@ -6,6 +6,8 @@ import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import animation from '../_util/openAnimation';
 
+export type ExpandIconPosition = 'left' | 'right';
+
 export interface CollapseProps {
   activeKey?: Array<string> | string;
   defaultActiveKey?: Array<string>;
@@ -17,7 +19,8 @@ export interface CollapseProps {
   className?: string;
   bordered?: boolean;
   prefixCls?: string;
-  expandIcon?: (panelProps: any) => React.ReactNode;
+  expandIcon?: (panelProps: PanelProps) => React.ReactNode;
+  expandIconPosition?: ExpandIconPosition;
 }
 
 interface PanelProps {
@@ -28,6 +31,7 @@ interface PanelProps {
   showArrow?: boolean;
   forceRender?: boolean;
   disabled?: boolean;
+  extra?: React.ReactNode;
 }
 
 export default class Collapse extends React.Component<CollapseProps, any> {
@@ -36,6 +40,7 @@ export default class Collapse extends React.Component<CollapseProps, any> {
   static defaultProps = {
     bordered: true,
     openAnimation: { ...animation, appear() {} },
+    expandIconPosition: 'left',
   };
 
   renderExpandIcon = (panelProps: PanelProps = {}, prefixCls: string) => {
@@ -53,11 +58,17 @@ export default class Collapse extends React.Component<CollapseProps, any> {
   };
 
   renderCollapse = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, className = '', bordered } = this.props;
+    const {
+      prefixCls: customizePrefixCls,
+      className = '',
+      bordered,
+      expandIconPosition,
+    } = this.props;
     const prefixCls = getPrefixCls('collapse', customizePrefixCls);
     const collapseClassName = classNames(
       {
         [`${prefixCls}-borderless`]: !bordered,
+        [`${prefixCls}-icon-position-${expandIconPosition}`]: true,
       },
       className,
     );

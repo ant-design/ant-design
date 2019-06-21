@@ -13,8 +13,7 @@ No, actually, you can convert Less to Sass/Stylus(etc...) with tools (which you 
 
 ### `Select Dropdown DatePicker TimePicker Popover Popconfirm` disappear when I click another popup component inside it, How to resolve it?
 
-This has been fixed since 3.11.x.
-If you're still using old version, you can use `<Select getPopupContainer={trigger => trigger.parentNode}>` to render component inside Popover. (Or other getXxxxContainer props)
+This has been fixed since `3.11.x`. If you're still using old version, you can use `<Select getPopupContainer={trigger => trigger.parentNode}>` to render component inside Popover. (Or other getXxxxContainer props)
 
 https://ant.design/components/select/#Select-props
 
@@ -45,8 +44,8 @@ You can override its style, but we don't recommend doing so. antd is not only a 
 Try [babel-plugin-import](https://github.com/ant-design/babel-plugin-import), or import what you need in this way:
 
 ```jsx
-import Menu from 'antd/lib/menu';
-import 'antd/lib/menu/style/css';
+import Menu from 'antd/es/menu';
+import 'antd/es/menu/style/css';
 ```
 
 or (ES6 way with tree shaking):
@@ -107,6 +106,19 @@ If you need some features which should not be included in antd, try to extend an
 
 You can config `nonce` by [ConfigProvider](/components/config-provider/#Content-Security-Policy).
 
+### When set `mode` to DatePicker/RangePicker, cannot select year or month anymore?
+
+In real world development, you may need a YearPicker, MonthRangePicker or WeekRangePicker. You are trying to add `mode` to DatePicker/RangePicker expected to implement those pickers. However, the DatePicker/RangePicker cannot be selected and the panels won't close now!
+
+- Reproduce link: https://codesandbox.io/s/dank-brook-v1csy
+- Same issues：[#15572](https://github.com/ant-design/ant-design/issues/15572), [#16436](https://github.com/ant-design/ant-design/issues/16436), [#11938](https://github.com/ant-design/ant-design/issues/11938), [#11735](https://github.com/ant-design/ant-design/issues/11735), [#11586](https://github.com/ant-design/ant-design/issues/11586), [#10425](https://github.com/ant-design/ant-design/issues/10425), [#11053](https://github.com/ant-design/ant-design/issues/11053)
+
+Like [the explaination](https://github.com/ant-design/ant-design/issues/11586#issuecomment-429189877) here, that is because `<DatePicker mode="year" />` do not equal to `YearPicker`, `<RangePicker mode="month" />` do not equal to `MonthRangePicker` either. The `mode` property was added to support [showing time picker panel in DatePicker](https://github.com/ant-design/ant-design/issues/5190) in antd 3.0, which simply control the displayed panel and won't change the original date picking behavior of `DatePicker/RangePicker` (for instance you still need to click date cell to finish selection in a DatePicker, whatever the `mode` is).
+
+##### Workaround
+
+You can refer to [this article](https://juejin.im/post/5cf65c366fb9a07eca6968f9) or [this article](https://www.cnblogs.com/zyl-Tara/p/10197177.html), using `mode` and `onPanelChange` to encapsulate a `YearPicker` or `MonthRangePicker` for your needs. Or you can wait for our [antd@4.0](https://github.com/ant-design/ant-design/issues/16911), in which we are planing to [add more XxxPickers](https://github.com/ant-design/ant-design/issues/4524#issuecomment-480576884) for those requirments.
+
 ### How to spell Ant Design correctly?
 
 - ✅ **Ant Design**: Capitalized with space, for the design language.
@@ -125,11 +137,7 @@ Here are some typical wrong examples:
 
 ### Do you guys have any channel for donation, like PayPal or Alipay?
 
-Not yet.
-
-### Why not?
-
-Alibaba pays us.
+[https://opencollective.com/ant-design](https://opencollective.com/ant-design)
 
 ---
 

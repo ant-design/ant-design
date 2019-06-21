@@ -1,5 +1,5 @@
 import Modal from '..';
-import { destroyFns } from '../Modal'
+import { destroyFns } from '../Modal';
 
 const { confirm } = Modal;
 
@@ -67,6 +67,19 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(errorSpy).not.toHaveBeenCalled();
   });
 
+  it('should emit error when onOk return Promise.reject', () => {
+    const error = new Error('something wrong');
+    open({
+      onOk: () => Promise.reject(error),
+    });
+    // Fifth Modal
+    $$('.ant-btn-primary')[0].click();
+    // wait promise
+    return Promise.resolve().then(() => {
+      expect(errorSpy).toHaveBeenCalledWith(error);
+    });
+  });
+
   if (process.env.REACT !== '15') {
     it('shows animation when close', () => {
       jest.useFakeTimers();
@@ -92,7 +105,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect($$('.ant-btn')[1].disabled).toBe(true);
   });
 
-  it('trigger onCancel once when click on cancel button', () => {
+  it('should close modals when click confirm button', () => {
     jest.useFakeTimers();
     ['info', 'success', 'warning', 'error'].forEach(type => {
       Modal[type]({
@@ -185,15 +198,15 @@ describe('Modal.confirm triggers callbacks correctly', () => {
         title: 'title',
         content: 'content',
       });
-      instances.push(instance)
+      instances.push(instance);
     });
-    const { length } = instances
+    const { length } = instances;
     instances.forEach((instance, index) => {
       expect(destroyFns.length).toBe(length - index);
       instance.destroy();
       jest.runAllTimers();
       expect(destroyFns.length).toBe(length - index - 1);
-    })
+    });
     jest.useRealTimers();
   });
 });

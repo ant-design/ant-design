@@ -1,9 +1,7 @@
 ---
-name: "⚠️  Please use new-issue.ant.design ⚠️"
-about: The issue which is not created via http://new-issue.ant.design will be closed
-  immediately.
-labels: 
-
+name: '⚠️  Please use new-issue.ant.design ⚠️'
+about: The issue which is not created via http://new-issue.ant.design will be closed immediately.
+labels:
 ---
 
 The issue which is not created via http://new-issue.ant.design will be closed immediately.

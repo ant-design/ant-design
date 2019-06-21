@@ -39,7 +39,7 @@ exports[`renders ./components/tooltip/demo/auto-adjust-overflow.md correctly 1`]
     type="button"
   >
     <span>
-      Ingore / 不处理
+      Ignore / 不处理
     </span>
   </button>
 </div>
@@ -47,7 +47,7 @@ exports[`renders ./components/tooltip/demo/auto-adjust-overflow.md correctly 1`]
 
 exports[`renders ./components/tooltip/demo/basic.md correctly 1`] = `
 <span>
-  Tooltip will show when mouse enter.
+  Tooltip will show on mouse enter.
 </span>
 `;
 

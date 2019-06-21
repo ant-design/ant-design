@@ -39,6 +39,7 @@ Breadcrumb tell users where they are now among page hierarchy, and parent-child 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/ZeChCVQTCUdghxmwqKIO.png">
 
 > Notes:
+>
 > 1. When hierarchy is deep, it is recommended to hide certain pages. Depth of pages shown should at best be lower than 3, and should not exceed 5.
 > 2. Avoid using breadcrumb as much as you can, especially when page contains other navigation components sufficiently telling where users are.
 

@@ -27,7 +27,7 @@ title: Modal
 | footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer={null}` | string\|ReactNode | 确定取消按钮 |
 | forceRender | 强制渲染 Modal | boolean | false |
 | getContainer | 指定 Modal 挂载的 HTML 节点 | (instance): HTMLElement | () => document.body |
-| keyboard | 是否支持键盘esc关闭 | boolean | true |
+| keyboard | 是否支持键盘 esc 关闭 | boolean | true |
 | mask | 是否展示遮罩 | Boolean | true |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | true |
 | maskStyle | 遮罩样式 | object | {} |
@@ -63,7 +63,7 @@ title: Modal
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | autoFocusButton | 指定自动获得焦点的按钮 | null\|string: `ok` `cancel` | `ok` |
-| cancelText | 取消按钮文字 | string | 取消 |
+| cancelText | 设置 Modal.confirm 取消按钮文字 | string | 取消 |
 | centered | 垂直居中展示 Modal | Boolean | `false` |
 | className | 容器类名 | string | - |
 | content | 内容 | string\|ReactNode | 无 |

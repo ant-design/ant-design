@@ -1,5 +1,6 @@
 .iconfont-mixin() {
   display: inline-block;
+  color: @icon-color;
   font-style: normal;
   line-height: 0;
   text-align: center;
@@ -31,6 +32,7 @@
 .iconfont-size-under-12px(@size, @rotate: 0deg) {
   display: inline-block;
   @font-scale: unit(@size / 12px);
+
   font-size: 12px;
   // IE9
   font-size: ~'@{size} \9';

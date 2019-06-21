@@ -16,15 +16,17 @@ export interface StepsProps {
   size?: 'default' | 'small';
   status?: 'wait' | 'process' | 'finish' | 'error';
   style?: React.CSSProperties;
+  onChange?: (current: number) => void;
 }
 
 export interface StepProps {
   className?: string;
   description?: React.ReactNode;
   icon?: React.ReactNode;
-  onClick?: React.MouseEventHandler<any>;
+  onClick?: React.MouseEventHandler<HTMLElement>;
   status?: 'wait' | 'process' | 'finish' | 'error';
   title?: React.ReactNode;
+  style?: React.CSSProperties;
 }
 
 export default class Steps extends React.Component<StepsProps, any> {

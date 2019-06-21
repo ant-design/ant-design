@@ -13,14 +13,15 @@ export interface SwitchProps {
   className?: string;
   checked?: boolean;
   defaultChecked?: boolean;
-  onChange?: (checked: boolean, event: MouseEvent) => any;
-  onClick?: (checked: boolean, event: MouseEvent) => any;
+  onChange?: (checked: boolean, event: MouseEvent) => void;
+  onClick?: (checked: boolean, event: MouseEvent) => void;
   checkedChildren?: React.ReactNode;
   unCheckedChildren?: React.ReactNode;
   disabled?: boolean;
   loading?: boolean;
   autoFocus?: boolean;
   style?: React.CSSProperties;
+  title?: string;
 }
 
 export default class Switch extends React.Component<SwitchProps, {}> {

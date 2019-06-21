@@ -17,7 +17,7 @@ Ant Design supports a default button size as well as a large and small size.
 
 If a large or small button is desired, set the `size` property to either `large` or `small` respectively. Omit the `size` property for a button with the default size.
 
-````jsx
+```jsx
 import { Button, Radio, Icon } from 'antd';
 
 class ButtonSize extends React.Component {
@@ -25,12 +25,12 @@ class ButtonSize extends React.Component {
     size: 'large',
   };
 
-  handleSizeChange = (e) => {
+  handleSizeChange = e => {
     this.setState({ size: e.target.value });
-  }
+  };
 
   render() {
-    const size = this.state.size;
+    const { size } = this.state;
     return (
       <div>
         <Radio.Group value={size} onChange={this.handleSizeChange}>
@@ -38,22 +38,38 @@ class ButtonSize extends React.Component {
           <Radio.Button value="default">Default</Radio.Button>
           <Radio.Button value="small">Small</Radio.Button>
         </Radio.Group>
-        <br /><br />
-        <Button type="primary" size={size}>Primary</Button>
+        <br />
+        <br />
+        <Button type="primary" size={size}>
+          Primary
+        </Button>
         <Button size={size}>Normal</Button>
-        <Button type="dashed" size={size}>Dashed</Button>
-        <Button type="danger" size={size}>Danger</Button>
+        <Button type="dashed" size={size}>
+          Dashed
+        </Button>
+        <Button type="danger" size={size}>
+          Danger
+        </Button>
+        <Button type="link" size={size}>
+          Link
+        </Button>
         <br />
         <Button type="primary" shape="circle" icon="download" size={size} />
-        <Button type="primary" shape="round" icon="download" size={size}>Download</Button>
-        <Button type="primary" icon="download" size={size}>Download</Button>
+        <Button type="primary" shape="round" icon="download" size={size}>
+          Download
+        </Button>
+        <Button type="primary" icon="download" size={size}>
+          Download
+        </Button>
         <br />
         <Button.Group size={size}>
           <Button type="primary">
-            <Icon type="left" />Backward
+            <Icon type="left" />
+            Backward
           </Button>
           <Button type="primary">
-            Forward<Icon type="right" />
+            Forward
+            <Icon type="right" />
           </Button>
         </Button.Group>
       </div>
@@ -62,4 +78,4 @@ class ButtonSize extends React.Component {
 }
 
 ReactDOM.render(<ButtonSize />, mountNode);
-````
+```

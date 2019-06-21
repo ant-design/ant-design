@@ -13,7 +13,7 @@ import FilterDropdownMenuWrapper from './FilterDropdownMenuWrapper';
 import { FilterMenuProps, FilterMenuState, ColumnProps, ColumnFilterItem } from './interface';
 import { generateValueMaps } from './util';
 
-function stopPropagation(e: React.SyntheticEvent<any>) {
+function stopPropagation(e: React.SyntheticEvent<unknown>) {
   e.stopPropagation();
   if (e.nativeEvent.stopImmediatePropagation) {
     e.nativeEvent.stopImmediatePropagation();
@@ -144,7 +144,9 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
     if (!shallowequal(selectedKeys, this.props.selectedKeys)) {
       this.props.confirmFilter(
         this.props.column,
-        filterDropdown ? selectedKeys : selectedKeys.map(key => valueKeys[key]),
+        filterDropdown
+          ? selectedKeys
+          : selectedKeys.map(key => valueKeys[key]).filter(key => key !== undefined),
       );
     }
   }
@@ -153,10 +155,14 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
     const { column } = this.props;
     const { selectedKeys } = this.state;
     const multiple = 'filterMultiple' in column ? column.filterMultiple : true;
+
+    // We still need trade key as string since Menu render need string
+    const internalSelectedKeys = (selectedKeys || []).map(key => key.toString());
+
     const input = multiple ? (
-      <Checkbox checked={selectedKeys && selectedKeys.indexOf(item.value.toString()) >= 0} />
+      <Checkbox checked={internalSelectedKeys.indexOf(item.value.toString()) >= 0} />
     ) : (
-      <Radio checked={selectedKeys && selectedKeys.indexOf(item.value.toString()) >= 0} />
+      <Radio checked={internalSelectedKeys.indexOf(item.value.toString()) >= 0} />
     );
 
     return (
@@ -257,7 +263,7 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
         confirm: this.handleConfirm,
         clearFilters: this.handleClearFilters,
         filters: column.filters,
-        getPopupContainer: (triggerNode: HTMLElement) => triggerNode.parentNode,
+        getPopupContainer: (triggerNode: HTMLElement) => triggerNode.parentNode as HTMLElement,
       });
     }
 

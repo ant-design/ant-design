@@ -56,7 +56,9 @@ export default class ActionButton extends React.Component<ActionButtonProps, Act
             // this.setState({ loading: false });
             closeModal(...args);
           },
-          () => {
+          (e: Error) => {
+            // Emit error when catch promise reject
+            console.error(e);
             // See: https://github.com/ant-design/ant-design/issues/6183
             this.setState({ loading: false });
           },

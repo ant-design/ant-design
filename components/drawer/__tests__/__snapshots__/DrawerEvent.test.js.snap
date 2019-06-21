@@ -15,6 +15,7 @@ exports[`Drawer render correctly 1`] = `
   >
     <div
       class="ant-drawer ant-drawer-right ant-drawer-open"
+      tabindex="-1"
     >
       <div
         class="ant-drawer-mask"
@@ -46,6 +47,7 @@ exports[`Drawer render correctly 1`] = `
                     class=""
                     data-icon="close"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"

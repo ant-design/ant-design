@@ -13,44 +13,47 @@ title:
 
 Select different settings to see the result.
 
-````jsx
-import {
-  Table, Icon, Switch, Radio, Form, Divider,
-} from 'antd';
+```jsx
+import { Table, Icon, Switch, Radio, Form, Divider } from 'antd';
 
 const FormItem = Form.Item;
 
-const columns = [{
-  title: 'Name',
-  dataIndex: 'name',
-  key: 'name',
-  width: 150,
-  render: text => <a href="javascript:;">{text}</a>,
-}, {
-  title: 'Age',
-  dataIndex: 'age',
-  key: 'age',
-  width: 70,
-}, {
-  title: 'Address',
-  dataIndex: 'address',
-  key: 'address',
-}, {
-  title: 'Action',
-  key: 'action',
-  width: 360,
-  render: (text, record) => (
-    <span>
-      <a href="javascript:;">Action 一 {record.name}</a>
-      <Divider type="vertical" />
-      <a href="javascript:;">Delete</a>
-      <Divider type="vertical" />
-      <a href="javascript:;" className="ant-dropdown-link">
-        More actions <Icon type="down" />
-      </a>
-    </span>
-  ),
-}];
+const columns = [
+  {
+    title: 'Name',
+    dataIndex: 'name',
+    key: 'name',
+    width: 150,
+    render: text => <a href="javascript:;">{text}</a>,
+  },
+  {
+    title: 'Age',
+    dataIndex: 'age',
+    key: 'age',
+    width: 70,
+  },
+  {
+    title: 'Address',
+    dataIndex: 'address',
+    key: 'address',
+  },
+  {
+    title: 'Action',
+    key: 'action',
+    width: 360,
+    render: (text, record) => (
+      <span>
+        <a href="javascript:;">Action 一 {record.name}</a>
+        <Divider type="vertical" />
+        <a href="javascript:;">Delete</a>
+        <Divider type="vertical" />
+        <a href="javascript:;" className="ant-dropdown-link">
+          More actions <Icon type="down" />
+        </a>
+      </span>
+    ),
+  },
+];
 
 const data = [];
 for (let i = 1; i <= 10; i++) {
@@ -83,53 +86,53 @@ class Demo extends React.Component {
     rowSelection: {},
     scroll: undefined,
     hasData: true,
-  }
+  };
 
-  handleToggle = prop => (enable) => {
+  handleToggle = prop => enable => {
     this.setState({ [prop]: enable });
-  }
+  };
 
-  handleSizeChange = (e) => {
+  handleSizeChange = e => {
     this.setState({ size: e.target.value });
-  }
+  };
 
-  handleExpandChange = (enable) => {
+  handleExpandChange = enable => {
     this.setState({ expandedRowRender: enable ? expandedRowRender : undefined });
-  }
+  };
 
-  handleTitleChange = (enable) => {
+  handleTitleChange = enable => {
     this.setState({ title: enable ? title : undefined });
-  }
+  };
 
-  handleHeaderChange = (enable) => {
+  handleHeaderChange = enable => {
     this.setState({ showHeader: enable ? showHeader : false });
-  }
+  };
 
-  handleFooterChange = (enable) => {
+  handleFooterChange = enable => {
     this.setState({ footer: enable ? footer : undefined });
-  }
+  };
 
-  handleRowSelectionChange = (enable) => {
+  handleRowSelectionChange = enable => {
     this.setState({ rowSelection: enable ? {} : undefined });
-  }
+  };
 
-  handleScollChange = (enable) => {
+  handleScollChange = enable => {
     this.setState({ scroll: enable ? scroll : undefined });
-  }
+  };
 
-  handleDataChange = (hasData) => {
+  handleDataChange = hasData => {
     this.setState({ hasData });
-  }
+  };
 
-  handlePaginationChange = (e) => {
+  handlePaginationChange = e => {
     const { value } = e.target;
     this.setState({
       pagination: value === 'none' ? false : { position: value },
     });
-  }
+  };
 
   render() {
-    const state = this.state;
+    const { state } = this;
     return (
       <div>
         <div className="components-table-demo-control-bar">
@@ -188,7 +191,7 @@ class Demo extends React.Component {
 }
 
 ReactDOM.render(<Demo />, mountNode);
-````
+```
 
 <style>
 .components-table-demo-control-bar {

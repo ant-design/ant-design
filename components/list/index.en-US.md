@@ -16,7 +16,7 @@ A list can be used to display content related to a single subject. The content c
 ### List
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | bordered | Toggles rendering of the border around the list | boolean | false |
 | footer | List footer renderer | string\|ReactNode | - |
 | grid | The grid type of list. You can set grid to something like {gutter: 16, column: 4} | object | - |
@@ -33,8 +33,8 @@ A list can be used to display content related to a single subject. The content c
 
 Properties for pagination.
 
-| Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| Property | Description                          | Type                        | Default  |
+| -------- | ------------------------------------ | --------------------------- | -------- |
 | position | specify the position of `Pagination` | 'top' \| 'bottom' \| 'both' | 'bottom' |
 
 More about pagination, please check [`Pagination`](/components/pagination/).
@@ -42,7 +42,7 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 ### List grid props
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | column | column of grid, [optional number](https://github.com/ant-design/ant-design/blob/a7f17b4cdebbca07b3b9ce5698de61e772d46237/components/list/index.tsx#L16) | number | - |
 | gutter | spacing between grid | number | 0 |
 | size | Size of list | `default` \| `middle` \| `small` | `default` |
@@ -56,14 +56,14 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 ### List.Item
 
 | Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
+| --- | --- | --- | --- |
 | actions | The actions content of list item. If `itemLayout` is `vertical`, shows the content on bottom, otherwise shows content on the far right. | Array<ReactNode> | - |
 | extra | The extra content of list item. If `itemLayout` is `vertical`, shows the content on right, otherwise shows content on the far right. | string\|ReactNode | - |
 
 ### List.Item.Meta
 
-| Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
-| avatar | The avatar of list item | ReactNode | - |
-| description | The description of list item | string\|ReactNode | - |
-| title | The title of list item | string\|ReactNode | - |
+| Property    | Description                  | Type              | Default |
+| ----------- | ---------------------------- | ----------------- | ------- |
+| avatar      | The avatar of list item      | ReactNode         | -       |
+| description | The description of list item | string\|ReactNode | -       |
+| title       | The title of list item       | string\|ReactNode | -       |

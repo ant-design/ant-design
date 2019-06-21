@@ -5,6 +5,7 @@
   // 一般状态
   .@{checkbox-prefix-cls} {
     .reset-component;
+
     position: relative;
     top: -0.09em;
     display: inline-block;
@@ -57,6 +58,7 @@
       &::after {
         @check-width: (@checkbox-size / 14) * 5px;
         @check-height: (@checkbox-size / 14) * 8px;
+
         position: absolute;
         top: 50%;
         left: 21%;
@@ -139,6 +141,7 @@
 
   .@{checkbox-prefix-cls}-wrapper {
     .reset-component;
+
     display: inline-block;
     line-height: unset;
     cursor: pointer;
@@ -155,6 +158,7 @@
 
   .@{checkbox-prefix-cls}-group {
     .reset-component;
+
     display: inline-block;
     &-item {
       display: inline-block;
@@ -171,12 +175,13 @@
   // 半选状态
   .@{checkbox-prefix-cls}-indeterminate {
     .@{checkbox-inner-prefix-cls} {
-      background-color: #fff;
+      background-color: @component-background;
       border-color: @border-color-base;
     }
     .@{checkbox-inner-prefix-cls}::after {
       @indeterminate-width: @checkbox-size - 8px;
       @indeterminate-height: @checkbox-size - 8px;
+
       top: 50%;
       left: 50%;
       width: @indeterminate-width;

@@ -1,0 +1,225 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+
+@typography-prefix-cls: ~'@{ant-prefix}-typography';
+@typography-title-margin-top: 1.2em;
+
+// =============== Common ===============
+.typography-paragraph() {
+  margin-bottom: 1em;
+}
+
+.typography-title(@fontSize; @lineHeight) {
+  margin-bottom: 0.5em;
+  color: @heading-color;
+  font-weight: 600;
+  font-size: @fontSize;
+  line-height: @lineHeight;
+}
+
+.typography-title-1() {
+  .typography-title(@heading-1-size, 1.23);
+}
+.typography-title-2() {
+  .typography-title(@heading-2-size, 1.35);
+}
+.typography-title-3() {
+  .typography-title(@heading-3-size, 1.35);
+}
+.typography-title-4() {
+  .typography-title(@heading-4-size, 1.4);
+}
+
+// =============== Basic ===============
+.@{typography-prefix-cls} {
+  color: @text-color;
+
+  &&-secondary {
+    color: @text-color-secondary;
+  }
+
+  &&-warning {
+    color: @warning-color;
+  }
+
+  &&-danger {
+    color: @error-color;
+  }
+
+  &&-disabled {
+    color: @disabled-color;
+    cursor: not-allowed;
+    user-select: none;
+  }
+
+  // Tag
+  div&,
+  p {
+    .typography-paragraph();
+  }
+
+  h1&,
+  h1 {
+    .typography-title-1();
+  }
+  h2&,
+  h2 {
+    .typography-title-2();
+  }
+  h3&,
+  h3 {
+    .typography-title-3();
+  }
+  h4&,
+  h4 {
+    .typography-title-4();
+  }
+
+  h1&,
+  h2&,
+  h3&,
+  h4& {
+    .@{typography-prefix-cls} + & {
+      margin-top: @typography-title-margin-top;
+    }
+  }
+
+  div,
+  ul,
+  li,
+  p,
+  h1,
+  h2,
+  h3,
+  h4 {
+    + h1,
+    + h2,
+    + h3,
+    + h4 {
+      margin-top: @typography-title-margin-top;
+    }
+  }
+
+  span&-ellipsis {
+    display: inline-block;
+  }
+
+  a {
+    .operation-unit();
+
+    &:active,
+    &:hover {
+      text-decoration: @link-hover-decoration;
+    }
+
+    &[disabled] {
+      color: @disabled-color;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+
+  code {
+    margin: 0 0.2em;
+    padding: 0.2em 0.4em 0.1em;
+    font-size: 85%;
+    background: rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 3px;
+  }
+
+  mark {
+    padding: 0;
+    background-color: @gold-3;
+  }
+
+  u,
+  ins {
+    text-decoration: underline;
+    text-decoration-skip-ink: auto;
+  }
+
+  s,
+  del {
+    text-decoration: line-through;
+  }
+
+  strong {
+    font-weight: 600;
+  }
+
+  // Operation
+  &-expand,
+  &-edit,
+  &-copy {
+    .operation-unit();
+
+    margin-left: 8px;
+  }
+
+  &-copy-success {
+    &,
+    &:hover,
+    &:focus {
+      color: @success-color;
+    }
+  }
+
+  // Text input area
+  &-edit-content {
+    position: relative;
+
+    div& {
+      left: -@input-padding-horizontal - 1px;
+      margin-top: -@input-padding-vertical-base - 1px;
+      margin-bottom: calc(1em - @input-padding-vertical-base - 2px);
+    }
+
+    &-confirm {
+      position: absolute;
+      right: 10px;
+      bottom: 8px;
+      color: @text-color-secondary;
+      pointer-events: none;
+    }
+  }
+
+  // list
+  ul,
+  ol {
+    margin: 0 0 1em 0;
+    padding: 0;
+
+    li {
+      margin: 0 0 0 20px;
+      padding: 0 0 0 4px;
+    }
+  }
+
+  ul li {
+    list-style-type: circle;
+
+    li {
+      list-style-type: disc;
+    }
+  }
+
+  ol li {
+    list-style-type: decimal;
+  }
+
+  // ============ Ellipsis ============
+  &-ellipsis-single-line {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &-ellipsis-multiple-line {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    /*! autoprefixer: ignore next */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}

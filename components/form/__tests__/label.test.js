@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import Form from '..';
 
 describe('Form', () => {
@@ -31,6 +31,7 @@ describe('Form', () => {
         <Form.Item label="label：">input</Form.Item>
       </Form>,
     );
+
     expect(
       wrapper
         .find('.ant-form-item-label label')
@@ -39,6 +40,58 @@ describe('Form', () => {
     ).not.toContain(':');
     expect(
       wrapper
+        .find('.ant-form-item-label label')
+        .at(1)
+        .text(),
+    ).not.toContain('：');
+  });
+
+  it('should disable colon when props colon Form is false', () => {
+    const wrapper = mount(
+      <Form colon={false}>
+        <Form.Item label="label">input</Form.Item>
+      </Form>,
+    );
+    expect(
+      wrapper
+        .find('.ant-form-item-label label')
+        .at(0)
+        .hasClass('ant-form-item-no-colon'),
+    ).toBe(true);
+  });
+
+  it('should props colon of Form.Item override the props colon of Form.', () => {
+    const wrapper = mount(
+      <Form colon={false}>
+        <Form.Item label="label">input</Form.Item>
+        <Form.Item label="label" colon>
+          input
+        </Form.Item>
+        <Form.Item label="label" colon={false}>
+          input
+        </Form.Item>
+      </Form>,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+
+    const testLabel = mount(
+      <Form colon={false}>
+        <Form.Item label="label:" colon>
+          input
+        </Form.Item>
+        <Form.Item label="label：" colon>
+          input
+        </Form.Item>
+      </Form>,
+    );
+    expect(
+      testLabel
+        .find('.ant-form-item-label label')
+        .at(0)
+        .text(),
+    ).not.toContain(':');
+    expect(
+      testLabel
         .find('.ant-form-item-label label')
         .at(1)
         .text(),
@@ -168,5 +221,45 @@ describe('Form', () => {
         .at(0)
         .getDOMNode(),
     ).toBe(document.activeElement);
+  });
+
+  it('should `labelAlign` work in FormItem', () => {
+    // Works in Form.Item
+    expect(render(<Form.Item label="test" labelAlign="left" />)).toMatchSnapshot();
+
+    // Use Form.Item first
+    expect(
+      render(
+        <Form labelAlign="right">
+          <Form.Item label="test" labelAlign="left" />
+        </Form>,
+      ),
+    ).toMatchSnapshot();
+  });
+
+  describe('should `htmlFor` work', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    afterEach(() => {
+      errorSpy.mockReset();
+    });
+
+    afterAll(() => {
+      errorSpy.mockRestore();
+    });
+
+    it('should warning when use `id`', () => {
+      mount(<Form.Item id="bamboo" label="bamboo" />);
+
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Form.Item] `id` is deprecated for its label `htmlFor`. Please use `htmlFor` directly.',
+      );
+    });
+
+    it('use `htmlFor`', () => {
+      const wrapper = mount(<Form.Item htmlFor="bamboo" label="bamboo" />);
+
+      expect(wrapper.find('label').props().htmlFor).toBe('bamboo');
+    });
   });
 });

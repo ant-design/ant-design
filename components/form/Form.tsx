@@ -4,21 +4,24 @@ import classNames from 'classnames';
 import createDOMForm from 'rc-form/lib/createDOMForm';
 import createFormField from 'rc-form/lib/createFormField';
 import omit from 'omit.js';
-import FormItem from './FormItem';
-import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import { Omit, tuple } from '../_util/type';
+import { ColProps } from '../grid/col';
+import { tuple } from '../_util/type';
 import warning from '../_util/warning';
+import FormItem, { FormLabelAlign } from './FormItem';
+import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
+import { FormContext } from './context';
+import { FormWrappedProps } from './interface';
 
-type FormCreateOptionMessagesCallback = (...args: any[]) => string;
+type FormCreateOptionMessagesCallback = (...args: unknown[]) => string;
 
 interface FormCreateOptionMessages {
   [messageId: string]: string | FormCreateOptionMessagesCallback | FormCreateOptionMessages;
 }
 
 export interface FormCreateOption<T> {
-  onFieldsChange?: (props: T, fields: object, allFields: any, add: string) => void;
-  onValuesChange?: (props: T, changedValues: any, allValues: any) => void;
+  onFieldsChange?: (props: T, fields: unknown, allFields: unknown) => void;
+  onValuesChange?: (props: T, changedValues: unknown, allValues: unknown) => void;
   mapPropsToFields?: (props: T) => void;
   validateMessages?: FormCreateOptionMessages;
   withRef?: boolean;
@@ -31,11 +34,21 @@ export type FormLayout = (typeof FormLayouts)[number];
 export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   layout?: FormLayout;
   form?: WrappedFormUtils;
-  onSubmit?: React.FormEventHandler<any>;
+  onSubmit?: React.FormEventHandler<HTMLElement>;
   style?: React.CSSProperties;
   className?: string;
   prefixCls?: string;
   hideRequiredMark?: boolean;
+  /**
+   * @since 3.14.0
+   */
+  wrapperCol?: ColProps;
+  labelCol?: ColProps;
+  /**
+   * @since 3.15.0
+   */
+  colon?: boolean;
+  labelAlign?: FormLabelAlign;
 }
 
 export type ValidationRule = {
@@ -58,24 +71,30 @@ export type ValidationRule = {
   /** validate from a regular expression */
   pattern?: RegExp;
   /** transform a value before validation */
-  transform?: (value: any) => any;
+  transform?: (value: unknown) => unknown;
   /** custom validate function (Note: callback must be called) */
-  validator?: (rule: any, value: any, callback: any, source?: any, options?: any) => any;
+  validator?: (
+    rule: unknown,
+    value: unknown,
+    callback: unknown,
+    source?: unknown,
+    options?: unknown,
+  ) => unknown;
 };
 
-export type ValidateCallback = (errors: any, values: any) => void;
+export type ValidateCallback<V> = (errors: unknown, values: V) => void;
 
 export type GetFieldDecoratorOptions = {
   /** 子节点的值的属性，如 Checkbox 的是 'checked' */
   valuePropName?: string;
   /** 子节点的初始值，类型、可选值均由子节点决定 */
-  initialValue?: any;
+  initialValue?: unknown;
   /** 收集子节点的值的时机 */
   trigger?: string;
   /** 可以把 onChange 的参数转化为控件的值，例如 DatePicker 可设为：(date, dateString) => dateString */
-  getValueFromEvent?: (...args: any[]) => any;
+  getValueFromEvent?: (...args: unknown[]) => unknown;
   /** Get the component props according to field value. */
-  getValueProps?: (value: any) => any;
+  getValueProps?: (value: unknown) => unknown;
   /** 校验子节点值的时机 */
   validateTrigger?: string | string[];
   /** 校验规则，参见 [async-validator](https://github.com/yiminghe/async-validator) */
@@ -83,7 +102,7 @@ export type GetFieldDecoratorOptions = {
   /** 是否和其他控件互斥，特别用于 Radio 单选控件 */
   exclusive?: boolean;
   /** Normalize value to form component */
-  normalize?: (value: any, prevValue: any, allValues: any) => any;
+  normalize?: (value: unknown, prevValue: unknown, allValues: unknown) => unknown;
   /** Whether stop validate on first rule of error for this field.  */
   validateFirst?: boolean;
   /** 是否一直保留子节点的信息 */
@@ -122,11 +141,11 @@ export type ValidateFieldsOptions = {
 };
 
 // function create
-export type WrappedFormUtils = {
+export type WrappedFormUtils<V = unknown> = {
   /** 获取一组输入控件的值，如不传入参数，则获取全部组件的值 */
-  getFieldsValue(fieldNames?: Array<string>): { [field: string]: any };
+  getFieldsValue(fieldNames?: Array<string>): { [field: string]: unknown };
   /** 获取一个输入控件的值 */
-  getFieldValue(fieldName: string): any;
+  getFieldValue(fieldName: string): unknown;
   /** 设置一组输入控件的值 */
   setFieldsValue(obj: Object): void;
   /** 设置一组输入控件的值 */
@@ -135,31 +154,31 @@ export type WrappedFormUtils = {
   validateFields(
     fieldNames: Array<string>,
     options: ValidateFieldsOptions,
-    callback: ValidateCallback,
+    callback: ValidateCallback<V>,
   ): void;
-  validateFields(options: ValidateFieldsOptions, callback: ValidateCallback): void;
-  validateFields(fieldNames: Array<string>, callback: ValidateCallback): void;
+  validateFields(options: ValidateFieldsOptions, callback: ValidateCallback<V>): void;
+  validateFields(fieldNames: Array<string>, callback: ValidateCallback<V>): void;
   validateFields(fieldNames: Array<string>, options: ValidateFieldsOptions): void;
   validateFields(fieldNames: Array<string>): void;
-  validateFields(callback: ValidateCallback): void;
+  validateFields(callback: ValidateCallback<V>): void;
   validateFields(options: ValidateFieldsOptions): void;
   validateFields(): void;
   /** 与 `validateFields` 相似，但校验完后，如果校验不通过的菜单域不在可见范围内，则自动滚动进可见范围 */
   validateFieldsAndScroll(
     fieldNames: Array<string>,
     options: ValidateFieldsOptions,
-    callback: ValidateCallback,
+    callback: ValidateCallback<V>,
   ): void;
-  validateFieldsAndScroll(options: ValidateFieldsOptions, callback: ValidateCallback): void;
-  validateFieldsAndScroll(fieldNames: Array<string>, callback: ValidateCallback): void;
+  validateFieldsAndScroll(options: ValidateFieldsOptions, callback: ValidateCallback<V>): void;
+  validateFieldsAndScroll(fieldNames: Array<string>, callback: ValidateCallback<V>): void;
   validateFieldsAndScroll(fieldNames: Array<string>, options: ValidateFieldsOptions): void;
   validateFieldsAndScroll(fieldNames: Array<string>): void;
-  validateFieldsAndScroll(callback: ValidateCallback): void;
+  validateFieldsAndScroll(callback: ValidateCallback<V>): void;
   validateFieldsAndScroll(options: ValidateFieldsOptions): void;
   validateFieldsAndScroll(): void;
   /** 获取某个输入控件的 Error */
-  getFieldError(name: string): Object[];
-  getFieldsError(names?: Array<string>): Object;
+  getFieldError(name: string): string[] | undefined;
+  getFieldsError(names?: Array<string>): Record<string, string[] | undefined>;
   /** 判断一个输入控件是否在校验状态 */
   isFieldValidating(name: string): boolean;
   isFieldTouched(name: string): boolean;
@@ -173,22 +192,23 @@ export type WrappedFormUtils = {
   ): (node: React.ReactNode) => React.ReactNode;
 };
 
-export interface FormComponentProps {
-  form: WrappedFormUtils;
+export interface WrappedFormInternalProps<V = unknown> {
+  form: WrappedFormUtils<V>;
 }
 
 export interface RcBaseFormProps {
-  wrappedComponentRef?: any;
+  wrappedComponentRef?: unknown;
 }
 
-export interface ComponentDecorator {
-  <P extends FormComponentProps>(
-    component: React.ComponentClass<P> | React.SFC<P>,
-  ): React.ComponentClass<RcBaseFormProps & Omit<P, keyof FormComponentProps>>;
+export interface FormComponentProps<V = unknown>
+  extends WrappedFormInternalProps<V>,
+    RcBaseFormProps {
+  form: WrappedFormUtils<V>;
 }
 
 export default class Form extends React.Component<FormProps, any> {
   static defaultProps = {
+    colon: true,
     layout: 'horizontal' as FormLayout,
     hideRequiredMark: false,
     onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -202,19 +222,16 @@ export default class Form extends React.Component<FormProps, any> {
     children: PropTypes.any,
     onSubmit: PropTypes.func,
     hideRequiredMark: PropTypes.bool,
-  };
-
-  static childContextTypes = {
-    vertical: PropTypes.bool,
+    colon: PropTypes.bool,
   };
 
   static Item = FormItem;
 
   static createFormField = createFormField;
 
-  static create = function<TOwnProps>(
+  static create = function<TOwnProps extends FormComponentProps>(
     options: FormCreateOption<TOwnProps> = {},
-  ): ComponentDecorator {
+  ): FormWrappedProps<TOwnProps> {
     return createDOMForm({
       fieldNameProp: 'id',
       ...options,
@@ -227,13 +244,6 @@ export default class Form extends React.Component<FormProps, any> {
     super(props);
 
     warning(!props.form, 'Form', 'It is unnecessary to pass `form` to `Form` after antd@1.7.0.');
-  }
-
-  getChildContext() {
-    const { layout } = this.props;
-    return {
-      vertical: layout === 'vertical',
-    };
   }
 
   renderForm = ({ getPrefixCls }: ConfigConsumerProps) => {
@@ -256,12 +266,23 @@ export default class Form extends React.Component<FormProps, any> {
       'layout',
       'form',
       'hideRequiredMark',
+      'wrapperCol',
+      'labelAlign',
+      'labelCol',
+      'colon',
     ]);
 
     return <form {...formProps} className={formClassName} />;
   };
 
   render() {
-    return <ConfigConsumer>{this.renderForm}</ConfigConsumer>;
+    const { wrapperCol, labelAlign, labelCol, layout, colon } = this.props;
+    return (
+      <FormContext.Provider
+        value={{ wrapperCol, labelAlign, labelCol, vertical: layout === 'vertical', colon }}
+      >
+        <ConfigConsumer>{this.renderForm}</ConfigConsumer>
+      </FormContext.Provider>
+    );
   }
 }

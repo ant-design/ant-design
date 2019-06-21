@@ -2,7 +2,7 @@ import * as React from 'react';
 import RcSlider from 'rc-slider/lib/Slider';
 import RcRange from 'rc-slider/lib/Range';
 import RcHandle from 'rc-slider/lib/Handle';
-import Tooltip from '../tooltip';
+import Tooltip, { TooltipPlacement } from '../tooltip';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface SliderMarks {
@@ -25,7 +25,7 @@ interface HandleGeneratorInfo {
 export type HandleGeneratorFn = (
   tooltipPrefixCls: string,
   info: HandleGeneratorInfo,
-) => React.ReactElement<any>;
+) => React.ReactNode;
 
 export interface SliderProps {
   prefixCls?: string;
@@ -48,6 +48,8 @@ export interface SliderProps {
   id?: string;
   style?: React.CSSProperties;
   tooltipVisible?: boolean;
+  tooltipPlacement?: TooltipPlacement;
+  getTooltipPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
 }
 
 export interface SliderState {
@@ -61,7 +63,7 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
     },
   };
 
-  private rcSlider: any;
+  rcSlider: any;
 
   constructor(props: SliderProps) {
     super(props);
@@ -82,7 +84,7 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
     tooltipPrefixCls: string,
     { value, dragging, index, ...restProps },
   ) => {
-    const { tipFormatter, tooltipVisible } = this.props;
+    const { tipFormatter, tooltipVisible, tooltipPlacement, getTooltipPopupContainer } = this.props;
     const { visibles } = this.state;
     const isTipFormatter = tipFormatter ? visibles[index] || dragging : false;
     const visible = tooltipVisible || (tooltipVisible === undefined && isTipFormatter);
@@ -91,9 +93,12 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
         prefixCls={tooltipPrefixCls}
         title={tipFormatter ? tipFormatter(value) : ''}
         visible={visible}
-        placement="top"
+        placement={tooltipPlacement || 'top'}
         transitionName="zoom-down"
         key={index}
+        getPopupContainer={
+          getTooltipPopupContainer ? getTooltipPopupContainer : () => document.body
+        }
       >
         <RcHandle
           {...restProps}

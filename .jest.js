@@ -2,7 +2,7 @@ const libDir = process.env.LIB_DIR;
 
 const transformIgnorePatterns = [
   '/dist/',
-  'node_modules/[^/]+?/(?!(es|node_modules)/)', // Ignore modules without es dir
+  'node_modules/(?!(_react-dnd|react-dnd|_dnd-core|dnd-core))[^/]+?/(?!(es|node_modules)/)', // Ignore modules without es dir
 ];
 
 module.exports = {

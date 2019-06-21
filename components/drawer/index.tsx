@@ -1,14 +1,14 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import RcDrawer from 'rc-drawer';
-import createReactContext, { Context } from 'create-react-context';
+import createReactContext from '@ant-design/create-react-context';
 import warning from '../_util/warning';
 import classNames from 'classnames';
 import Icon from '../icon';
 import { withConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { tuple } from '../_util/type';
 
-const DrawerContext: Context<Drawer | null> = createReactContext(null);
+const DrawerContext = createReactContext<Drawer | null>(null);
 
 type EventType = React.MouseEvent<HTMLDivElement> | React.MouseEvent<HTMLButtonElement>;
 
@@ -36,6 +36,7 @@ export interface DrawerProps {
   push?: boolean;
   placement?: placementType;
   onClose?: (e: EventType) => void;
+  afterVisibleChange?: (visible: boolean) => void;
   className?: string;
   handler?: React.ReactNode;
 }
@@ -65,6 +66,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
     prefixCls: PropTypes.string,
     placement: PropTypes.oneOf(PlacementTypes),
     onClose: PropTypes.func,
+    afterVisibleChange: PropTypes.func,
     className: PropTypes.string,
   };
 
@@ -86,8 +88,9 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
   destroyClose: boolean;
 
   public componentDidUpdate(preProps: DrawerProps) {
-    if (preProps.visible !== this.props.visible && this.parentDrawer) {
-      if (this.props.visible) {
+    const { visible } = this.props;
+    if (preProps.visible !== visible && this.parentDrawer) {
+      if (visible) {
         this.parentDrawer.push();
       } else {
         this.parentDrawer.pull();
@@ -96,11 +99,9 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
   }
 
   close = (e: EventType) => {
-    if (this.props.visible !== undefined) {
-      if (this.props.onClose) {
-        this.props.onClose(e);
-      }
-      return;
+    const { visible, onClose } = this.props;
+    if (visible !== undefined && onClose) {
+      onClose(e);
     }
   };
 

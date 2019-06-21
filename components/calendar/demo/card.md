@@ -13,7 +13,7 @@ title:
 
 Nested inside a container element for rendering in limited space.
 
-````jsx
+```jsx
 import { Calendar } from 'antd';
 
 function onPanelChange(value, mode) {
@@ -24,6 +24,6 @@ ReactDOM.render(
   <div style={{ width: 300, border: '1px solid #d9d9d9', borderRadius: 4 }}>
     <Calendar fullscreen={false} onPanelChange={onPanelChange} />
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```

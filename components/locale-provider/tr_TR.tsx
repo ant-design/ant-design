@@ -9,12 +9,16 @@ export default {
   DatePicker,
   TimePicker,
   Calendar,
+  global: {
+    placeholder: 'Lütfen seçiniz',
+  },
   Table: {
     filterTitle: 'Menü Filtrele',
     filterConfirm: 'Tamam',
     filterReset: 'Sıfırla',
     selectAll: 'Hepsini Seç',
     selectInvert: 'Tersini Seç',
+    sortTitle: 'Sırala',
   },
   Modal: {
     okText: 'Tamam',
@@ -26,6 +30,7 @@ export default {
     cancelText: 'İptal',
   },
   Transfer: {
+    titles: ['', ''],
     searchPlaceholder: 'Arama',
     itemUnit: 'Öğe',
     itemsUnit: 'Öğeler',
@@ -38,5 +43,14 @@ export default {
   },
   Empty: {
     description: 'Veri Yok',
+  },
+  Icon: {
+    icon: 'icon',
+  },
+  Text: {
+    edit: 'düzenle',
+    copy: 'kopyala',
+    copied: 'kopyalandı',
+    expand: 'genişlet',
   },
 };

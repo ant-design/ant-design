@@ -1,5 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renders ./components/divider/demo/customize-style.md correctly 1`] = `
+<div>
+  <div
+    class="ant-divider ant-divider-horizontal"
+    style="height:2px;background-color:#7cb305"
+  />
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-dashed"
+    style="border-color:#7cb305"
+  />
+  <div
+    class="ant-divider ant-divider-vertical"
+    style="height:60px;background-color:#7cb305"
+  />
+  <div
+    class="ant-divider ant-divider-vertical ant-divider-dashed"
+    style="height:60px;border-color:#7cb305"
+  />
+</div>
+`;
+
 exports[`renders ./components/divider/demo/horizontal.md correctly 1`] = `
 <div>
   <p>
@@ -12,49 +33,8 @@ exports[`renders ./components/divider/demo/horizontal.md correctly 1`] = `
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text"
-  >
-    <span
-      class="ant-divider-inner-text"
-    >
-      With Text
-    </span>
-  </div>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
-  </p>
-  <div
     class="ant-divider ant-divider-horizontal ant-divider-dashed"
   />
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
-  </p>
-</div>
-`;
-
-exports[`renders ./components/divider/demo/orientation.md correctly 1`] = `
-<div>
-  <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
-  >
-    <span
-      class="ant-divider-inner-text"
-    >
-      Left Text
-    </span>
-  </div>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
-  </p>
-  <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text-right"
-  >
-    <span
-      class="ant-divider-inner-text"
-    >
-      Right Text
-    </span>
-  </div>
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>
@@ -80,5 +60,49 @@ exports[`renders ./components/divider/demo/vertical.md correctly 1`] = `
   >
     Link
   </a>
+</div>
+`;
+
+exports[`renders ./components/divider/demo/with-text.md correctly 1`] = `
+<div>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
+  </p>
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text-center"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Text
+    </span>
+  </div>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
+  </p>
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Left Text
+    </span>
+  </div>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
+  </p>
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text-right"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Right Text
+    </span>
+  </div>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
+  </p>
 </div>
 `;

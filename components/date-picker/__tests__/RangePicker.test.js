@@ -260,7 +260,7 @@ describe('RangePicker', () => {
     const wrapper = mount(<RangePicker ranges={{ 'recent two days': range }} onOk={handleOk} />);
     wrapper.find('.ant-calendar-picker-input').simulate('click');
     wrapper.find('.ant-calendar-range-quick-selector Tag').simulate('click');
-    expect(handleOk).toBeCalledWith(range);
+    expect(handleOk).toHaveBeenCalledWith(range);
   });
 
   // https://github.com/ant-design/ant-design/issues/9267
@@ -312,6 +312,79 @@ describe('RangePicker', () => {
     );
     wrapper.find('.ant-calendar-picker-input').simulate('click');
     wrapper.find('.ant-calendar-range-quick-selector Tag').simulate('click');
-    expect(handleOpenChange).toBeCalledWith(false);
+    expect(handleOpenChange).toHaveBeenCalledWith(false);
+  });
+
+  it('customize separator', () => {
+    const wrapper = mount(<RangePicker separator="test" />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/13302
+  describe('in "month" mode, when the left and right panels select the same month', () => {
+    it('left panel and right panel could be the same month', () => {
+      const wrapper = mount(<RangePicker mode={['month', 'month']} />);
+      wrapper.setProps({ value: [moment(), moment()] });
+      expect(
+        wrapper
+          .find('.ant-calendar-range-picker-input')
+          .first()
+          .getDOMNode().value,
+      ).toBe(
+        wrapper
+          .find('.ant-calendar-range-picker-input')
+          .last()
+          .getDOMNode().value,
+      );
+    });
+
+    it('the cell status is correct', () => {
+      const wrapper = mount(<RangePicker mode={['month', 'month']} />);
+      wrapper.find('.ant-calendar-picker-input').simulate('click');
+      wrapper
+        .find('.ant-calendar-range-left .ant-calendar-month-panel-cell')
+        .at(3)
+        .simulate('click');
+      wrapper
+        .find('.ant-calendar-range-right .ant-calendar-month-panel-cell')
+        .at(3)
+        .simulate('click');
+      expect(
+        wrapper
+          .find('.ant-calendar-range-left .ant-calendar-month-panel-cell')
+          .at(3)
+          .hasClass('ant-calendar-month-panel-selected-cell'),
+      ).toBe(true);
+      expect(
+        wrapper
+          .find('.ant-calendar-range-left .ant-calendar-month-panel-cell')
+          .at(3)
+          .hasClass('ant-calendar-month-panel-selected-cell'),
+      ).toBe(true);
+      expect(
+        wrapper
+          .find('.ant-calendar-range-left .ant-calendar-month-panel-cell')
+          .at(2)
+          .hasClass('ant-calendar-month-panel-cell-disabled'),
+      ).toBe(false);
+      expect(
+        wrapper
+          .find('.ant-calendar-range-left .ant-calendar-month-panel-cell')
+          .at(4)
+          .hasClass('ant-calendar-month-panel-cell-disabled'),
+      ).toBe(true);
+      expect(
+        wrapper
+          .find('.ant-calendar-range-right .ant-calendar-month-panel-cell')
+          .at(2)
+          .hasClass('ant-calendar-month-panel-cell-disabled'),
+      ).toBe(true);
+      expect(
+        wrapper
+          .find('.ant-calendar-range-right .ant-calendar-month-panel-cell')
+          .at(4)
+          .hasClass('ant-calendar-month-panel-cell-disabled'),
+      ).toBe(false);
+    });
   });
 });
