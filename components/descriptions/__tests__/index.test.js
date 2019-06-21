@@ -109,4 +109,19 @@ describe('Descriptions', () => {
       'Warning: [antd: Descriptions] Sum of column `span` in a line exceeds `column` of Descriptions.',
     );
   });
+
+  it('when item is rendered conditionally', () => {
+    const hasDiscount = false;
+    const wrapper = mount(
+      <Descriptions>
+        <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
+        <Descriptions.Item label="Billing">Prepaid</Descriptions.Item>
+        <Descriptions.Item label="time">18:00:00</Descriptions.Item>
+        <Descriptions.Item label="Amount">$80.00</Descriptions.Item>
+        {hasDiscount && <Descriptions.Item label="Discount">$20.00</Descriptions.Item>}
+      </Descriptions>,
+    );
+    expect(wrapper).toMatchSnapshot();
+    wrapper.unmount();
+  });
 });
