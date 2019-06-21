@@ -3,7 +3,7 @@
   "version": "3.19.5",
   "title": "Ant Design",
   "description": "An enterprise-class UI design language and React components implementation",
-  "homepage": "http://ant.design/",
+  "homepage": "https://wow-kit.firebaseapp.com/",
   "keywords": [
     "ant",
     "design",
@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wowworks-team/ant-design"
+    "url": "https://github.com/wowworks-team/wow-ant-design"
   },
   "bugs": {
     "url": "https://github.com/ant-design/ant-design/issues"
