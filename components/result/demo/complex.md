@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-提供更加复杂的反馈
+提供更加复杂的反馈。
 
 ## en-US
 
-Provide more complex feedback
+Provide more complex feedback.
 
 ```jsx
 import { Result, Button, Icon } from 'antd';

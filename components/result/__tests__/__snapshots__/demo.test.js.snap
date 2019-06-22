@@ -2,10 +2,10 @@
 
 exports[`renders ./components/result/demo/basic.md correctly 1`] = `
 <div
-  class="ant-result"
+  class="ant-result ant-result-success"
 >
   <div
-    class="ant-result-icon-view ant-result-success"
+    class="ant-result-icon"
   >
     <i
       aria-label="icon: check-circle"
@@ -28,21 +28,17 @@ exports[`renders ./components/result/demo/basic.md correctly 1`] = `
     </i>
   </div>
   <div
-    class="ant-result-title-view"
+    class="ant-result-title"
   >
-    <div
-      class="ant-result-title-view-title"
-    >
-      Successfully Purchased Cloud Server ECS!
-    </div>
-    <div
-      class="ant-result-title-view-subtitle"
-    >
-      Order number: 2017182818828182881 Cloud server configuration takes 1-5 minutes, please wait.
-    </div>
+    Successfully Purchased Cloud Server ECS!
   </div>
   <div
-    class="ant-result-extra-view"
+    class="ant-result-subtitle"
+  >
+    Order number: 2017182818828182881 Cloud server configuration takes 1-5 minutes, please wait.
+  </div>
+  <div
+    class="ant-result-extra"
   >
     <button
       class="ant-btn ant-btn-primary"
@@ -66,10 +62,10 @@ exports[`renders ./components/result/demo/basic.md correctly 1`] = `
 
 exports[`renders ./components/result/demo/complex.md correctly 1`] = `
 <div
-  class="ant-result"
+  class="ant-result ant-result-error"
 >
   <div
-    class="ant-result-icon-view ant-result-error"
+    class="ant-result-icon"
   >
     <i
       aria-label="icon: close-circle"
@@ -92,18 +88,14 @@ exports[`renders ./components/result/demo/complex.md correctly 1`] = `
     </i>
   </div>
   <div
-    class="ant-result-title-view"
+    class="ant-result-title"
   >
-    <div
-      class="ant-result-title-view-title"
-    >
-      Submission Failed
-    </div>
-    <div
-      class="ant-result-title-view-subtitle"
-    >
-      Please check and modify the following information before resubmitting.
-    </div>
+    Submission Failed
+  </div>
+  <div
+    class="ant-result-subtitle"
+  >
+    Please check and modify the following information before resubmitting.
   </div>
   <div
     class="ant-result-content"
@@ -173,7 +165,7 @@ exports[`renders ./components/result/demo/complex.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-result-extra-view"
+    class="ant-result-extra"
   >
     <button
       class="ant-btn ant-btn-primary"
@@ -197,10 +189,10 @@ exports[`renders ./components/result/demo/complex.md correctly 1`] = `
 
 exports[`renders ./components/result/demo/customIcon.md correctly 1`] = `
 <div
-  class="ant-result"
+  class="ant-result ant-result-info"
 >
   <div
-    class="ant-result-icon-view ant-result-info"
+    class="ant-result-icon"
   >
     <i
       aria-label="icon: smile"
@@ -232,16 +224,12 @@ exports[`renders ./components/result/demo/customIcon.md correctly 1`] = `
     </i>
   </div>
   <div
-    class="ant-result-title-view"
+    class="ant-result-title"
   >
-    <div
-      class="ant-result-title-view-title"
-    >
-      Great, we have done all the operations!
-    </div>
+    Great, we have done all the operations!
   </div>
   <div
-    class="ant-result-extra-view"
+    class="ant-result-extra"
   >
     <button
       class="ant-btn ant-btn-primary"
@@ -257,10 +245,10 @@ exports[`renders ./components/result/demo/customIcon.md correctly 1`] = `
 
 exports[`renders ./components/result/demo/exception.md correctly 1`] = `
 <div
-  class="ant-result"
+  class="ant-result ant-result-404"
 >
   <div
-    class="ant-result-icon-view ant-result-404"
+    class="ant-result-icon"
   >
     <img
       alt="404"
@@ -269,21 +257,17 @@ exports[`renders ./components/result/demo/exception.md correctly 1`] = `
     />
   </div>
   <div
-    class="ant-result-title-view"
+    class="ant-result-title"
   >
-    <div
-      class="ant-result-title-view-title"
-    >
-      404
-    </div>
-    <div
-      class="ant-result-title-view-subtitle"
-    >
-      Sorry, the page you visited does not exist.
-    </div>
+    404
   </div>
   <div
-    class="ant-result-extra-view"
+    class="ant-result-subtitle"
+  >
+    Sorry, the page you visited does not exist.
+  </div>
+  <div
+    class="ant-result-extra"
   >
     <button
       class="ant-btn ant-btn-primary"

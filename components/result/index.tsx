@@ -40,13 +40,12 @@ export interface ResultProps {
  */
 const renderTitle = (prefixCls: string, props: ResultProps) => {
   const { title, subTitle } = props;
-  const titlePrefixCls = `${prefixCls}-title-view`;
 
   return (
-    <div className={`${titlePrefixCls}`}>
-      <div className={`${titlePrefixCls}-title`}>{title}</div>
-      {subTitle && <div className={`${titlePrefixCls}-subtitle`}>{subTitle}</div>}
-    </div>
+    <>
+      <div className={`${prefixCls}-title`}>{title}</div>
+      {subTitle && <div className={`${prefixCls}-subtitle`}>{subTitle}</div>}
+    </>
   );
 };
 
@@ -61,8 +60,7 @@ const ExceptionStatus = Object.keys(ExceptionImageMap);
  * @param {status, icon}
  */
 const renderIcon = (prefixCls: string, { status, icon }: ResultProps) => {
-  //gen className ant-result-{status}
-  const className = classnames(`${prefixCls}-icon-view`, `${prefixCls}-${status}`);
+  const className = classnames(`${prefixCls}-icon`);
 
   if (ExceptionStatus.includes(status)) {
     return (
@@ -82,17 +80,16 @@ const renderIcon = (prefixCls: string, { status, icon }: ResultProps) => {
 };
 
 const renderExtra = (prefixCls: string, { extra }: ResultProps) =>
-  extra && <div className={`${prefixCls}-extra-view`}>{extra}</div>;
+  extra && <div className={`${prefixCls}-extra`}>{extra}</div>;
 
 const Result: React.SFC<ResultProps> = props => (
   <ConfigConsumer>
     {({ getPrefixCls }: ConfigConsumerProps) => {
-      const { prefixCls: customizePrefixCls, style, children } = props;
+      const { prefixCls: customizePrefixCls, style, children, status } = props;
 
       const prefixCls = getPrefixCls('result', customizePrefixCls);
-
       return (
-        <div className={prefixCls} style={style}>
+        <div className={`${prefixCls} ${prefixCls}-${status}`} style={style}>
           {renderIcon(prefixCls, props)}
           {renderTitle(prefixCls, props)}
           {children && <div className={`${prefixCls}-content`}>{children}</div>}

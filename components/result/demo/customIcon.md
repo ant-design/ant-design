@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-自定义 icon
+自定义 icon。
 
 ## en-US
 
-Custom icon
+Custom icon.
 
 ```jsx
 import { Result, Icon, Button } from 'antd';

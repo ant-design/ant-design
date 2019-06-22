@@ -6,7 +6,25 @@
 .@{result-prefix-cls} {
   padding: 48px 32px;
   background-color: @component-background;
-  &-icon-view {
+
+  // status color
+  &.@{result-prefix-cls}-success .anticon {
+    color: @success-color;
+  }
+
+  &.@{result-prefix-cls}-error .anticon {
+    color: @error-color;
+  }
+
+  &.@{result-prefix-cls}-info .anticon {
+    color: @info-color;
+  }
+
+  &.@{result-prefix-cls}-warning .anticon {
+    color: @warning-color;
+  }
+
+  &-icon {
     margin-bottom: 24px;
     text-align: center;
 
@@ -14,44 +32,28 @@
       font-size: 72px;
     }
 
-    &.@{result-prefix-cls}-success > .anticon {
-      color: @success-color;
-    }
-
-    &.@{result-prefix-cls}-error > .anticon {
-      color: @error-color;
-    }
-
-    &.@{result-prefix-cls}-info > .anticon {
-      color: @info-color;
-    }
-
-    &.@{result-prefix-cls}-warning > .anticon {
-      color: @warning-color;
-    }
     // Exception Status image
     &.@{result-prefix-cls}-image {
       width: 250px;
       height: 295px;
     }
   }
-  &-title-view {
-    &-title {
-      color: @heading-color;
-      font-size: 24px;
-      line-height: 1.8;
-      text-align: center;
-    }
 
-    &-subtitle {
-      color: @text-color-secondary;
-      font-size: 14px;
-      line-height: 1.6;
-      text-align: center;
-    }
+  &-title {
+    color: @heading-color;
+    font-size: 24px;
+    line-height: 1.8;
+    text-align: center;
   }
 
-  &-extra-view {
+  &-subtitle {
+    color: @text-color-secondary;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  &-extra {
     margin-top: 32px;
     text-align: center;
     > * {
