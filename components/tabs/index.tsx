@@ -32,6 +32,7 @@ export interface TabsProps {
   animated?: boolean | { inkBar: boolean; tabPane: boolean };
   tabBarGutter?: number;
   renderTabBar?: (props: TabsProps, DefaultTabBar: React.ReactNode) => React.ReactElement<unknown>;
+  destroyInactiveTabPane?: boolean;
 }
 
 // Tabs
