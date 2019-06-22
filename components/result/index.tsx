@@ -1,6 +1,5 @@
 import * as React from 'react';
 import classnames from 'classnames';
-
 import { ConfigConsumerProps, ConfigConsumer } from '../config-provider';
 import Icon from '../icon';
 import noFound from './noFound.svg';
@@ -32,22 +31,6 @@ export interface ResultProps {
   prefixCls?: string;
   style?: React.CSSProperties;
 }
-
-/**
- * render title function
- * @param prefixCls
- * @param {title,subTitle}
- */
-const renderTitle = (prefixCls: string, props: ResultProps) => {
-  const { title, subTitle } = props;
-
-  return (
-    <>
-      <div className={`${prefixCls}-title`}>{title}</div>
-      {subTitle && <div className={`${prefixCls}-subtitle`}>{subTitle}</div>}
-    </>
-  );
-};
 
 // ExceptionImageMap keys
 const ExceptionStatus = Object.keys(ExceptionImageMap);
@@ -85,13 +68,14 @@ const renderExtra = (prefixCls: string, { extra }: ResultProps) =>
 const Result: React.SFC<ResultProps> = props => (
   <ConfigConsumer>
     {({ getPrefixCls }: ConfigConsumerProps) => {
-      const { prefixCls: customizePrefixCls, style, children, status } = props;
+      const { prefixCls: customizePrefixCls, subTitle, title, style, children, status } = props;
 
       const prefixCls = getPrefixCls('result', customizePrefixCls);
       return (
         <div className={`${prefixCls} ${prefixCls}-${status}`} style={style}>
           {renderIcon(prefixCls, props)}
-          {renderTitle(prefixCls, props)}
+          <div className={`${prefixCls}-title`}>{title}</div>
+          {subTitle && <div className={`${prefixCls}-subtitle`}>{subTitle}</div>}
           {children && <div className={`${prefixCls}-content`}>{children}</div>}
           {renderExtra(prefixCls, props)}
         </div>
