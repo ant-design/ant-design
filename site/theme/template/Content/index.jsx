@@ -24,6 +24,7 @@ export default collect(async nextProps => {
   const demosFetcher = nextProps.utils.get(nextProps.data, [...pageDataPath, 'demo']);
   if (demosFetcher) {
     const [localizedPageData, demos] = await Promise.all([pageDataPromise, demosFetcher()]);
+    console.log('FFFFFFF:', nextProps, demos);
     return { localizedPageData, demos };
   }
   return { localizedPageData: await pageDataPromise };

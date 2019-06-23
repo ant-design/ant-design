@@ -1,0 +1,5 @@
+{
+  "isES6": true,
+  "code": "import { Form, Icon, Input, Button } from 'antd';\n\ninterface FieldProps {\n  name: string;\n}\n\nconst HorizontalLoginForm = () => {\n  const onFinish = values => {\n    console.log('Finish:', values);\n  };\n\n  return (\n    <Form layout=\"inline\" onFinish={onFinish}>\n      DDDD2333\n    </Form>\n  );\n};\n\nReactDOM.render(<HorizontalLoginForm />, mountNode);",
+  "lang": "tsx"
+}
