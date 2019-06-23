@@ -67,7 +67,7 @@
     "rc-drawer": "~1.9.8",
     "rc-dropdown": "~2.4.1",
     "rc-editor-mention": "^1.1.13",
-    "rc-field-form": "^0.0.0-alpha.1",
+    "rc-field-form": "^0.0.0-alpha.2",
     "rc-form": "^2.4.5",
     "rc-input-number": "~4.4.5",
     "rc-mentions": "~0.3.1",
