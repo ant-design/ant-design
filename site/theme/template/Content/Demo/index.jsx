@@ -7,9 +7,10 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 import classNames from 'classnames';
 import LZString from 'lz-string';
 import { Icon, Tooltip } from 'antd';
-import EditButton from './EditButton';
-import ErrorBoundary from './ErrorBoundary';
-import BrowserFrame from '../BrowserFrame';
+import CodePreview from './CodePreview';
+import EditButton from '../EditButton';
+import ErrorBoundary from '../ErrorBoundary';
+import BrowserFrame from '../../BrowserFrame';
 
 function compress(string) {
   return LZString.compressToBase64(string)
@@ -104,7 +105,16 @@ export default class Demo extends React.Component {
   render() {
     const { state } = this;
     const { props } = this;
-    const { meta, src, content, preview, highlightedCode, style, highlightedStyle, expand } = props;
+    const {
+      meta,
+      src,
+      content,
+      preview,
+      highlightedCodes,
+      style,
+      highlightedStyle,
+      expand,
+    } = props;
     const { copied } = state;
     if (!this.liveDemo) {
       this.liveDemo = meta.iframe ? (
@@ -316,7 +326,7 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
           </div>
         </section>
         <section className={highlightClass} key="code">
-          <div className="highlight">{props.utils.toReactComponent(highlightedCode)}</div>
+          <CodePreview toReactComponent={props.utils.toReactComponent} codes={highlightedCodes} />
           {highlightedStyle ? (
             <div key="style" className="highlight">
               <pre>
