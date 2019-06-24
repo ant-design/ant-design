@@ -59,9 +59,9 @@ export interface SelectProps<T = SelectValue> extends AbstractSelectProps {
   firstActiveValue?: string | string[];
   onChange?: (
     value: T,
-    option: React.ReactElement<unknown> | React.ReactElement<unknown>[],
+    option: React.ReactElement<any> | React.ReactElement<any>[],
   ) => void;
-  onSelect?: (value: T extends (infer I)[] ? I : T, option: React.ReactElement<unknown>) => void;
+  onSelect?: (value: T extends (infer I)[] ? I : T, option: React.ReactElement<any>) => void;
   onDeselect?: (value: T extends (infer I)[] ? I : T) => void;
   onBlur?: (value: T) => void;
   onFocus?: () => void;
@@ -75,7 +75,7 @@ export interface SelectProps<T = SelectValue> extends AbstractSelectProps {
   optionFilterProp?: string;
   labelInValue?: boolean;
   tokenSeparators?: string[];
-  getInputElement?: () => React.ReactElement<unknown>;
+  getInputElement?: () => React.ReactElement<any>;
   autoFocus?: boolean;
   suffixIcon?: React.ReactNode;
   removeIcon?: React.ReactNode;

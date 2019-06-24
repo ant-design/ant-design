@@ -17,8 +17,8 @@ export type DataSourceItemType =
   | React.ReactElement<OptGroupProps>;
 
 export interface AutoCompleteInputProps {
-  onChange?: React.FormEventHandler<unknown>;
-  value: unknown;
+  onChange?: React.FormEventHandler<any>;
+  value: any;
 }
 
 export type ValidInputElement =
@@ -34,7 +34,7 @@ export interface AutoCompleteProps extends AbstractSelectProps {
   backfill?: boolean;
   optionLabelProp?: string;
   onChange?: (value: SelectValue) => void;
-  onSelect?: (value: SelectValue, option: Object) => unknown;
+  onSelect?: (value: SelectValue, option: Object) => any;
   onBlur?: (value: SelectValue) => void;
   onFocus?: () => void;
   children?:
