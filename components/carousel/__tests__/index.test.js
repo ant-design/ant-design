@@ -3,11 +3,11 @@ import { mount } from 'enzyme';
 import Carousel from '..';
 
 describe('Carousel', () => {
-  beforeAll(() => {
+  beforeEach(() => {
     jest.useFakeTimers();
   });
 
-  afterAll(() => {
+  afterEach(() => {
     jest.useRealTimers();
   });
 
