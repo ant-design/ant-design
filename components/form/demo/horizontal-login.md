@@ -16,18 +16,53 @@ Horizontal login form is often used in navigation bar.
 ```tsx
 import { Form, Icon, Input, Button } from 'antd';
 
-interface FieldProps {
-  name: string;
-}
-
 const HorizontalLoginForm = () => {
+  const [, forceUpdate] = React.useState();
+
+  // To disabled submit button at the beginning.
+  React.useEffect(() => {
+    forceUpdate({});
+  }, []);
+
   const onFinish = values => {
     console.log('Finish:', values);
   };
 
   return (
     <Form layout="inline" onFinish={onFinish}>
-      DDDD2333
+      <Form.Item
+        name="username"
+        rules={[{ required: true, message: 'Please input your username!' }]}
+      >
+        <Input
+          prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+          placeholder="Username"
+        />
+      </Form.Item>
+      <Form.Item
+        name="password"
+        rules={[{ required: true, message: 'Please input your password!' }]}
+      >
+        <Input
+          prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+          type="password"
+          placeholder="Password"
+        />
+      </Form.Item>
+      <Form.Item shouldUpdate={true}>
+        {(_, __, { getFieldsError, isFieldsTouched }) => (
+          <Button
+            type="primary"
+            htmlType="submit"
+            disabled={
+              !isFieldsTouched(true) ||
+              getFieldsError().filter(({ errors }) => errors.length).length
+            }
+          >
+            Log in
+          </Button>
+        )}
+      </Form.Item>
     </Form>
   );
 };

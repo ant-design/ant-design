@@ -1,0 +1,42 @@
+@import './index';
+
+.@{form-prefix-cls}-inline {
+  display: flex;
+
+  .@{form-prefix-cls}-item {
+    margin-right: 16px;
+    margin-bottom: 0;
+
+    &-with-help {
+      margin-bottom: @form-item-margin-bottom;
+    }
+  }
+}
+
+/*
+.@{form-prefix-cls}-inline {
+  .@{form-prefix-cls}-item {
+    display: inline-block;
+    margin-right: 16px;
+    margin-bottom: 0;
+
+    &-with-help {
+      margin-bottom: @form-item-margin-bottom;
+    }
+
+    > .@{form-prefix-cls}-item-control-wrapper,
+    > .@{form-prefix-cls}-item-label {
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+
+  .@{form-prefix-cls}-text {
+    display: inline-block;
+  }
+
+  .has-feedback {
+    display: inline-block;
+  }
+}
+*/

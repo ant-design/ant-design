@@ -3,6 +3,50 @@
 @import '../../input/style/mixin';
 @import '../../button/style/mixin';
 @import '../../grid/style/mixin';
+@import './inline';
 @import './mixin';
 
 @form-prefix-cls: ~'@{ant-prefix}-form';
+
+.@{form-prefix-cls} {
+  // ==============================================================
+  // =                            Item                            =
+  // ==============================================================
+  &-item {
+    margin-bottom: @form-item-margin-bottom;
+
+    &-with-help {
+      margin-bottom: 0;
+    }
+  }
+
+  // ==============================================================
+  // =                            Label                           =
+  // ==============================================================
+
+  // ==============================================================
+  // =                            Input                           =
+  // ==============================================================
+  &-item-control {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-explain,
+  &-extra {
+    clear: both;
+    // min-height: @form-explain-height + @form-explain-precision;
+    // margin-top: @form-help-margin-top;
+    color: @text-color-secondary;
+    font-size: @font-size-base;
+    line-height: @line-height-base;
+    transition: color 0.3s @ease-out; // sync input color transition
+  }
+}
+
+// ================================================================
+// =                            Status                            =
+// ================================================================
+.has-error {
+  .form-control-validation(@error-color; @error-color; @form-error-input-bg);
+}
