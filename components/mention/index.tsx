@@ -14,14 +14,14 @@ export interface MentionProps {
   prefixCls?: string;
   suggestionStyle?: React.CSSProperties;
   defaultSuggestions?: Array<SuggestionItme>;
-  suggestions?: Array<React.ReactElement<unknown>>;
-  onSearchChange?: (value: string, trigger: string) => unknown;
-  onChange?: (contentState: unknown) => void;
-  notFoundContent?: unknown;
+  suggestions?: Array<React.ReactElement<any>>;
+  onSearchChange?: (value: string, trigger: string) => any;
+  onChange?: (contentState: any) => void;
+  notFoundContent?: any;
   loading?: boolean;
   style?: React.CSSProperties;
-  defaultValue?: unknown;
-  value?: unknown;
+  defaultValue?: any;
+  value?: any;
   className?: string;
   multiLines?: boolean;
   prefix?: string | string[];
@@ -29,14 +29,14 @@ export interface MentionProps {
   getSuggestionContainer?: (triggerNode: Element) => HTMLElement;
   onFocus?: React.FocusEventHandler<HTMLElement>;
   onBlur?: React.FocusEventHandler<HTMLElement>;
-  onSelect?: (suggestion: string, data?: unknown) => void;
+  onSelect?: (suggestion: string, data?: any) => void;
   readOnly?: boolean;
   disabled?: boolean;
   placement?: MentionPlacement;
 }
 
 export interface MentionState {
-  filteredSuggestions?: Array<unknown>;
+  filteredSuggestions?: Array<any>;
   focus?: Boolean;
 }
 

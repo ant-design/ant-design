@@ -29,10 +29,10 @@ export interface ColumnProps<T> {
     | ((options: { filters: TableStateFilters; sortOrder?: SortOrder }) => React.ReactNode);
   key?: React.Key;
   dataIndex?: string; // Note: We can not use generic type here, since we need to support nested key, see #9393
-  render?: (text: unknown, record: T, index: number) => React.ReactNode;
+  render?: (text: any, record: T, index: number) => React.ReactNode;
   align?: 'left' | 'right' | 'center';
   filters?: ColumnFilterItem[];
-  onFilter?: (value: unknown, record: T) => boolean;
+  onFilter?: (value: any, record: T) => boolean;
   filterMultiple?: boolean;
   filterDropdown?: React.ReactNode | ((props: FilterDropdownProps) => React.ReactNode);
   filterDropdownVisible?: boolean;
@@ -44,7 +44,7 @@ export interface ColumnProps<T> {
   className?: string;
   fixed?: boolean | ('left' | 'right');
   filterIcon?: React.ReactNode | ((filtered: boolean) => React.ReactNode);
-  filteredValue?: unknown[];
+  filteredValue?: any[];
   sortOrder?: SortOrder | boolean;
   children?: ColumnProps<T>[];
   onCellClick?: (record: T, event: Event) => void;
@@ -219,7 +219,7 @@ export interface SelectionCheckboxAllProps<T> {
   getRecordKey: (record: T, index?: number) => string;
   data: T[];
   prefixCls: string | undefined;
-  onSelect: (key: string, index: number, selectFunc: unknown) => void;
+  onSelect: (key: string, index: number, selectFunc: any) => void;
   hideDefaultSelections?: boolean;
   selections?: SelectionItem[] | boolean;
   getPopupContainer?: GetPopupContainer;
@@ -256,7 +256,7 @@ export interface FilterMenuProps<T> {
   locale: TableLocale;
   selectedKeys: string[];
   column: ColumnProps<T>;
-  confirmFilter: (column: ColumnProps<T>, selectedKeys: string[]) => unknown;
+  confirmFilter: (column: ColumnProps<T>, selectedKeys: string[]) => any;
   prefixCls: string;
   dropdownPrefixCls: string;
   getPopupContainer?: GetPopupContainer;

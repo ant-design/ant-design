@@ -15,7 +15,7 @@ import raf from '../_util/raf';
 export interface SelectParam {
   key: string;
   keyPath: Array<string>;
-  item: unknown;
+  item: any;
   domEvent: Event;
   selectedKeys: Array<string>;
 }
@@ -23,7 +23,7 @@ export interface SelectParam {
 export interface ClickParam {
   key: string;
   keyPath: Array<string>;
-  item: unknown;
+  item: any;
   domEvent: Event;
 }
 

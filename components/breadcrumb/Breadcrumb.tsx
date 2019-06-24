@@ -17,11 +17,11 @@ export interface Route {
 export interface BreadcrumbProps {
   prefixCls?: string;
   routes?: Route[];
-  params?: unknown;
+  params?: any;
   separator?: React.ReactNode;
   itemRender?: (
     route: Route,
-    params: unknown,
+    params: any,
     routes: Array<Route>,
     paths: Array<string>,
   ) => React.ReactNode;
