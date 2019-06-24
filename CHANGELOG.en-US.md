@@ -15,6 +15,12 @@ timeline: true
 
 ---
 
+## 3.19.8
+
+`2019-06-24`
+
+- 🐞 Revert `unknown` to `any` for now to avoid introducing tones of errors in one time. [#17249](https://github.com/ant-design/ant-design/issues/17249)
+
 ## 3.19.7
 
 `2019-06-21`

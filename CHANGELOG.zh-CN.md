@@ -15,6 +15,12 @@ timeline: true
 
 ---
 
+## 3.19.8
+
+`2019-06-24`
+
+- 🐞 回滚 `unknown` 到 `any` 避免一次性引入大量 TS 错误。[#17249](https://github.com/ant-design/ant-design/issues/17249)
+
 ## 3.19.7
 
 `2019-06-21`
