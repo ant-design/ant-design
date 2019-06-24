@@ -10,6 +10,7 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface DescriptionsItemProps {
   prefixCls?: string;
+  className?: string;
   label?: React.ReactNode;
   children: React.ReactNode;
   span?: number;
@@ -78,19 +79,23 @@ const generateChildrenRows = (
  * </>
  */
 const renderCol = (child: React.ReactElement<DescriptionsItemProps>, bordered: boolean) => {
-  const { prefixCls, label, children, span = 1 } = child.props;
+  const { prefixCls, label, className, children, span = 1 } = child.props;
   if (bordered) {
     return [
-      <td className={`${prefixCls}-item-label`} key="label">
+      <td className={classNames(`${prefixCls}-item-label`, className)} key="label">
         {label}
       </td>,
-      <td className={`${prefixCls}-item-content`} key="content" colSpan={span * 2 - 1}>
+      <td
+        className={classNames(`${prefixCls}-item-content`, className)}
+        key="content"
+        colSpan={span * 2 - 1}
+      >
         {children}
       </td>,
     ];
   }
   return (
-    <td colSpan={span} className={`${prefixCls}-item`}>
+    <td colSpan={span} className={classNames(`${prefixCls}-item`, className)}>
       <span className={`${prefixCls}-item-label`} key="label">
         {label}
       </span>
