@@ -4,6 +4,7 @@ import { FormLabelAlign } from './interface';
 
 export interface FormContextProps {
   vertical: boolean;
+  name?: string;
   colon?: boolean;
   labelAlign?: FormLabelAlign;
   labelCol?: ColProps;

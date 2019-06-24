@@ -3,8 +3,11 @@ import omit from 'omit.js';
 import classNames from 'classnames';
 import FieldForm, { FormInstance } from 'rc-field-form';
 import { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
+import { ColProps } from '../grid/col';
 import { tuple } from '../_util/type';
 import { ConfigContext, ConfigConsumerProps } from '../config-provider';
+import { FormContext } from './context';
+import { FormLabelAlign } from './interface';
 
 const FormLayouts = tuple('horizontal', 'inline', 'vertical');
 export type FormLayout = (typeof FormLayouts)[number];
@@ -12,13 +15,23 @@ export type FormLayout = (typeof FormLayouts)[number];
 interface FormProps extends RcFormProps {
   prefixCls?: string;
   hideRequiredMark?: boolean;
+  colon?: boolean;
+  name?: string;
   layout?: FormLayout;
+  labelAlign?: FormLabelAlign;
+  labelCol?: ColProps;
+  wrapperCol?: ColProps;
 }
 
 const InternalForm: React.FC<FormProps> = (props, ref) => {
   const { getPrefixCls }: ConfigConsumerProps = React.useContext(ConfigContext);
 
   const {
+    colon,
+    name,
+    labelAlign,
+    labelCol,
+    wrapperCol,
     prefixCls: customizePrefixCls,
     hideRequiredMark,
     className = '',
@@ -47,7 +60,20 @@ const InternalForm: React.FC<FormProps> = (props, ref) => {
     'colon',
   ]);
 
-  return <FieldForm {...formProps} ref={ref} className={formClassName} />;
+  return (
+    <FormContext.Provider
+      value={{
+        name,
+        labelAlign,
+        labelCol,
+        wrapperCol,
+        vertical: layout === 'vertical',
+        colon,
+      }}
+    >
+      <FieldForm id={name} {...formProps} ref={ref} className={formClassName} />
+    </FormContext.Provider>
+  );
 };
 
 const Form = React.forwardRef<FormInstance>(InternalForm);

@@ -4,9 +4,11 @@
 @import '../../button/style/mixin';
 @import '../../grid/style/mixin';
 @import './inline';
+@import './horizontal';
 @import './mixin';
 
 @form-prefix-cls: ~'@{ant-prefix}-form';
+@form-explain-height: ceil(@font-size-base * @line-height-base);
 
 .@{form-prefix-cls} {
   // ==============================================================
@@ -35,7 +37,7 @@
   &-explain,
   &-extra {
     clear: both;
-    // min-height: @form-explain-height + @form-explain-precision;
+    min-height: @form-item-margin-bottom;
     // margin-top: @form-help-margin-top;
     color: @text-color-secondary;
     font-size: @font-size-base;

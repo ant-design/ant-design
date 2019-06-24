@@ -29,7 +29,7 @@ const HorizontalLoginForm = () => {
   };
 
   return (
-    <Form layout="inline" onFinish={onFinish}>
+    <Form name="horizontal_login" layout="inline" onFinish={onFinish}>
       <Form.Item
         name="username"
         rules={[{ required: true, message: 'Please input your username!' }]}
