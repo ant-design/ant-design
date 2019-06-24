@@ -135,6 +135,7 @@ export interface TableEventListeners {
   onContextMenu?: (arg: React.SyntheticEvent) => void;
   onMouseEnter?: (arg: React.SyntheticEvent) => void;
   onMouseLeave?: (arg: React.SyntheticEvent) => void;
+  [name: string]: any; // https://github.com/ant-design/ant-design/issues/17245#issuecomment-504807714
 }
 
 export interface TableProps<T> {
