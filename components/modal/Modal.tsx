@@ -214,7 +214,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
 
     const closeIcon = (
       <span className={`${prefixCls}-close-x`}>
-        <Icon className={`${prefixCls}-close-icon`} type={'close'} />
+        <Icon className={`${prefixCls}-close-icon`} type="close" />
       </span>
     );
 
