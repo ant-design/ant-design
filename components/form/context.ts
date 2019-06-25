@@ -15,3 +15,11 @@ export const FormContext = React.createContext<FormContextProps>({
   labelAlign: 'right',
   vertical: false,
 });
+
+export interface FormItemContextProps {
+  updateItemErrors: (name: string, errors: string[]) => void;
+}
+
+export const FormItemContext = React.createContext<FormItemContextProps>({
+  updateItemErrors: () => {},
+});

@@ -1,4 +1,5 @@
 import * as React from 'React';
+import isEqual from 'lodash/isEqual';
 import classNames from 'classnames';
 import { Field, FormInstance } from 'rc-field-form';
 import { FieldProps as RcFieldProps } from 'rc-field-form/lib/Field';
@@ -9,7 +10,7 @@ import { tuple } from '../_util/type';
 import warning from '../_util/warning';
 import FormItemLabel, { FormItemLabelProps } from './FormItemLabel';
 import FormItemInput, { FormItemInputProps } from './FormItemInput';
-import { FormContext } from './context';
+import { FormContext, FormItemContext } from './context';
 import { toArray } from './util';
 
 const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
@@ -54,26 +55,62 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const { name: formName } = React.useContext(FormContext);
+  const { updateItemErrors } = React.useContext(FormItemContext);
   const [domErrorVisible, setDomErrorVisible] = React.useState(false);
+  const [inlineErrors, setInlineErrors] = React.useState<Record<string, string[]>>({});
+
+  // Should clean up if Field removed
+  React.useEffect(() => {
+    return () => {
+      updateItemErrors(toArray(name).join('__SPLIT__'), []);
+    };
+  }, []);
 
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
   return (
     <Field {...props} trigger={trigger} validateTrigger={validateTrigger}>
       {(control, meta, context) => {
-        // Status
+        const { errors } = meta;
+
+        // ======================== Errors ========================
+        // Collect inline Field error to the top FormItem
+        const updateChildItemErrors = inline
+          ? updateItemErrors
+          : (subName: string, subErrors: string[]) => {
+              if (!isEqual(inlineErrors[subName], subErrors)) {
+                setInlineErrors({
+                  ...inlineErrors,
+                  [subName]: subErrors,
+                });
+              }
+            };
+
+        if (inline) {
+          updateItemErrors(toArray(name).join('__SPLIT__'), errors);
+        }
+
+        let mergedErrors: string[] = errors;
+        Object.keys(inlineErrors).forEach(subName => {
+          const subErrors = inlineErrors[subName] || [];
+          if (subErrors.length) {
+            mergedErrors = [...mergedErrors, ...subErrors];
+          }
+        });
+
+        // ======================== Status ========================
         let mergedValidateStatus: ValidateStatus = '';
         if (validateStatus !== undefined) {
           mergedValidateStatus = validateStatus;
         } else if (meta.validating) {
           mergedValidateStatus = 'validating';
-        } else if (meta.errors.length) {
+        } else if (mergedErrors.length) {
           mergedValidateStatus = 'error';
         } else if (meta.touched) {
           mergedValidateStatus = 'success';
         }
 
-        // ClassName
+        // ====================== Class Name ======================
         const itemClassName = {
           [`${prefixCls}-item`]: true,
           [`${prefixCls}-item-with-help`]: domErrorVisible, // TODO: handle this
@@ -98,7 +135,7 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
           rules && rules.some(rule => typeof rule === 'object' && rule.required)
         );
 
-        // Children
+        // ======================= Children =======================
         const mergedControl: typeof control = {
           ...control,
           id: `${formName}_${toArray(name).join('_')}`,
@@ -125,7 +162,6 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
             }
           });
 
-          // childNode = React.cloneElement(children, { ...originProps, ...mergedControl });
           childNode = React.cloneElement(children, childProps);
         } else if (typeof children === 'function') {
           warning(
@@ -150,12 +186,15 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
             {/* Input Group */}
             <FormItemInput
               {...meta}
+              errors={mergedErrors}
               prefixCls={prefixCls}
               onDomErrorVisibleChange={setDomErrorVisible}
               hasFeedback={hasFeedback}
               validateStatus={mergedValidateStatus}
             >
-              {childNode}
+              <FormItemContext.Provider value={{ updateItemErrors: updateChildItemErrors }}>
+                {childNode}
+              </FormItemContext.Provider>
             </FormItemInput>
           </Row>
         );

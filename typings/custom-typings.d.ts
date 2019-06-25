@@ -89,6 +89,8 @@ declare module '*.json' {
   export default value;
 }
 
+declare module 'lodash/isEqual';
+
 declare module 'lodash/debounce';
 
 declare module 'lodash/padStart';
