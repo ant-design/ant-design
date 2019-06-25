@@ -3,7 +3,6 @@ order: 1
 title:
   zh-CN: 登录框
   en-US: Login Form
-only: true
 ---
 
 ## zh-CN
@@ -31,7 +30,7 @@ const NormalLoginForm = () => {
     >
       <Form.Item
         name="username"
-        rules={[{ required: true, message: 'Please input your username!' }]}
+        rules={[{ required: true, message: 'Please input your Username!' }]}
       >
         <Input
           prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}

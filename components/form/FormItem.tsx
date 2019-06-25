@@ -12,7 +12,7 @@ import FormItemInput, { FormItemInputProps } from './FormItemInput';
 import { FormContext } from './context';
 
 const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
-type ValidateStatus = (typeof ValidateStatuses)[number];
+export type ValidateStatus = (typeof ValidateStatuses)[number];
 
 type RenderChildren = (
   control: {
@@ -77,11 +77,16 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
           [`${className}`]: !!className,
 
           // Status
-          'has-feedback': hasFeedback || mergedValidateStatus === 'validating',
-          'has-success': mergedValidateStatus === 'success',
-          'has-warning': mergedValidateStatus === 'warning',
-          'has-error': mergedValidateStatus === 'error',
-          'is-validating': mergedValidateStatus === 'validating',
+          ...(mergedValidateStatus
+            ? {
+                [`${prefixCls}-item-has-feedback`]:
+                  hasFeedback || mergedValidateStatus === 'validating',
+                [`${prefixCls}-item-has-success`]: mergedValidateStatus === 'success',
+                [`${prefixCls}-item-has-warning`]: mergedValidateStatus === 'warning',
+                [`${prefixCls}-item-has-error`]: mergedValidateStatus === 'error',
+                [`${prefixCls}-item-is-validating`]: mergedValidateStatus === 'validating',
+              }
+            : null),
         };
 
         // TODO: Check if user add `required` in RuleRender
@@ -125,6 +130,8 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
               {...meta}
               prefixCls={prefixCls}
               onDomErrorVisibleChange={setDomErrorVisible}
+              hasFeedback={hasFeedback}
+              validateStatus={mergedValidateStatus}
             >
               {childNode}
             </FormItemInput>

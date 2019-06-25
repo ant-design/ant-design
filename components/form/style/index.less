@@ -8,18 +8,17 @@
 @import './mixin';
 
 @form-prefix-cls: ~'@{ant-prefix}-form';
+@form-item-prefix-cls: ~'@{form-prefix-cls}-item';
 @form-explain-height: ceil(@font-size-base * @line-height-base);
 
-.@{form-prefix-cls} {
-  // ==============================================================
-  // =                            Item                            =
-  // ==============================================================
-  &-item {
-    margin-bottom: @form-item-margin-bottom;
+// ================================================================
+// =                             Item                             =
+// ================================================================
+.@{form-item-prefix-cls} {
+  margin-bottom: @form-item-margin-bottom;
 
-    &-with-help {
-      margin-bottom: 0;
-    }
+  &-with-help {
+    margin-bottom: 0;
   }
 
   // ==============================================================
@@ -29,26 +28,90 @@
   // ==============================================================
   // =                            Input                           =
   // ==============================================================
-  &-item-control {
+  &-control {
     display: flex;
     flex-direction: column;
+  }
+
+  &-control-input {
+    position: relative;
   }
 
   &-explain,
   &-extra {
     clear: both;
     min-height: @form-item-margin-bottom;
+    padding-top: floor((@form-item-margin-bottom - @form-explain-height) / 2);
     // margin-top: @form-help-margin-top;
     color: @text-color-secondary;
     font-size: @font-size-base;
     line-height: @line-height-base;
     transition: color 0.3s @ease-out; // sync input color transition
   }
-}
 
-// ================================================================
-// =                            Status                            =
-// ================================================================
-.has-error {
-  .form-control-validation(@error-color; @error-color; @form-error-input-bg);
+  // ================================================================
+  // =                            Status                            =
+  // ================================================================
+  &-has-feedback {
+    // ========================= Input =========================
+    .@{ant-prefix}-input {
+      padding-right: 24px;
+    }
+
+    .@{ant-prefix}-input-password-icon {
+      margin-right: 18px;
+    }
+
+    // ===================== Status Group ======================
+    &.@{form-item-prefix-cls} {
+      &-has-success,
+      &-has-warning,
+      &-has-error,
+      &-is-validating {
+        // ====================== Icon ======================
+        .@{form-item-prefix-cls}-children-icon {
+          position: absolute;
+          top: 50%;
+          right: 0;
+          z-index: 1;
+          width: @input-height-base;
+          height: 20px;
+          margin-top: -10px;
+          font-size: @font-size-base;
+          line-height: 20px;
+          text-align: center;
+          visibility: visible;
+          animation: zoomIn 0.3s @ease-out-back;
+          pointer-events: none;
+
+          & svg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+          }
+        }
+      }
+    }
+  }
+
+  // ======================== Success ========================
+  &-has-success {
+    &.@{form-item-prefix-cls}-has-feedback .@{form-item-prefix-cls}-children-icon {
+      color: @success-color;
+      animation-name: diffZoomIn1 !important;
+    }
+  }
+
+  // ========================= Error =========================
+  &-has-error {
+    .form-control-validation(@error-color; @error-color; @form-error-input-bg);
+
+    &.@{form-item-prefix-cls}-has-feedback .@{form-item-prefix-cls}-children-icon {
+      color: @error-color;
+      animation-name: diffZoomIn2 !important;
+    }
+  }
 }
