@@ -28,6 +28,7 @@ export interface CheckboxGroupProps extends AbstractCheckboxGroupProps {
   name?: string;
   defaultValue?: Array<CheckboxValueType>;
   value?: Array<CheckboxValueType>;
+  sorted?: boolean;
   onChange?: (checkedValue: Array<CheckboxValueType>) => void;
 }
 
@@ -47,6 +48,7 @@ export interface CheckboxGroupContext {
 class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupState> {
   static defaultProps = {
     options: [],
+    sorted: false
   };
 
   static propTypes = {
@@ -54,6 +56,7 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
     value: PropTypes.array,
     options: PropTypes.array.isRequired,
     onChange: PropTypes.func,
+    sorted: PropTypes.PropTypes.bool
   };
 
   static childContextTypes = {
@@ -134,10 +137,7 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
     if (!('value' in this.props)) {
       this.setState({ value });
     }
-    const onChange = this.props.onChange;
-    if (onChange) {
-      onChange(value.filter(val => registeredValues.indexOf(val) !== -1));
-    }
+    this.onChange(value.filter(val => registeredValues.indexOf(val) !== -1))
   };
 
   renderGroup = ({ getPrefixCls }: ConfigConsumerProps) => {
@@ -157,7 +157,7 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
           disabled={'disabled' in option ? option.disabled : props.disabled}
           value={option.value}
           checked={state.value.indexOf(option.value) !== -1}
-          onChange={option.onChange}
+          onChange={this.onChange}
           className={`${groupPrefixCls}-item`}
         >
           {option.label}
@@ -172,6 +172,22 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
       </div>
     );
   };
+
+  onChange = (v) => {
+    const {
+      onChange,
+      sorted,
+      options
+    } = this.props
+    if (!onChange) {
+      return
+    }
+    if (sorted) {
+      onChange((options as Array<CheckboxOptionType>).map(i => i.value).filter(key => v.includes(key)))
+    } else {
+      onChange(v)
+    }
+  }
 
   render() {
     return <ConfigConsumer>{this.renderGroup}</ConfigConsumer>;

@@ -37,6 +37,7 @@ title: Checkbox
 | options | 指定可选项 | string\[] | \[] |
 | value | 指定选中的选项 | string\[] | \[] |
 | onChange | 变化时回调函数 | Function(checkedValue) | - |
+| sorted | 是否保持有序排序 | boolean | false |
 
 ### 方法
 
