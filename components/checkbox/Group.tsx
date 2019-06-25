@@ -56,7 +56,7 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
     value: PropTypes.array,
     options: PropTypes.array.isRequired,
     onChange: PropTypes.func,
-    sorted: PropTypes.PropTypes.bool
+    sorted: PropTypes.bool
   };
 
   static childContextTypes = {
@@ -173,7 +173,7 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
     );
   };
 
-  onChange = (v) => {
+  onChange = (v: Array<String>) => {
     const {
       onChange,
       sorted,

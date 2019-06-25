@@ -36,7 +36,7 @@ Checkbox component.
 | options | Specifies options | string\[] | \[] |
 | value | Used for setting the currently selected value. | string\[] | \[] |
 | onChange | The callback function that is triggered when the state changes. | Function(checkedValue) | - |
-| sorted | keep sorted | boolean | false |
+| sorted | keep stable sorted | boolean | false |
 
 ### Methods
 
