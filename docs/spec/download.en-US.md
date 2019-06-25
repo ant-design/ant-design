@@ -19,6 +19,18 @@ Please find below some of the design resources and tools about Ant Design that w
       <span class="resource-card-description">Sketch Symbols for Desktop</span>
     </div>
   </a>
+  <a target="_blank" href="https://www.antforfigma.com" class="resource-card">
+    <div class="resource-card-icon">
+      <img width="65" src="https://antforfigma.com/images/antforfigma-icon.png">
+    </div>
+    <div class="resource-card-content">
+      <span class="resource-card-title">
+        UI Kit for Figma
+        <span class="resource-card-hot-badge">NEW</span>
+      </span>
+      <span class="resource-card-description">Large library of components and styles for Desktop</span>
+    </div>
+  </a>
   <a target="_blank" href="https://landing.ant.design/docs/download" class="resource-card">
     <div class="resource-card-icon">
       <img width="65" src="https://gw.alipayobjects.com/zos/rmsportal/EAHlyTmYeDtTkZIPbUnP.svg">
