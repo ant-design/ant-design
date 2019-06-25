@@ -6,17 +6,21 @@ import * as React from 'react';
  * to
  * errors (in 100 ms)
  */
-function useDebounce<T>(content: T, delay: number = 10): T {
+function useDebounce<T>(content: T[], delay: number = 10): T[] {
   const [cache, setCache] = React.useState(content);
 
   React.useEffect(() => {
-    const timeout = setTimeout(() => {
+    if (content.length) {
       setCache(content);
-    }, delay);
+    } else {
+      const timeout = setTimeout(() => {
+        setCache(content);
+      }, delay);
 
-    return () => {
-      clearTimeout(timeout);
-    };
+      return () => {
+        clearTimeout(timeout);
+      };
+    }
   }, [content]);
 
   return cache;
@@ -28,7 +32,7 @@ function useDebounce<T>(content: T, delay: number = 10): T {
 export function useCacheErrors(errors: string[], changeTrigger: (visible: boolean) => void) {
   const debounceErrors = useDebounce(errors);
   const [cacheErrors, setCacheErrors] = React.useState(debounceErrors);
-  const [visible, setVisible] = React.useState(!!debounceErrors.length);
+  const [visible, setVisible] = React.useState(false);
 
   React.useEffect(() => {
     const newVisible = !!debounceErrors.length;

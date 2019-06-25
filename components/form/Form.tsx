@@ -1,7 +1,7 @@
 import * as React from 'react';
 import omit from 'omit.js';
 import classNames from 'classnames';
-import FieldForm, { FormInstance } from 'rc-field-form';
+import FieldForm, { FormInstance, useForm } from 'rc-field-form';
 import { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
 import { ColProps } from '../grid/col';
 import { tuple } from '../_util/type';
@@ -52,7 +52,6 @@ const InternalForm: React.FC<FormProps> = (props, ref) => {
     'prefixCls',
     'className',
     'layout',
-    'form',
     'hideRequiredMark',
     'wrapperCol',
     'labelAlign',
@@ -77,5 +76,7 @@ const InternalForm: React.FC<FormProps> = (props, ref) => {
 };
 
 const Form = React.forwardRef<FormInstance>(InternalForm);
+
+export { useForm };
 
 export default Form;

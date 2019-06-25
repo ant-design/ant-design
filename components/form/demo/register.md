@@ -3,7 +3,6 @@ order: 2
 title:
   zh-CN: 注册新用户
   en-US: Registration
-only: true
 ---
 
 ## zh-CN
@@ -14,7 +13,7 @@ only: true
 
 Fill in this form to create a new account for you.
 
-```jsx
+```tsx
 import {
   Form,
   Input,

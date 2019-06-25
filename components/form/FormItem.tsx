@@ -69,7 +69,14 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
   return (
-    <Field {...props} trigger={trigger} validateTrigger={validateTrigger}>
+    <Field
+      {...props}
+      trigger={trigger}
+      validateTrigger={validateTrigger}
+      onReset={() => {
+        setDomErrorVisible(false);
+      }}
+    >
       {(control, meta, context) => {
         const { errors } = meta;
 
