@@ -16,7 +16,6 @@ title: 设计资源
     <div class="resource-card-content">
       <span class="resource-card-title">
         全新 Sketch 组件包
-        <span class="resource-card-hot-badge">NEW</span>
       </span>
       <span class="resource-card-description">桌面组件 Sketch 模板包</span>
     </div>
@@ -67,7 +66,6 @@ title: 设计资源
     <div class="resource-card-content">
       <span class="resource-card-title">
         Ant Design Landing
-        <span class="resource-card-hot-badge">NEW</span>
       </span>
       <span class="resource-card-description">首页模板集</span>
     </div>
