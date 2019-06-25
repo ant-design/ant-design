@@ -190,6 +190,7 @@ export interface TableProps<T> {
   bodyStyle?: React.CSSProperties;
   className?: string;
   style?: React.CSSProperties;
+  tableLayout?: React.CSSProperties['tableLayout'];
   children?: React.ReactNode;
   sortDirections?: SortOrder[];
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
