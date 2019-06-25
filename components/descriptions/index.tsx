@@ -229,8 +229,8 @@ class Descriptions extends React.Component<
           return (
             <div
               className={classNames(prefixCls, className, {
-                [size as string]: size !== 'default',
-                bordered,
+                [`${prefixCls}-${size}`]: size !== 'default',
+                [`${prefixCls}-bordered`]: !!bordered,
               })}
             >
               {title && <div className={`${prefixCls}-title`}>{title}</div>}
