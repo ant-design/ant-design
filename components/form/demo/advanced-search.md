@@ -3,7 +3,6 @@ order: 3
 title:
   zh-CN: 高级搜索
   en-US: Advanced search
-only: true
 ---
 
 ## zh-CN
@@ -18,7 +17,7 @@ Three columns layout is often used for advanced searching of data table.
 
 Because the width of label is not fixed, you may need to adjust it by customizing its style.
 
-```jsx
+```tsx
 import { Form, Row, Col, Input, Button, Icon } from 'antd';
 
 const AdvancedSearchForm = () => {

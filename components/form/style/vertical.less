@@ -1,0 +1,24 @@
+@import './index';
+
+.@{form-prefix-cls}-vertical {
+  .@{form-item-prefix-cls} {
+    flex-direction: column;
+
+    // ================== Label ==================
+    &-label {
+      margin: @form-vertical-label-margin;
+      padding: @form-vertical-label-padding;
+      line-height: @line-height-base;
+      white-space: initial;
+      text-align: left;
+
+      > label {
+        margin: 0;
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+}
