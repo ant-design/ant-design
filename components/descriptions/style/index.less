@@ -27,6 +27,7 @@
   }
 
   &-row {
+    > th,
     > td {
       padding-bottom: 16px;
     }
@@ -37,9 +38,11 @@
 
   &-item-label {
     color: @heading-color;
+    font-weight: normal;
     font-size: @font-size-base;
     line-height: @line-height-base;
     white-space: nowrap;
+
     &::after {
       position: relative;
       top: -0.5px;

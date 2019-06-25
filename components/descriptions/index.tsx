@@ -70,11 +70,11 @@ const generateChildrenRows = (
 
 /**
  * This code is for handling react15 does not support returning an array,
- * It can convert a children into two td
+ * It can convert a children into th and td
  * @param child DescriptionsItem
  * @returns
  * <>
- *   <td>{DescriptionsItem.label}</td>
+ *   <th>{DescriptionsItem.label}</th>
  *   <td>{DescriptionsItem.children}</td>
  * </>
  */
@@ -82,9 +82,9 @@ const renderCol = (child: React.ReactElement<DescriptionsItemProps>, bordered: b
   const { prefixCls, label, className, children, span = 1 } = child.props;
   if (bordered) {
     return [
-      <td className={classNames(`${prefixCls}-item-label`, className)} key="label">
+      <th className={classNames(`${prefixCls}-item-label`, className)} key="label">
         {label}
-      </td>,
+      </th>,
       <td
         className={classNames(`${prefixCls}-item-content`, className)}
         key="content"
