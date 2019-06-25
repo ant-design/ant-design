@@ -162,6 +162,7 @@ const RegistrationForm = () => {
       <Form.Item
         name="confirm"
         label="Confirm Password"
+        dependencies={['password']}
         hasFeedback
         rules={[
           {
@@ -239,6 +240,17 @@ const RegistrationForm = () => {
             <Button>Get captcha</Button>
           </Col>
         </Row>
+      </Form.Item>
+
+      <Form.Item name="agreement" valuePropName="checked" {...tailFormItemLayout}>
+        <Checkbox>
+          I have read the <a href="">agreement</a>
+        </Checkbox>
+      </Form.Item>
+      <Form.Item {...tailFormItemLayout}>
+        <Button type="primary" htmlType="submit">
+          Register
+        </Button>
       </Form.Item>
     </Form>
   );

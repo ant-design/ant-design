@@ -20,6 +20,8 @@ interface FormItemInputMiscProps {
 
 export interface FormItemInputProps {
   wrapperCol?: ColProps;
+  help?: React.ReactNode;
+  extra?: React.ReactNode;
 }
 
 function getIconType(validateStatus?: ValidateStatus) {
@@ -45,8 +47,10 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
   onDomErrorVisibleChange,
   hasFeedback,
   validateStatus,
+  help,
+  extra,
 }) => {
-  const baseClassName = `${prefixCls}-item-control`;
+  const baseClassName = `${prefixCls}-item`;
 
   const { wrapperCol: contextWrapperCol, vertical }: FormContextProps = React.useContext(
     FormContext,
@@ -54,7 +58,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
 
   const mergedWrapperCol: ColProps = wrapperCol || contextWrapperCol || {};
 
-  const className = classNames(baseClassName, mergedWrapperCol.className);
+  const className = classNames(`${baseClassName}-control`, mergedWrapperCol.className);
 
   const [visible, cacheErrors] = useCacheErrors(errors, visible => {
     if (visible) {
@@ -66,7 +70,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
   const iconType = getIconType(validateStatus);
   const icon =
     hasFeedback && iconType ? (
-      <span className={`${prefixCls}-item-children-icon`}>
+      <span className={`${baseClassName}-children-icon`}>
         <Icon type={iconType} theme={iconType === 'loading' ? 'outlined' : 'filled'} />
       </span>
     ) : null;
@@ -75,7 +79,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
   return (
     <FormContext.Provider value={{ vertical }}>
       <Col {...mergedWrapperCol} className={className}>
-        <div className={`${baseClassName}-input`}>
+        <div className={`${baseClassName}-control-input`}>
           {children}
           {icon}
         </div>
@@ -90,13 +94,13 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
         >
           {({ className }: { className: string }) => {
             return (
-              <div className={classNames(`${prefixCls}-item-explain`, className)} key="help">
+              <div className={classNames(`${baseClassName}-explain`, className)} key="help">
                 {cacheErrors}
               </div>
             );
           }}
         </CSSMotion>
-        {/* <div className={`${baseClassName}-message`}>233</div> */}
+        {extra && <div className={`${baseClassName}-extra`}>{extra}</div>}
       </Col>
     </FormContext.Provider>
   );

@@ -90,7 +90,6 @@
     clear: both;
     min-height: @form-item-margin-bottom;
     padding-top: floor((@form-item-margin-bottom - @form-font-height) / 2);
-    // margin-top: @form-help-margin-top;
     color: @text-color-secondary;
     font-size: @font-size-base;
     line-height: @line-height-base;
@@ -160,6 +159,13 @@
     &.@{form-item-prefix-cls}-has-feedback .@{form-item-prefix-cls}-children-icon {
       color: @error-color;
       animation-name: diffZoomIn2 !important;
+    }
+  }
+
+  // Patch to keep error explain color
+  &-has-error-leave {
+    .@{form-item-prefix-cls}-explain {
+      color: @error-color;
     }
   }
 }

@@ -28,13 +28,13 @@ type RenderChildren = (
 
 interface FormItemProps extends FormItemLabelProps, FormItemInputProps, RcFieldProps {
   prefixCls?: string;
+  inline?: boolean;
   style?: React.CSSProperties;
   className?: string;
   children: React.ReactElement | RenderChildren;
   id?: string;
   hasFeedback?: boolean;
   validateStatus?: ValidateStatus;
-  inline?: boolean;
 }
 
 const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
@@ -117,17 +117,14 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
           [`${className}`]: !!className,
 
           // Status
-          ...(mergedValidateStatus
-            ? {
-                [`${prefixCls}-item-has-feedback`]:
-                  hasFeedback || mergedValidateStatus === 'validating',
-                [`${prefixCls}-item-has-success`]: mergedValidateStatus === 'success',
-                [`${prefixCls}-item-has-warning`]: mergedValidateStatus === 'warning',
-                [`${prefixCls}-item-has-error`]:
-                  domErrorVisible || mergedValidateStatus === 'error',
-                [`${prefixCls}-item-is-validating`]: mergedValidateStatus === 'validating',
-              }
-            : null),
+          [`${prefixCls}-item-has-feedback`]:
+            (mergedValidateStatus && hasFeedback) || mergedValidateStatus === 'validating',
+          [`${prefixCls}-item-has-success`]: mergedValidateStatus === 'success',
+          [`${prefixCls}-item-has-warning`]: mergedValidateStatus === 'warning',
+          [`${prefixCls}-item-has-error`]: mergedValidateStatus === 'error',
+          [`${prefixCls}-item-has-error-leave`]:
+            domErrorVisible && mergedValidateStatus !== 'error',
+          [`${prefixCls}-item-is-validating`]: mergedValidateStatus === 'validating',
         };
 
         // TODO: Check if user add `required` in RuleRender
@@ -185,11 +182,11 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
             <FormItemLabel {...props} required={isRequired} prefixCls={prefixCls} />
             {/* Input Group */}
             <FormItemInput
+              {...props}
               {...meta}
               errors={mergedErrors}
               prefixCls={prefixCls}
               onDomErrorVisibleChange={setDomErrorVisible}
-              hasFeedback={hasFeedback}
               validateStatus={mergedValidateStatus}
             >
               <FormItemContext.Provider value={{ updateItemErrors: updateChildItemErrors }}>
