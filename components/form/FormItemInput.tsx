@@ -5,6 +5,7 @@ import CSSMotion from 'rc-animate/lib/CSSMotion';
 import Col, { ColProps } from '../grid/col';
 import { ValidateStatus } from './FormItem';
 import { FormContext, FormContextProps } from './context';
+import { useCacheErrors } from './util';
 
 interface FormItemInputMiscProps {
   prefixCls: string;
@@ -55,14 +56,11 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
 
   const className = classNames(baseClassName, mergedWrapperCol.className);
 
-  // To keep animation don't miss error message. We should cache the errors.
-  const [cacheErrors, setCacheErrors] = React.useState(errors);
-  React.useEffect(() => {
-    if (errors.length) {
-      setCacheErrors(errors);
+  const [visible, cacheErrors] = useCacheErrors(errors, visible => {
+    if (visible) {
       onDomErrorVisibleChange(true);
     }
-  }, [errors]);
+  });
 
   // Should provides additional icon if `hasFeedback`
   const iconType = getIconType(validateStatus);
@@ -82,7 +80,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
           {icon}
         </div>
         <CSSMotion
-          visible={!!errors.length}
+          visible={visible}
           motionName="show-help"
           onLeaveEnd={() => {
             onDomErrorVisibleChange(false);

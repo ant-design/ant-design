@@ -9,7 +9,7 @@
 
 @form-prefix-cls: ~'@{ant-prefix}-form';
 @form-item-prefix-cls: ~'@{form-prefix-cls}-item';
-@form-explain-height: ceil(@font-size-base * @line-height-base);
+@form-font-height: ceil(@font-size-base * @line-height-base);
 
 // ================================================================
 // =                             Item                             =
@@ -24,6 +24,54 @@
   // ==============================================================
   // =                            Label                           =
   // ==============================================================
+  &-label {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: right;
+    vertical-align: middle;
+
+    &-left {
+      text-align: left;
+    }
+
+    > label {
+      display: inline-block;
+      margin-top: floor((@input-height-base - @form-font-height) / 2);
+      color: @label-color;
+
+      &.@{form-item-prefix-cls}-required::before {
+        display: inline-block;
+        margin-right: 4px;
+        color: @label-required-color;
+        font-size: @font-size-base;
+        font-family: SimSun, sans-serif;
+        line-height: 1;
+        content: '*';
+
+        .@{form-prefix-cls}-hide-required-mark & {
+          display: none;
+        }
+      }
+
+      &::after {
+        & when (@form-item-trailing-colon=true) {
+          content: ':';
+        }
+        & when not (@form-item-trailing-colon=true) {
+          content: ' ';
+        }
+
+        position: relative;
+        top: -0.5px;
+        margin: 0 8px 0 2px;
+      }
+
+      &.@{form-prefix-cls}-item-no-colon::after {
+        content: ' ';
+      }
+    }
+  }
 
   // ==============================================================
   // =                            Input                           =
@@ -41,7 +89,7 @@
   &-extra {
     clear: both;
     min-height: @form-item-margin-bottom;
-    padding-top: floor((@form-item-margin-bottom - @form-explain-height) / 2);
+    padding-top: floor((@form-item-margin-bottom - @form-font-height) / 2);
     // margin-top: @form-help-margin-top;
     color: @text-color-secondary;
     font-size: @font-size-base;

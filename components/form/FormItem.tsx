@@ -10,6 +10,7 @@ import warning from '../_util/warning';
 import FormItemLabel, { FormItemLabelProps } from './FormItemLabel';
 import FormItemInput, { FormItemInputProps } from './FormItemInput';
 import { FormContext } from './context';
+import { toArray } from './util';
 
 const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
 export type ValidateStatus = (typeof ValidateStatuses)[number];
@@ -48,6 +49,8 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
     rules,
     validateStatus,
     children,
+    trigger = 'onChange',
+    validateTrigger = 'onChange',
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const { name: formName } = React.useContext(FormContext);
@@ -56,7 +59,7 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
   return (
-    <Field {...props}>
+    <Field {...props} trigger={trigger} validateTrigger={validateTrigger}>
       {(control, meta, context) => {
         // Status
         let mergedValidateStatus: ValidateStatus = '';
@@ -73,7 +76,7 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
         // ClassName
         const itemClassName = {
           [`${prefixCls}-item`]: true,
-          [`${prefixCls}-item-with-help`]: domErrorVisible || !!meta.errors.length, // TODO: handle this
+          [`${prefixCls}-item-with-help`]: domErrorVisible, // TODO: handle this
           [`${className}`]: !!className,
 
           // Status
@@ -83,7 +86,8 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
                   hasFeedback || mergedValidateStatus === 'validating',
                 [`${prefixCls}-item-has-success`]: mergedValidateStatus === 'success',
                 [`${prefixCls}-item-has-warning`]: mergedValidateStatus === 'warning',
-                [`${prefixCls}-item-has-error`]: mergedValidateStatus === 'error',
+                [`${prefixCls}-item-has-error`]:
+                  domErrorVisible || mergedValidateStatus === 'error',
                 [`${prefixCls}-item-is-validating`]: mergedValidateStatus === 'validating',
               }
             : null),
@@ -95,16 +99,34 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
         );
 
         // Children
-        const mergedControl = {
+        const mergedControl: typeof control = {
           ...control,
-          id: `${formName}_${Array.isArray(name) ? name.join('_') : name}`,
+          id: `${formName}_${toArray(name).join('_')}`,
         };
 
         let childNode;
         if (!name && !shouldUpdate && !dependencies) {
           childNode = children;
         } else if (React.isValidElement(children)) {
-          childNode = React.cloneElement(children, mergedControl);
+          const childProps = { ...children.props, ...mergedControl };
+
+          // We should keep user origin event handler
+          const triggers = new Set<string>();
+          [...toArray(trigger), ...toArray(validateTrigger)].forEach(eventName => {
+            triggers.add(eventName);
+          });
+
+          triggers.forEach(eventName => {
+            if (eventName in mergedControl && eventName in children.props) {
+              childProps[eventName] = (...args: any[]) => {
+                mergedControl[eventName](...args);
+                children.props[eventName](...args);
+              };
+            }
+          });
+
+          // childNode = React.cloneElement(children, { ...originProps, ...mergedControl });
+          childNode = React.cloneElement(children, childProps);
         } else if (typeof children === 'function') {
           warning(
             false,
