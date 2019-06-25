@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
-import Icon from '..';
 import ReactIcon from '@ant-design/icons-react';
+import Icon from '..';
 import Tooltip from '../../tooltip';
 import { getThemeFromTypeName, withThemeSuffix } from '../utils';
 
