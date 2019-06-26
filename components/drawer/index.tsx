@@ -232,6 +232,14 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
       wrapClassName,
       width,
       height,
+      closable,
+      destroyOnClose,
+      mask,
+      maskClosable,
+      bodyStyle,
+      title,
+      push,
+      onClose,
       ...rest
     } = this.props;
     warning(
@@ -239,7 +247,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
       'Drawer',
       'wrapClassName is deprecated, please use className instead.',
     );
-    const haveMask = rest.mask ? '' : 'no-mask';
+    const haveMask = mask ? '' : 'no-mask';
     this.parentDrawer = value;
     const offsetStyle: any = {};
     if (placement === 'left' || placement === 'right') {
@@ -256,7 +264,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
           prefixCls={prefixCls}
           open={this.props.visible}
           onMaskClick={this.onMaskClick}
-          showMask={this.props.mask}
+          showMask={mask}
           placement={placement}
           style={this.getRcDrawerStyle()}
           className={classNames(wrapClassName, className, haveMask)}
