@@ -70,7 +70,7 @@ export interface AntTreeNodeExpandedEvent extends AntTreeNodeBaseEvent {
 
 export interface AntTreeNodeMouseEvent {
   node: AntTreeNode;
-  event: React.MouseEvent<any>;
+  event: React.MouseEvent<HTMLElement>;
 }
 
 export interface AntTreeNodeDragEnterEvent extends AntTreeNodeMouseEvent {
@@ -83,7 +83,7 @@ export interface AntTreeNodeDropEvent {
   dragNodesKeys: string[];
   dropPosition: number;
   dropToGap?: boolean;
-  event: React.MouseEvent<any>;
+  event: React.MouseEvent<HTMLElement>;
 }
 
 export interface TreeProps {
@@ -117,7 +117,7 @@ export interface TreeProps {
   defaultSelectedKeys?: string[];
   selectable?: boolean;
   /** 展开/收起节点时触发 */
-  onExpand?: (expandedKeys: string[], info: AntTreeNodeExpandedEvent) => void | PromiseLike<any>;
+  onExpand?: (expandedKeys: string[], info: AntTreeNodeExpandedEvent) => void | PromiseLike<void>;
   /** 点击复选框触发 */
   onCheck?: (
     checkedKeys: string[] | { checked: string[]; halfChecked: string[] },
@@ -132,7 +132,7 @@ export interface TreeProps {
   /** filter some AntTreeNodes as you need. it should return true */
   filterAntTreeNode?: (node: AntTreeNode) => boolean;
   /** 异步加载数据 */
-  loadData?: (node: AntTreeNode) => PromiseLike<any>;
+  loadData?: (node: AntTreeNode) => PromiseLike<void>;
   loadedKeys?: string[];
   onLoad?: (loadedKeys: string[], info: { event: 'load'; node: AntTreeNode }) => void;
   /** 响应右键点击 */
@@ -147,11 +147,11 @@ export interface TreeProps {
   onDrop?: (options: AntTreeNodeDropEvent) => void;
   style?: React.CSSProperties;
   showIcon?: boolean;
-  icon?: (nodeProps: AntdTreeNodeAttribute) => React.ReactNode | React.ReactNode;
+  icon?: ((nodeProps: AntdTreeNodeAttribute) => React.ReactNode) | React.ReactNode;
   switcherIcon?: React.ReactElement<any>;
   prefixCls?: string;
   filterTreeNode?: (node: AntTreeNode) => boolean;
-  children?: React.ReactNode | React.ReactNode[];
+  children?: React.ReactNode;
   blockNode?: boolean;
 }
 

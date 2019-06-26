@@ -8,13 +8,15 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export type MentionPlacement = 'top' | 'bottom';
 
+type SuggestionItme = React.ReactElement<{ value?: string }> | string;
+
 export interface MentionProps {
   prefixCls?: string;
   suggestionStyle?: React.CSSProperties;
-  defaultSuggestions?: Array<any>;
-  suggestions?: Array<any>;
+  defaultSuggestions?: Array<SuggestionItme>;
+  suggestions?: Array<React.ReactElement<any>>;
   onSearchChange?: (value: string, trigger: string) => any;
-  onChange?: (contentState: any) => any;
+  onChange?: (contentState: any) => void;
   notFoundContent?: any;
   loading?: boolean;
   style?: React.CSSProperties;
@@ -27,7 +29,7 @@ export interface MentionProps {
   getSuggestionContainer?: (triggerNode: Element) => HTMLElement;
   onFocus?: React.FocusEventHandler<HTMLElement>;
   onBlur?: React.FocusEventHandler<HTMLElement>;
-  onSelect?: (suggestion: string, data?: any) => any;
+  onSelect?: (suggestion: string, data?: any) => void;
   readOnly?: boolean;
   disabled?: boolean;
   placement?: MentionPlacement;
@@ -81,12 +83,13 @@ class Mention extends React.Component<MentionProps, MentionState> {
   defaultSearchChange(value: string): void {
     const searchValue = value.toLowerCase();
     const filteredSuggestions = (this.props.defaultSuggestions || []).filter(suggestion => {
-      if (suggestion.type && suggestion.type === Nav) {
+      if (typeof suggestion === 'string') {
+        return suggestion.toLowerCase().indexOf(searchValue) !== -1;
+      } else if (suggestion.type && suggestion.type === Nav) {
         return suggestion.props.value
           ? suggestion.props.value.toLowerCase().indexOf(searchValue) !== -1
           : true;
       }
-      return suggestion.toLowerCase().indexOf(searchValue) !== -1;
     });
     this.setState({
       filteredSuggestions,

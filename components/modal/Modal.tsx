@@ -40,9 +40,9 @@ export interface ModalProps {
   /** 是否显示右上角的关闭按钮*/
   closable?: boolean;
   /** 点击确定回调*/
-  onOk?: (e: React.MouseEvent<any>) => void;
+  onOk?: (e: React.MouseEvent<HTMLElement>) => void;
   /** 点击模态框右上角叉、取消按钮、Props.maskClosable 值为 true 时的遮罩层或键盘按下 Esc 时的回调*/
-  onCancel?: (e: React.MouseEvent<any>) => void;
+  onCancel?: (e: React.MouseEvent<HTMLElement>) => void;
   afterClose?: () => void;
   /** 垂直居中 */
   centered?: boolean;
@@ -84,8 +84,9 @@ export interface ModalFuncProps {
   visible?: boolean;
   title?: React.ReactNode;
   content?: React.ReactNode;
-  onOk?: (...args: any[]) => any | PromiseLike<any>;
-  onCancel?: (...args: any[]) => any | PromiseLike<any>;
+  // TODO: find out exact types
+  onOk?: (...args: any[]) => any;
+  onCancel?: (...args: any[]) => any;
   okButtonProps?: NativeButtonProps;
   cancelButtonProps?: NativeButtonProps;
   centered?: boolean;
@@ -213,7 +214,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
 
     const closeIcon = (
       <span className={`${prefixCls}-close-x`}>
-        <Icon className={`${prefixCls}-close-icon`} type={'close'} />
+        <Icon className={`${prefixCls}-close-icon`} type="close" />
       </span>
     );
 

@@ -22,7 +22,10 @@
   }
 
   &-empty &-body {
-    overflow: auto !important;
+    // https://github.com/ant-design/ant-design/issues/11135
+    overflow-x: auto !important;
+    // https://github.com/ant-design/ant-design/issues/17175
+    overflow-y: hidden !important;
   }
 
   table {
@@ -395,11 +398,13 @@
   &-placeholder {
     position: relative;
     z-index: 1;
+    margin-top: -1px;
     padding: @table-padding-vertical @table-padding-horizontal;
     color: @disabled-color;
     font-size: @font-size-base;
     text-align: center;
     background: @component-background;
+    border-top: @border-width-base @border-style-base @border-color-split;
     border-bottom: @border-width-base @border-style-base @border-color-split;
     border-radius: 0 0 @border-radius-base @border-radius-base;
     .@{iconfont-css-prefix} {

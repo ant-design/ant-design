@@ -16,7 +16,7 @@ export interface SelectParam {
   key: string;
   keyPath: Array<string>;
   item: any;
-  domEvent: any;
+  domEvent: Event;
   selectedKeys: Array<string>;
 }
 
@@ -24,7 +24,7 @@ export interface ClickParam {
   key: string;
   keyPath: Array<string>;
   item: any;
-  domEvent: any;
+  domEvent: Event;
 }
 
 export type MenuMode = 'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';

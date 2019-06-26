@@ -61,12 +61,12 @@ export interface UploadProps {
   fileList?: Array<UploadFile>;
   action?: string | ((file: RcFile) => string) | ((file: RcFile) => PromiseLike<string>);
   directory?: boolean;
-  data?: Object | ((file: UploadFile) => any);
+  data?: object | ((file: UploadFile) => object);
   headers?: HttpRequestHeader;
   showUploadList?: boolean | ShowUploadListInterface;
   multiple?: boolean;
   accept?: string;
-  beforeUpload?: (file: RcFile, FileList: RcFile[]) => boolean | PromiseLike<any>;
+  beforeUpload?: (file: RcFile, FileList: RcFile[]) => boolean | PromiseLike<void>;
   onChange?: (info: UploadChangeParam) => void;
   listType?: UploadListType;
   className?: string;
@@ -76,7 +76,7 @@ export interface UploadProps {
   style?: React.CSSProperties;
   disabled?: boolean;
   prefixCls?: string;
-  customRequest?: (option: any) => void;
+  customRequest?: (option: object) => void;
   withCredentials?: boolean;
   openFileDialogOnClick?: boolean;
   locale?: UploadLocale;

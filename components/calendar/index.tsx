@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import * as moment from 'moment';
 import FullCalendar from 'rc-calendar/lib/FullCalendar';
-import Header, { RenderHeader } from './Header';
+import Header, { HeaderRender } from './Header';
 import enUS from './locale/en_US';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -41,7 +41,7 @@ export interface CalendarProps {
   onChange?: (date?: moment.Moment) => void;
   disabledDate?: (current: moment.Moment) => boolean;
   validRange?: [moment.Moment, moment.Moment];
-  headerRender: (header: RenderHeader) => React.ReactNode;
+  headerRender?: HeaderRender;
 }
 
 export interface CalendarState {
@@ -56,7 +56,6 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
     onSelect: noop,
     onPanelChange: noop,
     onChange: noop,
-    headerRender: null,
   };
 
   static propTypes = {
@@ -73,6 +72,7 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
     value: PropTypes.object as PropTypes.Requireable<moment.Moment>,
     onSelect: PropTypes.func,
     onChange: PropTypes.func,
+    headerRender: PropTypes.func,
   };
 
   static getDerivedStateFromProps(nextProps: CalendarProps) {

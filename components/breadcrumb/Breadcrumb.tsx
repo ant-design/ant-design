@@ -20,9 +20,9 @@ export interface BreadcrumbProps {
   params?: any;
   separator?: React.ReactNode;
   itemRender?: (
-    route: any,
+    route: Route,
     params: any,
-    routes: Array<any>,
+    routes: Array<Route>,
     paths: Array<string>,
   ) => React.ReactNode;
   style?: React.CSSProperties;
