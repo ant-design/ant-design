@@ -41,6 +41,7 @@ Properties that shared by all types.
 | --- | --- | --- | --- |
 | width | to set the canvas width of the circular progress, unit: `px` | number | 132 |
 | strokeWidth | to set the width of the circular progress, unit: percentage of the canvas width | number | 6 |
+| strokeColor | color of circular progress, render `linear-gradient` when passing an object | string \| object | - |
 
 ### `type="dashboard"`
 
