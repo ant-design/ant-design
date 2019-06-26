@@ -105,7 +105,7 @@ exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
 
 exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
 <div
-  class="ant-descriptions bordered"
+  class="ant-descriptions ant-descriptions-bordered"
 >
   <div
     class="ant-descriptions-title"
@@ -120,33 +120,33 @@ exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
         <tr
           class="ant-descriptions-row"
         >
-          <td
+          <th
             class="ant-descriptions-item-label"
           >
             Product
-          </td>
+          </th>
           <td
             class="ant-descriptions-item-content"
             colspan="1"
           >
             Cloud Database
           </td>
-          <td
+          <th
             class="ant-descriptions-item-label"
           >
             Billing Mode
-          </td>
+          </th>
           <td
             class="ant-descriptions-item-content"
             colspan="1"
           >
             Prepaid
           </td>
-          <td
+          <th
             class="ant-descriptions-item-label"
           >
             Automatic Renewal
-          </td>
+          </th>
           <td
             class="ant-descriptions-item-content"
             colspan="1"
@@ -157,22 +157,22 @@ exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
         <tr
           class="ant-descriptions-row"
         >
-          <td
+          <th
             class="ant-descriptions-item-label"
           >
             Order time
-          </td>
+          </th>
           <td
             class="ant-descriptions-item-content"
             colspan="1"
           >
             2018-04-24 18:00:00
           </td>
-          <td
+          <th
             class="ant-descriptions-item-label"
           >
             Usage Time
-          </td>
+          </th>
           <td
             class="ant-descriptions-item-content"
             colspan="5"
@@ -183,11 +183,11 @@ exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
         <tr
           class="ant-descriptions-row"
         >
-          <td
+          <th
             class="ant-descriptions-item-label"
           >
             Status
-          </td>
+          </th>
           <td
             class="ant-descriptions-item-content"
             colspan="5"
@@ -209,33 +209,33 @@ exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
         <tr
           class="ant-descriptions-row"
         >
-          <td
+          <th
             class="ant-descriptions-item-label"
           >
             Negotiated Amount
-          </td>
+          </th>
           <td
             class="ant-descriptions-item-content"
             colspan="1"
           >
             $80.00
           </td>
-          <td
+          <th
             class="ant-descriptions-item-label"
           >
             Discount
-          </td>
+          </th>
           <td
             class="ant-descriptions-item-content"
             colspan="1"
           >
             $20.00
           </td>
-          <td
+          <th
             class="ant-descriptions-item-label"
           >
             Official Receipts
-          </td>
+          </th>
           <td
             class="ant-descriptions-item-content"
             colspan="1"
@@ -246,11 +246,11 @@ exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
         <tr
           class="ant-descriptions-row"
         >
-          <td
+          <th
             class="ant-descriptions-item-label"
           >
             Config Info
-          </td>
+          </th>
           <td
             class="ant-descriptions-item-content"
             colspan="5"
@@ -491,7 +491,7 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
   <br />
   <br />
   <div
-    class="ant-descriptions bordered"
+    class="ant-descriptions ant-descriptions-bordered"
   >
     <div
       class="ant-descriptions-title"
@@ -506,33 +506,33 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
           <tr
             class="ant-descriptions-row"
           >
-            <td
+            <th
               class="ant-descriptions-item-label"
             >
               Product
-            </td>
+            </th>
             <td
               class="ant-descriptions-item-content"
               colspan="1"
             >
               Cloud Database
             </td>
-            <td
+            <th
               class="ant-descriptions-item-label"
             >
               Billing
-            </td>
+            </th>
             <td
               class="ant-descriptions-item-content"
               colspan="1"
             >
               Prepaid
             </td>
-            <td
+            <th
               class="ant-descriptions-item-label"
             >
               time
-            </td>
+            </th>
             <td
               class="ant-descriptions-item-content"
               colspan="1"
@@ -543,33 +543,33 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
           <tr
             class="ant-descriptions-row"
           >
-            <td
+            <th
               class="ant-descriptions-item-label"
             >
               Amount
-            </td>
+            </th>
             <td
               class="ant-descriptions-item-content"
               colspan="1"
             >
               $80.00
             </td>
-            <td
+            <th
               class="ant-descriptions-item-label"
             >
               Discount
-            </td>
+            </th>
             <td
               class="ant-descriptions-item-content"
               colspan="1"
             >
               $20.00
             </td>
-            <td
+            <th
               class="ant-descriptions-item-label"
             >
               Official
-            </td>
+            </th>
             <td
               class="ant-descriptions-item-content"
               colspan="1"
@@ -580,11 +580,11 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
           <tr
             class="ant-descriptions-row"
           >
-            <td
+            <th
               class="ant-descriptions-item-label"
             >
               Config Info
-            </td>
+            </th>
             <td
               class="ant-descriptions-item-content"
               colspan="5"

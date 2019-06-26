@@ -124,4 +124,15 @@ describe('Descriptions', () => {
     expect(wrapper).toMatchSnapshot();
     wrapper.unmount();
   });
+
+  it('Descriptions.Item support className', () => {
+    const wrapper = mount(
+      <Descriptions>
+        <Descriptions.Item label="Product" className="my-class">
+          Cloud Database
+        </Descriptions.Item>
+      </Descriptions>,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
 });

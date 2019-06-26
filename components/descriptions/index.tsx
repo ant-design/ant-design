@@ -10,6 +10,7 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface DescriptionsItemProps {
   prefixCls?: string;
+  className?: string;
   label?: React.ReactNode;
   children: React.ReactNode;
   span?: number;
@@ -69,28 +70,32 @@ const generateChildrenRows = (
 
 /**
  * This code is for handling react15 does not support returning an array,
- * It can convert a children into two td
+ * It can convert a children into th and td
  * @param child DescriptionsItem
  * @returns
  * <>
- *   <td>{DescriptionsItem.label}</td>
+ *   <th>{DescriptionsItem.label}</th>
  *   <td>{DescriptionsItem.children}</td>
  * </>
  */
 const renderCol = (child: React.ReactElement<DescriptionsItemProps>, bordered: boolean) => {
-  const { prefixCls, label, children, span = 1 } = child.props;
+  const { prefixCls, label, className, children, span = 1 } = child.props;
   if (bordered) {
     return [
-      <td className={`${prefixCls}-item-label`} key="label">
+      <th className={classNames(`${prefixCls}-item-label`, className)} key="label">
         {label}
-      </td>,
-      <td className={`${prefixCls}-item-content`} key="content" colSpan={span * 2 - 1}>
+      </th>,
+      <td
+        className={classNames(`${prefixCls}-item-content`, className)}
+        key="content"
+        colSpan={span * 2 - 1}
+      >
         {children}
       </td>,
     ];
   }
   return (
-    <td colSpan={span} className={`${prefixCls}-item`}>
+    <td colSpan={span} className={classNames(`${prefixCls}-item`, className)}>
       <span className={`${prefixCls}-item-label`} key="label">
         {label}
       </span>
@@ -224,8 +229,8 @@ class Descriptions extends React.Component<
           return (
             <div
               className={classNames(prefixCls, className, {
-                [size as string]: size !== 'default',
-                bordered,
+                [`${prefixCls}-${size}`]: size !== 'default',
+                [`${prefixCls}-bordered`]: !!bordered,
               })}
             >
               {title && <div className={`${prefixCls}-title`}>{title}</div>}
