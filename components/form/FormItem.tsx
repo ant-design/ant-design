@@ -189,6 +189,8 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
             throw new Error('render props of Form.Item do not work on production env.');
           }
           childNode = children(mergedControl, meta, context);
+        } else {
+          warning(false, 'Form.Item', '`children` is not a validate ReactNode. Please check.');
         }
 
         if (inline) {

@@ -3,7 +3,6 @@ order: 5
 title:
   zh-CN: 动态增减表单项
   en-US: Dynamic Form Item
-only: true
 ---
 
 ## zh-CN
