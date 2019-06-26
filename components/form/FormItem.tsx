@@ -5,7 +5,7 @@ import { Field, FormInstance } from 'rc-field-form';
 import { FieldProps as RcFieldProps } from 'rc-field-form/lib/Field';
 import { Meta } from 'rc-field-form/lib/interface';
 import Row from '../grid/row';
-import { ConfigContext, ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import { tuple } from '../_util/type';
 import warning from '../_util/warning';
 import FormItemLabel, { FormItemLabelProps } from './FormItemLabel';
@@ -43,6 +43,7 @@ interface FormItemProps extends FormItemLabelProps, FormItemInputProps, RcFieldP
 const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
   const {
     name,
+    fieldKey,
     inline,
     dependencies,
     prefixCls: customizePrefixCls,
@@ -62,10 +63,13 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
   const [domErrorVisible, setDomErrorVisible] = React.useState(false);
   const [inlineErrors, setInlineErrors] = React.useState<Record<string, string[]>>({});
 
+  // Cache Field NamePath
+  const nameRef = React.useRef<(string | number)[]>([]);
+
   // Should clean up if Field removed
   React.useEffect(() => {
     return () => {
-      updateItemErrors(toArray(name).join('__SPLIT__'), []);
+      updateItemErrors(nameRef.current.join('__SPLIT__'), []);
     };
   }, []);
 
@@ -81,7 +85,8 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
       }}
     >
       {(control, meta, context) => {
-        const { errors } = meta;
+        const { errors, name: metaName } = meta;
+        const mergedName = toArray(name).length ? metaName : [];
 
         // ======================== Errors ========================
         // Collect inline Field error to the top FormItem
@@ -97,7 +102,11 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
             };
 
         if (inline) {
-          updateItemErrors(toArray(name).join('__SPLIT__'), errors);
+          nameRef.current = [...mergedName];
+          if (fieldKey) {
+            nameRef.current[nameRef.current.length - 1] = fieldKey;
+          }
+          updateItemErrors(nameRef.current.join('__SPLIT__'), errors);
         }
 
         let mergedErrors: string[] = errors;
@@ -145,11 +154,11 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
         // ======================= Children =======================
         const mergedControl: typeof control = {
           ...control,
-          id: `${formName}_${toArray(name).join('_')}`,
+          id: `${formName}_${mergedName.join('_')}`,
         };
 
         let childNode;
-        if (!toArray(name).length && !shouldUpdate && !dependencies) {
+        if (!mergedName.length && !shouldUpdate && !dependencies) {
           childNode = children;
         } else if (React.isValidElement(children)) {
           const childProps = { ...children.props, ...mergedControl };
