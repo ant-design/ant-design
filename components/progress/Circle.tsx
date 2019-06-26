@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Circle as RCCircle } from 'rc-progress';
+import classNames from 'classnames';
 import { validProgress } from './utils';
 import { ProgressProps } from './progress';
 
@@ -53,15 +54,21 @@ const Circle: React.SFC<CircleProps> = props => {
   };
   const circleWidth = strokeWidth || 6;
   const gapPos = gapPosition || (type === 'dashboard' && 'bottom') || 'top';
-  const gapDeg = gapDegree ? gapDegree : (type === 'dashboard' ? 75 : 0);
+  const gapDeg = gapDegree || (type === 'dashboard' ? 75 : undefined);
+  const strokeColor = getStrokeColor(props);
+  const isGradient = Object.prototype.toString.call(strokeColor) === '[object Object]';
+
+  const wrapperClassName = classNames(`${prefixCls}-inner`, {
+    [`${prefixCls}-circle-gradient`]: isGradient,
+  });
 
   return (
-    <div className={`${prefixCls}-inner`} style={circleStyle}>
+    <div className={wrapperClassName} style={circleStyle}>
       <RCCircle
         percent={getPercentage(props)}
         strokeWidth={circleWidth}
         trailWidth={circleWidth}
-        strokeColor={getStrokeColor(props) as string}
+        strokeColor={strokeColor}
         strokeLinecap={strokeLinecap}
         trailColor={trailColor}
         prefixCls={prefixCls}
