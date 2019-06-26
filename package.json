@@ -231,7 +231,8 @@
     "lint-staged:demo": "cross-env RUN_ENV=DEMO eslint --ext '.md'",
     "prettier": "prettier -c --write '**/*'",
     "build": "bisheng build --ssr -c ./site/bisheng.config.js",
-    "firebase:deploy": "rimraf ./buildFile && npm run build && firebase deploy"
+    "firebase:deploy": "rimraf ./buildFile && npm run build && firebase deploy",
+    "publishsc": "npm run dist && npm run compile && npm publish --public"
   },
   "pre-commit": [
     "lint-staged"
