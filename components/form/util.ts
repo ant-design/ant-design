@@ -49,7 +49,7 @@ export function useCacheErrors(errors: string[], changeTrigger: (visible: boolea
 }
 
 export function toArray<T>(candidate?: T | T[] | false): T[] {
-  if (!candidate) return [];
+  if (candidate === undefined || candidate === false) return [];
 
   return Array.isArray(candidate) ? candidate : [candidate];
 }

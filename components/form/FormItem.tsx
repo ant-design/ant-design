@@ -35,6 +35,9 @@ interface FormItemProps extends FormItemLabelProps, FormItemInputProps, RcFieldP
   id?: string;
   hasFeedback?: boolean;
   validateStatus?: ValidateStatus;
+
+  /** Auto passed by List render props. User should not use this. */
+  fieldKey: number;
 }
 
 const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
@@ -146,7 +149,7 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
         };
 
         let childNode;
-        if (!name && !shouldUpdate && !dependencies) {
+        if (!toArray(name).length && !shouldUpdate && !dependencies) {
           childNode = children;
         } else if (React.isValidElement(children)) {
           const childProps = { ...children.props, ...mergedControl };
