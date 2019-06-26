@@ -50,14 +50,19 @@ const Circle: React.SFC<CircleProps> = props => {
   const circleWidth = strokeWidth || 6;
   const gapPos = gapPosition || (type === 'dashboard' && 'bottom') || 'top';
   const gapDeg = gapDegree || (type === 'dashboard' && 75);
+  const strokeColor = getStrokeColor(props);
+  const isGradient = Object.prototype.toString.call(strokeColor) === '[object Object]';
 
   return (
-    <div className={`${prefixCls}-inner`} style={circleStyle}>
+    <div
+      className={`${prefixCls}-inner ${isGradient ? `${prefixCls}-circle-gradient` : ''}`}
+      style={circleStyle}
+    >
       <RCCircle
         percent={getPercentage(props)}
         strokeWidth={circleWidth}
         trailWidth={circleWidth}
-        strokeColor={getStrokeColor(props)}
+        strokeColor={strokeColor}
         strokeLinecap={strokeLinecap}
         trailColor={trailColor}
         prefixCls={prefixCls}
