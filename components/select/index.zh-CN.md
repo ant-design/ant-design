@@ -14,9 +14,9 @@ title: Select
 
 ## API
 
-```html
+```jsx
 <Select>
-  <Option value="lucy">lucy</Option>
+  <Select.Option value="lucy">lucy</Select.Option>
 </Select>
 ```
 

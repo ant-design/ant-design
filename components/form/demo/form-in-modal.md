@@ -70,7 +70,7 @@ class CollectionsPage extends React.Component {
   };
 
   handleCreate = () => {
-    const form = this.formRef.props.form;
+    const { form } = this.formRef.props;
     form.validateFields((err, values) => {
       if (err) {
         return;

@@ -16,7 +16,6 @@ title: 设计资源
     <div class="resource-card-content">
       <span class="resource-card-title">
         全新 Sketch 组件包
-        <span class="resource-card-hot-badge">NEW</span>
       </span>
       <span class="resource-card-description">桌面组件 Sketch 模板包</span>
     </div>
@@ -67,7 +66,6 @@ title: 设计资源
     <div class="resource-card-content">
       <span class="resource-card-title">
         Ant Design Landing
-        <span class="resource-card-hot-badge">NEW</span>
       </span>
       <span class="resource-card-description">首页模板集</span>
     </div>
@@ -88,6 +86,18 @@ title: 设计资源
     <div class="resource-card-content">
       <span class="resource-card-title">Ant Design 原型（xiaopiu）</span>
       <span class="resource-card-description">可在线编辑的 Ant Design 组件库和交互原型</span>
+    </div>
+  </a>
+  <a target="_blank" href="https://www.antforfigma.com" class="resource-card">
+    <div class="resource-card-icon">
+      <img width="65" src="https://antforfigma.com/images/antforfigma-icon.png">
+    </div>
+    <div class="resource-card-content">
+      <span class="resource-card-title">
+        Figma 组件包
+        <span class="resource-card-hot-badge">NEW</span>
+      </span>
+      <span class="resource-card-description">在 Figma 使用 Ant Design 进行设计</span>
     </div>
   </a>
 </div>

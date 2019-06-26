@@ -42,7 +42,7 @@ Modify `src/App.tsx`, import Button component from `antd`.
 
 ```jsx
 import React, { Component } from 'react';
-import Button from 'antd/lib/button';
+import Button from 'antd/es/button';
 import './App.css';
 
 class App extends Component {
@@ -134,7 +134,7 @@ Remove the `@import '~antd/dist/antd.css';` statement added before because `babe
 ```diff
   // src/App.js
   import React, { Component } from 'react';
-- import Button from 'antd/lib/button';
+- import Button from 'antd/es/button';
 + import { Button } from 'antd';
   import './App.css';
 

@@ -116,7 +116,7 @@ export default class Item extends React.Component<ListItemProps, any> {
     const Tag = grid ? 'div' : 'li';
     const itemChildren = (
       <Tag
-        {...others as any} // `li` element `onCopy` prop args is not same as `div`
+        {...(others as any)} // `li` element `onCopy` prop args is not same as `div`
         className={classNames(`${prefixCls}-item`, className, {
           [`${prefixCls}-item-no-flex`]: !this.isFlexMode(),
         })}

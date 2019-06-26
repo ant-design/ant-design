@@ -85,6 +85,8 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 ### 按需加载
 
+> 注意：antd 默认支持基于 ES module 的 tree shaking，不使用以下插件也会有按需加载的效果。
+
 下面两种方式都可以只加载用到的组件。
 
 - 使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import)（推荐）。
@@ -112,9 +114,9 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 - 手动引入
 
   ```jsx
-  import DatePicker from 'antd/lib/date-picker'; // 加载 JS
-  import 'antd/lib/date-picker/style/css'; // 加载 CSS
-  // import 'antd/lib/date-picker/style';         // 加载 LESS
+  import DatePicker from 'antd/es/date-picker'; // 加载 JS
+  import 'antd/es/date-picker/style/css'; // 加载 CSS
+  // import 'antd/es/date-picker/style';         // 加载 LESS
   ```
 
 ## 链接

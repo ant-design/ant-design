@@ -3,8 +3,10 @@ import { AbstractSelectProps } from '../select';
 
 export type TreeNode = TreeNodeNormal | TreeNodeSimpleMode;
 
+export type TreeNodeValue = string | number | string[] | number[];
+
 export interface TreeNodeNormal {
-  value: string | number;
+  value: TreeNodeValue;
   /**
    * @deprecated Please use `title` instead.
    */
@@ -29,9 +31,9 @@ export interface TreeDataSimpleMode {
   rootPId?: string;
 }
 
-export interface TreeSelectProps extends AbstractSelectProps {
+export interface TreeSelectProps<T extends TreeNodeValue> extends AbstractSelectProps {
   autoFocus?: boolean;
-  defaultValue?: string | number | Array<any>;
+  defaultValue?: T;
   dropdownStyle?: React.CSSProperties;
   filterTreeNode?: (inputValue: string, treeNode: any) => boolean | boolean;
   labelInValue?: boolean;
@@ -40,7 +42,7 @@ export interface TreeSelectProps extends AbstractSelectProps {
   maxTagPlaceholder?: React.ReactNode | ((omittedValues: any[]) => React.ReactNode);
   multiple?: boolean;
   notFoundContent?: React.ReactNode;
-  onChange?: (value: any, label: any, extra: any) => void;
+  onChange?: (value: T, label: any, extra: any) => void;
   onSearch?: (value: any) => void;
   onSelect?: (value: any) => void;
   onTreeExpand?: (keys: Array<string>) => void;
@@ -60,5 +62,5 @@ export interface TreeSelectProps extends AbstractSelectProps {
   treeIcon?: boolean;
   treeNodeFilterProp?: string;
   treeNodeLabelProp?: string;
-  value?: string | number | Array<any>;
+  value?: T;
 }

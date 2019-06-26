@@ -13,7 +13,7 @@ No, actually, you can convert Less to Sass/Stylus(etc...) with tools (which you 
 
 ### `Select Dropdown DatePicker TimePicker Popover Popconfirm` disappear when I click another popup component inside it, How to resolve it?
 
-This has been fixed since 3.11.x. If you're still using old version, you can use `<Select getPopupContainer={trigger => trigger.parentNode}>` to render component inside Popover. (Or other getXxxxContainer props)
+This has been fixed since `3.11.x`. If you're still using old version, you can use `<Select getPopupContainer={trigger => trigger.parentNode}>` to render component inside Popover. (Or other getXxxxContainer props)
 
 https://ant.design/components/select/#Select-props
 
@@ -44,8 +44,8 @@ You can override its style, but we don't recommend doing so. antd is not only a 
 Try [babel-plugin-import](https://github.com/ant-design/babel-plugin-import), or import what you need in this way:
 
 ```jsx
-import Menu from 'antd/lib/menu';
-import 'antd/lib/menu/style/css';
+import Menu from 'antd/es/menu';
+import 'antd/es/menu/style/css';
 ```
 
 or (ES6 way with tree shaking):
@@ -117,7 +117,7 @@ Like [the explaination](https://github.com/ant-design/ant-design/issues/11586#is
 
 ##### Workaround
 
-You can refer to [this article](https://juejin.im/post/5cf65c366fb9a07eca6968f9) or [this article](https://www.cnblogs.com/zyl-Tara/p/10197177.html), using  `mode` and `onPanelChange` to encapsulate a `YearPicker` or `MonthRangePicker` for your needs. Or you can wait for our [antd@4.0](https://github.com/ant-design/ant-design/issues/16911), in which we are planing to [add more XxxPickers](https://github.com/ant-design/ant-design/issues/4524#issuecomment-480576884) for those requirments.
+You can refer to [this article](https://juejin.im/post/5cf65c366fb9a07eca6968f9) or [this article](https://www.cnblogs.com/zyl-Tara/p/10197177.html), using `mode` and `onPanelChange` to encapsulate a `YearPicker` or `MonthRangePicker` for your needs. Or you can wait for our [antd@4.0](https://github.com/ant-design/ant-design/issues/16911), in which we are planing to [add more XxxPickers](https://github.com/ant-design/ant-design/issues/4524#issuecomment-480576884) for those requirments.
 
 ### How to spell Ant Design correctly?
 
