@@ -67,14 +67,14 @@ const renderHeader = (prefixCls: string, props: PageHeaderProps) => {
 
 const renderTitle = (prefixCls: string, props: PageHeaderProps) => {
   const { title, subTitle, tags, extra } = props;
-  const titlePrefixCls = `${prefixCls}-title-view`;
+  const headingPrefixCls = `${prefixCls}-heading`;
   if (title || subTitle || tags || extra) {
     return (
-      <div className={titlePrefixCls}>
-        {title && <span className={`${titlePrefixCls}-title`}>{title}</span>}
-        {subTitle && <span className={`${titlePrefixCls}-sub-title`}>{subTitle}</span>}
-        {tags && <span className={`${titlePrefixCls}-tags`}>{tags}</span>}
-        {extra && <span className={`${titlePrefixCls}-extra`}>{extra}</span>}
+      <div className={headingPrefixCls}>
+        {title && <span className={`${headingPrefixCls}-title`}>{title}</span>}
+        {subTitle && <span className={`${headingPrefixCls}-sub-title`}>{subTitle}</span>}
+        {tags && <span className={`${headingPrefixCls}-tags`}>{tags}</span>}
+        {extra && <span className={`${headingPrefixCls}-extra`}>{extra}</span>}
       </div>
     );
   }
@@ -112,7 +112,7 @@ const PageHeader: React.SFC<PageHeaderProps> = props => (
         <div className={className} style={style}>
           {renderHeader(prefixCls, props)}
           {renderTitle(prefixCls, props)}
-          {children && <div className={`${prefixCls}-content-view`}>{children}</div>}
+          {children && <div className={`${prefixCls}-content`}>{children}</div>}
           {renderFooter(prefixCls, footer)}
         </div>
       );
