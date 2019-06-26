@@ -3,7 +3,6 @@ order: 9
 title:
   zh-CN: 自行处理表单数据
   en-US: Handle Form Data Manually
-only: true
 ---
 
 ## zh-CN

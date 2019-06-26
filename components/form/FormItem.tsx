@@ -51,6 +51,7 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
     className,
     shouldUpdate,
     hasFeedback,
+    help,
     rules,
     validateStatus,
     children,
@@ -109,13 +110,18 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
           updateItemErrors(nameRef.current.join('__SPLIT__'), errors);
         }
 
-        let mergedErrors: string[] = errors;
-        Object.keys(inlineErrors).forEach(subName => {
-          const subErrors = inlineErrors[subName] || [];
-          if (subErrors.length) {
-            mergedErrors = [...mergedErrors, ...subErrors];
-          }
-        });
+        let mergedErrors: React.ReactNode[];
+        if (help) {
+          mergedErrors = toArray(help);
+        } else {
+          mergedErrors = errors;
+          Object.keys(inlineErrors).forEach(subName => {
+            const subErrors = inlineErrors[subName] || [];
+            if (subErrors.length) {
+              mergedErrors = [...mergedErrors, ...subErrors];
+            }
+          });
+        }
 
         // ======================== Status ========================
         let mergedValidateStatus: ValidateStatus = '';
@@ -123,7 +129,7 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
           mergedValidateStatus = validateStatus;
         } else if (meta.validating) {
           mergedValidateStatus = 'validating';
-        } else if (mergedErrors.length) {
+        } else if (!help && mergedErrors.length) {
           mergedValidateStatus = 'error';
         } else if (meta.touched) {
           mergedValidateStatus = 'success';
@@ -142,7 +148,7 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
           [`${prefixCls}-item-has-warning`]: mergedValidateStatus === 'warning',
           [`${prefixCls}-item-has-error`]: mergedValidateStatus === 'error',
           [`${prefixCls}-item-has-error-leave`]:
-            domErrorVisible && mergedValidateStatus !== 'error',
+            !help && domErrorVisible && mergedValidateStatus !== 'error',
           [`${prefixCls}-item-is-validating`]: mergedValidateStatus === 'validating',
         };
 

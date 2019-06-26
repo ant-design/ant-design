@@ -10,7 +10,7 @@ import { useCacheErrors } from './util';
 interface FormItemInputMiscProps {
   prefixCls: string;
   children: React.ReactNode;
-  errors: string[];
+  errors: React.ReactNode[];
   touched: boolean;
   validating: boolean;
   hasFeedback?: boolean;

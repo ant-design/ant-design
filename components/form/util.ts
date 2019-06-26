@@ -29,7 +29,10 @@ function useDebounce<T>(content: T[], delay: number = 10): T[] {
 /**
  * Cache latest errors and trigger change event if visible change
  */
-export function useCacheErrors(errors: string[], changeTrigger: (visible: boolean) => void) {
+export function useCacheErrors(
+  errors: React.ReactNode[],
+  changeTrigger: (visible: boolean) => void,
+) {
   const debounceErrors = useDebounce(errors);
   const [cacheErrors, setCacheErrors] = React.useState(debounceErrors);
   const [visible, setVisible] = React.useState(false);
