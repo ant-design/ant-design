@@ -150,46 +150,38 @@ exports[`renders ./components/comment/demo/editor.md correctly 1`] = `
         >
           <div>
             <div
-              class="ant-row ant-form-item"
+              class="ant-row-flex ant-form-item"
             >
               <div
-                class="ant-col ant-form-item-control-wrapper"
+                class="ant-col ant-form-item-control"
               >
                 <div
-                  class="ant-form-item-control"
+                  class="ant-form-item-control-input"
                 >
-                  <span
-                    class="ant-form-item-children"
-                  >
-                    <textarea
-                      class="ant-input"
-                      rows="4"
-                    />
-                  </span>
+                  <textarea
+                    class="ant-input"
+                    rows="4"
+                  />
                 </div>
               </div>
             </div>
             <div
-              class="ant-row ant-form-item"
+              class="ant-row-flex ant-form-item"
             >
               <div
-                class="ant-col ant-form-item-control-wrapper"
+                class="ant-col ant-form-item-control"
               >
                 <div
-                  class="ant-form-item-control"
+                  class="ant-form-item-control-input"
                 >
-                  <span
-                    class="ant-form-item-children"
+                  <button
+                    class="ant-btn ant-btn-primary"
+                    type="submit"
                   >
-                    <button
-                      class="ant-btn ant-btn-primary"
-                      type="submit"
-                    >
-                      <span>
-                        Add Comment
-                      </span>
-                    </button>
-                  </span>
+                    <span>
+                      Add Comment
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>

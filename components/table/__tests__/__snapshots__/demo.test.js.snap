@@ -1877,7 +1877,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
       class="ant-form ant-form-inline"
     >
       <div
-        class="ant-row ant-form-item"
+        class="ant-row-flex ant-form-item"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -1890,30 +1890,26 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           </label>
         </div>
         <div
-          class="ant-col ant-form-item-control-wrapper"
+          class="ant-col ant-form-item-control"
         >
           <div
-            class="ant-form-item-control"
+            class="ant-form-item-control-input"
           >
-            <span
-              class="ant-form-item-children"
+            <button
+              aria-checked="false"
+              class="ant-switch"
+              role="switch"
+              type="button"
             >
-              <button
-                aria-checked="false"
-                class="ant-switch"
-                role="switch"
-                type="button"
-              >
-                <span
-                  class="ant-switch-inner"
-                />
-              </button>
-            </span>
+              <span
+                class="ant-switch-inner"
+              />
+            </button>
           </div>
         </div>
       </div>
       <div
-        class="ant-row ant-form-item"
+        class="ant-row-flex ant-form-item"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -1926,30 +1922,26 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           </label>
         </div>
         <div
-          class="ant-col ant-form-item-control-wrapper"
+          class="ant-col ant-form-item-control"
         >
           <div
-            class="ant-form-item-control"
+            class="ant-form-item-control-input"
           >
-            <span
-              class="ant-form-item-children"
+            <button
+              aria-checked="false"
+              class="ant-switch"
+              role="switch"
+              type="button"
             >
-              <button
-                aria-checked="false"
-                class="ant-switch"
-                role="switch"
-                type="button"
-              >
-                <span
-                  class="ant-switch-inner"
-                />
-              </button>
-            </span>
+              <span
+                class="ant-switch-inner"
+              />
+            </button>
           </div>
         </div>
       </div>
       <div
-        class="ant-row ant-form-item"
+        class="ant-row-flex ant-form-item"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -1962,30 +1954,26 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           </label>
         </div>
         <div
-          class="ant-col ant-form-item-control-wrapper"
+          class="ant-col ant-form-item-control"
         >
           <div
-            class="ant-form-item-control"
+            class="ant-form-item-control-input"
           >
-            <span
-              class="ant-form-item-children"
+            <button
+              aria-checked="false"
+              class="ant-switch"
+              role="switch"
+              type="button"
             >
-              <button
-                aria-checked="false"
-                class="ant-switch"
-                role="switch"
-                type="button"
-              >
-                <span
-                  class="ant-switch-inner"
-                />
-              </button>
-            </span>
+              <span
+                class="ant-switch-inner"
+              />
+            </button>
           </div>
         </div>
       </div>
       <div
-        class="ant-row ant-form-item"
+        class="ant-row-flex ant-form-item"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -1998,31 +1986,27 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           </label>
         </div>
         <div
-          class="ant-col ant-form-item-control-wrapper"
+          class="ant-col ant-form-item-control"
         >
           <div
-            class="ant-form-item-control"
+            class="ant-form-item-control-input"
           >
-            <span
-              class="ant-form-item-children"
+            <button
+              aria-checked="true"
+              checked=""
+              class="ant-switch ant-switch-checked"
+              role="switch"
+              type="button"
             >
-              <button
-                aria-checked="true"
-                checked=""
-                class="ant-switch ant-switch-checked"
-                role="switch"
-                type="button"
-              >
-                <span
-                  class="ant-switch-inner"
-                />
-              </button>
-            </span>
+              <span
+                class="ant-switch-inner"
+              />
+            </button>
           </div>
         </div>
       </div>
       <div
-        class="ant-row ant-form-item"
+        class="ant-row-flex ant-form-item"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -2035,31 +2019,27 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           </label>
         </div>
         <div
-          class="ant-col ant-form-item-control-wrapper"
+          class="ant-col ant-form-item-control"
         >
           <div
-            class="ant-form-item-control"
+            class="ant-form-item-control-input"
           >
-            <span
-              class="ant-form-item-children"
+            <button
+              aria-checked="true"
+              checked=""
+              class="ant-switch ant-switch-checked"
+              role="switch"
+              type="button"
             >
-              <button
-                aria-checked="true"
-                checked=""
-                class="ant-switch ant-switch-checked"
-                role="switch"
-                type="button"
-              >
-                <span
-                  class="ant-switch-inner"
-                />
-              </button>
-            </span>
+              <span
+                class="ant-switch-inner"
+              />
+            </button>
           </div>
         </div>
       </div>
       <div
-        class="ant-row ant-form-item"
+        class="ant-row-flex ant-form-item"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -2072,31 +2052,27 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           </label>
         </div>
         <div
-          class="ant-col ant-form-item-control-wrapper"
+          class="ant-col ant-form-item-control"
         >
           <div
-            class="ant-form-item-control"
+            class="ant-form-item-control-input"
           >
-            <span
-              class="ant-form-item-children"
+            <button
+              aria-checked="true"
+              checked=""
+              class="ant-switch ant-switch-checked"
+              role="switch"
+              type="button"
             >
-              <button
-                aria-checked="true"
-                checked=""
-                class="ant-switch ant-switch-checked"
-                role="switch"
-                type="button"
-              >
-                <span
-                  class="ant-switch-inner"
-                />
-              </button>
-            </span>
+              <span
+                class="ant-switch-inner"
+              />
+            </button>
           </div>
         </div>
       </div>
       <div
-        class="ant-row ant-form-item"
+        class="ant-row-flex ant-form-item"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -2109,31 +2085,27 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           </label>
         </div>
         <div
-          class="ant-col ant-form-item-control-wrapper"
+          class="ant-col ant-form-item-control"
         >
           <div
-            class="ant-form-item-control"
+            class="ant-form-item-control-input"
           >
-            <span
-              class="ant-form-item-children"
+            <button
+              aria-checked="true"
+              checked=""
+              class="ant-switch ant-switch-checked"
+              role="switch"
+              type="button"
             >
-              <button
-                aria-checked="true"
-                checked=""
-                class="ant-switch ant-switch-checked"
-                role="switch"
-                type="button"
-              >
-                <span
-                  class="ant-switch-inner"
-                />
-              </button>
-            </span>
+              <span
+                class="ant-switch-inner"
+              />
+            </button>
           </div>
         </div>
       </div>
       <div
-        class="ant-row ant-form-item"
+        class="ant-row-flex ant-form-item"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -2146,30 +2118,26 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           </label>
         </div>
         <div
-          class="ant-col ant-form-item-control-wrapper"
+          class="ant-col ant-form-item-control"
         >
           <div
-            class="ant-form-item-control"
+            class="ant-form-item-control-input"
           >
-            <span
-              class="ant-form-item-children"
+            <button
+              aria-checked="false"
+              class="ant-switch"
+              role="switch"
+              type="button"
             >
-              <button
-                aria-checked="false"
-                class="ant-switch"
-                role="switch"
-                type="button"
-              >
-                <span
-                  class="ant-switch-inner"
-                />
-              </button>
-            </span>
+              <span
+                class="ant-switch-inner"
+              />
+            </button>
           </div>
         </div>
       </div>
       <div
-        class="ant-row ant-form-item"
+        class="ant-row-flex ant-form-item"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -2182,31 +2150,27 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           </label>
         </div>
         <div
-          class="ant-col ant-form-item-control-wrapper"
+          class="ant-col ant-form-item-control"
         >
           <div
-            class="ant-form-item-control"
+            class="ant-form-item-control-input"
           >
-            <span
-              class="ant-form-item-children"
+            <button
+              aria-checked="true"
+              checked=""
+              class="ant-switch ant-switch-checked"
+              role="switch"
+              type="button"
             >
-              <button
-                aria-checked="true"
-                checked=""
-                class="ant-switch ant-switch-checked"
-                role="switch"
-                type="button"
-              >
-                <span
-                  class="ant-switch-inner"
-                />
-              </button>
-            </span>
+              <span
+                class="ant-switch-inner"
+              />
+            </button>
           </div>
         </div>
       </div>
       <div
-        class="ant-row ant-form-item"
+        class="ant-row-flex ant-form-item"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -2219,82 +2183,78 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           </label>
         </div>
         <div
-          class="ant-col ant-form-item-control-wrapper"
+          class="ant-col ant-form-item-control"
         >
           <div
-            class="ant-form-item-control"
+            class="ant-form-item-control-input"
           >
-            <span
-              class="ant-form-item-children"
+            <div
+              class="ant-radio-group ant-radio-group-outline ant-radio-group-default"
             >
-              <div
-                class="ant-radio-group ant-radio-group-outline ant-radio-group-default"
+              <label
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
               >
-                <label
-                  class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+                <span
+                  class="ant-radio-button ant-radio-button-checked"
                 >
+                  <input
+                    checked=""
+                    class="ant-radio-button-input"
+                    type="radio"
+                    value="default"
+                  />
                   <span
-                    class="ant-radio-button ant-radio-button-checked"
-                  >
-                    <input
-                      checked=""
-                      class="ant-radio-button-input"
-                      type="radio"
-                      value="default"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
-                  </span>
-                  <span>
-                    Default
-                  </span>
-                </label>
-                <label
-                  class="ant-radio-button-wrapper"
+                    class="ant-radio-button-inner"
+                  />
+                </span>
+                <span>
+                  Default
+                </span>
+              </label>
+              <label
+                class="ant-radio-button-wrapper"
+              >
+                <span
+                  class="ant-radio-button"
                 >
+                  <input
+                    class="ant-radio-button-input"
+                    type="radio"
+                    value="middle"
+                  />
                   <span
-                    class="ant-radio-button"
-                  >
-                    <input
-                      class="ant-radio-button-input"
-                      type="radio"
-                      value="middle"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
-                  </span>
-                  <span>
-                    Middle
-                  </span>
-                </label>
-                <label
-                  class="ant-radio-button-wrapper"
+                    class="ant-radio-button-inner"
+                  />
+                </span>
+                <span>
+                  Middle
+                </span>
+              </label>
+              <label
+                class="ant-radio-button-wrapper"
+              >
+                <span
+                  class="ant-radio-button"
                 >
+                  <input
+                    class="ant-radio-button-input"
+                    type="radio"
+                    value="small"
+                  />
                   <span
-                    class="ant-radio-button"
-                  >
-                    <input
-                      class="ant-radio-button-input"
-                      type="radio"
-                      value="small"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
-                  </span>
-                  <span>
-                    Small
-                  </span>
-                </label>
-              </div>
-            </span>
+                    class="ant-radio-button-inner"
+                  />
+                </span>
+                <span>
+                  Small
+                </span>
+              </label>
+            </div>
           </div>
         </div>
       </div>
       <div
-        class="ant-row ant-form-item"
+        class="ant-row-flex ant-form-item"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -2307,96 +2267,92 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           </label>
         </div>
         <div
-          class="ant-col ant-form-item-control-wrapper"
+          class="ant-col ant-form-item-control"
         >
           <div
-            class="ant-form-item-control"
+            class="ant-form-item-control-input"
           >
-            <span
-              class="ant-form-item-children"
+            <div
+              class="ant-radio-group ant-radio-group-outline"
             >
-              <div
-                class="ant-radio-group ant-radio-group-outline"
+              <label
+                class="ant-radio-button-wrapper"
               >
-                <label
-                  class="ant-radio-button-wrapper"
+                <span
+                  class="ant-radio-button"
                 >
+                  <input
+                    class="ant-radio-button-input"
+                    type="radio"
+                    value="top"
+                  />
                   <span
-                    class="ant-radio-button"
-                  >
-                    <input
-                      class="ant-radio-button-input"
-                      type="radio"
-                      value="top"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
-                  </span>
-                  <span>
-                    Top
-                  </span>
-                </label>
-                <label
-                  class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+                    class="ant-radio-button-inner"
+                  />
+                </span>
+                <span>
+                  Top
+                </span>
+              </label>
+              <label
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+              >
+                <span
+                  class="ant-radio-button ant-radio-button-checked"
                 >
+                  <input
+                    checked=""
+                    class="ant-radio-button-input"
+                    type="radio"
+                    value="bottom"
+                  />
                   <span
-                    class="ant-radio-button ant-radio-button-checked"
-                  >
-                    <input
-                      checked=""
-                      class="ant-radio-button-input"
-                      type="radio"
-                      value="bottom"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
-                  </span>
-                  <span>
-                    Bottom
-                  </span>
-                </label>
-                <label
-                  class="ant-radio-button-wrapper"
+                    class="ant-radio-button-inner"
+                  />
+                </span>
+                <span>
+                  Bottom
+                </span>
+              </label>
+              <label
+                class="ant-radio-button-wrapper"
+              >
+                <span
+                  class="ant-radio-button"
                 >
+                  <input
+                    class="ant-radio-button-input"
+                    type="radio"
+                    value="both"
+                  />
                   <span
-                    class="ant-radio-button"
-                  >
-                    <input
-                      class="ant-radio-button-input"
-                      type="radio"
-                      value="both"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
-                  </span>
-                  <span>
-                    Both
-                  </span>
-                </label>
-                <label
-                  class="ant-radio-button-wrapper"
+                    class="ant-radio-button-inner"
+                  />
+                </span>
+                <span>
+                  Both
+                </span>
+              </label>
+              <label
+                class="ant-radio-button-wrapper"
+              >
+                <span
+                  class="ant-radio-button"
                 >
+                  <input
+                    class="ant-radio-button-input"
+                    type="radio"
+                    value="none"
+                  />
                   <span
-                    class="ant-radio-button"
-                  >
-                    <input
-                      class="ant-radio-button-input"
-                      type="radio"
-                      value="none"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
-                  </span>
-                  <span>
-                    None
-                  </span>
-                </label>
-              </div>
-            </span>
+                    class="ant-radio-button-inner"
+                  />
+                </span>
+                <span>
+                  None
+                </span>
+              </label>
+            </div>
           </div>
         </div>
       </div>
