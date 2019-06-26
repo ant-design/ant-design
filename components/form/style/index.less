@@ -3,6 +3,7 @@
 @import '../../input/style/mixin';
 @import '../../button/style/mixin';
 @import '../../grid/style/mixin';
+@import './components';
 @import './inline';
 @import './horizontal';
 @import './vertical';
@@ -106,8 +107,53 @@
       padding-right: 24px;
     }
 
+    // Fix issue: https://github.com/ant-design/ant-design/issues/7854
+    .@{ant-prefix}-input-search:not(.@{ant-prefix}-input-search-enter-button) {
+      .@{ant-prefix}-input-suffix {
+        right: 28px;
+      }
+    }
+
     .@{ant-prefix}-input-password-icon {
       margin-right: 18px;
+    }
+
+    // ======================== Select =========================
+    // Fix overlapping between feedback icon and <Select>'s arrow.
+    // https://github.com/ant-design/ant-design/issues/4431
+    > .@{ant-prefix}-select .@{ant-prefix}-select-arrow,
+    > .@{ant-prefix}-select .@{ant-prefix}-select-selection__clear,
+    :not(.@{ant-prefix}-input-group-addon) > .@{ant-prefix}-select .@{ant-prefix}-select-arrow,
+    :not(.@{ant-prefix}-input-group-addon)
+      > .@{ant-prefix}-select
+      .@{ant-prefix}-select-selection__clear {
+      right: 28px;
+    }
+    > .@{ant-prefix}-select .@{ant-prefix}-select-selection-selected-value,
+    :not(.@{ant-prefix}-input-group-addon)
+      > .@{ant-prefix}-select
+      .@{ant-prefix}-select-selection-selected-value {
+      padding-right: 42px;
+    }
+
+    // ======================= Cascader ========================
+    .@{ant-prefix}-cascader-picker {
+      &-arrow {
+        margin-right: 17px;
+      }
+      &-clear {
+        right: 28px;
+      }
+    }
+
+    // ======================== Picker =========================
+    // Fix issue: https://github.com/ant-design/ant-design/issues/4783
+    .@{ant-prefix}-calendar-picker,
+    .@{ant-prefix}-time-picker {
+      &-icon,
+      &-clear {
+        right: 28px;
+      }
     }
 
     // ===================== Status Group ======================
