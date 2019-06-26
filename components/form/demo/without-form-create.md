@@ -13,7 +13,7 @@ title:
 
 `Form` will collect and validate form data automatically. But if you don't need this feature or the default behavior cannot satisfy your business, you can handle form data manually.
 
-```jsx
+```tsx
 import { Form, InputNumber } from 'antd';
 
 function validatePrimeNumber(number) {
