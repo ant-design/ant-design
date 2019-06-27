@@ -1,5 +1,56 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Descriptions Descriptions.Item support className 1`] = `
+<Descriptions
+  column={
+    Object {
+      "lg": 3,
+      "md": 3,
+      "sm": 2,
+      "xl": 3,
+      "xs": 1,
+      "xxl": 3,
+    }
+  }
+  size="default"
+>
+  <div
+    className="ant-descriptions"
+  >
+    <div
+      className="ant-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            className="ant-descriptions-row"
+            key="0"
+          >
+            <td
+              className="ant-descriptions-item my-class"
+              colSpan={1}
+            >
+              <span
+                className="ant-descriptions-item-label"
+                key="label"
+              >
+                Product
+              </span>
+              <span
+                className="ant-descriptions-item-content"
+                key="content"
+              >
+                Cloud Database
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</Descriptions>
+`;
+
 exports[`Descriptions column is number 1`] = `
 <Descriptions
   column="3"
