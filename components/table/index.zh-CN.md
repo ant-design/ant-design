@@ -196,27 +196,27 @@ const columns = [
 import { Table } from 'antd';
 import { ColumnProps } from 'antd/lib/table';
 
-interface IUser {
+interface User {
   key: number;
   name: string;
 }
 
-const columns: ColumnProps<IUser>[] = [{
+const columns: ColumnProps<User>[] = [{
   key: 'name',
   title: 'Name',
   dataIndex: 'name',
 }];
 
-const data: IUser[] = [{
+const data: User[] = [{
   key: 0,
   name: 'Jack',
 }];
 
-class UserTable extends Table<IUser> {}
+class UserTable extends Table<User> {}
 <UserTable columns={columns} dataSource={data} />
 
 // 使用 JSX 风格的 API
-class NameColumn extends Table.Column<IUser> {}
+class NameColumn extends Table.Column<User> {}
 
 <UserTable dataSource={data}>
   <NameColumn key="name" title="Name" dataIndex="name" />
@@ -224,9 +224,9 @@ class NameColumn extends Table.Column<IUser> {}
 
 // TypeScript 2.9 之后也可以这样写
 // https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-9.html#generic-type-arguments-in-jsx-elements
-<Table<IUser> columns={columns} dataSource={data} />
-<Table<IUser> dataSource={data}>
-  <Table.Column<IUser> key="name" title="Name" dataIndex="name" />
+<Table<User> columns={columns} dataSource={data} />
+<Table<User> dataSource={data}>
+  <Table.Column<User> key="name" title="Name" dataIndex="name" />
 </Table>
 
 ```
