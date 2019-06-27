@@ -11,9 +11,6 @@ describe('Button', () => {
   });
 
   it('mount correctly', () => {
-    if (process.env.REACT === '15') {
-      return;
-    }
     expect(() => renderer.create(<Button>Follow</Button>)).not.toThrow();
   });
 
