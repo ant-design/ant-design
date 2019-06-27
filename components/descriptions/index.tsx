@@ -106,7 +106,7 @@ const renderLabelCol = (child: React.ReactElement<DescriptionsItemProps>, border
   const { prefixCls, label, span = 1 } = child.props;
   if (bordered) {
     return (
-      <td className={`${prefixCls}-item-label`} key="label">
+      <td className={`${prefixCls}-item-label`} key="label" colSpan={span * 2 - 1}>
         {label}
       </td>
     );
