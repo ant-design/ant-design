@@ -78,7 +78,7 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
         setDomErrorVisible(false);
       }}
     >
-      {(control, meta, context) => {
+      {(control, meta) => {
         const { errors, name: metaName } = meta;
         const mergedName = toArray(name).length ? metaName : [];
 
