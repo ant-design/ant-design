@@ -102,6 +102,10 @@
   &-control {
     display: flex;
     flex-direction: column;
+
+    &:first-child:not([class^=~"'@{ant-prefix}-col-'"]):not([class*=~"' @{ant-prefix}-col-'"]) {
+      width: 100%;
+    }
   }
 
   &-control-input {

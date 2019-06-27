@@ -3,7 +3,6 @@ order: 23
 title:
   en-US: Editable Rows
   zh-CN: 可编辑行
-only: true
 ---
 
 ## zh-CN
@@ -17,7 +16,14 @@ Table with editable rows.
 ```tsx
 import { Table, Input, InputNumber, Popconfirm, Form } from 'antd';
 
-const originData = [];
+interface Item {
+  key: string;
+  name: string;
+  age: number;
+  address: string;
+}
+
+const originData: Item[] = [];
 for (let i = 0; i < 100; i++) {
   originData.push({
     key: i.toString(),
@@ -27,7 +33,13 @@ for (let i = 0; i < 100; i++) {
   });
 }
 interface EditableCellProps {
+  editing: boolean;
+  dataIndex: string;
+  title: React.ReactNode;
   inputType: 'number' | 'text';
+  record: Item;
+  index: number;
+  children: React.ReactNode;
 }
 
 const EditableCell: React.FC<EditableCellProps> = ({

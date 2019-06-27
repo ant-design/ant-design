@@ -1,4 +1,4 @@
-import InternalForm, { useForm } from './Form';
+import InternalForm, { useForm, FormInstance } from './Form';
 import Item from './FormItem';
 import List from './FormList';
 
@@ -14,5 +14,7 @@ const Form: Form = InternalForm as Form;
 Form.Item = Item;
 Form.List = List;
 Form.useForm = useForm;
+
+export { FormInstance };
 
 export default Form;
