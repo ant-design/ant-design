@@ -75,11 +75,6 @@ describe('Mention', () => {
     jest.runAllTimers();
     expect(onChange).toHaveBeenCalled();
     expect(onSelect).not.toHaveBeenCalled();
-    // enzyme cannot find .ant-mention-dropdown-item in react 15
-    // I don't know why
-    if (process.env.REACT === '15') {
-      return;
-    }
     wrapper
       .find('.ant-mention-dropdown-item')
       .at(0)
@@ -98,10 +93,6 @@ describe('Mention', () => {
   });
 
   it('defaultSuggestion filter', () => {
-    if (process.env.REACT === '15') {
-      return;
-    }
-
     const wrapper = mount(<Mention defaultSuggestions={['light', 'bamboo']} />);
 
     wrapper.find('DraftEditorContents').simulate('focus');
@@ -115,9 +106,6 @@ describe('Mention', () => {
   });
 
   it('check filteredSuggestions', () => {
-    if (process.env.REACT === '15') {
-      return;
-    }
     const wrapper = mount(<Mention defaultSuggestions={[<Mention.Nav value="light" />]} />);
     wrapper.find('DraftEditorContents').simulate('focus');
     const ed = wrapper.find('.public-DraftEditor-content');
