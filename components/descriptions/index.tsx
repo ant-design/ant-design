@@ -27,6 +27,7 @@ export interface DescriptionsProps {
   children?: React.ReactNode;
   title?: string;
   column?: number | Partial<Record<Breakpoint, number>>;
+  layout?: 'horizontal' | 'vertical';
 }
 
 /**
@@ -101,11 +102,48 @@ const renderCol = (child: React.ReactElement<DescriptionsItemProps>, bordered: b
   );
 };
 
+const renderLabelCol = (child: React.ReactElement<DescriptionsItemProps>, bordered: boolean) => {
+  const { prefixCls, label, span = 1 } = child.props;
+  if (bordered) {
+    return (
+      <td className={`${prefixCls}-item-label`} key="label" colSpan={span * 2 - 1}>
+        {label}
+      </td>
+    );
+  }
+  return (
+    <td colSpan={span} className={`${prefixCls}-item`}>
+      <span className={`${prefixCls}-item-label`} key="label">
+        {label}
+      </span>
+    </td>
+  );
+};
+
+const renderContentCol = (child: React.ReactElement<DescriptionsItemProps>, bordered: boolean) => {
+  const { prefixCls, children, span = 1 } = child.props;
+  if (bordered) {
+    return (
+      <td className={`${prefixCls}-item-content`} key="content" colSpan={span * 2 - 1}>
+        {children}
+      </td>
+    );
+  }
+  return (
+    <td colSpan={span} className={`${prefixCls}-item`}>
+      <span className={`${prefixCls}-item-content`} key="content">
+        {children}
+      </span>
+    </td>
+  );
+};
+
 const renderRow = (
   children: React.ReactElement<DescriptionsItemProps>[],
   index: number,
   { prefixCls, column, isLast }: { prefixCls: string; column: number; isLast: boolean },
   bordered: boolean,
+  layout: string,
 ) => {
   // copy children,prevent changes to incoming parameters
   const childrenArray = [...children];
@@ -115,6 +153,31 @@ const renderRow = (
     lastChildren = React.cloneElement(lastChildren as React.ReactElement<DescriptionsItemProps>, {
       span,
     });
+  }
+
+  if (layout === 'vertical') {
+    const cloneLabelChildren = React.Children.map(
+      childrenArray,
+      (childrenItem: React.ReactElement<DescriptionsItemProps>) => {
+        return renderLabelCol(childrenItem, bordered);
+      },
+    );
+    const cloneContentChildren = React.Children.map(
+      childrenArray,
+      (childrenItem: React.ReactElement<DescriptionsItemProps>) => {
+        return renderContentCol(childrenItem, bordered);
+      },
+    );
+    return [
+      <tr className={`${prefixCls}-row`} key={`label-${index}`}>
+        {cloneLabelChildren}
+        {renderLabelCol(lastChildren, bordered)}
+      </tr>,
+      <tr className={`${prefixCls}-row`} key={`content-${index}`}>
+        {cloneContentChildren}
+        {renderContentCol(lastChildren, bordered)}
+      </tr>,
+    ];
   }
   const cloneChildren = React.Children.map(
     childrenArray,
@@ -202,6 +265,7 @@ class Descriptions extends React.Component<
             size,
             children,
             bordered = false,
+            layout = 'horizontal',
           } = this.props;
           const prefixCls = getPrefixCls('descriptions', customizePrefixCls);
 
@@ -242,6 +306,7 @@ class Descriptions extends React.Component<
                           isLast: index + 1 === childrenArray.length,
                         },
                         bordered,
+                        layout,
                       ),
                     )}
                   </tbody>

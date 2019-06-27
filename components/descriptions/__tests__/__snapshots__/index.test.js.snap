@@ -100,6 +100,164 @@ exports[`Descriptions column is number 1`] = `
 </Descriptions>
 `;
 
+exports[`Descriptions vertical layout 1`] = `
+<Descriptions
+  column={
+    Object {
+      "lg": 3,
+      "md": 3,
+      "sm": 2,
+      "xl": 3,
+      "xs": 1,
+      "xxl": 3,
+    }
+  }
+  layout="vertical"
+  size="default"
+>
+  <div
+    className="ant-descriptions"
+  >
+    <div
+      className="ant-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            className="ant-descriptions-row"
+            key="label-0"
+          >
+            <td
+              className="ant-descriptions-item"
+              colSpan={1}
+            >
+              <span
+                className="ant-descriptions-item-label"
+                key="label"
+              >
+                Product
+              </span>
+            </td>
+          </tr>
+          <tr
+            className="ant-descriptions-row"
+            key="content-0"
+          >
+            <td
+              className="ant-descriptions-item"
+              colSpan={1}
+            >
+              <span
+                className="ant-descriptions-item-content"
+                key="content"
+              >
+                Cloud Database
+              </span>
+            </td>
+          </tr>
+          <tr
+            className="ant-descriptions-row"
+            key="label-1"
+          >
+            <td
+              className="ant-descriptions-item"
+              colSpan={1}
+            >
+              <span
+                className="ant-descriptions-item-label"
+                key="label"
+              >
+                Billing
+              </span>
+            </td>
+          </tr>
+          <tr
+            className="ant-descriptions-row"
+            key="content-1"
+          >
+            <td
+              className="ant-descriptions-item"
+              colSpan={1}
+            >
+              <span
+                className="ant-descriptions-item-content"
+                key="content"
+              >
+                Prepaid
+              </span>
+            </td>
+          </tr>
+          <tr
+            className="ant-descriptions-row"
+            key="label-2"
+          >
+            <td
+              className="ant-descriptions-item"
+              colSpan={1}
+            >
+              <span
+                className="ant-descriptions-item-label"
+                key="label"
+              >
+                time
+              </span>
+            </td>
+          </tr>
+          <tr
+            className="ant-descriptions-row"
+            key="content-2"
+          >
+            <td
+              className="ant-descriptions-item"
+              colSpan={1}
+            >
+              <span
+                className="ant-descriptions-item-content"
+                key="content"
+              >
+                18:00:00
+              </span>
+            </td>
+          </tr>
+          <tr
+            className="ant-descriptions-row"
+            key="label-3"
+          >
+            <td
+              className="ant-descriptions-item"
+              colSpan={1}
+            >
+              <span
+                className="ant-descriptions-item-label"
+                key="label"
+              >
+                Amount
+              </span>
+            </td>
+          </tr>
+          <tr
+            className="ant-descriptions-row"
+            key="content-3"
+          >
+            <td
+              className="ant-descriptions-item"
+              colSpan={1}
+            >
+              <span
+                className="ant-descriptions-item-content"
+                key="content"
+              >
+                $80.00
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</Descriptions>
+`;
+
 exports[`Descriptions when item is rendered conditionally 1`] = `
 <Descriptions
   column={
