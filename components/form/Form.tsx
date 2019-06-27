@@ -4,13 +4,11 @@ import classNames from 'classnames';
 import FieldForm, { FormInstance, useForm, List } from 'rc-field-form';
 import { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
 import { ColProps } from '../grid/col';
-import { tuple } from '../_util/type';
 import { ConfigContext, ConfigConsumerProps } from '../config-provider';
 import { FormContext } from './context';
 import { FormLabelAlign } from './interface';
 
-const FormLayouts = tuple('horizontal', 'inline', 'vertical');
-export type FormLayout = (typeof FormLayouts)[number];
+export type FormLayout = 'horizontal' | 'inline' | 'vertical';
 
 interface FormProps extends RcFormProps {
   prefixCls?: string;

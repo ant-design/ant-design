@@ -1,4 +1,5 @@
 import * as React from 'react';
+import warning from '../_util/warning';
 import { List } from 'rc-field-form';
 
 interface FieldData {
@@ -18,6 +19,8 @@ interface FormListProps {
 }
 
 const FormList: React.FC<FormListProps> = ({ children, ...props }) => {
+  warning(!!props.name, 'Form.List', 'Do not provide `name` prop.');
+
   return (
     <List {...props}>
       {(fields, operation) => {

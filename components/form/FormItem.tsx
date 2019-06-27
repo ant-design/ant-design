@@ -1,9 +1,8 @@
 import * as React from 'react';
 import isEqual from 'lodash/isEqual';
 import classNames from 'classnames';
-import { Field, FormInstance } from 'rc-field-form';
+import { Field } from 'rc-field-form';
 import { FieldProps as RcFieldProps } from 'rc-field-form/lib/Field';
-import { Meta } from 'rc-field-form/lib/interface';
 import Row from '../grid/row';
 import { ConfigContext } from '../config-provider';
 import { tuple } from '../_util/type';
@@ -16,15 +15,7 @@ import { toArray } from './util';
 const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
 export type ValidateStatus = (typeof ValidateStatuses)[number];
 
-type RenderChildren = (
-  control: {
-    value?: any;
-    onChange?: (...args: any[]) => void;
-    [name: string]: any;
-  },
-  meta: Meta,
-  context: FormInstance,
-) => React.ReactElement;
+type RenderChildren = () => React.ReactElement;
 
 interface FormItemProps extends FormItemLabelProps, FormItemInputProps, RcFieldProps {
   prefixCls?: string;
@@ -155,7 +146,7 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
         };
 
         // TODO: Check if user add `required` in RuleRender
-        const isRequired: boolean = !!(
+        const isRequired = !!(
           rules && rules.some(rule => typeof rule === 'object' && rule.required)
         );
 
@@ -167,7 +158,9 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
         };
 
         let childNode;
-        if (!mergedName.length && !shouldUpdate && !dependencies) {
+        if (typeof children === 'function' && !shouldUpdate) {
+          warning(false, 'Form.Item', '`children` of render props only work with `shouldUpdate`.');
+        } else if (!mergedName.length && !shouldUpdate && !dependencies) {
           childNode = children;
         } else if (React.isValidElement(children)) {
           const childProps = { ...children.props, ...mergedControl };
@@ -188,18 +181,8 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
           });
 
           childNode = React.cloneElement(children, childProps);
-        } else if (typeof children === 'function') {
-          warning(
-            false,
-            'Form.Item',
-            'render props is a dev test api. Not works on production env.',
-          );
-          if (process.env.NODE_ENV === 'production') {
-            throw new Error('render props of Form.Item do not work on production env.');
-          }
-          childNode = children(mergedControl, meta, context);
-        } else {
-          warning(false, 'Form.Item', '`children` is not a validate ReactNode. Please check.');
+        } else if (typeof children === 'function' && shouldUpdate) {
+          childNode = children();
         }
 
         if (inline) {
