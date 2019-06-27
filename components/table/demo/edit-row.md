@@ -117,7 +117,7 @@ const EditableTable = () => {
     }
   };
 
-  columns = [
+  const columns = [
     {
       title: 'name',
       dataIndex: 'name',
