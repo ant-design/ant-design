@@ -82,7 +82,12 @@ const renderCol = (child: React.ReactElement<DescriptionsItemProps>, bordered: b
   const { prefixCls, label, className, children, span = 1 } = child.props;
   if (bordered) {
     return [
-      <th className={classNames(`${prefixCls}-item-label`, className)} key="label">
+      <th
+        className={classNames(`${prefixCls}-item-label`, className, {
+          [`${prefixCls}-item-no-label`]: !label,
+        })}
+        key="label"
+      >
         {label}
       </th>,
       <td
@@ -96,7 +101,12 @@ const renderCol = (child: React.ReactElement<DescriptionsItemProps>, bordered: b
   }
   return (
     <td colSpan={span} className={classNames(`${prefixCls}-item`, className)}>
-      <span className={`${prefixCls}-item-label`} key="label">
+      <span
+        className={classNames(`${prefixCls}-item-label`, {
+          [`${prefixCls}-item-no-label`]: !label,
+        })}
+        key="label"
+      >
         {label}
       </span>
       <span className={`${prefixCls}-item-content`} key="content">
