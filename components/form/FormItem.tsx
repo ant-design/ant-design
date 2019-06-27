@@ -1,4 +1,4 @@
-import * as React from 'React';
+import * as React from 'react';
 import isEqual from 'lodash/isEqual';
 import classNames from 'classnames';
 import { Field, FormInstance } from 'rc-field-form';

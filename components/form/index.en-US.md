@@ -36,49 +36,29 @@ A form consists of one or more form fields whose type includes input, textarea, 
 
 | Property | Description | Type | Default Value |
 | --- | --- | --- | --- |
-| form | Decorated by `Form.create()` will be automatically set `this.props.form` property | object | n/a |
+| form | Decorated by `Form.useForm()`. Will auto generate if not provided | FormInstance | - |
 | hideRequiredMark | Hide required mark of all form items | Boolean | false |
 | labelAlign | Label text align | 'left' \| 'right' | 'right' |
-| labelCol | (Added in 3.14.0. Previous version can only set on FormItem.) The layout of label. You can set `span` `offset` to something like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` same as with `<Col>` | [object](https://ant.design/components/grid/#Col) |  |
+| labelCol | The layout of label. You can set `span` `offset` to something like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` same as with `<Col>` | [object](https://ant.design/components/grid/#Col) |  |
 | layout | Define form layout | 'horizontal'\|'vertical'\|'inline' | 'horizontal' |
-| onSubmit | Defines a function will be called if form data validation is successful. | Function(e:Event) |  |
-| wrapperCol | (Added in 3.14.0. Previous version can only set on FormItem.) The layout for input controls, same as `labelCol` | [object](https://ant.design/components/grid/#Col) |  |
+| onFinish | Defines a function will be called if form data validation is successful. | Function(values) |  |
+| wrapperCol | The layout for input controls, same as `labelCol` | [object](https://ant.design/components/grid/#Col) |  |
 | colon | change default props colon value of Form.Item | boolean | true |
 
-### Form.create(options)
+#### FormInstance
 
-How to use：
-
-```jsx
-class CustomizedForm extends React.Component {}
-
-CustomizedForm = Form.create({})(CustomizedForm);
-```
-
-The following `options` are available:
-
-| Property | Description | Type |
-| --- | --- | --- |
-| mapPropsToFields | Convert props to field value(e.g. reading the values from Redux store). And you must mark returned fields with [`Form.createFormField`](#Form.createFormField). Please note that the form fields will become controlled components. Properties like errors will not be automatically mapped and need to be manually passed in. | (props) => ({ \[fieldName\]: FormField { value } }) |
-| name | Set the id prefix of fields under form | - |
-| validateMessages | Default validate message. And its format is similar with [newMessages](https://github.com/yiminghe/async-validator/blob/master/src/messages.js)'s returned value | Object { \[nested.path]: String } |
-| onFieldsChange | Specify a function that will be called when the fields (including errors) of a `Form.Item` gets changed. Usage example: saving the field's value to Redux store. | Function(props, changedFields, allFields) |
-| onValuesChange | A handler while value of any field is changed | (props, changedValues, allValues) => void |
-
-If you want to get `ref` after `Form.create`, you can use `wrappedComponentRef` provided by `rc-form`, [details can be viewed here](https://github.com/react-component/form#note-use-wrappedcomponentref-instead-of-withref-after-rc-form140).
+Created by `Form.useForm()`. You can also use `ref` to get the instance if is Class Component:
 
 ```jsx
-class CustomizedForm extends React.Component { ... }
+class Demo extends React.Component {
+  formRef = React.createRef();
 
-// use wrappedComponentRef
-const EnhancedForm =  Form.create()(CustomizedForm);
-<EnhancedForm wrappedComponentRef={(form) => this.form = form} />
-this.form // => The instance of CustomizedForm
+  render() {
+    // `this.formRef.current` is the form instance
+    return <Form ref={formRef} />;
+  }
+}
 ```
-
-If the form has been decorated by `Form.create` then it has `this.props.form` property. `this.props.form` provides some APIs as follows:
-
-> Note: Before using `getFieldsValue` `getFieldValue` `setFieldsValue` and so on, please make sure that corresponding field had been registered with `getFieldDecorator`.
 
 | Method | Description | Type |
 | --- | --- | --- |
@@ -223,25 +203,7 @@ Note: if Form.Item has multiple children that had been decorated by `getFieldDec
 
 See more advanced usage at [async-validator](https://github.com/yiminghe/async-validator).
 
-## Using in TypeScript
-
-```tsx
-import { Form } from 'antd';
-import { FormComponentProps } from 'antd/lib/form';
-
-interface UserFormProps extends FormComponentProps {
-  age: number;
-  name: string;
-}
-
-class UserForm extends React.Component<UserFormProps, any> {
-  // ...
-}
-
-const App = Form.create<UserFormProps>({
-  // ...
-})(UserForm);
-```
+## Diff with 3.0
 
 <style>
 .code-box-demo .ant-form:not(.ant-form-inline):not(.ant-form-vertical) {

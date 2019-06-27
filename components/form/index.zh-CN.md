@@ -39,49 +39,29 @@ title: Form
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| form | 经 `Form.create()` 包装过的组件会自带 `this.props.form` 属性 | object | - |
+| form | 经 `Form.useForm()` 创建的 form 控制实例，不提供时会自动创建 | FormInstance | - |
 | hideRequiredMark | 隐藏所有表单项的必选标记 | Boolean | false |
 | labelAlign | label 标签的文本对齐方式 | 'left' \| 'right' | 'right' |
-| labelCol | （3.14.0 新增，之前的版本只能设置到 FormItem 上。）label 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}` | [object](https://ant.design/components/grid/#Col) |  |
+| labelCol | label 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}` | [object](https://ant.design/components/grid/#Col) |  |
 | layout | 表单布局 | 'horizontal'\|'vertical'\|'inline' | 'horizontal' |
-| onSubmit | 数据验证成功后回调事件 | Function(e:Event) |  |
-| wrapperCol | （3.14.0 新增，之前的版本只能设置到 FormItem 上。）需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | [object](https://ant.design/components/grid/#Col) |  |
+| onFinish | 数据验证成功后回调事件 | Function(values) |  |
+| wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | [object](https://ant.design/components/grid/#Col) |  |
 | colon | 配置 Form.Item 的 colon 的默认值 | boolean | true |
 
-### Form.create(options)
+#### FormInstance
 
-使用方式如下：
-
-```jsx
-class CustomizedForm extends React.Component {}
-
-CustomizedForm = Form.create({})(CustomizedForm);
-```
-
-`options` 的配置项如下。
-
-| 参数 | 说明 | 类型 |
-| --- | --- | --- |
-| mapPropsToFields | 把父组件的属性映射到表单项上（如：把 Redux store 中的值读出），需要对返回值中的表单域数据用 [`Form.createFormField`](#Form.createFormField) 标记，注意表单项将变成受控组件, error 等也需要一并手动传入 | (props) => ({ \[fieldName\]: FormField { value } }) |
-| name | 设置表单域内字段 id 的前缀 | - |
-| validateMessages | 默认校验信息，可用于把默认错误信息改为中文等，格式与 [newMessages](https://github.com/yiminghe/async-validator/blob/master/src/messages.js) 返回值一致 | Object { \[nested.path]: String } |
-| onFieldsChange | 当 `Form.Item` 子节点的值（包括 error）发生改变时触发，可以把对应的值转存到 Redux store | Function(props, changedFields, allFields) |
-| onValuesChange | 任一表单域的值发生改变时的回调 | (props, changedValues, allValues) => void |
-
-经过 `Form.create` 之后如果要拿到 `ref`，可以使用 `rc-form` 提供的 `wrappedComponentRef`，[详细内容可以查看这里](https://github.com/react-component/form#note-use-wrappedcomponentref-instead-of-withref-after-rc-form140)。
+通过 `Form.useForm()` 创建，在非 Function Component 中可以通过 `ref` 获取：
 
 ```jsx
-class CustomizedForm extends React.Component { ... }
+class Demo extends React.Component {
+  formRef = React.createRef();
 
-// use wrappedComponentRef
-const EnhancedForm =  Form.create()(CustomizedForm);
-<EnhancedForm wrappedComponentRef={(form) => this.form = form} />
-this.form // => The instance of CustomizedForm
+  render() {
+    // `this.formRef.current` is the form instance
+    return <Form ref={formRef} />;
+  }
+}
 ```
-
-经过 `Form.create` 包装的组件将会自带 `this.props.form` 属性，`this.props.form` 提供的 API 如下：
-
-> 注意：使用 `getFieldsValue` `getFieldValue` `setFieldsValue` 等时，应确保对应的 field 已经用 `getFieldDecorator` 注册过了。
 
 | 方法       | 说明                                     | 类型       |
 | --- | --- | --- |
@@ -225,25 +205,15 @@ validateFields(['field1', 'field2'], options, (errors, values) => {
 
 更多高级用法可研究 [async-validator](https://github.com/yiminghe/async-validator)。
 
-## 在 TypeScript 中使用
+## 相对于 3.0 变更
 
-```tsx
-import { Form } from 'antd';
-import { FormComponentProps } from 'antd/lib/form';
+### `Form.create` 移除
 
-interface UserFormProps extends FormComponentProps {
-  age: number;
-  name: string;
-}
+Form 现在自带上下文，不再需要通过 `Form.create` 创建。
 
-class UserForm extends React.Component<UserFormProps, any> {
-  // ...
-}
+### `onFinish` 替代 `onSubmit`
 
-const App = Form.create<UserFormProps>({
-  // ...
-})(UserForm);
-```
+移除 Form 的 `onSubmit` 方法，使用 `onFinish` 替代。`onFinish` 只有当验证通过时才会触发。
 
 <style>
 .code-box-demo .ant-form:not(.ant-form-inline):not(.ant-form-vertical) {
