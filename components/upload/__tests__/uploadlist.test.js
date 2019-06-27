@@ -1,4 +1,5 @@
 import React from 'react';
+import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
 import Upload from '..';
 import UploadList from '../UploadList';
@@ -368,63 +369,59 @@ describe('Upload List', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/7762
-  it('work with form validation', () => {
-    let errors;
-    class TestForm extends React.Component {
-      handleSubmit = () => {
-        const {
-          form: { validateFields },
-        } = this.props;
-        validateFields(err => {
-          errors = err;
-        });
-      };
+  it('work with form validation', async () => {
+    let formRef;
 
-      render() {
-        const {
-          form: { getFieldDecorator },
-        } = this.props;
-        return (
-          <Form onSubmit={this.handleSubmit}>
-            <Form.Item>
-              {getFieldDecorator('file', {
-                valuePropname: 'fileList',
-                getValueFromEvent: e => e.fileList,
-                rules: [
-                  {
-                    required: true,
-                    validator: (rule, value, callback) => {
-                      if (!value || value.length === 0) {
-                        callback('file required');
-                      } else {
-                        callback();
-                      }
-                    },
-                  },
-                ],
-              })(
-                <Upload beforeUpload={() => false}>
-                  <button type="button">upload</button>
-                </Upload>,
-              )}
-            </Form.Item>
-          </Form>
-        );
-      }
-    }
+    const TestForm = () => {
+      const [form] = Form.useForm();
+      formRef = form;
 
-    const App = Form.create()(TestForm);
-    const wrapper = mount(<App />);
+      return (
+        <Form form={form}>
+          <Form.Item
+            name="file"
+            valuePropName="fileList"
+            getValueFromEvent={e => e.fileList}
+            rules={[
+              {
+                required: true,
+                validator: (rule, value, callback) => {
+                  if (!value || value.length === 0) {
+                    callback('file required');
+                  } else {
+                    callback();
+                  }
+                },
+              },
+            ]}
+          >
+            <Upload beforeUpload={() => false}>
+              <button type="button">upload</button>
+            </Upload>
+          </Form.Item>
+        </Form>
+      );
+    };
+
+    const wrapper = mount(<TestForm />);
+
     wrapper.find(Form).simulate('submit');
-    expect(errors.file.errors).toEqual([{ message: 'file required', field: 'file' }]);
+    act(async () => {
+      await delay(0);
+    });
+    expect(formRef.getFieldError(['file'])).toEqual(['file required']);
 
     wrapper.find('input').simulate('change', {
       target: {
         files: [{ name: 'foo.png' }],
       },
     });
+
     wrapper.find(Form).simulate('submit');
-    expect(errors).toBeNull();
+    act(async () => {
+      await delay(0);
+    });
+    expect(formRef.getFieldError(['file'])).toEqual([]);
   });
 
   it('return when prop onPreview not exists', () => {
