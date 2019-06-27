@@ -765,16 +765,19 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
         >
           <td
             class="ant-descriptions-item-label"
+            colspan="1"
           >
             Product
           </td>
           <td
             class="ant-descriptions-item-label"
+            colspan="1"
           >
             Billing Mode
           </td>
           <td
             class="ant-descriptions-item-label"
+            colspan="1"
           >
             Automatic Renewal
           </td>
@@ -806,11 +809,13 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
         >
           <td
             class="ant-descriptions-item-label"
+            colspan="1"
           >
             Order time
           </td>
           <td
             class="ant-descriptions-item-label"
+            colspan="5"
           >
             Usage Time
           </td>
@@ -836,6 +841,7 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
         >
           <td
             class="ant-descriptions-item-label"
+            colspan="5"
           >
             Status
           </td>
@@ -866,16 +872,19 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
         >
           <td
             class="ant-descriptions-item-label"
+            colspan="1"
           >
             Negotiated Amount
           </td>
           <td
             class="ant-descriptions-item-label"
+            colspan="1"
           >
             Discount
           </td>
           <td
             class="ant-descriptions-item-label"
+            colspan="1"
           >
             Official Receipts
           </td>
@@ -907,6 +916,7 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
         >
           <td
             class="ant-descriptions-item-label"
+            colspan="5"
           >
             Config Info
           </td>
