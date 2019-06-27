@@ -1,4 +1,4 @@
-import * as React from 'React';
+import * as React from 'react';
 import classNames from 'classnames';
 import Col, { ColProps } from '../grid/col';
 import { FormLabelAlign } from './interface';
