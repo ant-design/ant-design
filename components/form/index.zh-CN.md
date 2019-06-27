@@ -65,7 +65,6 @@ class Demo extends React.Component {
 
 | 方法       | 说明                                     | 类型       |
 | --- | --- | --- |
-| getFieldDecorator | 用于和表单进行双向绑定，详见下方描述 |  |
 | getFieldError | 获取某个输入控件的 Error | Function(name) |
 | getFieldsError | 获取一组输入控件的 Error ，如不传入参数，则获取全部组件的 Error | Function(\[names: string\[]]) |
 | getFieldsValue | 获取一组输入控件的值，如不传入参数，则获取全部组件的值 | Function(\[fieldNames: string\[]]) |
@@ -82,60 +81,38 @@ class Demo extends React.Component {
 ### validateFields/validateFieldsAndScroll
 
 ```jsx
-const {
-  form: { validateFields },
-} = this.props;
-validateFields((errors, values) => {
-  // ...
-});
-validateFields(['field1', 'field2'], (errors, values) => {
-  // ...
-});
-validateFields(['field1', 'field2'], options, (errors, values) => {
-  // ...
-});
+const [form] = Form.useForm();
+
+form.validateFields().then(
+  values => {
+    // Success
+  },
+  ({ values, errorFields }) => {
+    // Failed
+  },
+);
+
+form.validateFields(['field1', 'field2']).then(
+  values => {
+    // Success
+  },
+  ({ values, errorFields }) => {
+    // Failed
+  },
+);
 ```
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| options.first | 若为 true，则每一表单域的都会在碰到第一个失败了的校验规则后停止校验 | boolean | false |
-| options.firstFields | 指定表单域会在碰到第一个失败了的校验规则后停止校验 | String\[] | \[] |
-| options.force | 对已经校验过的表单域，在 validateTrigger 再次被触发时是否再次校验 | boolean | false |
-| options.scroll | 定义 validateFieldsAndScroll 的滚动行为，详细配置见 [dom-scroll-into-view config](https://github.com/yiminghe/dom-scroll-into-view#function-parameter) | Object | {} |
+#### validateFields 的 catch 参数示例
 
-#### validateFields 的 callback 参数示例
-
-- `errors`:
-
-  ```js
-  {
-    "username": {
-      "errors": [
-        {
-          "message": "Please input your username!",
-          "field": "username"
-        }
-      ]
-    },
-    "password": {
-      "errors": [
-        {
-          "message": "Please input your Password!",
-          "field": "password"
-        }
-      ]
-    }
-  }
-  ```
-
-- `values`:
-
-  ```js
-  {
+```json
+{
+  "values": {
     "username": "username",
-    "password": "password",
-  }
-  ```
+    "password": "123"
+  },
+  "errorFields": [{ "name": ["password"], "errors": ["'password' is too short"] }]
+}
+```
 
 ### Form.createFormField
 

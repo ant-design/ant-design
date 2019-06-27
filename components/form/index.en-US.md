@@ -62,7 +62,6 @@ class Demo extends React.Component {
 
 | Method | Description | Type |
 | --- | --- | --- |
-| getFieldDecorator | Two-way binding for form, please read below for details. |  |
 | getFieldError | Get the error of a field. | Function(name) |
 | getFieldsError | Get the specified fields' error. If you don't specify a parameter, you will get all fields' error. | Function(\[names: string\[]]) |
 | getFieldsValue | Get the specified fields' values. If you don't specify a parameter, you will get all fields' values. | Function(\[fieldNames: string\[]]) |
@@ -79,60 +78,38 @@ class Demo extends React.Component {
 ### validateFields/validateFieldsAndScroll
 
 ```jsx
-const {
-  form: { validateFields },
-} = this.props;
-validateFields((errors, values) => {
-  // ...
-});
-validateFields(['field1', 'field2'], (errors, values) => {
-  // ...
-});
-validateFields(['field1', 'field2'], options, (errors, values) => {
-  // ...
-});
+const [form] = Form.useForm();
+
+form.validateFields().then(
+  values => {
+    // Success
+  },
+  ({ values, errorFields }) => {
+    // Failed
+  },
+);
+
+form.validateFields(['field1', 'field2']).then(
+  values => {
+    // Success
+  },
+  ({ values, errorFields }) => {
+    // Failed
+  },
+);
 ```
 
-| Method | Description | Type | Default |
-| --- | --- | --- | --- |
-| options.first | If `true`, every field will stop validation at first failed rule | boolean | false |
-| options.firstFields | Those fields will stop validation at first failed rule | String\[] | \[] |
-| options.force | Should validate validated field again when `validateTrigger` is been triggered again | boolean | false |
-| options.scroll | Config scroll behavior of `validateFieldsAndScroll`, more: [dom-scroll-into-view's config](https://github.com/yiminghe/dom-scroll-into-view#function-parameter) | Object | {} |
+#### catch argument example of validateFields
 
-#### Callback arguments example of validateFields
-
-- `errors`:
-
-  ```js
-  {
-    "username": {
-      "errors": [
-        {
-          "message": "Please input your username!",
-          "field": "username"
-        }
-      ]
-    },
-    "password": {
-      "errors": [
-        {
-          "message": "Please input your Password!",
-          "field": "password"
-        }
-      ]
-    }
-  }
-  ```
-
-- `values`:
-
-  ```js
-  {
+```json
+{
+  "values": {
     "username": "username",
-    "password": "password",
-  }
-  ```
+    "password": "123"
+  },
+  "errorFields": [{ "name": ["password"], "errors": ["'password' is too short"] }]
+}
+```
 
 ### Form.createFormField
 
