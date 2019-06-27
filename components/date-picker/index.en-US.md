@@ -88,6 +88,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 | value | to set date | [moment](http://momentjs.com/) | - |
 | onChange | a callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |
 | onOk | callback when click ok button | function() | - |
+| onPanelChange | Callback function for panel changing | function(value, mode) | - |
 
 ### MonthPicker
 

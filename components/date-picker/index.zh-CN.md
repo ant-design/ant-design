@@ -58,6 +58,7 @@ moment.locale('zh-cn');
 | dropdownClassName | 额外的弹出日历 className | string | - |
 | getCalendarContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | 无 |
 | locale | 国际化配置 | object | [默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |
+| mode | 日期面板的状态 | `time|date|month|year|decade` | 'date' |
 | open | 控制弹层是否展开 | boolean | - |
 | placeholder | 输入框提示文字 | string\|RangePicker\[] | - |
 | popupStyle | 额外的弹出日历样式 | object | {} |
@@ -82,7 +83,6 @@ moment.locale('zh-cn');
 | defaultPickerValue | 默认面板日期 | [moment](http://momentjs.com/) | 无 |
 | disabledTime | 不可选择的时间 | function(date) | 无 |
 | format | 设置日期格式，为数组时支持多格式匹配，展示以第一个为准。配置参考 [moment.js](http://momentjs.com/) | string \| string[] | "YYYY-MM-DD" |
-| mode | 日期面板的状态 | `time|date|month|year|decade` | 'date' |
 | renderExtraFooter | 在面板中添加额外的页脚 | (mode) => React.ReactNode | - |
 | showTime | 增加时间选择功能 | Object\|boolean | [TimePicker Options](/components/time-picker/#API) |
 | showTime.defaultValue | 设置用户选择日期时默认的时分秒，[例子](#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/) | moment() |
