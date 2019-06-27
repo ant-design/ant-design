@@ -42,9 +42,11 @@ describe('Descriptions', () => {
         <Descriptions.Item label="Billing">Prepaid</Descriptions.Item>
         <Descriptions.Item label="time">18:00:00</Descriptions.Item>
         <Descriptions.Item label="Amount">$80.00</Descriptions.Item>
+        <Descriptions.Item>No-Label</Descriptions.Item>
       </Descriptions>,
     );
-    expect(wrapper.find('tr')).toHaveLength(4);
+    expect(wrapper.find('tr')).toHaveLength(5);
+    expect(wrapper.find('.ant-descriptions-item-no-label')).toHaveLength(1);
 
     enquire.callunmatch();
     wrapper.unmount();
