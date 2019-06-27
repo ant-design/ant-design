@@ -1174,7 +1174,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
             <input
               checked=""
               class="ant-checkbox-input"
-              id="undefined_remember"
+              id="normal_login_remember"
               type="checkbox"
             />
             <span
@@ -1539,7 +1539,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             >
               <div
                 class="ant-select ant-select-enabled"
-                id="undefined_prefix"
+                id="register_prefix"
                 style="width:70px"
               >
                 <div
@@ -1724,7 +1724,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           >
             <input
               class="ant-input"
-              id="undefined_captcha"
+              id="register_captcha"
               type="text"
               value=""
             />
@@ -2466,7 +2466,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             <input
               autocomplete="off"
               class="ant-input-number-input"
-              id="undefined_input-number"
+              id="validate_other_input-number"
               max="10"
               min="1"
               step="1"
@@ -4009,7 +4009,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           style="display:inline-block;width:calc(50% - 12px)"
         >
           <div
-            class="ant-col ant-form-item-control"
+            class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
           >
             <div
               class="ant-form-item-control-input"
@@ -4058,7 +4058,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           style="display:inline-block;width:calc(50% - 12px)"
         >
           <div
-            class="ant-col ant-form-item-control"
+            class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
           >
             <div
               class="ant-form-item-control-input"

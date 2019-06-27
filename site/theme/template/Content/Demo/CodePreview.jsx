@@ -1,5 +1,5 @@
 import React from 'react';
-import { Radio, Tabs } from 'antd';
+import { Tabs } from 'antd';
 
 const { TabPane } = Tabs;
 

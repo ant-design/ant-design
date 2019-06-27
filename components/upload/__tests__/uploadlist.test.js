@@ -1,5 +1,4 @@
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
 import Upload from '..';
 import UploadList from '../UploadList';
@@ -406,9 +405,7 @@ describe('Upload List', () => {
     const wrapper = mount(<TestForm />);
 
     wrapper.find(Form).simulate('submit');
-    act(async () => {
-      await delay(0);
-    });
+    await delay(0);
     expect(formRef.getFieldError(['file'])).toEqual(['file required']);
 
     wrapper.find('input').simulate('change', {
@@ -418,9 +415,7 @@ describe('Upload List', () => {
     });
 
     wrapper.find(Form).simulate('submit');
-    act(async () => {
-      await delay(0);
-    });
+    await delay(0);
     expect(formRef.getFieldError(['file'])).toEqual([]);
   });
 

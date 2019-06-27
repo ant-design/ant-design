@@ -4,7 +4,7 @@ import Icon from '../icon';
 import CSSMotion from 'rc-animate/lib/CSSMotion';
 import Col, { ColProps } from '../grid/col';
 import { ValidateStatus } from './FormItem';
-import { FormContext, FormContextProps } from './context';
+import { FormContext } from './context';
 import { useCacheErrors } from './util';
 
 interface FormItemInputMiscProps {
@@ -47,21 +47,18 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
   onDomErrorVisibleChange,
   hasFeedback,
   validateStatus,
-  help,
   extra,
 }) => {
   const baseClassName = `${prefixCls}-item`;
 
-  const { wrapperCol: contextWrapperCol, vertical }: FormContextProps = React.useContext(
-    FormContext,
-  );
+  const { wrapperCol: contextWrapperCol } = React.useContext(FormContext);
 
   const mergedWrapperCol: ColProps = wrapperCol || contextWrapperCol || {};
 
   const className = classNames(`${baseClassName}-control`, mergedWrapperCol.className);
 
-  const [visible, cacheErrors] = useCacheErrors(errors, visible => {
-    if (visible) {
+  const [visible, cacheErrors] = useCacheErrors(errors, changedVisible => {
+    if (changedVisible) {
       onDomErrorVisibleChange(true);
     }
   });
@@ -75,34 +72,31 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
       </span>
     ) : null;
 
-  // No pass FormContext since it's useless
   return (
-    <FormContext.Provider value={{ vertical }}>
-      <Col {...mergedWrapperCol} className={className}>
-        <div className={`${baseClassName}-control-input`}>
-          {children}
-          {icon}
-        </div>
-        <CSSMotion
-          visible={visible}
-          motionName="show-help"
-          onLeaveEnd={() => {
-            onDomErrorVisibleChange(false);
-          }}
-          motionAppear
-          removeOnLeave
-        >
-          {({ className }: { className: string }) => {
-            return (
-              <div className={classNames(`${baseClassName}-explain`, className)} key="help">
-                {cacheErrors}
-              </div>
-            );
-          }}
-        </CSSMotion>
-        {extra && <div className={`${baseClassName}-extra`}>{extra}</div>}
-      </Col>
-    </FormContext.Provider>
+    <Col {...mergedWrapperCol} className={className}>
+      <div className={`${baseClassName}-control-input`}>
+        {children}
+        {icon}
+      </div>
+      <CSSMotion
+        visible={visible}
+        motionName="show-help"
+        onLeaveEnd={() => {
+          onDomErrorVisibleChange(false);
+        }}
+        motionAppear
+        removeOnLeave
+      >
+        {({ className: motionClassName }: { className: string }) => {
+          return (
+            <div className={classNames(`${baseClassName}-explain`, motionClassName)} key="help">
+              {cacheErrors}
+            </div>
+          );
+        }}
+      </CSSMotion>
+      {extra && <div className={`${baseClassName}-extra`}>{extra}</div>}
+    </Col>
   );
 };
 

@@ -205,27 +205,20 @@ describe('Upload', () => {
   // https://github.com/ant-design/ant-design/issues/14298
   it('should not have id if upload children is null, avoid being triggered by label', () => {
     // eslint-disable-next-line
-    class Demo extends React.Component {
-      render() {
-        const {
-          form: { getFieldDecorator },
-          children,
-        } = this.props;
-        return (
-          <Form>
-            <Form.Item label="Upload">
-              {getFieldDecorator('upload')(<Upload>{children}</Upload>)}
-            </Form.Item>
-          </Form>
-        );
-      }
-    }
-    const WrappedDemo = Form.create()(Demo);
-    const wrapper = mount(
-      <WrappedDemo>
-        <div>upload</div>
-      </WrappedDemo>,
+    const Demo = ({ children }) => (
+      <Form>
+        <Form.Item name="upload" label="Upload">
+          <Upload>{children}</Upload>
+        </Form.Item>
+      </Form>
     );
+
+    const wrapper = mount(
+      <Demo>
+        <div>upload</div>
+      </Demo>,
+    );
+
     expect(wrapper.find('input#upload').length).toBe(1);
     wrapper.setProps({ children: null });
     expect(wrapper.find('input#upload').length).toBe(0);
@@ -234,27 +227,17 @@ describe('Upload', () => {
   // https://github.com/ant-design/ant-design/issues/16478
   it('should not have id if upload is disabled, avoid being triggered by label', () => {
     // eslint-disable-next-line
-    class Demo extends React.Component {
-      render() {
-        const {
-          form: { getFieldDecorator },
-          disabled,
-        } = this.props;
-        return (
-          <Form>
-            <Form.Item label="Upload">
-              {getFieldDecorator('upload')(
-                <Upload disabled={disabled}>
-                  <div>upload</div>
-                </Upload>,
-              )}
-            </Form.Item>
-          </Form>
-        );
-      }
-    }
-    const WrappedDemo = Form.create()(Demo);
-    const wrapper = mount(<WrappedDemo />);
+    const Demo = ({ disabled }) => (
+      <Form>
+        <Form.Item name="upload" label="Upload">
+          <Upload disabled={disabled}>
+            <div>upload</div>
+          </Upload>
+        </Form.Item>
+      </Form>
+    );
+
+    const wrapper = mount(<Demo />);
     expect(wrapper.find('input#upload').length).toBe(1);
     wrapper.setProps({ disabled: true });
     expect(wrapper.find('input#upload').length).toBe(0);

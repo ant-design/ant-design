@@ -59,10 +59,12 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
     validateTrigger = 'onChange',
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
-  const { name: formName } = React.useContext(FormContext);
+  const formContext = React.useContext(FormContext);
   const { updateItemErrors } = React.useContext(FormItemContext);
   const [domErrorVisible, setDomErrorVisible] = React.useState(false);
   const [inlineErrors, setInlineErrors] = React.useState<Record<string, string[]>>({});
+
+  const { name: formName } = formContext;
 
   // Cache Field NamePath
   const nameRef = React.useRef<(string | number)[]>([]);
@@ -158,9 +160,10 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
         );
 
         // ======================= Children =======================
+        const mergedId = mergedName.join('_');
         const mergedControl: typeof control = {
           ...control,
-          id: `${formName}_${mergedName.join('_')}`,
+          id: formName ? `${formName}_${mergedId}` : mergedId,
         };
 
         let childNode;

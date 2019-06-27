@@ -51,7 +51,7 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
           class="ant-mentions"
         >
           <textarea
-            id="undefined_mention"
+            id="mention"
             rows="3"
           />
         </div>
