@@ -254,79 +254,74 @@ exports[`renders ./components/mention/demo/controlled.md correctly 1`] = `
   class="ant-form ant-form-horizontal"
 >
   <div
-    class="ant-row ant-form-item"
+    class="ant-row-flex ant-form-item"
   >
     <div
       class="ant-col ant-col-6 ant-form-item-label"
     >
       <label
         class=""
-        for="control-mention"
         title="Top coders"
       >
         Top coders
       </label>
     </div>
     <div
-      class="ant-col ant-col-16 ant-form-item-control-wrapper"
+      class="ant-col ant-col-16 ant-form-item-control"
     >
       <div
-        class="ant-form-item-control has-success"
+        class="ant-form-item-control-input"
       >
-        <span
-          class="ant-form-item-children"
+        <div
+          class="ant-mention-wrapper"
         >
           <div
-            class="ant-mention-wrapper"
+            class="ant-mention-editor oneline"
           >
             <div
-              class="ant-mention-editor oneline"
+              class="ant-mention-toolbar"
+            />
+            <div
+              class="ant-mention-editor-wrapper"
             >
               <div
-                class="ant-mention-toolbar"
-              />
-              <div
-                class="ant-mention-editor-wrapper"
+                class="DraftEditor-root"
               >
                 <div
-                  class="DraftEditor-root"
+                  class="DraftEditor-editorContainer"
                 >
                   <div
-                    class="DraftEditor-editorContainer"
+                    aria-describedby="placeholder-123"
+                    class="notranslate public-DraftEditor-content"
+                    contenteditable="true"
+                    role="textbox"
+                    spellcheck="false"
+                    style="outline:none;user-select:text;-webkit-user-select:text;white-space:pre-wrap;word-wrap:break-word"
                   >
                     <div
-                      aria-describedby="placeholder-123"
-                      class="notranslate public-DraftEditor-content"
-                      contenteditable="true"
-                      role="textbox"
-                      spellcheck="false"
-                      style="outline:none;user-select:text;-webkit-user-select:text;white-space:pre-wrap;word-wrap:break-word"
+                      data-contents="true"
                     >
                       <div
-                        data-contents="true"
+                        class=""
+                        data-block="true"
+                        data-editor="123"
+                        data-offset-key="123-0-0"
                       >
                         <div
-                          class=""
-                          data-block="true"
-                          data-editor="123"
+                          class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
                           data-offset-key="123-0-0"
                         >
-                          <div
-                            class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
-                            data-offset-key="123-0-0"
-                          >
-                            <span>
+                          <span>
+                            <span
+                              data-offset-key="123-0-0"
+                            >
                               <span
-                                data-offset-key="123-0-0"
+                                data-text="true"
                               >
-                                <span
-                                  data-text="true"
-                                >
-                                  @afc163
-                                </span>
+                                @afc163
                               </span>
                             </span>
-                          </div>
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -335,40 +330,36 @@ exports[`renders ./components/mention/demo/controlled.md correctly 1`] = `
               </div>
             </div>
           </div>
-        </span>
+        </div>
       </div>
     </div>
   </div>
   <div
-    class="ant-row ant-form-item"
+    class="ant-row-flex ant-form-item"
   >
     <div
-      class="ant-col ant-col-14 ant-col-offset-6 ant-form-item-control-wrapper"
+      class="ant-col ant-col-14 ant-col-offset-6 ant-form-item-control"
     >
       <div
-        class="ant-form-item-control"
+        class="ant-form-item-control-input"
       >
-        <span
-          class="ant-form-item-children"
+        <button
+          class="ant-btn ant-btn-primary"
+          type="submit"
         >
-          <button
-            class="ant-btn ant-btn-primary"
-            type="button"
-          >
-            <span>
-              Submit
-            </span>
-          </button>
-             
-          <button
-            class="ant-btn"
-            type="button"
-          >
-            <span>
-              Reset
-            </span>
-          </button>
-        </span>
+          <span>
+            Submit
+          </span>
+        </button>
+           
+        <button
+          class="ant-btn"
+          type="button"
+        >
+          <span>
+            Reset
+          </span>
+        </button>
       </div>
     </div>
   </div>
