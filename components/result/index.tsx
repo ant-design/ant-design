@@ -63,7 +63,7 @@ const renderIcon = (prefixCls: string, { status, icon }: ResultProps) => {
 const renderExtra = (prefixCls: string, { extra }: ResultProps) =>
   extra && <div className={`${prefixCls}-extra`}>{extra}</div>;
 
-const OriginResult: React.SFC<ResultProps> = props => (
+export const OriginResult: React.SFC<ResultProps> = props => (
   <ConfigConsumer>
     {({ getPrefixCls }: ConfigConsumerProps) => {
       const { prefixCls: customizePrefixCls, subTitle, title, style, children, status } = props;
@@ -88,7 +88,7 @@ OriginResult.defaultProps = {
 
 type ResultType = typeof OriginResult & { PRESENTED_SVG_DEFAULT: typeof ExceptionImageMap };
 
-const Result = OriginResult as ResultType;
+const Result: ResultType = OriginResult as ResultType;
 
 Result.PRESENTED_SVG_DEFAULT = ExceptionImageMap;
 
