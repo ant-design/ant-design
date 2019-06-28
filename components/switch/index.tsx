@@ -7,14 +7,18 @@ import Wave from '../_util/wave';
 import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
+export type SwitchSize = 'small' | 'default';
+export type SwitchChangeEventHandler = (checked: boolean, event: MouseEvent) => void;
+export type SwitchClickEventHandler = SwitchChangeEventHandler;
+
 export interface SwitchProps {
   prefixCls?: string;
-  size?: 'small' | 'default';
+  size?: SwitchSize;
   className?: string;
   checked?: boolean;
   defaultChecked?: boolean;
-  onChange?: (checked: boolean, event: MouseEvent) => void;
-  onClick?: (checked: boolean, event: MouseEvent) => void;
+  onChange?: SwitchChangeEventHandler;
+  onClick?: SwitchChangeEventHandler;
   checkedChildren?: React.ReactNode;
   unCheckedChildren?: React.ReactNode;
   disabled?: boolean;

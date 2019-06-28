@@ -136,7 +136,16 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
     }
     const onChange = this.props.onChange;
     if (onChange) {
-      onChange(value.filter(val => registeredValues.indexOf(val) !== -1));
+      const options = this.getOptions();
+      onChange(
+        value
+          .filter(val => registeredValues.indexOf(val) !== -1)
+          .sort((a, b) => {
+            const indexA = options.findIndex(opt => opt.value === a);
+            const indexB = options.findIndex(opt => opt.value === b);
+            return indexA - indexB;
+          }),
+      );
     }
   };
 
