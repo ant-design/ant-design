@@ -19,7 +19,7 @@ interface FormListProps {
 }
 
 const FormList: React.FC<FormListProps> = ({ children, ...props }) => {
-  warning(!!props.name, 'Form.List', 'Do not provide `name` prop.');
+  warning(!!props.name, 'Form.List', 'Miss `name` prop.');
 
   return (
     <List {...props}>

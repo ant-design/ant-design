@@ -59,6 +59,15 @@ title: Form
 | valuePropName | 子节点的值的属性，如 Switch 的是 'checked' | string | value |
 | wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 `labelCol`。你可以通过 Form 的 `wrapperCol` 进行统一设置。当和 Form 同时设置时，以 Item 为准。 | [object](/components/grid/#Col) |  |
 
+## Form.List
+
+为字段提供数组化管理。
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| name | 字段名，支持数组 | [NamePath](#NamePath) | - |
+| children | 渲染函数 | (fields: Field[], operation: { add, remove }) => React.ReactNode | - |
+
 ### FormInstance
 
 | 名称 | 说明 |
