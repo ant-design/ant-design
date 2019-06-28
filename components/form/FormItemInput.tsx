@@ -51,9 +51,9 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
 }) => {
   const baseClassName = `${prefixCls}-item`;
 
-  const { wrapperCol: contextWrapperCol } = React.useContext(FormContext);
+  const formContext = React.useContext(FormContext);
 
-  const mergedWrapperCol: ColProps = wrapperCol || contextWrapperCol || {};
+  const mergedWrapperCol: ColProps = wrapperCol || formContext.wrapperCol || {};
 
   const className = classNames(`${baseClassName}-control`, mergedWrapperCol.className);
 
@@ -72,31 +72,38 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
       </span>
     ) : null;
 
+  // Pass to sub FormItem should not with col info
+  const subFormContext = { ...formContext };
+  delete subFormContext.labelCol;
+  delete subFormContext.wrapperCol;
+
   return (
-    <Col {...mergedWrapperCol} className={className}>
-      <div className={`${baseClassName}-control-input`}>
-        {children}
-        {icon}
-      </div>
-      <CSSMotion
-        visible={visible}
-        motionName="show-help"
-        onLeaveEnd={() => {
-          onDomErrorVisibleChange(false);
-        }}
-        motionAppear
-        removeOnLeave
-      >
-        {({ className: motionClassName }: { className: string }) => {
-          return (
-            <div className={classNames(`${baseClassName}-explain`, motionClassName)} key="help">
-              {cacheErrors}
-            </div>
-          );
-        }}
-      </CSSMotion>
-      {extra && <div className={`${baseClassName}-extra`}>{extra}</div>}
-    </Col>
+    <FormContext.Provider value={subFormContext}>
+      <Col {...mergedWrapperCol} className={className}>
+        <div className={`${baseClassName}-control-input`}>
+          {children}
+          {icon}
+        </div>
+        <CSSMotion
+          visible={visible}
+          motionName="show-help"
+          onLeaveEnd={() => {
+            onDomErrorVisibleChange(false);
+          }}
+          motionAppear
+          removeOnLeave
+        >
+          {({ className: motionClassName }: { className: string }) => {
+            return (
+              <div className={classNames(`${baseClassName}-explain`, motionClassName)} key="help">
+                {cacheErrors}
+              </div>
+            );
+          }}
+        </CSSMotion>
+        {extra && <div className={`${baseClassName}-extra`}>{extra}</div>}
+      </Col>
+    </FormContext.Provider>
   );
 };
 

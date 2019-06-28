@@ -4009,7 +4009,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           style="display:inline-block;width:calc(50% - 12px)"
         >
           <div
-            class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+            class="ant-col ant-form-item-control"
           >
             <div
               class="ant-form-item-control-input"
@@ -4058,7 +4058,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           style="display:inline-block;width:calc(50% - 12px)"
         >
           <div
-            class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+            class="ant-col ant-form-item-control"
           >
             <div
               class="ant-form-item-control-input"
