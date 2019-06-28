@@ -46,6 +46,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 | onLoad | Callback function for when a treeNode is loaded | function(loadedKeys, {event, node}) | - |
 | onRightClick | Callback function for when the user right clicks a treeNode | function({event, node}) | - |
 | onSelect | Callback function for when the user clicks a treeNode | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - |
+| treeData | treeNodes data Array, if set it then you need not to construct children TreeNode. (key should be unique across the whole array) | array\<{ key, title, children, \[disabled, selectable] }> | - |
 
 ### TreeNode props
 

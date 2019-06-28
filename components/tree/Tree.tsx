@@ -86,6 +86,16 @@ export interface AntTreeNodeDropEvent {
   event: React.MouseEvent<HTMLElement>;
 }
 
+export interface TreeNodeNormal {
+  title?: React.ReactNode;
+  key: string;
+  isLeaf?: boolean;
+  disabled?: boolean;
+  disableCheckbox?: boolean;
+  selectable?: boolean;
+  children?: TreeNodeNormal[];
+}
+
 export interface TreeProps {
   showLine?: boolean;
   className?: string;
@@ -153,6 +163,7 @@ export interface TreeProps {
   filterTreeNode?: (node: AntTreeNode) => boolean;
   children?: React.ReactNode;
   blockNode?: boolean;
+  treeData?: Array<TreeNodeNormal>;
 }
 
 export default class Tree extends React.Component<TreeProps, any> {
