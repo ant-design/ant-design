@@ -14,7 +14,9 @@ title:
 We recommend use `Form.useForm` to create data control. If you are using class component, you can get it by `ref`.
 
 ```tsx
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button, Select } from 'antd';
+
+const { Option } = Select;
 
 const layout = {
   labelCol: { span: 8 },
@@ -27,6 +29,12 @@ const tailLayout = {
 class Demo extends React.Component {
   formRef = React.createRef();
 
+  onGenderChange = value => {
+    this.formRef.current.setFieldsValue({
+      note: `Hi, ${value === 'male' ? 'man' : 'lady'}!`,
+    });
+  };
+
   onFinish = values => {
     console.log(values);
   };
@@ -37,19 +45,26 @@ class Demo extends React.Component {
 
   onFill = () => {
     this.formRef.current.setFieldsValue({
-      username: 'light',
-      password: 'bamboo',
+      note: 'Hello world!',
+      gender: 'male',
     });
   };
 
   render() {
     return (
       <Form {...layout} ref={this.formRef} name="control-ref" onFinish={this.onFinish}>
-        <Form.Item label="Name" name="username" rules={[{ required: true }]}>
+        <Form.Item name="note" label="Note" rules={[{ required: true }]}>
           <Input />
         </Form.Item>
-        <Form.Item label="Password" name="password" rules={[{ required: true }]}>
-          <Input.Password />
+        <Form.Item name="gender" label="Gender" rules={[{ required: true }]}>
+          <Select
+            placeholder="Select a option and change input text above"
+            onChange={this.onGenderChange}
+            allowClear
+          >
+            <Option value="male">male</Option>
+            <Option value="female">female</Option>
+          </Select>
         </Form.Item>
         <Form.Item {...tailLayout}>
           <Button type="primary" htmlType="submit">

@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 5
 title:
   zh-CN: 嵌套结构与校验信息
   en-US: Nest
