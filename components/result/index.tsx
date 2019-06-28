@@ -2,9 +2,9 @@ import * as React from 'react';
 import classnames from 'classnames';
 import { ConfigConsumerProps, ConfigConsumer } from '../config-provider';
 import Icon from '../icon';
-import noFound from './noFound.svg';
-import serverError from './serverError.svg';
-import unauthorized from './unauthorized.svg';
+import noFound from './noFound';
+import serverError from './serverError';
+import unauthorized from './unauthorized';
 
 const IconMap = {
   success: 'check-circle',
@@ -46,13 +46,10 @@ const renderIcon = (prefixCls: string, { status, icon }: ResultProps) => {
   const className = classnames(`${prefixCls}-icon`);
 
   if (ExceptionStatus.includes(status)) {
+    const SVGComponent = ExceptionImageMap[status as ExceptionStatusType];
     return (
-      <div className={className}>
-        <img
-          className={`${prefixCls}-image`}
-          src={ExceptionImageMap[status as ExceptionStatusType]}
-          alt={status}
-        />
+      <div className={`${className} ${prefixCls}-image`}>
+        <SVGComponent />
       </div>
     );
   }
