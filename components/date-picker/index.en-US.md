@@ -139,4 +139,4 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 
 ## FAQ
 
-- [When set mode to DatePicker/RangePicker, cannot select year or month anymore?](/docs/react/faq#When-set-mode-to-DatePicker/RangePicker,-cannot-select-year-or-month-anymore?)
+- [When set mode to DatePicker/RangePicker, cannot select year or month anymore?](https://ant.design/docs/react/faq#When-set-mode-to-DatePicker/RangePicker,-cannot-select-year-or-month-anymore?)
