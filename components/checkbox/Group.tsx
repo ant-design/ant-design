@@ -143,13 +143,7 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
           .sort((a, b) => {
             const indexA = options.findIndex(opt => opt.value === a);
             const indexB = options.findIndex(opt => opt.value === b);
-            if (indexA > indexB) {
-              return 1;
-            }
-            if (indexA < indexB) {
-              return -1;
-            }
-            return 0;
+            return indexA - indexB;
           }),
       );
     }
