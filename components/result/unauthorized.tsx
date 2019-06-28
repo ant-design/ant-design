@@ -2,7 +2,7 @@ import * as React from 'react';
 
 export default () => (
   <svg width="251" height="294">
-    <g fill="none" fill-rule="evenodd">
+    <g fill="none" fillRule="evenodd">
       <path
         d="M0 129.023v-2.084C0 58.364 55.591 2.774 124.165 2.774h2.085c68.574 0 124.165 55.59 124.165 124.165v2.084c0 68.575-55.59 124.166-124.165 124.166h-2.085C55.591 253.189 0 197.598 0 129.023"
         fill="#E4EBF7"
@@ -14,7 +14,7 @@ export default () => (
       <path
         d="M38.652 136.36l10.425 5.91M49.989 148.505l-12.58 10.73"
         stroke="#FFF"
-        stroke-width="2"
+        strokeWidth="2"
       />
       <path
         d="M41.536 161.28a5.636 5.636 0 1 1-11.216-1.13 5.636 5.636 0 0 1 11.216 1.13M59.154 145.261a5.677 5.677 0 1 1-11.297-1.138 5.677 5.677 0 0 1 11.297 1.138M100.36 29.516l29.66-.013a4.562 4.562 0 1 0-.004-9.126l-29.66.013a4.563 4.563 0 0 0 .005 9.126M111.705 47.754l29.659-.013a4.563 4.563 0 1 0-.004-9.126l-29.66.013a4.563 4.563 0 1 0 .005 9.126"
@@ -27,7 +27,7 @@ export default () => (
       <path
         d="M180.17 143.772l12.572 7.129M193.841 158.42L178.67 171.36"
         stroke="#FFF"
-        stroke-width="2"
+        strokeWidth="2"
       />
       <path
         d="M185.55 171.926a6.798 6.798 0 1 1-13.528-1.363 6.798 6.798 0 0 1 13.527 1.363M204.12 155.285a6.848 6.848 0 1 1-13.627-1.375 6.848 6.848 0 0 1 13.626 1.375"
@@ -36,11 +36,11 @@ export default () => (
       <path
         d="M152.988 194.074a2.21 2.21 0 1 1-4.42 0 2.21 2.21 0 0 1 4.42 0zM225.931 118.217a2.21 2.21 0 1 1-4.421 0 2.21 2.21 0 0 1 4.421 0zM217.09 153.051a2.21 2.21 0 1 1-4.421 0 2.21 2.21 0 0 1 4.42 0zM177.84 109.842a2.21 2.21 0 1 1-4.422 0 2.21 2.21 0 0 1 4.421 0zM196.114 94.454a2.21 2.21 0 1 1-4.421 0 2.21 2.21 0 0 1 4.421 0zM202.844 182.523a2.21 2.21 0 1 1-4.42 0 2.21 2.21 0 0 1 4.42 0z"
         stroke="#FFF"
-        stroke-width="2"
+        strokeWidth="2"
       />
       <path
         stroke="#FFF"
-        stroke-width="2"
+        strokeWidth="2"
         d="M215.125 155.262l-1.902 20.075-10.87 5.958M174.601 176.636l-6.322 9.761H156.98l-4.484 6.449M175.874 127.28V111.56M221.51 119.404l-12.77 7.859-15.228-7.86V96.668"
       />
       <path
@@ -90,16 +90,16 @@ export default () => (
       <path
         d="M78.18 94.656s.911 7.41-4.914 13.078"
         stroke="#E4EBF7"
-        stroke-width="1.051"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.051"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M87.397 94.68s3.124 2.572 10.263 2.572c7.14 0 9.074-3.437 9.074-3.437"
         stroke="#E4EBF7"
-        stroke-width=".932"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth=".932"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M117.184 68.639l-6.781-6.177s-5.355-4.314-9.223-.893c-3.867 3.422 4.463 2.083 5.653 4.165 1.19 2.082.848 1.143-2.083.446-5.603-1.331-2.082.893 2.975 5.355 2.091 1.845 6.992.955 6.992.955l2.467-3.851z"
@@ -119,9 +119,9 @@ export default () => (
       />
       <path
         stroke="#DB836E"
-        stroke-width="1.145"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.145"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         d="M100.843 77.099l1.701-.928-1.015-4.324.674-1.406"
       />
       <path
@@ -131,9 +131,9 @@ export default () => (
       <path
         d="M91.132 86.786s5.269 4.957 12.679 2.327"
         stroke="#DB836E"
-        stroke-width="1.145"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.145"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M99.776 81.903s-3.592.232-1.44-2.79c1.59-1.496 4.897-.46 4.897-.46s1.156 3.906-3.457 3.25"
@@ -142,44 +142,44 @@ export default () => (
       <path
         d="M102.88 70.6s2.483.84 3.402.715M93.883 71.975s2.492-1.144 4.778-1.073"
         stroke="#5C2552"
-        stroke-width="1.526"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.526"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M86.32 77.374s.961.879 1.458 2.106c-.377.48-1.033 1.152-.236 1.809M99.337 83.719s1.911.151 2.509-.254"
         stroke="#DB836E"
-        stroke-width="1.145"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.145"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M87.782 115.821l15.73-3.012M100.165 115.821l10.04-2.008"
         stroke="#E4EBF7"
-        stroke-width="1.051"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.051"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M66.508 86.763s-1.598 8.83-6.697 14.078"
         stroke="#E4EBF7"
-        stroke-width="1.114"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.114"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M128.31 87.934s3.013 4.121 4.06 11.785"
         stroke="#E4EBF7"
-        stroke-width="1.051"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.051"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M64.09 84.816s-6.03 9.912-13.607 9.903"
         stroke="#DB836E"
-        stroke-width=".795"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth=".795"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M112.366 65.909l-.142 5.32s5.993 4.472 11.945 9.202c4.482 3.562 8.888 7.455 10.985 8.662 4.804 2.766 8.9 3.355 11.076 1.808 4.071-2.894 4.373-9.878-8.136-15.263-4.271-1.838-16.144-6.36-25.728-9.73"
@@ -188,23 +188,23 @@ export default () => (
       <path
         d="M130.532 85.488s4.588 5.757 11.619 6.214"
         stroke="#DB836E"
-        stroke-width=".75"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth=".75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M121.708 105.73s-.393 8.564-1.34 13.612"
         stroke="#E4EBF7"
-        stroke-width="1.051"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.051"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M115.784 161.512s-3.57-1.488-2.678-7.14"
         stroke="#648BD8"
-        stroke-width="1.051"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.051"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M101.52 290.246s4.326 2.057 7.408 1.03c2.842-.948 4.564.673 7.132 1.186 2.57.514 6.925 1.108 11.772-1.269-.104-5.551-6.939-4.01-12.048-6.763-2.582-1.39-3.812-4.757-3.625-8.863h-9.471s-1.402 10.596-1.169 14.68"
@@ -237,22 +237,22 @@ export default () => (
       <path
         d="M77.438 220.434c1.146.094 4.016-2.008 6.916-4.91M107.55 223.931s2.758-1.103 6.069-3.862"
         stroke="#648BD8"
-        stroke-width="1.051"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.051"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M108.459 220.905s2.759-1.104 6.07-3.863"
         stroke="#648BD8"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M76.099 223.557s2.608-.587 6.47-3.346M87.33 150.82c-.27 3.088.297 8.478-4.315 9.073M104.829 149.075s.11 13.936-1.286 14.983c-2.207 1.655-2.975 1.934-2.975 1.934M101.014 149.63s.035 12.81-1.19 24.245M94.93 174.965s7.174-1.655 9.38-1.655M75.671 204.754c-.316 1.55-.64 3.067-.973 4.535 0 0-1.45 1.822-1.003 3.756.446 1.934-.943 2.034-4.96 15.273-1.686 5.559-4.464 18.49-6.313 27.447-.078.38-4.018 18.06-4.093 18.423M77.043 196.743a313.269 313.269 0 0 1-.877 4.729M83.908 151.414l-1.19 10.413s-1.091.148-.496 2.23c.111 1.34-2.66 15.692-5.153 30.267M57.58 272.94h13.238"
         stroke="#648BD8"
-        stroke-width="1.051"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.051"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M117.377 147.423s-16.955-3.087-35.7.199c.157 2.501-.002 4.128-.002 4.128s14.607-2.802 35.476-.31c.251-2.342.226-4.017.226-4.017"
@@ -269,9 +269,9 @@ export default () => (
       <path
         d="M101.485 273.933h12.272M102.652 269.075c.006 3.368.04 5.759.11 6.47M102.667 263.125c-.009 1.53-.015 2.98-.016 4.313M102.204 174.024l.893 44.402s.669 1.561-.224 2.677c-.892 1.116 2.455.67.893 2.231-1.562 1.562.893 1.116 0 3.347-.592 1.48-.988 20.987-1.09 34.956"
         stroke="#648BD8"
-        stroke-width="1.051"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.051"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </g>
   </svg>
