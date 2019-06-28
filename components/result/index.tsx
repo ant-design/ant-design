@@ -53,6 +53,7 @@ const renderIcon = (prefixCls: string, { status, icon }: ResultProps) => {
       </div>
     );
   }
+
   const iconString: string = IconMap[status as Exclude<ResultStatusType, ExceptionStatusType>];
   const iconNode = icon || <Icon type={iconString} theme="filled" />;
 
@@ -62,7 +63,7 @@ const renderIcon = (prefixCls: string, { status, icon }: ResultProps) => {
 const renderExtra = (prefixCls: string, { extra }: ResultProps) =>
   extra && <div className={`${prefixCls}-extra`}>{extra}</div>;
 
-const Result: React.SFC<ResultProps> = props => (
+const OriginResult: React.SFC<ResultProps> = props => (
   <ConfigConsumer>
     {({ getPrefixCls }: ConfigConsumerProps) => {
       const { prefixCls: customizePrefixCls, subTitle, title, style, children, status } = props;
@@ -81,8 +82,14 @@ const Result: React.SFC<ResultProps> = props => (
   </ConfigConsumer>
 );
 
-Result.defaultProps = {
+OriginResult.defaultProps = {
   status: 'info',
 };
+
+type ResultType = typeof OriginResult & { PRESENTED_SVG_DEFAULT: typeof ExceptionImageMap };
+
+const Result = OriginResult as ResultType;
+
+Result.PRESENTED_SVG_DEFAULT = ExceptionImageMap;
 
 export default Result;
