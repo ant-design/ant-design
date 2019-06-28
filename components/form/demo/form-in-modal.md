@@ -39,6 +39,7 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
       visible={visible}
       title="Create a new collection"
       okText="Create"
+      cancelText="Cancel"
       onCancel={onCancel}
       onOk={() => {
         form
