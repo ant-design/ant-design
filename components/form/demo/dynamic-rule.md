@@ -1,5 +1,5 @@
 ---
-order: 13
+order: 23
 title:
   zh-CN: 动态校验规则
   en-US: Dynamic Rules

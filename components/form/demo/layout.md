@@ -1,5 +1,5 @@
 ---
-order: 12
+order: 4
 title:
   zh-CN: 表单布局
   en-US: Form Layout

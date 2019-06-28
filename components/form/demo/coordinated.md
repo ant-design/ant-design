@@ -1,5 +1,5 @@
 ---
-order: 11
+order: 21
 title:
   zh-CN: 表单联动
   en-US: Coordinated Controls

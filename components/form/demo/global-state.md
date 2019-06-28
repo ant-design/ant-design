@@ -1,5 +1,5 @@
 ---
-order: 8
+order: 18
 title:
   zh-CN: 表单数据存储于上层组件
   en-US: Store Form Data into Upper Component

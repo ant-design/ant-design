@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 14
 title:
   zh-CN: 弹出层中的新建表单
   en-US: Form in Modal to Create

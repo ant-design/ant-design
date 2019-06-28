@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 13
 title:
   zh-CN: 高级搜索
   en-US: Advanced search

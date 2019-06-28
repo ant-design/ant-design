@@ -1,5 +1,5 @@
 ---
-order: 0
+order: 10
 title:
   zh-CN: 水平登录栏
   en-US: Horizontal Login Form
