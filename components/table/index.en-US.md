@@ -168,7 +168,7 @@ Properties for row selection.
 | columnTitle | Set the title of the selection column | string\|React.ReactNode | - |
 | fixed | Fixed selection column on the left | boolean | - |
 | getCheckboxProps | Get Checkbox or Radio props | Function(record) | - |
-| hideDefaultSelections | Remove the default `Select All` and `Select Invert` selections | boolean | `false` |
+| hideDefaultSelections | Remove the default `Select All` and `Select Invert` selections when [custom selection](#components-table-demo-row-selection-custom) | boolean | `false` |
 | selectedRowKeys | Controlled selected row keys | string\[] | \[] |
 | selections | Custom selection [config](#rowSelection), only displays default selections when set to `true` | object\[]\|boolean | - |
 | type | `checkbox` or `radio` | `checkbox` \| `radio` | `checkbox` |
