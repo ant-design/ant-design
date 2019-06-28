@@ -748,7 +748,7 @@ exports[`renders ./components/descriptions/demo/vertical.md correctly 1`] = `
 
 exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`] = `
 <div
-  class="ant-descriptions bordered"
+  class="ant-descriptions ant-descriptions-bordered"
 >
   <div
     class="ant-descriptions-title"
