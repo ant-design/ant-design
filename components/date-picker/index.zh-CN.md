@@ -58,7 +58,7 @@ moment.locale('zh-cn');
 | dropdownClassName | 额外的弹出日历 className | string | - |
 | getCalendarContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | 无 |
 | locale | 国际化配置 | object | [默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |
-| mode | 日期面板的状态 | `time|date|month|year|decade` | 'date' |
+| mode | 日期面板的状态（[设置后无法选择年份/月份？](/docs/react/faq#当我指定了-DatePicker/RangePicker-的-mode-属性后，点击后无法选择年份/月份？)） | `time|date|month|year|decade` | 'date' |
 | open | 控制弹层是否展开 | boolean | - |
 | placeholder | 输入框提示文字 | string\|RangePicker\[] | - |
 | popupStyle | 额外的弹出日历样式 | object | {} |
@@ -141,4 +141,4 @@ moment.locale('zh-cn');
 
 ## FAQ
 
-- [当我指定了 DatePicker/RangePicker 的 mode 属性后，点击后无法选择年份/月份？](/docs/react/faq-cn#当我指定了-DatePicker/RangePicker-的-mode-属性后，点击后无法选择年份/月份？)
+- [当我指定了 DatePicker/RangePicker 的 mode 属性后，点击后无法选择年份/月份？](/docs/react/faq#当我指定了-DatePicker/RangePicker-的-mode-属性后，点击后无法选择年份/月份？)
