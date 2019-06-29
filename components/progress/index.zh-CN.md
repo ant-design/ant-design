@@ -42,6 +42,7 @@ title: Progress
 | ----------- | ------------------------------------------------ | ------ | ------ |
 | width       | 圆形进度条画布宽度，单位 px                      | number | 132    |
 | strokeWidth | 圆形进度条线的宽度，单位是进度条画布宽度的百分比 | number | 6      |
+| strokeColor | 圆形进度条线的色彩，传入 object 时为渐变 | string \| object | - |
 
 ### `type="dashboard"`
 

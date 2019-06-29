@@ -127,6 +127,20 @@ describe('Descriptions', () => {
     wrapper.unmount();
   });
 
+  it('vertical layout', () => {
+    // eslint-disable-next-line global-require
+    const wrapper = mount(
+      <Descriptions layout="vertical">
+        <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
+        <Descriptions.Item label="Billing">Prepaid</Descriptions.Item>
+        <Descriptions.Item label="time">18:00:00</Descriptions.Item>
+        <Descriptions.Item label="Amount">$80.00</Descriptions.Item>
+      </Descriptions>,
+    );
+    expect(wrapper).toMatchSnapshot();
+    wrapper.unmount();
+  });
+
   it('Descriptions.Item support className', () => {
     const wrapper = mount(
       <Descriptions>

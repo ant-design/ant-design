@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import RcDrawer from 'rc-drawer';
 import createReactContext from '@ant-design/create-react-context';
 import warning from '../_util/warning';
@@ -10,7 +9,9 @@ import { tuple } from '../_util/type';
 
 const DrawerContext = createReactContext<Drawer | null>(null);
 
-type EventType = React.MouseEvent<HTMLDivElement> | React.MouseEvent<HTMLButtonElement>;
+type EventType =
+  | React.KeyboardEvent<HTMLDivElement>
+  | React.MouseEvent<HTMLDivElement | HTMLButtonElement>;
 
 type getContainerFunc = () => HTMLElement;
 
@@ -39,6 +40,7 @@ export interface DrawerProps {
   afterVisibleChange?: (visible: boolean) => void;
   className?: string;
   handler?: React.ReactNode;
+  keyboard?: boolean;
 }
 
 export interface IDrawerState {
@@ -46,30 +48,6 @@ export interface IDrawerState {
 }
 
 class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerState> {
-  static propTypes = {
-    closable: PropTypes.bool,
-    destroyOnClose: PropTypes.bool,
-    getContainer: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.object as PropTypes.Requireable<HTMLElement>,
-      PropTypes.func,
-      PropTypes.bool,
-    ]),
-    maskClosable: PropTypes.bool,
-    mask: PropTypes.bool,
-    maskStyle: PropTypes.object,
-    style: PropTypes.object,
-    title: PropTypes.node,
-    visible: PropTypes.bool,
-    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    zIndex: PropTypes.number,
-    prefixCls: PropTypes.string,
-    placement: PropTypes.oneOf(PlacementTypes),
-    onClose: PropTypes.func,
-    afterVisibleChange: PropTypes.func,
-    className: PropTypes.string,
-  };
-
   static defaultProps = {
     width: 256,
     height: 256,
@@ -78,6 +56,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
     maskClosable: true,
     mask: true,
     level: null,
+    keyboard: true,
   };
 
   readonly state = {
@@ -106,7 +85,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
   };
 
   onMaskClick = (e: EventType) => {
-    if (!this.props.maskClosable) {
+    if (!this.props.maskClosable && !(e.nativeEvent instanceof KeyboardEvent)) {
       return;
     }
     this.close(e);

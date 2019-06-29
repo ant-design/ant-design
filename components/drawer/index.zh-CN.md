@@ -35,6 +35,7 @@ title: Drawer
 | placement | 抽屉的方向 | 'top' \| 'right' \| 'bottom' \| 'left' | 'right' |
 | onClose | 点击遮罩层或右上角叉或取消按钮的回调 | function(e) | 无 |
 | afterVisibleChange | 切换抽屉时动画结束后的回调 | function(visible) | 无 |
+| keyboard | 是否支持键盘 esc 关闭 | boolean | true |
 
 <style>
 #_hj_feedback_container {
