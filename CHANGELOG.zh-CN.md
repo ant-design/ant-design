@@ -19,11 +19,11 @@ timeline: true
 
 - 🔥 Descriptions 支持垂直布局。[#17330](https://github.com/ant-design/ant-design/pull/17330) [@hengkx](https://github.com/hengkx)
 - 🔥 优化 PageHeader 的 `className` 定义。[#17321](https://github.com/ant-design/ant-design/pull/17321)
-- 🔥 Progress.Circle 支持渐变色。[#17315](https://github.com/ant-design/ant-design/pull/17315) [@hengkx](https://github.com/hengkx) ![image](https://user-images.githubusercontent.com/8186664/60384561-d54d1b80-9ab1-11e9-9dd3-886f553df0bd.png)
+- 🔥 Progress.Circle 支持渐变色。[#17315](https://github.com/ant-design/ant-design/pull/17315) [@hengkx](https://github.com/hengkx) <br/><img width="120" src="https://user-images.githubusercontent.com/8186664/60384561-d54d1b80-9ab1-11e9-9dd3-886f553df0bd.png" src="Progress">
 - 🐞 Drawer 修复 `maskCloseble` 为 false，键盘 ESC 关闭无效的问题。[#17316](https://github.com/ant-design/ant-design/pull/17316)
 - 🐞 修复在 Edge 下 Drawer 关闭后没有调用 `afterVisibleChange` 的问题。[#17311](https://github.com/ant-design/ant-design/pull/17311)
 - 🌟 Drawer 新增 `keyboard`，允许打开关闭对键盘事件的响应。[#17316](https://github.com/ant-design/ant-design/pull/17316)
-- 🌟 Popconfirm 增加 `disable` 参数，用于控制点击子元素是否弹出。[#16985](https://github.com/ant-design/ant-design/pull/16985) [@lhyt](https://github.com/lhyt)
+- 🌟 Popconfirm 增加 `disabled` props，用于控制点击子元素是否弹出。[#16985](https://github.com/ant-design/ant-design/pull/16985) [@lhyt](https://github.com/lhyt)
 - ⌨️ 改进 TimePicker 可访问性。[#17099](https://github.com/ant-design/ant-design/pull/17099)
 - 💄 修复 Tooltip 箭头阴影样式。[#17264](https://github.com/ant-design/ant-design/pull/17264)
 - 🐞 修复 Descriptions.Item 不支持 `className` 的问题。[#17280](https://github.com/ant-design/ant-design/pull/17280)
