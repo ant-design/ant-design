@@ -29,6 +29,7 @@ export interface ResultProps {
   subTitle?: React.ReactNode;
   extra?: React.ReactNode;
   prefixCls?: string;
+  className?: string;
   style?: React.CSSProperties;
 }
 
@@ -66,11 +67,19 @@ const renderExtra = (prefixCls: string, { extra }: ResultProps) =>
 export const OriginResult: React.SFC<ResultProps> = props => (
   <ConfigConsumer>
     {({ getPrefixCls }: ConfigConsumerProps) => {
-      const { prefixCls: customizePrefixCls, subTitle, title, style, children, status } = props;
+      const {
+        prefixCls: customizePrefixCls,
+        className,
+        subTitle,
+        title,
+        style,
+        children,
+        status,
+      } = props;
 
       const prefixCls = getPrefixCls('result', customizePrefixCls);
       return (
-        <div className={`${prefixCls} ${prefixCls}-${status}`} style={style}>
+        <div className={`${prefixCls} ${prefixCls}-${status} ${className}`} style={style}>
           {renderIcon(prefixCls, props)}
           <div className={`${prefixCls}-title`}>{title}</div>
           {subTitle && <div className={`${prefixCls}-subtitle`}>{subTitle}</div>}
