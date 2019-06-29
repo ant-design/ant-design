@@ -14,7 +14,7 @@ title:
 The display of the default status.
 
 ```jsx
-import { Layout, Result, Radio, Button } from 'antd';
+import { Result, Radio, Button } from 'antd';
 
 const StatusMap = {
   '403': {
