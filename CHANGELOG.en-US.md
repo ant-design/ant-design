@@ -18,7 +18,7 @@ timeline: true
 ## 3.20.0
 
 - 🔥 Descriptions support vertical layout. [#17330](https://github.com/ant-design/ant-design/pull/17330) [@hengkx](https://github.com/hengkx)
-- 🔥 Progress.Circle support gradient line color. [#17315](https://github.com/ant-design/ant-design/pull/17315) [@hengkx](https://github.com/hengkx) ![595ED8C1-2D53-4017-8116-7D359BCFECBF](https://user-images.githubusercontent.com/8186664/60380818-41ae2780-9a7e-11e9-9727-dce80c195e41.png)
+- 🔥 Progress.Circle support gradient line color. [#17315](https://github.com/ant-design/ant-design/pull/17315) [@hengkx](https://github.com/hengkx) ![image](https://user-images.githubusercontent.com/8186664/60384561-d54d1b80-9ab1-11e9-9dd3-886f553df0bd.png)
 - 🔥 Optimize PageHeader className naming. [#17321](https://github.com/ant-design/ant-design/pull/17321)
 - 🐞 Drawer fixes `maskCloseble` to false, keyboard ESC closes invalid. [#17316](https://github.com/ant-design/ant-design/pull/17316)
 - 🐞 Fixed an issue where Drawer closes not calling `afterVisibleChange` in Edge. [#17311](https://github.com/ant-design/ant-design/pull/17311)
