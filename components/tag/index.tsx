@@ -6,7 +6,6 @@ import Icon from '../icon';
 import CheckableTag from './CheckableTag';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { PresetColorTypes } from '../_util/colors';
-import warning from '../_util/warning';
 import Wave from '../_util/wave';
 
 export { CheckableTagProps } from './CheckableTag';
@@ -18,7 +17,6 @@ export interface TagProps extends React.HTMLAttributes<HTMLDivElement> {
   closable?: boolean;
   visible?: boolean;
   onClose?: Function;
-  afterClose?: Function;
   style?: React.CSSProperties;
 }
 
@@ -47,24 +45,12 @@ class Tag extends React.Component<TagProps, TagState> {
     visible: true,
   };
 
-  constructor(props: TagProps) {
-    super(props);
-    warning(
-      !('afterClose' in props),
-      'Tag',
-      "'afterClose' will be deprecated, please use 'onClose', we will remove this in the next version.",
-    );
-  }
-
   setVisible(visible: boolean, e: React.MouseEvent<HTMLElement>) {
-    const { onClose, afterClose } = this.props;
+    const { onClose } = this.props;
     if (onClose) {
       onClose(e);
     }
-    if (afterClose && !onClose) {
-      // next version remove.
-      afterClose();
-    }
+
     if (e.defaultPrevented) {
       return;
     }
@@ -118,7 +104,7 @@ class Tag extends React.Component<TagProps, TagState> {
     const { prefixCls: customizePrefixCls, children, ...otherProps } = this.props;
     const isNeedWave =
       'onClick' in otherProps || (children && (children as React.ReactElement<any>).type === 'a');
-    const divProps = omit(otherProps, ['onClose', 'afterClose', 'color', 'visible', 'closable']);
+    const divProps = omit(otherProps, ['onClose', 'color', 'visible', 'closable']);
     return isNeedWave ? (
       <Wave>
         <div {...divProps} className={this.getTagClassName(configProps)} style={this.getTagStyle()}>
