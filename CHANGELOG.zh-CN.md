@@ -20,22 +20,22 @@ timeline: true
 - 🔥 Descriptions 支持垂直布局。[#17330](https://github.com/ant-design/ant-design/pull/17330) [@hengkx](https://github.com/hengkx)
 - 🔥 优化 PageHeader 的 `className` 定义。[#17321](https://github.com/ant-design/ant-design/pull/17321)
 - 🔥 Progress.Circle 支持渐变色。[#17315](https://github.com/ant-design/ant-design/pull/17315) [@hengkx](https://github.com/hengkx)
-- 🐞 Drawer 修复 `maskCloseble` 为 false, 键盘 ESC 关闭无效的问题。[#17316](https://github.com/ant-design/ant-design/pull/17316)
-- 🌟 Drawer 新增 `keyboard`, 允许打开关闭对键盘事件的响应。[#17316](https://github.com/ant-design/ant-design/pull/17316)
+- 🐞 Drawer 修复 `maskCloseble` 为 false， 键盘 ESC 关闭无效的问题。[#17316](https://github.com/ant-design/ant-design/pull/17316)
+- 🌟 Drawer 新增 `keyboard`， 允许打开关闭对键盘事件的响应。[#17316](https://github.com/ant-design/ant-design/pull/17316)
 - 🌟 Popconfirm 增加 `disable` 参数，用于控制点击子元素是否弹出。[#16985](https://github.com/ant-design/ant-design/pull/16985) [@lhyt](https://github.com/lhyt)
-- ⌨️ 改进 TimePicker 可访问性。[a62a3e9](https://github.com/ant-design/ant-design/commit/a62a3e95d3ca28fd6953088ae2f2762c0c23199d)
+- ⌨️ 改进 TimePicker 可访问性。[#17099](https://github.com/ant-design/ant-design/pull/17099)
 - 💄 修复 Tooltip 箭头阴影样式。[#17264](https://github.com/ant-design/ant-design/pull/17264)
 - 🐞 修复 Descriptions.Item 不支持 `className` 的问题。[#17280](https://github.com/ant-design/ant-design/pull/17280)
 - 🐞 修复 Mentions 组件的 `placeholder` 颜色不正确的问题。[#17317](https://github.com/ant-design/ant-design/pull/17317)
 - 💄 按照设计规范修复小号 Table 的背景色。[#17351](https://github.com/ant-design/ant-design/pull/17351)
 - 🌟 CheckboxGroup `onChange` 值保持选项的顺序。[#17342](https://github.com/ant-design/ant-design/pull/17342) [@yoyo837](https://github.com/yoyo837)
-- 💄 增加 less 变量
+- 💄 增加 less 变量 [#16843](https://github.com/ant-design/ant-design/pull/16843) [#17031](https://github.com/ant-design/ant-design/pull/17031) [#16996](https://github.com/ant-design/ant-design/pull/16996) [@alxkosov](https://github.com/alxkosov)
   - `@dropdown-line-height`
   - `@dropdown-font-size`
   - `@dropdown-vertical-padding`
   - `@collapse-panel-border-radius`
   - `@table-body-selected-sort-bg`
-  - `@table-selected-row-hover-bg`。 [#16843](https://github.com/ant-design/ant-design/pull/16843) [#17031](https://github.com/ant-design/ant-design/pull/17031) [#16996](https://github.com/ant-design/ant-design/pull/16996) [@alxkosov](https://github.com/alxkosov)
+  - `@table-selected-row-hover-bg`。
 
 ## 3.19.8
 
@@ -620,7 +620,7 @@ timeline: true
 `2019-01-19`
 
 - 🌟 更新《在 create-react-app 中使用》文档以兼容升级后的 create-react-app 和 react-scripts-rewired。[#14385](https://github.com/ant-design/ant-design/pull/14385)
-- 🐞 修复在 postcss（webpack）中使用 autoprefixer 9.4.5 会抛出错误 `Replace text-decoration-skip: ink to text-decoration-skip-ink: auto, because spec had been changed` 的问题。[#14312](https://github.com/ant-design/ant-design/pull/14312)
+- 🐞 修复在 postcss（webpack）中使用 autoprefixer 9.4.5 会抛出错误 `Replace text-decoration-skip: ink to text-decoration-skip-ink: auto， because spec had been changed` 的问题。[#14312](https://github.com/ant-design/ant-design/pull/14312)
 - 🐞 修复 InputNumber 在 MenuItem 中样式不正确的问题。[#14373](https://github.com/ant-design/ant-design/pull/14373)
 - 🐞 修复 Input.Search 使用 `enterButton` 时的样式问题。[#14397](https://github.com/ant-design/ant-design/pull/14397)
 - 🐞 修复 Input.TextArea 中输入数字时 `autosize` 高度无法自适应的问题。[#14375](https://github.com/ant-design/ant-design/pull/14375)
@@ -1909,10 +1909,10 @@ timeline: true
   Form.create({
     mapPropsToFields() {
       return {
-  -     name: { value: 'antd' },
-  +     name: Form.createFormField({ value: 'antd' }),
+  -     name: { value: 'antd' }，
+  +     name: Form.createFormField({ value: 'antd' })，
       };
-    },
+    }，
   })
   ```
 
@@ -1937,8 +1937,8 @@ timeline: true
   ReactDOM.render(
     <LocaleProvider locale={zhCN}>
       <YourApp />
-    </LocaleProvider>,
-    document.getElementById('root'),
+    </LocaleProvider>，
+    document.getElementById('root')，
   );
   ```
 
@@ -1966,7 +1966,7 @@ timeline: true
 ### 新增功能及改进
 
 - 🌟 Tabs 新增 `size="large"`。
-- 🌟 Row 的 `gutter` 属性新增响应式断点的支持，可以使用诸如 `gutter={{ sm: 16, lg: 32 }}` 的设置。
+- 🌟 Row 的 `gutter` 属性新增响应式断点的支持，可以使用诸如 `gutter={{ sm: 16， lg: 32 }}` 的设置。
 - 🌟 Spin 新增 `indicator` 属性，用于设置自定义的加载指示符。[#7977](https://github.com/ant-design/ant-design/pull/7977) [@kossel](https://github.com/ant-design/ant-design/pull/7977)
 - 🌟 Input.Search 新增 `enterButton` 用于设置自定义的搜索图标。[#7596](https://github.com/ant-design/ant-design/issues/7596)
 - 🌟 Mention 新增 `placement`，用于设置下拉框的弹出方向。
@@ -2003,17 +2003,17 @@ timeline: true
     ```javascript
     // 支持覆盖的元素
     const components = {
-      table: MyTable,
+      table: MyTable，
       header: {
-        wrapper: HeaderWrapper,
-        row: HeaderRow,
-        cell: HeaderCell,
-      },
+        wrapper: HeaderWrapper，
+        row: HeaderRow，
+        cell: HeaderCell，
+      }，
       body: {
-        wrapper: BodyWrapper,
-        row: BodyRow,
-        cell: BodyCell,
-      },
+        wrapper: BodyWrapper，
+        row: BodyRow，
+        cell: BodyCell，
+      }，
     };
 
     <Table components={components} columns={columns} data={data} />;
@@ -2031,11 +2031,11 @@ timeline: true
     ```javascript
     <Table
       onRow={record => ({
-        onClick: () => {},
-        onDoubleClick: () => {},
-        onContextMenu: () => {},
-        onMouseEnter: () => {},
-        onMouseLeave: () => {},
+        onClick: () => {}，
+        onDoubleClick: () => {}，
+        onContextMenu: () => {}，
+        onMouseEnter: () => {}，
+        onMouseLeave: () => {}，
       })}
     />
     ```
