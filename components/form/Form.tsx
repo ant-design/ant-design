@@ -1,7 +1,7 @@
 import * as React from 'react';
 import omit from 'omit.js';
 import classNames from 'classnames';
-import FieldForm, { FormInstance, useForm, List } from 'rc-field-form';
+import FieldForm, { FormInstance, useForm, List, FormProvider } from 'rc-field-form';
 import { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
 import { ColProps } from '../grid/col';
 import { ConfigContext, ConfigConsumerProps } from '../config-provider';
@@ -75,6 +75,6 @@ const InternalForm: React.FC<FormProps> = (props, ref) => {
 
 const Form = React.forwardRef<FormInstance>(InternalForm);
 
-export { useForm, List, FormInstance };
+export { useForm, List, FormInstance, FormProvider };
 
 export default Form;

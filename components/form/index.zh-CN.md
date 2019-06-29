@@ -35,7 +35,11 @@ title: Form
 | onFieldsChange | 字段更新时触发回调事件 | Function(changedFields, allFields) | - |
 | onValuesChange | 字段值更新时触发回调事件 | Function(changedValues, allValues) | - |
 
+### validateMessages 使用
+
 ## Form.Item
+
+表单字段组件，用于数据双向绑定、校验、布局等。
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -46,6 +50,7 @@ title: Form
 | hasFeedback | 配合 `validateStatus` 属性使用，展示校验状态图标，建议只配合 Input 组件使用 | boolean | false |
 | help | 提示信息，如不设置，则会根据校验规则自动生成 | string\|ReactNode | - |
 | htmlFor | 设置子元素 label `htmlFor` 属性 | string | - |
+| inline | 为 `true` 时不带样式，作为纯字段控件使用 | boolean | false |
 | label | `label` 标签的文本 | string\|ReactNode | - |
 | labelCol | `label` 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}`。你可以通过 Form 的 `labelCol` 进行统一设置。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid/#Col) | - |
 | name | 字段名，支持数组 | [NamePath](#NamePath) | - |
@@ -67,6 +72,20 @@ title: Form
 | --- | --- | --- | --- |
 | name | 字段名，支持数组 | [NamePath](#NamePath) | - |
 | children | 渲染函数 | (fields: Field[], operation: { add, remove }) => React.ReactNode | - |
+
+```tsx
+<Form.List>
+  {fields => (
+    <div>
+      {fields.map(field => (
+        <Form.Item {...field}>
+          <Input />
+        </Form.Item>
+      ))}
+    </div>
+  )}
+</Form.List>
+```
 
 ### FormInstance
 

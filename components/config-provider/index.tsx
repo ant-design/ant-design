@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import defaultRenderEmpty, { RenderEmptyHandler } from './renderEmpty';
 
 export { RenderEmptyHandler };
