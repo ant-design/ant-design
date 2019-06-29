@@ -45,6 +45,6 @@ describe('Progress', () => {
 
   it('🙂  When extra is undefined, the extra dom is undefined', () => {
     const wrapper = mount(<Result status="404" />);
-    expect(wrapper.find('.ant-result-extra-view')).toHaveLength(0);
+    expect(wrapper.find('.ant-result-extra')).toHaveLength(0);
   });
 });

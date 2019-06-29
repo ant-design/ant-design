@@ -8,19 +8,19 @@
   background-color: @component-background;
 
   // status color
-  &.@{result-prefix-cls}-success .anticon {
+  &-success .anticon {
     color: @success-color;
   }
 
-  &.@{result-prefix-cls}-error .anticon {
+  &-error .anticon {
     color: @error-color;
   }
 
-  &.@{result-prefix-cls}-info .anticon {
+  &-info .anticon {
     color: @info-color;
   }
 
-  &.@{result-prefix-cls}-warning .anticon {
+  &-warning .anticon {
     color: @warning-color;
   }
 
@@ -31,13 +31,13 @@
     > .anticon {
       font-size: 72px;
     }
+  }
 
-    // Exception Status image
-    &.@{result-prefix-cls}-image {
-      width: 250px;
-      height: 295px;
-      margin: auto;
-    }
+  // Exception Status image
+  &-image {
+    width: 250px;
+    height: 295px;
+    margin: auto;
   }
 
   &-title {
