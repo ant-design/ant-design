@@ -495,16 +495,21 @@ exports[`renders ./components/result/demo/complex.md correctly 1`] = `
   <div
     class="ant-result-content"
   >
-    <p>
-      The content you submitted has the following error:
-    </p>
     <div
       class="desc"
     >
-      <span>
+      <h4
+        class="ant-typography"
+      >
+        The content you submitted has the following error:
+      </h4>
+      <div
+        class="ant-typography"
+      >
         <i
           aria-label="icon: close-circle"
           class="anticon anticon-close-circle"
+          style="color:red"
         >
           <svg
             aria-hidden="true"
@@ -524,12 +529,14 @@ exports[`renders ./components/result/demo/complex.md correctly 1`] = `
             />
           </svg>
         </i>
-        Your account has been frozen 
+         Your account has been frozen 
         <a>
           Thaw immediately &gt;
         </a>
-      </span>
-      <span>
+      </div>
+      <div
+        class="ant-typography"
+      >
         <i
           aria-label="icon: close-circle"
           class="anticon anticon-close-circle"
@@ -552,11 +559,11 @@ exports[`renders ./components/result/demo/complex.md correctly 1`] = `
             />
           </svg>
         </i>
-        Your account is not yet eligible to apply 
+         Your account is not yet eligible to apply 
         <a>
           Apply immediately &gt;
         </a>
-      </span>
+      </div>
     </div>
   </div>
   <div
