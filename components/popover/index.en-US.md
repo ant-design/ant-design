@@ -14,10 +14,10 @@ Comparing with `Tooltip`, besides information `Popover` card can also provide ac
 
 ## API
 
-| Param   | Description         | Type              | Default value |
-| ------- | ------------------- | ----------------- | ------------- |
-| content | Content of the card | string\|ReactNode | -             |
-| title   | Title of the card   | string\|ReactNode | -             |
+| Param   | Description         | Type              | Default value | Version Added |
+| ------- | ------------------- | ----------------- | ------------- | ------------- |
+| content | Content of the card | string\|ReactNode | -             | 3.0.0         |
+| title   | Title of the card   | string\|ReactNode | -             | 3.0.0         |
 
 Consult [Tooltip's documentation](https://ant.design/components/tooltip/#API) to find more APIs.
 

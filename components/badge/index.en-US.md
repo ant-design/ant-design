@@ -22,14 +22,14 @@ Badge normally appears in proximity to notifications or user avatars with eye-ca
 <Badge count={5} />
 ```
 
-| Property | Description | Type | Default | Version |
+| Property | Description | Type | Default | Version Added |
 | --- | --- | --- | --- | --- |
 | color | Customize Badge dot color | string | - | 3.16.0 |
-| count | Number to show in badge | ReactNode |  |  |
-| dot | Whether to display a red dot instead of `count` | boolean | `false` |  |
-| offset | set offset of the badge dot, like`[x, y]` | `[number, number]` | - |  |
-| overflowCount | Max count to show | number | 99 |  |
-| showZero | Whether to show badge when `count` is zero | boolean | `false` |  |
-| status | Set Badge as a status dot | `success` \| `processing` \| `default` \| `error` \| `warning` | `''` |  |
-| text | If `status` is set, `text` sets the display text of the status `dot` | string | `''` |  |
-| title | Text to show when hovering over the badge | string | `count` |  |
+| count | Number to show in badge | ReactNode |  | 3.0.0 |
+| dot | Whether to display a red dot instead of `count` | boolean | `false` | 3.0.0 |
+| offset | set offset of the badge dot, like`[x, y]` | `[number, number]` | - | 3.0.0 |
+| overflowCount | Max count to show | number | 99 | 3.0.0 |
+| showZero | Whether to show badge when `count` is zero | boolean | `false` | 3.0.0 |
+| status | Set Badge as a status dot | `success` \| `processing` \| `default` \| `error` \| `warning` | `''` | 3.0.0 |
+| text | If `status` is set, `text` sets the display text of the status `dot` | string | `''` | 3.0.0 |
+| title | Text to show when hovering over the badge | string | `count` | 3.5.0 |

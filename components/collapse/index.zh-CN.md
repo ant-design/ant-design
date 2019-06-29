@@ -19,22 +19,22 @@ cols: 1
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| activeKey | 当前激活 tab 面板的 key | string\[]\|string | 默认无，accordion 模式下默认第一个元素 |  |
-| defaultActiveKey | 初始化选中面板的 key | string | 无 |  |
-| bordered | 带边框风格的折叠面板 | boolean | `true` |  |
-| accordion | 手风琴模式 | boolean | `false` |  |
-| onChange | 切换面板的回调 | Function | 无 |  |
-| expandIcon | 自定义切换图标 | (panelProps) => ReactNode | - |  |
+| activeKey | 当前激活 tab 面板的 key | string\[]\|string | 默认无，accordion 模式下默认第一个元素 | 3.0.0 |
+| defaultActiveKey | 初始化选中面板的 key | string | 无 | 3.0.0 |
+| bordered | 带边框风格的折叠面板 | boolean | `true` | 3.13.0 |
+| accordion | 手风琴模式 | boolean | `false` | 3.13.0 |
+| onChange | 切换面板的回调 | Function | 无 | 3.0.0 |
+| expandIcon | 自定义切换图标 | (panelProps) => ReactNode | - | 3.13.0 |
 | expandIconPosition | 设置图标位置： `left`, `right` | `left` | - | 3.17.0 |
-| destroyInactivePanel | 销毁折叠隐藏的面板 | boolean | `false` |  |
+| destroyInactivePanel | 销毁折叠隐藏的面板 | boolean | `false` | 3.13.0 |
 
 ### Collapse.Panel
 
-| 参数        | 说明                                       | 类型              | 默认值 |
-| ----------- | ------------------------------------------ | ----------------- | ------ |
-| disabled    | 禁用后的面板展开与否将无法通过用户交互改变 | boolean           | false  |
-| forceRender | 被隐藏时是否渲染 DOM 结构                  | boolean           | false  |
-| header      | 面板头内容                                 | string\|ReactNode | 无     |
-| key         | 对应 activeKey                             | string            | 无     |
-| showArrow   | 是否展示当前面板上的箭头                   | boolean           | `true` |
-| extra       | 自定义渲染每个面板右上角的内容             | ReactNode         | -      |
+| 参数        | 说明                                       | 类型              | 默认值 | 版本   |
+| ----------- | ------------------------------------------ | ----------------- | ------ | ------ |
+| disabled    | 禁用后的面板展开与否将无法通过用户交互改变 | boolean           | false  | 3.0.0  |
+| forceRender | 被隐藏时是否渲染 DOM 结构                  | boolean           | false  | 3.2.0  |
+| header      | 面板头内容                                 | string\|ReactNode | 无     | 3.0.0  |
+| key         | 对应 activeKey                             | string            | 无     | 3.0.0  |
+| showArrow   | 是否展示当前面板上的箭头                   | boolean           | `true` | 3.13.0 |
+| extra       | 自定义渲染每个面板右上角的内容             | ReactNode         | -      | 3.14.0 |

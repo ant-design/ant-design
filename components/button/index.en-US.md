@@ -14,20 +14,20 @@ A button means an operation (or a series of operations). Clicking a button will 
 
 To get a customized button, just set `type`/`shape`/`size`/`loading`/`disabled`.
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| disabled | disabled state of button | boolean | `false` |
-| ghost | make background transparent and invert text and border colors, added in 2.7 | boolean | `false` |
-| href | redirect url of link button | string | - |
-| htmlType | set the original html `type` of `button`, see: [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-type) | string | `button` |
-| icon | set the icon of button, see: Icon component | string | - |
-| loading | set the loading status of button | boolean \| { delay: number } | `false` |
-| shape | can be set to `circle`, `round` or omitted | string | - |
-| size | can be set to `small` `large` or omitted | string | `default` |
-| target | same as target attribute of a, works when href is specified | string | - |
-| type | can be set to `primary` `ghost` `dashed` `danger` `link`(added in 3.17) or omitted (meaning `default`) | string | `default` |
-| onClick | set the handler to handle `click` event | (event) => void | - |
-| block | option to fit button width to its parent width | boolean | `false` |
+| Property | Description | Type | Default | Version Added |
+| --- | --- | --- | --- | --- |
+| disabled | disabled state of button | boolean | `false` | 3.5.1 |
+| ghost | make background transparent and invert text and border colors, added in 2.7 | boolean | `false` | 3.0.0 |
+| href | redirect url of link button | string | - | 3.0.0 |
+| htmlType | set the original html `type` of `button`, see: [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-type) | string | `button` | 3.0.0 |
+| icon | set the icon of button, see: Icon component | string | - | 3.0.0 |
+| loading | set the loading status of button | boolean \| { delay: number } | `false` | 3.0.0 |
+| shape | can be set to `circle`, `round` or omitted | string | - | 3.0.0 |
+| size | can be set to `small` `large` or omitted | string | `default` | 3.0.0 |
+| target | same as target attribute of a, works when href is specified | string | - | 3.0.0 |
+| type | can be set to `primary` `ghost` `dashed` `danger` `link`(added in 3.17) or omitted (meaning `default`) | string | `default` | 3.0.0 |
+| onClick | set the handler to handle `click` event | (event) => void | - | 3.0.0 |
+| block | option to fit button width to its parent width | boolean | `false` | 3.8.0 |
 
 It accepts all props which native button support.
 

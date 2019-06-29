@@ -17,20 +17,20 @@ subtitle: 走马灯
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| afterChange | 切换面板的回调 | function(current) | 无 |  |
-| autoplay | 是否自动切换 | boolean | false |  |
-| beforeChange | 切换面板的回调 | function(from, to) | 无 |  |
-| dotPosition | 面板指示点位置，可选 `top` `bottom` `left` `right` | string | bottom | 3.17.0 |
-| dots | 是否显示面板指示点 | boolean | true |  |
-| easing | 动画效果 | string | linear |  |
-| effect | 动画效果函数，可取 scrollx, fade | string | scrollx |  |
+| afterChange | 切换面板的回调 | function(current) | 无 |  | 3.0.0 |
+| autoplay | 是否自动切换 | boolean | false |  | 3.0.0 |
+| beforeChange | 切换面板的回调 | function(from, to) | 无 |  | 3.0.0 |
+| dotPosition | 面板指示点位置，可选 `top` `bottom` `left` `right` | string | bottom | 3.17.0 | 3.17.0 |
+| dots | 是否显示面板指示点 | boolean | true |  | 3.0.0 |
+| easing | 动画效果 | string | linear |  | 3.0.0 |
+| effect | 动画效果函数，可取 scrollx, fade | string | scrollx |  | 3.0.0 |
 
 ## 方法
 
 | 名称                           | 描述                                              |
 | ------------------------------ | ------------------------------------------------- |
-| goTo(slideNumber, dontAnimate) | 切换到指定面板, dontAnimate = true 时，不使用动画 |
-| next()                         | 切换到下一面板                                    |
-| prev()                         | 切换到上一面板                                    |
+| goTo(slideNumber, dontAnimate) | 切换到指定面板, dontAnimate = true 时，不使用动画 | 3.9.3 |
+| next()                         | 切换到下一面板                                    | 3.0.0 |
+| prev()                         | 切换到上一面板                                    | 3.0.0 |
 
 更多参数可参考：<https://github.com/akiran/react-slick>

@@ -26,47 +26,47 @@ Mention 组件使用了
 
 ### Mention API
 
-| API | 说明 | 类型 |
-| --- | --- | --- |
-| getMentions | 获取当前 contentState 中提到的人的列表 | Function(contentState: ContentState): string\[] |
-| toContentState | 把字符串转成 ContentState | Function(value: string): ContentState |
-| toString | 把 ContentState 转成字符串 | Function(contentState: ContentState): string |
+| API | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| getMentions | 获取当前 contentState 中提到的人的列表 | Function(contentState: ContentState): string\[] | 3.0.0 |
+| toContentState | 把字符串转成 ContentState | Function(value: string): ContentState | 3.0.0 |
+| toString | 把 ContentState 转成字符串 | Function(contentState: ContentState): string | 3.0.0 |
 
 ### Mention
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| autoFocus | 自动获取焦点 | boolean | false |
-| defaultValue | 默认值 | ContentState, 可以用 `Mention.toContentState(text)` 把文字转换成 ContentState | null |
-| defaultSuggestions | 默认建议内容 | Array&lt;string\|Mention.Nav> | \[] |
-| disabled | 是否禁用状态. | boolean | false |
-| getSuggestionContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位 | function() | () => document.body |
-| loading | 加载中 | boolean | false |
-| multiLines | 多行模式 | boolean | false |
-| notFoundContent | 未找到时的内容 | string | '无匹配结果，轻敲空格完成输入' |
-| placeholder | 输入框默认文字 | string | null |
-| placement | 建议框位置，可选 `top` `bottom` | string | 'bottom' |
-| prefix | 触发弹出下拉框的字符 | string or Array&lt;string> | '@' |
-| readOnly | 是否只读. | boolean | false |
-| suggestions | 建议内容 | Array&lt;string\|Mention.Nav> | \[] |
-| suggestionStyle | 弹出下拉框样式 | object | {} |
-| value | 值 | ContentState | null |
-| onBlur | 失去焦点时回调 | function(e) | null |
-| onChange | 输入框内容变化时回调 | function(contentState: ContentState) | null |
-| onFocus | 获得焦点时回调 | function(e) | null |
-| onSearchChange | 输入框中 @ 变化时回调 | function(value:string, trigger: string) | \[] |
-| onSelect | 下拉框选择建议时回调 | function(suggestion: string, data?: any) | null |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| autoFocus | 自动获取焦点 | boolean | false | 3.0.0 |
+| defaultValue | 默认值 | ContentState, 可以用 `Mention.toContentState(text)` 把文字转换成 ContentState | null | 3.0.0 |
+| defaultSuggestions | 默认建议内容 | Array&lt;string\|Mention.Nav> | \[] | 3.12.0 |
+| disabled | 是否禁用状态. | boolean | false | 3.0.0 |
+| getSuggestionContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位 | function() | () => document.body | 3.0.0 |
+| loading | 加载中 | boolean | false | 3.0.0 |
+| multiLines | 多行模式 | boolean | false | 3.0.0 |
+| notFoundContent | 未找到时的内容 | string | '无匹配结果，轻敲空格完成输入' | 3.0.0 |
+| placeholder | 输入框默认文字 | string | null | 3.0.0 |
+| placement | 建议框位置，可选 `top` `bottom` | string | 'bottom' | 3.0.0 |
+| prefix | 触发弹出下拉框的字符 | string or Array&lt;string> | '@' | 3.0.0 |
+| readOnly | 是否只读. | boolean | false | 3.0.0 |
+| suggestions | 建议内容 | Array&lt;string\|Mention.Nav> | \[] | 3.0.0 |
+| suggestionStyle | 弹出下拉框样式 | object | {} | 3.0.0 |
+| value | 值 | ContentState | null | 3.0.0 |
+| onBlur | 失去焦点时回调 | function(e) | null | 3.0.0 |
+| onChange | 输入框内容变化时回调 | function(contentState: ContentState) | null | 3.0.0 |
+| onFocus | 获得焦点时回调 | function(e) | null | 3.0.0 |
+| onSearchChange | 输入框中 @ 变化时回调 | function(value:string, trigger: string) | \[] | 3.0.0 |
+| onSelect | 下拉框选择建议时回调 | function(suggestion: string, data?: any) | null | 3.0.0 |
 
 ### Mention 方法
 
-| 名称    | 描述     |
-| ------- | -------- |
-| blur()  | 移除焦点 |
-| focus() | 获取焦点 |
+| 名称    | 描述     | 版本  |
+| ------- | -------- | ----- |
+| blur()  | 移除焦点 | 3.0.0 |
+| focus() | 获取焦点 | 3.0.0 |
 
 ### Nav
 
-| 参数     | 说明                                     | 类型   | 默认值 |
-| -------- | ---------------------------------------- | ------ | ------ |
-| children | 建议内容                                 | object | {}     |
-| value    | 建议值，选择建议时，用此值插入到输入框中 | string | ""     |
+| 参数     | 说明                                     | 类型   | 默认值 | 版本  |
+| -------- | ---------------------------------------- | ------ | ------ | ----- |
+| children | 建议内容                                 | object | {}     | 3.0.0 |
+| value    | 建议值，选择建议时，用此值插入到输入框中 | string | ""     | 3.0.0 |

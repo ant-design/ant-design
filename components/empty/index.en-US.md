@@ -20,11 +20,11 @@ Empty state placeholder.
 </Empty>
 ```
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| description | Customize description | string \| ReactNode | - |
-| imageStyle | style of image | CSSProperties | - |
-| image | Customize image. Will tread as image url when string provided. | string \| ReactNode | `Empty.PRESENTED_IMAGE_DEFAULT` |
+| Property | Description | Type | Default | Version Added |
+| --- | --- | --- | --- | --- |
+| description | Customize description | string \| ReactNode | - | 3.12.0 |
+| imageStyle | style of image | CSSProperties | - | 3.16.0 |
+| image | Customize image. Will tread as image url when string provided. | string \| ReactNode | `Empty.PRESENTED_IMAGE_DEFAULT` | 3.12.0 |
 
 ## Built-in images
 

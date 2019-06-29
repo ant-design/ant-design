@@ -18,23 +18,23 @@ A long list can be divided into several pages by `Pagination`, and only one page
 <Pagination onChange="{onChange}" total="{50}" />
 ```
 
-| Property | Description | Type | Default | Version |
+| Property | Description | Type | Default | Version Added |
 | --- | --- | --- | --- | --- |
-| current | current page number | number | - |  |
-| defaultCurrent | default initial page number | number | 1 |  |
-| defaultPageSize | default number of data items per page | number | 10 |  |
+| current | current page number | number | - | 3.0.0 |
+| defaultCurrent | default initial page number | number | 1 | 3.0.0 |
+| defaultPageSize | default number of data items per page | number | 10 | 3.0.0 |
 | disabled | disable pagination | boolean | - | 3.18.0 |
-| hideOnSinglePage | Whether to hide pager on single page | boolean | false |  |
-| itemRender | to customize item innerHTML | (page, type: 'page' \| 'prev' \| 'next', originalElement) => React.ReactNode | - |  |
-| pageSize | number of data items per page | number | - |  |
-| pageSizeOptions | specify the sizeChanger options | string\[] | \['10', '20', '30', '40'] |  |
-| showLessItems | show less page items | boolean | false |  |
-| showQuickJumper | determine whether you can jump to pages directly | boolean \| `{ goButton: ReactNode }` | false |  |
-| showSizeChanger | determine whether `pageSize` can be changed | boolean | false |  |
-| showTitle | show page items title | boolean | true |  |
-| showTotal | to display the total number and range | Function(total, range) | - |  |
-| simple | whether to use simple mode | boolean | - |  |
-| size | specify the size of `Pagination`, can be set to `small` | string | "" |  |
-| total | total number of data items | number | 0 |  |
-| onChange | a callback function, executed when the page number is changed, and it takes the resulting page number and pageSize as its arguments | Function(page, pageSize) | noop |  |
-| onShowSizeChange | a callback function, executed when `pageSize` is changed | Function(current, size) | noop |  |
+| hideOnSinglePage | Whether to hide pager on single page | boolean | false | 3.1.0 |
+| itemRender | to customize item innerHTML | (page, type: 'page' \| 'prev' \| 'next', originalElement) => React.ReactNode | - | 3.0.0 |
+| pageSize | number of data items per page | number | - | 3.0.0 |
+| pageSizeOptions | specify the sizeChanger options | string\[] | \['10', '20', '30', '40'] | 3.0.0 |
+| showLessItems | show less page items | boolean | false | 3.16.3 |
+| showQuickJumper | determine whether you can jump to pages directly | boolean \| `{ goButton: ReactNode }` | false | 3.0.0 |
+| showSizeChanger | determine whether `pageSize` can be changed | boolean | false | 3.0.0 |
+| showTitle | show page items title | boolean | true | 3.19.3 |
+| showTotal | to display the total number and range | Function(total, range) | - | 3.0.0 |
+| simple | whether to use simple mode | boolean | - | 3.0.0 |
+| size | specify the size of `Pagination`, can be set to `small` | string | "" | 3.0.0 |
+| total | total number of data items | number | 0 | 3.0.0 |
+| onChange | a callback function, executed when the page number is changed, and it takes the resulting page number and pageSize as its arguments | Function(page, pageSize) | noop | 3.0.0 |
+| onShowSizeChange | a callback function, executed when `pageSize` is changed | Function(current, size) | noop | 3.0.0 |
