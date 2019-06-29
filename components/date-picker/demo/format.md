@@ -20,6 +20,11 @@ import moment from 'moment';
 const { MonthPicker, RangePicker } = DatePicker;
 
 const dateFormat = 'YYYY/MM/DD';
+const dataFormatFunc = currentMoment => {
+  return `YYYY-MM-DD  [${
+    currentMoment ? currentMoment.from(moment('2015/01/02', 'YYYY/MM/DD')) : ''
+  }]`;
+};
 const monthFormat = 'YYYY/MM';
 
 const dateFormatList = ['DD/MM/YYYY', 'DD/MM/YY'];
@@ -27,6 +32,8 @@ const dateFormatList = ['DD/MM/YYYY', 'DD/MM/YY'];
 ReactDOM.render(
   <div>
     <DatePicker defaultValue={moment('2015/01/01', dateFormat)} format={dateFormat} />
+    <br />
+    <DatePicker format={dataFormatFunc} />
     <br />
     <DatePicker defaultValue={moment('01/01/2015', dateFormatList[0])} format={dateFormatList} />
     <br />

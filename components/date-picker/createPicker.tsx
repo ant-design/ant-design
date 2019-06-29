@@ -190,7 +190,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
           className={calendarClassName}
           onOk={props.onOk}
           dateRender={props.dateRender}
-          format={props.format}
+          format={typeof props.format === 'function' ? props.format(value) : props.format}
           showToday={props.showToday}
           monthCellContentRender={props.monthCellContentRender}
           renderFooter={this.renderFooter}

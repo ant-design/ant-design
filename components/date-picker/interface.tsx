@@ -8,7 +8,7 @@ export interface PickerProps {
   name?: string;
   prefixCls?: string;
   inputPrefixCls?: string;
-  format?: string | string[];
+  format?: string | string[] | ((moment: moment.Moment | undefined) => string);
   disabled?: boolean;
   allowClear?: boolean;
   className?: string;

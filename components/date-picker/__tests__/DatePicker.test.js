@@ -211,6 +211,21 @@ describe('DatePicker', () => {
     expect(extraNode.text()).toBe('decade');
   });
 
+  it('supports function format', () => {
+    const format = currentMoment =>
+      `YYYY-MM-DD [${currentMoment.from(moment('2015/01/02', 'YYYY/MM/DD'))}]`;
+    const wrapper = mount(
+      <DatePicker defaultValue={moment('2015/01/01', 'YYYY-MM-DD')} format={format} />,
+    );
+    openPanel(wrapper);
+    wrapper
+      .find('.ant-calendar-input')
+      .simulate('change', { target: { value: '2015-01-01 a day ago' } });
+    expect(wrapper.find('.ant-calendar-picker-input').getDOMNode().value).toBe(
+      '2015-01-01 a day ago',
+    );
+  });
+
   it('supports multiple formats', () => {
     const wrapper = mount(<DatePicker format={['DD/MM/YYYY', 'DD/MM/YY']} />);
     openPanel(wrapper);
