@@ -140,8 +140,9 @@ class Tooltip extends React.Component<TooltipProps, any> {
   // mouse events don't trigger at disabled button in Chrome
   // https://github.com/react-component/tooltip/issues/18
   getDisabledCompatibleChildren(element: React.ReactElement<any>) {
+    const elementType = element.type as any;
     if (
-      ((element.type as typeof Button).__ANT_BUTTON || element.type === 'button') &&
+      (elementType.__ANT_BUTTON || elementType.__ANT_SWITCH || element.type === 'button') &&
       element.props.disabled
     ) {
       // Pick some layout related style properties up to span
