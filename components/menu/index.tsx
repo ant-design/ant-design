@@ -131,13 +131,6 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
     super(props);
 
     warning(
-      !('onOpen' in props || 'onClose' in props),
-      'Menu',
-      '`onOpen` and `onClose` are removed, please use `onOpenChange` instead, ' +
-        'see: https://u.ant.design/menu-on-open-change.',
-    );
-
-    warning(
       !('inlineCollapsed' in props && props.mode !== 'inline'),
       'Menu',
       '`inlineCollapsed` should only be used when `mode` is inline.',
