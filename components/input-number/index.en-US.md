@@ -12,7 +12,7 @@ When a numeric value needs to be provided.
 
 ## API
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | autoFocus | get focus when component mounted | boolean | false | 3.0.0 |
 | defaultValue | initial value | number |  | 3.0.0 |
@@ -30,7 +30,7 @@ When a numeric value needs to be provided.
 
 ## Methods
 
-| Name    | Description  | Version Added |
-| ------- | ------------ | ------------- |
-| blur()  | remove focus | 3.0.0         |
-| focus() | get focus    | 3.0.0         |
+| Name    | Description  | Version |
+| ------- | ------------ | ------- |
+| blur()  | remove focus | 3.0.0   |
+| focus() | get focus    | 3.0.0   |

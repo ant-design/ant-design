@@ -14,7 +14,7 @@ If there are too many operations to display, you can wrap them in a `Dropdown`. 
 
 ### Dropdown
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | disabled | whether the dropdown menu is disabled | boolean | - | 3.0.0 |
 | getPopupContainer | to set the container of the dropdown menu. The default is to create a `div` element in `body`, you can reset it to the scrolling area and make a relative reposition. [example](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | Function(triggerNode) | `() => document.body` | 3.0.0 |
@@ -34,7 +34,7 @@ You should use [Menu](/components/menu/) as `overlay`. The menu items and divide
 
 ### Dropdown.Button
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | disabled | whether the dropdown menu is disabled | boolean | - | 3.0.0 |
 | icon | icon of right | ReactNode | - | 3.17.0 |

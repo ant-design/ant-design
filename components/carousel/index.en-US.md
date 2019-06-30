@@ -14,7 +14,7 @@ A carousel component. Scales with its container.
 
 ## API
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | afterChange | Callback function called after the current index changes | function(current) | - | 3.0.0 |
 | autoplay | Whether to scroll automatically | boolean | `false` | 3.0.0 |
@@ -26,7 +26,7 @@ A carousel component. Scales with its container.
 
 ## Methods
 
-| Name | Description | Version Added |
+| Name | Description | Version |
 | --- | --- | --- |
 | goTo(slideNumber, dontAnimate) | Go to slide index, if dontAnimate=true, it happens without animation | 3.9.3 |
 | next() | Change current slide to next slide | 3.0.0 |

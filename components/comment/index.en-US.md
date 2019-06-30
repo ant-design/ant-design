@@ -13,7 +13,7 @@ Comments can be used to enable discussions on an entity such as a page, blog pos
 
 ## API
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | actions | List of action items rendered below the comment content | Array<ReactNode> | - | 3.11.0 |
 | author | The element to display as the comment author | string\|ReactNode | - | 3.11.0 |

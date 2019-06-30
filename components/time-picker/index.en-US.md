@@ -21,7 +21,7 @@ import moment from 'moment';
 <TimePicker defaultValue={moment('13:30:56', 'HH:mm:ss')} />;
 ```
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | addon | called from timepicker panel to render some addon to its bottom | function | - | 3.0.0 |
 | allowClear | allow clearing text | boolean | true | 3.13.0 |
@@ -54,9 +54,9 @@ import moment from 'moment';
 
 ## Methods
 
-| Name    | Description  | Version Added |
-| ------- | ------------ | ------------- |
-| blur()  | remove focus | 3.0.0         |
-| focus() | get focus    | 3.0.0         |
+| Name    | Description  | Version |
+| ------- | ------------ | ------- |
+| blur()  | remove focus | 3.0.0   |
+| focus() | get focus    | 3.0.0   |
 
 <style>.code-box-demo .ant-time-picker { margin: 0 8px 12px 0; }</style>

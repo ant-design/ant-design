@@ -13,7 +13,7 @@ A simple text popup tip.
 
 ## API
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | title | The text shown in the tooltip | string\|ReactNode\|() => ReactNode | - | 3.0.0 |
 
@@ -21,7 +21,7 @@ A simple text popup tip.
 
 The following APIs are shared by Tooltip, Popconfirm, Popover.
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | arrowPointAtCenter | Whether the arrow is pointed at the center of target, supported after `antd@1.11+` | boolean | `false` | 3.0.0 |
 | autoAdjustOverflow | Whether to adjust popup placement automatically when popup is off screen | boolean | `true` | 3.0.0 |

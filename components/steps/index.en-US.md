@@ -25,7 +25,7 @@ When the task is complicated or has a certain sequence in the series of subtasks
 
 The whole of the step bar.
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | className | additional class to Steps | string | - | 3.11.3 |
 | current | to set the current step, counting from 0. You can overwrite this state by using `status` of `Step` | number | 0 | 3.0.0 |
@@ -41,7 +41,7 @@ The whole of the step bar.
 
 A single step in the step bar.
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | description | description of the step, optional property | string\|ReactNode | - | 3.0.0 |
 | icon | icon of the step, optional property | string\|ReactNode | - | 3.0.0 |

@@ -12,7 +12,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 
 ### Tree props
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | autoExpandParent | Whether to automatically expand a parent treeNode | boolean | true | 3.0.0 |
 | blockNode | Whether treeNode fill remaining horizontal space | boolean | false | 3.15.0 |
@@ -63,7 +63,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 
 ### DirectoryTree props
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | expandAction | Directory open logic, optional `false` `'click'` `'doubleClick'` | string | click | 3.7.0 |
 

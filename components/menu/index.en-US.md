@@ -26,7 +26,7 @@ More layouts with navigation: [layout](/components/layout).
 
 ### Menu
 
-| Param | Description | Type | Default value | Version Added |
+| Param | Description | Type | Default value | Version |
 | --- | --- | --- | --- | --- |
 | defaultOpenKeys | array with the keys of default opened sub menus | string\[] |  | 3.0.0 |
 | defaultSelectedKeys | array with the keys of default selected menu items | string\[] |  | 3.0.0 |
@@ -52,15 +52,15 @@ More layouts with navigation: [layout](/components/layout).
 
 ### Menu.Item
 
-| Param    | Description                          | Type    | Default value | Version Added |
-| -------- | ------------------------------------ | ------- | ------------- | ------------- |
-| disabled | whether menu item is disabled or not | boolean | false         | 3.0.0         |
-| key      | unique id of the menu item           | string  |               | 3.0.0         |
-| title    | set display title for collapsed item | string  |               | 3.11.0        |
+| Param    | Description                          | Type    | Default value | Version |
+| -------- | ------------------------------------ | ------- | ------------- | ------- |
+| disabled | whether menu item is disabled or not | boolean | false         | 3.0.0   |
+| key      | unique id of the menu item           | string  |               | 3.0.0   |
+| title    | set display title for collapsed item | string  |               | 3.11.0  |
 
 ### Menu.SubMenu
 
-| Param | Description | Type | Default value | Version Added |
+| Param | Description | Type | Default value | Version |
 | --- | --- | --- | --- | --- |
 | children | sub menus or sub menu items | Array&lt;MenuItem\|SubMenu> |  | 3.0.0 |
 | disabled | whether sub menu is disabled or not | boolean | false | 3.0.0 |
@@ -70,10 +70,10 @@ More layouts with navigation: [layout](/components/layout).
 
 ### Menu.ItemGroup
 
-| Param    | Description        | Type              | Default value | Version Added |
-| -------- | ------------------ | ----------------- | ------------- | ------------- |
-| children | sub menu items     | MenuItem\[]       |               | 3.0.0         |
-| title    | title of the group | string\|ReactNode |               | 3.0.0         |
+| Param    | Description        | Type              | Default value | Version |
+| -------- | ------------------ | ----------------- | ------------- | ------- |
+| children | sub menu items     | MenuItem\[]       |               | 3.0.0   |
+| title    | title of the group | string\|ReactNode |               | 3.0.0   |
 
 ### Menu.Divider
 

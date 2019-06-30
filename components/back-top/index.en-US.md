@@ -17,7 +17,7 @@ title: BackTop
 >
 > If you decide to use custom styles, please note the size limit: no more than `40px * 40px`.
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | target | specifies the scrollable area dom node | () => HTMLElement | () => window | 3.0.0 |
 | visibilityHeight | the `BackTop` button will not show until the scroll height reaches this value | number | 400 | 3.0.0 |

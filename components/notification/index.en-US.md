@@ -28,7 +28,7 @@ To display a notification message at any of the four corners of the viewport. Ty
 
 The properties of config are as follows:
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | bottom | Distance from the bottom of the viewport, when `placement` is `bottomRight` or `bottomLeft` (unit: pixels). | number | 24 | 3.0.0 |
 | btn | Customized close button | ReactNode | - | 3.0.0 |
@@ -57,7 +57,7 @@ notification.config({
 });
 ```
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | bottom | Distance from the bottom of the viewport, when `placement` is `bottomRight` or `bottomLeft` (unit: pixels). | number | 24 | 3.0.0 |
 | duration | Time in seconds before Notification is closed. When set to 0 or null, it will never be closed automatically | number | 4.5 | 3.0.0 |

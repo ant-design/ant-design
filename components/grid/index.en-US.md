@@ -88,7 +88,7 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 
 ### Row
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | align | the vertical alignment of the flex layout: `top` `middle` `bottom` | string | `top` | 3.0.0 |
 | gutter | spacing between grids, could be a number or a object like `{ xs: 8, sm: 16, md: 24}` | number/object | 0 | 3.0.0 |
@@ -97,7 +97,7 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 
 ### Col
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | offset | the number of cells to offset Col from the left | number | 0 | 3.0.0 |
 | order | raster order, used in `flex` layout mode | number | 0 | 3.0.0 |

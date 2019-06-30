@@ -45,7 +45,7 @@ import 'moment/locale/zh-cn';
 
 The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicker.
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | allowClear | Whether to show clear button | boolean | true | 3.0.0 |
 | autoFocus | get focus when component mounted | boolean | false | 3.0.0 |
@@ -75,7 +75,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 
 ### DatePicker
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | defaultValue | to set default date, if start time or end time is null or undefined, the date range will be an open interval | [moment](http://momentjs.com/) | - | 3.0.0 |
 | defaultPickerValue | to set default picker date | [moment](http://momentjs.com/) | - | 3.10.8 |
@@ -92,7 +92,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 
 ### MonthPicker
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | defaultValue | to set default date | [moment](http://momentjs.com/) | - | 3.0.0 |
 | defaultPickerValue | to set default picker date | [moment](http://momentjs.com/) | - | 3.10.8 |
@@ -104,7 +104,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 
 ### WeekPicker
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | defaultValue | to set default date | [moment](http://momentjs.com/) | - | 3.0.0 |
 | defaultPickerValue | to set default picker date | [moment](http://momentjs.com/) | - | 3.10.8 |
@@ -115,7 +115,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 
 ### RangePicker
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | defaultValue | to set default date | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)] | - | 3.0.0 |
 | defaultPickerValue | to set default picker date | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)\] | - | 3.10.8 |

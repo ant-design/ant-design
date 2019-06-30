@@ -18,7 +18,7 @@ A long list can be divided into several pages by `Pagination`, and only one page
 <Pagination onChange="{onChange}" total="{50}" />
 ```
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | current | current page number | number | - | 3.0.0 |
 | defaultCurrent | default initial page number | number | 1 | 3.0.0 |

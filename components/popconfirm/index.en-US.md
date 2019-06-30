@@ -14,7 +14,7 @@ The difference with the `confirm` modal dialog is that it's more lightweight tha
 
 ## API
 
-| Param | Description | Type | Default value | Version Added |
+| Param | Description | Type | Default value | Version |
 | --- | --- | --- | --- | --- |
 | cancelText | text of the Cancel button | string | `Cancel` | 3.0.0 |
 | okText | text of the Confirm button | string | `Confirm` | 3.0.0 |

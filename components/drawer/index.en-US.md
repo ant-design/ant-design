@@ -17,7 +17,7 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 
 ## API
 
-| Props | Description | Type | Default | Version Added |
+| Props | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | closable | Whether a close (x) button is visible on top right of the Drawer dialog or not. | boolean | true | 3.7.0 |
 | destroyOnClose | Whether to unmount child components on closing drawer or not. | boolean | false | 3.7.0 |

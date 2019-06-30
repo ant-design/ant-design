@@ -16,7 +16,7 @@ A divider line separates different content.
 
 ### Divider
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | className | className of container | string | - | 3.5.4 |
 | dashed | whether line is dashed | boolean | false | 3.0.0 |

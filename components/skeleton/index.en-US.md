@@ -18,7 +18,7 @@ Provide a placeholder while you wait for content to load, or to visualise conten
 
 ### Skeleton
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | active | Show animation effect | boolean | false | 3.9.0 |
 | avatar | Show avatar placeholder | boolean \| [SkeletonAvatarProps](#SkeletonAvatarProps) | false | 3.9.0 |
@@ -28,20 +28,20 @@ Provide a placeholder while you wait for content to load, or to visualise conten
 
 ### SkeletonAvatarProps
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | size | Set the size of avatar | number \| Enum{ 'large', 'small', 'default' } | - | 3.9.0 |
 | shape | Set the shape of avatar | Enum{ 'circle', 'square' } | - | 3.9.0 |
 
 ### SkeletonTitleProps
 
-| Property | Description            | Type             | Default | Version Added |
-| -------- | ---------------------- | ---------------- | ------- | ------------- |
-| width    | Set the width of title | number \| string | -       | 3.9.0         |
+| Property | Description            | Type             | Default | Version |
+| -------- | ---------------------- | ---------------- | ------- | ------- |
+| width    | Set the width of title | number \| string | -       | 3.9.0   |
 
 ### SkeletonParagraphProps
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | rows | Set the row count of paragraph | number | - | 3.9.0 |
 | width | Set the width of paragraph. When width is an Array, it can set the width of each row. Otherwise only set the last row width | number \| string \| Array<number \| string> | - | 3.9.0 |

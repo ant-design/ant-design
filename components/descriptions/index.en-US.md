@@ -15,7 +15,7 @@ Commonly displayed on the details page.
 
 ### Descriptions
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | title | The title of the description list, placed at the top | ReactNode | - | 3.19.0 |
 | bordered | whether to display the border | boolean | false | 3.19.0 |
@@ -25,7 +25,7 @@ Commonly displayed on the details page.
 
 ### DescriptionItem
 
-| Property | Description                    | Type      | Default | Version Added |
-| -------- | ------------------------------ | --------- | ------- | ------------- |
-| label    | description of the content     | ReactNode | -       | 3.19.0        |
-| span     | The number of columns included | number    | 1       | 3.19.0        |
+| Property | Description                    | Type      | Default | Version |
+| -------- | ------------------------------ | --------- | ------- | ------- |
+| label    | description of the content     | ReactNode | -       | 3.19.0  |
+| span     | The number of columns included | number    | 1       | 3.19.0  |

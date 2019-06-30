@@ -18,7 +18,7 @@ One or more elements can be selected from either column, one click on the proper
 
 ## API
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | className | A custom CSS class. | string | \['', ''] | 3.0.0 |
 | dataSource | Used for setting the source data. The elements that are part of this array will be present the left column. Except the elements whose keys are included in `targetKeys` prop. | [TransferItem](https://git.io/vMM64)\[] | \[] | 3.0.0 |

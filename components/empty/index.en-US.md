@@ -20,7 +20,7 @@ Empty state placeholder.
 </Empty>
 ```
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | description | Customize description | string \| ReactNode | - | 3.12.0 |
 | imageStyle | style of image | CSSProperties | - | 3.16.0 |

@@ -16,7 +16,7 @@ A content area which can be collapsed and expanded.
 
 ### Collapse
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | activeKey | Key of the active panel | string\[]\|string | No default value. In `accordion` mode, it's the key of the first panel. | 3.0.0 |
 | defaultActiveKey | Key of the initial active panel | string | - | 3.0.0 |
@@ -29,7 +29,7 @@ A content area which can be collapsed and expanded.
 
 ### Collapse.Panel
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | disabled | If `true`, panel cannot be opened or closed | boolean | `false` | 3.0.0 |
 | forceRender | Forced render of content on panel, instead of lazy rending after clicking on header | boolean | `false` | 3.2.0 |

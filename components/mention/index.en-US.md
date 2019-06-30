@@ -25,7 +25,7 @@ to measure tips position, which use nearly 11.6% package size. We hope to reduce
 
 ### Mention API
 
-| API | Description | Type | Version Added |
+| API | Description | Type | Version |
 | --- | --- | --- | --- |
 | getMentions | get mentioned people in current contentState | Function(ContentState: contentState): string\[] | 3.0.0 |
 | toContentState | convert string to ContentState | Function(value: string): ContentState | 3.0.0 |
@@ -33,7 +33,7 @@ to measure tips position, which use nearly 11.6% package size. We hope to reduce
 
 ### Mention
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | autoFocus | get focus when component mounted | boolean | false | 3.0.0 |
 | defaultValue | default value | ContentState, you can use `Mention.toContentState` to convert text to `ContentState` | null | 3.0.0 |
@@ -58,14 +58,14 @@ to measure tips position, which use nearly 11.6% package size. We hope to reduce
 
 ### Mention methods
 
-| Name    | Description  | Version Added |
-| ------- | ------------ | ------------- |
-| blur()  | remove focus | 3.0.0         |
-| focus() | get focus    | 3.0.0         |
+| Name    | Description  | Version |
+| ------- | ------------ | ------- |
+| blur()  | remove focus | 3.0.0   |
+| focus() | get focus    | 3.0.0   |
 
 ### Nav
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | children | suggestion content | object | {} | 3.0.0 |
 | value | value of suggestion, the value will insert into input filed while selected | string | "" | 3.0.0 |

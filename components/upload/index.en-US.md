@@ -16,7 +16,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 
 ## API
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | accept | File types that can be accepted. See [input accept Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept) | string | - | 3.0.0 |
 | action | Uploading URL | string\|(file) => `Promise` | - | 3.0.0 |

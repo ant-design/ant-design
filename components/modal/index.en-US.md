@@ -12,7 +12,7 @@ When requiring users to interact with the application, but without jumping to a 
 
 ## API
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | afterClose | Specify a function that will be called when modal is closed completely. | function | - | 3.0.0 |
 | bodyStyle | Body style for modal body element. Such as height, padding etc. | object | {} | 3.0.0 |
@@ -56,7 +56,7 @@ There are five ways to display the information based on the content's nature:
 
 The items listed above are all functions, expecting a settings object as parameter. The properties of the object are follows:
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | autoFocusButton | Specify which button to autofocus | null\|string: `ok` `cancel` | `ok` | 3.10.0 |
 | cancelText | Text of the Cancel button with Modal.confirm | string | `Cancel` | 3.0.0 |

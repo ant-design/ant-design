@@ -8,7 +8,7 @@ Avatars can be used to represent people or objects. It supports images, `Icon`s,
 
 ## API
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | icon | the `Icon` type for an icon avatar, see `Icon` Component | string | - | 3.0.0 |
 | shape | the shape of avatar | `circle` \| `square` | `circle` | 3.0.0 |

@@ -22,7 +22,7 @@ Badge normally appears in proximity to notifications or user avatars with eye-ca
 <Badge count={5} />
 ```
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | color | Customize Badge dot color | string | - | 3.16.0 |
 | count | Number to show in badge | ReactNode |  | 3.0.0 |

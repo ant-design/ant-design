@@ -14,7 +14,7 @@ Tree selection control.
 
 ### Tree props
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | allowClear | Whether allow clear | boolean | false | 3.0.0 |
 | autoClearSearchValue | auto clear search input value when multiple select is selected/deselected | boolean | true | 3.7.0 |
@@ -55,16 +55,16 @@ Tree selection control.
 
 ### Tree Methods
 
-| Name    | Description  | Version Added |
-| ------- | ------------ | ------------- |
-| blur()  | remove focus | 3.0.0         |
-| focus() | get focus    | 3.0.0         |
+| Name    | Description  | Version |
+| ------- | ------------ | ------- |
+| blur()  | remove focus | 3.0.0   |
+| focus() | get focus    | 3.0.0   |
 
 ### TreeNode props
 
 > We recommend you to use `treeData` rather than `TreeNode`, to avoid the trouble of manual construction.
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | selectable | can be selected | boolean | true | 3.9.3 |
 | disableCheckbox | Disables the checkbox of the treeNode | boolean | false | 3.0.0 |

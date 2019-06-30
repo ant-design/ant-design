@@ -21,7 +21,7 @@ Select component to select value from options.
 
 ### Select props
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | allowClear | Show clear button. | boolean | false | 3.0.0 |
 | autoClearSearchValue | Whether the current search will be cleared on selecting an item. Only applies when `mode` is set to `multiple` or `tags`. | boolean | true | 3.10.0 |
@@ -71,14 +71,14 @@ Select component to select value from options.
 
 ### Select Methods
 
-| Name    | Description  | Version Added |
-| ------- | ------------ | ------------- |
-| blur()  | Remove focus | 3.0.0         |
-| focus() | Get focus    | 3.0.0         |
+| Name    | Description  | Version |
+| ------- | ------------ | ------- |
+| blur()  | Remove focus | 3.0.0   |
+| focus() | Get focus    | 3.0.0   |
 
 ### Option props
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | disabled | Disable this option | boolean | false | 3.0.0 |
 | key | Same usage as `value`. If React request you to set this property, you can set it to value of option, and then omit value property. | string |  | 3.0.0 |
@@ -88,7 +88,7 @@ Select component to select value from options.
 
 ### OptGroup props
 
-| Property | Description | Type                  | Default | Version Added |
-| -------- | ----------- | --------------------- | ------- | ------------- |
-| key      |             | string                | -       | 3.0.0         |
-| label    | Group label | string\|React.Element | -       | 3.0.0         |
+| Property | Description | Type                  | Default | Version |
+| -------- | ----------- | --------------------- | ------- | ------- |
+| key      |             | string                | -       | 3.0.0   |
+| label    | Group label | string\|React.Element | -       | 3.0.0   |

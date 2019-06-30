@@ -15,7 +15,7 @@ A basic widget for getting the user input is a text field. Keyboard and mouse ca
 
 ### Input
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | addonAfter | The label text displayed after (on the right side of) the input field. | string\|ReactNode |  | 3.0.0 |
 | addonBefore | The label text displayed before (on the left side of) the input field. | string\|ReactNode |  | 3.0.0 |
@@ -39,7 +39,7 @@ The rest of the props of Input are exactly the same as the original [input](http
 
 > If you are using `antd@<2.12`, please use `Input[type=textarea]`.
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | autosize | Height autosize feature, can be set to `true|false` or an object `{ minRows: 2, maxRows: 6 }` | boolean\|object | false | 3.0.0 |
 | defaultValue | The initial input content | string |  | 3.0.0 |
@@ -52,7 +52,7 @@ The rest of the props of `Input.TextArea` are the same as the original [textarea
 
 `Added in 2.5.0`
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | enterButton | to show an enter button after input. This prop is conflict with addon. | boolean\|ReactNode | false | 3.0.0 |
 | onSearch | The callback function that is triggered when you click on the search-icon or press Enter key. | function(value, event) |  | 3.0.0 |
@@ -61,7 +61,7 @@ Supports all props of `Input`.
 
 #### Input.Group
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | compact | Whether use compact style | boolean | false | 3.0.0 |
 | size | The size of `Input.Group` specifies the size of the included `Input` fields. Available: `large` `default` `small` | string | `default` | 3.0.0 |
@@ -75,9 +75,9 @@ Supports all props of `Input`.
 
 #### Input.Password (Added in 3.12.0)
 
-| Property         | Description                | Type    | Default | Version Added |
-| ---------------- | -------------------------- | ------- | ------- | ------------- |
-| visibilityToggle | Whether show toggle button | boolean | true    | 3.12.2        |
+| Property         | Description                | Type    | Default | Version |
+| ---------------- | -------------------------- | ------- | ------- | ------- |
+| visibilityToggle | Whether show toggle button | boolean | true    | 3.12.2  |
 
 ## FAQ
 

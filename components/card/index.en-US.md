@@ -19,7 +19,7 @@ A card can be used to display content related to a single subject. The content c
 
 ### Card
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | actions | The action list, shows at the bottom of the Card. | Array&lt;ReactNode> | - | 3.0.0 |
 | activeTabKey | Current TabPane's key | string | - | 3.3.0 |
@@ -39,17 +39,17 @@ A card can be used to display content related to a single subject. The content c
 
 ### Card.Grid
 
-| Property  | Description               | Type   | Default | Version Added |
-| --------- | ------------------------- | ------ | ------- | ------------- |
-| className | className of container    | string | -       | 3.0.0         |
-| style     | style object of container | object | -       | 3.0.0         |
+| Property  | Description               | Type   | Default | Version |
+| --------- | ------------------------- | ------ | ------- | ------- |
+| className | className of container    | string | -       | 3.0.0   |
+| style     | style object of container | object | -       | 3.0.0   |
 
 ### Card.Meta
 
-| Property    | Description               | Type      | Default | Version Added |
-| ----------- | ------------------------- | --------- | ------- | ------------- |
-| avatar      | avatar or icon            | ReactNode | -       | 3.0.0         |
-| className   | className of container    | string    | -       | 3.0.0         |
-| description | description content       | ReactNode | -       | 3.0.0         |
-| style       | style object of container | object    | -       | 3.0.0         |
-| title       | title content             | ReactNode | -       | 3.0.0         |
+| Property    | Description               | Type      | Default | Version |
+| ----------- | ------------------------- | --------- | ------- | ------- |
+| avatar      | avatar or icon            | ReactNode | -       | 3.0.0   |
+| className   | className of container    | string    | -       | 3.0.0   |
+| description | description content       | ReactNode | -       | 3.0.0   |
+| style       | style object of container | object    | -       | 3.0.0   |
+| title       | title content             | ReactNode | -       | 3.0.0   |

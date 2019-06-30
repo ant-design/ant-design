@@ -22,7 +22,7 @@ When need to mention someone or something.
 
 ### Mention
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | autoFocus | Auto get focus when component mounted | boolean | `false` | 3.19.0 |
 | defaultValue | Default value | string | - | 3.19.0 |
@@ -41,14 +41,14 @@ When need to mention someone or something.
 
 ### Mention methods
 
-| Name    | Description  | Version Added |
-| ------- | ------------ | ------------- |
-| blur()  | remove focus | 3.19.0        |
-| focus() | get focus    | 3.19.0        |
+| Name    | Description  | Version |
+| ------- | ------------ | ------- |
+| blur()  | remove focus | 3.19.0  |
+| focus() | get focus    | 3.19.0  |
 
 ### Option
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | children | suggestion content | ReactNode | - | 3.19.0 |
 | value | value of suggestion, the value will insert into input filed while selected | string | '' | 3.19.0 |

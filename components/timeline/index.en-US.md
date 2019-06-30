@@ -26,7 +26,7 @@ Vertical display timeline.
 
 Timeline
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | pending | Set the last ghost node's existence or its content | boolean\|string\|ReactNode | `false` | 3.0.0 |
 | pendingDot | Set the dot of the last ghost node when pending is true | string\|ReactNode | `<Icon type="loading" />` | 3.3.0 |
@@ -37,7 +37,7 @@ Timeline
 
 Node of timeline
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | color | Set the circle's color to `blue`, `red`, `green` or other custom colors | string | `blue` | 3.0.0 |
 | dot | Customize timeline dot | string\|ReactNode | - | 3.0.0 |

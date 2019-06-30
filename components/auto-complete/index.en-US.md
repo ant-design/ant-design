@@ -18,7 +18,7 @@ const dataSource = ['12345', '23456', '34567'];
 <AutoComplete dataSource={dataSource} />;
 ```
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | allowClear | Show clear button, effective in multiple mode only. | boolean | false | 3.0.0 |
 | autoFocus | get focus when component mounted | boolean | false | 3.0.0 |
@@ -44,7 +44,7 @@ const dataSource = ['12345', '23456', '34567'];
 
 ## Methods
 
-| Name    | Description  | Version Added |
-| ------- | ------------ | ------------- |
-| blur()  | remove focus | 3.0.0         |
-| focus() | get focus    | 3.0.0         |
+| Name    | Description  | Version |
+| ------- | ------------ | ------- |
+| blur()  | remove focus | 3.0.0   |
+| focus() | get focus    | 3.0.0   |

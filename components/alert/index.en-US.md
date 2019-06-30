@@ -13,7 +13,7 @@ Alert component for feedback.
 
 ## API
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | afterClose | Called when close animation is finished | () => void | - | 3.3.1 |
 | banner | Whether to show as banner | boolean | false | 3.0.0 |

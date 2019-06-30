@@ -14,7 +14,7 @@ It can also be used as inter-page navigation when it is needed to make the user 
 
 ## API
 
-| Param | Description | Type | Default value | Version Added |
+| Param | Description | Type | Default value | Version |
 | --- | --- | --- | --- | --- |
 | title | custom title text | ReactNode | - | 3.14.0 |
 | subTitle | custom subTitle text | ReactNode | - | 3.14.0 |

@@ -15,7 +15,7 @@ A list can be used to display content related to a single subject. The content c
 
 ### List
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | bordered | Toggles rendering of the border around the list | boolean | false | 3.0.0 |
 | footer | List footer renderer | string\|ReactNode | - | 3.0.0 |
@@ -43,7 +43,7 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 
 ### List grid props
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | column | column of grid, [optional number](https://github.com/ant-design/ant-design/blob/a7f17b4cdebbca07b3b9ce5698de61e772d46237/components/list/index.tsx#L16) | number | - | 3.0.0 |
 | gutter | spacing between grid | number | 0 | 3.0.0 |
@@ -57,15 +57,15 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 
 ### List.Item
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | actions | The actions content of list item. If `itemLayout` is `vertical`, shows the content on bottom, otherwise shows content on the far right. | Array<ReactNode> | - | 3.0.0 |
 | extra | The extra content of list item. If `itemLayout` is `vertical`, shows the content on right, otherwise shows content on the far right. | string\|ReactNode | - | 3.0.0 |
 
 ### List.Item.Meta
 
-| Property    | Description                  | Type              | Default | Version Added |
-| ----------- | ---------------------------- | ----------------- | ------- | ------------- |
-| avatar      | The avatar of list item      | ReactNode         | -       | 3.0.0         |
-| description | The description of list item | string\|ReactNode | -       | 3.0.0         |
-| title       | The title of list item       | string\|ReactNode | -       | 3.0.0         |
+| Property    | Description                  | Type              | Default | Version |
+| ----------- | ---------------------------- | ----------------- | ------- | ------- |
+| avatar      | The avatar of list item      | ReactNode         | -       | 3.0.0   |
+| description | The description of list item | string\|ReactNode | -       | 3.0.0   |
+| title       | The title of list item       | string\|ReactNode | -       | 3.0.0   |

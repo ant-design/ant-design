@@ -57,7 +57,7 @@ const columns = [
 
 ### Table
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | bordered | Whether to show all table borders | boolean | `false` | 3.0.0 |
 | childrenColumnName | The column contains children to display | string\[] | children | 3.4.2 |
@@ -115,7 +115,7 @@ Same as `onRow` `onHeaderRow` `onCell` `onHeaderCell`
 
 One of the Table `columns` prop for describing the table's columns, Column has the same API.
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | align | specify which way that column is aligned | 'left' \| 'right' \| 'center' | 'left' | 3.3.2 |
 | className | className of this column | string | - | 3.0.0 |
@@ -144,15 +144,15 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 
 ### ColumnGroup
 
-| Property | Description               | Type              | Default | Version Added |
-| -------- | ------------------------- | ----------------- | ------- | ------------- |
-| title    | Title of the column group | string\|ReactNode | -       | 3.0.0         |
+| Property | Description               | Type              | Default | Version |
+| -------- | ------------------------- | ----------------- | ------- | ------- |
+| title    | Title of the column group | string\|ReactNode | -       | 3.0.0   |
 
 ### pagination
 
 Properties for pagination.
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | position | specify the position of `Pagination` | 'top' \| 'bottom' \| 'both' | 'bottom' | 3.3.0 |
 
@@ -162,7 +162,7 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 
 Properties for row selection.
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | columnWidth | Set the width of the selection column | string\|number | `60px` | 3.3.0 |
 | columnTitle | Set the title of the selection column | string\|React.ReactNode | - | 3.8.0 |
@@ -179,7 +179,7 @@ Properties for row selection.
 
 ### selection
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | key | Unique key of this selection | string | - | 3.0.0 |
 | text | Display text of this selection | string\|React.ReactNode | - | 3.0.0 |

@@ -18,7 +18,7 @@ Cascade selection box.
 <Cascader options={options} onChange={onChange} />
 ```
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | allowClear | whether allow clear | boolean | true | 3.0.0 |
 | autoFocus | get focus when component mounted | boolean | false | 3.0.0 |
@@ -47,7 +47,7 @@ Cascade selection box.
 
 Fields in `showSearch`:
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | filter | The function will receive two arguments, inputValue and option, if the function returns true, the option will be included in the filtered set; Otherwise, it will be excluded. | `function(inputValue, path): boolean` |  | 3.0.0 |
 | limit | Set the count of filtered items | number \| false | 50 | 3.11.0 |
@@ -68,10 +68,10 @@ interface Option {
 
 ## Methods
 
-| Name    | Description  | Version Added |
-| ------- | ------------ | ------------- |
-| blur()  | remove focus | 3.0.0         |
-| focus() | get focus    | 3.0.0         |
+| Name    | Description  | Version |
+| ------- | ------------ | ------- |
+| blur()  | remove focus | 3.0.0   |
+| focus() | get focus    | 3.0.0   |
 
 <style>
 .ant-cascader-picker {

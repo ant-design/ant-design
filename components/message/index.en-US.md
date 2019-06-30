@@ -23,7 +23,7 @@ This components provides some static methods, with usage and arguments as follow
 - `message.warn(content, [duration], onClose)` // alias of warning
 - `message.loading(content, [duration], onClose)`
 
-| Argument | Description | Type | Default | Version Added |
+| Argument | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | content | content of the message | string\|ReactNode | - | 3.0.0 |
 | duration | time(seconds) before auto-dismiss, don't dismiss if set to 0 | number | 1.5 | 3.0.0 |
@@ -40,7 +40,7 @@ where `level` refers one static methods of `message`. The result of `then` metho
 
 The properties of config are as follows:
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | content | content of the message | ReactNode | - | 3.0.0 |
 | duration | time(seconds) before auto-dismiss, don't dismiss if set to 0 | number | 3 | 3.0.0 |
@@ -64,7 +64,7 @@ message.config({
 });
 ```
 
-| Argument | Description | Type | Default | Version Added |
+| Argument | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | duration | time before auto-dismiss, in seconds | number | 1.5 | 3.9.0 |
 | getContainer | Return the mount node for Message | () => HTMLElement | () => document.body | 3.9.0 |

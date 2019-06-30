@@ -15,7 +15,7 @@ A breadcrumb displays the current location within a hierarchy. It allows going b
 
 ## API
 
-| Property | Description | Type | Optional | Default | Version Added |
+| Property | Description | Type | Optional | Default | Version |
 | --- | --- | --- | --- | --- | --- |
 | itemRender | Custom item renderer | (route, params, routes, paths) => ReactNode |  | - | 3.0.0 |
 | params | Routing parameters | object |  | - | 3.0.0 |

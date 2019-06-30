@@ -17,7 +17,7 @@ Checkbox component.
 
 #### Checkbox
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | autoFocus | get focus when component mounted | boolean | false | 3.6.2 |
 | checked | Specifies whether the checkbox is selected. | boolean | false | 3.6.2 |
@@ -28,7 +28,7 @@ Checkbox component.
 
 #### Checkbox Group
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | defaultValue | Default selected value | string\[] | \[] | 3.6.2 |
 | disabled | Disable all checkboxes | boolean | false | 3.6.2 |
@@ -41,7 +41,7 @@ Checkbox component.
 
 #### Checkbox
 
-| Name    | Description  | Version Added |
-| ------- | ------------ | ------------- |
-| blur()  | remove focus | 3.6.2         |
-| focus() | get focus    | 3.6.2         |
+| Name    | Description  | Version |
+| ------- | ------------ | ------- |
+| blur()  | remove focus | 3.6.2   |
+| focus() | get focus    | 3.6.2   |

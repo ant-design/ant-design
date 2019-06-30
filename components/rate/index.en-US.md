@@ -13,7 +13,7 @@ Rate component.
 
 ## API
 
-| Property | Description | type | Default | Version Added |
+| Property | Description | type | Default | Version |
 | --- | --- | --- | --- | --- |
 | allowClear | whether to allow clear when click again | boolean | true | 3.1.0 |
 | allowHalf | whether to allow semi selection | boolean | false | 3.0.0 |
@@ -34,7 +34,7 @@ Rate component.
 
 ## Methods
 
-| Name    | Description  | Version Added |
-| ------- | ------------ | ------------- |
-| blur()  | remove focus | 3.0.0         |
-| focus() | get focus    | 3.0.0         |
+| Name    | Description  | Version |
+| ------- | ------------ | ------- |
+| blur()  | remove focus | 3.0.0   |
+| focus() | get focus    | 3.0.0   |

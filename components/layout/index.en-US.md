@@ -73,7 +73,7 @@ Style of a navigation should conform to its level.
 
 The wrapper.
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | className | container className | string | - | 3.0.0 |
 | hasSider | whether contain Sider in children, don't have to assign it normally. Useful in ssr avoid style flickering | boolean | - | 3.2.0 |
@@ -85,7 +85,7 @@ The wrapper.
 
 The sidebar.
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | breakpoint | [breakpoints](/components/grid#api) of the responsive layout | Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' } | - | 3.0.0 |
 | className | container className | string | - | 3.0.0 |

@@ -17,7 +17,7 @@ If it will take a long time to complete an operation, you can use `Progress` to 
 
 Properties that shared by all types.
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | type | to set the type, options: `line` `circle` `dashboard` | string | `line` | 3.0.0 |
 | format | template function of the content | function(percent, successPercent) | `percent => percent + '%'` | 3.0.0 |
@@ -30,14 +30,14 @@ Properties that shared by all types.
 
 ### `type="line"`
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | strokeWidth | to set the width of the progress bar, unit: `px` | number | 10 | 3.13.1 |
 | strokeColor | color of progress bar, render `linear-gradient` when passing an object | string \| { from: string; to: string; direction: string } | - | 3.16.0 |
 
 ### `type="circle"`
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | width | to set the canvas width of the circular progress, unit: `px` | number | 132 | 3.13.1 |
 | strokeWidth | to set the width of the circular progress, unit: percentage of the canvas width | number | 6 | 3.13.1 |
@@ -45,7 +45,7 @@ Properties that shared by all types.
 
 ### `type="dashboard"`
 
-| Property | Description | Type | Default | Version Added |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | width | to set the canvas width of the dashboard progress, unit: `px` | number | 132 | 3.13.1 |
 | strokeWidth | to set the width of the dashboard progress, unit: percentage of the canvas width | number | 6 | 3.13.1 |
