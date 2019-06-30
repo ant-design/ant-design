@@ -17,7 +17,7 @@ timeline: true
 
 ## 3.20.0
 
-- 🔥🔥🔥 新增 [Result]((https://ant.design/components/result) 用于反馈一系列操作任务的处理结果。
+- 🔥🔥🔥 新增 [Result](https://ant.design/components/result) 用于反馈一系列操作任务的处理结果。
 - 🔥 Descriptions 支持垂直布局。[#17330](https://github.com/ant-design/ant-design/pull/17330) [@hengkx](https://github.com/hengkx)
 - 🔥 优化 PageHeader 的 `className` 定义。[#17321](https://github.com/ant-design/ant-design/pull/17321)
 - 🔥 Progress.Circle 支持渐变色。[#17315](https://github.com/ant-design/ant-design/pull/17315) [@hengkx](https://github.com/hengkx)
