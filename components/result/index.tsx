@@ -6,20 +6,20 @@ import noFound from './noFound';
 import serverError from './serverError';
 import unauthorized from './unauthorized';
 
-const IconMap = {
+export const IconMap = {
   success: 'check-circle',
   error: 'close-circle',
   info: 'exclamation-circle',
   warning: 'warning',
 };
 
-const ExceptionImageMap = {
+export const ExceptionSVGMap = {
   '404': noFound,
   '500': serverError,
   '403': unauthorized,
 };
 
-export type ExceptionStatusType = keyof typeof ExceptionImageMap;
+export type ExceptionStatusType = keyof typeof ExceptionSVGMap;
 export type ResultStatusType = ExceptionStatusType | keyof typeof IconMap;
 
 export interface ResultProps {
@@ -34,7 +34,7 @@ export interface ResultProps {
 }
 
 // ExceptionImageMap keys
-const ExceptionStatus = Object.keys(ExceptionImageMap);
+const ExceptionStatus = Object.keys(ExceptionSVGMap);
 
 /**
  * render icon
@@ -47,7 +47,7 @@ const renderIcon = (prefixCls: string, { status, icon }: ResultProps) => {
   const className = classnames(`${prefixCls}-icon`);
 
   if (ExceptionStatus.includes(status)) {
-    const SVGComponent = ExceptionImageMap[status as ExceptionStatusType];
+    const SVGComponent = ExceptionSVGMap[status as ExceptionStatusType];
     return (
       <div className={`${className} ${prefixCls}-image`}>
         <SVGComponent />
@@ -95,10 +95,20 @@ OriginResult.defaultProps = {
   status: 'info',
 };
 
-type ResultType = typeof OriginResult & { PRESENTED_SVG_DEFAULT: typeof ExceptionImageMap };
+// Provide default svg for user access
+interface PrivateSVG {
+  PRESENTED_SVG_404: React.ReactNode;
+  PRESENTED_SVG_403: React.ReactNode;
+  PRESENTED_SVG_500: React.ReactNode;
+}
+
+type ResultType = typeof OriginResult & PrivateSVG;
 
 const Result: ResultType = OriginResult as ResultType;
 
-Result.PRESENTED_SVG_DEFAULT = ExceptionImageMap;
+ExceptionStatus.forEach((key: ExceptionStatusType) => {
+  const privateKey = `PRESENTED_SVG_${key}` as keyof PrivateSVG;
+  Result[privateKey] = ExceptionSVGMap[key];
+});
 
 export default Result;
