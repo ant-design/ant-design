@@ -17,6 +17,7 @@ timeline: true
 
 ## 3.20.0
 
+- 🔥🔥🔥 Add [Result]((https://ant.design/components/result) Used to feed back the results of a series of operational tasks.
 - 🔥 Descriptions support vertical layout. [#17330](https://github.com/ant-design/ant-design/pull/17330) [@hengkx](https://github.com/hengkx)
 - 🔥 Progress.Circle support gradient line color. [#17315](https://github.com/ant-design/ant-design/pull/17315) [@hengkx](https://github.com/hengkx)
 
