@@ -1,7 +1,7 @@
 import * as React from 'react';
 import isEqual from 'lodash/isEqual';
 import classNames from 'classnames';
-import { Field } from 'rc-field-form';
+import { Field, FormInstance } from 'rc-field-form';
 import { FieldProps as RcFieldProps } from 'rc-field-form/lib/Field';
 import Row from '../grid/row';
 import { ConfigContext } from '../config-provider';
@@ -15,7 +15,7 @@ import { toArray } from './util';
 const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
 export type ValidateStatus = (typeof ValidateStatuses)[number];
 
-type RenderChildren = () => React.ReactElement;
+type RenderChildren = (form: FormInstance) => React.ReactElement;
 
 interface FormItemProps extends FormItemLabelProps, FormItemInputProps, RcFieldProps {
   prefixCls?: string;
@@ -78,7 +78,7 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
         setDomErrorVisible(false);
       }}
     >
-      {(control, meta) => {
+      {(control, meta, context) => {
         const { errors, name: metaName } = meta;
         const mergedName = toArray(name).length ? metaName : [];
 
@@ -158,7 +158,7 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
         };
 
         let childNode;
-        if (typeof children === 'function' && !shouldUpdate) {
+        if (typeof children === 'function' && (!shouldUpdate || !!name)) {
           warning(false, 'Form.Item', '`children` of render props only work with `shouldUpdate`.');
         } else if (!mergedName.length && !shouldUpdate && !dependencies) {
           childNode = children;
@@ -181,8 +181,8 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
           });
 
           childNode = React.cloneElement(children, childProps);
-        } else if (typeof children === 'function' && shouldUpdate) {
-          childNode = children();
+        } else if (typeof children === 'function' && shouldUpdate && !name) {
+          childNode = children(context);
         }
 
         if (inline) {
