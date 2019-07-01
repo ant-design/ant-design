@@ -77,7 +77,7 @@ export const OriginResult: React.SFC<ResultProps> = props => (
         status,
       } = props;
       const prefixCls = getPrefixCls('result', customizePrefixCls);
-      const className = classnames(prefixCls, ` ${prefixCls}-${status}`, customizeClassName);
+      const className = classnames(prefixCls, `${prefixCls}-${status}`, customizeClassName);
       return (
         <div className={className} style={style}>
           {renderIcon(prefixCls, props)}
