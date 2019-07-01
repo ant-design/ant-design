@@ -29,13 +29,37 @@ title: Form
 | labelCol | label 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}` | [object](https://ant.design/components/grid/#Col) |  |
 | layout | 表单布局 | 'horizontal'\|'vertical'\|'inline' | 'horizontal' |
 | name | 表单名称，会作为表单字段 `id` 前缀使用 | string | - |
-| validateMessages | 验证提示模板 | [ValidateMessages](<(https://github.com/react-component/field-form/blob/master/src/utils/messages.ts)>) | - |
+| validateMessages | 验证提示模板，说明[见下](#validateMessages) | [ValidateMessages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts) | - |
 | wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | [object](https://ant.design/components/grid/#Col) |  |
 | onFinish | 数据验证成功后回调事件 | Function(values) | - |
 | onFieldsChange | 字段更新时触发回调事件 | Function(changedFields, allFields) | - |
 | onValuesChange | 字段值更新时触发回调事件 | Function(changedValues, allValues) | - |
 
-### validateMessages 使用
+### validateMessages
+
+Form 为验证提供了[默认的错误提示信息](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts)，你可以通过配置 `validateMessages` 属性，修改对应的提示模板。一种常见的使用方式，是配置国际化提示信息：
+
+```jsx
+const validateMessages = {
+  required: "'${name}' 是必选字段",
+  // ...
+};
+
+<Form validateMessages={validateMessages} />;
+```
+
+此外，[ConfigProvider](/components/config-provider/) 也提供了全局化配置方案，允许统一配置错误提示模板：
+
+```jsx
+const validateMessages = {
+  required: "'${name}' 是必选字段",
+  // ...
+};
+
+<ConfigProvider form={{ validateMessages }}>
+  <Form />
+</ConfigProvider>;
+```
 
 ## Form.Item
 
