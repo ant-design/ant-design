@@ -87,6 +87,15 @@ title: Form
 </Form.List>
 ```
 
+## Form.Provider
+
+提供表单间联动功能
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| onFormChange | 子表单字段更新时触发 | Function(formName: string, info: { changedFields, forms }) | - |
+| onFormFinish | 子表单提交时触发 | Function(formName: string, info: { values, forms }) | - |
+
 ### FormInstance
 
 | 名称 | 说明 |
@@ -101,6 +110,7 @@ title: Form
 | resetFields | 重置一组字段到 `initialValues` | (fields?: [NamePath](#NamePath)[]) => void |
 | setFields | 设置一组字段状态 | (fields: FieldData[]) => void |
 | setFieldsValue | 设置表单的值 | (values) => void |
+| submit | 提交表单，与点击 `submit` 按钮效果相同 | () => void |
 | validateFields | 触发表单验证 | (nameList?: [NamePath](#NamePath)[]) => Promise |
 
 ### Interface
