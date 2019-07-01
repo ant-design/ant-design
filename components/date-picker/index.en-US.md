@@ -68,10 +68,10 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 
 ### Common Methods
 
-| Name    | Description  |
-| ------- | ------------ |
-| blur()  | remove focus | 3.0.0 |
-| focus() | get focus    | 3.0.0 |
+| Name    | Description  | Version |
+| ------- | ------------ | ------- |
+| blur()  | remove focus | 3.0.0   |
+| focus() | get focus    | 3.0.0   |
 
 ### DatePicker
 
