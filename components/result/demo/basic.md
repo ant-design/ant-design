@@ -28,7 +28,7 @@ const StatusMap = {
     extra: <Button type="primary">Back Home</Button>,
   },
   '500': {
-    title: '404',
+    title: '500',
     subTitle: 'Sorry, the server is wrong.',
     extra: <Button type="primary">Back Home</Button>,
   },
