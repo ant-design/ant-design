@@ -69,17 +69,17 @@ export const OriginResult: React.SFC<ResultProps> = props => (
     {({ getPrefixCls }: ConfigConsumerProps) => {
       const {
         prefixCls: customizePrefixCls,
-        className,
+        className: customizeClassName,
         subTitle,
         title,
         style,
         children,
         status,
       } = props;
-
       const prefixCls = getPrefixCls('result', customizePrefixCls);
+      const className = classnames(prefixCls, ` ${prefixCls}-${status}`, customizeClassName);
       return (
-        <div className={`${prefixCls} ${prefixCls}-${status} ${className}`} style={style}>
+        <div className={className} style={style}>
           {renderIcon(prefixCls, props)}
           <div className={`${prefixCls}-title`}>{title}</div>
           {subTitle && <div className={`${prefixCls}-subtitle`}>{subTitle}</div>}
