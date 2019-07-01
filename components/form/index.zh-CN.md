@@ -20,8 +20,8 @@ title: Form
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | component | 设置 Form 渲染元素，为 `false` 则不创建 DOM 节点 | ComponentType \| false | form |
-| colon | 配置 Form.Item 的 `colon` 的默认值 | boolean | true |
-| fields | 通过状态管理（如 redux）控制表单字段，如非强需求不推荐使用 | [FieldData](#FieldData)\[] | - |
+| colon | 配置 Form.Item 的 `colon` 的默认值。表示是否显示 label 后面的冒号 | boolean | true |
+| fields | 通过状态管理（如 redux）控制表单字段，如非强需求不推荐使用。查看[示例](#components-form-demo-global-state) | [FieldData](#FieldData)\[] | - |
 | form | 经 `Form.useForm()` 创建的 form 控制实例，不提供时会自动创建 | [FormInstance](#FormInstance) | - |
 | hideRequiredMark | 隐藏所有表单项的必选标记 | boolean | false |
 | initialValues | 表单默认值，只有初始化以及重置时生效 | object | - |
@@ -31,7 +31,7 @@ title: Form
 | name | 表单名称，会作为表单字段 `id` 前缀使用 | string | - |
 | validateMessages | 验证提示模板，说明[见下](#validateMessages) | [ValidateMessages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts) | - |
 | wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | [object](https://ant.design/components/grid/#Col) |  |
-| onFinish | 数据验证成功后回调事件 | Function(values) | - |
+| onFinish | 提交表单且数据验证成功后回调事件 | Function(values) | - |
 | onFieldsChange | 字段更新时触发回调事件 | Function(changedFields, allFields) | - |
 | onValuesChange | 字段值更新时触发回调事件 | Function(changedValues, allValues) | - |
 
@@ -68,7 +68,7 @@ const validateMessages = {
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | colon | 配合 `label` 属性使用，表示是否显示 `label` 后面的冒号 | boolean | true |
-| dependencies | 设置依赖字段，依赖变更时会触发重新渲染以及校验 | [NamePath](#NamePath)[] | - |
+| dependencies | 设置依赖字段，说明[见下](#dependencies) | [NamePath](#NamePath)[] | - |
 | extra | 额外的提示信息，和 `help` 类似，当需要错误信息和提示文案同时出现时，可以使用这个。 | string\|ReactNode | - |
 | getValueFromEvent | 设置如何将 event 的值转换成字段值 | (..args: any[]) => any | - |
 | hasFeedback | 配合 `validateStatus` 属性使用，展示校验状态图标，建议只配合 Input 组件使用 | boolean | false |
@@ -80,13 +80,49 @@ const validateMessages = {
 | name | 字段名，支持数组 | [NamePath](#NamePath) | - |
 | normalize | 转换字段值给控件 | (value, prevValue, prevValues) => any | - |
 | required | 是否必填，如不设置，则会根据校验规则自动生成 | boolean | false |
-| rules | 校验规则 | [Rule](#Rule)[] | - |
-| shouldUpdate | 随着表单数据变更强制更新 Item，只有在未设置 `name` 时有效 | boolean | false |
+| rules | 校验规则，设置字段的校验逻辑。点击[此处](#components-form-demo-basic)查看示例 | [Rule](#Rule)[] | - |
+| shouldUpdate | 自定义字段更新逻辑，说明[见下](#shouldUpdate) | boolean \| (prevValue, curValue) => boolean | false |
 | trigger | 设置收集字段值变更的时机 | string | onChange |
 | validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选：'success' 'warning' 'error' 'validating' | string |  |
 | validateTrigger | 设置字段校验的时机 | string \| string[] | onChange |
 | valuePropName | 子节点的值的属性，如 Switch 的是 'checked' | string | value |
 | wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 `labelCol`。你可以通过 Form 的 `wrapperCol` 进行统一设置。当和 Form 同时设置时，以 Item 为准。 | [object](/components/grid/#Col) |  |
+
+### dependencies
+
+当字段间存在依赖关系时使用。如果一个字段设置了 `dependencies` 属性。那么它所依赖的字段更新时，该字段将自动触发更新与校验。一种常见的场景，就是注册用户表单的“密码”与“确认密码”字段。“确认密码”校验依赖于“密码”字段，设置 `dependencies` 后，“密码”字段更新会重新触发“校验密码”的校验逻辑。你可以参考[具体例子](#components-form-demo-register)。
+
+### shouldUpdate
+
+Form 通过增量更新方式，只更新被修改的字段相关组件以达到性能优化目的。大部分场景下，你只需要编写代码或者与 [`dependencies`](#dependencies) 属性配合校验即可。而在某些特定场景，例如修改某个字段值后出现新的字段选项、或者纯粹希望表单任意变化都对某一个区域进行渲染。你可以通过 `shouldUpdate` 字段修改 Form.Item 的更新逻辑。
+
+当 `shouldUpdate` 为 `true` 时，Form 的任意变化都会使该 Form.Item 重新渲染。这对于自定义渲染一些区域十分有帮助：
+
+```jsx
+<Form.Item shouldUpdate>
+  {() => {
+    return <pre>{JSON.stringify(form.getFieldsValue(), null, 2)}</pre>;
+  }}
+</Form.Item>
+```
+
+你可以参考[示例](#components-form-demo-horizontal-login)查看具体使用场景。
+
+当 `shouldUpdate` 为方法时，表单的每次数值更新都会调用该方法，提供原先的值与当前的值以供你比较是否需要更新。这对于是否根据值来渲染额外字段十分有帮助：
+
+```jsx
+<Form.Item shouldUpdate={(prevValues, curValues) => prevValues.additional !== curValues.additional}>
+  {() => {
+    return (
+      <Form.Item name="other">
+        <Input />
+      </Form.Item>
+    );
+  }}
+</Form.Item>
+```
+
+你可以参考[示例](#components-form-demo-control-hooks)查看具体使用场景。
 
 ## Form.List
 
@@ -113,7 +149,7 @@ const validateMessages = {
 
 ## Form.Provider
 
-提供表单间联动功能
+提供表单间联动功能，其下设置 `name` 的 Form 更新时，会自动触发对应事件。查看[示例](#components-form-demo-form-context)。
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -122,8 +158,8 @@ const validateMessages = {
 
 ### FormInstance
 
-| 名称 | 说明 |
-| --- | --- |
+| 名称 | 说明 | 类型 |
+| --- | --- | --- |
 | getFieldValue | 获取对应字段名的值 | (name: [NamePath](#NamePath)) => any |
 | getFieldsValue | 获取一组字段名对应的值，会按照对应结构返回 | (nameList?: [NamePath](#NamePath)[]) => any |
 | getFieldError | 获取对应字段名的错误信息 | (name: [NamePath](#NamePath)) => string[] |
@@ -137,6 +173,19 @@ const validateMessages = {
 | submit | 提交表单，与点击 `submit` 按钮效果相同 | () => void |
 | validateFields | 触发表单验证 | (nameList?: [NamePath](#NamePath)[]) => Promise |
 
+```jsx
+<Form.Provider
+  onFormFinish={name => {
+    if (name === 'form1') {
+      // Do something...
+    }
+  }}
+>
+  <Form name="form1">...</Form>
+  <Form name="form2">...</Form>
+</Form.Provider>
+```
+
 ### Interface
 
 #### NamePath
@@ -145,30 +194,30 @@ const validateMessages = {
 
 #### FieldData
 
-| Prop       | Type                                     |
-| ---------- | ---------------------------------------- |
-| touched    | boolean                                  |
-| validating | boolean                                  |
-| errors     | string[]                                 |
-| name       | string \| number \| (string \| number)[] |
-| value      | any                                      |
+| 名称       | 说明             | 类型                    |
+| ---------- | ---------------- | ----------------------- |
+| touched    | 是否被用户操作过 | boolean                 |
+| validating | 是否正在校验     | boolean                 |
+| errors     | 错误信息         | string[]                |
+| name       | 字段名称         | [NamePath](#NamePath)[] |
+| value      | 字段对应值       | any                     |
 
 #### Rule
 
-| Prop            | Type                                                                          |
-| --------------- | ----------------------------------------------------------------------------- |
-| enum            | any[]                                                                         |
-| len             | number                                                                        |
-| max             | number                                                                        |
-| message         | string                                                                        |
-| min             | number                                                                        |
-| pattern         | RegExp                                                                        |
-| required        | boolean                                                                       |
-| transform       | (value) => any                                                                |
-| type            | string                                                                        |
-| validator       | ([rule](#Rule), value, callback: (error?: string) => void) => Promise \| void |
-| whitespace      | boolean                                                                       |
-| validateTrigger | string \| string[]                                                            |
+| 名称 | 说明 | 类型 |
+| --- | --- | --- |
+| enum | 是否匹配枚举中的值 | any[] |
+| len | string 类型时为字符串长度；number 类型时为确定数字； array 类型时为数组长度 | number |
+| max | string 类型为字符串最大长度；number 类型时为最大值；array 类型时为数组最大长度 | number |
+| message | 错误信息，不设置时会通过[模板](#validateMessages)自动生成 | string |
+| min | string 类型为字符串最小长度；number 类型时为最小值；array 类型时为数组最小长度 | number |
+| pattern | 正则表达式匹配 | RegExp |
+| required | 是否为必选字段 | boolean |
+| transform | 将字段值转换成目标值后进行校验 | (value) => any |
+| type | 类型，常见有 `string` \|`number` \|`boolean` \|`url` \| `email`。更多请参考[此处](https://github.com/yiminghe/async-validator#type) | string |
+| validator | 自定义校验，接收 Promise 作为返回值。[示例](#components-form-demo-register)参考 | ([rule](#Rule), value) => Promise |
+| whitespace | 如果字段仅包含空格则校验不通过 | boolean |
+| validateTrigger | 设置触发验证时机，必须是 Form.Item 的 `validateTrigger` 的子集 | string \| string[] |
 
 <style>
 .code-box-demo .ant-form:not(.ant-form-inline):not(.ant-form-vertical) {
