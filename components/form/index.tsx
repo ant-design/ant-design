@@ -1,6 +1,7 @@
-import InternalForm, { useForm, FormInstance, FormProvider } from './Form';
+import InternalForm, { useForm, FormInstance } from './Form';
 import Item from './FormItem';
 import List from './FormList';
+import { FormProvider } from './context';
 
 type InternalForm = typeof InternalForm;
 interface Form extends InternalForm {

@@ -26,6 +26,7 @@ interface FormItemProps extends FormItemLabelProps, FormItemInputProps, RcFieldP
   id?: string;
   hasFeedback?: boolean;
   validateStatus?: ValidateStatus;
+  required?: boolean;
 
   /** Auto passed by List render props. User should not use this. */
   fieldKey: number;
@@ -46,6 +47,7 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
     rules,
     validateStatus,
     children,
+    required,
     trigger = 'onChange',
     validateTrigger = 'onChange',
   } = props;
@@ -146,9 +148,10 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
         };
 
         // TODO: Check if user add `required` in RuleRender
-        const isRequired = !!(
-          rules && rules.some(rule => typeof rule === 'object' && rule.required)
-        );
+        const isRequired =
+          required !== undefined
+            ? required
+            : !!(rules && rules.some(rule => typeof rule === 'object' && rule.required));
 
         // ======================= Children =======================
         const mergedId = mergedName.join('_');
