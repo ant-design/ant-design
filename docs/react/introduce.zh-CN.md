@@ -121,14 +121,20 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 ## 链接
 
-- [首页](http://ant.design/)
+- [首页](https://ant.design/)
 - [组件库](/docs/react/introduce)
-- [Ant Design Pro](http://pro.ant.design/)
+- [Ant Design Pro](https://pro.ant.design/)
 - [更新日志](/changelog)
-- [脚手架市场](http://scaffold.ant.design)
 - [React 底层基础组件](http://react-component.github.io/)
 - [移动端组件](http://mobile.ant.design)
+- [Ant Design 图标](https://github.com/ant-design/ant-design-icons)
+- [Ant Design 色彩](https://github.com/ant-design/ant-design-colors)
+- [Ant Design Pro 布局组件](https://github.com/ant-design/ant-design-pro-layout)
+- [Ant Design Pro 区块集](https://github.com/ant-design/pro-blocks)
+- [Dark Theme](https://github.com/ant-design/ant-design-dark-theme)
+- [首页模板集](https://landing.ant.design)
 - [动效](https://motion.ant.design)
+- [脚手架市场](http://scaffold.ant.design)
 - [设计规范速查手册](https://github.com/ant-design/ant-design/wiki/Ant-Design-%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80%E7%AE%80%E7%89%88)
 - [开发者说明](https://github.com/ant-design/ant-design/wiki/Development)
 - [版本发布规则](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
