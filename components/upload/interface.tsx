@@ -23,7 +23,7 @@ export interface UploadFile {
   status?: UploadFileStatus;
   percent?: number;
   thumbUrl?: string;
-  originFileObj?: File;
+  originFileObj?: File | Blob;
   response?: any;
   error?: any;
   linkProps?: any;
