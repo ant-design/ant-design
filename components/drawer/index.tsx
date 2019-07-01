@@ -219,6 +219,14 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
       title,
       push,
       onClose,
+      visible,
+      // ConfigConsumerProps
+      getPopupContainer,
+      rootPrefixCls,
+      getPrefixCls,
+      renderEmpty,
+      csp,
+      autoInsertSpaceInButton,
       ...rest
     } = this.props;
     warning(
