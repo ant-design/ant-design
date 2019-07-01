@@ -506,7 +506,7 @@ describe('Upload List', () => {
     });
   });
 
-  describe.only('customize previewFile support', () => {
+  describe('customize previewFile support', () => {
     function test(name, renderInstance) {
       it(name, async () => {
         const mockThumbnail = 'mock-image';
