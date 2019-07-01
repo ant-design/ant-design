@@ -24,7 +24,7 @@ title: Form
 | fields | 通过状态管理（如 redux）控制表单字段，如非强需求不推荐使用 | [FieldData](#FieldData)\[] | - |
 | form | 经 `Form.useForm()` 创建的 form 控制实例，不提供时会自动创建 | [FormInstance](#FormInstance) | - |
 | hideRequiredMark | 隐藏所有表单项的必选标记 | boolean | false |
-| initialValues | 默认值，只有初始化以及重置时生效 | object | - |
+| initialValues | 表单默认值，只有初始化以及重置时生效 | object | - |
 | labelAlign | label 标签的文本对齐方式 | 'left' \| 'right' | 'right' |
 | labelCol | label 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}` | [object](https://ant.design/components/grid/#Col) |  |
 | layout | 表单布局 | 'horizontal'\|'vertical'\|'inline' | 'horizontal' |

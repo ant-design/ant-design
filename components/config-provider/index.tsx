@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { FormProvider as RcFormProvider } from 'rc-field-form';
+import { ValidateMessages } from 'rc-field-form/lib/interface';
 import defaultRenderEmpty, { RenderEmptyHandler } from './renderEmpty';
 
 export { RenderEmptyHandler };
@@ -32,6 +34,9 @@ export interface ConfigProviderProps {
   renderEmpty?: RenderEmptyHandler;
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
+  form?: {
+    validateMessages?: ValidateMessages;
+  };
 }
 
 export const ConfigContext = React.createContext<ConfigConsumerProps>({
@@ -57,7 +62,14 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
   };
 
   renderProvider = (context: ConfigConsumerProps) => {
-    const { children, getPopupContainer, renderEmpty, csp, autoInsertSpaceInButton } = this.props;
+    const {
+      children,
+      getPopupContainer,
+      renderEmpty,
+      csp,
+      autoInsertSpaceInButton,
+      form,
+    } = this.props;
 
     const config: ConfigConsumerProps = {
       ...context,
@@ -73,7 +85,16 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       config.renderEmpty = renderEmpty;
     }
 
-    return <ConfigContext.Provider value={config}>{children}</ConfigContext.Provider>;
+    let childNode = children;
+
+    // Additional Form provider
+    if (form && form.validateMessages) {
+      childNode = (
+        <RcFormProvider validateMessages={form.validateMessages}>{children}</RcFormProvider>
+      );
+    }
+
+    return <ConfigContext.Provider value={config}>{childNode}</ConfigContext.Provider>;
   };
 
   render() {
