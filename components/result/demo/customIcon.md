@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 5
 title:
   zh-CN: 自定义 icon
   en-US: Custom icon
