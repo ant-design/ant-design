@@ -19,9 +19,17 @@ import { Input } from 'antd';
 const onChange = e => {
   console.log(e);
 };
+const handleClear = e => {
+  console.log('removed', e);
+};
 
 ReactDOM.render(
-  <Input placeholder="input with clear icon" allowClear onChange={onChange} />,
+  <Input
+    placeholder="input with clear icon"
+    onChange={onChange}
+    allowClear
+    onClear={handleClear}
+  />,
   mountNode,
 );
 ```

@@ -35,6 +35,7 @@ export interface InputProps
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
   allowClear?: boolean;
+  onClear?: Function;
 }
 
 class Input extends React.Component<InputProps, any> {
@@ -68,6 +69,7 @@ class Input extends React.Component<InputProps, any> {
     prefix: PropTypes.node,
     suffix: PropTypes.node,
     allowClear: PropTypes.bool,
+    onClear: PropTypes.func,
   };
 
   static getDerivedStateFromProps(nextProps: InputProps) {
@@ -168,9 +170,13 @@ class Input extends React.Component<InputProps, any> {
   }
 
   handleReset = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    const { onClear } = this.props;
     this.setValue('', e, () => {
       this.focus();
     });
+    if (onClear) {
+      onClear(e);
+    }
   };
 
   handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -283,6 +289,7 @@ class Input extends React.Component<InputProps, any> {
       'prefix',
       'suffix',
       'allowClear',
+      'onClear',
       // Input elements must be either controlled or uncontrolled,
       // specify either the value prop, or the defaultValue prop, but not both.
       'defaultValue',

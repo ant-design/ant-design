@@ -30,6 +30,7 @@ A basic widget for getting the user input is a text field. Keyboard and mouse ca
 | onChange | callback when user input | function(e) |  |
 | onPressEnter | The callback function that is triggered when Enter key is pressed. | function(e) |  |
 | allowClear | allow to remove input content with clear icon | boolean |  |
+| onClear | The callback function that is triggered when input content is removed | function(e) |  |
 
 > When `Input` is used in a `Form.Item` context, if the `Form.Item` has the `id` and `options` props defined then `value`, `defaultValue`, and `id` props of `Input` are automatically set.
 

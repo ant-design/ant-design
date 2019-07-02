@@ -355,4 +355,14 @@ describe('Input allowClear', () => {
         .getDOMNode(),
     );
   });
+
+  it('should support onClear', () => {
+    const fakeHandleClear = jest.fn();
+    const wrapper = mount(<Input allowClear defaultValue="111" onClear={fakeHandleClear} />);
+    wrapper
+      .find('.ant-input-clear-icon')
+      .at(0)
+      .simulate('click');
+    expect(fakeHandleClear).toHaveBeenCalledTimes(1);
+  });
 });
