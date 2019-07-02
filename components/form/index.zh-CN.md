@@ -495,7 +495,7 @@ form.getFieldsError();
 */
 ```
 
-### validateFields 不在支持 callback
+### validateFields 不再支持 callback
 
 `validateFields` 会返回 Promise 对象，因而你可以通过 `async/await` 或者 `then/catch` 来执行对应的错误处理。不再需要判断 `errors` 是否为空：
 
