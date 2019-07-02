@@ -86,3 +86,84 @@ Form field component for data bidirectional binding, validation, layout, and so 
 | validateTrigger | When to validate the value of children node | string \| string[] | onChange |
 | valuePropName | Props of children node, for example, the prop of Switch is 'checked' | string | value |
 | wrapperCol | The layout for input controls, same as `labelCol`. You can set `wrapperCol` on Form. If both exists, use Item first | [object](/components/grid/#Col) |  |
+
+### dependencies
+
+Used when there are dependencies between fields. If a field has the `dependencies` prop, this field will automatically trigger updates and validations when upstream updated. A common scenario is user register form with "password" and "confirm password" fields. The "Confirm Password" validation depends on the "Password" field. After setting `dependencies`, the "Password" field update will re-trigger the validation of "Check Password". You can refer [examples](#components-form-demo-register).
+
+### shouldUpdate
+
+Form updates only the modified field-related components for performance optimization purposes by incremental update. In most case, you only need to write code or do validation with the [`dependencies`](#dependencies) property. And in some specific case, such as a new field option appears with a filed value changed, or just want to keep some area updating by form update. You can modify the update logic of Form.Item via the `shouldUpdate`.
+
+When `shouldUpdate` is `true`, any Form update will cause the Form.Item to be re-rendered. This is very helpful for custom rendering some areas:
+
+```jsx
+<Form.Item shouldUpdate>
+  {() => {
+    return <pre>{JSON.stringify(form.getFieldsValue(), null, 2)}</pre>;
+  }}
+</Form.Item>
+```
+
+You can ref [example](#components-form-demo-horizontal-login) to see detail.
+
+When `shouldUpdate` is a function, it will be called by form values update. Providing original values and current value to compare. This is very helpful for rendering additional fields based on values:
+
+```jsx
+<Form.Item shouldUpdate={(prevValues, curValues) => prevValues.additional !== curValues.additional}>
+  {() => {
+    return (
+      <Form.Item name="other">
+        <Input />
+      </Form.Item>
+    );
+  }}
+</Form.Item>
+```
+
+You can ref [example](#components-form-demo-control-hooks) to see detail.
+
+## Form.List
+
+Provides array management for fields.
+
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| name | Field name, support array | [NamePath](#NamePath) | - |
+| children | Render function | (fields: Field[], operation: { add, remove }) => React.ReactNode | - |
+
+```tsx
+<Form.List>
+  {fields => (
+    <div>
+      {fields.map(field => (
+        <Form.Item {...field}>
+          <Input />
+        </Form.Item>
+      ))}
+    </div>
+  )}
+</Form.List>
+```
+
+## Form.Provider
+
+提供表单间联动功能，其下设置 `name` 的 Form 更新时，会自动触发对应事件。查看[示例](#components-form-demo-form-context)。
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| onFormChange | 子表单字段更新时触发 | Function(formName: string, info: { changedFields, forms }) | - |
+| onFormFinish | 子表单提交时触发 | Function(formName: string, info: { values, forms }) | - |
+
+```jsx
+<Form.Provider
+  onFormFinish={name => {
+    if (name === 'form1') {
+      // Do something...
+    }
+  }}
+>
+  <Form name="form1">...</Form>
+  <Form name="form2">...</Form>
+</Form.Provider>
+```
