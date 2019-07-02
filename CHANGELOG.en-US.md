@@ -20,9 +20,7 @@ timeline: true
 - 🔥🔥🔥 Add [Result](https://ant.design/components/result) Used to feed back the results of a series of operational tasks.
 - 🔥 Descriptions support vertical layout. [#17330](https://github.com/ant-design/ant-design/pull/17330) [@hengkx](https://github.com/hengkx)
 - 🔥 Progress.Circle support gradient line color. [#17315](https://github.com/ant-design/ant-design/pull/17315) [@hengkx](https://github.com/hengkx)
-
-<img  class="markdown-inline-image" src="https://gw.alipayobjects.com/zos/antfincdn/WogwW6kA4O/method-draw-image.svg" alt="Progress">
-
+  <img class="markdown-inline-image" src="https://gw.alipayobjects.com/zos/antfincdn/WogwW6kA4O/method-draw-image.svg" alt="Progress">
 - 🔥 Optimize PageHeader className naming. [#17321](https://github.com/ant-design/ant-design/pull/17321)
 - 🐞 Drawer fixes `maskCloseble` to false, keyboard ESC closes invalid. [#17316](https://github.com/ant-design/ant-design/pull/17316)
 - 🐞 Fixed an issue where Drawer closes not calling `afterVisibleChange` in Edge. [#17311](https://github.com/ant-design/ant-design/pull/17311)
