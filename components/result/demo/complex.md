@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 7
 title:
   zh-CN: 复杂的例子
   en-US: Complex example
@@ -16,7 +16,7 @@ Provide more complex feedback.
 ```jsx
 import { Result, Button, Icon, Typography } from 'antd';
 
-const { Title, Paragraph } = Typography;
+const { Title, Paragraph, Text } = Typography;
 
 ReactDOM.render(
   <Result
@@ -37,8 +37,8 @@ ReactDOM.render(
         <a>Thaw immediately &gt;</a>
       </Paragraph>
       <Paragraph>
-        <Icon type="close-circle" /> Your account is not yet eligible to apply{' '}
-        <a>Apply immediately &gt;</a>
+        <Icon style={{ color: 'red' }} type="close-circle" /> Your account is not yet eligible to
+        apply <a>Apply Unlock &gt;</a>
       </Paragraph>
     </div>
   </Result>,
