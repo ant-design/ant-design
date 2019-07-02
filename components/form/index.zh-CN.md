@@ -156,6 +156,19 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 | onFormChange | 子表单字段更新时触发 | Function(formName: string, info: { changedFields, forms }) | - |
 | onFormFinish | 子表单提交时触发 | Function(formName: string, info: { values, forms }) | - |
 
+```jsx
+<Form.Provider
+  onFormFinish={name => {
+    if (name === 'form1') {
+      // Do something...
+    }
+  }}
+>
+  <Form name="form1">...</Form>
+  <Form name="form2">...</Form>
+</Form.Provider>
+```
+
 ### FormInstance
 
 | 名称 | 说明 | 类型 |
@@ -173,17 +186,34 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 | submit | 提交表单，与点击 `submit` 按钮效果相同 | () => void |
 | validateFields | 触发表单验证 | (nameList?: [NamePath](#NamePath)[]) => Promise |
 
+#### validateFields 返回示例
+
 ```jsx
-<Form.Provider
-  onFormFinish={name => {
-    if (name === 'form1') {
-      // Do something...
+validateFields()
+  .then(values => {
+    /*
+  values:
+    {
+      username: 'username',
+      password: 'password',
     }
-  }}
->
-  <Form name="form1">...</Form>
-  <Form name="form2">...</Form>
-</Form.Provider>
+  */
+  })
+  .catch(errorInfo => {
+    /*
+    errorInfo:
+      {
+        values: {
+          username: 'username',
+          password: 'password',
+        },
+        errorFields: [
+          { password: ['username'], errors: ['Please input your Password!'] },
+        ],
+        outOfDate: false,
+      }
+    */
+  });
 ```
 
 ### Interface
@@ -218,6 +248,274 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 | validator | 自定义校验，接收 Promise 作为返回值。[示例](#components-form-demo-register)参考 | ([rule](#Rule), value) => Promise |
 | whitespace | 如果字段仅包含空格则校验不通过 | boolean |
 | validateTrigger | 设置触发验证时机，必须是 Form.Item 的 `validateTrigger` 的子集 | string \| string[] |
+
+## 从 v3 升级到 v4
+
+### 去除 Form.create
+
+v4 的 Form 不再需要通过 `Form.create()` 创建上下文。Form 组件现在自带数据域，因而 `getFieldDecorator` 也不再需要，直接写入 Form.Item 即可：
+
+```jsx
+// antd v3
+const Demo = ({ form: { getFieldDecorator } }) => (
+  <Form>
+    <Form.Item>
+      {getFieldDecorator('username', {
+        rules: [{ required: true }],
+      })(<Input />)}
+    </Form.Item>
+  </Form>
+);
+
+const WrappedDemo = Form.create()(Demo);
+```
+
+改成：
+
+```jsx
+// antd v4
+const Demo = () => (
+  <Form>
+    <Form.Item name="username" rules={[{ required: true }]}>
+      <Input />
+    </Form.Item>
+  </Form>
+);
+```
+
+由于移除了 `Form.create()`，原本的 `onFieldsChange` 等方法移入 Form 中，通过 `fields` 对 Form 进行控制。参考[示例](#components-form-demo-global-state)。
+
+### 表单控制调整
+
+Form 自带表单控制实体，如需要调用 form 方法，可以通过 `Form.useForm()` 创建 Form 实体进行操作：
+
+```jsx
+// antd v3
+const Demo = ({ form: { setFieldsValue } }) => {
+  React.useEffect(() => {
+    setFieldsValue({
+      username: 'Bamboo',
+    });
+  }, []);
+
+  return (
+    <Form>
+      <Form.Item>
+        {getFieldDecorator('username', {
+          rules: [{ required: true }],
+        })(<Input />)}
+      </Form.Item>
+    </Form>
+  );
+};
+
+const WrappedDemo = Form.create()(Demo);
+```
+
+改成：
+
+```jsx
+// antd v4
+const Demo = () => {
+  const [form] = Form.useForm();
+
+  React.useEffect(() => {
+    form.setFieldsValue({
+      username: 'Bamboo',
+    });
+  }, []);
+
+  return (
+    <Form form={form}>
+      <Form.Item name="username" rules={[{ required: true }]}>
+        <Input />
+      </Form.Item>
+    </Form>
+  );
+};
+```
+
+对于 class component，也可以通过 `ref` 获得实体：
+
+```jsx
+// antd v4
+class Demo extends React.Component {
+  formRef = React.createRef();
+
+  componentDidMount() {
+    this.formRef.setFieldsValue({
+      username: 'Bamboo',
+    });
+  }
+
+  render() {
+    return (
+      <Form ref={formRef}>
+        <Form.Item name="username" rules={[{ required: true }]}>
+          <Input />
+        </Form.Item>
+      </Form>
+    );
+  }
+}
+```
+
+由于 Form.Item 内置字段绑定，如果需要不带样式的表单绑定，可以使用 `inline` 属性移除额外样式：
+
+```jsx
+// antd v3
+const Demo = ({ form: { setFieldsValue } }) => {
+  return <Form>{getFieldDecorator('username')(<Input />)}</Form>;
+};
+
+const WrappedDemo = Form.create()(Demo);
+```
+
+改成：
+
+```jsx
+// antd v4
+const Demo = () => {
+  return (
+    <Form>
+      <Form.Item name="username" inline>
+        <Input />
+      </Form.Item>
+    </Form>
+  );
+};
+```
+
+### 字段联动调整
+
+新版 Form 采用增量更新方式，仅会更新需要更新的字段。因而如果有字段关联更新，或者跟随整个表单更新而更新。可以使用 [`dependencies`](#dependencies) 或 [`shouldUpdate`](#shouldUpdate)。
+
+### onFinish 替代 onSubmit
+
+对于表单校验，过去版本需要通过监听 `onSubmit` 事件手工触发 `validateFields`。新版直接使用 `onFinish` 事件，该事件仅当校验通过后才会执行：
+
+```jsx
+// antd v3
+const Demo = ({ form: { getFieldDecorator, validateFields } }) => {
+  const onSubmit = e => {
+    e.preventDefault();
+    validateFields((err, values) => {
+      if (!err) {
+        console.log('Received values of form: ', values);
+      }
+    });
+  };
+
+  return (
+    <Form onSubmit={onSubmit}>
+      <Form.Item>
+        {getFieldDecorator('username', {
+          rules: [{ required: true }],
+        })(<Input />)}
+      </Form.Item>
+    </Form>
+  );
+};
+
+const WrappedDemo = Form.create()(Demo);
+```
+
+改成：
+
+```jsx
+// antd v4
+const Demo = () => {
+  const onFinish = values => {
+    console.log('Received values of form: ', values);
+  };
+
+  return (
+    <Form onFinish={onFinish}>
+      <Form.Item name="username" rules={[{ required: true }]}>
+        <Input />
+      </Form.Item>
+    </Form>
+  );
+};
+```
+
+### 初始化调整
+
+此外，我们将 `initialValue` 从字段中移到 Form 中。以避免同名字段设置 `initialValue` 的冲突问题：
+
+```jsx
+// antd v3
+const Demo = ({ form: { getFieldDecorator } }) => (
+  <Form>
+    <Form.Item>
+      {getFieldDecorator('username', {
+        rules: [{ required: true }],
+        initialValue: 'Bamboo',
+      })(<Input />)}
+    </Form.Item>
+  </Form>
+);
+
+const WrappedDemo = Form.create()(Demo);
+```
+
+改成：
+
+```jsx
+// antd v4
+const Demo = () => (
+  <Form initialValues={{ username: 'Bamboo' }}>
+    <Form.Item name="username" rules={[{ required: true }]}>
+      <Input />
+    </Form.Item>
+  </Form>
+);
+```
+
+在 v3 版本中，修改未操作的字段 `initialValue` 会同步更新字段值，这是一个 BUG。但是由于被长期作为一个 feature 使用，因而我们一直没有修复。在 v4 中，该 BUG 已被修复。`initialValue` 只有在初始化以及重置表单时生效。
+
+### 移除字段不再移除字段值
+
+v3 版本中，我们会将移除的字段对应的值同步清理。但是在实践中，发现清除字段相比保留会造成更大的不便。例如一些切换操作，用户不得不通过隐藏的方式保留字段值。因而新版本的 Form 总是会保留字段值，而移除字段的校验规则会被忽略。也因此 `preserve` 不再需要。
+
+### 嵌套字段路径使用数组
+
+过去版本我们通过 `.` 代表嵌套路径（诸如 `user.name` 来代表 `{ user: { name: '' } }`）。然而在一些后台系统中，变量名中也会带上 `.`。这造成用户需要额外的代码进行转化，因而新版中，嵌套路径通过数组来表示以避免错误的处理行为（如 `['user', 'name']`）。
+
+也因此，诸如 `getFieldsError` 等方法返回的路径总是数组形式以便于用户处理：
+
+```jsx
+form.getFieldsError();
+
+/*
+[
+  { name: ['user', 'name'], errors: [] },
+  { name: ['user', 'age'], errors: ['Some error message'] },
+]
+*/
+```
+
+### validateFields 不在支持 callback
+
+`validateFields` 会返回 Promise 对象，因而你可以通过 `async/await` 或者 `then/catch` 来执行对应的错误处理。不再需要判断 `errors` 是否为空：
+
+```jsx
+// antd v3
+validateFields((err, value) => {
+  if (!err) {
+    // Do something with value
+  }
+});
+```
+
+改成：
+
+```jsx
+// antd v4
+validateFields().then(values => {
+  // Do something with value
+});
+```
 
 <style>
 .code-box-demo .ant-form:not(.ant-form-inline):not(.ant-form-vertical) {
