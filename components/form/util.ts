@@ -9,6 +9,8 @@ import * as React from 'react';
 function useDebounce<T>(content: T[], delay: number = 10): T[] {
   const [cache, setCache] = React.useState(content);
 
+  // React hooks still have bug with unmount setState
+  // https://github.com/facebook/react/issues/15057
   React.useEffect(() => {
     if (content.length) {
       setCache(content);

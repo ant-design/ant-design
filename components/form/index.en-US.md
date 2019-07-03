@@ -148,12 +148,12 @@ Provides array management for fields.
 
 ## Form.Provider
 
-提供表单间联动功能，其下设置 `name` 的 Form 更新时，会自动触发对应事件。查看[示例](#components-form-demo-form-context)。
+Provide linkage between forms. If a sub form with `name` prop update, it will auto trigger Provider related events. See [example](#components-form-demo-form-context).
 
-| 参数 | 说明 | 类型 | 默认值 |
+| Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| onFormChange | 子表单字段更新时触发 | Function(formName: string, info: { changedFields, forms }) | - |
-| onFormFinish | 子表单提交时触发 | Function(formName: string, info: { values, forms }) | - |
+| onFormChange | Triggered when a sub form field updates | Function(formName: string, info: { changedFields, forms }) | - |
+| onFormFinish | Triggered when a sub form submits | Function(formName: string, info: { values, forms }) | - |
 
 ```jsx
 <Form.Provider
@@ -167,3 +167,97 @@ Provides array management for fields.
   <Form name="form2">...</Form>
 </Form.Provider>
 ```
+
+### FormInstance
+
+| Name | Description | Type |
+| --- | --- | --- |
+| getFieldValue | Get the value by the field name | (name: [NamePath](#NamePath)) => any |
+| getFieldsValue | Get values by a set of field names. Return according to the corresponding structure | (nameList?: [NamePath](#NamePath)[]) => any |
+| getFieldError | Get the error messages by the field name | (name: [NamePath](#NamePath)) => string[] |
+| getFieldsError | Get the error messages by the fields name. Return as an array | (nameList?: [NamePath](#NamePath)[]) => FieldError[] |
+| isFieldTouched | Check if a field has been operated | (name: [NamePath](#NamePath)) => boolean |
+| isFieldsTouched | Check if fields have been operated. Check if all fields is touched when `allTouched` is `true` | (nameList?: [NamePath](#NamePath)[], allTouched?: boolean) => boolean |
+| isFieldValidating | Check fields if is in validating | (name: [NamePath](#NamePath)) => boolean |
+| resetFields | Reset fields to `initialValues` | (fields?: [NamePath](#NamePath)[]) => void |
+| setFields | Set fields status | (fields: FieldData[]) => void |
+| setFieldsValue | Set fields value | (values) => void |
+| submit | Submit the form. It's same as click `submit` button | () => void |
+| validateFields | Validate fields | (nameList?: [NamePath](#NamePath)[]) => Promise |
+
+#### validateFields return sample
+
+```jsx
+validateFields()
+  .then(values => {
+    /*
+  values:
+    {
+      username: 'username',
+      password: 'password',
+    }
+  */
+  })
+  .catch(errorInfo => {
+    /*
+    errorInfo:
+      {
+        values: {
+          username: 'username',
+          password: 'password',
+        },
+        errorFields: [
+          { password: ['username'], errors: ['Please input your Password!'] },
+        ],
+        outOfDate: false,
+      }
+    */
+  });
+```
+
+### Interface
+
+#### NamePath
+
+`string | number | (string | number)[]`
+
+#### FieldData
+
+| Name       | Description              | Type                    |
+| ---------- | ------------------------ | ----------------------- |
+| touched    | Whether is operated      | boolean                 |
+| validating | Whether is in validating | boolean                 |
+| errors     | Error messages           | string[]                |
+| name       | Field name path          | [NamePath](#NamePath)[] |
+| value      | Field value              | any                     |
+
+#### Rule
+
+| Name | Description | Type |
+| --- | --- | --- |
+| enum | Match enum value | any[] |
+| len | Length of string, number, array | number |
+| max | Max length of string, number, array | number |
+| message | Error message. Will auto generate by [template](#validateMessages) if not provided | string |
+| min | Min length of string, number, array | number |
+| pattern | Regex pattern | RegExp |
+| required | Required field | boolean |
+| transform | Transform value to the rule before validation | (value) => any |
+| type | Normally `string` \|`number` \|`boolean` \|`url` \| `email`. More type to ref [here](https://github.com/yiminghe/async-validator#type) | string |
+| validator | Customize validation rule. Accept Promise as return. [example](#components-form-demo-register)参考 | ([rule](#Rule), value) => Promise |
+| whitespace | Failed if only has whitespace | boolean |
+| validateTrigger | Set validate trigger event. Must be the sub set of `validateTrigger` in Form.Item | string \| string[] |
+
+## Migrate to v4
+
+If you are the user of v3, you can ref [migrate doc](/components/form/v3)。
+
+<style>
+.code-box-demo .ant-form:not(.ant-form-inline):not(.ant-form-vertical) {
+  max-width: 600px;
+}
+.markdown.api-container table td:last-child {
+  white-space: nowrap;
+  word-wrap: break-word;
+}
+</style>
