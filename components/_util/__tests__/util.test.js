@@ -179,9 +179,6 @@ describe('Test utils function', () => {
     });
 
     it('should not throw when no children', () => {
-      if (process.env.REACT === '15') {
-        return;
-      }
       expect(() => mount(<Wave />)).not.toThrow();
     });
   });

@@ -8,7 +8,7 @@ declare module 'rc-pagination*';
 
 declare module 'omit.js';
 
-declare module 'rc-animate';
+declare module 'rc-animate*';
 
 declare module 'rc-util*';
 
@@ -88,6 +88,8 @@ declare module '*.json' {
   export const version: string;
   export default value;
 }
+
+declare module 'lodash/isEqual';
 
 declare module 'lodash/debounce';
 

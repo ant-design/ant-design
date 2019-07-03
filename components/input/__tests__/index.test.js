@@ -175,29 +175,28 @@ describe('TextArea', () => {
 
 describe('As Form Control', () => {
   it('should be reset when wrapped in form.getFieldDecorator without initialValue', () => {
-    class Demo extends React.Component {
-      reset = () => {
-        const { form } = this.props;
+    const Demo = () => {
+      const [form] = Form.useForm();
+      const reset = () => {
         form.resetFields();
       };
 
-      render() {
-        const {
-          form: { getFieldDecorator },
-        } = this.props;
-        return (
-          <Form>
-            <Form.Item>{getFieldDecorator('input')(<Input />)}</Form.Item>
-            <Form.Item>{getFieldDecorator('textarea')(<Input.TextArea />)}</Form.Item>
-            <button type="button" onClick={this.reset}>
-              reset
-            </button>
-          </Form>
-        );
-      }
-    }
-    const DemoForm = Form.create()(Demo);
-    const wrapper = mount(<DemoForm />);
+      return (
+        <Form form={form}>
+          <Form.Item name="input">
+            <Input />
+          </Form.Item>
+          <Form.Item name="textarea">
+            <Input.TextArea />
+          </Form.Item>
+          <button type="button" onClick={reset}>
+            reset
+          </button>
+        </Form>
+      );
+    };
+
+    const wrapper = mount(<Demo />);
     wrapper.find('input').simulate('change', { target: { value: '111' } });
     wrapper.find('textarea').simulate('change', { target: { value: '222' } });
     expect(wrapper.find('input').prop('value')).toBe('111');

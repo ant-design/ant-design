@@ -10,13 +10,6 @@ references:
     attach_workspace:
       at: ~/ant-design
 
-  install_react: &install_react
-    run: REACT=15 ./scripts/install-react.sh
-
-  react_15: &react_15
-    environment:
-      REACT: 15
-
   react_16: &react_16
     environment:
       REACT: 16
@@ -49,21 +42,6 @@ references:
           requires:
             - setup
       - test_node:
-          requires:
-            - setup
-      - test_dist_15:
-          requires:
-            - dist
-      - test_lib_15:
-          requires:
-            - compile
-      - test_es_15:
-          requires:
-            - compile
-      - test_dom_15:
-          requires:
-            - setup
-      - test_node_15:
           requires:
             - setup
 
@@ -168,60 +146,6 @@ jobs:
       - checkout
       - *attach_workspace
       - run: npm run test-node -- -w 1
-
-  test_dist_15:
-    <<: *container_config
-    <<: *react_15
-    steps:
-      - checkout
-      - *attach_workspace
-      - *install_react
-      - run:
-          command: npm test -- -w 1 -u
-          environment:
-            LIB_DIR: dist
-
-  test_lib_15:
-    <<: *container_config
-    <<: *react_15
-    steps:
-      - checkout
-      - *attach_workspace
-      - *install_react
-      - run:
-          command: npm test -- -w 1 -u
-          environment:
-            LIB_DIR: lib
-
-  test_es_15:
-    <<: *container_config
-    <<: *react_15
-    steps:
-      - checkout
-      - *attach_workspace
-      - *install_react
-      - run:
-          command: npm test -- -w 1 -u
-          environment:
-            LIB_DIR: es
-
-  test_dom_15:
-    <<: *container_config
-    <<: *react_15
-    steps:
-      - checkout
-      - *attach_workspace
-      - *install_react
-      - run: npm test -- -w 1 -u
-
-  test_node_15:
-    <<: *container_config
-    <<: *react_15
-    steps:
-      - checkout
-      - *attach_workspace
-      - *install_react
-      - run: npm run test-node -- -w 1 -u
 
 workflows:
   version: 2

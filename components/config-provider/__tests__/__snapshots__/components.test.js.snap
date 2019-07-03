@@ -7067,28 +7067,19 @@ exports[`ConfigProvider components Form configProvider 1`] = `
   class="config-form config-form-horizontal"
 >
   <div
-    class="config-row config-form-item config-form-item-with-help"
+    class="config-row-flex config-form-item config-form-item-has-error"
   >
     <div
-      class="config-col config-form-item-control-wrapper"
+      class="config-col config-form-item-control"
     >
       <div
-        class="config-form-item-control has-error"
+        class="config-form-item-control-input"
       >
-        <span
-          class="config-form-item-children"
-        >
-          <input
-            class="config-input"
-            type="text"
-            value=""
-          />
-        </span>
-        <div
-          class="config-form-explain"
-        >
-          Bamboo is Light
-        </div>
+        <input
+          class="config-input"
+          type="text"
+          value=""
+        />
       </div>
     </div>
   </div>
@@ -7100,28 +7091,19 @@ exports[`ConfigProvider components Form normal 1`] = `
   class="ant-form ant-form-horizontal"
 >
   <div
-    class="ant-row ant-form-item ant-form-item-with-help"
+    class="ant-row-flex ant-form-item ant-form-item-has-error"
   >
     <div
-      class="ant-col ant-form-item-control-wrapper"
+      class="ant-col ant-form-item-control"
     >
       <div
-        class="ant-form-item-control has-error"
+        class="ant-form-item-control-input"
       >
-        <span
-          class="ant-form-item-children"
-        >
-          <input
-            class="ant-input"
-            type="text"
-            value=""
-          />
-        </span>
-        <div
-          class="ant-form-explain"
-        >
-          Bamboo is Light
-        </div>
+        <input
+          class="ant-input"
+          type="text"
+          value=""
+        />
       </div>
     </div>
   </div>
@@ -7133,28 +7115,19 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
   class="prefix-Form prefix-Form-horizontal"
 >
   <div
-    class="ant-row prefix-Form-item prefix-Form-item-with-help"
+    class="ant-row-flex prefix-Form-item prefix-Form-item-has-error"
   >
     <div
-      class="ant-col prefix-Form-item-control-wrapper"
+      class="ant-col prefix-Form-item-control"
     >
       <div
-        class="prefix-Form-item-control has-error"
+        class="prefix-Form-item-control-input"
       >
-        <span
-          class="prefix-Form-item-children"
-        >
-          <input
-            class="prefix-Form"
-            type="text"
-            value=""
-          />
-        </span>
-        <div
-          class="prefix-Form-explain"
-        >
-          Bamboo is Light
-        </div>
+        <input
+          class="prefix-Form"
+          type="text"
+          value=""
+        />
       </div>
     </div>
   </div>

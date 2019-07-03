@@ -1,6 +1,6 @@
 import * as React from 'react';
-import createReactContext from '@ant-design/create-react-context';
-
+import { FormProvider as RcFormProvider } from 'rc-field-form';
+import { ValidateMessages } from 'rc-field-form/lib/interface';
 import defaultRenderEmpty, { RenderEmptyHandler } from './renderEmpty';
 
 export { RenderEmptyHandler };
@@ -34,9 +34,12 @@ export interface ConfigProviderProps {
   renderEmpty?: RenderEmptyHandler;
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
+  form?: {
+    validateMessages?: ValidateMessages;
+  };
 }
 
-const ConfigContext = createReactContext<ConfigConsumerProps>({
+export const ConfigContext = React.createContext<ConfigConsumerProps>({
   // We provide a default function for Context without provider
   getPrefixCls: (suffixCls: string, customizePrefixCls?: string) => {
     if (customizePrefixCls) return customizePrefixCls;
@@ -59,7 +62,14 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
   };
 
   renderProvider = (context: ConfigConsumerProps) => {
-    const { children, getPopupContainer, renderEmpty, csp, autoInsertSpaceInButton } = this.props;
+    const {
+      children,
+      getPopupContainer,
+      renderEmpty,
+      csp,
+      autoInsertSpaceInButton,
+      form,
+    } = this.props;
 
     const config: ConfigConsumerProps = {
       ...context,
@@ -75,7 +85,16 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       config.renderEmpty = renderEmpty;
     }
 
-    return <ConfigContext.Provider value={config}>{children}</ConfigContext.Provider>;
+    let childNode = children;
+
+    // Additional Form provider
+    if (form && form.validateMessages) {
+      childNode = (
+        <RcFormProvider validateMessages={form.validateMessages}>{children}</RcFormProvider>
+      );
+    }
+
+    return <ConfigContext.Provider value={config}>{childNode}</ConfigContext.Provider>;
   };
 
   render() {

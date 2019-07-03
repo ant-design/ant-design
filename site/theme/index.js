@@ -84,6 +84,14 @@ module.exports = {
         component: contentTmpl,
       },
       {
+        path: 'components/form/v3',
+        component: contentTmpl,
+      },
+      {
+        path: 'components/form/v3-cn',
+        component: contentTmpl,
+      },
+      {
         path: 'components/:children/',
         component: contentTmpl,
       },
