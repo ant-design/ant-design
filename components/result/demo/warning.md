@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 2
 title:
   zh-CN: Warning
   en-US: Warning
