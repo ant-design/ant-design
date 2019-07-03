@@ -1,5 +1,6 @@
 export function getMenuItems(moduleData, locale, categoryOrder, typeOrder) {
-  const menuMeta = moduleData.map(item => item.meta);
+  const menuMeta = moduleData.map(item => item.meta).filter(meta => !meta.skip);
+
   const menuItems = [];
   const sortFn = (a, b) => (a.order || 0) - (b.order || 0);
   menuMeta.sort(sortFn).forEach(meta => {

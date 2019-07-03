@@ -26,11 +26,21 @@ const tailLayout = {
 
 const Demo = () => {
   const onFinish = values => {
-    console.log(values);
+    console.log('Success:', values);
+  };
+
+  const onFinishFailed = errorInfo => {
+    console.log('Failed:', errorInfo);
   };
 
   return (
-    <Form {...layout} name="basic" initialValues={{ remember: true }} onFinish={onFinish}>
+    <Form
+      {...layout}
+      name="basic"
+      initialValues={{ remember: true }}
+      onFinish={onFinish}
+      onFinishFailed={onFinishFailed}
+    >
       <Form.Item label="Username" name="username" rules={[{ required: true }]}>
         <Input />
       </Form.Item>

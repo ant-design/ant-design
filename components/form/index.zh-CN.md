@@ -32,6 +32,7 @@ title: Form
 | validateMessages | 验证提示模板，说明[见下](#validateMessages) | [ValidateMessages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts) | - |
 | wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | [object](https://ant.design/components/grid/#Col) |  |
 | onFinish | 提交表单且数据验证成功后回调事件 | Function(values) | - |
+| onFinishFailed | 提交表单且数据验证失败后回调事件 | Function({ values, errorFields, outOfDate }) | - |
 | onFieldsChange | 字段更新时触发回调事件 | Function(changedFields, allFields) | - |
 | onValuesChange | 字段值更新时触发回调事件 | Function(changedValues, allValues) | - |
 
