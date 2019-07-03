@@ -16,7 +16,7 @@ Provide more complex feedback.
 ```jsx
 import { Result, Button, Icon, Typography } from 'antd';
 
-const { Title, Paragraph } = Typography;
+const { Paragraph, Text } = Typography;
 
 ReactDOM.render(
   <Result
@@ -31,7 +31,16 @@ ReactDOM.render(
     ]}
   >
     <div className="desc">
-      <Title level={4}>The content you submitted has the following error:</Title>
+      <Paragraph>
+        <Text
+          strong
+          style={{
+            fontSize: 16,
+          }}
+        >
+          The content you submitted has the following error:
+        </Text>
+      </Paragraph>
       <Paragraph>
         <Icon style={{ color: 'red' }} type="close-circle" /> Your account has been frozen{' '}
         <a>Thaw immediately &gt;</a>
