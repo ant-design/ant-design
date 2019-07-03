@@ -12,7 +12,7 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import warning from '../_util/warning';
 
 export interface CascaderOptionType {
-  value?: any;
+  value?: string | number;
   label?: React.ReactNode;
   disabled?: boolean;
   children?: Array<CascaderOptionType>;
@@ -20,13 +20,13 @@ export interface CascaderOptionType {
 }
 
 export interface FieldNamesType {
-  value?: any;
+  value?: string | number;
   label?: string;
   children?: string;
 }
 
 export interface FilledFieldNamesType {
-  value: any;
+  value: string | number;
   label: string;
   children: string;
 }
@@ -55,9 +55,9 @@ export interface CascaderProps {
   /** 可选项数据源 */
   options: CascaderOptionType[];
   /** 默认的选中项 */
-  defaultValue?: any[];
+  defaultValue?: string[] | number[];
   /** 指定选中项 */
-  value?: any[];
+  value?: string[] | number[];
   /** 选择完成后的回调 */
   onChange?: (value: string[], selectedOptions?: CascaderOptionType[]) => void;
   /** 选择后展示的渲染函数 */
@@ -101,7 +101,7 @@ export interface CascaderProps {
 export interface CascaderState {
   inputFocused: boolean;
   inputValue: string;
-  value: any[];
+  value: string[] | number[];
   popupVisible: boolean | undefined;
   flattenOptions: CascaderOptionType[][] | undefined;
   prevProps: CascaderProps;
