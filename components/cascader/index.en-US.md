@@ -24,7 +24,7 @@ Cascade selection box.
 | autoFocus | get focus when component mounted | boolean | false |
 | changeOnSelect | change value on each selection if set to true, see above demo for details | boolean | false |
 | className | additional css class | string | - |
-| defaultValue | initial selected value | string\[] | \[] |
+| defaultValue | initial selected value | any\[] | \[] |
 | disabled | whether disabled select | boolean | false |
 | displayRender | render function of displaying selected options | `(label, selectedOptions) => ReactNode` | `label => label.join(' / ')` |
 | expandTrigger | expand current item when click or hover, one of 'click' 'hover' | string | 'click' |
@@ -41,7 +41,7 @@ Cascade selection box.
 | size | input size, one of `large` `default` `small` | string | `default` |
 | style | additional style | string | - |
 | suffixIcon | The custom suffix icon | ReactNode | - |
-| value | selected value | string\[] | - |
+| value | selected value | any\[] | - |
 | onChange | callback when finishing cascader select | `(value, selectedOptions) => void` | - |
 | onPopupVisibleChange | callback when popup shown or hidden | `(value) => void` | - |
 
