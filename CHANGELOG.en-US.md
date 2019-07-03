@@ -15,6 +15,37 @@ timeline: true
 
 ---
 
+## 3.20.0
+
+- 🔥🔥🔥 Add [Result](https://ant.design/components/result) Used to feed back the results of a series of operational tasks.
+- 🔥 Descriptions support vertical layout. [#17330](https://github.com/ant-design/ant-design/pull/17330) [@hengkx](https://github.com/hengkx)
+- 🔥 Progress.Circle support gradient line color. [#17315](https://github.com/ant-design/ant-design/pull/17315) [@hengkx](https://github.com/hengkx) <img class="markdown-inline-image" src="https://gw.alipayobjects.com/zos/antfincdn/WogwW6kA4O/method-draw-image.svg" alt="Progress">
+- 🔥 Optimize PageHeader className naming. [#17321](https://github.com/ant-design/ant-design/pull/17321)
+- 🐞 Drawer fixes `maskCloseble` to false, keyboard ESC closes invalid. [#17316](https://github.com/ant-design/ant-design/pull/17316)
+- 🐞 Fixed an issue where Drawer closes not calling `afterVisibleChange` in Edge. [#17311](https://github.com/ant-design/ant-design/pull/17311)
+- 🌟 Drawer adds `keyboard` to allow opening and closing of responses to keyboard events. [#17316](https://github.com/ant-design/ant-design/pull/17316)
+- 🌟 Popconfirm adds the `disabled` props to control whether the click child element pops up. [#16985](https://github.com/ant-design/ant-design/pull/16985) [@lhyt](https://github.com/lhyt)
+- ⌨️ Improve TimePicker accessibility. [#17099](https://github.com/ant-design/ant-design/pull/17099)
+- 💄 Fix Tooltip arrow shadow style. [#17264](https://github.com/ant-design/ant-design/pull/17264)
+- 🐞 Fix Descriptions.Item not support `className`. [#17280](https://github.com/ant-design/ant-design/pull/17280)
+- 🐞 Fixing Descriptions.Item does not set a label and will also display the `:` question. [#17337](https://github.com/ant-design/ant-design/pull/17337)
+- 🐞 Fixed the incorrect color of the `placeholder` of the Mentions. [#17317](https://github.com/ant-design/ant-design/pull/17317)
+- 🐞 Fixed incorrect line-height for Mentions. [#17347](https://github.com/ant-design/ant-design/pull/17347)
+- 💄 Fixed small Table header background to white according to design spec. [#17351](https://github.com/ant-design/ant-design/pull/17351)
+- 🌟 The CheckboxGroup`onChange` value keeps the order of the options. [#17342](https://github.com/ant-design/ant-design/pull/17342) [@yoyo837](https://github.com/yoyo837)
+- 🐞 Fix Tooltip not work correctly on disabled Switch. [#17372](https://github.com/ant-design/ant-design/pull/17372)
+- 💄 Add variables [#16843](https://github.com/ant-design/ant-design/pull/16843) [#17031](https://github.com/ant-design/ant-design/pull/17031) [#16996](https://github.com/ant-design/ant-design/pull/16996) [@alxkosov](https://github.com/alxkosov):
+  - `@dropdown-line-height`
+  - `@dropdown-font-size`
+  - `@dropdown-vertical-padding`
+  - `@collapse-panel-border-radius`
+  - `@table-body-selected-sort-bg`
+  - `@table-selected-row-hover-bg`
+- TypeScript
+  - 🌟 Improve the type definition of the Switch. [#17331](https://github.com/ant-design/ant-design/pull/17331)
+  - 🐞 Skeleton AvatarProps `size` supports number. [#17331](https://github.com/ant-design/ant-design/pull/17331)
+- 📝 Updated several documents. [#17336](https://github.com/ant-design/ant-design/pull/17336) [#17345](https://github.com/ant-design/ant-design/pull/17345) [#17355](https://github.com/ant-design/ant-design/pull/17355)
+
 ## 3.19.8
 
 `2019-06-24`

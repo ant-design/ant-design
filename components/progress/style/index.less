@@ -151,6 +151,12 @@
       color: @success-color;
     }
   }
+
+  &-circle-gradient {
+    .@{progress-prefix-cls}-circle-path {
+      stroke: url(#gradient);
+    }
+  }
 }
 
 @keyframes ~"@{ant-prefix}-progress-active" {

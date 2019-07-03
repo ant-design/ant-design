@@ -51,7 +51,7 @@ Select component to select value from options.
 | suffixIcon | The custom suffix icon | ReactNode | - |
 | removeIcon | The custom remove icon | ReactNode | - |
 | clearIcon | The custom clear icon | ReactNode | - |
-| menuItemSelectedIcon | The custom menuItemSelected icon | ReactNode | - |
+| menuItemSelectedIcon | The custom menuItemSelected icon with multiple options | ReactNode | - |
 | tokenSeparators | Separator used to tokenize on tag/multiple mode | string\[] |  |
 | value | Current selected option. | string\|string\[]\<br />number\|number\[]\<br />LabeledValue\|LabeledValue[] | - |
 | onBlur | Called when blur | function | - |

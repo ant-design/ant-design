@@ -56,7 +56,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 | dropdownClassName | to customize the className of the popup calendar | string | - |
 | getCalendarContainer | to set the container of the floating layer, while the default is to create a `div` element in `body` | function(trigger) | - |
 | locale | localization configuration | object | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |
-| mode | picker panel mode | `time|date|month|year|decade` | 'date' |
+| mode | picker panel mode（[Cannot select year or month anymore?](/docs/react/faq#When-set-mode-to-DatePicker/RangePicker,-cannot-select-year-or-month-anymore?)） | `time|date|month|year|decade` | 'date' |
 | open | open state of picker | boolean | - |
 | placeholder | placeholder of date input | string\|RangePicker\[] | - |
 | popupStyle | to customize the style of the popup calendar | object | {} |
@@ -88,6 +88,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 | value | to set date | [moment](http://momentjs.com/) | - |
 | onChange | a callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |
 | onOk | callback when click ok button | function() | - |
+| onPanelChange | Callback function for panel changing | function(value, mode) | - |
 
 ### MonthPicker
 

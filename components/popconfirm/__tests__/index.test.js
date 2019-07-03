@@ -134,4 +134,15 @@ describe('Popconfirm', () => {
     );
     expect(popconfirm.instance().getPopupDomNode()).toBeTruthy();
   });
+
+  it('should not open in disabled', () => {
+    const popconfirm = mount(
+      <Popconfirm title="code" disabled>
+        <span>click me</span>
+      </Popconfirm>,
+    );
+    const triggerNode = popconfirm.find('span').at(0);
+    triggerNode.simulate('click');
+    expect(popconfirm.instance().getPopupDomNode()).toBeFalsy();
+  });
 });

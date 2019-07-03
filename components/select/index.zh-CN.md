@@ -52,7 +52,7 @@ title: Select
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |
 | removeIcon | 自定义的多选框清除图标 | ReactNode | - |
 | clearIcon | 自定义的多选框清空图标 | ReactNode | - |
-| menuItemSelectedIcon | 自定义当前选中的条目图标 | ReactNode | - |
+| menuItemSelectedIcon | 自定义多选时当前选中的条目图标 | ReactNode | - |
 | tokenSeparators | 在 tags 和 multiple 模式下自动分词的分隔符 | string\[] |  |
 | value | 指定当前选中的条目 | string\|string\[]\<br />number\|number\[]\<br />LabeledValue\|LabeledValue[] | - |
 | onBlur | 失去焦点时回调 | function | - |

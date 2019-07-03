@@ -168,7 +168,7 @@ Properties for row selection.
 | columnTitle | Set the title of the selection column | string\|React.ReactNode | - |
 | fixed | Fixed selection column on the left | boolean | - |
 | getCheckboxProps | Get Checkbox or Radio props | Function(record) | - |
-| hideDefaultSelections | Remove the default `Select All` and `Select Invert` selections | boolean | `false` |
+| hideDefaultSelections | Remove the default `Select All` and `Select Invert` selections when [custom selection](#components-table-demo-row-selection-custom) | boolean | `false` |
 | selectedRowKeys | Controlled selected row keys | string\[] | \[] |
 | selections | Custom selection [config](#rowSelection), only displays default selections when set to `true` | object\[]\|boolean | - |
 | type | `checkbox` or `radio` | `checkbox` \| `radio` | `checkbox` |
@@ -191,28 +191,28 @@ Properties for row selection.
 import { Table } from 'antd';
 import { ColumnProps } from 'antd/lib/table';
 
-interface IUser {
+interface User {
   key: number,
   name: string;
 }
 
-const columns: ColumnProps<IUser>[] = [{
+const columns: ColumnProps<User>[] = [{
   key: 'name',
   title: 'Name',
   dataIndex: 'name',
 }];
 
-const data: IUser[] = [{
+const data: User[] = [{
   key: 0,
   name: 'Jack',
 }];
 
-class UserTable extends Table<IUser> {}
+class UserTable extends Table<User> {}
 
 <UserTable columns={columns} dataSource={data} />
 
 // Use JSX style API
-class NameColumn extends Table.Column<IUser> {}
+class NameColumn extends Table.Column<User> {}
 
 <UserTable dataSource={data}>
   <NameColumn key="name" title="Name" dataIndex="name" />
@@ -220,9 +220,9 @@ class NameColumn extends Table.Column<IUser> {}
 
 // after TypeScript 2.9 can write like this
 // https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-9.html#generic-type-arguments-in-jsx-elements
-<Table<IUser> columns={columns} dataSource={data} />
-<Table<IUser> dataSource={data}>
-  <Table.Column<IUser> key="name" title="Name" dataIndex="name" />
+<Table<User> columns={columns} dataSource={data} />
+<Table<User> dataSource={data}>
+  <Table.Column<User> key="name" title="Name" dataIndex="name" />
 </Table>
 ```
 
