@@ -16,7 +16,7 @@ Provide more complex feedback.
 ```jsx
 import { Result, Button, Icon, Typography } from 'antd';
 
-const { Title, Paragraph, Text } = Typography;
+const { Title, Paragraph } = Typography;
 
 ReactDOM.render(
   <Result
