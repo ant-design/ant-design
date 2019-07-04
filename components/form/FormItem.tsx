@@ -10,7 +10,7 @@ import warning from '../_util/warning';
 import FormItemLabel, { FormItemLabelProps } from './FormItemLabel';
 import FormItemInput, { FormItemInputProps } from './FormItemInput';
 import { FormContext, FormItemContext } from './context';
-import { toArray } from './util';
+import { toArray, getFieldId } from './util';
 
 const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
 export type ValidateStatus = (typeof ValidateStatuses)[number];
@@ -154,10 +154,10 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
             : !!(rules && rules.some(rule => typeof rule === 'object' && rule.required));
 
         // ======================= Children =======================
-        const mergedId = mergedName.join('_');
+        const fieldId = getFieldId(mergedName, formName);
         const mergedControl: typeof control = {
           ...control,
-          id: formName ? `${formName}_${mergedId}` : mergedId,
+          id: fieldId,
         };
 
         let childNode;
@@ -195,7 +195,12 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
         return (
           <Row type="flex" className={classNames(itemClassName)} style={style} key="row">
             {/* Label */}
-            <FormItemLabel {...props} required={isRequired} prefixCls={prefixCls} />
+            <FormItemLabel
+              htmlFor={fieldId}
+              {...props}
+              required={isRequired}
+              prefixCls={prefixCls}
+            />
             {/* Input Group */}
             <FormItemInput
               {...props}

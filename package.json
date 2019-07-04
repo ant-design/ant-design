@@ -52,6 +52,7 @@
     "copy-to-clipboard": "^3.2.0",
     "css-animation": "^1.5.0",
     "dom-closest": "^0.2.0",
+    "dom-scroll-into-view": "^1.2.1",
     "enquire.js": "^2.1.6",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",

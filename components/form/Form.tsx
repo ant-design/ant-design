@@ -1,16 +1,17 @@
 import * as React from 'react';
 import omit from 'omit.js';
 import classNames from 'classnames';
-import FieldForm, { FormInstance, useForm, List } from 'rc-field-form';
+import FieldForm, { List } from 'rc-field-form';
 import { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
 import { ColProps } from '../grid/col';
 import { ConfigContext, ConfigConsumerProps } from '../config-provider';
 import { FormContext } from './context';
 import { FormLabelAlign } from './interface';
+import { useForm, FormInstance } from './util';
 
 export type FormLayout = 'horizontal' | 'inline' | 'vertical';
 
-interface FormProps extends RcFormProps {
+interface FormProps extends Omit<RcFormProps, 'form'> {
   prefixCls?: string;
   hideRequiredMark?: boolean;
   colon?: boolean;
@@ -19,12 +20,14 @@ interface FormProps extends RcFormProps {
   labelAlign?: FormLabelAlign;
   labelCol?: ColProps;
   wrapperCol?: ColProps;
+  form?: FormInstance;
 }
 
 const InternalForm: React.FC<FormProps> = (props, ref) => {
   const { getPrefixCls }: ConfigConsumerProps = React.useContext(ConfigContext);
 
   const {
+    form,
     colon,
     name,
     labelAlign,
@@ -57,6 +60,11 @@ const InternalForm: React.FC<FormProps> = (props, ref) => {
     'colon',
   ]);
 
+  const [wrapForm] = useForm(form);
+  wrapForm.__INTERNAL__.name = name;
+
+  React.useImperativeHandle(ref, () => wrapForm);
+
   return (
     <FormContext.Provider
       value={{
@@ -68,7 +76,7 @@ const InternalForm: React.FC<FormProps> = (props, ref) => {
         colon,
       }}
     >
-      <FieldForm id={name} {...formProps} ref={ref} className={formClassName} />
+      <FieldForm id={name} {...formProps} form={wrapForm} className={formClassName} />
     </FormContext.Provider>
   );
 };
