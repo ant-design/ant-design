@@ -1071,7 +1071,6 @@ exports[`renders ./components/form/demo/form-context.md correctly 1`] = `
       >
         <label
           class=""
-          for="basicForm_"
           title="User List"
         >
           User List
@@ -1343,7 +1342,6 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
       >
         <label
           class=""
-          for=""
           title="Form Layout"
         >
           Form Layout
@@ -1428,7 +1426,6 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
       >
         <label
           class=""
-          for=""
           title="Field A"
         >
           Field A
@@ -1457,7 +1454,6 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
       >
         <label
           class=""
-          for=""
           title="Field B"
         >
           Field B
@@ -2396,7 +2392,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     >
       <label
         class=""
-        for="register_"
         title="Captcha"
       >
         Captcha
@@ -2914,7 +2909,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class=""
-        for="validate_other_"
         title="Plain Text"
       >
         Plain Text
@@ -3087,7 +3081,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class=""
-        for="validate_other_"
         title="InputNumber"
       >
         InputNumber
@@ -4018,7 +4011,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class=""
-        for="validate_other_"
         title="Dragger"
       >
         Dragger
@@ -4082,7 +4074,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     >
       <label
         class=""
-        for=""
         title="Fail"
       >
         Fail
@@ -4112,7 +4103,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     >
       <label
         class=""
-        for=""
         title="Warning"
       >
         Warning
@@ -4142,7 +4132,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     >
       <label
         class=""
-        for=""
         title="Validating"
       >
         Validating
@@ -4195,7 +4184,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     >
       <label
         class=""
-        for=""
         title="Success"
       >
         Success
@@ -4248,7 +4236,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     >
       <label
         class=""
-        for=""
         title="Warning"
       >
         Warning
@@ -4301,7 +4288,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     >
       <label
         class=""
-        for=""
         title="Fail"
       >
         Fail
@@ -4354,7 +4340,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     >
       <label
         class=""
-        for=""
         title="Success"
       >
         Success
@@ -4432,7 +4417,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     >
       <label
         class=""
-        for=""
         title="Warning"
       >
         Warning
@@ -4516,7 +4500,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     >
       <label
         class=""
-        for=""
         title="Error"
       >
         Error
@@ -4613,7 +4596,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     >
       <label
         class=""
-        for=""
         title="Validating"
       >
         Validating
@@ -4715,7 +4697,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     >
       <label
         class=""
-        for=""
         title="inline"
       >
         inline
@@ -4831,7 +4812,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     >
       <label
         class=""
-        for=""
         title="Success"
       >
         Success
@@ -4960,7 +4940,6 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
     >
       <label
         class=""
-        for=""
         title="Prime between 8 & 12"
       >
         Prime between 8 & 12
