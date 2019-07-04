@@ -39,7 +39,6 @@
 
     &-wrap {
       position: relative;
-      box-sizing: border-box;
       padding: 7px 2px 7px @control-padding-horizontal;
       border-bottom: @border-width-base @border-style-base @border-color-split;
     }
@@ -56,7 +55,6 @@
   &-select {
     position: relative; // Fix chrome weird render bug
     float: left;
-    box-sizing: border-box;
     width: @time-picker-panel-column-width;
     max-height: @timepicker-item-height * 6;
     overflow: hidden;
@@ -81,7 +79,6 @@
     }
 
     ul {
-      box-sizing: border-box;
       width: 100%;
       margin: 0;
       padding: 0 0 @timepicker-item-height * 5;
@@ -89,7 +86,6 @@
     }
 
     li {
-      box-sizing: content-box;
       width: 100%;
       height: @timepicker-item-height;
       margin: 0;
@@ -98,8 +94,14 @@
       text-align: left;
       list-style: none;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: all 0.3s;
       user-select: none;
+
+      &:focus {
+        color: @primary-color;
+        font-weight: 600;
+        outline: none;
+      }
     }
 
     li:hover {
@@ -107,7 +109,7 @@
     }
 
     li&-option-selected {
-      font-weight: bold;
+      font-weight: 600;
       background: @time-picker-selected-bg;
       &:hover {
         background: @time-picker-selected-bg;

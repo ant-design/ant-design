@@ -63,6 +63,10 @@ export function alias(type: string) {
     case 'canlendar':
       newType = 'calendar';
       break;
+    // https://github.com/ant-design/ant-design/issues/17448
+    case 'colum-height':
+      newType = 'column-height';
+      break;
     default:
   }
   warning(
