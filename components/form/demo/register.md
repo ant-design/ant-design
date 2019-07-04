@@ -97,7 +97,7 @@ const RegistrationForm = () => {
   };
 
   const onFinishFailed = ({ errorFields }) => {
-    form.scrollToErrorField(errorFields[0].name);
+    form.scrollToField(errorFields[0].name);
   };
 
   const prefixSelector = (

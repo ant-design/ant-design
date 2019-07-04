@@ -89,7 +89,7 @@ function getScrollableContainer(current: HTMLElement) {
 }
 
 export interface FormInstance extends RcFormInstance {
-  scrollToErrorField: (name: string | number | InternalNamePath) => void;
+  scrollToField: (name: string | number | InternalNamePath) => void;
   __INTERNAL__: {
     name?: string;
   };
@@ -101,7 +101,7 @@ export function useForm(form?: FormInstance): [FormInstance] {
     : {
         ...useRcForm()[0],
         __INTERNAL__: {},
-        scrollToErrorField: name => {
+        scrollToField: name => {
           const namePath = toArray(name);
           const fieldId = getFieldId(namePath, wrapForm.__INTERNAL__.name);
           const node = document.getElementById(fieldId);
