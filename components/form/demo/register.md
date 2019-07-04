@@ -90,8 +90,14 @@ const tailFormItemLayout = {
 };
 
 const RegistrationForm = () => {
+  const [form] = Form.useForm();
+
   const onFinish = values => {
     console.log('Received values of form: ', values);
+  };
+
+  const onFinishFailed = ({ errorFields }) => {
+    form.scrollToField(errorFields[0].name);
   };
 
   const prefixSelector = (
@@ -120,8 +126,10 @@ const RegistrationForm = () => {
   return (
     <Form
       {...formItemLayout}
+      form={form}
       name="register"
       onFinish={onFinish}
+      onFinishFailed={onFinishFailed}
       initialValues={{
         residence: ['zhejiang', 'hangzhou', 'xihu'],
         prefix: '86',

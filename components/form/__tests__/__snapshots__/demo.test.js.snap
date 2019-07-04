@@ -22,6 +22,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
           >
             <label
               class="ant-form-item-required"
+              for="advanced_search_field-0"
               title="Field 0"
             >
               Field 0
@@ -56,6 +57,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
           >
             <label
               class="ant-form-item-required"
+              for="advanced_search_field-1"
               title="Field 1"
             >
               Field 1
@@ -90,6 +92,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
           >
             <label
               class="ant-form-item-required"
+              for="advanced_search_field-2"
               title="Field 2"
             >
               Field 2
@@ -124,6 +127,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
           >
             <label
               class="ant-form-item-required"
+              for="advanced_search_field-3"
               title="Field 3"
             >
               Field 3
@@ -158,6 +162,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
           >
             <label
               class="ant-form-item-required"
+              for="advanced_search_field-4"
               title="Field 4"
             >
               Field 4
@@ -192,6 +197,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
           >
             <label
               class="ant-form-item-required"
+              for="advanced_search_field-5"
               title="Field 5"
             >
               Field 5
@@ -287,6 +293,7 @@ exports[`renders ./components/form/demo/basic.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
+        for="basic_username"
         title="Username"
       >
         Username
@@ -315,6 +322,7 @@ exports[`renders ./components/form/demo/basic.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
+        for="basic_password"
         title="Password"
       >
         Password
@@ -435,6 +443,7 @@ exports[`renders ./components/form/demo/control-hooks.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
+        for="control-hooks_note"
         title="Note"
       >
         Note
@@ -463,6 +472,7 @@ exports[`renders ./components/form/demo/control-hooks.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
+        for="control-hooks_gender"
         title="Gender"
       >
         Gender
@@ -581,6 +591,7 @@ exports[`renders ./components/form/demo/control-ref.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
+        for="control-ref_note"
         title="Note"
       >
         Note
@@ -609,6 +620,7 @@ exports[`renders ./components/form/demo/control-ref.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
+        for="control-ref_gender"
         title="Gender"
       >
         Gender
@@ -727,6 +739,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
     >
       <label
         class=""
+        for="customized_form_controls_price"
         title="Price"
       >
         Price
@@ -910,6 +923,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
+        for="dynamic_rule_username"
         title="Name"
       >
         Name
@@ -939,6 +953,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
     >
       <label
         class=""
+        for="dynamic_rule_nickname"
         title="Nickname"
       >
         Nickname
@@ -1027,6 +1042,7 @@ exports[`renders ./components/form/demo/form-context.md correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="basicForm_group"
           title="Group Name"
         >
           Group Name
@@ -1154,6 +1170,7 @@ exports[`renders ./components/form/demo/global-state.md correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="global_state_username"
           title="Username"
         >
           Username
@@ -1494,6 +1511,7 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
+        for="nest-messages_user_name"
         title="Name"
       >
         Name
@@ -1522,6 +1540,7 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
     >
       <label
         class=""
+        for="nest-messages_user_email"
         title="Email"
       >
         Email
@@ -1550,6 +1569,7 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
     >
       <label
         class=""
+        for="nest-messages_user_age"
         title="Age"
       >
         Age
@@ -1648,6 +1668,7 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
     >
       <label
         class=""
+        for="nest-messages_user_website"
         title="Website"
       >
         Website
@@ -1676,6 +1697,7 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
     >
       <label
         class=""
+        for="nest-messages_user_introduction"
         title="Introduction"
       >
         Introduction
@@ -1896,6 +1918,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
+        for="register_email"
         title="E-mail"
       >
         E-mail
@@ -1924,6 +1947,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
+        for="register_password"
         title="Password"
       >
         Password
@@ -1984,6 +2008,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
+        for="register_confirm"
         title="Confirm Password"
       >
         Confirm Password
@@ -2044,6 +2069,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
+        for="register_nickname"
         title=""
       >
         <span>
@@ -2096,6 +2122,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
+        for="register_residence"
         title="Habitual Residence"
       >
         Habitual Residence
@@ -2176,6 +2203,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
+        for="register_phone"
         title="Phone Number"
       >
         Phone Number
@@ -2270,6 +2298,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
+        for="register_website"
         title="Website"
       >
         Website
@@ -2483,6 +2512,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
     >
       <label
         class="ant-form-item-required"
+        for="time_related_controls_date-picker"
         title="DatePicker"
       >
         DatePicker
@@ -2537,6 +2567,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
     >
       <label
         class="ant-form-item-required"
+        for="time_related_controls_date-time-picker"
         title="DatePicker[showTime]"
       >
         DatePicker[showTime]
@@ -2592,6 +2623,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
     >
       <label
         class="ant-form-item-required"
+        for="time_related_controls_month-picker"
         title="MonthPicker"
       >
         MonthPicker
@@ -2646,6 +2678,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
     >
       <label
         class="ant-form-item-required"
+        for="time_related_controls_range-picker"
         title="RangePicker"
       >
         RangePicker
@@ -2716,6 +2749,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
     >
       <label
         class="ant-form-item-required"
+        for="time_related_controls_range-time-picker"
         title="RangePicker[showTime]"
       >
         RangePicker[showTime]
@@ -2787,6 +2821,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
     >
       <label
         class="ant-form-item-required"
+        for="time_related_controls_time-picker"
         title="TimePicker"
       >
         TimePicker
@@ -2901,6 +2936,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
+        for="validate_other_select"
         title="Select"
       >
         Select
@@ -2975,6 +3011,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
+        for="validate_other_select-multiple"
         title="Select[multiple]"
       >
         Select[multiple]
@@ -3150,6 +3187,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class=""
+        for="validate_other_switch"
         title="Switch"
       >
         Switch
@@ -3183,6 +3221,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class=""
+        for="validate_other_slider"
         title="Slider"
       >
         Slider
@@ -3294,6 +3333,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class=""
+        for="validate_other_radio-group"
         title="Radio.Group"
       >
         Radio.Group
@@ -3378,6 +3418,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class=""
+        for="validate_other_radio-button"
         title="Radio.Button"
       >
         Radio.Button
@@ -3462,6 +3503,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class=""
+        for="validate_other_checkbox-group"
         title="Checkbox.Group"
       >
         Checkbox.Group
@@ -3612,6 +3654,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class=""
+        for="validate_other_rate"
         title="Rate"
       >
         Rate
@@ -3930,6 +3973,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class=""
+        for="validate_other_upload"
         title="Upload"
       >
         Upload

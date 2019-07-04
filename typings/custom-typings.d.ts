@@ -83,6 +83,8 @@ declare module 'react-lazy-load';
 
 declare module 'dom-closest';
 
+declare module 'dom-scroll-into-view';
+
 declare module '*.json' {
   const value: any;
   export const version: string;

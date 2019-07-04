@@ -36,6 +36,7 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
     >
       <label
         class=""
+        for="mention"
         title="Top coders"
       >
         Top coders

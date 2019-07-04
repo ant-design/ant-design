@@ -1,8 +1,11 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import scrollIntoView from 'dom-scroll-into-view';
 import Form from '..';
 import Input from '../../input';
 import Button from '../../button';
+
+jest.mock('dom-scroll-into-view');
 
 const delay = () =>
   new Promise(resolve => {
@@ -10,6 +13,7 @@ const delay = () =>
   });
 
 describe('Form', () => {
+  scrollIntoView.mockImplementation(() => {});
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   async function change(wrapper, index, value) {
@@ -21,12 +25,17 @@ describe('Form', () => {
     wrapper.update();
   }
 
+  beforeEach(() => {
+    scrollIntoView.mockReset();
+  });
+
   afterEach(() => {
     errorSpy.mockReset();
   });
 
   afterAll(() => {
     errorSpy.mockRestore();
+    scrollIntoView.mockRestore();
   });
 
   describe('List', () => {
@@ -122,5 +131,54 @@ describe('Form', () => {
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Form.Item] `children` of render props only work with `shouldUpdate`.',
     );
+  });
+
+  describe('scrollToField', () => {
+    function test(name, genForm) {
+      it(name, () => {
+        let callGetForm;
+
+        const Demo = () => {
+          const { props, getForm } = genForm();
+          callGetForm = getForm;
+
+          return (
+            <Form name="scroll" {...props}>
+              <Form.Item name="test">
+                <Input />
+              </Form.Item>
+            </Form>
+          );
+        };
+
+        mount(<Demo />, { attachTo: document.body });
+
+        expect(scrollIntoView).not.toHaveBeenCalled();
+        callGetForm().scrollToField('test');
+        expect(scrollIntoView).toHaveBeenCalled();
+      });
+    }
+
+    // hooks
+    test('useForm', () => {
+      const [form] = Form.useForm();
+      return {
+        props: { form },
+        getForm: () => form,
+      };
+    });
+
+    // ref
+    test('ref', () => {
+      let form;
+      return {
+        props: {
+          ref: instance => {
+            form = instance;
+          },
+        },
+        getForm: () => form,
+      };
+    });
   });
 });

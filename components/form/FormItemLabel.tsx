@@ -6,7 +6,7 @@ import { FormContext, FormContextProps } from './context';
 
 export interface FormItemLabelProps {
   colon?: boolean;
-  htmlFor: string;
+  htmlFor?: string;
   label?: React.ReactNode;
   labelAlign?: FormLabelAlign;
   labelCol?: ColProps;
