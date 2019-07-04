@@ -106,7 +106,7 @@ export function useForm(form?: FormInstance): [FormInstance] {
         scrollToField: name => {
           const namePath = toArray(name);
           const fieldId = getFieldId(namePath, wrapForm.__INTERNAL__.name);
-          const node = document.getElementById(fieldId);
+          const node: HTMLElement | null = fieldId ? document.getElementById(fieldId) : null;
 
           if (node) {
             scrollIntoView(node, getScrollableContainer(node), {
