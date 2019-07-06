@@ -19,13 +19,14 @@ timeline: true
 
 - 💄 优化 TimePicker 聚焦状态的样式。[#17447](https://github.com/ant-design/ant-design/pull/17447)
 - 💄 优化 DatePicker 箭头样式，解决非 utf-8 编码下箭头样式乱码的问题。[#17480](https://github.com/ant-design/ant-design/pull/17480)
-- 🐞 修复 className 为空造成类名错误的问题。[#17389](https://github.com/ant-design/ant-design/pull/17389)
+- 🐞 修复 Tabs 当前失效页签样式以及切换图标错位 2px 的问题。[#17500](https://github.com/ant-design/ant-design/pull/17500)
+- 🐞 修复 Result 组件 `className` 为空造成类名错误的问题。[#17389](https://github.com/ant-design/ant-design/pull/17389)
 - 🐞 修复 safari 浏览器 DatePicker 组件输入框被遮挡的问题。[#17421](https://github.com/ant-design/ant-design/pull/17421)
-- 🐞 修复图标名 colum-height 为 column-height。[#17458](https://github.com/ant-design/ant-design/pull/17458)
+- 🐞 修复图标名 `colum-height` 为 `column-height`。[#17458](https://github.com/ant-design/ant-design/pull/17458)
+- 🐞 删除 Drawer 中传给 rc-drawer 的不必要的属性避免报错。[#17390](https://github.com/ant-design/ant-design/pull/17390) [@jljsj33](https://github.com/jljsj33)
 - TypeScript
   - 🐞 修复 Form `onSubmit` TypeScript 定义。[#17412](https://github.com/ant-design/ant-design/pull/17412)
   - 🐞 修复 AutoComplete 多余的 `loading` 属性 TypeScript 定义。[#17433](https://github.com/ant-design/ant-design/pull/17433)
-  - 🐞 删除 Drawer 中传给 rc-drawer 的不必要的属性避免报错。[#17390](https://github.com/ant-design/ant-design/pull/17390) [@jljsj33](https://github.com/jljsj33)
 
 ## 3.20.0
 
