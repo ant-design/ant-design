@@ -680,7 +680,7 @@ exports[`renders ./components/badge/demo/colorful.md correctly 1`] = `
     >
       <span
         class="ant-badge-status-dot"
-        style="background:#f50"
+        style="background:#f50;border-color:#f50"
       />
       <span
         class="ant-badge-status-text"
@@ -694,7 +694,7 @@ exports[`renders ./components/badge/demo/colorful.md correctly 1`] = `
     >
       <span
         class="ant-badge-status-dot"
-        style="background:#2db7f5"
+        style="background:#2db7f5;border-color:#2db7f5"
       />
       <span
         class="ant-badge-status-text"
@@ -708,7 +708,7 @@ exports[`renders ./components/badge/demo/colorful.md correctly 1`] = `
     >
       <span
         class="ant-badge-status-dot"
-        style="background:#87d068"
+        style="background:#87d068;border-color:#87d068"
       />
       <span
         class="ant-badge-status-text"
@@ -722,7 +722,7 @@ exports[`renders ./components/badge/demo/colorful.md correctly 1`] = `
     >
       <span
         class="ant-badge-status-dot"
-        style="background:#108ee9"
+        style="background:#108ee9;border-color:#108ee9"
       />
       <span
         class="ant-badge-status-text"
