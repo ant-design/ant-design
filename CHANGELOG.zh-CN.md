@@ -15,13 +15,29 @@ timeline: true
 
 ---
 
+## 3.20.1
+
+- 💄 优化 TimePicker 聚焦状态的样式。[#17447](https://github.com/ant-design/ant-design/pull/17447)
+- 💄 优化 DatePicker 箭头样式，解决非 utf-8 编码下箭头样式乱码的问题。[#17480](https://github.com/ant-design/ant-design/pull/17480)
+- 🐞 删除 Drawer 中传给 rc-drawer 的不必要的属性避免报错。[#17390](https://github.com/ant-design/ant-design/pull/17390)
+- 🐞 修复 Tabs 当前失效页签样式以及切换图标错位 2px 的问题。[#17500](https://github.com/ant-design/ant-design/pull/17500)
+- 🐞 修复 Result 组件 `className` 为空造成类名错误的问题。[#17389](https://github.com/ant-design/ant-design/pull/17389)
+- 🐞 修复 safari 浏览器 DatePicker 组件输入框被遮挡的问题。[#17421](https://github.com/ant-design/ant-design/pull/17421)
+- 🐞 修复图标名 `colum-height` 为 `column-height`。[#17458](https://github.com/ant-design/ant-design/pull/17458)
+- TypeScript
+  - 🐞 修复 Form `onSubmit` TypeScript 定义。[#17412](https://github.com/ant-design/ant-design/pull/17412)
+  - 🐞 修复 AutoComplete 多余的 `loading` 属性 TypeScript 定义。[#17433](https://github.com/ant-design/ant-design/pull/17433)
+  - 🐞 修复 Switch 的 `onClick` 的 TypeScript 定义。[#17502](https://github.com/ant-design/ant-design/pull/17502) [@DiamondYuan](https://github.com/DiamondYuan)
+
 ## 3.20.0
 
 - 🔥🔥🔥 新增 [Result](https://ant.design/components/result) 用于反馈一系列操作任务的处理结果。
 - 🔥 Descriptions 支持垂直布局。[#17330](https://github.com/ant-design/ant-design/pull/17330) [@hengkx](https://github.com/hengkx)
 - 🔥 优化 PageHeader 的 `className` 定义。[#17321](https://github.com/ant-design/ant-design/pull/17321)
 - 🔥 Progress.Circle 支持渐变色。[#17315](https://github.com/ant-design/ant-design/pull/17315) [@hengkx](https://github.com/hengkx)
-  <img class="markdown-inline-image" src="https://gw.alipayobjects.com/zos/antfincdn/WogwW6kA4O/method-draw-image.svg" alt="Progress">
+
+<img class="markdown-inline-image" src="https://gw.alipayobjects.com/zos/antfincdn/WogwW6kA4O/method-draw-image.svg" alt="Progress">
+
 - 🐞 Drawer 修复 `maskCloseble` 为 false，键盘 ESC 关闭无效的问题。[#17316](https://github.com/ant-design/ant-design/pull/17316)
 - 🐞 修复在 Edge 下 Drawer 关闭后没有调用 `afterVisibleChange` 的问题。[#17311](https://github.com/ant-design/ant-design/pull/17311)
 - 🌟 Drawer 新增 `keyboard`，允许打开关闭对键盘事件的响应。[#17316](https://github.com/ant-design/ant-design/pull/17316)
