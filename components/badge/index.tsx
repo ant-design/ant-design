@@ -196,6 +196,9 @@ export default class Badge extends React.Component<BadgeProps, any> {
     const statusStyle: React.CSSProperties = {};
     if (color && !isPresetColor(color)) {
       statusStyle.background = color;
+      if (status === 'processing') {
+        statusStyle.borderColor = color;
+      }
     }
 
     // <Badge status="success" />
