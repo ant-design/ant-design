@@ -72,7 +72,7 @@ export function alias(type: string) {
   warning(
     newType === type,
     'Icon',
-    `Icon '${type}' is typo and depracated, please use '${newType}' instead.`,
+    `Icon '${type}' was a typo and is now deprecated, please use '${newType}' instead.`,
   );
   return newType;
 }
