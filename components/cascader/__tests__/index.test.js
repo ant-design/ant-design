@@ -429,4 +429,13 @@ describe('Cascader', () => {
       );
     });
   });
+
+  it('should warning if not find `value` in `options`', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(<Cascader options={[{ label: 'a', value: 'a', children: [{ label: 'b' }] }]} />);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Cascader] Not found `value` in `options`.',
+    );
+    errorSpy.mockRestore();
+  });
 });
