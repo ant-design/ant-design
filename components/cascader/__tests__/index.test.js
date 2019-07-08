@@ -434,7 +434,7 @@ describe('Cascader', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     mount(<Cascader options={[{ label: 'a', value: 'a', children: [{ label: 'b' }] }]} />);
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Cascader] Not find `value` in `options`.',
+      'Warning: [antd: Cascader] Not found `value` in `options`.',
     );
     errorSpy.mockRestore();
   });
