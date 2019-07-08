@@ -245,10 +245,19 @@ describe('Transfer', () => {
     ).toEqual('Nothing');
   });
 
-  it('should display the correct locale using old API', () => {
+  it('should display the correct locale and ignore old API', () => {
     const emptyProps = { dataSource: [], selectedKeys: [], targetKeys: [] };
     const locale = { notFoundContent: 'old1', searchPlaceholder: 'old2' };
-    const wrapper = mount(<Transfer {...listCommonProps} {...emptyProps} {...locale} showSearch />);
+    const newLocalProp = { notFoundContent: 'new1', searchPlaceholder: 'new2' };
+    const wrapper = mount(
+      <Transfer
+        {...listCommonProps}
+        {...emptyProps}
+        {...locale}
+        locale={newLocalProp}
+        showSearch
+      />,
+    );
 
     expect(
       wrapper
@@ -257,7 +266,7 @@ describe('Transfer', () => {
         .find('.ant-transfer-list-search')
         .at(0)
         .prop('placeholder'),
-    ).toEqual('old2');
+    ).toEqual('new2');
 
     expect(
       wrapper
@@ -266,9 +275,9 @@ describe('Transfer', () => {
         .find('.ant-transfer-list-body-not-found')
         .at(0)
         .text(),
-    ).toEqual('old1');
+    ).toEqual('new1');
 
-    expect(consoleErrorSpy).toHaveBeenCalledWith(
+    expect(consoleErrorSpy).not.toHaveBeenCalledWith(
       'Warning: [antd: Transfer] `notFoundContent` and `searchPlaceholder` will be removed, please use `locale` instead.',
     );
     consoleErrorSpy.mockRestore();
