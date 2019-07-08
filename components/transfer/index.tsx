@@ -50,7 +50,7 @@ export interface TransferProps {
   operations?: string[];
   showSearch?: boolean;
   filterOption?: (inputValue: string, item: TransferItem) => boolean;
-  locale?: {};
+  locale?: Partial<TransferLocale>;
   footer?: (props: TransferListProps) => React.ReactNode;
   rowKey?: (record: TransferItem) => string;
   onSearch?: (direction: TransferDirection, value: string) => void;
@@ -62,7 +62,7 @@ export interface TransferProps {
 
 export interface TransferLocale {
   titles: string[];
-  notFoundContent: string;
+  notFoundContent?: React.ReactNode;
   searchPlaceholder: string;
   itemUnit: string;
   itemsUnit: string;
