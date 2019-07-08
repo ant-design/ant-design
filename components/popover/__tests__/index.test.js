@@ -20,4 +20,18 @@ describe('Popover', () => {
     expect(popup.innerHTML).toMatchSnapshot();
     expect(popup.innerHTML).toMatchSnapshot();
   });
+
+  it('props#overlay do not warn anymore', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const overlay = jest.fn();
+    mount(
+      <Popover content="console.log('hello world')" title="code" trigger="click">
+        <span>show me your code</span>
+      </Popover>,
+    );
+
+    expect(errorSpy.mock.calls.length).toBe(0);
+    expect(overlay).not.toHaveBeenCalled();
+  });
 });
