@@ -15,8 +15,8 @@ subtitle: 级联选择
 
 ## API
 
-```html
-<Cascader options="{options}" onChange="{onChange}" />
+```jsx
+<Cascader options={options} onChange={onChange} />
 ```
 
 | 参数 | 说明 | 类型 | 默认值 |
@@ -33,7 +33,7 @@ subtitle: 级联选择
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | Function(triggerNode) | () => document.body |
 | loadData | 用于动态加载选项，无法与 `showSearch` 一起使用 | `(selectedOptions) => void` | - |
 | notFoundContent | 当下拉列表为空时显示的内容 | string | 'Not Found' |
-| options | 可选项数据源 | object | - |
+| options | 可选项数据源 | [Option](#Option)[] | - |
 | placeholder | 输入框占位文本 | string | '请选择' |
 | popupClassName | 自定义浮层类名 | string | - |
 | popupPlacement | 浮层预设位置：`bottomLeft` `bottomRight` `topLeft` `topRight` | Enum | `bottomLeft` |
@@ -55,6 +55,17 @@ subtitle: 级联选择
 | matchInputWidth | 搜索结果列表是否与输入框同宽 | boolean |  |
 | render | 用于渲染 filter 后的选项 | `function(inputValue, path): ReactNode` |  |
 | sort | 用于排序 filter 后的选项 | `function(a, b, inputValue)` |  |
+
+### Option
+
+```typescript
+interface Option {
+  value: string;
+  label?: React.ReactNode;
+  disabled?: boolean;
+  children?: Option[];
+}
+```
 
 ## 方法
 
