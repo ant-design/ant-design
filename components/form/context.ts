@@ -1,4 +1,4 @@
-import createReactContext, { Context } from '@ant-design/create-react-context';
+import createReactContext from '@ant-design/create-react-context';
 import { ColProps } from '../grid/col';
 import { FormLabelAlign } from './FormItem';
 
@@ -10,7 +10,7 @@ export interface FormContextProps {
   wrapperCol?: ColProps;
 }
 
-export const FormContext: Context<FormContextProps> = createReactContext({
+export const FormContext = createReactContext<FormContextProps>({
   labelAlign: 'right',
   vertical: false,
 });

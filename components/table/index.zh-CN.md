@@ -173,7 +173,7 @@ const columns = [
 | columnTitle | 自定义列表选择框标题 | string\|React.ReactNode | - |
 | fixed | 把选择框列固定在左边 | boolean | - |
 | getCheckboxProps | 选择框的默认属性配置 | Function(record) | - |
-| hideDefaultSelections | 去掉『全选』『反选』两个默认选项 | boolean | false |
+| hideDefaultSelections | [自定义选择项](#components-table-demo-row-selection-custom)时去掉『全选』『反选』两个默认选项 | boolean | false |
 | selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | string\[] | \[] |
 | selections | 自定义选择项 [配置项](#selection), 设为 `true` 时使用默认选择项 | object\[]\|boolean | true |
 | type | 多选/单选，`checkbox` or `radio` | string | `checkbox` |
@@ -196,27 +196,27 @@ const columns = [
 import { Table } from 'antd';
 import { ColumnProps } from 'antd/lib/table';
 
-interface IUser {
+interface User {
   key: number;
   name: string;
 }
 
-const columns: ColumnProps<IUser>[] = [{
+const columns: ColumnProps<User>[] = [{
   key: 'name',
   title: 'Name',
   dataIndex: 'name',
 }];
 
-const data: IUser[] = [{
+const data: User[] = [{
   key: 0,
   name: 'Jack',
 }];
 
-class UserTable extends Table<IUser> {}
+class UserTable extends Table<User> {}
 <UserTable columns={columns} dataSource={data} />
 
 // 使用 JSX 风格的 API
-class NameColumn extends Table.Column<IUser> {}
+class NameColumn extends Table.Column<User> {}
 
 <UserTable dataSource={data}>
   <NameColumn key="name" title="Name" dataIndex="name" />
@@ -224,9 +224,9 @@ class NameColumn extends Table.Column<IUser> {}
 
 // TypeScript 2.9 之后也可以这样写
 // https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-9.html#generic-type-arguments-in-jsx-elements
-<Table<IUser> columns={columns} dataSource={data} />
-<Table<IUser> dataSource={data}>
-  <Table.Column<IUser> key="name" title="Name" dataIndex="name" />
+<Table<User> columns={columns} dataSource={data} />
+<Table<User> dataSource={data}>
+  <Table.Column<User> key="name" title="Name" dataIndex="name" />
 </Table>
 
 ```

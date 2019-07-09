@@ -16,7 +16,7 @@ Disabled a tab.
 ```jsx
 import { Tabs } from 'antd';
 
-const TabPane = Tabs.TabPane;
+const { TabPane } = Tabs;
 
 ReactDOM.render(
   <Tabs defaultActiveKey="1">

@@ -5,7 +5,7 @@ import defaultLocaleData from './default';
 export interface LocaleReceiverProps {
   componentName?: string;
   defaultLocale?: object | Function;
-  children: (locale: object, localeCode?: string) => React.ReactElement<any>;
+  children: (locale: object, localeCode?: string) => React.ReactNode;
 }
 
 interface LocaleInterface {

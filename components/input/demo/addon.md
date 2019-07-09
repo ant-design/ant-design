@@ -16,7 +16,7 @@ Using pre & post tabs example.
 ```jsx
 import { Input, Select, Icon } from 'antd';
 
-const Option = Select.Option;
+const { Option } = Select;
 
 const selectBefore = (
   <Select defaultValue="Http://" style={{ width: 90 }}>

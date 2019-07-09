@@ -16,7 +16,7 @@ In order to fit in more tabs, they can slide left and right (or up and down).
 ```jsx
 import { Tabs, Radio } from 'antd';
 
-const TabPane = Tabs.TabPane;
+const { TabPane } = Tabs;
 
 class SlidingTabsDemo extends React.Component {
   constructor(props) {
@@ -40,7 +40,7 @@ class SlidingTabsDemo extends React.Component {
           <Radio.Button value="left">Vertical</Radio.Button>
         </Radio.Group>
         <Tabs defaultActiveKey="1" tabPosition={mode} style={{ height: 220 }}>
-          {[...Array(30).keys()].map((i) => (
+          {[...Array(30).keys()].map(i => (
             <TabPane tab={`Tab-${i}`} key={i}>
               Content of tab {i}
             </TabPane>

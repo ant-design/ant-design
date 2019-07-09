@@ -24,6 +24,7 @@ title: Popconfirm
 | onCancel | 点击取消的回调 | function(e) | 无 |
 | onConfirm | 点击确认的回调 | function(e) | 无 |
 | icon | 自定义弹出气泡 Icon 图标 | ReactNode | &lt;Icon type="exclamation-circle" /&gt; |
+| disabled | 点击 Popconfirm 子元素是否弹出气泡确认框 | boolean | false |
 
 更多属性请参考 [Tooltip](/components/tooltip/#API)。
 

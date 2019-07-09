@@ -3,7 +3,16 @@ import * as moment from 'moment';
 import Select from '../select';
 import { Group, Button, RadioChangeEvent } from '../radio';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-const Option = Select.Option;
+const { Option } = Select;
+
+export interface RenderHeader {
+  value: moment.Moment;
+  onChange?: (value: moment.Moment) => void;
+  type: string;
+  onTypeChange: (type: string) => void;
+}
+
+export type HeaderRender = (headerRender: RenderHeader) => React.ReactNode;
 
 export interface HeaderProps {
   prefixCls?: string;
@@ -14,8 +23,9 @@ export interface HeaderProps {
   type?: string;
   onValueChange?: (value: moment.Moment) => void;
   onTypeChange?: (type: string) => void;
-  value: any;
+  value: moment.Moment;
   validRange?: [moment.Moment, moment.Moment];
+  headerRender?: HeaderRender;
 }
 
 export default class Header extends React.Component<HeaderProps, any> {
@@ -79,6 +89,7 @@ export default class Header extends React.Component<HeaderProps, any> {
         start = rangeStart.get('month');
       }
     }
+
     for (let index = start; index < end; index++) {
       options.push(<Option key={`${index}`}>{months[index]}</Option>);
     }
@@ -128,10 +139,14 @@ export default class Header extends React.Component<HeaderProps, any> {
     }
   };
 
-  onTypeChange = (e: RadioChangeEvent) => {
+  onInternalTypeChange = (e: RadioChangeEvent) => {
+    this.onTypeChange(e.target.value as string);
+  };
+
+  onTypeChange = (type: string) => {
     const onTypeChange = this.props.onTypeChange;
     if (onTypeChange) {
-      onTypeChange(e.target.value);
+      onTypeChange(type);
     }
   };
 
@@ -139,26 +154,53 @@ export default class Header extends React.Component<HeaderProps, any> {
     this.calenderHeaderNode = node;
   };
 
-  renderHeader = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, type, value, locale, fullscreen } = this.props;
+  getMonthYearSelections = (getPrefixCls: ConfigConsumerProps['getPrefixCls']) => {
+    const { prefixCls: customizePrefixCls, type, value } = this.props;
+
     const prefixCls = getPrefixCls('fullcalendar', customizePrefixCls);
-    const yearSelect = this.getYearSelectElement(prefixCls, value.year());
-    const monthSelect =
+    const yearReactNode = this.getYearSelectElement(prefixCls, value.year());
+    const monthReactNode =
       type === 'month'
         ? this.getMonthSelectElement(prefixCls, value.month(), this.getMonthsLocale(value))
         : null;
+    return {
+      yearReactNode,
+      monthReactNode,
+    };
+  };
+
+  getTypeSwitch = () => {
+    const { locale, type, fullscreen } = this.props;
     const size = fullscreen ? 'default' : 'small';
-    const typeSwitch = (
-      <Group onChange={this.onTypeChange} value={type} size={size}>
+    return (
+      <Group onChange={this.onInternalTypeChange} value={type} size={size}>
         <Button value="month">{locale.month}</Button>
         <Button value="year">{locale.year}</Button>
       </Group>
     );
+  };
 
-    return (
+  headerRenderCustom = (headerRender: HeaderRender): React.ReactNode => {
+    const { type, onValueChange, value } = this.props;
+
+    return headerRender({
+      value,
+      type: type || 'month',
+      onChange: onValueChange,
+      onTypeChange: this.onTypeChange,
+    });
+  };
+
+  renderHeader = ({ getPrefixCls }: ConfigConsumerProps) => {
+    const { prefixCls, headerRender } = this.props;
+    const typeSwitch = this.getTypeSwitch();
+    const { yearReactNode, monthReactNode } = this.getMonthYearSelections(getPrefixCls);
+    return headerRender ? (
+      this.headerRenderCustom(headerRender)
+    ) : (
       <div className={`${prefixCls}-header`} ref={this.getCalenderHeaderNode}>
-        {yearSelect}
-        {monthSelect}
+        {yearReactNode}
+        {monthReactNode}
         {typeSwitch}
       </div>
     );

@@ -42,7 +42,7 @@ $ yarn add antd
 
 ```jsx
 import React, { Component } from 'react';
-import Button from 'antd/lib/button';
+import Button from 'antd/es/button';
 import './App.css';
 
 class App extends Component {
@@ -134,7 +134,7 @@ $ yarn add babel-plugin-import
 ```diff
   // src/App.tsx
   import React, { Component } from 'react';
-- import Button from 'antd/lib/button';
+- import Button from 'antd/es/button';
 + import { Button } from 'antd';
   import './App.css';
 

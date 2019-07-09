@@ -14,10 +14,10 @@ title: Select
 
 ## API
 
-```html
-<select>
-  <option value="lucy">lucy</option>
-</select>
+```jsx
+<Select>
+  <Select.Option value="lucy">lucy</Select.Option>
+</Select>
 ```
 
 ### Select props
@@ -52,7 +52,7 @@ title: Select
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |
 | removeIcon | 自定义的多选框清除图标 | ReactNode | - |
 | clearIcon | 自定义的多选框清空图标 | ReactNode | - |
-| menuItemSelectedIcon | 自定义当前选中的条目图标 | ReactNode | - |
+| menuItemSelectedIcon | 自定义多选时当前选中的条目图标 | ReactNode | - |
 | tokenSeparators | 在 tags 和 multiple 模式下自动分词的分隔符 | string\[] |  |
 | value | 指定当前选中的条目 | string\|string\[]\<br />number\|number\[]\<br />LabeledValue\|LabeledValue[] | - |
 | onBlur | 失去焦点时回调 | function | - |
@@ -69,7 +69,7 @@ title: Select
 | onDropdownVisibleChange | 展开下拉菜单的回调 (3.9.0 后支持) | function(open) | - |
 | loading | 加载中状态 | Boolean | false |
 
-> 注意，如果发现下拉菜单跟随页面滚动，或者需要在其他弹层中触发 Select，请尝试使用 `getPopupContainer={triggerNode => triggerNode.parentNode}` 将下拉弹层渲染节点固定在触发器的父元素中。
+> 注意，如果发现下拉菜单跟随页面滚动，或者需要在其他弹层中触发 Select，请尝试使用 `getPopupContainer={triggerNode => triggerNode.parentElement}` 将下拉弹层渲染节点固定在触发器的父元素中。
 
 ### Select Methods
 

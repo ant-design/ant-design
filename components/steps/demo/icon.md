@@ -16,7 +16,7 @@ You can use your own custom icons by setting the property `icon` for `Steps.Step
 ```jsx
 import { Steps, Icon } from 'antd';
 
-const Step = Steps.Step;
+const { Step } = Steps;
 
 ReactDOM.render(
   <Steps>

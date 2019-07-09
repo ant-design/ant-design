@@ -443,6 +443,7 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
                 >
                   <button
                     class="ant-btn search-btn ant-btn-primary ant-btn-lg"
+                    style="margin-right:-12px"
                     type="button"
                   >
                     <i

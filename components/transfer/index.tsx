@@ -42,7 +42,7 @@ export interface TransferProps {
   targetKeys?: string[];
   selectedKeys?: string[];
   render?: TransferRender;
-  onChange?: (targetKeys: string[], direction: string, moveKeys: any) => void;
+  onChange?: (targetKeys: string[], direction: string, moveKeys: string[]) => void;
   onSelectChange?: (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => void;
   style?: React.CSSProperties;
   listStyle?: React.CSSProperties;
@@ -50,7 +50,7 @@ export interface TransferProps {
   titles?: string[];
   operations?: string[];
   showSearch?: boolean;
-  filterOption?: (inputValue: any, item: any) => boolean;
+  filterOption?: (inputValue: string, item: TransferItem) => boolean;
   searchPlaceholder?: string;
   notFoundContent?: React.ReactNode;
   locale?: {};

@@ -19,6 +19,7 @@ export interface SubMenuProps {
   onTitleClick?: (e: TitleEventEntity) => void;
   onTitleMouseEnter?: (e: TitleEventEntity) => void;
   onTitleMouseLeave?: (e: TitleEventEntity) => void;
+  popupOffset?: [number, number];
 }
 
 class SubMenu extends React.Component<SubMenuProps, any> {

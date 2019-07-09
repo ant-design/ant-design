@@ -16,7 +16,7 @@ Hide default plus icon, and bind event for customized trigger.
 ```jsx
 import { Tabs, Button } from 'antd';
 
-const TabPane = Tabs.TabPane;
+const { TabPane } = Tabs;
 
 class Demo extends React.Component {
   constructor(props) {
@@ -41,14 +41,14 @@ class Demo extends React.Component {
   };
 
   add = () => {
-    const panes = this.state.panes;
+    const { panes } = this.state;
     const activeKey = `newTab${this.newTabIndex++}`;
     panes.push({ title: 'New Tab', content: 'New Tab Pane', key: activeKey });
     this.setState({ panes, activeKey });
   };
 
   remove = targetKey => {
-    let activeKey = this.state.activeKey;
+    let { activeKey } = this.state;
     let lastIndex;
     this.state.panes.forEach((pane, i) => {
       if (pane.key === targetKey) {

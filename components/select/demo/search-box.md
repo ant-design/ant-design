@@ -18,7 +18,7 @@ import { Select } from 'antd';
 import jsonp from 'fetch-jsonp';
 import querystring from 'querystring';
 
-const Option = Select.Option;
+const { Option } = Select;
 
 let timeout;
 let currentValue;
@@ -39,7 +39,7 @@ function fetch(value, callback) {
       .then(response => response.json())
       .then(d => {
         if (currentValue === value) {
-          const result = d.result;
+          const { result } = d;
           const data = [];
           result.forEach(r => {
             data.push({
