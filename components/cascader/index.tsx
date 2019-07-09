@@ -204,6 +204,14 @@ function flattenTree(
 
 const defaultDisplayRender = (label: string[]) => label.join(' / ');
 
+function warningValueNotExist(list: CascaderOptionType[] = [], fieldNames: FieldNamesType = {}) {
+  list.forEach(item => {
+    const valueFieldName = fieldNames.value || 'value';
+    warning(valueFieldName in item, 'Cascader', 'Not found `value` in `options`.');
+    warningValueNotExist(item[fieldNames.children || 'children'], fieldNames);
+  });
+}
+
 class Cascader extends React.Component<CascaderProps, CascaderState> {
   static defaultProps = {
     placeholder: 'Please select',
@@ -227,6 +235,10 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     }
     if (nextProps.showSearch && prevProps.options !== nextProps.options) {
       newState.flattenOptions = flattenTree(nextProps.options, nextProps);
+    }
+
+    if (process.env.NODE_ENV !== 'production' && nextProps.options) {
+      warningValueNotExist(nextProps.options, getFieldNames(nextProps));
     }
 
     return newState;

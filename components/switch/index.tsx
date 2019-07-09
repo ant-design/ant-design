@@ -18,7 +18,7 @@ export interface SwitchProps {
   checked?: boolean;
   defaultChecked?: boolean;
   onChange?: SwitchChangeEventHandler;
-  onClick?: SwitchChangeEventHandler;
+  onClick?: SwitchClickEventHandler;
   checkedChildren?: React.ReactNode;
   unCheckedChildren?: React.ReactNode;
   disabled?: boolean;

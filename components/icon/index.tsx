@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import * as allIcons from '@ant-design/icons/lib/dist';
+import * as allIcons from '@ant-design/icons';
 import ReactIcon from '@ant-design/icons-react';
 import createFromIconfontCN from './IconFont';
 import {

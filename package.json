@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "3.20.0",
+  "version": "3.20.1",
   "title": "Ant Design",
   "description": "An enterprise-class UI design language and React components implementation",
   "homepage": "http://ant.design/",
@@ -99,6 +99,7 @@
   },
   "devDependencies": {
     "@ant-design/colors": "^3.1.0",
+    "@babel/plugin-transform-typescript": "~7.4.5",
     "@packtracker/webpack-plugin": "^2.0.1",
     "@sentry/browser": "^5.4.0",
     "@types/classnames": "^2.2.8",
@@ -161,8 +162,8 @@
     "react": "^16.5.2",
     "react-color": "^2.17.3",
     "react-copy-to-clipboard": "^5.0.1",
-    "react-dnd": "^8.0.0",
-    "react-dnd-html5-backend": "^8.0.0",
+    "react-dnd": "^9.0.0",
+    "react-dnd-html5-backend": "^9.0.0",
     "react-document-title": "^2.0.3",
     "react-dom": "^16.5.2",
     "react-github-button": "^0.1.11",
