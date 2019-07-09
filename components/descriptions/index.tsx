@@ -281,6 +281,7 @@ class Descriptions extends React.Component<
             children,
             bordered = false,
             layout = 'horizontal',
+            style,
           } = this.props;
           const prefixCls = getPrefixCls('descriptions', customizePrefixCls);
 
@@ -306,6 +307,7 @@ class Descriptions extends React.Component<
                 [`${prefixCls}-${size}`]: size !== 'default',
                 [`${prefixCls}-bordered`]: !!bordered,
               })}
+              style={style}
             >
               {title && <div className={`${prefixCls}-title`}>{title}</div>}
               <div className={`${prefixCls}-view`}>
