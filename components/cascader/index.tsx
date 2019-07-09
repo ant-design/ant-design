@@ -436,6 +436,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       allowClear,
       showSearch = false,
       suffixIcon,
+      notFoundContent,
       ...otherProps
     } = props;
 
@@ -493,8 +494,19 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     ]);
 
     let options = props.options;
-    if (state.inputValue) {
-      options = this.generateFilteredOptions(prefixCls, renderEmpty);
+    if (options.length > 0) {
+      if (state.inputValue) {
+        options = this.generateFilteredOptions(prefixCls, renderEmpty);
+      }
+    } else {
+      const names: FilledFieldNamesType = getFilledFieldNames(this.props);
+      options = [
+        {
+          [names.label]: notFoundContent || renderEmpty('Cascader'),
+          [names.value]: 'ANT_CASCADER_NOT_FOUND',
+          disabled: true,
+        },
+      ];
     }
     // Dropdown menu should keep previous status until it is fully closed.
     if (!state.popupVisible) {
@@ -512,7 +524,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     // The default value of `matchInputWidth` is `true`
     const resultListMatchInputWidth =
       (showSearch as ShowSearchType).matchInputWidth === false ? false : true;
-    if (resultListMatchInputWidth && state.inputValue && this.input) {
+    if (resultListMatchInputWidth && (state.inputValue || isNotFound) && this.input) {
       dropdownMenuColumnStyle.width = this.input.input.offsetWidth;
     }
 
