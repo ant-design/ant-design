@@ -28,6 +28,8 @@ A list can be used to display content related to a single subject. The content c
 | locale | i18n text including empty text | object | emptyText: 'No Data' <br> |
 | pagination | Pagination [config](https://ant.design/components/pagination/), hide it by setting it to false | boolean \| object | false |
 | split | Toggles rendering of the split under the list item | boolean | true |
+| dataSource | dataSource array for list | any[] | - |
+| renderItem | customize list item when using `dataSource` | `item => ReactNode` | - |
 
 ### pagination
 

@@ -34,7 +34,7 @@ export type FormLayout = (typeof FormLayouts)[number];
 export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   layout?: FormLayout;
   form?: WrappedFormUtils;
-  onSubmit?: React.FormEventHandler<HTMLElement>;
+  onSubmit?: React.FormEventHandler<HTMLFormElement>;
   style?: React.CSSProperties;
   className?: string;
   prefixCls?: string;

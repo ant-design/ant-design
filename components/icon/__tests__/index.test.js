@@ -227,21 +227,25 @@ describe('utils', () => {
     ]);
   });
 
-  it('should depracate typo icon name', () => {
+  it('should report an error when there are deprecated typos in icon names', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Icon type="interation" />);
     expect(errorSpy).toHaveBeenLastCalledWith(
-      "Warning: [antd: Icon] Icon 'interation' is typo and depracated, please use 'interaction' instead.",
+      "Warning: [antd: Icon] Icon 'interation' was a typo and is now deprecated, please use 'interaction' instead.",
     );
     render(<Icon type="cross" />);
     expect(errorSpy).toHaveBeenLastCalledWith(
-      "Warning: [antd: Icon] Icon 'cross' is typo and depracated, please use 'close' instead.",
+      "Warning: [antd: Icon] Icon 'cross' was a typo and is now deprecated, please use 'close' instead.",
     );
     render(<Icon type="canlendar" theme="twoTone" />);
     expect(errorSpy).toHaveBeenLastCalledWith(
-      "Warning: [antd: Icon] Icon 'canlendar' is typo and depracated, please use 'calendar' instead.",
+      "Warning: [antd: Icon] Icon 'canlendar' was a typo and is now deprecated, please use 'calendar' instead.",
     );
-    expect(errorSpy).toHaveBeenCalledTimes(3);
+    render(<Icon type="colum-height" />);
+    expect(errorSpy).toHaveBeenLastCalledWith(
+      "Warning: [antd: Icon] Icon 'colum-height' was a typo and is now deprecated, please use 'column-height' instead.",
+    );
+    expect(errorSpy).toHaveBeenCalledTimes(4);
     errorSpy.mockRestore();
   });
 });

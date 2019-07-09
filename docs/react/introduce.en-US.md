@@ -119,18 +119,24 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 ## Links
 
-- [Home Page](http://ant.design/)
+- [Home page](https://ant.design/)
 - [Components](/docs/react/introduce)
-- [Ant Design Pro](http://pro.ant.design/)
+- [Ant Design Pro](https://pro.ant.design/)
 - [Change Log](/changelog)
-- [Scaffold Market](http://scaffold.ant.design)
 - [rc-components](http://react-component.github.io/)
 - [Mobile UI](http://mobile.ant.design)
+- [Ant Design Icons](https://github.com/ant-design/ant-design-icons)
+- [Ant Design Colors](https://github.com/ant-design/ant-design-colors)
+- [Ant Design Pro Layout](https://github.com/ant-design/ant-design-pro-layout)
+- [Ant Design Pro Blocks](https://github.com/ant-design/pro-blocks)
+- [Dark Theme](https://github.com/ant-design/ant-design-dark-theme)
+- [Landing Pages](https://landing.ant.design)
 - [Motion](https://motion.ant.design)
+- [Scaffold Market](http://scaffold.ant.design)
 - [Developer Instruction](https://github.com/ant-design/ant-design/wiki/Development)
 - [Versioning Release Note](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
 - [FAQ](/docs/react/faq)
-- [CodeSandbox template](https://u.ant.design/codesandbox-repro) for bug reports
+- [CodeSandbox Template](https://u.ant.design/codesandbox-repro) for bug reports
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
 - [Customize Theme](/docs/react/customize-theme)
 

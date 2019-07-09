@@ -1,22 +1,22 @@
 ---
-order: 1
+order: 7
 title:
-  zh-CN: 复杂的例子
-  en-US: Complex example
+  zh-CN: Error
+  en-US: Error
 ---
 
 ## zh-CN
 
-提供更加复杂的反馈。
+复杂的错误反馈。
 
 ## en-US
 
-Provide more complex feedback.
+Complex error feedback.
 
 ```jsx
 import { Result, Button, Icon, Typography } from 'antd';
 
-const { Title, Paragraph } = Typography;
+const { Paragraph, Text } = Typography;
 
 ReactDOM.render(
   <Result
@@ -31,14 +31,23 @@ ReactDOM.render(
     ]}
   >
     <div className="desc">
-      <Title level={4}>The content you submitted has the following error:</Title>
+      <Paragraph>
+        <Text
+          strong
+          style={{
+            fontSize: 16,
+          }}
+        >
+          The content you submitted has the following error:
+        </Text>
+      </Paragraph>
       <Paragraph>
         <Icon style={{ color: 'red' }} type="close-circle" /> Your account has been frozen{' '}
         <a>Thaw immediately &gt;</a>
       </Paragraph>
       <Paragraph>
-        <Icon type="close-circle" /> Your account is not yet eligible to apply{' '}
-        <a>Apply immediately &gt;</a>
+        <Icon style={{ color: 'red' }} type="close-circle" /> Your account is not yet eligible to
+        apply <a>Apply Unlock &gt;</a>
       </Paragraph>
     </div>
   </Result>,

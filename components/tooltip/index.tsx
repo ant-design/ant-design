@@ -4,7 +4,6 @@ import { polyfill } from 'react-lifecycles-compat';
 import RcTooltip from 'rc-tooltip';
 import classNames from 'classnames';
 import getPlacements, { AdjustOverflow, PlacementsConfig } from './placements';
-import Button from '../button/index';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export { AdjustOverflow, PlacementsConfig };
@@ -140,8 +139,9 @@ class Tooltip extends React.Component<TooltipProps, any> {
   // mouse events don't trigger at disabled button in Chrome
   // https://github.com/react-component/tooltip/issues/18
   getDisabledCompatibleChildren(element: React.ReactElement<any>) {
+    const elementType = element.type as any;
     if (
-      ((element.type as typeof Button).__ANT_BUTTON || element.type === 'button') &&
+      (elementType.__ANT_BUTTON || elementType.__ANT_SWITCH || element.type === 'button') &&
       element.props.disabled
     ) {
       // Pick some layout related style properties up to span
