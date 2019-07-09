@@ -15,11 +15,28 @@ timeline: true
 
 ---
 
+## 3.20.1
+
+- 💄 Optimize TimePicker focus style. [#17447](https://github.com/ant-design/ant-design/pull/17447)
+- 💄 Optimize DatePicker arrow style for resolve messy when not use utf-8. [#17480](https://github.com/ant-design/ant-design/pull/17480)
+- 🐞 Remove useless props which Drawer pass to rc-drawer for avoid error. [#17390](https://github.com/ant-design/ant-design/pull/17390)
+- 🐞 Fix Tabs disabled tab and next icon style. [#17500](https://github.com/ant-design/ant-design/pull/17500)
+- 🐞 Fix Result's problem that the `className` is empty and the class name is wrong. [#17389](https://github.com/ant-design/ant-design/pull/17389)
+- 🐞 Fix DatePicker's input box is obscured on safari. [#17421](https://github.com/ant-design/ant-design/pull/17421)
+- 🐞 Fix typo icon name `colum-height` to `column-height`. [#17458](https://github.com/ant-design/ant-design/pull/17458)
+- TypeScript
+  - 🐞 Fix Form `onSubmit` type. [#17412](https://github.com/ant-design/ant-design/pull/17412)
+  - 🐞 Fix omit AutoComplete `loading` type. [#17433](https://github.com/ant-design/ant-design/pull/17433)
+  - 🐞 Fix Switch `onClick` type. [#17502](https://github.com/ant-design/ant-design/pull/17502) [@DiamondYuan](https://github.com/DiamondYuan)
+
 ## 3.20.0
 
 - 🔥🔥🔥 Add [Result](https://ant.design/components/result) Used to feed back the results of a series of operational tasks.
 - 🔥 Descriptions support vertical layout. [#17330](https://github.com/ant-design/ant-design/pull/17330) [@hengkx](https://github.com/hengkx)
-- 🔥 Progress.Circle support gradient line color. [#17315](https://github.com/ant-design/ant-design/pull/17315) [@hengkx](https://github.com/hengkx) <img class="markdown-inline-image" src="https://gw.alipayobjects.com/zos/antfincdn/WogwW6kA4O/method-draw-image.svg" alt="Progress">
+- 🔥 Progress.Circle support gradient line color. [#17315](https://github.com/ant-design/ant-design/pull/17315) [@hengkx](https://github.com/hengkx)
+
+<img class="markdown-inline-image" src="https://gw.alipayobjects.com/zos/antfincdn/WogwW6kA4O/method-draw-image.svg" alt="Progress">
+
 - 🔥 Optimize PageHeader className naming. [#17321](https://github.com/ant-design/ant-design/pull/17321)
 - 🐞 Drawer fixes `maskCloseble` to false, keyboard ESC closes invalid. [#17316](https://github.com/ant-design/ant-design/pull/17316)
 - 🐞 Fixed an issue where Drawer closes not calling `afterVisibleChange` in Edge. [#17311](https://github.com/ant-design/ant-design/pull/17311)

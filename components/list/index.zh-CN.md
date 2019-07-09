@@ -29,6 +29,8 @@ cols: 1
 | pagination | 对应的 `pagination` 配置, 设置 `false` 不显示 | boolean\|object | false |
 | size | list 的尺寸 | `default` \| `middle` \| `small` | `default` |
 | split | 是否展示分割线 | boolean | true |
+| dataSource | 列表数据源 | any[] | - |
+| renderItem | 当使用 dataSource 时，可以用 `renderItem` 自定义渲染列表项 | `item => ReactNode` | - |
 
 ### pagination
 
