@@ -14,8 +14,8 @@ Cascade selection box.
 
 ## API
 
-```html
-<Cascader options="{options}" onChange="{onChange}" />
+```jsx
+<Cascader options={options} onChange={onChange} />
 ```
 
 | Property | Description | Type | Default |
@@ -32,7 +32,7 @@ Cascade selection box.
 | getPopupContainer | Parent Node which the selector should be rendered to. Default to `body`. When position issues happen, try to modify it into scrollable content and position it relative.[example](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | Function(triggerNode) | () => document.body |
 | loadData | To load option lazily, and it cannot work with `showSearch` | `(selectedOptions) => void` | - |
 | notFoundContent | Specify content to show when no result matches. | string | 'Not Found' |
-| options | data options of cascade | object | - |
+| options | data options of cascade | [Option](#Option)[] | - |
 | placeholder | input placeholder | string | 'Please select' |
 | popupClassName | additional className of popup overlay | string | - |
 | popupPlacement | use preset popup align config from builtinPlacements：`bottomLeft` `bottomRight` `topLeft` `topRight` | string | `bottomLeft` |
@@ -54,6 +54,17 @@ Fields in `showSearch`:
 | matchInputWidth | Whether the width of result list equals to input's | boolean |  |
 | render | Used to render filtered options. | `function(inputValue, path): ReactNode` |  |
 | sort | Used to sort filtered options. | `function(a, b, inputValue)` |  |
+
+### Option
+
+```typescript
+interface Option {
+  value: string;
+  label?: React.ReactNode;
+  disabled?: boolean;
+  children?: Option[];
+}
+```
 
 ## Methods
 
