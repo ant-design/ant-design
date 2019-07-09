@@ -61,16 +61,6 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
     params: PropTypes.object,
   };
 
-  componentDidMount() {
-    const props = this.props;
-    warning(
-      !('linkRender' in props || 'nameRender' in props),
-      'Breadcrumb',
-      '`linkRender` and `nameRender` are removed, please use `itemRender` instead, ' +
-        'see: https://u.ant.design/item-render.',
-    );
-  }
-
   getPath = (path: string, params: any) => {
     path = (path || '').replace(/^\//, '');
     Object.keys(params).forEach(key => {

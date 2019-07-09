@@ -6,14 +6,7 @@ import { TransferItem } from '.';
 import { TransferListProps, RenderedItem } from './list';
 import ListItem from './ListItem';
 
-export const OmitProps = tuple(
-  'handleFilter',
-  'handleSelect',
-  'handleSelectAll',
-  'handleClear',
-  'body',
-  'checkedKeys',
-);
+export const OmitProps = tuple('handleFilter', 'handleClear', 'checkedKeys');
 export type OmitProp = (typeof OmitProps)[number];
 type PartialTransferListProps = Omit<TransferListProps, OmitProp>;
 

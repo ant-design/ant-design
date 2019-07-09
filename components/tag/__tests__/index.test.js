@@ -58,4 +58,19 @@ describe('Tag', () => {
       expect(wrapper.render()).toMatchSnapshot();
     });
   });
+
+  it('props#afterClose do not warn anymore', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const afterClose = jest.fn();
+    const wrapper = mount(<Tag closable afterClose={afterClose} />);
+
+    expect(errorSpy.mock.calls.length).toBe(1);
+    expect(errorSpy.mock.calls[0]).not.toContain(
+      `'afterClose' will be deprecated, please use 'onClose', we will remove this in the next version`,
+    );
+
+    wrapper.find('.anticon-close').simulate('click');
+    expect(afterClose).not.toHaveBeenCalled();
+  });
 });

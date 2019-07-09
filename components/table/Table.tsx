@@ -113,13 +113,6 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
 
     const { expandedRowRender, columns = [] } = props;
 
-    warning(
-      !('columnsPageRange' in props || 'columnsPageSize' in props),
-      'Table',
-      '`columnsPageRange` and `columnsPageSize` are removed, please use ' +
-        'fixed columns instead, see: https://u.ant.design/fixed-columns.',
-    );
-
     if (expandedRowRender && columns.some(({ fixed }) => !!fixed)) {
       warning(
         false,
