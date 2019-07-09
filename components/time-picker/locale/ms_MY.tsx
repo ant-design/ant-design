@@ -1,5 +1,5 @@
 const locale = {
-  placeholder: '请选择时间',
+  placeholder: 'Pilih masa',
 };
 
 export default locale;

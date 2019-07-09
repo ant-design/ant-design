@@ -1,11 +1,11 @@
-import CalendarLocale from 'rc-calendar/lib/locale/id_ID';
-import TimePickerLocale from '../../time-picker/locale/id_ID';
+import CalendarLocale from 'rc-calendar/lib/locale/ms_MY';
+import TimePickerLocale from '../../time-picker/locale/ms_MY';
 
 // Merge into a locale object
 const locale = {
   lang: {
-    placeholder: 'Pilih tanggal',
-    rangePlaceholder: ['Mulai tanggal', 'Tanggal akhir'],
+    placeholder: 'Pilih tarikh',
+    rangePlaceholder: ['Tarikh mula', 'Tarikh akhir'],
     ...CalendarLocale,
   },
   timePickerLocale: {

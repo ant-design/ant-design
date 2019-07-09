@@ -1,45 +1,62 @@
-import Pagination from 'rc-pagination/lib/locale/zh_TW';
-import DatePicker from '../date-picker/locale/zh_TW';
-import TimePicker from '../time-picker/locale/zh_TW';
-import Calendar from '../calendar/locale/zh_TW';
+import Pagination from 'rc-pagination/lib/locale/ms_MY';
+import DatePicker from '../date-picker/locale/ms_MY';
+import TimePicker from '../time-picker/locale/ms_MY';
+import Calendar from '../calendar/locale/ms_MY';
 
 export default {
-  locale: 'zh-tw',
+  locale: 'ms-my',
   Pagination,
   DatePicker,
   TimePicker,
   Calendar,
+  global: {
+    placeholder: 'Sila pilih',
+  },
+  PageHeader: {
+    back: 'Kembali',
+  },
+  Text: {
+    edit: 'Sunting',
+    copy: 'Salin',
+    copied: 'Berjaya menyalin',
+    expand: 'Kembang',
+  },
+  Empty: {
+    description: 'Tiada data',
+  },
   Table: {
-    filterTitle: '篩選器',
-    filterConfirm: '確 定',
-    filterReset: '重 置',
-    selectAll: '全部選取',
-    selectInvert: '反向選取',
+    filterTitle: 'Cari dengan tajuk',
+    filterConfirm: 'Ok',
+    filterReset: 'Menetapkan semula',
+    emptyText: 'Tiada data',
+    selectAll: 'Pilih semua',
+    selectInvert: 'Terbalikkan',
   },
   Modal: {
-    okText: '確 定',
-    cancelText: '取 消',
+    okText: 'OK',
+    cancelText: 'Batal',
     justOkText: 'OK',
   },
   Popconfirm: {
-    okText: '確 定',
-    cancelText: '取 消',
+    okText: 'OK',
+    cancelText: 'Batal',
   },
   Transfer: {
-    searchPlaceholder: '搜尋資料',
-    itemUnit: '項目',
-    itemsUnit: '項目',
+    notFoundContent: 'Tidak dijumpai',
+    searchPlaceholder: 'Carian di sini',
+    itemUnit: 'item',
+    itemsUnit: 'item',
+  },
+  Icon: {
+    icon: 'ikon',
+  },
+  Select: {
+    notFoundContent: 'Tidak Dijumpai',
   },
   Upload: {
-    uploading: '正在上傳...',
-    removeFile: '刪除檔案',
-    uploadError: '上傳失敗',
-    previewFile: '檔案預覽',
-  },
-  Empty: {
-    description: '無此資料',
-  },
-  PageHeader: {
-    back: '返回',
+    uploading: 'Sedang memuat naik...',
+    removeFile: 'Buang fail',
+    uploadError: 'Masalah muat naik',
+    previewFile: 'Tengok fail',
   },
 };
