@@ -49,10 +49,7 @@ const Col: React.SFC<ColProps> = props => {
       );
     }
     return (
-      <td
-        colSpan={bordered ? span * 2 - 1 : span}
-        className={classNames(`${prefixCls}-item`, className)}
-      >
+      <td colSpan={span} className={classNames(`${prefixCls}-item`, className)}>
         <span
           className={classNames(`${prefixCls}-item-label`, { [`${prefixCls}-item-colon`]: colon })}
           key="label"
