@@ -7,6 +7,7 @@ import ResponsiveObserve, {
   responsiveArray,
 } from '../_util/responsiveObserve';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import Col from './Col';
 
 export interface DescriptionsItemProps {
   prefixCls?: string;
@@ -70,113 +71,12 @@ const generateChildrenRows = (
   return childrenArray;
 };
 
-/**
- * This code is for handling react15 does not support returning an array,
- * It can convert a children into th and td
- * @param child DescriptionsItem
- * @returns
- * <>
- *   <th>{DescriptionsItem.label}</th>
- *   <td>{DescriptionsItem.children}</td>
- * </>
- */
-const renderCol = (
-  child: React.ReactElement<DescriptionsItemProps>,
-  bordered: boolean,
-  colon: boolean,
-) => {
-  const { prefixCls, label, className, children, span = 1 } = child.props;
-  if (bordered) {
-    return [
-      <th
-        className={classNames(`${prefixCls}-item-label`, className, {
-          [`${prefixCls}-item-colon`]: colon,
-          [`${prefixCls}-item-no-label`]: !label,
-        })}
-        key="label"
-      >
-        {label}
-      </th>,
-      <td
-        className={classNames(`${prefixCls}-item-content`, className)}
-        key="content"
-        colSpan={span * 2 - 1}
-      >
-        {children}
-      </td>,
-    ];
-  }
-  return (
-    <td colSpan={span} className={classNames(`${prefixCls}-item`, className)}>
-      <span
-        className={classNames(`${prefixCls}-item-label`, {
-          [`${prefixCls}-item-colon`]: colon,
-          [`${prefixCls}-item-no-label`]: !label,
-        })}
-        key="label"
-      >
-        {label}
-      </span>
-      <span className={`${prefixCls}-item-content`} key="content">
-        {children}
-      </span>
-    </td>
-  );
-};
-
-const renderLabelCol = (
-  child: React.ReactElement<DescriptionsItemProps>,
-  bordered: boolean,
-  colon: boolean,
-) => {
-  const { prefixCls, label, span = 1 } = child.props;
-  if (bordered) {
-    return (
-      <td
-        className={classNames(`${prefixCls}-item-label`, { [`${prefixCls}-item-colon`]: colon })}
-        key="label"
-        colSpan={span * 2 - 1}
-      >
-        {label}
-      </td>
-    );
-  }
-  return (
-    <td colSpan={span} className={`${prefixCls}-item`}>
-      <span
-        className={classNames(`${prefixCls}-item-label`, { [`${prefixCls}-item-colon`]: colon })}
-        key="label"
-      >
-        {label}
-      </span>
-    </td>
-  );
-};
-
-const renderContentCol = (child: React.ReactElement<DescriptionsItemProps>, bordered: boolean) => {
-  const { prefixCls, children, span = 1 } = child.props;
-  if (bordered) {
-    return (
-      <td className={`${prefixCls}-item-content`} key="content" colSpan={span * 2 - 1}>
-        {children}
-      </td>
-    );
-  }
-  return (
-    <td colSpan={span} className={`${prefixCls}-item`}>
-      <span className={`${prefixCls}-item-content`} key="content">
-        {children}
-      </span>
-    </td>
-  );
-};
-
 const renderRow = (
   children: React.ReactElement<DescriptionsItemProps>[],
   index: number,
   { prefixCls, column, isLast }: { prefixCls: string; column: number; isLast: boolean },
   bordered: boolean,
-  layout: string,
+  layout: 'horizontal' | 'vertical',
   colon: boolean,
 ) => {
   // copy children,prevent changes to incoming parameters
@@ -188,41 +88,51 @@ const renderRow = (
       span,
     });
   }
+  childrenArray.push(lastChildren);
+
+  const renderCol = (
+    childrenItem: React.ReactElement<DescriptionsItemProps>,
+    type: 'label' | 'content',
+    idx: number,
+  ) => (
+    <Col
+      child={childrenItem}
+      bordered={bordered}
+      colon={colon}
+      type={type}
+      key={`${type}-${idx}`}
+      layout={layout}
+    />
+  );
+
+  const cloneChildren: JSX.Element[] = [];
+  const cloneContentChildren: JSX.Element[] = [];
+  React.Children.forEach(
+    childrenArray,
+    (childrenItem: React.ReactElement<DescriptionsItemProps>, idx: number) => {
+      cloneChildren.push(renderCol(childrenItem, 'label', idx));
+      if (layout === 'vertical') {
+        cloneContentChildren.push(renderCol(childrenItem, 'content', idx));
+      } else if (bordered) {
+        cloneChildren.push(renderCol(childrenItem, 'content', idx));
+      }
+    },
+  );
 
   if (layout === 'vertical') {
-    const cloneLabelChildren = React.Children.map(
-      childrenArray,
-      (childrenItem: React.ReactElement<DescriptionsItemProps>) => {
-        return renderLabelCol(childrenItem, bordered, colon);
-      },
-    );
-    const cloneContentChildren = React.Children.map(
-      childrenArray,
-      (childrenItem: React.ReactElement<DescriptionsItemProps>) => {
-        return renderContentCol(childrenItem, bordered);
-      },
-    );
     return [
       <tr className={`${prefixCls}-row`} key={`label-${index}`}>
-        {cloneLabelChildren}
-        {renderLabelCol(lastChildren, bordered, colon)}
+        {cloneChildren}
       </tr>,
       <tr className={`${prefixCls}-row`} key={`content-${index}`}>
         {cloneContentChildren}
-        {renderContentCol(lastChildren, bordered)}
       </tr>,
     ];
   }
-  const cloneChildren = React.Children.map(
-    childrenArray,
-    (childrenItem: React.ReactElement<DescriptionsItemProps>) => {
-      return renderCol(childrenItem, bordered, colon);
-    },
-  );
+
   return (
     <tr className={`${prefixCls}-row`} key={index}>
       {cloneChildren}
-      {renderCol(lastChildren, bordered, colon)}
     </tr>
   );
 };

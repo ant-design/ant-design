@@ -763,24 +763,24 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
         <tr
           class="ant-descriptions-row"
         >
-          <td
+          <th
             class="ant-descriptions-item-label ant-descriptions-item-colon"
             colspan="1"
           >
             Product
-          </td>
-          <td
+          </th>
+          <th
             class="ant-descriptions-item-label ant-descriptions-item-colon"
             colspan="1"
           >
             Billing Mode
-          </td>
-          <td
+          </th>
+          <th
             class="ant-descriptions-item-label ant-descriptions-item-colon"
             colspan="1"
           >
             Automatic Renewal
-          </td>
+          </th>
         </tr>
         <tr
           class="ant-descriptions-row"
@@ -807,18 +807,18 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
         <tr
           class="ant-descriptions-row"
         >
-          <td
+          <th
             class="ant-descriptions-item-label ant-descriptions-item-colon"
             colspan="1"
           >
             Order time
-          </td>
-          <td
+          </th>
+          <th
             class="ant-descriptions-item-label ant-descriptions-item-colon"
             colspan="5"
           >
             Usage Time
-          </td>
+          </th>
         </tr>
         <tr
           class="ant-descriptions-row"
@@ -839,12 +839,12 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
         <tr
           class="ant-descriptions-row"
         >
-          <td
+          <th
             class="ant-descriptions-item-label ant-descriptions-item-colon"
             colspan="5"
           >
             Status
-          </td>
+          </th>
         </tr>
         <tr
           class="ant-descriptions-row"
@@ -870,24 +870,24 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
         <tr
           class="ant-descriptions-row"
         >
-          <td
+          <th
             class="ant-descriptions-item-label ant-descriptions-item-colon"
             colspan="1"
           >
             Negotiated Amount
-          </td>
-          <td
+          </th>
+          <th
             class="ant-descriptions-item-label ant-descriptions-item-colon"
             colspan="1"
           >
             Discount
-          </td>
-          <td
+          </th>
+          <th
             class="ant-descriptions-item-label ant-descriptions-item-colon"
             colspan="1"
           >
             Official Receipts
-          </td>
+          </th>
         </tr>
         <tr
           class="ant-descriptions-row"
@@ -914,12 +914,12 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
         <tr
           class="ant-descriptions-row"
         >
-          <td
+          <th
             class="ant-descriptions-item-label ant-descriptions-item-colon"
             colspan="5"
           >
             Config Info
-          </td>
+          </th>
         </tr>
         <tr
           class="ant-descriptions-row"
