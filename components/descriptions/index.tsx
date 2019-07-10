@@ -29,6 +29,7 @@ export interface DescriptionsProps {
   title?: string;
   column?: number | Partial<Record<Breakpoint, number>>;
   layout?: 'horizontal' | 'vertical';
+  colon?: boolean;
 }
 
 /**
@@ -79,12 +80,17 @@ const generateChildrenRows = (
  *   <td>{DescriptionsItem.children}</td>
  * </>
  */
-const renderCol = (child: React.ReactElement<DescriptionsItemProps>, bordered: boolean) => {
+const renderCol = (
+  child: React.ReactElement<DescriptionsItemProps>,
+  bordered: boolean,
+  colon: boolean,
+) => {
   const { prefixCls, label, className, children, span = 1 } = child.props;
   if (bordered) {
     return [
       <th
         className={classNames(`${prefixCls}-item-label`, className, {
+          [`${prefixCls}-item-colon`]: colon,
           [`${prefixCls}-item-no-label`]: !label,
         })}
         key="label"
@@ -104,6 +110,7 @@ const renderCol = (child: React.ReactElement<DescriptionsItemProps>, bordered: b
     <td colSpan={span} className={classNames(`${prefixCls}-item`, className)}>
       <span
         className={classNames(`${prefixCls}-item-label`, {
+          [`${prefixCls}-item-colon`]: colon,
           [`${prefixCls}-item-no-label`]: !label,
         })}
         key="label"
@@ -117,18 +124,29 @@ const renderCol = (child: React.ReactElement<DescriptionsItemProps>, bordered: b
   );
 };
 
-const renderLabelCol = (child: React.ReactElement<DescriptionsItemProps>, bordered: boolean) => {
+const renderLabelCol = (
+  child: React.ReactElement<DescriptionsItemProps>,
+  bordered: boolean,
+  colon: boolean,
+) => {
   const { prefixCls, label, span = 1 } = child.props;
   if (bordered) {
     return (
-      <td className={`${prefixCls}-item-label`} key="label" colSpan={span * 2 - 1}>
+      <td
+        className={classNames(`${prefixCls}-item-label`, { [`${prefixCls}-item-colon`]: colon })}
+        key="label"
+        colSpan={span * 2 - 1}
+      >
         {label}
       </td>
     );
   }
   return (
     <td colSpan={span} className={`${prefixCls}-item`}>
-      <span className={`${prefixCls}-item-label`} key="label">
+      <span
+        className={classNames(`${prefixCls}-item-label`, { [`${prefixCls}-item-colon`]: colon })}
+        key="label"
+      >
         {label}
       </span>
     </td>
@@ -159,6 +177,7 @@ const renderRow = (
   { prefixCls, column, isLast }: { prefixCls: string; column: number; isLast: boolean },
   bordered: boolean,
   layout: string,
+  colon: boolean,
 ) => {
   // copy children,prevent changes to incoming parameters
   const childrenArray = [...children];
@@ -174,7 +193,7 @@ const renderRow = (
     const cloneLabelChildren = React.Children.map(
       childrenArray,
       (childrenItem: React.ReactElement<DescriptionsItemProps>) => {
-        return renderLabelCol(childrenItem, bordered);
+        return renderLabelCol(childrenItem, bordered, colon);
       },
     );
     const cloneContentChildren = React.Children.map(
@@ -186,7 +205,7 @@ const renderRow = (
     return [
       <tr className={`${prefixCls}-row`} key={`label-${index}`}>
         {cloneLabelChildren}
-        {renderLabelCol(lastChildren, bordered)}
+        {renderLabelCol(lastChildren, bordered, colon)}
       </tr>,
       <tr className={`${prefixCls}-row`} key={`content-${index}`}>
         {cloneContentChildren}
@@ -197,13 +216,13 @@ const renderRow = (
   const cloneChildren = React.Children.map(
     childrenArray,
     (childrenItem: React.ReactElement<DescriptionsItemProps>) => {
-      return renderCol(childrenItem, bordered);
+      return renderCol(childrenItem, bordered, colon);
     },
   );
   return (
     <tr className={`${prefixCls}-row`} key={index}>
       {cloneChildren}
-      {renderCol(lastChildren, bordered)}
+      {renderCol(lastChildren, bordered, colon)}
     </tr>
   );
 };
@@ -281,6 +300,7 @@ class Descriptions extends React.Component<
             children,
             bordered = false,
             layout = 'horizontal',
+            colon = true,
           } = this.props;
           const prefixCls = getPrefixCls('descriptions', customizePrefixCls);
 
@@ -322,6 +342,7 @@ class Descriptions extends React.Component<
                         },
                         bordered,
                         layout,
+                        colon,
                       ),
                     )}
                   </tbody>
