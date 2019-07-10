@@ -71,9 +71,11 @@ const renderTitle = (prefixCls: string, props: PageHeaderProps) => {
   if (title || subTitle || tags || extra) {
     return (
       <div className={headingPrefixCls}>
-        {title && <span className={`${headingPrefixCls}-title`}>{title}</span>}
-        {subTitle && <span className={`${headingPrefixCls}-sub-title`}>{subTitle}</span>}
-        {tags && <span className={`${headingPrefixCls}-tags`}>{tags}</span>}
+        <span className={`${headingPrefixCls}-left-wrapper`}>
+          {title && <span className={`${headingPrefixCls}-title`}>{title}</span>}
+          {subTitle && <span className={`${headingPrefixCls}-sub-title`}>{subTitle}</span>}
+          {tags && <span className={`${headingPrefixCls}-tags`}>{tags}</span>}
+        </span>
         {extra && <span className={`${headingPrefixCls}-extra`}>{extra}</span>}
       </div>
     );

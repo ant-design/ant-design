@@ -18,6 +18,21 @@ import { PageHeader, Tag, Tabs, Button, Statistic, Row, Col } from 'antd';
 
 const { TabPane } = Tabs;
 
+const routes = [
+  {
+    path: 'index',
+    breadcrumbName: 'First-level Menu',
+  },
+  {
+    path: 'first',
+    breadcrumbName: 'Second-level Menu',
+  },
+  {
+    path: 'second',
+    breadcrumbName: 'Third-level Menu',
+  },
+];
+
 const Description = ({ term, children, span = 12 }) => (
   <Col span={span}>
     <div className="description">
@@ -57,6 +72,7 @@ ReactDOM.render(
     onBack={() => window.history.back()}
     title="Title"
     subTitle="This is a subtitle"
+    breadcrumb={{ routes }}
     tags={<Tag color="red">Warning</Tag>}
     extra={[
       <Button key="3">Operation</Button>,

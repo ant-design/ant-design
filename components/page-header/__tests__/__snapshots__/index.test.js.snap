@@ -14,9 +14,13 @@ exports[`PageHeader pageHeader should support className 1`] = `
     class="ant-page-header-heading"
   >
     <span
-      class="ant-page-header-heading-title"
+      class="ant-page-header-heading-left-wrapper"
     >
-      Page Title
+      <span
+        class="ant-page-header-heading-title"
+      >
+        Page Title
+      </span>
     </span>
   </div>
 </div>
