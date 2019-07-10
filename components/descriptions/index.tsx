@@ -26,7 +26,7 @@ export interface DescriptionsProps {
   bordered?: boolean;
   size?: 'middle' | 'small' | 'default';
   children?: React.ReactNode;
-  title?: string;
+  title?: React.ReactNode;
   column?: number | Partial<Record<Breakpoint, number>>;
   layout?: 'horizontal' | 'vertical';
 }
