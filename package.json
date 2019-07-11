@@ -97,7 +97,6 @@
   },
   "devDependencies": {
     "@ant-design/colors": "^3.1.0",
-    "@babel/plugin-transform-typescript": "~7.4.5",
     "@packtracker/webpack-plugin": "^2.0.1",
     "@sentry/browser": "^5.4.0",
     "@types/classnames": "^2.2.8",
