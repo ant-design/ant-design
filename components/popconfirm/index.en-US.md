@@ -16,12 +16,12 @@ The difference with the `confirm` modal dialog is that it's more lightweight tha
 
 | Param | Description | Type | Default value | Version |
 | --- | --- | --- | --- | --- |
-| cancelText | text of the Cancel button | string | `Cancel` | 3.0.0 |
-| okText | text of the Confirm button | string | `Confirm` | 3.0.0 |
-| okType | Button `type` of the Confirm button | string | `primary` | 3.0.0 |
-| title | title of the confirmation box | string\|ReactNode | - | 3.0.0 |
-| onCancel | callback of cancel | function(e) | - | 3.0.0 |
-| onConfirm | callback of confirmation | function(e) | - | 3.0.0 |
+| cancelText | text of the Cancel button | string | `Cancel` |  |
+| okText | text of the Confirm button | string | `Confirm` |  |
+| okType | Button `type` of the Confirm button | string | `primary` |  |
+| title | title of the confirmation box | string\|ReactNode | - |  |
+| onCancel | callback of cancel | function(e) | - |  |
+| onConfirm | callback of confirmation | function(e) | - |  |
 | icon | customize icon of confirmation | ReactNode | &lt;Icon type="exclamation-circle" /&gt; | 3.8.0 |
 | disabled | is show popconfirm when click its childrenNode | boolean | false | 3.19.8 |
 

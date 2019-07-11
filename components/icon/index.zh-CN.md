@@ -23,10 +23,10 @@ ReactDOM.render(<IconDisplay />, mountNode);
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| type | 图标类型。遵循图标的命名规范 | string | - | 3.0.0 |
-| style | 设置图标的样式，例如 `fontSize` 和 `color` | CSSProperties | - | 3.0.0 |
+| type | 图标类型。遵循图标的命名规范 | string | - |  |
+| style | 设置图标的样式，例如 `fontSize` 和 `color` | CSSProperties | - |  |
 | theme | 图标主题风格。可选实心、描线、双色等主题风格，适用于官方图标 | 'filled' \| 'outlined' \| 'twoTone' | 'outlined' | 3.9.0 |
-| spin | 是否有旋转动画 | boolean | false | 3.0.0 |
+| spin | 是否有旋转动画 | boolean | false |  |
 | rotate | 图标旋转角度（3.13.0 后新增，IE9 无效） | number | - | 3.13.0 |
 | component | 控制如何渲染图标，通常是一个渲染根标签为 `<svg>` 的 `React` 组件，**会使 `type` 属性失效** | ComponentType<CustomIconComponentProps\> | - | 3.9.0 |
 | twoToneColor | 仅适用双色图标。设置双色图标的主要颜色 | string (十六进制颜色) | - | 3.9.0 |

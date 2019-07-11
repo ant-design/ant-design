@@ -18,10 +18,10 @@ ReactDOM.render(<IconDisplay />, mountNode);
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| type | Type of the ant design icon | string | - | 3.0.0 |
-| style | Style properties of icon, like `fontSize` and `color` | CSSProperties | - | 3.0.0 |
+| type | Type of the ant design icon | string | - |  |
+| style | Style properties of icon, like `fontSize` and `color` | CSSProperties | - |  |
 | theme | Theme of the ant design icon | 'filled' \| 'outlined' \| 'twoTone' | 'outlined' | 3.9.0 |
-| spin | Rotate icon with animation | boolean | false | 3.0.0 |
+| spin | Rotate icon with animation | boolean | false |  |
 | rotate | Rotate degrees (added in 3.13.0, not working in IE9) | number | - | 3.13.0 |
 | component | The component used for the root node. This will override the **`type`** property. | ComponentType<CustomIconComponentProps\> | - | 3.9.0 |
 | twoToneColor | Only support the two-tone icon. Specific the primary color. | string (hex color) | - | 3.9.0 |

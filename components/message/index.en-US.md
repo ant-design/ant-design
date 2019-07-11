@@ -25,9 +25,9 @@ This components provides some static methods, with usage and arguments as follow
 
 | Argument | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| content | content of the message | string\|ReactNode | - | 3.0.0 |
-| duration | time(seconds) before auto-dismiss, don't dismiss if set to 0 | number | 1.5 | 3.0.0 |
-| onClose | Specify a function that will be called when the message is closed | Function | - | 3.0.0 |
+| content | content of the message | string\|ReactNode | - |  |
+| duration | time(seconds) before auto-dismiss, don't dismiss if set to 0 | number | 1.5 |  |
+| onClose | Specify a function that will be called when the message is closed | Function | - |  |
 
 `afterClose` can be called in thenable interface:
 
@@ -42,9 +42,9 @@ The properties of config are as follows:
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| content | content of the message | ReactNode | - | 3.0.0 |
-| duration | time(seconds) before auto-dismiss, don't dismiss if set to 0 | number | 3 | 3.0.0 |
-| onClose | Specify a function that will be called when the message is closed | function | - | 3.0.0 |
+| content | content of the message | ReactNode | - |  |
+| duration | time(seconds) before auto-dismiss, don't dismiss if set to 0 | number | 3 |  |
+| onClose | Specify a function that will be called when the message is closed | function | - |  |
 | icon | Customized Icon | ReactNode | - | 3.9.0 |
 
 ### Global static methods

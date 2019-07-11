@@ -24,11 +24,11 @@ title: Message
 - `message.warn(content, [duration], onClose)` // alias of warning
 - `message.loading(content, [duration], onClose)`
 
-| 参数     | 说明                                          | 类型              | 默认值 | 版本  |
-| -------- | --------------------------------------------- | ----------------- | ------ | ----- |
-| content  | 提示内容                                      | string\|ReactNode | -      | 3.0.0 |
-| duration | 自动关闭的延时，单位秒。设为 0 时不自动关闭。 | number            | 3      | 3.0.0 |
-| onClose  | 关闭时触发的回调函数                          | Function          | -      | 3.0.0 |
+| 参数     | 说明                                          | 类型              | 默认值 | 版本 |
+| -------- | --------------------------------------------- | ----------------- | ------ | ---- |
+| content  | 提示内容                                      | string\|ReactNode | -      |      |
+| duration | 自动关闭的延时，单位秒。设为 0 时不自动关闭。 | number            | 3      |      |
+| onClose  | 关闭时触发的回调函数                          | Function          | -      |      |
 
 组件同时提供 promise 接口。
 
@@ -41,9 +41,9 @@ title: Message
 
 | 参数     | 说明                                          | 类型      | 默认值 | 版本  |
 | -------- | --------------------------------------------- | --------- | ------ | ----- |
-| content  | 提示内容                                      | ReactNode | -      | 3.0.0 |
-| duration | 自动关闭的延时，单位秒。设为 0 时不自动关闭。 | number    | 3      | 3.0.0 |
-| onClose  | 关闭时触发的回调函数                          | Function  | -      | 3.0.0 |
+| content  | 提示内容                                      | ReactNode | -      |       |
+| duration | 自动关闭的延时，单位秒。设为 0 时不自动关闭。 | number    | 3      |       |
+| onClose  | 关闭时触发的回调函数                          | Function  | -      |       |
 | icon     | 自定义图标                                    | ReactNode | -      | 3.9.0 |
 
 ### 全局方法
