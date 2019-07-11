@@ -41,6 +41,7 @@ import knIN from '../kn_IN';
 import koKR from '../ko_KR';
 import kuIQ from '../ku_IQ';
 import mnMN from '../mn_MN';
+import msMY from '../ms_MY';
 import nbNO from '../nb_NO';
 import neNP from '../ne-NP';
 import nlBE from '../nl_BE';
@@ -87,6 +88,7 @@ const locales = [
   knIN,
   koKR,
   kuIQ,
+  msMY,
   mnMN,
   nbNO,
   neNP,
