@@ -20,7 +20,7 @@ type placementType = (typeof PlacementTypes)[number];
 export interface DrawerProps {
   closable?: boolean;
   destroyOnClose?: boolean;
-  getContainer?: string | HTMLElement | getContainerFunc;
+  getContainer?: string | HTMLElement | getContainerFunc | false;
   maskClosable?: boolean;
   mask?: boolean;
   maskStyle?: React.CSSProperties;
@@ -77,20 +77,6 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
     }
   }
 
-  close = (e: EventType) => {
-    const { visible, onClose } = this.props;
-    if (visible !== undefined && onClose) {
-      onClose(e);
-    }
-  };
-
-  onMaskClick = (e: EventType) => {
-    if (!this.props.maskClosable && !(e.nativeEvent instanceof KeyboardEvent)) {
-      return;
-    }
-    this.close(e);
-  };
-
   push = () => {
     this.setState({
       push: true,
@@ -116,7 +102,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
 
   getDestroyOnClose = () => this.props.destroyOnClose && !this.props.visible;
 
-  // get drawar push width or height
+  // get drawer push width or height
   getPushTransform = (placement?: placementType) => {
     if (placement === 'left' || placement === 'right') {
       return `translateX(${placement === 'left' ? 180 : -180}px)`;
@@ -152,10 +138,10 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
   }
 
   renderCloseIcon() {
-    const { closable, prefixCls } = this.props;
+    const { closable, prefixCls, onClose } = this.props;
     return (
       closable && (
-        <button onClick={this.close} aria-label="Close" className={`${prefixCls}-close`}>
+        <button onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
           <Icon type="close" />
         </button>
       )
@@ -214,11 +200,9 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
       closable,
       destroyOnClose,
       mask,
-      maskClosable,
       bodyStyle,
       title,
       push,
-      onClose,
       visible,
       // ConfigConsumerProps
       getPopupContainer,
@@ -250,7 +234,6 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
           {...offsetStyle}
           prefixCls={prefixCls}
           open={this.props.visible}
-          onMaskClick={this.onMaskClick}
           showMask={mask}
           placement={placement}
           style={this.getRcDrawerStyle()}
