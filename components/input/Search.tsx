@@ -43,7 +43,7 @@ export default class Search extends React.Component<SearchProps, any> {
 
   renderSuffix = (prefixCls: string) => {
     const { suffix, enterButton } = this.props;
-    if (enterButton) return suffix;
+    if (enterButton || suffix === false || suffix === null) return suffix;
 
     const node = (
       <Icon
