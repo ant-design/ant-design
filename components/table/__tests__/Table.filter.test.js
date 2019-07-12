@@ -628,6 +628,7 @@ describe('Table.filter', () => {
     const Test = ({ filters }) => (
       <Table
         onChange={onChange}
+        rowKey="name"
         columns={[
           {
             title: 'Name',
@@ -685,5 +686,57 @@ describe('Table.filter', () => {
       .simulate('click');
     dropdownWrapper2.find('.confirm').simulate('click');
     expect(onChange).toHaveBeenCalled();
+  });
+
+  it('pass visible prop to filterDropdown', () => {
+    const filterDropdownMock = jest.fn().mockReturnValue(<span>test</span>);
+    const filterDropdown = (...args) => filterDropdownMock(...args);
+
+    const Test = () => {
+      return (
+        <Table
+          rowKey="name"
+          columns={[
+            {
+              title: 'Name',
+              dataIndex: 'name',
+              filterDropdown,
+            },
+          ]}
+          dataSource={[
+            {
+              name: 'Jack',
+            },
+          ]}
+        />
+      );
+    };
+
+    const wrapper = mount(<Test />);
+    expect(filterDropdownMock).toHaveBeenCalledWith(
+      expect.objectContaining({
+        visible: false,
+      }),
+    );
+
+    wrapper
+      .find('.ant-dropdown-trigger')
+      .first()
+      .simulate('click');
+    expect(filterDropdownMock).toHaveBeenCalledWith(
+      expect.objectContaining({
+        visible: true,
+      }),
+    );
+
+    wrapper
+      .find('.ant-dropdown-trigger')
+      .first()
+      .simulate('click');
+    expect(filterDropdownMock).toHaveBeenCalledWith(
+      expect.objectContaining({
+        visible: false,
+      }),
+    );
   });
 });
