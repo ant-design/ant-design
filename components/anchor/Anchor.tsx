@@ -190,6 +190,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
       if (getContainer() && getContainer() !== prevProps.getContainer()) {
         this.scrollEvent.remove();
         this.scrollEvent = addEventListener(getContainer(), 'scroll', this.handleScroll);
+        this.handleScroll();
       }
     }
     this.updateInk();
