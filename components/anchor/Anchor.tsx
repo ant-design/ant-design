@@ -192,10 +192,14 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
     if (this.animating) {
       return;
     }
+    const { activeLink } = this.state;
     const { offsetTop, bounds } = this.props;
-    this.setState({
-      activeLink: this.getCurrentAnchor(offsetTop, bounds),
-    });
+    const currentActiveLink = this.getCurrentAnchor(offsetTop, bounds);
+    if (activeLink !== currentActiveLink) {
+      this.setState({
+        activeLink: currentActiveLink,
+      });
+    }
   };
 
   handleScrollTo = (link: string) => {
