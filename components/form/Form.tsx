@@ -81,7 +81,7 @@ const InternalForm: React.FC<FormProps> = (props, ref) => {
   );
 };
 
-const Form = React.forwardRef<FormInstance>(InternalForm);
+const Form = React.forwardRef<FormInstance, FormProps>(InternalForm);
 
 export { useForm, List, FormInstance };
 
